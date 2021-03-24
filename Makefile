@@ -12,3 +12,9 @@ serve:
 
 serve-all:
 	./scripts/serve.sh all
+
+ci-pull-request: ensure
+	./scripts/ci/pull-request.sh
+
+ci-pull-request-closed:
+	./scripts/ci/pull-request-closed.sh

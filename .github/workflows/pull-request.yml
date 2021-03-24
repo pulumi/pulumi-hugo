@@ -1,0 +1,40 @@
+name: Build and deploy preview
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  build-preview:
+    name: Build and deploy preview
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.16.x
+
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.81.0'
+          extended: true
+
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+          role-session-name: PullRequestPreviewSession
+
+      - name: Build and deploy
+        run: make ci-pull-request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
