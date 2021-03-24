@@ -1,0 +1,5 @@
+_vendor
+node_modules
+themes/*/resources
+public
+go.sum
