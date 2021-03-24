@@ -8,9 +8,8 @@ if [ "$1" == "all" ]; then
 
     # Run Hugo and the theme watchers concurrently.
     yarn run concurrently --raw --kill-others \
-        "yarn --cwd themes/${HUGO_THEME} watch" \
+        "yarn --cwd themes/current watch" \
         "hugo serve --buildDrafts --buildFuture | grep -v -e 'WARN .* REF_NOT_FOUND'"
-
     exit
 fi
 
