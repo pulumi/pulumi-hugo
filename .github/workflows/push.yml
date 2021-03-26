@@ -43,8 +43,8 @@ jobs:
           branch: ${{ github.repository }}/${{ github.sha }}
           author: Pulumi Bot <bot@pulumi.com>
           committer: Pulumi Bot <bot@pulumi.com>
-          title: Update module reference for ${{ github.repository }}
-          commit-message: Update module reference for ${{ github.repository }}
+          title: Update ${{ github.repository }} module reference
+          commit-message: Update the module reference for ${{ github.repository }}
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           draft: true
           body: |
