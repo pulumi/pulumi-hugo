@@ -31,7 +31,7 @@ jobs:
         run: |
           git config --global url."https://${{ secrets.PULUMI_BOT_TOKEN }}:x-oauth-basic@github.com/pulumi/pulumi-hugo".insteadOf "https://github.com/pulumi/pulumi-hugo"
 
-      - name: Update the module reference for this repository
+      - name: Issue a pull request on pulumi/docs to update its module reference
         working-directory: docs
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
 
