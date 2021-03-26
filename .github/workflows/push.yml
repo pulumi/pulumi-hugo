@@ -21,8 +21,9 @@ jobs:
 
       - name: Check out the website
         uses: actions/checkout@v2
-        repo: pulumi/docs
-        branch: cnunciato/hugo-modules
+        with:
+          repository: pulumi/docs
+          branch: cnunciato/hugo-modules
 
       - name: Update the module reference for this repository
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
