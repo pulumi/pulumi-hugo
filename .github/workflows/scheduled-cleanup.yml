@@ -2,7 +2,7 @@ name: Scheduled
 on:
   schedule:
     # Daily at 6:00PM UTC
-    - cron: 0 19 * * *
+    - cron: 15 20 * * *
 jobs:
   cleanup:
     name: Find and remove buckets
@@ -11,7 +11,7 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@v2
 
-      - Name: Install Node
+      - name: Install Node
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
