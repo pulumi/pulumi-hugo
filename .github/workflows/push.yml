@@ -28,6 +28,7 @@ jobs:
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
 
       - name: Update the module reference for this repository
+        working-directory: docs
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
 
       - name: Create website pull request
