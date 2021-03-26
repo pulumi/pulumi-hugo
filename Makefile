@@ -3,7 +3,7 @@ clean:
 	./scripts/clean.sh
 
 .PHONY: ensure
-ensure:
+ensure: clean
 	./scripts/ensure.sh
 
 .PHONY: build

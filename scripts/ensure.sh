@@ -40,18 +40,3 @@ fi
 echo "Installing Node.js modules..."
 yarn install
 yarn --cwd themes/current run ensure
-
-# # Fetch and update all Hugo modules.
-# echo "Installing Hugo modules..."
-# for dir in themes/* ; do
-#     pushd $dir
-#         hugo mod get -u
-#     popd
-# done
-
-# # Run an initial build to put some usable assets in place.
-# echo "Running an initial build..."
-# ./scripts/build.sh
-
-# echo
-# echo "Done! Run 'make serve' to browse the developent server."
