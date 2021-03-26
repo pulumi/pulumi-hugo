@@ -6,16 +6,16 @@ This repository is consumed by https://github.com/pulumi/docs to produce the web
 
 ## Contributing
 
-First, be sure to read [our contributing guide](CONTRIBUTING.md) and review our [code of conduct](CODE_OF_CONDUCT.md).
+First, be sure to read our [contributing guide](CONTRIBUTING.md) and review our [code of conduct](CODE_OF_CONDUCT.md).
 
 ## Toolchain
 
 We build the Pulumi website statically with Hugo, manage our Node.js dependencies with Yarn, and write most of our documentation in Markdown. Below is a list of the tools you'll need to run the website locally:
 
-* [Go](https://golang.org/) (version 1.16)
-* [Hugo](https://gohugo.io) (version 0.81)
-* [Node.js](https://nodejs.org/en/) (version 14)
-* [Yarn](https://classic.yarnpkg.com/en/) (version 1)
+* [Go](https://golang.org/)
+* [Hugo](https://gohugo.io)
+* [Node.js](https://nodejs.org/en/)
+* [Yarn](https://classic.yarnpkg.com/en/)
 
 ### CSS and JavaScript Tools
 
@@ -58,7 +58,7 @@ The `serve-all` target runs Hugo, node-sass, and the Stencil development server 
 
 ## Tidying up
 
-To clear away any modules caches or build artifacts, run:
+To clear away any module caches or build artifacts, run:
 
 ```
 make clean
@@ -68,9 +68,9 @@ make clean
 
 This repository is a [Hugo module](https://gohugo.io/hugo-modules/) that doubles as a development server. **It does not contain every page of the Pulumi website**, because most of those pages (e.g., those comprising our CLI and SDK docs) are generated from source code, so they aren't meant to be edited by humans directly.
 
-Because of this, many of the links you follow when browsing around on the development server (to paths underneath `/docs/reference` for example) will fail to resolve because their content files are are checked into a different repository &mdash; most likely https://github.com/pulumi/docs. When we build the Pulumi website, we merge this module along with any others into a single build artifact, but when you're working within one of the individual modules, you may find you're unable to reach certain pages or verify your links to them.
+Because of this, many of the links you follow when browsing around on the development server (to paths underneath `/docs/reference` for example) will fail to resolve because their content files are are checked into a different repository &mdash; most likely https://github.com/pulumi/docs. When we build the Pulumi website, we merge this module along with any others into a single build artifact, but when you're working within an individual module like this one, you may find you're unable to reach certain pages or verify the links you may want to make to them.
 
-If you need to link to a page that exists on https://pulumi.com but not in this repository, just use the page's **relative path** with a [Hugo `relref`](https://gohugo.io/content-management/shortcodes/#ref-and-relref) in the usual way, and we'll make sure all links resolve properly at build-time. For example, if you wanted to link to the [Digital Ocean Droplet](https://www.pulumi.com/docs/reference/pkg/digitalocean/droplet/) page (a page that doesn't exist in this repo), you'd use:
+If you want to link to a page that exists on https://pulumi.com but not in this repository, just use the page's **relative path** with a [Hugo `relref`](https://gohugo.io/content-management/shortcodes/#ref-and-relref) in the usual way, and we'll make sure all links resolve properly at build-time. For example, to link to the [Digital Ocean Droplet](https://www.pulumi.com/docs/reference/pkg/digitalocean/droplet/) page (a page that doesn't exist in this repository but that would exist in an integration build), you'd use:
 
 ```
 {{< relref /docs/reference/pkg/digitalocean/droplet >}}
@@ -93,12 +93,12 @@ You'll find all of these files in `themes/current`.
 
 ## Getting changes into production
 
-Pull requests merged into the default branch of this repository trigger follow-up PRs on [pulumi/docs](https://github.com/pulumi/docs) in order to produce integration builds. Those PRs, once merged into pulumi/docs, are automatically deployed to pulumi.com.
+When a pull request is merged into the default branch of this repository, a follow-up PR is triggered on [pulumi/docs](https://github.com/pulumi/docs) to produce an integration build. Once that build completes and is merged into pulumi/docs, the changes are deployed to pulumi.com.
 
 ## Blogging
 
-Interested in writing a blog post? Great! See the [blogging README](BLOGGING.md) for details.
+Interested in writing a blog post? See the [blogging README](BLOGGING.md) for details.
 
 ## Shortcodes and web components
 
-We use number of Hugo shortcodes and web components in our pages. You can read more about them in the [components README](themes/current/components).
+We use number of Hugo shortcodes and web components in our pages. You can read more about many of them in the [components README](themes/current/components).
