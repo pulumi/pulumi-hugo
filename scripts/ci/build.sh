@@ -22,6 +22,7 @@ export REL_JS_BUNDLE="/js/bundle.min.${ASSET_BUNDLE_ID}.js"
 yarn --cwd themes/current run build
 
 printf "Running Hugo...\n\n"
+export THEME_PATH="themes/current/"
 hugo --minify --templateMetrics --buildDrafts --buildFuture -e "preview" | grep -v -e 'WARN .* REF_NOT_FOUND'
 
 printf "Done!\n\n"
