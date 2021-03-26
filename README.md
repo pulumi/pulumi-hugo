@@ -87,13 +87,13 @@ You'll find all of these files in `themes/current`.
 
 ### What's not in this repo
 
-* Generated documentation for the Pulumi CLI and SDK: you'll find these docs at https://github.com/pulumi/docs
-* Generated tutorials: you'll find these at https://github.com/pulumi/examples
-* Templates used for generating resource documentation: you'll find these at https://github.com/pulumi/pulumi
+* Generated documentation for the Pulumi CLI and SDK. You'll find this at https://github.com/pulumi/docs).
+* Generated tutorials. You'll find these at https://github.com/pulumi/examples).
+* Templates used for generating resource documentation. You'll find these at https://github.com/pulumi/pulumi.
 
-## Getting changes into production
+## Merging and releasing
 
-When a pull request is merged into the default branch of this repository, a follow-up PR is triggered on [pulumi/docs](https://github.com/pulumi/docs) to produce an integration build. Once that build completes and is merged into pulumi/docs, the changes are deployed to pulumi.com.
+When a pull request is merged into the default branch of this repository, a follow-up PR is triggered on [pulumi/docs](https://github.com/pulumi/docs) that produces an integration build. Once that build completes and is approved and merged into pulumi/docs, the changes are deployed to pulumi.com.
 
 ## Blogging
 
