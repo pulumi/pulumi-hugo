@@ -1,0 +1,40 @@
+name: Push
+on:
+  push:
+    branches:
+      - master
+jobs:
+  merge:
+    name: Create website pull request
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16.x
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.81.0'
+          extended: true
+
+      - name: Check out the website
+        uses: actions/checkout@v2
+        repo: pulumi/docs
+        branch: cnunciato/hugo-modules
+
+      - name: Update the module reference for this repository
+        run: hugo mod get -u github.com/${{ github.repository }}/themes/current
+
+      - name: Create website pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          author: Pulumi Bot <bot@pulumi.com>
+          committer: Pulumi Bot <bot@pulumi.com>
+          branch: ${{ github.repository }}/${{ github.sha }}
+          title: Update module reference for ${{ github.repository }}
+          commit-message: Update module reference for ${{ github.repository }}
+          body: |
+            Automated pull request upgrading the module reference for ${{ github.repository }}.
