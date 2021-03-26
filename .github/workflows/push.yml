@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: pulumi/docs
-          branch: cnunciato/hugo-modules
+          ref: cnunciato/hugo-modules
 
       - name: Update the module reference for this repository
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
@@ -31,11 +31,13 @@ jobs:
       - name: Create website pull request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          base: cnunciato/hugo-modules
+          branch: ${{ github.repository }}/${{ github.sha }}
           author: Pulumi Bot <bot@pulumi.com>
           committer: Pulumi Bot <bot@pulumi.com>
-          branch: ${{ github.repository }}/${{ github.sha }}
           title: Update module reference for ${{ github.repository }}
           commit-message: Update module reference for ${{ github.repository }}
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          draft: true
           body: |
             Automated pull request upgrading the module reference for ${{ github.repository }}.
