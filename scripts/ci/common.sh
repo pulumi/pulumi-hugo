@@ -108,6 +108,10 @@ get_bucket_for_commit() {
         --output text || echo ""
 }
 
+aws_owner_tag() {
+    echo "Key=Owner,Value=pulumi-hugo"
+}
+
 # Set the S3 bucket associated with a specific commit.
 set_bucket_for_commit() {
     aws ssm put-parameter \
@@ -115,7 +119,7 @@ set_bucket_for_commit() {
         --value "$2" \
         --type String \
         --region $3 \
-        --overwrite
+        --tags "$(aws_owner_tag)"
 }
 
 # List the 100 most recent bucket in the current account, sorted descendingly by
