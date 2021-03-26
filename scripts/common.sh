@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BUILD_IDENTIFIER="$(git rev-parse HEAD)"
+export THEME_PATH="themes/current/"
 
 # Bundle filenames are exported for use with Hugo and theme scripts.
 export CSS_BUNDLE="static/css/styles.${BUILD_IDENTIFIER}.css"

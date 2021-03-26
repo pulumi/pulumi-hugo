@@ -7,7 +7,8 @@
 
 {{/* Get the pages in the current directory. */}}
 {{ $unsortedPages := slice $currentPage }}
-{{ range $index, $element := readDir (printf "themes/current/content/%s" $currentPage.File.Dir) }}
+{{ $pathPrefix := getenv "THEME_PATH" }}
+{{ range $index, $element := readDir (printf "%scontent/%s" $pathPrefix $currentPage.File.Dir) }}
     {{ $page := $currentPage.GetPage $element.Name }}
     {{ if and (gt $page.Weight 0) (ne $page.RelPermalink $currentPage.RelPermalink) }}
         {{ $unsortedPages = $unsortedPages | append $page -}}

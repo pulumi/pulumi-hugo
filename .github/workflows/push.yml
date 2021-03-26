@@ -43,9 +43,9 @@ jobs:
           branch: ${{ github.repository }}/${{ github.sha }}
           author: Pulumi Bot <bot@pulumi.com>
           committer: Pulumi Bot <bot@pulumi.com>
-          title: Update ${{ github.repository }} module reference
+          title: Bump ${{ github.repository }}
           commit-message: Update the module reference for ${{ github.repository }}
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           draft: true
           body: |
-            Automated pull request upgrading the module reference for ${{ github.repository }}.
+            Updates the module reference for ${{ github.repository }}.
