@@ -27,6 +27,10 @@ jobs:
           ref: cnunciato/hugo-modules
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
 
+      - name: Configure Git
+        run: |
+          git config --global url."https://${{ secrets.PULUMI_BOT_TOKEN }}:x-oauth-basic@github.com/pulumi/pulumi-hugo".insteadOf "https://github.com/pulumi/pulumi-hugo"
+
       - name: Update the module reference for this repository
         working-directory: docs
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
