@@ -62,4 +62,4 @@ jobs:
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           draft: true
           body: |
-            Updates the Hugo module reference for ${{ github.repository }}. See ${{ steps.pull_requests.outputs.data[0].html_url }} for details.
+            Updates the Hugo module reference for ${{ github.repository }}. See ${{ fromJson(steps.pull_requests.outputs.data)[0].html_url }} for details.
