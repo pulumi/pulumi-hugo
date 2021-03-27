@@ -31,11 +31,22 @@ jobs:
         run: |
           git config --global url."https://${{ secrets.PULUMI_BOT_TOKEN }}:x-oauth-basic@github.com/pulumi/pulumi-hugo".insteadOf "https://github.com/pulumi/pulumi-hugo"
 
-      - name: Issue a pull request on pulumi/docs to update its module reference
+      - name: Update the module reference
         working-directory: docs
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
 
-      - name: Create website pull request
+      - name: Fetch the associated PR
+        uses: octokit/request-action@v2.x
+        id: pull_requests
+        with:
+          route: GET /repos/{owner}/{repo}/commits/{commit}/pulls
+          owner: pulumi
+          repo: pulumi-hugo
+          commit: ${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create a pull request
         uses: peter-evans/create-pull-request@v3
         with:
           path: docs
@@ -43,9 +54,9 @@ jobs:
           branch: ${{ github.repository }}/${{ github.sha }}
           author: Pulumi Bot <bot@pulumi.com>
           committer: Pulumi Bot <bot@pulumi.com>
-          title: Bump ${{ github.repository }}
+          title: Update ${{ github.repository }}
           commit-message: Update the module reference for ${{ github.repository }}
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           draft: true
           body: |
-            Updates the module reference for ${{ github.repository }}.
+            Updates the Hugo module reference for ${{ github.repository }}. See ${{ steps.pull_requests.outputs.data[0].html_url }} for details.
