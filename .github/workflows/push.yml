@@ -39,11 +39,13 @@ jobs:
         uses: octokit/request-action@v2.x
         id: pull_requests
         with:
-          route: GET /repos/{owner}/{repo}/commits/{commit}/pulls
-          accept: application/vnd.github.groot-preview+json
-          owner: pulumi
-          repo: pulumi-hugo
-          commit: ${{ github.sha }}
+          route: GET /repos/:repository/commits/:commit_sha/pulls
+          mediaType: |
+            previews:
+              - antiope
+              - groot-preview
+          repository: ${{ github.repository }}
+          commit_sha: ${{github.sha}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
