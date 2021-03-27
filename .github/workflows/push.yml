@@ -19,7 +19,7 @@ jobs:
           hugo-version: '0.81.0'
           extended: true
 
-      - name: Check out the website
+      - name: Check out pulumi/docs
         uses: actions/checkout@v2
         with:
           repository: pulumi/docs
@@ -35,18 +35,19 @@ jobs:
         working-directory: docs
         run: hugo mod get -u github.com/${{ github.repository }}/themes/current
 
-      - name: Fetch the associated PR
+      - name: Fetch the pull request for this commit
         uses: octokit/request-action@v2.x
         id: pull_requests
         with:
           route: GET /repos/{owner}/{repo}/commits/{commit}/pulls
+          accept: application/vnd.github.groot-preview+json
           owner: pulumi
           repo: pulumi-hugo
           commit: ${{ github.sha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create a pull request
+      - name: Create a pull request on pulumi/docs
         uses: peter-evans/create-pull-request@v3
         with:
           path: docs
