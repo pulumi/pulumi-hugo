@@ -548,3 +548,24 @@ non-sequential and part of your everyday programming experience. You can find th
 
 Pulumi is open source and free to use. For more examples, visit our GitHub examples page
 [here](https://github.com/pulumi/examples). To learn more about Pulumi and how to manage Kubernetes through code, have a look at our ["Get Started with Kubernetes" guide]({{< relref "/docs/get-started/kubernetes" >}}).
+
+## FAQ
+
+### error: You must be logged in to the server (Unauthorized)
+
+If you use a `path` in your Role, you will have to make sure that the path is not used in the `roleMappings`. Currently there is an [open issue](https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/268) that prevents this from working correctly.
+To work around this you can remove the path manually from the `roleArn` like followed:
+
+```
+roleMappings: [
+    {
+        groups: ['pulumi:automation-grp'],
+        // because there is a bug with paths, we have to remove the path to work properly
+        // https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/153
+        roleArn: AutomationRole.arn.apply(arn =>arn.replace('automation/', '')),
+        username: 'automation-usr',
+    },
+],
+```
+
+Where `automation/` is the path you defined for your IAM role
