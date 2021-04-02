@@ -4,11 +4,11 @@ on:
     branches:
       - master
 env:
-  HAS_CREDS: ${{ secrets.AWS_ACCESS_KEY_ID != null }}
+  CREDS: ${{ secrets.AWS_ACCESS_KEY_ID != null }}
 jobs:
   preview:
     name: Build and deploy preview
-    if: env.HAS_CREDS
+    if: ${{ env.CREDS }}
     runs-on: ubuntu-18.04
     steps:
       - name: Install Node
