@@ -5,6 +5,8 @@ on:
       - master
 jobs:
   preview:
+    # Only run this workflow for events on this repository.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     name: Build and deploy preview
     runs-on: ubuntu-18.04
     steps:
