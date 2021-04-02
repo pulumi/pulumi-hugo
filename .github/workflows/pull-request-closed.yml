@@ -5,6 +5,7 @@ on:
       - closed
 jobs:
   cleanup:
+    if: ${{ secrets.AWS_ACCESS_KEY_ID && secrets.PULUMI_ACCESS_TOKEN }}
     name: Find and remove buckets
     runs-on: ubuntu-18.04
     steps:
