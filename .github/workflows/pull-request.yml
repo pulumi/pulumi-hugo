@@ -3,11 +3,12 @@ on:
   pull_request:
     branches:
       - master
+env:
+  HAS_CREDS: ${{ secrets.AWS_ACCESS_KEY_ID != null }}
 jobs:
   preview:
-    # Only run this workflow for events on this repository.
-    if: github.event.pull_request.head.repo.full_name == github.repository
     name: Build and deploy preview
+    if: env.HAS_CREDS
     runs-on: ubuntu-18.04
     steps:
       - name: Install Node
