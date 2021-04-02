@@ -1,5 +1,7 @@
 # pulumi-hugo
 
+Testing. 
+
 A [Hugo](https://gohugo.io) module containing the Pulumi Hugo theme and website content.
 
 This repository is consumed by https://github.com/pulumi/docs to produce the website you see at https://pulumi.com. If you're interested in contributing some docs or a blog post at https://pulumi.com/blog, you've come to the right place! 🙌
