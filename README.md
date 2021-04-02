@@ -93,7 +93,7 @@ You'll find all of these files in `themes/current`.
 
 ## Merging and releasing
 
-When a pull request is merged into the default branch of this repository, a follow-up PR is triggered on [pulumi/docs](https://github.com/pulumi/docs) that produces an integration build. Once that build completes and is approved and merged into pulumi/docs, the changes are deployed to pulumi.com.
+When a pull request is merged into the default branch of this repository, a follow-up PR is triggered on [pulumi/docs](https://github.com/pulumi/docs) that produces an integration build comprised of the full website. Once that build completes and is approved and merged into pulumi/docs, the changes are deployed to pulumi.com.
 
 ## Blogging
 
