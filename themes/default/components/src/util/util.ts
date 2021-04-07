@@ -11,7 +11,7 @@ export function getQueryVariable(paramKey: string): string | null {
         if (pair[0] === paramKey) {
             paramVal = decodeURIComponent(pair[1].replace(/\+/g, "%20"));
         }
-    })
+    });
     return paramVal;
 }
 
