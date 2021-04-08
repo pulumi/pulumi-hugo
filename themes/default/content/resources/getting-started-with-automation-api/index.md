@@ -20,7 +20,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: false
+gated: true
 
 # The layout of the landing page.
 type: webinars
@@ -57,7 +57,7 @@ main:
     datetime: "APR 21, 2020"
     # Description of the webinar.
     description: |
-        Pulumi’s automation API opens new horizons for infrastructure provisioning. In this workshop, we’ll examine the powerful new capabilities of Pulumi’s latest feature by building a Python & Flask web application that lets developers deploy applications at the click of a button.
+        Pulumi’s Automation API opens new horizons for infrastructure provisioning. In this workshop, we’ll examine the powerful new capabilities of Pulumi’s latest feature by building a Python & Flask web application that lets developers deploy applications at the click of a button.
 
     # The webinar presenters
     presenters:
