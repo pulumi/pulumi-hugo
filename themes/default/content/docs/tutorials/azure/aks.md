@@ -1,12 +1,17 @@
 ---
 title: Azure Kubernetes Service (AKS) - Hello World!
-meta_desc: How to launch a new Managed Kubernetes Cluster on Azure Kubernetes Service (AKS).
-aliases: ["/docs/reference/tutorials/kubernetes/tutorial-aks/"]
+meta_desc: Tutorial demonstrating how to deploy an AKS cluster and set credentials to manage access to the cluster.
+aliases: [
+    "/docs/reference/tutorials/kubernetes/tutorial-aks/",
+    "/docs/guides/tutorials/kubernetes/aks/"
+]
 ---
 
-In this tutorial, we'll use Python to deploy an instance of Azure Kubernetes Service (AKS). You can find this code on the in the [examples repo](https://github.com/pulumi/examples/tree/master/azure-py-aks).
+{{< github-buttons "azure-ts-aks" "azure-py-aks" "azure-go-aks" "azure-cs-aks" >}}
 
-{{< azure-aks-prereqs >}}
+In this tutorial, you will deploy a basic AKS cluster and set the appropriate Azure AD credentials to manage access to the cluster.
+
+{{< azure-tutorial-prereqs >}}
 
 ## Create a new AKS cluster {#new-aks-cluster}
 

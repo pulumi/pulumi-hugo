@@ -31,7 +31,7 @@ These tutorials will help you provision a Kubernetes cluster on your cloud of ch
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="w-1/3 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4">
-            <a href="{{< relref "aks" >}}" style="color: #4387c7">
+            <a href="{{< relref "/docs/tutorials/azure/aks" >}}" style="color: #4387c7">
                 <img class="h-5" src="/logos/tech/azure.svg" alt="Azure">
                 AKS
             </a>
