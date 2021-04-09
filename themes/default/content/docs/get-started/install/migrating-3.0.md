@@ -4,9 +4,13 @@ meta_desc: This page provides instructions for upgrading to Pulumi 3.0
 no_on_this_page: true
 ---
 
-Pulumi 3.0 is currently in beta. If you'd like to try the beta and provide feedback, it's simple to upgrade. First, [install the 3.0 CLI]({{< relref "/docs/get-started/install#installing-betas-and-previous-versions" >}}). Then, update each of your Pulumi programs to utilize the new SDK.
+Pulumi 3.0 is currently in beta. If you'd like to try the beta and provide feedback, it's simple to upgrade:
 
-## CLI behavior changes in Pulumi 3.0
+1. [Install the 3.0 CLI]({{< relref "/docs/get-started/install#installing-betas-and-previous-versions" >}})
+2. Take note of the updated CLI behaviors listed below
+3. Update each of your Pulumi programs to utilize the new version of the SDK
+
+## Updated CLI behavior in Pulumi 3.0
 
 Previously, when using the `--stack` option on CLI commands, Pulumi would inconsistently set that stack as the current stack. In Pulumi 3.0, this behavior has now standardized and will *NOT* set the stack as the current stack. This affects the following commands:
 
@@ -22,19 +26,21 @@ Previously, when using the `--stack` option on CLI commands, Pulumi would incons
 * `pulumi up`
 * `pulumi watch`
 
-## Update Your Pulumi Programs
+## Required updates to Pulumi programs
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
-### Update Dependencies
+### Update to the new SDK version
 
 ```bash
 npm install @pulumi/pulumi@^3.0.0-beta
 ```
 
 ### Changes to pulumi.runtime.Mocks
+
+The signature of the `setMocks` function has changed with the introduction of the `pulumi.runtime.MockResourceArgs` and `pulumi.runtime.MockCallArgs` types. If you use `setMocks` in your code, you'll need to update to these new types.
 
 ```javascript
 // before
@@ -142,9 +148,9 @@ pulumi.runtime.setMocks({
 
 {{% choosable language python %}}
 
-### Update Dependencies
+### Update to the new SDK version
 
-Modify your `requirements.txt` file to update the Pulumi SDK and related providers as below:
+Modify your `requirements.txt` file to update the Pulumi SDK and any providers you use, like this:
 
 ```
 pulumi>=3.0.0b,<4.0.0
@@ -159,13 +165,10 @@ pip install -r requirements.txt
 
 ### Dictionary snake_case/camelCase Key Translation Fixes in Provider Python SDKs
 
-Providers are being updated to address `dict` key translation issues. Prior versions of provider Python SDKs would unintentionally translate keys of user-defined `dict` inputs (e.g. AWS `tags`) from snake_case to camelCase (and vice versa for outputs) if the key happened to exist in the provider's internal translation tables. Additionally, some provider SDKs did not consistently translate keys of nested data structures.
-
-The 3.0-based provider Python SDKs have addressed these issues:
+Prior versions of Pulumi provider Python SDKs would unintentionally translate keys of user-defined `dict` inputs (e.g. AWS `tags`) from snake_case to camelCase (and vice versa for outputs) if the key happened to exist in the provider's internal translation tables. Additionally, some provider SDKs did not consistently translate keys of nested data structures. All 3.0-based Pulumi provider Python SDKs have addressed these issues:
 
 * Dictionary keys in user-defined `dict`s are no longer modified.
-
-* Dictionary keys in nested outputs are now consistently snake_case. If accessing camelCase keys from such output classes, move to accessing the values via the class's snake_case property getters. A warning will be logged when accessing values from output classes using camelCase keys.
+* Dictionary keys in nested outputs are now consistently snake_case. If you're accessing camelCase keys from such output classes, you need to update your cod eto access the values via the class's snake_case property getters. A warning will be logged when accessing values from output classes using camelCase keys.
 
 ```python
 from pulumi import export
@@ -181,6 +184,8 @@ export("ip", instance.network_interfaces[0].access_configs[0].nat_ip)
 ```
 
 ### Changes to pulumi.runtime.Mocks
+
+The signature of the `setMocks` function has changed with the introduction of the `pulumi.runtime.MockResourceArgs` and `pulumi.runtime.MockCallArgs` types. If you use `setMocks` in your code, you'll need to update to these new types.
 
 ```python
 # before
@@ -229,9 +234,9 @@ pulumi.runtime.set_mocks(MyMocks())
 {{% /choosable %}}
 {{% choosable language go %}}
 
-### Update Dependencies
+### Update to the new SDK version
 
-In `go.mod`, you can depend on the Pulumi SDK and related providers as below:
+Modify your `go.mod` file to update the Pulumi SDK and any providers you use, like this:
 
 ```
 require (
@@ -242,18 +247,20 @@ require (
 
 Then run `go mod download`
 
-### Go SDK removes Apply<TypeName>
+### Remove any `Apply<TypeName>` calls
 
 In order to improve the performance of our Go SDK, we have removed:
 
-* Apply<TypeName>
-* Apply
-* ApplyWithContext
+* `Apply<TypeName>`
+* `Apply`
+* `ApplyWithContext`
 
 We now suggest that you use:
 
-* ApplyT
-* ApplyTWithContext
+* `ApplyT`
+* `ApplyTWithContext`
+
+When using ApplyT, remember to cast the result to the Output type.
 
 ```go
 //before
@@ -267,9 +274,9 @@ containerDef := image.ImageName.ApplyT(func(name string) (string, error) {
 }).(pulumi.StringOutput)
 ```
 
-When using ApplyT, remember to cast the result to the Output type
-
 ### Changes to pulumi.runtime.Mocks
+
+The signature of the `setMocks` function has changed with the introduction of the `pulumi.runtime.MockResourceArgs` and `pulumi.runtime.MockCallArgs` types. If you use `setMocks` in your code, you'll need to update to these new types.
 
 ```go
 //before
@@ -314,15 +321,17 @@ func (mocks) Call(args MockCallArgs) (resource.PropertyMap, error) {
 {{% /choosable %}}
 {{% choosable language csharp %}}
 
-### Update Dependencies
+### Update to the new SDK version
 
-Update your package reference to the latest version of the SDK:
+Modify your project file to update the Pulumi SDK and any providers you use, like this:
 
 ```csharp
 <PackageReference Include="Pulumi" Version="3.0.*-*" />
 ```
 
 ### Changes to pulumi.runtime.Mocks
+
+The signature of the `setMocks` function has changed with the introduction of the `pulumi.runtime.MockResourceArgs` and `pulumi.runtime.MockCallArgs` types. If you use `setMocks` in your code, you'll need to update to these new types.
 
 ```csharp
 // before
@@ -396,10 +405,9 @@ public Task<object> CallAsync(MockCallArgs args)
 
 {{< /chooser >}}
 
-## Automation API changes in Pulumi 3.0
+## Required updates for automation API users
 
-The Pulumi 3.0 beta includes the final preview of the Automation API. That preview standardizes the namespace requirements for Automation API. You can update your
-program to use the following namespaces
+The Pulumi 3.0 beta includes the final preview of the Automation API, which standardizes the namespace requirements for Automation API. You need to update programs that use automation API to use the following namespaces:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
