@@ -48,13 +48,13 @@ workshops:
       url: /resources/getting-started-with-automation-api
       datetime: 2021-04-21T09:00:00-07:00
       description: |
-        Pulumi’s Automation API opens new horizons for infrastructure provisioning. In this workshop, we’ll examine the powerful new capabilities of Pulumi’s latest feature by building a Python & Flask web application that lets developers deploy applications at the click of a button.
+        Pulumi’s Automation API opens new horizons for infrastructure provisioning. In this workshop, you’ll examine the powerful new capabilities of Pulumi’s latest feature by building a Python & Flask web application that lets developers deploy applications at the click of a button.
 
     - title: Getting Started with Azure Native
       url: /resources/getting-started-with-azure-native
       datetime: 2021-04-27T09:00:00-07:00
       description: |
-        In this workshop, we’ll use the Azure native provider to build infrastructure using Pulumi’s TypeScript SDK and examine some of the features not previously possible.
+        In this workshop, you’ll use the Azure native provider to build infrastructure using Pulumi’s TypeScript SDK and examine some of the features not previously possible.
 
     - title: Ask The Expert
       url: /resources/ask-the-expert/?date=2021/04/22
