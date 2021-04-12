@@ -7,7 +7,27 @@ meta_desc: Tutorial that demonstrates creating multiple Azure Kubernetes Service
 
 In this tutorial, you will create and deploy multiple Azure Kubernetes Service (AKS) clusters in different regions and with different node counts.
 
-{{< multilang-tutorial-prereqs >}}
+{{< azure-tutorial-prereqs >}}
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language "typescript" %}}
+{{< install-node >}}
+{{% /choosable %}}
+
+{{% choosable language python %}}
+{{< install-python >}}
+{{% /choosable %}}
+
+{{% choosable language go %}}
+{{< install-go >}}
+{{% /choosable %}}
+
+{{% choosable language "csharp,fsharp,visualbasic" %}}
+{{< install-dotnet >}}
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 ## Prerequisites
 

@@ -13,6 +13,25 @@ In this tutorial, you will deploy a basic AKS cluster and set the appropriate Az
 
 {{< azure-tutorial-prereqs >}}
 
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language "typescript" %}}
+{{< install-node >}}
+{{% /choosable %}}
+
+{{% choosable language python %}}
+{{< install-python >}}
+{{% /choosable %}}
+
+{{% choosable language go %}}
+{{< install-go >}}
+{{% /choosable %}}
+
+{{% choosable language "csharp,fsharp,visualbasic" %}}
+{{< install-dotnet >}}
+{{% /choosable %}}
+
+{{< /chooser >}}
 ## Create a new AKS cluster {#new-aks-cluster}
 
 1. In a new folder `aks-hello-world`, create an empty project with `pulumi new`.

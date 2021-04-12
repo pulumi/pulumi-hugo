@@ -7,7 +7,27 @@ meta_desc: Tutorial demonstrates how to build and deploy a containerized applica
 
 In this tutorial, you will deploy a new custom registry in Azure Container Registry, build a custom Docker image, and then run the image from the custom registry.
 
-{{< multilang-tutorial-prereqs >}}
+{{< azure-tutorial-prereqs >}}
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language "typescript" %}}
+{{< install-node >}}
+{{% /choosable %}}
+
+{{% choosable language python %}}
+{{< install-python >}}
+{{% /choosable %}}
+
+{{% choosable language go %}}
+{{< install-go >}}
+{{% /choosable %}}
+
+{{% choosable language "csharp,fsharp,visualbasic" %}}
+{{< install-dotnet >}}
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 ## Running the App
 

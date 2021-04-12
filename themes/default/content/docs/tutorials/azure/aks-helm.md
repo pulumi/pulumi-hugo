@@ -5,16 +5,31 @@ meta_desc: Tutorial that demonstrates how to deploy an AKS cluster using a Helm 
 
 {{< github-buttons "azure-ts-aks-helm" "azure-py-aks-helm" "azure-go-aks-helm" "azure-cs-aks-helm" >}}
 
-In this tutorial, you will deploy a Helm Chart from the Bitnami Helm chart repository into an Azure Kubernetes Service (AKS) cluster.
-
-{{< multilang-tutorial-prereqs >}}
-
-This example demonstrates creating an [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)
-cluster and deploying a Helm Chart from [Bitnami Helm chart repository](https://github.com/bitnami/charts)
+In this tutorial, you will create an [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)
+cluster and deploy a Helm Chart from [Bitnami Helm chart repository](https://github.com/bitnami/charts)
 into this cluster, all in one Pulumi program.
 
-The example showcases the [native Azure provider for Pulumi](https://www.pulumi.com/docs/intro/cloud-providers/azure/).
+{{< azure-tutorial-prereqs >}}
 
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language "typescript" %}}
+{{< install-node >}}
+{{% /choosable %}}
+
+{{% choosable language python %}}
+{{< install-python >}}
+{{% /choosable %}}
+
+{{% choosable language go %}}
+{{< install-go >}}
+{{% /choosable %}}
+
+{{% choosable language "csharp,fsharp,visualbasic" %}}
+{{< install-dotnet >}}
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 ## Prerequisites
 
