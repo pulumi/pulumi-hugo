@@ -1,8 +1,8 @@
 ---
-title: "Pulumiup - the Event for Cloud Engineers"
+title: "PulumiUP - the Event for Cloud Engineers"
 date: 2021-04-14
 meta_desc: "PulumiUP is two hour keynote with cloud engineering industry leaders Adrian Cockcroft, VP of Sustainability Engineering at Amazon, Justin Fitzhugh, VP of Cloud Engineering at Snowflake, Kieth Redmond, VP of SaasS Engineering at Fenergo."
-meta_image: meta.png
+meta_image: pulumiup.png
 authors:
     - wendy-smith
 tags:
@@ -16,10 +16,12 @@ My professional background has included nearly ten years of managing field event
 
 We spent a lot of time considering how to best engage and share announcements with our community and encourage the cloud engineering community's growth. All of us here at Pulumi recognize how valuable your time is and how much time in the last year we spent on virtual event platforms. With that in mind, we made a deliberate decision to avoid any all-day or multi-day programming. Instead, we are hosting a short 2-hour keynote that we think you will find insightful and valuable - best practices and real-life situations that you can learn from and apply to your approach to building, delivering, and managing modern applications.
 
-PulumiUP Agenda - Kicking off on 4/20 at 9 am - 11 am pacific time - [Save your spot](https://www.pulumi.com/pulumi-up/)
+![PulumiUP](pulumiup.png)
 
-| Speakers | Title and Company | Subject |
-| ------------------------------------------ | ------------------------- |----------------------------------------------------- |
+PulumiUP Agenda - Kicking off on 4/20 at 9 am - 11 am PST - [Save your spot](https://www.pulumi.com/pulumi-up/)
+
+| **Speakers** | **Title and Company** | **Subject** |
+| - | - |- |
 | Joe Duffy | Co-Founder and CEO, Pulumi | **The Modern Cloud Era: All Software is Cloud Software** |
 |Adrian Cockcroft & Aaron Kao                | VP of Sustainability Architecture, Amazon VP of Marketing, Pulumi | **Discussion: What’s different about building in a modern cloud application world** |
 | Justin Fitzhugh | VP of Cloud Engineering, Snowflake | **Perspectives from Cloud Engineering Pioneers** |
@@ -28,7 +30,7 @@ PulumiUP Agenda - Kicking off on 4/20 at 9 am - 11 am pacific time - [Save your 
 | Sophia Parafina | Technical Marketing Manager, Pulumi|
 | Komal Ali | Software Engineer |
 
-| Panel: Hear from the Experts: Planning for the Future of Modern Cloud Applications | Title and Company |
+| **Panel: Hear from the Experts: Planning for the Future of Modern Cloud Applications** | **Title and Company** |
 |- | - |
 | Moderator: Kat Cosgrove | Developer Advocate, JFrog |
 | Justin Fitzhugh | VP of Cloud Engineering, Snowflake |
