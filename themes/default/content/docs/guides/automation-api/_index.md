@@ -18,7 +18,7 @@ Automation API requires the Pulumi CLI to be installed and available on your `PA
 
 ## Getting started
 
-To get started with Automation API, see the [static website tutorial]({{< relref "/docs/guides/automation-api/using-automation-api.md" >}}).
+To get started with Automation API, see the [Start Using Automation API]({{< relref "/docs/guides/automation-api/using-automation-api.md" >}}) section.
 
 ## Examples
 
