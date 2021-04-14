@@ -28,4 +28,4 @@ If you're looking to integrate Pulumi with your SAML 2.0 identity provider, refe
 - [Azure Active Directory]({{< relref "aad" >}})
 - [G Suite (Google)]({{< relref "gsuite" >}})
 - [Okta]({{< relref "okta" >}})
-- [OneLogin]({{< relref "onelogin" >}}
+- [OneLogin]({{< relref "onelogin" >}})
