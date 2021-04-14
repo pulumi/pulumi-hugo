@@ -6,7 +6,7 @@ meta_image: pulumiup.png
 authors:
     - wendy-smith
 tags:
-    - cloud engineering
+    - cloud-engineering
     - PulumiUP
 ---
 
