@@ -14,7 +14,7 @@ My professional background has included nearly ten years of managing field event
 
 <!--more-->
 
-We spent a lot of time considering how to best engage and share announcements with our community and encourage the cloud engineering community's growth. All of us here at Pulumi recognize how valuable your time is and how much time in the last year we spent on virtual event platforms. With that in mind, we made a deliberate decision to avoid any all-day or multi-day programming. Instead, we are hosting a short 2-hour keynote that we think you will find insightful and valuable - best practices and real-life situations that you can learn from and apply to your approach to building, delivering, and managing modern applications.
+We spent a lot of time considering how to best engage and share announcements with our community and encourage the cloud engineering community's growth. All of us here at Pulumi recognize how valuable your time is and how much time we've all spent on virtual event platforms in the last year. With that in mind, we made a deliberate decision to avoid any all-day or multi-day programming. Instead, we are hosting a short 2-hour keynote that we think you will find insightful and valuable, with best practices and real-life situations that you can learn from and apply to your approach to building, delivering, and managing modern cloud applications.
 
 ![PulumiUP](pulumiup.png)
 
