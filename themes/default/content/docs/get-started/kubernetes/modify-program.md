@@ -232,16 +232,16 @@ func main() {
         var ip pulumi.StringOutput
 
         if isMinikube {
-            ip = frontend.Spec.ApplyString(func(val *corev1.ServiceSpec) string {
+            ip = frontend.Spec.ApplyT(func(val *corev1.ServiceSpec) string {
                 return *val.ClusterIP
-            })
+            }).(pulumi.StringOputput)
         } else {
-            ip = frontend.Status.ApplyString(func(val *corev1.ServiceStatus) string {
+            ip = frontend.Status.Apply(func(val *corev1.ServiceStatus) string {
                 if val.LoadBalancer.Ingress[0].Ip != nil {
                     return *val.LoadBalancer.Ingress[0].Ip
                 }
                 return *val.LoadBalancer.Ingress[0].Hostname
-            })
+            }).(pulumi.StringOutput)
         }
 
         ctx.Export("ip", ip)
