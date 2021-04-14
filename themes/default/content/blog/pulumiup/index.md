@@ -37,7 +37,7 @@ PulumiUP Agenda - Kicking off on 4/20 at 9 am - 11 am PST - [Save your spot](htt
 | Charity Majors |  CTO/Co-Founder, Honeycomb |
 | Dana Lawson |  VP of Engineering, GitHub  |
 
-Engineering leadership from Snowflake, Cloud Data Warehousing organization, and Fenergo, a client lifecycle management provider for the financial services industry, will share their perspectives and experiences practicing cloud engineering for the modern cloud era. Justin Fitzhugh, VP of Cloud Engineering at Snowflake, and Keith Redmond, VP of SaaS Engineering at Fenergo, will each share how they reduced costs while empowering every developer on their team.
+Engineering leadership from Snowflake, the cloud data warehousing organization, and Fenergo, a client lifecycle management provider for the financial services industry, will share their perspectives and experiences practicing cloud engineering for the modern cloud era. Justin Fitzhugh, VP of Cloud Engineering at Snowflake, and Keith Redmond, VP of SaaS Engineering at Fenergo, will each share how they reduced costs while empowering every developer on their team.
 
 Everyone at Pulumi is super excited to be sharing this material with our community. If you are interested in cloud engineering, cloud infrastructure, software development, modern applications, or Pulumi, you want to save your spot for this 2-hour event. Whether you’re a seasoned cloud engineer or just curious to learn what’s all the fuss about cloud engineering, you will learn something new about the future of building on the cloud at PulumiUP. You can also sign up for new workshops and other events occurring in April and May. We’ll miss seeing you in person but hope that changes soon! Pulumipus and I are packing our bags and hoping for the best.
 
