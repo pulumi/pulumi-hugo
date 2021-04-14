@@ -173,7 +173,7 @@ Our own [integration test suite](https://github.com/pulumi/examples/blob/05ae8e1
 
 We even write tests inside Pulumi using Automation API and language-specific test frameworks like `mocha`. Take a look at the source for yourself:
 
-[NodeJS tests](https://github.com/pulumi/pulumi/blob/master/sdk/nodejs/tests/automation/localWorkspace.spec.ts)
-[Go tests](https://github.com/pulumi/pulumi/blob/master/sdk/go/auto/local_workspace_test.go)
-[Python tests](https://github.com/pulumi/pulumi/blob/master/sdk/python/lib/test/automation/test_local_workspace.py)
-[C# tests](https://github.com/pulumi/pulumi/blob/master/sdk/dotnet/Pulumi.Automation.Tests/LocalWorkspaceTests.cs)
+* [NodeJS tests](https://github.com/pulumi/pulumi/blob/master/sdk/nodejs/tests/automation/localWorkspace.spec.ts)
+* [Go tests](https://github.com/pulumi/pulumi/blob/master/sdk/go/auto/local_workspace_test.go)
+* [Python tests](https://github.com/pulumi/pulumi/blob/master/sdk/python/lib/test/automation/test_local_workspace.py)
+* [C# tests](https://github.com/pulumi/pulumi/blob/master/sdk/dotnet/Pulumi.Automation.Tests/LocalWorkspaceTests.cs)
