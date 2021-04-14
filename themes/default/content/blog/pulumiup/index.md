@@ -1,5 +1,5 @@
 ---
-title: "PulumiUP - the Event for Cloud Engineers"
+title: "PulumiUP: the Event for Cloud Engineers"
 date: 2021-04-14
 meta_desc: "PulumiUP is a two hour keynote with cloud engineering industry leaders Adrian Cockcroft, VP of Sustainability Engineering at Amazon, Justin Fitzhugh, VP of Cloud Engineering at Snowflake, Keith Redmond, VP of SaaS Engineering at Fenergo."
 meta_image: pulumiup.png
