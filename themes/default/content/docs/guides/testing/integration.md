@@ -146,12 +146,6 @@ If you are using GitHub, Pulumi offers a [GitHub App]({{< relref "/docs/guides/c
 By leveraging Pulumi for your core acceptance test workflow, you'll
 unlock new automation capabilities that improve your team's productivity and confidence in the quality of changes.
 
-## Full Examples
-
-A minimal example of using Pulumi's Go integration test framework is available in the examples repository: [Integration Testing in Go](https://github.com/pulumi/examples/tree/05ae8e1803d7f44cecac69589175e416e421cdfe/testing-integration).
-
-Our own [integration test suite](https://github.com/pulumi/examples/blob/05ae8e1803d7f44cecac69589175e416e421cdfe/misc/test/examples_test.go) can be a source of further inspiration.
-
 ## Using Automation API for Integration Tests
 
 Pulumi's Automation API provides another option for writing end-to-end integration tests. It is not a purpose-built integration testing framework as with above, but you can still accomplish the same objectives of basic correctness testing, resource validation, and runtime testing. Automation API is available in the Node, Python, .NET, and Go SDKs.
@@ -170,3 +164,16 @@ export async function getDeployment(): Promise<Deployment> {
 ```
 
 You can then iterate through the `Deployment` object to check that the expected resources and property values are present.
+
+## Full Examples
+
+A minimal example of using Pulumi's Go integration test framework is available in the examples repository: [Integration Testing in Go](https://github.com/pulumi/examples/tree/05ae8e1803d7f44cecac69589175e416e421cdfe/testing-integration).
+
+Our own [integration test suite](https://github.com/pulumi/examples/blob/05ae8e1803d7f44cecac69589175e416e421cdfe/misc/test/examples_test.go) can be a source of further inspiration.
+
+We even write tests inside Pulumi using Automation API and language-specific test frameworks like `mocha`. Take a look at the source for yourself:
+
+[NodeJS tests](https://github.com/pulumi/pulumi/blob/master/sdk/nodejs/tests/automation/localWorkspace.spec.ts)
+[Go tests](https://github.com/pulumi/pulumi/blob/master/sdk/go/auto/local_workspace_test.go)
+[Python tests](https://github.com/pulumi/pulumi/blob/master/sdk/python/lib/test/automation/test_local_workspace.py)
+[C# tests](https://github.com/pulumi/pulumi/blob/master/sdk/dotnet/Pulumi.Automation.Tests/LocalWorkspaceTests.cs)
