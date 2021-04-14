@@ -71,8 +71,8 @@ container = docker.Container("ubuntu",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-	do "github.com/pulumi/pulumi-docker/sdk/v2/go/docker"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	do "github.com/pulumi/pulumi-docker/sdk/v3/go/docker"
 )
 
 func main() {

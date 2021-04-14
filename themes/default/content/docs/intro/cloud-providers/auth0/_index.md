@@ -69,7 +69,7 @@ user = auth0.User("my-demo-user",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	auth0 "github.com/pulumi/pulumi-auth0/sdk/go/auth0"
 )
 

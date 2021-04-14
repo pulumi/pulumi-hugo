@@ -1228,7 +1228,7 @@ server = aws.ec2.Instance('web-server',
 
 ```go
 import (
-    "github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+    "github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
     "github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 

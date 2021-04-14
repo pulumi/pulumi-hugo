@@ -68,7 +68,7 @@ last_name="user",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	user "github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user"
 )
 

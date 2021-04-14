@@ -69,7 +69,7 @@ user = rancher2.User("my-user",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	rancher2 "github.com/pulumi/pulumi-rancher2/sdk/v2/go/rancher2"
 )
 

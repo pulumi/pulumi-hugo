@@ -54,7 +54,7 @@ my_db = postgresql.Database("my-database")
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	postgresql "github.com/pulumi/pulumi-postgresql/sdk/v2/go/postgresql"
 )
 

@@ -71,7 +71,7 @@ record = cloudflare.Record("sample-record",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	cloudflare "github.com/pulumi/pulumi-cloudflare/sdk/v2/go/cloudflare"
 )
 

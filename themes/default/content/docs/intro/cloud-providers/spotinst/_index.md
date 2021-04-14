@@ -53,7 +53,7 @@ deployment = spotinst.multai.Deployment("my_deployment")
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	multai "github.com/pulumi/pulumi-spotinst/sdk/v2/go/spotinst/multai"
 )
 

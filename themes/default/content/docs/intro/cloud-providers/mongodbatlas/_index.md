@@ -58,7 +58,7 @@ project = mongodbatlas.Project("my-demo-project", org_id="12345")
 
 ```go
 import (
-    "github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
     mongodbatlas "github.com/pulumi/pulumi-mongodbatlas/sdk/go/mongodbatlas"
 )
 
@@ -70,7 +70,7 @@ func main() {
     if err != nil {
         return err
     }
-  
+
     return nil
   })
 }

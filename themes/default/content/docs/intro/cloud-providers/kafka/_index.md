@@ -66,7 +66,7 @@ topic = kafka.Topic("topic",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	kafka "github.com/pulumi/pulumi-kafka/sdk/v2/go/kafka"
 )
 

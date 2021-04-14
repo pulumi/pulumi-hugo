@@ -80,7 +80,7 @@ pydomain = akamai.properties.EdgeHostName("test",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi-akamai/sdk/go/akamai"
 	"github.com/pulumi/pulumi-akamai/sdk/go/akam/properties"
 )

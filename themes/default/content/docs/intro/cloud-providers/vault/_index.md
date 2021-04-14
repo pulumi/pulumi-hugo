@@ -59,8 +59,8 @@ be = vault.AuthBackend("example",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-	vault "github.com/pulumi/pulumi-vault/sdk/v2/go/vault"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	vault "github.com/pulumi/pulumi-vault/sdk/v3/go/vault"
 )
 
 func main() {

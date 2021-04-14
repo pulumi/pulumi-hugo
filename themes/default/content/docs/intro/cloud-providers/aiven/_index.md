@@ -72,8 +72,8 @@ service = aiven.Service("my-service",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-	aiven "github.com/pulumi/pulumi-aiven/sdk/v2/go/aiven"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	aiven "github.com/pulumi/pulumi-aiven/sdk/v3/go/aiven"
 )
 
 func main() {

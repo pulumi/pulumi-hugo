@@ -60,8 +60,8 @@ group = signalfx.DashboardGroup("my-group",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-	signalfx "github.com/pulumi/pulumi-signalfx/sdk/v2/go/signalfx"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	signalfx "github.com/pulumi/pulumi-signalfx/sdk/v4/go/signalfx"
 )
 
 func main() {

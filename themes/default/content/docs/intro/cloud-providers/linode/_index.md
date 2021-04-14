@@ -65,7 +65,7 @@ domain = linode.Domain("my-domain",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	linode "github.com/pulumi/pulumi-linode/sdk/v2/go/linode"
 )
 

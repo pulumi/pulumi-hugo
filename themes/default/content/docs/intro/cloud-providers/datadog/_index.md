@@ -66,7 +66,7 @@ user = datadog.User("my-policy",
 
 ```go
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	datadog "github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 )
 
