@@ -71,7 +71,7 @@ Let's walk through the [`inline_program` example](https://github.com/pulumi/auto
 Let's walk through the [`InlineProgram` example](https://github.com/pulumi/automation-api-examples/tree/main/dotnet/InlineProgram) in order to understand how to construct a simple Automation API program.
 
 {{% /choosable %}}
- 
+
 First, we'll define the Pulumi program we want to run as a function within our overall program. Note how it looks like a standard Pulumi program.
 
 {{% choosable language "javascript,typescript" %}}
@@ -414,7 +414,6 @@ await stack.SetConfigValueAsync("aws:region", new ConfigValue("us-west-2"));
 
 We're now ready to execute commands against the `Stack`, including update, preview, refresh, destroy, import, and export.
 If we want to update the stack, we simply invoke the update method against the `Stack` object:
-
 
 {{% choosable language "javascript,typescript" %}}
 

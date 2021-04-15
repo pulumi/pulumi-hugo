@@ -17,8 +17,6 @@ The following are common questions and known issues that you may encounter when 
 
 ## Known issues
 
-
 ### Concurrency
-
 
 ### Structured output
