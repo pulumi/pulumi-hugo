@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Introduction to Pulumi"
+title: "Intro to Pulumi: Deploy your First Pulumi Application"
 meta_desc: In this bi-monthly workshop, you will learn the fundamentals of Infrastructure as Code through guided exercises using Pulumi's Cloud Engineering platform.
 
 # A featured webinar will display first in the list.
@@ -38,23 +38,23 @@ url_slug: "introduction-to-pulumi"
 
 # Webinar pages support multiple session via the 'multiple' property.
 multiple:
-    - datetime: 2021-04-08T10:00:00-07:00
-      hubspot_form_id: "64bd0999-63b9-4049-bdb4-c47686d3ffb3"
+    - datetime: 2021-04-20T09:00:00-07:00
+      hubspot_form_id: d137abb5-bca8-46b2-b549-4eb89eb1fc1b
 
-    - datetime: 2021-05-18T10:00:00-07:00
+    - datetime: 2021-05-18T09:00:00-07:00
       hubspot_form_id: "4690007d-8ec6-4141-b050-d4b845f21e04"
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "Introduction to Pulumi"
+    title: "Intro to Pulumi: Deploy your First Pulumi Application"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Introduction to Pulumi"
+    title: "Intro to Pulumi: Deploy your First Pulumi Application"
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/YfdFxae8Bxc"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.

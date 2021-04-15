@@ -12,7 +12,7 @@ menu:
 aliases: ["/docs/quickstart/aws/modify-program/"]
 ---
 
-Now that your S3 bucket is provisioned, let's add an object to it. First, create a new `index.html` file with some content in it.
+Now that your S3 bucket is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.
 
 {{< chooser os "macos,linux,windows" / >}}
 
@@ -111,7 +111,7 @@ In `main.go`, create the `BucketObject` right after creating the bucket itself.
 ```go
 _, err = s3.NewBucketObject(ctx, "index.html", &s3.BucketObjectArgs{
     Bucket:  bucket.ID(),
-    Source: pulumi.NewFileAsset("index.html")
+    Source: pulumi.NewFileAsset("index.html"),
 })
 if err != nil {
     return err

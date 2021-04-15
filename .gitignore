@@ -1,7 +1,8 @@
 _vendor
 node_modules
-resources
+/resources
 themes/*/resources
 public
 .idea
 .vscode
+.DS_Store
