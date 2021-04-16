@@ -25,12 +25,12 @@ The first step is to create a new OneLogin Application for Pulumi SSO:
 1. From the OneLogin Administration portal, go to the **Applications** page and click the **Add App** button.
 1. Search for `SAML Test Connector (Advanced)` and select it.
 
-![Finding the SAML Test Connector App](/images/docs/reference/service/saml-onelogin/onelogin-find-app.png)
+    ![Finding the SAML Test Connector App](/images/docs/reference/service/saml-onelogin/onelogin-find-app.png)
 
 1. Enter a _Display Name_ and optionally a logo. See [Pulumi Logos](https://www.pulumi.com/brand/#logos).
-1. Click **Save**
+1. Click **Save**.
 
-![Creating a OneLogin Application example](/images/docs/reference/service/saml-onelogin/onelogin-create-saml-app.png)
+    ![Creating a OneLogin Application example](/images/docs/reference/service/saml-onelogin/onelogin-create-saml-app.png)
 
 ### Configuring the OneLogin Application
 
@@ -56,7 +56,7 @@ Select the **Configuration** view for the application and enter/confirm the valu
 | SAML encryption method     | `TRIPLEDES-CBC`                                           |
 
 {{% notes type="warning" %}}
-Do not change the value of the Name ID Format once your users have started using Pulumi---not even switching its value between `EmailAddress` or `Persistent`.
+Do not change the value of SAML nameID format once your users have started using Pulumi---not even switching its value between `EmailAddress` or `Persistent`.
 {{% /notes %}}
 
 ![Configuration settings example ](/images/docs/reference/service/saml-onelogin/onelogin-configure-app.png)
@@ -94,11 +94,12 @@ First, navigate to the OneLogin Application you created above and click the **Mo
 1. Open the file and copy the entire block of XML text in your clipboard
 1. Open the Pulumi Console and navigate to your SAML organization.
 1. Click the **Settings** tab, and then select **SAML SSO**.
+1. Paste the IDP metadata XML into the bottom card titled **SAML SSO Settings**
 
-Paste the IDP metadata XML into the bottom card
-titled **SAML SSO Settings**. Then click **Save** at the bottom of the card.
+    ![Pulumi Organization Settings](/images/docs/reference/service/saml-onelogin/onelogin-pulumi-saml-metadata.png)
 
-![Pulumi Organization Settings](/images/docs/reference/service/saml-onelogin/onelogin-pulumi-saml-metadata.png)
+1. Click **Save** at the bottom of the card.
+
 
 Once the IDP metadata descriptor has been saved, you are all set to log into Pulumi.
 
