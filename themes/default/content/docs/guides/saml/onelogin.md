@@ -55,7 +55,9 @@ Select the **Configuration** view for the application and enter/confirm the valu
 | SAML signature element     | `Response`                                                |
 | SAML encryption method     | `TRIPLEDES-CBC`                                           |
 
-> **Important:** Do not change the value of the Name ID Format once your users have started using Pulumi---not even switching its value between `EmailAddress` or `Persistent`.
+{{% notes type="warning" %}}
+Do not change the value of the Name ID Format once your users have started using Pulumi---not even switching its value between `EmailAddress` or `Persistent`.
+{{% /notes %}}
 
 ![Configuration settings example ](/images/docs/reference/service/saml-onelogin/onelogin-configure-app.png)
 
