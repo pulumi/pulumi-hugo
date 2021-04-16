@@ -22,13 +22,13 @@ This guide walks you through configuring OneLogin as a SAML SSO identity provide
 
 The first step is to create a new OneLogin Application for Pulumi SSO:
 
-- From the OneLogin Administration portal, go to the **Applications** page and click the **Add App** button.
-- Search for `SAML Test Connector (Advanced)` and select it.
+1. From the OneLogin Administration portal, go to the **Applications** page and click the **Add App** button.
+1. Search for `SAML Test Connector (Advanced)` and select it.
 
 ![Finding the SAML Test Connector App](/images/docs/reference/service/saml-onelogin/onelogin-find-app.png)
 
-- Enter a _Display Name_ and optionally a logo. See [Pulumi Logos](https://www.pulumi.com/brand/#logos).
-- Click **Save**
+1. Enter a _Display Name_ and optionally a logo. See [Pulumi Logos](https://www.pulumi.com/brand/#logos).
+1. Click **Save**
 
 ![Creating a OneLogin Application example](/images/docs/reference/service/saml-onelogin/onelogin-create-saml-app.png)
 
@@ -89,9 +89,9 @@ First, navigate to the OneLogin Application you created above and click the **Mo
 
 ![Get Metadata](/images/docs/reference/service/saml-onelogin/onelogin-get-metadata.png)
 
-- Open the file and copy the entire block of XML text in your clipboard
-- Open the Pulumi Console and navigate to your SAML organization.
-- Click the **Settings** tab, and then select **SAML SSO**.
+1. Open the file and copy the entire block of XML text in your clipboard
+1. Open the Pulumi Console and navigate to your SAML organization.
+1. Click the **Settings** tab, and then select **SAML SSO**.
 
 Paste the IDP metadata XML into the bottom card
 titled **SAML SSO Settings**. Then click **Save** at the bottom of the card.
