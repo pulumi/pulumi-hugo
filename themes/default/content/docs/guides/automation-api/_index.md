@@ -87,8 +87,13 @@ Like all of Pulumi, Automation API is available in multiple languages, so you ca
 | <img src="/logos/tech/logo-js.png" class="h-10" />     | [JavaScript]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/automation" >}}) | Stable                                                            |
 | <img src="/logos/tech/logo-python.png" class="h-10" /> | [Python]({{< relref "/docs/reference/pkg/python/pulumi/#module-pulumi.automation" >}}) | Stable                                                           |
 | <img src="/logos/tech/dotnet.png" class="h-10" />      | [.NET]({{< relref "/docs/reference/pkg/dotnet/Pulumi.Automation/Pulumi.Automation.html">}}) | Stable |
-| <img src="/logos/tech/logo-golang.png" class="h-10" /> | [Go](https://pkg.go.dev/github.com/pulumi/pulumi/sdk/v2/go/auto?tab=doc) | Stable |
+| <img src="/logos/tech/logo-golang.png" class="h-10" /> | [Go](https://pkg.go.dev/github.com/pulumi/pulumi/sdk/v3/go/auto?tab=doc) | Stable |
 
-## FAQs
+## Blog Posts
+
+We've written lots of blog posts about how we're using Automation API along with contributions from the community. [Check them out](https://www.pulumi.com/blog/tag/automation-api/) for more ideas of what's possible with Automation API.
+
+## FAQ
 
 Get the answers to some [Frequently Asked Questions]({{< relref "/docs/guides/automation-api/faq.md" >}}) about Automation API.
+
