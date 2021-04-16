@@ -4,8 +4,6 @@ meta_desc: This page provides instructions for upgrading to Pulumi 3.0
 no_on_this_page: true
 ---
 
-Upgrading to 2.0 is simple. First, you will [install the 2.0 CLI]({{< relref "/docs/get-started/install" >}}). Then, update each of your Pulumi programs to utilize the new SDK. If you're using JavaScript or TypeScript, you'll also need to ensure you're using invokes asynchronously. We provide detailed instructions on each of these steps below.
-
 Upgrading to Pulumi 3.0 can be accomplished through the following steps:
 
 1. [Install or upgrade to the 3.0 CLI]({{< relref "/docs/get-started/install" >}}).
