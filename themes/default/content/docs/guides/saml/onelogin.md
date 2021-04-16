@@ -100,7 +100,6 @@ First, navigate to the OneLogin Application you created above and click the **Mo
 
 1. Click **Save** at the bottom of the card.
 
-
 Once the IDP metadata descriptor has been saved, you are all set to log into Pulumi.
 
 ### Signing into Pulumi using OneLogin
