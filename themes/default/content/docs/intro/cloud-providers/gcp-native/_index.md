@@ -28,13 +28,13 @@ The GCP provider supports several options for providing access to Google Cloud c
 
 ## Getting Started
 
-GCP Native is currently in *public preview*. The quickest way to get started with GCP is to follow the steps described in the [README](https://github.com/pulumi/pulumi-gcp-native#readme).
+GCP Native is currently in <strong> public preview </strong>. The quickest way to get started with GCP is to follow the steps described in the [README](https://github.com/pulumi/pulumi-gcp-native#readme).
 
 Some interesting examples are available complete with instructions:
 
 * [Google Cloud Functions](https://github.com/pulumi/examples/tree/master/gcp-ts-functions): Create a serverless function
 * [Google Kubernetes Engine](https://github.com/pulumi/examples/tree/master/gcp-ts-gke): Create a GKE cluster and deploy an NGINX pod into it
-* [Ruby on Rails on GKE and Google Cloud SQL](https://github.com/pulumi/examples/tree/master/gcp-ts-k8s-ruby-on-rails-postgresql): Containerized Ruby on Rails app using Google Cloud SQL PostgresSQL, GKE and Docker Hub.
+* [Ruby on Rails on GKE and Google Cloud SQL](https://github.com/pulumi/examples/tree/master/gcp-ts-k8s-ruby-on-rails-postgresql): Containerized Ruby on Rails app using Google Cloud SQL PostgresSQL, GKE and GCP container registry.
 
 ## Example
 
