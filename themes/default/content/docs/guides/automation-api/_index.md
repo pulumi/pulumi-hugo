@@ -12,7 +12,7 @@ The Pulumi Automation API is a programmatic interface for running Pulumi program
 
 ![automation-api](automation-api.png)
 
-Automation API allows you to define a Pulumi program as a function within your codebase rather than in a separate project and use methods to get and set configuration parameters programmatically. It uses a gRPC interface to execute programs that control and communicate with the core Pulumi engine.
+Automation API allows you to embed Pulumi within your application code, making it easy to create custom experiences on top of Pulumi that are tailored to your use-case, domain, and team.
 
 {{% notes type="info" %}}
 Automation API requires the Pulumi CLI to be installed and available on your `PATH` environment variable.
@@ -24,11 +24,70 @@ To get started with Automation API, see the [Start Using Automation API]({{< rel
 
 ## Examples
 
-Visit the [Automation API Examples repo](https://github.com/pulumi/automation-api-examples) for the complete list of Automation API code examples written in TypeScript, Python, Go, and C#.
+If you're looking for some examples to get started, look no further!
 
-## Automation API reference
+{{< chooser language "typescript,javascript,python,go,csharp" >}}
 
-[TODO: Need link.]
+{{% choosable language typescript %}}
+
+* [Inline Program - ts-node](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/inlineProgram-tsnode)
+* [Inline Program - tsc + node](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/inlineProgram-ts)
+* [Local Program - ts-node](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/localProgram-tsnode)
+* [Cross-Language Program - ts-node](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/crossLanguage-tsnode)
+* [Pulumi Over HTTP - tsc + node](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/pulumiOverHttp-ts)
+* [Database Migration - tsc + node](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts)
+
+{{% /choosable %}}
+{{% choosable language javascript %}}
+
+* [Inline Program](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/inlineProgram-js)
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+* [Inline Program](https://github.com/pulumi/automation-api-examples/blob/main/python/inline_program)
+* [Local Program](https://github.com/pulumi/automation-api-examples/blob/main/python/local_program)
+* [Cross-Language Program](https://github.com/pulumi/automation-api-examples/blob/main/python/cross_language)
+* [Database Migration](https://github.com/pulumi/automation-api-examples/blob/main/python/database_migration)
+* [Pulumi Over HTTP](https://github.com/pulumi/automation-api-examples/blob/main/python/pulumi_over_http)
+* [Pulumi via Jupyter Notebook](https://github.com/pulumi/automation-api-examples/blob/main/python/pulumi_via_jupyter)
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+* [Inline Program](https://github.com/pulumi/automation-api-examples/blob/main/go/inline_program)
+* [Local Program](https://github.com/pulumi/automation-api-examples/blob/main/go/local_program)
+* [Inline/Local Hybrid Program](https://github.com/pulumi/automation-api-examples/blob/main/go/inline_local_hybrid)
+* [Multi-Stack Orchestration](https://github.com/pulumi/automation-api-examples/blob/main/go/multi_stack_orchestration)
+* [Pulumi Over HTTP](https://github.com/pulumi/automation-api-examples/blob/main/go/pulumi_over_http)
+* [Database Migration](https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration)
+* [Git Repo](https://github.com/pulumi/automation-api-examples/blob/main/go/git_repo_program)
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+* [Inline Program](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/InlineProgram)
+* [Local Program](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/LocalProgram)
+* [Cross-Language Program](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/CrossLanguage)
+* [Database Migration](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration)
+
+{{% /choosable %}}
+
+{{% /chooser %}}
+
+Visit the [examples repo](https://github.com/pulumi/automation-api-examples) for more code examples and links to projects using Automation API.
+
+## Languages
+
+Like all of Pulumi, Automation API is available in multiple languages, so you can create applications that use it in TypeScript/JavaScript, Python, Go, and C#.
+
+|                                                        | Language                                                                | Status                                                            |
+| ------------------------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| <img src="/logos/tech/logo-ts.png" class="h-10" />     | [TypeScript]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/automation/" >}}) | Stable                                                            |
+| <img src="/logos/tech/logo-js.png" class="h-10" />     | [JavaScript]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/automation" >}}) | Stable                                                            |
+| <img src="/logos/tech/logo-python.png" class="h-10" /> | [Python]({{< relref "/docs/reference/pkg/python/pulumi/#module-pulumi.automation" >}}) | Stable                                                           |
+| <img src="/logos/tech/dotnet.png" class="h-10" />      | [.NET]({{< relref "/docs/reference/pkg/dotnet/Pulumi.Automation/Pulumi.Automation.html">}}) | Stable |
+| <img src="/logos/tech/logo-golang.png" class="h-10" /> | [Go](https://pkg.go.dev/github.com/pulumi/pulumi/sdk/v2/go/auto?tab=doc) | Stable |
 
 ## FAQs
 
