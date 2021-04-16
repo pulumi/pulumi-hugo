@@ -15,7 +15,6 @@ aliases: ["/docs/reference/clouds/google-native/"]
     </p>
 </div>
 
-
 <img src="/logos/tech/gcp.svg" align="right" class="h-16 px-8 pb-4">
 
 The Google Cloud native provider for Pulumi can be used to provision any of the cloud resources available in [Google Cloud](https://cloud.google.com/).  The provider must be configured with credentials to deploy and update resources in Google Cloud.
@@ -143,4 +142,3 @@ The following packages are available in package managers:
 * .NET: [`Pulumi.GoogleNative`](https://www.nuget.org/packages/Pulumi.GoogleNative)
 
 The Google-Native provider is open source and available in the [pulumi/pulumi-google-native](https://github.com/pulumi/pulumi-google-native) repo.
-
