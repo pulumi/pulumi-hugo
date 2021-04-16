@@ -93,6 +93,6 @@ Like all of Pulumi, Automation API is available in multiple languages, so you ca
 
 We've written lots of blog posts about how we're using Automation API along with contributions from the community. [Check them out](https://www.pulumi.com/blog/tag/automation-api/) for more ideas of what's possible with Automation API.
 
-## FAQ
+## Known issues
 
-Get the answers to some [Frequently Asked Questions]({{< relref "/docs/guides/automation-api/faq.md" >}}) about Automation API.
+Even though Automation API is stable and GA, we know bugs can pop up! We are tracking our list of [known issues](https://github.com/pulumi/pulumi/issues?q=is%3Aissue+is%3Aopen+label%3Aarea%2Fautomation-api) and encourage you to [file more](https://github.com/pulumi/pulumi/issues/new?assignees=&labels=needs-triage&template=bug_report.md&title=) as you find them!
