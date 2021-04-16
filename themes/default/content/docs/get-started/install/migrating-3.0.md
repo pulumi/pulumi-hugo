@@ -4,7 +4,7 @@ meta_desc: This page provides instructions for upgrading to Pulumi 3.0
 no_on_this_page: true
 ---
 
-Pulumi 3.0 is currently in rc. If you'd like to try the rcc and provide feedback, it's simple to upgrade:
+Pulumi 3.0 is currently in rc. If you'd like to try the rc and provide feedback, it's simple to upgrade:
 
 1. [Install the 3.0 CLI]({{< relref "/docs/get-started/install#installing-betas-and-previous-versions" >}})
 2. Take note of the updated CLI behaviors listed below
