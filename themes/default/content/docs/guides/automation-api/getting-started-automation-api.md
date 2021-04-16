@@ -1,5 +1,5 @@
 ---
-title: Start Using Automation API
+title: Getting Started with Automation API
 meta_desc: This page contains a getting started guide for Automation API.
 weight: 1
 
@@ -20,11 +20,11 @@ In this guide, you will deploy an inline Pulumi program to create a static websi
 
 Install the required language runtime, if you have not already.
 
-### Install Language Runtime
+### Install language runtime
 
-#### Choose Your Language
+#### Choose your language
 
-{{< chooser language "javascript,typescript,python,go,csharp" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
 
 {{% choosable language "javascript,typescript" %}}
 {{< install-node >}}
@@ -41,44 +41,27 @@ Install the required language runtime, if you have not already.
 {{% choosable language "csharp,fsharp,visualbasic" %}}
 {{< install-dotnet >}}
 {{% /choosable %}}
+{{< /chooser >}}
 
-### Obtain a Pulumi Access Token
+### Obtain a Pulumi access token
 
 You'll need a Pulumi access token so that your programs can store the resulting state in the Pulumi Service. The easiest way to obtain such a token is to run `pulumi login` from the command line.
 
-### Author Your Program
+## Define your Pulumi program
+
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
+
+First, define the Pulumi program you want to run as a function within your overall program. Note how it looks like a standard Pulumi program.
 
 {{% choosable language "javascript,typescript" %}}
 
-Let's walk through the [`inlineProgram-ts` example](https://github.com/pulumi/automation-api-examples/tree/main/nodejs/inlineProgram-ts) in order to understand how to construct a simple Automation API program.
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-Let's walk through the [`inline_program` example](https://github.com/pulumi/automation-api-examples/tree/main/python/inline_program) in order to understand how to construct a simple Automation API program.
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-Let's walk through the [`inline_program` example](https://github.com/pulumi/automation-api-examples/tree/main/go/inline_program) in order to understand how to construct a simple Automation API program.
-
-{{% /choosable %}}
-
-{{% choosable language "csharp,fsharp,visualbasic" %}}
-
-Let's walk through the [`InlineProgram` example](https://github.com/pulumi/automation-api-examples/tree/main/dotnet/InlineProgram) in order to understand how to construct a simple Automation API program.
-
-{{% /choosable %}}
-
-First, we'll define the Pulumi program we want to run as a function within our overall program. Note how it looks like a standard Pulumi program.
-
-{{% choosable language "javascript,typescript" %}}
+{{% notes type="info" %}}
+This tutorial is based on the [`inlineProgram-ts` example](https://github.com/pulumi/automation-api-examples/tree/main/nodejs/inlineProgram-ts), which is a complete example of how to construct a simple Automation API program.
+{{% /notes %}}
 
 ```typescript
 const pulumiProgram = async () => {
-    // Create a bucket and expose a website index document
+    // Create a bucket and expose a website index document.
     const siteBucket = new s3.Bucket("s3-website-bucket", {
         website: {
             indexDocument: "index.html",
@@ -92,7 +75,7 @@ const pulumiProgram = async () => {
 </body></html>
 `
 
-    // write our index.html into the site bucket
+    // Write our index.html into the site bucket.
     let object = new s3.BucketObject("index", {
         bucket: siteBucket,
         content: indexContent,
@@ -100,7 +83,7 @@ const pulumiProgram = async () => {
         key: "index.html"
     });
 
-    // Create an S3 Bucket Policy to allow public read of all objects in bucket
+    // Create an S3 Bucket Policy to allow public read of all objects in bucket.
     function publicReadPolicyForBucket(bucketName): PolicyDocument {
         return {
             Version: "2012-10-17",
@@ -111,16 +94,16 @@ const pulumiProgram = async () => {
                     "s3:GetObject"
                 ],
                 Resource: [
-                    `arn:aws:s3:::${bucketName}/*` // policy refers to bucket name explicitly
+                    `arn:aws:s3:::${bucketName}/*` // Policy refers to bucket name explicitly.
                 ]
             }]
         };
     }
 
-    // Set the access policy for the bucket so all objects are readable
+    // Set the access policy for the bucket so all objects are readable.
     let bucketPolicy = new s3.BucketPolicy("bucketPolicy", {
-        bucket: siteBucket.bucket, // refer to the bucket created earlier
-        policy: siteBucket.bucket.apply(publicReadPolicyForBucket) // use output property `siteBucket.bucket`
+        bucket: siteBucket.bucket, // Refer to the bucket created earlier.
+        policy: siteBucket.bucket.apply(publicReadPolicyForBucket) // Use output property `siteBucket.bucket`.
     });
 
     return {
@@ -133,9 +116,13 @@ const pulumiProgram = async () => {
 
 {{% choosable language python %}}
 
+{{% notes type="info" %}}
+This tutorial is based on the [`inline_program` example](https://github.com/pulumi/automation-api-examples/tree/main/python/inline_program), which is a complete example of how to construct a simple Automation API program.
+{{% /notes %}}
+
 ```python
 def pulumi_program():
-    # Create a bucket and expose a website index document
+    # Create a bucket and expose a website index document.
     site_bucket = s3.Bucket("s3-website-bucket", website=s3.BucketWebsiteArgs(index_document="index.html"))
     index_content = """
     <html>
@@ -147,26 +134,26 @@ def pulumi_program():
     </html>
     """
 
-    # Write our index.html into the site bucket
+    # Write our index.html into the site bucket.
     s3.BucketObject("index",
-                    bucket=site_bucket.id,  # reference to the s3.Bucket object
+                    bucket=site_bucket.id,  # Reference to the s3.Bucket object.
                     content=index_content,
-                    key="index.html",  # set the key of the object
-                    content_type="text/html; charset=utf-8")  # set the MIME type of the file
+                    key="index.html",  # Set the key of the object.
+                    content_type="text/html; charset=utf-8")  # Set the MIME type of the file.
 
-    # Set the access policy for the bucket so all objects are readable
+    # Set the access policy for the bucket so all objects are readable.
     s3.BucketPolicy("bucket-policy", bucket=site_bucket.id, policy={
         "Version": "2012-10-17",
         "Statement": {
             "Effect": "Allow",
             "Principal": "*",
             "Action": ["s3:GetObject"],
-            # Policy refers to bucket explicitly
+            # Policy refers to bucket explicitly.
             "Resource": [pulumi.Output.concat("arn:aws:s3:::", site_bucket.id, "/*")]
         },
     })
 
-    # Export the website URL
+    # Export the website URL.
     pulumi.export("website_url", site_bucket.website_endpoint)
 ```
 
@@ -174,10 +161,14 @@ def pulumi_program():
 
 {{% choosable language go %}}
 
+{{% notes type="info" %}}
+This tutorial is based on the [`inline_program` example](https://github.com/pulumi/automation-api-examples/tree/main/go/inline_program), which is a complete example of how to construct a simple Automation API program.
+{{% /notes %}}
+
 ```go
 deployFunc := func(ctx *pulumi.Context) error {
-  // similar go git_repo_program, our program defines a s3 website.
-  // here we create the bucket
+  // Similar go git_repo_program, our program defines a s3 website.
+  // Here we create the bucket.
   siteBucket, err := s3.NewBucket(ctx, "s3-website-bucket", &s3.BucketArgs{
     Website: s3.BucketWebsiteArgs{
       IndexDocument: pulumi.String("index.html"),
@@ -187,26 +178,26 @@ deployFunc := func(ctx *pulumi.Context) error {
     return err
   }
 
-  // we define and upload our HTML inline.
+  // We define and upload our HTML inline.
   indexContent := `<html><head>
   <title>Hello S3</title><meta charset="UTF-8">
 </head>
 <body><p>Hello, world!</p><p>Made with ❤️ with <a href="https://pulumi.com">Pulumi</a></p>
 </body></html>
 `
-  // upload our index.html
+  // Upload our index.html.
   if _, err := s3.NewBucketObject(ctx, "index", &s3.BucketObjectArgs{
-    Bucket:      siteBucket.ID(), // reference to the s3.Bucket object
+    Bucket:      siteBucket.ID(), // Reference to the s3.Bucket object.
     Content:     pulumi.String(indexContent),
-    Key:         pulumi.String("index.html"),               // set the key of the object
-    ContentType: pulumi.String("text/html; charset=utf-8"), // set the MIME type of the file
+    Key:         pulumi.String("index.html"),               // Set the key of the object.
+    ContentType: pulumi.String("text/html; charset=utf-8"), // Set the MIME type of the file.
   }); err != nil {
     return err
   }
 
   // Set the access policy for the bucket so all objects are readable.
   if _, err := s3.NewBucketPolicy(ctx, "bucketPolicy", &s3.BucketPolicyArgs{
-    Bucket: siteBucket.ID(), // refer to the bucket created earlier
+    Bucket: siteBucket.ID(), // Refer to the bucket created earlier.
     Policy: pulumi.Any(map[string]interface{}{
       "Version": "2012-10-17",
       "Statement": []map[string]interface{}{
@@ -217,7 +208,7 @@ deployFunc := func(ctx *pulumi.Context) error {
             "s3:GetObject",
           },
           "Resource": []interface{}{
-            pulumi.Sprintf("arn:aws:s3:::%s/*", siteBucket.ID()), // policy refers to bucket name explicitly
+            pulumi.Sprintf("arn:aws:s3:::%s/*", siteBucket.ID()), // Policy refers to bucket name explicitly.
           },
         },
       },
@@ -226,20 +217,25 @@ deployFunc := func(ctx *pulumi.Context) error {
     return err
   }
 
-  // export the website URL
+  // Export the website URL.
   ctx.Export("websiteUrl", siteBucket.WebsiteEndpoint)
   return nil
 }
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 {{% choosable language "csharp,fsharp,visualbasic" %}}
+
+{{% notes type="info" %}}
+This tutorial is based on the [`InlineProgram` example](https://github.com/pulumi/automation-api-examples/tree/main/dotnet/InlineProgram), which is a complete example of how to construct a simple Automation API program.
+{{% /notes %}}
 
 ```csharp
 var program = PulumiFn.Create(() =>
 {
-    // create a bucket and expose a website index document
+    // Create a bucket and expose a website index document.
     var siteBucket = new Pulumi.Aws.S3.Bucket(
         "s3-website-bucket",
         new Pulumi.Aws.S3.BucketArgs
@@ -260,15 +256,15 @@ var program = PulumiFn.Create(() =>
 </html>
 ";
 
-    // write our index.html into the site bucket
+    // Write our index.html into the site bucket.
     var @object = new Pulumi.Aws.S3.BucketObject(
         "index",
         new Pulumi.Aws.S3.BucketObjectArgs
         {
-            Bucket = siteBucket.BucketName, // reference to the s3 bucket object
+            Bucket = siteBucket.BucketName, // Reference to the s3 bucket object.
             Content = indexContent,
-            Key = "index.html", // set the key of the object
-            ContentType = "text/html; charset=utf-8", // set the MIME type of the file
+            Key = "index.html", // Set the key of the object.
+            ContentType = "text/html; charset=utf-8", // Set the MIME type of the file.
         });
 
     var bucketPolicyDocument = siteBucket.Arn.Apply(bucketArn =>
@@ -296,7 +292,7 @@ var program = PulumiFn.Create(() =>
             }));
     });
 
-    // set the access policy for the bucket so all objects are readable
+    // Set the access policy for the bucket so all objects are readable.
     new Pulumi.Aws.S3.BucketPolicy(
         "bucket-policy",
         new Pulumi.Aws.S3.BucketPolicyArgs
@@ -305,7 +301,7 @@ var program = PulumiFn.Create(() =>
             Policy = bucketPolicyDocument.Apply(x => x.Json),
         });
 
-    // export the website url
+    // Export the website url.
     return new Dictionary<string, object?>
     {
         ["website_url"] = siteBucket.WebsiteEndpoint,
@@ -315,8 +311,13 @@ var program = PulumiFn.Create(() =>
 
 {{% /choosable %}}
 
-As with executing Pulumi programs via the CLI, we need to associate our program with a `Stack`. Automation API provides methods to create or select stacks.
-We'll use a convenience method to select an existing `Stack` or create one if none exists.
+## Associate with a stack
+
+As with executing Pulumi programs through the CLI, you need to associate your Pulumi program with a `Stack`. Automation API provides methods to create or select stacks.
+
+Here's a convenient method to select an existing `Stack` or create one if none exists:
+
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -366,15 +367,19 @@ var stack = await LocalWorkspace.CreateOrSelectStackAsync(stackArgs);
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
-A `Stack` operates within the context of a `Workspace`. A `Workspace` is the execution context containing a single Pulumi project, a program, and multiple stacks. Workspaces are used to manage the execution environment, providing various utilities such as plugin installation, environment configuration (`$PULUMI_HOME`), and creation, deletion, and listing of stacks. Let's install the AWS provider plugin within our `Workspace` so that our Pulumi program has it available during execution.
+A `Stack` operates within the context of a `Workspace`. A `Workspace` is the execution context containing a single Pulumi project, a program, and multiple stacks. Workspaces are used to manage the execution environment, providing various utilities such as plugin installation, environment configuration (`$PULUMI_HOME`), and creation, deletion, and listing of stacks. Because you are deploying AWS resources in this tutorial, you must install the AWS provider plugin within your `Workspace` so that your Pulumi program will have it available during execution.
 
-The AWS plugin also needs configuration. We can provide that configuration just as we do with other Pulumi programs: either via config or environment variables. We'll use the `Stack` object to set the AWS region for the provider plugin.
+## Configure your provider plugins
 
+The AWS plugin also needs configuration. You can provide that configuration just as you would with other Pulumi programs: either through [stack configuration]({{< relref "/docs/intro/concepts/config/" >}}) or environment variables. In this tutorial, you'll use the `Stack` object to set the AWS region for the AWS provider plugin.
+
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-await stack.workspace.installPlugin("aws", "v3.37.0");
+await stack.workspace.installPlugin("aws", "v4.0.0");
 await stack.setConfig("aws:region", { value: "us-west-2" });
 ```
 
@@ -383,7 +388,7 @@ await stack.setConfig("aws:region", { value: "us-west-2" });
 {{% choosable language python %}}
 
 ```python
-stack.workspace.install_plugin("aws", "v3.37.0")
+stack.workspace.install_plugin("aws", "v4.0.0")
 stack.set_config("aws:region", auto.ConfigValue(value="us-west-2"))
 ```
 
@@ -392,7 +397,7 @@ stack.set_config("aws:region", auto.ConfigValue(value="us-west-2"))
 {{% choosable language go %}}
 
 ```go
-err = w.InstallPlugin(ctx, "aws", "v3.37.0")
+err = w.InstallPlugin(ctx, "aws", "v4.0.0")
 if err != nil {
   fmt.Printf("Failed to install program plugins: %v\n", err)
   os.Exit(1)
@@ -406,15 +411,19 @@ s.SetConfig(ctx, "aws:region", auto.ConfigValue{Value: "us-west-2"})
 {{% choosable language "csharp,fsharp,visualbasic" %}}
 
 ```csharp
-await stack.Workspace.InstallPluginAsync("aws", "v3.37.0");
+await stack.Workspace.InstallPluginAsync("aws", "v4.0.0");
 await stack.SetConfigValueAsync("aws:region", new ConfigValue("us-west-2"));
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
-We're now ready to execute commands against the `Stack`, including update, preview, refresh, destroy, import, and export.
-If we want to update the stack, we simply invoke the update method against the `Stack` object:
+## Invoke Pulumi commands against the stack
 
+You're now ready to execute commands against the `Stack`, including update, preview, refresh, destroy, import, and export.
+If you want to update the stack, simply invoke the update method (`up`) against the `Stack` object:
+
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
@@ -450,7 +459,8 @@ var result = await stack.UpAsync(new UpOptions { OnStandardOutput = Console.Writ
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
-Note how we can choose to have a callback function for standard output. In addition, the command returns a result of the update, which we can programmatically use to drive decisions within our program. For example, the result includes the stack outputs as well as a summary of the changes. For example, we could choose to take different actions if there were no resources updated. Or, we could use the stack outputs to drive another Pulumi program within the same Automation program.
+Notice how you can choose to have a callback function for standard output. In addition, the command returns a result of the update, which you can programmatically use to drive decisions within your program. For example, the result includes the stack outputs as well as a summary of the changes. This means you could choose to take different actions if there were no resources updated. Conversely, you could use the stack outputs to drive another Pulumi program within the same Automation program.
 
-By now, you've hopefully gained a clearer understanding of how to utilize the Automation API. The possibilities are endless and we look forward to your creations!
+By now, you've hopefully gained a clearer understanding of how to utilize the Automation API. For additional ideas, see the [Automation API examples](https://github.com/pulumi/automation-api-examples).

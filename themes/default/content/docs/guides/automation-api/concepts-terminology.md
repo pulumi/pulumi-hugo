@@ -13,13 +13,13 @@ Automation API lets you define a Pulumi program as a function within your codeba
 
 The package can be used for a number of use cases:
 
-  - Driving pulumi deployments within CI/CD workflows
-  - Integration testing
-  - Multi-stage deployments such as blue-green deployment patterns
-  - Deployments involving application code like database migrations
-  - Building higher level tools, custom CLIs over pulumi, etc
-  - Using pulumi behind a REST or GRPC API
-  - Debugging Pulumi programs (by using a single main entrypoint with "inline" programs)
+- Driving pulumi deployments within CI/CD workflows
+- Integration testing
+- Multi-stage deployments such as blue-green deployment patterns
+- Deployments involving application code like database migrations
+- Building higher level tools, custom CLIs over pulumi, etc
+- Using pulumi behind a REST or GRPC API
+- Debugging Pulumi programs (by using a single main entrypoint with "inline" programs)
 
 ## Workspace
 
@@ -29,7 +29,7 @@ Custom Workspace implementations can be used to store Project and Stack settings
 
 ### LocalWorkspace
 
-A default implementation of workspace is provided as LocalWorkspace. This implementation relies on `Pulumi.yaml` and `Pulumi.[stack].yaml` as the intermediate format for Project and Stack settings. Modifying `ProjectSettings` will alter the Workspace `Pulumi.yaml` file, and setting config on a Stack will modify the `Pulumi.[stack].yaml` file. This is identical to the behavior of Pulumi CLI driven workspaces. 
+A default implementation of workspace is provided as LocalWorkspace. This implementation relies on `Pulumi.yaml` and `Pulumi.[stack].yaml` as the intermediate format for Project and Stack settings. Modifying `ProjectSettings` will alter the Workspace `Pulumi.yaml` file, and setting config on a Stack will modify the `Pulumi.[stack].yaml` file. This is identical to the behavior of Pulumi CLI driven workspaces.
 
 ## Stack
 
