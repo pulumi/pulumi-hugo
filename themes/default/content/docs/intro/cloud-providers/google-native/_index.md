@@ -1,6 +1,6 @@
 ---
 title: Google-Native
-meta_desc: 'This page provides an overview of the native Google Cloud provider for Pulumi: Google-Native.'
+meta_desc: 'This page provides an overview of the Google Cloud Native provider for Pulumi: Google-Native.'
 menu:
   intro:
     parent: cloud-providers
@@ -11,23 +11,23 @@ aliases: ["/docs/reference/clouds/google-native/"]
 ---
 <div class="note note-info" role="alert">
     <p>
-        Google-Native provider is currently in <strong> public preview</strong>
+        The Google Cloud Native provider is currently in <strong> public preview</strong>
     </p>
 </div>
 
 <img src="/logos/tech/gcp.svg" align="right" class="h-16 px-8 pb-4">
 
-The Google Cloud native provider for Pulumi can be used to provision any of the cloud resources available in [Google Cloud](https://cloud.google.com/).  The provider must be configured with credentials to deploy and update resources in Google Cloud.
+The Google Cloud Native provider for Pulumi can be used to provision any of the cloud resources available in [Google Cloud](https://cloud.google.com/). The provider must be configured with credentials to deploy and update resources in Google Cloud.
 
 See the [full API documentation]({{< relref "/docs/reference/pkg/google-native" >}}) for complete details of the available provider APIs.
 
 ## Setup
 
-The Google Cloud provider supports several options for providing access to Google Cloud credentials.  See [setup page]({{< relref "setup" >}}) for details.
+The Google Cloud Native provider supports several options for providing access to Google Cloud credentials.  See [setup page]({{< relref "setup" >}}) for details.
 
 ## Getting Started
 
-Google-Native provider is currently in <strong> public preview</strong>. The quickest way to get started with Google Cloud is to follow the steps described in the [README](https://github.com/pulumi/pulumi-google-native#readme).
+The Google Cloud Native provider is currently in <strong> public preview</strong>. The quickest way to get started with Google Cloud is to follow the steps described in the [README](https://github.com/pulumi/pulumi-google-native#readme).
 
 Some interesting examples are available complete with instructions:
 
@@ -138,7 +138,7 @@ class Program
 
 {{< /chooser >}}
 
-You can find additional examples of using Google-Native in
+You can find additional examples of using the Google Cloud Native provider in
 [the Pulumi examples repo](https://github.com/pulumi/examples).
 
 ## Libraries
@@ -150,4 +150,4 @@ The following packages are available in package managers:
 * Go: [`github.com/pulumi/pulumi-google-native/sdk/go/google`](https://github.com/pulumi/pulumi-google-native)
 * .NET: [`Pulumi.GoogleNative`](https://www.nuget.org/packages/Pulumi.GoogleNative)
 
-The Google-Native provider is open source and available in the [pulumi/pulumi-google-native](https://github.com/pulumi/pulumi-google-native) repo.
+The Google Cloud Native provider is open source and available in the [pulumi/pulumi-google-native](https://github.com/pulumi/pulumi-google-native) repo.
