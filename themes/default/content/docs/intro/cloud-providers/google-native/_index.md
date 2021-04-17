@@ -1,6 +1,6 @@
 ---
 title: Google-Native
-meta_desc: This page provides on an overview of the native Google Cloud provider for Pulumi: Google-Native.
+meta_desc: 'This page provides an overview of the native Google Cloud provider for Pulumi: Google-Native.'
 menu:
   intro:
     parent: cloud-providers
@@ -11,7 +11,7 @@ aliases: ["/docs/reference/clouds/google-native/"]
 ---
 <div class="note note-info" role="alert">
     <p>
-        Google-Native provider is currently in <strong> public preview </strong>
+        Google-Native provider is currently in <strong> public preview</strong>
     </p>
 </div>
 
@@ -27,7 +27,7 @@ The Google Cloud provider supports several options for providing access to Googl
 
 ## Getting Started
 
-Google-Native provider is currently in <strong> public preview </strong>. The quickest way to get started with Google Cloud is to follow the steps described in the [README](https://github.com/pulumi/pulumi-google-native#readme).
+Google-Native provider is currently in <strong> public preview</strong>. The quickest way to get started with Google Cloud is to follow the steps described in the [README](https://github.com/pulumi/pulumi-google-native#readme).
 
 Some interesting examples are available complete with instructions:
 
@@ -55,7 +55,7 @@ const bucket = new storage.Bucket("my-bucket", {
     project: project,
 });
 
-// Export the DNS name of the bucket
+// Export the bucket self-link
 export const bucketName = bucket.selfLink;
 ```
 
@@ -72,8 +72,8 @@ project = config.require('project')
 bucket_name = "google-native-bucket-py-01"
 bucket = storage.Bucket('my-bucket', name=bucket_name, bucket=bucket_name, project=project)
 
-# Export the DNS name of the bucket
-pulumi.export('bucket_name', bucket.self_link)
+# Export the bucket self-link
+pulumi.export('bucket', bucket.self_link)
 ```
 
 {{% /choosable %}}
@@ -83,28 +83,29 @@ pulumi.export('bucket_name', bucket.self_link)
 package main
 
 import (
-        storage "github.com/pulumi/pulumi-google-native/sdk/go/google/storage/v1"
-        "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	storage "github.com/pulumi/pulumi-google-native/sdk/go/google/storage/v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
 	const bucketName = "google-native-bucket-go-01"
-        pulumi.Run(func(ctx *pulumi.Context) error {
-                conf    := config.New(ctx, "google-native")
-                project := conf.Require("project")
-                // Create a Google Cloud resource (Storage Bucket)
-                bucket, err := storage.NewBucket(ctx, "bucket", &storage.BucketArgs{
-                        Name:    pulumi.StringPtr(bucketName),
-                        Bucket:  pulumi.String(project),
-                        Project: pulumi.String("pulumi-development"),
-                })
-                if err != nil {
-                        return err
-                }
-                ctx.Export("bucketName", bucket.SelfLink)
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		conf := config.New(ctx, "google-native")
+		project := conf.Require("project")
+		// Create a Google Cloud resource (Storage Bucket)
+		bucket, err := storage.NewBucket(ctx, "bucket", &storage.BucketArgs{
+			Name:    pulumi.StringPtr(bucketName),
+			Bucket:  pulumi.String(project),
+			Project: project,
+		})
+		if err != nil {
+			return err
+		}
+		// Export the bucket self-link
+		ctx.Export("bucket", bucket.SelfLink)
 
-                return nil
-        })
+		return nil
+	})
 }
 ```
 
@@ -114,13 +115,21 @@ func main() {
 ```csharp
 using System.Threading.Tasks;
 using Pulumi;
-using Pulumi.GoogleNative;
+using Pulumi.GoogleNative.Storage.V1;
 
 class Program
 {
     static Task Main() =>
         Deployment.Run(() => {
-            var bucket = new GoogleNative.Storage.v1.Bucket("my-bucket");
+            var config = new Config("google-native");
+            var project = config.Require("project");
+            var bucketName = "google-native-bucket-cs-01";
+            // Create a Google Cloud resource (Storage Bucket)
+            var bucket = new Bucket("my-bucket", new BucketArgs{
+                Name = bucketName,
+                Bucket = bucketName,
+                Project = project,
+            });
         });
 }
 ```
