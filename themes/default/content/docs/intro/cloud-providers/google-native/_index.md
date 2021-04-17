@@ -1,6 +1,6 @@
 ---
 title: Google-Native
-meta_desc: This page provides on an overview of the native Google Cloud (Google-Native) provider for Pulumi.
+meta_desc: This page provides on an overview of the native Google Cloud provider for Pulumi: Google-Native.
 menu:
   intro:
     parent: cloud-providers
