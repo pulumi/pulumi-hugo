@@ -23,21 +23,21 @@ The package can be used for a number of use cases:
 
 ## Workspace
 
-To enable a broad range of runtime customization the API defines a Workspace interface. A Workspace is the execution context containing a single Pulumi project, a program, and multiple stacks. Workspaces are used to manage the execution environment, providing various utilities such as plugin installation, environment configuration (`$PULUMI_HOME`), and creation, deletion, and listing of Stacks.
+To enable a broad range of runtime customization the API defines a `Workspace` interface. A `Workspace` is the execution context containing a single Pulumi project, a program, and multiple stacks. Workspaces are used to manage the execution environment, providing various utilities such as plugin installation, environment configuration (`$PULUMI_HOME`), and creation, deletion, and listing of Stacks.
 
-Custom Workspace implementations can be used to store Project and Stack settings as well as Config in a different format, such as an in-memory data structure, a shared persistent SQL database, or cloud object storage. Regardless of the backing Workspace implementation, the Pulumi SaaS Console will still be able to display configuration applied to updates as it does with the local version of the Workspace today.
+Custom `Workspace` implementations can be used to store Project and Stack settings as well as Config in a different format, such as an in-memory data structure, a shared persistent SQL database, or cloud object storage. Regardless of the backing `Workspace` implementation, the Pulumi SaaS Console will still be able to display configuration applied to updates as it does with the local version of the Workspace today.
 
 ### LocalWorkspace
 
-A default implementation of workspace is provided as LocalWorkspace. This implementation relies on `Pulumi.yaml` and `Pulumi.[stack].yaml` as the intermediate format for Project and Stack settings. Modifying `ProjectSettings` will alter the Workspace `Pulumi.yaml` file, and setting config on a Stack will modify the `Pulumi.[stack].yaml` file. This is identical to the behavior of Pulumi CLI driven workspaces.
+The `LocalWorkspace` class is the default implementation of `Workspace`. This implementation relies on `Pulumi.yaml` and `Pulumi.[stack].yaml` as the intermediate format for Project and Stack settings. Modifying `ProjectSettings` will alter the Workspace `Pulumi.yaml` file, and setting config on a Stack will modify the `Pulumi.[stack].yaml` file. This is identical to the behavior of Pulumi CLI driven workspaces.
 
 ## Stack
 
-Stack is an isolated, independently configurable instance of a Pulumi program. Stack exposes methods for the full pulumi lifecycle (up/preview/refresh/destroy), as well as managing configuration. Multiple Stacks are commonly used to denote different phases of development (such as development, staging and production) or feature branches (such as feature-x-dev, jane-feature-x-dev).
+The `Stack` class represents an isolated, independently configurable instance of a Pulumi program. `Stack` exposes methods for the full pulumi lifecycle (`up`/`preview`/`refresh`/`destroy`), as well as managing configuration. Multiple Stacks are commonly used to denote different phases of development (such as development, staging and production) or feature branches (such as feature-x-dev, jane-feature-x-dev). You can learn more about stacks in the [intro docs]({{< relref "/docs/intro/concepts/stack/" >}}).
 
 ## Local Program
 
-A Local Program is a traditional Pulumi CLI-driven program with its own directory, a `Pulumi.yaml` file, along with a file that defines the Pulumi program. Automation API can be used to drive these programs, as well as the CLI.
+A local program is a traditional Pulumi CLI-driven program with its own directory, a `Pulumi.yaml` file, along with a file that defines the Pulumi program. Automation API can be used to drive these programs, as well as the CLI.
 
 ## Inline Program
 
