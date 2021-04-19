@@ -472,8 +472,7 @@ using Pulumi.Automation;
 
 {{< /chooser >}}
 
-
-## Remaining on Pulumi 2.0 
+## Remaining on Pulumi 2.0
 
 We recommend switching to Pulumi 3.0 if possible. We will only push critical security and bug fixes into the 2.x branch.
 Other fixes, feature enhancements, and new functionality will not be supported in the 2.x branch. In addition, provider
@@ -482,5 +481,5 @@ updates will only be built against Pulumi 3.0.
 If you wish to remain on the 2.x CLI, you can continue to download the CLI by referring to the manual installation
 instructions and choosing a specific version.
 
-`pulumi new` will attempt to use the latest versions of the templates, which pull in the 3.0 SDK. You can continue to 
-use the 2.x templates by running pulumi new https://github.com/pulumi/templates/tree/2.x.
+Running `pulumi new` will attempt to use the latest versions of the project templates, which pull in the 3.0 SDK. You can continue to
+use the 2.x templates by running `pulumi new https://github.com/pulumi/templates/tree/2.x`.
