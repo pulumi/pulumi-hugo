@@ -13,7 +13,7 @@ aliases:
   - /start/
 ---
 
-Pulumi is a modern infrastructure-as-code platform that allows you to use common programming languages, tools, and frameworks, to provision, update, and manage cloud infrastructure resources.
+Pulumi is a modern infrastructure as code platform that allows you to use common programming languages, tools, and frameworks, to provision, update, and manage cloud infrastructure resources.
 
 Select one of the following options to learn how to deploy cloud resources using Pulumi:
 
