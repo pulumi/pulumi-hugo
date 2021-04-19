@@ -4,7 +4,7 @@ meta_desc: This page provides instructions for upgrading to Pulumi 3.0
 no_on_this_page: true
 ---
 
-Upgrading to Pulumi 3.0 can be accomplished through the following steps:
+Pulumi 3.0 is generally available. It’s simple to upgrade:
 
 1. [Install or upgrade to the 3.0 CLI]({{< relref "/docs/get-started/install" >}}).
 2. Review the updated CLI behaviors listed below.
@@ -326,7 +326,7 @@ func (mocks) Call(args MockCallArgs) (resource.PropertyMap, error) {
 Modify your project file to update the Pulumi SDK and any providers you use, like this:
 
 ```csharp
-<PackageReference Include="Pulumi" Version="3.0.*-*" />
+<PackageReference Include="Pulumi" Version="3.0.*" />
 ```
 
 ### Changes to pulumi.runtime.Mocks
@@ -471,3 +471,16 @@ using Pulumi.Automation;
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+
+## Remaining on Pulumi 2.0 
+
+We recommend switching to Pulumi 3.0 if possible. We will only push critical security and bug fixes into the 2.x branch.
+Other fixes, feature enhancements, and new functionality will not be supported in the 2.x branch. In addition, provider
+updates will only be built against Pulumi 3.0.
+
+If you wish to remain on the 2.x CLI, you can continue to download the CLI by referring to the manual installation
+instructions and choosing a specific version.
+
+`pulumi new` will attempt to use the latest versions of the templates, which pull in the 3.0 SDK. You can continue to 
+use the 2.x templates by running pulumi new https://github.com/pulumi/templates/tree/2.x.
