@@ -17,8 +17,8 @@ The package can be used for a number of use cases:
 - Integration testing
 - Multi-stage deployments such as blue-green deployment patterns
 - Deployments involving application code like database migrations
-- Building higher level tools, custom CLIs over pulumi, etc
-- Using pulumi behind a REST or GRPC API
+- Building higher level tools, custom CLIs over Pulumi, etc.
+- Using Pulumi behind a REST or GRPC API
 - Debugging Pulumi programs (by using a single main entrypoint with "inline" programs)
 
 ## Workspace
@@ -35,10 +35,10 @@ A default implementation of workspace is provided as LocalWorkspace. This implem
 
 Stack is an isolated, independently configurable instance of a Pulumi program. Stack exposes methods for the full pulumi lifecycle (up/preview/refresh/destroy), as well as managing configuration. Multiple Stacks are commonly used to denote different phases of development (such as development, staging and production) or feature branches (such as feature-x-dev, jane-feature-x-dev).
 
-### Local Program
+## Local Program
 
 A Local Program is a traditional Pulumi CLI-driven program with its own directory, a `Pulumi.yaml` file, along with a file that defines the Pulumi program. Automation API can be used to drive these programs, as well as the CLI.
 
-### Inline Program
+## Inline Program
 
-Unlike traditional Pulumi programs, inline programs don't require a separate package on disk, with its own file and a `Pulumi.yaml`. Inline programs are just functions that can be authored in the same file as your Automation API program or be imported from anther package.
+Unlike traditional Pulumi programs, inline programs don't require a separate package on disk, with its own file and a `Pulumi.yaml`. Inline programs are simply functions that can be authored in the same file as your Automation API program or be imported from anther package.

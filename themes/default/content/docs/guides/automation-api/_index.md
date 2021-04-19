@@ -24,7 +24,7 @@ To learn how to use Automation API, see [Getting Started with Automation API]({{
 
 ## Examples
 
-If you're looking for some examples to get started, look no further!
+The following examples demonstrate how to use Automation API in various use cases.
 
 {{< chooser language "typescript,javascript,python,go,csharp" >}}
 
@@ -91,8 +91,8 @@ Like all of Pulumi, Automation API is available in multiple languages, so you ca
 
 ## Blog Posts
 
-We've written lots of blog posts about how we're using Automation API along with contributions from the community. [Check them out](https://www.pulumi.com/blog/tag/automation-api/) for more ideas of what's possible with Automation API.
+For more ideas of what's possible with Automation API, [check out](https://www.pulumi.com/blog/tag/automation-api/) some of the ways we and community members use it in different use cases.
 
 ## Known issues
 
-Even though Automation API is stable and GA, we know bugs can pop up! We are tracking our list of [known issues](https://github.com/pulumi/pulumi/issues?q=is%3Aissue+is%3Aopen+label%3Aarea%2Fautomation-api) and encourage you to [file more](https://github.com/pulumi/pulumi/issues/new?assignees=&labels=needs-triage&template=bug_report.md&title=) as you find them!
+The GA release of Automation API is stable; however, we know bugs can pop up. We are tracking a list of [known issues](https://github.com/pulumi/pulumi/issues?q=is%3Aissue+is%3Aopen+label%3Aarea%2Fautomation-api) and encourage you to [file additional issues](https://github.com/pulumi/pulumi/issues/new?assignees=&labels=needs-triage&template=bug_report.md&title=) as you find them.
