@@ -10,7 +10,7 @@ meta_desc: |
 aliases:
     - /pulumiup
 
-countdown_date: 2021-04-20T09:00:00-08:00
+countdown_date: 2021-04-20T09:00:00-07:00
 
 event_sections:
     - title: The Vision
