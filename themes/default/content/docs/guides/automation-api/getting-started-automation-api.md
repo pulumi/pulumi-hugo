@@ -369,7 +369,7 @@ var stack = await LocalWorkspace.CreateOrSelectStackAsync(stackArgs);
 {{% /choosable %}}
 {{< /chooser >}}
 
-A `Stack` operates within the context of a `Workspace`. A `Workspace` is the execution context containing a single Pulumi project, a program, and multiple stacks. Workspaces are used to manage the execution environment, providing various utilities such as plugin installation, environment configuration (`$PULUMI_HOME`), and creation, deletion, and listing of stacks. Because you are deploying AWS resources in this tutorial, you must install the AWS provider plugin within your `Workspace` so that your Pulumi program will have it available during execution.
+A `Stack` object operates within the context of a `Workspace`. A `Workspace` is the execution context containing a single Pulumi project, a program, and multiple stacks. Workspaces are used to manage the execution environment, providing various utilities such as plugin installation, environment configuration (`$PULUMI_HOME`), and creation, deletion, and listing of stacks. Because you are deploying AWS resources in this tutorial, you must install the AWS provider plugin within your `Workspace` so that your Pulumi program will have it available during execution.
 
 ## Configure your provider plugins
 
