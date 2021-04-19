@@ -407,7 +407,7 @@ public Task<object> CallAsync(MockCallArgs args)
 
 ## Required updates for automation API users
 
-If you used the preview release of Automation API, you need to update programs that use automation API to use the following namespaces:
+If you used a pre-GA release of Automation API, you need to update programs that use automation API to use the following namespaces:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
