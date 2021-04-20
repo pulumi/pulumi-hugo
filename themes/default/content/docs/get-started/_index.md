@@ -43,12 +43,36 @@ Select one of the following options to learn how to deploy cloud resources using
                 </a>
             </div>
         </div>
-        <p>See <a href="{{< relref "/docs/intro/cloud-providers" >}}">Cloud Providers</a> for other clouds.</p>
+        <p class="text-sm leading-relaxed text-gray-600">See <a href="{{< relref "/docs/intro/cloud-providers" >}}">Cloud Providers</a> on how to use other supported clouds.</p>
+    </div>
+</div>
+<div class="md:flex flex-row mt-6 mb-6">
+    <div class="w-full border-solid border-t-2 border-gray-200">
+        <h3 class="no-anchor pt-4"><i class="fas fa-video pr-2"></i>Video Walkthrough</h3>
+        <p>Watch how to deploy a simple application using Pulumi.</p>
+        <div class="md:w-3/4">
+            {{< youtube id="QfJTJs24-JM" title="Introduction to Pulumi: Modern Infrastructure as Code" >}}
+        </div>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="w-full border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><i class="fas fa-users pr-2"></i>Live Workshops</h3>
         <p>Deploy your first Pulumi program in a live, <a href="{{< relref "/resources/introduction-to-pulumi" >}}">instructor-led event</a>.</p>
+    </div>
+</div>
+
+## Additional resources
+
+The following sections are also useful when first learning how to use Pulumi:
+
+<div class="md:flex flex-row mt-6 mb-6">
+    <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
+        <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts" >}}"><i class="fas fa-file-alt pr-2"></i>Architecture & Concepts</a></h3>
+        <p>Get details on the Pulumi programming model and core concepts.</p>
+    </div>
+    <div class="md:w-1/2 md:ml-4 border-solid border-t-2 border-gray-200">
+        <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/guides/adopting" >}}"><i class="fas fa-cloud pr-2"></i>Adopting Pulumi</a></h3>
+        <p>Learn how to support, migrate, or convert existing cloud infrastructure with Pulumi.</p>
     </div>
 </div>
