@@ -104,7 +104,7 @@
                                     <li class="mb-16">
                                         <a class="section-title-green-link" href="{{ $item.url }}">{{ $item.title }}</a>
                                         <pulumi-datetime class="plot-cast-title text-base mt-4" date="{{ $item.datetime }}"></pulumi-datetime>
-                                        <p>{{ $item.description }}</p>
+                                        <p class="text-white">{{ $item.description }}</p>
                                         <div class="my-8">
                                             <a href="{{ $item.url }}" class="btn btn-lg btn-orange-translucent">Register Now</a>
                                         </div>
@@ -120,7 +120,7 @@
                                 {{ range $item := .Params.binge }}
                                     <li class="mb-16">
                                         <a class="section-title-orange-link" href="{{ $item.url }}">{{ $item.title }}</a>
-                                        <p>{{ $item.description }}</p>
+                                        <p class="text-white">{{ $item.description }}</p>
                                         <div class="my-8">
                                             <a href="{{ $item.url }}" class="btn btn-lg btn-orange-translucent">Watch Now</a>
                                         </div>
