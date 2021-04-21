@@ -9,9 +9,9 @@ meta_desc: Pulumi API is one of the components required for self-hosting Pulumi.
 ---
 
 {{% notes type="info" %}}
-This page is for Self-Hosting of the **Pulumi Enterprise Edition**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Enterprise Edition.
+Self-hosting is only available with **Pulumi Enterprise Edition**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Enterprise Edition.
 
-For the **open source self-managed backends** see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
+To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
 
 The Pulumi API is one of the components required for self-hosting Pulumi in your organization's environment. It provides the necessary APIs for both the CLI and the [Console]({{< relref "console" >}}).
