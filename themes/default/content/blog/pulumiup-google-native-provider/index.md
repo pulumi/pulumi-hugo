@@ -71,7 +71,7 @@ region = "us-central1"
 cluster_name = "gke-native"
 
 cluster = container.Cluster("cluster", projects_id=project, locations_id=region,
-                            clusters_id=cluster_name, name=cluster_name, 
+                            clusters_id=cluster_name, name=cluster_name,
                             autopilot=container.AutopilotArgs(
                                 enabled=True))
 ```
