@@ -47,7 +47,6 @@ import * as google from "@pulumi/google-native";
 
 const project = "mythical-ember-311422";
 const region = "us-central1";
-
 const clusterName = "gke-native";
 const cluster = new google.container.v1.Cluster("cluster", {
     projectsId: project,
