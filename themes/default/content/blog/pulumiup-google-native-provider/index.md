@@ -45,9 +45,12 @@ Google Cloud Native is available in public preview today for all Pulumi language
 import * as pulumi from "@pulumi/pulumi";
 import * as google from "@pulumi/google-native";
 
-const project = "mythical-ember-311422";
+const config = new pulumi.Config("google-native");
+const project = config.require("project");
+
 const region = "us-central1";
 const clusterName = "gke-native";
+
 const cluster = new google.container.v1.Cluster("cluster", {
     projectsId: project,
     locationsId: region,
@@ -65,7 +68,9 @@ const cluster = new google.container.v1.Cluster("cluster", {
 import pulumi
 from pulumi_google_native.container import v1 as container
 
-project = "mythical-ember-311422"
+config = pulumi.Config('google-native')
+project = config.require('project')
+
 region = "us-central1"
 cluster_name = "gke-native"
 
@@ -86,15 +91,17 @@ package main
 
 import (
     container "github.com/pulumi/pulumi-google-native/sdk/go/google/container/v1"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
     "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
-    const project = "mythical-ember-311422"
     const region = "us-central1"
     const clusterName = "gke-native"
 
     pulumi.Run(func(ctx *pulumi.Context) error {
+        conf := config.New(ctx, "google-native")
+        project := conf.Require("project")
         cluster, err := container.NewCluster(ctx, "cluster", &container.ClusterArgs{
             Name:        pulumi.StringPtr(clusterName),
             ClustersId:  pulumi.String(clusterName),
@@ -128,7 +135,9 @@ class Program
 {
     static Task<int> Main() => Deployment.RunAsync(() =>
     {
-        var project = "mythical-ember-311422";
+        var config = new Config("google-native");
+        var project = config.Require("project");
+        
         var region = "us-central1";
         var clusterName = "gke-native";
 
