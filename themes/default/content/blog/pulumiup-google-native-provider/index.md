@@ -145,7 +145,7 @@ class Program
 
 {{< /chooser >}}
 
-API documentation is available in our API reference.
+API documentation is available in our [API reference]({{< relref "/docs/reference/pkg/google-native">}}).
 
 ## Works side-by-side with the existing Pulumi GCP Provider
 
