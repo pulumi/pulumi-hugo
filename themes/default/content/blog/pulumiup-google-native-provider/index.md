@@ -69,10 +69,13 @@ project = "mythical-ember-311422"
 region = "us-central1"
 cluster_name = "gke-native"
 
-cluster = container.Cluster("cluster", projects_id=project, locations_id=region,
-                            clusters_id=cluster_name, name=cluster_name,
-                            autopilot=container.AutopilotArgs(
-                                enabled=True))
+cluster = container.Cluster(
+            "cluster",
+            projects_id=project,
+            locations_id=region,
+            clusters_id=cluster_name,
+            name=cluster_name,
+            autopilot=container.AutopilotArgs(enabled=True))
 ```
 
 {{% /choosable %}}
@@ -82,7 +85,7 @@ cluster = container.Cluster("cluster", projects_id=project, locations_id=region,
 package main
 
 import (
-    cluster "github.com/pulumi/pulumi-google-native/sdk/go/google/container/v1"
+    container "github.com/pulumi/pulumi-google-native/sdk/go/google/container/v1"
     "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,12 +95,12 @@ func main() {
     const clusterName = "gke-native"
 
     pulumi.Run(func(ctx *pulumi.Context) error {
-        cluster, err := cluster.NewCluster(ctx, "cluster", &cluster.ClusterArgs{
+        cluster, err := container.NewCluster(ctx, "cluster", &container.ClusterArgs{
             Name:        pulumi.StringPtr(clusterName),
             ClustersId:  pulumi.String(clusterName),
             LocationsId: pulumi.String(region),
             ProjectsId:  pulumi.String(project),
-            Autopilot: cluster.AutopilotArgs{
+            Autopilot: container.AutopilotArgs{
                 Enabled: pulumi.Bool(true),
             },
         })
@@ -119,6 +122,7 @@ func main() {
 using System.Threading.Tasks;
 using Pulumi;
 using Pulumi.GoogleNative.Container.V1;
+using Pulumi.GoogleNative.Container.V1.Inputs;
 
 class Program
 {
@@ -134,7 +138,7 @@ class Program
             LocationsId = region,
             ClustersId = clusterName,
             Name = clusterName,
-            Autopilot = new Pulumi.GoogleNative.Container.V1.Inputs.AutopilotArgs { Enabled = true }
+            Autopilot = new AutopilotArgs { Enabled = true }
         });
     });
 }
