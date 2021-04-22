@@ -137,7 +137,7 @@ class Program
     {
         var config = new Config("google-native");
         var project = config.Require("project");
-        
+
         var region = "us-central1";
         var clusterName = "gke-native";
 
