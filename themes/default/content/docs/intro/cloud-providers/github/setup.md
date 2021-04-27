@@ -19,13 +19,17 @@ Once obtained, there are two ways to communicate your authorization tokens to Pu
 
     ```bash
     $ export GITHUB_TOKEN=XXXXXXXXXXXXXX
+    $ export GITHUB_OWNER=YYYYYYYYYYYYYY
     ```
 
 2. Set them using configuration, if you prefer that they be stored alongside your Pulumi stack for easy multi-user access:
 
     ```bash
     $ pulumi config set github:token XXXXXXXXXXXXXX --secret
+    $ pulumi config set github:owner YYYYYYYYYYYYYY
     ```
 
-Remember to pass `--secret` when setting `github:token` so that it is properly encrypted. A full set of configuration parameters
+If you need to target a specific GitHub organization of individual user account then you will need to set the owner configuration
+value. If this is not provided, then the owner of the GitHub Access Token will be the target of the provider. Remember
+to pass `--secret` when setting `github:token` so that it is properly encrypted. A full set of configuration parameters
 can be found listed on the [Project README](https://github.com/pulumi/pulumi-github/blob/master/README.md).
