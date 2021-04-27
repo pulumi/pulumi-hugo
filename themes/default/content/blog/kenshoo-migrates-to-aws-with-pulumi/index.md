@@ -27,7 +27,7 @@ We decided to adopt infrastructure elastic enough to support the rate of innovat
 
 We sought out the best infrastructure provider to shift as many services as possible to the cloud. AWS is a clear choice because of its unmatched managed services: RDS for our MySQL databases, Lambda functions for our scheduled processes and various automation tasks, DMS for data migration from the datacenter, Keyspaces for our Cassandra cluster, and EKS for our container workloads.
 
-![](image1.png)
+![Architecture](image1.png)
 
 ## How Pulumi Helped with Migration
 
@@ -54,7 +54,7 @@ Once the Kenshool team decided to standardize on Pulumi, we designed our archite
 
 We decided to create a project for each AWS organization OUs and a stack for each instance of our application service.
 
-![](image2.png)
+![Repositories](image2.png)
 
 For example, a project would be “platform-production” and contain all stacks and resources of individual environments such as “app1234,” where the number is an environment identifier.
 
