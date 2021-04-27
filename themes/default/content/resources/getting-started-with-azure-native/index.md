@@ -54,7 +54,7 @@ main:
     # Duration of the webinar.
     duration: "1 hour"
     # Datetime of the webinar.
-    datetime: "APR 28TH, 2021"
+    datetime: "April 28th, 2021"
     # Description of the webinar.
     description: |
         Microsoft Azure’s product offering is continuously evolving, and infrastructure tools often can’t keep up with the speed of innovation. Pulumi’s Azure Native provider is built directly from the Azure API, bringing power of familiar programming languages to Azure without sacrificing on latest features.
