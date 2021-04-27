@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            {{ $both := sort (append $js $ts) ".Title" }}
+            {{ $both := (append $js $ts) }}
             {{ if eq (len $both) 0 }}
                 <tr>
                     <td>
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
             {{ else }}
-                {{ range $both }}
+                {{ range sort $both ".Params.h1" }}
                     <tr>
                         <td>
                             <a href="{{ .RelPermalink }}">{{ .Params.h1 }}</a></td>
@@ -60,7 +60,7 @@
                     </td>
                 </tr>
             {{ else }}
-                {{ range $py }}
+                {{ range sort $py ".Params.h1" }}
                     <tr>
                         <td>
                             <a href="{{ .RelPermalink }}">{{ .Params.h1 }}</a></td>
@@ -87,7 +87,7 @@
                     </td>
                 </tr>
             {{ else }}
-                {{ range $go }}
+                {{ range sort $go ".Params.h1" }}
                     <tr>
                         <td>
                             <a href="{{ .RelPermalink }}">{{ .Params.h1 }}</a></td>
@@ -114,7 +114,7 @@
                     </td>
                 </tr>
             {{ else }}
-                {{ range $cs }}
+                {{ range sort $cs ".Params.h1" }}
                     <tr>
                         <td>
                             <a href="{{ .RelPermalink }}">{{ .Params.h1 }}</a></td>
