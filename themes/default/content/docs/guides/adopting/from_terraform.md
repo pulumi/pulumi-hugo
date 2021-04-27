@@ -438,6 +438,7 @@ Next, run `tf2pulumi`. It will convert the entire project whose directory you ar
 ```bash
 $ tf2pulumi --target-language typescript
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 
@@ -450,6 +451,7 @@ Next, run `tf2pulumi`. It will convert the entire project whose directory you ar
 ```bash
 $ tf2pulumi --target-language python
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 
@@ -462,6 +464,7 @@ Next, run `tf2pulumi`. It will convert the entire project whose directory you ar
 ```bash
 $ tf2pulumi --target-language go
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 
@@ -474,6 +477,7 @@ Next, run `tf2pulumi`. It will convert the entire project whose directory you ar
 ```bash
 $ tf2pulumi --target-language csharp
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
