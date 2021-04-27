@@ -8,7 +8,7 @@ menu:
     weight: 2
 ---
 
-A Pulumi provider that lets you provision servers on a libvirt host via Pulumi.
+A Pulumi provider that lets you provision servers on a libvirt host using Pulumi.
 
 See the [full API documentation]({{< relref "/docs/reference/pkg/libvirt" >}}) for complete details of the available libvirt provider APIs.
 
