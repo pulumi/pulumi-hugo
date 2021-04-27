@@ -1,12 +1,14 @@
 ---
-title: "Kenshoo Migrates to Aws With Pulumi"
+title: "Kenshoo Migrates to AWS with Pulumi"
 date: 2021-04-29
 meta_desc: "Kenshoo used Pulumi from their private cloud infrastructure to the AWS public cloud."
 meta_image: meta.png
 authors:
     - sophia-parafina
 tags:
-    - change-me
+    - Kenshoo
+    - AWS
+    - migration
 ---
 
 Kenshoo is an independent, global marketing platform for strategy, measurement, and best-of-breed activation across all of the world’s most influential digital channels. Kenshoo’s solution provides data-driven insights and optimization technology to help companies make informed decisions and scale performance across critical publishers.
@@ -27,7 +29,7 @@ We sought out the best infrastructure provider to shift as many services as poss
 
 ![](image1.png)
 
-## How Pulumi Helped with the Migration
+## How Pulumi Helped with Migration
 
 Once the team selected a cloud platform, it was time to plan and execute the migration. Kenshoo’s DevOps group was selected to lead the project.
 
@@ -46,7 +48,7 @@ We were looking for a new solution that would:
 
 We immediately fell in love with Pulumi, with its programmatic design, extensive modules, and extensibility via dynamic providers.
 
-### Project and Stack Design
+### Project and Stack design
 
 Once the Kenshool team decided to standardize on Pulumi, we designed our architecture to support our use case and development cycle.
 
@@ -58,7 +60,7 @@ For example, a project would be “platform-production” and contain all stacks
 
 This provided the optimal mix of releasing new code versions per workload type and placing them in the development lifecycle while making granular configuration changes per each instance more manageable.
 
-### Programming Language
+### Programming language
 
 Pulumi supports several programming languages. For us, Python was an obvious choice due to its highly extensible nature, simplicity, and the team's considerable amount of prior experience with Python. Since most existing automations were written in Python, this made adopting Pulumi very easy for the team.
 
@@ -102,7 +104,7 @@ class KSAppServer(pulumi.ComponentResource):
 
 This practice enabled the application team to work on classes without being entirely dependent on the progress of the Core infrastructure team, which worked on classes of more low-level infrastructure such as VPCs and networking objects.
 
-### What about those internal Metadata systems?
+### What about those internal metadata systems?
 
 One more challenge we faced is registering each new instance of our application with internal metadata and IT systems. In our data center setup, we relied on a set of Jenkins jobs, but now, we wanted to integrate these processes with our code and make sure that we always have a consistent state of registration. We decided to use Pulumi’s dynamic providers to achieve this:
 
