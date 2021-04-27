@@ -1,5 +1,5 @@
 ---
-title: "Cloud Engineering the Future Is Now"
+title: "Cloud Engineering: The Future Is Now"
 date: 2021-04-28
 meta_desc: "PulumiUP is a two hour event featuring industry leaders discussing the current state of cloud engineering and its future impacts on DevOps."
 meta_image: meta.png
@@ -17,13 +17,17 @@ Thank you for joining the PulumiUP event. We had a stellar set of speakers and p
 
 Our speakers all commented on how the cloud is speeding up development. Applications are dynamic, and your infrastructure should also be dynamic, according to Adrian Cockcroft. The future of infrastructure is a mixture of lightweight, scalable services combined with event-driven architecture. Furthermore, composing infrastructure should take advantage of well-architected frameworks such as those published by AWS and Liberty Mutual.
 
-Underscoring this, Justin Fitzhugh, VP of Cloud Engineering at Snowflake, cited the need to disaggregate compute and storage to scale independently. Moreover, Snowflake needed to scale across three public clouds with self-managed infrastructure. In Snowflake's experience, scaling with manual processes was not a viable option. They codified actions by following the software engineering process of code commits, tests, CI processes, and a CD pipeline for execution. Keith Redman, VP of SaaS Engineering at Fernergo, coming from the financial services industry, reiterated the need for a deployment framework that bridged dev and ops teams and an automated build and release process to maintain integrity and reliability. It required a change in culture from teams handing off tasks to each other without input from the other to a completely integrated team where all actions with infrastructure begin with a code commit. The culture shift to an engineering managed process also changed hiring patterns from operators and system administrators with some coding skills to software engineers interested in infrastructure.
+Underscoring this, Justin Fitzhugh, VP of Cloud Engineering at Snowflake, cited the need to disaggregate compute and storage to scale independently. Moreover, Snowflake needed to scale across three public clouds with self-managed infrastructure. In Snowflake's experience, scaling with manual processes was not a viable option. They codified actions by following the software engineering process of code commits, tests, CI processes, and a CD pipeline for execution.
+
+Keith Redman, VP of SaaS Engineering at Fernergo, coming from the financial services industry, reiterated the need for a deployment framework that bridged dev and ops teams and an automated build and release process to maintain integrity and reliability. It required a change in culture from teams handing off tasks to each other without input from the other to a completely integrated team where all actions with infrastructure begin with a code commit. The culture shift to an engineering managed process also changed hiring patterns from operators and system administrators with some coding skills to software engineers interested in infrastructure.
+
+In the current cloud engineering landscape, we will continue to see movement towards heterogeneous architectures, an increase in the use of software engineering methodologies to deploy infrastructure, and more automation for building and deploying in the cloud. This segues into the future of cloud engineering with a focus on tooling, process, and teams.
 
 ## The Future of Cloud Engineering
 
 The cloud engineering panel included Justin Fitzhugh, Dana Lawson, VP of Engineering Github, Charity Majors, CTO Honeycomb, and Cat Cosgrove, Developer Advocate JFrog, moderating. The session, titled "Your Peers," discussed the future of cloud engineering.
 
-When planning for the future of modern cloud applications, the panel agreed that the industry would continue to iterate and evolve away from DSLs and towards software engineering practices for infrastructure. They also agreed that **go** would be the winner for IaC languages, but Ruby and JavaScript will continue to be key languages.
+When planning for the future of modern cloud applications, the panel agreed that the industry would continue to iterate and evolve away from DSLs and towards software engineering practices for infrastructure. They also agreed that **go** would be the most popular language for Iinfrastructure as Code, but Ruby and JavaScript will continue to be key languages.
 
 Cloud engineering personas will change as new technologies such as the Internet of Things, availability of 5G, orchestration, edge computing, and future network APIs roll out. Cloud engineers should continue to focus on containers and what goes into applications. Knowing the entire lifecycle of their application from development to production is a must for cloud engineers. It underlies the concept of a single persona that can use services to compose development and services. Ultimately, the job of the cloud engineer is to reduce complexity and reduce friction in the pipeline through using patterns, as needed, and building platforms and tools consistently.
 
