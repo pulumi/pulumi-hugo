@@ -22,7 +22,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 
 | **Component** | **Pulumi** | **Terraform** |
 | :--- | :--- | :--- |
-| [Language Support]({{< relref "#languagesupport" >}}) | Python, TypeScript, JavaScript, Go, .NET core languages | Hashicorp Configuration Language (HCL) |
+| [Language Support]({{< relref "#languagesupport" >}}) | Python, TypeScript, JavaScript, Go, C#, F# | Hashicorp Configuration Language (HCL) |
 | [State Management]({{< relref "#statemanagement" >}}) | Managed through Pulumi Service by default, self-managed options available | Self-managed by default, managed SaaS offering available |
 | [Provider Support]({{< relref "#providersupport" >}}) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage | Support across multiple IaaS, SaaS, and PaaS providers |
 | [OSS License]({{< relref "#license" >}}) | Apache License 2.0 | Mozilla Public License 2.0 |
@@ -33,7 +33,7 @@ The following sections go into further detail on the differences between Pulumi 
 
 ## Language Support {#languagesupport}
 
-Terraform requires that you and your team you write programs in a custom domain-specific-language (DSL) called HashiCorp Configuration Language
+Terraform requires that you and your team write programs in a custom domain-specific-language (DSL) called HashiCorp Configuration Language
 (HCL). In contrast, Pulumi lets you use programming languages like Python, Go, JavaScript, TypeScript, and C#. Because of the use of familiar languages, you get familiar constructs like for loops, functions, and classes. This significantly improves the ability to cut down on boilerplate and enforce best practices. Instead of creating
 a new ecosystem of modules and sharing, Pulumi lets you leverage existing package management tools and techniques.
 
