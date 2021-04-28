@@ -180,10 +180,6 @@ statements granting:
 - usage access to users
 - and denying delete bucket rights for everyone.
 
-```typescript
-const statement = policy.getStatement("MyFancySID");
-```
-
 Let's create an S3 Bucket with a Bucket Policy having multiple Statements.
 
 ```typescript
@@ -265,6 +261,10 @@ export function createS3BucketPolicy(
 To test if the S3 Bucket Policy allows access for bucket administrators we
 needed something to check if a Statement is present in the Policy and to test
 that the content of that single Statement.
+
+```typescript
+const statement = policy.getStatement("MyFancySID");
+```
 
 `@thinkinglabs/aws-iam-policy` provides the ability to retrieve a single
 Statement by its `Sid` if one was provided.
