@@ -1,5 +1,5 @@
 ---
-title: "Testable Iam Policy Documents"
+title: "Testable IAM Policy Documents"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
