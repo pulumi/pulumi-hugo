@@ -4,12 +4,14 @@ date: 2021-04-29
 meta_desc: "Kenshoo used Pulumi from their private cloud infrastructure to the AWS public cloud."
 meta_image: meta.png
 authors:
-    - sophia-parafina
+    - danny-zalkind
 tags:
     - Kenshoo
     - AWS
     - migration
 ---
+
+> Danny Zalkind is the DevOps group manager for Kenshoo, an award-winning intelligent marketing platform. He brings his 15 years of exprience of managing tech teams to his current role where he's dedicated to allow Kenshoo R&D to efficiently produce and serve software. You can find him on [Linkedin](https://www.linkedin.com/in/danny-zalkind-01602b56/).
 
 Kenshoo is an independent, global marketing platform for strategy, measurement, and best-of-breed activation across all of the world’s most influential digital channels. Kenshoo’s solution provides data-driven insights and optimization technology to help companies make informed decisions and scale performance across critical publishers.
 
