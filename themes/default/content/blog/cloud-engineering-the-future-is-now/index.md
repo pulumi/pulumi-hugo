@@ -25,7 +25,7 @@ In the current cloud engineering landscape, we will continue to see movement tow
 
 ## The Future of Cloud Engineering
 
-The cloud engineering panel included Justin Fitzhugh, Dana Lawson, VP of Engineering Github, Charity Majors, CTO Honeycomb, and Cat Cosgrove, Developer Advocate JFrog, moderating. The session, titled "Your Peers," discussed the future of cloud engineering.
+The cloud engineering panel included Justin Fitzhugh, Dana Lawson, VP of Engineering at GitHub, Charity Majors, CTO at Honeycomb, and was moderated by Kat Cosgrove, Developer Advocate at JFrog. The session, titled "Your Peers," discussed the future of cloud engineering.
 
 When planning for the future of modern cloud applications, the panel agreed that the industry would continue to iterate and evolve away from DSLs and towards software engineering practices for infrastructure. They also agreed that **go** would be the most popular language for Iinfrastructure as Code, but Ruby and JavaScript will continue to be key languages.
 
