@@ -6,7 +6,6 @@ meta_image: kenshoo.png
 authors:
     - danny-zalkind
 tags:
-    - Kenshoo
     - AWS
     - migration
 ---
