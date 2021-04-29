@@ -14,7 +14,7 @@ This guide describes how we combine both versioning approaches to achieve the fo
 
 ## Azure-Native Semantic Versioning
 
-Releases of the Azure-Native SDKs follow the semantic versioning convention, where each version is identified with three numbers: `major.minor.patch`, for example, `1.2.1`:
+Releases of the Azure-Native SDKs follow the semantic versioning convention, where each version is identified with three numbers: `major.minor.patch` (for example, `1.2.1`).
 
 - Patch versions contain bug fixes only.
 - Minor versions may ship fixes and new functionality that doesn't break existing code: new resources, functions, properties.
@@ -22,7 +22,7 @@ Releases of the Azure-Native SDKs follow the semantic versioning convention, whe
 
 Microsoft has defined [Breaking changes guidelines](https://github.com/Azure/azure-rest-api-specs/blob/master/documentation/Breaking%20changes%20guidelines.md) for all the Azure API specifications. The native Azure provider generates SDKs from the Open API specifications, so we rely on Microsoft to follow their breaking changes guideline.
 
-Sometimes, Microsoft would ship a breaking change anyway. For example, they may rename a misspelled property in the spec to match it with the actual service behavior. We treat these occurrences as bug fixes and ship them in patch or minor provider versions without revving the major version.
+Occasionally, Microsoft ships breaking changes. For example, they may rename a misspelled property in the spec to match it with the actual service behavior. We treat these occurrences as bug fixes and ship them in patch or minor provider versions without revving the major version.
 
 ## Module Per Version
 
@@ -76,7 +76,7 @@ keyvault.NewVault(/*...*/)
 
 As soon as Microsoft publishes a new API version, the corresponding module is created in the native Azure provider for Pulumi and will be published in the next minor release.
 
-Older API versions remain in the provider indefinitely. Therefore, you can pin all your resources to specific API versions. You can keep using them for as long as those versions are supported by Azure, even across major versions of the Pulumi Azure-Native provider.
+Older API versions remain in the provider indefinitely; therefore, you can pin all your resources to specific API versions. You can keep using them for as long as those versions are supported by Azure, even across major versions of the Pulumi Azure-Native provider.
 
 ## Top-Level Modules
 
@@ -126,7 +126,7 @@ keyvault.NewVault(/*...*/)
 
 {{< /chooser >}}
 
-Top-level resources are a convenience mechanism to simplify the experience of users that don't have a preference over which API version to use for every resource. We expect most users to use top-level resources most of the time, without the need to specify an explicit API version.
+Top-level resources are useful when you don't have a preference over which API version is used for every resource. We expect most users to use top-level resources most of the time, without the need to specify an explicit API version.
 
 Each top-level resource maps internally to a specific API version. The native Azure provider maintains this mapping with the following guidelines:
 
@@ -134,10 +134,10 @@ Each top-level resource maps internally to a specific API version. The native Az
 - The selected API version is pinned across all minor versions of the same major version. Even if a newer API version is released, we do not promote the top-level resources to it.
 - We may introduce some manual overrides to the rules above. For example, we may use a new preview version when the latest stable version is obviously out of date. We may manually promote top-level resources to a new API version to get access to new necessary functionality. In any case, we adhere to the breaking changes policy.
 
-Because of that, top-level resources may miss newly released features shipped in brand-new API versions after the last major release. In such cases, users are encouraged to use explicitly versioned modules to access the latest Azure functionality.
+Because of that, top-level resources may miss newly released features shipped in brand-new API versions after the last major release. In such cases, you are encouraged to use explicitly versioned modules to access the latest Azure functionality.
 
 The [API reference docs]({{< relref "/docs/reference/pkg/azure-native/" >}}) describe top-level resources and do not currently show any module-per-version variations.
 
 ## Switching Between API Versions
 
-Users may switch between different API versions of a given resource, including to and from its top-level default representation, at their convenience. Resource types have aliases defined, so the switch does not require resource re-creation.
+You may switch between different API versions of a given resource, including to and from its top-level default representation, whenever you want. Resource types have aliases defined, so the switch does not require resource re-creation.

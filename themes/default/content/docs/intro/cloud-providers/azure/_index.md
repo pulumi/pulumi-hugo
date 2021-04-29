@@ -121,9 +121,9 @@ The following packages are available in package managers:
 
 The native Azure provider SDKs are open source and available in the [pulumi/pulumi-azure-native](https://github.com/pulumi/pulumi-azure-native) repo.
 
-## Version Guide
+## Versioning
 
-The native Azure provider SDKs provide access to all API versions of each Azure resource. This way, you can access the entire Azure API surface, and you can pin to the version you prefer.
+The native Azure provider SDKs provide access to all API versions of each Azure resource. This way, you can access the entire Azure API surface and pin to the version you prefer.
 
 The [Version Guide]({{< relref "./version-guide" >}}) describes the versioning in detail, including both module-per-version and top-level-resources approaches.
 
