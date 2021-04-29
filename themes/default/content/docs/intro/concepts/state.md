@@ -157,7 +157,7 @@ $ pulumi login s3://<bucket-name>
 ```
 
 {{% notes type="info"%}}
-The `bucket-name` value can include multiple folders, such as `my-bucket/teamprojects/project1/`. This is useful when storing multiple projects' state in the same bucket.
+The `bucket-name` value can include multiple folders, such as `my-bucket/app/project1`. This is useful when storing multiple projects' state in the same bucket.
 {{% /notes %}}
 
 To configure credentials and authorize access, please see the [AWS Session documentation](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/). For additional configuration options, see [AWS Setup]({{< relref "/docs/intro/cloud-providers/aws/setup" >}}). If you're new to AWS S3, see [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
