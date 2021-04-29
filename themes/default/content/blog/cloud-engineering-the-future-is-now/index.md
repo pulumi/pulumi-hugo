@@ -15,7 +15,7 @@ Thank you for joining the PulumiUP event. We had a stellar set of speakers and p
 
 ## Putting Cloud Engineering in Practice
 
-Our speakers all commented on how the cloud is speeding up development. Applications are dynamic, and your infrastructure should also be dynamic, according to Adrian Cockcroft. The future of infrastructure is a mixture of lightweight, scalable services combined with event-driven architecture. Furthermore, composing infrastructure should take advantage of well-architected frameworks such as those published by AWS and Liberty Mutual.
+Our speakers all commented on how the cloud is speeding up development. Applications are dynamic, and your infrastructure should also be dynamic, according to Adrian Cockcroft, VP of Sustainability Architecture at Amazon. The future of infrastructure is a mixture of lightweight, scalable services combined with event-driven architecture. Furthermore, composing infrastructure should take advantage of well-architected frameworks such as those published by AWS and Liberty Mutual.
 
 Underscoring this, Justin Fitzhugh, VP of Cloud Engineering at Snowflake, cited the need to disaggregate compute and storage to scale independently. Moreover, Snowflake needed to scale across three public clouds with self-managed infrastructure. In Snowflake's experience, scaling with manual processes was not a viable option. They codified actions by following the software engineering process of code commits, tests, CI processes, and a CD pipeline for execution.
 
@@ -27,7 +27,7 @@ In the current cloud engineering landscape, we will continue to see movement tow
 
 The cloud engineering panel included Justin Fitzhugh, Dana Lawson, VP of Engineering at GitHub, Charity Majors, CTO at Honeycomb, and was moderated by Kat Cosgrove, Developer Advocate at JFrog. The session, titled "Your Peers," discussed the future of cloud engineering.
 
-When planning for the future of modern cloud applications, the panel agreed that the industry would continue to iterate and evolve away from DSLs and towards software engineering practices for infrastructure. They also agreed that while **Go** would be the most popular language for Infrastructure as Code, Ruby and JavaScript will also continue to be key languages.
+When planning for the future of modern cloud applications, the panel agreed that the industry would continue to iterate and evolve away from domain specific languages, DSLs, and towards software engineering practices for infrastructure. They also agreed that while **Go** would be the most popular language for Infrastructure as Code, Ruby and JavaScript will also continue to be key languages.
 
 Cloud engineering personas will change as new technologies such as the Internet of Things, availability of 5G, orchestration, edge computing, and future network APIs roll out. Cloud engineers should continue to focus on containers and what goes into applications. Knowing the entire lifecycle of their application from development to production is a must for cloud engineers. It underlies the concept of a single persona that can use services to compose development and services. Ultimately, the job of the cloud engineer is to reduce complexity and reduce friction in the pipeline by using patterns as needed and building platforms and tools consistently.
 
