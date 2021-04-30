@@ -125,9 +125,11 @@ class KremMetadataRegistration:
         if response_id:
             post(url=f'{URL}/onboarding/offboarding',
                  params={'id': response_id})
+```
 
 Next, we reference the dynamic provider in another class that we call from the end-to-end code of the whole provisioning flow.
 
+```python
 from pulumi.dynamic import *
 from .metadata.krem_metadata_registration import KremMetadataRegistration
 
