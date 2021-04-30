@@ -93,7 +93,7 @@ Policy documents. Not much. Except for
 [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html).
 But then you drag the whole CDK Node.js package into your project only to handle
 IAM Policy documents. But, AWS CDK was a good basis for designing
-[@thinkinglabs/aws-iam-policy](https://www.npmjs.com/package/@thinkinglabs/aws-iam-policy).
+[@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
 
 ## A simple identity-based policy
 
