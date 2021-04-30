@@ -366,10 +366,11 @@ new Statement({
 
 I am also thinking to add validation for `Sid`s. According to the AWS IAM
 documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`.
-But I figured out that resource-based Policies accept spaces for `Sid`s. AWS
-does not document this. But the documentation for S3 Bucket Policies, KMS Key
-Policies and Secret Manager Secret Policies clearly show examples with spaces
-for `Sid`s.
+But I figured out that resource-based Policies for some services accept spaces
+for `Sid`s. AWS does not document this. Although the documentation for
+[S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4),
+[KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default)
+clearly show examples with spaces for `Sid`s.
 
 The library does not support `NotPrincipal`, `NotAction` and `NotResource`
 because I did not need it at the time. At some point, I will add support for
