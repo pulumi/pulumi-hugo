@@ -5,7 +5,7 @@ title: "Testable IAM Policy Documents"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2021-04-28T11:34:09+02:00
+date: 2021-05-02T11:34:09+02:00
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting your post for review.
