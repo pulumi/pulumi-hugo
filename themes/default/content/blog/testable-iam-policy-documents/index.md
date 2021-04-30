@@ -347,11 +347,29 @@ pulumi.runtime.setMocks({
 });
 ```
 
-## Limitations
+## Ideas for future improvements
 
-Because of laziness from my side, there is no object model for `Condition`,
-neither support for `NotPrincipal`, `NotAction` and `NotResource`.
+At the moment, `Condition` accepts any JSON object. If it is valid or not. The
+library will serialise it to JSON as is. To avoid building an invalid
+`Condition` element, I am thinking to add an object model for this. The API
+would look something like this.
 
-At the moment, `Condition` accept any JSON object. An object model for the
-`Condition` element is planned for version 2.0 because this introduces a
-breaking change.
+```typescript
+new Statement({
+  effect: "Deny",
+  ...
+  conditions: [
+    new Condition("StringNotLike", "aws:userId", ["userId1", "userId2", ...]),
+  ]
+})
+```
+
+I would like to add validation for `Sid`s. According to the AWS IAM
+documentation does an Sid only accept alphanumerical characters [a-zA-Z0-9].
+But I figured out that resource-based Policies accept spaces for `Sid`s. This is
+not documented. But the documentation for S3 Bucket Policies, KMS Key Policies
+and Secret Manager Secret Policies clearly show examples with spaces for `Sid`s.
+
+The library does not support `NotPrincipal`, `NotAction` and `NotResource`
+because I did not need it at the time. It would be good to add support for that
+too.
