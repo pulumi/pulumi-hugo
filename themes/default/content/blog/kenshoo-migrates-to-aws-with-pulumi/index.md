@@ -30,7 +30,7 @@ We sought out the best infrastructure provider to shift as many services as poss
 
 ![Architecture](image1.png)
 
-## How Pulumi Helped with Migration
+## How Pulumi helped with migration
 
 Once the team selected a cloud platform, it was time to plan and execute the migration. Kenshoo’s DevOps group was selected to lead the project.
 
