@@ -51,7 +51,7 @@ We immediately fell in love with Pulumi, with its programmatic design, extensive
 
 ### Project and Stack design
 
-Once the Kenshool team decided to standardize on Pulumi, we designed our architecture to support our use case and development cycle.
+When the Kenshoo team decided to standardize on Pulumi, we designed our architecture to support our use case and development cycle.
 
 We decided to create a project for each AWS organization OUs and a stack for each instance of our application service.
 
