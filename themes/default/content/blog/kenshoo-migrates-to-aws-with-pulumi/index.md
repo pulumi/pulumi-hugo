@@ -1,6 +1,6 @@
 ---
 title: "Kenshoo Migrates to AWS with Pulumi"
-date: 2021-04-29
+date: 2021-05-04
 meta_desc: "Kenshoo used Pulumi from their private cloud infrastructure to the AWS public cloud."
 meta_image: kenshoo.png
 authors:
