@@ -22,15 +22,19 @@ Pulumi is an <a href="https://github.com/pulumi/pulumi" target="_blank">open sou
     <div class="md:flex justify-between items-center">
         <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="{{< relref "/docs/get-started/aws" >}}">
             <img class="inline-block h-8 w-auto -mb-2" src="/logos/tech/aws.svg">
+            <p class="mb-0  mt-2.5">Tutorial</p>
         </a>
         <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="{{< relref "/docs/get-started/azure" >}}">
             <img class="inline-block h-8 w-auto" src="/logos/tech/azure.svg">
+            <p class="mb-0  mt-2">Tutorial</p>
         </a>
         <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="{{< relref "/docs/get-started/gcp" >}}">
             <img class="inline-block h-8 w-auto" src="/logos/tech/gcp.svg">
+            <p class="mb-0  mt-2">Tutorial</p>
         </a>
         <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="{{< relref "/docs/get-started/kubernetes" >}}">
             <img class="inline-block h-8 w-auto" src="/logos/tech/k8s.svg">
+            <p class="mb-0 mt-2">Tutorial</p>
         </a>
     </div>
 </div>
