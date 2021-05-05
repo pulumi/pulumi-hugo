@@ -4,8 +4,9 @@
 
 {{ define "main" }}
     <section class="container mx-auto mt-32">
-        <div class="text-center mb-8">
-            {{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "purple") }}
+        <div class="text-center mb-8 bg-violet-200 w-12 h-12 rounded-full mx-auto">
+            <p class="text-violet-600 inline-block m-2 text-xl font-display font-semibold">1</p>
+            <!-- {{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "purple") }} -->
         </div>
         <h2 class="text-center">Install the Pulumi CLI</h2>
         <p class="text-center">To use the open source Pulumi SDK or the Pulumi Console UI you need to have the Pulumi CLI installed.</p>
@@ -20,8 +21,9 @@
         <p class="text-center">Or review <a href="{{ relref . "/docs/get-started/install" }}" class="underline">other installation options</a>.</p>
     </section>
     <section class="container mx-auto mt-32">
-        <div class="text-center mb-8">
-            {{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "salmon") }}
+        <div class="text-center mb-8 bg-salmon-200 w-12 h-12 rounded-full mx-auto">
+            <p class="text-salmon-600 inline-block m-2 text-xl font-display font-semibold">2</p>
+            <!-- {{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "salmon") }} -->
         </div>
         <h2 class="mb-8 text-center">Start learning or explore</h2>
 
@@ -38,7 +40,7 @@
                 <div class="border lg:border-none lg:shadow-2xl p-8 lg:px-24 lg:pt-4 g:pb-12 rounded-xl bg-white">
                     <h3>Explore</h4>
                     <p class="mb-16 pb-1">The optional Pulumi Console UI manages deployment state and provides collaboration tools. Sign in to explore!</p>
-                    <a href="{{ relref . "/docs/guides/adopting" }}" class="btn-secondary">Sign Up</a>
+                    <a href="{{ relref . "https://app.pulumi.com/" }}" class="btn-secondary">Sign Up</a>
                 </div>
             </div>
         </div>
