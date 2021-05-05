@@ -123,7 +123,7 @@ The native Azure provider SDKs are open source and available in the [pulumi/pulu
 
 ## Easy SDK Integration
 
-The native Azure provider SDKs provide convenience helpers to hydrate an Azure SDK client in each supported language seeded with the provider's configured credentials. This allows users to operate on resources that are either not serviced by the Azure Resource Manager (ARM) resource model or are not compatible with the lifecycle for a Pulumi resource. See below for links to examples in each of the supported languages:
+The native Azure provider SDKs provide convenience helpers to hydrate an Azure SDK client in each supported language seeded with the provider's configured credentials. This allows users to operate on resources that are not compatible with Pulumi's resource model and may not be included in the Pulumi SDKs. See below for links to examples in each of the supported languages that demonstrate invoking the Azure SDK client:
 
 * [Typescript](https://github.com/pulumi/examples/tree/master/azure-ts-call-azure-sdk)
 * [Go](https://github.com/pulumi/examples/tree/master/azure-go-call-azure-sdk)
