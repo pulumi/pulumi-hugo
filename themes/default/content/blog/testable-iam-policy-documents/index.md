@@ -1,46 +1,17 @@
 ---
 title: "Testable IAM Policy Documents"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
-date: 2021-05-02T11:34:09+02:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
+date: 2021-05-06
 draft: true
-
-# Use the optional meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. If omitted or left blank, the content preceding the `<!--more-->` token
-# will be used in its place.
 meta_desc:
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - thierry-de-pauw
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - aws
-    - iam
-
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
+    - AWS
+    - IAM
 ---
 
-Pulumi was a relief to me. Finally, we have testable Infrastructure as Code.
-Now, we can write actual, fast unit tests that we can execute locally without
-needing the cloud. However, one thing disappointed me. It misses a proper API
-for manipulating AWS IAM Policy documents.
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Codea nd write fast unit tests that we can execute locally without needing the cloud. However, I was disappointed that Pulumi does not have a proper API for manipulating AWS IAM Policy documents.
 
 <!--more-->
 
@@ -61,39 +32,23 @@ const policy = new aws.iam.Policy("policy", {
 });
 ```
 
-But there is no validation. It is perfectly possible to
-pass an invalid IAM Policy document. You will only notice this the minute you
-apply it to the AWS cloud. That is a reasonably long feedback loop incurring a
-significant amount of wait time and correction time.
+It is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is a unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
 
 To avoid this, I prefer to write my policies as Policy as Code. It avoids
-common syntax errors. Therefore it reduces the feedback cycle and increases
+common syntax errors, reduces the feedback cycle and increases
 your delivery throughput.
 
 Having to pass a JSON as a policy document was a bit disappointing.
 
-But there is more. I work in the financial industry. Compliance is kind of
-important. So, I was in search of something that allowed me to easily unit test
-IAM Policy documents, preferably at the Statement level. That would help us to
-adhere to security requirements.
+I work in the financial industry and compliance is important. So, I was in search of something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us to adhere to security requirements.
 
-Before reinventing the wheel, I looked around for what already existed in the
-JavaScript-world for manipulating IAM Policy documents.
+Before reinventing the wheel, I searched for existing packages in
+JavaScrip for manipulating IAM Policy documents.
 
-Pulumi has the
-[`aws.iam.getPolicyDocument`](https://www.pulumi.com/docs/reference/pkg/aws/iam/getpolicydocument/)
-API. That looked interesting. It allows writing the policies as Policy as Code.
-But you cannot properly unit test the IAM Policy document produced by
-`aws.iam.getPolicyDocument`. `aws.iam.getPolicyDocument` is a function. When
-Pulumi runs in testing mode that function is not available unless you mock it.
-Huh. That is not very helpful.
+Pulumi has the [`aws.iam.getPolicyDocument`]({{< relref "/docs/reference/pkg/aws/iam/getpolicydocument" >}}) API. That looked interesting because it allows writing the policies as Policy as Code. But you cannot properly unit test the IAM Policy document produced by
+`aws.iam.getPolicyDocument` function. When Pulumi runs in testing mode, that function is not available unless you mock it. Huh. That is not very helpful.
 
-I dug further to see what Node.js packages have to offer for manipulating IAM
-Policy documents. Not much. Except for
-[AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html).
-But then you drag the whole CDK Node.js package into your project only to handle
-IAM Policy documents. But, AWS CDK was a good basis for designing
-[@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
+I dug further to find Node.js packages for manipulating IAM Policy documents. Not much. Except for [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html).But you must drag the whole CDK Node.js package into your project only to handle IAM Policy documents. The AWS CDK was a good starting point for designing [@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
 
 ## A simple identity-based policy
 
@@ -140,9 +95,7 @@ function grantEC2Describe() {
 }
 ```
 
-To test if the IAM Policy is a valid identity-based IAM Policy we can use
-`PolicyDocument.validateForIdentityPolicy()`. This returns an array of `string`
-error messages. If it returns an empty array, the IAM Policy is valid.
+To test if the IAM Policy is a valid identity-based policy, we can use `PolicyDocument.validateForIdentityPolicy()`, which returns an array of `string` error messages. If it returns an empty array, the IAM Policy is valid.
 
 ```typescript
 import {expect} from "chai";
@@ -166,15 +119,11 @@ describe("IAM Policy", function() {
 });
 ```
 
-## A more complicated resource-based policy
+## A more complex resource-based policy
 
-Being regulated requires us to control closely who has access to what.
-What scares us most is to inadvertently grant a right to someone that could
-result in a painful situation. For instance, granting delete S3 bucket rights or
-granting access to confidential information stored in an S3 Bucket.
+As a regulated industry, we are required to closely control who has access to what. What scares us most is to inadvertently grant a right to someone that couldresult in non-compliance. For instance, granting delete S3 bucket rights or granting access to confidential information stored in an S3 Bucket.
 
-To avoid this, we make extensive use of S3 Bucket policies composed of several
-statements granting:
+To avoid this, we make extensive use of S3 Bucket policies composed of severalstatements granting:
 
 - admin access to administrators,
 - usage access to users
@@ -258,9 +207,7 @@ export function createS3BucketPolicy(
 }
 ```
 
-To test if the S3 Bucket Policy allows access for bucket administrators we
-needed something to check if a Statement is present in the Policy and to test
-that the content of that single Statement.
+To test if the S3 Bucket Policy allows access for bucket administrators we need to check if a Statement is present in the Policy and to test that the content of that single Statement.
 
 ```typescript
 const statement = policy.getStatement("MyFancySID");
@@ -314,8 +261,7 @@ describe("S3 Bucket Policy", function() {
 });
 ```
 
-The test needs some fake IAM Roles. This is achieved by including a `mocks`
-module.
+The test needs some fake IAM Roles. This is achieved by including a `mocks` module.
 
 ```typescript
 import * as pulumi from '@pulumi/pulumi';
@@ -349,10 +295,7 @@ pulumi.runtime.setMocks({
 
 ## Ideas for future improvements
 
-At the moment, `Condition` accepts any JSON object. Valid or not, it will
-serialise the object to JSON as-is. To avoid building an invalid
-`Condition` element, I am thinking to add an object model for this. The API
-would look something like this.
+At the moment, `Condition` accepts any JSON object. Valid or not, it will serialise the object to JSON as-is. To avoid building an invalid `Condition` element, I am planning to add an object model for this. The API would look something like this.
 
 ```typescript
 new Statement({
@@ -364,14 +307,8 @@ new Statement({
 })
 ```
 
-I am also thinking to add validation for `Sid`s. According to the AWS IAM
-documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`.
-But I figured out that resource-based Policies for some services accept spaces
-for `Sid`s. AWS does not document this. Although the documentation for
-[S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4),
-[KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default)
-clearly show examples with spaces for `Sid`s.
+I am also planning to add validation for `Sid`s. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`s. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4), [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`s.
 
 The library does not support `NotPrincipal`, `NotAction` and `NotResource`
-because I did not need it at the time. At some point, I will add support for
+because I did not need them at the time. At some point, I will add support for
 that too.
