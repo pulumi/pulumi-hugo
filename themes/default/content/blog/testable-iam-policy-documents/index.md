@@ -1,6 +1,6 @@
 ---
 title: "Testable IAM Policy Documents"
-date: 2021-05-02T11:34:09+02:00
+date: 2021-05-06
 draft: true
 meta_desc:
 meta_image: meta.png
