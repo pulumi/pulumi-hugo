@@ -2,7 +2,7 @@
 title: "Testable IAM Policy Documents"
 date: 2021-05-06
 draft: true
-meta_desc: "Pulumi community member Thierry de Pauw introduces his Node.js module for checking and validating IAM policy documents."
+meta_desc: "Pulumi community member Thierry de Pauw introduces his Node module for checking and validating IAM policy documents."
 meta_image: meta.png
 authors:
     - sophia-parafina
