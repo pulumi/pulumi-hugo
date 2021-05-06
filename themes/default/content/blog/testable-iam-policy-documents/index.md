@@ -32,7 +32,7 @@ const policy = new aws.iam.Policy("policy", {
 });
 ```
 
-It is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
+However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
 
 To avoid this, I prefer to write my policies as Policy as Code. It avoids
 common syntax errors, reduces the feedback cycle and increases
@@ -48,7 +48,7 @@ JavaScrip for manipulating IAM Policy documents.
 Pulumi has the [`aws.iam.getPolicyDocument`]({{< relref "/docs/reference/pkg/aws/iam/getpolicydocument" >}}) API. That looked interesting because it allows writing the policies as Policy as Code. But you cannot properly unit test the IAM Policy document produced by
 `aws.iam.getPolicyDocument` function. When Pulumi runs in testing mode, that function is not available unless you mock it. Huh. That is not very helpful.
 
-I dug further to find Node.js packages for manipulating IAM Policy documents. Not much. Except for [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html). But you must drag the whole CDK Node.js package into your project only to handle IAM Policy documents. The AWS CDK was a good starting point for designing [@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
+I dug further to find Node.js packages for manipulating IAM Policy documents. Not much. Except for [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html). But you must drag the whole CDK Node.js package into your project only to handle IAM Policy documents. But, the AWS CDK was a good starting point for designing [@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
 
 ## A simple identity-based policy
 
