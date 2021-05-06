@@ -15,7 +15,13 @@
         </p>
         <div class="mt-12 mb-6 flex justify-center">
             <div class="bg-black pt-4 pb-4 pl-6 pr-6 rounded-l-md">
-                <p class="text-white text-2xl m-1 font-mono">brew install pulumi</p>
+                <p class="text-white text-2xl m-1 font-mono">
+                    <pulumi-chooser type="os" options="macos,windows,linux" option-style="none">
+                        <pulumi-choosable type="os" value="macos">brew install pulumi</pulumi-choosable>
+                        <pulumi-choosable type="os" value="windows">choco install pulumi</pulumi-choosable>
+                        <pulumi-choosable type="os" value="linux">curl -fsSL https://get.pulumi.com | sh</pulumi-choosable>
+                    </pulumi-chooser>
+                </p>
             </div>
             <button class="border-2 border-black rounded-r-md text-black hover:bg-black hover:text-white">
                 <i class="far fa-copy copy text-2xl m-5"></i>
