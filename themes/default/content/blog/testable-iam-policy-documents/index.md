@@ -136,6 +136,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import {PolicyDocument, Statement, AnonymousUserPrincipal, RootAccountPrincipal} from "@thinkinglabs/aws-iam-policy";
 
+const adminRole = new aws.iam.Role("admin-role", {
+  assumeRolePolicy: createAssumeRolePolicy(),
+});
+const userRole = new aws.iam.Role("user-role", {
+  assumeRolePolicy: createAssumeRolePolicy(),
+});
 const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
 const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
   bucket: bucket.id,
