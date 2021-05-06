@@ -11,7 +11,7 @@ tags:
     - IAM
 ---
 
-I was relieved to find Pulumi. Finally, we have testable Infrastructure as Codea nd write fast unit tests that we can execute locally without needing the cloud. However, I was disappointed that Pulumi does not have a proper API for manipulating AWS IAM Policy documents.
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was disappointed that Pulumi does not have a proper API for manipulating AWS IAM Policy documents.
 
 <!--more-->
 
@@ -32,7 +32,7 @@ const policy = new aws.iam.Policy("policy", {
 });
 ```
 
-It is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is a unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
+It is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
 
 To avoid this, I prefer to write my policies as Policy as Code. It avoids
 common syntax errors, reduces the feedback cycle and increases
@@ -48,7 +48,7 @@ JavaScrip for manipulating IAM Policy documents.
 Pulumi has the [`aws.iam.getPolicyDocument`]({{< relref "/docs/reference/pkg/aws/iam/getpolicydocument" >}}) API. That looked interesting because it allows writing the policies as Policy as Code. But you cannot properly unit test the IAM Policy document produced by
 `aws.iam.getPolicyDocument` function. When Pulumi runs in testing mode, that function is not available unless you mock it. Huh. That is not very helpful.
 
-I dug further to find Node.js packages for manipulating IAM Policy documents. Not much. Except for [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html).But you must drag the whole CDK Node.js package into your project only to handle IAM Policy documents. The AWS CDK was a good starting point for designing [@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
+I dug further to find Node.js packages for manipulating IAM Policy documents. Not much. Except for [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html). But you must drag the whole CDK Node.js package into your project only to handle IAM Policy documents. The AWS CDK was a good starting point for designing [@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
 
 ## A simple identity-based policy
 
@@ -121,9 +121,9 @@ describe("IAM Policy", function() {
 
 ## A more complex resource-based policy
 
-As a regulated industry, we are required to closely control who has access to what. What scares us most is to inadvertently grant a right to someone that couldresult in non-compliance. For instance, granting delete S3 bucket rights or granting access to confidential information stored in an S3 Bucket.
+As a regulated industry, we are required to closely control who has access to what. What scares us most is to inadvertently grant a right to someone that could result in non-compliance. For instance, granting delete S3 bucket rights or granting access to confidential information stored in an S3 Bucket.
 
-To avoid this, we make extensive use of S3 Bucket policies composed of severalstatements granting:
+To avoid this, we make extensive use of S3 Bucket policies composed of several statements granting:
 
 - admin access to administrators,
 - usage access to users
@@ -207,7 +207,7 @@ export function createS3BucketPolicy(
 }
 ```
 
-To test if the S3 Bucket Policy allows access for bucket administrators we need to check if a Statement is present in the Policy and to test that the content of that single Statement.
+To test if the S3 Bucket Policy allows access for bucket administrators we need to check if a Statement is present in the Policy and to test the content of that single Statement.
 
 ```typescript
 const statement = policy.getStatement("MyFancySID");
@@ -307,7 +307,7 @@ new Statement({
 })
 ```
 
-I am also planning to add validation for `Sid`s. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`s. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4), [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`s.
+I am also planning to add validation for `Sid`s. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`s. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4) and [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`s.
 
 The library does not support `NotPrincipal`, `NotAction` and `NotResource`
 because I did not need them at the time. At some point, I will add support for
