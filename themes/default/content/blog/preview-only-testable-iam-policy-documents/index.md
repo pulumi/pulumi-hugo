@@ -1,70 +1,322 @@
 ---
-title: "Preview Only Testable Iam Policy Documents"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
-date: 2021-05-06T11:29:12-05:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
+title: "Testable IAM Policy Documents"
+date: 2021-05-06
 draft: true
-
-# Use the optional meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. If omitted or left blank, the content preceding the `<!--more-->` token
-# will be used in its place.
-meta_desc:
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: "Pulumi community member Thierry de Pauw introduces his Node.js module for checking and validating IAM policy documents that can be used with Pulumi's Policy as Code SDK."
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
-    - joe-duffy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
+    - sophia-parafina
 tags:
-    - change-me
-
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
+    - AWS
+    - IAM
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional). To do that, just add an HTML comment like the one below.
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was disappointed that Pulumi does not have a proper API for manipulating AWS IAM Policy documents.
 
 <!--more-->
 
-And then everything _after_ that comment will appear on the post page itself.
-
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
-
-## Writing the Post
-
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/docs/blob/master/BLOGGING.md). For general formatting guidelines, see the Style Guide section of [CONTRIBUTING.md](https://github.com/pulumi/docs/blob/master/CONTRIBUTING.md#style-guide).
-
-## Code Samples
+Policy documents are assigned using JSON objects that should follow the AWS
+IAM JSON Policy syntax.
 
 ```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
+const policy = new aws.iam.Policy("policy", {
+    description: "My test policy",
+    policy: JSON.stringify({
+        Version: "2012-10-17",
+        Statement: [{
+            Action: ["ec2:Describe*"],
+            Effect: "Allow",
+            Resource: "*",
+        }],
+    }),
+});
 ```
 
-## Images
+However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
 
-![Placeholder Image](meta.png)
+To avoid this, I prefer to write my policies as Policy as Code. It avoids
+common syntax errors, reduces the feedback cycle and increases
+your delivery throughput.
 
-## Videos
+Having to pass a JSON as a policy document was a bit disappointing.
 
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
+I work in the financial industry and compliance is important. So, I was in search of something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us to adhere to security requirements.
 
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
+Before reinventing the wheel, I searched for existing packages in
+JavaScrip for manipulating IAM Policy documents.
 
-## Tweets
+Pulumi has the [`aws.iam.getPolicyDocument`]({{< relref "/docs/reference/pkg/aws/iam/getpolicydocument" >}}) API. That looked interesting because it allows writing the policies as Policy as Code. But you cannot properly unit test the IAM Policy document produced by
+`aws.iam.getPolicyDocument` function. When Pulumi runs in testing mode, that function is not available unless you mock it. Huh. That is not very helpful.
 
-{{< tweet 1147203941609984002 >}}
+I dug further to find Node.js packages for manipulating IAM Policy documents. Not much. Except for [AWS CDK](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-iam.html). But you must drag the whole CDK Node.js package into your project only to handle IAM Policy documents. But, the AWS CDK was a good starting point for designing [@thinkinglabs/aws-iam-policy](https://github.com/thinkinglabs/aws-iam-policy).
+
+## A simple identity-based policy
+
+Let us look at the code sample on `pulumi.com` for
+[`aws.iam.Policy`](https://www.pulumi.com/docs/reference/pkg/aws/iam/policy/).
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws";
+
+const policy = new aws.iam.Policy("policy", {
+    description: "My test policy",
+    policy: JSON.stringify({
+        Version: "2012-10-17",
+        Statement: [{
+            Action: ["ec2:Describe*"],
+            Effect: "Allow",
+            Resource: "*",
+        }],
+    }),
+});
+```
+
+Using `@thinkinglabs/aws-iam-policy`, that would look as follows.
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws";
+import {PolicyDocument, Statement} from "@thinkinglabs/aws-iam-policy";
+
+export const policy = new aws.iam.Policy("policy", {
+    description: "My test policy",
+    policy: grantEC2Describe(),
+});
+
+function grantEC2Describe() {
+  return new PolicyDocument([
+    new Statement({
+      effect: "Allow",
+      actions: ["ec2:Describe*"],
+      resources: ["*"],
+    }),
+  ]).json
+}
+```
+
+To test if the IAM Policy is a valid identity-based policy, we can use `PolicyDocument.validateForIdentityPolicy()`, which returns an array of `string` error messages. If it returns an empty array, the IAM Policy is valid.
+
+```typescript
+import {expect} from "chai";
+import "./mocks";
+import * as pulumi from '@pulumi/pulumi';
+import {PolicyDocument, Statement} from '@thinkinglabs/aws-iam-policy';
+
+import * as sut from "../src/index";
+
+const get = <T>(output: pulumi.Output<T> | undefined): Promise<T | undefined> | undefined =>
+  output ? (output as any).promise() as Promise<T> : undefined;
+
+describe("IAM Policy", function() {
+
+  it('should be a valid identity-based policy', async () => {
+    const doc = await get(sut.policy.policy) as string
+    const policy = PolicyDocument.fromJson(doc);
+
+    expect(policy.validateForIdentityPolicy()).to.be.empty;
+  });
+});
+```
+
+## A more complex resource-based policy
+
+As a regulated industry, we are required to closely control who has access to what. What scares us most is to inadvertently grant a right to someone that could result in non-compliance. For instance, granting delete S3 bucket rights or granting access to confidential information stored in an S3 Bucket.
+
+To avoid this, we make extensive use of S3 Bucket policies composed of several statements granting:
+
+- admin access to administrators,
+- usage access to users
+- and denying delete bucket rights for everyone.
+
+Let us create an S3 Bucket with a Bucket Policy having multiple Statements.
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws";
+import {PolicyDocument, Statement, AnonymousUserPrincipal, RootAccountPrincipal} from "@thinkinglabs/aws-iam-policy";
+
+const adminRole = new aws.iam.Role("admin-role", {
+  assumeRolePolicy: createAssumeRolePolicy(),
+});
+const userRole = new aws.iam.Role("user-role", {
+  assumeRolePolicy: createAssumeRolePolicy(),
+});
+const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
+  bucket: bucket.id,
+  policy: createS3BucketPolicy("0123456789012", bucket, [adminRole], [userRole]),
+});
+
+function createAssumeRolePolicy() {
+  return new PolicyDocument([
+    new Statement({
+      effect: "Allow",
+      principals: [new RootAccountPrincipal("123412341234")],
+      actions: ["sts:AssumeRole"],
+    }),
+  ]).json;
+}
+
+export function createS3BucketPolicy(
+    accountId: string,
+    bucket: aws.s3.Bucket,
+    bucketAdmins: aws.iam.Role[],
+    bucketUsers: aws.iam.Role[],
+) {
+  return pulumi.all([
+    bucket.arn,
+    bucketAdmins.map((role) => role.uniqueId),
+    bucketUsers.map((role) => role.uniqueId)
+  ]).apply(([bucketArn, bucketAdminUniqueIds, bucketUserUniqueIds]) => {
+      return new PolicyDocument([
+        new Statement({
+          sid: "Allow access for Bucket Administrators",
+          effect: "Deny",
+          principals: [new AnonymousUserPrincipal()],
+          actions: [
+            "s3:PutBucketPolicy",
+            "s3:GetBucketPolicy*",
+            "s3:DeleteBucketPolicy",
+          ],
+          resources: [bucketArn],
+          conditions: {
+            StringNotLike: {
+              "aws:userId": [accountId]
+                  .concat(bucketAdminUniqueIds.map((uniqueId) => `${uniqueId}:*`)),
+            },
+          },
+        }),
+        new Statement({
+          sid: "Allow use of the bucket",
+          effect: "Deny",
+          principals: [new AnonymousUserPrincipal()],
+          actions: ["s3:ListBucket*", "s3:Get*", "s3:PutObject*", "s3:DeleteObject*"],
+          resources: [bucketArn, `${bucketArn}/*`],
+          conditions: {
+            StringNotLike: {
+              "aws:userId": [accountId]
+                  .concat(bucketAdminUniqueIds.map((uniqueId) => `${uniqueId}:*`))
+                  .concat(bucketUserUniqueIds.map((uniqueId) => `${uniqueId}:*`)),
+            },
+          },
+        }),
+        new Statement({
+          sid: "Deny delete bucket",
+          effect: "Deny",
+          principals: [new AnonymousUserPrincipal()],
+          actions: ["s3:DeleteBucket"],
+          resources: [bucketArn],
+        })],
+      ).json;
+  });
+}
+```
+
+To test if the S3 Bucket Policy allows access for bucket administrators we need to check if a Statement is present in the Policy and to test the content of that single Statement.
+
+`@thinkinglabs/aws-iam-policy` provides the ability to retrieve a single
+Statement by its `Sid` if one was provided.
+
+```typescript
+const statement = policy.getStatement("MyFancySID");
+```
+
+Let us test if the S3 Bucket Policy grants admin rights for administrators by checking if the Policy contains the Statement "*Allow access for Bucket Administrators*".
+
+```typescript
+import {expect} from "chai";
+import "./mocks";
+import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws";
+import {PolicyDocument, Statement, AnonymousUserPrincipal} from "@thinkinglabs/aws-iam-policy";
+
+describe("S3 Bucket Policy", function() {
+  const accountId = "123456789012";
+  const bucket = new aws.s3.Bucket("a-bucket", {});
+  const adminRole = new aws.iam.Role("admin-role", {
+    assumeRolePolicy: "aPolicy",
+  });
+  const userRole = new aws.iam.Role("user-role", {
+    assumeRolePolicy: "aPolicy",
+  });
+
+  const doc = sut.createS3BucketPolicy(accountId, bucket, [adminRole], [userRole]);
+
+  let policy: PolicyDocument;
+  before(async () => {
+    policy = PolicyDocument.fromJson(await get(doc) as string);
+  });
+
+  it("should allow access for Bucket Administrators", function() {
+    const statement = policy.getStatement("Allow access for Bucket Administrators");
+    expect(statement).to.deep.equal(new Statement({
+      actions: [
+        "s3:PutBucketPolicy",
+        "s3:GetBucketPolicy*",
+        "s3:DeleteBucketPolicy",
+      ],
+      effect: "Deny",
+      principals: [new AnonymousUserPrincipal()],
+      resources: ["a-bucket-arn"],
+      conditions: {
+        StringNotLike: {"aws:userId": ["123456789012", "admin-role-unique-id:*"]},
+      },
+      sid: "Allow access for Bucket Administrators",
+    }));
+  });
+
+});
+```
+
+The test needs some fake IAM Roles. This is achieved by including a `mocks` module.
+
+```typescript
+import * as pulumi from '@pulumi/pulumi';
+
+pulumi.runtime.setMocks({
+  newResource: function(args: pulumi.runtime.MockResourceArgs): { id: string, state: Record<string, any>} {
+    const defaultState = {
+      arn: `${args.name}-arn`,
+      name: args.name,
+      ...args.inputs,
+    };
+    switch (args.type) {
+      case 'aws:iam/role:Role':
+        defaultState['uniqueId'] = `${args.name}-unique-id`;
+        break;
+      default:
+        break;
+    }
+
+    const resourceId = args.id?.trim() ? args.id : `${args.name}-id`;
+
+    return {id: resourceId, state: defaultState};
+  },
+  call: function(args: pulumi.runtime.MockCallArgs) {
+    switch (args.token) {
+    }
+    return args.inputs;
+  },
+});
+```
+
+## Ideas for future improvements
+
+At the moment, `Condition` accepts any JSON object. Valid or not, it will serialise the object to JSON as-is. To avoid building an invalid `Condition` element, I am planning to add an object model for this. The API would look something like this.
+
+```typescript
+new Statement({
+  effect: "Deny",
+  ...
+  conditions: [
+    new Condition("StringNotLike", "aws:userId", ["userId1", "userId2", ...]),
+  ]
+})
+```
+
+I am also planning to add validation for `Sid`s. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`s. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4) and [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`s.
+
+The library does not support `NotPrincipal`, `NotAction` and `NotResource`
+because I did not need them at the time. At some point, I will add support for
+that too.
