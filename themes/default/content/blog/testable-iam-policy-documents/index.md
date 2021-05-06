@@ -209,12 +209,14 @@ export function createS3BucketPolicy(
 
 To test if the S3 Bucket Policy allows access for bucket administrators we need to check if a Statement is present in the Policy and to test the content of that single Statement.
 
+`@thinkinglabs/aws-iam-policy` provides the ability to retrieve a single
+Statement by its `Sid` if one was provided.
+
 ```typescript
 const statement = policy.getStatement("MyFancySID");
 ```
 
-`@thinkinglabs/aws-iam-policy` provides the ability to retrieve a single
-Statement by its `Sid` if one was provided.
+Let us test if the S3 Bucket Policy grants admin rights for administrators by checking if the Policy contains the Statement "*Allow access for Bucket Administrators*".
 
 ```typescript
 import {expect} from "chai";
