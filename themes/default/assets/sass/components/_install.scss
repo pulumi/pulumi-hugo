@@ -1,0 +1,35 @@
+pulumi-install {
+    > div {
+        @apply flex justify-center ;
+
+        > div {
+            @apply bg-black pt-4 pb-4 pl-6 pr-6 rounded-l-md;
+
+            p {
+                @apply text-2xl m-1 font-mono;
+
+                span {
+                    @apply text-white;
+                }
+            }
+        }
+    }
+
+    pulumi-tooltip  {
+        button {
+            @apply border-2 border-black rounded-r-md text-black;
+
+            &:hover {
+                @apply bg-black text-white;
+            }
+
+            i {
+                @apply text-2xl mt-6 mb-6 ml-5 mr-5;
+            }
+        }
+
+        .tooltip-content {
+            @apply w-auto whitespace-no-wrap;
+        }
+    }
+}
