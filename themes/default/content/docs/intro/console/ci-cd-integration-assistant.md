@@ -12,7 +12,7 @@ aliases:
 
 {{% notes "info" %}}
 The CI/CD integration assistant helps you integrate Pulumi into CI/CD systems for automatically deploying stacks and is only available
-on [Organizations](https://www.pulumi.com/docs/intro/console/organizations/), not personal accounts.
+on [Organizations]({{< relref "/docs/intro/console/organizations" >}}), not personal accounts.
 {{% /notes %}}
 
 <!--more-->
@@ -61,7 +61,7 @@ Services such as Atlassian Bitbucket, GitHub, GitLab offer both a version contro
 This might be a convenient option if your team wishes to keep everything related to your Pulumi project on a single service.
 
 {{% notes "info" %}}
-If your identity isn't tied to a VCS service, like SAML or Email, you will still be able to get a customized CI/CD
+If your identity isn't tied to a VCS service (for example, if you're using SAML or email), you will still be able to get a customized CI/CD
 workflow for your stack.
 {{% /notes %}}
 
