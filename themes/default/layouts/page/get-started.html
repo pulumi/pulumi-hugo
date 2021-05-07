@@ -4,6 +4,11 @@
 
 {{ define "main" }}
     <section class="container mx-auto mt-20">
+        <div class="shape-background get-started-install-section">
+            <div class="shape-container">
+                <div class="circle-right"></div>
+            </div>
+        </div>
         <div class="text-center mb-8 bg-violet-200 w-12 h-12 rounded-full mx-auto">
             <p class=" inline-block m-1">
                 <span class="text-violet-600 text-3xl font-display font-semibold">1</span>
@@ -13,7 +18,7 @@
         <p class="text-center">
             <span class="max-w-md inline-block">To use open source Pulumi SDK or the Pulumi Console UI you need to have the Pulumi CLI installed.</span>
         </p>
-        <div class="mt-12 mb-6 flex justify-center">
+        <div class="mt-12 mb-6 flex justify-center get-started-install">
             <div class="bg-black pt-4 pb-4 pl-6 pr-6 rounded-l-md">
                 <p class="text-white text-2xl m-1 font-mono">
                     <pulumi-chooser id="install-command" type="os" options="macos,windows,linux" option-style="none">
@@ -23,6 +28,12 @@
                     </pulumi-chooser>
                 </p>
             </div>
+            <pulumi-tooltip id="tooltip">
+                <button onclick="copyCommandToClipboard()" class="border-2 border-black rounded-r-md text-black hover:bg-black hover:text-white transition-all">
+                    <i class="far fa-copy copy text-2xl mt-6 mb-6 ml-5 mr-5"></i>
+                </button>
+                <span id="tooltip-content" slot="content">Copy command</span>
+            </pulumi-tooltip>
             <script>
                 function copyCommandToClipboard() {
                     var el = document.querySelector('#install-command pulumi-choosable .active');
@@ -34,13 +45,15 @@
                     clipboard.writeText(el.textContent);
                 }
             </script>
-            <button onclick="copyCommandToClipboard()" class="border-2 border-black rounded-r-md text-black hover:bg-black hover:text-white transition-all">
-                <i class="far fa-copy copy text-2xl m-5"></i>
-            </button>
         </div>
         <p class="text-center">Or review <a href="{{ relref . "/docs/get-started/install" }}" class="underline">other installation options</a>.</p>
     </section>
     <section class="container mx-auto mt-20">
+        <div class="shape-background get-started-step-2-section">
+            <div class="shape-container">
+                <div class="circle-left"></div>
+            </div>
+        </div>
         <div class="text-center mb-8 bg-salmon-200 w-12 h-12 rounded-full mx-auto">
             <p class=" inline-block m-1">
                 <span class="text-salmon-600 text-3xl font-display font-semibold">2</span>
