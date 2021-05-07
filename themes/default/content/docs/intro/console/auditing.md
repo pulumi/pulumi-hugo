@@ -9,11 +9,9 @@ aliases:
 - /docs/intro/console/collaboration/auditing/
 ---
 
-<div class="note note-info" role="alert">
-    <p>
-        Audit Logs are only available in <strong>Pulumi Enterprise</strong>.
-    </p>
-</div>
+{{% notes "info" %}}
+Audit Logs are only available in <strong>Pulumi Enterprise</strong>.
+{{% /notes %}}
 
 ## Overview
 
