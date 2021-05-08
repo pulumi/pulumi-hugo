@@ -10,7 +10,7 @@ tags:
     - IAM
 ---
 
-I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was a bit disappointed. Pulumi does not currently have a full representation of IAM policy documents. Fortunately, it was relatively easy to build a library which did this!
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was a bit disappointed. Pulumi does not currently have a full representation of IAM Policy documents. Fortunately, it was relatively easy to build a library which did this!
 
 <!--more-->
 
@@ -314,7 +314,7 @@ new Statement({
 })
 ```
 
-I am also planning to add validation for `Sid`s. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`s. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4) and [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`s.
+I am also planning to add validation for `Sid`. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4) and [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`.
 
 The library does not support `NotPrincipal`, `NotAction` and `NotResource`
 because I did not need them at the time. At some point, I will add support for
@@ -322,4 +322,7 @@ that too.
 
 ## Conclusion
 
-As you can see, you can extend a Pulumi program with existing Node modules or write your own. By testing IAM policies before deployment, we can avoid errors before deployments and provide guardrails for developers.
+By testing IAM Policies before deployment, we can avoid errors before deployments and provide guardrails for engineers.
+Aside from improving compliance to security requirements, it will also accelerate the feedback cycle and increase the delivery throughput significantly.
+
+As you can see, you can easily extend a Pulumi program with existing Node modules or write your own.
