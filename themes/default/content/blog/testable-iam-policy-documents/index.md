@@ -10,7 +10,7 @@ tags:
     - IAM
 ---
 
-I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, Pulumi doesn't currently have a full representation of IAM policy documents. Fortunately, it was relatively easy to build a library which did this!
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was a bit disappointed. Pulumi does not currently have a full representation of IAM policy documents. Fortunately, it was relatively easy to build a library which did this!
 
 <!--more-->
 
@@ -31,13 +31,13 @@ const policy = new aws.iam.Policy("policy", {
 });
 ```
 
-However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That creates a long feedback loop, incurring a significant amount of waiting and time to correction.
+However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That creates an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
 
 To avoid this, I prefer to write my policies as Policy as Code. It avoids
 common syntax errors, reduces the feedback cycle and increases
 your delivery throughput.
 
-Having to pass a JSON as a policy document didn't feel optimal.
+Having to pass a JSON as a policy document did not feel optimal.
 
 I work in the financial industry and compliance is important. So, I was in search of something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us to adhere to security requirements.
 
