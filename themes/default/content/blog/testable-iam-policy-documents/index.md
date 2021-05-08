@@ -319,3 +319,7 @@ I am also planning to add validation for `Sid`s. According to the AWS IAM docume
 The library does not support `NotPrincipal`, `NotAction` and `NotResource`
 because I did not need them at the time. At some point, I will add support for
 that too.
+
+## Conclusion
+
+As you can see, you can extend a Pulumi program with existing Node modules or write your own. By testing IAM policies before deployment, we can avoid errors before deployments and provide guardrails for developers.
