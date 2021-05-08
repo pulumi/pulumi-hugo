@@ -1,6 +1,6 @@
 ---
 title: "Testable IAM Policy Documents"
-date: 2021-05-06
+date: 2021-05-10
 meta_desc:
 meta_image: testable_iam_policy.png
 authors:
