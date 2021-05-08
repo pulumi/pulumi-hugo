@@ -1,9 +1,8 @@
 ---
 title: "Testable IAM Policy Documents"
 date: 2021-05-06
-draft: true
 meta_desc:
-meta_image: meta.png
+meta_image: testable_iam_policy.png
 authors:
     - thierry-de-pauw
 tags:
@@ -11,7 +10,7 @@ tags:
     - IAM
 ---
 
-I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was disappointed that Pulumi does not have a proper API for manipulating AWS IAM Policy documents.
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, Pulumi doesn't currently have a full representation of IAM policy documents. Fortunately, it was relatively easy to build a library which did this!
 
 <!--more-->
 
@@ -32,18 +31,18 @@ const policy = new aws.iam.Policy("policy", {
 });
 ```
 
-However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
+However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That creates a long feedback loop, incurring a significant amount of waiting and time to correction.
 
 To avoid this, I prefer to write my policies as Policy as Code. It avoids
 common syntax errors, reduces the feedback cycle and increases
 your delivery throughput.
 
-Having to pass a JSON as a policy document was a bit disappointing.
+Having to pass a JSON as a policy document didn't feel optimal.
 
 I work in the financial industry and compliance is important. So, I was in search of something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us to adhere to security requirements.
 
 Before reinventing the wheel, I searched for existing packages in
-JavaScrip for manipulating IAM Policy documents.
+JavaScript for manipulating IAM Policy documents.
 
 Pulumi has the [`aws.iam.getPolicyDocument`]({{< relref "/docs/reference/pkg/aws/iam/getpolicydocument" >}}) API. That looked interesting because it allows writing the policies as Policy as Code. But you cannot properly unit test the IAM Policy document produced by
 `aws.iam.getPolicyDocument` function. When Pulumi runs in testing mode, that function is not available unless you mock it. Huh. That is not very helpful.
