@@ -1,17 +1,16 @@
 ---
 title: "Testable IAM Policy Documents"
-date: 2021-05-06
-draft: true
-meta_desc: "Pulumi community member Thierry de Pauw introduces his Node module for checking and validating IAM policy documents."
-meta_image: meta.png
+date: 2021-05-10
+meta_desc:
+meta_image: testable_iam_policy.png
 authors:
-    - thierry-de-pauw
+    - sophia-parafina
 tags:
     - AWS
     - IAM
 ---
 
-I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was disappointed that Pulumi does not have a proper API for manipulating AWS IAM Policy documents.
+I was relieved to find Pulumi. Finally, we have testable Infrastructure as Code. We can write fast unit tests that we can execute locally without needing the cloud. However, I was a bit disappointed. Pulumi does not have a full representation of IAM Policy documents. Fortunately, it was relatively easy to build a library that did this!
 
 <!--more-->
 
@@ -32,18 +31,18 @@ const policy = new aws.iam.Policy("policy", {
 });
 ```
 
-However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You would only notice if it is invalid the minute the policy is applied in the AWS cloud. That is an unreasonably long feedback loop, incurring a significant amount of waiting and time to correction.
+However, it is perfectly possible to pass an invalid IAM Policy document because there is no validation. You will only notice if it is invalid the minute the policy is applied in the AWS cloud. That creates an unreasonably long feedback loop, incurring a significant amount of waiting and time to correct.
 
 To avoid this, I prefer to write my policies as Policy as Code. It avoids
-common syntax errors, reduces the feedback cycle and increases
+common syntax errors, reduces the feedback cycle, and increases
 your delivery throughput.
 
-Having to pass a JSON as a policy document was a bit disappointing.
+Having to pass a JSON as a policy document did not feel optimal.
 
-I work in the financial industry and compliance is important. So, I was in search of something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us to adhere to security requirements.
+I work in the financial industry, and compliance is important. So, I searched for something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us adhere to security requirements.
 
 Before reinventing the wheel, I searched for existing packages in
-JavaScrip for manipulating IAM Policy documents.
+JavaScript for manipulating IAM Policy documents.
 
 Pulumi has the [`aws.iam.getPolicyDocument`]({{< relref "/docs/reference/pkg/aws/iam/getpolicydocument" >}}) API. That looked interesting because it allows writing the policies as Policy as Code. But you cannot properly unit test the IAM Policy document produced by
 `aws.iam.getPolicyDocument` function. When Pulumi runs in testing mode, that function is not available unless you mock it. Huh. That is not very helpful.
@@ -213,7 +212,7 @@ export function createS3BucketPolicy(
 }
 ```
 
-To test if the S3 Bucket Policy allows access for bucket administrators we need to check if a Statement is present in the Policy and to test the content of that single Statement.
+To test if the S3 Bucket Policy allows access for bucket administrators, we need to check if a Statement is present in the Policy and test the content of that single Statement.
 
 `@thinkinglabs/aws-iam-policy` provides the ability to retrieve a single
 Statement by its `Sid` if one was provided.
@@ -315,8 +314,15 @@ new Statement({
 })
 ```
 
-I am also planning to add validation for `Sid`s. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`s. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4) and [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`s.
+I am also planning to add validation for `Sid`. According to the AWS IAM documentation, a `Sid` only accepts alphanumerical characters `[a-zA-Z0-9]`. But I see that resource-based Policies for some services accept spaces for `Sid`. AWS does not document this. Although the documentation for [S3 Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-4) and [KMS Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) clearly show examples with spaces for `Sid`.
 
-The library does not support `NotPrincipal`, `NotAction` and `NotResource`
+The library does not support `NotPrincipal`, `NotAction`, and `NotResource`
 because I did not need them at the time. At some point, I will add support for
 that too.
+
+## Conclusion
+
+By testing IAM Policies before deployment, we can avoid errors before deployments and provide guardrails for engineers.
+Aside from improving compliance to security requirements, it will also accelerate the feedback cycle and increase the delivery throughput significantly.
+
+As you can see, you can easily extend a Pulumi program with existing Node modules or write your own.
