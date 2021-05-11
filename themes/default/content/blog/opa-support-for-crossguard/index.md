@@ -7,7 +7,7 @@ authors:
     - luke-hoban
 tags:
     - policy-as-code
-    - crossguard
+    - policy-as-code
     - opa
 ---
 

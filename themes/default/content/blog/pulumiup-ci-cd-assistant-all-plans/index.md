@@ -6,7 +6,7 @@ meta_image: meta.png
 authors:
     - alex-mullans
 tags:
-    - ci/cd
+    - continuous-delivery
     - PulumiUP
 ---
 

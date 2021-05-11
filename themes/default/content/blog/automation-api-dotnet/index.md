@@ -9,8 +9,6 @@ authors:
 tags:
 - Automation API
 - C#
-- csharp
-- dotnet
 - .NET
 ---
 

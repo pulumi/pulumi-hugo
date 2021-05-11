@@ -7,7 +7,7 @@ authors:
     - chris-smith
     - sophia-parafina
 tags:
-    - CI/CD
+    - continuous-delivery
     - secrets
 ---
 
