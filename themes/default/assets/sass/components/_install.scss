@@ -6,7 +6,11 @@ pulumi-install {
             @apply bg-black pt-4 pb-4 pl-6 pr-6 rounded-l-md;
 
             p {
-                @apply text-2xl m-1 font-mono;
+                @apply text-xl m-1 font-mono;
+                
+                @screen md {
+                    @apply text-2xl;
+                }
 
                 span {
                     @apply text-white;
@@ -17,14 +21,14 @@ pulumi-install {
 
     pulumi-tooltip  {
         button {
-            @apply border-2 border-black rounded-r-md text-black;
+            @apply border-2 border-black rounded-r-md text-black h-full;
 
             &:hover {
                 @apply bg-black text-white;
             }
 
             i {
-                @apply text-2xl mt-6 mb-6 ml-5 mr-5;
+                @apply text-2xl ml-5 mr-5;
             }
         }
 
