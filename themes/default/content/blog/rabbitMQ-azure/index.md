@@ -8,7 +8,7 @@ authors:
 tags:
     - RabbitMQ
     - Azure
-    - .NET Core
+    - .NET
     - devops
 
 ---

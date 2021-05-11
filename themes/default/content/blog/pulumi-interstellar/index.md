@@ -6,10 +6,6 @@ meta_image: pulumi_interstellar.png
 authors:
     - zack-chase
     - sophia-parafina
-tags:
-    - rockets
-    - terraforming
-    - domes
 
 ---
 

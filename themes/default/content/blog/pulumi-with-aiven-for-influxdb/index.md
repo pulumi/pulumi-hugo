@@ -6,7 +6,6 @@ meta_image: aiven.png
 authors:
     - trevor-kennedy
 tags:
-    - Aiven
     - InfluxDB
 ---
 
