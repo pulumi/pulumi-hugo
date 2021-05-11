@@ -8,8 +8,8 @@ authors:
 - sophia-parafina
 tags:
 - Automation API
-- C#
 - .NET
+- guest-post
 ---
 
 {{% notes type="info" %}}

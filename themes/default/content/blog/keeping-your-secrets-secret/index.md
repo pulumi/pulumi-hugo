@@ -6,7 +6,7 @@ meta_image: secrets.png
 authors:
     - sophia-parafina
 tags:
-    - secrets
+    - security
 
 ---
 

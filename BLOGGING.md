@@ -46,7 +46,7 @@ including all the required frontmatter parameters.
    ---
    ```
 
-   Feel free to adjust the title, authors (more on this below) and tags as appropriate. To change the post's URL, simply rename the folder containing `_index.md`; changing the folder name to `my-awesome-post`, for example, would result in a post ultimately published at https://www.pulumi.com/blog/my-awesome-post.
+   Adjust the title and authors (more on this below), then add tags as appropriate. **Be judicious** when adding tags: prefer existing tags and only add new tags if there's a high likelihood of having multiple posts with that tag in the near future. To change the post's URL, simply rename the folder containing `_index.md`; changing the folder name to `my-awesome-post`, for example, would result in a post ultimately published at https://www.pulumi.com/blog/my-awesome-post.
 
    **Important**
 

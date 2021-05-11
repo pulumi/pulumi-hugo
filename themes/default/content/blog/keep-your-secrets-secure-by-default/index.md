@@ -7,7 +7,6 @@ meta_image: secure_by_default.png
 authors:
     - alex-mullans
 tags:
-    - secrets
     - security
 ---
 

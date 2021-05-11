@@ -7,7 +7,7 @@ authors:
     - paul-stack
 
 tags:
-    - Features
+    - new-features
     - Security
 ---
 

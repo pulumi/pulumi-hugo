@@ -8,7 +8,7 @@ authors:
     - mikhail-shilkov
 tags:
     - aws
-    - containers
+    - docker-containers
     - serverless
 
 ---

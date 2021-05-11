@@ -7,7 +7,7 @@ meta_image: credijusto.png
 authors:
     - fernando-carletti
 tags:
-    - auth0
+    - guest-post
 ---
 
 *Guest author Lead Devops Engineer Fernando Carletti, writes about using the Pulumi Auth0 provider to manage resources at Credijusto.*

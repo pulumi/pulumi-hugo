@@ -7,8 +7,6 @@ authors:
     - sophia-parafina
 tags:
     - policy-as-code
-    - S3
-    - Elasticsearch
 ---
 
 Modern applications have brought many benefits and improvements, including the ability to scale and rapid iterations to update software. However, this has come at the cost of complexity. Modern infrastructure is composed of many resources that require detailed configuration to work correctly and securely. Even managed solutions from cloud service providers need additional configuration to ensure that services are secure and free of defects. Cloud providers, such as AWS, do allow you to create policies to ensure that applications are secure, but they are specific to resources that are already deployed. A significant benefit of Policy as Code is the ability to verify and spot problems before deploying your infrastructure.

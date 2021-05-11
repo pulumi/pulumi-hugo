@@ -8,7 +8,7 @@ meta_image: secrets.png
 authors:
     - lee-briggs
 tags:
-    - features
+    - new-features
     - security
 ---
 

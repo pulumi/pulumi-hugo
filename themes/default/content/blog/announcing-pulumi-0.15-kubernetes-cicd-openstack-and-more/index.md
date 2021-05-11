@@ -3,7 +3,7 @@ title: "Announcing Pulumi 0.15"
 date: "2018-08-15"
 meta_desc: "Pulumi can now deploy and manage Kubernetes resources using the same familiar programming model supported for AWS, Azure, and Google Cloud Platform."
 authors: ["luke-hoban"]
-tags: ["Pulumi", "New-Features", "continuous-delivery"]
+tags: ["New-Features", "continuous-delivery"]
 ---
 
 

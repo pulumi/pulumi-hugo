@@ -7,8 +7,7 @@ authors:
     - sophia-parafina
 tags:
     - Kubernetes
-    - "Query for Kubernetes"
-    - events
+    - pulumi-events
 ---
 
 ![Pulumi Booth KubeCon2019](booth.jpg)

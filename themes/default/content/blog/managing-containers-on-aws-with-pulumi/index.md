@@ -6,11 +6,8 @@ meta_image: meta.png
 authors:
     - sophia-parafina
 tags:
-    - EKS
-    - ECS
-    - Lambda
     - AWS
-    - containers
+    - docker-containers
 ---
 
 The Amazon Web Services (AWS) Cloud ecosystem is large and vibrant, so vast and vibrant that at times, it can be challenging to know where best to start! In the case of [containers](https://www.pulumi.com/containers/), [Abby Fuller](https://twitter.com/abbyfuller) tweeted a descriptive summary about using AWS container services.
