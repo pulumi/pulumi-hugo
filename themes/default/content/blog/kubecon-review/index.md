@@ -8,7 +8,7 @@ authors:
 tags:
     - Kubernetes
     - "Query for Kubernetes"
-    - "KubeCon 2019"
+    - events
 ---
 
 ![Pulumi Booth KubeCon2019](booth.jpg)

@@ -7,7 +7,7 @@ meta_image: preview_update.png
 authors:
     - paul-stack
 tags:
-    - enhancement
+    - new-features
 ---
 
 Today we are announcing a minor but significant improvement to the Pulumi [preview]({{< relref "/docs/reference/cli/pulumi_preview" >}})
