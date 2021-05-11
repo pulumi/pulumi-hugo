@@ -8,7 +8,6 @@ authors:
     - paul-stack
 tags:
     - enhancement
-    - pulumi
 ---
 
 Today we are announcing a minor but significant improvement to the Pulumi [preview]({{< relref "/docs/reference/cli/pulumi_preview" >}})
