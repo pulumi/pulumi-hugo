@@ -8,7 +8,7 @@ authors:
 tags:
     - google-cloud
     - "Serverless"
-    - "docker-containers"
+    - "containers"
 ---
 
 Google [Cloud Run](https://cloud.google.com/run/) is the latest addition to the serverless compute family. While it may look similar to existing services of public cloud, the feature set makes Cloud Run unique:

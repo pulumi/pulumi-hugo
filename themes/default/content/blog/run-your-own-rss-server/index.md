@@ -7,7 +7,7 @@ meta_image: meta.png
 authors:
     - christian-nunciato
 tags:
-    - docker-containers
+    - containers
     - aws
 ---
 

@@ -7,6 +7,7 @@ authors:
     - sophia-parafina
 tags:
     - security
+    - secrets
 
 ---
 

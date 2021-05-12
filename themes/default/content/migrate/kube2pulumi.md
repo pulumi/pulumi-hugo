@@ -87,7 +87,7 @@ examples:
               - services/finalizers
               - endpoints
               - persistentvolumeclaims
-              - pulumi-events
+              - events
               - configmaps
               - secrets
             verbs:
