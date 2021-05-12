@@ -1,0 +1,15 @@
+{{ define "hero" }}
+    {{ partial "hero" (dict "title" .Params.page_title )}}
+{{ end }}
+
+{{ define "main" }}
+    <div class="container mx-auto my-16">
+        <div class="flex justify-end">
+            <div class="max-w-5xl">
+                <div>
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}
