@@ -7,7 +7,7 @@ meta_desc: "Introducing new language specific Docker images which are smaller an
 authors:
     - lee-briggs
 tags:
-    - new-features
+    - features
 
 ---
 

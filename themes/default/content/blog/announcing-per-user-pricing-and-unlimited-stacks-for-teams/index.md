@@ -4,7 +4,7 @@ date: "2019-04-19"
 meta_desc: "Today we are announcing Pulumi's new pricing tier, with three paid editions: Team Starter Edition, Team Pro Edition, and Enterprise Edition."
 authors: ["joe-duffy"]
 tags: 
-  - new-features
+  - features
 ---
 
 Since launching last year, thousands of users and hundreds of
