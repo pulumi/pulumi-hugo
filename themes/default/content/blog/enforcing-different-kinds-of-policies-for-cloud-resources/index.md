@@ -7,7 +7,6 @@ authors:
     - justin-vanpatten
 tags:
     - policy-as-code
-    - policy-as-code
 ---
 
 We recently announced [a new policy as code solution, CrossGuard]({{< relref "/blog/announcing-crossguard-preview" >}}) that validates policies at deployment time. Policies are expressed as code and are used to prevent the creation of out-of-compliance resources. This allows an organization to prevent entire classes of security and reliability defects to ensure infrastructure is following best practices. Because policies are written using full-blown programming languages, it's possible to do interesting things such as [combining IAM Access Analyzer and Pulumi CrossGuard]({{< relref "/blog/aws-iam-access-analyzer-and-crossguard" >}}). In this post, we'll take a closer look at the different types of policies that can be written.
