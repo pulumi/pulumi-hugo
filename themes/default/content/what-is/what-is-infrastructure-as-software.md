@@ -6,6 +6,28 @@ meta_desc: |
 
 type: what-is
 page_title: "Infrastructure as Software: The Next Step in Cloud Management"
+
+customer_logos:
+  title: Leading engineering organizations are building with Pulumi
+  logos:
+    - items:
+      - snowflake
+      - tableau
+      - atlassian
+      - fauna
+      - ware2go
+    - items:
+      - mindbody
+      - sourcegraph
+      - fenergo
+      - kenshoo
+      - lemonade
+    - items:
+      - clearsale
+      - angellist
+      - webflow
+      - supabase
+      - ro
 ---
 
 Infrastructure as Code (IaC) is now a widely adopted practice. With IaC, you describe your infrastructure programmatically using a tool that provides its own domain-specific language (DSL). IaC is a huge improvement over earlier ways of managing infrastructure, such as using a web console or having a collection of batch scripts. With IaC, you can apply many of the best engineering practices, which you already use with application software, to your infrastructure. Some best practices include:

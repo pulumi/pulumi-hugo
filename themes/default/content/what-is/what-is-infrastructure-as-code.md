@@ -6,6 +6,28 @@ meta_desc: |
 
 type: what-is
 page_title: What is Infrastructure as Code?
+
+customer_logos:
+  title: Leading engineering organizations are building with Pulumi
+  logos:
+    - items:
+      - snowflake
+      - tableau
+      - atlassian
+      - fauna
+      - ware2go
+    - items:
+      - mindbody
+      - sourcegraph
+      - fenergo
+      - kenshoo
+      - lemonade
+    - items:
+      - clearsale
+      - angellist
+      - webflow
+      - supabase
+      - ro
 ---
 
 Infrastructure as code means using code to define and manage infrastructure. **IaC is about bringing software engineering principles and approaches into the cloud infrastructure space.**
