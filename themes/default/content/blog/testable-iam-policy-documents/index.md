@@ -1,6 +1,6 @@
 ---
 title: "Testable IAM Policy Documents"
-date: 2021-05-10
+date: 2021-05-12
 meta_desc: "Pulumi community member Thierry de Pauw introduces his Node module for checking and validating IAM policy documents."
 meta_image: testable_iam_policy.png
 authors:
@@ -39,7 +39,7 @@ your delivery throughput.
 
 Having to pass a JSON as a policy document did not feel optimal.
 
-I work in the financial industry, and compliance is important. So, I searched for something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level, which would help us adhere to security requirements.
+I work in the financial industry, and compliance is important. So, I searched for something that allowed me to easily unit test IAM Policy documents, preferably at the Statement level,to help us adhere to security requirements.
 
 Before reinventing the wheel, I searched for existing packages in
 JavaScript for manipulating IAM Policy documents.
@@ -120,7 +120,7 @@ describe("IAM Policy", function() {
 
 ## A more complex resource-based policy
 
-As a regulated industry, we are required to closely control who has access to what. What scares us most is to inadvertently grant a right to someone that could result in non-compliance. For instance, granting delete S3 bucket rights or granting access to confidential information stored in an S3 Bucket.
+As a regulated industry, we are required to closely control who has access to what. What scares us most is to inadvertently grant a right to someone that could result in non-compliance, for instance, granting delete S3 bucket rights or granting access to confidential information stored in an S3 Bucket.
 
 To avoid this, we make extensive use of S3 Bucket policies composed of several statements granting:
 
@@ -302,7 +302,7 @@ pulumi.runtime.setMocks({
 
 ## Ideas for future improvements
 
-At the moment, `Condition` accepts any JSON object. Valid or not, it will serialise the object to JSON as-is. To avoid building an invalid `Condition` element, I am planning to add an object model for this. The API would look something like this.
+At the moment, `Condition` accepts any JSON object. Valid or not, it will serialize the object to JSON as-is. To avoid building an invalid `Condition` element, I am planning to add an object model for this. The API would look something like this.
 
 ```typescript
 new Statement({
