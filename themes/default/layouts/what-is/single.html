@@ -3,11 +3,22 @@
 {{ end }}
 
 {{ define "main" }}
-    <div class="container mx-auto my-16">
-        <div class="flex justify-end">
-            <div class="max-w-5xl">
-                <div>
-                    {{ .Content }}
+    <div class="my-16 relative">
+        <div class="shape-background cloud-engineering-small-dots-build">
+            <div class="relative w-full h-full">
+                <div class="dot-background-container">
+                    <div class="dot-background-overlay"></div>
+                    <div class="dot-background no-animate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto">
+            <div class="lg:flex lg:justify-end">
+                <div class="lg:max-w-5xl">
+                    <div>
+                        {{ .Content }}
+                    </div>
                 </div>
             </div>
         </div>
