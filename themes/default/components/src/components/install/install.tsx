@@ -58,18 +58,22 @@ export class Install {
     }
 
     render() {
-        return <div>
+        return (
             <div>
-                <p>
-                    <span>{this.installCommand}</span>
-                </p>
+                <div class="command-text">
+                    <p>
+                        <span>{this.installCommand}</span>
+                    </p>
+                </div>
+                <div class="copy-button">
+                    <pulumi-tooltip>
+                        <button onClick={this.copyToClipboard.bind(this)}>
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <span slot="content">{this.tooltipContent}</span>
+                    </pulumi-tooltip>
+                </div>
             </div>
-            <pulumi-tooltip>
-                <button onClick={this.copyToClipboard.bind(this)}>
-                    <i class="far fa-copy"></i>
-                </button>
-                <span slot="content">{this.tooltipContent}</span>
-            </pulumi-tooltip>
-        </div>;
+        );
     }
 }

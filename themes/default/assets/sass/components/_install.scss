@@ -1,25 +1,27 @@
 pulumi-install {
+    @apply inline-block;
+
     > div {
-        @apply flex justify-center ;
+        @apply flex;
+    }
 
-        > div {
-            @apply bg-black pt-4 pb-4 pl-6 pr-6 rounded-l-md;
+    .command-text {
+        @apply bg-black py-4 px-6 rounded-l-md flex-1 min-w-0 px-8 py-4;
 
-            p {
-                @apply text-xl m-1 font-mono;
-                
-                @screen md {
-                    @apply text-2xl;
-                }
+        p {
+            @apply text-xl m-0 font-mono text-left;
 
-                span {
-                    @apply text-white;
-                }
+            @screen md {
+                @apply text-2xl;
+            }
+
+            span {
+                @apply text-white;
             }
         }
     }
 
-    pulumi-tooltip  {
+    .copy-button  {
         button {
             @apply border-2 border-black rounded-r-md text-black h-full;
 
