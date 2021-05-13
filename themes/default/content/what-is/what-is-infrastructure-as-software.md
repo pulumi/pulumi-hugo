@@ -81,6 +81,7 @@ Most DSLs have few resources for testing your infrastructure. Of course, with Ia
 IaS broadens your ability to automate tasks. A good IaS platform lets you automate many jobs, such as secrets management and security audits with just a few commands.
 
 ### Multi-cloud infrastructure
+
 With IaS, you can use a common API to create an infrastructure that will work for multiple cloud providers. Your IaS platform should hide the details and low-level functionality so that you can concentrate on operating consistently and reliably on any provider you choose.
 
 ## Learn More
