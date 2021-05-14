@@ -36,7 +36,7 @@ h3.api {
 ul.api {
     @apply list-none p-0 m-0 overflow-hidden;
 
-    columns: 3 220px;
+    columns: 2 330px;
 
     li {
         @apply truncate mt-0;
@@ -44,7 +44,7 @@ ul.api {
         a {
             @apply btn truncate bg-transparent inline-block p-1;
 
-            max-width: 250px;
+            max-width: 330px;
         }
 
         .symbol {
