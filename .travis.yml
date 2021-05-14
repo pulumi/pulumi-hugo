@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "12"
+script:
+ - echo "Deploy To Firebase CI"
+install:
+  - npm install -g firebase-tools
+after_success:
+  - firebase deploy --only hosting --project pulumi-hugo-cn --token $FIREBASE_TOKEN
