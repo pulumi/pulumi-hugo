@@ -194,8 +194,9 @@ In this tutorial, you'll use Python to deploy an instance of Azure Kubernetes Se
     Running `pulumi up` will deploy the AKS cluster. Note, provisioning a
     new AKS cluster can take several minutes.
 
-        $ pulumi up
-        Previewing update (dev):
+    ```bash
+    $ pulumi up
+    Previewing update (dev):
 
         Type                                             Name                 Plan
     +   pulumi:pulumi:Stack                              aks-hello-world-dev  create
@@ -211,9 +212,10 @@ In this tutorial, you'll use Python to deploy an instance of Azure Kubernetes Se
 
     Resources:
         + 10 to create
+    ```
 
     {{% notes type="info" %}}
-Due to an issue in the Azure AD Terraform Provider (https://github.com/hashicorp/terraform-provider-azuread/issues/4), the
+Due to an <a href="https://github.com/hashicorp/terraform-provider-azuread/issues/4" >issue</a> in the Azure AD Terraform Provider, the
 creation of an Azure Service Principal, which is needed to create the Kubernetes cluster (see __main__.py), is delayed and may not
 be available when the cluster is created. Because of this delay, if you get a Service Principal not found error, run `pulumi up`
 again and it should successfully complete.
