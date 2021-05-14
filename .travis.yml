@@ -3,12 +3,11 @@ node_js:
   - "12"
 
 install:
-  - wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_0.52_Linux-64bit.deb
-  - sudo dpkg -i /tmp/hugo.deb
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.83.1/hugo_0.83.1_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+  - npm install -g firebase-tools
 script:
  - echo "Deploy To Firebase CI"
- - hugo
-install:
-  - npm install -g firebase-tools
+
 after_success:
   - hugo && firebase deploy --only hosting --project pulumi-hugo-cn --token $FIREBASE_TOKEN
