@@ -8,6 +8,6 @@ install:
   - npm install -g firebase-tools
 script:
  - echo "Deploy To Firebase CI"
-
+ - make build
 after_success:
-  - hugo && firebase deploy --only hosting --project pulumi-hugo-cn --token $FIREBASE_TOKEN
+  - firebase deploy --only hosting --project pulumi-hugo-cn --token $FIREBASE_TOKEN
