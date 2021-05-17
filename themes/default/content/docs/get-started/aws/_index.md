@@ -16,6 +16,7 @@ aliases: ["/docs/quickstart/aws/"]
 ## Guide Goals
 
 In this guide you will:
+
 - Install Pulumi.
 - Install your preferred language runtime.
 - Create a new Pulumi project.
