@@ -22,9 +22,14 @@ cloud-hosted custom Kubernetes clusters, and the managed services from Google
 packages and [CLI]({{< relref "/docs/reference/cli" >}})
 help you accomplish all these within minutes.
 
-This guide will have you quickly provisioning infrastructure on Kubernetes with
-Pulumi in your favorite language.
+## Guide Goals
 
-To get started we will walk through installing Pulumi, installing your preferred language runtime (if needed), and setting up the kubectl CLI. Click the button below to get started.
+In this guide you will:
+
+- Install Pulumi.
+- Install your preferred language runtime.
+- Set up the kubectl CLI.
+- Create a new Pulumi project.
+- Provision infrastructure on Kubernetes.
 
 {{< get-started-stepper >}}
