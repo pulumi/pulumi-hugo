@@ -32,6 +32,7 @@ We have guides for AWS, Azure, Google Cloud and Kubernetes using TypeScript, Jav
 - Learn about all the other clouds we support in the [Cloud Provider Docs]({{< relref "/docs/intro/cloud-providers" >}})
 
 ### Demo Video
+
 Not ready to get started yet? Watch a five-minute demo video instead.
 
 <div class="rounded-md shadow border border-gray-300 w-3/4" style="position: relative; padding-bottom: 40.25%; height: 0; overflow: hidden;">
