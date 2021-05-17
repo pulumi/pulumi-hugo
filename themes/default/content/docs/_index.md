@@ -18,23 +18,6 @@ Pulumi is an <a href="https://github.com/pulumi/pulumi" target="_blank">open sou
     <a class="btn btn-lg mx-1 my-1" href="{{< relref "/docs/get-started" >}}">Get Started</a>
 </div>
 
-<div class="bg-gray-100 rounded max-w-6xl my-4 px-4 py-2">
-    <div class="md:flex justify-between items-center">
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="{{< relref "/docs/get-started/aws" >}}">
-            <img class="inline-block h-8 w-auto -mb-2" src="/logos/tech/aws.svg">
-        </a>
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="{{< relref "/docs/get-started/azure" >}}">
-            <img class="inline-block h-8 w-auto" src="/logos/tech/azure.svg">
-        </a>
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="{{< relref "/docs/get-started/gcp" >}}">
-            <img class="inline-block h-8 w-auto" src="/logos/tech/gcp.svg">
-        </a>
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="{{< relref "/docs/get-started/kubernetes" >}}">
-            <img class="inline-block h-8 w-auto" src="/logos/tech/k8s.svg">
-        </a>
-    </div>
-</div>
-
 <div class="my-4 md:flex py-8">
     <div class="md:w-1/3">
         <h3 class="no-anchor">Why Pulumi?</h3>
