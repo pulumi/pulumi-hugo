@@ -15,32 +15,24 @@ aliases:
 
 Pulumi is a modern infrastructure as code platform that allows you to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
 
-Select one of the following options to deploy a simple application in your cloud using Pulumi:
+We have guides for AWS, Azure, Google Cloud and Kubernetes using TypeScript, JavaScipt, Python, Go or C#.
 
-<div class="tiles flex-wrap mt-4">
-    <div class="pb-4 md:pr-4 md:w-1/2">
-        <a class="tile p-8" href="{{< relref "/docs/get-started/aws" >}}">
-            <img class="h-10 mx-auto" src="/logos/tech/aws.svg" alt="AWS">
-        </a>
-    </div>
-    <div class="pb-4 md:w-1/2">
-        <a class="tile p-8" href="{{< relref "/docs/get-started/kubernetes" >}}">
-            <img class="h-10 mx-auto" src="/logos/tech/k8s.svg" alt="Kubernetes">
-        </a>
-    </div>
-    <div class="pb-4 md:pr-4 md:w-1/2">
-        <a class="tile p-8" href="{{< relref "/docs/get-started/azure" >}}">
-            <img class="h-10 mx-auto" src="/logos/tech/azure.svg" alt="Azure">
-        </a>
-    </div>
-    <div class="pb-4 md:w-1/2">
-        <a class="tile p-8" href="{{< relref "/docs/get-started/gcp" >}}">
-            <img class="h-10 mx-auto" src="/logos/tech/gcp.svg" alt="Google Cloud">
-        </a>
-    </div>
-</div>
+## Deploy an Application Guides
 
-Or, watch how to do it in this video walkthrough:
+- [AWS and Pulumi Guide]({{< relref "/docs/get-started/aws" >}})
+- [Azure and Pulumi Guide]({{< relref "/docs/get-started/azure" >}})
+- [Google Cloud and Pulumi Guide]({{< relref "/docs/get-started/gcp" >}})
+- [Kubernetes and Pulumi Guide]({{< relref "/docs/get-started/kubernetes" >}})
+
+## More Get Started Resources
+
+- Learn about [Pulumi Architecture & Concepts]({{< relref "/docs/intro/concepts" >}})
+- Learn how to adopt Pulumi in the [Adopting Pulumi Guide]({{< relref "/docs/guides/adopting" >}})
+- Sign up for one of our [Live Workshops]({{< relref "/resources/introduction-to-pulumi" >}})
+- Learn about all the other clouds we support in the [Cloud Provider Docs]({{< relref "/docs/intro/cloud-providers" >}})
+
+### Demo Video
+Not ready to get started yet? Watch a five-minute demo video instead.
 
 <div class="rounded-md shadow border border-gray-300 w-3/4" style="position: relative; padding-bottom: 40.25%; height: 0; overflow: hidden;">
     <iframe
@@ -50,28 +42,4 @@ Or, watch how to do it in this video walkthrough:
         title="Introduction to Pulumi: Modern Infrastructure as Code"
         srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img{position:absolute;width:100%;top:0;bottom:0;margin:auto}</style><a href=https://www.youtube.com/embed/6f8KF6UGN7g?autoplay=1><img src='/images/home/youtube-preview.svg' alt='Introduction to Pulumi: Modern Infrastructure as Code'></a>">
     </iframe>
-</div>
-
-See [Cloud Providers]({{< relref "/docs/intro/cloud-providers" >}}) on how to use other supported clouds.
-
-## Additional resources
-
-The following sections are also useful when first learning how to use Pulumi:
-
-<div class="md:flex flex-row mt-6 mb-6">
-    <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts" >}}"><i class="fas fa-file-alt pr-2"></i>Architecture & Concepts</a></h3>
-        <p>Get details on the Pulumi programming model and core concepts.</p>
-    </div>
-    <div class="md:w-1/2 md:ml-4 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/guides/adopting" >}}"><i class="fas fa-cloud pr-2"></i>Adopting Pulumi</a></h3>
-        <p>Learn how to support, migrate, or convert existing cloud infrastructure with Pulumi.</p>
-    </div>
-</div>
-
-<div class="md:flex flex-row mt-6 mb-6">
-    <div class="w-full border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="{{< relref "/resources/introduction-to-pulumi" >}}"><i class="fas fa-users pr-2"></i>Live Workshops</a></h3>
-        <p>Deploy your first Pulumi program in a live, instructor-led event.</p>
-    </div>
 </div>
