@@ -24,11 +24,13 @@ help you accomplish all these within minutes.
 
 ## Guide Goals
 
+Let's get you up and running with Pulumi and deploy a static website in Kubernetes!
+
 In this guide you will:
 
 - Install Pulumi.
 - Install your preferred language runtime.
-- Set up the kubectl CLI.
+- Configure access to your Kubernetes cluster.
 - Create a new Pulumi project.
 - Provision infrastructure on Kubernetes.
 

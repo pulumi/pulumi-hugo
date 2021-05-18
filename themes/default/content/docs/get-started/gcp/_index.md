@@ -15,10 +15,13 @@ aliases: ["/docs/quickstart/gcp/"]
 
 ## Guide Goals
 
+Let's get you up and running with Pulumi and deploy a static website in Google Cloud!
+
 In this guide you will:
 
 - Install Pulumi.
 - Install your preferred language runtime.
+- Configure access to your Google Cloud account.
 - Create a new Pulumi project.
 - Provision a new Google Cloud Storage bucket.
 - Add an `index.html` file to your bucket.

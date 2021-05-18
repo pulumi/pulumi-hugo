@@ -12,9 +12,8 @@ menu:
 aliases: ["/docs/quickstart/aws/create-project/"]
 ---
 
-Now that you have set up your environment by installing Pulumi, installing your preferred language runtime, and configuring your AWS credentials, let's get started with creating your first Pulumi program.
-
-To get started, first create a new directory and project.
+Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,
+and configuring your AWS credentials, let's create your first Pulumi program.
 
 {{< chooser language "javascript,typescript,python,go,csharp" / >}}
 

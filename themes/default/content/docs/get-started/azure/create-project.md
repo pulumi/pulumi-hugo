@@ -12,9 +12,8 @@ menu:
 aliases: ["/docs/quickstart/azure/create-project/"]
 ---
 
-Now that you have set up your environment by installing Pulumi, installing your preferred language runtime, and configuring your Azure credentials, let's get started with creating your first Pulumi program.
-
-To get started, first create a new directory and project.
+Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,
+and configuring your Azure credentials, let's create your first Pulumi program.
 
 {{< chooser language "typescript,python,go,csharp" / >}}
 
