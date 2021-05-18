@@ -11,7 +11,7 @@ customer_logo: /logos/customers/atlassian-wordmark.svg
 customer_url: https://www.atlassian.com/
 
 exec_summary: |
-    The Bitbucket DevSpeed team improves developer productivity by improving their workflows for developing tools like Bitbucket. Because the team wanted to make it easier and faster for developers to access cloud infrastructure, they moved from a DSL-based Infrastructure-as-Code tool to Pulumi, which let them define and deploy infrastructure with Python. They could then easily add cross-regional support to their CI/CD pipeline for deploying development environments for over 100 Bitbucket developers around the world. They also built a self-service dashboard that allows any developer to deploy and configure instances for feature development. The results were dramatic increases in developer productivity. It also significantly reduced the time developers spent maintaining those instances.
+    The Bitbucket DevSpeed team improves developer productivity by improving their workflows for developing tools like Bitbucket. Because the team wanted to make it easier and faster for developers to access cloud infrastructure, they moved from a DSL-based Infrastructure-as-Code tool to Pulumi, which let them define and deploy infrastructure with Python. They could then easily add cross-regional support to their CI/CD pipeline for deploying development environments for over 100 Bitbucket developers around the world. They also built a self-service dashboard that allows any developer to deploy and configure instances for feature development. The results were a dramatic increase in developer productivity and a significant reduction in the time developers spent maintaining those instances.
 
 sections:
     - label: Exec Summary
