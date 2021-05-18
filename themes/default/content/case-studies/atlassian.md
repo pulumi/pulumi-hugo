@@ -1,7 +1,7 @@
 ---
 title: Increasing Developer Productivity at Bitbucket Cloud
 description: |
-    Using Pulumi, the Atlassian built a self-service dashboard that enables any Bitbucket developer to easily provision a cloud-based development environment.
+    Using Pulumi, the Atlassian team built a self-service dashboard that enables any Bitbucket developer to easily provision a cloud-based development environment.
 meta_desc: |
     Using Pulumi, the Atlassian built a self-service dashboard that enables any Bitbucket developer to easily provision a cloud-based development environment.
 
