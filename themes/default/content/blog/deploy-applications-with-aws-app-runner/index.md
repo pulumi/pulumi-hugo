@@ -81,14 +81,15 @@ _, err = iam.NewRolePolicy(ctx, "ecrAccessRolePolicy", &iam.RolePolicyArgs{
 })
 ```
 
-With all of that setup, we can now build and push our container. For our example, we’ll use a simple `Dockerfile`:
+With all of that setup, we can now build and push our container. For our example, we'll create an `app` directory
+within our project containing a simple `Dockerfile` and `index.html` file:
 
 ```docker
 FROM nginx:latest
 COPY ./index.html /usr/share/nginx/html/index.html
 ```
 
-Where index.html is simply:
+Where `index.html` is simply:
 
 ```html
 <html>
