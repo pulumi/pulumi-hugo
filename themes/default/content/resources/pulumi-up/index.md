@@ -2,7 +2,7 @@
 # Name of the webinar.
 title: "PulumiUP"
 meta_desc: |
-    PulumiUP, introduces you to the emerging practice of Cloud Engineering. Hear from the Pulumi team
+    PulumiUP introduces you to the emerging practice of Cloud Engineering. Hear from the Pulumi team
     and assorted industry experts.
 
 redirect_to: /pulumi-up

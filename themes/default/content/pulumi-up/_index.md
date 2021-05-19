@@ -4,7 +4,7 @@ type: page
 layout: pulumi-up
 meta_image: /images/pulumiup/pulumiup_social.png
 meta_desc: |
-    PulumiUP, introduces you to the emerging practice of Cloud Engineering. Hear from the Pulumi team
+    PulumiUP introduces you to the emerging practice of Cloud Engineering. Hear from the Pulumi team
     and assorted industry experts.
 
 aliases:
