@@ -339,7 +339,8 @@ this.BucketEndpoint = Output.Format($"http://storage.googleapis.com/{bucket.Name
 ```
 
 ```csharp
-[Output] public Output<string> BucketEndpoint { get; set; }
+[Output]
+public Output<string> BucketEndpoint { get; set; }
 ```
 
 {{% /choosable %}}
