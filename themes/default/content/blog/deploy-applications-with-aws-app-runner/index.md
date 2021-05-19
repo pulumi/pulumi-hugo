@@ -153,7 +153,11 @@ if err != nil {
 }
 ```
 
-And just like that, our service is up and running, and it only took a few dozen lines of code! With this kind of setup, we don’t have to worry about load balancers or scaling or anything like that -- instead, we focused on building our application and stood up the bare minimum to have a repository image.
+And just like that, our service is up and running, and it only took a few dozen lines of code! With this kind of setup, we don’t have to worry about load balancers or scaling or anything like that -- instead, we focused on building our application and stood up the bare minimum to have a repository image. We can export the URL of our service to visit it:
+
+```go
+ctx.Export("serviceEndpoint", appRunnerService.ServiceUrl)
+```
 
 We’re excited at how easy it is to use Pulumi to deploy applications via AWS App Runner, and we can’t wait to see what exciting things you build with it! See AWS App Runner in action in this episode of Modern Infrastructure Wednesday.
 
