@@ -31,56 +31,55 @@ Next, let’s make sure that the App Runner service can pull images from the rep
 
 ```go
 role, err := iam.NewRole(ctx, "ecrAccessRole", &iam.RoleArgs{
-       AssumeRolePolicy: pulumi.String(string(assumeRolePolicy)),
-   })
+    AssumeRolePolicy: pulumi.String(string(assumeRolePolicy)),
+})
 ```
 
 The `assumeRolePolicy` object is fairly straightforward, it’s just the JSON representation:
 
 ```go
 assumeRolePolicy, _ := json.Marshal(map[string]interface{}{
-       "Version": "2012-10-17",
-       "Statement": []map[string]interface{}{
-           {
-               "Action": "sts:AssumeRole",
-               "Effect": "Allow",
-               "Sid":    "",
-               "Principal": map[string]interface{}{
-                   "Service": []string{
-                       "build.apprunner.amazonaws.com",
-                   },
-               },
-           },
-       },
-   })
+    "Version": "2012-10-17",
+    "Statement": []map[string]interface{}{
+        {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Sid":    "",
+            "Principal": map[string]interface{}{
+                "Service": []string{
+                    "build.apprunner.amazonaws.com",
+                },
+            },
+        },
+    },
+})
 ```
 
 Finally, we assign the image pull policy to this role:
 
 ```go
-   pullImagePolicy, _ := json.Marshal(map[string]interface{}{
-       "Version": "2012-10-17",
-       "Statement": []map[string]interface{}{
-           {
-               "Effect": "Allow",
-               "Action": []string{
-                   "ecr:GetAuthorizationToken",
-                   "ecr:BatchCheckLayerAvailability",
-                   "ecr:GetDownloadUrlForLayer",
-                   "ecr:BatchGetImage",
-                   "ecr:DescribeImages",
-               },
-               "Resource": "*",
-           },
-       },
-   })
+pullImagePolicy, _ := json.Marshal(map[string]interface{}{
+    "Version": "2012-10-17",
+    "Statement": []map[string]interface{}{
+        {
+            "Effect": "Allow",
+            "Action": []string{
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "ecr:DescribeImages",
+            },
+            "Resource": "*",
+        },
+    },
+})
 
-   _, err = iam.NewRolePolicy(ctx, "ecrAccessRolePolicy", &iam.RolePolicyArgs{
-       Role:   role,
-       Policy: pulumi.String(string(pullImagePolicy)),
-   })
-
- ```
+_, err = iam.NewRolePolicy(ctx, "ecrAccessRolePolicy", &iam.RolePolicyArgs{
+    Role:   role,
+    Policy: pulumi.String(string(pullImagePolicy)),
+})
+```
 
 With all of that setup, we can now build and push our container. For our example, we’ll use a simple `Dockerfile`:
 
@@ -107,42 +106,54 @@ Where index.html is simply:
 To push the image, we simply use Pulumi’s Image component resource to build and push. We’ll need our ECR credentials, which we can obtain via a simple function call and pass that information as an argument to our `Image` resource:
 
 ```go
-   ecrCredentials, err := ecr.GetAuthorizationToken(ctx, &ecr.GetAuthorizationTokenArgs{
-       RegistryId: nil,
-   }, nil)
-   if err != nil {
-       return err
-   }
+ecrCredentials, err := ecr.GetAuthorizationToken(ctx, &ecr.GetAuthorizationTokenArgs{
+    RegistryId: nil,
+}, nil)
+if err != nil {
+    return err
+}
 
-   // Build and push our image into the ECR repo.
-   dockerImage, err := docker.NewImage(ctx, "sampleapp", &docker.ImageArgs{
-       ImageName: repo.RepositoryUrl,
-       Build: docker.DockerBuildArgs{
-           Context: pulumi.String("./app"),
-       },
-       Registry: &docker.ImageRegistryArgs{
-           Server:   repo.RepositoryUrl,
-           Username: pulumi.String(ecrCredentials.UserName),
-           Password: pulumi.String(ecrCredentials.Password),
-       },
-   })
-   if err != nil {
-       return err
-   }
+// Build and push our image into the ECR repo.
+dockerImage, err := docker.NewImage(ctx, "sampleapp", &docker.ImageArgs{
+    ImageName: repo.RepositoryUrl,
+    Build: docker.DockerBuildArgs{
+        Context: pulumi.String("./app"),
+    },
+    Registry: &docker.ImageRegistryArgs{
+        Server:   repo.RepositoryUrl,
+        Username: pulumi.String(ecrCredentials.UserName),
+        Password: pulumi.String(ecrCredentials.Password),
+    },
+})
+if err != nil {
+    return err
+}
 ```
 
-At this point, we have everything we need to deploy our App Runner Service. We could do this any number of ways, but we’ll need both the role ARN and the image URL, so let’s export those from our program:
+At this point, we have everything we need to deploy our App Runner Service. Let's deploy it!
 
 ```go
-   // Export the role ARN
-   ctx.Export("ecrAccessRoleArn", role.Arn)
-   // Export the image URL
-   ctx.Export("imageUrl", dockerImage.ImageName)
+appRunnerService, err := apprunner.NewService(ctx, "service", &apprunner.ServiceArgs{
+    ServiceName: pulumi.String("myservice"),
+    SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
+        AuthenticationConfiguration: &apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs{
+            AccessRoleArn: role.Arn,
+        },
+        ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
+            ImageIdentifier:     dockerImage.ImageName,
+            ImageRepositoryType: pulumi.String("ECR"),
+            ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
+                Port: pulumi.String("80"),
+            },
+        },
+    },
+})
+if err != nil {
+    return err
+}
 ```
 
-We can then wire those values through Pulumi or even go to the App Runner console to deploy our service. And just like that, our service is up and running, and it only took a few dozen lines of code! With this kind of setup, we don’t have to worry about load balancers or scaling or anything like that -- instead, we focused on building our application and stood up the bare minimum to have a repository image.
-
-After deploying the application, we get back a service URL from App Runner. Visiting that URL in a web browser should yield the following result:
+And just like that, our service is up and running, and it only took a few dozen lines of code! With this kind of setup, we don’t have to worry about load balancers or scaling or anything like that -- instead, we focused on building our application and stood up the bare minimum to have a repository image.
 
 We’re excited at how easy it is to use Pulumi to deploy applications via AWS App Runner, and we can’t wait to see what exciting things you build with it! See AWS App Runner in action in this episode of Modern Infrastructure Wednesday.
 
