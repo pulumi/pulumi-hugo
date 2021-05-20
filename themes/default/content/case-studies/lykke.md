@@ -48,7 +48,7 @@ One of the biggest considerations for the team was cost management. Pulumi helpe
 
 Pulumi Crosswalk also helped the team to configure services like Amazon VPC using only a dozen lines of code - something that required 10x more configuration with other IaC tools. The code review process also became faster, with infrastructure changes taking hours, rather than days to deliver.
 
-Within a month of adopting Pulumi, Lykke deployed core supporting infrastructure for a new product. By improving overall productivity for their development team, Lykke was able to deliver the new product to production customers in a matter of months. Lykke is also adopting a comprehensive approach to infrastructure policy using Pulumi’s CrossGuard framework. This ensures that internal security, compliance and cost management policies are automatically enforced through policy-as-code.
+Within a month of adopting Pulumi, Lykke deployed core supporting infrastructure for a new product. By improving overall productivity for their development team, Lykke was able to deliver the new product to production customers in a matter of months. Lykke is also adopting a comprehensive approach to infrastructure policy using Pulumi’s [CrossGuard](/crossguard/) framework. This ensures that internal security, compliance and cost management policies are automatically enforced through policy-as-code.
 
 ## Next steps
 
@@ -60,8 +60,9 @@ Lykke’s engineering team also plans to adopt unit testing for existing and fut
 
 ## About Pulumi
 
-Pulumi makes building serverless applications easy by automatically provisioning resources and breaking down the development process into standardized building blocks. Check out the following articles to get started:
+Pulumi makes building, deploying, and managing cloud applications for any architecture easy by automatically provisioning resources and breaking down the development process into standardized building blocks. Check out the following articles to get started:
 
 - [AWS Identity and Access Management with Pulumi Crosswalk](https://www.pulumi.com/docs/guides/crosswalk/aws/iam/)
-- [Amazon Lambda with Pulumi](https://www.pulumi.com/docs/guides/crosswalk/aws/lambda/)
+- [AWS Lambda with Pulumi](https://www.pulumi.com/docs/guides/crosswalk/aws/lambda/)
 - [Get Started with Policy as Code and Pulumi CrossGuard](https://www.pulumi.com/docs/get-started/crossguard/)
+- [Get Started with Kubernetes with Pulumi CrossWalk](https://www.pulumi.com/docs/guides/crosswalk/kubernetes/)
