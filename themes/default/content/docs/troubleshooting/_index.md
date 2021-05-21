@@ -93,7 +93,6 @@ $ pulumi up --tracing http://localhost:9411/api/v1/spans
 
 To view a trace locally navigate to the [Jaeger UI](http://localhost:16686/search).
 
-
 ## Common Problems
 
 This section covers a few problems that can arise when working with Pulumi.
