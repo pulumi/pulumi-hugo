@@ -12,7 +12,7 @@ menu:
 aliases: ["/docs/quickstart/gcp/create-project/"]
 ---
 
-Now that you have set up your environment by installing Pulumi, installing your preferred language runtime, 
+Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,
 and configuring your Google Cloud credentials, let's create your first Pulumi program.
 
 {{< chooser language "javascript,typescript,python,go,csharp" / >}}

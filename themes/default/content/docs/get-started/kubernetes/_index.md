@@ -22,16 +22,12 @@ cloud-hosted custom Kubernetes clusters, and the managed services from Google
 packages and [CLI]({{< relref "/docs/reference/cli" >}})
 help you accomplish all these within minutes.
 
-## Guide Goals
+For a quick example of how Pulumi deploys infrastructure on Kubernetes, this tutorial takes you through the following steps to easily deploy an [NGINX](https://www.nginx.com/) web server:
 
-Let's get you up and running with Pulumi and deploy a static website in Kubernetes!
-
-In this guide you will:
-
-- Install Pulumi.
-- Install your preferred language runtime.
-- Configure access to your Kubernetes cluster.
-- Create a new Pulumi project.
-- Provision infrastructure on Kubernetes.
+1. Setting up and configuring Pulumi to access your Kubernetes cluster.
+1. Creating a new Pulumi project.
+1. Deploying NGINX on Kubernetes.
+1. Creating a service to access the NGINX deployment.
+1. Cleaning up your deployment by destroying the resources you've provisioned.
 
 {{< get-started-stepper >}}
