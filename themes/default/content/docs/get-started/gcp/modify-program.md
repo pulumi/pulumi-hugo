@@ -109,10 +109,11 @@ bucketObject = storage.BucketObject(
 In `main.go`, create the `BucketObject` right after creating the bucket itself.
 
 ```go
-_, err = storage.NewBucketObject(ctx, "index.html", &storage.BucketObjectArgs{
+bucketObject, err := storage.NewBucketObject(ctx, "index.html", &storage.BucketObjectArgs{
     Bucket: bucket.Name,
     Source: pulumi.NewFileAsset("index.html"),
 })
+bucketEndpoint := pulumi.Sprintf("http://storage.googleapis.com/%s/%s", bucket.Name, bucketObject.Name)
 if err != nil {
     return err
 }
