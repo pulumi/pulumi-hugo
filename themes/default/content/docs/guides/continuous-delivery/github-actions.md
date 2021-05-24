@@ -87,8 +87,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v1
       - run: npm install
       - uses: pulumi/actions@v3
         with:
@@ -128,8 +126,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v1
       - run: npm install
       - uses: pulumi/actions@v3
         with:
@@ -141,7 +137,7 @@ jobs:
 
 Now that you've got these two common workflows defined, you'll need to configure your
 secrets. Secrets are exposed as environment variables to the GitHub Actions runtime
-environment. Minimally, you'll need to supply a Pulumi access token to allow the Pulumi CLI to
+environment. Minimally, you'll need to supply a Pulumi access token to allow the Pulumi Action to
 communicate with the Pulumi Service on your behalf, and you'll probably want to provide
 credentials for communicating with your cloud provider as well.
 
@@ -215,7 +211,7 @@ Example comment when using the Pulumi GitHub App:
 If you don't want to use the Pulumi GitHub App, you can configure Pulumi's GitHub Actions
 to copy the output of the `pulumi` invocation on the Pull Request. This option doesn't
 have as rich an output display as the Pulumi GitHub App, as it simply copies the raw
-output of the Pulumi CLI.
+output of the Pulumi Automation API.
 
 To allow your GitHub Action to leave Pull Request comments, you'll need to add
 `comment-on-pr` and `github-token` to the list of inputs
@@ -242,8 +238,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v1
       - run: npm install
       - uses: pulumi/actions@v3
         with:
@@ -291,8 +285,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v1
       - run: npm install
       - uses: pulumi/actions@v3
         with:
@@ -336,8 +328,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v1
       - run: npm install
       - uses: pulumi/actions@v3
         with:
