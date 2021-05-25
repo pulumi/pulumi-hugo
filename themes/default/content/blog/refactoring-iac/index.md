@@ -162,6 +162,7 @@ Extraction consolidates code by creating a new method and replacing duplicate me
 export const publicIp = server.publicIp;
 export const publicHostName = server.publicDns;
 ```
+
 We can create a function that exports the information about a service and call it as needed.
 
 ```typescript
