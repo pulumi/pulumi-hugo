@@ -1,5 +1,5 @@
 ---
-title: "Refactoring Iac"
+title: "Refactoring Infrastructure as Code"
 date: 2021-05-29
 meta_desc: "Cloud engineering applies software engineering principles such as refactoring to improve and maintain infrastructure."
 meta_image: meta.png
@@ -10,32 +10,32 @@ tags:
     - cloud engineering
 ---
 
-The central principle of cloud engineering is adopting software engineering practices. Refactoring is a technique for making changes to code that improve maintainability, enhance performance, scalability, and security without changing its external behavior.In devops, refactoring often occurs with modern applications; however, we can apply those same techniques to cloud infrastructure with infrastructure as code.
+The central principle of cloud engineering is adopting software engineering practices. Refactoring is a technique for making changes to code that improve maintainability, enhance performance, scalability, and security without changing its external behavior. In devops, refactoring often occurs with modern applications; however, we can apply those same techniques to cloud infrastructure with infrastructure as code.
 
 <!--more-->
 
 Refactoring results in many advantages. First and foremost, the code is more readable and easier to understand for other team members –this aids in maintainability and well-organized code, providing a solid foundation for future releases. Overall, if done well, refactoring reduces complexity which makes future changes more efficient.
 
-The topic of refactoring is a broad topic covering many different techniques. Many references, such as [Martin Fowler's Refactoring](https://martinfowler.com/books/refactoring.html), cover refactoring in depth. In this article, we examine common practices used with infrastructure as code.
+The topic of refactoring is a broad topic covering many different techniques. Many references, such as [Martin Fowler's Refactoring](https://martinfowler.com/books/refactoring.html), cover refactoring in depth. In this article, we examine standard practices used with infrastructure as code.
 
+## Infrastructure is different
 
-## Refactoring Infrastructure
+A major difference between refactoring application and infrastructure code is that resources, such as databases persist. Typically, if you change the name, type, or parent path of a resource, it is deleted and a new resource is created. Other infrastructure as code solutions tie a file or module to a resource's identity. An advantage of Pulumu is that moving a resource across file boundaries does not recreate the resource because a resource’s identity is based on its object ID, irrespective of its file location.
 
-A major difference between refactoring application and infrastructure code is that resources, such as databases, persist. Typically, if you change the name, type, or parent path of a resource, it is deleted and a new resource is created. Other infrastructure as code solutions tie a file or module to a resource's identity. An advantage of Pulumu is that moving a resource across file boundaries does not recreate the resource because a resource’s identity is based on its object ID, irrespective of its file location.
+In cases where an object’s ID changes -- due to a rename, reparenting to a new component, or otherwise -- Pulumi provides [aliases]({{< relref "/docs/intro/concepts/resources#aliases" >}}). An `Alias` accepts a list of identifiers that can include old `Alias` objects or old resource URNs. When a resource is annotated with an alias, Pulumi can connect the old to the new object state, and the resource can be updated in place.
 
-In cases where an object’s ID changes -- due to a rename, reparenting to a new component, or otherwise -- Pulumi provides [aliases](((< relref "/docs/intro/concepts/resources#aliases" >}}). An `Alias` accepts a list of identifiers that can include old `Alias` objects or old resource URNs. When a resource is annotated with an alias, Pulumi can connect the old to the new object state, and the resource can be updated in place.
+A similar situation occurs with [`component resources`]({{< relref "/docs/intro/concepts/resources#components" >}}), i.e., a logical grouping of related resources such as `VPC` with subnets pre-configured. When you change a parent resource of a component resource, the identity of the component resource also changes. Pulumi provides a [`parent`]({{< relref "/docs/intro/concepts/resources#components" >}}) option to tie a child resource to the parent resource. The combination of `alias` and `parent` arguments to resources
+lets you refactor infrastructure while preserving existing resources.
 
-A similar situation occurs with [`component resources`]({{< relref "/docs/intro/concepts/resources#components" >}}), i.e., a logical grouping of related resources such as `VPC` with subnets pre-configured. When you change a parent resource of a component resource, the identity of the component resource also changes. Pulumi provides a [`parent` option]({{> relref "/docs/intro/concepts/resources#components" >}}) to tie a child resource to the parent resource. The combination of `alias` and `parent` arguments to resources
-let's you refactor infrastructure while preserving existing resources.
-
+Let's examine how to apply refactoring to infrastructure.
 
 ## Test-Driven Development
 
 Test-driven development (TDD) is a common technique used for code refactoring. TDD breaks down refactoring into three steps:
 
-Red: consider the required behavior and what needs to coded
-Green: get the code to pass a test for that behavior
-Refactor: review the code for improvements and implement as needed.
+- Red: consider the required behavior and what needs to be coded
+- Green: get the code to pass a test for that behavior
+- Refactor: review the code for improvements and implement as needed.
 
 In a previous blog post, Ringo de Smeti used TDD to [refactor Cumundi's code for provisioning repositories by customer]({{< relref "/blog/cumundi-guest-post" >}}). Ringo created a ComponentResource subclass which moved individual resources into a customer resource class.
 
@@ -69,7 +69,7 @@ export class Project extends pulumi.ComponentResource {
 
 ```
 
-To create a project for a customer, the code calls the `Project` class.
+Calling the `Project` class creates a new customer.
 
 ```typescript
 const firstCustomer = new customer.Project("FirstCustomer",
@@ -148,7 +148,7 @@ export class ServiceDeployment extends pulumi.ComponentResource {
 }
 ```
 
-With infrastructure as code you can use your IDE to refactor.
+With infrastructure as code, you can use your IDE to refactor.
 
 ![Refactoring by Pull-Up method](./refactor.gif)
 
@@ -252,7 +252,7 @@ sfn_role = iam.Role('sfnRole',
 )
 ```
 
-If you have many roles to create, you can write a function called `create_role` and pass in the name and policy as JSON.
+You can write a function called `create_role` and pass in the name and policy as JSON to create many roles.
 
 ```typescript
 const lambda_role_document = JSON.parse('{"Version": "2012-10-17","Statement": [{"Action": "sts:AssumeRole","Principal": {"Service": "lambda.amazonaws.com"},"Effect": "Allow","Sid": ""}]}')
@@ -271,7 +271,7 @@ const lambdaRole = create_role("my_lambdarole",lambda_role_document);
 
 Moving features creates new classes and moves functionality between old and new classes. A utility class may not have some methods you need, but you can't add those methods to that class. The solution is to create a new class with the methods you need.
 
-In this [example](https://github.com/pulumi/examples/tree/master/aws-ts-ec2-provisioners), we extend a class and add new methods that let us configure an EC2 instance post-provisioning.
+In this [example](https://github.com/pulumi/examples/tree/master/aws-ts-ec2-provisioners), we extend a class and add new methods that configure an EC2 instance post-provisioning.
 
 ```typescript
 export class Provisioner<T, U> extends pulumi.dynamic.Resource {
@@ -319,4 +319,4 @@ Preparatory refactoring occurs when adding a new feature to a release. It is typ
 
 ## Conclusion
 
-Writing clean and efficient code is part of cloud engineering, and we can achieve this by using well-established refactoring methods used by application developers. Pulumi has many easy-to-understand examples in Node.js, Python, Go, and .Net. Because examples are written explicitly to make them understandable, some could use refactoring. What code samples can you find in the [Pulumi Github repository](https://github.com/pulumi/examples) that could use some refactoring?
+Writing clean and efficient code is part of cloud engineering, and we can achieve this by using well-established refactoring methods used by application developers. Pulumi has many easy-to-understand examples in Node.js, Python, Go, and .Net. Because the examples are written explicitly to make them understandable, some could use refactoring. What code samples can you find in the [Pulumi Github repository](https://github.com/pulumi/examples) that could use some refactoring?
