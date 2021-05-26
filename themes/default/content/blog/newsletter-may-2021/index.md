@@ -1,8 +1,8 @@
 ---
 title: "Newsletter May 2021"
 date: 2021-05-27
-meta_desc: Product and feature relases, events and workshops, and community news for May 2021
-meta_image: meta.png
+meta_desc: "Product and feature relases, events and workshops, and community news for May 2021."
+meta_image: newsletter.png
 authors:
     - sophia-parafina
 tags:
@@ -21,7 +21,7 @@ In April we released [Pulumi 3.0]({{< relref "/blog/pulumi-3-0" >}}) with new fe
 
 - [Multi-lang packages]({{< relref "/blog/pulumiup-pulumi-packages-multi-language-components" >}}) that let you author components in one language and reuse them with another language
 - The [Azure Native Provider]({{< relref "/blog/pulumiup-pulumi-packages-multi-language-components" >}}), built from the Azure API daily, was released for General Availability.
-- We also released a public preview of the [Google Cloud Native Provider](((< relref "/blog/pulumiup-google-native-provider" >))) to give Pulumi users the best support possible. Native Providers ensure that you have complete coverage and the latest features as they are released.
+- We also released a public preview of the [Google Cloud Native Provider]{{< relref "/blog/pulumiup-google-native-provider" >}}) to give Pulumi users the best support possible. Native Providers ensure that you have complete coverage and the latest features as they are released.
 - Updates to the [Pulumi Console]({{< relref "/blog/pulumiup-ci-cd-assistant-all-plans" >}}) with more information about your organization's projects, guided integration with source control management systems such as Github, and deep integration with popular CI/CD systems
 - Improved developer experience with enumerations and documentation with hovering tooltips
 - Announcing General Availability and more language examples with [Automation API](((< relref "/pulumiup-automation-api-ga" >))), Pulumi's cloud infrastructure provisioning tool and SDK
