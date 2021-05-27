@@ -195,10 +195,10 @@ const userData = pulumi
   .apply(
     ([activationCode, activationId, clusterName]) => `#!/bin/bash
 # Download the ecs-anywhere install Script
-curl -o "ecs-anywhere-install.sh" "https://amazon-ecs-agent-packages-preview.s3.us-east-1.amazonaws.com/ecs-anywhere-install.sh" && sudo chmod +x ecs-anywhere-install.sh
+curl -o "ecs-anywhere-install.sh" "https://amazon-ecs-agent.s3.amazonaws.com/ecs-anywhere-install-latest.sh" && sudo chmod +x ecs-anywhere-install.sh
 
 # (Optional) Check integrity of the shell script
-curl -o "ecs-anywhere-install.sh.sha256" "https://amazon-ecs-agent-packages-preview.s3.us-east-1.amazonaws.com/ecs-anywhere-install.sh.sha256" && sha256sum -c ecs-anywhere-install.sh.sha256
+curl -o "ecs-anywhere-install.sh.sha256" "https://amazon-ecs-agent.s3.amazonaws.com/ecs-anywhere-install-latest.sh.sha256" && sha256sum -c ecs-anywhere-install.sh.sha256
 
 # Run the install script
 sudo ./ecs-anywhere-install.sh \
