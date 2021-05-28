@@ -135,7 +135,6 @@ _only_ governed by a user having a Pulumi account and no additional identity req
 Regardless of the identity your org uses, org membership is always invite-only. Only the creator of the org gets automatic access. Everyone else must be invited by an admin to be admitted into the org.
 {{% notes %}}
 
-
 However, if you want your org to mirror an org on a third party identity service such as GitHub, GitLab, or Bitbucket, you can
 change the backing identity. Enterprises can also choose SAML as the backing identity provider for an org as you read
 in the previous section. Changing your org's backing identity essentially changes the membership requirements you place
