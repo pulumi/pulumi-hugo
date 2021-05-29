@@ -128,7 +128,7 @@ please [contact us]({{< relref "/about#contact-us" >}}).
 ## Changing Membership Requirements
 
 Every organization is backed by an identity. The identity governs the membership to your org.
-When you add a new org to Pulumi, it uses the Pulumi identity, by default. This means the membership is
+When you add a new org to Pulumi, it uses the Pulumi identity by default. This means the membership is
 _only_ governed by a user having a Pulumi account and no additional identity requirements are placed on members.
 
 {{% notes %}}
@@ -136,8 +136,7 @@ Regardless of the identity your org uses, org membership is always invite-only. 
 {{% /notes %}}
 
 However, if you want your org to mirror an org on a third party identity service such as GitHub, GitLab, or Bitbucket, you can
-change the backing identity. Enterprises can also choose SAML as the backing identity provider for an org as you read
-in the previous section. Changing your org's backing identity essentially changes the membership requirements you place
+change the backing identity. Enterprises can also choose SAML as the backing identity provider for an org as discussed in [SAML Single Sign-on](#saml-single-sign-on-sso). Changing your org's backing identity essentially changes the membership requirements you place
 on your members.
 
 Before you change your org's backing identity, ensure that all of its current members can satisfy the membership
