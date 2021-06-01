@@ -1,5 +1,5 @@
 ---
-title: "How Webiny Built a Serverless Application Framework With Pulumi"
+title: "How Webiny Built a Serverless Application Framework"
 date: 2021-06-03
 meta_desc: Learn how Webiny built an open-source framework for building serverless applications with Pulumi.
 meta_image: webiny.png
@@ -30,7 +30,6 @@ In other words, it is a framework that enables developers to architect, build, a
 With the framework, Webiny also built a content management system called the [Webiny Serverless CMS](https://www.webiny.com/serverless-cms?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00647). It is free, open-source, and by default, included with every new Webiny project.
 
 Finally, it’s worth mentioning that, at the moment, Webiny exclusively works with [AWS](https://aws.amazon.com/). But, bringing Webiny to other cloud providers like [Microsoft Azure](https://azure.microsoft.com/en-us/) and [Google Cloud Platform (GCP)](https://cloud.google.com/) is definitely something we’ll be looking at in the future.
-
 
 ## Building the Framework - The Challenge
 
@@ -143,6 +142,7 @@ webiny watch {PROJECT_APPLICATION_FOLDER} --env {ENVIRONMENT}
 Note the `--env` argument appended to each command. With it and Pulumi’s concept of stacks, users can easily deploy their project applications into multiple environments.
 
 ### Cloud Infrastructure State Files
+
 The last piece of the puzzle was storing cloud infrastructure state files. Here we went with the following approach.
 
 For local development, users’ cloud infrastructure state files are stored locally within their Webiny project using the [Local Filesystem Backend](https://www.pulumi.com/docs/intro/concepts/state/#logging-into-the-local-filesystem-backend), which we’ve seen worked great for developers.
@@ -154,7 +154,6 @@ On the other hand, for ephemeral environments spawned in CI/CD or long-lived env
 Let’s take a look at how it all works in the actual code.
 
 As mentioned, by default, every Webiny project comes with three project applications: API, Admin Area, and Website, which are located in the [`api`](https://github.com/webiny/webiny-js/tree/next/packages/cwp-template-aws/template/api), [`apps/admin`](https://github.com/webiny/webiny-js/tree/next/packages/cwp-template-aws/template/apps/admin), and [`apps/website`](https://github.com/webiny/webiny-js/tree/next/packages/cwp-template-aws/template/apps/website) folders, respectively:
-
 
 ```bash
 .
@@ -187,7 +186,6 @@ As we can see, every project application follows the same general organization. 
 
 Furthermore, if we opened each of these `pulumi` folders, we’d see different cloud infrastructure resources clearly defined via multiple TypeScript classes. As a simple example, if we were to open the [`apps/admin/pulumi`](https://github.com/webiny/webiny-js/tree/next/packages/cwp-template-aws/template/apps/admin/pulumi) (Admin Area) folder, we’d find the following three files:
 
-
 - [`app.ts`](https://github.com/webiny/webiny-js/blob/next/packages/cwp-template-aws/template/apps/admin/pulumi/app.ts) - deploys an [Amazon S3](https://aws.amazon.com/s3/) bucket that hosts the Admin Area (React) application
 - [`cloudfront.ts`](https://github.com/webiny/webiny-js/blob/next/packages/cwp-template-aws/template/apps/admin/pulumi/cloudfront.ts) - deploys an [Amazon CloudFront](https://aws.amazon.com/cloudfront/) distribution for improved availability
 - [`index.ts`](https://github.com/webiny/webiny-js/blob/next/packages/cwp-template-aws/template/apps/admin/pulumi/index.ts) - the Pulumi entrypoint file, imports classes defined within separate files
@@ -200,7 +198,7 @@ But I will leave this up to you to check out, as pasting multiple chunks of code
 
 Instead, I wanted to focus on a couple of other interesting and useful features that Pulumi and the infrastructure-as-code approach enabled us to create.
 
-#### **API** Project Application - Different `dev` and `prod` Stacks
+### **API** Project Application - Different `dev` and `prod` Stacks
 
 As mentioned, the API project application contains many different cloud infrastructure resources. But, as it turns out, when it comes to active development, we don’t have to unleash the full potential of the cloud, like we’re doing in staging and production environments.
 
