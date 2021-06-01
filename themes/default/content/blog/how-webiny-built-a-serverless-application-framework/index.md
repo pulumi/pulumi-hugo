@@ -18,7 +18,7 @@ Building an open-source framework for building serverless applications has many 
 
 ## What is Webiny?
 
-[Webiny](https://www.webiny.com/) is an open-source framework for building serverless applications, completely written in TypeScript.
+[Webiny](https://www.webiny.com?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00646) is an open-source framework for building serverless applications, completely written in TypeScript.
 
 In other words, it is a framework that enables developers to architect, build, and deploy solutions on top of the serverless cloud infrastructure, like [AWS Lambda](https://aws.amazon.com/lambda/), [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [Amazon S3](https://aws.amazon.com/s3/), and others. Some examples of what you can build with Webiny today are:
 
@@ -27,7 +27,7 @@ In other words, it is a framework that enables developers to architect, build, a
 - REST and GraphQL APIs
 - microservices
 
-With the framework, Webiny also built a content management system called the [Webiny Serverless CMS](https://www.webiny.com/serverless-cms). It is free, open-source, and by default, included with every new Webiny project.
+With the framework, Webiny also built a content management system called the [Webiny Serverless CMS](https://www.webiny.com/serverless-cms?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00647). It is free, open-source, and by default, included with every new Webiny project.
 
 Finally, it’s worth mentioning that, at the moment, Webiny exclusively works with [AWS](https://aws.amazon.com/). But, bringing Webiny to other cloud providers like [Microsoft Azure](https://azure.microsoft.com/en-us/) and [Google Cloud Platform (GCP)](https://cloud.google.com/) is definitely something we’ll be looking at in the future.
 
@@ -36,9 +36,9 @@ Finally, it’s worth mentioning that, at the moment, Webiny exclusively works w
 
 Building a serverless framework certainly has its challenges. One of which is the deployment of cloud infrastructure, which, in the world of serverless, is one of the fundamental operations developers need to do, even while the application is still in development.
 
-Before the [version 5 release](https://www.webiny.com/blog/webiny-v5-the-big-update), Webiny relied on an infrastructure provisioning technology called [Serverless Components](https://www.serverless.com/components/) (not to be confused with [Serverless Framework](https://www.serverless.com/)). Using a concept of components, it is a system that enables developers to deploy ready-made blocks of cloud infrastructure resources configured for a specific use-case. Some examples of components are [Website](https://github.com/serverless/components/tree/v1/templates/website), [REST API](https://github.com/serverless/components/tree/v1/templates/backend-monolith), a [Full Stack Application](https://github.com/serverless/components/tree/v1/templates/fullstack-application), and more.
+Before the [version 5 release](https://www.webiny.com/blog/webiny-v5-the-big-update?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00648), Webiny relied on an infrastructure provisioning technology called [Serverless Components](https://www.serverless.com/components/) (not to be confused with [Serverless Framework](https://www.serverless.com/)). Using a concept of components, it is a system that enables developers to deploy ready-made blocks of cloud infrastructure resources configured for a specific use-case. Some examples of components are [Website](https://github.com/serverless/components/tree/v1/templates/website), [REST API](https://github.com/serverless/components/tree/v1/templates/backend-monolith), a [Full Stack Application](https://github.com/serverless/components/tree/v1/templates/fullstack-application), and more.
 
-At the time, it seemed that the overall developer experience and the simplicity the Serverless Components product brought was the right choice for our users. So, we decided to go with it.
+At the time, it seemed that the overall developer experience and the simplicity of the Serverless Components product was the right choice for our users. So, we decided to go with it.
 
 But, over time, we noticed several things that, unfortunately, made us question our decision. And if I were to choose the top four, I’d mention the following.
 
@@ -50,15 +50,15 @@ While the idea around components for different use-cases certainly sounded inter
 
 ### 2. Using YAML Instead of Code
 
-At Webiny, we believe infrastructure-as-code is the future, so, naturally, we wanted our users to use actual code (ideally TypeScript) to define their cloud infrastructure. Within Serverless Components, the components are configured via YAML files, of which we were never really big fans.
+At Webiny, we believe [cloud engineering](https://www.pulumi.com/cloud-engineering/) and infrastructure-as-code is the future, so, naturally, we wanted our users to use familiar code (ideally TypeScript) and development tools to define their cloud infrastructure. Within Serverless Components, the components are configured via YAML files, of which we were never really big fans, simply because of the fact that writing code instead of configurations gives more flexibility to developers.
 
 ### 3. Vendor Lock-In
 
-Vendor lock-in was introduced at a later stage of the Serverless Components product development. Essentially, to deploy a component, the user is now forced to use a proprietary service. And while, among other things, the service enables much faster deployments, from our perspective, we saw this as an additional point of friction for our users. Ideally, users should be able to set up Webiny with only an AWS account.
+Vendor lock-in was introduced at a later stage of the Serverless Components product development. Essentially, to deploy a component, the user is now forced to use a proprietary service that comes with it. And while, among other things, the service enables much faster deployments, from our perspective, we saw this as an additional point of friction for our users. Ideally, users should be able to set up Webiny with only an AWS account.
 
 ### 4. Lack of Support for Other Cloud Providers
 
-At the time, the support for different cloud providers just wasn’t there. This would be a major roadblock for us as we get to multi-cloud integration.
+At the time, Servleress Components’ support for different cloud providers just wasn’t there. This would be a major roadblock for us as we get to multi-cloud integration.
 
 ## Discovering Pulumi
 
@@ -94,10 +94,9 @@ Let's see how we tackled each of these three steps.
 
 ### Integrating Pulumi's Programming Model With Webiny
 
-In terms of [project organization](https://www.webiny.com/docs/key-topics/project-organization/project-applications-and-packages), every Webiny project consists of two key concepts: packages and project applications (or just applications).
+In terms of [project organization](https://www.webiny.com/docs/key-topics/project-organization/project-applications-and-packages?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00649), every Webiny project consists of two key concepts: packages and project applications (or just applications).
 
 Packages are just regular NPM packages, or in other words, folders with a `package.json` manifest file and some code. On the other hand, project applications are higher-level organizational units formed from one or more packages that form applications, as the name itself suggests. Applications consist of both application code and cloud infrastructure needed to run them.
-
 
 ![Webiny Project Organization](./project-organization.png)
 
@@ -109,13 +108,13 @@ As an example, a default Webiny project includes three project applications:
 - **Admin Area** - the Admin Area (React) application
 - **Website** - the public website, a (React) application with static site generation (SSG) in the cloud
 
-If we were to compare these by the complexity of the necessary cloud infrastructure to deploy, the Admin Area is the simplest. It only relies on a single [Amazon S3](https://aws.amazon.com/s3/) bucket and an [Amazon Cloudfront](https://aws.amazon.com/cloudfront/) distribution. On the other hand, the API project application is the most complex one as, it needs to deploy multiple [AWS Lambda](https://aws.amazon.com/lambda/) functions, [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) tables, Amazon S3 buckets, and more.
+If we were to compare these by the complexity of the necessary cloud infrastructure to deploy, the Admin Area is the simplest. It only relies on a single [Amazon S3](https://aws.amazon.com/s3/) bucket and an [Amazon Cloudfront](https://aws.amazon.com/cloudfront/) distribution. On the other hand, the API project application is the most complex one as it needs to deploy multiple [AWS Lambda](https://aws.amazon.com/lambda/) functions, [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) tables, Amazon S3 buckets, and more.
 
 Ultimately, we decided that each project application should be a [Pulumi project](https://www.pulumi.com/docs/intro/concepts/project/#projects). With this approach, we gave developers the ability to both define and deploy respective cloud infrastructures independently. And, with the concept of [stacks](https://www.pulumi.com/docs/intro/concepts/stack/), they are also able to deploy them into multiple environments, which we’ll show in a moment.
 
 ### Pulumi CLI and Webiny CLI
 
-Once we understood how to use Pulumi concepts with Webiny's project organization, the next step was integrating the [Pulumi CLI](https://www.pulumi.com/docs/reference/cli/) with the [Webiny CLI](https://www.webiny.com/docs/key-topics/webiny-cli).
+Once we understood how to use Pulumi concepts with Webiny's project organization, the next step was integrating the [Pulumi CLI](https://www.pulumi.com/docs/reference/cli/) with the [Webiny CLI](https://www.webiny.com/docs/key-topics/webiny-cli?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00650).
 
 And although the Pulumi CLI is great, we still wanted to keep it super simple for the user and make the overall developer experience as straightforward and unified as possible. For starters, we didn’t want our users to install the Pulumi CLI manually. We wanted it to happen automatically.
 
@@ -266,7 +265,7 @@ So, for Webiny users, we’ve made sure that this feature is automatically enabl
 
 ## Future Plans
 
-With the [Webiny v5](https://www.webiny.com/blog/webiny-v5-the-big-update), we managed to introduce many significant improvements to both Webiny Serverless Application Framework and Webiny Serverless CMS. However, we still have a lot of new cool things to unravel.
+With the [Webiny v5](https://www.webiny.com/blog/webiny-v5-the-big-update?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00648), we managed to introduce many significant improvements to both the Webiny Serverless Application Framework and Webiny Serverless CMS. However, we still have a lot of new cool things to unravel.
 
 Webiny aims to be a multi-cloud compatible solution, and this is something Pulumi will significantly assist us with because deploying to multiple cloud providers is supported.
 
