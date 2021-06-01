@@ -57,7 +57,7 @@ Vendor lock-in was introduced at a later stage of the Serverless Components prod
 
 ### 4. Lack of Support for Other Cloud Providers
 
-At the time, Servleress Components’ support for different cloud providers just wasn’t there. This would be a major roadblock for us as we get to multi-cloud integration.
+At the time, Serverless Components’ support for different cloud providers just wasn’t there. This would be a major roadblock for us as we get to multi-cloud integration.
 
 ## Discovering Pulumi
 
