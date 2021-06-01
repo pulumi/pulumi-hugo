@@ -128,7 +128,7 @@ please [contact us]({{< relref "/about#contact-us" >}}).
 ## Changing Membership Requirements
 
 Every organization is backed by an identity. The identity governs the membership to your org.
-When you add a new org to Pulumi, it uses the Pulumi identity by default. This means the membership is
+By default, when you add a new org to Pulumi, it uses the Pulumi identity. This means the membership is
 _only_ governed by a user having a Pulumi account and no additional identity requirements are placed on members.
 
 {{% notes %}}
@@ -144,9 +144,10 @@ requirement of the org in the new identity service. That is, if you are switchin
 org, ensure that all of your members are actually a member of the corresponding GitLab Group which your org would be
 changed to inherit from.
 
-To switch an org's backing identity you must be an org admin. Navigate to the org in the [Pulumi Console](https://app.pulumi.com)
-and go to the **Settings** page. Click on the **Access Management** navigation tab to the left and scroll down to the
-**Membership Requirements** card. Click on the button to get started with changing your org's identity.
+To switch an organization's backing identity you must be an organization admin.
+Navigate to the organization's **Settings** page. Then navigate to **Access Management**
+and select the **Membership Requirements** button to get started with changing your
+organization's identity.
 
 ## Switching Organizations
 
