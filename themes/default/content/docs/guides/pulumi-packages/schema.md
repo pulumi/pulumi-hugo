@@ -12,36 +12,52 @@ Pulumi Packages are described by a package schema, which is used to drive code g
 
 ## Example
 
-An example of the Pulumi Package Schema is below.  This schema describes a package named `xyz`, with a single resource `StaticPage` which is a [component]({{< relref "/docs/intro/concepts/resources#components" >}}), and which has a required input property `indexContent` of type `string`  and a required (always populated) output property `websiteUrl` of type `string`.  The schema supports generation of SDKs for `csharp`, `go`, `nodejs` and `python`, with metadata cconfiguring each of the generated SDKs in the corresponding sections.
+An example of the Pulumi Package Schema is below.  This schema describes a package named `apigateway`, with a single resource `RestAPI` which is a [component]({{< relref "/docs/intro/concepts/resources#components" >}}), and which has a required input property `routes` and required (always populated) output properties `url` of type `string` and `api` which references the external type of the AWS API Gateway [`RestAPI`](https://www.pulumi.com/docs/reference/pkg/aws/apigateway/restapi/) resource.  The type of the `routes` input is a custom type named `EventHandlerRoute` defined in the schema, which is an object type with `path`,`method` and `function` properties. The schema supports generation of SDKs for `csharp`, `go`, `nodejs` and `python`, with metadata configuring each of the generated SDKs in the corresponding sections.
 
 ```json
 {
-    "name": "xyz",
+    "name": "apigateway",
+    "types": {
+        "apigateway:index:EventHandlerRoute": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "function": {
+                    "$ref": "/aws/v3.30.0/schema.json#/resources/aws:lambda%2Ffunction:Function"
+                }
+            }
+        }
+    },
     "resources": {
-        "xyz:index:StaticPage": {
+        "apigateway:index:RestAPI": {
             "isComponent": true,
             "inputProperties": {
-                "indexContent": {
-                    "type": "string",
-                    "description": "The HTML content for index.html."
+                "routes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/apigateway:index:EventHandlerRoute"
+                    }
                 }
             },
             "requiredInputs": [
-                "indexContent"
+                "routes"
             ],
             "properties": {
-                "bucket": {
-                    "$ref": "/aws/v4.0.0/schema.json#/resources/aws:s3%2Fbucket:Bucket",
-                    "description": "The bucket resource."
+                "url": {
+                    "type": "string"
                 },
-                "websiteUrl": {
-                    "type": "string",
-                    "description": "The website URL."
+                "api": {
+                    "$ref": "/aws/v3.30.0/schema.json#/resources/aws:apigateway%2FrestApi:RestApi"
                 }
             },
             "required": [
-                "bucket",
-                "websiteUrl"
+                "url",
+                "api"
             ]
         }
     },
@@ -54,11 +70,11 @@ An example of the Pulumi Package Schema is below.  This schema describes a packa
         },
         "go": {
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-xyz/sdk/go/xyz"
+            "importBasePath": "github.com/acmecorp/pulumi-apigateway/sdk/go/apigateway"
         },
         "nodejs": {
             "dependencies": {
-                "@pulumi/aws": "^4.0.0"
+                "@pulumi/aws": "^4.5.1"
             },
             "devDependencies": {
                 "typescript": "^3.7.0"
@@ -73,6 +89,11 @@ An example of the Pulumi Package Schema is below.  This schema describes a packa
     }
 }
 ```
+
+Complete schema examples that include a much wider range of schema configuration styles are availble in these existing packages:
+* [AWS](https://github.com/pulumi/pulumi-aws/blob/master/provider/cmd/pulumi-resource-aws/schema.json) - Bridged Provider Package
+* [Azure Native](https://github.com/pulumi/pulumi-azure-native/blob/master/provider/cmd/pulumi-resource-azure-native/schema.json) - Native Pulumi Provider Package
+* [EKS](https://github.com/pulumi/pulumi-eks/blob/master/provider/cmd/pulumi-resource-eks/schema.json) - Component Package
 
 ## Pulumi Package Schema
 
@@ -172,7 +193,7 @@ A reference to a type.
 | Property               | Type                              | Required | Description                                                                                                          |
 |------------------------|-----------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
 | `type`                 | `string`                          | Yes      | Type is the primitive or composite type, if any. May be "bool", "integer", "number", "string", "array", or "object". |
-| `$ref`                 | `string`                          | Yes      | Ref is a reference to a type in this or another document. For example, the built-in Archive, Asset, and Any types are referenced as "pulumi.json#/Archive", "pulumi.json#/Asset", and "pulumi.json#/Any", respectively. A type from this document is referenced as "#/types/pulumi:type:token". A type from another document is referenced as "path#/types/pulumi:type:token", where path is of the form: "/provider/vX.Y.Z/schema.json" or "pulumi.json" or "http[s]://example.com/provider/vX.Y.Z/schema.json". A resource from this document is referenced as "#/resources/pulumi:type:token". A resource from another document is referenced as "path#/resources/pulumi:type:token", where path is of the form: "/provider/vX.Y.Z/schema.json" or "pulumi.json" or "http[s]://example.com/provider/vX.Y.Z/schema.json". |
+| `$ref`                 | `string`                          | Yes      | Ref is a reference to a type in this or another document. For example, the built-in `Archive`, `Asset`, and `Any` types are referenced as `"pulumi.json#/Archive"`, `"pulumi.json#/Asset"`, and `"pulumi.json#/Any"`, respectively. A type from this document is referenced as `"#/types/pulumi:type:token"`. A type from another document is referenced as `"path#/types/pulumi:type:token"`, where path is of the form: `"/provider/vX.Y.Z/schema.json"` or `"pulumi.json"` or `"http[s]://example.com /provider/vX.Y.Z/schema.json"`.  A resource from another document is referenced as `"path#/resources/pulumi:type:token"`, where path is of the form: `"/provider/vX.Y.Z/schema.json"` or `"pulumi.json"` or `"http[s]://example.com /provider/vX.Y.Z/schema.json"`. |
 | `additionalProperties` | [`Type`](#type)                   | No       | AdditionalProperties, if set, describes the element type of an "object" (i.e. a string -> value map).                |
 | `items`                | [`Type`](#type)                   | No       | Items, if set, describes the element type of an array.                                                               |
 | `oneOf`                | [`array[Type]`](#type)            | No       | OneOf indicates that values of the type may be one of any of the listed types.                                       |
@@ -264,20 +285,18 @@ For `python`:
 | `packageName`          | `string`      | No       | PackageName is an override for the name of the generated python package.                                                 |
 | `requires`             | `map[string]` | No       | Description for the NPM package.                                                                                         |
 | `readme`               | `string`      | No       | Readme contains the text for the package's README.md files.                                                              |
-| `moduleNameOverrides`  | `map[string]` | No       | Optional overrides for Pulumi module names (e.g. `{ "flowcontrol.apiserver.k8s.io/v1alpha1": "flowcontrol/v1alpha1" }`). |
+| `moduleNameOverrides`  | `map[string]` | No       | Optional overrides for Pulumi module names. |
 | `compatibility`        | `string`      | No       | Toggle compatibility mode for a specified target.                                                                        |
-| `usesIOClasses`        | `boolean`     | No       | Deprecated: This bool is no longer needed since all providers now use input/output classes.                              |
-| `emitPulumiPluginFile` | `boolean`     | No       | Indicates whether the pulumiplugin.json file should be generated.                                                        |
 
 For `go`:
 
-| Property                         | Type          | Required | Description                                                                                                                                              |
-|----------------------------------|---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `importBasePath`                 | `string`      | No       | Base path for package imports (e.g. `github.com/pulumi/pulumi-kubernetes/sdk/go/kubernetes`).                                                            |
-| `rootPackageName`                | `string`      | No       | Explicit package name, which may be different to the import path.                                                                                        |
-| `moduleToPackage`                | `map[string]` | No       | Map from module -> package name (e.g. `{ "flowcontrol.apiserver.k8s.io/v1alpha1": "flowcontrol/v1alpha1" }`).                                            |
-| `packageImportAliases`           | `map[string]` | No       | Map from package name -> package alias (e.g. `{ "github.com/pulumi/pulumi-kubernetes/sdk/go/kubernetes/flowcontrol/v1alpha1": "flowcontrolv1alpha1" }`). |
-| `generateResourceContainerTypes` | `boolean`     | No       | Generate container types (arrays, maps, pointer output types etc.) for each resource. These are typically used to support external references.           |
+| Property                         | Type          |  Description                                                                                                                                              |
+|----------------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `importBasePath`                 | `string`      |  Base path for package imports.                                                            |
+| `rootPackageName`                | `string`      |  Explicit package name, which may be different to the import path.                                                                                        |
+| `moduleToPackage`                | `map[string]` |  Map from module -> package name.                                            |
+| `packageImportAliases`           | `map[string]` |  Map from package name -> package alias. |
+| `generateResourceContainerTypes` | `boolean`     |  Generate container types (arrays, maps, pointer output types etc.) for each resource. These are typically used to support external references.           |
 
 For `csharp`:
 
@@ -291,12 +310,6 @@ For `csharp`:
 ### PropertyLanguage
 
 Language-specific info for a property.
-
-For `python`:
-
-| Property  | Type      | Required | Description                                          |
-|-----------|-----------|----------|------------------------------------------------------|
-| `mapCase` | `boolean` | No       | Whether to use case mapping tables for the property. |
 
 For `csharp`:
 
