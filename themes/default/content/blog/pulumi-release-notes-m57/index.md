@@ -160,6 +160,11 @@ Previously, you could accept an invitation to join an organization even if you d
 
 ![Screenshot of identity provider setup prompt](saml.png)
 
-### Self-Hosted Pulumi Service now supports Azure Storage and Minio backends
+### Self-Hosted Pulumi Service now supports Azure services and Minio storage
 
-TODO?
+The [Self-Hosted Pulumi Service]({{< relref "/docs/guides/self-hosted" >}}), which brings the full power of the Pulumi Service into your own environment, can now be deployed in a few new ways:
+
+- In Microsoft Azure, using [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) for state storage and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) for secret storage
+- Using [Minio](https://min.io/) for state storage
+
+Learn more about how to configure these options in the [Pulumi API setup guide]({{< relref "/docs/guides/self-hosted/api" >}}).
