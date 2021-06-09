@@ -2,7 +2,7 @@
 title: "Pulumi release notes: Milestone 58"
 date: 2021-06-08T11:47:31-07:00
 draft: false
-meta_desc: TODO
+meta_desc: "New in Pulumi: Amazon ECS Anywhere and App Runner, Sumo Logic support, Pulumi Packages updates, and easier updates for teammates in the Pulumi Service"
 meta_image: meta.png
 authors:
     - alex-mullans
@@ -11,6 +11,23 @@ tags:
 ---
 
 We release new versions of the Pulumi CLI every two weeks, new versions of the Pulumi Service multiple times a week, and new and updated cloud providers frequently. To keep up with all of these changes, you used to have to find the `CHANGELOG.md` files in the repo (or repos!) that you care about, which could get unwieldy. So, we're trying something new: a tri-weekly rollup of Pulumi news, features, and updates. If you find it useful, or have ideas on how we could improve it, let us know [on Twitter](https://twitter.com/pulumi) or in the [Pulumi Community Slack](https://slack.pulumi.com)!
+
+In this update:
+
+- New and updated cloud providers
+  - Pulumi supports Amazon ECS Anywhere and Amazon App Runner
+  - Pulumi supports Sumo Logic
+  - 100 new resources in the Azure Native provider
+- Pulumi engine and core technologies
+  - Pulumi Packages schema documentation now available
+  - Pulumi Packages schemas can reference other packages' types
+  - Input parameters can now be marked as secret
+  - Plugin install output now goes to `stderr`
+  - Additional safety checks during `pulumi import`
+- Pulumi Service and Pulumi.com
+  - Easier acceptance of invites to organizations
+  - Faster resource docs
+  - Self-Hosted Pulumi Service now supports Azure Storage and Minio backends
 
 <!--more-->
 
