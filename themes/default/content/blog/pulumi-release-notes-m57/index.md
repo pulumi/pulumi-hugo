@@ -136,7 +136,7 @@ We shipped 3 new versions of the Azure Native provider (1.10.0, 1.9.0, and 1.8.0
 
 ## Pulumi engine and core technologies
 
-In this milestone, we shipped Pulumi versions [3.3.0](https://github.com/pulumi/pulumi/releases/tag/v3.3.0), [3.3.1](https://github.com/pulumi/pulumi/releases/tag/v3.3.1), and [3.4.0](https://github.com/pulumi/pulumi/releases/tag/v3.4.0). This section highlights key changes in those versions; for the full list, click the links for each version to visit the changelog for that version.
+In this milestone, we shipped Pulumi versions [3.3.0](https://github.com/pulumi/pulumi/releases/tag/v3.3.0), [3.3.1](https://github.com/pulumi/pulumi/releases/tag/v3.3.1), and [3.4.0](https://github.com/pulumi/pulumi/releases/tag/v3.4.0). The full list of changes in each version is available in the linked changelog; read on to learn about the some of the biggest changes.
 
 ### Input parameters can now be marked as secret
 
