@@ -71,18 +71,6 @@ It's now possible to mark any input parameter as a secret, which can be helpful 
 
 [pulumi/pulumi#7062](https://github.com/pulumi/pulumi/issues/7062)
 
-### Plugin install output now goes to `stderr`
-
-Previously, if you used the `--json` flag on commands like `pulumi preview`, you would see the output of the Pulumi plugin acquisition process, which would break the ability to parse the JSON output. Now, the output of that process is sent to `stderr`.
-
-[pulumi/pulumi#5747](https://github.com/pulumi/pulumi/issues/5747)
-
-### Additional safety checks during `pulumi import`
-
-`pulumi import` now provides a better error message when some types of invalid state are imported.
-
-[pulumi/pulumi#6955](https://github.com/pulumi/pulumi/issues/6955)
-
 ## Pulumi Service and Pulumi.com
 
 ### Easier acceptance of invites to organizations
@@ -91,24 +79,6 @@ Previously, you could accept an invitation to join an organization even if you d
 
 ![Screenshot of identity provider setup prompt](saml.png)
 
-### Faster resource docs
-
-We fixed a significant performance regression causing some of Pulumi's reference docs to take 30+ seconds to load. Resource docs should now load quickly.
-
-[pulumi/docs#5959](https://github.com/pulumi/docs/issues/5959)
-
 ### Self-Hosted Pulumi Service now supports Azure Storage and Minio backends
 
 TODO?
-
-## Other news
-
-### Less flaky tests in `pulumi-kubernetes`
-
-We fixed several issues causing flaky test runs in [`pulumi/pulumi-kubernetes`](https://github.com/pulumi/pulumi-kubernetes): [#1574](https://github.com/pulumi/pulumi-kubernetes/issues/1574) and [#1579](https://github.com/pulumi/pulumi-kubernetes/issues/1579).
-
-## TODO
-
-Node.js Multi-Lang Perf (Chris)
-Python SDK Exp Perf Fix (Luke)
-Google Native Fixes (Mikhail)
