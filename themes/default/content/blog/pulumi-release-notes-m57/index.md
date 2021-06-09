@@ -19,11 +19,11 @@ In this update:
   - [Pulumi supports Sumo Logic]({{< relref "/blog/pulumi-release-notes-m57#pulumi-supports-sumo-logic" >}})
   - [100 new resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m57#100-new-resources-in-the-azure-native-provider" >}})
 - Pulumi engine and core technologies
-  - [Pulumi Packages: schema documentation and enhancements]({{< relref "/blog/pulumi-release-notes-m57#pulumi-packages-schema-documentation-and-enhancements" >}})
   - [Input parameters can now be marked as secret]({{< relref "/blog/pulumi-release-notes-m57#input-parameters-can-now-be-marked-as-secret" >}})
+  - [Pulumi Packages: schema documentation and enhancements]({{< relref "/blog/pulumi-release-notes-m57#pulumi-packages-schema-documentation-and-enhancements" >}})
 - Pulumi Service and Pulumi.com
   - [Easier acceptance of invites to organizations]({{< relref "/blog/pulumi-release-notes-m57#easier-acceptance-of-invites-to-organizations" >}})
-  - [Self-Hosted Pulumi Service now supports Azure Storage and Minio backends]({{< relref "/blog/pulumi-release-notes-m57#self-hosted-pulumi-service-now-supports-azure-storage-and-minio-backends" >}})
+  - [Self-Hosted Pulumi Service now supports Azure Services and Minio storage]({{< relref "/blog/pulumi-release-notes-m57#self-hosted-pulumi-service-now-supports-azure-services-and-minio-storage" >}})
 
 <!--more-->
 
