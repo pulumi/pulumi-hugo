@@ -41,13 +41,13 @@ Learn how to get started with [ECS Anywhere]({{< relref "/blog/ecs-anywhere-laun
 
 ### Pulumi supports Sumo Logic
 
-This milestone, we released a new provider for Sumo Logic. You can now manage Sumo Logic's big data and analytics services with Pulumi infrastructure-as-code.
+The new Sumo Logic provider for Pulumi allows you to manage Sumo Logic's big data and analytics services with Pulumi infrastructure-as-code.
 
 Get started in the [SumoLogic provider docs]({{< relref "/docs/intro/cloud-providers/sumologic" >}}).
 
 ### 100 new resources in the Azure Native provider
 
-In this milestone, we shipped 3 new versions of the Azure Native provider (1.10.0, 1.9.0, and 1.8.0) that collectively added 100 more Azure resources that you can manage with the native provider. These include new analytics, machine learning, and security capabilities across the breadth of the Azure platform.
+We shipped 3 new versions of the Azure Native provider (1.10.0, 1.9.0, and 1.8.0) that collectively added 100 new resources that you can manage with the Azure Native provider. These include new analytics, machine learning, and security capabilities across the breadth of the Azure platform.
 
 [See the full list](https://github.com/pulumi/pulumi-azure-native/blob/v1.10.0/CHANGELOG.md)
 
