@@ -37,13 +37,13 @@ In this update:
 
 Earlier this month, Amazon announced a [new version of their Elastic Container Service](https://aws.amazon.com/blogs/containers/introducing-amazon-ecs-anywhere/) that allows you to deploy containers to almost any server and a new fully-managed container-native service called [AWS App Runner](https://aws.amazon.com/blogs/containers/introducing-aws-app-runner/). Pulumi had full same-day support for both new services.
 
-Learn how to get started with [ECS Anywhere](https://www.pulumi.com/blog/ecs-anywhere-launch/) and [App Runner](https://www.pulumi.com/blog/deploy-applications-with-aws-app-runner/).
+Learn how to get started with [ECS Anywhere]({{< relref "/blog/ecs-anywhere-launch" >}}) and [App Runner]({{< relref "/blog/deploy-applications-with-aws-app-runner" >}}).
 
 ### Pulumi supports Sumo Logic
 
 This milestone, we released a new provider for Sumo Logic. You can now manage Sumo Logic's big data and analytics services with Pulumi infrastructure-as-code.
 
-Get started in the [SumoLogic provider docs](https://www.pulumi.com/docs/intro/cloud-providers/sumologic/).
+Get started in the [SumoLogic provider docs]({{< relref "/docs/intro/cloud-providers/sumologic" >}}).
 
 ### 100 new resources in the Azure Native provider
 
@@ -57,7 +57,7 @@ In this milestone, we shipped Pulumi versions [3.3.0](https://github.com/pulumi/
 
 ### Pulumi Packages schema documentation now available
 
-Pulumi Packages, released at [PulumiUP earlier this year](https://www.pulumi.com/blog/pulumiup-pulumi-packages-multi-language-components/) enable you to share Pulumi components with your colleagues and with the Pulumi community. But previously, it could be difficult to [author a Pulumi Package](https://www.pulumi.com/docs/guides/pulumi-packages/) because the schema you use to define your package wasn't fully documented. Now, comprehensive schema documentation is available [in the docs](https://www.pulumi.com/docs/guides/pulumi-packages/).
+Pulumi Packages, released at [PulumiUP earlier this year]({{< relref "/blog/pulumiup-pulumi-packages-multi-language-components" >}}) enable you to share Pulumi components with your colleagues and with the Pulumi community. But previously, it could be difficult to [author a Pulumi Package]({{< relref "/docs/guides/pulumi-packages" >}}) because the schema you use to define your package wasn't fully documented. Now, comprehensive schema documentation is available [in the docs]({{< relref "/docs/guides/pulumi-packages" >}}).
 
 ### Pulumi Packages schemas can reference other packages' types
 
