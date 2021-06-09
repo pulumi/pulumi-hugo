@@ -35,7 +35,7 @@ In this update:
 
 ### Pulumi supports Amazon ECS Anywhere and Amazon App Runner
 
-Earlier this month, Amazon announced a [new version of their Elastic Container Service](https://aws.amazon.com/blogs/containers/introducing-amazon-ecs-anywhere/) that allows you to deploy containers to almost any server and a new fully-managed container-native service called [AWS App Runner](https://aws.amazon.com/blogs/containers/introducing-aws-app-runner/). Pulumi had full same-day support for both new services.
+Earlier this month, Amazon announced [ECS Anywhere](https://aws.amazon.com/blogs/containers/introducing-amazon-ecs-anywhere/), an extension of Amazon Elastic Container Service that allows you to deploy containers to almost any server, and [AWS App Runner](https://aws.amazon.com/blogs/containers/introducing-aws-app-runner/), a new fully-managed container application service. Pulumi had full same-day support for both new services.
 
 Learn how to get started with [ECS Anywhere]({{< relref "/blog/ecs-anywhere-launch" >}}) and [App Runner]({{< relref "/blog/deploy-applications-with-aws-app-runner" >}}).
 
