@@ -15,15 +15,15 @@ We regularly add new value across the Pulumi ecosystem, with a release of the Pu
 In this update:
 
 - New and updated cloud providers
-  - [Pulumi supports Amazon ECS Anywhere and Amazon App Runner](#new-and-updated-cloud-providers)
-  - [Pulumi supports Sumo Logic](#pulumi-supports-sumo-logic)
-  - [100 new resources in the Azure Native provider](#100-new-resources-in-the-azure-native-provider)
-- [Pulumi engine and core technologies](#pulumi-engine-and-core-technologies)
-  - [Pulumi Packages: schema documentation and enhancements](#pulumi-packages-schema-documentation-and-enhancements)
-  - [Input parameters can now be marked as secret](#input-parameters-can-now-be-marked-as-secret)
-- [Pulumi Service and Pulumi.com](#pulumi-service-and-pulumicom)
-  - [Easier acceptance of invites to organizations](#easier-acceptance-of-invites-to-organizations)
-  - [Self-Hosted Pulumi Service now supports Azure Storage and Minio backends](#self-hosted-pulumi-service-now-supports-azure-storage-and-minio-backends)
+  - [Pulumi supports Amazon ECS Anywhere and Amazon App Runner]({{< relref "/blog/pulumi-release-notes-m57#new-and-updated-cloud-providers" >}})
+  - [Pulumi supports Sumo Logic]({{< relref "/blog/pulumi-release-notes-m57#pulumi-supports-sumo-logic" >}})
+  - [100 new resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m57#100-new-resources-in-the-azure-native-provider" >}})
+- Pulumi engine and core technologies
+  - [Pulumi Packages: schema documentation and enhancements]({{< relref "/blog/pulumi-release-notes-m57#pulumi-packages-schema-documentation-and-enhancements" >}})
+  - [Input parameters can now be marked as secret]({{< relref "/blog/pulumi-release-notes-m57#input-parameters-can-now-be-marked-as-secret" >}})
+- Pulumi Service and Pulumi.com
+  - [Easier acceptance of invites to organizations]({{< relref "/blog/pulumi-release-notes-m57#easier-acceptance-of-invites-to-organizations" >}})
+  - [Self-Hosted Pulumi Service now supports Azure Storage and Minio backends]({{< relref "/blog/pulumi-release-notes-m57#self-hosted-pulumi-service-now-supports-azure-storage-and-minio-backends" >}})
 
 <!--more-->
 
@@ -130,7 +130,7 @@ Get started in the [SumoLogic provider docs]({{< relref "/docs/intro/cloud-provi
 
 ### 100 new resources in the Azure Native provider
 
-We shipped 3 new versions of the Azure Native provider (1.10.0, 1.9.0, and 1.8.0) that collectively added 100 new resources that you can manage with the Azure Native provider. These include new analytics, machine learning, and security capabilities across the breadth of the Azure platform.
+We shipped 3 new versions of the Azure Native provider (1.10.0, 1.9.0, and 1.8.0) that collectively added 100 new resources that you can manage with the Azure Native provider. These new provider versions give you full access to the new resources and services announced at [Microsoft Build 2021](https://news.microsoft.com/build-2021-book-of-news/), including new analytics, machine learning, and security capabilities across the Azure platform.
 
 [See the full list](https://github.com/pulumi/pulumi-azure-native/blob/v1.10.0/CHANGELOG.md)
 
