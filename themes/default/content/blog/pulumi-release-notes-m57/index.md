@@ -10,7 +10,7 @@ tags:
     - features
 ---
 
-We regularly add new value across the Pulumi ecosystem, with a release of the Pulumi CLI every two weeks, frequent releases of our [cloud providers]({{< relref "/docs/intro/cloud-providers" >}}), and regular updates to the Pulumi Service. You can read about most of those changes in the the `CHANGELOG.md` files in each open source repository. To highlight some of the most exciting releases—including, for the first time, updates to the Pulumi Service—we're trying something new: a regular release notes post for Pulumi release news, features, and updates. If you find it useful, or have ideas on how we could improve it, let us know [on Twitter](https://twitter.com/pulumicorp) or in the [Pulumi Community Slack](https://slack.pulumi.com)!
+We regularly ship updates across the Pulumi ecosystem, with a release of the Pulumi CLI every two weeks, frequent releases of our [cloud providers]({{< relref "/docs/intro/cloud-providers" >}}), and regular updates to the Pulumi Service. You can read about most of those changes in the the `CHANGELOG.md` files in each open source repository. To highlight some of the most exciting releases—including, for the first time, updates to the Pulumi Service—we're trying something new: a regular release notes post for Pulumi release news, features, and updates. If you find it useful, or have ideas on how we could improve it, let us know [on Twitter](https://twitter.com/pulumicorp) or in the [Pulumi Community Slack](https://slack.pulumi.com)!
 
 In this update:
 
@@ -134,23 +134,23 @@ We shipped 3 new versions of the Azure Native provider (1.10.0, 1.9.0, and 1.8.0
 
 [See the full list](https://github.com/pulumi/pulumi-azure-native/blob/v1.10.0/CHANGELOG.md)
 
-## Pulumi engine and core technologies
+## Pulumi CLI and core technologies
 
-In this milestone, we shipped Pulumi versions [3.3.0](https://github.com/pulumi/pulumi/releases/tag/v3.3.0), [3.3.1](https://github.com/pulumi/pulumi/releases/tag/v3.3.1), and [3.4.0](https://github.com/pulumi/pulumi/releases/tag/v3.4.0). The full list of changes in each version is available in the linked changelog; read on to learn about the some of the biggest changes.
+In this milestone, we shipped Pulumi versions [3.3.0](https://github.com/pulumi/pulumi/releases/tag/v3.3.0), [3.3.1](https://github.com/pulumi/pulumi/releases/tag/v3.3.1), and [3.4.0](https://github.com/pulumi/pulumi/releases/tag/v3.4.0). The full list of changes in each version is available in the linked changelog; read on to learn about some of the biggest changes.
 
 ### Input parameters can now be marked as secret
 
 It's now possible to mark any input parameter as a secret, which can be helpful when you need to pass in secret data, like when creating a Kubernetes Secret resource. Pulumi will protect these input parameters by encrypting them in the state and obfuscating them in outputs.
 
-[pulumi/pulumi#7062](https://github.com/pulumi/pulumi/issues/7062)
+Learn more at [pulumi/pulumi#7062](https://github.com/pulumi/pulumi/issues/7062)
 
 ### Pulumi Packages: schema documentation and enhancements
 
-[Pulumi Packages]({{< relref "/docs/guides/pulumi-packages/" >}}), released at [PulumiUP earlier this year]({{< relref "/blog/pulumiup-pulumi-packages-multi-language-components" >}}) enable you to share Pulumi components with your colleagues and with the Pulumi community. A key part of Pulumi Packages is the Pulumi schema that defines each resource in a package.  We have now introduced new [documentation for Pulumi Package Schema]({{< relref "/docs/guides/pulumi-packages" >}}).
+[Pulumi Packages]({{< relref "/docs/guides/pulumi-packages/" >}}), released at [PulumiUP earlier this year]({{< relref "/blog/pulumiup-pulumi-packages-multi-language-components" >}}) enable cloud infrastructure resource provisioning to be defined once, in your language of choice, and made available to users in all Pulumi languages. A key part of Pulumi Packages is the Pulumi schema that defines each resource in a package.  We have now introduced new [documentation for Pulumi Package Schema]({{< relref "/docs/guides/pulumi-packages" >}}).
 
 We've also updated the Pulumi Package schema to make it more powerful. For more complex Pulumi Package scenarios, you may want to be able to reference the types in one Pulumi Package from another Pulumi Package. Previously, this was only possible if you authored your Pulumi Package in Go; now, it's possible in all Pulumi Languages.
 
-[#6777](https://github.com/pulumi/pulumi/issues/6777)
+Learn more at [pulumi/pulumi#6777](https://github.com/pulumi/pulumi/issues/6777)
 
 ## Pulumi Service and Pulumi.com
 
