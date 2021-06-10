@@ -10,6 +10,7 @@ const getInitialState = (): PreferencesState => {
         k8sLanguage: "typescript",
         os: guessOS(),
         cloud: "aws",
+        selfHostedEnv: "local",
     };
 };
 
