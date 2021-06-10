@@ -1,6 +1,6 @@
 ---
-title: "Infrastructure Testing Concepts"
-date: 2021-06-09
+title: "Testing Practices for Cloud Engineering"
+date: 2021-06-11
 meta_desc: "Cloud engineering applies software engineering testing to ensure reliability, secure, and quality infrastructure."
 meta_image: testing_concepts.png
 authors:
@@ -19,6 +19,8 @@ There are many benefits to infrastructure testing, including:
 - reduced costs to fix bugs when caught early in the development lifecycle,
 - discovering security risks and problems earlier,
 - delivering a quality product that creates customer satisfaction through a great user experience
+
+Testing **[shifts left](https://en.wikipedia.org/wiki/Shift-left_testing)** the risk inherent with distributed architectures composed of many resources. Ultimately, testing increases release velocity, reliability, and confidence in your application.
 
 This article is the first in a two-part series about testing infrastructure. The terminology for testing can be confusing because of broad definitions that overlap. This article will narrow those definitions that originated from application testing and apply them to infrastructure and cloud engineering. Let's take a look at the different types of testing used with infrastructure as code.
 
@@ -46,6 +48,10 @@ and the  [Spotify Lab's](https://engineering.atspotify.com/2018/01/11/testing-of
 
 As you can see, both models suggest that the majority of tests should be integration tests. These models responded to the change from monolithic architectures prevalent when Dodd proposed the Testing Pyramid to the shift to microservices and distributed architectures that make up modern applications.
 
+![Testing rocket](testing_rocket.png)
+
+For deploying modern applications with cloud engineering, we propose an alternate model called the testing rocket. Static testing is inherent in cloud engineering because of the software toolchains, such as IDEs, that perform static checking. Both unit and integration testing are equally importat to ensure that infrastructure is deployed and managed reliabily. End-to-end tests for performance and scalability should be performed less frequently because of complexity and costs.
+
 ## Cloud engineering testing
 
 Cloud engineering applies software testing principles to infrastructure where we focus on functional testing. We use three types of functional tests with infrastructure: unit tests, integration tests, and property tests (sometimes called functional tests). We'll examine each type of test in detail.
@@ -56,9 +62,9 @@ Cloud engineering applies software testing principles to infrastructure where we
 
 Unit tests for applications test the smallest piece of code, which are often methods and functions of classes or modules. They are commonly written by the programmer and run quickly.
 
-With infrastructure, the smallest unit is often the cloud resource. Because cloud resources are not created, you can’t write a test that would evaluate infrastructure behavior in a templating language. For example, you can’t make HTTP requests to endpoints because there’s no web server to serve them.
+With infrastructure, the smallest unit is often the cloud resource. Because cloud resources are not created, you can’t write a test to evaluate infrastructure behavior in a templating language. For example, you can’t make HTTP requests to endpoints because there’s no web server to serve them.
 
-With Pulumi, all external dependencies can be replaced by [mock objects](https://en.wikipedia.org/wiki/Mock_object) that replicate the behavior in a specified way. Unit tests are very fast because they run in memory without any out-of-process calls. They provide fast feedback loops during development, making them suitable for Test-Driven Development (TDD).
+Because cloud engineering is software engineering, Pulumi replaces all external dependencies with [mock objects](https://en.wikipedia.org/wiki/Mock_object) that replicate the behavior in a specified way. Unit tests are very fast because they run in memory without any out-of-process calls. They provide fast feedback loops during development, making them suitable for Test-Driven Development (TDD).
 
 As with applications, unit tests for infrastructure in Pulumi are authored with the same language used to declare infrastructure.  This means you can use familiar test and mock frameworks such as PyTest for Python or Mocha for Node.js.  Using a framework ensures configuration is correct before provisioning and that the resulting infrastructure has the specified properties. In addition, team standards and security guidelines are enforced.
 
@@ -72,7 +78,7 @@ Finally, there are several ways to run property tests against any cloud environm
 
 ### Integration tests
 
-Integration tests validate whether services or modules in an application work as specified. Unlike unit tests, they use actual dependencies instead of mock objects, and they provide less precise feedback than unit or property tests. Because integration uses actual dependencies, they require that services be complete and functioning. Tests are run in a strict order to ensure that modules or services are instantiated before the test. Developers are less likely to write and run integration tests, leaving it to QA testers to write automated tests run in a CI/CD system.
+Integration tests validate whether services or modules in an application work as specified. Unlike unit tests, they use actual dependencies instead of mock objects, and they provide less precise feedback than unit or property tests. Because integration uses actual dependencies, they require that services be complete and functioning. Tests are run in a strict order to ensure that modules or services are instantiated before the test. Developers are less likely to write and run integration tests, leaving it to SRE experts in specialties such as chaos engineering and pipeline automation to write tests run in a CI/CD system.
 
 An infrastructure integration test uses infrastructure deployed in an [ephemeral environment](https://about.gitlab.com/blog/2020/01/27/kubecon-na-2019-are-you-about-to-break-prod/). We can use the Pulumi CLI to deploy the ephemeral environment as a [stack]({{< relref "/docs/intro/concepts/stack" >}}) that builds a dependency graph based on [inputs and outputs]({{< relref "/docs/intro/concepts/inputs-outputs#inputs-and-outputs" >}}) that ensures the required resources are instantiated and available before the integration test.
 
