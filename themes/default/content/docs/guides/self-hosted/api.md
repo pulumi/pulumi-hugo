@@ -54,8 +54,6 @@ The core infrastructure components to successfully run the API service are the d
 Depending on your requirements, you can configure additional (optional) identity services as well as enhanced security
 between the API and the database.
 
-{{< chooser self-hosted-env "local,aws,azure" >}}
-
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_LICENSE_KEY | The license key value. A JWT string.<br><br>**Note**: Be sure to enclose the value in single-quotes. |
@@ -65,6 +63,8 @@ between the API and the database.
 | PULUMI_CONSOLE_DOMAIN | The internet or network-local domain using which the Console can be reached, e.g. `pulumiconsole.acmecorp.com`. Default is `localhost:3000`. |
 
 ### Object storage
+
+{{< chooser self-hosted-env "local,aws,azure" >}}
 
 {{% choosable self-hosted-env local %}}
 | Variable Name | Description |

@@ -1,18 +1,26 @@
 import { Component, Element, Host, h, Listen, Prop, State } from "@stencil/core";
 import { store, Unsubscribe } from "@stencil/redux";
 import { AppState } from "../../store/state";
-import { setLanguage, setK8sLanguage, setOS, setCloud, setPersona } from "../../store/actions/preferences";
+import {
+    setLanguage,
+    setK8sLanguage,
+    setOS,
+    setCloud,
+    setPersona,
+    setSelfHostedEnv
+} from "../../store/actions/preferences";
 
 export type LanguageKey = "javascript" | "typescript" | "python" | "go" | "csharp" | "fsharp" | "visualbasic";
 export type K8sLanguageKey = "typescript" | "yaml" | "typescript-kx";
 export type OSKey = "macos" | "linux" | "windows";
 export type CloudKey = "aws" | "azure" | "gcp" | "kubernetes" | "digitalocean" | "docker";
 export type PersonaKey = "developer" | "devops" | "security" | "leader";
+export type SelfHostedEnvKey = "local" | "aws" | "azure" | "other";
 
 export type ChooserMode = "local" | "global";
 export type ChooserOptionStyle = "tabbed" | "none";
-export type ChooserType = "language" | "k8s-language" | "os" | "cloud" | "persona";
-export type ChooserKey = LanguageKey | K8sLanguageKey | OSKey | CloudKey | PersonaKey;
+export type ChooserType = "language" | "k8s-language" | "os" | "cloud" | "persona" | "self-hosted-env";
+export type ChooserKey = LanguageKey | K8sLanguageKey | OSKey | CloudKey | PersonaKey | SelfHostedEnvKey;
 export type ChooserOption = SupportedLanguage | SupportedK8sLanguage | SupportedOS | SupportedCloud | SupportedPersona;
 
 interface SupportedLanguage {
@@ -115,6 +123,7 @@ export class Chooser {
     setOS: typeof setOS;
     setCloud: typeof setCloud;
     setPersona: typeof setPersona;
+    setSelfHostedEnv: typeof setSelfHostedEnv;
 
     componentWillLoad() {
 
@@ -145,11 +154,11 @@ export class Chooser {
         this.parseOptions();
 
         // Map internal methods to actions defined on the store.
-        store.mapDispatchToProps(this, { setLanguage, setK8sLanguage, setOS, setCloud, setPersona });
+        store.mapDispatchToProps(this, { setLanguage, setK8sLanguage, setOS, setCloud, setPersona, setSelfHostedEnv });
 
         // Map currently selected values from the store, so we can use them in this component.
         this.storeUnsubscribe = store.mapStateToProps(this, (state: AppState) => {
-            const { preferences: { language, k8sLanguage, os, cloud, persona } } = state;
+            const { preferences: { language, k8sLanguage, os, cloud, persona, selfHostedEnv } } = state;
 
             // In some cases, the user's preferred (i.e., most recently selected) choice
             // may not be available as an option. When that happens, we switch into local
@@ -190,9 +199,11 @@ export class Chooser {
                 case "os":
                     return preferredOrDefault(os);
                 case "cloud":
-                   return preferredOrDefault(cloud);
+                    return preferredOrDefault(cloud);
                 case "persona":
                     return preferredOrDefault(persona);
+                case "self-hosted-env":
+                    return preferredOrDefault(selfHostedEnv);
                 default:
                     return {};
             }

@@ -10,6 +10,7 @@ export enum TypeKeys {
     SET_OS = "SET_OS",
     SET_CLOUD = "SET_CLOUD",
     SET_PERSONA = "SET_PERSONA",
+    SET_SELF_HOSTED_ENV = "SET_SELF_HOSTED_ENV",
 
     // Banner-related action types.
     DISMISS_BANNER = "DISMISS_BANNER",
