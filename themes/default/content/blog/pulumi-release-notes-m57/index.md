@@ -1,5 +1,5 @@
 ---
-title: "June 10th release notes: AWS ECS Anywhere, AWS App Runner, Sumo Logic, and more!"
+title: "June 10 release notes: AWS ECS Anywhere, Sumo Logic, & more!"
 date: 2021-06-10T09:00:00-07:00
 draft: false
 meta_desc: "New in Pulumi: Amazon ECS Anywhere and App Runner, Sumo Logic support, Pulumi Packages updates, and easier updates for teammates in the Pulumi Service"
