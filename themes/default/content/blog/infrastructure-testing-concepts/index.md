@@ -20,7 +20,7 @@ There are many benefits to infrastructure testing, including:
 - discovering security risks and problems earlier,
 - delivering a quality product that creates customer satisfaction through a great user experience
 
-This article is the first in a two-part series about testing infrastructure. The terminology for testing can be confusing because of broad definitions that overlap. This article will narrow those definitions that originated from application testing and apply them to infrastructure and cloud engineering. Let's take a look at the different types of testing used with infrastructure as code.
+This article is the first in a two-part series about testing infrastructure with cloud engineering practices. The terminology for testing can be confusing because of broad definitions that overlap. This article will narrow those definitions that originated from application testing and apply them to infrastructure and cloud engineering. Let's take a look at the different types of testing used with infrastructure as code.
 
 <!--more-->
 
