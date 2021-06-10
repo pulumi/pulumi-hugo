@@ -82,7 +82,6 @@ If transferring to an organization, the **Allow organization members to create s
 1. Use the **Transfer stack** button.
 1. Provide the personal account or organization name and select **Transfer**
 
-
 ## Third-party Identity Providers
 
 A Pulumi organization needs to be linked to a third-party identity provider, offering an
