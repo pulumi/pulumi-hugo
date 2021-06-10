@@ -56,15 +56,21 @@ For example, to become a member of a Pulumi organization backed by a GitLab Grou
 you must associate a GitLab identity with your Pulumi account, and also
 be a member of that GitLab group.
 
-## Transferring Stacks
+### Stack Permissions
 
-Stack admins can transfer their stacks between personal accounts and organizations, or between organizations.
-If transferring to an organization, the **Allow organization members to create stacks and transfer stacks to this organization** setting must be turned on from the **Access Management** page in the organization settings.
+Any organization member with the `Admin` role automatically has `Admin`
+permissions for all of the organization's stacks. Regular organization members
+are granted the organization's _base permissions_ instead.
 
-1. Navigate to the stack in the console.
-1. Navigate to the stack **Settings** page.
-1. Use the **Transfer stack** button.
-1. Provide the personal account or organization name and select **Transfer**
+For example, if the organization's base permissions is `Write`, then
+any organization member can update any organization stack.
+
+If the stack permission for all members is `None`, then organization members must be
+granted access using [teams]({{< relref "teams" >}}) in order to update, or even [view the organization
+stacks]({{< relref "project-and-stack-management#viewing-your-organization-stacks" >}}).
+
+Additionally, organization admins can toggle whether organization members can create stacks, whether
+stack admins can delete stacks, and whether stack admins can move stacks to other organizations.
 
 ## Third-party Identity Providers
 
