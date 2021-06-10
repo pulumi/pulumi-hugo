@@ -15,7 +15,7 @@ export type K8sLanguageKey = "typescript" | "yaml" | "typescript-kx";
 export type OSKey = "macos" | "linux" | "windows";
 export type CloudKey = "aws" | "azure" | "gcp" | "kubernetes" | "digitalocean" | "docker";
 export type PersonaKey = "developer" | "devops" | "security" | "leader";
-export type SelfHostedEnvKey = "local" | "aws" | "azure" | "other";
+export type SelfHostedEnvKey = "local" | "aws" | "azure";
 
 export type ChooserMode = "local" | "global";
 export type ChooserOptionStyle = "tabbed" | "none";

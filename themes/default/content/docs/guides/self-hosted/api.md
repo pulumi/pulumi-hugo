@@ -67,10 +67,12 @@ between the API and the database.
 {{< chooser self-hosted-env "local,aws,azure" >}}
 
 {{% choosable self-hosted-env local %}}
+
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_LOCAL_OBJECTS | Folder path for persisting state for stacks. Ensure that this path is highly available, and backed-up regularly. Only use this if you want the service to persist objects to a local path. |
 | PULUMI_POLICY_PACK_LOCAL_HTTP_OBJECTS | Folder path for persisting published policy packs. Ensure that this path is highly available, and backed-up regularly. Only use this if you want the service to persist policy packs to a local path. |
+
 {{% /choosable %}}
 
 {{% choosable self-hosted-env aws %}}
@@ -88,7 +90,7 @@ between the API and the database.
 | ------------- | ----------- |
 | PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of query-params you can use with the `s3://` scheme. |
 | PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
-| AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Azure](#azure) for additional configuration options. |
+| AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Cloud Provider Authentication](#cloud-provider-authentication) for additional configuration options for Azure. |
 
 {{% /choosable %}}
 
@@ -126,6 +128,8 @@ You only need to configure one of the support services.
 {{% /choosable %}}
 
 ### Cloud Provider Authentication
+
+These settings are only required if you are running the Pulumi Service on one of these clouds or using one of their services.
 
 {{% choosable self-hosted-env local %}}
 None
