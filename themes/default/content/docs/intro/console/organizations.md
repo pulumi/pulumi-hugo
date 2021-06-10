@@ -46,7 +46,7 @@ party identity provider. To switch to a different organization:
 next to the Pulumi logo.
 1. Select your organization name.
 
-## Getting Access to an Organization
+## Organization Access
 
 To become a member of a Pulumi organization, you must be invited by an existing Pulumi
 organization administrator, or you must submit a request to the administrator for approval.
