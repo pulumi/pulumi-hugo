@@ -12,7 +12,7 @@ tags:
 
 ---
 
-Cloud engineering brings industry-standard software development practices to infrastructure deployments. Testing is a common practice for evaluating software to ensure that it meets requirements. Similarly, infrastructure testing checks for missing requirements, bugs or errors, and ensures security, reliability, and performance. Testing uses manual or automated tools to identify bugs that can cause unexpected infrastructure behavior.
+Cloud engineering brings industry-standard software development practices to building, deploying, and managing cloud infrastructure. Testing is a common practice for evaluating software to ensure that it meets requirements. Similarly, infrastructure testing checks for missing requirements, bugs or errors, and ensures security, reliability, and performance. Testing uses manual or automated tools to identify bugs that can cause unexpected infrastructure behavior.
 
 There are many benefits to infrastructure testing, including:
 
@@ -20,9 +20,13 @@ There are many benefits to infrastructure testing, including:
 - discovering security risks and problems earlier,
 - delivering a quality product that creates customer satisfaction through a great user experience
 
+<<<<<<< HEAD
 Testing **[shifts left](https://en.wikipedia.org/wiki/Shift-left_testing)** the risk inherent with distributed architectures composed of many resources. Ultimately, testing increases release velocity, reliability, and confidence in your application.
 
 This article is the first in a two-part series about testing infrastructure. The terminology for testing can be confusing because of broad definitions that overlap. This article will narrow those definitions that originated from application testing and apply them to infrastructure and cloud engineering. Let's take a look at the different types of testing used with infrastructure as code.
+=======
+This article is the first in a two-part series about testing infrastructure with cloud engineering practices. The terminology for testing can be confusing because of broad definitions that overlap. This article will narrow those definitions that originated from application testing and apply them to infrastructure and cloud engineering. Let's take a look at the different types of testing used with infrastructure as code.
+>>>>>>> 4019cd7ba473612a5e58471c07d0ef7bc892fb21
 
 <!--more-->
 
@@ -72,7 +76,7 @@ As with applications, unit tests for infrastructure in Pulumi are authored with 
 
 Another type of test is property tests, which are sometimes called "functional tests." Property tests evaluate the business requirements of an application by verifying the output of an action without examining the code that's executed. Property tests, like integration tests, require components to interact.  However, property tests require that the component return a specified value, while integration tests verify that the function works as required. For example, a property test would require a value, such as the count of rows returned, and an integration test would only require that rows are returned.
 
-Property tests in Pulumi use Policy as Code to set guardrails and enforce compliance for cloud resources. In addition to authoring company-wide policies, It also enables another type of infrastructure testing where a policy becomes a property that a test can evaluate and assert. Property tests run before and after infrastructure provisioning and have access to all input and output values of all cloud resources instantiated in a Pulumi program,. Unlike unit testing, property tests can evaluate real values from the cloud provider and not mocked values.
+Property tests in cloud engineering and Pulumi use Policy as Code to set guardrails and enforce compliance for cloud resources. In addition to authoring company-wide policies, It also enables another type of infrastructure testing where a policy becomes a property that a test can evaluate and assert. Property tests run before and after infrastructure provisioning and have access to all input and output values of all cloud resources instantiated in a Pulumi program. Unlike unit testing, property tests can evaluate real values from the cloud provider and not mocked values.
 
 Finally, there are several ways to run property tests against any cloud environment. They can be configured as a persistent  stack for acceptance testing, or as an ephemeral cloud environment created by a pull request, or a combination of both.
 
@@ -80,7 +84,7 @@ Finally, there are several ways to run property tests against any cloud environm
 
 Integration tests validate whether services or modules in an application work as specified. Unlike unit tests, they use actual dependencies instead of mock objects, and they provide less precise feedback than unit or property tests. Because integration uses actual dependencies, they require that services be complete and functioning. Tests are run in a strict order to ensure that modules or services are instantiated before the test. Developers are less likely to write and run integration tests, leaving it to SRE experts in specialties such as chaos engineering and pipeline automation to write tests run in a CI/CD system.
 
-An infrastructure integration test uses infrastructure deployed in an [ephemeral environment](https://about.gitlab.com/blog/2020/01/27/kubecon-na-2019-are-you-about-to-break-prod/). We can use the Pulumi CLI to deploy the ephemeral environment as a [stack]({{< relref "/docs/intro/concepts/stack" >}}) that builds a dependency graph based on [inputs and outputs]({{< relref "/docs/intro/concepts/inputs-outputs#inputs-and-outputs" >}}) that ensures the required resources are instantiated and available before the integration test.
+In cloud engineering, an infrastructure integration test uses infrastructure deployed in an [ephemeral environment](https://about.gitlab.com/blog/2020/01/27/kubecon-na-2019-are-you-about-to-break-prod/). As an example, we can use the Pulumi CLI to deploy the ephemeral environment as a [stack]({{< relref "/docs/intro/concepts/stack" >}}) that builds a dependency graph based on [inputs and outputs]({{< relref "/docs/intro/concepts/inputs-outputs#inputs-and-outputs" >}}) that ensures the required resources are instantiated and available before the integration test.
 
 Once the resources are deployed, the integration test retrieves the stack outputs, which is often a public IP address or resource name. The test can be as complex as a suite of application-level tests between the various services or components or as simple as a health check that expects an HTTP 200 status return from an endpoint. The primary advantage of integration tests is that it uses the same cloud infrastructure used in production to return actual values.
 
