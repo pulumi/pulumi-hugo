@@ -48,24 +48,124 @@ The API service is a Go-based application. This is a single binary application t
 
 This container runs an HTTP server which provides the APIs needed by the Console and the CLI. By default this container will serve using port `8080` over standard HTTP. If [TLS](#tls-environment-variables) is configured the server will instead serve over port `8443` using HTTPS.
 
-## Primary Environment Variables
+## Environment Variables for Core Infrastructure
+
+The core infrastructure components to successfully run the API service are the database, object storage, and encryption services.
+Depending on your requirements, you can configure additional (optional) identity services as well as enhanced security
+between the API and the database.
+
+{{< chooser self-hosted-env "local,aws,azure" >}}
 
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_LICENSE_KEY | The license key value. A JWT string.<br><br>**Note**: Be sure to enclose the value in single-quotes. |
 | PULUMI_DATABASE_ENDPOINT | The database server endpoint in the format `host:port`. This should be a MySQL 5.6 server. |
 | PULUMI_DATABASE_NAME | The name of the database on the database server. |
-| PULUMI_API_DOMAIN | The internet or network-local domain using which the API service can be reached, e.g. `api.pulumi.com`. Default is `localhost:8080`. |
-| PULUMI_CONSOLE_DOMAIN | The internet or network-local domain using which the Console can be reached, e.g. `app.pulumi.com`. Default is `localhost:3000`. |
-| PULUMI_LOCAL_OBJECTS | Folder path for persisting state for stacks. Ensure that this path is highly available, and backed-up regularly. |
+| PULUMI_API_DOMAIN | The internet or network-local domain using which the API service can be reached, e.g. `pulumiapi.acmecorp.com`. Default is `localhost:8080`. |
+| PULUMI_CONSOLE_DOMAIN | The internet or network-local domain using which the Console can be reached, e.g. `pulumiconsole.acmecorp.com`. Default is `localhost:3000`. |
+
+### Object storage
+
+{{% choosable self-hosted-env local %}}
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_LOCAL_OBJECTS | Folder path for persisting state for stacks. Ensure that this path is highly available, and backed-up regularly. Only use this if you want the service to persist objects to a local path. |
+| PULUMI_POLICY_PACK_LOCAL_HTTP_OBJECTS | Folder path for persisting published policy packs. Ensure that this path is highly available, and backed-up regularly. Only use this if you want the service to persist policy packs to a local path. |
+{{% /choosable %}}
+
+{{% choosable self-hosted-env aws %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See https://gocloud.dev/howto/blob/#s3-compatible for examples of query-params you can use with the `s3://` scheme. |
+| PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
+
+{{% /choosable %}}
+
+{{% choosable self-hosted-env azure %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See https://gocloud.dev/howto/blob/#s3-compatible for examples of query-params you can use with the `s3://` scheme. |
+| PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
+| AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Azure](#azure) for additional configuration options. |
+
+{{% /choosable %}}
+
+### Encryption services
+
+{{% notes type="info" %}}
+The service supports using a master key available in a local-path or in a remote key management service.
+You only need to configure one of the support services.
+{{% /notes %}}
+
+{{% choosable self-hosted-env local %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_LOCAL_KEYS | Folder path that contains a random 32-byte key. Ensure that this path is highly available, and backed-up regularly. |
+
+{{% /choosable %}}
+
+{{% choosable self-hosted-env aws %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_KMS_KEY | ARN for the AWS KMS customer master key resource. |
+
+{{% /choosable %}}
+
+{{% choosable self-hosted-env azure %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_AZURE_KV_URI | Azure KeyVault URI. For example, `https://<vault-name>.vault.azure.net`. |
+| PULUMI_AZURE_KV_KEY_NAME | The name of the key in KeyVault. The key must be an RSA key type. We recommend a key size of 2048 for most cases. The key operations must support `Encrypt` and `Decrypt`. Otherwise, the service will fail to start. |
+| PULUMI_AZURE_KV_KEY_VERSION | The version of the key that the service should use. Note: All previous versions of the key must remain enabled. |
+
+{{% /choosable %}}
+
+### Cloud Provider Authentication
+
+{{% choosable self-hosted-env local %}}
+None
+{{% /choosable %}}
+
+{{% choosable self-hosted-env aws %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| AWS_REGION | The region where the dependent AWS services used by Pulumi Service have been created. For example, the KMS key must exist in this region. Similarly, if you are using RDS, then there must be a writable cluster in this region. |
+
+{{% /choosable %}}
+
+{{% choosable self-hosted-env azure %}}
+
+{{% notes type="info" %}}
+Many of Azure's services support using Managed System Identity (MSI). As such, the Pulumi Service can also be configured
+to use MSI to connect to all dependent Azure services (such as Azure KeyVault and Azure Storage). However,
+if you would like to use a self-managed Service Principal (aka AAD client credentials) instead, you must specify the
+Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
+{{% /notes %}}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| AZURE_CLIENT_ID | Client ID of the Azure Managed System Identity or the self-managed Service Principal (SP) that should be used for both Azure KeyVault and Storage. The MSI or the SP must have access to Key Management operations (`Get`, `Encrypt` and `Decrypt`) of the KeyVault you plan to use. |
+| AZURE_CLIENT_SECRET | (Optional) Client secret of the Azure SP. |
+| AZURE_TENANT_ID | (Optional) Tenant ID of the Azure SP. |
+| AZURE_SUBSCRIPTION_ID | (Optional) Subscription ID of the Azure AP. |
+| AZURE_STORAGE_DOMAIN | (Optional) The custom domain for your storage domain, if any. If this is not provided, the default Azure public domain "blob.core.windows.net" will be used. |
+| AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using MSI. |
+
+{{% /choosable %}}
+
 
 ### Other Environment Variables
 
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_DATABASE_USER_NAME | Name of the database user the Pulumi Service connects as. Leave default unless you are having trouble connecting to your database.
-| PULUMI_DATABASE_USER_PASSWORD | Password of the database user the Pulumi Service connects as. Leave default unless you are having troubles connecting to your database.
-| PULUMI_OBJECTS_BUCKET | S3 bucket name for persisting state for stacks.<br><br>**Note**: Only used if hosted on AWS. |
+| PULUMI_DATABASE_USER_PASSWORD | Password of the database user the Pulumi Service connects as. Leave default unless you are having trouble connecting to your database.
 | RECAPTCHA_SECRET_KEY | reCAPTCHA secret key for self-service password reset. Create a [site key and a secret key from Google](https://www.google.com/recaptcha/admin). |
 | SAML_CERTIFICATE_PUBLIC_KEY | Public key used by the [IdP]({{< relref "../saml/sso#terminology" >}}) to sign SAML assertions. Learn how to [set SAML_CERTIFICATE_PUBLIC_KEY]({{< relref "saml-sso" >}}). |
 | SAML_CERTIFICATE_PRIVATE_KEY | Private key used by Pulumi to validate the SAML assertions sent by the IdP. Learn how to [set SAML_CERTIFICATE_PRIVATE_KEY]({{< relref "saml-sso" >}}). |
