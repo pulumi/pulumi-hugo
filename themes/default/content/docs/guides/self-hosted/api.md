@@ -77,7 +77,7 @@ between the API and the database.
 
 | Variable Name | Description |
 | ------------- | ----------- |
-| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See https://gocloud.dev/howto/blob/#s3-compatible for examples of query-params you can use with the `s3://` scheme. |
+| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of query-params you can use with the `s3://` scheme. |
 | PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
 
 {{% /choosable %}}
@@ -86,7 +86,7 @@ between the API and the database.
 
 | Variable Name | Description |
 | ------------- | ----------- |
-| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See https://gocloud.dev/howto/blob/#s3-compatible for examples of query-params you can use with the `s3://` scheme. |
+| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of query-params you can use with the `s3://` scheme. |
 | PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
 | AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Azure](#azure) for additional configuration options. |
 
@@ -158,7 +158,6 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 | AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using MSI. |
 
 {{% /choosable %}}
-
 
 ### Other Environment Variables
 
