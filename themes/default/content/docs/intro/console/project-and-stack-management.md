@@ -10,6 +10,7 @@ menu:
 ## Creating a New Project
 
 To crate a new project from the Pulumi Console:
+
 * Navigate to **Projects**
 * Select the **New project** button
 * Follow the installation, setup, and stack deployment instructions.

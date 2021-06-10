@@ -94,7 +94,7 @@ To add a GitHub-backed organization to Pulumi, an admin of the GitHub organizati
 must
 first grant the Pulumi OAuth app the [`read:org` scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 This can be done from
-[GitHub Settings]](https://github.com/settings/connections/applications/7cf9078f3c92b17a5f0f).
+[GitHub Settings](https://github.com/settings/connections/applications/7cf9078f3c92b17a5f0f).
 
 The Pulumi Console
 will not have access to any of the organization's source code, issues, or other data.
