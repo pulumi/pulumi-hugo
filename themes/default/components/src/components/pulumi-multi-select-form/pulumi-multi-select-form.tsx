@@ -86,6 +86,7 @@ export class PulumiMultiSelectForm {
 
     render() {
         const selectedFormId = this.selectedItem.hubspotFormId;
+        console.log(selectedFormId);
         return (
             <div>
                 { this.formSubmitted ? null :
@@ -100,8 +101,8 @@ export class PulumiMultiSelectForm {
                     </span>
                 }
                 <pulumi-hubspot-form
-                    key={this.selectedItem.hubspotFormId}
-                    form-id={this.selectedItem.hubspotFormId}
+                    key={selectedFormId}
+                    form-id={selectedFormId}
                 ></pulumi-hubspot-form>
             </div>
         );

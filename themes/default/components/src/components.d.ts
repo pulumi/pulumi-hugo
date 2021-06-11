@@ -34,6 +34,11 @@ export namespace Components {
         "selection": ChooserKey;
         "type": ChooserType;
     }
+    interface PulumiContactUsForm {
+        "items": string;
+        "labelClass"?: string;
+        "selectClass"?: string;
+    }
     interface PulumiConvert {
         "endpoint": string;
         "examples": string;
@@ -130,6 +135,12 @@ declare global {
     var HTMLPulumiChooserElement: {
         prototype: HTMLPulumiChooserElement;
         new (): HTMLPulumiChooserElement;
+    };
+    interface HTMLPulumiContactUsFormElement extends Components.PulumiContactUsForm, HTMLStencilElement {
+    }
+    var HTMLPulumiContactUsFormElement: {
+        prototype: HTMLPulumiContactUsFormElement;
+        new (): HTMLPulumiContactUsFormElement;
     };
     interface HTMLPulumiConvertElement extends Components.PulumiConvert, HTMLStencilElement {
     }
@@ -232,6 +243,7 @@ declare global {
         "pulumi-banner": HTMLPulumiBannerElement;
         "pulumi-choosable": HTMLPulumiChoosableElement;
         "pulumi-chooser": HTMLPulumiChooserElement;
+        "pulumi-contact-us-form": HTMLPulumiContactUsFormElement;
         "pulumi-convert": HTMLPulumiConvertElement;
         "pulumi-date-countdown": HTMLPulumiDateCountdownElement;
         "pulumi-datetime": HTMLPulumiDatetimeElement;
@@ -274,6 +286,11 @@ declare namespace LocalJSX {
         "options"?: string;
         "selection"?: ChooserKey;
         "type"?: ChooserType;
+    }
+    interface PulumiContactUsForm {
+        "items"?: string;
+        "labelClass"?: string;
+        "selectClass"?: string;
     }
     interface PulumiConvert {
         "endpoint"?: string;
@@ -348,6 +365,7 @@ declare namespace LocalJSX {
         "pulumi-banner": PulumiBanner;
         "pulumi-choosable": PulumiChoosable;
         "pulumi-chooser": PulumiChooser;
+        "pulumi-contact-us-form": PulumiContactUsForm;
         "pulumi-convert": PulumiConvert;
         "pulumi-date-countdown": PulumiDateCountdown;
         "pulumi-datetime": PulumiDatetime;
@@ -374,6 +392,7 @@ declare module "@stencil/core" {
             "pulumi-banner": LocalJSX.PulumiBanner & JSXBase.HTMLAttributes<HTMLPulumiBannerElement>;
             "pulumi-choosable": LocalJSX.PulumiChoosable & JSXBase.HTMLAttributes<HTMLPulumiChoosableElement>;
             "pulumi-chooser": LocalJSX.PulumiChooser & JSXBase.HTMLAttributes<HTMLPulumiChooserElement>;
+            "pulumi-contact-us-form": LocalJSX.PulumiContactUsForm & JSXBase.HTMLAttributes<HTMLPulumiContactUsFormElement>;
             "pulumi-convert": LocalJSX.PulumiConvert & JSXBase.HTMLAttributes<HTMLPulumiConvertElement>;
             "pulumi-date-countdown": LocalJSX.PulumiDateCountdown & JSXBase.HTMLAttributes<HTMLPulumiDateCountdownElement>;
             "pulumi-datetime": LocalJSX.PulumiDatetime & JSXBase.HTMLAttributes<HTMLPulumiDatetimeElement>;
