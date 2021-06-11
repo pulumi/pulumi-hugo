@@ -9,9 +9,13 @@ describe('pulumi-multi-select-form', () => {
     });
     expect(page.root).toEqualHtml(`
       <pulumi-multi-select-form>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
+        <div>
+           <span>
+             <span></span>
+             <select></select>
+           </span>
+           <pulumi-hubspot-form></pulumi-hubspot-form>
+        </div>
       </pulumi-multi-select-form>
     `);
   });

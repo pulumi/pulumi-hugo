@@ -13,7 +13,7 @@ export interface MultiSelectFormItem {
 export class PulumiMultiSelectForm {
     // The JSON string of the items for the selector.
     @Prop()
-    items: MultiSelectFormItem[];
+    items: MultiSelectFormItem[] = [];
 
     // The class for the select input.
     @Prop()
@@ -46,7 +46,6 @@ export class PulumiMultiSelectForm {
     componentWillLoad() {
         if (this.defaultFormId !== "") {
             this.selectedItem = this.items.find((item) => item.hubspotFormId === this.defaultFormId);
-            console.log(this.selectedItem);
 
             if (this.selectedItem) {
                 return;
@@ -85,8 +84,8 @@ export class PulumiMultiSelectForm {
     }
 
     render() {
-        const selectedFormId = this.selectedItem.hubspotFormId;
-        console.log(selectedFormId);
+        const selectedFormId = this.selectedItem?.hubspotFormId;
+
         return (
             <div>
                 { this.formSubmitted ? null :

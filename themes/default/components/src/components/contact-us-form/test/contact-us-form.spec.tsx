@@ -8,11 +8,7 @@ describe('contact-us-form', () => {
       html: `<contact-us-form></contact-us-form>`,
     });
     expect(page.root).toEqualHtml(`
-      <contact-us-form>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </contact-us-form>
+      <contact-us-form></contact-us-form>
     `);
   });
 });
