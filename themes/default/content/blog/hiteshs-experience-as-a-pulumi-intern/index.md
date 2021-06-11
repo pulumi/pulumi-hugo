@@ -1,39 +1,13 @@
 ---
-title: "Hitesh's Experience as a Pulumi Intern"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
+title: "Hitesh's Intern Experience at Pulumi"
 date: 2021-06-11T09:53:45-07:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
-draft: false
-
-# Use the optional meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. If omitted or left blank, the content preceding the `<!--more-->` token
-# will be used in its place.
 meta_desc: A reflection on Hitesh's experience as a Pulumi Intern, including what he worked on and learned.
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
-meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
+meta_image: pulumi_mascot_3.0.png
 authors:
     - hitesh-boinpally
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - pulumi-interns
 
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
 ---
 
 Hi everyone, I’m [Hitesh Boinpally](https://www.linkedin.com/in/hitesh-boinpally), a junior studying Computer Science at the University of Washington. I was offered the opportunity to intern for Pulumi over the past three months, and here’s how it looked!
