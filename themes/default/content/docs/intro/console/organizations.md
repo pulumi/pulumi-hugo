@@ -25,13 +25,6 @@ Organizations allow you to collaborate with your team together in the Pulumi Con
 | Policies | Lists of organization policies and policy groups. Policies allow you to set guardrails to enforce best practices and compliance. |
 | Settings | Organization settings including subscription and payment information and history, stack permissions, and links to Pulumi's [continuous delivery guides]({{< relref "/docs/guides/continuous-delivery" >}}). |
 
-## Organization Roles
-
-| Role | Description |
-|--------|--------|
-| Admin | Administrators have full access to the organization including: [Inviting members]({{< relref "/docs/intro/console/organization-roles#organization-membership" >}}), [creating teams](({{< relref "/docs/intro/console/teams#creating-a-team" >}})) and policies, managing stack permissions and [role-based access control](({{< relref "/docs/intro/console/organization-roles" >}})), adjusting billing information and controlling the organization settings. |
-| Member | Members are able to view and edit stacks they have access to and view members and teams. |
-
 ## Creating a New Organization
 
 You can create a new Pulumi organization directly from the Pulumi Console by opening the organization menu in the top-navigation and choosing **New organization...*
@@ -56,21 +49,12 @@ For example, to become a member of a Pulumi organization backed by a GitLab Grou
 you must associate a GitLab identity with your Pulumi account, and also
 be a member of that GitLab group.
 
-### Stack Permissions
+## Organization Roles
 
-Any organization member with the `Admin` role automatically has `Admin`
-permissions for all of the organization's stacks. Regular organization members
-are granted the organization's _base permissions_ instead.
-
-For example, if the organization's base permissions is `Write`, then
-any organization member can update any organization stack.
-
-If the stack permission for all members is `None`, then organization members must be
-granted access using [teams]({{< relref "teams" >}}) in order to update, or even [view the organization
-stacks]({{< relref "project-and-stack-management#viewing-your-organization-stacks" >}}).
-
-Additionally, organization admins can toggle whether organization members can create stacks, whether
-stack admins can delete stacks, and whether stack admins can move stacks to other organizations.
+| Role | Description |
+|--------|--------|
+| Admin | Administrators have full access to the organization including: [Inviting members]({{< relref "/docs/intro/console/organization-roles#organization-membership" >}}), [creating teams]({{< relref "/docs/intro/console/teams#creating-a-team" >}}) and policies, managing [stack permissions]({{< relref "/docs/intro/console/stack-permissions" >}}) and [role-based access control]({{< relref "/docs/intro/console/organization-roles" >}}), adjusting billing information and controlling the organization settings. |
+| Member | Members are able to view and edit stacks they have access to and view members and teams. |
 
 ## Third-party Identity Providers
 

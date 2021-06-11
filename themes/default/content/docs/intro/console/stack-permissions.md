@@ -15,7 +15,16 @@ The Pulumi Console provides fine-grained access controls for stacks.
 A user's stack permissions is first based on their role within the containing
 organization, and then on any additional permissions granted explicitly to that user.
 
-## Stack Permission Levels
+## Stack Permissions
+
+Any organization member with the `Admin` role automatically has `Admin`
+permissions for all of the organization's stacks. Members can have `None`, `Read`, or `Write`
+permissions on all stacks based on the settings available on the *Access Management** page in organization settings
+
+Members can be granted the
+**Allow organization members to create stacks and transfer stacks to this organization**
+permission from the **Access Management** page in settings which will allow members to
+become stack admins of any stacks that they create or transfer to the organization.
 
 There are four types of permission levels available to users and teams
 collaborating on Pulumi stacks.
