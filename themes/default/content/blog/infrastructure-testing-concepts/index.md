@@ -28,9 +28,9 @@ This article is the first in a two-part series about testing infrastructure. The
 
 ## Functional testing vs. non-functional testing
 
-With infrastructure as code we want to test if parts of the system work as required or how parts interact with each other; this is functional testing. We will also want to test how the system behaves concerning performance, security, reliability, usability, and compliance. These tests are called non-functional tests because they test the system's behavior as a whole rather than by its parts.
+With infrastructure as code we want to test if parts of the system work as required or how parts interact with each other; this is functional testing. We will also want to test how the system behaves concerning performance, security, reliability, usability, and compliance. In general, these tests are called non-functional tests because they test the system's behavior as a whole rather than by its parts.
 
-In functional testing, unit tests typically test a single function or class. They are low-level tests that can be executed quickly and at low costs. Integration tests are functional tests that validate how components interact with each other, i.e.; it checks the interaction between software components. Non-functional tests are frequently called end-to-end or performance tests, which evaluate the behavior of the system.
+In functional testing, unit tests typically test a single function or class. They are low-level tests that can be executed quickly and at low costs. Integration tests are functional tests that validate how components interact with each other, i.e.; it checks the interaction between software components. Non-functional tests are frequently performance tests, which evaluate the behavior of the system.
 
 [Mike Kohn](https://twitter.com/mikewcohn) proposed the testing pyramid that shows the different layers of testing and the amount of testing for each layer.
 
@@ -50,7 +50,7 @@ As you can see, both models suggest that the majority of tests should be integra
 
 ![Testing rocket](testing_rocket.png)
 
-For deploying modern applications with cloud engineering, we propose an alternate model called the testing rocket. Static testing is inherent in cloud engineering because of the software toolchains, such as IDEs, that perform static checking. Both unit and integration testing are equally important to ensure that infrastructure is deployed and managed reliabily. End-to-end tests for performance and scalability should be performed less frequently because of complexity and costs.
+For deploying modern applications with cloud engineering, we propose an alternate model called the testing rocket. Static testing is inherent in cloud engineering because of the software toolchains, such as IDEs, that perform static checking. Both unit and integration testing are equally importat to ensure that infrastructure is deployed and managed reliabily. End-to-end tests for performance and scalability should be performed less frequently because of complexity and costs.
 
 ## Cloud engineering testing
 
