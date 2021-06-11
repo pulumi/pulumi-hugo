@@ -42,13 +42,13 @@ Hi everyone, I’m [Hitesh Boinpally](https://www.linkedin.com/in/hitesh-boinpal
 
 ## Technical Work
 
-My overall project was to build a test harness for Pulumi’s converter tools such as [`arm2pulumi`](https://github.com/pulumi/arm2pulumi) and [`tf2pulumi`](https://github.com/pulumi/tf2pulumi). The project involved several pieces, all of which meant learning about technologies I hadn’t encountered before. 
+My overall project was to build a test harness for Pulumi’s converter tools such as [`arm2pulumi`](https://github.com/pulumi/arm2pulumi) and [`tf2pulumi`](https://github.com/pulumi/tf2pulumi). The project involved several pieces, all of which meant learning about technologies I hadn’t encountered before.
 
-1. A program that ran the test itself and generated results in a program readable way, which I wrote in Go. 
+1. A program that ran the test itself and generated results in a program readable way, which I wrote in Go.
 2. Running that program to  generate historical data over time through GitHub Actions consistently.
-3. The cloud infrastructure part, which was uploading the test results into an AWS Redshift table for human-accessible analysis. Here was where I got to utilize Pulumi and better understand infrastructure as code. 
+3. The cloud infrastructure part, which was uploading the test results into an AWS Redshift table for human-accessible analysis. Here was where I got to utilize Pulumi and better understand infrastructure as code.
 
-All of these were fascinating to learn about and stretched my knowledge in directions I hadn’t previously explored. 
+All of these were fascinating to learn about and stretched my knowledge in directions I hadn’t previously explored.
 
 I began with setting up the harness for [`arm2pulumi`](https://github.com/pulumi/arm2pulumi). The Go program had already been written, so I needed to focus on the GitHub Actions for CI and cloud infrastructure aspects. I set up the CI quickly, but the cloud infrastructure took some time. Wrangling with AWS’s different IAM roles, cross-account permissions, and how to utilize the different tools was complex and challenging. However, I learned a lot about these different spaces and gained valuable experience. Further, I appreciated the advantages of Pulumi, as I could quickly undo/redo changes incrementally, rather than making manual changes in the AWS Console.
 
@@ -60,12 +60,14 @@ Due to the ongoing pandemic, my internship was done fully remote. Having come fr
 
 The team itself was great, with everyone being super friendly and supportive. It took me longer than I expected to get the confidence to ask questions in general Slack channels, but each time I did, I was met with a helpful response and got the assistance I needed to succeed. Despite being the only intern, I never felt cast aside and was guided throughout my project in a balanced way, still allowing for some independence. Everyone is also so knowledgeable that I would learn something new perusing Slack every day, whether internal to Pulumi or an article about some new way of doing things.
 
-Thanks to the high level of transparency at Pulumi, I also got to see many different levels of the company, rather than just the work that I was doing. As a result, I learned more about how a company works fundamentally, and a typical development process. 
+Thanks to the high level of transparency at Pulumi, I also got to see many different levels of the company, rather than just the work that I was doing. As a result, I learned more about how a company works fundamentally, and a typical development process.
 
 ## Closing Thoughts
-Pulumi was my first ever internship, and I couldn’t have asked for a better experience. I learned about a ton of new technologies, some of which I may not have explored yet but at least am aware of for future projects. In addition, I met some truly incredibly talented, hardworking, and interesting people. I’m stoked to continue using Pulumi and am excited to see how the company evolves and grows! 
+
+Pulumi was my first ever internship, and I couldn’t have asked for a better experience. I learned about a ton of new technologies, some of which I may not have explored yet but at least am aware of for future projects. In addition, I met some truly incredibly talented, hardworking, and interesting people. I’m stoked to continue using Pulumi and am excited to see how the company evolves and grows!
 
 ## Thank Yous
+
 First off, a huge shout out to the leadership at Pulumi for offering this opportunity to begin with! Thanks to [Lee](https://github.com/leezen), especially for organizing the internship and your help throughout it!
 
 Thank you to [Levi](https://github.com/lblackstone) for being an awesome, approachable mentor and always willing to help out! I asked a ton of -- oftentimes pretty random -- questions, and you helpfully answered each of them.
