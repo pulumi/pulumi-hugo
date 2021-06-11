@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ChooserKey, ChooserMode, ChooserType, OSKey } from "./components/chooser/chooser";
 import { ChooserKey as ChooserKey1, ChooserMode as ChooserMode1, ChooserOptionStyle, ChooserType as ChooserType1 } from "./components/chooser/chooser";
 import { SourceKind } from "./components/convert/convert";
+import { MultiSelectFormItem } from "./components/pulumi-multi-select-form/pulumi-multi-select-form";
 export namespace Components {
     interface PulumiAudio {
         "pausedText": string;
@@ -61,6 +62,13 @@ export namespace Components {
     }
     interface PulumiInstall {
         "os"?: OSKey;
+    }
+    interface PulumiMultiSelectForm {
+        "defaultFormId": string;
+        "items": MultiSelectFormItem[];
+        "labelClass"?: string;
+        "labelText": string;
+        "selectClass"?: string;
     }
     interface PulumiRoot {
     }
@@ -171,6 +179,12 @@ declare global {
         prototype: HTMLPulumiInstallElement;
         new (): HTMLPulumiInstallElement;
     };
+    interface HTMLPulumiMultiSelectFormElement extends Components.PulumiMultiSelectForm, HTMLStencilElement {
+    }
+    var HTMLPulumiMultiSelectFormElement: {
+        prototype: HTMLPulumiMultiSelectFormElement;
+        new (): HTMLPulumiMultiSelectFormElement;
+    };
     interface HTMLPulumiRootElement extends Components.PulumiRoot, HTMLStencilElement {
     }
     var HTMLPulumiRootElement: {
@@ -226,6 +240,7 @@ declare global {
         "pulumi-greenhouse-jobs-list": HTMLPulumiGreenhouseJobsListElement;
         "pulumi-hubspot-form": HTMLPulumiHubspotFormElement;
         "pulumi-install": HTMLPulumiInstallElement;
+        "pulumi-multi-select-form": HTMLPulumiMultiSelectFormElement;
         "pulumi-root": HTMLPulumiRootElement;
         "pulumi-slot-machine": HTMLPulumiSlotMachineElement;
         "pulumi-swipeable": HTMLPulumiSwipeableElement;
@@ -289,6 +304,13 @@ declare namespace LocalJSX {
     interface PulumiInstall {
         "os"?: OSKey;
     }
+    interface PulumiMultiSelectForm {
+        "defaultFormId"?: string;
+        "items"?: MultiSelectFormItem[];
+        "labelClass"?: string;
+        "labelText"?: string;
+        "selectClass"?: string;
+    }
     interface PulumiRoot {
         "onRendered"?: (event: CustomEvent<any>) => void;
     }
@@ -334,6 +356,7 @@ declare namespace LocalJSX {
         "pulumi-greenhouse-jobs-list": PulumiGreenhouseJobsList;
         "pulumi-hubspot-form": PulumiHubspotForm;
         "pulumi-install": PulumiInstall;
+        "pulumi-multi-select-form": PulumiMultiSelectForm;
         "pulumi-root": PulumiRoot;
         "pulumi-slot-machine": PulumiSlotMachine;
         "pulumi-swipeable": PulumiSwipeable;
@@ -359,6 +382,7 @@ declare module "@stencil/core" {
             "pulumi-greenhouse-jobs-list": LocalJSX.PulumiGreenhouseJobsList & JSXBase.HTMLAttributes<HTMLPulumiGreenhouseJobsListElement>;
             "pulumi-hubspot-form": LocalJSX.PulumiHubspotForm & JSXBase.HTMLAttributes<HTMLPulumiHubspotFormElement>;
             "pulumi-install": LocalJSX.PulumiInstall & JSXBase.HTMLAttributes<HTMLPulumiInstallElement>;
+            "pulumi-multi-select-form": LocalJSX.PulumiMultiSelectForm & JSXBase.HTMLAttributes<HTMLPulumiMultiSelectFormElement>;
             "pulumi-root": LocalJSX.PulumiRoot & JSXBase.HTMLAttributes<HTMLPulumiRootElement>;
             "pulumi-slot-machine": LocalJSX.PulumiSlotMachine & JSXBase.HTMLAttributes<HTMLPulumiSlotMachineElement>;
             "pulumi-swipeable": LocalJSX.PulumiSwipeable & JSXBase.HTMLAttributes<HTMLPulumiSwipeableElement>;
