@@ -1,5 +1,5 @@
 {{ define "hero" }}
-    {{ partial "hero.html" (dict "title" .Title) }}
+    {{ partial "hero.html" (dict "title" .Title "small_title" "true") }}
 {{ end }}
 
 {{ define "main" }}
@@ -7,7 +7,7 @@
         <div class="container mx-auto">
             <ul>
                 {{ range .Params.sections }}
-                    <li><a href="#{{ .anchor }}">{{ .label }}</a></li>
+                    <li class="w-full lg:w-auto"><a href="#{{ .anchor }}">{{ .label }}</a></li>
                 {{ end }}
             </ul>
         </div>
