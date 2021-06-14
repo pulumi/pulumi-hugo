@@ -101,6 +101,8 @@ The service supports using a master key available in a local-path or in a remote
 You only need to configure one of the support services.
 {{% /notes %}}
 
+{{< chooser self-hosted-env "local,aws,azure" >}}
+
 {{% choosable self-hosted-env local %}}
 
 | Variable Name | Description |
@@ -129,7 +131,9 @@ You only need to configure one of the support services.
 
 ### Cloud Provider Authentication
 
-These settings are only required if you are running the Pulumi Service on one of these clouds or using one of their services.
+These settings are required if you are running the Pulumi Service on one of these clouds or using one of their services.
+
+{{< chooser self-hosted-env "local,aws,azure" >}}
 
 {{% choosable self-hosted-env local %}}
 None
