@@ -8,8 +8,6 @@ menu:
 meta_desc: Pulumi API is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
 ---
 
-{{< chooser self-hosted-env "local,aws,azure" >}}
-
 {{% notes type="info" %}}
 Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Enterprise.
 
@@ -63,6 +61,8 @@ between the API and the database.
 | PULUMI_DATABASE_NAME | The name of the database on the database server. |
 | PULUMI_API_DOMAIN | The internet or network-local domain using which the API service can be reached, e.g. `pulumiapi.acmecorp.com`. Default is `localhost:8080`. |
 | PULUMI_CONSOLE_DOMAIN | The internet or network-local domain using which the Console can be reached, e.g. `pulumiconsole.acmecorp.com`. Default is `localhost:3000`. |
+
+{{< chooser self-hosted-env "local,aws,azure" >}}
 
 ### Object storage
 
@@ -163,6 +163,8 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 ### Other Environment Variables
 
 | Variable Name | Description |
@@ -220,5 +222,3 @@ The database migrations container is configurable to enable connections to the d
 | PULUMI_DATABASE_ENDPOINT      | The database server endpoint in the format `host:port`. This should be a MySQL 5.6 server. |
 | PULUMI_DATABASE_PING_ENDPOINT | The database server endpoint to ping for availability before login. |
 | RUN_MIGRATIONS_EXTERNALLY     | Request for migrations to be run against an external database. |
-
-{{< /chooser >}}
