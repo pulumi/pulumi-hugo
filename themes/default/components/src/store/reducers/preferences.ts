@@ -44,6 +44,8 @@ export const preferences = (currentState = getInitialState(), action: Preference
             return { ...currentState, cloud: action.key };
         case TypeKeys.SET_PERSONA:
             return { ...currentState, persona: action.key };
+        case TypeKeys.SET_SELF_HOSTED_ENV:
+            return { ...currentState, selfHostedEnv: action.key };
         default:
             return currentState;
     }

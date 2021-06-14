@@ -1,4 +1,4 @@
-import { SetLanguage, SetK8sLanguage, SetOS, SetCloud, SetPersona } from "./preferences";
+import {SetLanguage, SetK8sLanguage, SetOS, SetCloud, SetPersona, SetSelfHostedEnv} from "./preferences";
 import { DismissBanner } from "./banners";
 
 export enum TypeKeys {
@@ -16,5 +16,5 @@ export enum TypeKeys {
     DISMISS_BANNER = "DISMISS_BANNER",
 }
 
-export type PreferencesAction = SetLanguage | SetK8sLanguage | SetOS | SetCloud | SetPersona;
+export type PreferencesAction = SetLanguage | SetK8sLanguage | SetOS | SetCloud | SetPersona | SetSelfHostedEnv;
 export type BannersAction = DismissBanner;
