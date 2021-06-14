@@ -21,7 +21,7 @@ export type ChooserMode = "local" | "global";
 export type ChooserOptionStyle = "tabbed" | "none";
 export type ChooserType = "language" | "k8s-language" | "os" | "cloud" | "persona" | "self-hosted-env";
 export type ChooserKey = LanguageKey | K8sLanguageKey | OSKey | CloudKey | PersonaKey | SelfHostedEnvKey;
-export type ChooserOption = SupportedLanguage | SupportedK8sLanguage | SupportedOS | SupportedCloud | SupportedPersona;
+export type ChooserOption = SupportedLanguage | SupportedK8sLanguage | SupportedOS | SupportedCloud | SupportedPersona | SupportedSelfHostedEnv;
 
 interface SupportedLanguage {
     key: LanguageKey;
@@ -50,6 +50,12 @@ interface SupportedCloud {
 
 interface SupportedPersona {
     key: PersonaKey;
+    name: string;
+    preview: boolean;
+}
+
+interface SupportedSelfHostedEnv {
+    key: SelfHostedEnvKey;
     name: string;
     preview: boolean;
 }
@@ -276,6 +282,9 @@ export class Chooser {
             case "persona":
                 options = this.supportedPersonas;
                 break;
+            case "self-hosted-env":
+                options = this.supportedSelfHostedEnvs;
+                break;
         }
 
         this.currentOptions = options.filter(opt => keys.includes(opt.key))
@@ -485,6 +494,24 @@ export class Chooser {
         {
             key: "docker",
             name: "Docker",
+            preview: false,
+        },
+    ];
+
+    private supportedSelfHostedEnvs: SupportedSelfHostedEnv[] = [
+        {
+            key: "local",
+            name: "Local",
+            preview: false,
+        },
+        {
+            key: "aws",
+            name: "AWS",
+            preview: false,
+        },
+        {
+            key: "azure",
+            name: "Azure",
             preview: false,
         },
     ];
