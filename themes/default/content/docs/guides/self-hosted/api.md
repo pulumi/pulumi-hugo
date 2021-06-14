@@ -8,6 +8,8 @@ menu:
 meta_desc: Pulumi API is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
 ---
 
+{{< chooser self-hosted-env "local,aws,azure" >}}
+
 {{% notes type="info" %}}
 Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Enterprise.
 
@@ -64,8 +66,6 @@ between the API and the database.
 
 ### Object storage
 
-{{< chooser self-hosted-env "local,aws,azure" >}}
-
 {{% choosable self-hosted-env local %}}
 
 | Variable Name | Description |
@@ -94,16 +94,12 @@ between the API and the database.
 
 {{% /choosable %}}
 
-{{< /chooser >}}
-
 ### Encryption services
 
 {{% notes type="info" %}}
 The service supports using a master key available in a local-path or in a remote key management service.
 You only need to configure one of the support services.
 {{% /notes %}}
-
-{{< chooser self-hosted-env "local,aws,azure" >}}
 
 {{% choosable self-hosted-env local %}}
 
@@ -131,13 +127,9 @@ You only need to configure one of the support services.
 
 {{% /choosable %}}
 
-{{< /chooser >}}
-
 ### Cloud Provider Authentication
 
 These settings are required if you are running the Pulumi Service on one of these clouds or using one of their services.
-
-{{< chooser self-hosted-env "local,aws,azure" >}}
 
 {{% choosable self-hosted-env local %}}
 None
@@ -170,8 +162,6 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 | AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using MSI. |
 
 {{% /choosable %}}
-
-{{< /chooser >}}
 
 ### Other Environment Variables
 
@@ -230,3 +220,5 @@ The database migrations container is configurable to enable connections to the d
 | PULUMI_DATABASE_ENDPOINT      | The database server endpoint in the format `host:port`. This should be a MySQL 5.6 server. |
 | PULUMI_DATABASE_PING_ENDPOINT | The database server endpoint to ping for availability before login. |
 | RUN_MIGRATIONS_EXTERNALLY     | Request for migrations to be run against an external database. |
+
+{{< /chooser >}}
