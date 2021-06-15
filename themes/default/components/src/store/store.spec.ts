@@ -34,7 +34,6 @@ describe("normalizeState", () => {
                         cloud: "aws",
                         k8sLanguage: "typescript",
                         persona: "developer",
-                        selfHostedEnv: "local",
                     },
                 });
             });

@@ -1,5 +1,5 @@
 import { TypeKeys } from "./index";
-import { LanguageKey, K8sLanguageKey, OSKey, CloudKey, PersonaKey, SelfHostedEnvKey } from "../../components/chooser/chooser";
+import { LanguageKey, K8sLanguageKey, OSKey, CloudKey, PersonaKey } from "../../components/chooser/chooser";
 
 export interface SetLanguage {
     type: TypeKeys.SET_LANGUAGE;
@@ -24,11 +24,6 @@ export interface SetCloud {
 export interface SetPersona {
     type: TypeKeys.SET_PERSONA;
     key: PersonaKey;
-}
-
-export interface SetSelfHostedEnv {
-    type: TypeKeys.SET_SELF_HOSTED_ENV;
-    key: SelfHostedEnvKey;
 }
 
 // Set the currently selected language.
@@ -71,16 +66,6 @@ export const setCloud = (key: CloudKey) => (dispatch, _getState) => {
 export const setPersona = (key: PersonaKey) => (dispatch, _getState) => {
     const action: SetPersona = {
         type: TypeKeys.SET_PERSONA,
-        key: key,
-    };
-    dispatch(action);
-};
-
-// Set the currently selected self-hosted environment.
-export const setSelfHostedEnv = (key: SelfHostedEnvKey) => (dispatch, _getState) => {
-    console.log({ key });
-    const action: SetSelfHostedEnv = {
-        type: TypeKeys.SET_SELF_HOSTED_ENV,
         key: key,
     };
     dispatch(action);

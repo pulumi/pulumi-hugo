@@ -46,7 +46,7 @@ The API service is a Go-based application. This is a single binary application t
 
 ### Server
 
-This container runs an HTTP server which provides the APIs needed by the Console and the CLI. By default this container will serve using port `8080` over standard HTTP. If [TLS](#tls-environment-variables) is configured the server will instead serve over port `8443` using HTTPS.
+This container runs an HTTP server which provides the APIs needed by the Console and the CLI. By default, this container will serve using port `8080` over standard HTTP. If [TLS](#tls-environment-variables) is configured the server will instead serve over port `8443` using HTTPS.
 
 ## Environment Variables for Core Infrastructure
 
@@ -64,35 +64,33 @@ between the API and the database.
 
 ### Object storage
 
-{{< chooser self-hosted-env "local,aws,azure" />}}
-
-{{% choosable self-hosted-env local %}}
+#### Local storage
 
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_LOCAL_OBJECTS | Folder path for persisting state for stacks. Ensure that this path is highly available, and backed-up regularly. Only use this if you want the service to persist objects to a local path. |
 | PULUMI_POLICY_PACK_LOCAL_HTTP_OBJECTS | Folder path for persisting published policy packs. Ensure that this path is highly available, and backed-up regularly. Only use this if you want the service to persist policy packs to a local path. |
 
-{{% /choosable %}}
+#### AWS S3
 
-{{% choosable self-hosted-env aws %}}
-
-| Variable Name | Description |
-| ------------- | ----------- |
-| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of query-params you can use with the `s3://` scheme. |
-| PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
-
-{{% /choosable %}}
-
-{{% choosable self-hosted-env azure %}}
+{{% notes type="info" %}}
+If you are using an S3-compatible object storage such as Minio, for example, you must also configure
+the [AWS](#cloud-provider-authentication) credentials as applicable for your Minio configuration.
+{{% /notes %}}
 
 | Variable Name | Description |
 | ------------- | ----------- |
-| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Certain schemes also support query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of query-params you can use with the `s3://` scheme. |
-| PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `scheme://<bucket-name>`. Supported schemes: `s3://` and `azblob://`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
-| AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Cloud Provider Authentication](#cloud-provider-authentication) for additional configuration options for Azure. |
+| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `s3://<bucket-name>`. The `s3://` scheme also supports query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of the query-params. |
+| PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `s3://<bucket-name>`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
 
-{{% /choosable %}}
+#### Azure Storage
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `azblob://<blob-container>`. |
+| PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `azblob://<blob-container>`. |
+| AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Cloud Provider Authentication](#azure) for additional configuration options for Azure. |
+| AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using Azure MSI. |
 
 ### Encryption services
 
@@ -101,25 +99,19 @@ The service supports using a master key available in a local-path or in a remote
 You only need to configure one of the support services.
 {{% /notes %}}
 
-{{< chooser self-hosted-env "local,aws,azure" />}}
-
-{{% choosable self-hosted-env local %}}
+#### Local keys
 
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_LOCAL_KEYS | Folder path that contains a random 32-byte key. Ensure that this path is highly available, and backed-up regularly. |
 
-{{% /choosable %}}
-
-{{% choosable self-hosted-env aws %}}
+#### AWS KMS
 
 | Variable Name | Description |
 | ------------- | ----------- |
 | PULUMI_KMS_KEY | ARN for the AWS KMS customer master key resource. |
 
-{{% /choosable %}}
-
-{{% choosable self-hosted-env azure %}}
+#### Azure KeyVault
 
 | Variable Name | Description |
 | ------------- | ----------- |
@@ -127,29 +119,22 @@ You only need to configure one of the support services.
 | PULUMI_AZURE_KV_KEY_NAME | The name of the key in KeyVault. The key must be an RSA key type. We recommend a key size of 2048 for most cases. The key operations must support `Encrypt` and `Decrypt`. Otherwise, the service will fail to start. |
 | PULUMI_AZURE_KV_KEY_VERSION | The version of the key that the service should use. Note: All previous versions of the key must remain enabled. |
 
-{{% /choosable %}}
-
 ### Cloud Provider Authentication
-
-{{< chooser self-hosted-env "local,aws,azure" />}}
 
 These settings are required if you are running the Pulumi Service on one of these clouds or using one of their services.
 
-{{% choosable self-hosted-env local %}}
-
-None
-
-{{% /choosable %}}
-
-{{% choosable self-hosted-env aws %}}
+#### AWS
 
 | Variable Name | Description |
 | ------------- | ----------- |
 | AWS_REGION | The region where the dependent AWS services used by Pulumi Service have been created. For example, the KMS key must exist in this region. Similarly, if you are using RDS, then there must be a writable cluster in this region. |
+| AWS_ACCESS_KEY_ID |  |
+| AWS_SECRET_ACCESS_KEY |  |
+| AWS_SESSION_TOKEN |  |
+| AWS_PROFILE |  |
+| AWS_ROLE_ARN |  |
 
-{{% /choosable %}}
-
-{{% choosable self-hosted-env azure %}}
+#### Azure
 
 {{% notes type="info" %}}
 Many of Azure's services support using Managed System Identity (MSI). As such, the Pulumi Service can also be configured
@@ -165,9 +150,6 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 | AZURE_TENANT_ID | (Optional) Tenant ID of the Azure SP. |
 | AZURE_SUBSCRIPTION_ID | (Optional) Subscription ID of the Azure AP. |
 | AZURE_STORAGE_DOMAIN | (Optional) The custom domain for your storage domain, if any. If this is not provided, the default Azure public domain "blob.core.windows.net" will be used. |
-| AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using MSI. |
-
-{{% /choosable %}}
 
 ### Other Environment Variables
 
