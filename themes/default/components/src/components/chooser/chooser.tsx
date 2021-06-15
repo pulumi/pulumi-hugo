@@ -341,6 +341,9 @@ export class Chooser {
                 case "persona":
                     this.setPersona(key as PersonaKey);
                     break;
+                case "self-hosted-env":
+                    this.setSelfHostedEnv(key as SelfHostedEnvKey);
+                    break;
             }
         }
     }

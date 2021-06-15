@@ -64,7 +64,7 @@ between the API and the database.
 
 ### Object storage
 
-{{< chooser self-hosted-env "local,aws,azure" >}}
+{{< chooser self-hosted-env "local,aws,azure" />}}
 
 {{% choosable self-hosted-env local %}}
 
@@ -94,16 +94,12 @@ between the API and the database.
 
 {{% /choosable %}}
 
-{{< /chooser >}}
-
 ### Encryption services
 
 {{% notes type="info" %}}
 The service supports using a master key available in a local-path or in a remote key management service.
 You only need to configure one of the support services.
 {{% /notes %}}
-
-{{< chooser self-hosted-env "local,aws,azure" >}}
 
 {{% choosable self-hosted-env local %}}
 
@@ -131,16 +127,14 @@ You only need to configure one of the support services.
 
 {{% /choosable %}}
 
-{{< /chooser >}}
-
 ### Cloud Provider Authentication
 
 These settings are required if you are running the Pulumi Service on one of these clouds or using one of their services.
 
-{{< chooser self-hosted-env "local,aws,azure" >}}
-
 {{% choosable self-hosted-env local %}}
+
 None
+
 {{% /choosable %}}
 
 {{% choosable self-hosted-env aws %}}
@@ -170,8 +164,6 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 | AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using MSI. |
 
 {{% /choosable %}}
-
-{{< /chooser >}}
 
 ### Other Environment Variables
 

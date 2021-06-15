@@ -78,6 +78,7 @@ export const setPersona = (key: PersonaKey) => (dispatch, _getState) => {
 
 // Set the currently selected self-hosted environment.
 export const setSelfHostedEnv = (key: SelfHostedEnvKey) => (dispatch, _getState) => {
+    console.log({ key });
     const action: SetSelfHostedEnv = {
         type: TypeKeys.SET_SELF_HOSTED_ENV,
         key: key,

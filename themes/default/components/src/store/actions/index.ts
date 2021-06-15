@@ -1,4 +1,4 @@
-import {SetLanguage, SetK8sLanguage, SetOS, SetCloud, SetPersona, SetSelfHostedEnv} from "./preferences";
+import { SetLanguage, SetK8sLanguage, SetOS, SetCloud, SetPersona, SetSelfHostedEnv } from "./preferences";
 import { DismissBanner } from "./banners";
 
 export enum TypeKeys {
