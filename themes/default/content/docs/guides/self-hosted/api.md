@@ -80,6 +80,8 @@ state (checkpoint) and the policy pack must use different buckets on the same ob
 {{% notes type="info" %}}
 If you are using an S3-compatible object storage such as Minio, for example, you must also configure
 the [AWS](#cloud-provider-authentication) credentials as applicable for your Minio configuration.
+If your Minio configuration doesn't require a region, you should still specify the `AWS_REGION` with
+any valid AWS region name. For example, `us-west-2`.
 {{% /notes %}}
 
 | Variable Name | Description |
@@ -138,7 +140,7 @@ For more information about authenticating with AWS services, see the AWS SDK [do
 | Variable Name | Description |
 | ------------- | ----------- |
 | AWS_REGION | The region where the dependent AWS services used by Pulumi Service have been created. For example, the KMS key must exist in this region. Similarly, if you are using RDS, then there must be a writable cluster in this region. |
-| AWS_ACCESS_KEY_ID | The AWS access key ID/ |
+| AWS_ACCESS_KEY_ID | The AWS access key ID. |
 | AWS_SECRET_ACCESS_KEY | The AWS secret key. |
 | AWS_PROFILE | The AWS profile. |
 | AWS_ROLE_ARN | The AWS role ARN to assume using the base access keys. |
