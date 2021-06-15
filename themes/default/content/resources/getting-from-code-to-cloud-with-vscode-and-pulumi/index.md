@@ -65,8 +65,6 @@ main:
     description: |
         For app developers, setting up infrastructure can be the hardest part of getting their app into production. What if you could just configure infrastructure using the same language you’re using to build your app? Pulumi's Matty Stratton will show you how easy it is to use Pulumi and VS Code to set up Azure (or any cloud) using JavaScript/TypeScript.
 
-        [Livestream Link](https://aka.ms/code-livestream-page)
-
     # The webinar presenters
     presenters:
         - name: Matty Stratton
