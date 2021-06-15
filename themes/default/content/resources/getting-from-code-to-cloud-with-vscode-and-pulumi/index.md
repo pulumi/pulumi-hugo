@@ -39,7 +39,7 @@ url_slug: "getting-from-code-to-cloud-with-vscode-and-pulumi"
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: ""
+    title: "Getting from code to cloud with VS Code and Pulumi"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
