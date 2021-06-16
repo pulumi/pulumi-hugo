@@ -72,12 +72,16 @@
                     @apply text-lg;
                 }
             }
+
+            .compare-table-link {
+                @apply underline text-blue-600;
+            }
         }
     }
 }
 
 .pricing-faq {
-    @each $filter-type in "product" "billing" {
+    @each $filter-type in "product" "billing" "pricing" {
         #faq-#{$filter-type}:target {
             ~ #faq-headers {
                 li {
@@ -93,6 +97,16 @@
 
                     a {
                         @apply text-black;
+                    }
+                }
+
+                @if $filter-type != "product" {
+                    li[data-faq-label="product"] {
+                        @apply border-none;
+
+                        a {
+                            @apply text-gray-500;
+                        }
                     }
                 }
             }
