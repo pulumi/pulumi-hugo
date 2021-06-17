@@ -1,67 +1,21 @@
 ---
-title: API Reference
-linktitle: API
+title: Pulumi SDK Reference
+linktitle: Pulumi SDK
 meta_desc: Documentation and examples for working with cloud providers and other services.
 menu:
   reference:
-    name: API Reference
+    name: Pulumi SDK
     weight: 2
 ---
 
-Pulumi offers APIs for working with a wide variety of cloud platforms, as well as
-higher-level APIs that make it easier to deliver cloud applications and infrastructure.
-
-## Resource Documentation
-
-[Resource]({{< relref "/docs/intro/concepts/programming-model#resource-providers" >}})-level
-documentation and examples for cloud providers and other services. Whether you're looking
-for details about how to work with a particular resource or just browsing around to
-explore what's possible, you've come to the right place.
-
-### Core Providers
-
-{{< resource-providers "aws,azure-native,gcp,kubernetes" >}}
-
-### Cloud Providers
-
-{{< resource-providers "digitalocean,linode,vsphere,fastly,equinix-metal,openstack,alicloud,cloudamqp,hcloud,civo,yandex" >}}
-
-### Infrastructure
-
-{{< resource-providers "aiven,auth0,azuread,azuredevops,consul,docker,kafka,keycloak,kong,mailgun,okta,pagerduty,rabbitmq,rancher2,spotinst,splunk,vault,venafi,opsgenie,rke,confluent,nomad" >}}
-
-### Database
-
-{{< resource-providers "mysql,postgresql,mongodbatlas" >}}
-
-### Monitoring
-
-{{< resource-providers "datadog,newrelic,signalfx,wavefront,sumologic" >}}
-
-### Network
-
-{{< resource-providers "cloudflare,dnsimple,f5bigip,ns1,akamai" >}}
-
-### Version Control
-
-{{< resource-providers "github,gitlab" >}}
-
-### Utilities
-
-{{< resource-providers "random,tls,cloudinit,libvirt" false >}}
-
-### Classic Providers
-
-{{< resource-providers "azure" >}}
-
-### Preview Providers
-
-{{< resource-providers "google-native" >}}
+[TODO: Insert summary text for SDK documentation.]
 
 
-## Package Documentation
+{{% notes type="info"%}}
+If you are looking for provider API reference documentation, see [Providers]({{< relref "/docs/packages/providers" >}}).
+{{% /notes %}}
 
-SDK reference documentation, organized by language.
+The following lists the SDK reference documentation, organized by language.
 
 {{% chooser language "javascript,typescript,python,go,csharp" / %}}
 

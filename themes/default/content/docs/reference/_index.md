@@ -11,6 +11,6 @@ This section includes all reference documentation for Pulumi.
 
 {{< get-started-note >}}
 
-* [API Reference]({{< relref "/docs/reference/pkg" >}}): detailed package documentation for all cloud packages and APIs
+* [Pulumi SDK Reference]({{< relref "/docs/reference/pkg" >}}): detailed documentation for the core Pulumi SDK
 * [Pulumi CLI]({{< relref "cli" >}}): most commonly used commands, in addition to full command and flag documentation
 * [Project Configuration Reference]({{< relref "/docs/reference/pulumi-yaml" >}}): required and optional metadata to configure your Pulumi project
