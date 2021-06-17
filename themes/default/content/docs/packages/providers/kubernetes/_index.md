@@ -3,7 +3,7 @@ title: Kubernetes
 meta_desc: This page provides an overview of how Pulumi works with Kubernetes.
 menu:
   packages:
-    parent: Native Providers
+    parent: Core Providers
     identifier: kubernetes
     weight: 4
 

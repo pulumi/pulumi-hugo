@@ -1,0 +1,4 @@
+{{ $cloud := .Page.Params.title }}
+<p>
+    For reference information on the resources and functions available for the {{ $cloud }} provider, see <a href="{{ printf "/docs/packages/providers/%s/resources" $cloud | relref . }}">Resources and Functions</a>.
+</p>

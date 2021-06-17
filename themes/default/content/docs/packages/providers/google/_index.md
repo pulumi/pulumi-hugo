@@ -3,7 +3,7 @@ title: Google Native
 meta_desc: 'This page provides an overview of the Google Cloud Native provider for Pulumi: Google-Native.'
 menu:
   packages:
-    parent: Native Providers
+    parent: Core Providers
     identifier: google-native
     weight: 3
 aliases: ["/docs/reference/clouds/google-native/"]

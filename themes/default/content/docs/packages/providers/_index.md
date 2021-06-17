@@ -4,6 +4,7 @@ meta_desc: This page provides an overview of the different Cloud Providers suppo
            Cloud Development Platform.
 menu:
   packages:
+    name: Overview
     identifier: providers
     weight: 1
 aliases: [

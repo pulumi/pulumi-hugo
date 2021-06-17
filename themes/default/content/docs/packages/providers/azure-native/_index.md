@@ -3,7 +3,7 @@ title: Azure Native
 meta_desc: This page provides an overview of the native Azure Provider for Pulumi.
 menu:
   packages:
-    parent: Native Providers
+    parent: Core Providers
     identifier: azure-native
     weight: 1
 aliases: ["/docs/reference/clouds/azure/"]
