@@ -41,9 +41,9 @@ GitHub identity.
 To edit your profile information:
 
 1. Select your profile picture.
-2. Select **Settings**.
-3. Use the **Edit profile** button.
-4. Save your changes.
+1. Select **Settings**.
+1. Use the **Edit profile** button.
+1. Save your changes.
 
 ![User-profile page](/images/docs/reference/service/user-profile-page.png)
 
@@ -83,16 +83,16 @@ When you run [`pulumi login`]({{< relref "/docs/reference/cli/pulumi_login" >}})
 ### Creating Access Tokens
 
 1. Select your profile picture.
-2. Select **Settings**.
-3. Navigate to **Access Tokens**
-4. Select the **Create token** button
+1. Select **Settings**.
+1. Navigate to **Access Tokens**
+1. Select the **Create token** button
 
 ### Deleting Access Tokens
 
 1. Select your profile picture.
-2. Select **Settings**.
-3. Navigate to **Access Tokens**
-4. Use the trash can icon button of the token you would like to delete.
+1. Select **Settings**.
+1. Navigate to **Access Tokens**
+1. Use the trash can icon button of the token you would like to delete.
 
 ## Subscription
 

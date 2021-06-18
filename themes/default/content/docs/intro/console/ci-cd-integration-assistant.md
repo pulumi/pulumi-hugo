@@ -56,11 +56,11 @@ workflow for your stack.
 {{% /notes %}}
 
 1. Select a VCS identity, and CI/CD pipeline.
-2. Navigate to the link provided by the assistant.
-3. Create a new repository using your selected service.
-4. Follow the VCS configuration instructions and check off the boxes as you complete each step.
-5. After each step, select the **Next** button to move to the next step.
-5. Check of the boxes as you 
+1. Navigate to the link provided by the assistant.
+1. Create a new repository using your selected service.
+1. Follow the VCS configuration instructions and check off the boxes as you complete each step.
+1. After each step, select the **Next** button to move to the next step.
+1. Check of the boxes as you 
 
 Select an identity you wish to use to setup VCS, as well as a CI/CD pipeline for the stack.
 
