@@ -46,12 +46,10 @@ an organization admin, you must be a member of the backing third-party identity
 provider in order
 to join a Pulumi organization.
 
-For example, if a Pulumi organization, `https://app.pulumi.com/robot-co`, is backed by
-a GitHub organization,
-`https://github.com/robot-co`, then only members of `https://github.com/robot-co` may be
-added to `https://app.pulumi.com/robot-co`.
-Similarly, as soon as someone loses access to the GitHub organization, they will no
-longer have access to the Pulumi organization it is backing.
+For example, if a Pulumi organization, is backed by a GitHub organization, then only members
+of that GitHub organization may be added to `the Pulumi organization. Similarly, as soon as
+someone loses access to the GitHub organization, they will no longer have access to the
+Pulumi organization.
 
 {{% notes %}}
 See [Organization Roles]({{< relref "/docs/intro/console/organization-roles" >}}) or
@@ -113,10 +111,7 @@ to learn more.
 Pulumi Enterprise provides more options for identity and access, including
 support for any SAML 2.0-based identity provider.
 
-[Learn more]({{< relref "/docs/guides/saml" >}}) about configuring a SAML-based
-organization on Pulumi. Or refer to one
-of our guides:
-
+* [SAML-based configuration guide({{< relref "/docs/guides/saml" >}})
 * [Azure Active Directory]({{< relref "/docs/guides/saml/aad" >}})
 * [G Suite]({{< relref "/docs/guides/saml/gsuite" >}})
 * [Okta]({{< relref "/docs/guides/saml/okta" >}})
@@ -145,9 +140,9 @@ org, ensure that all of your members are actually a member of the corresponding 
 changed to inherit from.
 
 To switch an organization's backing identity you must be an organization admin.
-Navigate to the organization's **Settings** page. Then navigate to **Access Management**
-and select the **Membership Requirements** button to get started with changing your
-organization's identity.
+1. Navigate to organization's **Settings**.
+1. Navigate to **Access Management**.
+1. Select the **Membership Requirements** button.
 
 ## Switching Organizations
 
