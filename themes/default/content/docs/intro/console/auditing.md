@@ -45,7 +45,6 @@ also filter logs by a particular user by selecting their profile picture.
 
 ## Export Audit Logs Using the Console
 
-
 To export audit logs using the console:
 
 1. Navigate to the organization's **Settings**.
