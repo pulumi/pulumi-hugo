@@ -37,10 +37,10 @@ Every Pulumi program is deployed to a [stack]({{< relref "/docs/intro/concepts/s
 
 ![Stack outputs and configuration](/images/docs/reference/service/organization-stacks.png)
 
-To view and organization's stacks:
+To view an organization's stacks:
 
 1. Navigate to **Projects**.
-1. Optionally, adjust the grouping using the **Group By** and **Sort By** controls.
+1. Optionally, adjust the grouping by selecting the **Group By** and **Sort By** controls.
 1. To view a stacks details select the name of the stack.
 1. To view a specific stack update, navigate to **Activity** and select it from the list.
 
@@ -77,7 +77,7 @@ To view stack activity:
 
 1. Navigate to **Projects** and then a specific stack.
 1. Navigate to **Activity**.
-1. Review insights into the operations that were performed on your stack resources during the update.
+1. Review insights and operations that were performed on your stack resources during the update.
 1. Navigate to **Changes**, **Timeline**, or **Configuration** for more details.
 
 ##### Changes
