@@ -23,10 +23,10 @@ The Pulumi Console automatically manages deployment state and gives you a compre
 To create a new project:
 
 1. Navigate to **Projects**.
-1. Use the **Create project** button.
+1. Select **Create project**.
 1. Select a cloud and a language and use the **Next** button.
 1. Optionally, change your project name and project description.
-1. Use the **Create project** button.
+1. Select **Create project**.
 1. Follow the provided CLI command instructions.
 
 ## Managing your Stacks
@@ -63,7 +63,7 @@ You can see other details such as who applied the update and when, as well as co
 To create a custom tag:
 
 1. Navigate to **Projects** and then a specific stack.
-1. Use the **New tag** button
+1. Select **New tag**.
 
 To modify or delete a custom tag:
 
@@ -106,7 +106,7 @@ To view a stack's resources:
 
 1. Navigate to **Projects** and then a specific stack.
 1. Navigate to **Resources**.
-1. Use the **List View**, and **Graph View** buttons to toggle between a list view and a graph view.
+1. Select **List View** or **Graph View** to toggle between a list view and a graph view.
 
 ##### List View
 
