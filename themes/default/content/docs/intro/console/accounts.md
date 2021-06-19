@@ -82,16 +82,20 @@ When you run [`pulumi login`]({{< relref "/docs/reference/cli/pulumi_login" >}})
 
 ### Creating Access Tokens
 
+To create an access token:
+
 1. Select your profile picture.
 1. Select **Settings**.
-1. Navigate to **Access Tokens**
-1. Select the **Create token** button
+1. Navigate to **Access Tokens**.
+1. Select the **Create token** button.
 
 ### Deleting Access Tokens
 
+To delete an access token:
+
 1. Select your profile picture.
 1. Select **Settings**.
-1. Navigate to **Access Tokens**
+1. Navigate to **Access Tokens**.
 1. Use the trash can icon button of the token you would like to delete.
 
 ## Subscription

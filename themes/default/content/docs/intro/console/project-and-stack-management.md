@@ -35,6 +35,8 @@ Every Pulumi program is deployed to a [stack]({{< relref "/docs/intro/concepts/s
 
 ![Stack outputs and configuration](/images/docs/reference/service/organization-stacks.png)
 
+To view and organization's stacks:
+
 1. Navigate to **Projects**.
 1. Optionally, adjust the grouping using the **Group By** and **Sort By** controls.
 1. To view a stacks details select the name of the stack.
@@ -42,9 +44,11 @@ Every Pulumi program is deployed to a [stack]({{< relref "/docs/intro/concepts/s
 
 ### Stack Detailed View
 
+To view a stack's details:
+
 1. Navigate to **Projects** and then a specific stack.
 1. Navigate to **Activity**.
-1. Review the stack's outputs, configuration values, and tags which is the output from running `pulumi config` and `pulumi stack output` from the CLI.
+1. Review the stack's outputs, configuration values, and tags.
 
 ![Stack outputs and configuration](/images/docs/reference/service/stack-outputs-and-configuration.png)
 
@@ -55,10 +59,12 @@ You can see other details such as who applied the update and when, as well as co
 ![Stack tags](/images/docs/reference/service/stack-tags.png)
 
 To create a custom tag:
+
 1. Navigate to **Projects** and then a specific stack.
 1. Use the **New tag** button
 
 To modify or delete a custom tag:
+
 1. Navigate to **Projects** and then a specific stack.
 1. To modify a custom tag, use the pencil icon.
 1. To delete a custom tag, use the trash can icon.
@@ -66,8 +72,9 @@ To modify or delete a custom tag:
 #### Activity
 
 To review stack activity:
+
 1. Navigate to **Projects** and then a specific stack.
-1. Navigate to **Activity**
+1. Navigate to **Activity**.
 1. Review insights into the operations that were performed on your stack resources during the update.
 1. Navigate to **Changes**, **Timeline**, or **Configuration** for more details.
 
@@ -94,8 +101,9 @@ This displays the same configuration details that you can find in the Stack view
 #### Resources View
 
 To review stack activity:
+
 1. Navigate to **Projects** and then a specific stack.
-1. Navigate to **Resources**
+1. Navigate to **Resources**.
 1. Use the **List View**, and **Graph View** buttons to toggle between a list view and a graph view.
 
 ##### List View
@@ -115,6 +123,8 @@ Select an individual resources to view its list of properties and dependencies.
 ### Deleting a stack
 
 Deleting a stack removes the stack entirely from the Pulumi Service, along with all of its update history.
+
+To delete a stack:
 
 1. Navigate to **Projects** and then a specific stack.
 1. Navigate to the stack's **Settings**.

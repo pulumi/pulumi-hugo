@@ -33,6 +33,8 @@ of the call the user made.
 
 Audit logs are an Enterprise feature. Only organization admins can view audit logs.
 
+To view audit logs:
+
 1. Navigate to the organization **Settings**.
 1. Navigate to **Audit Logs**
 
@@ -43,9 +45,12 @@ also filter logs by a particular user by selecting their profile picture.
 
 ## Export Audit Logs Using the Console
 
-1. Navigate to the organization **Settings**.
-1. Navigate to **Audit Logs**
-1. Select the **Download** button
+
+To export audit logs using the console:
+
+1. Navigate to the organization's **Settings**.
+1. Navigate to **Audit Logs**.
+1. Select the **Download** button.
 
 ## Exporting Audit Logs Using the API
 

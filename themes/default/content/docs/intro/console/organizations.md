@@ -47,7 +47,7 @@ provider in order
 to join a Pulumi organization.
 
 For example, if a Pulumi organization, is backed by a GitHub organization, then only members
-of that GitHub organization may be added to `the Pulumi organization. Similarly, as soon as
+of that GitHub organization may be added to the Pulumi organization. Similarly, as soon as
 someone loses access to the GitHub organization, they will no longer have access to the
 Pulumi organization.
 
@@ -111,7 +111,7 @@ to learn more.
 Pulumi Enterprise provides more options for identity and access, including
 support for any SAML 2.0-based identity provider.
 
-* [SAML-based configuration guide({{< relref "/docs/guides/saml" >}})
+* [SAML-based configuration guide]({{< relref "/docs/guides/saml" >}})
 * [Azure Active Directory]({{< relref "/docs/guides/saml/aad" >}})
 * [G Suite]({{< relref "/docs/guides/saml/gsuite" >}})
 * [Okta]({{< relref "/docs/guides/saml/okta" >}})
@@ -140,6 +140,9 @@ org, ensure that all of your members are actually a member of the corresponding 
 changed to inherit from.
 
 To switch an organization's backing identity you must be an organization admin.
+
+To change an organization's membership requirements:
+
 1. Navigate to organization's **Settings**.
 1. Navigate to **Access Management**.
 1. Select the **Membership Requirements** button.
