@@ -32,7 +32,7 @@ By default, all organization admins can create new teams.
 
 To create a team:
 
-1. Navigate to the organization's **Settings**.
+1. Navigate to **Teams**.
 1. Select **Create team**.
 
 To give members permission to create teams:

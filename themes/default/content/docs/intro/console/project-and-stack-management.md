@@ -18,9 +18,9 @@ The Pulumi Console automatically manages deployment state and gives you a compre
 * View stack outputs and configurations
 * Review your stack activity, resources, and settings
 
-## Creating a New Project
+## Creating a Project
 
-To create a new project:
+To create a project:
 
 1. Navigate to **Projects**.
 1. Select **Create project**.
