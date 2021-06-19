@@ -36,7 +36,7 @@ Audit logs are an Enterprise feature. Only organization admins can view audit lo
 To view audit logs:
 
 1. Navigate to the organization **Settings**.
-1. Navigate to **Audit Logs**
+1. Navigate to **Audit Logs**.
 
 This will show the most recent events in descending order. You can
 also filter logs by a particular user by selecting their profile picture.
@@ -49,7 +49,7 @@ To export audit logs using the console:
 
 1. Navigate to the organization's **Settings**.
 1. Navigate to **Audit Logs**.
-1. Select the **Download** button.
+1. Select **Download**.
 
 ## Exporting Audit Logs Using the API
 

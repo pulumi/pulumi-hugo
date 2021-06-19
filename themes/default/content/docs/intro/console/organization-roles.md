@@ -67,4 +67,4 @@ stack admins can delete stacks, and whether stack admins can move stacks to othe
 
 ### Team Permissions
 
-Organization admins can toggler whether members have the ability to create teams.
+Organization admins can toggle whether members have the ability to create teams.

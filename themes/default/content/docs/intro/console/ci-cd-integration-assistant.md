@@ -55,17 +55,7 @@ If your identity isn't tied to a VCS service (for example, if you're using SAML 
 workflow for your stack.
 {{% /notes %}}
 
-To configure a VCS using the CI/CD Assistant:
-
-1. Select a VCS identity, and CI/CD pipeline.
-1. Navigate to the link provided by the assistant.
-1. Create a new repository using your selected service.
-1. Follow the VCS configuration instructions and check off the boxes as you complete each step.
-1. After each step, select the **Next** button to move to the next step.
-
-Select an identity you wish to use to setup VCS, as well as a CI/CD pipeline for the stack.
-
-### VCS Identity Options
+#### VCS Identity Options
 
 Services such as Atlassian Bitbucket, GitHub, GitLab offer both a version control system as well as a CI/CD service.
 
@@ -74,6 +64,14 @@ Services such as Atlassian Bitbucket, GitHub, GitLab offer both a version contro
 * GitLab has [GitLab CI/CD](https://docs.gitlab.com/ce/ci/)
 
 This might be a convenient option if your team wishes to keep everything related to your Pulumi project on a single service.
+
+To configure VCS using the CI/CD Assistant:
+
+1. Select a VCS identity, and CI/CD pipeline.
+1. Navigate to the link provided by the assistant.
+1. Create a new repository using your selected service.
+1. Follow the VCS configuration instructions and check off the boxes as you complete each step.
+1. After each step, select the **Next** button to move to the next step.
 
 ### Configure CI/CD secrets
 
