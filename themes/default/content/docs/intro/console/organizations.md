@@ -31,7 +31,7 @@ to your organization's stacks
 To create an organization:
 
 1. Select the organization menu at the top of the page.
-1. Select **New organization...**.
+1. Select **New organization...**
 1. Provide an organization name, and agree to the terms of service and privacy policy.
 1. Select **Start free trial**.
 
