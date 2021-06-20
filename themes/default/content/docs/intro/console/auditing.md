@@ -61,8 +61,7 @@ query parameter must be passed and is used to query audit records _before_ the s
 GET https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${time}
 ```
 
-Optionally, a user can also be specified as a query parameter to filter audit logs
-pertaining only to a specific user.
+Query parameters can be used to filter records involving a specific user.
 
 ```
 GET https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${time}&userFilter=${user}
