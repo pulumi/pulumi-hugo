@@ -56,9 +56,9 @@ For deploying modern applications with cloud engineering, we propose an alternat
 
 Cloud engineering applies software testing principles to infrastructure where we focus on functional testing. We use three types of functional tests with infrastructure: unit tests, integration tests, and property tests (sometimes called functional tests). We'll examine each type of test in detail.
 
-## Static tests
+### Static tests
 
-A word about static tests and infrastructure. Infrastructure deployed with templating languages such as YAML or JSON are limited to linting, i.e., validating and formatting the code. Deploying infrastructure with programming languages lets you use built-in tools in IDEs to perform static tests that highlight errors in your code in addition to features such as code completion, enumerations, and syntax checking. Pulumi's preview also performs static checking before deploying a resource.
+Infrastructure templating languages such as YAML or JSON have limited static validation capabilities; primarily, they are limited to linting: validating and formatting the code. Pulumi's approach of deploying infrastructure with programming languages lets you use built-in tools in IDEs that perform static tests, highlight errors in your code, and offer other features such as code completion, enumerations, and syntax checking. [Pulumi's preview]({{< relref "/docs/reference/cli/pulumi_preview" >}}) also performs static checking before deploying a resource.
 
 ### Unit tests
 
