@@ -38,7 +38,7 @@ In functional testing, unit tests typically test a single function or class. The
 
 In their original form, unit tests comprise most tests, with integration or service tests as the middle layer of the pyramid. At the top of the pyramid are end-to-end or UI tests, which indicate performing non-functional tests sparingly.
 
-However, pushback against this model was proposed in 1999 at the height of popularity for Xtreme Programming (XP). Alternative models are the Kent Dodd's [Testing Trophy](https://twitter.com/kentcdodds/status/960723172591992832)
+However, pushback against this model was proposed in 1999 at the height of popularity for Xtreme Programming (XP). Alternative models include Kent Dodd's [Testing Trophy](https://twitter.com/kentcdodds/status/960723172591992832)
 
 ![Testing trophy](testingtrophy.jpg)
 
