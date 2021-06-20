@@ -42,7 +42,7 @@ However, pushback against this model was proposed in 1999 at the height of popul
 
 ![Testing trophy](testingtrophy.jpg)
 
-and the  [Spotify Lab's](https://engineering.atspotify.com/2018/01/11/testing-of-microservices/) Testing Honeycomb.
+and [Spotify Lab's](https://engineering.atspotify.com/2018/01/11/testing-of-microservices/) Testing Honeycomb.
 
 ![Testing honeycomb](microservices-testing-honeycomb-2.png)
 
