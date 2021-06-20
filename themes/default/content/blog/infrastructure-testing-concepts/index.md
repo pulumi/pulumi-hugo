@@ -64,11 +64,11 @@ Infrastructure templating languages such as YAML or JSON have limited static val
 
 Unit tests for applications test the smallest piece of code, which are often methods and functions of classes or modules. They are commonly written by the programmer and run quickly.
 
-With infrastructure, the smallest unit is often the cloud resource. Because cloud resources are not created, you can’t write a test to evaluate infrastructure behavior in a templating language. For example, you can’t make HTTP requests to endpoints because there’s no web server to serve them.
+With infrastructure, the smallest unit is often the cloud resource. Because cloud resources haven't been created by the time you run unit tests, you can’t write a test to evaluate infrastructure behavior. For example, you can’t make HTTP requests to endpoints because there’s no web server to serve them.
 
-Because cloud engineering is software engineering, Pulumi replaces all external dependencies with [mock objects](https://en.wikipedia.org/wiki/Mock_object) that replicate the behavior in a specified way. Unit tests are very fast because they run in memory without any out-of-process calls. They provide fast feedback loops during development, making them suitable for Test-Driven Development (TDD).
+Pulumi's cloud engineering approach enables unit testing by replacing all external dependencies with [mock objects](https://en.wikipedia.org/wiki/Mock_object) that replicate the behavior in a specified way. This enables you to write fast unit tests that run in memory without any out-of-process calls. They provide rapid feedback loops during development, making them suitable for Test-Driven Development (TDD).
 
-As with applications, unit tests for infrastructure in Pulumi are authored with the same language used to declare infrastructure.  This means you can use familiar test and mock frameworks such as PyTest for Python or Mocha for Node.js.  Using a framework ensures configuration is correct before provisioning and that the resulting infrastructure has the specified properties. In addition, team standards and security guidelines are enforced.
+As with applications, unit tests for infrastructure in Pulumi are authored with the same language used to declare infrastructure. This means you can use familiar test and mock frameworks such as PyTest for Python or Mocha for Node.js. Using a framework ensures configuration is correct before provisioning and that the resulting infrastructure has the specified properties. In addition, team standards and security guidelines are enforced.
 
 ### Property tests
 
