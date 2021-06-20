@@ -44,8 +44,8 @@ Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be 
 
 1. Install prerequisites.
 
-   - [Install Pulumi]({{< relref "/docs/get-started/install" >}})
-   - [Install Node.js](https://nodejs.org/en/download/)
+   * [Install Pulumi]({{< relref "/docs/get-started/install" >}})
+   * [Install Node.js](https://nodejs.org/en/download/)
 
 1. Create a directory for your new Policy Pack, and change into it.
 
@@ -97,8 +97,8 @@ Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be 
 
 1. Install prerequisites.
 
-   - [Install Pulumi]({{< relref "/docs/get-started/install" >}})
-   - [Install Python](https://www.python.org/downloads/)
+   * [Install Pulumi]({{< relref "/docs/get-started/install" >}})
+   * [Install Python](https://www.python.org/downloads/)
 
 1. Create a directory for your new Policy Pack, and change into it.
 
