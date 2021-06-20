@@ -50,7 +50,7 @@ As you can see, both models suggest that the majority of tests should be integra
 
 ![Testing rocket](testing_rocket.png)
 
-For deploying modern applications with cloud engineering, we propose an alternate model called the testing rocket. Static testing is inherent in cloud engineering because of the software toolchains, such as IDEs, that perform static checking. Both unit and integration testing are equally importat to ensure that infrastructure is deployed and managed reliabily. End-to-end tests for performance and scalability should be performed less frequently because of complexity and costs.
+For deploying modern applications with cloud engineering, we propose an alternate model called the testing rocket. Static testing is inherent in cloud engineering because of the software toolchains, such as IDEs, that perform static checking. Both unit and integration testing are equally important to ensure that infrastructure is deployed and managed reliably. End-to-end tests for performance and scalability should be performed less frequently because of complexity and costs.
 
 ## Cloud engineering testing
 
