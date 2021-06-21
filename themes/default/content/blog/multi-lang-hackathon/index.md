@@ -14,7 +14,7 @@ At Pulumi, we have a tradition of hosting hackathons every so often to play with
 
 <!--more-->
 
-We had a kickoff meeting on Tuesday morning where Lee Briggs walked participants through the [basic steps for bringing up a multi-language component]("https://www.youtube.com/watch?v=_RXvNS5N8A8). If you’re interested in seeing the kickoff meeting, we’ve recorded it and have made it available for viewing on [Pulumi TV](https://youtu.be/Ogg5cs6vPfc). After the walk-through, teams got down to business!
+We had a kickoff meeting on Tuesday morning where Lee Briggs walked participants through the [basic steps for bringing up a multi-language component](https://www.youtube.com/watch?v=_RXvNS5N8A8). If you’re interested in seeing the kickoff meeting, we’ve recorded it and have made it available for viewing on [Pulumi TV](https://youtu.be/Ogg5cs6vPfc). After the walk-through, teams got down to business!
 
 We had some great ideas, including but not limited to components for a simplified Google Cloud project setup, an Azure web app service container, and an Amazon SageMaker model with a frontend for serving it.
 
