@@ -37,14 +37,14 @@ Stay tuned for our next post on our general hackathon results. In our general ha
 
 You can watch the hackathon including the intro multi-lang components, the hackathon kickoff, and the demo session.
 
-**Introduction to Building Multi-lang Components**
+### Introduction to Building Multi-lang Components
 
 {{< youtube "_RXvNS5N8A8?rel=0" >}}
 
-**Multi-lang Hackathon Kick-Off**
+### Multi-lang Hackathon Kick-Off
 
 {{< youtube "Ogg5cs6vPfc?rel=0" >}}
 
-**Hackathon Demos!**
+### Hackathon Demos!
 
 {{< youtube "U7-eYSpB4o8?rel=0" >}}
