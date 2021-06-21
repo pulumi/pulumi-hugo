@@ -22,7 +22,7 @@ As part of the hackathon, we received some great feedback from all the participa
 
 Thank you to all the participants! If you’d like to see some of the components in action, you can [watch our demo session](https://youtu.be/U7-eYSpB4o8). We saw the following component demos:
 
-- Run my d#!n container” which demonstrated a component to run a container on any of the major cloud providers.
+- "Run my d#!n container” which demonstrated a component to run a container on any of the major cloud providers.
 - A component that brings up a new Google Cloud Project.
 - A component for creating an AWS Lambda function fronted by API Gateway
 - A component for creating an Amazon CloudFront distribution backed by an S3 bucket
