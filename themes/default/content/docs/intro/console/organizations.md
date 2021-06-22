@@ -146,7 +146,7 @@ To change an organization's membership requirements:
 
 1. Navigate to the organization's **Settings**.
 1. Navigate to **Access Management**.
-1. Select **Membership Requirements**.
+1. Select **Change requirements**.
 
 ## Switching Organizations
 
