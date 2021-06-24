@@ -1940,7 +1940,7 @@ class MyStack
 
 There are three types of resource providers. The first are the standard resource providers. These resource providers are built and maintained by Pulumi. There is a second kind, called a dynamic resource provider, which we will discuss here. These resource providers run only in the context of your program. They are not shareable. The third type of resource provider is shareable. You write it yourself and then you can distribute it so that others can use it.
 
-Dynamic resource providers can be written in any language you choose. Because they are not shareable, dynamic resource providers do not need a plugin.
+Dynamic resource providers can be written in Typescript, Javascript or Python. Because they are not shareable, dynamic resource providers do not need a plugin.
 
 There are several reasons why you might want to write a dynamic resource provider. Here are some of them:
 
