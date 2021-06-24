@@ -64,8 +64,7 @@ If transferring to an organization, the **Allow organization members to create s
 
 To transfer a stack:
 
-1. Navigate to the stack.
-1. Navigate to the stack's **Settings**.
+1. Navigate to the stack, and then the stack's **Settings**.
 1. Select **Transfer stack**.
 1. Provide the personal account or organization name and select **Transfer**.
 
