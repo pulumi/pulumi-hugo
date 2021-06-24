@@ -62,6 +62,8 @@ Stack admins can transfer their stacks between personal accounts and organizatio
 
 If transferring to an organization, the **Allow organization members to create stacks and transfer stacks to this organization** setting must be turned on from the **Access Management** page in the organization's settings.
 
+To transfer a stack:
+
 1. Navigate to the stack.
 1. Navigate to the stack's **Settings**.
 1. Select **Transfer stack**.
