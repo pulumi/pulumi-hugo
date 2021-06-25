@@ -100,8 +100,8 @@
                     }
                 }
 
-                @if $filter-type != "product" {
-                    li[data-faq-label="product"] {
+                @if $filter-type != "pricing" {
+                    li[data-faq-label="pricing"] {
                         @apply border-none;
 
                         a {
@@ -112,8 +112,8 @@
             }
 
 
-            @if $filter-type != "product" {
-                ~ ul[data-faq-type="faq-product"] {
+            @if $filter-type != "pricing" {
+                ~ ul[data-faq-type="faq-pricing"] {
                     @apply hidden;
                 }
             }
