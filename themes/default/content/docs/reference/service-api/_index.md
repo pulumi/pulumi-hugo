@@ -876,6 +876,66 @@ Status: 200 OK
 
 ## Organizations
 
+### List Users
+
+TODO: explain `githubLogin` (synonomous with username), `knownToPulumi`, and `virtualAdmin`
+
+```
+GET https://api.pulumi.com/api/orgs/{organization}/members?type=frontend
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `type` | string | query | the response format to return - possible values are `frontend` or `backend` (TODO: explain the difference) |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+3' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  https://api.pulumi.com/api/orgs/{organization}/members?type=frontend
+```
+
+#### Default response
+
+```
+Status: 200 OK
+```
+
+```
+{
+  "members": [
+    {
+      "role": "member",
+      "user": {
+        "name": "First Last",
+        "githubLogin": "user2",
+        "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300",
+        "email": "user@example.com"
+      },
+      "knownToPulumi": true,
+      "virtualAdmin": false
+    },
+    {
+      "role": "admin",
+      "user": {
+        "name": "First Last",
+        "githubLogin": "user1",
+        "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300",
+        "email": "admin@example.com"
+      },
+      "knownToPulumi": true,
+      "virtualAdmin": false
+    }
+  ]
+}
+```
+
 ### Add User to Organization
 
 Users are not just-in-time provisioned. They must sign in to the Pulumi console first (they will receive an error that they're not a member) and then they can be added to the organization.
