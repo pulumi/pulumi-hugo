@@ -15,7 +15,7 @@ aliases:
 
 ## Overview
 
-Organizations are a space for you to collaborate with others on shared stacks.
+Organizations are a space for you to collaborate on shared projects and stacks.
 
 ### Organization Pages
 
