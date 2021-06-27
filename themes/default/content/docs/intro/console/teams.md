@@ -20,11 +20,24 @@ To learn more about our editions visit our [pricing page]({{< relref "/pricing" 
 The Pulumi Console offers role-based access control (RBAC) using teams. Teams allow organization admins to assign a set of stack permissions
 to a group of users.
 
-## Team Roles
+## Team Permissions
+
+By default only organization admins can create teams.
+
+To allow all members to create teams:
+
+1. Navigate to the organization’s Settings.
+1. Navigate to Access Management.
+1. Use the toggle to turn on the Allow organization members to create teams setting.
+
+### Team Roles
 
 Members of a team can be granted `Team admin` or `Team member` permissions. Team admins can add members to a
-team. Both team admins and team members can grant stack access to a team. By default, any new team members will be
-assigned the team member role. To change a team member's role, use the ellipsis menu item at the end of the table row.
+team. By default, any new team members will be assigned the team member role.
+
+To change a team member's role:
+1. Navigate to **Teams** and then the specific team.
+1. In the **Members** section use the ellipsis menu item at the end of the table row and select **Change role to**.
 
 ### Creating a Team{#creating-a-team}
 
