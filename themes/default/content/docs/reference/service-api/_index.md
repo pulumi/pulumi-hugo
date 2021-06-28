@@ -1173,8 +1173,10 @@ EMPTY RESPONSE BODY
 
 {{% notes "info" %}}
 This API endpoint differs from others in the following ways:
+
 - The response data is _always_ gzip compressed.
 - The `Content-Type: application/json` header is omitted.
+
 {{% /notes %}}
 
 ```
