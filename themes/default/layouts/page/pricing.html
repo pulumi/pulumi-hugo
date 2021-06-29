@@ -1148,10 +1148,14 @@
                 </div>
 
                 <div class="compare-plans-table-row-container">
-                    <div class="compare-plans-table-row-item">
+                    <div class="w-full text-center lg:hidden">
+                        <a class="btn-secondary py-3 px-6" href="{{ relref . "/docs/get-started" }}">Get Started</a>
+                        <p class="text-xs pt-1">Follow our step-by-step guide!</p>
+                    </div>
+                    <div class="compare-plans-table-row-item hidden lg:block">
                         <span></span>
                     </div>
-                    <div class="compare-plans-table-row-item">
+                    <div class="compare-plans-table-row-item hidden lg:block">
                         <p class="hidden lg:block text-purple-500 font-bold text-lg mt-0">Individual</p>
                         <a class="btn-secondary py-3 px-6" href="{{ relref . "/docs/get-started" }}">Get Started</a>
                         <p class="text-xs pt-1">Follow our step-by-step guide!</p>
