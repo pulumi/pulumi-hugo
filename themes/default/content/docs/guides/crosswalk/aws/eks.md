@@ -1440,7 +1440,7 @@ class MyStack : Stack
             }
         );
 
-        // 
+        // Now create a preemptible node group, using spot pricing, for our variable, ephemeral workloads.
         var spotNodeGroup = new NodeGroup("my-cluster-ng2",
             new NodeGroupArgs {
                 Cluster = cluster.Core,
@@ -1455,7 +1455,7 @@ class MyStack : Stack
                 Taints = {
                     {
                         "special",
-                        new TaintArgs {                            
+                        new TaintArgs {
                             Value = "true",
                             Effect = "NoSchedule"
                         }
