@@ -400,9 +400,8 @@
             @apply w-24 h-full relative;
 
             .dot-background-overlay {
-                @apply w-full h-full absolute top-0 left-0;
+                @apply w-full h-full absolute top-0 left-0 z-0;
                 background-color: rgba(255,255,255,0.5);
-                z-index: 0;
             }
 
             .dot-background {

@@ -10,7 +10,7 @@ tags:
 {{% notes %}}
 We have updated our pricing structure in response to user feedback and the information
 in this blog post is no longer accurate. Please visit our [Pricing Page]({{< relref "/pricing" >}})
-for the most update to date information about pricing.
+for the most up-to-date information about pricing.
 {{% /notes %}}
 
 Since launching last year, thousands of users and hundreds of
