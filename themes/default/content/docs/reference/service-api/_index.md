@@ -872,6 +872,254 @@ Status: 200 OK
 }
 ```
 
+### List Previews
+
+TODO: Is this all previews since the last update?
+
+```
+GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates/latest/previews
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `project` | string | path | project name |
+| `stack` | string | path | stack name |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+3' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates/latest/previews
+```
+
+#### Default response
+
+```
+Status: 200 OK
+```
+
+```
+{
+  "updates": [
+    {
+      "info": {
+        "kind": "Pupdate",
+        "startTime": 1624932955,
+        "message": "triggered by pr #12",
+        "environment": {
+          "exec.kind": "cli",
+          "git.author": "First Last",
+          "git.author.email": "user1@example.com",
+          "git.committer": "GitHub",
+          "git.committer.email": "noreply@github.com",
+          "git.dirty": "true",
+          "git.head": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+          "git.headName": "refs/heads/master",
+          "vcs.kind": "github.com",
+          "vcs.owner": "pulumi",
+          "vcs.repo": "examples"
+        },
+        "config": {
+          "aws:region": {
+            "string": "us-west-2",
+            "secret": false,
+            "object": false
+          }
+        },
+        "result": "failed",
+        "endTime": 1624932956,
+        "version": 1,
+        "resourceChanges": {
+          "create": 0,
+          "delete": 0,
+          "same": 0,
+          "update": 0
+        }
+      },
+      "updateID": "c30c74e6-9576-4c63-95a4-4f96e7793ebb",
+      "githubCommitInfo": {
+        "slug": "pulumi/examples",
+        "sha": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "url": "https://github.com/pulumi/examples/commit/35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "author": {
+          "name": "First Last",
+          "githubLogin": "user1",
+          "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+        }
+      },
+      "version": 1,
+      "latestVersion": 0,
+      "requestedBy": {
+        "name": "First Last",
+        "githubLogin": "user1",
+        "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+      }
+    },
+    {
+      "info": {
+        "kind": "Pupdate",
+        "startTime": 1624932977,
+        "message": "triggered by pr #12",
+        "environment": {
+          "exec.kind": "cli",
+          "git.author": "First Last",
+          "git.author.email": "user1@example.com",
+          "git.committer": "GitHub",
+          "git.committer.email": "noreply@github.com",
+          "git.dirty": "true",
+          "git.head": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+          "git.headName": "refs/heads/master",
+          "vcs.kind": "github.com",
+          "vcs.owner": "pulumi",
+          "vcs.repo": "examples"
+        },
+        "config": {
+          "aws:region": {
+            "string": "us-west-2",
+            "secret": false,
+            "object": false
+          }
+        },
+        "result": "failed",
+        "endTime": 1624932992,
+        "version": 1,
+        "resourceChanges": {
+          "create": 1
+        }
+      },
+      "updateID": "cf72ac80-4b87-4e26-9974-9eef3267995d",
+      "githubCommitInfo": {
+        "slug": "pulumi/examples",
+        "sha": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "url": "https://github.com/pulumi/examples/commit/35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "author": {
+          "name": "First Last",
+          "githubLogin": "user1",
+          "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+        }
+      },
+      "version": 1,
+      "latestVersion": 0,
+      "requestedBy": {
+        "name": "First Last",
+        "githubLogin": "user1",
+        "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+      }
+    },
+    {
+      "info": {
+        "kind": "Pupdate",
+        "startTime": 1624932999,
+        "message": "triggered by pr #12",
+        "environment": {
+          "exec.kind": "cli",
+          "git.author": "First Last",
+          "git.author.email": "user1@example.com",
+          "git.committer": "GitHub",
+          "git.committer.email": "noreply@github.com",
+          "git.dirty": "true",
+          "git.head": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+          "git.headName": "refs/heads/master",
+          "vcs.kind": "github.com",
+          "vcs.owner": "pulumi",
+          "vcs.repo": "examples"
+        },
+        "config": {
+          "aws:region": {
+            "string": "us-west-2",
+            "secret": false,
+            "object": false
+          }
+        },
+        "result": "succeeded",
+        "endTime": 1624933003,
+        "version": 1,
+        "resourceChanges": {
+          "create": 3
+        }
+      },
+      "updateID": "9a6ffbb0-cb82-420f-824a-efac39ac91c8",
+      "githubCommitInfo": {
+        "slug": "pulumi/examples",
+        "sha": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "url": "https://github.com/pulumi/examples/commit/35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "author": {
+          "name": "First Last",
+          "githubLogin": "user1",
+          "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+        }
+      },
+      "version": 1,
+      "latestVersion": 0,
+      "requestedBy": {
+        "name": "First Last",
+        "githubLogin": "user1",
+        "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+      }
+    },
+    {
+      "info": {
+        "kind": "Pupdate",
+        "startTime": 1624933009,
+        "message": "triggered by pr #13",
+        "environment": {
+          "exec.kind": "cli",
+          "git.author": "First Last",
+          "git.author.email": "user1@example.com",
+          "git.committer": "GitHub",
+          "git.committer.email": "noreply@github.com",
+          "git.dirty": "true",
+          "git.head": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+          "git.headName": "refs/heads/master",
+          "vcs.kind": "github.com",
+          "vcs.owner": "pulumi",
+          "vcs.repo": "examples"
+        },
+        "config": {
+          "aws:region": {
+            "string": "us-west-2",
+            "secret": false,
+            "object": false
+          }
+        },
+        "result": "succeeded",
+        "endTime": 1624933012,
+        "version": 1,
+        "resourceChanges": {
+          "create": 3
+        }
+      },
+      "updateID": "4c51a52c-6344-4664-8698-02e068060e5a",
+      "githubCommitInfo": {
+        "slug": "pulumi/examples",
+        "sha": "35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "url": "https://github.com/pulumi/examples/commit/35caae8d73c3ecb0eac1256ba0e03775f24514da",
+        "author": {
+          "name": "First Last",
+          "githubLogin": "user1",
+          "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+        }
+      },
+      "version": 1,
+      "latestVersion": 0,
+      "requestedBy": {
+        "name": "First Last",
+        "githubLogin": "user1",
+        "avatarUrl": "https://en.gravatar.com/userimage/17756222/cabc55626abae89ebe2d8ae946521e15.png?size=300"
+      }
+    }
+  ],
+  "itemsPerPage": 10,
+  "total": 4
+}
+```
+
 <!-- ###################################################################### -->
 
 ## Organizations
