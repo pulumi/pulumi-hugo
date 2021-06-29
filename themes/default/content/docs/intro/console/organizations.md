@@ -95,7 +95,7 @@ To change an organization's identity provider:
 
 ### GitHub Identity Provider
 
-[Setting up a GitHub Organization, project and team](https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-setup-a-GitHub-organization,-project-and-team)
+[Setting up a GitHub Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
 
 To add a GitHub organization to Pulumi, an admin of the GitHub organization
 must first grant the Pulumi OAuth app the [`read:org` scope](https://github.com/settings/connections/applications/7cf9078f3c92b17a5f0f).
