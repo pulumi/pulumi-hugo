@@ -76,13 +76,6 @@ const plugins = [
                 /^resources-properties/,
                 /^tabular/,
 
-
-                /^bg-/,
-                /^p/,
-                /^rounded/,
-                /^mb/,
-                /^max-w-/,
-
                 // Safelist our web components along with any of their descendent selectors.
                 /^pulumi-chooser/,
                 /^pulumi-tooltip/,
