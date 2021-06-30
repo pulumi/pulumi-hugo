@@ -360,8 +360,7 @@ service = k8s.core.v1.Service(f'{app_name}-svc',
 )
 
 # Export the URL for the load balanced service.
-pulumi.export('url', service.status.apply(
-    lambda status: status.load_balancer.ingress[0].hostname))
+pulumi.export('url', service.status.load_balancer.ingress[0].hostname)
 
 # Export the cluster's kubeconfig.
 pulumi.export('kubeconfig', cluster.kubeconfig)
@@ -705,7 +704,7 @@ class MyStack : Stack
         // Create an EKS cluster with the default configuration.
         var cluster = new Cluster("my-cluster", new ClusterArgs {
             DesiredCapacity = 5,
-            MinSize =3,
+            MinSize = 3,
             MaxSize = 5,
             EnabledClusterLogTypes = {
                 "api",
@@ -1622,8 +1621,7 @@ service = k8s.core.v1.Service(f'{app_name}-svc',
 )
 
 # Export the URL for the load balanced service.
-pulumi.export('url', service.status.apply(
-    lambda status: status.load_balancer.ingress[0].hostname))
+pulumi.export('url', service.status.load_balancer.ingress[0].hostname)
 ```
 
 {{% /choosable %}}
@@ -2903,8 +2901,7 @@ service = k8s.core.v1.Service(f'{app_name}-svc',
 )
 
 # Export the URL for the load balanced service.
-pulumi.export('ingress_ip', service.status.apply(
-    lambda status: status.load_balancer.ingress[0].ip))
+pulumi.export('ingress_ip', service.status.load_balancer.ingress[0].ip)
 
 # Export the cluster's kubeconfig.
 pulumi.export('kubeconfig', cluster.kubeconfig)
