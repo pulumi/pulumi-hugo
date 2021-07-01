@@ -1,7 +1,7 @@
 import { Component, Host, h, Prop, State } from "@stencil/core";
 
 interface CountdownData {
-    distance: number;
+    remainingTimeInMS: number;
     days: number;
     hours: number;
     minutes: number;
@@ -37,13 +37,13 @@ export class DateCountdown {
 
     private generateCountdownData(end: number) {
         const now = Date.now();
-        const distance = end - now;
+        const remainingTimeInMS = end - now;
         this.countdownData = {
-            distance,
-            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-            seconds: Math.floor((distance % (1000 * 60)) / 1000),
+            remainingTimeInMS,
+            days: Math.floor(remainingTimeInMS / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((remainingTimeInMS % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes: Math.floor((remainingTimeInMS % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds: Math.floor((remainingTimeInMS % (1000 * 60)) / 1000),
         }
     }
 
@@ -52,9 +52,9 @@ export class DateCountdown {
     }
 
     private renderCountdown() {
-        const { days, hours, minutes, seconds, distance } = this.countdownData;
+        const { days, hours, minutes, seconds, remainingTimeInMS } = this.countdownData;
         return <p class={this.textClass}>
-            { distance > 0 ?
+            { remainingTimeInMS > 0 ?
                 <span>
                     <span>{ days }{this.renderValueLabel("days")} </span>
                     <span>{ hours }{this.renderValueLabel("hours")} </span>
