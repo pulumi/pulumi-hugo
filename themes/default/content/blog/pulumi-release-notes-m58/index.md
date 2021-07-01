@@ -1,8 +1,8 @@
 ---
-title: "July 7 release notes: new pricing, watch paths, and more"
+title: "July 7 releases: new pricing, replaceOnChanges, and more"
 date: 2021-07-07T08:00:00-07:00
 draft: false
-meta_desc: "New in Pulumi: Support for Confluent Cloud, new `skipAwait` option in K8s, restrict `pulumi watch` to specific paths, and new usage-based pricing"
+meta_desc: "New in Pulumi: Support for Confluent Cloud, new `skipAwait` option in K8s, new `replaceOnChanges` and `deleteBeforeReplace` resource options, restrict `pulumi watch` to specific paths, and new usage-based pricing"
 meta_image: meta.png
 authors:
     - alex-mullans
@@ -19,6 +19,7 @@ In this update:
   - [10 new resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m58#10-new-resources-in-the-azure-native-provider" >}})
   - [Google Native provider adds support for enums and more]({{< relref "/blog/pulumi-release-notes-m58#google-native-provider-adds-support-for-enums-and-more" >}})
 - Pulumi CLI and core technologies
+  - [New `replaceOnChanges` and `deleteBeforeReplace` resource options]({{< relref "/blog/pulumi-release-notes-m58#new-replaceonchanges-and-deletebeforereplace-resource-options" >}})
   - [`pulumi watch` now supports a `--path` option]({{< relref "/blog/pulumi-release-notes-m58#pulumi-watch-now-supports-a---path-option" >}})
   - [Automation API: support for custom loggers in .NET]({{< relref "/blog/pulumi-release-notes-m58#automation-api-support-for-custom-loggers-in-net" >}})
   - [Automation API: more helpful error messages]({{< relref "/blog/pulumi-release-notes-m58#automation-api-more-helpful-error-messages" >}})
