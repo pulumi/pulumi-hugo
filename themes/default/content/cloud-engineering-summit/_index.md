@@ -16,7 +16,7 @@ tracks_outline:
         - Data science and ML apps
         - Sharing your open source project
       description: |
-        Modern cloud applications and architectures blur the lines between app infrastructure and cloud engineering teams adopting new tools and practices to tame complexity and accelerate delivery. They embrace that success in the modern cloud era requires some level of proficiency in both cloud infrastructure and applications. Whether they're full-stack or specialize in one area, all cloud engineers apply a software engineering mindset and practices to building and testing applications and the underlying cloud infrastructure.
+        Modern cloud applications and architectures blur the lines between app infrastructure and cloud engineering teams adopting new tools and practices to tame complexity and accelerate delivery. Embracing that success in the modern cloud era requires some level of proficiency in both cloud infrastructure and applications. Whether they're full-stack or specialize in one area, all cloud engineers apply a software engineering mindset and practices to building and testing applications and the underlying cloud infrastructure.
 
     - name: Deploy
       topics:
