@@ -271,6 +271,22 @@ The preview of the Google Native provider continues to evolve. We shipped 2 new 
 
 In this milestone, we shipped Pulumi versions [3.5.1](https://github.com/pulumi/pulumi/releases/tag/v3.5.1) and [3.6.0](https://github.com/pulumi/pulumi/releases/tag/v3.6.0). The full list of changes in each version is available in the linked changelog; read on to learn about some of the biggest changes.
 
+### New `replaceOnChanges` and `deleteBeforeReplace` resource options
+
+There are times when it is important to force a replacement of a resource even if changes to the resource do not indicate they require replacement. One example is a Kubernetes `CustomResourceDefinition`, none of whose properties force replacement, even though for many CRDs, they can't actually be updated in place (because of forward-incompatibilites). While it was previously possible to work around the lack of an option to force a replace by changing the physical name of the resource, there are cases where it is important to keep the physical name the same.
+
+Now, you can use the new `replaceOnChange` resource option to force a resource to be replaced when the specified properties are changed. You can also use the `deleteBeforeReplace` resource option to force a resource to be deleted before it's replaced. For example, you can specify that an AWS S3 Bucket resource be replaced every time its index document changes:
+
+```typescript
+const bucket = new aws.s3.Bucket("my-bucket", {
+    website: {
+        indexDocument: "index2.html",
+    },
+}, { replaceOnChanges: ["website.indexDocument"], deleteBeforeReplace: true });
+```
+
+Learn more at [pulumi/pulumi#7226](https://github.com/pulumi/pulumi/pull/7226)
+
 ### `pulumi watch` now supports a `--path` option
 
 Previously, the `pulumi watch` command always watched the entire Pulumi project directory (recursively). This could cause duplicate updates for developers working in monorepos or developers with application code and infrastructure code in the same directory. Now, you can add a `--path` option to the `pulumi watch` command and specify the exact paths that need to be watched.
