@@ -1,5 +1,5 @@
 ---
-title: "July 7 release notes: updated pricing, watch paths, and more!"
+title: "July 7 release notes: updated pricing, watch paths, and more"
 date: 2021-07-07T08:00:00-07:00
 draft: false
 meta_desc: "New in Pulumi: Support for Confluent Cloud, new `skipAwait` option in K8s, restrict `pulumi watch` to specific paths, and new usage-based pricing"
