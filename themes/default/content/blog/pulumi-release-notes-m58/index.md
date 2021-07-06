@@ -22,9 +22,7 @@ In this update:
   - [New `replaceOnChanges` resource option]({{< relref "/blog/pulumi-release-notes-m58#new-replaceonchanges-resource-option" >}})
   - [`pulumi watch` now supports a `--path` option]({{< relref "/blog/pulumi-release-notes-m58#pulumi-watch-now-supports-a---path-option" >}})
   - [Automation API: support for custom loggers in .NET]({{< relref "/blog/pulumi-release-notes-m58#automation-api-support-for-custom-loggers-in-net" >}})
-  - [Automation API: more helpful error messages]({{< relref "/blog/pulumi-release-notes-m58#automation-api-more-helpful-error-messages" >}})
   - [Improved Python performance]({{< relref "/blog/pulumi-release-notes-m58#improved-python-performance" >}})
-  - [Pulumi Packages: TODO TYPES]({{< relref "/blog/pulumi-release-notes-m58#TODO" >}})
 - Pulumi Service and Pulumi.com
   - [New usage-based pricing for your whole team]({{< relref "/blog/pulumi-release-notes-m58#new-usage-based-pricing-for-your-whole-team" >}})
 
@@ -309,10 +307,6 @@ Learn more at [pulumi/pulumi#7116](https://github.com/pulumi/pulumi/issues/7116)
 We've improved the performance of common Pulumi commands like `up` and `preview` for Python programs by removing some unneeded logging and version checks.
 
 Learn more at [pulumi/pulumi#7291](https://github.com/pulumi/pulumi/issues/7291) and [pulumi/pulumi#7292](https://github.com/pulumi/pulumi/issues/7292)
-
-### Pulumi Packages: TODO TYPES
-
-TODO
 
 ## Pulumi Service and Pulumi.com
 
