@@ -271,7 +271,7 @@ In this milestone, we shipped Pulumi versions [3.5.1](https://github.com/pulumi/
 
 ### New `replaceOnChanges` resource option
 
-There are times when it is important to force a replacement of a resource even if changes to the resource do not indicate they require replacement. One example is a Kubernetes `CustomResourceDefinition`, none of whose properties force replacement, even though for many CRDs, they can't actually be updated in place (because of forward-incompatibilites). While it was previously possible to work around the lack of an option to force a replace by changing the physical name of the resource, there are cases where it is important to keep the physical name the same.
+Sometimes, you may want to force the replacement of a resource even if the changes you've made to that resource don't indicate that they require a replacement. One example is Kubernetes `CustomResourceDefinition`s: many CRDs can't be updated in place due to forward-incompatibilities, so you may need to force a replacement. Previously, you could do this by changing the physical name of the resource, but there are cases where it is important to keep the physical name the same.
 
 Now, you can use the new `replaceOnChange` resource option to force a resource to be replaced when the specified properties are changed. This can be combined with the existing `deleteBeforeReplace` resource option to force a resource to be deleted before it's replaced. For example, you can specify that an AWS S3 Bucket resource be replaced every time its index document changes:
 
