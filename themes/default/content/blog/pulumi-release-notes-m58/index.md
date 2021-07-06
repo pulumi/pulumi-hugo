@@ -334,4 +334,4 @@ We launched Pulumi Team Edition, a new way for teams to adopt and use Pulumi and
 
 ![Screenshot of new pricing tiers from https://pulumi.com/pricing](pricing-page.png)
 
-Learn more in the [announcement blog post]({{< relref "/blog/announcing-new-usage-based-pricing-for-your-whole-team" >}})
+Learn more in the [pricing announcement blog post]({{< relref "/blog/announcing-new-usage-based-pricing-for-your-whole-team" >}})
