@@ -295,7 +295,6 @@ pulumi watch --path path/to/pulumi/code/
 
 Learn more at [pulumi/pulumi#6620](https://github.com/pulumi/pulumi/issues/6620)
 
-
 ### Improved Python performance
 
 We've improved the performance of common Pulumi commands like `up` and `preview` for Python programs by removing some unneeded logging and version checks.
