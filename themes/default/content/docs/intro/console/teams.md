@@ -20,6 +20,31 @@ To learn more about our editions visit our [pricing page]({{< relref "/pricing" 
 The Pulumi Console offers role-based access control (RBAC) using teams. Teams allow organization admins to assign a set of stack permissions
 to a group of users.
 
+## Creating a Team{#creating-a-team}
+
+By default, all organization admins can create new teams.
+
+To create a team:
+
+1. Navigate to **Teams**.
+1. Select **Create team**.
+
+To give members permission to create teams:
+
+1. Navigate to the organization's **Settings**.
+1. Navigate to **Access Management**.
+1. Use the toggle to turn on the **Allow organization members to create teams** setting.
+
+## GitHub-based Teams
+
+If your Pulumi organization is backed by GitHub, you can import your existing
+GitHub teams into Pulumi.
+
+For these teams, membership is managed on GitHub, while the set of stack
+permissions granted to team members is managed on the Pulumi Console.
+
+![Importing a GitHub-based team](/images/docs/reference/service/add-github-team-card.png)
+
 ## Team Permissions
 
 By default only organization admins can create teams.
@@ -45,28 +70,3 @@ To change a team member's role:
 
 1. Navigate to **Teams** and then the specific team.
 1. In the **Members** section use the ellipsis menu item at the end of the table row and select **Change role to**.
-
-## Creating a Team{#creating-a-team}
-
-By default, all organization admins can create new teams.
-
-To create a team:
-
-1. Navigate to **Teams**.
-1. Select **Create team**.
-
-To give members permission to create teams:
-
-1. Navigate to the organization's **Settings**.
-1. Navigate to **Access Management**.
-1. Use the toggle to turn on the **Allow organization members to create teams** setting.
-
-## GitHub-based Teams
-
-If your Pulumi organization is backed by GitHub, you can import your existing
-GitHub teams into Pulumi.
-
-For these teams, membership is managed on GitHub, while the set of stack
-permissions granted to team members is managed on the Pulumi Console.
-
-![Importing a GitHub-based team](/images/docs/reference/service/add-github-team-card.png)
