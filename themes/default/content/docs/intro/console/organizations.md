@@ -15,7 +15,7 @@ aliases:
 
 Organizations are a space for you to collaborate on shared projects and stacks.
 
-### Organization Pages
+## Organization Pages
 
 | Console Page | Description |
 |--------|--------|

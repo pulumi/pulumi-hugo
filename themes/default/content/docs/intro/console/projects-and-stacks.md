@@ -146,7 +146,7 @@ To transfer a stack:
 1. Select **Transfer stack**.
 1. Provide the personal account or organization name and select **Transfer**.
 
-## Deleting a stack
+## Deleting a Stack
 
 Deleting a stack removes the stack entirely from the Pulumi Service, along with all of its update history.
 

@@ -46,7 +46,7 @@ To change a team member's role:
 1. Navigate to **Teams** and then the specific team.
 1. In the **Members** section use the ellipsis menu item at the end of the table row and select **Change role to**.
 
-### Creating a Team{#creating-a-team}
+## Creating a Team{#creating-a-team}
 
 By default, all organization admins can create new teams.
 
@@ -61,7 +61,7 @@ To give members permission to create teams:
 1. Navigate to **Access Management**.
 1. Use the toggle to turn on the **Allow organization members to create teams** setting.
 
-### GitHub-based Teams
+## GitHub-based Teams
 
 If your Pulumi organization is backed by GitHub, you can import your existing
 GitHub teams into Pulumi.
