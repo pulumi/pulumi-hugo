@@ -19,7 +19,7 @@ In this update:
   - [10 new resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m58#10-new-resources-in-the-azure-native-provider" >}})
   - [Google Native provider adds support for enums and more]({{< relref "/blog/pulumi-release-notes-m58#google-native-provider-adds-support-for-enums-and-more" >}})
 - Pulumi CLI and core technologies
-  - [New `replaceOnChanges` and `deleteBeforeReplace` resource options]({{< relref "/blog/pulumi-release-notes-m58#new-replaceonchanges-and-deletebeforereplace-resource-options" >}})
+  - [New `replaceOnChanges` resource option]({{< relref "/blog/pulumi-release-notes-m58#new-replaceonchanges-resource-option" >}})
   - [`pulumi watch` now supports a `--path` option]({{< relref "/blog/pulumi-release-notes-m58#pulumi-watch-now-supports-a---path-option" >}})
   - [Automation API: support for custom loggers in .NET]({{< relref "/blog/pulumi-release-notes-m58#automation-api-support-for-custom-loggers-in-net" >}})
   - [Automation API: more helpful error messages]({{< relref "/blog/pulumi-release-notes-m58#automation-api-more-helpful-error-messages" >}})
@@ -272,18 +272,18 @@ The preview of the Google Native provider continues to evolve. We shipped 2 new 
 
 In this milestone, we shipped Pulumi versions [3.5.1](https://github.com/pulumi/pulumi/releases/tag/v3.5.1) and [3.6.0](https://github.com/pulumi/pulumi/releases/tag/v3.6.0). The full list of changes in each version is available in the linked changelog; read on to learn about some of the biggest changes.
 
-### New `replaceOnChanges` and `deleteBeforeReplace` resource options
+### New `replaceOnChanges` resource option
 
 There are times when it is important to force a replacement of a resource even if changes to the resource do not indicate they require replacement. One example is a Kubernetes `CustomResourceDefinition`, none of whose properties force replacement, even though for many CRDs, they can't actually be updated in place (because of forward-incompatibilites). While it was previously possible to work around the lack of an option to force a replace by changing the physical name of the resource, there are cases where it is important to keep the physical name the same.
 
-Now, you can use the new `replaceOnChange` resource option to force a resource to be replaced when the specified properties are changed. You can also use the `deleteBeforeReplace` resource option to force a resource to be deleted before it's replaced. For example, you can specify that an AWS S3 Bucket resource be replaced every time its index document changes:
+Now, you can use the new `replaceOnChange` resource option to force a resource to be replaced when the specified properties are changed. This can be combined with the existing `deleteBeforeReplace` resource option to force a resource to be deleted before it's replaced. For example, you can specify that an AWS S3 Bucket resource be replaced every time its index document changes:
 
 ```typescript
 const bucket = new aws.s3.Bucket("my-bucket", {
     website: {
         indexDocument: "index2.html",
     },
-}, { replaceOnChanges: ["website.indexDocument"], deleteBeforeReplace: true });
+}, { replaceOnChanges: ["website.indexDocument"] });
 ```
 
 Learn more at [pulumi/pulumi#7226](https://github.com/pulumi/pulumi/pull/7226)
@@ -303,18 +303,6 @@ Learn more at [pulumi/pulumi#6620](https://github.com/pulumi/pulumi/issues/6620)
 Many mature projects already have a preferred tool for logging events and exceptions. Previously, Automation API only supported a built-in logging tool, and it wasn't possible to use a project's preferred tool. Now, if you're using a .NET language like C#, you can supply your own logging tool, like Serilog.
 
 Learn more at [pulumi/pulumi#7116](https://github.com/pulumi/pulumi/issues/7116)
-
-### Automation API: more helpful error messages
-
-Currently, it's not possible to use Automation API in a project that uses multiple versions of the `@pulumi/pulumi` package. We plan to fix this issue (tracked in [pulumi/pulumi#5449](https://github.com/pulumi/pulumi/issues/5449)) later this year. For now, to make it easier to troubleshoot and work around the issue, we've updated Automation API to fail fast when multiple versions of `@pulumi/pulumi` are detected and provide a helpful error message:
-
-```shell
-pulumi:pulumi:Stack (inlineNode-dev):
-    error: Unhandled exception: Error: Detected multiple versions of '@pulumi/pulumi' in use in an inline automation api program
-    Use the yarn 'resolutions' field to resolve this: https://github.com/pulumi/pulumi/issues/5449.
-```
-
-Learn more at [pulumi/pulumi#7349](https://github.com/pulumi/pulumi/issues/7333)
 
 ### Improved Python performance
 
