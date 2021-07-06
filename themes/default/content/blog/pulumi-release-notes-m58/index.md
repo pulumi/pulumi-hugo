@@ -296,11 +296,6 @@ pulumi watch --path path/to/pulumi/code/
 
 Learn more at [pulumi/pulumi#6620](https://github.com/pulumi/pulumi/issues/6620)
 
-### Automation API: support for custom loggers in .NET
-
-Many mature projects already have a preferred tool for logging events and exceptions. Previously, Automation API only supported a built-in logging tool, and it wasn't possible to use a project's preferred tool. Now, if you're using a .NET language like C#, you can supply your own logging tool, like Serilog.
-
-Learn more at [pulumi/pulumi#7116](https://github.com/pulumi/pulumi/issues/7116)
 
 ### Improved Python performance
 
