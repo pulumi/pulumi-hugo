@@ -36,6 +36,7 @@ Members of a team can be granted `Team admin` or `Team member` permissions. Team
 team. By default, any new team members will be assigned the team member role.
 
 To change a team member's role:
+
 1. Navigate to **Teams** and then the specific team.
 1. In the **Members** section use the ellipsis menu item at the end of the table row and select **Change role to**.
 
