@@ -247,7 +247,7 @@ Learn more in the [GitHub Actions User Guide]({{< relref "/docs/guides/continuou
 
 ### Kubernetes: new `skipAwait` option
 
-For some Kubernetes use cases, including Helm charts, you may want to be able to turn off all await logic, so that using Kubernetes via Pulumi feels closer to the default Kubernetes API experience. This isn't right in all cases and has some downsides (outputs are not populated and incorrect deployments aren't identified), but for many use cases is the initially "expected" behavior. Now, with the `skipAwait` setting, you can opt out of await logic for an entire Pulumi Kubernetes program.
+For some Kubernetes use cases, including Helm charts, you may want to be able to turn off all await logic, so that using Kubernetes via Pulumi feels closer to the default Kubernetes API or `kubectl` experience. Previously, you had to do this by marking individual entities with a custom annotation to skip the await logic. Now, you can use the new `skipAwait` option on Helm charts and YAML components to turn off the await logic for those charts/components and all of their child resources. Please note: `skipAwait` has some downsides: outputs are not populated and incorrect deployments aren't identified. However, in cases where you don't need the result of the chart/component, you can speed up deployments using `skipAwait`.
 
 Learn more at [pulumi/pulumi-kubernetes#1421](https://github.com/pulumi/pulumi-kubernetes/issues/1421)
 
