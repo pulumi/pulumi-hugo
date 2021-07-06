@@ -21,7 +21,6 @@ In this update:
 - Pulumi CLI and core technologies
   - [New `replaceOnChanges` resource option]({{< relref "/blog/pulumi-release-notes-m58#new-replaceonchanges-resource-option" >}})
   - [`pulumi watch` now supports a `--path` option]({{< relref "/blog/pulumi-release-notes-m58#pulumi-watch-now-supports-a---path-option" >}})
-  - [Automation API: support for custom loggers in .NET]({{< relref "/blog/pulumi-release-notes-m58#automation-api-support-for-custom-loggers-in-net" >}})
   - [Improved Python performance]({{< relref "/blog/pulumi-release-notes-m58#improved-python-performance" >}})
 - Pulumi Service and Pulumi.com
   - [New usage-based pricing for your whole team]({{< relref "/blog/pulumi-release-notes-m58#new-usage-based-pricing-for-your-whole-team" >}})
