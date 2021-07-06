@@ -30,6 +30,12 @@ To allow all members to create teams:
 1. Navigate to Access Management.
 1. Use the toggle to turn on the Allow organization members to create teams setting.
 
+### Granting Access to Stacks within Teams
+
+Teams can be granted access to stacks, which grants all team members access to those stack based on the selected permission level.
+
+![Editing team stacks and permissions](/images/docs/reference/service/editing-stack-permissions.png)
+
 ### Team Roles
 
 Members of a team can be granted `Team admin` or `Team member` permissions. Team admins can add members to a
@@ -55,7 +61,7 @@ To give members permission to create teams:
 1. Navigate to **Access Management**.
 1. Use the toggle to turn on the **Allow organization members to create teams** setting.
 
-#### GitHub-based Teams
+### GitHub-based Teams
 
 If your Pulumi organization is backed by GitHub, you can import your existing
 GitHub teams into Pulumi.
@@ -64,11 +70,3 @@ For these teams, membership is managed on GitHub, while the set of stack
 permissions granted to team members is managed on the Pulumi Console.
 
 ![Importing a GitHub-based team](/images/docs/reference/service/add-github-team-card.png)
-
-## Team / Stack Permissions
-
-Membership within a team will grant a Pulumi user a specific permission level for each
-stack in the team. For example, members of `network-team` may have `Stack write` access to the
-`backend/production` stack, but only `Stack read` access to `datastore/production`.
-
-![Editing team stacks and permissions](/images/docs/reference/service/editing-stack-permissions.png)
