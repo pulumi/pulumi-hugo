@@ -246,7 +246,7 @@ Learn more in the [GitHub Actions User Guide]({{< relref "/docs/guides/continuou
 
 ### Kubernetes: new `skipAwait` option
 
-For some Kubernetes use cases, including Helm charts, you may want to be able to turn off all await logic, so that using Kubernetes via Pulumi feels closer to the default Kubernetes API or `kubectl` experience. Previously, you had to do this by marking individual entities with a custom annotation to skip the await logic. Now, you can use the new `skipAwait` option on Helm charts and YAML components to turn off the await logic for those charts/components and all of their child resources. Please note: `skipAwait` has some downsides: outputs are not populated and incorrect deployments aren't identified. However, in cases where you don't need the result of the chart/component, you can speed up deployments using `skipAwait`.
+For some Kubernetes use cases, including Helm charts, you may want to be able to turn off all await logic, so that you can use Kubernetes via Pulumi in a way that feels more similar to the default Kubernetes API and `kubectl` experience. Previously, you could achieve this by marking individual entities with a custom annotation to skip the await logic. Now, you can use the new `skipAwait` option on Helm charts and YAML components to turn off the await logic for those charts/components and all of their child resources. Please note that `skipAwait` changes some default Pulumi behaviors: outputs are not populated and incorrect deployments aren't identified. However, in cases where you don't need the result of the chart/component, you can speed up deployments using `skipAwait`.
 
 Learn more at [pulumi/pulumi-kubernetes#1421](https://github.com/pulumi/pulumi-kubernetes/issues/1421)
 
@@ -273,7 +273,7 @@ In this milestone, we shipped Pulumi versions [3.5.1](https://github.com/pulumi/
 
 Sometimes, you may want to force the replacement of a resource even if the changes you've made to that resource don't indicate that they require a replacement. One example is Kubernetes `CustomResourceDefinition`s: many CRDs can't be updated in place due to forward-incompatibilities, so you may need to force a replacement. Previously, you could do this by changing the physical name of the resource, but there are cases where it is important to keep the physical name the same.
 
-Now, you can use the new `replaceOnChange` resource option to force a resource to be replaced when the specified properties are changed. This can be combined with the existing `deleteBeforeReplace` resource option to force a resource to be deleted before it's replaced. For example, you can specify that an AWS S3 Bucket resource be replaced every time its index document changes:
+You can use the new `replaceOnChange` resource option to force resource replacement when the specified properties are changed. This can be combined with the existing `deleteBeforeReplace` resource option to force a resource to be deleted before replacement. For example, you can specify that an AWS S3 Bucket resource be replaced every time its index document changes:
 
 ```typescript
 const bucket = new aws.s3.Bucket("my-bucket", {
@@ -287,7 +287,7 @@ Learn more at [pulumi/pulumi#7226](https://github.com/pulumi/pulumi/pull/7226)
 
 ### `pulumi watch` now supports a `--path` option
 
-Previously, the `pulumi watch` command always watched the entire Pulumi project directory (recursively). This could cause duplicate updates for developers working in monorepos or developers with application code and infrastructure code in the same directory. Now, you can add a `--path` option to the `pulumi watch` command and specify the exact paths that need to be watched.
+Previously, the `pulumi watch` command always watched the entire Pulumi project directory (recursively). This caused duplicate updates for developers working in monorepos or developers with application code and infrastructure code in the same directory. Now, you can add a `--path` option to the `pulumi watch` command and specify the exact paths to watch.
 
 ```shell
 pulumi watch --path path/to/pulumi/code/
@@ -297,7 +297,7 @@ Learn more at [pulumi/pulumi#6620](https://github.com/pulumi/pulumi/issues/6620)
 
 ### Improved Python performance
 
-We've improved the performance of common Pulumi commands like `up` and `preview` for Python programs by removing some unneeded logging and version checks.
+We've improved the performance of common Pulumi commands like `up` and `preview` for Python programs by removing unnecessary logging and version checks.
 
 Learn more at [pulumi/pulumi#7291](https://github.com/pulumi/pulumi/issues/7291) and [pulumi/pulumi#7292](https://github.com/pulumi/pulumi/issues/7292)
 
