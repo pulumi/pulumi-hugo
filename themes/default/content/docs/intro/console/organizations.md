@@ -58,7 +58,7 @@ To switch to a different organization:
 
 | Role | Description |
 |--------|--------|
-| Admin | Administrators have full access to the organization including: [Inviting members]({{< relref "/docs/intro/console/organization-roles#organization-membership" >}}), [creating teams]({{< relref "/docs/intro/console/teams#creating-a-team" >}}) and policies, managing [stack permissions]({{< relref "/docs/intro/console/stack-permissions" >}}) and [role-based access control]({{< relref "/docs/intro/console/organization-roles" >}}), adjusting billing information, and controlling the organization settings. |
+| Admin | Administrators have full access to the organization including: [inviting members]({{< relref "/docs/intro/console/organization-roles#organization-membership" >}}), [creating teams]({{< relref "/docs/intro/console/teams#creating-a-team" >}}) and policies, managing [stack permissions]({{< relref "/docs/intro/console/stack-permissions" >}}) and [role-based access control]({{< relref "/docs/intro/console/organization-roles" >}}), adjusting billing information, and controlling the organization settings. |
 | Member | Members are able to view and edit stacks they have access to and view members and teams. |
 
 ## Organization Identity Providers
