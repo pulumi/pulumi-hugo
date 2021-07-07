@@ -12,7 +12,7 @@ aliases:
 - /docs/intro/console/stack-permissions/
 ---
 
-Projects goup stacks together and are folders containing a Pulumi.yaml file.
+Projects group stacks together and are folders containing a Pulumi.yaml file.
 Stacks are isolated, independently configurable instances of a Pulumi program.
 Projects can have as many stacks as you need.
 

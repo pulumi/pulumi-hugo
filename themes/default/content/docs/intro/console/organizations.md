@@ -15,7 +15,7 @@ aliases:
 
 Organizations are a space for you to collaborate on shared projects and stacks.
 
-### Organization Pages
+## Organization Pages
 
 | Console Page | Description |
 |--------|--------|
@@ -35,7 +35,7 @@ To create an organization:
 1. Provide an organization name, and agree to the terms of service and privacy policy.
 1. Select **Start free trial**.
 
-## Organization Access
+## Joining an Organization
 
 To become a member of a Pulumi organization, you must be invited by an existing Pulumi
 organization administrator or submit a request to the administrator for approval.
@@ -45,23 +45,20 @@ For example, to become a member of a Pulumi organization backed by a GitLab Grou
 you must associate a GitLab identity with your Pulumi account, and also
 be a member of that GitLab group.
 
-## Moving Between Organizations
+## Switching Between Organizations
 
-The Organization drop-down list displays all of the organizations your account is
-associated with, and lets you add a new organization backed by a third
-party identity provider.
+The organization menu displays your individual account and all of the organizations you belong.
 
 To switch to a different organization:
 
-1. Select the organization drop-down list in the upper left corner of the Console screen
-next to the Pulumi logo.
+1. Select the organization  menu at the top of the page.
 1. Select your organization name.
 
 ## Organization Roles
 
 | Role | Description |
 |--------|--------|
-| Admin | Administrators have full access to the organization including: [Inviting members]({{< relref "/docs/intro/console/organization-roles#organization-membership" >}}), [creating teams]({{< relref "/docs/intro/console/teams#creating-a-team" >}}) and policies, managing [stack permissions]({{< relref "/docs/intro/console/stack-permissions" >}}) and [role-based access control]({{< relref "/docs/intro/console/organization-roles" >}}), adjusting billing information and controlling the organization settings. |
+| Admin | Administrators have full access to the organization including: [Inviting members]({{< relref "/docs/intro/console/organization-roles#organization-membership" >}}), [creating teams]({{< relref "/docs/intro/console/teams#creating-a-team" >}}) and policies, managing [stack permissions]({{< relref "/docs/intro/console/stack-permissions" >}}) and [role-based access control]({{< relref "/docs/intro/console/organization-roles" >}}), adjusting billing information, and controlling the organization settings. |
 | Member | Members are able to view and edit stacks they have access to and view members and teams. |
 
 ## Organization Identity Providers
