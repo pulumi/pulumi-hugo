@@ -29,7 +29,8 @@ To create a project:
 
 ## Stack Permissions
 
-Stack permissions are based on the member's role within the organization, and on their team membership.
+The Pulumi Console provides fine-grained access controls for stacks. Stack permissions are
+based on the member's role within the organization, and on their team membership.
 Additionally, any member who creates a stack is granted admin permissions on that stack.
 
 Organization admins can control the stack default permissions at the organization level from the organization's **Settings**.
