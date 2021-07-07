@@ -22,7 +22,7 @@ Organizations are a space for you to collaborate on shared projects and stacks.
 | Dashboard | An overview of the organization including recently updated stacks, recent activity, and a resource count graph. |
 | Projects | A searchable list of organization stacks that you can group by project and tag. For more information, see [Project and Stack Management]({{< relref "/docs/intro/console/project-and-stack-management" >}}). |
 | Members | A list of active members of the Pulumi organization. |
-| Teams | A [Team Pro]({{< relref "/pricing" >}}) feature that provides a way to assign stack permissions to groups of organization members. |
+| Teams | An [Enterprise]({{< relref "/pricing" >}}) feature that provides a way to assign stack permissions to groups of organization members. |
 | Policies | Lists of organization policies and policy groups. Policies allow you to set guardrails to enforce best practices and compliance. |
 | Settings | Organization settings including subscription and payment information and history, stack permissions, and links to Pulumi's [continuous delivery guides]({{< relref "/docs/guides/continuous-delivery" >}}). |
 
@@ -38,8 +38,8 @@ To create an organization:
 ## Organization Access
 
 To become a member of a Pulumi organization, you must be invited by an existing Pulumi
-organization administrator, or you must submit a request to the administrator for approval.
-In addition, depending you may also need to be a member of the third-party organization or group backing the Pulumi organization.
+organization administrator or submit a request to the administrator for approval.
+In addition, you may also need to be a member of the third-party organization or group backing the Pulumi organization.
 
 For example, to become a member of a Pulumi organization backed by a GitLab Group,
 you must associate a GitLab identity with your Pulumi account, and also
@@ -67,7 +67,7 @@ next to the Pulumi logo.
 ## Organization Identity Providers
 
 A Pulumi organization can use the Pulumi identity provider or a third-party identity provider.
-If using a third-party identity provider all members need to be a member of the third-party
+If using a third-party identity provider all members need to belong to the third-party
 identity provider in order to join a Pulumi organization.
 
 For example, if a Pulumi organization, is backed by a GitHub organization, then only members

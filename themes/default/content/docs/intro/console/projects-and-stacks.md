@@ -30,7 +30,7 @@ To create a project:
 ## Stack Permissions
 
 Stack permissions are based on the member's role within the organization, and on their team membership.
-Additionally, any member who creates a stack will be granted admin permissions on that stack.
+Additionally, any member who creates a stack is granted admin permissions on that stack.
 
 Organization admins can control the stack default permissions at the organization level from the organization's **Settings**.
 There are four types of stack permissions: `None`, `Read`, `Write`, and `Admin`.
@@ -53,7 +53,7 @@ Stack permissions allow users to perform the following actions:
 
 ## Viewing Stacks
 
-![Stack outputs and configuration](/images/docs/reference/service/organization-stacks.png)
+![Organization projects and stacks](/images/docs/reference/service/organization-stacks.png)
 
 To view an organization's stacks:
 
