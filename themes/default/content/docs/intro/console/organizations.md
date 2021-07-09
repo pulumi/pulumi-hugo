@@ -104,9 +104,10 @@ Pulumi will not have access to any of the organization's source code, issues, or
 To add a GitLab-backed organization to Pulumi, an admin of the GitLab group
 must add the group to Pulumi, and invite its members to join Pulumi.
 
-GitLab allows group admins to add members with a expiration value. In order to invite
-those members to Pulumi, their membership in the GitLab group must still be active. As
-soon as their GitLab group membership expires, those users will lose access to Pulumi organization.
+GitLab allows group admins to add members with a temporary membership, i.e., with an
+expiration value. In order to invite those members to Pulumi, their membership in the
+GitLab group must still be active. As soon as their GitLab group membership expires,
+those users will lose access to Pulumi organization.
 
 ### Bitbucket Identity Provider
 
