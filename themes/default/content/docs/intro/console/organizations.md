@@ -10,6 +10,7 @@ aliases:
 - /docs/console/accounts/organizations/
 - /docs/intro/console/accounts/organizations/
 - /docs/console/collaboration/organization-roles
+- /docs/intro/console/organization-roles
 - /docs/console/organization-roles
 ---
 
