@@ -1007,7 +1007,7 @@ var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs(),
 
 #### replaceOnChanges
 
-The `replaceOnChanges` option can be used to indicate that changes to certain properties on a resource should force a replacement of the resource instead of an in-place update.  Typcailly users rely on the resource provider to make this decision based on whether the input property is one that the provider knows how to update in place, or if not, requires a replacement to modify.  However, there are cases where users want to replace a resource on a change to an input property even if the resource provider itself doesn't believe it has to replace the resource. 
+The `replaceOnChanges` option can be used to indicate that changes to certain properties on a resource should force a replacement of the resource instead of an in-place update.  Typcailly users rely on the resource provider to make this decision based on whether the input property is one that the provider knows how to update in place, or if not, requires a replacement to modify.  However, there are cases where users want to replace a resource on a change to an input property even if the resource provider itself doesn't believe it has to replace the resource.
 
 For example, with Kubernetes `CustomResource` resources, the Kubernetes resource model doesn't know whether or not a specific input property on a specific kind of `CustomResource` requires a replacement, and so assumes that *any* change can be made without replacement.  However, in practice, many specific kinds of `CustomResource` in the Kubernetes ecosystem *do* require replacement when certain input properties are changed.  The Kubernetes provider itself can't know this, but users can use `replaceOnChanges` to ensure that these changes can be made correctly via Pulumi.
 
@@ -1086,10 +1086,10 @@ var widget = new Pulumi.Kubernetes.ApiExtensions.CustomResource("widget", new Wi
 
 The property paths provided as input to `replaceOnChanges` can each describe a subset of the properties of the resource which should trigger a replacement on changes.  The `*` wildcard can be used in any part of a path.  A few examples of what changes will trigger replacement for a given property path string:
 
-* `*`: any property change
-* `spec`: any change to the `spec` property or any of its children
-* `spec[0]`: any change to the first element of the array in the `spec` property or any of its children
-* `spec[*].item`: any change to the `item` property of any element of the array in the `spec` prroperty or any of the `item` property's children
+- `*`: any property change
+- `spec`: any change to the `spec` property or any of its children
+- `spec[0]`: any change to the first element of the array in the `spec` property or any of its children
+- `spec[*].item`: any change to the `item` property of any element of the array in the `spec` prroperty or any of the `item` property's children
 
 {{% notes "info" %}}
 The property paths passed to `replaceOnChanges` should always be the "camelCase" version of the property name, as used in the core Pulumi resource model.
