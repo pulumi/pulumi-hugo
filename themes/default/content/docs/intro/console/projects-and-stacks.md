@@ -130,7 +130,7 @@ status, and link to the associated cloud provider.
 ![Stack resource list](/images/docs/reference/service/stack-resource-list.png)
 
 The graph view displays a graphical representation of the stack's resources and their
-dependencies. Select an individual resources to view its list of properties and dependencies.
+dependencies. Select an individual resource to view its list of properties and dependencies.
 
 ![Stack resource visualization](/images/docs/reference/service/stack-resource-visualization.png)
 

@@ -21,7 +21,7 @@ Organizations are a space for you to collaborate on shared projects and stacks.
 |--------|--------|
 | Dashboard | An overview of the organization including recently updated stacks, recent activity, and a resource count graph. |
 | Projects | A searchable list of organization stacks that you can group by project and tag. For more information, see [Project and Stack Management]({{< relref "/docs/intro/console/project-and-stack-management" >}}). |
-| Members | A list of active members of the Pulumi organization. |
+| Members | A list of active members of your Pulumi organization. |
 | Teams | An [Enterprise]({{< relref "/pricing" >}}) feature that provides a way to assign stack permissions to groups of organization members. |
 | Policies | Lists of organization policies and policy groups. Policies allow you to set guardrails to enforce best practices and compliance. |
 | Settings | Organization settings including subscription and payment information and history, stack permissions, and links to Pulumi's [continuous delivery guides]({{< relref "/docs/guides/continuous-delivery" >}}). |
@@ -95,7 +95,7 @@ To change an organization's identity provider:
 To add a GitHub organization to Pulumi, an admin of the GitHub organization
 must first grant the Pulumi OAuth app the [`read:org` scope](https://github.com/settings/connections/applications/7cf9078f3c92b17a5f0f).
 This is required to verify memberships within the GitHub organization.
-The Pulumi Console will not have access to any of the organization's source code, issues, or other data.
+Pulumi will not have access to any of the organization's source code, issues, or other data.
 
 ### GitLab Identity Provider
 
