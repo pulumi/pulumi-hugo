@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from "@stencil/core";
+import { Component, Prop, State, Element, h } from "@stencil/core";
 
 export interface MultiSelectFormItem {
     key: string | Date;
@@ -6,11 +6,14 @@ export interface MultiSelectFormItem {
 }
 
 @Component({
-  tag: "pulumi-multi-select-form",
-  styleUrl: "pulumi-multi-select-form.css",
-  shadow: false,
+    tag: "pulumi-multi-select-form",
+    styleUrl: "pulumi-multi-select-form.css",
+    shadow: false,
 })
 export class PulumiMultiSelectForm {
+    @Element()
+    el: Element;
+
     // The JSON string of the items for the selector.
     @Prop()
     items: MultiSelectFormItem[] = [];
@@ -68,7 +71,7 @@ export class PulumiMultiSelectForm {
     // Handle an incoming window message.
     private handleWindowMessage(event: MessageEvent) {
         if (event.data.type === "hsFormCallback" && event.data.eventName === "onFormReady") {
-            const form = document.querySelector("form.hs-form") as HTMLFormElement;
+            const form = this.el.querySelector("form.hs-form") as HTMLFormElement;
             form.addEventListener("submit", this.handleFormSubmit.bind(this));
         }
     }
