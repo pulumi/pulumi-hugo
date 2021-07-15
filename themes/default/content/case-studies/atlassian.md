@@ -14,7 +14,7 @@ customer_url: https://www.atlassian.com/
 exec_summary: |
     Atlassian’s Bitbucket DevSpeed team is responsible for improving developer productivity through better workflows
     and tooling. Because the team wanted to make it easier and faster for developers to access cloud infrastructure,
-    they moved from a legacy DSL-based infrastructure as code tool  to the Pulumi Cloud Engineering Platform, which
+    they moved from a legacy DSL-based infrastructure as code tool to the Pulumi Cloud Engineering Platform, which
     let them define and deploy infrastructure in general purpose languages that Bitbucket developers already used,
     such as Python. Using a familiar language like Python also made it easy for them to  add cross-regional support
     to their CI/CD pipeline for deploying development environments for over 100 Bitbucket developers around the world.
