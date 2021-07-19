@@ -7,7 +7,7 @@ meta_desc: "In this workshop, you’ll use the Azure native provider to build in
 featured: false
 
 # If the video is pre-recorded or live.
-pre_recorded: true
+pre_recorded: false
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
 pulumi_tv: false
@@ -20,7 +20,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: false
+gated: true
 
 # The layout of the landing page.
 type: webinars
@@ -35,6 +35,14 @@ block_external_search_index: false
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
 url_slug: "getting-started-with-azure-native"
+
+# Webinar pages support multiple session via the 'multiple' property.
+multiple:
+    - datetime: 2021-08-05T09:00:00-07:00
+      hubspot_form_id: d69a09b6-9f49-4d07-a4fd-98668b1fac26
+
+    - datetime: 2021-08-11T04:00:00-07:00
+      hubspot_form_id: 5b3b8768-f2d5-45a5-8c0a-673a39b08a8f
 
 # The content of the hero section.
 hero:
@@ -70,9 +78,4 @@ main:
     learn:
         - The basics of the Pulumi Programming Model.
         - How to provision, update, and destroy Azure resources.
-
-# The right hand side form section.
-form:
-    # HubSpot form id.
-    hubspot_form_id: 3d988d22-21a0-4ec9-8255-8ddd03a197e6
 ---
