@@ -15,7 +15,7 @@ overview:
 key_features:
     title: Key features
     items:
-        - description: Build Infrastructure as Code in familiar languages
+        - description: Build [Infrastructure as Code]({{< relref "/what-is/infrastructure-as-code" />}}) in familiar languages
           features:
             - title: Languages you love
               icon: code
