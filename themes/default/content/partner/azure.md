@@ -8,7 +8,7 @@ meta_desc: Modern Infrastructure as Code on the Azure cloud with Pulumi gives yo
 hero:
     title: Modern Infrastructure as Code for 100% of Microsoft Azure
     description: |
-        Pulumi's [infrastructure as code]({{< relref "/what-is/infrastructure-as-code" />}}) SDK
+        Pulumi's [infrastructure as code](/what-is/what-is-infrastructure-as-code/) SDK
         helps create, deploy, and manage 100% of your Microsoft Azure infrastructure, including
         containers, serverless functions, and infrastructure using modern programming languages.
     cta_text: See what's new

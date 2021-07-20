@@ -44,7 +44,7 @@ Here are some helpful links to get you started with Policy as Code:
 
 ### Automation API
 
-The recently unveiled [Automation API](https://www.pulumi.com/blog/automation-api/) provides a robust programmatic layer on top of Pulumi's declarative [Infrastructure as Software]({{< relref "/what-is/infrastructure-as-software" />}}). By exposing Pulumi programs and stacks as strongly-typed composable building blocks, it means that Pulumi can now be fully embedded inside your software projects.
+The recently unveiled [Automation API](https://www.pulumi.com/blog/automation-api/) provides a robust programmatic layer on top of Pulumi's declarative Infrastructure as Software. By exposing Pulumi programs and stacks as strongly-typed composable building blocks, it means that Pulumi can now be fully embedded inside your software projects.
 
 We've already seen the Automation API being used in incredibly creative ways, and we'd love to see what you dream up with it.
 

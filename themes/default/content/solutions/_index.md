@@ -110,7 +110,7 @@ personas:
               icon: code
               icon_color: purple
               description: |
-                Define [infrastructure as code]({{< relref "/what-is/infrastructure-as-code" />}}) using
+                Define [infrastructure as code](/what-is/what-is-infrastructure-as-code/) using
                 familiar languages and IDEs: JavaScript, TypeScript, Python, Go, and .NET.
             - title: Cloud programming model
               icon: program
