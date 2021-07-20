@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Azure Infrastructure as Software with TypeScript"
+title: "Getting Started with Azure and Infrastructure as Code"
 meta_desc: "In this workshop, you’ll use the Azure native provider to build infrastructure using TypeScript SDK and examine some of the features not previously possible."
 
 # A featured webinar will display first in the list.
@@ -47,14 +47,14 @@ multiple:
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "Azure: Unlocking Azure with Infrastructure as Software with TypeScript"
+    title: "Getting Started with Azure and Infrastructure as Code"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Azure: Unlocking Azure with Infrastructure as Software with TypeScript"
+    title: "Getting Started with Azure and Infrastructure as Code"
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/yzTSUDp2KXU"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
@@ -71,8 +71,11 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Lee Briggs
-          role: Community Engineer, Pulumi
+        - name: Sophia Parafina
+          role: Developer Advocate, Pulumi
+
+        - name: Matt Stratton
+          role: Developer Advocate, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
