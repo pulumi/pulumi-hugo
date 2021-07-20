@@ -15,7 +15,7 @@ To scale up how we deploy and manage cloud infrastructure and ultimately unlock 
 
 <!--more-->
 
-Pulumi's approach of using general purpose languages enables Infrastructure as Software -- bringing all of the great lessons learned over decades of building software to your infrastructure (languages, IDEs, testing, debugging, componentization, packaging, versioning, and more).
+Pulumi's approach of using general purpose languages enables [Infrastructure as Software]({{< relref "/what-is/infrastructure-as-software" />}}) -- bringing all of the great lessons learned over decades of building software to your infrastructure (languages, IDEs, testing, debugging, componentization, packaging, versioning, and more).
 
 Today we’re excited to announce the Pulumi Automation API, a robust programmatic layer on top of Pulumi’s declarative Infrastructure as Software. The Automation API exposes Pulumi programs and stacks as strongly-typed and composable building blocks.
 
