@@ -5,7 +5,7 @@ meta_desc: This tutorial will teach you how to deploy a simple webserver to an
 aliases: ["/docs/reference/tutorials/aws/tutorial-ec2-webserver/"]
 ---
 
-{{< github-buttons "aws-js-webserver" "aws-py-webserver" >}}
+{{< github-buttons "aws-ts-webserver" "aws-js-webserver" "aws-py-webserver" "aws-cs-webserver" >}}
 
 In this tutorial, we will show you how to use JavaScript or Python to deploy a simple webserver using an Amazon EC2 instance.
 
