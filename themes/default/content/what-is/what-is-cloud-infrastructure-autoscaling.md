@@ -1,5 +1,5 @@
 ---
-title: What Is Infrastructure Autoscaling?
+title: What Is Cloud Infrastructure Autoscaling?
 meta_desc: |
     Autoscaling is a service offered by the cloud provider that will increase or decrease the number of servers, based on need.
 
