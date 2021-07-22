@@ -39,7 +39,7 @@ import pulumi
 class MyMocks(pulumi.runtime.Mocks):
     def new_resource(self, args: pulumi.runtime.MockResourceArgs):
         outputs = args.inputs
-        if args.typ == "aws:ec2/instance:Instance":
+        if args.type == "aws:ec2/instance:Instance":
             outputs = {
                 **args.inputs,
                 "publicIp": "203.0.113.12",
