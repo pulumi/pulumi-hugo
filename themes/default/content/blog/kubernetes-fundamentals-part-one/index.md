@@ -15,7 +15,7 @@ Kubernetes is everywhere now, but it’s primarily been the domain of people wor
 
 ## What is Kubernetes?
 
-Kubernetes is a container orchestration tool. If we think of it in the context of an actual container ship, then Kubernetes is the person who determines how many shipping containers of particular goods go on the ship, and where they should be in relation to each other. It makes deploying containerized workloads a bit less painful to maintain.
+Kubernetes is a container orchestration tool. If we think of it in the context of an actual container ship, then Kubernetes is the person who determines how many shipping containers of particular goods go on the ship and where they should be in relation to each other. It makes deploying containerized workloads a bit less painful to maintain.
 
 ## Anatomy of a Cluster
 
@@ -66,7 +66,7 @@ The Flask application uses port 5000, so the deployment spec does, too. The imag
 
 If you were to deploy this with `kubectl apply -f deployment.yaml` and then run `kubectl get pods`, you would see the Deployment created two pods for our application.
 
-What if you decide you need more replicas, though? Go back to your deployment configuration, bump the value of replicas to 5, and apply it again with `kubectl apply -f deployment.yaml`. Run `kubectl get pods` and you’ll see three more pods coming online!
+What if you decide you need more replicas, though? Go back to your deployment configuration, bump the number of replicas to 5, and apply it again with `kubectl apply -f deployment.yaml`. Run `kubectl get pods`, and you’ll see three more pods coming online!
 
 ## Exposing the Application
 
@@ -76,7 +76,7 @@ We probably want to SEE our app, though. The quick and dirty way to do that is p
 
 Here, we're using kubectl to forward the demo-deployment's port 5000 to our local port 5000. If you go to localhost:5000 in a browser, you'll see your application.
 
-That’s not very convenient, though, and it doesn’t offer much in the way of customization or control. We need to add an ingress controller. NGINX-ingress is popular, and minikube already has an add-on for it, but there are many other options out there.
+That’s not very convenient, though, and it doesn’t offer much in the way of customization or control. We need to add an ingress controller. NGINX-ingress is popular, and minikube already has an addon, but there are many other options.
 
 Install it by running `minikube addons enable ingress`.
 
@@ -127,7 +127,7 @@ Like with all of our other config files, we're giving it metadata and telling it
 
 As before, apply it with `kubectl apply -f ingress.yaml`
 
-Now if you run `kubectl get ingress`, you’ll get an IP address. Go there in a browser, and there's your app, deployed on Kubernetes!
+Now, if you run `kubectl get ingress`, you’ll get an IP address. Go there in a browser, and there's your app, deployed on Kubernetes!
 
 ## Python instead of YAML
 
