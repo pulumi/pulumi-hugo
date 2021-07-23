@@ -57,7 +57,7 @@ The preview of the Google Native provider continues to evolve. We shipped a new 
 
 ## Pulumi CLI and core technologies
 
-In this milestone, we shipped Pulumi versions [3.6.1](https://github.com/pulumi/pulumi/releases/tag/v3.6.1), [3.7.0](https://github.com/pulumi/pulumi/releases/tag/v3.7.0), [3.7.1](https://github.com/pulumi/pulumi/releases/tag/v3.7.1), and [3.8.0](https://github.com/pulumi/pulumi/releases/tag/v3.8.0). The full list of changes in each version is available in the linked changelog; read on to learn about some of the biggest changes.
+In this milestone, we shipped Pulumi versions [3.7.0](https://github.com/pulumi/pulumi/releases/tag/v3.7.0), [3.7.1](https://github.com/pulumi/pulumi/releases/tag/v3.7.1), and [3.8.0](https://github.com/pulumi/pulumi/releases/tag/v3.8.0). The full list of changes in each version is available in the linked changelog; read on to learn about some of the biggest changes.
 
 ### Automation API: Select your backend
 
