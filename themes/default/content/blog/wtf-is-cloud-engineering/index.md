@@ -1,6 +1,6 @@
 ---
 title: "WTF Is Cloud Engineering?"
-date: 2021-07-23T12:46:42-05:00
+date: 2021-07-26T09:46:42-05:00
 draft: false
 meta_desc: "We talk a lot about cloud engineering. But what exactly is it? Let's find out!"
 meta_image: cloud-engineering.png
