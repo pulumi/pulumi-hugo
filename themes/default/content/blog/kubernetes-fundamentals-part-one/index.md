@@ -2,7 +2,6 @@
 title: "Kubernetes Fundamentals Part One"
 date: 2021-07-23T12:54:53-05:00
 draft: false
-meta_desc:
 meta_image: k8s-fundamentals.png
 authors:
     - kat-cosgrove
@@ -15,7 +14,7 @@ Kubernetes is everywhere now, but for most of its life, it’s largely been the 
 
 ## What is Kubernetes?
 
-Kubernetes is a container orchestration tool. If we think of it in the context of an actual container ship, then Kubernetes is the person who determines how many shipping containers of particular goods go on the ship, and where they should be in relation to each other. It makes deploying containerized workloads a bit less painful to maintain. 
+Kubernetes is a container orchestration tool. If we think of it in the context of an actual container ship, then Kubernetes is the person who determines how many shipping containers of particular goods go on the ship, and where they should be in relation to each other. It makes deploying containerized workloads a bit less painful to maintain.
 
 ## Anatomy of a Cluster
 
@@ -112,8 +111,8 @@ spec:
         backend:
           service:
           name: demo-service
-          port: 
-Number: 8080
+          port:
+            Number: 8080
 ```
 
 Just like with all of our other config files, we're giving it some metadata, and telling it what to target. In this case it's the service we defined already, and the service's port.
