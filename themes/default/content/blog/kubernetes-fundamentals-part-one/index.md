@@ -3,7 +3,7 @@ title: "Kubernetes Fundamentals Part One"
 date: 2021-07-23T12:54:53-05:00
 draft: false
 meta_image: k8s-fundamentals.png
-meta_desc: "Kubernetes is everywhere now, but for most of its life, it’s largely been the domain of people who work on the Ops side of things. What about devs, though? You benefit from knowing what Kubernetes is and how to use it, too -- otherwise, we’re sort of still putting teams in silos."
+meta_desc: "Kubernetes is everywhere now, but it’s largely been the domain of people who work on the Ops side of things. What about devs, though?"
 authors:
     - kat-cosgrove
 tags:
