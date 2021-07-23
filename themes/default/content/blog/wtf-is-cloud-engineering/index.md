@@ -50,3 +50,5 @@ Another key piece of the manage story is that we need controls in place to allow
 ## Summary
 
 When we take the ideas of cloud engineering and apply them to our organizations, we can deliver value to our customers and users. We can do this by applying the practices and tools already available to our teams and applying the same principles to our infrastructure and application code. We get increased collaboration capability within our teams, a higher level of trust and confidence in our services and applications, and a better handle on the complexity of the modern cloud. We will explore some specific practices and tools around each of these areas in future posts and how they can be applied to your organization!
+
+*Do you have a great story around your experiences with cloud engineering? We would love to hear it at the upcoming [Cloud Engineering Summit](https://www.pulumi.com/cloud-engineering/)! [Submit your proposal to the CFP](https://sessionize.com/cloud-engineering-summit-hosted-by-pulumi/) by July 31st!*
