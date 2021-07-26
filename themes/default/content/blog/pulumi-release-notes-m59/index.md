@@ -37,7 +37,7 @@ metadata:
 spec:
   stack: acmecorp/s3-op-project/production
   projectRepo: https://github.com/acmecorp/test-s3-op-project
-  branch: refs/head/production 
+  branch: refs/head/production
   config:
     aws:region: us-east-2
 ```
