@@ -37,7 +37,7 @@ metadata:
 spec:
   stack: acmecorp/s3-op-project/production
   projectRepo: https://github.com/acmecorp/test-s3-op-project
-  branch: production 
+  branch: refs/head/production 
   config:
     aws:region: us-east-2
 ```
@@ -70,6 +70,12 @@ In this milestone, we shipped Pulumi versions [3.7.0](https://github.com/pulumi/
 Previously, the Automation API only used the backend that you selected the last time you ran the `pulumi login` command, which led to challenges for developers working across multiple backends for different projects. Now, you can set the `PULUMI_BACKEND_URL` variable in the environment where you run your Automation API program and it will use the backend specified by that URL.
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/5591)
+
+### Better handling of subtypes in Python
+
+Subtypes now correctly propagate through a call to `Output[T]`. For example, if `Cow` is a subtype of `Animal`, this commit makes it so `Output[Cow]` is treated as a subtype of `Output[Animal]`. Before this change, users of the Python SDK would occasionally need to use an `.apply(lambda x: x)` command when working with subtypes.
+
+[Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/6843)
 
 ## Pulumi Service and Pulumi.com
 
