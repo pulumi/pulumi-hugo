@@ -18,6 +18,7 @@ Another great iteration has just wrapped up, so it's time for another edition of
   - [Google Native: autonaming; easier management of project and region settings]({{< relref "/blog/pulumi-release-notes-m59#google-native-autonaming-easier-management-of-project-and-region-settings" >}})
 - Pulumi CLI and core technologies
   - [Automation API: Select your backend]({{< relref "/blog/pulumi-release-notes-m59#automation-api-select-your-backend" >}})
+  - [Better handling of subtypes in Python]({{< relref "/blog/pulumi-release-notes-m59#better-handling-of-subtypes-in-python" >}})
 - Pulumi Service and Pulumi.com
   - [Get started with Pulumi, directly from the Pulumi Service]({{< relref "/blog/pulumi-release-notes-m59#get-started-with-pulumi-directly-from-the-pulumi-service" >}})
 
