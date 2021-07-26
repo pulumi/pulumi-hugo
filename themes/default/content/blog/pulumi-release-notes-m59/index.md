@@ -10,7 +10,7 @@ tags:
     - features
 ---
 
-Another 3 weeks have passed, so it's time for another edition of the Pulumi release notes! This iteration we've been busy smashing bugs across our products (over 100!), but we've still got some great new features to share with you as well:
+Another great iteration has just wrapped up, so it's time for another edition of the Pulumi release notes! We've been busy smashing bugs across our products (over 100!), but we've also got several new updates across Pulumi providers, the CLI, and the Pulumi Service:
 
 - New and updated cloud providers
   - [Pulumi Kubernetes Operator supports GitOps workflow]({{< relref "/blog/pulumi-release-notes-m59#pulumi-kubernetes-operator-supports-gitops-workflow" >}})
