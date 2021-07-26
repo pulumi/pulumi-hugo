@@ -27,7 +27,20 @@ Another 3 weeks have passed, so it's time for another edition of the Pulumi rele
 
 ### Pulumi Kubernetes Operator supports GitOps workflow
 
-For some Kubernetes workflows, developers want to be able to store their configuration in a Git repository but ensure that their cluster automatically stays up-to-date with the latest configuration when it's checked in. With the latest update to the [Pulumi Kubernetes Operator](https://github.com/pulumi/pulumi-kubernetes-operator), you can set up this type of GitOps workflow. To get started, [specify the fully-qualified branch name](https://github.com/pulumi/pulumi-kubernetes-operator/blob/80398a85958215a7c2c87e9ce30c69998f6cdba9/pkg/apis/pulumi/v1alpha1/stack_types.go#L99-L101) that you want to track in the `Stack` CustomResource (e.g., `refs/heads/main` will track the `main` branch). The operator will track the specified branch and automatically deploy new commits that are pushed to the branch.
+For some Kubernetes workflows, developers want to be able to store their configuration in a Git repository but ensure that their cluster automatically stays up-to-date with the latest configuration when it's checked in. With the latest update to the [Pulumi Kubernetes Operator](https://github.com/pulumi/pulumi-kubernetes-operator), you can set up this type of GitOps workflow. To get started, [specify the fully-qualified branch name](https://github.com/pulumi/pulumi-kubernetes-operator/blob/80398a85958215a7c2c87e9ce30c69998f6cdba9/pkg/apis/pulumi/v1alpha1/stack_types.go#L99-L101) that you want to track in the `Stack` CustomResource (e.g., `refs/heads/main` will track the `main` branch). The operator will track the specified branch and automatically deploy new commits that are pushed to the branch. For example, the Kubernetes YAML below will tell the Pulumi Kubernetes Operator to poll the production branch of the target GitHub repo, and deploy an update to the acmecorp/s3-op-project/production stack when there are changes.
+
+```yaml
+apiVersion: pulumi.com/v1alpha1
+kind: Stack
+metadata:
+  name: s3-bucket-stack
+spec:
+  stack: acmecorp/s3-op-project/production
+  projectRepo: https://github.com/acmecorp/test-s3-op-project
+  branch: production 
+  config:
+    aws:region: us-east-2
+```
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi-kubernetes-operator/issues/50)
 
