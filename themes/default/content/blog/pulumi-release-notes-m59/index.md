@@ -13,8 +13,7 @@ tags:
 Another 3 weeks have passed, so it's time for another edition of the Pulumi release notes! This iteration we've been busy smashing bugs across our products (over 100!), but we've still got some great new features to share with you as well:
 
 - New and updated cloud providers
-  - [Kubernetes operator supports GitOps workflow]({{< relref "/blog/pulumi-release-notes-m59#kubernetes-operator-supports-gitops-workflow" >}})
-  - [Kubernetes improved performance]({{< relref "/blog/pulumi-release-notes-m59#kubernetes-improved-performance" >}})
+  - [Pulumi Kubernetes Operator supports GitOps workflow]({{< relref "/blog/pulumi-release-notes-m59#pulumi-kubernetes-operator-supports-gitops-workflow" >}})
   - [12 new resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m59#12-new-resources-in-the-azure-native-provider" >}})
   - [Google Native: autonaming; easier management of project and region settings]({{< relref "/blog/pulumi-release-notes-m59#google-native-autonaming-easier-management-of-project-and-region-settings" >}})
 - Pulumi CLI and core technologies
@@ -26,9 +25,9 @@ Another 3 weeks have passed, so it's time for another edition of the Pulumi rele
 
 ## New and updated cloud providers
 
-### Kubernetes operator supports GitOps workflow
+### Pulumi Kubernetes Operator supports GitOps workflow
 
-For some Kubernetes workflows, developers want to be able to store their configuration in a Git repository but ensure that their cluster automatically stays up-to-date with the latest configuration when it's checked in. With the latest update to the Pulumi Kubernetes Operator, you can set up this type of GitOps workflow. To get started, [specify the fully-qualified branch name](https://github.com/pulumi/pulumi-kubernetes-operator/blob/80398a85958215a7c2c87e9ce30c69998f6cdba9/pkg/apis/pulumi/v1alpha1/stack_types.go#L99-L101) that you want to track in the `Stack` CustomResource (e.g., `refs/heads/main` will track the `main` branch). The operator will track the specified branch and automatically deploy new commits that are pushed to the branch.
+For some Kubernetes workflows, developers want to be able to store their configuration in a Git repository but ensure that their cluster automatically stays up-to-date with the latest configuration when it's checked in. With the latest update to the [Pulumi Kubernetes Operator](https://github.com/pulumi/pulumi-kubernetes-operator), you can set up this type of GitOps workflow. To get started, [specify the fully-qualified branch name](https://github.com/pulumi/pulumi-kubernetes-operator/blob/80398a85958215a7c2c87e9ce30c69998f6cdba9/pkg/apis/pulumi/v1alpha1/stack_types.go#L99-L101) that you want to track in the `Stack` CustomResource (e.g., `refs/heads/main` will track the `main` branch). The operator will track the specified branch and automatically deploy new commits that are pushed to the branch.
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi-kubernetes-operator/issues/50)
 
