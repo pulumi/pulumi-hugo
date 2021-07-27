@@ -65,7 +65,7 @@ MIGs (where an instance group is a collection of VM instances that you can manag
 
 ### Azure Autoscale
 
-Autoscale is a built-in feature of Cloud Services, Mobile Services, Virtual Machine Scale Sets, and Websites.Autoscale can scale your service by a variety of criteria or you can define your own custom metrics. You can set a schedule so that you anticipate known spikes in demand. You can also set alerts based on metrics, such as CPU status or response time and create alerts for events, including when autoscale itself is triggered.
+Autoscale is a built-in feature of Cloud Services, Mobile Services, Virtual Machine Scale Sets, and Websites. Autoscale can scale your service by a variety of criteria or you can define your own custom metrics. You can set a schedule so that you anticipate known spikes in demand. You can also set alerts based on metrics, such as CPU status or response time and create alerts for events, including when autoscale itself is triggered.
 
 ## Learn More
 
