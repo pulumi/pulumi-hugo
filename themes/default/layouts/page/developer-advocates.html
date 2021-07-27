@@ -8,9 +8,6 @@
             The Pulumi Developer Advocates do things to help you be awesome. Here's a list of the team
             and their social media contact info! We would love to help you be super cool and rad!
         </p>
-        <p class="text-3xl">
-            <a href="mailto:da@pulumi.com">email us!</a>
-        </p>
     </section>
 
     <section id="team" class="px-4">
@@ -30,12 +27,28 @@
                     {{ end }}
                 {{ end }}
             </ul>
-            <div class="text-center mb-16 mt-8">
-                <p class="mt-8">
-                    <img class="mx-auto" src="/images/developer-advocates/backpack-hat-handsup-blue-waterbottle.png" alt="A platypus" />
-                </p>
-            </div>
         </div>
     </section>
+    <section id="contact" class="pt-16 px-4">
+      <div class="container mx-auto text-center ">
+          <h2 class="text-4xl my-6">Contact the Developer Advocates!</h2>
+          <div class="w-full md:max-w-2xl md:mx-auto">
+  
+              <div class="mt-4 mx-auto md:w-full md:mt-0 p-10 bg-white rounded rounded-lg shadow-lg border border-gray-300">
+                  <div class="mx-auto flex justify-center">
+                      <div class="hs-form hs-form-fg-dark font-normal">
+                        <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}"></pulumi-hubspot-form>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+      </div>
+      <div class="text-center mb-16 mt-8">
+        <p class="mt-8">
+            <img class="mx-auto" src="/images/developer-advocates/backpack-hat-handsup-blue-waterbottle.png" alt="A platypus" />
+        </p>
+    </div>
+  </section>
 
 {{ end }}
