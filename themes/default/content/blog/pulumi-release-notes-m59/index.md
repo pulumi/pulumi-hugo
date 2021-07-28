@@ -60,6 +60,10 @@ The preview of the Google Native provider continues to evolve. We shipped a new 
 - Automatic selection of the project, region, and zone based on your configuration, so you no longer need to pass these values to the SDK's constructor
 - An improved implementation of `BucketObject`
 
+The screenshot below shows the automatic selection and improved fully-qualified string settings:
+
+![A screenshot comparison of Google Native code before and after these changes](google-native-diff.png)
+
 [See the full list of updates](https://github.com/pulumi/pulumi-google-native/blob/master/CHANGELOG.md)
 
 ## Pulumi CLI and core technologies
