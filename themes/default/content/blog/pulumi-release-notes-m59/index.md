@@ -60,7 +60,7 @@ The preview of the Google Native provider continues to evolve. We shipped a new 
 - Automatic selection of the project, region, and zone based on your configuration, so you no longer need to pass these values to the SDK's constructor
 - An improved implementation of `BucketObject`
 
-The screenshot below, from the [webserver-ts example](https://github.com/pulumi/pulumi-google-native/blob/master/examples/webserver-ts/index.ts#L22-L45), shows the automatic selection and improved fully-qualified string settings:
+The screenshot below, from the [webserver-ts example](https://github.com/pulumi/pulumi-google-native/blob/master/examples/webserver-ts/index.ts#L22-L45), shows the auto-naming, automatic project and region selection, and improved fully-qualified string settings:
 
 ![A screenshot comparison of Google Native code before and after these changes](google-native-diff.png)
 
