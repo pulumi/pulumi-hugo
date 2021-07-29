@@ -39,7 +39,7 @@ If your application doesn't fit into a Platform as a Service (PaaS) model, consi
 
 ## Serverless
 
-At the opposite end of cloud infrastructure is serverless computing. Serverless eliminates the need for managing infrastructure and lets you write and deploy code. Azure automatically provisions, scales, and manages the infrastructure. You can write code that runs in response to events or on a schedule.
+At the opposite end of cloud infrastructure is serverless computing. Serverless eliminates the need to manage infrastructure and lets you focus on writing and deploying code. Azure automatically provisions, scales, and manages the infrastructure. You can write code that runs in response to events or on a schedule.
 
 Azure Functions lets you focus on the application's business logic, and the code executes when called by a webhook, an HTTP or REST request, a schedule, or an event. Serverless is particularly appealing because you can use the development language of your choice, ranging from PHP, Python, Node.js, or .NET languages. Azure functions scale as needed, and consumption-based pricing means that you're charged only when the code runs.
 
