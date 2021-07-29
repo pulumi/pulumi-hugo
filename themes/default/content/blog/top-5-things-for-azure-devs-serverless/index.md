@@ -88,7 +88,7 @@ $ curl http://localhost:7071/api/myHttpTrigger
 This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.
 ```
 
-Press Control-C in the terminal to stop the debugger.
+Press `Control-C` in the terminal to stop the debugger.
 
 **Step 3**: Publish the function to Azure.
 
