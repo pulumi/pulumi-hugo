@@ -64,7 +64,7 @@ If your configuration is valid, you'll see the following screen. Click `Create` 
 
 **Step 6**: Enjoy your success
 
-You can go and check out your vm by clicking on `Go to resource`.
+You can go and check out your VM by clicking on `Go to resource`.
 
 ![Complete deployment](./image7.png)
 
