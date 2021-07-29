@@ -42,7 +42,7 @@ A Resource Group is a logical collection of virtual machines, storage, virtual n
 
 **Step 3**: Configure the VM
 
-Next, we'll provide details for the vm by giving it a name, `myVM`, setting the `Region` and `Availability options` to `No infrastructure redundancy required`. We'll use an Ubuntu image and set the vm size `Standard_DS1_v2`.
+Next, we'll provide details for the VM by giving it a name, `myVM`, setting the `Region` and `Availability options` to `No infrastructure redundancy required`. We'll use an Ubuntu image and set the VM size `Standard_DS1_v2`.
 
 ![Configure VM](./image2.png)
 
