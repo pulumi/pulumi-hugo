@@ -109,6 +109,6 @@ So here are the top 5 things essential to know as an Azure developer:
 - developing and deploying Azure Functions
 - deploying static websites on Azure
 - configuring Azure Kubernetes Service and deploying containerized applications
-- using Azure DevOps to automating building and deployment of infrastructure and applications
+- using Azure DevOps to automate the building and deployment of infrastructure and applications
 
 First up and next in this series of articles is deploying an Azure virtual machine with an application.
