@@ -117,88 +117,88 @@ Creating and deploying an Azure Function is a bit more involved than using the A
 
 1. Creating a ResourceGroup
 
-```typescript
-// Create a separate resource group for this example.
-const resourceGroup = new resources.ResourceGroup("functions-rg");
-```
+    ```typescript
+    // Create a separate resource group for this example.
+    const resourceGroup = new resources.ResourceGroup("functions-rg");
+    ```
 
-1. Creating the storage account and code container that holds the function
+2. Creating the storage account and code container that holds the function
 
-```typescript
-// Storage account is required by Function App.
-// Also, we will upload the function code to the same storage account.
-const storageAccount = new storage.StorageAccount("sa", {
-    resourceGroupName: resourceGroup.name,
-    sku: {
-        name: storage.SkuName.Standard_LRS,
-    },
-    kind: storage.Kind.StorageV2,
-});
+    ```typescript
+    // Storage account is required by Function App.
+    // Also, we will upload the function code to the same storage account.
+    const storageAccount = new storage.StorageAccount("sa", {
+        resourceGroupName: resourceGroup.name,
+        sku: {
+            name: storage.SkuName.Standard_LRS,
+        },
+        kind: storage.Kind.StorageV2,
+    });
 
-// Function code archives will be stored in this container.
-const codeContainer = new storage.BlobContainer("zips", {
-    resourceGroupName: resourceGroup.name,
-    accountName: storageAccount.name,
-});
-```
+    // Function code archives will be stored in this container.
+    const codeContainer = new storage.BlobContainer("zips", {
+        resourceGroupName: resourceGroup.name,
+        accountName: storageAccount.name,
+    });
+    ```
 
-1. Uploading the function code as a zip file to the storage account. Note that the `source` parameter points to the function's directory.
+3. Uploading the function code as a zip file to the storage account. Note that the `source` parameter points to the function's directory.
 
-```typescript
-// Upload Azure Function's code as a zip archive to the storage account.
-const codeBlob = new storage.Blob("zip", {
-    resourceGroupName: resourceGroup.name,
-    accountName: storageAccount.name,
-    containerName: codeContainer.name,
-    source: new pulumi.asset.FileArchive("./javascript"),
-});
-```
+    ```typescript
+    // Upload Azure Function's code as a zip archive to the storage account.
+    const codeBlob = new storage.Blob("zip", {
+        resourceGroupName: resourceGroup.name,
+        accountName: storageAccount.name,
+        containerName: codeContainer.name,
+        source: new pulumi.asset.FileArchive("./javascript"),
+    });
+    ```
 
-1. Setting the [Consumption Plan](https://azure.microsoft.com/en-us/pricing/details/functions/) to determine how to bill when the function executes
+4. Setting the [Consumption Plan](https://azure.microsoft.com/en-us/pricing/details/functions/) to determine how to bill when the function executes
 
-```typescript
-// Define a Consumption Plan for the Function App.
-// You can change the SKU to Premium or App Service Plan if needed.
-const plan = new web.AppServicePlan("plan", {
-    resourceGroupName: resourceGroup.name,
-    sku: {
-        name: "Y1",
-        tier: "Dynamic",
-    },
-});
-```
+    ```typescript
+    // Define a Consumption Plan for the Function App.
+    // You can change the SKU to Premium or App Service Plan if needed.
+    const plan = new web.AppServicePlan("plan", {
+        resourceGroupName: resourceGroup.name,
+        sku: {
+            name: "Y1",
+            tier: "Dynamic",
+        },
+    });
+    ```
 
-1. Set the connection string to the storage account and the zip archive's [Shared Access Signature (SAS)](https://docs.microsoft.com/en-us/rest/api/storageservices/delegate-access-with-shared-access-signature) to grant rights to use the storage account. We will need these to create the function in Azure.
+5. Set the connection string to the storage account and the zip archive's [Shared Access Signature (SAS)](https://docs.microsoft.com/en-us/rest/api/storageservices/delegate-access-with-shared-access-signature) to grant rights to use the storage account. We will need these to create the function in Azure.
 
-```typescript
-// Build the connection string and zip archive's SAS URL. They will go to Function App's settings.
-const storageConnectionString = getConnectionString(resourceGroup.name, storageAccount.name);
-const codeBlobUrl = signedBlobReadUrl(codeBlob, codeContainer, storageAccount, resourceGroup);
-```
+    ```typescript
+    // Build the connection string and zip archive's SAS URL. They will go to Function App's settings.
+    const storageConnectionString = getConnectionString(resourceGroup.name, storageAccount.name);
+    const codeBlobUrl = signedBlobReadUrl(codeBlob, codeContainer, storageAccount, resourceGroup);
+    ```
 
-1. Now that we have all the parameters needed to deploy the function: the resource group,
+6. Now that we have all the parameters needed to deploy the function: the resource group,
 the billing plan, the connection string to Azure storage, the Functions version (3), the runtime (Node.js), the runtime Node version (14.0), and the SAS url for the function code, we can build and deploy our Azure Function.
 
-```typescript
-const app = new web.WebApp("fa", {
-    resourceGroupName: resourceGroup.name,
-    serverFarmId: plan.id,
-    kind: "functionapp",
-    siteConfig: {
-        appSettings: [
-            { name: "AzureWebJobsStorage", value: storageConnectionString },
-            { name: "FUNCTIONS_EXTENSION_VERSION", value: "~3" },
-            { name: "FUNCTIONS_WORKER_RUNTIME", value: "node" },
-            { name: "WEBSITE_NODE_DEFAULT_VERSION", value: "~14" },
-            { name: "WEBSITE_RUN_FROM_PACKAGE", value: codeBlobUrl },
-        ],
-        http20Enabled: true,
-        nodeVersion: "~14",
-    },
-});
+    ```typescript
+    const app = new web.WebApp("fa", {
+        resourceGroupName: resourceGroup.name,
+        serverFarmId: plan.id,
+        kind: "functionapp",
+        siteConfig: {
+            appSettings: [
+                { name: "AzureWebJobsStorage", value: storageConnectionString },
+                { name: "FUNCTIONS_EXTENSION_VERSION", value: "~3" },
+                { name: "FUNCTIONS_WORKER_RUNTIME", value: "node" },
+                { name: "WEBSITE_NODE_DEFAULT_VERSION", value: "~14" },
+                { name: "WEBSITE_RUN_FROM_PACKAGE", value: codeBlobUrl },
+            ],
+            http20Enabled: true,
+            nodeVersion: "~14",
+        },
+    });
 
-export const endpoint = pulumi.interpolate`https://${app.defaultHostName}/api/HelloNode?name=Pulumi`;
-```
+    export const endpoint = pulumi.interpolate`https://${app.defaultHostName}/api/HelloNode?name=Pulumi`;
+    ```
 
 At the very end of the script, we export the URL to the service for you to trigger.
 
