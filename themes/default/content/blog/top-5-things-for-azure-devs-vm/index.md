@@ -20,7 +20,7 @@ A native provider provides functionality mapped directly from the underlying API
 
 ## Creating a VM with the Azure Portal
 
-When creating virtual machines, you should consider the operating system, storage requirements, and vm size regarding CPU to memory ratio. Azure offers [many sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) depending on your workload. If you're migrating a traditional n-tier application to the cloud, it's best to start with virtual machines that match your current configuration.
+When creating virtual machines, you should consider the operating system, storage requirements, and VM size with regard to CPU to memory ratio. Azure offers [many sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) depending on your workload. If you're migrating a traditional n-tier application to the cloud, it's best to start with virtual machines that match your current configuration.
 
 This article will use a simple example of deploying a static web application on a virtual machine to illustrate the process step by step. To get started, sign in to the [Azure Portal](https://portal.azure.com/).
 
