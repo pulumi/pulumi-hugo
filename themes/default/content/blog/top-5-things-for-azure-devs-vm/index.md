@@ -78,7 +78,7 @@ Creating and provisioning one vm isn't difficult, but migrating a traditional n-
 
 Let's look at an example of deploying a web server using a virtual machine. The complete example is available in either [Python](https://github.com/pulumi/examples/tree/master/azure-py-webserver) or [Typescript](https://github.com/pulumi/examples/tree/master/azure-ts-webserver). We will examine the Python code.
 
-We're using the Azure Native provider, which implements the best possible support for the Azure platform in Pulumi. It exposes the entire API surface of Azure to developers and operators. The native provider supports 1,010 resource types, with more added as they are released by Azure.
+We're using the Azure Native provider, which implements the best possible support for the Azure platform in Pulumi. It exposes the entire API surface of Azure to developers and operators. The native provider supports over 1,000 resource types, with more added as they are released by Azure.
 
 The script starts with importing the Pulumi Azure Native SDK modules and retrieving configuration parameters such as the username and password required to log into the server for provisioning. It also creates a resource group.
 
