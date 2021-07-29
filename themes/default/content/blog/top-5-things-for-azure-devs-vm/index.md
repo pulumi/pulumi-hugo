@@ -226,6 +226,6 @@ class CopyFile(dynamic.Resource):
 
 ## Summary
 
-Although it's relatively simple to create virtual machines using the Azure Portal or the Azure CLI, provisioning and maintaining them manually can be complex and error-prone. If we use code to build, deploy, and manage vms and applications, we can automate the process making updates and maintenance repeatable processes and reduce errors. We can tear down existing vms and replace them with updated and provisioned versions using infrastructure as code. This is a lot of information if you're starting your Azure cloud journey, so try something fun and deploy [Minecraft on Azure]({{< relref "/blog/deploying-minecraft-on-azure">}})!
+Although it's relatively simple to create virtual machines using the Azure Portal or the Azure CLI, provisioning and maintaining them manually can be complex and error-prone. If we use code to build, deploy, and manage VMs and applications, we can automate the process making updates and maintenance repeatable processes and reduce errors. We can tear down existing VMs and replace them with updated and provisioned versions using infrastructure as code. This is a lot of information if you're starting your Azure cloud journey, so try something fun and deploy [Minecraft on Azure]({{< relref "/blog/deploying-minecraft-on-azure">}})!
 
 ![Minecraft](./image9.png)
