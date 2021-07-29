@@ -97,7 +97,7 @@ Before Continuous integration (CI) and Continuous Deployment (CD) became prevale
 
 ![Devops architecture](./image1.png)
 
-If you're deploying applications on Azure Functions, virtual machines, AKS, or provisioning infrastructure, the build process should be. Azure offers a range of services such as Azure Container Registry, AKS, and Azure Cosmos DB that can integrate with popular CI/CD pipelines like Azure DevOps, Jenkins, Github, and TeamCity.
+If you're deploying applications on Azure Functions, virtual machines, AKS, or provisioning infrastructure, the build process should be automated. Azure offers a range of services such as Azure Container Registry, AKS, and Azure Cosmos DB that can integrate with popular CI/CD pipelines like Azure DevOps, Jenkins, Github, and TeamCity.
 
 If you're interested in using Azure DevOps to automate infrastructure and application delivery, stay tuned!
 
