@@ -127,7 +127,7 @@ network_iface = network.NetworkInterface(
 
 ```
 
-And here's our web server and index page using Python's simpeHTTPServer.
+And here's our web server and index page using Python's `simpleHTTPServer`.
 
 ```python
 init_script = """#!/bin/bash
