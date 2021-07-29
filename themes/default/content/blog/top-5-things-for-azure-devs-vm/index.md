@@ -24,7 +24,7 @@ When creating virtual machines, you should consider the operating system, storag
 
 This article will use a simple example of deploying a static web application on a virtual machine to illustrate the process step by step. To get started, sign in to the [Azure Portal](https://portal.azure.com/).
 
-Step 1:
+**Step 1**:
 
 Under `Azure Services`, select `Virtual machines`
 
@@ -34,25 +34,25 @@ Select `Create` > `Virtual Machine`
 
 ![Create VM](./image8.png)
 
-Step 2: Create a Resource Group
+**Step 2**: Create a Resource Group
 
 A Resource Group is a logical collection of virtual machines, storage, virtual networks, web apps, and databases. Users will commonly group an application's related resources. We'll create `myResourceGroup` for our application.
 
 ![Resource group](./image6.png)
 
-Step 3: Configure the VM
+**Step 3**: Configure the VM
 
 Next, we'll provide details for the vm by giving it a name, `myVM`, setting the `Region` and `Availability options` to `No infrastructure redundancy required`. We'll use an Ubuntu image and set the vm size `Standard_DS1_v2`.
 
 ![Configure VM](./image2.png)
 
-Step 4: Configure the Administrator Account
+**Step 4**: Configure the Administrator Account
 
 Virtual machines are Infrastructure as a Service, which means you will have to perform provisioning, updates, and maintenance. You'll need an administrator account to perform these tasks. To keep this example simple, we'll use `Password` as the `Authentication type`, but in practice, you should use Public Key Infrastructure (PKI) because it is more secure than a password that can be brute-forced.
 
 ![Configure Admin](./image5.png)
 
-Step 5: Configure inbound ports
+**Step 5**: Configure inbound ports
 
 You have to log into your virtual machine as well as allowing inbound requests to the static website. Select both `HTTP (80)` and `SSH (22)` then click on `Review + create`.  Note that you can also add storage by clicking on `Disks`, but we'll use the defaults for this example.
 
@@ -62,7 +62,7 @@ If your configuration is valid, you'll see the following screen. Click `Create` 
 
 ![Create VM](./image1.png)
 
-Step 6: Enjoy your success
+**Step 6**: Enjoy your success
 
 You can go and check out your vm by clicking on `Go to resource`.
 
