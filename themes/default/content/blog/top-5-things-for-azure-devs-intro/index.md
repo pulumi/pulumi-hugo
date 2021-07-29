@@ -51,7 +51,7 @@ If you don’t need a completely hosted project and only pay for what you use, c
 
 Static websites are quickly becoming the defacto way to publish content. Built from libraries and frameworks that don't use server side rendering like React, Angular, or Vue, they include HTML, CSS, image assets, and Javascript in the application. Instead of serving assets from a server or servers scaled horizontally, the static assets are distributed through a Content Delivery Network (CDN). This reduces latency, resulting in faster websites and increased customer satisfaction.
 
-Azure provides two ways to deploy static websites. Azure let's you deploy a static web application with Azure App Service and the recently released Azure Static Web Apps. Azure App Service deploys websites by uploading the website to Azure storage configured to serve web content. Azure App Service automatically builds and deploys full stack web apps to Azure from a code repository, which is follows the [Jamstack](https://jamstack.org/) model for developing and deploying websites.
+Azure provides two ways to deploy static websites. Azure lets you deploy a static web application with Azure App Service and the recently released Azure Static Web Apps. Azure App Service deploys websites by uploading the website to Azure storage configured to serve web content. Azure App Service automatically builds and deploys full stack web apps to Azure from a code repository, which follows the [Jamstack](https://jamstack.org/) model for developing and deploying websites.
 
 We'll look at both methods and discuss the pros and cons of both methods.
 
