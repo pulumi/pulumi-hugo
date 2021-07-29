@@ -113,7 +113,7 @@ Don't forget to delete the function in the Azure Portal!
 
 ## Deploying Azure Functions with code
 
-Creating and deploying an Azure Function is a bit more involved than using the Azure Function extension with VS Code. What goes on behind the scene after you write the function is a process that includes:
+Creating and deploying an Azure Function is a bit more involved than using the Azure Function extension with VS Code. What goes on behind the scenes after you write the function is a process that includes:
 
 1. Creating a ResourceGroup
 
