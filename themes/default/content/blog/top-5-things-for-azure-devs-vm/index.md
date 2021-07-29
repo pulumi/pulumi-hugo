@@ -68,7 +68,7 @@ You can go and check out your VM by clicking on `Go to resource`.
 
 ![Complete deployment](./image7.png)
 
-Well, that seems simple and easy, but what if you had to deploy several virtual machines for the application that includes a web server, a worker to process requests, a message queuing system, and a database? What if your current system has multiple web servers and backend workers behind a load balancer? You'll have to create, deploy, and maintain each vm because this is an IaaS.
+Well, that seems simple and easy, but what if you had to deploy several virtual machines for the application that includes a web server, a worker to process requests, a message queuing system, and a database? What if your current system has multiple web servers and backend workers behind a load balancer? You'll have to create, deploy, and maintain each VM because this is an IaaS.
 
 There's a better way using infrastructure as code and cloud engineering methodologies to create an automated process for creating, provisioning, and maintaining virtual machines.
 
