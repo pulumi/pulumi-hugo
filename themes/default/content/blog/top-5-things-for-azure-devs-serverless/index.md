@@ -204,7 +204,7 @@ At the very end of the script, we export the URL to the service for you to trigg
 
 ## Why is it so complicated?
 
-Isn't infrastructure as code supposed to simplify infrastructure deployments? This seems more effort than using the VS Code extension or even the Azure CLI on the surface. However, it's important to note that this is *boiler-plate* code that you can reuse to deploy multiple functions with different runtimes and Consumption Plans. The key to using infrastructure code is that it is repeatable, customizable, and a CI/CD can deploy changes automatically.
+Isn't infrastructure as code supposed to simplify infrastructure deployments? This seems more effort than using the Visual Studio Code extension or even [the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on the surface. However, it's important to note that this is *boiler-plate* code that you can reuse to deploy multiple functions with different runtimes and Consumption Plans. The key to using infrastructure code is that it is repeatable, customizable, and a CI/CD pipeline can deploy changes automatically.
 
 Try out the complete example in either [Typescript](https://github.com/pulumi/examples/tree/master/azure-ts-functions) or [C#](https://github.com/pulumi/examples/tree/master/azure-ts-functions) to get familiar with Azure Functions. You can also learn how Functions are written in all supported languages by checking out the [Azure Functions in All Supported Languages](https://github.com/pulumi/examples/tree/master/azure-ts-functions-many) example.
 
