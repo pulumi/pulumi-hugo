@@ -135,7 +135,7 @@ echo "Hello, World!" > index.html
 nohup python -m SimpleHTTPServer 80 &"""
 ```
 
-Finally, here's how we create the virtual machine. We add the vm to the resource group and associate the `network_profile` to `network_iface` that we defined previously. We set the `vm_size`, set up the `os_profile` with the hostname and username and password. In the example, we create a `storage profile` and use Ubuntu for the image profile. The script ends by exporting the public IP address of the webserver.
+Finally, here's how we create the virtual machine. We add the VM to the resource group and associate the `network_profile` to `network_iface` that we defined previously. We set the `vm_size`, set up the `os_profile` with the hostname and username and password. In the example, we create a `storage profile` and use Ubuntu for the image profile. The script ends by exporting the public IP address of the webserver.
 
 ```python
 vm = compute.VirtualMachine(
