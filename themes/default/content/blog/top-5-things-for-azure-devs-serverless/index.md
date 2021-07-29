@@ -107,7 +107,7 @@ $ curl https://myazurehttptrigger.azurewebsites.net/api/myhttptrigger?name=Pulum
 Hello, Pulumipus. This HTTP triggered function executed successfully.
 ```
 
-Don't forget to delete the function in the Azure Portal.
+Don't forget to delete the function in the Azure Portal!
 
 ![Azure Portal](./image1.png)
 
