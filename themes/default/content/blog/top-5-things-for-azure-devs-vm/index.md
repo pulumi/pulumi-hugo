@@ -48,7 +48,7 @@ Next, we'll provide details for the VM by giving it a name, `myVM`, setting the 
 
 **Step 4**: Configure the Administrator Account
 
-Virtual machines are Infrastructure as a Service, which means you will have to perform provisioning, updates, and maintenance. You'll need an administrator account to perform these tasks. To keep this example simple, we'll use `Password` as the `Authentication type`, but in practice, you should use Public Key Infrastructure (PKI) because it is more secure than a password that can be brute-forced.
+Virtual machines are Infrastructure as a Service, which means you will have to perform provisioning, updates, and maintenance. You'll need an administrator account to perform these tasks. To keep this example simple, we'll use `Password` as the `Authentication type`, but in practice, you should use [Public Key Infrastructure (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) because it is more secure than a password that can be brute-forced.
 
 ![Configure Admin](./image5.png)
 
