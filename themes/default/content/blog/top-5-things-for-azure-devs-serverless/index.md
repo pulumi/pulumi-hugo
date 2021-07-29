@@ -37,7 +37,7 @@ With those caveats, let's jump into creating a serverless function using the Azu
 
 ## Our first serverless function
 
-For this example, we'll use [VS Code](https://code.visualstudio.com/) and the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+For this example, we'll use [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
 **Step 1**: With the Azure Functions extension installed, click on the Activity Bar and click on Create New Project.
 
