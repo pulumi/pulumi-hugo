@@ -31,7 +31,7 @@ In this article, we'll match use cases to cloud services to help you navigate Az
 
 A common cloud migration path is to use virtual machines if you have existing infrastructure or on-premise applications. It is especially true if you want complete control over the infrastructure and application environment.
 
-Azure provides Infrastructure as a Service (IaaS) for deploying your applications on either Linux or Windows VMS. The IaaS include the necessary support such as Azure Virtual Network and storage. As with any IaaS solution, you are responsible for installing software, configuration, and maintenance of your application and any maintenance the VM might require, such as operating system patches.
+Azure provides Infrastructure as a Service (IaaS) for deploying your applications on either Linux or Windows VMs. IaaS includes all necessary support, such as Azure Virtual Network and storage. As with any IaaS solution, you are responsible for the installation of software, configuration, and maintenance of your application and any maintenance the VM might require, such as operating system patches.
 
 If your application doesn't fit into a Platform as a Service (PaaS) model, consider using virtual machines to provide the fine-grained control required for your deployment.
 
