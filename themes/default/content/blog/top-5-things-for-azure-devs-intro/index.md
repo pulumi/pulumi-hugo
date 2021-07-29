@@ -60,7 +60,7 @@ We'll look at both methods and discuss the pros and cons of both methods.
 Kubernetes is the leading container orchestration service. Azure Kubernetes Service (AKS) is a hosted service that can deploy, scale, and manage containerized applications in a cluster. AKS fulfills many different use cases, for example:
 
 - If you have an existing application, think n-tier applications, you can containerize the components and "lift and shift" your application to run in Kubernetes.
-- You can deploy microservices on AKS to horizontal scaling, load balancing, secrets management, and self-healing.
+- You can deploy microservices on AKS to add horizontal scaling, load balancing, secrets management, and self-healing.
 - Data scientists are training machine learning models on AKS using TensorFlow and Kubeflow.
 - You can even use AKS as part of a build pipeline by pairing with a CI, such as Jenkins, to build containers for your application.
 
