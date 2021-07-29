@@ -81,7 +81,7 @@ Functions:
         myHttpTrigger: [GET,POST] http://localhost:7071/api/myHttpTrigger
 ```
 
-Navigate to the URL in a browser or use curl.
+Navigate to the URL in a browser or use `curl`.
 
 ```bash
 $ curl http://localhost:7071/api/myHttpTrigger
