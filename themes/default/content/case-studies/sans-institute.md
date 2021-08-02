@@ -91,7 +91,7 @@ They’ve also begun developing their own SANS policy pack to verify that resour
 
 ## The Result
 
-Using Pulumi, Chris and Tyler greatly simplified the SANS Labs architecture and created a better user experience for SANS Labs instructors and students. Now, instructors can more easily and quickly provision virtual environments because they reduced deployment times from around 10 minutes down to 3 to 5 minutes. In the future, Chris and Tyler plan to use Pulumi and [cloud engineering best practices](/cloud-engineering/) to help other business units modernize their practices and tools, such as the GIAC certification unit.
+Using Pulumi, Chris and Tyler greatly simplified the SANS Labs architecture and created a better user experience for SANS Labs instructors and students. Now, instructors can more easily and quickly provision virtual environments because they reduced deployment times from around 10 minutes down to 3 to 5 minutes. In the future, Chris and Tyler plan to use Pulumi and [cloud engineering best practices]({{< relref "/cloud-engineering" >}}) to help other business units modernize their practices and tools, such as the GIAC certification unit.
 
 ## Summary
 
