@@ -8,7 +8,7 @@ authors:
 tags:
     - cloud engineering
 
----s
+---
 
 One of the most fulfilling aspects of working at Pulumi is learning how customers and the community practice cloud engineering in their teams. It’s exciting to see how they use cloud engineering and Pulumi to implement best practices that enable leveraging the cloud to accelerate innovation and enable better business outcomes.
 
@@ -24,14 +24,14 @@ These three case studies highlight a small sampling of the many types of compani
 
 Atlassian’s Bitbucket DevSpeed team is responsible for improving developer productivity through better workflows and tooling. It used Pulumi to make it easier and faster for its developers to use cloud infrastructure and reduced developers' time spent on maintenance by 50%. DevSpeed originally needed a way to expand regional support for its deployment pipeline, which deploys instances on AWS for more than one hundred team members around the world. The team also wanted to build a self-service platform that provisions cloud infrastructure for Bitbucket’s developers, without having to learn a complex domain specific language (DSL). They moved from a legacy DSL-based infrastructure as code tool to the Pulumi Cloud Engineering Platform, which let them define and deploy infrastructure in general-purpose languages that Bitbucket developers already used, such as Python. Using a familiar language like Python also made it easy for them to add cross-regional support to their deployment pipeline. They also built a self-service dashboard that allows any developer to deploy and configure private Bitbucket instances for feature development.
 
-**Key Practices**
+### Atlassian's Key Practices
 
 - Builds infrastructure as code with Python.
 - Makes infrastructure code readable and accessible to all developers in the organization by using a common language like Python.
 - Created a self-service platform that deploys and configures private Bitbucket instances for any Bitbucket developer. Underneath, everything runs through a CI/CD pipeline with Pulumi, Bitbucket Pipelines, and Bamboo.
 - Manages and deploys updates to all developer instances in the organization using features like the Pulumi Automation API.
 
-**Results**
+### Atlassian's Results
 
 - Allowed developers to use general-purpose programming languages like Python and familiar software tools to deliver and manage infrastructure.
 - Enabled Bitbucket developers to easily provision approved cloud infrastructure using a self-service dashboard built with Pulumi.
@@ -44,14 +44,14 @@ Atlassian’s Bitbucket DevSpeed team is responsible for improving developer pro
 
 SANS Institute is the global leader in cybersecurity training. Using Pulumi, the organization adopted cloud engineering practices that enabled it to reduce deployment times by 70%. Its DevOps team needed a more consistent and reliable way to build, deploy, and manage the SANS virtual training environments used in labs. It had previously used legacy infrastructure tools which require inflexible DSLs that aren’t suited to modern cloud applications. The limitations of the DSLs meant the team needed to use AWS Lambda functions and Bash scripts to fill in gaps. The team needed a cleaner solution built for the modern cloud that would be more scalable and easier to manage. By adopting Pulumi, SANS increased delivery speed, quality, and consistency using cloud engineering practices such as building infrastructure as code with TypeScript and software tools, and deploying cloud applications with Git and automated delivery pipelines. It plans to use Pulumi to help other SANS business units modernize their practices and tools.
 
-**Key Practices**
+### SANS Institute's Key Practices
 
 - Builds infrastructure as code with TypeScript.
 - Deploys infrastructure through a GitOps and CI/CD process while managing its Git branches using a GitFlow pattern.
 - Production deployments can be initiated through an API call through a self-service platform that deploys an application instance.
 - Manages infrastructure configuration through Policy as Code which checks for compliance.
 
-**Results**
+### SANS Institute's Results
 
 - Reduced deployment times for game servers by up to 70%.
 - Simplified their deployment process by eliminating the need to “glue together” several infrastructure as code tools, scripts, and functions. This let them remove a manual ticketing step.
@@ -64,7 +64,7 @@ SANS Institute is the global leader in cybersecurity training. Using Pulumi, the
 
 Kenshoo is an independent, global marketing platform for strategy, measurement, and best-of-breed activation across all of the world’s most influential digital channels. Kenshoo possesses a highly technical engineering organization with over 350 software engineers, data experts, and DevOps engineers.  Kenshoo’s microservices run on AWS, but its core monolith service was hosted in a data center running private cloud infrastructure. Kenshoo’s DevOps group needed to migrate the service to the cloud because demand increased. Kenshoo’s DevOps team decided to transition from using its legacy infrastructure tool because its domain-specific language (DSL) wouldn’t be suited to the demands of the newly migrated modern cloud architectures. Instead, Kenshoo sought a solution that enabled it to use familiar languages and software engineering best practices to manage its infrastructure. That’s why Kenshoo chose the Pulumi Cloud Engineering Platform to build, deploy, and manage its infrastructure with Python.
 
-**Key Practices**
+### Kenshoo's Key Practices
 
 - Builds infrastructure as code in Python.
 - Leverages reusable infrastructure components.
@@ -72,7 +72,7 @@ Kenshoo is an independent, global marketing platform for strategy, measurement, 
 - Teams use a “loosely-coupled, tightly-aligned” approach to create component classes for different infrastructure elements, with each team working on a different element.
 - Uses Python code to integrate infrastructure processes with internal metadata and IT systems.
 
-**Results**
+### Kenshoo's Results
 
 - Migrated a core monolith service with hundreds of terabytes of data from a data center to AWS.
 - Refactored the service’s infrastructure from being managed with a legacy infrastructure configuration tool to Pulumi, using Python as the language of choice.
