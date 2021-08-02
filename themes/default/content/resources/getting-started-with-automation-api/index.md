@@ -7,7 +7,7 @@ meta_desc: "In this workshop, you’ll build a Python & Flask web application th
 featured: false
 
 # If the video is pre-recorded or live.
-pre_recorded: true
+pre_recorded: false
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
 pulumi_tv: false
@@ -20,7 +20,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: false
+gated: true
 
 # The layout of the landing page.
 type: webinars
@@ -43,6 +43,17 @@ hero:
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
+# Webinar pages support multiple session via the 'multiple' property.
+multiple:
+    - datetime: 2021-08-17T09:00:00-07:00
+      hubspot_form_id: 18955e07-057b-4147-acb0-22ce92f13720
+
+    - datetime: 2021-08-25T06:00:00-07:00
+      hubspot_form_id: 25c90b21-1f57-49be-a171-b63ce46e7b57
+
+    - datetime: 2021-09-09T04:00:00-07:00
+      hubspot_form_id: c217773f-0f19-4b49-9f2a-ce17841b04f7
+
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
@@ -61,16 +72,14 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Lee Briggs
-          role: Community Engineer, Pulumi
+        - name: Kat Cosgrove
+          role: Staff Developer Advocate, Pulumi
+        - name: Matty Stratton
+          role: Staff Developer Advocate, Pulumi
+
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
         - How to create cloud infrastructure with Pulumi's Automation API.
         - How to build a self-service cloud platform for deploying applications.
-
-# The right hand side form section.
-form:
-    # HubSpot form id.
-    hubspot_form_id: 39b7f824-0903-485a-87b4-aa06ecb2b140
 ---
