@@ -19,8 +19,12 @@ Pulumi is born from the experiences and needs of teams practicing cloud engineer
 Recently, we published several case studies about how teams are applying cloud engineering best practices. Cloud engineers apply standard software engineering practices and tools uniformly across infrastructure management, application development, and security to tame the complexity of delivering and managing modern cloud applications. We’ve published on our [website]({{< relref "/cloud-engineering" >}}) and in this [blog]({{< relref "/blog/infrastructure-testing-concepts" >}}) some of the key cloud engineering best practices that we see broadly across the community, and encourage you to read further to see three stories of cloud engineering in action.
 
 These three case studies highlight a small sampling of the many types of companies and teams representing cloud engineers. Some are platform teams at large organizations, like Atlassian, who are responsible for empowering the rest of their developer teams. We also see DevOps teams using cloud engineering, such as at Kenshoo and SANS Institute. There are other types of teams, like full-stack engineers or SREs, which we will share in future posts. All of these teams share a software engineering mindset and make a leveraged impact on the business by increasing speed, automation, reliability, and agility through cloud infrastructure innovation.
+<br>
+<br>
 
-## Atlassian
+![Atlassian](./atlassian-wordmark.png)
+
+<!-- ## Atlassian -->
 
 Atlassian’s Bitbucket DevSpeed team is responsible for improving developer productivity through better workflows and tooling. It used Pulumi to make it easier and faster for its developers to use cloud infrastructure and reduced developers' time spent on maintenance by 50%. DevSpeed originally needed a way to expand regional support for its deployment pipeline, which deploys instances on AWS for more than one hundred team members around the world. The team also wanted to build a self-service platform that provisions cloud infrastructure for Bitbucket’s developers, without having to learn a complex domain specific language (DSL). They moved from a legacy DSL-based infrastructure as code tool to the Pulumi Cloud Engineering Platform, which let them define and deploy infrastructure in general-purpose languages that Bitbucket developers already used, such as Python. Using a familiar language like Python also made it easy for them to add cross-regional support to their deployment pipeline. They also built a self-service dashboard that allows any developer to deploy and configure private Bitbucket instances for feature development.
 
@@ -39,8 +43,12 @@ Atlassian’s Bitbucket DevSpeed team is responsible for improving developer pro
 - Reduced the size and complexity of its infrastructure code compared to its previous infrastructure tool while increasing the code’s clarity.
 
 [Read the full case study→]({{< relref "/case-studies/atlassian" >}})
+<br>
+<br>
 
-## SANS Institute
+![SANS Institute](./sans-wordmark.png)
+
+<!-- ## SANS Institute -->
 
 SANS Institute is the global leader in cybersecurity training. Using Pulumi, the organization adopted cloud engineering practices that enabled it to reduce deployment times by 70%. Its DevOps team needed a more consistent and reliable way to build, deploy, and manage the SANS virtual training environments used in labs. It had previously used legacy infrastructure tools which require inflexible DSLs that aren’t suited to modern cloud applications. The limitations of the DSLs meant the team needed to use AWS Lambda functions and Bash scripts to fill in gaps. The team needed a cleaner solution built for the modern cloud that would be more scalable and easier to manage. By adopting Pulumi, SANS increased delivery speed, quality, and consistency using cloud engineering practices such as building infrastructure as code with TypeScript and software tools, and deploying cloud applications with Git and automated delivery pipelines. It plans to use Pulumi to help other SANS business units modernize their practices and tools.
 
@@ -59,8 +67,12 @@ SANS Institute is the global leader in cybersecurity training. Using Pulumi, the
 - Helped to identify opportunities in other SANS departments where Pulumi can streamline operations.
 
 [Read the full case study→]({{< relref "/case-studies/sans-institute" >}})
+<br>
+<br>
 
-## Kenshoo
+![Kenshoo](./kenshoo-wordmark.png)
+
+<!-- ## Kenshoo -->
 
 Kenshoo is an independent, global marketing platform for strategy, measurement, and best-of-breed activation across all of the world’s most influential digital channels. Kenshoo possesses a highly technical engineering organization with over 350 software engineers, data experts, and DevOps engineers.  Kenshoo’s microservices run on AWS, but its core monolith service was hosted in a data center running private cloud infrastructure. Kenshoo’s DevOps group needed to migrate the service to the cloud because demand increased. Kenshoo’s DevOps team decided to transition from using its legacy infrastructure tool because its domain-specific language (DSL) wouldn’t be suited to the demands of the newly migrated modern cloud architectures. Instead, Kenshoo sought a solution that enabled it to use familiar languages and software engineering best practices to manage its infrastructure. That’s why Kenshoo chose the Pulumi Cloud Engineering Platform to build, deploy, and manage its infrastructure with Python.
 
