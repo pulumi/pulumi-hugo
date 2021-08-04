@@ -1,5 +1,5 @@
 ---
-title: "Top 5 an Azure Developer Needs to Know: Serverless"
+title: "<h1>Top 5 Things an Azure Developer Needs to Know: Serverless</h1>"
 date: 2021-08-06
 meta_desc: "Building and deploying serverless functions with Azure."
 meta_image: azure-top-5.png
