@@ -1,5 +1,5 @@
 ---
-title: ""
+title: <h1>Top 5 Things an Azure Developer Needs to Know - Serverless</h1>
 date: 2021-08-06
 meta_desc: "Building and deploying serverless functions with Azure."
 meta_image: azure-top-5.png
@@ -11,7 +11,6 @@ tags:
     - cloud engineering
 
 ---
-<h1>Top 5 Things an Azure Developer Needs to Know: Serverless</h1>
 
 The [previous article]({{< relref "/blog/top-5-things-for-azure-devs-vm">}}) was a deep dive into virtual machines. First, we used the Azure Portal to create and deploy a virtual machine; then, we repeated the process using infrastructure as code. We further demonstrated how to automate provisioning as part of cloud engineering's build and deploy processes.
 
