@@ -3,27 +3,17 @@
 {{ end }}
 
 {{ define "main" }}
-    <section id="overview" class="container mx-auto mt-16 mb-8">
+    <section id="overview" class="container mx-auto my-16 lg:mt-16 lg:mb-8 px-6">
         <div class="lg:flex">
-            <div class="lg:w-1/2 pr-16">
-                <h3>Harness the full power of Infrastructure as Code</h3>
-                <p>
-                    Pulumi Automation API exposes the full power of infrastructure as code through a
-                    programmatic interface, instead of through CLI commands. Automation API lets you
-                    use the Pulumi engine as an SDK, providing you a strongly typed, familiar programming
-                    environment so you can create software that can create, update, configure, and destroy
-                    infrastructure dynamically. This enables you to build custom cloud interfaces that are
-                    tailored to your team,  organization, or customers.
-                </p>
-                <div class="lg:flex lg:items-center lg:justify-start my-8">
-                    <div class="my-8 mx-1">
-                        <a class="btn-primary" href="{{ relref . "/docs/guides/automation-api" }}">Learn More</a>
+            <div class="lg:w-1/2 lg:order-last mb-8 lg:mb-0 relative h-full">
+                <div class="shape-background automation-video">
+                    <div class="shape-container">
+                        <div class="circle-left"></div>
+                        <div class="circle-right"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="lg:w-1/2">
-                <div class="rounded-xl shadow-2xl" style="position: relative; padding-bottom: 50.25%; height: 0; overflow: hidden;">
+                <div class="rounded-xl shadow-2xl relative h-0 overflow-hidden" style="padding-bottom: 50.25%;">
                     <iframe
                         src="//www.youtube.com/embed/kFHb8f2fk9k?rel=0"
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
@@ -33,16 +23,37 @@
                     ></iframe>
                 </div>
             </div>
+            <div class="lg:w-1/2 lg:pr-16 text-center">
+                <h3>Harness the full power of Infrastructure as Code</h3>
+                <p>
+                    Pulumi Automation API exposes the full power of infrastructure as code through a
+                    programmatic interface, instead of through CLI commands. Automation API lets you
+                    use the Pulumi engine as an SDK, providing you a strongly typed, familiar programming
+                    environment so you can create software that can create, update, configure, and destroy
+                    infrastructure dynamically. This enables you to build custom cloud interfaces that are
+                    tailored to your team,  organization, or customers.
+                </p>
+                <div class="text-center my-8">
+                    <a class="btn-primary" href="{{ relref . "/docs/guides/automation-api" }}">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="benefits" class="px-4">
+    <section id="benefits" class="px-4 relative lg:mt-16">
+        <div class="shape-background automation-benefits-section">
+            <div class="shape-container">
+                <div class="circle-left"></div>
+                <div class="circle-right"></div>
+            </div>
+        </div>
+
         <div class="container mx-auto">
-            <h2>Benefits</h2>
-            <div class="card md:flex md:flex-wrap my-8 p-6">
-                <div class="md:w-1/2 p-4 border-r-2 border-b-2">
-                    <div class="p-6 h-full">
-                        {{ partial "color-icon.html" (dict "icon" "code" "icon_color" "blue") }}
+            <h2 class="text-center">The benefits of using Automation API</h2>
+            <div class="md:flex md:flex-wrap mb-8 px-6 pb-6">
+                <div class="md:w-1/2 p-4">
+                    <div class="card p-6 h-full bg-white">
+                        <div class="text-center">{{ partial "color-icon.html" (dict "icon" "code" "icon_color" "blue") }}</div>
                         <h5>Programmatic interface for Infrastructure as Code</h5>
                         <p>
                             Use the Pulumi engine as a strongly typed SDK in your application code,
@@ -52,9 +63,9 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/2 p-4 border-b-2">
-                    <div class="p-6 h-full">
-                        {{ partial "color-icon.html" (dict "icon" "guage" "icon_color" "yellow") }}
+                <div class="md:w-1/2 p-4">
+                    <div class="card p-6 h-full bg-white">
+                        <div class="text-center">{{ partial "color-icon.html" (dict "icon" "guage" "icon_color" "yellow") }}</div>
                         <h5>Scale the distribution of best practices</h5>
                         <p>
                             Codify best practices for cloud infrastructure within custom applications or tools
@@ -64,9 +75,9 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/2 p-4 border-r-2">
-                    <div class="p-6 h-full">
-                        {{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "salmon") }}
+                <div class="md:w-1/2 p-4">
+                    <div class="card p-6 h-full bg-white">
+                        <div class="text-center">{{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "salmon") }}</div>
                         <h5>Build abstractions and custom interfaces</h5>
                         <p>
                             Automation API enables you to build custom cloud interfaces for your technical end
@@ -77,8 +88,8 @@
                 </div>
 
                 <div class="md:w-1/2 p-4">
-                    <div class="p-6 h-full">
-                        {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
+                    <div class="card p-6 h-full bg-white">
+                        <div class="text-center">{{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}</div>
                         <h5>Simplify managing single-tenant SaaS applications</h5>
                         <p>
                             Easily build high-scale, SaaS applications that serve customers with single-tenant
@@ -91,15 +102,15 @@
     </section>
 
     <section id="automation-features" class="relative mt-12">
-        <div class="shape-background product-features-section">
+        <div class="shape-background automation-scenarios">
             <div class="shape-container">
                 <div class="circle-left"></div>
                 <div class="circle-right"></div>
             </div>
         </div>
 
-        <div class="container mx-auto my-32">
-            <h2 class="my-12">Scenarios</h2>
+        <div class="container mx-auto mb-16">
+            <h2 class="my-12 text-center">Use Cases</h2>
 
             <div class="automation-scenarios-carousel-items">
                 <span id="self-service" class="hidden"></span>
@@ -109,25 +120,66 @@
 
                 <ul id="automation-scenarios-carousel-headers" class="automation-scenarios-carousel-headers">
                     <li class="" data-product-carousel-type="self-service">
-                        <h5 class="my-0 text-black"><a href="#self-service" class="text-black">Self-service infrastructure</a></h5>
+                        <h5 class="my-0 text-black xl:block hidden"><a href="#self-service" class="text-black">Self-service infrastructure</a></h5>
+                        <h6 class="my-0 text-black xl:hidden"><a href="#self-service" class="text-black">Self-service infrastructure</a></h6>
                     </li>
                     <li class="" data-product-carousel-type="saas">
-                        <h5 class="my-0"><a href="#saas" class="text-gray-500">Single-tenant SaaS instances</a></h5>
+                        <h5 class="my-0 xl:block hidden"><a href="#saas" class="text-gray-500">Single-tenant SaaS instances</a></h5>
+                        <h6 class="my-0 xl:hidden"><a href="#saas" class="text-gray-500">Single-tenant SaaS instances</a></h6>
                     </li>
                     <li class="" data-product-carousel-type="workflow">
-                        <h5 class="my-0"><a href="#workflow" class="text-gray-500">Infrastructure Workflow Orchestration</a></h5>
+                        <h5 class="my-0 xl:block hidden"><a href="#workflow" class="text-gray-500">Infrastructure Workflow Orchestration</a></h5>
+                        <h6 class="my-0 xl:hidden"><a href="#workflow" class="text-gray-500">Infrastructure Workflow Orchestration</a></h6>
                     </li>
                     <li class="" data-product-carousel-type="tooling">
-                        <h5 class="my-0"><a href="#tooling" class="text-gray-500">Custom Infrastructure Tooling</a></h5>
+                        <h5 class="my-0 xl:block hidden"><a href="#tooling" class="text-gray-500">Custom Infrastructure Tooling</a></h5>
+                        <h6 class="my-0 xl:hidden"><a href="#tooling" class="text-gray-500">Custom Infrastructure Tooling</a></h6>
                     </li>
                 </ul>
 
                 <ul class="automation-scenarios-carousel-items-list">
                     <li class="w-full pb-3" data-product-carousel-type="self-service">
-                        <div class="flex">
-                            <div class="w-1/3 p-3">
-                                <div class="card p-3 pb-8 relative">
-                                    <div class="w-full my-2 px-6">
+                        <h3 class="lg:hidden text-center">Self-service infrastructure</h3>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-2/3 py-3 px-6">
+                                <div class="card p-3 px-6 relative bg-white">
+                                    <p>
+                                        Build custom infrastructure tools, developer portals, and platforms that
+                                        make it easier for your development teams to use cloud infrastructure.
+                                        Infrastructure and security teams can scale their best practices by creating
+                                        declarative infrastructure and exposing it behind a REST, gRPC, or
+                                        Custom Resource API that developers and operators can easily consume,
+                                        without needing to understand every underlying resource.
+                                    </p>
+
+                                    <div class="lg:flex">
+                                        <div class="lg:w-1/2 border-r-2 p-3">
+                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}</div>
+                                            <p class="font-bold">Pulumipus’ Self-Service Platform, a web app in Python</p>
+                                            <p>
+                                                This is a self-service interface for creating customized static sites, databases,
+                                                virtual machines, and more. The code is open source and available on
+                                                <a href="https://github.com/komalali/self-service-platyform" target="_blank" rel="noreferrer noopener" class="link">
+                                                GitHub</a>.
+                                            </p>
+                                        </div>
+
+                                        <div class="lg:w-1/2 p-3">
+                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "clipboard" "icon_color" "salmon") }}</div>
+                                            <p class="font-bold">Python IaC in your Jupyter notebook</p>
+                                            <p>
+                                                Use Pulumi’s Python SDK with Automation API to create infrastructure interactively
+                                                from a Jupyter notebook. Examples are available on
+                                                <a href="https://github.com/pulumi/automation-api-examples/tree/main/python/pulumi_via_jupyter" target="_blank" rel="noreferrer noopener" class="link">
+                                                GitHub</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/3 lg:order-first py-3 px-6 lg:p-3">
+                                <div class="card p-3 pb-8 relative bg-white">
+                                    <div class="w-2/3 mx-auto my-2 px-6">
                                         <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">
                                             {{ partial "customer-logo.html" (dict "logo" "mercedes-benz") }}
                                         </a>
@@ -140,65 +192,18 @@
                                     </p>
 
                                     <div class="card-cta-btn text-center">
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="btn-primary">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative">
-                                    <p>
-                                        Build custom infrastructure tools, developer portals, and platforms that
-                                        make it easier for your development teams to use cloud infrastructure.
-                                        Infrastructure and security teams can scale their best practices by creating
-                                        declarative infrastructure and exposing it behind a REST, gRPC, or
-                                        Custom Resource API that developers and operators can easily consume,
-                                        without needing to understand every underlying resource.
-                                    </p>
-
-                                    <div class="lg:flex">
-                                        <div class="lg:w-1/2 border-r-2 text-center p-3">
-                                            {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
-                                            <p class="font-bold">Pulumipus’ Self-Service Platform, a web app in Python</p>
-                                            <p>
-                                                This is a self-service interface for creating customized static sites, databases,
-                                                virtual machines, and more. The code is open source and available on
-                                                <a href="https://github.com/komalali/self-service-platyform" target="_blank" rel="noreferrer noopener" class="link">
-                                                GitHub</a>.
-                                            </p>
-                                        </div>
-
-                                        <div class="w-1/2 text-center p-3">
-                                            {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
-                                            <p class="font-bold">Python IaC in your Jupyter notebook</p>
-                                            <p>
-                                                Use Pulumi’s Python SDK with Automation API to create infrastructure interactively
-                                                from a Jupyter notebook. Examples are available on
-                                                <a href="https://github.com/pulumi/automation-api-examples/tree/main/python/pulumi_via_jupyter" target="_blank" rel="noreferrer noopener" class="link">
-                                                GitHub</a>.
-                                            </p>
-                                        </div>
+                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="btn-secondary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li class="w-full pb-3 hidden" data-product-carousel-type="saas">
-                        <div class="flex">
-                            <div class="w-1/3 p-3">
-                                <div class="card p-3 pb-8 relative">
-                                    <div class="w-full my-2 px-6">
-                                        {{ partial "customer-logo.html" (dict "logo" "cockroach-labs") }}
-                                    </div>
-                                    <p>
-                                        Cockroach Labs provides the CockroachDB database-as-a-service. It uses
-                                        Pulumi Automation API to manage Kubernetes clusters behind the scenes
-                                        on behalf of their customers.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative">
+                    <li class="w-full pb-3 lg:hidden" data-product-carousel-type="saas">
+                        <h3 class="lg:hidden text-center mt-16">Single-tenant SaaS instances</h3>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-2/3 py-3 px-6">
+                                <div class="card p-3 px-6 relative bg-white">
                                     <p>
                                         Simplify the management of multi-instance SaaS architectures where you
                                         need single-tenant infrastructure for each customer. You can create
@@ -207,8 +212,8 @@
                                         your applications.
                                     </p>
 
-                                    <div class="text-center p-3">
-                                        {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
+                                    <div class="p-3">
+                                        <div class="text-center">{{ partial "color-icon.html" (dict "icon" "nodes" "icon_color" "blue") }}</div>
                                         <p class="font-bold">Infrastructure as RESTful resources</p>
                                         <p>
                                             This example demonstrates how to run Automation API in an HTTP server to expose
@@ -220,14 +225,65 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="w-full lg:w-1/3 lg:order-first py-3 px-6 lg:p-3">
+                                <div class="card p-3 pb-8 relative bg-white">
+                                    <div class="w-2/3 mx-auto my-2 px-6">
+                                        {{ partial "customer-logo.html" (dict "logo" "cockroach-labs") }}
+                                    </div>
+                                    <p>
+                                        Cockroach Labs provides the CockroachDB database-as-a-service. It uses
+                                        Pulumi Automation API to manage Kubernetes clusters behind the scenes
+                                        on behalf of their customers.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </li>
 
-                    <li class="w-full pb-3 hidden" data-product-carousel-type="workflow">
-                        <div class="flex">
-                            <div class="w-1/3 p-3">
-                                <div class="card p-3 pb-8 relative">
-                                    <div class="w-full my-2 px-6">
+                    <li class="w-full pb-3 lg:hidden" data-product-carousel-type="workflow">
+                        <h3 class="lg:hidden text-center mt-16">Infrastructure Workflow Orchestration</h3>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-2/3 py-3 px-6">
+                                <div class="card p-3 px-6 relative bg-white">
+                                    <p>
+                                        Manage complicated infrastructure tasks like database migrations,
+                                        microservice deployments, schema migrations, and more. Distributed
+                                        systems and microservices incur a significant coordination burden,
+                                        and dependencies across API boundaries are difficult to track and
+                                        maintain. With the Automation API, you can use a strongly typed,
+                                        familiar programming environment to orchestrate multi-stack deployments,
+                                        codify dependencies, and enable safe incremental deployment.
+                                    </p>
+
+                                    <div class="lg:flex">
+                                        <div class="lg:w-1/2 border-r-2 p-3">
+                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "cycle" "icon_color" "yellow") }}</div>
+                                            <p class="font-bold">Database Migration</p>
+                                            <p>
+                                                This example provisions an AWS Aurora SQL database and executes a database "migration"
+                                                using the resulting connection info. The code is available on GitHub in
+                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration" target="_blank" rel="noreferrer noopener" class="link">Go</a>,
+                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts" target="_blank" rel="noreferrer noopener" class="link">Node.js</a>,
+                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/python/database_migration" target="_blank" rel="noreferrer noopener" class="link">Python</a>,
+                                                and <a href="https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration" target="_blank" rel="noreferrer noopener" class="link">.NET</a>.
+                                            </p>
+                                        </div>
+
+                                        <div class="lg:w-1/2 p-3">
+                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "purple") }}</div>
+                                            <p class="font-bold">Multi-Stack Orchestration</p>
+                                            <p>
+                                                This example shows how to use Automation API to tame the complexity of multiple
+                                                stacks with dependent stack outputs. The code is available on
+                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/multi_stack_orchestration" target="_blank" rel="noreferrer noopener" class="link">GitHub</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full lg:order-first lg:w-1/3 py-3 px-6 lg:p-3">
+                                <div class="card p-3 pb-8 relative bg-white">
+                                    <div class="w-2/3 mx-auto my-2 px-6">
                                         <a href="{{ relref . "/case-studies/lemonade" }}" class="link">
                                             {{ partial "customer-logo.html" (dict "logo" "lemonade") }}
                                         </a>
@@ -240,74 +296,18 @@
                                     </p>
 
                                     <div class="card-cta-btn text-center">
-                                        <a href="{{ relref . "/case-studies/lemonade" }}" class="btn-primary">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative">
-                                    <p>
-                                        Manage complicated infrastructure tasks like database migrations,
-                                        microservice deployments, schema migrations, and more. Distributed
-                                        systems and microservices incur a significant coordination burden,
-                                        and dependencies across API boundaries are difficult to track and
-                                        maintain. With the Automation API, you can use a strongly typed,
-                                        familiar programming environment to orchestrate multi-stack deployments,
-                                        codify dependencies, and enable safe incremental deployment.
-                                    </p>
-
-                                    <div class="lg:flex">
-                                        <div class="lg:w-1/2 border-r-2 text-center p-3">
-                                            {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
-                                            <p class="font-bold">Database Migration</p>
-                                            <p>
-                                                This example provisions an AWS Aurora SQL database and executes a database "migration"
-                                                using the resulting connection info. The code is available on GitHub in
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration" target="_blank" rel="noreferrer noopener" class="link">Go</a>,
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts" target="_blank" rel="noreferrer noopener" class="link">Node.js</a>,
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/python/database_migration" target="_blank" rel="noreferrer noopener" class="link">Python</a>,
-                                                and <a href="https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration" target="_blank" rel="noreferrer noopener" class="link">.NET</a>.
-                                            </p>
-                                        </div>
-
-                                        <div class="w-1/2 text-center p-3">
-                                            {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
-                                            <p class="font-bold">Multi-Stack Orchestration</p>
-                                            <p>
-                                                This example shows how to use Automation API to tame the complexity of multiple
-                                                stacks with dependent stack outputs. The code is available on
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/multi_stack_orchestration" target="_blank" rel="noreferrer noopener" class="link">GitHub</a>.
-                                            </p>
-                                        </div>
+                                        <a href="{{ relref . "/case-studies/lemonade" }}" class="btn-secondary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li class="w-full pb-3 hidden" data-product-carousel-type="tooling">
-                        <div class="flex">
-                            <div class="w-1/3 p-3">
-                                <div class="card p-3 pb-8 relative">
-                                    <div class="w-full my-2 px-6">
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">
-                                            {{ partial "customer-logo.html" (dict "logo" "mercedes-benz") }}
-                                        </a>
-                                    </div>
-                                    <p>
-                                        Automation API powers custom infrastructure platforms for organizations like
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">Mercedes-Benz Research
-                                        & Development North America</a>. These platforms empower their teams to stand up the cloud
-                                        infrastructure that they need and when they need it.
-                                    </p>
-
-                                    <div class="card-cta-btn text-center">
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="btn-primary">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative">
+                    <li class="w-full pb-3 lg:hidden" data-product-carousel-type="tooling">
+                        <h3 class="lg:hidden text-center mt-16">Custom Infrastructure Tooling</h3>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-2/3 py-3 px-6">
+                                <div class="card p-3 px-6 relative bg-white">
                                     <p>
                                         Build user-friendly infrastructure tooling such as CLIs, higher-level frameworks,
                                         CI/CD workflows, and even desktop apps. Infrastructure teams can use Automation
@@ -316,8 +316,8 @@
                                     </p>
 
                                     <div class="lg:flex">
-                                        <div class="lg:w-1/2 border-r-2 text-center p-3">
-                                            {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
+                                        <div class="lg:w-1/2 border-r-2 p-3">
+                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "rocketship" "icon_color" "fuchsia") }}</div>
                                             <p class="font-bold">Ploy, a CLI in Go</p>
                                             <p>
                                                 Ploy is a Heroku-like interface for deploying Docker images to a Kubernetes cluster.
@@ -327,8 +327,8 @@
                                             </p>
                                         </div>
 
-                                        <div class="w-1/2 text-center p-3">
-                                            {{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}
+                                        <div class="lg:w-1/2 p-3">
+                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "lightning" "icon_color" "violet") }}</div>
                                             <p class="font-bold">Pulumi GitHub Action, a CI/CD extension in TypeScript</p>
                                             <p>
                                                 Pulumi’s GitHub Action is powered by Automation API and it gives you complete
@@ -342,6 +342,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="w-full lg:w-1/3 lg:order-first py-3 px-6 lg:p-3">
+                                <div class="card p-3 pb-8 relative bg-white">
+                                    <div class="w-2/3 mx-auto my-2 px-6">
+                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">
+                                            {{ partial "customer-logo.html" (dict "logo" "mercedes-benz") }}
+                                        </a>
+                                    </div>
+                                    <p>
+                                        Automation API powers custom infrastructure platforms for organizations like
+                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">Mercedes-Benz Research
+                                        & Development North America</a>. These platforms empower their teams to stand up the cloud
+                                        infrastructure that they need and when they need it.
+                                    </p>
+
+                                    <div class="card-cta-btn text-center">
+                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="btn-secondary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -350,7 +369,7 @@
     </section>
 
     <!-- Logos -->
-    <section class="container mx-auto text-center my-0 mb-16 lg:my-24 overflow-hidden px-3">
+    <section class="container mx-auto text-center my-0 mb-16 lg:mt-24 overflow-hidden px-3">
         <h3 class="text-center mb-10 hidden lg:block">{{ .Params.customer_logos.title }}</h3>
         <h6 class="text-center mb-10 lg:hidden">{{ .Params.customer_logos.title }}</h6>
         <pulumi-swiper loop="true" autoplay="true" autoplay-delay="2500" speed="2000">
@@ -368,9 +387,9 @@
         </pulumi-swiper>
     </section>
 
-    <section class="container mx-auto">
+    <section class="container mx-auto mb-16">
         <div class="lg:flex items-stretch">
-            <div class="w-full lg:w-1/2 px-4 py-2 lg:p-8 lg:px-4">
+            <div class="w-full lg:w-1/2 px-4 py-2 lg:p-8 lg:px-4 text-center">
                 <div class="border lg:border-none lg:shadow-2xl p-8 lg:px-24 lg:pt-4 g:pb-12 rounded-xl bg-white">
                     <h4>More Examples</h4>
                     <p class="mb-24">
@@ -381,7 +400,7 @@
                 </div>
             </div>
 
-            <div class="w-full lg:w-1/2 px-4 py-2 lg:p-8 lg:px-4">
+            <div class="w-full lg:w-1/2 px-4 py-2 lg:p-8 lg:px-4 text-center">
                 <div class="border lg:border-none lg:shadow-2xl p-8 lg:px-24 lg:pt-4 g:pb-12 rounded-xl bg-white">
                     <h4>Workshop</h4>
                     <p class="mb-16 pb-1">
