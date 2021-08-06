@@ -104,7 +104,7 @@
 
                 &:hover {
                     a, .dropdown-title {
-                        @apply opacity-50;
+                        @apply font-bold;
                     }
                 }
 
@@ -122,8 +122,12 @@
                             }
 
                             a {
+                                @apply font-normal;
+                            }
+
+                            a {
                                 &:hover {
-                                    @apply opacity-100;
+                                    @apply font-bold;
                                 }
                             }
                         }
