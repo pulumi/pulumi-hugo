@@ -96,6 +96,7 @@
 
                 a {
                     @apply block px-4 my-1 transition-all;
+                    transition: font-weight .1s ease-in-out;
                 }
 
                 .dropdown-title {
@@ -123,6 +124,7 @@
 
                             a {
                                 @apply font-normal;
+                                transition: font-weight .1s ease-in-out;
 
                                 &:hover {
                                     @apply font-bold;
