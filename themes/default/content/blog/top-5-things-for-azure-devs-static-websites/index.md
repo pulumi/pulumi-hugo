@@ -383,7 +383,7 @@ Let's jump into Azure Static Web Apps!
 
 **Step 1**: Push your web application to Github.
 
-Azure provides a template for generating web applications. Click on this [link](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate) to generate a React application.
+Azure provides a template for generating web applications. Click on this [link](https://github.com/staticwebdev/vanilla-basic/generate) to generate a basic HTML application.
 
 ![Generate app from template](./react-basic.png)
 
@@ -448,3 +448,30 @@ $ git commit -m 'change message'
 - Define where your app, APIs, and build output are located.
 - Select the Create button and watch the magic happen!
 - View your static web app.
+
+
+
+### Deploy with Pulumi
+
+
+```typescript
+import pulumi
+import pulumi_azure_native as azure_native
+
+static_site = azure_native.web.StaticSite("staticSite",
+    branch="master",
+    build_properties=azure_native.web.StaticSiteBuildPropertiesArgs(
+        api_location="api",
+        app_artifact_location="build",
+        app_location="app",
+    ),
+    location="West US 2",
+    name="testStaticSite0",
+    repository_token="repoToken123",
+    repository_url="https://github.com/username/RepoName",
+    resource_group_name="rg",
+    sku=azure_native.web.SkuDescriptionArgs(
+        name="Basic",
+        tier="Basic",
+    ))
+    ```
