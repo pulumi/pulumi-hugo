@@ -2,7 +2,7 @@
 title: "Top 5 an Azure Developer Needs to Know: Static Websites"
 date: 2021-08-09
 meta_desc: "Building and deploying static websites with Azure"
-meta_image: meta.png
+meta_image: azure-top-5.png
 authors:
     - sophia-parafina
 tags:
@@ -12,13 +12,13 @@ tags:
 
 Static web applications are a popular way to publish websites. There are many reasons for adopting static web applications, including speed, security, version control, scalability, and reduced cost.
 
-This article goes into depth about the two types of static web applications that Azure offers. The first uses Azure Blob Storage to serve static data. The second method is Azure Static Web Apps which is follows the pattern of [Jamstack](https://jamstack.org) applications that use a static website generator integrated with source control that publishes to a [Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network). We'll take an in-depth look at both methods and consider the pros and cons of each.
+This article goes into depth about the two types of static web applications that Azure offers. The first uses Azure Blob Storage to serve static data. The second method is Azure Static Web Apps which follows the pattern of [Jamstack](https://jamstack.org) applications that use a static website generator integrated with source control that publishes to a [Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network). We'll take an in-depth look at both methods and consider the pros and cons of each.
 
 <!--more-->
 
 ## Static Websites with Azure Storage
 
-Hosting a static website on Azure Store is good option for serving web content without a web server. You can upload HTML, CSS, images, and JavaScript to an Azure storage container named $web. Because the content is in a storage container, you can also use other PaaS services like Azure Functions or Azure CDN.
+Hosting a static website on Azure Store is an option for serving web content without a web server. You can upload HTML, CSS, images, and JavaScript to an Azure storage container named $web. Because the content is in a storage container, you can also use other PaaS services like Azure Functions or Azure CDN.
 
 ### Azure Portal
 
@@ -26,7 +26,7 @@ Let's get started using the Azure Portal.
 
 **Step 1**: Create a storage account (optional if you have an existing storage account)
 
-In the Azure Portal navigate to `Storage accounts` and follow the defaults.
+In the Azure Portal, navigate to `Storage accounts` and follow the defaults.
 
 ![Storage accounts](./image5.png)
 
@@ -62,13 +62,13 @@ index.html
 </html>
 ```
 
-We'll use `Storage Explorer (preview)` and select `BLOB CONTAINERS` then `$web`. In the `Upload blob` pane add the `index.html` and `404.html` files and click on `Upload`.
+We'll use `Storage Explorer (preview)` and select `BLOB CONTAINERS` then `$web`. In the `Upload blob` pane, add the `index.html` and `404.html` files and click on `Upload`.
 
 ![Storage explorer](./image1.png)
 
 **Step 4**: Get the URL
 
-Click on `Static website` in the overview pane and the URL is the `Primary endpoint`.
+Click on `Static website` in the overview pane, and the URL is the `Primary endpoint`.
 
 ![Endpoint](./image3.png)
 
@@ -81,7 +81,7 @@ We can repeat the same process using a programming language. The process include
 - Upload files
 - Configure and publish endpoints
 
-We can reproduce this process in code with C#, Go, Python, Typescript, or in any of the languages Pulumi supports. Let's step through the code.
+We can reproduce this process in code with C#, Go, Python, Typescript, or in any language Pulumi supports. Let's step through the code.
 
 **Step 1**: Create a `Resource group` and `Storage account`.
 
@@ -373,21 +373,21 @@ The complete examples for [C#](https://github.com/pulumi/examples/tree/master/az
 
 Azure Static Web Apps (SWA) builds and deploys web apps from a code repository. Azure works directly with Githu or Azure Devops to watch a branch on your repository. When you push a commit or accept a pull request, your app is built and deployed to Azure. When you build web apps with SWA, your static assets are deployed to a CDN that serves files from geographically distributed points.
 
-Static web apps can be built with popular frameworks that don't require server-side rendering, such as React, Angular, and Vue. A web applications typically include HTML, JavaScript, images, and CSS. In addition to these assets, you can create API endpoints hosted in an Azure Function.
+Static web apps can be built with popular frameworks that don't require server-side rendering, such as React, Angular, and Vue. Web applications typically include HTML, JavaScript, images, and CSS. In addition to these assets, you can create API endpoints hosted in an Azure Function.
 
-The key things to remember with SWAs is that your application is built from a repo
+The key thing to remember with SWAs is that you build the application from a repository.
 
 Let's jump into Azure Static Web Apps!
 
 ### Build and deploy
 
-For this example, we'll use Visual Studio Code, the [Azure Static Web App Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps), and a [Github](https://github.com/) account.
+We'll use Visual Studio Code's [Azure Static Web App Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) and a [Github](https://github.com/) account.
 
 **Step 1**: Install the [Azure Web Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) extension. Follow the instructions to authorize Visual Studio Code to access your Github account.
 
 **Step 2**: Create a web application
 
-For convenience, we can use the Azure template for generating web applications. Click on this [link](https://github.com/staticwebdev/vanilla-basic/generate) to generate a basic HTML application.
+For convenience, we can use the Azure template for generating web applications. Click on this [link](https://github.com/staticwebdev/vanilla-basic/generate) to generate a basic React application.
 
 ![Generate app from template](./react-basic.png)
 
@@ -397,7 +397,7 @@ Clone the repository to your computer.
 $ git clone https://github.com/spara/bookish-doodle.git
 ```
 
-**Step 3**: Create a statuc web app with Visual Studio Code
+**Step 3**: Create a static web app with Visual Studio Code
 
 Open your repository with Visual Studio Code and activate the [Azure extension](https://code.visualstudio.com/docs/azure/extensions). On `APP SERVICE`item, click on the `+` to create a web app.
 
@@ -444,23 +444,25 @@ Add, commit, and push your changes to Github.
 $ git add .
 $ git commit -m 'changed message'
 $ git push
+```
 
 Click on the Github Actions tab of your repository to see the workflows. Click on the `changed message`, then click on `Build and Deploy Job`.
 
-[Commit](./changed_message.png)
+![Commit](./changed_message.png)
 
-[Build and Deploy Job](./build_and_deploy_job.png)
+![Build and Deploy Job](./build_and_deploy_job.png)
 
 To see the details of the deployment, click on `Build and Deploy`.
 
-[Results](./results.png)
+![Results](./results.png)
 
-So what happened here? First, we used the Azure Static Web Apps for Visual Studio Code to authorize access to Github. Next, we created a deployment using the extension, created a Github Actions workflow, and deployed the application. We the changed the application and pushed the changes to the repository. The push triggered the Github Action, rebuilt the application, and deployed the changes. The Azure Static Web Apps service lets you create a complete devops work flow.
+So what happened here? First, we used the Azure Static Web Apps for Visual Studio Code to authorize access to Github. Next, we created a deployment using the extension, created a Github Actions workflow, and deployed the application. We edited the code and pushed it to the repository. The push triggered the Github Action, rebuilt, and deployed the application.
+
+The Azure Static Web Apps service lets you create a complete devops workflow.
 
 ### Build and deploy with code and Pulumi
 
-Can we create a complete devops workflow with code? Of course we can! The Pulumi Azure Native provider is built on the same API that the Visual Studio Code extensio uses. In the example below, we can duplicate the process without using
-an extension or the Azure CLI.
+Can we create a complete devops workflow with code? Of course, we can! The Pulumi Azure Native provider uses the same API as the Visual Studio. In the example below, we can duplicate the process without using an extension or the Azure CLI.
 
 ```typescript
 import pulumi
@@ -484,8 +486,8 @@ static_site = azure_native.web.StaticSite("staticSite",
     ))
 ```
 
-In the example above, creating a static web app requires configuring the same parameters we used in the Visual Studio Code example. The difference is that we create a Pulumi Project with our application at the root of the project directory in a folder called `app`. Once the static web app stack is created you can push changes and trigger a deployment. One of the advantages of using infrastructure as code is that you can use the development environment and toolchain that you prefer. You are not bound to using a specific extension or development environment. Cloud engineering and Azure Static Web Apps lets us be productive with our toolchain and create a complete deployment with a Github Actions workflow.
+In the example above, creating a static web app requires configuring the same parameters we used in the Visual Studio Code example. The difference is that we create a Pulumi Project with our application at the root of the project directory in a folder called `app`. Once the static web app stack is created, you can push changes and trigger a deployment. One of the advantages of using infrastructure as code is that you can use the development environment and toolchain that you prefer. You are not bound to using a specific extension or development environment. We can be productive with our toolchain and create a complete deployment workflow with Github Actions with cloud engineering and Azure Static Web Apps.
 
 ## Summary
 
-This article demonstrates two ways to build static websites with Azure. The first way is to use Azure storage to deploy the website. We showed how to use the Azure Portal and infrastructure as code to deploy. The other way to deploy a static website is to use the Azure Static Web Apps Service. In this example, we used the Visual Studio Code extension to configure Github Actions to deploy the React application. Because the Pulumi Azure Native provider is built on the Azure API, we demonstrated how to deploy using code. Infrastructure as code lets us choose our development environment where we are productive. In the next installment of this series, we'll tackle deploying Kubernetes.
+This article demonstrates two ways to build static websites with Azure. The first way is to use Azure storage to deploy the website. We showed how to use the Azure Portal and infrastructure as code to deploy. The other way to deploy a static website is to use the Azure Static Web Apps Service. We used the Visual Studio Code extension to configure Github Actions to deploy the React application in this example. We demonstrated how to deploy using code because the Pulumi Azure Native provider uses the Azure API. Infrastructure as code lets us choose our development environment where we are productive. In the next installment of this series, we’ll tackle deploying Kubernetes. In the next installment of this series, we'll tackle deploying Kubernetes.
