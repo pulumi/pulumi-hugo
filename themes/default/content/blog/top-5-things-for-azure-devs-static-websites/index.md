@@ -381,78 +381,86 @@ Let's jump into Azure Static Web Apps!
 
 ### Build and deploy
 
-**Step 1**: Push your web application to Github.
+For this example, we'll use Visual Studio Code, the [Azure Static Web App Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps), and a [Github](https://github.com/) account.
 
-Azure provides a template for generating web applications. Click on this [link](https://github.com/staticwebdev/vanilla-basic/generate) to generate a basic HTML application.
+**Step 1**: Install the [Azure Web Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) extension. Follow the instructions to authorize Visual Studio Code to access your Github account.
+
+**Step 2**: Create a web application
+
+For convenience, we can use the Azure template for generating web applications. Click on this [link](https://github.com/staticwebdev/vanilla-basic/generate) to generate a basic HTML application.
 
 ![Generate app from template](./react-basic.png)
 
-Clone the repository.
+Clone the repository to your computer.
 
 ```bash
 $ git clone https://github.com/spara/bookish-doodle.git
 ```
 
-**Step 2**: Create a web app with Visual Studio (VS) Code
+**Step 3**: Create a statuc web app with Visual Studio Code
 
-Open your repository with VS Code and activate the [Azure extension](https://code.visualstudio.com/docs/azure/extensions). On `APP SERVICE`item, click on the `+` to create a web app.
+Open your repository with Visual Studio Code and activate the [Azure extension](https://code.visualstudio.com/docs/azure/extensions). On `APP SERVICE`item, click on the `+` to create a web app.
 
-![Create web app](./APP_SERVICE.png)
+![Create web app](./static_web_app_vscode.png)
 
 Follow the prompts:
 
-- Create a unique name
-- Select a runtime (Node 14 LTS)
-- Select a pricing tier (Free)
+- Create a unique name.
 
-**Step 3**: Deploy
+![Enter a name](./name.png)
 
-![Deploy](./deploy.png)
+- Select project structure.
 
-- Select your repository to deploy
+![Select project structure](./react.png)
 
-![Deploy completed](./deploy_completed.png)
+- Select application directory.
 
-**Step 4**: View your app and make changes
+![Select project directory](./project_location.png)
 
-![Website](./site.png)
+- Select build directory.
 
-Edit `./src/app.js` and change *World* to *Happy People.*
+![Select build directory](./build_directory.png)
+
+When the Visual Studio Code completes configuring your application, you will be prompted to deploy.
+
+![Deploy](./deploy_swa.png)
+
+You can view the application in the browser.
+
+**Step 3**: Change the code
+
+Edit `./src/app.js` and change *World* to *Cloud Engineers.*
 
 ```javascript
 function App() {
-  const value = 'Happy People';
+  const value = 'Cloud Engineers';
   return <div>Hello {value}</div>;
 }
 ```
 
-Add, commit, and push your change.
+Add, commit, and push your changes to Github.
 
 ```bash
 $ git add .
-$ git commit -m 'change message'
-[main d1dd7e1] change message
- 1 file changed, 1 insertion(+), 1 deletion(-)
- $ git push
-```
+$ git commit -m 'changed message'
+$ git push
+
+Click on the Github Actions tab of your repository to see the workflows. Click on the `changed message`, then click on `Build and Deploy Job`.
+
+[Commit](./changed_message.png)
+
+[Build and Deploy Job](./build_and_deploy_job.png)
+
+To see the details of the deployment, click on `Build and Deploy`.
+
+[Results](./results.png)
+
+So what happened here? First, we used the Azure Static Web Apps for Visual Studio Code to authorize access to Github. Next, we created a deployment using the extension, created a Github Actions workflow, and deployed the application. We the changed the application and pushed the changes to the repository. The push triggered the Github Action, rebuilt the application, and deployed the changes. The Azure Static Web Apps service lets you create a complete devops work flow.
 
 ### Build and deploy with code and Pulumi
 
-
-
-
-
-- Push your app code to Github.
-- Sign-in to the Azure Portal, search for “Static Web App”, and select the Create button.
-- Fill out the form, sign-in to Github, and select your repository and branch.
-- Define where your app, APIs, and build output are located.
-- Select the Create button and watch the magic happen!
-- View your static web app.
-
-
-
-### Deploy with Pulumi
-
+Can we create a complete devops workflow with code? Of course we can! The Pulumi Azure Native provider is built on the same API that the Visual Studio Code extensio uses. In the example below, we can duplicate the process without using
+an extension or the Azure CLI.
 
 ```typescript
 import pulumi
@@ -474,4 +482,10 @@ static_site = azure_native.web.StaticSite("staticSite",
         name="Basic",
         tier="Basic",
     ))
-    ```
+```
+
+In the example above, creating a static web app requires configuring the same parameters we used in the Visual Studio Code example. The difference is that we create a Pulumi Project with our application at the root of the project directory in a folder called `app`. Once the static web app stack is created you can push changes and trigger a deployment. One of the advantages of using infrastructure as code is that you can use the development environment and toolchain that you prefer. You are not bound to using a specific extension or development environment. Cloud engineering and Azure Static Web Apps lets us be productive with our toolchain and create a complete deployment with a Github Actions workflow.
+
+## Summary
+
+This article demonstrates two ways to build static websites with Azure. The first way is to use Azure storage to deploy the website. We showed how to use the Azure Portal and infrastructure as code to deploy. The other way to deploy a static website is to use the Azure Static Web Apps Service. In this example, we used the Visual Studio Code extension to configure Github Actions to deploy the React application. Because the Pulumi Azure Native provider is built on the Azure API, we demonstrated how to deploy using code. Infrastructure as code lets us choose our development environment where we are productive. In the next installment of this series, we'll tackle deploying Kubernetes.
