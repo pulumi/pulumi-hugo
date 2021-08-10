@@ -423,7 +423,7 @@ Follow the prompts:
 
 ![Select build directory](./build_directory.png)
 
-When the Visual Studio Code completes configuring your application, you will be prompted to deploy.
+When VS Code completes configuring your application, you will be prompted to deploy.
 
 ![Deploy](./deploy_swa.png)
 
