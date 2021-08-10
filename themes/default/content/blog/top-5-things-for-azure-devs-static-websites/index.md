@@ -371,7 +371,7 @@ The complete examples for [C#](https://github.com/pulumi/examples/tree/master/az
 
 ## Azure Static Web Apps
 
-Azure Static Web Apps (SWA) builds and deploys web apps from a code repository. Azure works directly with Githu or Azure Devops to watch a branch on your repository. When you push a commit or accept a pull request, your app is built and deployed to Azure. When you build web apps with SWA, your static assets are deployed to a CDN that serves files from geographically distributed points.
+Azure Static Web Apps (SWA) builds and deploys web apps from a code repository. Azure works directly with GitHub or Azure DevOps to watch a branch on your repository. When you push a commit or accept a pull request, your app is built and deployed to Azure. When you build web apps with SWA, your static assets are deployed to a CDN that serves files from geographically distributed points.
 
 Static web apps can be built with popular frameworks that don't require server-side rendering, such as React, Angular, and Vue. Web applications typically include HTML, JavaScript, images, and CSS. In addition to these assets, you can create API endpoints hosted in an Azure Function.
 
