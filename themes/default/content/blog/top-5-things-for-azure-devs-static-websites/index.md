@@ -486,7 +486,7 @@ static_site = azure_native.web.StaticSite("staticSite",
     ))
 ```
 
-In the example above, creating a static web app requires configuring the same parameters we used in the Visual Studio Code example. The difference is that we create a Pulumi Project with our application at the root of the project directory in a folder called `app`. Once the static web app stack is created, you can push changes and trigger a deployment. One of the advantages of using infrastructure as code is that you can use the development environment and toolchain that you prefer. You are not bound to using a specific extension or development environment. We can be productive with our toolchain and create a complete deployment workflow with Github Actions with cloud engineering and Azure Static Web Apps.
+In the example above, creating a static web app requires configuring the same parameters we used in the Visual Studio Code example. The difference is that we create a Pulumi Project with our application at the root of the project directory in a folder called `app`. Once the static web app stack is created, you can push changes and trigger a deployment. One of the advantages of using infrastructure as code is that you can use the development environment and toolchain that you prefer. You are not bound to using a specific extension or development environment. We can be productive with our toolchain and create a complete deployment workflow using GitHub Actions with cloud engineering and Azure Static Web Apps.
 
 ## Summary
 
