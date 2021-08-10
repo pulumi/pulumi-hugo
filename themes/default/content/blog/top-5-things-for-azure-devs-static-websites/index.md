@@ -458,7 +458,7 @@ To see the details of the deployment, click on `Build and Deploy`.
 
 So what happened here? First, we used the Azure Static Web Apps for Visual Studio Code to authorize access to GitHub. Next, we created a deployment using the extension, created a GitHub Actions workflow, and deployed the application. We edited the code and pushed it to the repository. The push triggered the GitHub Action, rebuilt, and deployed the application.
 
-The Azure Static Web Apps service lets you create a complete devops workflow.
+The Azure Static Web Apps service lets you create a complete DevOps workflow.
 
 ### Build and deploy with code and Pulumi
 
