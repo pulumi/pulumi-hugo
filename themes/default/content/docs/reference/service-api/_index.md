@@ -11,7 +11,7 @@ While the Pulumi Service API is used by the Pulumi CLI and Pulumi Console, Pulum
 
 ## Authentication
 
-All requests must be authenticated using a token via the `Authorization` HTTP header. If the token is missing or invalid, the Pulumi Service API will return a 4xx status code.
+All requests must be authenticated using a token via the `Authorization` HTTP header. If the token is missing or invalid, the Pulumi Service API will return a 401 status code.
 
 The `Authorization` header must be in the form below with the literal string `token`, then a space, then your access token value.
 
@@ -19,15 +19,11 @@ The `Authorization` header must be in the form below with the literal string `to
 Authorization: token {token}
 ```
 
-{{% notes "info" %}}
-As of June 28, 2019, Pulumi access tokens contain the prefix `pul-`, which should be included as part of the token value in the header.
-{{% /notes %}}
-
 To view your access tokens, or create a new one, view the <a href="https://app.pulumi.com/account/tokens" target="_blank">Access Tokens</a> page. You will see a list of past tokens, when they were last used, and have the ability to revoke them.
 
 ## Required Request Headers
 
-TODO: Add more info.
+The following headers are required for all operations except where explicitly noted:
 
 ```
 Accept: application/vnd.pulumi+3
@@ -59,7 +55,7 @@ GET https://api.pulumi.com/api/user/stacks
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/user/stacks?organization={organization}&tagName={tagName}&tagValue={tagValue}
 ```
 
@@ -110,7 +106,7 @@ GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}
 ```
 
@@ -166,7 +162,7 @@ GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/export
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/export
 ```
 
@@ -264,6 +260,84 @@ Status: 200 OK
   }
 }
 ```
+
+<!-- ###################################################################### -->
+
+### Transfer Stack
+
+```
+POST https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/transfer
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `team` | string | path | team name |
+| `stack` | string | path | stack name |
+| `toOrg` | string | body | the organization to transfer the stack _to_ |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+3' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
+  --request POST \
+  --data '{"toOrg":"{toOrg}"}' \
+  https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/transfer
+```
+
+#### Default response
+
+```
+Status: 204 OK
+```
+
+```
+EMPTY RESPONSE BODY
+```
+
+<!-- ###################################################################### -->
+
+### Delete Stack
+
+```
+DELETE https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `team` | string | path | team name |
+| `stack` | string | path | stack name |
+| `force` | boolean | query | flag indicating to delete the stack even if it still contains resources |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+3' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
+  --request DELETE \
+  https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}
+```
+
+#### Default response
+
+```
+Status: 204 OK
+```
+
+```
+EMPTY RESPONSE BODY
+```
+
 <!-- ###################################################################### -->
 
 ## Stack Tags
@@ -294,7 +368,7 @@ POST https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   --data '{"name":"{tagName}","value":"{tagValue}"}' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags
@@ -333,7 +407,7 @@ DELETE https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags/{
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request DELETE \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags/{tagName}
 ```
@@ -347,6 +421,8 @@ Status: 204 OK
 ```
 EMPTY RESPONSE BODY
 ```
+
+<!-- ###################################################################### -->
 
 ## Stack Updates
 
@@ -376,7 +452,7 @@ By default the results are not paginated. You can specify `page` and `pageSize` 
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates?output-type=service
 ```
 
@@ -638,7 +714,7 @@ GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/update/{u
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/update/{updateID}
 ```
 
@@ -676,7 +752,7 @@ GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/update/{u
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/update/{updateID}/events
 ```
 
@@ -874,7 +950,7 @@ Status: 200 OK
 
 ### List Previews
 
-TODO: Is this all previews since the last update?
+This operation will list all previews since the last update operation.
 
 ```
 GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates/latest/previews
@@ -894,7 +970,7 @@ GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates/l
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates/latest/previews
 ```
 
@@ -1126,10 +1202,14 @@ Status: 200 OK
 
 ### List Users
 
-TODO: explain `githubLogin` (synonomous with username), `knownToPulumi`, and `virtualAdmin`
+{{% notes "info" %}}
+In the response data `githubLogin` is synonymous with `username` and does not necessarily mean the user is from a GitHub-backed organization.
+
+`knownToPulumi` and `virtualAdmin` are internal implementation details that should not be referenced by an end user.
+{{% /notes %}}
 
 ```
-GET https://api.pulumi.com/api/orgs/{organization}/members?type=frontend
+GET https://api.pulumi.com/api/orgs/{organization}/members?type=backend
 ```
 
 #### Parameters
@@ -1137,7 +1217,8 @@ GET https://api.pulumi.com/api/orgs/{organization}/members?type=frontend
 | Parameter | Type | In | Description |
 | --------- | ---------- | ---------- | ---------- |
 | `organization` | string | path | organization name |
-| `type` | string | query | the response format to return - possible values are `frontend` or `backend` (TODO: explain the difference) |
+| `type` | string | query | must be set to `backend` |
+| `continuationToken` | string | query | the continuation token to use for retrieving the next set of results if results were truncated |
 
 #### Example
 
@@ -1145,8 +1226,8 @@ GET https://api.pulumi.com/api/orgs/{organization}/members?type=frontend
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
-  https://api.pulumi.com/api/orgs/{organization}/members?type=frontend
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
+  https://api.pulumi.com/api/orgs/{organization}/members?type=backend
 ```
 
 #### Default response
@@ -1184,11 +1265,13 @@ Status: 200 OK
 }
 ```
 
+<!-- ###################################################################### -->
+
 ### Add User to Organization
 
-Users are not just-in-time provisioned. They must sign in to the Pulumi console first (they will receive an error that they're not a member) and then they can be added to the organization.
+User must have already signed up for a Pulumi account and meet the [organization membership requirements]({{< relref "/docs/intro/console/organizations#organization-types" >}}) to be added to the organization, otherwise a 4xx error will occur.
 
-TODO: Add note about SAML.
+If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration]({{< relref "/docs/guides/scim" >}}) documentation.
 
 ```
 POST https://api.pulumi.com/api/orgs/{organization}/members/{username}
@@ -1208,7 +1291,7 @@ POST https://api.pulumi.com/api/orgs/{organization}/members/{username}
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   --data '{"role":"{role}"}' \
   https://api.pulumi.com/api/orgs/{organization}/members/{username}
@@ -1223,6 +1306,8 @@ Status: 204 OK
 ```
 EMPTY RESPONSE BODY
 ```
+
+<!-- ###################################################################### -->
 
 ### Remove User from Organization
 
@@ -1243,7 +1328,7 @@ DELETE https://api.pulumi.com/api/orgs/{organization}/members/{username}
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request DELETE \
   https://api.pulumi.com/api/orgs/{organization}/members/{username}
 ```
@@ -1258,13 +1343,17 @@ Status: 200 OK
 EMPTY RESPONSE BODY
 ```
 
+<!-- ###################################################################### -->
+
 ### Create Team
 
-TODO: Add note about different backends
-TODO: what is `/pulumi`
+{{% notes "info" %}}
+For GitHub-backed organizations the `teamType` path parameter must be `github`. For all other organization types the `teamType` path parameter must be `pulumi`.
+{{% /notes %}}
+
 
 ```
-POST https://api.pulumi.com/api/orgs/{org}/teams/pulumi
+POST https://api.pulumi.com/api/orgs/{org}/teams/{teamType}
 ```
 
 #### Parameters
@@ -1272,6 +1361,7 @@ POST https://api.pulumi.com/api/orgs/{org}/teams/pulumi
 | Parameter | Type | In | Description |
 | --------- | ---------- | ---------- | ---------- |
 | `organization` | string | path | organization name |
+| `teamType` | string | path | the type of team to create - valid options are `pulumi` or `github` |
 | `name` | string | body | team name |
 | `displayName` | string | body | **Optional.** team display name |
 | `description` | string | body | **Optional.** team description |
@@ -1282,7 +1372,7 @@ POST https://api.pulumi.com/api/orgs/{org}/teams/pulumi
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   --data '{"name":"example-team","displayName":"example display name","description":"example description"}' \
   https://api.pulumi.com/api/orgs/{org}/teams/pulumi
@@ -1310,6 +1400,8 @@ Status: 200 OK
 }
 ```
 
+<!-- ###################################################################### -->
+
 ### Delete Team
 
 ```
@@ -1329,7 +1421,7 @@ DELETE https://api.pulumi.com/api/orgs/{org}/teams/{teamName}
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request DELETE \
   https://api.pulumi.com/api/orgs/{org}/teams/{teamName}
 ```
@@ -1344,7 +1436,13 @@ Status: 200 OK
 EMPTY RESPONSE BODY
 ```
 
+<!-- ###################################################################### -->
+
 ### Update Team Membership
+
+{{% notes "info" %}}
+For GitHub-backed organizations, this operation cannot be used as membership is managed on GitHub.
+{{% /notes %}}
 
 ```
 PATCH https://api.pulumi.com/api/orgs/{organization}/teams/{team}
@@ -1365,7 +1463,7 @@ PATCH https://api.pulumi.com/api/orgs/{organization}/teams/{team}
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   --data '{"memberAction":"{memberAction}","member":"{username}"}' \
   https://api.pulumi.com/api/orgs/{organization}/teams/{team}
@@ -1380,6 +1478,8 @@ Status: 200 OK
 ```
 EMPTY RESPONSE BODY
 ```
+
+<!-- ###################################################################### -->
 
 ### Update User's Role
 
@@ -1401,7 +1501,7 @@ PATCH https://api.pulumi.com/api/orgs/{organization}/members/{username}
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request PATCH \
   --data '{"role":"{role}"}' \
   https://api.pulumi.com/api/orgs/{organization}/members/{username}
@@ -1416,6 +1516,8 @@ Status: 200 OK
 ```
 EMPTY RESPONSE BODY
 ```
+
+<!-- ###################################################################### -->
 
 ### List User Access Tokens
 
@@ -1534,10 +1636,12 @@ Status: 204 OK
 EMPTY RESPONSE BODY
 ```
 
+<!-- ###################################################################### -->
+
 ### Get Audit Log Events
 
 {{% notes "info" %}}
-This API endpoint differs from others in the following ways:
+This API endpoint differs from other endpoints in the following ways:
 
 - The response data is _always_ gzip compressed.
 - The `Content-Type: application/json` header is omitted.
@@ -1561,8 +1665,7 @@ GET https://api.pulumi.com/api/orgs/{organization}/auditlogs/export
 ```bash
 curl \
   -H 'Accept: application/vnd.pulumi+3' \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --compressed \
   https://api.pulumi.com/api/orgs/{organization}/auditlogs/export?startTime=1615872240&format=cef
 ```
