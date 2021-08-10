@@ -411,7 +411,7 @@ Follow the prompts:
 
 ![Enter a name](./name.png)
 
-- Select project structure.
+- Select a project structure.
 
 ![Select project structure](./react.png)
 
