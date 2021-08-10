@@ -440,7 +440,7 @@ function App() {
 }
 ```
 
-Add, commit, and push your changes to Github.
+Add, commit, and push your changes to GitHub.
 
 ```bash
 $ git add .
