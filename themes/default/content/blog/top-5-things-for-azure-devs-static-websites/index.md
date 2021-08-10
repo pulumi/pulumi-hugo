@@ -431,7 +431,7 @@ You can view the application in the browser.
 
 **Step 3**: Change the code
 
-Edit `./src/app.js` and change *World* to *Cloud Engineers.*
+Edit `./src/app.js` and change *World* to *Cloud Engineers*.
 
 ```javascript
 function App() {
