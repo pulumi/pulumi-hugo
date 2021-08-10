@@ -68,7 +68,7 @@ We'll use **Storage Explorer (preview)**, and select **BLOB CONTAINERS > $web**.
 
 **Step 4**: Get the URL
 
-Click on `Static website` in the overview pane, and the URL is the `Primary endpoint`.
+Select **Static website** in the overview pane, and the URL is the **Primary endpoint**.
 
 ![Endpoint](./image3.png)
 
