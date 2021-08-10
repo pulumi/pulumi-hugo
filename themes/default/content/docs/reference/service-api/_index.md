@@ -1351,7 +1351,6 @@ EMPTY RESPONSE BODY
 For GitHub-backed organizations the `teamType` path parameter must be `github`. For all other organization types the `teamType` path parameter must be `pulumi`.
 {{% /notes %}}
 
-
 ```
 POST https://api.pulumi.com/api/orgs/{org}/teams/{teamType}
 ```
