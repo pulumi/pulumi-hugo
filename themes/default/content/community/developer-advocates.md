@@ -1,6 +1,6 @@
 ---
 title: Developer Advocates
-meta_desc: Pulumi is a Seattle-based company that enables teams to create, deploy, and manage modern cloud applications and infrastructure.
+meta_desc: The Developer Advocate Team at Pulumi is here to help you understand cloud engineering and to build, deploy, and manage your whole stack. Use this page to reach us.
 type: page
 layout: developer-advocates
 aliases:
