@@ -34,7 +34,7 @@ In the Azure Portal, navigate to **Storage accounts**, and follow the defaults.
 
 ![Static website](./image2.png)
 
-`Enable` the `Static website` and enter values for the `Index document` and `Error document` and `Save`.
+Select **enabled** for the **Static website**, and enter values for the **Index document** and **Error document** fields. Save the changes.
 
 ![Enable static website](./image4.png)
 
