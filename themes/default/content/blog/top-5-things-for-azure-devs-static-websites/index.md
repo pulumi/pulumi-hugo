@@ -18,7 +18,7 @@ This article goes into depth about the two types of static web applications that
 
 ## Static Websites with Azure Storage
 
-Hosting a static website on Azure Store is an option for serving web content without a web server. You can upload HTML, CSS, images, and JavaScript to an Azure storage container named $web. Because the content is in a storage container, you can also use other PaaS services like Azure Functions or Azure CDN.
+Hosting a static website on Azure Store is an option for serving web content without a web server. You can upload HTML, CSS, images, and JavaScript to an Azure storage container named `$web`. Because the content is in a storage container, you can also use other PaaS services like Azure Functions or Azure CDN.
 
 ### Azure Portal
 
