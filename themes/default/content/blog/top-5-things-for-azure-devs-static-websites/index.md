@@ -30,7 +30,7 @@ In the Azure Portal, navigate to **Storage accounts**, and follow the defaults.
 
 ![Storage accounts](./image5.png)
 
-**Step 2**: In the `Storage account`, select `Static website` under `Data management`
+**Step 2**: In the **Storage account** page, select **Data management > Static website**
 
 ![Static website](./image2.png)
 
