@@ -381,7 +381,7 @@ Let's jump into Azure Static Web Apps!
 
 ### Build and deploy
 
-We'll use Visual Studio Code's [Azure Static Web App Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) and a [Github](https://github.com/) account.
+We'll use Visual Studio Code's [Azure Static Web App Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) and a [GitHub](https://github.com/) account.
 
 **Step 1**: Install the [Azure Web Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) extension. Follow the instructions to authorize Visual Studio Code to access your Github account.
 
