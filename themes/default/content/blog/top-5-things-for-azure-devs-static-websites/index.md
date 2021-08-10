@@ -401,7 +401,7 @@ $ git clone https://github.com/spara/bookish-doodle.git
 
 **Step 3**: Create a static web app with Visual Studio Code
 
-Open your repository with Visual Studio Code and activate the [Azure extension](https://code.visualstudio.com/docs/azure/extensions). On `APP SERVICE`item, click on the `+` to create a web app.
+Open your repository with Visual Studio Code and activate the [Azure extension](https://code.visualstudio.com/docs/azure/extensions). On the **APP SERVICE** item, select the **+** to create a web app.
 
 ![Create web app](./static_web_app_vscode.png)
 
