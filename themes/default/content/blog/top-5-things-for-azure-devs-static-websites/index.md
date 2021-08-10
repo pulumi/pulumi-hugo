@@ -308,7 +308,7 @@ We can reproduce this process in code with C#, Go, Python, Typescript, or in any
     {{% /choosable %}}
 {{< /chooser >}}
 
-**Step 4**: Configure and publish endpoints.
+**Step 4**: Configure and publish endpoints
 
 {{< chooser language "csharp,go,python,typescript" >}}
 
