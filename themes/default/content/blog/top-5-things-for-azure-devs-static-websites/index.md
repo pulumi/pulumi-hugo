@@ -452,7 +452,7 @@ Click on the Github Actions tab of your repository to see the workflows. Click o
 
 ![Build and Deploy Job](./build_and_deploy_job.png)
 
-To see the details of the deployment, click on `Build and Deploy`.
+To see the details of the deployment, select **Build and Deploy**.
 
 ![Results](./results.png)
 
