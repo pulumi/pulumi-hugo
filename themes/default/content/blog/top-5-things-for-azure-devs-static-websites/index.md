@@ -462,7 +462,7 @@ The Azure Static Web Apps service lets you create a complete DevOps workflow.
 
 ### Build and deploy with code and Pulumi
 
-Can we create a complete devops workflow with code? Of course, we can! The Pulumi Azure Native provider uses the same API as the Visual Studio. In the example below, we can duplicate the process without using an extension or the Azure CLI.
+Can we create a complete DevOps workflow with code? Of course, we can! The Pulumi Azure Native provider uses the same API as VS Code. In the example below, we can duplicate the process without using an extension or the Azure CLI.
 
 ```typescript
 import pulumi
