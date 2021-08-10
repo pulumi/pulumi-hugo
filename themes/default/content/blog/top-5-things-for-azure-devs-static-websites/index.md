@@ -419,7 +419,7 @@ Follow the prompts:
 
 ![Select project directory](./project_location.png)
 
-- Select build directory.
+- Select a build directory.
 
 ![Select build directory](./build_directory.png)
 
