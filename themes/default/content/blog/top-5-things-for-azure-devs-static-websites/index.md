@@ -26,7 +26,7 @@ Let's get started using the Azure Portal.
 
 **Step 1**: Create a storage account (optional if you have an existing storage account)
 
-In the Azure Portal, navigate to `Storage accounts` and follow the defaults.
+In the Azure Portal, navigate to **Storage accounts**, and follow the defaults.
 
 ![Storage accounts](./image5.png)
 
