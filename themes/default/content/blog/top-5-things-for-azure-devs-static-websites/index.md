@@ -446,7 +446,7 @@ $ git commit -m 'changed message'
 $ git push
 ```
 
-Click on the Github Actions tab of your repository to see the workflows. Click on the `changed message`, then click on `Build and Deploy Job`.
+Select the **Actions** tab of your repository to see the workflows. Select the **changed message**, and then select **Build and Deploy Job**.
 
 ![Commit](./changed_message.png)
 
