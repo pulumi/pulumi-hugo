@@ -23,17 +23,16 @@
                     ></iframe>
                 </div>
             </div>
-            <div class="lg:w-1/2 lg:pr-16 text-center">
+            <div class="lg:w-1/2 lg:pr-16">
                 <h3>Harness the full power of Infrastructure as Code</h3>
                 <p>
                     Pulumi Automation API exposes the full power of infrastructure as code through a
                     programmatic interface, instead of through CLI commands. Automation API lets you
-                    use the Pulumi engine as an SDK, providing you a strongly typed, familiar programming
-                    environment so you can create software that can create, update, configure, and destroy
+                    use the Pulumi engine as an SDK, enabling you to create software that can create, update, configure, and destroy
                     infrastructure dynamically. This enables you to build custom cloud interfaces that are
-                    tailored to your team,  organization, or customers.
+                    tailored to your team, organization, or customers.
                 </p>
-                <div class="text-center my-8">
+                <div class="my-8">
                     <a class="btn-primary" href="{{ relref . "/docs/guides/automation-api" }}">Learn More</a>
                 </div>
             </div>
@@ -120,20 +119,16 @@
 
                 <ul id="automation-scenarios-carousel-headers" class="automation-scenarios-carousel-headers">
                     <li class="" data-product-carousel-type="self-service">
-                        <h5 class="my-0 text-black xl:block hidden"><a href="#self-service" class="text-black">Self-service infrastructure</a></h5>
-                        <h6 class="my-0 text-black xl:hidden"><a href="#self-service" class="text-black">Self-service infrastructure</a></h6>
+                        <h6 class="my-0 text-black"><a href="#self-service" class="text-black">Self-service infrastructure</a></h6>
                     </li>
                     <li class="" data-product-carousel-type="saas">
-                        <h5 class="my-0 xl:block hidden"><a href="#saas" class="text-gray-500">Single-tenant SaaS instances</a></h5>
-                        <h6 class="my-0 xl:hidden"><a href="#saas" class="text-gray-500">Single-tenant SaaS instances</a></h6>
+                        <h6 class="my-0"><a href="#saas" class="text-gray-500">Single-tenant SaaS instances</a></h6>
                     </li>
                     <li class="" data-product-carousel-type="workflow">
-                        <h5 class="my-0 xl:block hidden"><a href="#workflow" class="text-gray-500">Infrastructure Workflow Orchestration</a></h5>
-                        <h6 class="my-0 xl:hidden"><a href="#workflow" class="text-gray-500">Infrastructure Workflow Orchestration</a></h6>
+                        <h6 class="my-0"><a href="#workflow" class="text-gray-500">Workflow Orchestration</a></h6>
                     </li>
                     <li class="" data-product-carousel-type="tooling">
-                        <h5 class="my-0 xl:block hidden"><a href="#tooling" class="text-gray-500">Custom Infrastructure Tooling</a></h5>
-                        <h6 class="my-0 xl:hidden"><a href="#tooling" class="text-gray-500">Custom Infrastructure Tooling</a></h6>
+                        <h6 class="my-0"><a href="#tooling" class="text-gray-500">Custom Infrastructure Tooling</a></h6>
                     </li>
                 </ul>
 
@@ -142,57 +137,54 @@
                         <h3 class="lg:hidden text-center">Self-service infrastructure</h3>
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative bg-white">
+                                <div class="card p-6 bg-white">
+                                    <h5>Overview</h5>
                                     <p>
-                                        Build custom infrastructure tools, developer portals, and platforms that
-                                        make it easier for your development teams to use cloud infrastructure.
-                                        Infrastructure and security teams can scale their best practices by creating
-                                        declarative infrastructure and exposing it behind a REST, gRPC, or
-                                        Custom Resource API that developers and operators can easily consume,
-                                        without needing to understand every underlying resource.
+                                        Build developer portals and self-serve platforms that make it easier for your
+                                        development teams to use cloud infrastructure. Infrastructure and security
+                                        teams can scale their best practices by creating declarative infrastructure
+                                        and exposing it behind a REST, gRPC, or Custom Resource API that developers
+                                        and operators can easily consume, without needing to understand every underlying
+                                        resource.
                                     </p>
 
-                                    <div class="lg:flex">
-                                        <div class="lg:w-1/2 border-r-2 p-3">
-                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "cloud-with-nodes" "icon_color" "purple") }}</div>
-                                            <p class="font-bold">Pulumipus’ Self-Service Web App Platform</p>
-                                            <p>
-                                                This is a self-service interface for creating customized static sites, databases,
-                                                virtual machines, and more. The code is open source and available on
-                                                <a href="https://github.com/komalali/self-service-platyform" target="_blank" rel="noreferrer noopener" class="link">
-                                                GitHub</a>.
-                                            </p>
-                                        </div>
+                                    <h5>Examples</h5>
+                                    <div>
+                                        <p class="font-bold">PPulumipus’ Self-Service Web App Platform</p>
+                                        <p>
+                                            This is a self-service interface for creating customized static sites, databases,
+                                            virtual machines, and more. The code is open source and available on
+                                            <a href="https://github.com/komalali/self-service-platyform" target="_blank" rel="noreferrer noopener" class="link">
+                                            GitHub</a>.
+                                        </p>
+                                    </div>
 
-                                        <div class="lg:w-1/2 p-3">
-                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "clipboard" "icon_color" "salmon") }}</div>
-                                            <p class="font-bold">Python IaC in your Jupyter notebook</p>
-                                            <p>
-                                                Use Pulumi’s Python SDK with Automation API to create infrastructure interactively
-                                                from a Jupyter notebook. Examples are available on
-                                                <a href="https://github.com/pulumi/automation-api-examples/tree/main/python/pulumi_via_jupyter" target="_blank" rel="noreferrer noopener" class="link">
-                                                GitHub</a>.
-                                            </p>
-                                        </div>
+                                    <div>
+                                        <p class="font-bold">Python IaC in your Jupyter notebook</p>
+                                        <p>
+                                            Use Pulumi’s Python SDK with Automation API to create infrastructure interactively
+                                            from a Jupyter notebook. Examples are available on
+                                            <a href="https://github.com/pulumi/automation-api-examples/tree/main/python/pulumi_via_jupyter" target="_blank" rel="noreferrer noopener" class="link">
+                                            GitHub</a>.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/3 lg:order-first py-3 px-6 lg:p-3">
                                 <div class="card p-3 pb-8 relative bg-white">
                                     <div class="w-2/3 mx-auto my-2 px-6">
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">
-                                            {{ partial "customer-logo.html" (dict "logo" "mercedes-benz") }}
+                                        <a href="{{ relref . "/case-studies/sans-institute" }}" class="link">
+                                            {{ partial "customer-logo.html" (dict "logo" "sans") }}
                                         </a>
                                     </div>
                                     <p>
-                                        Automation API powers custom infrastructure platforms for organizations like
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">Mercedes-Benz Research
-                                        & Development North America</a>. These platforms empower their teams to stand up the cloud
-                                        infrastructure that they need and when they need it.
+                                        SANS Institute provides cybersecurity training and certification. It used Pulumi
+                                        Automation API to build a self-service platform that enables instructors to
+                                        provision virtual learning environments using an automated process.
                                     </p>
 
                                     <div class="card-cta-btn text-center">
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="btn-secondary">Learn More</a>
+                                        <a href="{{ relref . "/case-studies/sans-institute" }}" class="btn-secondary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +195,8 @@
                         <h3 class="lg:hidden text-center mt-16">Single-tenant SaaS instances</h3>
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative bg-white">
+                                <div class="card p-6 bg-white">
+                                    <h5>Overview</h5>
                                     <p>
                                         Simplify the management of multi-instance SaaS architectures where you
                                         need single-tenant infrastructure for each customer. You can create
@@ -212,8 +205,8 @@
                                         your applications.
                                     </p>
 
-                                    <div class="p-3">
-                                        <div class="text-center">{{ partial "color-icon.html" (dict "icon" "nodes" "icon_color" "blue") }}</div>
+                                    <h5>Examples</h5>
+                                    <div>
                                         <p class="font-bold">Infrastructure as RESTful resources</p>
                                         <p>
                                             This example demonstrates how to run Automation API in an HTTP server to expose
@@ -244,7 +237,8 @@
                         <h3 class="lg:hidden text-center mt-16">Infrastructure Workflow Orchestration</h3>
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative bg-white">
+                                <div class="card p-6 bg-white">
+                                    <h5>Overview</h5>
                                     <p>
                                         Manage complicated infrastructure tasks like database migrations,
                                         microservice deployments, schema migrations, and more. Distributed
@@ -255,29 +249,26 @@
                                         codify dependencies, and enable safe incremental deployment.
                                     </p>
 
-                                    <div class="lg:flex">
-                                        <div class="lg:w-1/2 border-r-2 p-3">
-                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "cycle" "icon_color" "yellow") }}</div>
-                                            <p class="font-bold">Database Migration</p>
-                                            <p>
-                                                This example provisions an AWS Aurora SQL database and executes a database "migration"
-                                                using the resulting connection info. The code is available on GitHub in
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration" target="_blank" rel="noreferrer noopener" class="link">Go</a>,
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts" target="_blank" rel="noreferrer noopener" class="link">Node.js</a>,
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/python/database_migration" target="_blank" rel="noreferrer noopener" class="link">Python</a>,
-                                                and <a href="https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration" target="_blank" rel="noreferrer noopener" class="link">.NET</a>.
-                                            </p>
-                                        </div>
+                                    <h5>Examples</h5>
+                                    <div>
+                                        <p class="font-bold">Database Migration</p>
+                                        <p>
+                                            This example provisions an AWS Aurora SQL database and executes a database "migration"
+                                            using the resulting connection info. The code is available on GitHub in
+                                            <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration" target="_blank" rel="noreferrer noopener" class="link">Go</a>,
+                                            <a href="https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts" target="_blank" rel="noreferrer noopener" class="link">Node.js</a>,
+                                            <a href="https://github.com/pulumi/automation-api-examples/blob/main/python/database_migration" target="_blank" rel="noreferrer noopener" class="link">Python</a>,
+                                            and <a href="https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration" target="_blank" rel="noreferrer noopener" class="link">.NET</a>.
+                                        </p>
+                                    </div>
 
-                                        <div class="lg:w-1/2 p-3">
-                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "puzzle" "icon_color" "purple") }}</div>
-                                            <p class="font-bold">Multi-Stack Orchestration</p>
-                                            <p>
-                                                This example shows how to use Automation API to tame the complexity of multiple
-                                                stacks with dependent stack outputs. The code is available on
-                                                <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/multi_stack_orchestration" target="_blank" rel="noreferrer noopener" class="link">GitHub</a>.
-                                            </p>
-                                        </div>
+                                    <div>
+                                        <p class="font-bold">Multi-Stack Orchestration</p>
+                                        <p>
+                                            This example shows how to use Automation API to tame the complexity of multiple
+                                            stacks with dependent stack outputs. The code is available on
+                                            <a href="https://github.com/pulumi/automation-api-examples/blob/main/go/multi_stack_orchestration" target="_blank" rel="noreferrer noopener" class="link">GitHub</a>.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +298,8 @@
                         <h3 class="lg:hidden text-center mt-16">Custom Infrastructure Tooling</h3>
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-2/3 py-3 px-6">
-                                <div class="card p-3 px-6 relative bg-white">
+                                <div class="card p-6 bg-white">
+                                    <h5>Overview</h5>
                                     <p>
                                         Build user-friendly infrastructure tooling such as CLIs, higher-level frameworks,
                                         CI/CD workflows, and even desktop apps. Infrastructure teams can use Automation
@@ -315,30 +307,27 @@
                                         and offer the right levels of complexity and customization for the tool’s target audience.
                                     </p>
 
-                                    <div class="lg:flex">
-                                        <div class="lg:w-1/2 border-r-2 p-3">
-                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "rocketship" "icon_color" "fuchsia") }}</div>
-                                            <p class="font-bold">Ploy, a CLI in Go</p>
-                                            <p>
-                                                Ploy is a Heroku-like interface for deploying Docker images to a Kubernetes cluster.
-                                                Ploy combines Pulumi with a Go CLI using Promptui. It is
-                                                <a href="https://github.com/jaxxstorm/ploy" target="_blank" rel="noreferrer noopener" class="link">
-                                                open source on GitHub</a>.
-                                            </p>
-                                        </div>
+                                    <h5>Examples</h5>
+                                    <div>
+                                        <p class="font-bold">Ploy, a CLI in Go</p>
+                                        <p>
+                                            Ploy is a Heroku-like interface for deploying Docker images to a Kubernetes cluster.
+                                            Ploy combines Pulumi with a Go CLI using Promptui. It is
+                                            <a href="https://github.com/jaxxstorm/ploy" target="_blank" rel="noreferrer noopener" class="link">
+                                            open source on GitHub</a>.
+                                        </p>
+                                    </div>
 
-                                        <div class="lg:w-1/2 p-3">
-                                            <div class="text-center">{{ partial "color-icon.html" (dict "icon" "lightning" "icon_color" "violet") }}</div>
-                                            <p class="font-bold">Pulumi GitHub Action for CI/CD</p>
-                                            <p>
-                                                Pulumi’s GitHub Action is powered by Automation API and it gives you complete
-                                                control over Pulumi in your CI/CD workflows.
-                                                <a class="link" href="{{ relref . "/blog/supercharging-our-github-action-with-the-pulumi-automation-api" }}">Learn how it was created</a>
-                                                or see the
-                                                <a href="https://github.com/pulumi/actions" target="_blank" rel="noreferrer noopener" class="link">
-                                                code on GitHub</a>.
-                                            </p>
-                                        </div>
+                                    <div>
+                                        <p class="font-bold">Pulumi GitHub Action for CI/CD</p>
+                                        <p>
+                                            Pulumi’s GitHub Action is powered by Automation API and it gives you complete
+                                            control over Pulumi in your CI/CD workflows.
+                                            <a class="link" href="{{ relref . "/blog/supercharging-our-github-action-with-the-pulumi-automation-api" }}">Learn how it was created</a>
+                                            or see the
+                                            <a href="https://github.com/pulumi/actions" target="_blank" rel="noreferrer noopener" class="link">
+                                            code on GitHub</a>.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -351,9 +340,8 @@
                                     </div>
                                     <p>
                                         Automation API powers custom infrastructure platforms for organizations like
-                                        <a href="{{ relref . "/case-studies/mercedes-benz" }}" class="link">Mercedes-Benz Research
-                                        & Development North America</a>. These platforms empower their teams to stand up the cloud
-                                        infrastructure that they need and when they need it.
+                                        Mercedes-Benz Research & Development North America. These platforms empower
+                                        their teams to stand up the cloud infrastructure that they need and when they need it.
                                     </p>
 
                                     <div class="card-cta-btn text-center">
