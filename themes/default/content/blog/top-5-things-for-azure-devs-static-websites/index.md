@@ -169,7 +169,7 @@ We can reproduce this process in code with C#, Go, Python, Typescript, or in any
     {{% /choosable %}}
 {{< /chooser >}}
 
-**Step 2**: Enable static website.
+**Step 2**: Enable static website
 
 {{< chooser language "csharp,go,python,typescript" >}}
 
