@@ -62,7 +62,7 @@ index.html
 </html>
 ```
 
-We'll use `Storage Explorer (preview)` and select `BLOB CONTAINERS` then `$web`. In the `Upload blob` pane, add the `index.html` and `404.html` files and click on `Upload`.
+We'll use **Storage Explorer (preview)**, and select **BLOB CONTAINERS > $web**. In the **Upload blob** pane, add the `index.html` and `404.html` files, and select **Upload**.
 
 ![Storage explorer](./image1.png)
 
