@@ -415,7 +415,7 @@ Follow the prompts:
 
 ![Select project structure](./react.png)
 
-- Select application directory.
+- Select an application directory.
 
 ![Select project directory](./project_location.png)
 
