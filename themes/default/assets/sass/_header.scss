@@ -94,6 +94,15 @@
             li:not(.header-dropdown-item) {
                 @apply flex items-center ;
 
+                a::before, .dropdown-title::before {
+                    display: block;
+                    content: attr(data-content);
+                    @apply font-bold;    
+                    height: 0;
+                    overflow: hidden;
+                    visibility: hidden;
+                }
+
                 a {
                     @apply block px-4 my-1 transition-all;
                     transition: font-weight .1s ease-in-out;
