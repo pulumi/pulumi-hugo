@@ -35,6 +35,8 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
+ipsum lorem
+
 What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional). To do that, just add an HTML comment like the one below.
 
 <!--more-->
