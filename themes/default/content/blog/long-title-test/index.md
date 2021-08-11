@@ -6,7 +6,7 @@ title: h1:THIS IS A TEST FOR A VERY, VERY, VERY, VERY, LONG TITLE GREATER THAN 6
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
 date: 2021-08-11T09:54:06-06:00
-
+allow_long_title: True
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting your post for review.
 draft: true
