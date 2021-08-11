@@ -1,5 +1,5 @@
 ---
-title: "Long Title Test"
+title: h1:THIS IS A TEST FOR A VERY, VERY, VERY, VERY, LONG TITLE GREATER THAN 60 CHARACTERS
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
@@ -14,7 +14,7 @@ draft: true
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc:
+meta_desc: "This is a long title test to see if it gets past the linter"
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
