@@ -94,18 +94,8 @@
             li:not(.header-dropdown-item) {
                 @apply flex items-center ;
 
-                a::before, .dropdown-title::before {
-                    display: block;
-                    content: attr(data-content);
-                    @apply font-bold;    
-                    height: 0;
-                    overflow: hidden;
-                    visibility: hidden;
-                }
-
                 a {
                     @apply block px-4 my-1 transition-all;
-                    transition: font-weight .1s ease-in-out;
                 }
 
                 .dropdown-title {
@@ -113,9 +103,15 @@
                 }
 
                 &:hover {
-                    a, .dropdown-title {
-                        @apply font-bold;
+                    .dropdown-title {
+                        -webkit-text-stroke: 1px $black;
+                        color: $black;
                     }
+                }
+
+                a:hover {
+                    -webkit-text-stroke: 1px $black;
+                    color: $black;
                 }
 
                 &.header-nav-item-drop-down {
@@ -129,15 +125,6 @@
 
                             li {
                                 @apply my-1;
-                            }
-
-                            a {
-                                @apply font-normal;
-                                transition: font-weight .1s ease-in-out;
-
-                                &:hover {
-                                    @apply font-bold;
-                                }
                             }
                         }
                     }
