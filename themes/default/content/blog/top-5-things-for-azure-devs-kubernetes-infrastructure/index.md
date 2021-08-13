@@ -120,7 +120,7 @@ Select `Review + create` to deploy. Deployment takes several minutes to complete
 
 **Step 7**: Connect to the cluster
 
-You can manage your cluster with [`kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl), a command line tool for managing Kubernetes. You can install kubectl on [linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux), [macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos), and [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows).
+You can manage your cluster with [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl), a command line tool for managing Kubernetes. You can install `kubectl` on [linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux), [macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos), and [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows).
 
 Copy and paste the commands to connect and authenticate to your cluster using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
