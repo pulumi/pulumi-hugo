@@ -44,7 +44,7 @@ You can create an AKS cluster with
 
 ### AKS features
 
-Configuring and deploying Kubernetes can be complex. AKS provides manyfeatures to simplify the process. They include:
+Configuring and deploying Kubernetes can be complex. AKS provides many features to simplify the process, including the following features:
 
 - Cluster node and pod scaling adjust the number of nodes or pods as resource demand changes. [Pods can scale horizontally, and the cluster can also autoscale](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale?tabs=azure-cli).
 - Kubernetes is a fast-moving open source project, and AKS supports multiple versions. You can [upgrade the cluster nodes](https://docs.microsoft.com/en-us/azure/aks/node-image-upgrade) without interrupting the application.
