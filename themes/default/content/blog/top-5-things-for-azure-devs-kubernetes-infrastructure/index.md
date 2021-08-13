@@ -63,7 +63,7 @@ We'll use the Azure Portal to illustrate the steps to configure and deploy an AK
 **Step 1**: Create a Kubernetes Service.
 
 - Open the [Azure Portal](https:portal.azure.com) and select **Create Resource**.
-- Select `Containers` > `Kubernetes Service`
+- Select **Containers > Kubernetes Service**.
 - Select `Create`
 
 ![Create Kubernetes service](./kubernetes_service.png)
