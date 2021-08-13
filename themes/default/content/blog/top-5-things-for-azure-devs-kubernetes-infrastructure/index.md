@@ -73,7 +73,7 @@ We'll use the Azure Portal to illustrate the steps to configure and deploy an AK
 For this example, we will configure several options in the **Basic** window but use defaults for most options.
 
 - In **Subscription**, select an **Azure Subscription**.
-- Create or select a [Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
+- Create or select a [Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview).
 - In `Cluster details`, set the `Kubernetes cluster name`
 - Change the `Region` if needed
 
