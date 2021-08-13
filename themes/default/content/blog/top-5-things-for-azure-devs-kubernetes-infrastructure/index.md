@@ -75,7 +75,7 @@ For this example, we will configure several options in the **Basic** window but 
 - In **Subscription**, select an **Azure Subscription**.
 - Create or select a [Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview).
 - In **Cluster details**, set the **Kubernetes cluster name**.
-- Change the `Region` if needed
+- Change the **Region** if needed.
 
 Use the default values for `Primary node pool` and select `Next: node pools`.
 
