@@ -555,7 +555,7 @@ We can use the `kubeconfig` file connect to the cluster. It's common practice to
 $ kubectl --kubeconfig /path/to/kubeconfig_file get pods
 ```
 
-As this example shows, deploying an AKS cluster requires setting parameters. This can be done in the portal or with code. The advantage of code is that clusters can be created on demand without having to use the Azure portal. This is convenient when you have different environments, such as a dev/test environment and a production environment.
+As this example shows, deploying an AKS cluster requires setting parameters. This action can be done in the portal or with code. The advantage of code is that clusters can be created on demand without having to use the Azure portal. This setup is convenient when you have different environments, such as a dev/test environment and a production environment.
 
 The complete code for deploying AKS is available on GitHub for [Typescript](https://github.com/pulumi/examples/tree/master/azure-ts-aks), [Python](https://github.com/pulumi/examples/tree/master/azure-py-aks), [Go](https://github.com/pulumi/examples/tree/master/azure-go-aks), and [C#](https://github.com/pulumi/examples/tree/master/azure-cs-aks).
 
