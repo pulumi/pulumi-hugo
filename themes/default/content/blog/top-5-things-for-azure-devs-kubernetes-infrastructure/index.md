@@ -35,7 +35,7 @@ Azure Kubernetes Service (AKS) is a hosted Kubernetes service. Azure manages the
 
 Kubernetes nodes are the worker machines that can be either physical or virtual. AKS nodes use Azure virtual machines (VMs); and you can add storage, upgrade cluster components, or even run multiple node pools with mixed operating systems.
 
-You can create an AKS cluster with:
+You can create an AKS cluster with
 
 - the Azure CLI,
 - the Azure portal,
