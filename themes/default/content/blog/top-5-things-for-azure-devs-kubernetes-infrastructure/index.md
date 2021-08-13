@@ -77,7 +77,7 @@ For this example, we will configure several options in the **Basic** window but 
 - In **Cluster details**, set the **Kubernetes cluster name**.
 - Change the **Region** if needed.
 
-Use the default values for `Primary node pool` and select `Next: node pools`.
+Use the default values for **Primary node pool**, and select **Next: node pools**.
 
 ![Create AKS Cluster](./create_aks_cluster.png)
 
