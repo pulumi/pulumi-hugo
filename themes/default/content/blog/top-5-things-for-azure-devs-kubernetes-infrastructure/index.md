@@ -52,7 +52,7 @@ Configuring and deploying Kubernetes can be complex. AKS provides many features 
 - AKS supports access control through [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and Azure [Active Directory](https://docs.microsoft.com/en-us/azure/aks/managed-aad).
 - Integrated logging and monitoring with [Azure Monitor for Containers](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview) collects memory and processor metrics from containers, nodes, and controllers.
 - AKS lets you mount static or dynamic storage volumes for persistent data. Storage volumes use Azure Disks for single pod access or Azure Files for concurrent pod access.
-- [Virtual networking](https://docs.microsoft.com/en-us/azure/aks/concepts-network) for pods in the cluster and other nodes using a peered virtual network. The network also provides ingress for applications with HTTP application routing.
+- [Virtual networking](https://docs.microsoft.com/en-us/azure/aks/concepts-network) for pods in the cluster and other nodes let you use a peered virtual network. The network also provides ingress for applications with HTTP application routing.
 - Integration with development tools for Helm and a [Visual Studio Code extension for Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools).
 - Support for Docker images, including storage with [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/).
 
