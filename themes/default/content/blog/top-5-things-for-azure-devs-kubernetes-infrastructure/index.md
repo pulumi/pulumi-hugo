@@ -70,7 +70,7 @@ We'll use the Azure Portal to illustrate the steps to configure and deploy an AK
 
 **Step 2**: Create an AKS cluster.
 
-For this example, we will configure several options in the `Basic` window but use defaults for most options.
+For this example, we will configure several options in the **Basic** window but use defaults for most options.
 
 - In `Subscription`, Select an `Azure Subscription`
 - Create or select a [Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
