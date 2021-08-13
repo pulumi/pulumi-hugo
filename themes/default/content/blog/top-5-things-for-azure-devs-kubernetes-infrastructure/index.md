@@ -114,7 +114,7 @@ For this example, we'll use `kubenet` for it's simplicity, but in production `Az
 
 **Step 6**: Complete the deployment
 
-Select `Review + create` to deploy. Deployment takes several minutes to complete. On completion, you can verify the `Deployment details` or select `Connect to cluster`.
+Select **Review + create** to deploy. Deployment takes several minutes to complete. On completion, you can verify the **Deployment details** or select **Connect to cluster**.
 
 ![Deployment complete](deployment_complete.png)
 
