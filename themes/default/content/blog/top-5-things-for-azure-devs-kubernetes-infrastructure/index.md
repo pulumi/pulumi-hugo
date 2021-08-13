@@ -549,7 +549,7 @@ A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-clus
 
 **Step 4**: Connect to the AKS cluster
 
-We can use the `kubeconfig` file connect to the cluster. It's common practice to copy the `kubeconfig` file to `~/.kube/config` which is the directory that `kubectl` looks for the file. However, you can use any directory with the `--kubeconfig` flag, e.g.,
+We can use the `kubeconfig` file connect to the cluster. It's common practice to copy the `kubeconfig` file to `~/.kube/config`, which is the directory that `kubectl` looks for the file. However, you can use any directory with the `--kubeconfig` flag, e.g.,
 
 ```bash
 $ kubectl --kubeconfig /path/to/kubeconfig_file get pods
