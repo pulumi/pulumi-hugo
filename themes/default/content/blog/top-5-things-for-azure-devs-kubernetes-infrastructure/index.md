@@ -301,13 +301,13 @@ Now that we have reviewed the process for creating an AKS cluster using the Azur
 
 We set the configuration options in `ManagedClusterAgentPoolProfileArgs`:
 
-- Count: Number of virtual machines
-- MaxPods: Maximum number of pods that can run on a node.
-- Mode: Sets the type of pool node, which can be [system or user](https://docs.microsoft.com/en-us/azure/aks/use-system-pools)
-- Name: Name of the pool node
-- OsType: Specifies the OS type
-- Type: Choose between a [`VirtualMachineScaleSet`](https://docs.microsoft.com/en-us/azure/aks/use-system-pools) or an [`AvailabilitySet`](https://docs.microsoft.com/en-us/azure/aks/availability-zones)
-- VmSize: The virtual machine size used by the cluster.
+- `Count`: Number of virtual machines
+- `MaxPods`: Maximum number of pods that can run on a node.
+- `Mode`: Sets the type of pool node, which can be [system or user](https://docs.microsoft.com/en-us/azure/aks/use-system-pools)
+- `Name`: Name of the pool node
+- `OsType`: Specifies the OS type
+- `Type`: Choose between a [`VirtualMachineScaleSet`](https://docs.microsoft.com/en-us/azure/aks/use-system-pools) or an [`AvailabilitySet`](https://docs.microsoft.com/en-us/azure/aks/availability-zones)
+- `VmSize`: The virtual machine size used by the cluster.
 
 The remaining parameters set the Kubernetes version, enables RBAC, and configures the Linux profile for the  `ContainerService`.
 
