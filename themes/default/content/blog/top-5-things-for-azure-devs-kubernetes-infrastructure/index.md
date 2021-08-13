@@ -96,7 +96,7 @@ You can authenticate, authorize, secure, and control access to Kubernetes cluste
 - [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) (Kubernetes RBAC) to grant access to service accounts
 - [Azure Active Directory integration](https://docs.microsoft.com/en-us/azure/aks/managed-aad) that provides a multi-tenant, cloud-based directory and identity management service.
 
-To configure `Authentication` for this example, set the `Authentication method` to `System-assigned managed identity`. You can set `Role-based access control (RBAC)` to enabled, but it's unnecessary for the example. Use the default value for the `Node pool OS disk encryption` type.
+To configure **Authentication** for this example, set the **Authentication method** to **System-assigned managed identity**. You can set **Role-based access control (RBAC)** to enabled, but it's unnecessary for the example. Use the default value for the **Node pool OS disk encryption** type.
 
 ![Authentication](./authentication.png)
 
