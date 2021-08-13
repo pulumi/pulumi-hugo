@@ -33,7 +33,7 @@ If you're not familiar with Kubernetes concepts and terminology, the Getting Sta
 
 Azure Kubernetes Service (AKS) is a hosted Kubernetes service. Azure manages the Kubernetes master nodes, and you are responsible for managing the agent or worker nodes. You only pay for the worker nodes in your cluster that make up your application.
 
-Kubernetes nodes are the worker machines that can be either physical or virtual. AKS nodes use Azure virtual machines (VMs), and you can add storage, upgrade cluster components, or  even run multiple node pools with mixed operating systems.
+Kubernetes nodes are the worker machines that can be either physical or virtual. AKS nodes use Azure virtual machines (VMs); and you can add storage, upgrade cluster components, or even run multiple node pools with mixed operating systems.
 
 You can create an AKS cluster with:
 
