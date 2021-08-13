@@ -91,7 +91,7 @@ For this example, use the default values for node pools.
 
 **Step 4**: Configure authentication.
 
-You can authenticate, authorize, secure, and control access to Kubernetes clusters with:
+You can authenticate, authorize, secure, and control access to Kubernetes clusters with
 
 - [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) (Kubernetes RBAC) to grant access to service accounts or
 - [Azure Active Directory integration](https://docs.microsoft.com/en-us/azure/aks/managed-aad) that provides a multi-tenant, cloud-based directory and identity management service.
