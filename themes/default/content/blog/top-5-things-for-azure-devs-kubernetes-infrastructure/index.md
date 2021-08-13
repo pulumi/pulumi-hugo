@@ -561,6 +561,6 @@ The complete code for deploying AKS is available on GitHub for [Typescript](http
 
 ## Summary
 
-Azure Kubernetes Service let's you deploy a Kubernetes cluster quickly and efficiently. An AKS deployment configures the worker nodes since the master nodes are provided by Azure. The Azure Portal provides a simplified interface for configuration, but if you want fine-grain control over the deployment, infrastructure as code is an option. This is particularly true for production deployments where the configuration requires tuning for an application deployment.
+Azure Kubernetes Service lets you deploy a Kubernetes cluster quickly and efficiently. An AKS deployment configures the worker nodes since the master nodes are provided by Azure. The Azure Portal provides a simplified interface for configuration, but if you want fine-grain control over the deployment, infrastructure as code is an option. This is particularly true for production deployments where the configuration requires tuning for an application deployment.
 
 In the next article in this series, we'll deploy an application on an AKS cluster using different methods.
