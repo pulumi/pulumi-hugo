@@ -32,10 +32,18 @@
     </section>
 
     <section class="container mx-auto text-center my-16">
-        <h3>Get notified when registration opens</h3>
+        <h4>Get notified when registration opens</h4>
         <div class="flex items-center justify-center">
             <pulumi-hubspot-form form-id="929d85ee-10e1-42c6-90d7-eab27730d9e5" class="newsletter newsletter-wide newsletter-dark-border"></pulumi-hubspot-form>
         </div>
+    </section>
+
+    <section id="speakers" class="container mx-auto text-center">
+        <h2>Featured Speakers</h2>
+        <div class="cloud-engineering-summit-speaker-wall">
+            <script type="text/javascript" src="https://sessionize.com/api/v2/0zpj1har/view/SpeakerWall"></script>
+        </div>
+        <a class="btn-secondary" href="{{ relref . "/cloud-engineering-summit/speakers" }}">View all speakers</a>
     </section>
 
     <section class="my-16 relative">
@@ -50,6 +58,9 @@
 
         <div class="container mx-auto">
             <h2 class="text-center">Summit Tracks</h2>
+            <div class="text-center my-12">
+                <a class="btn-secondary" href="{{ relref . "/cloud-engineering-summit/agenda" }}">Read the agenda</a>
+            </div>
 
             {{ range $item := .Params.tracks_outline }}
                 <div class="lg:flex my-16">
