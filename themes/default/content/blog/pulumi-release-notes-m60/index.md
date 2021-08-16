@@ -51,9 +51,9 @@ The [`dependsOn` option]({{< relref "/docs/intro/concepts/resources#dependson" >
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/7542) and [this issue](https://github.com/pulumi/pulumi/issues/5642)
 
-### Provider aliases now work correctly
+### Aliases can now be used with providers
 
-Pulumi enables you to _alias_ resources, which can help with scenarios where you want to change a resource's name without causing a delete and replace of that resource. We've fixed some bugs preventing the alias logic from working correctly, so that aliases are now reliable and correct across all Pulumi languages.
+Pulumi has historically enabled you to _alias_ resources, which can help with scenarios where you want to change a resource's name without causing a delete and replace of that resource. Now, you can also alias _providers_, which can make it easier to refactor stacks and code over time.
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/3979)
 
