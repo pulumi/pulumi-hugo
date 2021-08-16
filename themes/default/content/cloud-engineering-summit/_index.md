@@ -1,5 +1,4 @@
 ---
-# TODO: update these values
 title: Cloud Engineering Summit
 meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitioners about cloud infrastructure, modern applications, and everything in between.
 
