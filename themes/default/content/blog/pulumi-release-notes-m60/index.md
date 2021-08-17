@@ -56,7 +56,20 @@ The [`dependsOn` option]({{< relref "/docs/intro/concepts/resources#dependson" >
 
 ### Aliases can now be used with providers
 
-Pulumi has historically enabled you to _alias_ resources, which can help with scenarios where you want to change a resource's name without causing a delete and replace of that resource. Now, you can also alias _providers_, which can make it easier to refactor stacks and code over time.
+Pulumi has historically enabled you to _alias_ resources, which can help with scenarios where you want to change a resource's name without causing a delete and replace of that resource. Now, you can also alias _providers_, which can make it easier to refactor stacks and code over time. In the example below, an AWS provider instance is created with the alias "newName":
+
+```typescript
+import * as aws from "@pulumi/aws";
+
+const providerName = "newName";
+const awsProvider = new aws.Provider(providerName, {
+    region: "us-west-2",
+}, { aliases: [{ name: "oldName" }]});
+
+const bucket = new aws.s3.Bucket("my-bucket", {}, { provider: awsProvider });
+
+export const bucketName = bucket.id;
+```
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/3979)
 
