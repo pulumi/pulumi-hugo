@@ -13,11 +13,14 @@ tags:
 Summer is quickly flying by, and we've been hard at work with more new features and updates across the Pulumi ecosystem!
 
 - New and updated cloud providers
-  - TODO
+  - [EKS Pulumi Package supports more options for managed node groups]({{< relref "/blog/pulumi-release-notes-m60#eks-pulumi-package-supports-more-options-for-managed-node-groups" >}})
+  - [12 new resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m60#12-new-resources-in-the-azure-native-provider" >}})
 - Pulumi CLI and core technologies
-  - TODO
+  - [Methods for Pulumi Component Packages]({{< relref "/blog/pulumi-release-notes-m60#methods-for-pulumi-component-packages" >}})
+  - [`dependsOn` now works for Pulumi Component Packages, and more]({{< relref "/blog/pulumi-release-notes-m60#dependson-now-works-for-pulumi-component-packages-and-more" >}})
+  - [Aliases can now be used with providers]({{< relref "/blog/pulumi-release-notes-m60#aliases-can-now-be-used-with-providers" >}})
 - Pulumi Service and Pulumi.com
-  - TODO
+  - [Azure Native resources now link to the Azure Portal]({{< relref "/blog/pulumi-release-notes-m60#azure-native-resources-now-link-to-the-azure-portal" >}})
 
 <!--more-->
 
