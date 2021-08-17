@@ -7,7 +7,7 @@ meta_desc: "In this workshop, you’ll use the Azure native provider to build in
 featured: false
 
 # If the video is pre-recorded or live.
-pre_recorded: false
+pre_recorded: true
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
 pulumi_tv: false
@@ -37,9 +37,9 @@ block_external_search_index: false
 url_slug: "getting-started-with-azure-native"
 
 # Webinar pages support multiple session via the 'multiple' property.
-multiple:
-    - datetime: 2021-08-12T09:00:00-07:00
-      hubspot_form_id: d69a09b6-9f49-4d07-a4fd-98668b1fac26
+# multiple:
+#     - datetime: 2021-08-12T09:00:00-07:00
+#       hubspot_form_id: d69a09b6-9f49-4d07-a4fd-98668b1fac26
 
 # The content of the hero section.
 hero:
