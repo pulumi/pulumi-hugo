@@ -20,7 +20,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: true
+gated: false
 
 # The layout of the landing page.
 type: webinars
@@ -53,7 +53,7 @@ main:
     # Webinar title.
     title: "Getting Started with Azure and Infrastructure as Code"
     # URL for embedding a URL for ungated webinars.
-    youtube_url: ""
+    youtube_url: "https://www.youtube.com/embed/yzTSUDp2KXU"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2021-04-28T09:00:00-07:00
     # Duration of the webinar.
@@ -68,14 +68,8 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Sophia Parafina
-          role: Developer Advocate, Pulumi
-
-        - name: Matt Stratton
-          role: Developer Advocate, Pulumi
-
-        - name: Mikhail Shilkov
-          role: Software Engineer, Pulumi
+        - name: Lee Briggs
+          role: Sales Engineer, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
