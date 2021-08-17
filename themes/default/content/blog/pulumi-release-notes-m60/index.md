@@ -50,7 +50,29 @@ In this milestone, we shipped Pulumi versions [3.9.0](https://github.com/pulumi/
 
 ### `dependsOn` now works for Pulumi Component Packages, and more
 
-The [`dependsOn` option]({{< relref "/docs/intro/concepts/resources#dependson" >}}) creates a list of explicit dependencies between resources, which can be useful when you need to explicity specify additional dependencies that Pulumi doesn’t know about but must still respect. Previously, `dependsOn` worked differently depending on the language your Pulumi code was written in or when referencing a component inside a Pulumi Component Package. Now, depending on a Pulumi Component Package's component will always wait on all of that component's children, regardless of language. Additionally, you can now pass `Input`s and `Output`s to `dependsOn`, which can be especially useful in Kubernetes and Helm workflows where you need to depend on the output of a resource created by a Helm chart.
+The [`dependsOn` option]({{< relref "/docs/intro/concepts/resources#dependson" >}}) creates a list of explicit dependencies between resources, which can be useful when you need to explicity specify additional dependencies that Pulumi doesn’t know about but must still respect. Previously, `dependsOn` worked differently depending on the language your Pulumi code was written in or when referencing a component inside a Pulumi Component Package. Now, depending on a Pulumi Component Package's component will always wait on all of that component's children, regardless of language. Additionally, you can now pass `Input`s and `Output`s to `dependsOn`, which can be especially useful in Kubernetes and Helm workflows where you need to depend on the output of a resource created by a Helm chart. 
+
+To see this work in action, check out the [Staged App Rollout Gated by Prometheus Checks](https://github.com/pulumi/examples/tree/ca40203279f393c0c159dadcadc97c6007122997/kubernetes-ts-staged-rollout-with-prometheus) example, where we create a staged rollout (from 3-replica canary -> 10-replica staging) gated by confirming that the P90 response time reported by Prometheus is less than some amount. The relevant code is the last line of this snippet, which lets your Kubernetes deployment depend on a Prometheus resource:
+
+```typescript
+const p8sService = prometheus.getResource("v1/Service", "p8s-prometheus-server");
+const p8sDeployment = prometheus.getResource(
+    "extensions/v1beta1/Deployment",
+    "p8s-prometheus-server",
+);
+
+const localPort = 9090;
+const forwarderHandle = util.forwardPrometheusService(p8sService, p8sDeployment, {
+    localPort,
+});
+
+// Canary ring. Replicate instrumented Pod 3 times.
+const canary = new k8s.apps.v1beta1.Deployment(
+    "canary-example-app",
+    { spec: { replicas: 1, template: instrumentedPod } },
+    { dependsOn: p8sDeployment },
+);
+```
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/7542) and [this issue](https://github.com/pulumi/pulumi/issues/5642)
 
