@@ -11,7 +11,7 @@ While the Pulumi Service REST API is used by the Pulumi CLI and Pulumi Console, 
 
 ## Authentication
 
-All requests must be authenticated using a token via the `Authorization` HTTP header. 
+All requests must be authenticated using a token via the `Authorization` HTTP header.
 
 The `Authorization` header must be in the form below with the literal string `token`, then a space, then your access token value.
 
@@ -1466,7 +1466,10 @@ EMPTY RESPONSE BODY
 ### Update Team Membership
 
 {{% notes "info" %}}
-For GitHub-backed organizations, this operation cannot be used as membership is managed on GitHub.
+
+- For [GitHub-backed organizations]({{< relref "docs/intro/console/teams#github-based-teams" >}}), this operation cannot be used as membership is managed on GitHub.
+- For [SCIM managed teams]({{< relref "/docs/guides/scim" >}}), this operation cannot be used as membership as membership is managed via the SSO provider.
+
 {{% /notes %}}
 
 ```
