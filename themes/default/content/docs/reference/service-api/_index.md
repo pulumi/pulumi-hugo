@@ -9,6 +9,16 @@ The Pulumi Service REST API is used by the Pulumi CLI and the Pulumi Console to 
 While the Pulumi Service REST API is used by the Pulumi CLI and Pulumi Console, Pulumi makes no guarantees about changes that might affect backwards compatibility or cause breaking changes.
 {{% /notes %}}
 
+## Endpoint URL
+
+For the Managed Pulumi Service (i.e. [app.pulumi.com](https://app.pulumi.com/)), API endpoints are prefixed with the following url:
+
+```
+https://api.pulumi.com
+```
+
+If you are using [Self-Hosted Pulumi Service]({{< relref "docs/guides/self-hosted" >}}), then use the configured endpoint for the [Pulumi API component]({{< relref "/docs/guides/self-hosted/api#api-service" >}}) (e.g. `https://api.pulumi.example.com`).
+
 ## Authentication
 
 All requests must be authenticated using a token via the `Authorization` HTTP header.
@@ -38,8 +48,10 @@ Content-Type: application/json
 
 ### List Stacks
 
+Lists stacks available to the authenticated user.
+
 ```
-GET https://api.pulumi.com/api/user/stacks
+GET /api/user/stacks
 ```
 
 #### Parameters
@@ -95,7 +107,7 @@ Status: 200 OK
 ### Get Stack
 
 ```
-GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}
+GET /api/stacks/{organization}/{project}/{stack}
 ```
 
 #### Parameters
@@ -153,7 +165,7 @@ Status: 200 OK
 ### Get Stack State
 
 ```
-GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/export
+GET /api/stacks/{organization}/{project}/{stack}/export
 ```
 
 #### Parameters
@@ -278,7 +290,7 @@ Transfers the stack from one organization in the Pulumi Console to a different o
 This operation will return a 409 response error if an update is currently in progress.
 
 ```
-POST https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/transfer
+POST /api/stacks/{organization}/{project}/{stack}/transfer
 ```
 
 #### Parameters
@@ -317,7 +329,7 @@ EMPTY RESPONSE BODY
 ### Delete Stack
 
 ```
-DELETE https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}
+DELETE /api/stacks/{organization}/{project}/{stack}
 ```
 
 #### Parameters
@@ -365,7 +377,7 @@ Use [Get Stack](#get-stack) to retrieve a stack's details including its tags.
 ### Set Stack Tag
 
 ```
-POST https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags
+POST /api/stacks/{organization}/{project}/{stack}/tags
 ```
 
 #### Parameters
@@ -405,7 +417,7 @@ EMPTY RESPONSE BODY
 ### Delete Stack Tag
 
 ```
-DELETE https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags/{tagName}
+DELETE /api/stacks/{organization}/{project}/{stack}/tags/{tagName}
 ```
 
 #### Parameters
@@ -447,7 +459,7 @@ EMPTY RESPONSE BODY
 ### List Stack Updates
 
 ```
-GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates
+GET /api/stacks/{organization}/{project}/{stack}/updates
 ```
 
 By default the results are not paginated. You can specify `page` and `pageSize` query parameters to paginate the results.
@@ -716,7 +728,7 @@ Status: 200 OK
 ### Get Update Status
 
 ```
-GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/update/{updateID}
+GET /api/stacks/{organization}/{project}/{stack}/update/{updateID}
 ```
 
 #### Parameters
@@ -756,7 +768,7 @@ Status: 200 OK
 ### List Update Events
 
 ```
-GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/update/{updateID}/events
+GET /api/stacks/{organization}/{project}/{stack}/update/{updateID}/events
 ```
 
 #### Parameters
@@ -974,10 +986,10 @@ Status: 200 OK
 
 ### List Previews
 
-This operation will list all previews since the last update operation.
+List all previews since the last update operation.
 
 ```
-GET https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/updates/latest/previews
+GET /api/stacks/{organization}/{project}/{stack}/updates/latest/previews
 ```
 
 #### Parameters
@@ -1235,7 +1247,7 @@ In the response data `githubLogin` is synonymous with `username` and does not ne
 {{% /notes %}}
 
 ```
-GET https://api.pulumi.com/api/orgs/{organization}/members?type=backend
+GET /api/orgs/{organization}/members?type=backend
 ```
 
 #### Parameters
@@ -1300,7 +1312,7 @@ User must have already signed up for a Pulumi account and meet the [organization
 If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration]({{< relref "/docs/guides/scim" >}}) documentation.
 
 ```
-POST https://api.pulumi.com/api/orgs/{organization}/members/{username}
+POST /api/orgs/{organization}/members/{username}
 ```
 
 #### Parameters
@@ -1338,7 +1350,7 @@ EMPTY RESPONSE BODY
 ### Remove User from Organization
 
 ```
-DELETE https://api.pulumi.com/api/orgs/{organization}/members/{username}
+DELETE /api/orgs/{organization}/members/{username}
 ```
 
 #### Parameters
@@ -1378,7 +1390,7 @@ For GitHub-backed organizations the `teamType` path parameter must be `github`. 
 {{% /notes %}}
 
 ```
-POST https://api.pulumi.com/api/orgs/{org}/teams/{teamType}
+POST /api/orgs/{org}/teams/{teamType}
 ```
 
 #### Parameters
@@ -1430,7 +1442,7 @@ Status: 200 OK
 ### Delete Team
 
 ```
-DELETE https://api.pulumi.com/api/orgs/{org}/teams/{teamName}
+DELETE /api/orgs/{org}/teams/{teamName}
 ```
 
 #### Parameters
@@ -1473,7 +1485,7 @@ EMPTY RESPONSE BODY
 {{% /notes %}}
 
 ```
-PATCH https://api.pulumi.com/api/orgs/{organization}/teams/{team}
+PATCH /api/orgs/{organization}/teams/{team}
 ```
 
 #### Parameters
@@ -1512,7 +1524,7 @@ EMPTY RESPONSE BODY
 ### Update User's Role
 
 ```
-PATCH https://api.pulumi.com/api/orgs/{organization}/members/{username}
+PATCH /api/orgs/{organization}/members/{username}
 ```
 
 #### Parameters
@@ -1550,7 +1562,7 @@ EMPTY RESPONSE BODY
 ### List User Access Tokens
 
 ```
-GET https://api.pulumi.com/api/user/tokens
+GET /api/user/tokens
 ```
 
 #### Parameters
@@ -1595,7 +1607,7 @@ Status: 200 OK
 ### Create User Access Token
 
 ```
-POST https://api.pulumi.com/api/user/tokens
+POST /api/user/tokens
 ```
 
 #### Parameters
@@ -1634,7 +1646,7 @@ Status: 204 OK
 ### Delete User Access Token
 
 ```
-DELETE https://api.pulumi.com/api/user/tokens/{tokenId}
+DELETE /api/user/tokens/{tokenId}
 ```
 
 #### Parameters
@@ -1669,7 +1681,7 @@ EMPTY RESPONSE BODY
 ### Get Audit Log Events
 
 ```
-GET https://api.pulumi.com/api/orgs/{organization}/auditlogs
+GET /api/orgs/{organization}/auditlogs
 ```
 
 #### Parameters
@@ -1751,7 +1763,7 @@ This API endpoint differs from other endpoints in the following ways:
 {{% /notes %}}
 
 ```
-GET https://api.pulumi.com/api/orgs/{organization}/auditlogs/export
+GET /api/orgs/{organization}/auditlogs/export
 ```
 
 #### Parameters
