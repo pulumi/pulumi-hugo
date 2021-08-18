@@ -1,6 +1,9 @@
 ---
 title: "Pulumi Service REST API"
 meta_desc: An overview of the Pulumi Service REST API for querying Organization, Stack, State, etc. information.
+menu:
+  reference:
+    weight: 4
 ---
 
 The Pulumi Service REST API is used by the Pulumi CLI and the Pulumi Console to query and interact with state information, history, stack tags, etc. This API is available for end users to integrate into their own automation use cases.
