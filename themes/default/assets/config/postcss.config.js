@@ -75,6 +75,7 @@ const plugins = [
                 /^package-details/,
                 /^resources-properties/,
                 /^tabular/,
+                /^r-/,
 
                 // Safelist our web components along with any of their descendent selectors.
                 /^pulumi-chooser/,
