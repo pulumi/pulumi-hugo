@@ -1679,9 +1679,11 @@ Status: 204 OK
 EMPTY RESPONSE BODY
 ```
 
+## Audit Logs
+
 <!-- ###################################################################### -->
 
-### Get Audit Log Events
+### Get Audit Log Events (JSON)
 
 ```
 GET /api/orgs/{organization}/auditlogs
@@ -1693,6 +1695,7 @@ GET /api/orgs/{organization}/auditlogs
 | --------- | ---------- | ---------- | ---------- |
 | `organization` | string | path | organization name |
 | `startTime` | unix timestamp | query | return results that occur after this timestamp |
+| `userFilter` | string | query | **Optional.** username (e.g. `user1`) to filter results by |
 | `continuationToken` | string | query | **Optional.** the continuation token to use for retrieving the next set of results if results were truncated |
 
 #### Example
@@ -1775,6 +1778,7 @@ GET /api/orgs/{organization}/auditlogs/export
 | --------- | ---------- | ---------- | ---------- |
 | `organization` | string | path | organization name |
 | `startTime` | unix timestamp | query | return results that occur after this timestamp |
+| `userFilter` | string | query | **Optional.** username (e.g. `user1`) to filter results by |
 | `format` | string | query | **Optional.** the response format to return - possible values are `cef` or `csv` (default) |
 
 #### Example
