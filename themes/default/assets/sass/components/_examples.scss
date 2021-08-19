@@ -1,7 +1,7 @@
 pulumi-examples {
     @apply block pb-4;
 
-    h3 {
+    h3, div.toggle {
         @apply cursor-pointer text-xl text-gray-700;
 
         span {
@@ -23,5 +23,9 @@ pulumi-examples {
                 display: block;
             }
         }
+    }
+
+    div.toggle {
+        font-size: inherit;
     }
 }

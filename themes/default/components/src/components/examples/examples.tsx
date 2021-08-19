@@ -1,4 +1,4 @@
-import { Component, Element, h } from "@stencil/core";
+import { Component, Element, h, Prop } from "@stencil/core";
 
 @Component({
     tag: "pulumi-examples",
@@ -10,8 +10,24 @@ export class Examples {
     @Element()
     el: HTMLElement;
 
+    /**
+     * Set to true to use a DIV tag as the toggle.
+     * Default is to use an H3 tag. When true,
+     * the DIV should also use the CSS class name
+     * `toggle`.
+     */
+    @Prop()
+    useDivToggle: boolean;
+
+    /**
+     * Whether or not all toggles should be collapsed at start.
+     */
+    @Prop()
+    collapseAll: boolean;
+
     componentWillRender() {
-        const headings = Array.from(this.el.querySelectorAll("pulumi-examples h3"));
+        const toggleElementTag = !this.useDivToggle ? "h3" : "div.toggle";
+        const headings = Array.from(this.el.querySelectorAll(`pulumi-examples ${toggleElementTag}`));
 
         headings.forEach(heading => {
 
@@ -35,7 +51,7 @@ export class Examples {
         });
 
         // Expand the first example by default.
-        if (headings && headings.length > 0) {
+        if (!this.collapseAll && headings && headings.length > 0) {
             this.toggle(headings[0]);
         }
     }

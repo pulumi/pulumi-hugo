@@ -58,6 +58,8 @@ export namespace Components {
     interface PulumiExample {
     }
     interface PulumiExamples {
+        "useDivToggle": boolean;
+        "collapseAll": boolean;
     }
     interface PulumiGreenhouseJobsList {
     }
@@ -312,6 +314,8 @@ declare namespace LocalJSX {
     interface PulumiExample {
     }
     interface PulumiExamples {
+        "toggleSelector"?: string;
+        "toggleTagName"?: string;
     }
     interface PulumiGreenhouseJobsList {
     }
