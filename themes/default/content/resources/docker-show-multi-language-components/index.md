@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "The Docker Show: Multi-language components with Pulumi and Docker"
+title: "The Docker Show: Multi-language components with Pulumi"
 meta_desc: "In this episode Lee Zen will show you how Pulumi's multi-language components feature makes it easy to share infrastructure code across programming languages."
 
 # A featured webinar will display first in the list.
