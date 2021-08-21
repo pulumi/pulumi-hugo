@@ -34,6 +34,7 @@
 @import "on-this-page";
 @import "marketing";
 @import "notes";
+@import "packages";
 @import "pagination";
 @import "pricing";
 @import "product";
@@ -187,67 +188,6 @@ main {
             &:hover {
                 @apply text-white;
             }
-        }
-    }
-}
-
-.r-tiles {
-    @apply items-center;
-
-    @screen md {
-        @apply flex space-x-10;
-    }
-
-    .r-tile {
-        @apply block rounded shadow border border-gray-300 cursor-pointer p-4 font-display;
-
-        width: 500px;
-        max-width: 500px;
-
-        &.featured {
-            @apply cursor-default;
-
-            max-height: 350px;
-            height: 350px;
-
-            .r-package-featured-ex {
-                li {
-                    @apply text-sm truncate overflow-ellipsis;
-
-                    width: 300px;
-                }
-            }
-        }
-
-        @include transition;
-
-        &:hover {
-            @apply shadow-md;
-            transform: scale(1.03);
-        }
-    }
-}
-
-.r-package-tags {
-    .r-package-tag:not(last-child) {
-        @apply mr-4 p-2;
-    }
-
-    .package-category {
-        background-color: map-get($blue, 200);
-
-        &.network {
-            background-color: map-get($yellow, 200);
-        }
-    }
-
-    .native-package {
-        background-color: map-get($purple, 400);
-    }
-
-    .package-status {
-        &.ga, &.public-preview {
-            background-color: map-get($fuchsia, 200);
         }
     }
 }
