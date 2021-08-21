@@ -313,10 +313,6 @@ declare namespace LocalJSX {
     }
     interface PulumiExample {
     }
-    interface PulumiExamples {
-        "toggleSelector"?: string;
-        "toggleTagName"?: string;
-    }
     interface PulumiGreenhouseJobsList {
     }
     interface PulumiHubspotForm {
