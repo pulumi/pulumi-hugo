@@ -2,6 +2,7 @@
 
 BUILD_IDENTIFIER="$(git rev-parse HEAD)"
 export REPO_THEME_PATH="themes/default/"
+export LOCAL_THEME_PATH="_vendor/github.com/pulumi/pulumi-ui/themes/default/"
 
 # Bundle filenames are exported for use with Hugo and theme scripts.
 export CSS_BUNDLE="static/css/styles.${BUILD_IDENTIFIER}.css"
