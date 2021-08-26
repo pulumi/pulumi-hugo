@@ -24,7 +24,7 @@ Azure Pipelines is a Continuous Integration/Continuous Delivery (CI/CD) system t
 
 CI/CD systems store environment-specific configurations for every artifact produced. They use this information to perform any changes to the environment when software is deployed. For example, these systems can refresh database connections or restart services on a deployment.
 
-Azure Pipelines supports the following:
+[Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) supports the following tools:
 
 - **version control systems** - Git and Team Foundation Version Control
 - **languages** - Python, Java, JavaScript, PHP, Ruby, C#, C++, and Go
