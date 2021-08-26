@@ -70,7 +70,7 @@ The Pulumi task extension runs the Pulumi CLI in your CI/CD pipelines. The pipel
 The task has two requirements:
 
 - the pipeline must connect to your Azure Subscription through a service connection
-- the build variable, `pulumi.access.token` is mapped to the environment variable [`PULUMI_ACCESS_TOKEN`](https://app.pulumi.com/account/tokens), which the CLI uses for non-interactive logins
+- The build variable, `pulumi.access.token` is mapped to the environment variable [`PULUMI_ACCESS_TOKEN`](https://app.pulumi.com/account/tokens), which the CLI uses for non-interactive logins.
 
 There are two ways to run the pipeline. You can use the console to configure the pipeline or add an `azure-pipelines.yml` file to your repository. Let's look at an example YAML file.
 
