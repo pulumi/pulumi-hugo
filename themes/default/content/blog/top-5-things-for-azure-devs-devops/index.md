@@ -20,7 +20,7 @@ DevOps processes rely on tooling to automate delivering and maintaining applicat
 
 ## Azure Pipelines
 
-Azure Pipelines is a Continuous Integration/Continuous Delivery (CI/CD) system that builds and tests code. A key practice of DevOps is Continuous Integration which merges and tests code automatically. CI catches bugs with [automated testing]({{< relref "/blog/infrastructure-testing-concepts" >}}) before software is released, which decreases the cost to fix. The Azure DevOps Build process produces artifacts that drive small and frequent deployments. Continuous Delivery tests and deploys the artifacts in test or production environments. The automated release process updates existing systems with patches, bug fixes, and new features.
+Azure Pipelines is a Continuous Integration/Continuous Delivery (CI/CD) system that builds and tests code. A key practice of DevOps is Continuous Integration (CI), which merges and tests code automatically. CI catches bugs with [automated testing]({{< relref "/blog/infrastructure-testing-concepts" >}}) before software is released, which decreases the cost to fix. The Azure DevOps Build process produces artifacts that drive small and frequent deployments. Continuous Delivery (CD) tests and deploys the artifacts in test or production environments. The automated release process updates existing systems with patches, bug fixes, and new features.
 
 CI/CD systems store environment-specific configurations for every artifact produced. They use this information to perform any changes to the system when software is deployed. For example, it can refresh database connections or restart services on a deployment.
 
