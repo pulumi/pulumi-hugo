@@ -55,7 +55,7 @@ Let's go step-by-step to create a pipeline.
 
 Connect pipeline to the repository.
 
-![Connect repository](./connect_repository/png)
+![Connect repository](./connect_repository.png)
 
 **Step 6**: Examine the pipeline YAML and, if everything appears correct, select **Save and run**.
 
