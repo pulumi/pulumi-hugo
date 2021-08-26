@@ -57,7 +57,7 @@ Connect pipeline to the repository.
 
 ![Connect repository](./connect_repository/png)
 
-**Step 5**: Examine pipeline YAML and `Save and run`.
+**Step 6**: Examine the pipeline YAML and, if everything appears correct, select **Save and run**.
 
 ![Save and run](./save_and_run.png)
 
