@@ -112,7 +112,7 @@ jobs:
           cwd: "./"
 ```
 
-Let's focus on `jobs`. The first step is to find, download, and install [NuGet](https://www.nuget.org/), which is required to build this C# application. The second task uses the Pulumi task extension to run a Pulumi `preview` of the stack (`$(StacName)`) located at the root of the Pulumi project. The complete example is available on [GitHub](https://github.com/pulumi/pulumi-az-pipelines-task/tree/master/examples/azure-native-dotnet).
+Let's focus on `jobs`. The first step is to find, download, and install [NuGet](https://www.nuget.org/), which is required to build this C# application. The second task uses the Pulumi task extension to run a Pulumi `preview` of the stack (`$(StackName)`) located at the root of the Pulumi project. The complete example is available on [GitHub](https://github.com/pulumi/pulumi-az-pipelines-task/tree/master/examples/azure-native-dotnet).
 
 If we wanted to build and deploy the infrastructure, we could add another task. The `azure-pipelines.yml` file would be similar to this.
 
