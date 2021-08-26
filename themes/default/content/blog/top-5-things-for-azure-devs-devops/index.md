@@ -1,6 +1,6 @@
 ---
 title: "Top 5 Things an Azure Developer Needs to Know: DevOps"
-date: 2021-08-19
+date: 2021-08-26
 allow_long_title: True
 meta_desc: "DevOps is the way modern cloud teams work together to deploy applications. Azure Pipelines is a way to implement DevOps with Continuous Integration and Continuous Delivery"
 meta_image: azure-top-5.png
