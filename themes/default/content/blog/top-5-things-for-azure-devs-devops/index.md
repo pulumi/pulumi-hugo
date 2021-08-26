@@ -53,7 +53,7 @@ Let's go step-by-step to create a pipeline.
 
 ![Select repository](./select_repository.png)
 
-Connect pipeline to the repository.
+**Step 5**: Connect the pipeline to the repository on GitHub by approving the install.
 
 ![Connect repository](./connect_repository.png)
 
