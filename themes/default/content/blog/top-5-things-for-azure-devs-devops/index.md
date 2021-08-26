@@ -51,7 +51,7 @@ Let's go step-by-step to create a pipeline.
 
 **Step 4**: Connect and select your repository.
 
-![Select repository](./select_repository)
+![Select repository](./select_repository.png)
 
 Connect pipeline to the repository.
 
