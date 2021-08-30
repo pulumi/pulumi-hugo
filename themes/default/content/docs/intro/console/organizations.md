@@ -15,6 +15,7 @@ aliases:
 ---
 
 Organizations are a space for you to collaborate on shared projects and stacks.
+New organizations have their own subscription.
 
 ## Organization Pages
 
@@ -28,6 +29,8 @@ Organizations are a space for you to collaborate on shared projects and stacks.
 | Settings | Organization settings including subscription and payment information and history, stack permissions, and links to Pulumi's [continuous delivery guides]({{< relref "/docs/guides/continuous-delivery" >}}). |
 
 ## Creating an Organization
+
+Every organization has it's own subscription.
 
 To create an organization:
 
