@@ -15,7 +15,6 @@ aliases:
 ---
 
 Organizations are a space for you to collaborate on shared projects and stacks.
-New organizations have their own subscription.
 
 ## Organization Pages
 
@@ -30,7 +29,9 @@ New organizations have their own subscription.
 
 ## Creating an Organization
 
-Every organization has it's own subscription.
+Creating an organization will start a free trial that has access to all features.
+At the end of the trial, you can choose to move to Team or Enterprise.
+Learn more about the edition features on the [Pricing Page]({{< relref "/pricing" >}}).
 
 To create an organization:
 
