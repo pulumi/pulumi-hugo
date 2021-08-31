@@ -118,10 +118,10 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@pulumi/facet@^0.0.21":
-  version "0.0.21"
-  resolved "https://npm.pkg.github.com/download/@pulumi/facet/0.0.21/9cacd44eda24ff4b2123876f336bd14f97a8c7e2d0c0096b3e013c759dfa3907#aa5d61d65929259f08a17fd25c987c1b900b5eed"
-  integrity sha512-zhu/78sTsej3BAKSptvPWjUUDZJTSCU1H7Ykkk3JNMgMGut0ZzTnn3wSfwBfHLjDCqsb3sWw09XLx8/ya3gcsQ==
+"@pulumi/facet@^0.0.22":
+  version "0.0.22"
+  resolved "https://npm.pkg.github.com/download/@pulumi/facet/0.0.22/3bc948a0822b3b8fc1e1a79a927d5abe3343efb4da64fdb04a5e4cfef222a1b0#e9614da9e14d2cf1ef0f6e09805bf1303bd5e92f"
+  integrity sha512-RcW+M4H4OcwNaYPXe36fsn93K54ZrlVp1yTkGMp6nBoPKXC3yY8uNeAu9mv6pGLzT9+xfch85+LzqSbayVFQsg==
   dependencies:
     "@microsoft/fast-components" "^2.6.2"
     "@microsoft/fast-element" "^1.4.1"

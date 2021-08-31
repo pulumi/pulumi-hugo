@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "@pulumi/facet": "^0.0.21",
+    "@pulumi/facet": "^0.0.22",
     "@types/jquery": "^3.5.6",
     "autoprefixer": "^10.2.5",
     "chokidar-cli": "^2.1.0",
