@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { initDesignSystem } from "@pulumi/facet";
+import { initDesignSystem, button, disclosure } from "@pulumi/facet";
 import { PulumiChooser, PulumiChoosable, defineCustomElements } from "@pulumi/facet/dist/components/stencil";
 
 function bindToggle(el) {
@@ -140,7 +140,9 @@ import "clipboard-polyfill/dist/clipboard-polyfill.js";
 // Register the design system and select components/
 initDesignSystem({
     prefix: "pulumi",
-    components: []
+    components: [
+        disclosure(),
+    ],
 });
 
 // Register all Stencil components.
