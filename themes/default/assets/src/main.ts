@@ -137,13 +137,5 @@ import "./resources";
 import "./search";
 import "clipboard-polyfill/dist/clipboard-polyfill.js";
 
-// Register the design system and select components/
-initDesignSystem({
-    prefix: "pulumi",
-    components: [
-        disclosure(),
-    ],
-});
-
 // Register all Stencil components.
 defineCustomElements();

@@ -4,9 +4,9 @@ if (!process.env.JS_BUNDLE) {
     throw new Error("Missing required environment variable JS_BUNDLE. Exiting.");
 }
 
-module.exports = () => {
+module.exports = (env, { mode }) => {
     return {
-        mode: "production",
+        mode: mode || "production",
         entry: {
             index: "./assets/src/main.ts",
         },

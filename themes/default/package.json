@@ -8,9 +8,9 @@
     "watch": "yarn run concurrently 'yarn run watch-css' 'yarn run watch-js'",
     "build": "yarn run build-css && yarn run build-js",
     "watch-css": "yarn run chokidar 'assets/sass/**/*.scss' -c \"yarn run --silent node-sass assets/sass/styles.scss | yarn run postcss --config assets/config --output ${CSS_BUNDLE}\"",
-    "watch-js": "yarn run webpack serve -c ./webpack.config.js",
+    "watch-js": "yarn run webpack --watch --config ./webpack.config.js --mode development",
     "build-css": "yarn run --silent node-sass assets/sass/styles.scss | yarn run postcss --config assets/config --output ${CSS_BUNDLE} --no-map",
-    "build-js": "yarn run webpack -c ./webpack.config.js"
+    "build-js": "yarn run webpack --config ./webpack.config.js"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
