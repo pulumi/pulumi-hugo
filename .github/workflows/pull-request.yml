@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-          registry-url: 'https://npm.pkg.github.com'
 
       - name: Install Go
         uses: actions/setup-go@v2
@@ -43,5 +42,4 @@ jobs:
         run: make ci-pull-request
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
