@@ -5,6 +5,9 @@ meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitio
 type: page
 layout: cloud-engineering-summit
 
+hubspot_form_id: 15b92d63-158e-4fc0-8b2c-c4bf3fbfee27
+sessionize_id: wbl7wd7l
+
 tracks_outline:
     - name: Build
       topics:
