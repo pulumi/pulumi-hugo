@@ -14,7 +14,9 @@
         <div class="container mx-auto flex">
             <div class="lg:w-1/2 p-6">
                 <img class="mx-auto mb-6" src="/images/cloud-eng-summit-2021.png" />
-                <h3 class="text-center">{{ dateFormat "Monday, Jan 2, 2006 15:04 PM MST" "2021-10-20T09:00:00-07:00" }}</h3>
+                <h3 class="text-center">
+                    <pulumi-datetime date="2021-10-20T09:00:00-07:00"></pulumi-datetime>
+                </h3>
                 <pulumi-date-countdown
                     date-string="2021-10-20T09:00:00-07:00"
                     text-class="text-3xl text-black text-center"
@@ -24,7 +26,7 @@
                 </pulumi-date-countdown>
                 <div class="max-w-4xl mx-auto text-center">
                     <p class="mt-10">
-                        The Cloud Engineering Summit is a virtual day of learning and speed talks for cloud practitioners
+                        The Cloud Engineering Summit is a virtual day of learning for cloud practitioners
                         and anyone who's passionate about cloud infrastructure, modern applications, and everything
                         in between.
                     </p>
