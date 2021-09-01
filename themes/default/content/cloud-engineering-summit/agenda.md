@@ -4,4 +4,6 @@ meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitio
 
 type: page
 layout: cloud-engineering-summit-agenda
+
+sessionize_id: wbl7wd7l
 ---
