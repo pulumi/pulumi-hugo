@@ -15,7 +15,7 @@ Containers have emerged as one of the de facto standards for running software. W
 
 If you're at the stage of trying to run your application in Microsoft Azure, the choices can be overwhelming. The Azure Container [product page](https://azure.microsoft.com/en-gb/product-categories/containers/) lists 7 different products on their landing page, and for new users it can often be difficult to decide which of the myriad products is right for their use case. What can make it even more confusing is that often these container services can be interoperable, meaning you can use one container product from another!
 
-In this post, we're going to examine each of the main container services offered in Azure, examine what they're good for and what they might not be so good for. Let's take a look!
+In this post, we're going to examine each of the main container services offered in Azure and then examine what they're good for and what they might not be so good for. Let's take a look!
 
 <!--more-->
 
