@@ -1,9 +1,17 @@
 {{ define "hero" }}
-    {{ partial "hero" (dict "title" .Params.title )}}
+    <header class="page-hero">
+        <div class="dot-background-container">
+            <div class="dot-background"></div>
+        </div>
+        <div class="dot-overlay"></div>
+        <div class="page-hero-title relative px-3">
+            <img class="mx-auto mb-6" src="/images/cloud-eng-summit-2021.svg" />
+        </div>
+    </header>
 {{ end }}
 
 {{ define "main" }}
-    <section class="relative my-16">
+    <section class="relative mb-16">
         <div class="shape-background cloud-engineering-summit-big-dots">
             <div class="relative w-full h-full">
                 <div class="circle-left"></div>
@@ -11,9 +19,8 @@
             </div>
         </div>
 
-        <div class="container mx-auto flex">
-            <div class="lg:w-1/2 p-6">
-                <img class="mx-auto mb-6" src="/images/cloud-eng-summit-2021.png" />
+        <div class="container mx-auto flex flex-wrap">
+            <div class="w-full lg:w-1/2 p-6">
                 <h3 class="text-center">
                     <pulumi-datetime date="2021-10-20T09:00:00-07:00"></pulumi-datetime>
                 </h3>
@@ -33,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="lg:w-1/2 p-6">
+            <div class="w-full lg:w-1/2 p-6">
                 <div class="bg-gray-200 rounded p-6">
                     <h4>Register Now</h4>
                     <pulumi-hubspot-form form-id="{{ .Params.hubspot_form_id }}"></pulumi-hubspot-form>
@@ -43,7 +50,8 @@
     </section>
 
     <section id="speakers" class="container mx-auto text-center">
-        <h2>Featured Speakers</h2>
+        <h1 class="m-0">Cloud Engineering Summit</h1>
+        <h2 class="mt-0 mb-10">Featured Speakers</h2>
         <div class="cloud-engineering-summit-speaker-wall">
             <script type="text/javascript" src="https://sessionize.com/api/v2/{{ .Params.sessionize_id }}/view/SpeakerWall"></script>
         </div>
