@@ -27,7 +27,7 @@ Launched in July 2017, it was arguably the first "serverless" container offering
 
 ### What's good about it?
 
-ACI is a PaaS like product that is designed to remove the burden of launching and running containers.
+ACI is a Platform-as-a-Service (PaaS) type of product that is designed to remove the burden of launching and running containers.
 
 #### Simplicity
 
