@@ -85,11 +85,9 @@
                         <div class="p-6 lg:p-8 card mb-16 lg:mx-0 lg:ml-8 lg:mb-0 bg-white">
                             <h3>{{ $item.name }}</h3>
 
-                            <ul>
-                                {{ range $topic := $item.topics }}
-                                    <li>{{ $topic }}</li>
-                                {{ end }}
-                            </ul>
+                            {{ range $topic := $item.topics }}
+                                <p>{{ $topic }}</p>
+                            {{ end }}
                         </div>
                     </div>
 
