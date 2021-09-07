@@ -125,7 +125,7 @@ But we should actually put something in the cluster, shouldn't we?
 
 ## A Deployment for the Cluster
 
-Let's work on that Kubernetes provider. Using a Kubernetes Provider allows us to abstract away some of the specifics of operating a cluster on one cloud provider or another. That way, your experience from here on out is fairly consistent regardless of where you're hosting this.
+Let's work on that Kubernetes Provider. Using a Kubernetes Provider allows us to abstract away some of the specifics of operating a cluster on one cloud provider or another. That way, your experience from here on out is fairly consistent regardless of where you're hosting this.
 
 In the same `index.ts` file from before, add this to the end:
 
