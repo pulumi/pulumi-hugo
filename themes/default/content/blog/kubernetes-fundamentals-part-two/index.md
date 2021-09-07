@@ -210,4 +210,4 @@ At that point, regular `kubectl` commands will work. If you followed along, make
 
 ## Coming Up Next
 
-So, that was pretty quick. But I only talked about GKE. What about other cloud providers? Yeah, those work too. And yes, it's also fairly quick. Now that I've explained the basics of Kubernetes and what managed Kubernetes is, things will get more practical -- tune in next time for deploying to EKS!
+So, that was pretty quick. But I only talked about GKE. What about other cloud providers? Yeah, those work, too. And yes, it's also fairly quick. Now that I've explained the basics of Kubernetes and what managed Kubernetes is, things will get more practical&mdash;tune in next time for deploying to EKS!
