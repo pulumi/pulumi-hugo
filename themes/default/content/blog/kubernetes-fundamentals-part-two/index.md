@@ -20,8 +20,6 @@ Essentially, this just means that someone else is responsible for some of the wo
 ## What makes this useful?
 
 Kubernetes is very powerful, but also very complicated. The flexibility of the platform means that there's a lot of configuration you have to do just to get off the ground, and a managed service takes some of that off your plate. Some configurations are abstracted away, and some decisions are made for you. Things you would otherwise have to set up yourself, like load balancing, monitoring, and updates are covered by the vendor. It's less effort to get started, and less effort to maintain. Scaling is painless, since you can just provision more resources. For most people, a managed service is flat-out more reliable.
-
-
 ## Okay, I want to try it for myself.
 
 First things first, we need [Pulumi](https://www.pulumi.com/docs/get-started/install/), [Node.js](https://nodejs.org/en/download/), and [npm](https://www.npmjs.com/get-npm) installed.
