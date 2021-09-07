@@ -1,47 +1,67 @@
 ---
 title: "Pulumi Fundamentals"
 layout: module
-
-# The date represents the date the course was created. Posts with future dates are visible
-# in development, but excluded from production builds. Use the time and timezone-offset
-# portions of of this value to schedule posts for publishing later.
-date: 2021-08-30T13:49:10-05:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting the module for review.
+date: 2021-09-10T12:00:00-05:00
 draft: true
-
-# The description summarizes the course. It appears on the Learn home and module index pages.
-description: Here is a brief description of what this module's all about.
-
-# The meta_desc property is used for targeting search results or social-media previews.
-meta_desc: Here is a brief description of what this module's all about.
-
-# The order in which the module appears on the home page.
+description: Use Pulumi to build, configure, and deploy a modern application.
+meta_desc: Use Pulumi to build, configure, and deploy a modern application.
 index: 0
-
-# The meta_image appears in social-media previews and on the Learn Pulumi home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for reference.
 meta_image: meta.png
-
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
+    - creating Projects
+    - configuring and provisioning infrastructure
+    - exporting Outputs
 tags:
-    - change-me
-
-# At least one provider is required.
+    - fundamentals
 providers:
-    - aws
-
-# Exclude from search-engine indexing for now.
+    - docker
 block_external_search_index: true
 ---
 
-This is the content that will appear at the top of the module index page. It should
-describe the overall goal of the module and briefly summarize what the reader will know
-how to do by the end of it.
+This tutorial module demonstrates how to use Pulumi to build, configure, and
+deploy a modern application using Docker. We will create a frontend, a backend,
+and MongoDB container to deploy the Pulumipus Boba Tea Shop. Along the way,
+we'll learn more about cloud computing through how Pulumi operates.
+
+## Time
+
+How long this module will take depends on your internet connection, reading
+speed, and other factors. On average, this module should take you 30 to 40
+minutes to complete.
+
+## Prerequisites
+
+You will need the following tools to complete this module:
+- A [Pulumi account and token](http:app.pulumi.com)
+  - If you don't have an account, go to the
+    [signup page](https://app.pulumi.com/signup).
+- [Docker](https://docs.docker.com/get-docker/)
+- Python 3.8 or later
+
+As to skills, you should be able to
+
+- use your local terminal.
+- read and understand basic Python code.
+- read and understand Dockerfiles or understand basic Docker concepts.
+
+## Sample app
+
+The sample app we're building, the Pulumipus Boba Tea Shop, is a progressive web
+application (PWA) built with MongoDB, ExpressJS, NodeJS, and React (the MERN
+stack). It's a fairly common implementation found in eCommerce applications. We
+have adapted this application from
+[this repository](https://github.com/shubhambattoo/shopping-cart). The app
+consists of a frontend client, a backend REST server to manage transactions, and
+a MongoDB instance for storing product data.
+
+## About this module
+
+The Fundamentals module discusses using Pulumi to create infrastructure,
+configure that infrastructure, and push your infrastructure to production.
+
+For this starting module, we will use Docker to let you learn the basics of
+Pulumi without a cloud account. We will explore creating a Pulumi Project,
+building Docker images, configuring and provisioning containers, and exporting
+outputs.
+
+Let's get started!
