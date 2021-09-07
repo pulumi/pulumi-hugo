@@ -117,7 +117,7 @@ const clusterProvider = new k8s.Provider(name, {
 });
 ```
 
-This is the entrypoint for our program, and is what's setting up the cluster for us. We're defining the resources we want, the `kubeconfig` that'll be used to access the cluster, and also the Kubernetes provider so that we can deploy resources to it next.
+This code is the entrypoint for our program and is what's setting up the cluster for us. We're defining the resources we want, the `kubeconfig` that'll be used to access the cluster, and also the Kubernetes provider so that we can deploy resources to it next.
 
 Now just run `pulumi up` to preview the changes, select `yes` when prompted, and watch the cluster stand up! You'll see some work happening in your terminal as well as in your Pulumi account, and when it's all done, you can look at your GCP dashboard and see the cluster there, too.
 
