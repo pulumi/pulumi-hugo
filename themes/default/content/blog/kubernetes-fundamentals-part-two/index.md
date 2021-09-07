@@ -48,7 +48,7 @@ pulumi config set gcp:project <YOUR_GCP_PROJECT_HERE>
 pulumi config set gcp:zone us-west1-a     // any valid GCP Zone here
 ```
 
-Now, in `index.ts` add the following code:
+Now, in `index.ts`, add the following code:
 
 ```typescript
 import * as k8s from "@pulumi/kubernetes";
