@@ -3,7 +3,7 @@ title: "Kubernetes Fundamentals Part Two"
 date: 2021-09-02T12:54:53-05:00
 draft: false
 meta_image: k8s-fundamentals.png
-meta_desc: "Kubernetes is everywhere now, but it’s largely been the domain of people who work on the Ops side of things. What about devs, though?"
+meta_desc: "Kubernetes is everywhere now, but it’s largely been the domain of people who work on the ops side of things. What about devs, though?"
 authors:
     - kat-cosgrove
 tags:
