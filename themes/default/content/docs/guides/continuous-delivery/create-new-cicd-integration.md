@@ -1,15 +1,15 @@
 ---
-title: Other
+title: Create New CI/CD Integration
 meta_desc: This page walks-through how you can modify the Pulumi CLI to support your own
            CI system or perhaps even update an existing one.
 menu:
     userguides:
         parent: cont_delivery
         weight: 2
-
 aliases:
 - /docs/reference/cd-supporting-new-ci/
 - /docs/console/continuous-delivery/other/
+- /docs/guides/continuous-delivery/other/
 ---
 
 If Pulumi doesn't already support your CI/CD system, this guide

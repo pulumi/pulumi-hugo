@@ -1,12 +1,15 @@
 ---
-title: AWS CDK and Troposphere
+title: Compare Pulumi to AWS CDK and Troposphere
 meta_desc: This page gives and overview of the major differences between Pulumi and
             AWS CDK & Troposphere.
 linktitle: AWS CDK and Troposphere
 menu:
   intro:
-    parent: vs
+    parent: compare-pulumi-to
     weight: 3
+
+aliases:
+- /docs/intro/vs/cloud_template_transpilers/
 ---
 
 Because of [the challenges of writing raw YAML/JSON by hand]({{< relref "cloud_templates" >}}), two notable

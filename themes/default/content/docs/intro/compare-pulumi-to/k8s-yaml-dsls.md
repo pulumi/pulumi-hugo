@@ -1,14 +1,16 @@
 ---
-title: Pulumi vs. Kubernetes YAML and DSLs
+title: Compare Pulumi to Kubernetes YAML and DSLs
 meta_desc: This page gives and overview of the major differences between Pulumi
            and Kubernetes YAML & DSLs.
 linktitle: Kubernetes YAML
 menu:
   intro:
-    parent: vs
+    parent: compare-pulumi-to
     weight: 6
 
-aliases: ["/docs/reference/vs/k8s_yaml_dsls/"]
+aliases:
+- /docs/reference/vs/k8s_yaml_dsls/
+- /docs/intro/vs/k8s_yaml_dsls/
 ---
 
 Kubernetes offers YAML configuration out of the box. This is great as an "assembly language" for configuring

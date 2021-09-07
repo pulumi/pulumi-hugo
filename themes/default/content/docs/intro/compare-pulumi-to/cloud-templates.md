@@ -1,13 +1,15 @@
 ---
-title: Pulumi vs. AWS CloudFormation and Other Templates
+title: Compare Pulumi to AWS CloudFormation and Other Templates
 meta_desc: This page gives an overview of the major differences between Pulumi and Cloud Templates such as AWS CloudFormation.
 linktitle: Cloud Templates
 menu:
   intro:
-    parent: vs
+    parent: compare-pulumi-to
     weight: 2
 
-aliases: ["/docs/reference/vs/cloud_templates/"]
+aliases:
+- /docs/reference/vs/cloud_templates/
+- /docs/intro/vs/cloud_templates/
 ---
 
 All major cloud providers offer their own form of infrastructure-as-"code" solution, typically by way of JSON or

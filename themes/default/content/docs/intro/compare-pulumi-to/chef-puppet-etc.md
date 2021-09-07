@@ -1,14 +1,16 @@
 ---
-title: Pulumi vs. Chef, Puppet, etc.
+title: Compare Pulumi to Chef, Puppet, etc.
 meta_desc: This page gives an overview of the major differences between Pulumi and
            configuration management tools (Chef, Puppet, Ansible, Salt, etc.).
 linktitle: Chef, Puppet, etc.
 menu:
   intro:
-    parent: vs
+    parent: compare-pulumi-to
     weight: 7
 
-aliases: ["/docs/reference/vs/chef_puppet_etc/"]
+aliases:
+- /docs/reference/vs/chef_puppet_etc/
+- /docs/intro/vs/chef_puppet_etc/
 ---
 
 Chef, Puppet, Ansible, and Salt are all popular _configuration management tools_. These tools help you install and
