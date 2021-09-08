@@ -24,7 +24,12 @@ block_external_search_index: true
 ---
 
 Now that we've created our images, we can provision our application with a
-network and containers.
+network and containers. First, we're going to add configuration to our Pulumi
+program. Pulumi is a tool to
+[configure](https://www.pulumi.com/docs/intro/concepts/config/) your
+infrastructure, and that includes being able to configure the different stacks
+with different values. As a result, it makes sense to include the basic
+configurations as variables at the top of your program.
 
 ## Configure the application
 
@@ -84,8 +89,10 @@ Diagnostics:
     error: an unhandled error occurred: Program exited with non-zero exit code: 1
 ```
 
-This is because we have specified that this config option is _required_. Let's
-set the ports for this stack:
+This is because we have specified that this config option is _required_.
+Remember how we can use the same program to define multiple stacks? Let's set
+the ports for this stack, which the Pulumi command line knows already from when
+you first initialized the project (it's the `dev` stack by default):
 
 ```bash
 pulumi config set frontend_port 3001
@@ -98,14 +105,17 @@ to store the configuration for this stack.
 
 Now, try and rerun your Pulumi program.
 
-Your Pulumi program should now run, but you're not actually using this newly
-configured ports, yet!
+Your Pulumi program should now run, but you're not actually using these newly
+configured ports just yet! That's because we don't have any container resources
+that use the ports; we only have image resources.
 
 ## Create a Container resource
 
 In the last topic, we built Docker images. Now we want to create Docker
 containers and pass our configuration to them. Our containers will need to
-connect to each other so we will need to create a network.
+connect to each other, so we will need to create a
+[`Network`](https://www.pulumi.com/docs/reference/pkg/docker/network/), which is
+another resource. Add the following code at the bottom of your program:
 
 ```python
 # create a network!
@@ -113,8 +123,9 @@ network = docker.Network("network",
                         name="services")
 ```
 
-Define a new resource in your Pulumi program below the `image` resource, like
-this:
+Define a new
+[`Container`](https://www.pulumi.com/docs/reference/pkg/docker/container/)
+resource in your Pulumi program below the `Network` resource, like this:
 
 ```python
 # create the backend container!
@@ -135,17 +146,18 @@ backend_container = docker.Container("backend_container",
 )
 ```
 
-It is important to note something here. In the Container resource, we are
-referencing `baseImageName` from the `image` resource. Pulumi now knows there is
-a dependency between these two resources, and will know to create the
-`container` resource _after_ the image resource. Another dependency to note is
+It is important to note something here. In the `Container` resource, we are
+referencing `baseImageName` from the `Image` resource. Pulumi now knows there is
+a dependency between these two resources and will know to create the
+`Container` resource _after_ the `Image` resource. Another dependency to note is
 that the `backend_container` depends on the `mongo_container`. If we tried to
 run `pulumi up` without the `mongo_container` running, we would get an error
 message.
 
 The backend container also requires environment variables to connect to the
 mongo container and set the node environment for Express.js. These are set in
-`./app/backend/src/.env`. Like before we can set them using `pulumi config`.
+`./app/backend/src/.env`. Like before we can set them using `pulumi config` on
+the command line:
 
 ```bash
 pulumi config set mongo_host mongodb://mongo:27017
@@ -153,10 +165,10 @@ pulumi config set database cart
 pulumi config set node_environment development
 ```
 
-And then add them to the top of our program with the rest of the configuration
-variables.
+Then, we need to add them to the top of our program with the rest of the
+configuration variables. Let's see what the whole program looks like next.
 
-## Putting it all together
+## Put it all together
 
 Now that we know how to create a container we can complete our program.
 
@@ -198,7 +210,7 @@ mongo_image = docker.RemoteImage("mongo",
 network = docker.Network("network",
                         name="services")
 
-# create the mongo container
+# create the mongo container!
 mongo_container = docker.Container("mongo_container",
                         image=mongo_image.latest,
                         name="mongo",
@@ -249,7 +261,8 @@ frontend_container = docker.Container("frontend_container",
 With Docker networking, we can use image names to refer to a container. In our
 example, the React frontend client sends requests to the Express backend client.
 The URL to the backend is set in the client's `package.json` file. If you change
-the name of the backend container, make sure the client is configured properly.
+the name of the backend container, make sure the client is configured properly
+in the `package.json` file in the frontend app.
 
 ```json
   "proxy": "http://backend:3000",
@@ -258,7 +271,7 @@ the name of the backend container, make sure the client is configured properly.
   },
   ```
 
-Run `pulumi up` and our application is running. However, the store is empty, and
+Run `pulumi up` to get the application running. However, the store is empty, and
 we need to add products to the database.
 
 ## Populate the database
@@ -272,7 +285,7 @@ Then, we'll mount the file to an ephemeral seed container, and then use
 of code to your Pulumi file, then run `pulumi up`.
 
 At the top of your file, add `import os`. Then, add this snippet after the
-`mongo_container` declaration:
+`mongo_container` declaration above the `backend_container` declaration:
 
 ```python
 data_seed_container = docker.Container("data_seed_container",
@@ -314,3 +327,4 @@ Once you've added this snippet, run `pulumi up` to refresh the data in the
 database.
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
+Congratulations! Next up, let's see how we can make a new stack for production.
