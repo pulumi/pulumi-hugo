@@ -15,7 +15,7 @@ Kubernetes is everywhere now, but it’s primarily been the domain of people wor
 
 ## What is a managed Kubernetes service?
 
-Essentially, this just means that someone else is responsible for some of the work involved in standing up and maintaining Kubernetes. It varies from provider to provider, but services can be pretty bare-bones or include everything under the sun, handing you a pre-configured environment and a dedicated support team to help you.
+Essentially, a managed Kubernetes service just means that someone else is responsible for some of the work involved in standing up and maintaining Kubernetes. It varies from provider to provider, but services can be pretty bare-bones or include everything under the sun, handing you a pre-configured environment and a dedicated support team to help you.
 
 ## What makes this useful?
 
