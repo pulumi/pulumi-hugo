@@ -5,7 +5,7 @@ meta_desc: This page gives an overivew of the major differences between Pulumi a
 linktitle: Compare Pulumi to...
 menu:
   intro:
-    identifier: compare-pulumi-to
+    identifier: vs
     weight: 8
 aliases:
 - /docs/reference/vs/

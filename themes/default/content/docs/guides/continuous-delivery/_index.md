@@ -21,7 +21,7 @@ analysis tools, and running unit and integration tests as appropriate. It all "j
 infrastructure the same way it would for your application code.
 
 Pulumi can easily integrate into any continuous integration/continuous delivery (CI/CD) system. If your CI/CD system isn't listed below or you are testing something new, see our guide for using Pulumi
-within a [generic CI/CD system]({{< relref "/docs/guides/continuous-delivery/other" >}}).
+within a [generic CI/CD system]({{< relref "/docs/guides/continuous-delivery/create-new-cicd-integration" >}}).
 
 > Looking to troubleshoot failures related to running Pulumi in CI/CD? Check out our [CI/CD troubleshooting guide]({{< relref "/docs/guides/continuous-delivery/troubleshooting-guide" >}}).
 

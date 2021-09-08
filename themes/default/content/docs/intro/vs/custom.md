@@ -1,16 +1,15 @@
 ---
-title: Compare Pulumi to Custom Solutions
+title: Pulumi vs. Custom Solutions
 meta_desc: This page gives an overiew of the major differences between Pulumi
            and custom infrastructure as code solutions.
 linktitle: Custom Solutions
 menu:
   intro:
-    parent: compare-pulumi-to
+    parent: vs
     weight: 8
 
 aliases:
 - /docs/reference/vs/custom/
-- /docs/intro/vs/custom/
 ---
 
 Many organizations start out by manually managing their infrastructure. This often begins by pointing and clicking in
