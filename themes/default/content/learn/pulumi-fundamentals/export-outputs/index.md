@@ -3,12 +3,8 @@ title: "Exporting Outputs and Understanding Stack References"
 layout: topic
 date: 2021-09-07T15:22:00-05:00
 draft: true
-# The description summarizes the course. It appears on the Learn home and module index pages.
-description: Here is a brief description of what this topic will cover.
-
-# The meta_desc property is used for targeting search results or social-media previews.
-meta_desc: Here is a brief description of what this topic will cover.
-
+description: Learn a bit more about stack outputs, stack references, and standing up a new stack.
+meta_desc: Learn a bit more about stack outputs, stack references, and standing up a new stack.
 index: 3
 estimated_time: 10
 meta_image: meta.png
@@ -26,18 +22,29 @@ block_external_search_index: true
 ---
 
 We've created some resources. Now, let's see how we can use outputs outside of
-Pulumi.
+Pulumi. In this part, we're going to explore stacks, [_stack
+outputs_](https://www.pulumi.com/docs/reference/glossary/#stack-output), and
+[_stack
+references_](https://www.pulumi.com/docs/reference/glossary/#stack-reference).
+Stack outputs are, as you might guess, the values exported from any given stack.
+These values can also be obtained from the [Pulumi
+Console](https://app.pulumi.com), and they're extremely useful when you want to
+run commands with the CLI that reference those values. Note, though, that stack
+outputs are for the current stack only. If you want to get values from another
+stack, you want to use stack references, which bridge different stacks through
+inter-stack dependencies.
 
-## Export the values from `my-first-app`
+## Export the stack output values
 
-In stack 1, modify your program to add an exported value:
+In your program, add the following snippet at the very end to export the stack
+output values for use in the command line:
 
 
 ```python
 pulumi.export("container_id", mongo_container.id)
 ```
 
-Your Pulumi program should now look like this:
+Your Pulumi program should now have a line at the end like this:
 
 ```python
 import pulumi
@@ -64,9 +71,9 @@ pulumi.export("container_id", mongo_container.id)
 
 ```
 
-Run `pulumi up` to make sure the stack gets updated, and the value is exported.
+Run `pulumi up` to ensure the stack gets updated and the value is exported.
 
-## Look at your running Docker container.
+## Examine a running Docker container
 
 You can now use this output value using the `pulumi stack output` command:
 
@@ -75,7 +82,8 @@ pulumi stack output container_id
 44dde1c3ec15ed9bc372f7d513265cd4847f56223395983caed3188c2db214c8
 ```
 
-Which also means you can use them in scripts, like so:
+Now that you've exported the values, you also can use those values in scripts,
+like so:
 
 ```bash
 docker stats --no-stream $(pulumi stack output container_id)
@@ -85,8 +93,8 @@ CONTAINER ID        NAME                   CPU %               MEM USAGE / LIMIT
 
 ## Create a "prod" stack
 
-We're now going to use the `pulumi stack` command to understand how stacks work.
-Let's list our existing stacks using `pulumi stack ls`:
+Next, let's start exploring stacks. List the existing stacks using `pulumi stack
+ls`:
 
 ```bash
 pulumi stack ls
@@ -94,13 +102,16 @@ NAME   LAST UPDATE    RESOURCE COUNT  URL
 dev*   3 minutes ago  0               https://app.pulumi.com/spara/my-first-app/dev
 ```
 
-We currently only have one stack. Let's add a new one!
+We currently only have one stack. Let's add a new one with the `pulumi stack
+init` command:
 
 ```bash
 pulumi stack init prod
 ```
 
-Now we have created a pulumi `prod` stack, let's try rerun our `pulumi up`:
+Now we have created a pulumi `prod` stack, and we've automatically been switched
+over to that stack with the CLI. If you were to attempt to rerun `pulumi up`,
+however, you'll get this error message:
 
 ```
 Diagnostics:
@@ -109,9 +120,10 @@ Diagnostics:
         please set a value using the command `pulumi config set my-first-app:frontend_port <value>`
 ```
 
-Our configuration error is back! This error happens because when we configure
-values in Pulumi, they are specific to a stack. So, let's set the
-`node_environment` to `production` in the prod stack:
+Recognize it? Our configuration error is back! This error happens because when
+we configure values in Pulumi, they are specific to a stack. So, let's set the
+`node_environment` to `production` in the prod stack and add all the other ports
+and configuration variable values back to our environment:
 
 ```bash
 pulumi config set frontend_port 3001
@@ -122,7 +134,11 @@ pulumi config set database cart
 pulumi config set node_environment production
 ```
 
-You can list your stacks with:
+Now that you have the basics of creating, selecting, examining stacks, and
+exporting stack outputs, run `pulumi up` again. You should get new images and
+containers, this time running in production mode!
+
+You can list your stacks with `pulumi stack ls` again:
 
 ```bash
 pulumi stack ls
@@ -131,14 +147,15 @@ dev    7 minutes ago  0               https://app.pulumi.com/spara/my-first-app/
 prod*  3 minutes ago  9               https://app.pulumi.com/spara/my-first-app/prod
 ```
 
-The asterisk indicates that this is the current stack. To switch to another
-stack, you can use the `select` command:
+The asterisk (*) indicates that this stack is the current stack for your
+terminal environment. To switch to another stack, you can use the `select`
+command:
 
 ```bash
 pulumi stack select <stack name>
 ```
 
-You can also list the stack resources:
+You can also list the current stack's resources with `pulumi stack`:
 
 ```bash
 pulumi stack
@@ -165,23 +182,18 @@ Current stack outputs (1):
 More information at: https://app.pulumi.com/spara/my-first-app/prod
 ```
 
-Now, that you have the basics of creating, selecting, examining stacks, and
-exporting stack outputs, run `pulumi up` again. You should get new images and
-containers, this time running in production mode!
-
 ## Stack References
 
 So what else can do with stack outputs? You can use them with other stacks
-through a Stack Reference. Stack references allow you to access the outputs of
-one stack from another stack. Inter-Stack Dependencies allow one stack to
-reference the outputs of another stack. 
+through a stack reference. Remember that stack references allow you to access
+the outputs of one stack from another stack through inter-stack dependencies.
 
-To see how this works, create a second stack called `use-docker-id` in a new
+To see how this works, create a second project called `use-docker-id` in a new
 directory:
 
 ```bash
-mkdir use-docker-id
-cd use-docker-id
+mkdir ../use-docker-id
+cd ../use-docker-id
 pulumi new python
 ```
 
@@ -189,7 +201,8 @@ Use the defaults, and ensure you use the `dev` stack.
 
 ## Configure your stack reference
 
-Now we need to add a stack reference in `use-docker-id`:
+Now we need to add a stack reference in `use-docker-id` in the `__main__.py`
+file:
 
 
 ```python
@@ -203,15 +216,22 @@ stack_ref = pulumi.StackReference(f"{org}/my-first-app/{stack}")
 
 pulumi.export("containerId", stack_ref.get_output("container_id"))
 ```
+The `org` environment variable is new, as is the `stack_ref` declaration. That
+declaration sets up an instance of the `StackReference` class, which needs the
+fully qualified name of the stack as an input. Here, the `org` is the
+organization associated with your account, the `my-first-app` is the name of the
+project you've been working in, and the stack is the stack that you want to
+reference. If you have an individual account, the org is your account name. The
+export then grabs the `containerId` output from the other stack.
 
 Set the `org` environment variable, which is the organization associated with
-your account.
+your account:
 
 ```bash
 pulumi config set org spara
 ```
 
-Run `pulumi up`. You'll see the value gets exported from this stack now, too.
+Run `pulumi up`. You'll see the value gets exported from this stack now, too:
 
 ```bash
 View Live: https://app.pulumi.com/spara/use-docker-id/dev/updates/20
@@ -222,6 +242,7 @@ View Live: https://app.pulumi.com/spara/use-docker-id/dev/updates/20
 Outputs:
   + use-docker-id-ref: "5efdabb5ba8b5111f1aabe42d7911a99df5c18c5592d2ff00f7dfeba3930a818"
 ```
-These exported values are incredibly useful when using Pulumi stacks
+These exported values are incredibly useful when using Pulumi stacks.
 
-Congratulations, you've now finished the introduction to Pulumi tutorial!
+Congratulations, you've now finished Pulumi Fundamentals! Head back to the main
+page and explore some other modules to understand more about Pulumi.
