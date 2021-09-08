@@ -3,8 +3,8 @@ title: "Creating a Pulumi Project"
 layout: topic
 date: 2021-09-10T12:00:00-05:00
 draft: true
-description: Create your first Pulumi Project.
-meta_desc: Create your first Pulumi Project.
+description: Create your first Pulumi project.
+meta_desc: Create your first Pulumi project.
 index: 0
 estimated_time: 5
 meta_image: meta.png
@@ -21,39 +21,45 @@ links:
 block_external_search_index: true
 ---
 
-Infrastructure in Pulumi is organized into _Projects_, the highest level
-component in a Pulumi ecosystem. Each Project is a single program that, when
-run, declares the desired infrastructure for Pulumi to manage. Projects are how
-we manage _Stacks_, or isolated, independently configurable instances of your
-Pulumi program.
+Infrastructure in Pulumi is organized into
+[_projects_](https://www.pulumi.com/docs/reference/glossary/#project), the
+highest level component in a Pulumi ecosystem. Each project is a single
+[_program_](https://www.pulumi.com/docs/reference/glossary/#program)
+that, when run, declares the desired infrastructure for Pulumi to manage.
+Projects are how we manage
+[_stacks_](https://www.pulumi.com/docs/reference/glossary/#stack), or isolated,
+independently configurable instances of your Pulumi program. We'll talk more
+about stacks later in the module.
 
-## Create a Directory
+## Create a directory
 
-Each Pulumi Project lives in its own directory. Create one now and change into
-it:
+Each Pulumi project lives in its own directory. Create one now and change into
+it by running these commands in your terminal:
 
 ```bash
 mkdir my-first-app
 cd my-first-app
 ```
 
-> Pulumi will use the directory name as your project name by default. To create
-> an independent project, simply name the directory differently.
+Pulumi will use the directory name as your project name by default. To create an
+independent project, name the directory differently.
 
-## Initialize Your Project
+## Initialize your project
 
-A Pulumi Project is just a directory with some files in it. It's possible for
-you to create a new one by hand. The `pulumi new` command, however, automates
-the process:
+Since a Pulumi project is just a directory with some files in it, it is possible
+for you to create a new one by hand. The `pulumi new` command-line interface
+(CLI) command, however, automates the process and ensures you have everything
+you need, so let's use that command. We're going to use Python for this example,
+and the `-y` flag answers "yes" to the prompts to create a default project:
 
 ```bash
 pulumi new python -y
 ```
 
-This prints output similar to the following with a bit more information and
-status as it goes:
+This command prints output similar to the following example with a bit more
+information and status as it goes:
 
-```
+```bash
 Created stack 'dev'
 
 Creating virtual environment...
@@ -69,18 +75,19 @@ To perform an initial deployment, run 'pulumi up'
 
 This command creates all the files we need, initializes a new stack named `dev`
 (an instance of our project), and installs the needed package dependencies from
-PyPi.
+[PyPI](https://pypi.org/), the Python Package Index.
 
-## Inspect Your New Project
+## Inspect your new project
 
-Our project is comprised of multiple files:
+The basic Python project created by `pulumi new` is comprised of multiple files:
 
 * **`__main__.py`**: your program's main entrypoint file
 * **`requirements.txt`**: your project's Python dependency information
 * **`Pulumi.yaml`**: your project's metadata, containing its name and language
 * **`venv`**: a [virtualenv](https://pypi.org/project/virtualenv/) for your project
 
-Run `cat __main__.py` to see the contents of your project's empty program:
+Use the command `cat __main__.py` to see the contents of your project's empty
+program:
 
 ```python
 """A Python Pulumi program"""
@@ -90,4 +97,5 @@ import pulumi
 
 Feel free to explore the other files, although we won't be editing any of them
 by hand. Note that the Pulumi CLI creates a virtual environment, `venv`, for the
-project.
+project. Let's move on to creating your first real bit of infrastructure with
+Pulumi: some Docker images.
