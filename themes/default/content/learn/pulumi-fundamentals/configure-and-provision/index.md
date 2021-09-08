@@ -62,7 +62,7 @@ backend = docker.Image("backend",
                         build=docker.DockerBuild(context="../app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
-)
+                        )
 
 # build our frontend image!
 frontend_image_name = "frontend"
@@ -70,12 +70,10 @@ frontend = docker.Image("frontend",
                         build=docker.DockerBuild(context="../app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
-)
+                        )
 
 # build our mongodb image!
-mongo_image = docker.RemoteImage("mongo",
-                                 name="mongo:bionic"
-                                 )
+mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 ```
 
 Try and run your `pulumi up` again at this point. You should see an error like
@@ -119,8 +117,7 @@ another resource. Add the following code at the bottom of your program:
 
 ```python
 # create a network!
-network = docker.Network("network",
-                        name="services")
+network = docker.Network("network", name=f"services-{stack}")
 ```
 
 Define a new
@@ -130,6 +127,7 @@ resource in your Pulumi program below the `Network` resource, like this:
 ```python
 # create the backend container!
 backend_container = docker.Container("backend_container",
+                        name=f"backend-{stack}"
                         image=backend.base_image_name,
                         ports=[docker.ContainerPortArgs(
                             internal=backend_port, 
@@ -143,7 +141,7 @@ backend_container = docker.Container("backend_container",
                             name=network.name
                         )],
                         opts=pulumi.ResourceOptions(depends_on=[mongo_container])
-)
+                        )
 ```
 
 It is important to note something here. In the `Container` resource, we are
@@ -166,7 +164,54 @@ pulumi config set node_environment development
 ```
 
 Then, we need to add them to the top of our program with the rest of the
-configuration variables. Let's see what the whole program looks like next.
+configuration variables.
+
+```python
+mongo_host = config.require("mongo_host") # Note that strings are the default, so it's not `config.require_str`, just `config.require`.
+database = config.require("database")
+node_environment = config.require("node_environment")
+```
+
+We also need to create `Container` resources for the frontend and mongo
+containers. Put the mongo container declaration above the backend one, and the
+frontend declaration at the bottom. Here's the code for the mongo container:
+
+```python
+# create the mongo container!
+mongo_container = docker.Container("mongo_container",
+                        image=mongo_image.latest,
+                        name=f"mongo-{stack}",
+                        ports=[docker.ContainerPortArgs(
+                          internal=mongo_port, 
+                          external=mongo_port
+                        )],
+                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                            name=network.name,
+                            aliases=["mongo"]
+                        )]
+                        )
+```
+
+And the code for the frontend container:
+
+```python
+# create the frontend container!
+frontend_container = docker.Container("frontend_container",
+                        image=frontend.base_image_name,
+                        name=f"frontend-{stack}",
+                        ports=[docker.ContainerPortArgs(
+                            internal=frontend_port, 
+                            external=frontend_port)],
+                        envs=[
+                            f"LISTEN_PORT={frontend_port}",
+                        ],
+                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                            name=network.name
+                        )]
+                        )
+```
+
+Let's see what the whole program looks like next.
 
 ## Put it all together
 
@@ -192,7 +237,7 @@ backend = docker.Image("backend",
                         build=docker.DockerBuild(context="../app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
-)
+                        )
 
 # build our frontend image!
 frontend_image_name = "frontend"
@@ -200,20 +245,18 @@ frontend = docker.Image("frontend",
                         build=docker.DockerBuild(context="../app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
-)
+                        )
 
 # build our mongodb image!
-mongo_image = docker.RemoteImage("mongo",
-                        name="mongo:bionic")
+mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 
 # create a network!
-network = docker.Network("network",
-                        name="services")
+network = docker.Network("network", name=f"services-{stack}")
 
 # create the mongo container!
 mongo_container = docker.Container("mongo_container",
                         image=mongo_image.latest,
-                        name="mongo",
+                        name=f"mongo-{stack}",
                         ports=[docker.ContainerPortArgs(
                           internal=mongo_port, 
                           external=mongo_port
@@ -222,12 +265,12 @@ mongo_container = docker.Container("mongo_container",
                             name=network.name,
                             aliases=["mongo"]
                         )]
-)
+                        )
 
 # create the backend container!
 backend_container = docker.Container("backend_container",
                         image=backend.base_image_name,
-                        name="backend",
+                        name=f"backend-{stack}",
                         ports=[docker.ContainerPortArgs(
                             internal=backend_port, 
                             external=backend_port)],
@@ -240,12 +283,12 @@ backend_container = docker.Container("backend_container",
                             name=network.name
                         )],
                         opts=pulumi.ResourceOptions(depends_on=[mongo_container])
-)
+                        )
 
 # create the frontend container!
 frontend_container = docker.Container("frontend_container",
                         image=frontend.base_image_name,
-                        name="frontend",
+                        name=f"frontend-{stack}",
                         ports=[docker.ContainerPortArgs(
                             internal=frontend_port, 
                             external=frontend_port)],
@@ -255,7 +298,7 @@ frontend_container = docker.Container("frontend_container",
                         networks_advanced=[docker.ContainerNetworksAdvancedArgs(
                             name=network.name
                         )]
-)
+                        )
 ```
 
 With Docker networking, we can use image names to refer to a container. In our
@@ -279,6 +322,10 @@ we need to add products to the database.
 Now we can populate MongoDB and set up our Pulumi file to autopopulate the next
 time we deploy. First, copy the `products.json` file into the same directory as
 your `__main__.py` file.
+
+```bash
+cp app/data/products.json .
+```
 
 Then, we'll mount the file to an ephemeral seed container, and then use
 `mongoimport` to transfer that data into the database. Add the following lines
@@ -325,6 +372,9 @@ a bind mount over a volume for simplicity.
 
 Once you've added this snippet, run `pulumi up` to refresh the data in the
 database.
+
+**Note: You might see an error that the container exited immediately. That's ok
+as the container is expected to exit immediately after completing its command.**
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
 Congratulations! Next up, let's see how we can make a new stack for production.
