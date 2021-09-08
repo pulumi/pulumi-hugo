@@ -1,5 +1,5 @@
 ---
-title: Create New CI/CD Integration
+title: Add Support for CI Systems
 meta_desc: This page walks-through how you can modify the Pulumi CLI to support your own
            CI system or perhaps even update an existing one.
 menu:
@@ -13,7 +13,7 @@ aliases:
 ---
 
 If Pulumi doesn't already support your CI/CD system, this guide
-walks you though how to create a new CI/CD system for surfacing
+walks you though how to modify the Pulumi CLI to support your own CI system for surfacing
 data in the Pulumi Console.
 
 ## Overview
