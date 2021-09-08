@@ -17,7 +17,7 @@ Kubernetes is everywhere now, but it’s primarily been the domain of people wor
 
 Essentially, a managed Kubernetes service just means that someone else is responsible for some of the work involved in standing up and maintaining Kubernetes. It varies from provider to provider, but services can be pretty bare-bones or include everything under the sun, handing you a pre-configured environment and a dedicated support team to help you.
 
-## What makes this useful?
+## What makes this option useful?
 
 Kubernetes is very powerful, but also very complicated. The flexibility of the platform means that there's a lot of configuration you have to do just to get off the ground, and a managed service takes some of that off your plate. Some configurations are abstracted away, and some decisions are made for you. Things you would otherwise have to set up yourself, like load balancing, monitoring, and updates are covered by the vendor. It's less effort to get started, and less effort to maintain. Scaling is painless, since you can just provision more resources. For most people, a managed service is flat-out more reliable.
 
