@@ -35,7 +35,7 @@ $ gcloud auth application-default login
 
 ## Creating a Cluster with Google Kubernetes Engine
 
-Next, we need a cluster. Start by creating a new directory, navigating into it, and initializing a new Pulumi project using typescript.
+Next, we need a cluster. Start by creating a new directory, navigating into it, and initializing a new Pulumi project using TypeScript.
 
 ```bash
 mkdir gke-hello-world && cd gke-hello-world && pulumi new typescript
