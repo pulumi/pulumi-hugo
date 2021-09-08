@@ -9,6 +9,7 @@ tags: ["Kubernetes", "helm"]
 ---
 
 Kubernetes has been a significant focus of Pulumi since its very beginnings. Pulumi added support for installing [Helm charts](https://helm.sh/) way back in [2018](https://www.pulumi.com/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code/) and it has seen significant adoption by users since. However, Pulumi's current Chart integration lacks support for some increasingly common advanced features in Helm charts, e.g.:
+
 1. Support for [Helm lifecycle hooks](https://helm.sh/docs/topics/charts_hooks/)
 2. Handling sub-charts and [dependencies](https://helm.sh/docs/topics/charts/#chart-dependencies)
 
@@ -18,34 +19,39 @@ Today we are excited to announce the *preview* of a new [Helm Release](https://w
 
 <!--more-->
 
-## What is different about the Helm Release resource?
-Pulumi's Helm Chart integration was implemented as a [Component Resource](https://www.pulumi.com/docs/intro/concepts/resources/#components) which effectively extracts the corresponding Kubernetes resources' manifests from the chart and installs them as if they were individually specified in the Pulumi user program. This allowed users to install community developed Helm charts, while providing fine-grained control over the respective Kubernetes resources installed in the process. For instance, the installed resources are subject to all policies specified through Policy-as-Code policy packs registered with Pulumi. Other users have used Pulumi's powerful transformation support to manipulate Helm charts to fit their desired needs before installing them in their environment. However,
+## How is Helm Release resource different?
 
-In contrast, the new Helm Release resource is a thin wrapper around Helm itself. This provides it with the following advantages: 
-#### Helm Controls Lifecycle 
+Pulumi's Helm Chart integration was implemented as a [Component Resource](https://www.pulumi.com/docs/intro/concepts/resources/#components) which effectively extracts the corresponding Kubernetes resources' manifests from the chart and installs them as if they were individually specified in the Pulumi user program. This allowed users to install community developed Helm charts, while providing fine-grained control over the respective Kubernetes resources installed in the process. For instance, the installed resources are subject to all policies specified through Policy-as-Code policy packs registered with Pulumi. Other users have used Pulumi's powerful transformation support to manipulate Helm charts to fit their desired needs before installing them in their environment.
+
+In contrast, the new Helm Release resource is a thin wrapper around Helm itself. This provides the following advantages:
+
+### Helm Controls Lifecycle
+
 Unlike the existing Chart component resource, Helm Release directly offloads all responsibility of orchestration and lifecycle management to Helm itself. This means Helm can invoke all necessary lifecycle hooks for the release as it would through the CLI. It also updates chart dependencies and correctly handles sub-chart values etc.
 
-#### Configurable Await Support
-Pulumi's Helm Release support by default waits up to a configurable timeout (currently defaults to *5 minutes*) for all resources installed by the release to be available. With this, including the resource in `dependsOn` clauses in subsequent resources can be used to encode ordering requirements. In addition, users can also require waiting on all helm hooks to complete by setting `jobAwait` to true, If desired, all await behavior can be disabled by setting `skipAwait` option to true. 
+### Configurable Await Support
 
-#### Helm State Management
-The release's state is serialized and stored by Helm on the cluster. As a result, users can interact with the Helm Release outside of Pulumi through the Helm CLI. Note that the Helm CLI is not required to be installed on your machine in order to make use of this resource.
-Helm stores state as secrets by default but can be configured to choose a different backend by setting the [`helmDriver` property](https://www.pulumi.com/docs/reference/pkg/kubernetes/provider/#properties) on the Kubernetes provider. 
+Pulumi's Helm Release support by default waits up to a configurable timeout (currently defaults to *5 minutes*) for all resources installed by the release to be available. With a sufficient timeout, the resource can be reliably passed in `dependsOn` clauses in subsequent resources to encode ordering requirements. In addition, users can also require waiting on all helm hooks to complete by setting `jobAwait` to true. However, if desired, all await behavior can be disabled by setting `skipAwait` option to true.
+
+### Helm State Management
+
+The release's state is serialized and stored by Helm on the cluster. As a result, users can interact with the installed resource outside of Pulumi through the Helm CLI.
 
 While there are many positives, there are some significant limitations to highlight with this approach as well:
 
-#### Limited Transforms Support
-First, Helm Release doesn't support the ability to write transformations for Helm-installed manifests inline in the Pulumi program as supported in Helm Charts. Instead, users can leverage Helm's [post-renderer](https://helm.sh/docs/topics/advanced/#post-rendering) specified through the `postRender` option for the Release resource to manipulate the manifests.
+### Limited Transforms Support
 
-#### Limited Visibility
-Secondly, only the Release resource and the relevant child resources read back in the user program are part of Pulumi state. Other resources installed by the resource are only controlled by Helm and are not visible to Pulumi and thus not party to policy enforcement. However, the underlying rendered manifests and resource names will be accessible to users of the resource through the `manifest` and `resourceNames` fields.
+Helm Release doesn't support the ability to write transformations for Helm-installed manifests inline in the Pulumi program as supported in Helm Charts. Instead, users can leverage Helm's [post-renderer](https://helm.sh/docs/topics/advanced/#post-rendering) specified through the `postRender` option for the Release resource to manipulate manifests.
 
-Lastly, note that we only support Helm Release for Helm v3.
+### Limited Visibility
+
+Secondly, only the Release resource and the relevant child resources read back in the user program are part of Pulumi state. Other items installed by the chart are only controlled by Helm and are not visible and thus cannot be managed through Pulumi. However, the underlying rendered manifests and resource names will be accessible to users of the resource through the `manifest` and `resourceNames` fields as part of the deployment preview.
 
 ## How do I use it?
+
 If you aren't already familiar with using Pulumi with Kubernetes, head on over to [Pulumi's getting started guide for Kubernetes](https://www.pulumi.com/docs/get-started/kubernetes/) first.
 
-1. In your chosen Kubernetes Pulumi project, make sure the relevant version of the Pulumi-Kubernetes SDK is at least `v3.7.0`.
+1. In your chosen Kubernetes Pulumi project, make sure the referenced version of the Pulumi-Kubernetes SDK is at least `v3.7.0`.
 2. Helm Release support is configured to target the relevant cluster pointed to by the Kubernetes provider associated with it and no additional configuration is required by default. However, more advanced configuration options are supported, see the provider configuration [documentation](https://www.pulumi.com/docs/reference/pkg/kubernetes/provider/#helmdriver_nodejs) for more details.
 3. Refer to the instructions for your chosen language in the [resource documentation](https://www.pulumi.com/docs/reference/pkg/kubernetes/helm/v3/release/#create) to create a Helm Release resource.
 
@@ -108,7 +114,7 @@ const release = new k8s.helm.v3.Release("redis-helm", {
 // status field is set once the installation completes, so this, combined
 // with `skipAwait: false` above, will wait to retrieve the Redis master
 // ClusterIP till all resources in the Chart are available.
-const srv = k8s.core.v1.Service.get("redis-master-svc", 
+const srv = k8s.core.v1.Service.get("redis-master-svc",
     pulumi.interpolate`${release.status.namespace}/${release.status.name}-redis-master`);
 export const redisMasterClusterIP = srv.spec.clusterIP;
 ```
@@ -287,11 +293,13 @@ Users of the existing Helm Chart resource will notice that we retained the hiera
 ![helm-release](./helm-release.gif)
 
 ## Which Helm resource to use and when?
-In summary, if your primary goal is to install Helm charts with configuration options natively supported by the chart, then Helm Release should be a good fit. If on the other hand you intend to manipulate Helm Charts through transformations (due to bugs in the charts or restrictions in your environment), then the experience is much richer with the Helm Chart resource. 
 
-If you intend to use Policy-as-Code to enforce resource policies at a Kubernetes resource granularity, then the Helm Chart component resource would be the preferred model to use. 
+In summary, if your primary goal is to install Helm charts with configuration options natively supported by the chart, then Helm  Release should be a good fit. If on the other hand you intend to manipulate Helm Charts through transformations (due to bugs in the charts or restrictions in your environment), then the experience is much richer with the Helm Chart resource.
+
+If you intend to use Policy-as-Code to enforce resource policies at a Kubernetes resource granularity, then the Helm Chart component resource would be the preferred model to use.
 
 Note that both resources can co-exist safely in the same program.
 
 ## What's next?
+
 The new Helm Release resource is available in *preview* now. During the preview the resource may evolve rapidly and users are requested to not use it for critical infrastructure. We have already received valuable feedback to shape this resource and we look forward to hearing more from our users. Please reach out by filing or commenting on issues on [Github](https://github.com/pulumi/pulumi-kubernetes/issues) and reaching out to us on [Community Slack](https://slack.pulumi.com). Happy charting!
