@@ -38,12 +38,14 @@ executor that compiles the code we write and interprets it for Pulumi.
 ## Verify your application
 
 Create a directory called `app` inside the directory you made in the previous
-lesson. Clone the code repository there.
+lesson. Clone the code repository there, then move everything from the code
+repository directory to the `app/` directory.
 
 ```shell
 mkdir app
 cd app
-git clone git@github.com:pulumi/tutorial-pulumi-fundamentals.git 
+git clone git@github.com:pulumi/tutorial-pulumi-fundamentals.git
+mv -f tutorial-pulumi-fundamentals/* . && rm -rf tutorial-pulumi-fundamentals/ 
 ```
 
 Let's explore the contents of the `app/` directory. There is a backend, a
@@ -80,13 +82,14 @@ environment, or venv, so let's activate our venv and use `pip` to install the
 provider along with the main Pulumi package:
 
 ```bash
+cd ../
 source venv/bin/activate
-pip3 install pulumi pulumi_docker
+pip3 install pulumi_docker
 ```
 
-You should see output showing the `pulumi` and provider package being installed,
-just like for any Python package install. You'll want to ensure these two
-packages get added to the `requirements.txt` file at some point.
+You should see output showing the provider package being installed, just like
+for any Python package install. You'll want to ensure the package gets added to
+the `requirements.txt` file at some point.
 
 Back inside your Pulumi program, let's build your first Docker image. Remember
 that a Pulumi program is the code that defines the ideal configuration of your
@@ -104,10 +107,10 @@ stack = pulumi.get_stack()
 # build our backend image!
 backend_image_name = "backend"
 backend = docker.Image("backend",
-                        build=docker.DockerBuild(context="../app/backend"),
+                        build=docker.DockerBuild(context="./app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
-)
+                        )
 ```
 In this file, we import, or call, the main Pulumi package and the Docker
 provider. Then, we figure out which stack we're on in the command line, and
@@ -153,10 +156,10 @@ program, so add this code after the previous fragment.
 # build our frontend image!
 frontend_image_name = "frontend"
 frontend = docker.Image("frontend",
-                        build=docker.DockerBuild(context="../app/frontend"),
+                        build=docker.DockerBuild(context="./app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
-)
+                        )
 ```
 
 We build the frontend client the same way we built the backend. However, we are
@@ -166,8 +169,7 @@ resource.
 
 ```python
 # build our mongodb image!
-mongo_image = docker.RemoteImage("mongo",
-                        name="mongo:bionic")
+mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 ```
 
 Compare your program now to this complete program before we move forward:
@@ -181,7 +183,7 @@ stack = pulumi.get_stack()
 # build our backend image!
 backend_image_name = "backend"
 backend = docker.Image("backend",
-                        build=docker.DockerBuild(context="../app/backend"),
+                        build=docker.DockerBuild(context="./app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -189,15 +191,13 @@ backend = docker.Image("backend",
 # build our frontend image!
 frontend_image_name = "frontend"
 frontend = docker.Image("frontend",
-                        build=docker.DockerBuild(context="../app/frontend"),
+                        build=docker.DockerBuild(context="./app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
                         )
 
 # build our mongodb image!
-mongo_image = docker.RemoteImage("mongo",
-                                 name="mongo:bionic"
-                                 )
+mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 ```
 
 If your code looks the same, great! Otherwise, update yours to match this code.
