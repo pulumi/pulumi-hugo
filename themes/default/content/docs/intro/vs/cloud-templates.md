@@ -1,5 +1,5 @@
 ---
-title: Pulumi vs. to AWS CloudFormation and Other Templates
+title: Pulumi vs. AWS CloudFormation and Other Templates
 meta_desc: This page gives an overview of the major differences between Pulumi and Cloud Templates such as AWS CloudFormation.
 linktitle: Cloud Templates
 menu:
