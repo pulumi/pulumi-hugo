@@ -58,7 +58,8 @@ import * as gcp from "@pulumi/gcp";
 
 const name = "helloworld";
 
-// Create a GKE cluster
+// Create a GKE cluster. We start with two nodes, each running an n1-standard-1 machine, which provides the best balance of price for performance ratio for the most common workloads. Replicas of our application will be distributed across these two nodes, ensuring that if one node goes down, our application remains up in the other node.
+
 const engineVersion = gcp.container.getEngineVersions().then(v => v.latestMasterVersion);
 const cluster = new gcp.container.Cluster(name, {
     initialNodeCount: 2,
