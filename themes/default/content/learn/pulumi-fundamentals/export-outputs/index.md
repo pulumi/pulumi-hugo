@@ -6,7 +6,7 @@ draft: true
 description: Learn a bit more about stack outputs, stack references, and standing up a new stack.
 meta_desc: Learn a bit more about stack outputs, stack references, and standing up a new stack.
 index: 3
-estimated_time: 10
+estimated_time: 15
 meta_image: meta.png
 authors:
     - sophia-parafina
@@ -54,19 +54,6 @@ stack = pulumi.get_stack()
 .
 .
 .
-# create the mongo container
-mongo_container = docker.Container("mongo_container",
-                        image=mongo_image,
-                        ports=[docker.ContainerPortArgs(
-                          internal=mongo_port, 
-                          external=mongo_port
-                        )],
-                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
-                            name=network.name,
-                            aliases=["mongo"]
-                        )]
-)
-
 pulumi.export("container_id", mongo_container.id)
 
 ```
@@ -134,9 +121,12 @@ pulumi config set database cart
 pulumi config set node_environment production
 ```
 
-Now that you have the basics of creating, selecting, examining stacks, and
-exporting stack outputs, run `pulumi up` again. You should get new images and
-containers, this time running in production mode!
+Remember that just because you're on a different stack, the ports are still
+taken by the previous stack. We'll need to destroy the dev stack before the prod
+stack can stand up here as we've hardwired the ports into the Docker image. You
+could avoid this situation by modifying your Dockerfile to pull the port from
+your Pulumi program. For now, though, let's switch back over to the dev stack
+and take it down.
 
 You can list your stacks with `pulumi stack ls` again:
 
@@ -149,11 +139,27 @@ prod*  3 minutes ago  9               https://app.pulumi.com/spara/my-first-app/
 
 The asterisk (*) indicates that this stack is the current stack for your
 terminal environment. To switch to another stack, you can use the `select`
-command:
+command, so let's switch back to dev:
 
 ```bash
-pulumi stack select <stack name>
+pulumi stack select dev
 ```
+
+Then, run `pulumi destroy` to take down the current infrastructure in dev:
+
+```bash
+pulumi destroy
+```
+
+Once that command completes, switch back to prod:
+
+```bash
+pulumi stack select prod
+```
+
+Now that you have the basics of creating, selecting, examining stacks, and
+exporting stack outputs, run `pulumi up` again. You should get new images and
+containers, this time running in production mode!
 
 You can also list the current stack's resources with `pulumi stack`:
 
@@ -197,13 +203,13 @@ cd ../use-docker-id
 pulumi new python
 ```
 
-Use the defaults, and ensure you use the `dev` stack.
+Use the defaults, and ensure you use the `prod` stack, the same one you
+currently have up for the `my-first-app` project.
 
 ## Configure your stack reference
 
 Now we need to add a stack reference in `use-docker-id` in the `__main__.py`
 file:
-
 
 ```python
 import pulumi
@@ -231,7 +237,8 @@ your account:
 pulumi config set org spara
 ```
 
-Run `pulumi up`. You'll see the value gets exported from this stack now, too:
+Run `pulumi up`. You'll see the value gets exported from the other project's
+stack to reference in this new project's stack:
 
 ```bash
 View Live: https://app.pulumi.com/spara/use-docker-id/dev/updates/20
