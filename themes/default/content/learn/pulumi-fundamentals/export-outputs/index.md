@@ -47,6 +47,7 @@ pulumi.export("container_id", mongo_container.id)
 Your Pulumi program should now have a line at the end like this:
 
 ```python
+import os
 import pulumi
 import pulumi_docker as docker
 
@@ -241,10 +242,10 @@ Run `pulumi up`. You'll see the value gets exported from the other project's
 stack to reference in this new project's stack:
 
 ```bash
-View Live: https://app.pulumi.com/spara/use-docker-id/dev/updates/20
+View Live: https://app.pulumi.com/spara/use-docker-id/prod/updates/20
 
      Type                 Name               Status     
-     pulumi:pulumi:Stack  use-docker-id-dev             
+     pulumi:pulumi:Stack  use-docker-id-prod             
  
 Outputs:
   + use-docker-id-ref: "5efdabb5ba8b5111f1aabe42d7911a99df5c18c5592d2ff00f7dfeba3930a818"

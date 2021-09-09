@@ -99,6 +99,7 @@ using Python, so our main file is `__main__.py`. Inside your program's
 
 
 ```python
+import os
 import pulumi
 import pulumi_docker as docker
 
@@ -107,7 +108,7 @@ stack = pulumi.get_stack()
 # build our backend image!
 backend_image_name = "backend"
 backend = docker.Image("backend",
-                        build=docker.DockerBuild(context="./app/backend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd()}/app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -156,7 +157,7 @@ program, so add this code after the previous fragment.
 # build our frontend image!
 frontend_image_name = "frontend"
 frontend = docker.Image("frontend",
-                        build=docker.DockerBuild(context="./app/frontend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd}/app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -175,6 +176,7 @@ mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 Compare your program now to this complete program before we move forward:
 
 ```python
+import os
 import pulumi
 import pulumi_docker as docker
 
@@ -183,7 +185,7 @@ stack = pulumi.get_stack()
 # build our backend image!
 backend_image_name = "backend"
 backend = docker.Image("backend",
-                        build=docker.DockerBuild(context="./app/backend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd()}/app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -191,7 +193,7 @@ backend = docker.Image("backend",
 # build our frontend image!
 frontend_image_name = "frontend"
 frontend = docker.Image("frontend",
-                        build=docker.DockerBuild(context="./app/frontend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd()}/app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -204,6 +206,10 @@ If your code looks the same, great! Otherwise, update yours to match this code.
 Now, run `pulumi up` to build all of the images that we'll need. From here, we
 can move on to configuring and provisioning our containers.
 
+{{% notes type="info" %}}
 Note that, in the future, you don't need to run `pulumi up` in stages like this
 to create your infrastructure. You can write the entire program and then run it.
-We're only doing a step-by-step process here to make learning easier. Onward!
+We're only doing a step-by-step process here to make learning easier.
+{{% /notes %}}
+
+Onward!
