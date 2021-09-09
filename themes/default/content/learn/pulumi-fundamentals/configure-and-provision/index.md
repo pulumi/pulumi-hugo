@@ -45,6 +45,7 @@ mongo_port = config.require_int("mongo_port")
 Your Pulumi program should now look like this:
 
 ```python
+import os
 import pulumi
 import pulumi_docker as docker
 
@@ -59,7 +60,7 @@ stack = pulumi.get_stack()
 # build our backend image!
 backend_image_name = "backend"
 backend = docker.Image("backend",
-                        build=docker.DockerBuild(context="../app/backend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd()}/app/backend"),
                         image_name=f"{backend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -67,7 +68,7 @@ backend = docker.Image("backend",
 # build our frontend image!
 frontend_image_name = "frontend"
 frontend = docker.Image("frontend",
-                        build=docker.DockerBuild(context="../app/frontend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd()}/app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
                         )
@@ -197,18 +198,20 @@ And the code for the frontend container:
 ```python
 # create the frontend container!
 frontend_container = docker.Container("frontend_container",
-                        image=frontend.base_image_name,
-                        name=f"frontend-{stack}",
-                        ports=[docker.ContainerPortArgs(
-                            internal=frontend_port, 
-                            external=frontend_port)],
-                        envs=[
-                            f"LISTEN_PORT={frontend_port}",
-                        ],
-                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
-                            name=network.name
-                        )]
-                        )
+                                      image=frontend.base_image_name,
+                                      name=f"frontend-{stack}",
+                                      ports=[docker.ContainerPortArgs(
+                                          internal=frontend_port,
+                                          external=frontend_port
+                                      )],
+                                      envs=[
+                                          f"LISTEN_PORT={frontend_port}",
+                                          f"HTTP_PROXY=backend-{stack}:{backend_port}"
+                                      ],
+                                      networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                          name=network.name
+                                      )]
+                                      )
 ```
 
 Let's see what the whole program looks like next.
@@ -218,6 +221,7 @@ Let's see what the whole program looks like next.
 Now that we know how to create a container we can complete our program.
 
 ```python
+import os
 import pulumi
 import pulumi_docker as docker
 
@@ -227,92 +231,80 @@ config = pulumi.Config()
 frontend_port = config.require_int("frontend_port")
 backend_port = config.require_int("backend_port")
 mongo_port = config.require_int("mongo_port")
-mongo_host = config.require("mongo_host") # Note that strings are the default, so it's not `config.require_str`, just `config.require`.
+mongo_host = config.require("mongo_host")
 database = config.require("database")
 node_environment = config.require("node_environment")
 
-# build our backend image!
 backend_image_name = "backend"
 backend = docker.Image("backend",
-                        build=docker.DockerBuild(context="../app/backend"),
-                        image_name=f"{backend_image_name}:{stack}",
-                        skip_push=True
-                        )
+                       build=docker.DockerBuild(context=f"{os.getcwd()}/app/backend"),
+                       image_name=f"{backend_image_name}:{stack}",
+                       skip_push=True
+                       )
 
-# build our frontend image!
 frontend_image_name = "frontend"
 frontend = docker.Image("frontend",
-                        build=docker.DockerBuild(context="../app/frontend"),
+                        build=docker.DockerBuild(context=f"{os.getcwd()}/app/frontend"),
                         image_name=f"{frontend_image_name}:{stack}",
                         skip_push=True
                         )
 
-# build our mongodb image!
 mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 
-# create a network!
 network = docker.Network("network", name=f"services-{stack}")
 
-# create the mongo container!
 mongo_container = docker.Container("mongo_container",
-                        image=mongo_image.latest,
-                        name=f"mongo-{stack}",
-                        ports=[docker.ContainerPortArgs(
-                          internal=mongo_port, 
-                          external=mongo_port
-                        )],
-                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
-                            name=network.name,
-                            aliases=["mongo"]
-                        )]
-                        )
+                                   image=mongo_image.latest,
+                                   name=f"mongo-{stack}",
+                                   ports=[docker.ContainerPortArgs(
+                                       internal=mongo_port,
+                                       external=mongo_port
+                                   )],
+                                   networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                       name=network.name,
+                                       aliases=["mongo"]
+                                   )]
+                                   )
 
-# create the backend container!
 backend_container = docker.Container("backend_container",
-                        image=backend.base_image_name,
-                        name=f"backend-{stack}",
-                        ports=[docker.ContainerPortArgs(
-                            internal=backend_port, 
-                            external=backend_port)],
-                        envs=[
-                            f"DATABASE_HOST={mongo_host}",
-                            f"DATABASE_NAME={database}",
-                            f"NODE_ENV={node_environment}"
-                        ],
-                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
-                            name=network.name
-                        )],
-                        opts=pulumi.ResourceOptions(depends_on=[mongo_container])
-                        )
+                                     image=backend.base_image_name,
+                                     name=f"backend-{stack}",
+                                     ports=[docker.ContainerPortArgs(
+                                         internal=backend_port,
+                                         external=backend_port
+                                     )],
+                                     envs=[
+                                         f"DATABASE_HOST={mongo_host}",
+                                         f"DATABASE_NAME={database}",
+                                         f"NODE_ENV={node_environment}"
+                                     ],
+                                     networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                         name=network.name
+                                     )],
+                                     opts=pulumi.ResourceOptions(depends_on=[mongo_container])
+                                     )
 
-# create the frontend container!
 frontend_container = docker.Container("frontend_container",
-                        image=frontend.base_image_name,
-                        name=f"frontend-{stack}",
-                        ports=[docker.ContainerPortArgs(
-                            internal=frontend_port, 
-                            external=frontend_port)],
-                        envs=[
-                            f"LISTEN_PORT={frontend_port}",
-                        ],
-                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
-                            name=network.name
-                        )]
-                        )
+                                      image=frontend.base_image_name,
+                                      name=f"frontend-{stack}",
+                                      ports=[docker.ContainerPortArgs(
+                                          internal=frontend_port,
+                                          external=frontend_port
+                                      )],
+                                      envs=[
+                                          f"LISTEN_PORT={frontend_port}",
+                                          f"HTTP_PROXY=backend-{stack}:{backend_port}"
+                                      ],
+                                      networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                          name=network.name
+                                      )]
+                                      )
 ```
 
 With Docker networking, we can use image names to refer to a container. In our
 example, the React frontend client sends requests to the Express backend client.
-The URL to the backend is set in the client's `package.json` file. If you change
-the name of the backend container, make sure the client is configured properly
-in the `package.json` file in the frontend app.
-
-```json
-  "proxy": "http://backend:3000",
-  "devDependencies": {
-    "cross-env": "^7.0.2"
-  },
-  ```
+The URL to the backend is set via the `setupProxy.js` file in the
+`app/frontend/src` directory with the `HTTP_PROXY` environment variable.
 
 Run `pulumi up` to get the application running. However, the store is empty, and
 we need to add products to the database.
@@ -331,32 +323,23 @@ Then, we'll mount the file to an ephemeral seed container, and then use
 `mongoimport` to transfer that data into the database. Add the following lines
 of code to your Pulumi file, then run `pulumi up`.
 
-At the top of your file, add `import os`. Then, add this snippet after the
-`mongo_container` declaration above the `backend_container` declaration:
+Add this snippet after the `backend_container` declaration:
 
 ```python
 data_seed_container = docker.Container("data_seed_container",
                                        image=mongo_image.latest,
                                        name="data_seed",
-                                       opts=pulumi.ResourceOptions(depends_on=[mongo_container]),
+                                       must_run=False,
+                                       rm=True,
+                                       opts=pulumi.ResourceOptions(depends_on=[backend_container]),
                                        mounts=[docker.ContainerMountArgs(
                                            target="/home/products.json",
                                            type="bind",
                                            source=f"{os.getcwd()}/products.json"
                                        )],
                                        command=[
-                                           "mongoimport",
-                                           "--host",
-                                           "mongo",
-                                           "--db",
-                                           "cart",
-                                           "--collection",
-                                           "products",
-                                           "--type",
-                                           "json",
-                                           "--file",
-                                           "/home/products.json",
-                                           "--jsonArray"
+                                           "sh", "-c",
+                                           "mongoimport --host mongo --db cart --collection products --type json --file /home/products.json --jsonArray"
                                        ],
                                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
                                            name=network.name
@@ -372,9 +355,6 @@ a bind mount over a volume for simplicity.
 
 Once you've added this snippet, run `pulumi up` to refresh the data in the
 database.
-
-**Note: You might see an error that the container exited immediately. That's ok
-as the container is expected to exit immediately after completing its command.**
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
 Congratulations! Next up, let's see how we can make a new stack for production.
