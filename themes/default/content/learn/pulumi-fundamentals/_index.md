@@ -8,9 +8,9 @@ meta_desc: Use Pulumi to build, configure, and deploy a modern application.
 index: 0
 meta_image: meta.png
 youll_learn:
-    - creating Projects
+    - creating projects
     - configuring and provisioning infrastructure
-    - exporting Outputs
+    - exporting outputs
 tags:
     - fundamentals
 providers:
@@ -26,7 +26,7 @@ we'll learn more about cloud computing through how Pulumi operates.
 ## Time
 
 How long this module will take depends on your internet connection, reading
-speed, and other factors. On average, this module should take you 30 to 40
+speed, and other factors. On average, this module should take you about 40
 minutes to complete.
 
 ## Prerequisites
