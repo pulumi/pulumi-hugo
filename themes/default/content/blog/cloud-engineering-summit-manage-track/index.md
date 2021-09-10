@@ -1,5 +1,5 @@
 ---
-title: "Manage at Cloud Engineering Summit 2021"
+title: "Preview of the Manage Track at Cloud Engineering Summit 2021"
 date: 2021-09-13T08:00:00-05:00
 draft: true
 meta_desc: "Highlights and hot takes of the Cloud Engineering Summit Manage track with Matt Stratton."
