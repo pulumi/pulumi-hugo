@@ -34,4 +34,4 @@ Gremlin's Jason Yee comes to us with *Trailblazers: exploration, discovery, & na
 
 Rounding things out is the always incredible Tim Banks, with *Toxic Velocity: Speed Kills*. In this talk, Tim is going to cover the various stressors that put pressure on both organizations and individuals, how they affect us, and what it looks like when things start to spiral out of control. I’m excited for this one because while crashes do happen, we’d all like them to happen less often (or not at all!), and being able to identify some of these things before they become a real problem is better for our businesses and our people.
 
-[Explore all of the rest of the great sessions](https://www.pulumi.com/cloud-engineering-summit/sessions/), and don't forget to register [here](https://www.pulumi.com/cloud-engineering-summit/)!
+[Explore all of the rest of the great sessions](https://www.pulumi.com/cloud-engineering-summit/sessions/), and don't forget to [register for the cloud engineering summit](https://www.pulumi.com/cloud-engineering-summit/)!
