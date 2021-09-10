@@ -58,6 +58,22 @@ A Service Principal is an application in Azure Active Directory with three autho
 secret, and a tenant ID.  (These are often simply called `appId`, `password`, and `tenant`, respectively.)  Using a
 Service Principal is the recommended way to connect Pulumi to Azure in a team or CI setting.
 
+## Using certificate for Service Principal
+It is recommended to use certificate to authenticate Service Principal with Azure rather than password only. This is possible by using PKCS #12 certificate by Pulumi.
+
+1. Create certificate
+2. Export certificate twice, first time with private key and protected by password as PKCS #12, second time as CER file
+4. Import certificate CER (without private key) into Service Principal. [Azure Docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-1-upload-a-certificate)
+5. Set configuration using PKCS #12 certificate with private key protected with password
+
+```bash
+    $ pulumi config set azure-native:clientId <clientID>
+    $ pulumi config set azure-native:clientCertificatePath <clientCertificatePath>
+    $ pulumi config set azure-native:clientCertificatePassword <clientCertificatePassword> --secret
+    $ pulumi config set azure-native:tenantId <tenantID>
+    $ pulumi config set azure-native:subscriptionId <subscriptionID>
+ ```
+
 ### Configuring Authorization Tokens
 
 Once obtained, there are two ways to communicate your authorization tokens to Pulumi:
