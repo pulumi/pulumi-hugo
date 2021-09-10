@@ -128,7 +128,7 @@ resource in your Pulumi program below the `Network` resource, like this:
 ```python
 # create the backend container!
 backend_container = docker.Container("backend_container",
-                        name=f"backend-{stack}"
+                        name=f"backend-{stack}",
                         image=backend.base_image_name,
                         ports=[docker.ContainerPortArgs(
                             internal=backend_port, 
