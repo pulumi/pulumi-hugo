@@ -292,6 +292,7 @@ pulumi.export("redisMasterClusterIP", srv.spec.cluster_ip)
 {{% /choosable %}}
 
 {{% choosable language csharp %}}
+
 ```csharp
 using Pulumi;
 using System.Collections.Generic;
@@ -373,7 +374,9 @@ class MyStack : Stack
     [Output]
     public Output<string> RedisMasterClusterIP { get; set; }
 }
+
 ```
+
 {{% /choosable %}}
 
 {{< /chooser >}}
