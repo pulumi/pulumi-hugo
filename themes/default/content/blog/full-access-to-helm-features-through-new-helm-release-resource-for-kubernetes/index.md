@@ -17,11 +17,11 @@ As Helm and its usage evolved over the years, Pulumi users using the `Chart` res
 
 Today we are excited to announce the **public preview** of a new [Helm Release]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/release" >}}) resource starting with [v3.7.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.7.0) of the Pulumi Kubernetes Provider and SDK in all Pulumi supported languages. This new resource provides Pulumi users more options to choose the right tool for their use-case. The rest of this blog post will highlight how this resource differs from the existing [Helm Chart]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/chart">}}) component resource and describe how and when to use the new resource.
 
-{{% notes %}}
-The existing [Helm Chart]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/chart">}}) resource, which extracts and converts Kubernetes resources into individual resources in the Pulumi program, will continue to be supported.
-{{% /notes %}}
-
 <!--more-->
+
+{{% notes %}}
+The existing [Helm Chart]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/chart">}}) component resource, which extracts and converts Kubernetes resources into individual resources in the Pulumi program, will continue to be supported.
+{{% /notes %}}
 
 ## How is Helm Release resource different?
 
