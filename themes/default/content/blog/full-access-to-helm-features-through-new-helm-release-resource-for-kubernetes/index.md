@@ -62,7 +62,7 @@ If you aren't already familiar with using Pulumi with Kubernetes, head on over t
 
 Lets look at a concrete example of Helm Release in action. In the following snippet we install [Redis](https://redis.io/) through a Helm Chart in each of the supported Pulumi languages using the new Helm Release resource:
 
-{{< chooser language "typescript,go,python" >}}
+{{< chooser language "typescript,go,python,csharp" >}}
 
 {{% choosable language typescript %}}
 
@@ -180,7 +180,7 @@ func main() {
 				},
 				"global": pulumi.Map{
 					"redis": pulumi.Map{
-						"password": redisPassword,
+						"password": redisPassword.Result,
 					},
 				},
 				"rbac": pulumi.BoolMap{
@@ -265,7 +265,7 @@ release_args = ReleaseArgs(
         },
         "global": {
             "redis": {
-                "password": redis_password,
+                "password": redis_password.result,
             }
         },
         "rbac": {
@@ -287,10 +287,93 @@ status = release.status
 srv = Service.get("redis-master-svc",
                   Output.concat(status.namespace, "/", status.name, "-redis-master"))
 pulumi.export("redisMasterClusterIP", srv.spec.cluster_ip)
-
-
 ```
 
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+```csharp
+using Pulumi;
+using System.Collections.Generic;
+using Pulumi.Random;
+using Pulumi.Kubernetes.Core.V1;
+using Pulumi.Kubernetes.Types.Inputs.Helm.V3;
+using Pulumi.Kubernetes.Helm.V3;
+
+class MyStack : Stack
+{
+    public MyStack()
+    {
+        var ns = new Pulumi.Kubernetes.Core.V1.Namespace("redis-ns");
+        var redisPassword = new RandomPassword("pass", new RandomPasswordArgs
+        {
+            Length = 10,
+        });
+
+        var releaseArgs = new ReleaseArgs
+        {
+            Chart = "redis",
+            RepositoryOpts = new RepositoryOptsArgs
+            {
+                Repo = "https://charts.bitnami.com/bitnami",
+            },
+            Version = "13.0.0",
+            Namespace = ns.Metadata.Apply(metadata => metadata.Name),
+            // Values from Chart's parameters specified hierarchically,
+            // see https://artifacthub.io/packages/helm/bitnami/redis/13.0.0#parameters
+            // for reference.
+            Values = new InputMap<object>
+            {
+                ["cluster"] = new Dictionary<string,object>
+                {
+                    ["enabled"] = true,
+                    ["slaveCount"] = 3,
+                },
+                ["metrics"] = new Dictionary<string,object>
+                {
+                    ["enabled"] = true,
+                    ["service"] = new Dictionary<string, object>
+                    {
+                        ["annotations"] = new Dictionary<string, string>
+                        {
+                            ["prometheus.io/port"] = "9127",
+                        },
+                    }
+                },
+                ["global"] = new Dictionary<string,object>
+                {
+                    ["redis"] = new Dictionary<string, object>
+                    {
+                        ["password"] = redisPassword.Result,
+                    },
+                },
+                ["rbac"] = new Dictionary<string,object>
+                {
+                    ["create"] = true,
+                }
+            },
+            // By default Release resource will wait till all created resources
+            // are available. Set this to true to skip waiting on resources being
+            // available.
+            SkipAwait = false,
+        };
+
+        var release = new Release("redis-helm", releaseArgs);
+
+        // We can lookup resources once the release is installed. The release's
+        // status field is set once the installation completes, so this, combined
+        // with `skip_await=False` above, will wait to retrieve the Redis master
+        // ClusterIP till all resources in the Chart are available.
+        var status = release.Status;
+        var service = Service.Get("redist-master-svc", Output.All(status).Apply(
+            s => $"{s[0].Namespace}/{s[0].Name}-redis-master"));
+        this.RedisMasterClusterIP = service.Spec.Apply(spec => spec.ClusterIP);
+    }
+
+    [Output]
+    public Output<string> RedisMasterClusterIP { get; set; }
+}
+```
 {{% /choosable %}}
 
 {{< /chooser >}}
