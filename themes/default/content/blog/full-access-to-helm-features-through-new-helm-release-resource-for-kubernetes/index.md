@@ -1,8 +1,8 @@
 ---
-title: Full Access to Helm Features through new Helm Release Resource for Kubernetes
-h1: "Full Access to Helm Features through new Helm Release Resource for Kubernetes"
+title: Full Access to Helm Features with new Helm Release Resource
+h1: "Full Access to Helm Features with new Helm Release Resource for Kubernetes"
 date: "2021-09-13"
-meta_desc: "Pulumi's new Helm Release resource, combines the infrastructure-as-code power of Pulumi with native support for Helm, enabling full access to Helm features. Helm Release is available in public preview today with the Pulumi Kubernetes SDK."
+meta_desc: "The Helm Release resource adds native support for Helm, enabling full access to Helm features for Kubernetes users."
 meta_image: "k8s-helm-release.png"
 authors: ["vivek-lakshmanan"]
 tags: ["Kubernetes", "helm"]
@@ -18,7 +18,7 @@ As Helm and its usage evolved over the years, Pulumi users using the `Chart` res
 Today we are excited to announce the **public preview** of a new [Helm Release]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/release" >}}) resource starting with [v3.7.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.7.0) of the Pulumi Kubernetes Provider and SDK in all Pulumi supported languages. This new resource provides Pulumi users more options to choose the right tool for their use-case. The rest of this blog post will highlight how this resource differs from the existing [Helm Chart]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/chart">}}) component resource and describe how and when to use the new resource.
 
 {{% notes %}}
-The existing [Helm Chart]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/chart">}}) resource, which extracts and converts Kubernetes resources into individual resources in the Pulumi program, will continue to be supported. 
+The existing [Helm Chart]({{< relref "/docs/reference/pkg/kubernetes/helm/v3/chart">}}) resource, which extracts and converts Kubernetes resources into individual resources in the Pulumi program, will continue to be supported.
 {{% /notes %}}
 
 <!--more-->
