@@ -11,8 +11,6 @@ menu:
 The Civo provider for Pulumi can be used to provision any of the cloud resources available in [Civo](https://www.civo.com/).
 The Civo provider must be configured with credentials to deploy and update resources in Civo.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/civo" >}}) for complete details of the available Civo provider APIs.
-
 ## Setup
 
 The Civo provider supports several options for providing access to Civo credentials.  See the [Civo setup page]({{< relref "setup" >}}) for details.

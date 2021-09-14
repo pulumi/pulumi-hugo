@@ -11,8 +11,6 @@ menu:
 The Minio provider for Pulumi can be used to provision any of the cloud resources available in [Minio](https://min.io/).
 The Minio provider must be configured with credentials to deploy and update resources in Minio.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/minio" >}}) for complete details of the available Minio provider APIs.
-
 ## Setup
 
 The Minio provider supports several options for providing access to Minio credentials.  See the [Minio setup page]({{< relref "setup" >}}) for details.

@@ -11,8 +11,6 @@ menu:
 The Confluent Cloud provider for Pulumi can be used to provision any of the cloud resources available in [Confluent Cloud](https://confluent.cloud/).
 The Confluent Cloud provider must be configured with credentials to deploy and update resources in Confluent Cloud.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/confluent" >}}) for complete details of the available Confluent Cloud provider APIs.
-
 ## Setup
 
 The Confluent Cloud provider supports several options for providing access to Confluent Cloud credentials.  See the [Confluent Cloud setup page]({{< relref "setup" >}}) for details.

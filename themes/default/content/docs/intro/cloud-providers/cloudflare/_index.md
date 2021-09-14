@@ -10,8 +10,6 @@ menu:
 
 The Cloudflare provider for Pulumi can be used to provision any of the resources available in [Cloudflare](https://www.cloudflare.com/).
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/cloudflare" >}}) for complete details of the available Cloudflare provider APIs.
-
 ## Setup
 
 The Cloudflare provider supports several options for interacting with Cloudflare.  See the [Cloudflare setup page]({{< relref "setup" >}}) for details.

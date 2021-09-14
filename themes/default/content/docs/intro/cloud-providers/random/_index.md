@@ -10,8 +10,6 @@ menu:
 
 The Random provider for Pulumi can be used to help introduce random values when dealing with Pulumi resources.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/random" >}}) for complete details of the available Random provider APIs.
-
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

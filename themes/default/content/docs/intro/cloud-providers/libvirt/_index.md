@@ -10,8 +10,6 @@ menu:
 
 A Pulumi provider that lets you provision servers on a libvirt host using Pulumi.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/libvirt" >}}) for complete details of the available libvirt provider APIs.
-
 ### Requirements
 
 Please note, there is a requirement to have [libvirt](https://libvirt.org/) on the machine using the libvirt provider. You can

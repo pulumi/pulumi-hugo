@@ -10,8 +10,6 @@ menu:
 
 The RKE provider for Pulumi can be used to provision Kubernetes clusters using the [Rancher Kubernetes Engine](https://github.com/rancher/rke).
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/rke" >}}) for complete details of the available RKE provider APIs.
-
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
