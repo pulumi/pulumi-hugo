@@ -8,8 +8,6 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/minio.svg" align="right" class="h-16 px-8 pb-4">
-
 The Minio provider for Pulumi can be used to provision any of the cloud resources available in [Minio](https://min.io/).
 The Minio provider must be configured with credentials to deploy and update resources in Minio.
 

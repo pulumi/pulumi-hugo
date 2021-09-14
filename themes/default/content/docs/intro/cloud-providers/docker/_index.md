@@ -8,8 +8,6 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/docker.png" align="right" class="h-16 px-8 pb-4">
-
 The Docker provider for Pulumi can be used to provision any of the resources available in [Docker](https://www.docker.com/).
 
 See the [full API documentation]({{< relref "/docs/reference/pkg/docker" >}}) for complete details of the available Docker provider APIs.

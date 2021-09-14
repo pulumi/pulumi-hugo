@@ -12,8 +12,6 @@ menu:
 We recommend using the [native Azure provider for Pulumi]({{< relref "/docs/intro/cloud-providers/azure" >}}) to provision Azure infrastructure.
 {{% /notes %}}
 
-<img src="/logos/tech/azure.svg" align="right" class="h-16 px-8 pb-4">
-
 The classic Azure provider for Pulumi can be used to provision any of the cloud resources available in [Azure](https://azure.microsoft.com/en-us/) via Azure Resource Manager (ARM).  The Azure provider must be configured with credentials to deploy and update resources in Azure.
 
 See the [full API documentation]({{< relref "/docs/reference/pkg/azure" >}}) for complete details of the available Azure provider APIs.

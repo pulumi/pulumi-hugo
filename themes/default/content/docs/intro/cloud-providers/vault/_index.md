@@ -8,8 +8,6 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/vault.png" align="right" class="h-16 px-8 pb-4">
-
 The HashiCorp Vault provider for Pulumi can be used to provision any of the resources available in [Vault](https://www.vaultproject.io/).
 
 See the [full API documentation]({{< relref "/docs/reference/pkg/vault" >}}) for complete details of the available Vault provider APIs.

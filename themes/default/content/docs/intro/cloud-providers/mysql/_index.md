@@ -8,8 +8,6 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/mysql.png" align="right" class="h-16 px-8 pb-4">
-
 The MySQL provider for Pulumi can be used to provision any of the resources available for MySQL.
 The MySQL provider must be configured with credentials to deploy and update resources in MySQL.
 

@@ -8,8 +8,6 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/rabbitmq.svg" align="right" class="h-16 px-8 pb-4">
-
 The RabbitMQ provider for Pulumi can be used to provision any of the resources available for RabbitMQ.
 The RabbitMQ provider must be configured with credentials to deploy and update resources in Fastly.
 

@@ -8,8 +8,6 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/cloudflare.png" align="right" class="h-16 px-8 pb-4">
-
 The Cloudflare provider for Pulumi can be used to provision any of the resources available in [Cloudflare](https://www.cloudflare.com/).
 
 See the [full API documentation]({{< relref "/docs/reference/pkg/cloudflare" >}}) for complete details of the available Cloudflare provider APIs.

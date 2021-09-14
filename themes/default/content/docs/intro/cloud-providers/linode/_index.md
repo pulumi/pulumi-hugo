@@ -10,8 +10,6 @@ menu:
 aliases: ["/docs/reference/clouds/linode/"]
 ---
 
-<img src="/logos/tech/linode.svg" align="right" class="h-16 px-8 pb-4">
-
 The Linode provider for Pulumi can be used to provision any of the cloud resources available in [Linode](https://www.linode.com).
 The Linode provider must be configured with credentials to deploy and update resources in Linode.
 

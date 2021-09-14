@@ -10,8 +10,6 @@ menu:
 aliases: ["/docs/reference/clouds/kubernetes/"]
 ---
 
-<img src="/logos/tech/k8s.svg" align="right" class="h-16 px-8 pb-4">
-
 [Kubernetes][k8s] is an open source project for running and managing containerized applications
 on a cluster of machines.
 
