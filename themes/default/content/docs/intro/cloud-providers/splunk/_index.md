@@ -10,6 +10,7 @@ menu:
 
 The Splunk provider for Pulumi can be used to provision any of the cloud resources available in [Splunk](https://www.splunk.com/).
 The Splunk provider must be configured with credentials to deploy and update resources in Splunk.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

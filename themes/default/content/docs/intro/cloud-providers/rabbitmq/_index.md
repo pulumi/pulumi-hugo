@@ -10,6 +10,7 @@ menu:
 
 The RabbitMQ provider for Pulumi can be used to provision any of the resources available for RabbitMQ.
 The RabbitMQ provider must be configured with credentials to deploy and update resources in Fastly.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

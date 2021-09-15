@@ -10,6 +10,7 @@ menu:
 
 The Datadog provider for Pulumi can be used to provision any of the cloud resources available in [Datadog](https://datadoghq.com/).
 The Datadog provider must be configured with credentials to deploy and update resources in Datadog.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

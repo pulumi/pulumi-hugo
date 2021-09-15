@@ -10,6 +10,7 @@ menu:
 
 The PagerDuty provider for Pulumi can be used to provision any of the cloud resources available in [PagerDuty](https://www.pagerduty.com/).
 The PagerDuty provider must be configured with credentials to deploy and update resources in PagerDuty.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

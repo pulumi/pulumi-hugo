@@ -10,6 +10,7 @@ menu:
 
 The Kafka provider for Pulumi can be used to provision any of the resources available for Kafka.
 The Kafka provider must be configured with credentials to deploy and update resources in Kafka.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

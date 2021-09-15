@@ -9,6 +9,7 @@ menu:
 ---
 
 The HashiCorp Vault provider for Pulumi can be used to provision any of the resources available in [Vault](https://www.vaultproject.io/).
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

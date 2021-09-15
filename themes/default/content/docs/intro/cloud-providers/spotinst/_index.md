@@ -9,6 +9,7 @@ menu:
 ---
 
 The Spotinst provider for Pulumi can be used to provision any of the resources available in [Spotinst](https://spotinst.com/).
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

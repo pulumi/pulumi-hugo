@@ -10,6 +10,7 @@ menu:
 
 The PostgreSQL provider for Pulumi can be used to provision any of the resources available for PostgreSQL.
 The PostgreSQL provider must be configured with credentials to deploy and update resources in PostgreSQL.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

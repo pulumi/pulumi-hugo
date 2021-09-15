@@ -10,6 +10,7 @@ menu:
 
 The AzureAD provider for Pulumi can be used to provision any of the Azure Active Directory resources available in [Azure](https://azure.microsoft.com/en-us/).
 The AzureAD provider must be configured with credentials to deploy and update resources in Azure.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

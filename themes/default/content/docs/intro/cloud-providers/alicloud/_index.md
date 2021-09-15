@@ -10,6 +10,7 @@ menu:
 
 The Alibaba Cloud provider for Pulumi can be used to provision any of the cloud resources available in [Alibaba Cloud](https://www.alibabacloud.com/).
 The Alibaba Cloud provider must be configured with credentials to deploy and update resources in Alibaba Cloud.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

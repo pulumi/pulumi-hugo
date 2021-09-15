@@ -10,6 +10,7 @@ menu:
 
 The Rancher2 provider for Pulumi can be used to provision any of the cloud resources available via [Rancher](https://rancher.com/).
 The Rancher2 provider must be configured with credentials to deploy and update resources for Rancher.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

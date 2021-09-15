@@ -10,6 +10,7 @@ menu:
 
 The CloudAMQP provider for Pulumi can be used to provision any of the cloud resources available in [CloudAMQP](https://www.cloudamqp.com/).
 The CloudAMQP provider must be configured with credentials to deploy and update resources in CloudAMQP.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

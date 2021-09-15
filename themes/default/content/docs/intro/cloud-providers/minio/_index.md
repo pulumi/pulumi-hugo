@@ -10,6 +10,7 @@ menu:
 
 The Minio provider for Pulumi can be used to provision any of the cloud resources available in [Minio](https://min.io/).
 The Minio provider must be configured with credentials to deploy and update resources in Minio.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

@@ -10,6 +10,7 @@ menu:
 
 The Mailgun provider for Pulumi can be used to provision any of the cloud resources available in [Mailgun](https://www.mailgun.com/).
 The Mailgun provider must be configured with credentials to deploy and update resources in Mailgun.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

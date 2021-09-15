@@ -12,6 +12,7 @@ aliases: ["/docs/reference/clouds/digitalocean/"]
 
 The DigitalOcean provider for Pulumi can be used to provision any of the cloud resources available in [DigitalOcean](https://www.digitalocean.com/).
 The DigitalOcean provider must be configured with credentials to deploy and update resources in a DigitalOcean cloud.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

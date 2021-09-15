@@ -10,6 +10,7 @@ menu:
 
 The Confluent Cloud provider for Pulumi can be used to provision any of the cloud resources available in [Confluent Cloud](https://confluent.cloud/).
 The Confluent Cloud provider must be configured with credentials to deploy and update resources in Confluent Cloud.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

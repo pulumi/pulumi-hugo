@@ -10,6 +10,7 @@ menu:
 
 The Wavefront provider for Pulumi can be used to provision any of the cloud resources available in [Wavefront](https://www.wavefront.com/).
 The Wavefront provider must be configured with credentials to deploy and update resources in Wavefront.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

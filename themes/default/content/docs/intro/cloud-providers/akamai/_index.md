@@ -10,6 +10,7 @@ menu:
 
 The Akamai provider for Pulumi can be used to provision any of the cloud resources available in [Akamai](https://www.akamai.com/).
 The Akamai provider must be configured with credentials to deploy and update resources in Akamai.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

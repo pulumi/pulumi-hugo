@@ -10,6 +10,7 @@ weight: 2
 
 The SumoLogic provider for Pulumi can be used to provision any of the cloud resources available in [SumoLogic](https://www.sumologic.com/).
 The SumoLogic provider must be configured with credentials to deploy and update resources in SumoLogic.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

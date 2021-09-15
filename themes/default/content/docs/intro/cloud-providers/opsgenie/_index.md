@@ -10,6 +10,7 @@ menu:
 
 The Opsgenie provider for Pulumi can be used to provision any of the resources available for Opsgenie.
 The Opsgenie provider must be configured with credentials to deploy and update resources in Opsgenie.
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}

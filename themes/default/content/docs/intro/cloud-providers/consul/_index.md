@@ -9,6 +9,7 @@ menu:
 ---
 
 The HashiCorp Consul provider for Pulumi can be used to provision any of the resources available in [Consul](https://www.consul.io/).
+
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
