@@ -64,8 +64,6 @@ The following packages are available in package managers:
 - Go: [`github.com/pulumi/pulumi-kubernetes/sdk/go/kubernetes`](https://github.com/pulumi/pulumi-kubernetes)
 - .NET: [`Pulumi.Kubernetes`](https://www.nuget.org/packages/Pulumi.Kubernetes)
 
-The Kubernetes provider is open source and available in the [pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes) repo.
-
 ### Configuration
 
 The Kubernetes provider accepts the following configuration settings.  These can be provided to the default Kubernetes provider via `pulumi config set kubernetes:<option>`, or passed to the constructor of `new kubernetes.Provider` to construct a specific instance of the Kubernetes provider.

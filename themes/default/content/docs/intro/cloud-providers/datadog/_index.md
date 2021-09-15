@@ -113,5 +113,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-datadog`](https://pypi.org/project/pulumi-datadog/)
 * Go: [`github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog`](https://github.com/pulumi/pulumi-datadog)
 * .NET: [`Pulumi.Datadog`](https://www.nuget.org/packages/Pulumi.Datadog)
-
-The Datadog provider is open source and available in the [pulumi/pulumi-datadog](https://github.com/pulumi/pulumi-datadog) repo.

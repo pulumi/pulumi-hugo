@@ -146,5 +146,3 @@ The following packages are available in package managers:
 * Python: [`pulumi-google-native`](https://pypi.org/project/pulumi-google-native/)
 * Go: [`github.com/pulumi/pulumi-google-native/sdk/go/google`](https://github.com/pulumi/pulumi-google-native)
 * .NET: [`Pulumi.GoogleNative`](https://www.nuget.org/packages/Pulumi.GoogleNative)
-
-The Google Cloud Native provider is open source and available in the [pulumi/pulumi-google-native](https://github.com/pulumi/pulumi-google-native) repo.

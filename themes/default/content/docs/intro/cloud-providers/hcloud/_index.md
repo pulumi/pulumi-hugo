@@ -103,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-hcloud`](https://pypi.org/project/pulumi-hcloud/)
 * Go: [`github.com/pulumi/pulumi-hcloud/sdk/go/hcloud`](https://github.com/pulumi/pulumi-hcloud)
 * .NET: [`Pulumi.HCloud`](https://www.nuget.org/packages/Pulumi.HCloud)
-
-The Hetzner Cloud provider is open source and available in the [pulumi/pulumi-hcloud](https://github.com/pulumi/pulumi-hcloud) repo.

@@ -106,5 +106,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-tls`](https://pypi.org/project/pulumi-tls/)
 * Go: [`github.com/pulumi/pulumi-tls/sdk/v4/go/tls`](https://github.com/pulumi/pulumi-tls)
 * .NET: [`Pulumi.Tls`](https://www.nuget.org/packages/Pulumi.Tls)
-
-The TLS provider is open source and available in the [pulumi/pulumi-tls](https://github.com/pulumi/pulumi-tls) repo.

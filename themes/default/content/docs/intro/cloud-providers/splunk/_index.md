@@ -111,5 +111,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-splunk`](https://pypi.org/project/pulumi-splunk/)
 * Go: [`github.com/pulumi/pulumi-splunk/sdk/go/splunk`](https://github.com/pulumi/pulumi-splunk)
 * .NET: [`Pulumi.Splunk`](https://www.nuget.org/packages/Pulumi.Splunk)
-
-The Splunk provider is open source and available in the [pulumi/pulumi-splunk](https://github.com/pulumi/pulumi-splunk) repo.

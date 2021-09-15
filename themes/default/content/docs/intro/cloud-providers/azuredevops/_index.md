@@ -102,5 +102,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-azuredevops`](https://pypi.org/project/pulumi-azuredevops/)
 * Go: [`github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops`](https://github.com/pulumi/pulumi-azuredevops)
 * .NET: [`Pulumi.AzureDevOps`](https://www.nuget.org/packages/Pulumi.AzureDevOps)
-
-The AzureDevOps provider is open source and available in the [pulumi/pulumi-azuredevops](https://github.com/pulumi/pulumi-azuredevops) repo.

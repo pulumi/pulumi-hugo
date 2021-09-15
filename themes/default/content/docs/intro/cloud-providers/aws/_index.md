@@ -72,8 +72,6 @@ The following packages are available in package managers:
 * Go: [`github.com/pulumi/pulumi-aws/sdk/v4/go/aws`](https://github.com/pulumi/pulumi-aws)
 * .NET: [`Pulumi.Aws`](https://www.nuget.org/packages/Pulumi.Aws)
 
-The AWS provider is open source and available in the [pulumi/pulumi-aws](https://github.com/pulumi/pulumi-aws) repo.
-
 ## Configuration
 
 The AWS provider accepts the following configuration settings.  These can be provided to the default AWS provider via `pulumi config set aws:<option>`, or passed to the constructor of `new aws.Provider` to construct a specific instance of the AWS provider.

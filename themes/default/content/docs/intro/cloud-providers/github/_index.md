@@ -108,5 +108,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-github`](https://pypi.org/project/pulumi-github/)
 * Go: [`github.com/pulumi/pulumi-github/sdk/v4/go/github`](https://github.com/pulumi/pulumi-github)
 * .NET: [`Pulumi.Github`](https://www.nuget.org/packages/Pulumi.Github)
-
-The GitHub provider is open source and available in the [pulumi/pulumi-github](https://github.com/pulumi/pulumi-github) repo.

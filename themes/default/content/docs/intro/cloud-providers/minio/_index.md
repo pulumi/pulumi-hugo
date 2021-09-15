@@ -92,5 +92,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-minio`](https://pypi.org/project/pulumi-minio/)
 * Go: [`github.com/pulumi/pulumi-minio/sdk/go/minio`](https://github.com/pulumi/pulumi-minio)
 * .NET: [`Pulumi.Minio`](https://www.nuget.org/packages/Pulumi.Minio)
-
-The Minio provider is open source and available in the [pulumi/pulumi-minio](https://github.com/pulumi/pulumi-minio) repo.

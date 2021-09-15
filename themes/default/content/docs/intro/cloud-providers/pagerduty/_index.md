@@ -101,5 +101,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-pagerduty`](https://pypi.org/project/pulumi-pagerduty/)
 * Go: [`github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty`](https://github.com/pulumi/pulumi-pagerduty)
 * .NET: [`Pulumi.Pagerduty`](https://www.nuget.org/packages/Pulumi.Pagerduty)
-
-The PagerDuty provider is open source and available in the [pulumi/pulumi-pagerduty](https://github.com/pulumi/pulumi-pagerduty) repo.

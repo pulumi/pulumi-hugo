@@ -122,5 +122,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-cloudflare`](https://pypi.org/project/pulumi-cloudflare/)
 * Go: [`github.com/pulumi/pulumi-cloudflare/sdk/v3/go/cloudflare`](https://github.com/pulumi/pulumi-cloudflare)
 * .NET: [`Pulumi.Cloudflare`](https://www.nuget.org/packages/Pulumi.Cloudflare)
-
-The Cloudflare provider is open source and available in the [pulumi/pulumi-cloudflare](https://github.com/pulumi/pulumi-cloudflare) repo.

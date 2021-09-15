@@ -110,5 +110,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-equinix-metal`](https://pypi.org/project/pulumi-equinix-metal/)
 * Go: [`github.com/pulumi/pulumi-equinix-metal/sdk/v2/go/equinix`](https://github.com/pulumi/pulumi-equinix-metal)
 * .NET: [`Pulumi.EquinixMetal`](https://www.nuget.org/packages/Pulumi.EquinixMetal)
-
-The Equinix Metal provider is open source and available in the [pulumi/pulumi-equinix-metal](https://github.com/pulumi/pulumi-equinix-metal) repo.

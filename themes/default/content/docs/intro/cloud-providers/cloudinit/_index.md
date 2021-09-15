@@ -136,5 +136,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-cloudinit`](https://pypi.org/project/pulumi-cloudinit/)
 * Go: [`github.com/pulumi/pulumi-cloudinit/sdk/go/cloudinit`](https://github.com/pulumi/pulumi-cloudinit)
 * .NET: [`Pulumi.CloudInit`](https://www.nuget.org/packages/Pulumi.CloudInit)
-
-The cloud-init provider is open source and available in the [pulumi/pulumi-cloudinit](https://github.com/pulumi/pulumi-cloudinit) repo.

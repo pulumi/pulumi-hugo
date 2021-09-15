@@ -132,5 +132,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-mailgun`](https://pypi.org/project/pulumi-mailgun/)
 * Go: [`github.com/pulumi/pulumi-mailgun/sdk/v3/go/mailgun`](https://github.com/pulumi/pulumi-mailgun)
 * .NET: [`Pulumi.Mailgun`](https://www.nuget.org/packages/Pulumi.Mailgun)
-
-The Mailgun provider is open source and available in the [pulumi/pulumi-mailgun](https://github.com/pulumi/pulumi-mailgun) repo.

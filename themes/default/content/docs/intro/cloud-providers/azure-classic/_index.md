@@ -34,8 +34,6 @@ The following packages are available in package managers:
 * Go: [`github.com/pulumi/pulumi-azure/sdk/v4/go/azure`](https://github.com/pulumi/pulumi-azure)
 * .NET: [`Pulumi.Azure`](https://www.nuget.org/packages/Pulumi.Azure)
 
-The classic Azure provider is open source and available in the [pulumi/pulumi-azure](https://github.com/pulumi/pulumi-azure) repo.
-
 ## Configuration
 
 The Azure provider accepts the following configuration settings.  These can be provided to the default Azure provider via `pulumi config set azure:<option>`, or passed to the constructor of [Provider]({{< relref "/docs/reference/pkg/azure/provider" >}}) to construct a specific instance of the Azure provider.

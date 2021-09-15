@@ -118,5 +118,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-dnsimple`](https://pypi.org/project/pulumi-dnsimple/)
 * Go: [`github.com/pulumi/pulumi-dnsimple/sdk/v3/go/dnsimple`](https://github.com/pulumi/pulumi-dnsimple)
 * .NET: [`Pulumi.Dnsimple`](https://www.nuget.org/packages/Pulumi.Dnsimple)
-
-The DNSimple provider is open source and available in the [pulumi/pulumi-dnsimple](https://github.com/pulumi/pulumi-dnsimple) repo.

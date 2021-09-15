@@ -102,5 +102,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-signalfx`](https://pypi.org/project/pulumi-signalfx/)
 * Go: [`github.com/pulumi/pulumi-signalfx/sdk/v5/go/signalfx`](https://github.com/pulumi/pulumi-signalfx)
 * .NET: [`Pulumi.Signalfx`](https://www.nuget.org/packages/Pulumi.Signalfx)
-
-The SignalFx provider is open source and available in the [pulumi/pulumi-signalfx](https://github.com/pulumi/pulumi-signalfx) repo.

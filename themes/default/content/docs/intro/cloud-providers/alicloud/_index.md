@@ -103,5 +103,3 @@ The following packages are available in package managers:
 * Python: [`pulumi-alicloud`](https://pypi.org/project/pulumi-alicloud/)
 * Go: [`github.com/pulumi/pulumi-alicloud/sdk/v3/go/alicloud`](https://github.com/pulumi/pulumi-alicloud)
 * .NET: [`Pulumi.Alicloud`](https://www.nuget.org/packages/Pulumi.Alicloud)
-
-The Alibaba Cloud provider is open source and available in the [pulumi/pulumi-alicloud](https://github.com/pulumi/pulumi-alicloud) repo.

@@ -95,5 +95,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-confluent`](https://pypi.org/project/pulumi-confluent/)
 * Go: [`github.com/pulumi/pulumi-confluent/sdk/go/confluent`](https://github.com/pulumi/pulumi-confluent)
 * .NET: [`Pulumi.Confluent`](https://www.nuget.org/packages/Pulumi.Confluent)
-
-The Confluent Cloud provider is open source and available in the [pulumi/pulumi-confluent](https://github.com/pulumi/pulumi-confluent) repo.

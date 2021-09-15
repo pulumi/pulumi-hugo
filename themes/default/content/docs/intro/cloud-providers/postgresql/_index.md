@@ -91,5 +91,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-postgresql`](https://pypi.org/project/pulumi-postgresql/)
 * Go: [`github.com/pulumi/pulumi-postgresql/sdk/v3/go/postgresql`](https://github.com/pulumi/pulumi-postgresql)
 * .NET: [`Pulumi.Postgresql`](https://www.nuget.org/packages/Pulumi.Postgresql)
-
-The PostgreSQL provider is open source and available in the [pulumi/pulumi-postgresql](https://github.com/pulumi/pulumi-postgresql) repo.

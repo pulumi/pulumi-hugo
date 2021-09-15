@@ -114,8 +114,6 @@ The following packages are available in packager managers:
 * Go: [`github.com/pulumi/pulumi-gcp/sdk/v5/go/gcp`](https://github.com/pulumi/pulumi-gcp)
 * .NET: [`Pulumi.Gcp`](https://www.nuget.org/packages/Pulumi.Gcp)
 
-The GCP provider is open source and available in the [pulumi/pulumi-gcp](https://github.com/pulumi/pulumi-gcp) repo.
-
 ## Configuration
 
 The GCP provider accepts the following configuration settings.  These can be provided to the default GCP provider via `pulumi config set gcp:<option>`, or passed to the constructor of `new gcp.Provider` to construct a specific instance of the GCP provider.

@@ -102,5 +102,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-wavefront`](https://pypi.org/project/pulumi-wavefront/)
 * Go: [`github.com/pulumi/pulumi-wavefront/sdk/go/wavefront`](https://github.com/pulumi/pulumi-wavefront)
 * .NET: [`Pulumi.Wavefront`](https://www.nuget.org/packages/Pulumi.Wavefront)
-
-The Wavefront provider is open source and available in the [pulumi/pulumi-wavefront](https://github.com/pulumi/pulumi-wavefront) repo.

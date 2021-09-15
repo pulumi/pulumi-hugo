@@ -132,5 +132,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-libvirt`](https://pypi.org/project/pulumi-libvirt/)
 * Go: [`github.com/pulumi/pulumi-libvirt/sdk/go/libvirt`](https://github.com/pulumi/pulumi-libvirt)
 * .NET: [`Pulumi.Libvirt`](https://www.nuget.org/packages/Pulumi.Libvirt)
-
-The libvirt provider is open source and available in the [pulumi/pulumi-libvirt](https://github.com/pulumi/pulumi-libvirt) repo.

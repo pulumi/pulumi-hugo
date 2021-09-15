@@ -99,5 +99,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-mongodbatlas`](https://pypi.org/project/pulumi-mongodbatlas/)
 * Go: [`github.com/pulumi/pulumi-mongodbatlas/sdk/v2/go/mongodbatlas`](https://github.com/pulumi/pulumi-mongodbatlas)
 * .NET: [`Pulumi.Mongodbatlas`](https://www.nuget.org/packages/Pulumi.Mongodbatlas)
-
-The MongoDB Atlas provider is open source and available in the [pulumi/pulumi-mongodbatlas](https://github.com/pulumi/pulumi-mongodbatlas) repo.

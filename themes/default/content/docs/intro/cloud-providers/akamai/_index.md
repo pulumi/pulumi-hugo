@@ -147,5 +147,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-akamai`](https://pypi.org/project/pulumi-akamai/)
 * Go: [`github.com/pulumi/pulumi-akamai/sdk/v2/go/akamai`](https://github.com/pulumi/pulumi-akamai)
 * .NET: [`Pulumi.Akamai`](https://www.nuget.org/packages/Pulumi.Akamai)
-
-The Akamai provider is open source and available in the [pulumi/pulumi-akamai](https://github.com/pulumi/pulumi-akamai) repo.
