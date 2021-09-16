@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/signalfx.png" align="right" class="h-16 px-8 pb-4">
-
 The SignalFx provider for Pulumi can be used to provision any of the cloud resources available in [SignalFx](https://signalfx.com/).
 The SignalFx provider must be configured with credentials to deploy and update resources in SignalFx.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/signalfx" >}}) for complete details of the available SignalFx provider APIs.
-
-## Setup
-
-The SignalFx provider supports several options for providing access to SignalFx credentials.  See the [SignalFx setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -111,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-signalfx`](https://pypi.org/project/pulumi-signalfx/)
 * Go: [`github.com/pulumi/pulumi-signalfx/sdk/v5/go/signalfx`](https://github.com/pulumi/pulumi-signalfx)
 * .NET: [`Pulumi.Signalfx`](https://www.nuget.org/packages/Pulumi.Signalfx)
-
-The SignalFx provider is open source and available in the [pulumi/pulumi-signalfx](https://github.com/pulumi/pulumi-signalfx) repo.

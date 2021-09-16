@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/newrelic.svg" align="right" class="h-16 px-8 pb-4">
-
 The New Relic provider for Pulumi can be used to provision any of the cloud resources available in [New Relic](https://newrelic.com/).
 The New Relic provider must be configured with credentials to deploy and update resources in New Relic.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/newrelic" >}}) for complete details of the available New Relic provider APIs.
-
-## Setup
-
-The New Relic provider supports several options for providing access to New Relic credentials.  See the [New Relic setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -101,5 +93,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-newrelic`](https://pypi.org/project/pulumi-newrelic/)
 * Go: [`github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic`](https://github.com/pulumi/pulumi-newrelic)
 * .NET: [`Pulumi.Newrelic`](https://www.nuget.org/packages/Pulumi.Newrelic)
-
-The New Relic provider is open source and available in the [pulumi/pulumi-newrelic](https://github.com/pulumi/pulumi-newrelic) repo.

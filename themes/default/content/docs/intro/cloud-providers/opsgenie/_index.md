@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/opsgenie.svg" align="right" class="h-16 px-8 pb-4">
-
 The Opsgenie provider for Pulumi can be used to provision any of the resources available for Opsgenie.
 The Opsgenie provider must be configured with credentials to deploy and update resources in Opsgenie.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/opsgenie" >}}) for complete details of the available Opsgenie provider APIs.
-
-## Setup
-
-The Opsgenie provider supports several options for providing access to Opsgenie credentials.  See the [Opsgenie setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -100,5 +92,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-opsgenie`](https://pypi.org/project/pulumi-opsgenie/)
 * Go: [`github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie`](https://github.com/pulumi/pulumi-opsgenie)
 * .NET: [`Pulumi.Opsgenie`](https://www.nuget.org/packages/Pulumi.Opsgenie)
-
-The Opsgenie provider is open source and available in the [pulumi/pulumi-opsgenie](https://github.com/pulumi/pulumi-opsgenie) repo.

@@ -8,15 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/spotinst.png" align="right" class="h-16 px-8 pb-4">
-
 The Spotinst provider for Pulumi can be used to provision any of the resources available in [Spotinst](https://spotinst.com/).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/spotinst" >}}) for complete details of the available Spotinst provider APIs.
-
-## Setup
-
-The Spotinst provider supports several options for interacting with Spotinst.  See the [Spotinst setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -99,5 +91,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-spotinst`](https://pypi.org/project/pulumi-spotinst/)
 * Go: [`github.com/pulumi/pulumi-spotinst/sdk/v3/go/spotinst`](https://github.com/pulumi/pulumi-spotinst)
 * .NET: [`Pulumi.Spotinst`](https://www.nuget.org/packages/Pulumi.Spotinst)
-
-The Spotinst provider is open source and available in the [pulumi/pulumi-spotinst](https://github.com/pulumi/pulumi-spotinst) repo.

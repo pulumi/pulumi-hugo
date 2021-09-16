@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/datadog.svg" align="right" class="h-16 px-8 pb-4">
-
 The Datadog provider for Pulumi can be used to provision any of the cloud resources available in [Datadog](https://datadoghq.com/).
 The Datadog provider must be configured with credentials to deploy and update resources in Datadog.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/datadog" >}}) for complete details of the available Datadog provider APIs.
-
-## Setup
-
-The Datadog provider supports several options for providing access to Datadog credentials.  See the [Datadog setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -122,5 +114,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-datadog`](https://pypi.org/project/pulumi-datadog/)
 * Go: [`github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog`](https://github.com/pulumi/pulumi-datadog)
 * .NET: [`Pulumi.Datadog`](https://www.nuget.org/packages/Pulumi.Datadog)
-
-The Datadog provider is open source and available in the [pulumi/pulumi-datadog](https://github.com/pulumi/pulumi-datadog) repo.

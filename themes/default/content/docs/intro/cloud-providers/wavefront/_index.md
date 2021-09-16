@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/wavefront.png" align="right" class="h-16 px-8 pb-4">
-
 The Wavefront provider for Pulumi can be used to provision any of the cloud resources available in [Wavefront](https://www.wavefront.com/).
 The Wavefront provider must be configured with credentials to deploy and update resources in Wavefront.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/wavefront" >}}) for complete details of the available Wavefront provider APIs.
-
-## Setup
-
-The Wavefront provider supports several options for providing access to Wavefront credentials.  See the [Wavefront setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -111,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-wavefront`](https://pypi.org/project/pulumi-wavefront/)
 * Go: [`github.com/pulumi/pulumi-wavefront/sdk/go/wavefront`](https://github.com/pulumi/pulumi-wavefront)
 * .NET: [`Pulumi.Wavefront`](https://www.nuget.org/packages/Pulumi.Wavefront)
-
-The Wavefront provider is open source and available in the [pulumi/pulumi-wavefront](https://github.com/pulumi/pulumi-wavefront) repo.

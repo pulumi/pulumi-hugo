@@ -10,8 +10,6 @@ menu:
 
 A Pulumi provider that lets you provision servers on a libvirt host using Pulumi.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/libvirt" >}}) for complete details of the available libvirt provider APIs.
-
 ### Requirements
 
 Please note, there is a requirement to have [libvirt](https://libvirt.org/) on the machine using the libvirt provider. You can
@@ -134,5 +132,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-libvirt`](https://pypi.org/project/pulumi-libvirt/)
 * Go: [`github.com/pulumi/pulumi-libvirt/sdk/go/libvirt`](https://github.com/pulumi/pulumi-libvirt)
 * .NET: [`Pulumi.Libvirt`](https://www.nuget.org/packages/Pulumi.Libvirt)
-
-The libvirt provider is open source and available in the [pulumi/pulumi-libvirt](https://github.com/pulumi/pulumi-libvirt) repo.

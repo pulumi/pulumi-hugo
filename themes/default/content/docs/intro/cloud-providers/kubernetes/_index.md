@@ -10,8 +10,6 @@ menu:
 aliases: ["/docs/reference/clouds/kubernetes/"]
 ---
 
-<img src="/logos/tech/k8s.svg" align="right" class="h-16 px-8 pb-4">
-
 [Kubernetes][k8s] is an open source project for running and managing containerized applications
 on a cluster of machines.
 
@@ -42,8 +40,6 @@ Kubernetes and Pulumi can:
 
 The Kubernetes provider for Pulumi can be used to provision any resources available in the Kubernetes API.  The Kubernetes provider must be configured with a `kubeconfig` or other credentials to connect to a taret Kubernetes cluster.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/kubernetes" >}}) for complete details of the available Kubernetes provider APIs.
-
 ### Setup
 
 The Kubernetes provider supports several options for providing access to a Kubernetes cluster.  See the [Kubernetes setup page]({{< relref "/docs/intro/cloud-providers/kubernetes/setup" >}}) for details.
@@ -67,8 +63,6 @@ The following packages are available in package managers:
 - Python: [`pulumi-kubernetes`](https://pypi.org/project/pulumi-kubernetes/)
 - Go: [`github.com/pulumi/pulumi-kubernetes/sdk/go/kubernetes`](https://github.com/pulumi/pulumi-kubernetes)
 - .NET: [`Pulumi.Kubernetes`](https://www.nuget.org/packages/Pulumi.Kubernetes)
-
-The Kubernetes provider is open source and available in the [pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes) repo.
 
 ### Configuration
 

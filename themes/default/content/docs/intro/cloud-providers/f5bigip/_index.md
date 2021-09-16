@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/f5bigip.svg" align="right" class="h-16 px-8 pb-4">
-
 The F5 BIG-IP provider for Pulumi can be used to provision any of the resources available with [F5 BIG-IP](https://www.f5.com/products/big-ip-services).
 The F5 BIG-IP provider must be configured with credentials to deploy and update the resources.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/f5bigip" >}}) for complete details of the available F5 BIG-IP provider APIs.
-
-## Setup
-
-The F5 BIG-IP provider supports several options for providing access to F5 BIG-IP credentials.  See the [F5 BIG-IP setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -132,5 +124,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-f5bigip`](https://pypi.org/project/pulumi-f5bigip/)
 * Go: [`github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip`](https://github.com/pulumi/pulumi-f5bigip)
 * .NET: [`Pulumi.F5bigip`](https://www.nuget.org/packages/Pulumi.F5bigip)
-
-The F5 BIG-IP provider is open source and available in the [pulumi/pulumi-f5bigip](https://github.com/pulumi/pulumi-f5bigip) repo.

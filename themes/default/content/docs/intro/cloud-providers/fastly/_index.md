@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/fastly.png" align="right" class="h-16 px-8 pb-4">
-
 The Fastly provider for Pulumi can be used to provision any of the cloud resources available in [Fastly](https://www.fastly.com/).
 The Fastly provider must be configured with credentials to deploy and update resources in Fastly.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/fastly" >}}) for complete details of the available Fastly provider APIs.
-
-## Setup
-
-The Fastly provider supports several options for providing access to Fastly credentials.  See the [Fastly setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -165,5 +157,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-fastly`](https://pypi.org/project/pulumi-fastly/)
 * Go: [`github.com/pulumi/pulumi-fastly/sdk/v3/go/fastly`](https://github.com/pulumi/pulumi-fastly)
 * .NET: [`Pulumi.Fastly`](https://www.nuget.org/packages/Pulumi.Fastly)
-
-The Fastly provider is open source and available in the [pulumi/pulumi-fastly](https://github.com/pulumi/pulumi-fastly) repo.

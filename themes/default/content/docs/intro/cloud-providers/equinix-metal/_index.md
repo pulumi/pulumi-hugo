@@ -12,12 +12,8 @@ aliases:
   - "/docs/intro/cloud-providers/packet/"
 ---
 
-<img src="/logos/tech/equinix-metal.svg" align="right" class="h-16 px-8 pb-4">
-
 The Equinix Metal provider for Pulumi can be used to provision any of the cloud resources available in [Equinix Metal](https://metal.equinix.com/).
 The Equinix Metal provider must be configured with credentials to deploy and update resources in Equinix Metal.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/equinix-metal" >}}) for complete details of the available Equinix Metal provider APIs.
 
 ## Setup
 
@@ -114,5 +110,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-equinix-metal`](https://pypi.org/project/pulumi-equinix-metal/)
 * Go: [`github.com/pulumi/pulumi-equinix-metal/sdk/v2/go/equinix`](https://github.com/pulumi/pulumi-equinix-metal)
 * .NET: [`Pulumi.EquinixMetal`](https://www.nuget.org/packages/Pulumi.EquinixMetal)
-
-The Equinix Metal provider is open source and available in the [pulumi/pulumi-equinix-metal](https://github.com/pulumi/pulumi-equinix-metal) repo.

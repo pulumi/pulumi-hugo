@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/postgresql.png" align="right" class="h-16 px-8 pb-4">
-
 The PostgreSQL provider for Pulumi can be used to provision any of the resources available for PostgreSQL.
 The PostgreSQL provider must be configured with credentials to deploy and update resources in PostgreSQL.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/postgresql" >}}) for complete details of the available PostgreSQL provider APIs.
-
-## Setup
-
-The PostgreSQL provider supports several options for providing access to PostgreSQL credentials.  See the [PostgreSQL setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -100,5 +92,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-postgresql`](https://pypi.org/project/pulumi-postgresql/)
 * Go: [`github.com/pulumi/pulumi-postgresql/sdk/v3/go/postgresql`](https://github.com/pulumi/pulumi-postgresql)
 * .NET: [`Pulumi.Postgresql`](https://www.nuget.org/packages/Pulumi.Postgresql)
-
-The PostgreSQL provider is open source and available in the [pulumi/pulumi-postgresql](https://github.com/pulumi/pulumi-postgresql) repo.

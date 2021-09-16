@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/rancher.svg" align="right" class="h-16 px-8 pb-4">
-
 The Rancher2 provider for Pulumi can be used to provision any of the cloud resources available via [Rancher](https://rancher.com/).
 The Rancher2 provider must be configured with credentials to deploy and update resources for Rancher.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/rancher2" >}}) for complete details of the available Rancher2 provider APIs.
-
-## Setup
-
-The Rancher2 provider supports several options for providing access to Rancher credentials.  See the [Rancher2 setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -126,5 +118,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-rancher2`](https://pypi.org/project/pulumi-rancher2/)
 * Go: [`github.com/pulumi/pulumi-rancher2/sdk/v3/go/rancher2`](https://github.com/pulumi/pulumi-rancher2)
 * .NET: [`Pulumi.Rancher2`](https://www.nuget.org/packages/Pulumi.Rancher2)
-
-The Rancher2 provider is open source and available in the [pulumi/pulumi-rancher2](https://github.com/pulumi/pulumi-rancher2) repo.

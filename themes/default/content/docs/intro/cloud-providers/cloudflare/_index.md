@@ -8,15 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/cloudflare.png" align="right" class="h-16 px-8 pb-4">
-
 The Cloudflare provider for Pulumi can be used to provision any of the resources available in [Cloudflare](https://www.cloudflare.com/).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/cloudflare" >}}) for complete details of the available Cloudflare provider APIs.
-
-## Setup
-
-The Cloudflare provider supports several options for interacting with Cloudflare.  See the [Cloudflare setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -131,5 +123,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-cloudflare`](https://pypi.org/project/pulumi-cloudflare/)
 * Go: [`github.com/pulumi/pulumi-cloudflare/sdk/v3/go/cloudflare`](https://github.com/pulumi/pulumi-cloudflare)
 * .NET: [`Pulumi.Cloudflare`](https://www.nuget.org/packages/Pulumi.Cloudflare)
-
-The Cloudflare provider is open source and available in the [pulumi/pulumi-cloudflare](https://github.com/pulumi/pulumi-cloudflare) repo.

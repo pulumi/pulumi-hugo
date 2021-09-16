@@ -8,14 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/alicloud.png" align="right" class="h-16 px-8 pb-4">
-
 The Alibaba Cloud provider for Pulumi can be used to provision any of the cloud resources available in [Alibaba Cloud](https://www.alibabacloud.com/).
 The Alibaba Cloud provider must be configured with credentials to deploy and update resources in Alibaba Cloud.
-
-## Setup
-
-The Alibaba Cloud provider supports several options for providing access to Alibaba Cloud credentials.  See the [Alibaba Cloud setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -110,5 +104,3 @@ The following packages are available in package managers:
 * Python: [`pulumi-alicloud`](https://pypi.org/project/pulumi-alicloud/)
 * Go: [`github.com/pulumi/pulumi-alicloud/sdk/v3/go/alicloud`](https://github.com/pulumi/pulumi-alicloud)
 * .NET: [`Pulumi.Alicloud`](https://www.nuget.org/packages/Pulumi.Alicloud)
-
-The Alibaba Cloud provider is open source and available in the [pulumi/pulumi-alicloud](https://github.com/pulumi/pulumi-alicloud) repo.

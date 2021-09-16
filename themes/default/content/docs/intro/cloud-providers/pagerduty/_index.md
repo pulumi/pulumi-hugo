@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/pagerduty.svg" align="right" class="h-16 px-8 pb-4">
-
 The PagerDuty provider for Pulumi can be used to provision any of the cloud resources available in [PagerDuty](https://www.pagerduty.com/).
 The PagerDuty provider must be configured with credentials to deploy and update resources in PagerDuty.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/pagerduty" >}}) for complete details of the available PagerDuty provider APIs.
-
-## Setup
-
-The PagerDuty provider supports several options for providing access to PagerDuty credentials.  See the [PagerDuty setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -110,5 +102,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-pagerduty`](https://pypi.org/project/pulumi-pagerduty/)
 * Go: [`github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty`](https://github.com/pulumi/pulumi-pagerduty)
 * .NET: [`Pulumi.Pagerduty`](https://www.nuget.org/packages/Pulumi.Pagerduty)
-
-The PagerDuty provider is open source and available in the [pulumi/pulumi-pagerduty](https://github.com/pulumi/pulumi-pagerduty) repo.

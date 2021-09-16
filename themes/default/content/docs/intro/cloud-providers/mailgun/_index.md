@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/mailgun.png" align="right" class="h-16 px-8 pb-4">
-
 The Mailgun provider for Pulumi can be used to provision any of the cloud resources available in [Mailgun](https://www.mailgun.com/).
 The Mailgun provider must be configured with credentials to deploy and update resources in Mailgun.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/mailgun" >}}) for complete details of the available Mailgun provider APIs.
-
-## Setup
-
-The Mailgun provider supports several options for providing access to Mailgun credentials.  See the [Mailgun setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -141,5 +133,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-mailgun`](https://pypi.org/project/pulumi-mailgun/)
 * Go: [`github.com/pulumi/pulumi-mailgun/sdk/v3/go/mailgun`](https://github.com/pulumi/pulumi-mailgun)
 * .NET: [`Pulumi.Mailgun`](https://www.nuget.org/packages/Pulumi.Mailgun)
-
-The Mailgun provider is open source and available in the [pulumi/pulumi-mailgun](https://github.com/pulumi/pulumi-mailgun) repo.

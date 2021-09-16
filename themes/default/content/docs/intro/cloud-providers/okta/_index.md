@@ -8,15 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/okta.png" align="right" class="h-16 px-8 pb-4">
-
 The Okta provider for Pulumi can be used to provision any of the resources available in [Okta](https://www.okta.com/).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/okta" >}}) for complete details of the available Okta provider APIs.
-
-## Setup
-
-The Okta provider supports several options for interacting with Okta.  See the [Okta setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -126,5 +118,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-okta`](https://pypi.org/project/pulumi-okta/)
 * Go: [`github.com/pulumi/pulumi-okta/sdk/v3/go/okta`](https://github.com/pulumi/pulumi-okta)
 * .NET: [`Pulumi.Okta`](https://www.nuget.org/packages/Pulumi.Okta)
-
-The Okta provider is open source and available in the [pulumi/pulumi-okta](https://github.com/pulumi/pulumi-okta) repo.

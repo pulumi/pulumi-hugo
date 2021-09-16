@@ -8,16 +8,8 @@ identifier: clouds-sumologic
 weight: 2
 ---
 
-<img src="/logos/tech/sumologic.svg" align="right" class="h-16 px-8 pb-4">
-
 The SumoLogic provider for Pulumi can be used to provision any of the cloud resources available in [SumoLogic](https://www.sumologic.com/).
 The SumoLogic provider must be configured with credentials to deploy and update resources in SumoLogic.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/sumologic" >}}) for complete details of the available SumoLogic provider APIs.
-
-## Setup
-
-The SumoLogic provider supports several options for providing access to SumoLogic credentials.  See the [SumoLogic setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -116,5 +108,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-sumologic`](https://pypi.org/project/pulumi-sumologic/)
 * Go: [`github.com/pulumi/pulumi-sumologic/sdk/go/sumologic`](https://github.com/pulumi/pulumi-sumologic)
 * .NET: [`Pulumi.SumoLogic`](https://www.nuget.org/packages/Pulumi.SumoLogic)
-
-The SumoLogic provider is open source and available in the [pulumi/pulumi-sumologic](https://github.com/pulumi/pulumi-sumologic) repo.

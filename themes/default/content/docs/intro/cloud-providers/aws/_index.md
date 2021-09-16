@@ -10,11 +10,7 @@ menu:
 aliases: ["/docs/reference/clouds/aws/"]
 ---
 
-<img src="/logos/tech/aws.svg" align="right" class="h-16 px-8 pb-4">
-
 The Amazon Web Services (AWS) provider for Pulumi can be used to provision any of the cloud resources available in [AWS](https://aws.amazon.com/).  The AWS provider must be configured with credentials to deploy and update resources in AWS.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/aws" >}}) for complete details of the available AWS provider APIs.
 
 Additionally, higher-level libraries offering simpler interfaces and higher-productivity APIs for many areas of AWS are available in the [awsx]({{< relref "/docs/reference/pkg/nodejs/pulumi/awsx" >}}) and [eks]({{< relref "/docs/reference/pkg/nodejs/pulumi/eks" >}}) packages.
 
@@ -75,8 +71,6 @@ The following packages are available in package managers:
 * Python: [`pulumi-aws`](https://pypi.org/project/pulumi-aws/)
 * Go: [`github.com/pulumi/pulumi-aws/sdk/v4/go/aws`](https://github.com/pulumi/pulumi-aws)
 * .NET: [`Pulumi.Aws`](https://www.nuget.org/packages/Pulumi.Aws)
-
-The AWS provider is open source and available in the [pulumi/pulumi-aws](https://github.com/pulumi/pulumi-aws) repo.
 
 ## Configuration
 

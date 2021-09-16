@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/azuredevops.png" align="right" class="h-16 px-8 pb-4">
-
 The AzureDevOps provider for Pulumi can be used to provision any of the cloud resources available in [AzureDevOps](https://azure.microsoft.com/en-us/services/devops/).
 The AzureDevOps provider must be configured with credentials to deploy and update resources in AzureDevOps.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/azuredevops" >}}) for complete details of the available AzureDevOps provider APIs.
-
-## Setup
-
-The AzureDevOps provider supports several options for providing access to AzureDevOps credentials.  See the [AzureDevOps setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -111,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-azuredevops`](https://pypi.org/project/pulumi-azuredevops/)
 * Go: [`github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops`](https://github.com/pulumi/pulumi-azuredevops)
 * .NET: [`Pulumi.AzureDevOps`](https://www.nuget.org/packages/Pulumi.AzureDevOps)
-
-The AzureDevOps provider is open source and available in the [pulumi/pulumi-azuredevops](https://github.com/pulumi/pulumi-azuredevops) repo.

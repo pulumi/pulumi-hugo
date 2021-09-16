@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/venafi.svg" align="right" class="h-16 px-8 pb-4">
-
 The Venafi provider for Pulumi can be used to provision cloud resources available in [Venafi](https://www.venafi.com/).
 The Venafi provider must be configured with credentials to deploy and update resources in Venafi.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/venafi" >}}) for complete details of the available Venafi provider APIs.
-
-## Setup
-
-The Venafi provider supports several options for providing access to Venafi credentials.  See the [Venafi setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -154,5 +146,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-venafi`](https://pypi.org/project/pulumi-venafi/)
 * Go: [`github.com/pulumi/pulumi-venafi/sdk/go/venafi`](https://github.com/pulumi/pulumi-venafi)
 * .NET: [`Pulumi.Venafi`](https://www.nuget.org/packages/Pulumi.Venafi)
-
-The Venafi provider is open source and available in the [pulumi/pulumi-venafi](https://github.com/pulumi/pulumi-venafi) repo.

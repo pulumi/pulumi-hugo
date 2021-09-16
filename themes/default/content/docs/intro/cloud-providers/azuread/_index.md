@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/azuread.svg" align="right" class="h-16 px-8 pb-4">
-
 The AzureAD provider for Pulumi can be used to provision any of the Azure Active Directory resources available in [Azure](https://azure.microsoft.com/en-us/).
 The AzureAD provider must be configured with credentials to deploy and update resources in Azure.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/azuread" >}}) for complete details of the available AzureAD provider APIs.
-
-## Setup
-
-The AzureAD provider supports several options for providing access to Azure credentials.  See the [Azure setup page]({{< relref "/docs/intro/cloud-providers/azuread/setup" >}}) for details.
 
 ## Example
 
@@ -111,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-azuread`](https://pypi.org/project/pulumi-azuread/)
 * Go: [`github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread`](https://github.com/pulumi/pulumi-azuread)
 * .NET: [`Pulumi.AzureAD`](https://www.nuget.org/packages/Pulumi.AzureAD)
-
-The AzureAD provider is open source and available in the [pulumi/pulumi-azuread](https://github.com/pulumi/pulumi-azuread) repo.

@@ -8,15 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/docker.png" align="right" class="h-16 px-8 pb-4">
-
 The Docker provider for Pulumi can be used to provision any of the resources available in [Docker](https://www.docker.com/).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/docker" >}}) for complete details of the available Docker provider APIs.
-
-## Setup
-
-The Docker provider supports several options for interacting with Docker.  See the [Docker setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -135,5 +127,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-docker`](https://pypi.org/project/pulumi-docker/)
 * Go: [`github.com/pulumi/pulumi-docker/sdk/v3/go/docker`](https://github.com/pulumi/pulumi-docker)
 * .NET: [`Pulumi.Docker`](https://www.nuget.org/packages/Pulumi.Docker)
-
-The Docker provider is open source and available in the [pulumi/pulumi-docker](https://github.com/pulumi/pulumi-docker) repo.

@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/akamai.png" align="right" class="h-16 px-8 pb-4">
-
 The Akamai provider for Pulumi can be used to provision any of the cloud resources available in [Akamai](https://www.akamai.com/).
 The Akamai provider must be configured with credentials to deploy and update resources in Akamai.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/akamai" >}}) for complete details of the available Akamai provider APIs.
-
-## Setup
-
-The Akamai provider supports several options for providing access to Akamai credentials.  See the [Akamai setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -156,5 +148,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-akamai`](https://pypi.org/project/pulumi-akamai/)
 * Go: [`github.com/pulumi/pulumi-akamai/sdk/v2/go/akamai`](https://github.com/pulumi/pulumi-akamai)
 * .NET: [`Pulumi.Akamai`](https://www.nuget.org/packages/Pulumi.Akamai)
-
-The Akamai provider is open source and available in the [pulumi/pulumi-akamai](https://github.com/pulumi/pulumi-akamai) repo.

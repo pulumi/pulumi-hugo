@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/github.svg" align="right" class="h-16 px-8 pb-4">
-
 The GitHub provider for Pulumi can be used to provision any of the cloud resources available in [GitHub](https://github.com/).
 The GitHub provider must be configured with credentials to deploy and update resources in GitHub.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/github" >}}) for complete details of the available GitHub provider APIs.
-
-## Setup
-
-The GitHub provider supports several options for providing access to GitHub credentials.  See the [GitHub setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -117,5 +109,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-github`](https://pypi.org/project/pulumi-github/)
 * Go: [`github.com/pulumi/pulumi-github/sdk/v4/go/github`](https://github.com/pulumi/pulumi-github)
 * .NET: [`Pulumi.Github`](https://www.nuget.org/packages/Pulumi.Github)
-
-The GitHub provider is open source and available in the [pulumi/pulumi-github](https://github.com/pulumi/pulumi-github) repo.

@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/civo.png" align="right" class="h-16 px-8 pb-4">
-
 The Civo provider for Pulumi can be used to provision any of the cloud resources available in [Civo](https://www.civo.com/).
 The Civo provider must be configured with credentials to deploy and update resources in Civo.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/civo" >}}) for complete details of the available Civo provider APIs.
-
-## Setup
-
-The Civo provider supports several options for providing access to Civo credentials.  See the [Civo setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -112,5 +104,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-civo`](https://pypi.org/project/pulumi-civo/)
 * Go: [`github.com/pulumi/pulumi-civo/sdk/go/civo`](https://github.com/pulumi/pulumi-civo)
 * .NET: [`Pulumi.Civo`](https://www.nuget.org/packages/Pulumi.Civo)
-
-The Civo provider is open source and available in the [pulumi/pulumi-civo](https://github.com/pulumi/pulumi-civo) repo.

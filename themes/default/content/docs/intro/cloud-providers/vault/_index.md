@@ -8,15 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/vault.png" align="right" class="h-16 px-8 pb-4">
-
 The HashiCorp Vault provider for Pulumi can be used to provision any of the resources available in [Vault](https://www.vaultproject.io/).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/vault" >}}) for complete details of the available Vault provider APIs.
-
-## Setup
-
-The Vault provider supports several options for interacting with HashiCorp Vault.  See the [Vault setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -110,5 +102,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-vault`](https://pypi.org/project/pulumi-vault/)
 * Go: [`github.com/pulumi/pulumi-vault/sdk/v4/go/vault`](https://github.com/pulumi/pulumi-vault)
 * .NET: [`Pulumi.Vault`](https://www.nuget.org/packages/Pulumi.Vault)
-
-The HashiCorp Vault provider is open source and available in the [pulumi/pulumi-vault](https://github.com/pulumi/pulumi-vault) repo.

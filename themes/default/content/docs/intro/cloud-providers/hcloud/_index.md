@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/hetzner.png" align="right" class="h-16 px-8 pb-4">
-
 The Hetzner Cloud provider for Pulumi can be used to provision any of the cloud resources available in [Hetzner Cloud](https://www.hetzner.com/cloud).
 The Hetzner Cloud provider must be configured with credentials to deploy and update resources in Hetzner Cloud.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/hcloud" >}}) for complete details of the available Hetzner Cloud provider APIs.
-
-## Setup
-
-The Hetzner Cloud provider supports several options for providing access to Hetzner Cloud credentials.  See the [Hetzner Cloud setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -112,5 +104,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-hcloud`](https://pypi.org/project/pulumi-hcloud/)
 * Go: [`github.com/pulumi/pulumi-hcloud/sdk/go/hcloud`](https://github.com/pulumi/pulumi-hcloud)
 * .NET: [`Pulumi.HCloud`](https://www.nuget.org/packages/Pulumi.HCloud)
-
-The Hetzner Cloud provider is open source and available in the [pulumi/pulumi-hcloud](https://github.com/pulumi/pulumi-hcloud) repo.

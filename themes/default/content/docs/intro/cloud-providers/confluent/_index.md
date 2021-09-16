@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/confluent.svg" align="right" class="h-16 px-8 pb-4">
-
 The Confluent Cloud provider for Pulumi can be used to provision any of the cloud resources available in [Confluent Cloud](https://confluent.cloud/).
 The Confluent Cloud provider must be configured with credentials to deploy and update resources in Confluent Cloud.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/confluent" >}}) for complete details of the available Confluent Cloud provider APIs.
-
-## Setup
-
-The Confluent Cloud provider supports several options for providing access to Confluent Cloud credentials.  See the [Confluent Cloud setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -104,5 +96,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-confluent`](https://pypi.org/project/pulumi-confluent/)
 * Go: [`github.com/pulumi/pulumi-confluent/sdk/go/confluent`](https://github.com/pulumi/pulumi-confluent)
 * .NET: [`Pulumi.Confluent`](https://www.nuget.org/packages/Pulumi.Confluent)
-
-The Confluent Cloud provider is open source and available in the [pulumi/pulumi-confluent](https://github.com/pulumi/pulumi-confluent) repo.

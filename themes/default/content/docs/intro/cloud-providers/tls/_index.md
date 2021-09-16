@@ -10,8 +10,6 @@ menu:
 
 The TLS provider for Pulumi can be used to help to create TLS keys and certitifcate for use with Pulumi resources.
 
-See the [full API documentation]({{< relref "/docs/reference/pkg/tls" >}}) for complete details of the available TLS provider APIs.
-
 ## Example
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
@@ -108,5 +106,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-tls`](https://pypi.org/project/pulumi-tls/)
 * Go: [`github.com/pulumi/pulumi-tls/sdk/v4/go/tls`](https://github.com/pulumi/pulumi-tls)
 * .NET: [`Pulumi.Tls`](https://www.nuget.org/packages/Pulumi.Tls)
-
-The TLS provider is open source and available in the [pulumi/pulumi-tls](https://github.com/pulumi/pulumi-tls) repo.

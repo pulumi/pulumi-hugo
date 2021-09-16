@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/splunk.svg" align="right" class="h-16 px-8 pb-4">
-
 The Splunk provider for Pulumi can be used to provision any of the cloud resources available in [Splunk](https://www.splunk.com/).
 The Splunk provider must be configured with credentials to deploy and update resources in Splunk.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/splunk" >}}) for complete details of the available Splunk provider APIs.
-
-## Setup
-
-The Splunk provider supports several options for providing access to Splunk credentials.  See the [Splunk setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -120,5 +112,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-splunk`](https://pypi.org/project/pulumi-splunk/)
 * Go: [`github.com/pulumi/pulumi-splunk/sdk/go/splunk`](https://github.com/pulumi/pulumi-splunk)
 * .NET: [`Pulumi.Splunk`](https://www.nuget.org/packages/Pulumi.Splunk)
-
-The Splunk provider is open source and available in the [pulumi/pulumi-splunk](https://github.com/pulumi/pulumi-splunk) repo.

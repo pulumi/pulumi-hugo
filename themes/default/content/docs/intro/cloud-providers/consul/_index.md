@@ -8,15 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/consul.png" align="right" class="h-16 px-8 pb-4">
-
 The HashiCorp Consul provider for Pulumi can be used to provision any of the resources available in [Consul](https://www.consul.io/).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/consul" >}}) for complete details of the available Consul provider APIs.
-
-## Setup
-
-The Consul provider supports several options for interacting with HashiCorp Consul.  See the [Consul setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -111,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-consul`](https://pypi.org/project/pulumi-consul/)
 * Go: [`github.com/pulumi/pulumi-consul/sdk/v3/go/consul`](https://github.com/pulumi/pulumi-consul)
 * .NET: [`Pulumi.Consul`](https://www.nuget.org/packages/Pulumi.Consul)
-
-The HashiCorp Consul provider is open source and available in the [pulumi/pulumi-consul](https://github.com/pulumi/pulumi-consul) repo.

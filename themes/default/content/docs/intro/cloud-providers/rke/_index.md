@@ -8,11 +8,7 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/rke.svg" align="right" class="h-16 px-8 pb-4">
-
 The RKE provider for Pulumi can be used to provision Kubernetes clusters using the [Rancher Kubernetes Engine](https://github.com/rancher/rke).
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/rke" >}}) for complete details of the available RKE provider APIs.
 
 ## Example
 
@@ -165,5 +161,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-rke`](https://pypi.org/project/pulumi-rke/)
 * Go: [`github.com/pulumi/pulumi-rke/sdk/go/rke`](https://github.com/pulumi/pulumi-rke)
 * .NET: [`Pulumi.Rke`](https://www.nuget.org/packages/Pulumi.Rke)
-
-The RKE provider is open source and available in the [pulumi/pulumi-rke](https://github.com/pulumi/pulumi-rke) repo.

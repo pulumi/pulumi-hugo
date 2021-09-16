@@ -8,16 +8,8 @@ menu:
     weight: 2
 ---
 
-<img src="/logos/tech/rabbitmq.svg" align="right" class="h-16 px-8 pb-4">
-
 The RabbitMQ provider for Pulumi can be used to provision any of the resources available for RabbitMQ.
 The RabbitMQ provider must be configured with credentials to deploy and update resources in Fastly.
-
-See the [full API documentation]({{< relref "/docs/reference/pkg/rabbitmq" >}}) for complete details of the available RabbitMQ provider APIs.
-
-## Setup
-
-The RabbitMQ provider supports several options for providing access to RabbitMQ credentials.  See the [RabbitMQ setup page]({{< relref "setup" >}}) for details.
 
 ## Example
 
@@ -111,5 +103,3 @@ The following packages are available in packager managers:
 * Python: [`pulumi-rabbitmq`](https://pypi.org/project/pulumi-rabbitmq/)
 * Go: [`github.com/pulumi/pulumi-rabbitmq/sdk/v3/go/rabbitmq`](https://github.com/pulumi/pulumi-rabbitmq)
 * .NET: [`Pulumi.Rabbitmq`](https://www.nuget.org/packages/Pulumi.Rabbitmq)
-
-The RabbitMQ provider is open source and available in the [pulumi/pulumi-rabbitmq](https://github.com/pulumi/pulumi-rabbitmq) repo.
