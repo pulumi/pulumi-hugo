@@ -1,7 +1,7 @@
 ---
 title: "Build at Cloud Engineering Summit 2021"
 date: 2021-09-08T12:00:00-05:00
-draft: true
+draft: false
 meta_desc: "Highlights and hot takes of the Cloud Engineering Summit Manage track with Kat Cosgrove."
 meta_image: meta.png
 authors:
