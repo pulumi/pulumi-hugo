@@ -1,18 +1,25 @@
 ---
-title: "Build at Cloud Engineering Summit 2021"
-date: 2021-09-08T12:00:00-05:00
+title: "Cloud Engineering Summit Build Track"
+
+date: 2021-09-16T13:47:25-05:00
+
 draft: false
+
 meta_desc: "Highlights and hot takes of the Cloud Engineering Summit Manage track with Kat Cosgrove."
-meta_image: meta.png
+
+meta_image: cloud-eng-build.png
+
 authors:
     - kat-cosgrove
+
 tags:
+    - pulumi-events
     - cloud-engineering
     - infrastructure-as-code
-    - pulumi-events
+
 ---
 
-The [Cloud Engineering Summit 2021](https://www.pulumi.com/cloud-engineering-summit/)is coming up fast, and the speakers are out! To get you ready to attend, let’s take a look at the sessions for the Build track.
+The [Cloud Engineering Summit 2021](https://www.pulumi.com/cloud-engineering-summit/) is coming up fast, and the speakers are out! To get you ready to attend, let’s take a look at the sessions for the Build track.
 
 The Cloud Engineering Summit’s three tracks are built around three concepts: Build, Manage, and Deploy. I’m Kat Cosgrove, and I was responsible for selecting your speakers for the Build track! For us, that means building cloud applications and infrastructure with Modern Infrastructure as Code using general purpose programming languages. We embrace the fact that modern cloud applications have blurred the lines between the application and the infrastructure, and that success requires at least some level of proficiency in both. Whether you’re full stack or lean more towards one area, all cloud engineers apply a software engineering mindset and practices to building and testing applications and the underlying cloud infrastructure. This includes using standard programming languages, applying software principles such as reusability and abstractions and testing, and leveraging the rich ecosystem of software development tools.
 
