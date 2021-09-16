@@ -14,6 +14,7 @@ It's been a busy few weeks at Pulumi, including for some of our community contri
 
 - New and updated cloud providers
   - [New Helm Release resource for Kubernetes]({{< relref "/blog/pulumi-release-notes-m61#new-helm-release-resource-for-kubernetes" >}})
+  - [New providers: MinIO and Snowflake]({{< relref "/blog/pulumi-release-notes-m61#new-providers-minio-and-snowflake" >}})
   - [New resources in the Azure Native provider]({{< relref "/blog/pulumi-release-notes-m61#new-resources-in-the-azure-native-provider" >}})
 - Pulumi CLI and core technologies
   - [New `pulumi about` command for easier troubleshooting]({{< relref "/blog/pulumi-release-notes-m61#new-pulumi-about-command-for-easier-troubleshooting" >}})
@@ -356,6 +357,12 @@ class MyStack : Stack
 {{< /chooser >}}
 
 Learn more in the [announcement blog post]({{< relref "/blog/full-access-to-helm-features-through-new-helm-release-resource-for-kubernetes" >}})
+
+### New providers: MinIO and Snowflake
+
+You can now use Pulumi's modern infrastructure-as-code solution to manage new resources! Our new providers for MinIO gives you access to the full range of high-performance, S3-compatible object storage offered by [MinIO](https://min.io). Likewise, our new provider for Snowflake lets you create and manage many of the data engineering, data lake, data warehouse, and other data resources in [Snowflake's](https://snowflake.com) data cloud.
+
+Learn more in the [MinIO]({{< relref "/docs/intro/cloud-providers/minio">}}) and [Snowflake]({{< relref "/docs/intro/cloud-providers/snowflake">}}) provider docs
 
 ### New resources in the Azure Native provider
 
