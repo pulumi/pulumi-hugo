@@ -399,7 +399,10 @@ class CustomResource(
 When running Pulumi interactively, you can use the [`pulumi plugin install` command]({{< relref "/docs/reference/cli/pulumi_plugin_install" >}}) to manually install plugins required by your program, possibly from a server where you host your own plugins. You can now do the same task in the .NET Automation API:
 
 ```csharp
-TODO code sample
+await workspace.InstallPluginAsync("myplugin", "v0.0.1", options: new PluginInstallOptions
+{
+    ServerUrl = "https://<custom-url>",
+});
 ```
 
 [Learn more in this GitHub PR](https://github.com/pulumi/pulumi/pull/7796)
