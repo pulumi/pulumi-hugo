@@ -386,6 +386,8 @@ To make it easier to troubleshoot errors in the Pulumi CLI, we've added a new `p
 
 Previously, setting a config value using `pulumi config set` would write the value to `stdout`, which could be undesirable if the config value was a secret. Now, config values that look like secrets will be hidden and the config key name will be written to `stdout` instead.
 
+Thanks [@JasonWhall](https://github.com/JasonWhall) for contributing this change!
+
 [Learn more in this GitHub PR](https://github.com/pulumi/pulumi/pull/7327)
 
 ### Dynamic providers in Python can now given a custom name
@@ -399,6 +401,8 @@ class CustomResource(
    ...
 ```
 
+Thanks [@jancespivo](https://github.com/jancespivo) for contributing this change!
+
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/pull/7633)
 
 ### Automation API in .NET can use plugin installation options `exact` and `server`
@@ -411,6 +415,8 @@ await workspace.InstallPluginAsync("myplugin", "v0.0.1", options: new PluginInst
     ServerUrl = "https://<custom-url>",
 });
 ```
+
+Thanks [@orionstudt](https://github.com/orionstudt) for contributing this change!
 
 [Learn more in this GitHub PR](https://github.com/pulumi/pulumi/pull/7796)
 
