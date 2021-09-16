@@ -407,12 +407,6 @@ await workspace.InstallPluginAsync("myplugin", "v0.0.1", options: new PluginInst
 
 [Learn more in this GitHub PR](https://github.com/pulumi/pulumi/pull/7796)
 
-### `replaceOnChanges` can now be applied to propertiesTODO???
-
-We recently added the `replaceOnChanges` option that allows you to specify properties that, when changed, will cause a resource to be replaced. TODO what's new???
-
-[Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/7798)
-
 ### Schema checker for Pulumi Packages
 
 When authoring a Pulumi Package, it can be helpful to validate that your [schema]({{< relref "/docs/guides/pulumi-packages/schema" >}}) is correct. Now, you can validate your schema by running the [`pulumi schema check` command]({{< relref "/docs/reference/cli/pulumi_schema_check" >}}).
