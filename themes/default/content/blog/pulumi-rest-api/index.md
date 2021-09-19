@@ -20,25 +20,25 @@ Pulumi provides a lot of functionality out of the box. But we understand that mo
 
 ## Manage Stacks, Updates, Teams, and More
 
-The Pulumi REST API is available at https://api.pulumi.com and includes functionality to interact with and manipulate any kind of metadata managed by Pulumi. That includes:
+The Pulumi REST API is available at <https://api.pulumi.com> and includes functionality to interact with and manipulate any kind of metadata managed by Pulumi. That includes:
 
 * **Projects and Stacks**
-    - List all projects and stacks for a user or organization
-    - Get metadata about a specific stack, including stack config and resource states
-    - Transfer a stack between a user and/or organization
-    - Delete a stack
-    - Manage stack tags
+    * List all projects and stacks for a user or organization
+    * Get metadata about a specific stack, including stack config and resource states
+    * Transfer a stack between a user and/or organization
+    * Delete a stack
+    * Manage stack tags
 * **Previews and Updates**
-    - List all stack previews and updates
-    - Get the status of an ongoing or past stack preview or update
-    - List the detailed events occurring during a stack's update, such as the resource changes, policy checks, or stdout/stderr messages
+    * List all stack previews and updates
+    * Get the status of an ongoing or past stack preview or update
+    * List the detailed events occurring during a stack's update, such as the resource changes, policy checks, or stdout/stderr messages
 * **Organizations**
-    - List or manage users of an organization
-    - Manage RBAC teams and user roles within an organization
-    - List or manage access tokens within an organization
+    * List or manage users of an organization
+    * Manage RBAC teams and user roles within an organization
+    * List or manage access tokens within an organization
 * **Audit Logs**
-    - Get audit log events as JSON
-    - Export audit log events as CSV or CEF
+    * Get audit log events as JSON
+    * Export audit log events as CSV or CEF
 
 Authentication and authorization is governed by the Pulumi identity and RBAC systems. As we add functionality to the Pulumi SDK and Service, we are committed to shipping and supporting the underlying REST APIs. If it's used in our web console or CLI, we want it to be available to so you can add custom features and functionality.
 
@@ -70,7 +70,7 @@ Imagine that there is suddenly a MySQL vulnerability or EOL notice that we need 
 
 The first step is to generate an API access token. The Pulumi Service lets you manage many access tokens (the same as what's used for `pulumi login`) and it's easiest to just create one specific to this project's purpose. This will let us revoke that token after we're done and know that there is no lingering access.
 
-To do that, go to [https://app.pulumi.com/account/tokens] (or click your avatar in the upper right and go to Settings, where you'll see Access Tokens on the left-hand nav):
+To do that, go to <https://app.pulumi.com/account/tokens> (or click your avatar in the upper right and go to Settings, where you'll see Access Tokens on the left-hand nav):
 
 ![Access Tokens](access-tokens-1.png)
 
