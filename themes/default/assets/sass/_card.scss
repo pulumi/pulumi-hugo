@@ -7,7 +7,13 @@
         bottom: -0.75rem;
 
         .btn-primary {
+            @include gradient-button;
 
+            @apply py-3 px-8 rounded-full;
+
+            &:hover {
+                @apply no-underline;
+            }
         }
     }
 }

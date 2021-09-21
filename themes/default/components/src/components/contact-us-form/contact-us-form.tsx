@@ -33,17 +33,17 @@ export class ContactUsForm {
     defaultFormId: string = "";
 
     componentWillLoad() {
+        const formQueryParam = getQueryVariable("form");
         this.parsedItems = JSON.parse(this.items).map((item: ContactUsItem) => {
             return {
-                key: item.key.charAt(0).toUpperCase() + item.key.slice(1),
+                key: (item.key.charAt(0).toUpperCase() + item.key.slice(1)).replace(/-/g, " "),
+                selected: formQueryParam ? item.key.toLowerCase() === formQueryParam.toLowerCase() : undefined,
                 hubspotFormId: item.hubspot_form_id
             };
         });
 
-        const formQueryParam = getQueryVariable("form");
         if (formQueryParam) {
-            const selectedForm = this.parsedItems.find((item) => (item.key as string).toLowerCase() === formQueryParam.toLowerCase());
-
+            const selectedForm = this.parsedItems.find((item) => item.selected === true);
             if (selectedForm) {
                 this.defaultFormId = selectedForm.hubspotFormId;
                 return;
@@ -57,7 +57,7 @@ export class ContactUsForm {
                 items={this.parsedItems}
                 selectClass={this.selectClass}
                 labelClass={this.labelClass}
-                labelText="Why are you contacting us today?"
+                labelText="What can we help you with?"
                 defaultFormId={this.defaultFormId}
             />
         );

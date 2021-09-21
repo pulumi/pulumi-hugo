@@ -9,6 +9,6 @@ form:
     - key: sales
       hubspot_form_id: 8381e562-5fdf-4736-bb10-86096705e4ee
 
-    - key: onboarding
+    - key: getting-started
       hubspot_form_id: c7b85755-7132-4b47-8767-bbc2d2496d17
 ---

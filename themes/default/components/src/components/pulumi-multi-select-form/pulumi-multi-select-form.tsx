@@ -3,6 +3,7 @@ import { Component, Prop, State, Element, h } from "@stencil/core";
 export interface MultiSelectFormItem {
     key: string | Date;
     hubspotFormId: string;
+    selected?: boolean;
 }
 
 @Component({
