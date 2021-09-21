@@ -33,6 +33,7 @@ aliases: ["/docs/reference/clouds/"]
 * [OpenStack]({{< relref "./openstack" >}})
 * [Equinix Metal]({{< relref "./equinix-metal" >}})
 * [vSphere]({{< relref "./vsphere" >}})
+* [Yandex]({{< relref "./yandex" >}})
 
 ## Infrastructure Providers
 
@@ -43,9 +44,13 @@ aliases: ["/docs/reference/clouds/"]
 * [Consul]({{< relref "./consul" >}})
 * [Docker]({{< relref "./docker" >}})
 * [Kafka]({{< relref "./kafka" >}})
+* [Keycloak]({{< relref "./keycloak" >}})
+* [Kong]({{< relref "./kong" >}})
+* [Kafka]({{< relref "./kafka" >}})
 * [Mailgun]({{< relref "./mailgun" >}})
 * [Minio]({{< relref "./minio" >}})
 * [MongoDB Atlas]({{< relref "./mongodbatlas" >}})
+* [Nomad]({{< relref "./nomad" >}})
 * [Okta]({{< relref "./okta" >}})
 * [Opsgenie]({{< relref "./opsgenie" >}})
 * [PagerDuty]({{< relref "./pagerduty" >}})
