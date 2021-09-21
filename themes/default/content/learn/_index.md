@@ -19,6 +19,9 @@ tutorials:
         Here's a bit of text that'll go along with this section. It'll have a little info, etc.
         You get the idea.
 
+overview: |
+    Welcome to Learn Pulumi! These tutorials are guided lessons that take you through a series of steps to complete a project or task. Learn tutorials are meant to teach you all the concepts of Pulumi through real life examples. Start with Pulumi Fundamentals if you have no cloud experience, otherwise feel free to start with one of the cloud specific fundamentals.
+
 # Exclude from search-engine indexing for now.
 block_external_search_index: true
 ---
