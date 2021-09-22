@@ -665,4 +665,4 @@ with users and the Pulumi team.
 [p-examples]: https://github.com/pulumi/examples
 [stack]:{{< relref "/docs/intro/concepts/stack" >}}
 [pulumi-config]:{{< relref "/docs/intro/concepts/config" >}}
-[pulumi-providers]:{{< relref "/docs/intro/cloud-providers" >}}
+[pulumi-providers]:{{< relref "/registry" >}}
