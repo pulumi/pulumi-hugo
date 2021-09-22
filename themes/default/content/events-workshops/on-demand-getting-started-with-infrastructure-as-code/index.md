@@ -6,7 +6,7 @@ meta_desc: "In this hands-on workshop, the Pulumi team will show you how to stan
 aliases:
   - /webinars/getting-started-with-infrastrcuture-as-code/on-demand
 
-url: /resources/getting-started-with-infrastructure-as-code/on-demand
+url: /events-workshops/getting-started-with-infrastructure-as-code/on-demand
 block_external_search_index: true
 
 # A featured webinar will display first in the list.
