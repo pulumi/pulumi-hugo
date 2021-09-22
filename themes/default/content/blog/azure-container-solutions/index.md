@@ -163,7 +163,7 @@ If your application has needs related to low latency, especially across distribu
 
 ### Azure Batch
 
-Azure Batch is a service focused on High Performance Compete (HPC) workloads. These workloads can often scale horizontally to thousands of processes and can be difficult to orchestrate.
+Azure Batch is a service focused on High Performance Compute (HPC) workloads. These workloads can often scale horizontally to thousands of processes and can be difficult to orchestrate.
 
 Azure Batch makes this process simpler by providing a managed service to handle the difficult processes.
 
