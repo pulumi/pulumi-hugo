@@ -126,7 +126,7 @@ class Program
 
 {{< /chooser >}}
 
-Get started in the [SumoLogic provider docs]({{< relref "/docs/intro/cloud-providers/sumologic" >}}).
+Get started in the [SumoLogic provider docs]({{< relref "/registry/packages/sumologic" >}}).
 
 ### 100 new resources in the Azure Native provider
 
