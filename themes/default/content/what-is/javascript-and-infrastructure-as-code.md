@@ -4,7 +4,7 @@ meta_desc: |
     Learn why JavaScript and Infrastructure as Code are a perfect match for creating versionable, testable and repeatable infrastructure.
 
 type: what-is
-page_title: "JavaScript and Infrastructure as Code "
+page_title: "JavaScript and Infrastructure as Code"
 
 customer_logos:
   title: Leading engineering organizations are building with Pulumi
