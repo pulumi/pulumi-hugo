@@ -147,7 +147,7 @@ export class Convert {
             case "arm":
                 return "ARM";
             case "cf":
-                return "CloudFormation Template";
+                return "CloudFormation";
         }
     }
 
