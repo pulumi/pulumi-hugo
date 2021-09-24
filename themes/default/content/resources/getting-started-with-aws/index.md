@@ -75,10 +75,8 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: "Kat Cosgrove"
-          role: "Staff Developer Advocate, Pulumi"
-        - name: "Matty Stratton"
-          role: "Staff Developer Advocate, Pulumi"
+        - name: "Laura Santamaria"
+          role: "Developer Advocate, Pulumi"
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:

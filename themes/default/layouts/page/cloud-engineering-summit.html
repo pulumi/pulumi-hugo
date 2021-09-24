@@ -113,10 +113,10 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center">
+            <div class="flex flex-wrap items-stretch justify-center">
                 {{ range $item := .Params.workshops.items }}
                     <div class="w-full lg:w-1/2 p-4 my-2">
-                        <div class="card text-center py-16 px-8 relative bg-white">
+                        <div class="card h-full text-center py-16 px-8 relative bg-white">
                             <div class="icon-section mb-4">
                                 {{ partial "color-icon.html" (dict "icon" $item.icon "icon_color" $item.icon_color) }}
                             </div>

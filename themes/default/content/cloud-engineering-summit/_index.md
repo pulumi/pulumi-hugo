@@ -51,6 +51,14 @@ workshops:
       description: |
         In this workshop, we’ll use the Google Cloud native provider to build infrastructure using TypeScript and examine some of Pulumi's newest features.
 
+    - title: From Zero to Production in Kubernetes
+      icon: rocketship
+      icon_color: salmon
+      link: /resources/from-zero-to-production-in-kubernetes
+      times: [ "2021-10-21T14:00:00-07:00" ]
+      description: |
+        Join Damian Curry & Elijah Zupancic and go from zero to production on Kubernetes by using Python to build abstractions that make getting to production easier.
+
 tracks_outline:
     - name: Build
       topics:
