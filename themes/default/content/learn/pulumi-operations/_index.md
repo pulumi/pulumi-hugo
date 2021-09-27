@@ -12,10 +12,10 @@ date: 2021-09-15T12:19:39-05:00
 draft: true
 
 # The description summarizes the course. It appears on the Learn home and module index pages.
-description: Here is a brief description of what this module's all about.
+description: Learn how to use Pulumi from an operational perspective.
 
 # The meta_desc property is used for targeting search results or social-media previews.
-meta_desc: Here is a brief description of what this module's all about.
+meta_desc: Learn how to use Pulumi from an operational perspective.
 
 # The order in which the module appears on the home page.
 index: 0
