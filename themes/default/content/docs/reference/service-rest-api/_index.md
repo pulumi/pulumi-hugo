@@ -1578,7 +1578,7 @@ None
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/user/tokens
 ```
 
@@ -1625,7 +1625,7 @@ POST /api/user/tokens
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   --data '{"description":"{description}"}' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/tags
@@ -1664,7 +1664,7 @@ DELETE /api/user/tokens/{tokenId}
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request DELETE \
   https://api.pulumi.com/api/user/tokens/{tokenId}
 ```
@@ -1701,7 +1701,7 @@ POST /api/orgs/{organization}/hooks
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   --data '{"organizationName":"{organization}","displayName":"My Webhook","payloadUrl":"https://mywebhook.com","secret":"mysecret","active":true}' \
   https://api.pulumi.com/api/orgs/{organization}/hooks
@@ -1741,7 +1741,7 @@ GET /api/orgs/{organization}/hooks
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/orgs/{organization}/hooks
 ```
 
@@ -1785,7 +1785,7 @@ GET /api/orgs/{organization}/hooks/{webhookname}
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}
 ```
 
