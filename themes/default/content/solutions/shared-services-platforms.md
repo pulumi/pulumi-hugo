@@ -3,7 +3,7 @@ title: Shared Services Platforms
 meta_desc: Learn how Pulumi can help you build and manage a Shard Services Platform that allows application developers to self-service their infrastructure environments.
 
 type: page
-layout: shared-services-platform
+layout: solutions-use-case
 
 overview:
     title: Building self-service infrastructure environments
