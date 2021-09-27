@@ -1,6 +1,6 @@
 ---
 title: Shared Services Platforms
-meta_desc: This is a description about the solutions page and it does a good job of describing what this page is.
+meta_desc: Learn how Pulumi can help you build and manage a Shard Services Platform that allows application developers to self-service their infrastructure environments.
 
 type: page
 layout: shared-services-platform
@@ -17,16 +17,19 @@ benefits:
       items:
         - title: Centralized control
           icon: code
+          icon_color: yellow
           description: |
             Companies maintain centralized control over security, networking, compliance, and costs.
 
         - title: Direct infrastructure access
           icon: global
+          icon_color: yellow
           description: |
             Developers can directly access and deploy to infrastructure (e.g., K8s clusters or cloud resources) without contacting operations/cluster managers
 
         - title: Start easily
           icon: puzzle
+          icon_color: yellow
           description: |
             Developers can get started easily and do not have to adapt their workflows
 
@@ -35,21 +38,25 @@ benefits:
       items:
         - title: Languages you love
           icon: rocketship
+          icon_color: salmon
           description: |
             Pulumi allows infrastructure or platform engineering teams to use the programming languages they already use for modeling their infrastructure. They can take advantage of all the existing testing tools, IDE plugins that are standard to their programming languages.
 
         - title: Build on any cloud
           icon: gear
+          icon_color: salmon
           description: |
             Pulumi can provision any resource available in the K8s API. Pulumi supports all new resources and features in the K8s API on the same day as the release. Pulumi allows K8s users novel forms of cluster management and app workload deployments.
 
         - title: Policy-as-Code
           icon: eye
+          icon_color: salmon
           description: |
             Pulumi also enables “policy as code”, which allows the platform team to enforce cost, security, and best practices across all infrastructure
 
         - title: Reusable components
           icon: team
+          icon_color: salmon
           description: |
             Pulumi makes creating reusable and modular components easy which allows repeatable infrastructure building blocks to be templatized and easily reused.
 
@@ -67,31 +74,22 @@ diagrams:
         - title: 2. Define the platform
           image: /images/solutions/shared-services-platform/diagram-two.svg
           content: |
-            A/ A good starting point for your internal Kubernetes platform is to use just a single environment that reflects the environment of your production system best.
-
-            B/ Next you want to define the common infrastructure components/resources that will be shared across the platform and by all the developers (end users)
-
-            C/ Then you want to define the infrastructure components/resources that are configured and managed by the developer.
-
-            D/ Define the boundary between the platform space and end user space, which is how the developer will access the shared resources (e.g., via StackReferences)
-
+            A good starting point for your internal Kubernetes platform is to use just a single environment that reflects the environment of your production system best. You want to first define the common infrastructure components/resources that will be shared across the platform and by all the developers (end users). Then you want to define the infrastructure components/resources that are configured and managed by the developer. Finally define the boundary between the platform space and end user space, which is how the developer will access the shared resources (e.g., via StackReference).
 
         - title: 3. Define how developers consume the platform
           image: /images/solutions/shared-services-platform/diagram-three.svg
           content: |
-            Define how developers will interact with the platform. You may want to give them a self-service portal where they can pick and choose their infrastructure, a GitOps workflow, or developers just interact with a CICD pipeline directly.
+            Define how developers will interact with the platform. You may want to give them a self-service portal where they can pick and choose their infrastructure, a GitOps workflow, or developers just interact with a CI/CD pipeline directly.
 
-        - title: 4. Build the components/blueprints/pipelines
+        - title: 4. Build the components, blueprints, & pipelines
           image: /images/solutions/shared-services-platform/diagram-four.svg
           content: |
-            A/ First write code for the shared platform components.
-            B/ Next write code for the application components that can be selected and used by developers. These components will have the logic to retrieve credentials or how to connect to the shared resources in the platform
+            Write code for the shared platform components first. Then write code for the application components that can be selected and used by developers. These application components will have the logic to retrieve credentials or how to connect to the shared resources in the platform.
 
-
-        - title: 5. Define the guardrails/policies
+        - title: 5. Define the guardrails & policies
           image: /images/solutions/shared-services-platform/diagram-five.svg
           content: |
-            You can use Pulumi CrossGuard to define cost guardrails and security policies. You can also use CrossGuard to enforce general best practices (e.g., closing ports) or best practices specific to your business (e.g., regional locality requirements)
+            Use Pulumi CrossGuard to define cost guardrails and security policies. CrossGuard can also be used to enforce general best practices (e.g., closing ports) or best practices specific to your business (e.g., regional locality requirements).
 
 customer_logos:
   title: Leading engineering organizations are building with Pulumi
@@ -121,12 +119,6 @@ get_started:
     get_started:
         title: Talk with customer engineering
         description: |
-            <something about talking with customer engineering>
+          Schedule some time with our customer engineering team, and we will help you plan and build your shared services platform.
         cta_text: Schedule now
-
-    migrate:
-        title: Migrating from other tools
-        description: |
-            Transition to Pulumi with converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes.
-        cta_text: Explore Conversion Tools
 ---
