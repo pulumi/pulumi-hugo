@@ -6,6 +6,7 @@ subtitle: Help us build new open source capabilities for Pulumi
 unlisted: true
 
 aliases:
+  - /resources/hacktoberfest-2020
   - /events/hacktoberfest-2020
 
 event:

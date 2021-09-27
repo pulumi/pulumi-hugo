@@ -81,4 +81,6 @@ form:
 
     # HubSpot form id.
     hubspot_form_id: ""
+aliases:
+  - /resources/scale-kubernetes-on-any-cloud-with-spot
 ---

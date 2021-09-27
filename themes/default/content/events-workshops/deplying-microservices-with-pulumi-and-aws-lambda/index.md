@@ -91,4 +91,6 @@ main:
 
 # form:
 #     hubspot_form_id: "67f667cd-2fca-4834-b16a-cf0289009c77"
+aliases:
+  - /resources/deplying-microservices-with-pulumi-and-aws-lambda
 ---

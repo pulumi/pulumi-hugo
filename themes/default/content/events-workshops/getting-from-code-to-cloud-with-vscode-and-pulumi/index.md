@@ -79,4 +79,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: 388c3a8d-b71a-42af-b78a-5820bf8d57fe
+aliases:
+  - /resources/getting-from-code-to-cloud-with-vscode-and-pulumi
 ---

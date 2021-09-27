@@ -89,4 +89,6 @@ transcript: |
     So hopefully our stacks finished deploying. You can see cert-manager, all of the R-BAC commission's that cert-manager needs to work our C-A issuer, our services, and deployments. And I got the— I got Pulumi to output the U-R-Ls of the resulting services so we can go and look at them and show that, well, ping service has managed to communicate with our pong service and authenticated with a certificate issued by our private C-A. So that's our lightning-quick demo.
 
     I'll just put the slide back up for people to quickly check if they want to— if they missed it the first time. And that's it for our quickly deploying a completely managed internal private P-K-I solution with a few lines of Pulumi and cert-manager. And thanks very much and hope you enjoy the rest of the conference.
+aliases:
+  - /resources/certificates-as-code-with-pulumi-and-cert-manager
 ---

@@ -4,6 +4,7 @@ title: "Getting Started with Infrastructure as Code on AWS"
 meta_desc: "In this workshop, you will learn the fundamentals of Infrastructure as Code on AWS through a series of exercises using Pulumi’s Cloud Engineering platform."
 
 aliases:
+  - /resources/getting-started-with-aws
   - /resources/gettint-started-with-aws
 
 # A featured webinar will display first in the list.

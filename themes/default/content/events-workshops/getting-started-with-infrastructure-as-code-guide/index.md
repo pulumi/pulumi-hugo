@@ -63,4 +63,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: "c726d203-f1ce-4b16-a6c9-b66a3d9132ce"
+aliases:
+  - /resources/getting-started-with-infrastructure-as-code-guide
 ---

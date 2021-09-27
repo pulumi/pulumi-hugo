@@ -4,6 +4,7 @@ title: "Getting Started with Infrastructure as Code"
 meta_desc: "Join us on March 30th, 2020 for a deep dive into Infrastructure as Code concepts with Pulumi engineers Paul Stack and Mikhail Shilkov."
 
 aliases:
+  - /resources/getting-started-infrastructure-as-code-2020-03-30
   - /webinars/getting-started-infrastructure-as-code-2020-03-30
 
 # A featured webinar will display first in the list.

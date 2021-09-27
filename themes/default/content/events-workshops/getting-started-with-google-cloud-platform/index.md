@@ -76,4 +76,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: 9a26e438-5bdc-4221-9ade-483ee8ea6844
+aliases:
+  - /resources/getting-started-with-google-cloud-platform
 ---

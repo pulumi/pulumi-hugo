@@ -70,4 +70,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: 2335dfff-2d37-4799-b750-15b7ba319d0a
+aliases:
+  - /resources/getting-started-with-pulumi
 ---

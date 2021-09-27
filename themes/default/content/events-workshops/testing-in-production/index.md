@@ -177,4 +177,6 @@ transcript: |
     So I'm sorry right? Does everyone who has privileges should know what normal looks like? If you're only looking at your, your metrics and your telemetry when things are bad, you don't know what normal looks like? Everyone should know how to deploy? How to get to a known good state? How you know do this in a controlled way? So that you have fine grain, you know, knobs around canaries should know how to debug in production. She noticed share this knowledge with her coworkers.
 
     If you must have staging environments are you monitoring them? Why do people sink so much time in these environments when they can't even tell if it's. Here's your cheat sheet. If you want to get better at this. This is how to have a high performance team and elite performing team, either all a good use of your time for almost every definition of to collective you in green tonight, we get some back. Thank you. (upbeat music)
+aliases:
+  - /resources/testing-in-production
 ---

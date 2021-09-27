@@ -44,4 +44,6 @@ url_slug: "pulumi-up"
 main:
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2021-04-20T09:00:00-07:00
+aliases:
+  - /resources/pulumi-up
 ---

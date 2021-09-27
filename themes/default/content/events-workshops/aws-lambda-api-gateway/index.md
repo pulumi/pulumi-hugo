@@ -66,4 +66,6 @@ main:
         - How to set up an API Gateway for an AWS Lambda.
         - How to use an API key for authorization.
         - How to store an API key in a secrets manager.
+aliases:
+  - /resources/aws-lambda-api-gateway
 ---

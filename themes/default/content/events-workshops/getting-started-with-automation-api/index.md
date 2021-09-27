@@ -74,4 +74,6 @@ main:
     learn:
         - How to create cloud infrastructure with Pulumi's Automation API.
         - How to build a self-service cloud platform for deploying applications.
+aliases:
+  - /resources/getting-started-with-automation-api
 ---

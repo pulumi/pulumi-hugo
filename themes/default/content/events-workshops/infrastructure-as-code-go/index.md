@@ -4,6 +4,7 @@ title: "Modern Cloud Infrastructure in Go"
 meta_desc: "Pulumi Engineer Evan Boyle uses Go to walk us through modern infrastructure-as-code concepts and best practices like functions, containers, and Kubernetes."
 
 aliases:
+  - /resources/infrastructure-as-code-go
   - /webinars/infrastructure-as-code-go
 
 # A featured webinar will display first in the list.

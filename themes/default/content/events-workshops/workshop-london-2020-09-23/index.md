@@ -5,6 +5,7 @@ subtitle: "Managing your cloud with Pulumi"
 meta_desc: "Join Pulumi at our Infrastructure As Code Workshop in London, UK and learn more about cloud programming, infrastructure as code, and many other topics."
 
 aliases:
+  - /resources/workshop-london-2020-09-23
   - /events/workshop-london-2020-09-23
 
 # The layout of the landing page.

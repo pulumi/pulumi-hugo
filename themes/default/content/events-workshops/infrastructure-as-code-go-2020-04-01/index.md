@@ -70,4 +70,6 @@ main:
     learn:
         - How to rovision cloud infrastructure in Go.
         - How to test cloud infrastructure.
+aliases:
+  - /resources/infrastructure-as-code-go-2020-04-01
 ---

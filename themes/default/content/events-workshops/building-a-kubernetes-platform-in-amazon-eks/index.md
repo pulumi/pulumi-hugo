@@ -88,4 +88,6 @@ main:
         - Install an example application to show the end-to-end user experience for users.
 form:
     hubspot_form_id: "013aa0b8-7aac-4de9-912e-c0f22e53eff2"
+aliases:
+  - /resources/building-a-kubernetes-platform-in-amazon-eks
 ---

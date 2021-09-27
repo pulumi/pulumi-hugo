@@ -4,6 +4,7 @@ title: "AWS - Howdy Partner"
 meta_desc: "Join Pulumi VP of Engineering Lee Zen as he shows off some of the newest features in Pulumi 3.0 and how those features make building on AWS easier than ever."
 
 aliases:
+  - /resources/aws-howdy-partner-twitch
     - /resources/aws-howdy-partner-twitch-2020-06-01
 
 # A featured webinar will display first in the list.

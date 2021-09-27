@@ -4,6 +4,7 @@ meta_desc: "Learn how to implement GitOps for your cloud infrastructure using
   Pulumi and GitLab. "
 
 aliases:
+  - /resources/workshop-gitops-with-pulumi-and-gitlab
   - /webinars/workshop-gitops-with-pulumi-and-gitlab
 
 featured: false

@@ -119,4 +119,6 @@ transcript: |
     You can also bring this capability to off-the-shelf and legacy applications, I want to highlight that, so, you know, as you go through your Habitat application definition, your plan definition, you can actually simply without even building the application, copy your binary into the Habitat package and leverage the same deploy and install mechanisms as well as all of the compliance and security that comes with that. For those off-the-shelf as well as legacy applications. So that's it for the demo.
 
     Heather back to you and we can wrap up. Thank you. Well, we hope you enjoyed our lightning session on how Chef helps navigate the high C’s. With that we hope to see you virtually during the rest of the event and please feel free to reach out to us with any additional questions. Thanks Heather. Thank you very much, bye!
+aliases:
+  - /resources/navigating-the-cloud-native-high-cs
 ---

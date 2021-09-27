@@ -4,6 +4,7 @@ title: "How to Test Cloud Infrastructure with Pulumi"
 meta_desc: "Cumundi CEO, Ringo De Smet will demonstrate how Pulumi’s mocking capabilities make it easy to ensure that cloud resources are provisioned the right way."
 
 aliases:
+  - /resources/how-to-test-cloud-infrastructure
   - /webinars/how-to-test-cloud-infrastructure-2020-04-27
   - /webinars/how-to-test-cloud-infrastructure
 

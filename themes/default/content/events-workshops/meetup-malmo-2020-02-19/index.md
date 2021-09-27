@@ -21,4 +21,6 @@ event:
     description: "Do you want to learn the latest about Azure and cloud technology? Join us to learn about the coolest and most exciting topics, and chat with friends & colleagues."
     # The external registration url for the event list page.
     registration_url: "https://www.meetup.com/Skane-Azure-User-Group/events/268057791/"
+aliases:
+  - /resources/meetup-malmo-2020-02-19
 ---

@@ -4,6 +4,7 @@ title: "Sharing & Reusing Infrastructure with Artifactory"
 meta_desc: "Dan Hernandez and Melissa McKay will show you how to define resources such as VPCs, Kubernetes clusters, and policies using multiple languages."
 
 aliases:
+  - /resources/sharing-and-reusing-infrastructure
   - /webinars/sharing-and-reusing-infrastructure
 
 # A featured webinar will display first in the list.

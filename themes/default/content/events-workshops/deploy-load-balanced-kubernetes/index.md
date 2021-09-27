@@ -4,6 +4,7 @@ title: "Deploy and Scale a Load-Balanced Kubernetes Service"
 meta_desc: "Deploy and scale a load-balanced Kubernetes service using Pulumi, including building, publishing, and running a private container image."
 
 aliases:
+  - /resources/deploy-load-balanced-kubernetes
   - /webinars/deploy-load-balanced-kubernetes
 
 # A featured webinar will display first in the list.

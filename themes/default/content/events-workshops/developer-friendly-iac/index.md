@@ -28,4 +28,6 @@ main:
     - "Use Pulumi to build Kubernetes clusters in AWS"
     - "Deploy infrastructure components to clusters to create a robust platform"
     - "Explore multi-language components to ease the learning curve for developers"
+aliases:
+  - /resources/developer-friendly-iac
 ---

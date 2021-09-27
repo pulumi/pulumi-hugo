@@ -4,6 +4,7 @@ title: "Verify Infrastructure Deployments with Pulumi and CircleCI"
 meta_desc: "Angel Rivera and Chris Smith walk you through best practices for app developers, DevOps, and SREs to keep configuration mistakes from reaching production."
 
 aliases:
+  - /resources/verify-your-infrastructure-on-deployment
   - /webinars/verify-your-infrastructure-on-deployment
 
 # A featured webinar will display first in the list.

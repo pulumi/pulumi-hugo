@@ -21,4 +21,6 @@ event:
     description: "Devopsdays Los Angeles is a single day volunteer organized conference which is dedicated to the DevOps community, and professionals who wish to improve the interaction and integration between the traditional silos of Development and Operations."
     # The external registration url for the event list page.
     registration_url: "https://devopsdays.org/events/2019-los-angeles/registration"
+aliases:
+  - /resources/devopsdays-los-angeles-2020-03-06
 ---

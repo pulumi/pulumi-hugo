@@ -24,4 +24,6 @@ event:
     description: "The conference is about processes and culture, SRE and Cloud Native and, of course, this conference is absolutely not for DevOps engineers!"
     # The external registration url for the event list page.
     registration_url: "https://devoops-moscow.ru/en/"
+aliases:
+  - /resources/devoops-moscow-2020-04-29
 ---

@@ -115,4 +115,6 @@ transcript: |
     There's some more, over 5,000 different engineers with a bunch of different places in which to get started. This also will link you to several tutorials as well. Test on being an on-call hero a little bit. My compatriot Vince wrote an awesome blog about not being an all-call hero— or not being just an on-call hero. So check that out. And lastly. There's something I actually just wrapped up yesterday, the first half of two webinars about planning and architecting for reliability. So right now you can actually watch the recording of part on and part two will go live on October 22nd. So just in a few weeks.
 
     So amazing amazing time I had putting this together. Thank you for listening. I hope it was helpful. Tweet at me. Add me on LinkedIn. Email me. Slack me. I’ll actually be available right after this for a bit of Q&A. Always happy to chat. And as one of the best teachers, Miss Frizzle of The Magic School Bus once said, take chances, make mistakes, and get messy. Just not in prod, just yet. Thanks again.
+aliases:
+  - /resources/being-on-call-doesnt-have-to-suck
 ---

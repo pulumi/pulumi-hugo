@@ -389,4 +389,6 @@ transcript: |
     **Corey Scobie**
 
     Thank you.
+aliases:
+  - /resources/the-future-of-cloud-engineering-architectures-and-platforms
 ---

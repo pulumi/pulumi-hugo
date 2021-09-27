@@ -21,4 +21,6 @@ event:
     description: "At the Dutch .NET Group, they are specifically focused on everything related to the Microsoft .NET platform: C#, F# VB.NET, .NET Compiler Platform (Roslyn), .NET Core, .NET CLI, Visual Studio, Xamarin, ASP.NET Core, MVC Core and Entity Framework Core."
     # The external registration url for the event list page.
     registration_url: "https://www.meetup.com/dutchdotnet/events/267776963"
+aliases:
+  - /resources/meetup-amsterdam-2020-02-20
 ---

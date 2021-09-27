@@ -64,4 +64,6 @@ main:
     # A bullet point list containing what the user will learn during the webinar.
     learn:
         - ""
+aliases:
+  - /resources/devops-nyc-2020-06-24
 ---

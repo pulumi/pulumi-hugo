@@ -34,4 +34,6 @@ main:
       each deployment "
     - Employing Pulumi to define infrastructure and create ephemeral
       environments for integration testing
+aliases:
+  - /resources/securing-your-infrastructure-before-during-and-after-deployment
 ---

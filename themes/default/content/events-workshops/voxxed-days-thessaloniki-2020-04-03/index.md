@@ -24,4 +24,6 @@ event:
     description: "Learn cool stuff and exchange ideas in a beautiful environment with leaders of technologies that run the world, such as Java, Scala, Ruby, Go, C# or anything else."
     # The external registration url for the event list page.
     registration_url: "https://voxxeddays.com/thessaloniki/"
+aliases:
+  - /resources/voxxed-days-thessaloniki-2020-04-03
 ---

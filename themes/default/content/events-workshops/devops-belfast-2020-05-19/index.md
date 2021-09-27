@@ -55,4 +55,6 @@ main:
     datetime: ""
     # Description of the webinar.
     description: ""
+aliases:
+  - /resources/devops-belfast-2020-05-19
 ---

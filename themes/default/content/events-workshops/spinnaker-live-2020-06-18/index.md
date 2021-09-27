@@ -4,6 +4,7 @@ title: "Spinnaker Live"
 meta_desc: "Dan Hernandez and Praneet Loke demonstrate how Pulumi works with Spinnaker to enable cloud-native continuous delivery for infrastructure and applications."
 
 aliases:
+  - /resources/spinnaker-live-2020-06-18
   - /webinars/spinnaker-live-2020-06-18
 
 # A featured webinar will display first in the list.

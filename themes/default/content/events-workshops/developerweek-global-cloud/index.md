@@ -85,4 +85,6 @@ form:
 
     # HubSpot form id.
     hubspot_form_id: ""
+aliases:
+  - /resources/developerweek-global-cloud
 ---

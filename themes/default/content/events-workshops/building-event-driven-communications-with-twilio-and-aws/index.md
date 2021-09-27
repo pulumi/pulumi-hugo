@@ -82,4 +82,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: "aaebfbfa-9d86-4258-9332-94ae99c44ead"
+aliases:
+  - /resources/building-event-driven-communications-with-twilio-and-aws
 ---

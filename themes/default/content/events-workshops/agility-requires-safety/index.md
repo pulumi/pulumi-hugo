@@ -222,4 +222,6 @@ transcript: |
     A really, really powerful safety mechanism. So, to recap things, speed is limited mostly by safety I think in the software world. If you want to go faster, you do need to think through these safety mechanisms. If you feel like your team is just not shipping code fast enough, think about what happened. Why? Right, what's slowing you down? In a lot of cases it's that when you go faster everything breaks and then you're slow again. So, you really need to think about these safety mechanisms and it's worth the time to put these things into place.
 
     Basically don't turn into this team, right? Take the time, put these in place, you'll end up going faster. If you want to learn more, my two books talk about these concepts quite a bit. So Terraform: Up & running and Hello, Startup. If you need help with any of these infrastructure and safety mechanism things, feel free to ping us at GruntWork, and that's it. Thank you very much.
+aliases:
+  - /resources/agility-requires-safety
 ---

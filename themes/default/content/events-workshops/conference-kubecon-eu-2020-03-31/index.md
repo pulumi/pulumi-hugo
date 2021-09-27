@@ -24,4 +24,6 @@ event:
     description: "The Cloud Native Computing Foundation’s flagship conference gathers adopters and technologists from leading open source and cloud native communities in Amsterdam, The Netherlands from March 30 – April 2, 2020."
     # The external registration url for the event list page.
     registration_url: "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/register/"
+aliases:
+  - /resources/conference-kubecon-eu-2020-03-31
 ---

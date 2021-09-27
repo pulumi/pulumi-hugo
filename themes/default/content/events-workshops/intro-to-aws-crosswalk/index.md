@@ -4,6 +4,7 @@ title: "Introduction to Crosswalk for AWS"
 meta_desc: "Meet the team behind Pulumi Crosswalk for AWS, see some of what it can do across AWS ECS, EKS, Lambda, and other AWS workloads."
 
 aliases:
+  - /resources/intro-to-aws-crosswalk
   - /webinars/intro-to-aws-crosswalk
 
 # A featured webinar will display first in the list.

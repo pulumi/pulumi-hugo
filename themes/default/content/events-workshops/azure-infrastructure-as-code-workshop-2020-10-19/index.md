@@ -4,6 +4,7 @@ meta_desc: In this workshop, Mikhail Shilkov and Paul Stack show you how to
   tackle common challenges using Infrastructure as Code.
 
 aliases:
+  - /resources/azure-infrastructure-as-code-workshop-2020-10-19
   - /webinars/azure-infrastructure-as-code-workshop-2020-10-19
 
 featured: false

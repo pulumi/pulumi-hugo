@@ -4,6 +4,7 @@ title: "Building Self-service Clouds with Pulumi"
 meta_desc: "Learn how Mercedes-Benz Research and Development is using Pulumi to help their development teams build self-service cloud infrastructure in this tech talk."
 
 aliases:
+  - /resources/building-self-service-clouds
   - /webinars/building-self-service-clouds-2020-04-22
   - /webinars/building-self-service-clouds
 

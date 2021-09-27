@@ -5,6 +5,7 @@ subtitle: "Azure Infrastructure as Code using C#"
 meta_desc: "Join Pulumi at our Infrastructure As Code Workshop in Redmond, WA and learn more about cloud programming, infrastructure as code, and many other topics."
 
 aliases:
+  - /resources/workshop-redmond-2020-03-12
   - /events/workshop-redmond-2020-03-12
 
 # Events with unlisted as true will not be shown on the event list

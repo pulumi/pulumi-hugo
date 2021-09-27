@@ -4,6 +4,7 @@ title: "Advanced Infrastructure as Code"
 meta_desc: "Join us on April 16th, 2020 for a deep dive into Infrastructure as Code concepts with Pulumi CTO Luke Hoban."
 
 aliases:
+  - /resources/advanced-infrastructure-as-code-2020-04-16
   - /webinars/advanced-infrastructure-as-code-2020-04-16
 
 # A featured webinar will display first in the list.

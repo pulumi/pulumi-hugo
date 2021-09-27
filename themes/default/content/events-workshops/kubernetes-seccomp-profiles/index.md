@@ -155,4 +155,6 @@ transcript: |
     And Sascha Grunert also just putting in the work to actually getting all of these things to the place where there can be supported within kubernetes. Here's my reference and slide. I'll leave this up for just a moment so that you can see where it is. Again if you wanted to if you want to see this content, the slides that are available at tgik.io. Uh, seccomp and you can find it there.
 
     Alright, so everything is, all of my references are here. Make sure you take your screenshot now so that you can go check those things out. They're all incredible. And thank you so much for your time. Find me online @Mauilion and have a great, great rest of the event. Cheers!
+aliases:
+  - /resources/kubernetes-seccomp-profiles
 ---

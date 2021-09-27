@@ -4,6 +4,7 @@ title: "Breaking Down Dev and DevOps Silos"
 meta_desc: "Dinesh Ramamurthy, Engineering Manager, Mercedes Benz R&D, talks about his team's experience with Pulumi."
 
 aliases:
+  - /resources/breaking-down-dev-and-devops-silos
   - /webinars/breaking-down-dev-and-devops-silos
 
 # A featured webinar will display first in the list.

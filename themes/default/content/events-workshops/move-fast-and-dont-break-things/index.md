@@ -85,4 +85,6 @@ form:
 
     # HubSpot form id.
     hubspot_form_id: ""
+aliases:
+  - /resources/move-fast-and-dont-break-things
 ---

@@ -5,6 +5,7 @@ meta_desc: "Learn how you can use C#, F#, and VB.NET to define the infrastructur
 meta_image: "/images/webinar/manage-any-cloud-dotnet-2020-04-02.png"
 
 aliases:
+  - /resources/manage-any-cloud-dotnet
     - /webinars/manage-any-cloud-dotnet-2020-04-02
     - /webinars/manage-any-cloud-dotnet-2020-04-13
     - /webinars/manage-any-cloud-dotnet

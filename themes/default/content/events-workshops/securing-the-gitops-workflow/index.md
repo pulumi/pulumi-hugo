@@ -85,4 +85,6 @@ form:
 
     # HubSpot form id.
     hubspot_form_id: ""
+aliases:
+  - /resources/securing-the-gitops-workflow
 ---

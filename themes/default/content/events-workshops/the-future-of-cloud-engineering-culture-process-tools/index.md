@@ -383,4 +383,6 @@ transcript: |
     **Jonathan Sullivan**
 
     Thanks.
+aliases:
+  - /resources/the-future-of-cloud-engineering-culture-process-tools
 ---

@@ -107,4 +107,6 @@ transcript: |
     But when it all looks good and I actually merge to master, then I'm actually going to run the Pulumi Up and enact those changes on A-W-S. And the last thing I'll point out, a really nice feature, is that in order to make this really easy is I've just pulled the Pulumi Python image off of Docker Hub, so that it already has Pulumi installed when it goes to run my C-C-D. It just pulls in this image and it can just start executing these commands. That's a— that's the basic setup.
 
     This is the main Python, we can see that it's got the old info there, but if I do a Git pull, it'll— it'll pull my changes and I can see, there we go, now it's updated. And let's go take a look at that master branch. It looks like it has finished running. It's completed successfully and in theory, if it's all goes well, and we look at our A-W-S cluster, we can see we now have two nodes. It's the same change. But in this case, we've done it in a way that's collaboration. We've done it through compliance. We call this GitOps. Operations by Git request. Thanks a lot for watching. Please do reach out to me on Twitter and have an excellent day. Cheers.
+aliases:
+  - /resources/introduction-to-gitops-tech-talk
 ---

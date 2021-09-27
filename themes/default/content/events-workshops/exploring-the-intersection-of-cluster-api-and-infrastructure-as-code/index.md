@@ -149,4 +149,6 @@ transcript: |
     Okay, so that's just a quick demo of you some of the ways that you could integrate your infrastructure as code solution using Pulumi with cluster A-P-I. And so you've obviously adapt those or use those as a springboard to come up with other ideas or whatever. Just wrapping up then. Here's a list of all the resources that I've referenced in the presentation. So all the links gathered together in one place. I also added links to my site where I've done some articles on cluster A-P-I and Pulumi so if you follow those links, you'll get a tags page that just shows all the articles that are tagged with that particular tag.
 
     All the cluster A-P-I articles or all the Pulumi articles. Whoops. There we go. Okay. So thanks for watching. I hope that the session was useful. If you're interested in getting in touch with me online I’m @Scott_Lowe on Twitter. Feel free to reach out. Also ScottSLowe on GitHub. Remember I am a new programmer, so don't expect to find anything like, you know, Earth-shattering there, but I'm always looking for new resources. So if you are a more experienced programmer, and you have some resources you think I should take a look at then feel free to reach out to me or whatever. I’d love to hear from you. So thanks so much.
+aliases:
+  - /resources/exploring-the-intersection-of-cluster-api-and-infrastructure-as-code
 ---

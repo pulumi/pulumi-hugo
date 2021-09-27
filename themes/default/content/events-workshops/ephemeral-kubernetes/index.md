@@ -4,6 +4,7 @@ title: "Ephemeral Kubernetes"
 meta_desc: "Pulumi engineer, Mike Metral, walks through workflows around around ephemeral Kubernetes."
 
 aliases:
+  - /resources/ephemeral-kubernetes
   - /webinars/ephemeral-kubernetes
 
 # A featured webinar will display first in the list.

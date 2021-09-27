@@ -37,4 +37,6 @@ url_slug: "https://swampup.jfrog.com/"
 main:
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2021-05-25T08:00:00-07:00
+aliases:
+  - /resources/jfrog-swampup-2021
 ---

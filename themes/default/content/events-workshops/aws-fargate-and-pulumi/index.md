@@ -4,6 +4,7 @@ title: "Creating modern, cloud native applications"
 meta_desc: "Learn how to unify your development and DevOps teams with the power of general purpose programming languages to create cloud-native applications."
 
 aliases:
+  - /resources/aws-fargate-and-pulumi
   - /webinar/aws-fargate-and-pulumi
   - /webinars/aws-fargate-and-pulumi
 

@@ -7,6 +7,7 @@ meta_desc: "In this workshop, Luke Hoban shows you the easy way to start using I
 featured: false
 
 aliases:
+  - /resources/infrastructure-as-code-workshop-2020-04-09
   - /events/workshop-san-francisco-2020-04-09
   - /webinar/infrastructure-as-code-workshop-2020-04-09
 

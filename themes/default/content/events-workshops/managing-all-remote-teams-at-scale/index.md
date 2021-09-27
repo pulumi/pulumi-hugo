@@ -125,4 +125,6 @@ transcript: |
     Slack can be a good way to quickly reach out. It's also important to remember to give positive feedback for the good work that your peers do. At GitLab, we have a dedicated Slack channel just for this purpose and it gets many, many messages every day. Also, anyone can nominate a pear for a discretionary bonus of $1,000 and our company goal is for 10% of the company to receive a bonus each month. And, lastly we actively remind each other that we don't have to hide our families from our work. Kids and pets are always welcome in our calls and when someone apologizes for the interruption, we invite an even bigger interruption. T
 
     his is a picture of my own two kids and they've definitely participated in a few meetings. So in conclusion, all-remote works, you just have to be intentional about it. Be proactive about reaching out. Reach out again, when you don't get the information you need. Record and share everything and document everything. And lastly, be human, be kind to yourself and others, because work is just another part of life. Thanks for joining me today. I hope you enjoyed our time together because I did. Feel free to connect with me on LinkedIn if you're interested. Take care.
+aliases:
+  - /resources/managing-all-remote-teams-at-scale
 ---

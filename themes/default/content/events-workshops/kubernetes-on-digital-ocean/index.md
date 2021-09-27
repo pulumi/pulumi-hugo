@@ -73,4 +73,6 @@ form:
 
     # HubSpot form id.
     hubspot_form_id: ""
+aliases:
+  - /resources/kubernetes-on-digital-ocean
 ---

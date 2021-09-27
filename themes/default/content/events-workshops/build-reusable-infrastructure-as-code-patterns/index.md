@@ -77,4 +77,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: fa3c8cbb-64bd-4c8a-bd16-3b1b3a5e2d24
+aliases:
+  - /resources/build-reusable-infrastructure-as-code-patterns
 ---

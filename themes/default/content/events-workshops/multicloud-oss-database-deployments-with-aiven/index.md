@@ -82,4 +82,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: b51aa29f-63e9-4935-a929-8a3b55804c92
+aliases:
+  - /resources/multicloud-oss-database-deployments-with-aiven
 ---

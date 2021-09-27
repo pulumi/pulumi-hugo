@@ -21,4 +21,6 @@ event:
     description: "Learn how you can use Pulumi for doing infrastructure as code using C# and F#. This can be used for many different providers, so not Azure specific."
     # The external registration url for the event list page.
     registration_url: "https://www.meetup.com/Copenhagen-Net-User-Group/events/268445025/"
+aliases:
+  - /resources/meetup-copengagen-2020-02-18
 ---

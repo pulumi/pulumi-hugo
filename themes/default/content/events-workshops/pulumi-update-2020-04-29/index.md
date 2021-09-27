@@ -8,6 +8,7 @@ meta_image: "/images/webinar/pulumi-update-twitter-card.png"
 featured: false
 
 aliases:
+  - /resources/pulumi-update-2020-04-29
     - /webinars/pulumi-v2-virtual-launch
     - /events/launch-v2-seattle-2020-04-15
     - /webinars/pulumi-update-2020-04-22

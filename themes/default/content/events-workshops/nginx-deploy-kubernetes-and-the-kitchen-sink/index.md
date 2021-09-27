@@ -84,4 +84,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: "ab9fb33f-1859-4386-ac28-69438606b9fb"
+aliases:
+  - /resources/nginx-deploy-kubernetes-and-the-kitchen-sink
 ---

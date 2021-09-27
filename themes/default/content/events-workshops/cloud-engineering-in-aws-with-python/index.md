@@ -105,4 +105,6 @@ form:
 
     # HubSpot form id.
     hubspot_form_id: "a1b63037-fb1e-437c-99ad-f578394b4c2c"
+aliases:
+  - /resources/cloud-engineering-in-aws-with-python
 ---

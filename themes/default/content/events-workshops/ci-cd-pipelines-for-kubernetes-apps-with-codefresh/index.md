@@ -87,4 +87,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: "3cf3d5a6-7649-44db-835b-4bb242a4b3d7"
+aliases:
+  - /resources/ci-cd-pipelines-for-kubernetes-apps-with-codefresh
 ---

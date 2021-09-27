@@ -163,4 +163,6 @@ transcript: |
     So wasn't that easy? I was able to stage my environment, build my code, deploy it and use it all with a code layer. I didn't actually have to do much at all from an infrastructure portion. I was able to just use the languages I use on a daily. So, that was standing up a serverless platform. I really hope you enjoy it. I encourage you to tweet me. I am usually pretty responsive on Twitter.
 
     So, yeah, please message me. You can also check out my LinkedIn, please also check out serverless eventing dot com. And also check out what Google Cloud has to offer and we, we work with Pulumi all the time. So I recommend giving us all a talk. Thank you and have a great day.
+aliases:
+  - /resources/standing-up-a-serverless-platform
 ---

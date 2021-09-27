@@ -175,4 +175,6 @@ transcript: |
     Maybe to test my stack I can just create a sub-net and hook it into that and test it. I can use it like a fake, you know, what we have in the software testing world. We have, you know, fakes and mocks and these kind of things. So you can do that with infrastructure as well. If you really kind of think at it and work on it and this is one of those things that I think, again, as an industry, we need to work towards, driving towards this, recognizing that we need to have better patterns for this, and then implementing our tools and our ways of working to support that.
 
     So this is the kind of stuff that I've got in my book. So please do have a look at it, pre-order it or, you know, have a look at when it comes out. And also, you can reach me on Twitter @kief and thanks a lot for taking the time to listen to what I have to say, and I hope to have some good conversations around this. Thank you.
+aliases:
+  - /resources/towards-application-driven-infrastructure
 ---

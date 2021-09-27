@@ -88,4 +88,6 @@ main:
         - Provision your first resources
         - Understanding stacks
         - An introduction to the Pulumi programming model
+aliases:
+  - /resources/introduction-to-pulumi
 ---

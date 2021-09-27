@@ -21,4 +21,6 @@ event:
     description: "The Conference for Continuous Delivery, DevOps, Microservices, Containers, Cloud and Lean Business."
     # The external registration url for the event list page.
     registration_url: "https://devopscon.io/london/program-london/"
+aliases:
+  - /resources/devopscon-london-2020-04-21
 ---

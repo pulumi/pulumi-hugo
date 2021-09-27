@@ -39,4 +39,6 @@ main:
     sortable_date: 2021-04-07T08:00:00+10:00
     # Duration of the webinar.
     duration: "1 hour"
+aliases:
+  - /resources/modern-devops-automation-with-octopus
 ---

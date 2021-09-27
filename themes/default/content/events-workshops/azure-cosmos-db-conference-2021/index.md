@@ -37,4 +37,6 @@ url_slug: "https://gotcosmos.com/conf"
 main:
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2021-04-20T09:00:00-07:00
+aliases:
+  - /resources/azure-cosmos-db-conference-2021
 ---

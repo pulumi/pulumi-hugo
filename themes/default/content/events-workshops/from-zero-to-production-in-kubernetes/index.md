@@ -78,4 +78,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: e6b5082c-2ca8-43b7-96fb-6d19a331d554
+aliases:
+  - /resources/from-zero-to-production-in-kubernetes
 ---

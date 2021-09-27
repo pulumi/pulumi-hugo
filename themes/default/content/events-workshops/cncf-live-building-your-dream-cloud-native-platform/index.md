@@ -72,4 +72,6 @@ main:
     # A bullet point list containing what the user will learn during the webinar.
     learn:
         - ""
+aliases:
+  - /resources/cncf-live-building-your-dream-cloud-native-platform
 ---

@@ -143,4 +143,6 @@ transcript: |
     And then after this, obviously you can then push the it image, push it through a handful of real environments if you need to, or put it in front of real testers. So once you get a good handle on this, that's when you sort of start to see your deployment frequency kicking off, and when you make good use of testing, unit testing and integration testing, using, you know, the advantages of docker, your change failure rate should hopefully go down as problems get exposed earlier and earlier in the build, build process.
 
     That's all I've really got time for. Thanks so much for tuning in. It's been a pleasure to present at the summit. So big thanks to Pulumi for giving me the opportunity. Also wanted to give a quick shout out to Lee Campbell who helps immensely, helped me immensely put this together. Like I said, this is the first time I've presented externally, so I'd really like to hear your feedback if you can hit that link on the slide there. Other than that, I hope you enjoy the rest of the summit. I'll see you later.
+aliases:
+  - /resources/winning-the-product-agility-jackpot
 ---

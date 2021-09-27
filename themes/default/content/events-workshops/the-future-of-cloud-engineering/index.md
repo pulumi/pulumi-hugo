@@ -272,4 +272,6 @@ transcript: |
     **Joe Duffy**
 
     Any time. Enjoy the summit. I hope you learned something today. I hope you learned something, a lot of things throughout the day, and we've got a lot of great talks here. And the talks are sort of organized to map back to the themes we talked about today here, architectures, workflows and teams. So have an exciting time. Thanks again for coming. Thanks again for joining us.
+aliases:
+  - /resources/the-future-of-cloud-engineering
 ---

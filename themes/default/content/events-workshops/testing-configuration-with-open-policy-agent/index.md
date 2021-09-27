@@ -151,4 +151,6 @@ transcript: |
     But then when you move to a different tool, it's a different testing tool and— and the reality on the ground for most cloud environments is you're not just using one tool. You're using all of them. OPA opens up that idea that maybe we can standardize in a different way. The policies we write can be portable between different tools that are doing the same thing. Again, that could be a huge time-saver later as well as making it easier to move between different tools and lowering the cost of adoption. Ultimately, conversations around policy of generally being in meeting rooms and with documents and really the implementation of that has been left as a separate thing later to maybe never happen. I think policy needs to shift left.
 
     We need that conversation about policy to be part of what we talk about as engineers building cloud environments or ultimately building applications. Thank you for listening. If you did like this talk do feel free to sign up for Snyk for free over at Snyk dot IO slash sign up. And if you do have any questions about this, I'm @GarethR pretty much everywhere on the internet. Thanks for listening.
+aliases:
+  - /resources/testing-configuration-with-open-policy-agent
 ---

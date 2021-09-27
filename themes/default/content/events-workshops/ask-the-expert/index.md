@@ -88,4 +88,6 @@ main:
 
 form:
   header: Get An Email Reminder
+aliases:
+  - /resources/ask-the-expert
 ---

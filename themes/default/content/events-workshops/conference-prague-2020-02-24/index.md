@@ -21,4 +21,6 @@ event:
     description: "Microsofts's industry-leading conference is coming to Prague. Don’t miss the very latest in cloud technologies and developer tools with guest speakers, industry experts, and more."
     # The external registration url for the event list page.
     registration_url: "https://www.microsoft.com/cs-cz/ignite-the-tour/prague"
+aliases:
+  - /resources/conference-prague-2020-02-24
 ---

@@ -105,4 +105,6 @@ transcript: |
     We will set up C-I systems to drive that automation even further, and ultimately we're going to be putting crossguard policies in place. Right now, we’re up and running and over 20 regions in a very short time span covering all major cloud providers and we’re super happy with the result. Thanks for watching my demo, now, let's throw it back to Ramen. Thank you Jonas. So to summarize, like, we were very successful in the launch of the product and we had great adoption, you know, for the product, and you know, I want to just give a huge shout-out to the Pulumi engineering and the support team who are a trusted partner along the way.
 
     We couldn't have done it, you know, without them. And we feel like, you know, this is just a start of the partnership and as we continue to innovate, you know, we're going to continue to leverage, you know, the platform to even greater possibilities. Thank you.
+aliases:
+  - /resources/multi-cloud-multi-region-kubernetes-platform-at-snowflake
 ---

@@ -75,4 +75,6 @@ main:
     learn:
         - The basics of the Pulumi Programming Model.
         - How to provision, update, and destroy Azure resources.
+aliases:
+  - /resources/getting-started-with-azure-native
 ---

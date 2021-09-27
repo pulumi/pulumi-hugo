@@ -38,4 +38,6 @@ main:
     sortable_date: 2021-03-21T17:00:00-07:00
     # Duration of the webinar.
     duration: "90 minutes"
+aliases:
+  - /resources/building-cloudinfra-with-developer-friendly-iac
 ---

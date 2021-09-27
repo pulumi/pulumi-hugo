@@ -4,6 +4,7 @@ title: "Getting Started with Serverless GraphQL on GCP"
 meta_desc: "In this episode, Lee Zen walks you through building a serverless GraphQL API using Apollo GraphQL and GCP Functions with the help of Pulumi."
 
 aliases:
+  - /resources/getting-started-gcp-serverless-graphql
   - /webinars/getting-started-gcp-serverless-graphql
 
 # A featured webinar will display first in the list.

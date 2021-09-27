@@ -37,4 +37,6 @@ url_slug: "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 main:
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2021-05-04T10:00:00+02:00
+aliases:
+  - /resources/kubecon-eu-2021
 ---

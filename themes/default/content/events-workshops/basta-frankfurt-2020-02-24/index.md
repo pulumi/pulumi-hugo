@@ -21,4 +21,6 @@ event:
     description: "For over 20 years BASTA! has been the leading independent conference for Microsoft-, Cloud & Web-Technologies. Stay up to date on developments in the Microsoft Universe with our informative keynotes, sessions and power workshops."
     # The external registration url for the event list page.
     registration_url: "https://basta.net/"
+aliases:
+  - /resources/basta-frankfurt-2020-02-24
 ---

@@ -64,4 +64,6 @@ main:
     # A bullet point list containing what the user will learn during the webinar.
     learn:
         - ""
+aliases:
+  - /resources/fsharp-conf-2020-06-05
 ---

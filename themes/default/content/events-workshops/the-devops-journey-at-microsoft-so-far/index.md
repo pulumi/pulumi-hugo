@@ -145,4 +145,6 @@ transcript: |
     But of course, the journey continues, so we're investing remote work now. So this is something that's not new to GitHub, but very new to Microsoft. Microsoft used to be co-located for the most part. And so now we are trying to work on empowering knowledge sharing between our teams. And one thing that I want to recommend is a book called Making Work Visible. So this is something that I think more important in remote world than it ever even was in person, because you can actually make sure that what people are working on is visible and so people understand the productivity and the work-load and the level of burnout on your teams.
 
     And then cool things that were working on is M-L ops. So basically M-L scientists are struggling with completely new and sometimes the same problems that developers were struggling with ten years ago. And so basically makes us working on releasing tools for making that workload easier. And a journey of a 1,000 miles starts with a single sprint. Dev-ops isn't magic, if Microsoft can do it you can too. So thank you so much. I'm @DivineOps on GitHub and on Twitter and I hope to see you soon.
+aliases:
+  - /resources/the-devops-journey-at-microsoft-so-far
 ---

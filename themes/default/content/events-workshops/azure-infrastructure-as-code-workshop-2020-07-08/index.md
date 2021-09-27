@@ -41,4 +41,6 @@ main:
 form:
   gotowebinar_key: "3581877240407014159"
   hubspot_form_id: 8a1088e2-3f4b-44a5-8129-2315b7874a9e
+aliases:
+  - /resources/azure-infrastructure-as-code-workshop-2020-07-08
 ---

@@ -95,4 +95,6 @@ main:
         - Install an example application to show the end-to-end user experience for users.
 form:
     hubspot_form_id: "cdce51df-e0de-4192-9d81-80b0be726129"
+aliases:
+  - /resources/aws-dev-day-building-a-kubernetes-platform
 ---

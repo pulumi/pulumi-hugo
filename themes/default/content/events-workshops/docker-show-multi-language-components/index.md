@@ -86,4 +86,6 @@ transcript: |
 form:
     # HubSpot form id.
     hubspot_form_id: 65c0e27b-7f95-4277-930b-ee4d09122a20
+aliases:
+  - /resources/docker-show-multi-language-components
 ---

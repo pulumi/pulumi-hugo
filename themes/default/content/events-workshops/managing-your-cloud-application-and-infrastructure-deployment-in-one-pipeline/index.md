@@ -129,4 +129,6 @@ transcript: |
     And because of that, Pulumi takes that up and goes ahead to redeploy that function to that function app for you every time. So because the state is different from what you did it yesterday at 4pm and now that you want to do it again today at 2pm, Pulumi says that the current states and the new proposed states are not the same because the path to the archives are not the same, right? So Pulumi goes ahead to redeploy that function on your behalf and Pulumi does that every time so you so you wouldn't— it would never be the case of because you did not update your infrastructure code, you are not going to get your updated source code.
 
     So far as every time you run the pipeline you build the code. If that happens, then Pulumi would always help you redeploy that build’s code to your function or to the container or whatever it is that that you need depending on how many times you do it. So on this note I, like I said earlier, we can now use Pulumi to deploy our infra and our source code in one step and that makes me really excited. Thank you so much for sticking around and watching my talk. Like I said, I'm really honored to be giving this talk, and I'm glad that I gave this talk and on that note. Thank you and bye.
+aliases:
+  - /resources/managing-your-cloud-application-and-infrastructure-deployment-in-one-pipeline
 ---

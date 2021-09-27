@@ -4,6 +4,7 @@ title: "GitOps with Pulumi and GitLab"
 meta_desc: "Deploy and update your infrastructure the same way you deliver the rest of your application: with real code delivered through your CI/CD pipeline."
 
 aliases:
+  - /resources/gitops-with-gitlab-and-pulumi-2020-05-20
   - /webinars/gitops-with-gitlab-and-pulumi-2020-05-20
 
 # A featured webinar will display first in the list.
