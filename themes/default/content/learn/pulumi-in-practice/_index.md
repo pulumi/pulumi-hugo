@@ -9,16 +9,16 @@ date: 2021-09-20T08:30:13-05:00
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting the module for review.
-draft: true
+draft: false
 
 # The description summarizes the course. It appears on the Learn home and module index pages.
-description: Here is a brief description of what this module's all about.
+description: Learn how to use Pulumi for more complex configurations.
 
 # The meta_desc property is used for targeting search results or social-media previews.
-meta_desc: Here is a brief description of what this module's all about.
+meta_desc: Learn how to use Pulumi for more complex configurations.
 
 # The order in which the module appears on the home page.
-index: 0
+index: 5
 
 # The meta_image appears in social-media previews and on the Learn Pulumi home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -26,9 +26,9 @@ index: 0
 meta_image: meta.png
 
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
+    - Using "stacks" for unique configurations
+    - Sharing values from one Pulumi program to another
+    - Secrets
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -42,6 +42,19 @@ providers:
 block_external_search_index: true
 ---
 
-This is the content that will appear at the top of the module index page. It should
-describe the overall goal of the module and briefly summarize what the reader will know
-how to do by the end of it.
+This tutorial digs a little deeper into what it means to create multiple Pulumi programs, and work with them interdependently. We will also cover how Pulumi uses secrets.
+
+## Time
+How long this module will take depends on your internet connection, reading speed, and other factors. On average, this module should take you about 40 minutes to complete.
+
+## Prerequisites
+You will need the following tools to complete this module:
+
+* A [Pulumi account and token](http://app.pulumi.com)
+* * If you don’t have an account, go to the [signup page](https://app.pulumi.com/signup).
+* Completion of the previous Pulumi Fundamentals tutorials.
+
+As to skills, you should be able to
+
+* use your local terminal.
+* read and understand basic Typescript, Python, Go, or C# code.
