@@ -12,10 +12,10 @@ date: 2021-09-15T12:20:24-05:00
 draft: true
 
 # The description summarizes the course. It appears on the Learn home and module index pages.
-description: Here is a brief description of what this topic will cover.
+description: Learn how to use Pulumi to define and enforce policies.
 
 # The meta_desc property is used for targeting search results or social-media previews.
-meta_desc: Here is a brief description of what this topic will cover.
+meta_desc: Learn how to use Pulumi to define and enforce policies.
 
 # The order in which the topic appears in the module.
 index: 4
@@ -41,11 +41,12 @@ meta_image: meta.png
 # properties of the team member files at /data/team/team. Create a file for yourself
 # if you don't already have one.
 authors:
-    - christian-nunciato
+    - kat-cosgrove
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
+    - policy-as-code
+    - learn
 
 # When provided, links are rendered at the bottom of the topic page.
 links:
