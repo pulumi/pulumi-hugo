@@ -1679,6 +1679,248 @@ Status: 204 OK
 EMPTY RESPONSE BODY
 ```
 
+### Create Webhook
+
+```
+POST /api/orgs/{organization}/hooks
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `active` | boolean | body | enable webhook |
+| `displayName` | string | body | name of webhook |
+| `organizationName` | string | body | organization name |
+| `payloadUrl` | string | body | URL to send request to |
+| `secretName` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/intro/console/webhooks/#headers) for more information  |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+8' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  --request POST \
+  --data '{"organizationName":"{organization}","displayName":"My Webhook","payloadUrl":"https://mywebhook.com","secret":"mysecret","active":true}' \
+  https://api.pulumi.com/api/orgs/{organization}/hooks
+```
+
+#### Default response
+
+```
+Status: 201 CREATED
+```
+
+```
+{
+  "organizationName":"demo",
+  "name":"bd7e0a35",
+  "displayName":"My Webhook",
+  "payloadUrl":"https://yourwebhook.com",
+  "active":true
+}
+```
+
+### List Webhooks
+
+```
+GET /api/orgs/{organization}/hooks
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name|
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+8' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  https://api.pulumi.com/api/orgs/{organization}/hooks
+```
+
+#### Default response
+
+```
+[
+  {
+    "organizationName":"{organization}",
+    "name":"4e662b3b",
+    "displayName":"MyWebhook",
+    "payloadUrl":"http://mywebhook.com",
+    "active":true
+  },
+  {
+    "organizationName":"{organization}",
+    "name":"7732dd4c",
+    "displayName":"My secret webhook",
+    "payloadUrl":"https://mysecretwebhook.com",
+    "active":true
+  }
+]
+```
+
+### Get Webhook
+
+```
+GET /api/orgs/{organization}/hooks/{webhookname}
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `webhookname` | string | path | webhook name |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+8' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}
+```
+
+#### Default response
+
+```
+Status: 200 OK
+```
+
+```
+{
+  "organizationName":"{organization}",
+  "name":"{webhookname}",
+  "displayName":"My Webhook",
+  "payloadUrl":"http://mywebhook.com",
+  "active":true
+}
+```
+
+### Delete Stack
+
+```
+DELETE /api/stacks/{organization}/{project}/{stack}
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `webhookname` | string | path | webhook name |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+8' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
+  --request DELETE \
+  https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}
+```
+
+#### Default response
+
+```
+Status: 204 OK
+```
+
+```
+EMPTY RESPONSE BODY
+```
+
+### Ping Webhook
+
+```
+POST /api/orgs/{organization}/hooks/{webhookname}/ping
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name |
+| `webhookname` | string | path | webhook name |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+8' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  --request POST \
+  https://api.pulumi.com/api/orgs/{organization}/hooks/ping
+```
+
+#### Default response
+
+```
+Status: 200 OK
+```
+
+```
+{
+  "id":"ea01abd2-90b4-4670-acce-15cc019ed6e4",
+  "kind":"ping",
+  "payload":"{\"timestamp\":1632735487,\"message\":\"🍹 Just a friendly ping from Pulumi 🍹\"}","timestamp":1632735487,"duration":196,"requestUrl":"{webhookurl}",
+  "requestHeaders":"Content-Type: application/json\r\nPulumi-Webhook-Id: ea01abd2-90b4-4670-acce-15cc019ed6e4\r\nPulumi-Webhook-Kind: ping\r\n",
+  "responseCode":200,
+  "responseHeaders":"{headersfromwebhook}",
+  "responseBody":"OK"
+}
+```
+
+
+### List Webhooks Deliveries
+
+```
+GET /api/orgs/{organization}/hooks/{webhookname}/deliveries
+```
+
+#### Parameters
+
+| Parameter | Type | In | Description |
+| --------- | ---------- | ---------- | ---------- |
+| `organization` | string | path | organization name|
+| `webhookname` | string | path | webhook name |
+
+#### Example
+
+```bash
+curl \
+  -H 'Accept: application/vnd.pulumi+8' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}/deliveries
+```
+
+#### Default response
+
+```
+[
+  {
+    "id":"ea01abd2-90b4-4670-acce-15cc019ed6e4",
+    "kind":"ping",
+    "payload":"{\"timestamp\":1632735487,\"message\":\"🍹 Just a friendly ping from Pulumi 🍹\"}","timestamp":1632735487,"duration":196,"requestUrl":"{webhookurl}",
+    "requestHeaders":"Content-Type: application/json\r\nPulumi-Webhook-Id: ea01abd2-90b4-4670-acce-15cc019ed6e4\r\nPulumi-Webhook-Kind: ping\r\n",
+    "responseCode":200,
+    "responseHeaders":"{headersfromwebhook}",
+    "responseBody":"OK"
+  }
+]
+```
+
 ## Audit Logs
 
 <!-- ###################################################################### -->
