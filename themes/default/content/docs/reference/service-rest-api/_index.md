@@ -1703,7 +1703,7 @@ curl \
   -H 'Content-Type: application/json' \
   -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
-  --data '{"organizationName":"{organization}","displayName":"My Webhook","payloadUrl":"https://mywebhook.com","secret":"mysecret","active":true}' \
+  --data '{"organizationName":"{organization}","displayName":"My Webhook","payloadUrl":"https://example.com","secret":"mysecret","active":true}' \
   https://api.pulumi.com/api/orgs/{organization}/hooks
 ```
 
@@ -1718,7 +1718,7 @@ Status: 201 CREATED
   "organizationName":"demo",
   "name":"bd7e0a35",
   "displayName":"My Webhook",
-  "payloadUrl":"https://yourwebhook.com",
+  "payloadUrl":"https://example.com",
   "active":true
 }
 ```
@@ -1753,14 +1753,14 @@ curl \
     "organizationName":"{organization}",
     "name":"4e662b3b",
     "displayName":"MyWebhook",
-    "payloadUrl":"http://mywebhook.com",
+    "payloadUrl":"http://example.com",
     "active":true
   },
   {
     "organizationName":"{organization}",
     "name":"7732dd4c",
     "displayName":"My secret webhook",
-    "payloadUrl":"https://mysecretwebhook.com",
+    "payloadUrl":"https://example.com",
     "active":true
   }
 ]
@@ -1800,7 +1800,7 @@ Status: 200 OK
   "organizationName":"{organization}",
   "name":"{webhookname}",
   "displayName":"My Webhook",
-  "payloadUrl":"http://mywebhook.com",
+  "payloadUrl":"http://example.com",
   "active":true
 }
 ```
@@ -1858,7 +1858,7 @@ POST /api/orgs/{organization}/hooks/{webhookname}/ping
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   --request POST \
   https://api.pulumi.com/api/orgs/{organization}/hooks/ping
 ```
@@ -1900,7 +1900,7 @@ GET /api/orgs/{organization}/hooks/{webhookname}/deliveries
 curl \
   -H 'Accept: application/vnd.pulumi+8' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: token pul-abcdefghijklmnopqrstuvwxyz' \
+  -H 'Authorization: token $PULUMI_ACCESS_TOKEN' \
   https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}/deliveries
 ```
 
