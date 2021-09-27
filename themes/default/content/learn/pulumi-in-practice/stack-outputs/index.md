@@ -18,7 +18,7 @@ description: Here is a brief description of what this topic will cover.
 meta_desc: Here is a brief description of what this topic will cover.
 
 # The order in which the topic appears in the module.
-index: 0
+index: 2
 
 # The estimated time, in minutes, for new users to complete the topic.
 estimated_time: 10
@@ -41,7 +41,7 @@ meta_image: meta.png
 # properties of the team member files at /data/team/team. Create a file for yourself
 # if you don't already have one.
 authors:
-    - christian-nunciato
+    - matt-stratton
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -56,4 +56,159 @@ links:
 block_external_search_index: true
 ---
 
-This is the actual body of the topic, authored in Markdown.
+A stack can export values as stack outputs. These outputs are shown during an update, can be easily retrieved with the Pulumi CLI, and are displayed in the Pulumi Console. They can be used for important values like resource IDs, computed IP addresses, and DNS names. 
+
+Typically, you will pass some value from your resources into the output, but to illustrate how this works, we will just set some stack outputs manually:
+
+{{< chooser language "typescript,python,go,csharp" / >}}
+
+{{% choosable language typescript %}}
+
+In the `index.ts` file of `my-first-app` add the following line:
+
+```typescript
+export let x = "hello";
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+In the `__main__.py` file of `my-first-app` add the following line:
+
+```python
+pulumi.export("x", "hello")
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+In the `main.go` file of `my-first-app` add the following line:
+
+```go
+ctx.Export("x", pulumi.String("hello"))
+```
+
+{{% /choosable %}}
+
+
+{{% choosable language csharp %}}
+
+In the `MyStack.cs` file of `my-first-app` add the following lines:
+
+```csharp
+class MyStack : Stack
+{
+    [Output] public Output<string> x { get; set; }
+
+    public MyStack()
+    {
+        this.x = Output.Create("hello");
+    }
+}
+```
+
+{{% /choosable %}}
+
+Now, run `pulumi up -y`
+
+```bash
+$ pulumi up
+
+Previewing update (dev)
+
+View Live: https://app.pulumi.com/***/my-first-app/dev/previews/...
+
+
+    pulumi:pulumi:Stack my-first-app-dev running 
+    pulumi:pulumi:Stack my-first-app-dev  
+ 
+Resources:
+    1 unchanged
+
+Updating (dev)
+
+View Live: https://app.pulumi.com/***/my-first-app/dev/updates/3
+
+
+    pulumi:pulumi:Stack my-first-app-dev running 
+    pulumi:pulumi:Stack my-first-app-dev  
+ 
+Outputs:
+    x: "hello"
+
+Resources:
+    1 unchanged
+
+Duration: 1s
+
+```
+
+Notice that there is now a stack output for the value of `x`.
+
+We can also get this value by running `pulumi stack output` on any particular stack.
+
+```bash
+$ pulumi stack output x
+
+hello
+```
+
+## Making a Stack configurable
+
+One of the main reasons to use stacks is to have different configurations between them. In this example, we will set a configuration that varies between our `dev` and `staging` stacks, and set it programmatically. 
+
+First, we need to define the configuration. We will set this in the `dev` stack first. Make sure the `dev` stack is active:
+
+```bash
+$ pulumi stack select dev
+```
+
+Now, run the following command to set a value for the `platypusName` configuration:
+
+```bash
+$ pulumi config set platypusName Roger
+```
+Let's do the same for the `staging` stack:
+
+```bash
+$ pulumi stack select staging
+$ pulumi config set platypusName Sally
+```
+
+You should have two new files in your directory now: `Pulumi.dev.yaml` and `Pulumi.staging.yaml`. If you take a look at them, you'll see each one has the value for `platypusName` set:
+
+```bash
+$ cat Pulumi.dev.yaml
+config:
+  my-first-app:platypusName: Roger
+```
+
+Let's set a stack output based upon this configuration value:
+
+{{< chooser language "typescript,python,go,csharp" / >}}
+
+{{% choosable language typescript %}}
+
+Inside `index.ts`
+
+```typescript
+
+let config = new pulumi.Config();
+export let name = config.require("platypusName");
+
+```
+
+{{% /choosable %}}
+
+And now we can apply and check our new values!
+
+```bash
+
+$ pulumi up -y
+
+$ pulumi stack output name
+Sally
+```
+
