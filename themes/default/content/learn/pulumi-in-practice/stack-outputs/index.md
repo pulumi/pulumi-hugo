@@ -9,7 +9,7 @@ date: 2021-09-20T08:33:26-05:00
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting the topic for review.
-draft: true
+draft: false
 
 # The description summarizes the course. It appears on the Learn home and module index pages.
 description: Here is a brief description of what this topic will cover.
