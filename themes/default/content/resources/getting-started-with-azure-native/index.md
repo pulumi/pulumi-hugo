@@ -41,9 +41,6 @@ multiple:
     - datetime: 2021-10-21T09:00:00-07:00
       hubspot_form_id: 7de43dee-4699-46e9-9ce3-9a6fffd56aa5
 
-    - datetime: 2021-10-21T21:00:00-07:00
-      hubspot_form_id: a3ca0bab-312f-4779-b3d1-11884f181629
-
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
