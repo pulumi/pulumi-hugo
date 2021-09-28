@@ -74,6 +74,8 @@ main:
     presenters:
         - name: "Laura Santamaria"
           role: "Developer Advocate, Pulumi"
+        - name: Marina Novikova
+          role: Partner Solutions Architect, AWS
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
