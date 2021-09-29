@@ -1,26 +1,35 @@
 ---
 title: Learn Pulumi
-description: Courses, tutorials, examples, and more to help you get the most out of Pulumi.
-meta_desc: Courses, tutorials, examples, and more to help you get the most out of Pulumi.
+description: |
+    Courses, tutorials, examples, and more to help you get the most out of
+    Pulumi.
+meta_desc: |
+    Courses, tutorials, examples, and more to help you get the most out of
+    Pulumi.
 menu:
     header:
         weight: 0 # Change this to 4 to have LEARN appear in the header bar.
         identifier: learn
         name: Learn
 modules:
-    title: Modules
+    title: Pathways
     description: |
-        Here's a bit of text that'll go at the top of the page. It's intended to give you some
-        information, as text generally is, and to introduce you to what you're looking at, and uh,
-        you know, such as.
+        Pathways are learning progressions that you can follow to learn more
+        about using Pulumi.
 tutorials:
     title: Tutorials
     description: |
-        Here's a bit of text that'll go along with this section. It'll have a little info, etc.
-        You get the idea.
+        Tutorials are series of hands-on activities that help you along your
+        learning journey with Pulumi.
 
 overview: |
-    Welcome to Learn Pulumi! These tutorials are guided lessons that take you through a series of steps to complete a project or task. Learn tutorials are meant to teach you all the concepts of Pulumi through real life examples. Start with Pulumi Fundamentals if you have no cloud experience, otherwise feel free to start with one of the cloud specific fundamentals.
+    Welcome to Learn Pulumi! The learning pathways here will help you learn all
+    of the concepts of Pulumi, along with best practices and architectural
+    patterns, through real-life examples. In each tutorial, you'll complete a
+    series of steps while exploring Pulumi to complete a project or build a
+    system. Start with Pulumi Fundamentals to get comfortable with the
+    vocabulary, and then head to one of the cloud-specific tutorials to get
+    farther down your learning pathway.
 
 # Exclude from search-engine indexing for now.
 block_external_search_index: true
