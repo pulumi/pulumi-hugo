@@ -18,7 +18,7 @@ Amazon has continued to innovate in the Graviton space. In June 2021, they launc
 for users to move their applications to [AWS Graviton2](https://aws.amazon.com/ec2/graviton/). AWS Graviton2 processor instance types are up to 20%
 lower cost than x86 based instance types and see up to 40% better price performance.
 
-Today, [AWS launched Graviton2 support for AWS Lambda Functions](https://aws.amazon.com/blogs/aws/aws-lambda-functions-powered-by-aws-graviton2-processor-run-your-functions-on-arm-and-get-up-to-34-better-price-performance), which  means that your Lambda Functions can now
+Today, [AWS launched Graviton2 support for AWS Lambda Functions](https://aws.amazon.com/blogs/aws/aws-lambda-functions-powered-by-aws-graviton2-processor-run-your-functions-on-arm-and-get-up-to-34-better-price-performance), which means that your Lambda Functions can now
 execute on Graviton2 processors and take advantage of the improved price performance of that architecture.
 
 ## Deploying a Lambda Function with Graviton2 Support
