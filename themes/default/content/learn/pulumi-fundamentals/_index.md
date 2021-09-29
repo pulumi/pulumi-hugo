@@ -10,7 +10,7 @@ meta_image: meta.png
 youll_learn:
     - creating projects
     - configuring and provisioning infrastructure
-    - exporting outputs
+    # - exporting outputs
 tags:
     - fundamentals
 providers:
@@ -26,7 +26,7 @@ we'll learn more about cloud computing through how Pulumi operates.
 ## Time
 
 How long this module will take depends on your internet connection, reading
-speed, and other factors. On average, this module should take you about 40
+speed, and other factors. On average, this module should take you about 25
 minutes to complete.
 
 ## Prerequisites
@@ -61,7 +61,6 @@ configure that infrastructure, and push your infrastructure to production.
 
 For this starting module, we will use Docker to let you learn the basics of
 Pulumi without a cloud account. We will explore creating a Pulumi Project,
-building Docker images, configuring and provisioning containers, and exporting
-outputs.
+building Docker images, and configuring and provisioning containers.
 
 Let's get started!
