@@ -21,8 +21,11 @@ use_cases:
             - name: Lemonade
               link: /case-studies/lemonade
           description: |
-            Create reusable infrastructure components or self-service infrastructure platforms that empower your application developers to easily and quickly deploy
-            and use infrastructure they need to build applications.
+            Create reusable infrastructure components or self-service infrastructure platforms
+            that empower your application developers to easily and quickly deploy and use
+            infrastructure they need to build applications.
+
+            [Learn more](/solutions/shared-services-platforms/)
 
         - name: Greenfield modern applications
           case_studies:
@@ -33,6 +36,28 @@ use_cases:
           description: |
             Use Pulumi to develop your next greenfield application that uses modern cloud technologies, like containers and serverless. Pulumi is designed for building
             these types of complex and distributed applications.
+
+        - name: Infrastructure CI/CD
+          case_studies:
+            - name: Atlassian
+              link: /case-studies/atlassian/
+            - name: Panther Labs
+              link: /case-studies/panther-labs/
+          description: |
+            Automate your infrastructure provisioning and management through a CI/CD pipeline. Run all infrastructure updates through a standard set of unit and integration tests, allowing reduced errors, greater security, and increased delivery velocity.
+
+            [Learn More](/solutions/infrastructure-ci-cd/)
+
+        - name: Terraform Migration
+          case_studies:
+            - name: Lemonade
+              link: /case-studies/lemonade/
+            - name: Panther Labs
+              link: /case-studies/sans-institute/
+          description: |
+            Modernize how your teams provision and manage infrastructure in order to adapt to the changes in technologies (containers, serverless), architectures (distributed), and software release automation associated with the cloud.
+
+            [Learn More](/solutions/terraform-migration)
 
         - name: AI and ML workloads
           description: |
