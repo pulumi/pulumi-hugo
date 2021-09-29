@@ -12,7 +12,6 @@ authors:
     - sophia-parafina
     - laura-santamaria
 tags:
-    - fundamentals
     - outputs
     - stacks
 links:
@@ -252,5 +251,3 @@ Outputs:
 ```
 These exported values are incredibly useful when using Pulumi stacks.
 
-Congratulations, you've now finished Pulumi Fundamentals! Head back to the main
-page and explore some other modules to understand more about Pulumi.

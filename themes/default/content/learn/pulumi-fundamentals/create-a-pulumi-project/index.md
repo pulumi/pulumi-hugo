@@ -29,7 +29,8 @@ that, when run, declares the desired infrastructure for Pulumi to manage.
 Projects are how we manage
 [_stacks_](https://www.pulumi.com/docs/reference/glossary/#stack), or isolated,
 independently configurable instances of your Pulumi program. We'll talk more
-about stacks later in the module.
+about stacks later in the
+[Pulumi in Practice]({{< relref "/learn/pulumi-in-practice" >}}) pathway.
 
 ## Create a directory
 
@@ -49,15 +50,29 @@ independent project, name the directory differently.
 Since a Pulumi project is just a directory with some files in it, it is possible
 for you to create a new one by hand. The `pulumi new` command-line interface
 (CLI) command, however, automates the process and ensures you have everything
-you need, so let's use that command. We're going to use Python for this example,
-and the `-y` flag answers "yes" to the prompts to create a default project:
+you need, so let's use that command. You can use Typescript or Python for this 
+tutorial (Go and C# are coming soon!), and the `-y` flag answers "yes" to the
+prompts to create a default project:
 
+{{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```bash
+pulumi new typescript -y
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 ```bash
 pulumi new python -y
 ```
+{{% /choosable %}}
 
 This command prints output similar to the following example with a bit more
-information and status as it goes:
+information and status as it goes (this example is in Python, but the basics
+are the same for any language):
 
 ```bash
 Created stack 'dev'
@@ -74,8 +89,7 @@ To perform an initial deployment, run 'pulumi up'
 ```
 
 This command creates all the files we need, initializes a new stack named `dev`
-(an instance of our project), and installs the needed package dependencies from
-[PyPI](https://pypi.org/), the Python Package Index.
+(an instance of our project), and installs any necessary dependencies.
 
 ## Inspect your new project
 

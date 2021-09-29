@@ -35,4 +35,4 @@ overview: |
 block_external_search_index: true
 ---
 
-This is some content that goes with the page as a whole. You know, if we need it. Or something.
+Ipsum lorem
