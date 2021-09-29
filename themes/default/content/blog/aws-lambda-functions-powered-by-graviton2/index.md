@@ -351,7 +351,7 @@ if err != nil {
 
 {{< /chooser >}}
 
-This will create a Lambda layer that is compatible with NodeJS 12.x and Arm64 & X86_64. Layers can be created that are compatible
+This will create a Lambda layer that is compatible with NodeJS 12.x and ARM64 & X86_64. Layers can be created that are compatible
 with Arm64, X86_64 or both architectures. We can then build a new lambda based on this Lambda layer:
 
 {{< chooser language "typescript,python,go,csharp" >}}
