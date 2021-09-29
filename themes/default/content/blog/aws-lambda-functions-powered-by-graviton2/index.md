@@ -431,7 +431,7 @@ This will deploy a function built on top of the Lambda layer targeting the Gravi
 ## Summary
 
 AWS support for Lambda Functions powered by AWS Graviton2 offers users the ability to get better price performance for
-their workloads. We've shown you how you can build your Functions using this ability. You can read more about AWS Lambda functions
+their workloads. We've shown how you can build your Functions using this ability. You can read more about AWS Lambda functions
 on the [AWS Documentation website](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) and getting started
 with AWS Graviton on [GitHub](https://github.com/aws/aws-graviton-getting-started).
 
