@@ -1,6 +1,6 @@
 ---
 title: Cloud Engineering Summit Sessions
-meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitioners about cloud infrastructure, modern applications, and everything in between. Oct 20-21, 2021.
+meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitioners about cloud infrastructure, modern applications, and everything in between. Oct 20-21.
 
 type: page
 layout: cloud-engineering-summit-session-list
