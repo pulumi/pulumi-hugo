@@ -1,6 +1,6 @@
 ---
 title: Terraform Migration
-meta_desc: Learn how Pulumi can help you build and manage a Shard Services Platform that allows application developers to self-service their infrastructure environments.
+meta_desc: Learn how Pulumi can help you manage a Terraform migration to increase velocity and reliability of deploying and managing modern cloud architectures.
 
 type: page
 layout: solutions-use-case
@@ -105,6 +105,6 @@ get_started:
     get_started:
         title: Talk with customer engineering
         description: |
-          Schedule some time with our customer engineering team, and we will help you plan and build your shared services platform.
+          Schedule some time with our customer engineering team, and we will help you migrate your Terraform to Pulumi.
         cta_text: Schedule now
 ---

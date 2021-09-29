@@ -25,13 +25,13 @@ benefits:
           icon: global
           icon_color: yellow
           description: |
-            Developers can directly access and deploy to infrastructure (e.g., K8s clusters or cloud resources) without contacting operations/cluster managers
+            Developers can directly access and deploy to infrastructure (e.g., K8s clusters or cloud resources) without contacting operations/cluster managers.
 
         - title: Start easily
           icon: puzzle
           icon_color: yellow
           description: |
-            Developers can get started easily and do not have to adapt their workflows
+            Developers can get started easily and do not have to adapt their workflows.
 
     help:
       title: How Pulumi helps
@@ -52,7 +52,7 @@ benefits:
           icon: eye
           icon_color: salmon
           description: |
-            Pulumi also enables “policy as code”, which allows the platform team to enforce cost, security, and best practices across all infrastructure
+            Pulumi also enables “policy as code”, which allows the platform team to enforce cost, security, and best practices across all infrastructure.
 
         - title: Reusable components
           icon: team
@@ -62,14 +62,12 @@ benefits:
 
 diagrams:
     title: Kubernetes Platform Reference Architecture
-    description: |
-        Pulumi’s modern Infrastructure-as-Code SDK is an open-source project that’s supported by an active and enthusiastic community. We welcome feedback and contributions from anyone.
 
     items:
         - title: 1. Define your goals
           image: /images/solutions/shared-services-platform/diagram-one.svg
           content: |
-            Deploy from a command line or programatically. Pulumi achieves your infrastructure’s desired state by creating, updating, or deleting cloud resources.
+            Define your business goals you want to achieve by building a K8s platform. Your goals will determine what features to include or not include in your platform.
 
         - title: 2. Define the platform
           image: /images/solutions/shared-services-platform/diagram-two.svg
@@ -84,7 +82,7 @@ diagrams:
         - title: 4. Build the components, blueprints, & pipelines
           image: /images/solutions/shared-services-platform/diagram-four.svg
           content: |
-            Write code for the shared platform components first. Then write code for the application components that can be selected and used by developers. These application components will have the logic to retrieve credentials or how to connect to the shared resources in the platform.
+            Write code for the shared platform components first. Then write code for the application components that can be selected and used by developers. These application components will have the logic to retrieve credentials or connect to the shared resources in the platform.
 
         - title: 5. Define the guardrails & policies
           image: /images/solutions/shared-services-platform/diagram-five.svg

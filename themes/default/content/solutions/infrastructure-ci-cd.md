@@ -1,6 +1,6 @@
 ---
 title: Infrastructure CI/CD
-meta_desc: Learn how Pulumi can help you build and manage a Shard Services Platform that allows application developers to self-service their infrastructure environments.
+meta_desc: Learn how Pulumi can help you automate the testing, provisioning, and management of infrastructure through a software delivery pipeline.
 
 type: page
 layout: solutions-use-case
@@ -19,15 +19,15 @@ benefits:
           icon: code
           icon_color: yellow
           description: |
-            Application changes with their corresponding infrastructure changes can all share one automated pipeline, reducing complexity and increasing release velocity
+            Application changes with their corresponding infrastructure changes can all share one automated pipeline, reducing complexity and increasing release velocity.
 
-        - title: Reduce mean time to resolution
+        - title: Increase reliability
           icon: global
           icon_color: yellow
           description: |
             Every infrastructure update is run through a standard set of unit and integration tests, identifying and addressing bugs earlier and increasing reliability.
 
-        - title: Start easily
+        - title: Reduce mean time to resolution
           icon: puzzle
           icon_color: yellow
           description: |
@@ -36,29 +36,23 @@ benefits:
     help:
       title: How Pulumi helps
       items:
-        - title: Languages you love
+        - title: Unified delivery pipeline
           icon: rocketship
           icon_color: salmon
           description: |
-            Pulumi allows infrastructure or platform engineering teams to use the programming languages they already use for modeling their infrastructure. They can take advantage of all the existing testing tools, IDE plugins that are standard to their programming languages.
+            Pulumi allows the the same programming languages used for application code to be used for infrastructure. This allows teams to leverage the same testing frameworks and same delivery process for both.
 
-        - title: Build on any cloud
+        - title: Shareable infrastructure components
           icon: gear
           icon_color: salmon
           description: |
-            Pulumi can provision any resource available in the K8s API. Pulumi supports all new resources and features in the K8s API on the same day as the release. Pulumi allows K8s users novel forms of cluster management and app workload deployments.
+            Pulumi provides a shared way for teams to collaborate with each other on infrastructure through modular and reusable components that can easily be built and shared across the entire organization.
 
-        - title: Policy-as-Code
+        - title: Higher order automation
           icon: eye
           icon_color: salmon
           description: |
-            Pulumi also enables “policy as code”, which allows the platform team to enforce cost, security, and best practices across all infrastructure
-
-        - title: Reusable components
-          icon: team
-          icon_color: salmon
-          description: |
-            Pulumi makes creating reusable and modular components easy which allows repeatable infrastructure building blocks to be templatized and easily reused.
+            You can increase automation across the entire lifecycle of your cloud infrastructure. You can program logic that orchestrates complex workflows during infrastructure provisioning instead of needing to use Bash scripts or glue code. In addition to its CLI, Pulumi provides the Automation API, a programmatic interface for infrastructure as code, so you can build applications that dynamically manage infrastructure.
 
 diagrams:
     title: GitOps Workflow Reference Architecture
@@ -82,7 +76,7 @@ diagrams:
         - title: 4. Incorporate software development best practices
           image: /images/solutions/git-ops/git-ops-diagram-four.svg
           content: |
-            Legacy IaC tools can run in CI/CD, however with Pulumi, you can incorporate in all the best practice software development practices such as testing. You can design what you want to test in terms of quality issues, deployment issues, and/or code quality checks.
+            Legacy IaC tools can run in CICD, however with Pulumi, you can incorporate in all the best practice software development practices such as testing. You can design what you want to test in terms of quality issues, deployment issues, and/or code quality checks.
 
         - title: 5. Define higher-level workflows
           image: /images/solutions/git-ops/git-ops-diagram-five.svg
@@ -117,6 +111,6 @@ get_started:
     get_started:
         title: Talk with customer engineering
         description: |
-          Schedule some time with our customer engineering team, and we will help you plan and build your shared services platform.
+          Schedule some time with our customer engineering team, and we will help you automate your entire infrastructure provisioning and management through a CI/CD pipeline.
         cta_text: Schedule now
 ---
