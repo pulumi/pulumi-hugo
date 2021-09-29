@@ -43,7 +43,7 @@ ACI Containers start fast - often in a matter of seconds. This really helps the 
 
 #### Pricing
 
-ACI will only bill you for what you use. It offers no start-up costs (which goes great with the fast start times!) and per-second billing, meaning you only pay for what you use. The pricing is also extremely competitive against other cloud providers.
+ACI will only bill you for the time your applications are running. It offers no start-up costs (which goes great with the fast start times!) and per-second billing, meaning you only pay for every second the application is actually up. The pricing is also extremely competitive against other cloud providers.
 
 #### The Other Stuff
 
@@ -55,9 +55,9 @@ As expected from Microsoft, ACI has excellent support for Windows containers and
 
 #### Scaling
 
-ACI supports customizing the amount of resources you can assign to a container, but it will only run one copy. There’s no horizontal scaling available, so if you need more resources, you only have one option - scaling vertically.
+ACI supports customizing the amount of resources you can assign to a container, but it will only run one copy. There’s no horizontal scaling available, so if you need more resources, you only have one option - scaling vertically. It is possible to run N number of ACI instances and configuring load balancers across them, but it's a very manual process and can be awkward to manage and scale successfully.
 
-If you’re running a webserver application, horizontal scaling behind a load balancer might be a better option, so this lack of scaling flexibility can be a real shortcoming.
+If you’re running a webserver application, horizontal scaling behind a load balancer might be a better option, so this lack of scaling flexibility and manual processing can be a real shortcoming.
 
 In addition to this opinionated scaling mechanism, there’s also no auto scaling option for ACI. If you’re finding that you’re hitting the limits of your ACI deployment, you’ll need to manually scale the service
 
@@ -88,13 +88,13 @@ Azure App Services is designed to be a one stop shop for your web application ne
 
 Azure App Service has many integrations with Azure. As an example, if you need to add a CDN to your web service, it’s extremely straightforward to do so with Azure CDN.
 
-This tight integration with Azure’s many other services makes it likely to meet the needs of your application and extend it as needed, introducing common architecture components like message queues and databases.
+This tight integration with Azure’s many other services makes it likely to meet the needs of your application and extend it as needed, introducing common architecture components like message queues and databases. This is particularly useful when it comes to the integration with Azure's networking model. You can run an Azure App Service inside an [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) which is extremely useful in many scenarios where network separation is needed, like enterprise applications.
 
 #### Scaling & Availability
 
 Azure App Service has a myriad of available scaling capabilities built out of the box. Not only can you scale the actual container you’ve deployed (while also simultaneously placing pricing caps on your service) but you can also scale related resources if necessary, which fits well with the tight integration we mentioned previously.
 
-App service scaling for your container can either scale up (ie: increase the amount of resources associated with your container) or scale out (ie: have more containers behind your load balancer).
+App service scaling for your container can either scale up (i.e., increase the amount of resources associated with your container) or scale out (ie: have more containers behind your load balancer).
 
 This flexibility in scaling means you can be safe to assume your application will meet spiking traffic requirements and service your users’ needs.
 
@@ -104,9 +104,9 @@ This flexibility in scaling means you can be safe to assume your application wil
 
 Azure App Service is highly opinionated. It’s tight integrations with other Azure services mean that you’re expected to follow established patterns for achieving your goals.
 
-This even extends to the allowed languages that Azure App Service supports - if you’re developing your application in an unsupported language, you can’t use the service.
-
 This opinionated implementation means that the initial learning curve can be steep. The origins of app services means the product has grown in complexity along with its opinionated implementation, and as a result it can be overwhelming when getting started.
+
+In addition to the learning curve, App Service is primarily focused towards web app workloads, and support for running other applications is limited at best.
 
 ### What we’d use it for
 
@@ -159,6 +159,8 @@ Azure Service Fabric is a container service focused on distributed applications,
 If you’re planning on running a complex architecture, Azure Service Fabric can be a great fit, but provides more orchestration capabilities than Azure App Service. Service Fabric can also extend outside Azure’s cloud into your on-premise data center if necessary.
 
 If your application has needs related to low latency, especially across distributed regions, Service Fabric is a great fit.
+
+However, Azure Service Fabric can be extremely difficult to use. It is only targeted towards distributed, complex systems - if you're not planning on building one of those, it's probably not the correct choice.
 
 ### Azure Batch
 
