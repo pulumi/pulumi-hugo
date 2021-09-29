@@ -276,7 +276,7 @@ If the `architectures` input is not specified, AWS will set the value by default
 Since we are running our application code on ARM, we need to ensure that the code in the archive we use for our
 Lambda function can run natively on the Arm-based infrastructure. For interpreted languages like Node.js and Python, most applications
 will work as is.  For compiled languages like Go, we need to ensure that our Go code is cross-compiled for
-`GOARCH=arm64`, and that the resulting Arm64 binary is included in our Lambda source archive.
+`GOARCH=arm64`, and that the resulting ARM64 binary is included in our Lambda source archive.
 
 ## Creating a Lambda Layer with Graviton2 Support
 
