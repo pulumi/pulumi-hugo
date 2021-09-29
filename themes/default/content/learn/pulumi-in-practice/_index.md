@@ -19,17 +19,23 @@ providers:
 block_external_search_index: true
 ---
 
-This tutorial digs a little deeper into what it means to create multiple Pulumi programs, and work with them interdependently. We will also cover how Pulumi uses secrets.
+This tutorial digs a little deeper into what it means to create multiple Pulumi
+programs, and work with them interdependently. We will also cover how Pulumi
+uses secrets.
 
 ## Time
-How long this module will take depends on your internet connection, reading speed, and other factors. On average, this module should take you about 40 minutes to complete.
+How long this module will take depends on your internet connection, reading
+speed, and other factors. On average, this module should take you about 40
+minutes to complete.
 
 ## Prerequisites
+
+You should have completed the
+[Pulumi Fundamentals pathway]({{< relref "./pulumi-fundamentals" >}}) already.
+
 You will need the following tools to complete this module:
 
 * A [Pulumi account and token](http://app.pulumi.com)
-* * If you don’t have an account, go to the [signup page](https://app.pulumi.com/signup).
-* Completion of the previous Pulumi Fundamentals tutorials.
 
 As to skills, you should be able to
 

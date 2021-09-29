@@ -357,4 +357,6 @@ Once you've added this snippet, run `pulumi up` to refresh the data in the
 database.
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
-Congratulations! Next up, let's see how we can make a new stack for production.
+
+Congratulations, you've now finished Pulumi Fundamentals! Head back to the main
+page and explore some other modules to understand more about Pulumi.
