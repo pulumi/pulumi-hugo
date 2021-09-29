@@ -7,6 +7,7 @@ layout: solutions-use-case
 
 overview:
     title: Building self-service infrastructure environments
+    image: /images/solutions/shared-services-platform/ssp-main-diagram.svg
     description: |
         A Shared Services Platform (aka Internal Developer Portal or Infrastructure Platform) is an internal company service that allows application developers to self-service infrastructure environments. SSPs are an extremely common amongst companies that have reached a certain size where they want to share common infrastructure and automate the provisioning of infrastructure for the development teams. Kubernetes (K8s) is becoming the de facto control plane for modern clouds, and it is frequently employed to power these internal platforms. The goal of a SSP is to increase developer velocity while maintaining centralized control over security, networking, compliance, and costs. Pulumi makes it easy to model and provision the SSP control plane as well as automate the provisioning of the data plane stacks.
 
@@ -90,26 +91,14 @@ diagrams:
             Use Pulumi CrossGuard to define cost guardrails and security policies. CrossGuard can also be used to enforce general best practices (e.g., closing ports) or best practices specific to your business (e.g., regional locality requirements).
 
 customer_logos:
-  title: Leading engineering organizations are building with Pulumi
+  title: Organizations building shared services platforms with Pulumi
   logos:
-    - items:
-      - snowflake
-      - tableau
-      - atlassian
-      - fauna
-      - sans
-    - items:
-      - mindbody
-      - sourcegraph
-      - fenergo
-      - skai
-      - lemonade
-    - items:
-      - clearsale
-      - angellist
-      - webflow
-      - supabase
-      - ro
+    - name: mercedes-benz
+      link: /case-studies/mercedes-benz
+    - name: snowflake
+      link: /case-studies/snowflake
+    - name: lemonade
+      link: /case-studies/lemonade
 
 get_started:
     title: Getting started

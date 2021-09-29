@@ -7,6 +7,7 @@ layout: solutions-use-case
 
 overview:
     title: Shifting left infrastructure
+    image: /images/solutions/git-ops/git-ops-main-diagram.svg
     description: |
         Infrastructure CI/CD (Infrastructure Shift Left, GitOps) is the process of automating the testing, provisioning, and management of infrastructure through a software delivery pipeline. This starts with Infrastructure as Code (IaC), which is provisioning and managing infrastructure through definition files (e.g., templates or code) and stored in version control systems. IaC provides automation to provision infrastructure and increases delivery velocity by removing the risk of human errors. Infrastructure CI/CD further automates infrastructure provisioning and management by building the entire IaC process into a CI/CD pipeline. All infrastructure updates run through a standard set of unit and integration tests, allowing reduced errors, greater security, and increased delivery velocity.
 
@@ -84,26 +85,18 @@ diagrams:
             With Automation API, you can build higher-order orchestration type workflows across all your infrastructure deployments. You can build in serial or branching dependencies that are connected together via StackReferences.
 
 customer_logos:
-  title: Leading engineering organizations are building with Pulumi
+  title: Organizations practicing infrastructure CI/CD with Pulumi
   logos:
-    - items:
-      - snowflake
-      - tableau
-      - atlassian
-      - fauna
-      - sans
-    - items:
-      - mindbody
-      - sourcegraph
-      - fenergo
-      - skai
-      - lemonade
-    - items:
-      - clearsale
-      - angellist
-      - webflow
-      - supabase
-      - ro
+    - name: sans
+      link: /case-studies/sans-institute
+    - name: skai
+      link: /blog/kenshoo-migrates-to-aws-with-pulumi
+    - name: atlassian
+      link: /case-studies/atlassian
+    - name: panther-labs
+      link: /case-studies/panther-labs
+    - name: whylabs
+      link: /case-studies/whylabs
 
 get_started:
     title: Getting started

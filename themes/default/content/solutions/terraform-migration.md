@@ -7,6 +7,7 @@ layout: solutions-use-case
 
 overview:
     title: Modernizing infrastructure management for the modern cloud
+    image: /images/solutions/terraform/terraform-main-diagram.svg
     description: |
         Terraform Migration (aka IaC modernization) is the process of modernizing how your teams provision and manage infrastructure in order to adapt to the changes in technologies (containers, serverless), architectures (distributed), and software release automation associated with the cloud. Managing modern applications and infrastructure requires the coordination of many complex dependencies between services in distributed cloud architectures. There are also many common infrastructure resources that must be shared across the organization. Managing cloud infrastructure requires automation to increase complexity, testing to reduce errors, modularity to encourage sharing and reuse, and policy enforcement to manage risk. The goal of Terraform migration is to increase velocity and reliability of deploying and managing modern cloud architectures. Pulumi is purpose built to handle the scale, complexity, and delivery velocity needed for the modern cloud.
 
@@ -78,26 +79,16 @@ diagrams:
             Legacy IaC tools can run in CICD, however with Pulumi, you can incorporate in all the best practice software development practices such as testing. You can design what you want to test in terms of quality issues, deployment issues, and/or code quality checks.
 
 customer_logos:
-  title: Leading engineering organizations are building with Pulumi
+  title: Organizations modernizing their infrastructure-as-code with Pulumi
   logos:
-    - items:
-      - snowflake
-      - tableau
-      - atlassian
-      - fauna
-      - sans
-    - items:
-      - mindbody
-      - sourcegraph
-      - fenergo
-      - skai
-      - lemonade
-    - items:
-      - clearsale
-      - angellist
-      - webflow
-      - supabase
-      - ro
+    - name: sans
+      link: /case-studies/sans-institute
+    - name: credijusto
+      link: /case-studies/credijusto
+    - name: lemonade
+      link: /case-studies/lemonade
+    - name: atlassian
+      link: /case-studies/atlassian
 
 get_started:
     title: Getting started
