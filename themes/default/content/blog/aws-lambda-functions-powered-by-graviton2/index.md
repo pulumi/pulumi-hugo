@@ -434,6 +434,3 @@ AWS support for Lambda Functions powered by AWS Graviton2 offers users the abili
 their workloads. We've shown how you can build your Functions using this ability. You can read more about AWS Lambda functions
 on the [AWS Documentation website](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) and getting started
 with AWS Graviton on [GitHub](https://github.com/aws/aws-graviton-getting-started).
-
-Check out the full AWS Graviton2 Lambda Function Example (link to pulumi/examples repo will be added) in the Pulumi Examples
-repo and [get started with Pulumi for AWS](https://www.pulumi.com/docs/get-started/aws/) today.
