@@ -49,7 +49,7 @@ workshops:
       icon: code
       icon_color: fuchsia
       link: /resources/getting-started-with-google-cloud-platform
-      times: [ "2021-10-21T09:00:00-07:00" ]
+      times: [ "2021-10-21T12:00:00-07:00" ]
       description: |
         In this workshop, we’ll use the Google Cloud native provider to build infrastructure using TypeScript and examine some of Pulumi's newest features.
 
