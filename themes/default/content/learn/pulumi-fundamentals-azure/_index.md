@@ -13,9 +13,9 @@ index: 1
 meta_image: meta.png
 
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
+    - Working with the Azure resource provider
+    - Creating remote resources
+    - Using Pulumi with abstractions
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -26,16 +26,15 @@ providers:
     - azure
 block_external_search_index: true
 ---
-
-In this tutorial, we're going to learn more about how to use Pulumi with Azure.
-Specifically, we'll build on what we learned with
+In this tutorial, we're going to apply what we learned in
 [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) to
-explore a new provider.
+explore a new resource provider: Azure. This tutorial is a hands-on experience, so
+you're going to find fewer definitions and more code.
 
 ## Time
 
 How long this tutorial will take depends on your internet connection, reading
-speed, and other factors. On average, this tutorial should take you about 40
+speed, and other factors. On average, this tutorial should take you about 30
 minutes to complete.
 
 ## Prerequisites
@@ -44,12 +43,18 @@ You should already have completed
 [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}).
 
 You will need the following tools to complete this tutorial:
-- A [Pulumi account and token](http:app.pulumi.com)
+- A [Pulumi account and token](http://app.pulumi.com)
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - Python 3.8 or later
 - An Azure account (free tier)
+- The [Azure CLI](https://github.com/Azure/azure-cli)
 
+{{% notes type="warning" %}}
+Please follow the directions to [setup and configure the Azure CLI with
+Pulumi]({{< relref "/docs/intro/cloud-providers/azure/setup/" >}}) before you
+begin.
+{{% /notes %}}
 As to skills, you should be able to
 
 - use your local terminal.
