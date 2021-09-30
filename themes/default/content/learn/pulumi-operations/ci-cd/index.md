@@ -344,7 +344,7 @@ jobs:
 
 We have several secrets in our workflow files. To add values for them, go to your GitHub repository's Settings tab and select Secrets.
 
-IMAGE HERE KAT
+![A screenshot showing the Secrets page on a GitHub repository](/gh-actions-secrets.png)
 
 First, [create a new Pulumi Access Token](https://app.pulumi.com/account/tokens). Submit that token as a new secret named named `PULUMI_ACCESS_TOKEN`. This is what enables your GitHub Action to communicate with the Pulumi service on your behalf.
 
@@ -354,6 +354,12 @@ You will also need to add secrets for `AWS_ACCESS_KEY_ID`, `AWS_REGION` and `AWS
 
 To try things out, simply create a Pull Request or commit, and you will see these new actions showing up in the usual GitHub Checks dialog, with a green checkmark if everything went as planned:
 
-IMAGES HERE KAT
+![A screenshot of the Checks modal on GitHub after a commit, showing checks have passed.](/gh-actions-checks.png)
 
 Click the Logs pane to see the full output of the Pulumi CLI, along with the URL of your deployment on the Pulumi Console with more details:
+
+![A screenshot of the GitHub Actions logs pane, showing a Pulumi deploy completed successfully.](/gh-actions-logs.png)
+
+## Congratulations!
+
+You've successfully integrated Pulumi into the CI/CD workflow for your Boba Shop app, using GitHub Actions!
