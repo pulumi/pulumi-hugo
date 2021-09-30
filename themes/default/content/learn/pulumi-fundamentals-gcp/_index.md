@@ -8,9 +8,9 @@ meta_desc: Learn how to apply Pulumi to Google Cloud Product (GCP).
 index: 1
 meta_image: meta.png
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
+    - Working with the GCP resource provider
+    - Creating remote resources
+    - Using Pulumi with abstractions
 tags:
     - fundamentals
     - gcp
@@ -19,15 +19,15 @@ providers:
 block_external_search_index: true
 ---
 
-In this tutorial, we're going to learn more about how to use Pulumi with GCP.
-Specifically, we'll build on what we learned with
+In this tutorial, we're going to apply what we learned in
 [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) to
-explore a new provider.
+explore a new resource provider: GCP. This tutorial is a hands-on experience, so
+you're going to find fewer definitions and more code.
 
 ## Time
 
 How long this tutorial will take depends on your internet connection, reading
-speed, and other factors. On average, this tutorial should take you about 40
+speed, and other factors. On average, this tutorial should take you about 30
 minutes to complete.
 
 ## Prerequisites
@@ -40,7 +40,14 @@ You will need the following tools to complete this tutorial:
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - Python 3.8 or later
-- An GCP account (free tier)
+- An GCP account (free tier) and the relevant keys
+- The GCP SDK (`gcloud`)
+
+{{% notes type="warning" %}}
+Please follow the directions to [setup and configure the GCP CLI with
+Pulumi]({{< relref "/docs/intro/cloud-providers/gcp/setup/" >}}) before you
+begin.
+{{% /notes %}}
 
 As to skills, you should be able to
 
@@ -50,7 +57,7 @@ As to skills, you should be able to
 ## Sample app
 
 The sample app we're building, the Pulumipus Boba Tea Shop, is a progressive web
-application (PWA) built with MongoDB, ExpressJS, NodeJS, and React (the MERN
+application (PWA) built with MongoDB, ExpressJS, React, and NodeJS (the MERN
 stack). It's a fairly common implementation found in eCommerce applications. We
 have adapted this application from
 [this repository](https://github.com/shubhambattoo/shopping-cart). The app
