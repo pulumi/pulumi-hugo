@@ -44,6 +44,7 @@ aliases: ["/docs/reference/clouds/"]
 * [Consul]({{< relref "./consul" >}})
 * [Docker]({{< relref "./docker" >}})
 * [Kafka]({{< relref "./kafka" >}})
+* [Kong]({{< relref "./kong" >}})
 * [Mailgun]({{< relref "./mailgun" >}})
 * [Minio]({{< relref "./minio" >}})
 * [MongoDB Atlas]({{< relref "./mongodbatlas" >}})
