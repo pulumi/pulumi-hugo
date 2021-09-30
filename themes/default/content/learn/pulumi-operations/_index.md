@@ -9,13 +9,16 @@ index: 5
 meta_image: meta.png
 
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
+    - CI/CD
+    - Access Control
+    - Webhooks
+    - Policy as Code
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
+    - learn
+    - tutorials
+    - operations
 
 # At least one provider is required.
 providers:
@@ -23,6 +26,4 @@ providers:
 block_external_search_index: true
 ---
 
-This is the content that will appear at the top of the module index page. It should
-describe the overall goal of the module and briefly summarize what the reader will know
-how to do by the end of it.
+In this pathway, you'll learn how to use Pulumi from an operational perspective. We'll add CI/CD to your Boba Shop app, learn how RBAC works, talk about webhooks with Pulumi, and learn how to enforce a policy.

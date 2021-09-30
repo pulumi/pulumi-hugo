@@ -67,7 +67,7 @@ Webhooks can be attached to either a stack or an organization. Stack webhooks wi
 
 From your Stack or Organization page, click Settings, and then Webhooks.
 
-SCREENSHOT HERE
+![A screenshot of the Pulumi console, showing the Webhooks screen under Settings.](org-webhooks.png)
 
 ## Create a Webhook
 
@@ -80,4 +80,4 @@ To create a webhook:
 
 If a secret is provided, webhook deliveries will contain a signature in the HTTP request header that can be used to authenticate messages as coming from the Pulumi Console.
 
-SCREENSHOT HERE
+![A screenshot of the Pulumi console, showing the webhook creation screen.](stack-webhooks.png)

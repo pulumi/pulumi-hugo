@@ -57,7 +57,7 @@ links:
 block_external_search_index: true
 ---
 
-Using [Pulumi Crosswalk](https://www.pulumi.com/docs/guides/crosswalk/kubernetes/), configuring RBAC ([Role Based Access Control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)) is a little less painful. This module will focus on Crosswalk for Kubernetes, but we also provide [Crosswalk for AWS](https://www.pulumi.com/docs/guides/crosswalk/aws/).
+Say you want to allow teammates to make changes to your Boba Shop app, but you want to control who has access to specific aspects of it. Using [Pulumi Crosswalk](https://www.pulumi.com/docs/guides/crosswalk/kubernetes/), configuring RBAC ([Role Based Access Control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)) is a little less painful. This module will focus on Crosswalk for Kubernetes, but we also provide [Crosswalk for AWS](https://www.pulumi.com/docs/guides/crosswalk/aws/).
 
 {{< chooser cloud "aws,azure,gcp" / >}}
 
