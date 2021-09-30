@@ -3,19 +3,22 @@ title: "Pulumi in Operations"
 layout: module
 date: 2021-09-15T12:19:39-05:00
 draft: false
-description: Learn how to use Pulumi from an operational perspective.
-meta_desc: Learn how to use Pulumi from an operational perspective.
+description: In this pathway, learn how to use Pulumi from an operational perspective.
+meta_desc: In this pathway, learn how to use Pulumi from an operational perspective.
 index: 5
 meta_image: meta.png
 
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
+    - CI/CD
+    - Access Control
+    - Webhooks
+    - Policy as Code
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
+    - learn
+    - tutorials
+    - operations
 
 # At least one provider is required.
 providers:

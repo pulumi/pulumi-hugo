@@ -67,7 +67,7 @@ The first thing we need to do is commit our workflow files to the GitHub reposit
 
 ### The pull_request Workflow File
 
-Add a new file to your Pulumi project repository at .github/workflows/pull_request.yml containing the following workflow definition, which instructs GitHub Actions to run pulumi preview in response to all pull_request events:
+Add a new file to your Boba Shop project repository at .github/workflows/pull_request.yml containing the following workflow definition, which instructs GitHub Actions to run pulumi preview in response to all pull_request events:
 
 {{< chooser language "typescript,python,go,csharp" / >}}
 
@@ -201,7 +201,7 @@ jobs:
 
 ### The push Workflow File
 
-Now add another new file to your Pulumi project repository at `.github/workflows/push.yml`containing the following workflow definition, which instructs GitHub Actions to run `pulumi up` whenever a commit is made to the `main` branch.
+Now add another new file to your Boba Shop project repository at `.github/workflows/push.yml`containing the following workflow definition, which instructs GitHub Actions to run `pulumi up` whenever a commit is made to the `main` branch.
 
 {{< chooser language "typescript,python,go,csharp" / >}}
 
