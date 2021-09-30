@@ -1,5 +1,5 @@
 ---
-title: "Networking"
+title: "Setting up Networking Resources"
 layout: topic
 
 # The date represents the date the course was created. Posts with future dates are visible

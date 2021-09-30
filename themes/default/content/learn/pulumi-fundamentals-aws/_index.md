@@ -6,17 +6,11 @@ draft: true
 description: Learn how to apply Pulumi to Amazon Web Services (AWS).
 meta_desc: Learn how to apply Pulumi to Amazon Web Services (AWS).
 index: 1
-
-# The meta_image appears in social-media previews and on the Learn Pulumi home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for reference.
 meta_image: meta.png
-
 youll_learn:
-    - Stuff
-    - Things
-    - Whatnot
-
+    - Working with the AWS resource provider
+    - Creating remote resources
+    - Using Pulumi with abstractions
 tags:
     - fundamentals
     - aws
@@ -63,7 +57,7 @@ As to skills, you should be able to
 ## Sample app
 
 The sample app we're building, the Pulumipus Boba Tea Shop, is a progressive web
-application (PWA) built with MongoDB, ExpressJS, NodeJS, and React (the MERN
+application (PWA) built with MongoDB, ExpressJS, React, and NodeJS (the MERN
 stack). It's a fairly common implementation found in eCommerce applications. We
 have adapted this application from
 [this repository](https://github.com/shubhambattoo/shopping-cart). The app
