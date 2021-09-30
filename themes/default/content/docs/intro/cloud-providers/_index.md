@@ -33,6 +33,7 @@ aliases: ["/docs/reference/clouds/"]
 * [OpenStack]({{< relref "./openstack" >}})
 * [Equinix Metal]({{< relref "./equinix-metal" >}})
 * [vSphere]({{< relref "./vsphere" >}})
+* [Yandex]({{< relref "./yandex" >}})
 
 ## Infrastructure Providers
 
