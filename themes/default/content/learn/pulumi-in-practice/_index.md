@@ -7,7 +7,6 @@ description: Learn how to use Pulumi for more complex configurations.
 meta_desc: Learn how to use Pulumi for more complex configurations.
 index: 4
 meta_image: meta.png
-
 youll_learn:
     - Using "stacks" for unique configurations
     - Sharing values from one Pulumi program to another
@@ -24,6 +23,7 @@ programs, and work with them interdependently. We will also cover how Pulumi
 uses secrets.
 
 ## Time
+
 How long this module will take depends on your internet connection, reading
 speed, and other factors. On average, this module should take you about 40
 minutes to complete.
@@ -40,4 +40,4 @@ You will need the following tools to complete this module:
 As to skills, you should be able to
 
 * use your local terminal.
-* read and understand basic Typescript, Python, Go, or C# code.
+* read and understand basic Typescript or Python code.
