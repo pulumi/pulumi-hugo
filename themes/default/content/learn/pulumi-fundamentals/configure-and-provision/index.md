@@ -36,13 +36,24 @@ configurations as variables at the top of your program.
 Add the following configuration variables to your Pulumi program below the
 imports:
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
 ```python
 config = pulumi.Config()
 frontend_port = config.require_int("frontend_port")
 backend_port = config.require_int("backend_port")
 mongo_port = config.require_int("mongo_port")
 ```
+
+{{% /choosable %}}
+
 Your Pulumi program should now look like this:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 import os
@@ -77,16 +88,24 @@ frontend = docker.Image("frontend",
 mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 ```
 
+{{% /choosable %}}
+
 Try and run your `pulumi up` again at this point. You should see an error like
 this:
 
-```
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
+```bash
 Diagnostics:
   pulumi:pulumi:Stack (my-first-app-dev):
     error: Missing required configuration variable 'my-first-app:frontend_port'
         please set a value using the command `pulumi config set my-first-app:frontend_port <value>`
     error: an unhandled error occurred: Program exited with non-zero exit code: 1
 ```
+
+{{% /choosable %}}
 
 This is because we have specified that this config option is _required_.
 Remember how we can use the same program to define multiple stacks? Let's set
@@ -116,14 +135,24 @@ connect to each other, so we will need to create a
 [`Network`](https://www.pulumi.com/docs/reference/pkg/docker/network/), which is
 another resource. Add the following code at the bottom of your program:
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
 ```python
 # create a network!
 network = docker.Network("network", name=f"services-{stack}")
 ```
 
+{{% /choosable %}}
+
 Define a new
 [`Container`](https://www.pulumi.com/docs/reference/pkg/docker/container/)
 resource in your Pulumi program below the `Network` resource, like this:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 # create the backend container!
@@ -144,6 +173,8 @@ backend_container = docker.Container("backend_container",
                         opts=pulumi.ResourceOptions(depends_on=[mongo_container])
                         )
 ```
+
+{{% /choosable %}}
 
 It is important to note something here. In the `Container` resource, we are
 referencing `baseImageName` from the `Image` resource. Pulumi now knows there is
@@ -167,15 +198,25 @@ pulumi config set node_environment development
 Then, we need to add them to the top of our program with the rest of the
 configuration variables.
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
 ```python
 mongo_host = config.require("mongo_host") # Note that strings are the default, so it's not `config.require_str`, just `config.require`.
 database = config.require("database")
 node_environment = config.require("node_environment")
 ```
 
+{{% /choosable %}}
+
 We also need to create `Container` resources for the frontend and mongo
 containers. Put the mongo container declaration above the backend one, and the
 frontend declaration at the bottom. Here's the code for the mongo container:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 # create the mongo container!
@@ -193,7 +234,13 @@ mongo_container = docker.Container("mongo_container",
                         )
 ```
 
+{{% /choosable %}}
+
 And the code for the frontend container:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 # create the frontend container!
@@ -214,11 +261,17 @@ frontend_container = docker.Container("frontend_container",
                                       )
 ```
 
+{{% /choosable %}}
+
 Let's see what the whole program looks like next.
 
 ## Put it all together
 
 Now that we know how to create a container we can complete our program.
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 import os
@@ -301,6 +354,8 @@ frontend_container = docker.Container("frontend_container",
                                       )
 ```
 
+{{% /choosable %}}
+
 With Docker networking, we can use image names to refer to a container. In our
 example, the React frontend client sends requests to the Express backend client.
 The URL to the backend is set via the `setupProxy.js` file in the
@@ -313,7 +368,7 @@ we need to add products to the database.
 
 Now we can populate MongoDB and set up our Pulumi file to autopopulate the next
 time we deploy. First, copy the `products.json` file into the same directory as
-your `__main__.py` file.
+your {{% langfile %}} file.
 
 ```bash
 cp app/data/products.json .
@@ -324,6 +379,10 @@ Then, we'll mount the file to an ephemeral seed container, and then use
 of code to your Pulumi file, then run `pulumi up`.
 
 Add this snippet after the `backend_container` declaration:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 data_seed_container = docker.Container("data_seed_container",
@@ -347,6 +406,8 @@ data_seed_container = docker.Container("data_seed_container",
                                        )
 ```
 
+{{% /choosable %}}
+
 Note the `mounts` part, which allows you to use a `bind mount` storage type to
 add the necessary file. If you're not familiar with mounts compared to volumes
 in Docker, see [the docs on bind
@@ -358,5 +419,9 @@ database.
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
 
+---
+
 Congratulations, you've now finished Pulumi Fundamentals! Head back to the main
-page and explore some other modules to understand more about Pulumi.
+page and explore some other modules to understand more about Pulumi. The best
+next steps to take are to choose one of the Fundamentals for a cloud-based
+provider of your choice.
