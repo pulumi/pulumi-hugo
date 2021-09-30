@@ -13,8 +13,6 @@ authors:
 tags:
     - stacks
     - learn
-
-# When provided, links are rendered at the bottom of the topic page.
 links:
     - text: Some Website
       url: http://something.com
@@ -29,6 +27,59 @@ feature branches (such as `feature-x-dev`).
 
 A project can have as many stacks as you need. By default, Pulumi creates a
 stack for you when you start a new project using the `pulumi new` command.
+Let's create a new project now for use in this tutorial:
+
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```bash
+mkdir my-first-app
+cd my-first-app
+$ pulumi new typescript -y
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```bash
+mkdir my-first-app
+cd my-first-app
+$ pulumi new python -y
+```
+
+{{% /choosable %}}
+
+<!-- {{% choosable language go %}}
+
+```bash
+mkdir my-first-app
+cd my-first-app
+$ pulumi new go -y
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```bash
+mkdir my-first-app
+cd my-first-app
+$ pulumi new csharp -y
+```
+
+{{% /choosable %}} -->
+
+This command prints output similar to the following example with a bit more
+information and status as it goes:
+
+```
+Created stack 'dev'
+...
+Your new project is ready to go! ✨
+To perform an initial deployment, run 'pulumi up'
+```
 ## Create a stack
 
 To create a new stack, we use the command `pulumi stack init stackName`. This
@@ -39,12 +90,40 @@ nearest `Pulumi.yaml` file.
 The stack name must be unique within a project. Stack names may only contain
 alphanumeric characters, hyphens, underscores, or periods.
 
-Let's create a new stack in our current project, for our staging environment:
+Let's create a new stack in our project, for our staging environment:
+
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```bash
+$ pulumi stack init staging
+```
+
+{{% /choosable %}}
 
 
 ```bash
 $ pulumi stack init staging
 ```
+
+{{% /choosable %}}
+
+<!-- {{% choosable language go %}}
+
+```bash
+$ pulumi stack init staging
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```bash
+$ pulumi stack init staging
+```
+
+{{% /choosable %}} -->
 
 ## Listing Stacks
 We have a couple of stacks in our project now&mdash;but how do we know which

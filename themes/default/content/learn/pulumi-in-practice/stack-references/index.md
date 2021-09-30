@@ -20,6 +20,19 @@ links:
 block_external_search_index: true
 ---
 
+We've created some resources. Now, let's see how we can use outputs outside of
+Pulumi. In this part, we're going to explore more about stacks, [_stack
+outputs_](https://www.pulumi.com/docs/reference/glossary/#stack-output), and
+[_stack
+references_](https://www.pulumi.com/docs/reference/glossary/#stack-reference).
+Stack outputs are, as you might guess, the values exported from any given stack.
+These values can also be obtained from the [Pulumi
+Console](https://app.pulumi.com), and they're extremely useful when you want to
+run commands with the CLI that reference those values. Note, though, that stack
+outputs are for the current stack only. If you want to get values from another
+stack, you want to use stack references, which bridge different stacks through
+inter-stack dependencies.
+
 Stack references allow you to access the outputs of one stack from another
 stack. Inter-stack dependencies allow one stack to reference the outputs of
 another stack.
@@ -29,7 +42,7 @@ the stack outputs from the program we just created.
 
 Let's start by making our new Pulumi program in a new directory:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -51,7 +64,7 @@ $ pulumi new python -y
 
 {{% /choosable %}}
 
-{{% choosable language go %}}
+<!-- {{% choosable language go %}}
 
 ```bash
 mkdir my-second-app
@@ -69,7 +82,7 @@ cd my-second-app
 $ pulumi new csharp -y
 ```
 
-{{% /choosable %}}
+{{% /choosable %}} -->
 
 Let's go ahead and create a `staging` stack here as well:
 
@@ -83,7 +96,7 @@ code, change `YOURNAME` to the name/org for your Pulumi account.
 
 Add this code to the {{< langfile >}} file inside of `my-second-app`.
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -112,7 +125,7 @@ pulumi.export("shopUrl", stack_ref.get_output("url"))
 
 {{% /choosable %}}
 
-{{% choosable language go %}}
+<!-- {{% choosable language go %}}
 
 ```go
 import (
@@ -149,7 +162,7 @@ class AppStack : Stack
 }
 ```
 
-{{% /choosable %}}
+{{% /choosable %}} -->
 
 The `org` environment variable is new, as is the `stack_ref` declaration. That
 declaration sets up an instance of the `StackReference` class, which needs the

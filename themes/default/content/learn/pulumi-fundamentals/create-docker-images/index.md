@@ -41,7 +41,7 @@ Create a directory called `app` inside the directory you made in the previous
 lesson. Clone the code repository there, then move everything from the code
 repository directory to the `app/` directory.
 
-```shell
+```bash
 mkdir app
 cd app
 git clone git@github.com:pulumi/tutorial-pulumi-fundamentals.git
@@ -94,9 +94,12 @@ the `requirements.txt` file at some point.
 Back inside your Pulumi program, let's build your first Docker image. Remember
 that a Pulumi program is the code that defines the ideal configuration of your
 infrastructure using a general-purpose programming language. In this case, we're
-using Python, so our main file is `__main__.py`. Inside your program's
-`__main__.py` file, use any editor to add the following code:
+using Python, so our main file is {{% langfile %}}. Inside your program's
+{{% langfile %}} file, use any editor to add the following code:
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 import os
@@ -113,6 +116,8 @@ backend = docker.Image("backend",
                         skip_push=True
                         )
 ```
+{{% /choosable %}}
+
 In this file, we import, or call, the main Pulumi package and the Docker
 provider. Then, we figure out which stack we're on in the command line, and
 populate the `stack` variable for later use. When we build our backend image,
@@ -153,6 +158,10 @@ other pieces of our application.
 Our application includes a frontend client and MongoDB. We'll add them to the
 program, so add this code after the previous fragment.
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
 ```python
 # build our frontend image!
 frontend_image_name = "frontend"
@@ -163,17 +172,29 @@ frontend = docker.Image("frontend",
                         )
 ```
 
+{{% /choosable %}}
+
 We build the frontend client the same way we built the backend. However, we are
 going to use the official MongoDB image from Docker Hub, so we use the
 [RemoteImage](https://www.pulumi.com/docs/reference/pkg/docker/remoteimage/)
 resource.
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 # build our mongodb image!
 mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 ```
 
+{{% /choosable %}}
+
 Compare your program now to this complete program before we move forward:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 import os
@@ -201,6 +222,8 @@ frontend = docker.Image("frontend",
 # build our mongodb image!
 mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 ```
+
+{{% /choosable %}}
 
 If your code looks the same, great! Otherwise, update yours to match this code.
 Now, run `pulumi up` to build all of the images that we'll need. From here, we
