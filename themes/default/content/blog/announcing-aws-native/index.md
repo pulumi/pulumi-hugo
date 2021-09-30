@@ -145,6 +145,6 @@ Get started with the AWS Native provider today:
 * [Docs](https://www.pulumi.com/docs/intro/cloud-providers/aws-native/)
 * [Examples](https://github.com/pulumi/examples)
 * [NPM](https://www.npmjs.com/package/@pulumi/aws-native)
-* [PyPI](https://pypi.org/project/pulumi-gcp-native/)
+* [PyPI](https://pypi.org/project/pulumi-aws-native/)
 * [NuGet](https://www.nuget.org/packages/Pulumi.AwsNative/)
 * [Go](https://pkg.go.dev/github.com/pulumi/pulumi-aws-native/sdk/go/aws)
