@@ -61,11 +61,26 @@ When running an update, your Pulumi program talks to the Pulumi CLI to orchestra
 
 Because mocks don’t execute any real work, unit tests run very fast. Also, they can be made deterministic because tests don’t depend on the behavior of any external system.
 
+## Break up our code
+
+For reasons I don't know, we can't import from the `__main__.py` file into our tests. So we'll have to break up our program into smaller files.
+
+Create a new file called `docker.py` and copy the contents of `__main__.py` into it.
+
+Replace the contents of `__main__.py` with the following:
+
+```python
+
+import pulumi
+
+import my_docker
+```
+
 
 ## Add Mocks
 Let’s add the following code to mock the external calls to the Pulumi CLI.
 
-Create a file for the test code, called `test_ec2.py`. 
+Create a file for the test code, called `test_shop.py`. 
 Add the following code to it!
 
 ```python 
@@ -79,3 +94,99 @@ class MyMocks(pulumi.runtime.Mocks):
 
 pulumi.runtime.set_mocks(MyMocks())
 ```
+
+We need to set the configuration since it was made required:
+
+```python
+import unittest
+import pulumi
+
+# ... MyMocks as shown above
+pulumi.runtime.set_mocks(MyMocks())
+
+pulumi.runtime.set_all_config({
+  "project:backend_port": "3000",
+  "project:database": "cart",
+  "project:frontend_port": "3001",
+  "project:mongo_host": "mongodb://mongo:27017",
+  "project:mongo_port": "27017",
+  "project:node_environment": "development"
+})
+
+# It's important to import `my_docker` _after_ the mocks are defined.
+import my_docker
+
+class TestingWithMocks(unittest.TestCase):
+    # TODO(check 1): Use the proper Mongo docker image.
+```
+
+## Write tests
+
+Update `test_shop.py` to add the following tests:
+
+```python
+  # Test if the proper image name is used.
+  @pulumi.runtime.test
+  def test_docker_image(self):
+      def check_image_name(args):
+          image_name = args
+          self.assertIn('mongo:bionic', image_name, 'must use bionic')
+
+      return pulumi.Output.all(my_docker.mongo_image.name).apply(check_image_name)
+```
+
+So now your `test_shop.py` file looks like this:
+
+```python
+
+import unittest
+import pulumi
+
+class MyMocks(pulumi.runtime.Mocks):
+    def new_resource(self, args: pulumi.runtime.MockResourceArgs):
+        return [args.name + '_id', args.inputs]
+    def call(self, args: pulumi.runtime.MockCallArgs):
+        return {}
+
+pulumi.runtime.set_mocks(MyMocks())
+
+pulumi.runtime.set_all_config({
+  "project:backend_port": "3000",
+  "project:database": "cart",
+  "project:frontend_port": "3001",
+  "project:mongo_host": "mongodb://mongo:27017",
+  "project:mongo_port": "27017",
+  "project:node_environment": "development"
+})
+
+# It's important to import `my_docker` _after_ the mocks are defined.
+import my_docker
+
+class TestingWithMocks(unittest.TestCase):
+
+  # Test if the proper image name is used.
+  @pulumi.runtime.test
+  def test_docker_image(self):
+      def check_image_name(args):
+          image_name = args
+          self.assertIn('mongo:bionic', image_name, 'must use bionic')
+
+      return pulumi.Output.all(my_docker.mongo_image.name).apply(check_image_name)
+```
+
+To run your tests, run the following command:
+
+```bash
+$ python -m unittest
+```
+
+You will see output like this:
+
+```bash
+----------------------------------------------------------------------
+Ran 1 test in 2.239s
+
+OK
+```
+
+TODO: make the test fail, etc, but this is just to get started.
