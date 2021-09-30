@@ -59,14 +59,15 @@ prompts to create a default project:
 {{% choosable language typescript %}}
 
 ```bash
-pulumi new typescript -y
+$ pulumi new typescript -y
 ```
 
 {{% /choosable %}}
 
 {{% choosable language python %}}
+
 ```bash
-pulumi new python -y
+$ pulumi new python -y
 ```
 {{% /choosable %}}
 
