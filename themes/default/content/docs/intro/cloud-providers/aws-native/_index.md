@@ -38,7 +38,7 @@ Some [examples](https://github.com/pulumi/pulumi-aws-native/tree/master/examples
 {{% choosable language typescript %}}
 
 ```typescript
-const bucket = new awsclassic.s3.Bucket("source");
+const bucket = new awsnative.s3.Bucket("source");
 
 const accessPoint = new awsnative.s3.AccessPoint("ap", {
    bucket: bucket.id,
@@ -68,14 +68,16 @@ import pulumi
 import pulumi_aws_native as aws_native
 
 my_bucket = aws_native.s3.Bucket("myBucket")
+
 ap = aws_native.s3.AccessPoint("ap", bucket=my_bucket.id)
+
 objectlambdaap = aws_native.s3objectlambda.AccessPoint("objectlambdaap", object_lambda_configuration=aws_native.s3objectlambda.AccessPointObjectLambdaConfigurationArgs(
     supporting_access_point=ap.arn,
     transformation_configurations=[aws_native.s3objectlambda.AccessPointTransformationConfigurationArgs(
         actions=["GetObject"],
         content_transformation={
-            "awsLambda": {
-                "functionArn": fn.arn,
+            "AwsLambda": {
+                "FunctionArn": fn.arn,
             },
         },
     )],
@@ -108,7 +110,7 @@ var objectLambda = new AwsNative.S3ObjectLambda.AccessPoint("objectlambda-ap", n
                 {
                     ["AwsLambda"] = new Dictionary<string, object>
                     {
-                        ["FunctionArn"] = fn.arn     
+                        ["FunctionArn"] = arn
                     }
                 }
             }

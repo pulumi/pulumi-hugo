@@ -110,7 +110,7 @@ var objectLambda = new AwsNative.S3ObjectLambda.AccessPoint("objectlambda-ap", n
                 {
                     ["AwsLambda"] = new Dictionary<string, object>
                     {
-                        ["FunctionArn"] = arn     
+                        ["FunctionArn"] = arn
                     }
                 }
             }
