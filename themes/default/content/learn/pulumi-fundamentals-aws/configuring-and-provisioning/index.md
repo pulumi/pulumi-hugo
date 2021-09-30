@@ -402,9 +402,5 @@ frontend_container = docker.Container("frontend_container",
 
 Run `pulumi up` to deploy your stack!
 
----
-
-Congratulations! You've finished the Pulumi Fundamentals on AWS pathway! From
-here, you'll want to try out [Pulumi in
-Practice]({{< relref "/learn/pulumi-in-practice" >}}) to keep learning more
-about using Pulumi.
+Next up, let's start really using those language features to prepare for working
+with more complex architectures.
