@@ -136,17 +136,18 @@ func main() {
         if err != nil {
             return err
         }
+
         _, err = s3objectlambda.NewAccessPoint(ctx, "objectlambdaap", &s3objectlambda.AccessPointArgs{
             ObjectLambdaConfiguration: &s3objectlambda.AccessPointObjectLambdaConfigurationArgs{
                 SupportingAccessPoint: ap.Arn,
-                TransformationConfigurations: []s3objectlambda.AccessPointTransformationConfigurationArgs{
+                TransformationConfigurations: s3objectlambda.AccessPointTransformationConfigurationArray{
                     &s3objectlambda.AccessPointTransformationConfigurationArgs{
                         Actions: pulumi.StringArray{
                             pulumi.String("GetObject"),
                         },
-                        ContentTransformation: pulumi.Any{
-                            AwsLambda: map[string]interface{}{
-                                "functionArn": fn.Arn,
+                        ContentTransformation: pulumi.Map{
+                            "AwsLambda": pulumi.Map{
+                                "FunctionArn": fn.Arn,
                             },
                         },
                     },
