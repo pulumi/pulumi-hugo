@@ -31,14 +31,14 @@ Resources available in the Pulumi AWS Native provider are based on the resources
 
 The Pulumi AWS Native provider can be used in combination with the classic Pulumi AWS provider, as well as the 60+ additional Pulumi resource providers which cover a wide variety of other cloud and SaaS platforms.  While in preview, the Pulumi AWS Native provider may not yet have support for every feature of AWS that you need in your Pulumi applications, but can always be used along with the classic Pulumi AWS provider to cover both existing use cases and brand new supported features.  
 
-In this example, we can see how the new AWS S3 Object Lambda feature can be used via the AWS Native provider, with access to the full API defined by the S3 team at AWS, and combined naturally with another resource managed by the classic Pulumi AWS provider:
+In this example, we can see how the new AWS S3 Object Lambda feature can be used via the AWS Native provider, with access to the full API defined by the S3 team at AWS:
 
 {{< chooser language "typescript,python,csharp,go" >}}
 
 {{% choosable language typescript %}}
 
 ```typescript
-const bucket = new awsclassic.s3.Bucket("source");
+const bucket = new awsnative.s3.Bucket("source");
 
 const accessPoint = new awsnative.s3.AccessPoint("ap", {
    bucket: bucket.id,
@@ -68,14 +68,16 @@ import pulumi
 import pulumi_aws_native as aws_native
 
 my_bucket = aws_native.s3.Bucket("myBucket")
+
 ap = aws_native.s3.AccessPoint("ap", bucket=my_bucket.id)
+
 objectlambdaap = aws_native.s3objectlambda.AccessPoint("objectlambdaap", object_lambda_configuration=aws_native.s3objectlambda.AccessPointObjectLambdaConfigurationArgs(
     supporting_access_point=ap.arn,
     transformation_configurations=[aws_native.s3objectlambda.AccessPointTransformationConfigurationArgs(
         actions=["GetObject"],
         content_transformation={
-            "awsLambda": {
-                "functionArn": fn.arn,
+            "AwsLambda": {
+                "FunctionArn": fn.arn,
             },
         },
     )],
@@ -108,7 +110,7 @@ var objectLambda = new AwsNative.S3ObjectLambda.AccessPoint("objectlambda-ap", n
                 {
                     ["AwsLambda"] = new Dictionary<string, object>
                     {
-                        ["FunctionArn"] = fn.arn     
+                        ["FunctionArn"] = arn     
                     }
                 }
             }
