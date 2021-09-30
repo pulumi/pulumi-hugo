@@ -1,11 +1,11 @@
 ---
-title: "Networking"
+title: "Creating a Registry"
 layout: topic
 
 # The date represents the date the course was created. Posts with future dates are visible
 # in development, but excluded from production builds. Use the time and timezone-offset
 # portions of of this value to schedule posts for publishing later.
-date: 2021-09-10T09:43:36-05:00
+date: 2021-09-30T09:32:00-05:00
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting the topic for review.
