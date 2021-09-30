@@ -23,7 +23,7 @@ benefits:
              With Pulumi, you can incorporate software development best practices such as code reviews, testing, policy checks into your infrastructure management process. Pulumi allows you to increase automation and velocity while reducing copy and paste as well as manual errors.
 
         - title: Higher order automation
-          icon: global
+          icon: eye
           icon_color: yellow
           description: |
             You can increase automation across the entire lifecycle of your cloud infrastructure. You can program logic that orchestrates complex workflows during infrastructure provisioning instead of needing to use Bash scripts or glue code. In addition to its CLI, Pulumi provides the Automation API, a programmatic interface for infrastructure as code, so you can build applications that dynamically manage infrastructure.
@@ -38,20 +38,20 @@ benefits:
       title: How Pulumi helps
       items:
         - title: Fully integrated secrets management
-          icon: rocketship
-          icon_color: salmon
+          icon: security
+          icon_color: violet
           description: |
             Pulumi provides first class support for secrets so you can confidently store values that contain sensitive data, such as database passwords or service tokens. Pulumi automatically tracks your secrets across your program’s execution and ensure that secret values are encrypted in the state file and never exposed as plain text.
 
         - title: Empower developers
           icon: gear
-          icon_color: salmon
+          icon_color: violet
           description: |
             Pulumi increases the accessibility and reduces the complexity of the modern cloud. Developers can just use the standard programming languages they already know like Typescript, Python, C#, and Go as well as their existing tools like IDEs and test frameworks. Pulumi makes the cloud easily accessible to your developers without them having to wait on infrastructure from the operations teams. They can develop and release features faster.
 
         - title: Full support of the modern cloud
-          icon: eye
-          icon_color: salmon
+          icon: global
+          icon_color: violet
           description: |
             Pulumi enables you to program the full surface area of the modern cloud (e.g., AWS, Azure, Google Cloud, Kubernetes). All newly-released services and features are supported the same day.
 

@@ -49,7 +49,7 @@ benefits:
           description: |
             Pulumi can provision any resource available in the K8s API. Pulumi supports all new resources and features in the K8s API on the same day as the release. Pulumi allows K8s users novel forms of cluster management and app workload deployments.
 
-        - title: Policy-as-Code
+        - title: Programmable guardrails
           icon: eye
           icon_color: salmon
           description: |

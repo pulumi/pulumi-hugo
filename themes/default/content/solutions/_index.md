@@ -27,16 +27,6 @@ use_cases:
 
             [Learn more](/solutions/shared-services-platforms/)
 
-        - name: Greenfield modern applications
-          case_studies:
-            - name: Snowflake
-              link: /case-studies/snowflake
-            - name: Menta Network
-              link: /case-studies/menta-network
-          description: |
-            Use Pulumi to develop your next greenfield application that uses modern cloud technologies, like containers and serverless. Pulumi is designed for building
-            these types of complex and distributed applications.
-
         - name: Infrastructure CI/CD
           case_studies:
             - name: Atlassian
@@ -58,6 +48,16 @@ use_cases:
             Modernize how your teams provision and manage infrastructure in order to adapt to the changes in technologies (containers, serverless), architectures (distributed), and software release automation associated with the cloud.
 
             [Learn More](/solutions/terraform-migration)
+
+        - name: Greenfield modern applications
+          case_studies:
+            - name: Snowflake
+              link: /case-studies/snowflake
+            - name: Menta Network
+              link: /case-studies/menta-network
+          description: |
+            Use Pulumi to develop your next greenfield application that uses modern cloud technologies, like containers and serverless. Pulumi is designed for building
+            these types of complex and distributed applications.
 
         - name: AI and ML workloads
           description: |
