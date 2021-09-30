@@ -29,7 +29,7 @@ the stack outputs from the program we just created.
 
 Let's start by making our new Pulumi program in a new directory:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
+{{< chooser language "python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -83,14 +83,14 @@ code, change `YOURNAME` to the name/org for your Pulumi account.
 
 Add this code to the {{< langfile >}} file inside of `my-second-app`.
 
-{{< chooser language "typescript,python,go,csharp" / >}}
+{{< chooser language "python" / >}}
 
 {{% choosable language typescript %}}
 
 ```typescript
 const env = pulumi.getStack();
 const myFirstApp = new pulumi.StackReference(`YOURNAME/my-first-app/${env}`);
-export let name =  myFirstApp.getOutput("name");
+export let shopUrl =  myFirstApp.getOutput("url");
 ```
 
 {{% /choosable %}}
@@ -99,9 +99,15 @@ export let name =  myFirstApp.getOutput("name");
 {{% choosable language python %}}
 
 ```python
-env = get_stack()
-myFirstApp = StackReference(f"YOURNAME/my-first-app/{env}")
-pulumi.export("name", myFirstApp.get_output("name"))
+import pulumi
+
+config = pulumi.Config()
+stack = pulumi.get_stack()
+org = config.require("org")
+
+stack_ref = pulumi.StackReference(f"{org}/my-first-app/{stack}")
+
+pulumi.export("shopUrl", stack_ref.get_output("url"))
 ```
 
 {{% /choosable %}}
@@ -120,7 +126,7 @@ func main() {
     slug := fmt.Sprintf("YOURNAME/my-first-app/%v", ctx.Stack())
     stackRef, err := pulumi.NewStackReference(ctx, slug, nil)
 
-    ctx.Export("name", stackRef.GetOutput(pulumi.String("name")))
+    ctx.Export("shopUrl", stackRef.GetOutput(pulumi.String("url")))
 
     return nil
   }
@@ -137,51 +143,38 @@ class AppStack : Stack
     public AppStack()
     {
         var MyFirstApp = new StackReference($"YOURNAME/my-first-app/{Deployment.Instance.StackName}");
-        var name = MyFirstApp.RequireOutput("name").Apply(v => v.ToString());
-        this.name = Output.Create(name);
+        var name = MyFirstApp.RequireOutput("url").Apply(v => v.ToString());
+        this.name = Output.Create(shopUrl);
     }
 }
 ```
 
 {{% /choosable %}}
 
-If we run `pulumi up` on our new program, we will see that the value for `name`
-matches the one we set for the matching stack in `my-first-app`:
+The `org` environment variable is new, as is the `stack_ref` declaration. That
+declaration sets up an instance of the `StackReference` class, which needs the
+fully qualified name of the stack as an input. Here, the `org` is the
+organization associated with your account, the `my-first-app` is the name of the
+project you've been working in, and the stack is the stack that you want to
+reference. If you have an individual account, the org is your account name. The
+export then grabs the `url` output from the other stack.
+
+Set the `org` environment variable, which is the organization associated with
+your account:
 
 ```bash
-$ pulumi stack ls
-NAME      LAST UPDATE    RESOURCE COUNT  URL
-dev       n/a            n/a             https://app.pulumi.com/***/my-second-app/dev
-staging*  7 minutes ago  3               https://app.pulumi.com/***/my-second-app/staging
-
-$ pulumi up -y
-Previewing update (staging)
-
-View Live: https://app.pulumi.com/***/my-second-app/staging/previews/...
-
-     Type                 Name                   Plan
-     pulumi:pulumi:Stack  my-second-app-staging
-
-Resources:
-    1 unchanged
-
-Updating (staging)
-
-View Live: https://app.pulumi.com/***/my-second-app/staging/updates/3
-
-     Type                 Name                   Status
-     pulumi:pulumi:Stack  my-second-app-staging
-
-Outputs:
-    name: "Sally"
-
-Resources:
-    1 unchanged
-
-Duration: 1s
-
-$ pulumi stack output name
-Sally
-
-
+pulumi config set org mattstratton
 ```
+
+Run `pulumi up`. You'll see the value gets exported from the other project's
+stack to reference in this new project's stack:
+
+```bash
+
+     Type                 Name               Status     
+     pulumi:pulumi:Stack  my-second-app-staging             
+ 
+Outputs:
+  + shopUrl: "http://localhost:3002"
+```
+These exported values are incredibly useful when using Pulumi stacks.
