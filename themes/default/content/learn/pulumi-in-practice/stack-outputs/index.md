@@ -28,14 +28,15 @@ exported them. Example values include resource IDs, computed IP addresses, and
 DNS names. They're extremely useful when you want to run commands with the CLI
 that reference those values. Note, though, that stack outputs are for the
 current stack only. If you want to get values from another stack, you want to
-use stack references, which bridge different stacks through inter-stack dependencies.
+use stack references, which bridge different stacks through inter-stack
+dependencies.
 
 Typically, you will pass some value from your resources into the output, but to
 illustrate how stack outputs work, we will set some stack outputs manually:
 
 In the {{% langfile %}} file of `my-first-app`, add the following lines:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -53,7 +54,7 @@ pulumi.export("x", "hello")
 
 {{% /choosable %}}
 
-{{% choosable language go %}}
+<!-- {{% choosable language go %}}
 
 ```go
 ctx.Export("x", pulumi.String("hello"))
@@ -76,7 +77,7 @@ class MyStack : Stack
 }
 ```
 
-{{% /choosable %}}
+{{% /choosable %}} -->
 
 Now, run `pulumi up -y`
 
@@ -161,7 +162,7 @@ config:
 Let's set a stack output based upon this configuration value. Add these lines in
 {{% langfile %}}:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -175,14 +176,6 @@ export let name = config.require("platypusName");
 {{% /choosable %}}
 
 {{% choosable language python %}}
-TODO
-{{% /choosable %}}
-
-{{% choosable language go %}}
-TODO
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
 TODO
 {{% /choosable %}}
 

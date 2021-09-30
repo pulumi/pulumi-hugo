@@ -54,7 +54,7 @@ you need, so let's use that command. You can use Typescript or Python for this
 tutorial (Go and C# are coming soon!), and the `-y` flag answers "yes" to the
 prompts to create a default project:
 
-{{{< chooser language "typescript,python" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -65,9 +65,11 @@ pulumi new typescript -y
 {{% /choosable %}}
 
 {{% choosable language python %}}
+
 ```bash
 pulumi new python -y
 ```
+
 {{% /choosable %}}
 
 This command prints output similar to the following example with a bit more
@@ -93,15 +95,31 @@ This command creates all the files we need, initializes a new stack named `dev`
 
 ## Inspect your new project
 
-The basic Python project created by `pulumi new` is comprised of multiple files:
+The basic project created by `pulumi new` is comprised of multiple files:
 
-* **`__main__.py`**: your program's main entrypoint file
-* **`requirements.txt`**: your project's Python dependency information
-* **`Pulumi.yaml`**: your project's metadata, containing its name and language
-* **`venv`**: a [virtualenv](https://pypi.org/project/virtualenv/) for your project
+<ul>
+<li><strong><code>{{% langfile %}}</code></strong>: your program's main entrypoint file</li>
+{{% choosable language typescript %}}<li><strong><code>package.json</code></strong>: your project's NodeJS configuration file</li>
+<li><strong><code>tsconfig.json</code></strong>: your project's TypeScript configuration file</li>{{% /choosable %}}
+{{% choosable language python %}}<li><strong><code>requirements.txt</code></strong>: your project's Python dependency information</li>{{% /choosable %}}
+<li><strong><code>Pulumi.yaml</code></strong>: your project's metadata, containing its name and language</li>
+<li><strong><code>venv</code></strong>: a [virtualenv](https://pypi.org/project/virtualenv/) for your project</li>
+</ul>
 
-Use the command `cat __main__.py` to see the contents of your project's empty
+Use the command <code>cat</code>{{% langfile %}} to see the contents of your project's empty
 program:
+
+{{< chooser language "typescript, python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 ```python
 """A Python Pulumi program"""
@@ -109,7 +127,12 @@ program:
 import pulumi
 ```
 
+{{% /choosable %}}
+
 Feel free to explore the other files, although we won't be editing any of them
-by hand. Note that the Pulumi CLI creates a virtual environment, `venv`, for the
-project. Let's move on to creating your first real bit of infrastructure with
-Pulumi: some Docker images.
+by hand.
+{{% choosable language typescript%}}{{% /choosable %}}
+{{% choosable language python %}}Note that the Pulumi CLI creates a virtual
+environment, <code>venv</code>, for the project.{{% /choosable %}}
+Let's move on to creating your first real bit of infrastructure with Pulumi:
+some Dockerimages.

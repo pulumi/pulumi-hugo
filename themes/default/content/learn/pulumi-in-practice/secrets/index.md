@@ -70,7 +70,7 @@ specify that it is a secret:
 
 Add this code to the {{% langfile %}} inside of `my-second-app`:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -99,7 +99,7 @@ pulumi.export("name",config.require_secret('dbPassword'))
 
 {{% /choosable %}}
 
-{{% choosable language go %}}
+<!-- {{% choosable language go %}}
 
 ```go
 
@@ -139,7 +139,7 @@ class AppStack : Stack
 
 ```
 
-{{% /choosable %}}
+{{% /choosable %}} -->
 
 When we run `pulumi up`, we see that the output is set (so our use of the secret
 worked!), but Pulumi knows that value was a secret, so when we try to set it as
