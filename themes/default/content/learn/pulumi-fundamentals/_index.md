@@ -47,7 +47,7 @@ As to skills, you should be able to
 ## Sample app
 
 The sample app we're building, the Pulumipus Boba Tea Shop, is a progressive web
-application (PWA) built with MongoDB, ExpressJS, NodeJS, and React (the MERN
+application (PWA) built with MongoDB, ExpressJS, React, and NodeJS (the MERN
 stack). It's a fairly common implementation found in eCommerce applications. We
 have adapted this application from
 [this repository](https://github.com/shubhambattoo/shopping-cart). The app
