@@ -25,7 +25,7 @@ use_cases:
             that empower your application developers to easily and quickly deploy and use
             infrastructure they need to build applications.
 
-            [Learn more](/solutions/shared-services-platforms/)
+            [Learn more about shared services platforms](/solutions/shared-services-platforms/)
 
         - name: Infrastructure CI/CD
           case_studies:
@@ -36,7 +36,7 @@ use_cases:
           description: |
             Automate your infrastructure provisioning and management through a CI/CD pipeline. Run all infrastructure updates through a standard set of unit and integration tests, allowing reduced errors, greater security, and increased delivery velocity.
 
-            [Learn More](/solutions/infrastructure-ci-cd/)
+            [Learn more about CI/CD](/solutions/infrastructure-ci-cd/)
 
         - name: Terraform Migration
           case_studies:
@@ -47,7 +47,7 @@ use_cases:
           description: |
             Modernize how your teams provision and manage infrastructure in order to adapt to the changes in technologies (containers, serverless), architectures (distributed), and software release automation associated with the cloud.
 
-            [Learn More](/solutions/terraform-migration)
+            [Learn more about Terraform migration](/solutions/terraform-migration)
 
         - name: Greenfield modern applications
           case_studies:
