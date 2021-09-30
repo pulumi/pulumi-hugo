@@ -47,6 +47,7 @@ aliases: ["/docs/reference/clouds/"]
 * [Mailgun]({{< relref "./mailgun" >}})
 * [Minio]({{< relref "./minio" >}})
 * [MongoDB Atlas]({{< relref "./mongodbatlas" >}})
+* [Nomad]({{< relref "./nomad" >}})
 * [Okta]({{< relref "./okta" >}})
 * [Opsgenie]({{< relref "./opsgenie" >}})
 * [PagerDuty]({{< relref "./pagerduty" >}})
