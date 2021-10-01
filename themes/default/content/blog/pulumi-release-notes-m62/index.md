@@ -35,7 +35,7 @@ Learn more in the [Announcing AWS Native]({{< relref "/blog/announcing-aws-nativ
 
 Last week, AWS launched the ability to use Graviton2 processors with AWS Lambda functions. Using Graviton2 processors gives you access to the improved price performance of that architecture. Pulumi's AWS Classic provider shipped with same-day support for this new functionality.
 
-Learn more in the [blog post]({{< relref "/blog/aws-lambda-functions-powered-by-graviton2" >}})
+Learn more in the [AWS Lambda functions blog post]({{< relref "/blog/aws-lambda-functions-powered-by-graviton2" >}})
 
 ### New resources in the Azure Native provider
 
@@ -45,7 +45,7 @@ We shipped new versions of the Azure Native provider (1.29.0 through 1.34.0) tha
 
 ## Pulumi CLI and core technologies
 
-In this milestone, we shipped Pulumi versions [3.13.0](https://github.com/pulumi/pulumi/releases/tag/v3.13.0) through [3.13.2](https://github.com/pulumi/pulumi/releases/tag/v3.13.2). The full list of changes in each version is available [in the changelog](https://github.com/pulumi/pulumi/releases); read on to learn about some of the biggest changes.
+In this milestone, we shipped Pulumi versions [3.13.0](https://github.com/pulumi/pulumi/releases/tag/v3.13.0) through [3.13.2](https://github.com/pulumi/pulumi/releases/tag/v3.13.2). The full list of changes in each version is available in the [changelog](https://github.com/pulumi/pulumi/releases); read on to learn about some of the biggest changes.
 
 ### New project configuration option to refresh before all write operations
 
