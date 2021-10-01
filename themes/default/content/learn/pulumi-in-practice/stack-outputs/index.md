@@ -28,15 +28,14 @@ exported them. Example values include resource IDs, computed IP addresses, and
 DNS names. They're extremely useful when you want to run commands with the CLI
 that reference those values. Note, though, that stack outputs are for the
 current stack only. If you want to get values from another stack, you want to
-use stack references, which bridge different stacks through inter-stack
-dependencies.
+use stack references, which bridge different stacks through inter-stack dependencies.
 
 Typically, you will pass some value from your resources into the output, but to
 illustrate how stack outputs work, we will set some stack outputs manually:
 
-In the {{% langfile %}} file of `my-first-app`, add the following lines:
+In the {{% langfile %}} file of `my-first-app`, add the following line:
 
-{{< chooser language "typescript,python" / >}}
+{{< chooser language "python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -49,12 +48,12 @@ export let x = "hello";
 {{% choosable language python %}}
 
 ```python
-pulumi.export("x", "hello")
+pulumi.export("url", f"http://localhost:{frontend_port}")
 ```
 
 {{% /choosable %}}
 
-<!-- {{% choosable language go %}}
+{{% choosable language go %}}
 
 ```go
 ctx.Export("x", pulumi.String("hello"))
@@ -77,7 +76,7 @@ class MyStack : Stack
 }
 ```
 
-{{% /choosable %}} -->
+{{% /choosable %}}
 
 Now, run `pulumi up -y`
 
@@ -87,13 +86,7 @@ $ pulumi up
 Previewing update (dev)
 
 View Live: https://app.pulumi.com/***/my-first-app/dev/previews/...
-
-
-    pulumi:pulumi:Stack my-first-app-dev running 
-    pulumi:pulumi:Stack my-first-app-dev  
- 
-Resources:
-    1 unchanged
+...
 
 Updating (dev)
 
@@ -104,88 +97,89 @@ View Live: https://app.pulumi.com/***/my-first-app/dev/updates/3
     pulumi:pulumi:Stack my-first-app-dev  
  
 Outputs:
-    x: "hello"
+  + url: "http://localhost:3001"
 
-Resources:
-    1 unchanged
-
-Duration: 1s
+...
 
 ```
 
-Notice that there is now a stack output for the value of `x`.
+Notice that there is now a stack output for the value of `url`.
 
 We can also get this value by running `pulumi stack output` on any particular stack.
 
 ```bash
-$ pulumi stack output x
+$ pulumi stack output url
 
-hello
+http://localhost:3001
+```
+
+And we can use this in the `curl` command to check our website:
+
+```bash
+$ curl $(pulumi stack output url)
 ```
 
 ## Making a Stack configurable
 
 One of the main reasons to use stacks is to have different configurations
 between them. In this example, we will set a configuration that varies between
-our `dev` and `staging` stacks, and set it programmatically. 
+our `dev` and `staging` stacks, and set it programmatically.
 
-First, we need to define the configuration. We will set this in the `dev` stack
-first. Make sure the `dev` stack is active:
+First, we need to define the configuration. We have already set this in the `dev` stack
+in the Fundamentals tutorial. Let's take a look! Make sure the `dev` stack is active:
 
 ```bash
 $ pulumi stack select dev
 ```
 
-Now, run the following command to set a value for the `platypusName`
+Now, run the following command to get the values for this stack's configuration
 configuration:
 
 ```bash
-$ pulumi config set platypusName Roger
+$ pulumi config
 ```
-Let's do the same for the `staging` stack:
+
+```bash
+KEY               VALUE
+backend_port      3000
+database          cart
+frontend_port     3001
+mongo_host        mongodb://mongo:27017
+mongo_port        27017
+node_environment  development
+```
+
+Let's set the configuration for the `staging` stack. We'll use the same values as `dev`, except the `frontend_port` will be set to `3002`.
 
 ```bash
 $ pulumi stack select staging
-$ pulumi config set platypusName Sally
+pulumi config set frontend_port 3002
+pulumi config set backend_port 3000
+pulumi config set mongo_port 27017
+pulumi config set mongo_host mongodb://mongo:27017
+pulumi config set database cart
+pulumi config set node_environment development
 ```
 
 You should have two new files in your directory now: `Pulumi.dev.yaml` and
 `Pulumi.staging.yaml`. If you take a look at them, you'll see each one has the
-value for `platypusName` set:
+value for `frontend_port` set (along with some other values we set in the Fundamentals tutorial):
 
 ```bash
 $ cat Pulumi.dev.yaml
 config:
-  my-first-app:platypusName: Roger
+  my-first-app:backend_port: "3000"
+  my-first-app:database: cart
+  my-first-app:frontend_port: "3001"
+  my-first-app:mongo_host: mongodb://mongo:27017
+  my-first-app:mongo_port: "27017"
+  my-first-app:node_environment: development
 ```
 
-Let's set a stack output based upon this configuration value. Add these lines in
-{{% langfile %}}:
-
-{{< chooser language "typescript,python" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-
-let config = new pulumi.Config();
-export let name = config.require("platypusName");
-
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-TODO
-{{% /choosable %}}
-
-And now we can apply and check our new values!
+Now, if you run `pulumi up` while in the `staging` stack, we should see that the frontend port is now set to `3002`:
 
 ```bash
+$ pulumi stack output url
 
-$ pulumi up -y
-
-$ pulumi stack output name
-Sally
+http://localhost:3002
 ```
-
