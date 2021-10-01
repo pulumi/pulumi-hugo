@@ -37,40 +37,56 @@ To encrypt a configuration setting before runtime, you can use the CLI command
 `pulumi config set` command with a `--secret` flag. All these encrypted values
 are stored in your state file.
 
-Inside our `my-second-app` program that we have been working with, let's set a
-secret:
+Inside our `my-first-app` program that we have been working with, let's set a
+username and password for mongoDB:
 
 ```bash
-$ pulumi config set --secret dbPassword S3cr37
+$ pulumi config set mongo_username admin
+$ pulumi config set --secret mongo_password S3cr37
 ```
 
 If we list the configuration for our stack, the plain-text value for
-`dbPassword` will not be printed:
+`mongo-password` will not be printed:
 
 ```bash
 $ pulumi config
 
-KEY         VALUE
-dbPassword  [secret]
+KEY               VALUE
+backend_port      3000
+database          cart
+frontend_port     3001
+mongo_password    [secret]
+mongo_username    admin
+mongo_host        mongodb://mongo:27017
+mongo_port        27017
+node_environment  development
 ```
 
 This is also encrypted in the associated configuration file:
 
 ```bash
-$ cat Pulumi.staging.yaml
+$ cat Pulumi.dev.yaml
 
 config:
-  my-second-app:dbPassword:
-    secure: AAABAP/z34tGZxL/hjFP0HiFOmUuNBfj4SpJogSKmPdunAnyYK8=
+  my-first-app:backend_port: "3000"
+  my-first-app:database: cart
+  my-first-app:frontend_port: "3001"
+  my-first-app:mongo_password:
+    secure: AAABADQXFlU0mxbTmNyl39UfVg4DdFoL94SCNMX3MkvZhBZjeAM=
+  my-first-app:mongo_username: admin
+  my-first-app:mongo_host: mongodb://mongo:27017
+  my-first-app:mongo_port: "27017"
+  my-first-app:node_environment: development
+
 
 ```
 
 We can access the secrets similarly to other configuration data, however we must
 specify that it is a secret:
 
-Add this code to the {{% langfile %}} inside of `my-second-app`:
+Add this code to the {{% langfile %}} inside of `my-first-app`:
 
-{{< chooser language "typescript,python" / >}}
+{{< chooser language "python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -92,13 +108,105 @@ export let password = dbPassword
 
 config = pulumi.Config()
 
-print(config.require_secret('dbPassword'))
-pulumi.export("name",config.require_secret('dbPassword'))
+#...
+
+mongo_username = config.require("mongo_username")
+mongo_password = config.require_secret("mongo_password")
 
 ```
 
 {{% /choosable %}}
 
+We need to make a few changes to use this new username and password. First, let's go 
+ahead and make sure when our mongo container is created, it has the correct username and password. 
+Add the following environment variables to the `mongo` container:
+
+```python
+                                   envs=[
+                                         f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
+                                         f"MONGO_INITDB_ROOT_PASSWORD={mongo_password}"
+                                     ],
+```
+
+So the entire `docker.Container` resource will look like this:
+
+```python
+
+mongo_container = docker.Container("mongo_container",
+                                   image=mongo_image.latest,
+                                   name=f"mongo-{stack}",
+                                   ports=[docker.ContainerPortArgs(
+                                       internal=mongo_port,
+                                       external=mongo_port
+                                   )],
+                                   envs=[
+                                         f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
+                                         f"MONGO_INITDB_ROOT_PASSWORD={mongo_password}"
+                                     ],
+                                   networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                       name=network.name,
+                                       aliases=["mongo"]
+                                   )]
+                                   )
+
+
+```
+
+We need to have our seed container use the new password to connect. Change the `command` in the `data_seed_container`
+resource to look like this:
+
+```python
+data_seed_container = docker.Container("data_seed_container",
+                                       image=mongo_image.latest,
+                                       name="data_seed",
+                                       must_run=False,
+                                       rm=True,
+                                       opts=pulumi.ResourceOptions(depends_on=[backend_container]),
+                                       mounts=[docker.ContainerMountArgs(
+                                           target="/home/products.json",
+                                           type="bind",
+                                           source=f"{os.getcwd()}/products.json"
+                                       )],
+                                       command=[ # This is the changed part!
+                                           "sh", "-c",
+                                           f"mongoimport --host mongo -u {mongo_username} -p {mongo_password} --authenticationDatabase admin --db cart --collection products --type json --file /home/products.json --jsonArray"
+                                       ],
+                                       networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                           name=network.name
+                                       )]
+                                       )
+```
+
+Finally, we need to update the backend container to use the new authentication. We need to slightly change the value of
+`mongo_host` first:
+
+```bash
+pulumi config set mongo_host mongo
+```
+
+Then, update the `backend_container` resource as follows:
+
+```python
+backend_container = docker.Container("backend_container",
+                                     image=backend.base_image_name,
+                                     name=f"backend-{stack}",
+                                     ports=[docker.ContainerPortArgs(
+                                         internal=backend_port,
+                                         external=backend_port
+                                     )],
+                                     envs=[
+                                         f"DATABASE_HOST=mongodb://{mongo_username}:{mongo_password}@{mongo_host}:{mongo_port}", #Changed!
+                                         f"DATABASE_NAME={database}?authSource=admin", # Also changed!
+                                         f"NODE_ENV={node_environment}"
+                                     ],
+                                     networks_advanced=[docker.ContainerNetworksAdvancedArgs(
+                                         name=network.name
+                                     )],
+                                     opts=pulumi.ResourceOptions(depends_on=[mongo_container])
+                                     )
+
+
+```
 <!-- {{% choosable language go %}}
 
 ```go
