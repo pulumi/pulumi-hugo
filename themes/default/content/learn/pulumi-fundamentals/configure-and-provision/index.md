@@ -419,6 +419,38 @@ database.
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
 
+## Cleaning up
+
+Whenever you're working on learning something new with Pulumi, it's always a
+good idea to clean up any resources you've created so you don't get charged on a
+free tier or otherwise leave behind resources you'll never use. Let's clean up.
+
+Run the `pulumi destroy` command to remove all of the resources:
+
+```bash
+$ pulumi destroy
+Previewing destroy (dev)
+
+View Live: https://app.pulumi.com/<org>/<project>/<stack>/previews/<build-id>
+
+...
+Do you want to perform this destroy? yes
+Destroying (dev)
+
+View Live: https://app.pulumi.com/<org>/<project>/<stack>/updates/<update-id>
+
+...
+
+The resources in the stack have been deleted, but the history and configuration associated with the stack are still maintained. 
+If you want to remove the stack completely, run 'pulumi stack rm dev'.
+```
+
+Now your resources should all be cleared! That last comment you see in the
+output notes that the stack and all of the configuration and history will stay
+in your dashboard on the Pulumi console (app.pulumi.com) and will be stored in
+the Pulumi Service that maintains the history. For now, that's okay. We'll talk
+more about removing the project from your history in another pathway.
+
 ---
 
 Congratulations, you've now finished Pulumi Fundamentals! Head back to the main
