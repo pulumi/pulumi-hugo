@@ -3,8 +3,8 @@ title: "Stack References"
 layout: topic
 date: 2021-09-20T08:33:49-05:00
 draft: false
-description: Here is a brief description of what this topic will cover.
-meta_desc: Here is a brief description of what this topic will cover.
+description: Learn how to share outputs across stacks with stack references.
+meta_desc: Learn how to share outputs across stacks with stack references.
 index: 3
 estimated_time: 10
 meta_image: meta.png
@@ -91,14 +91,15 @@ $ pulumi stack init staging
 ```
 
 Now comes the fun part! Let's add a little code to pull in the values from the
-`my-first-app` stacks, based on the corresponding environment. In the following
-code, change `YOURNAME` to the name/org for your Pulumi account.
+`my-first-app` stacks, based on the corresponding environment.
+<!-- NOTE: I removed this sentence as the variable is not in all of the code.-LAS
+In the following code, change `YOURNAME` to the name/org for your Pulumi account.-->
 
 Add this code to the {{< langfile >}} file inside of `my-second-app`.
 
 {{< chooser language "typescript,python" / >}}
 
-{{% choosable language typescript %}}
+<!-- {{% choosable language typescript %}}
 
 ```typescript
 const env = pulumi.getStack();
@@ -106,7 +107,7 @@ const myFirstApp = new pulumi.StackReference(`YOURNAME/my-first-app/${env}`);
 export let shopUrl =  myFirstApp.getOutput("url");
 ```
 
-{{% /choosable %}}
+{{% /choosable %}} -->
 
 
 {{% choosable language python %}}
@@ -173,10 +174,11 @@ reference. If you have an individual account, the org is your account name. The
 export then grabs the `url` output from the other stack.
 
 Set the `org` environment variable, which is the organization associated with
-your account:
+your account, and change the `<YOURNAME>` to your username/account name for
+Pulumi:
 
 ```bash
-pulumi config set org mattstratton
+pulumi config set org <YOURNAME>
 ```
 
 Run `pulumi up`. You'll see the value gets exported from the other project's
@@ -190,4 +192,13 @@ stack to reference in this new project's stack:
 Outputs:
   + shopUrl: "http://localhost:3002"
 ```
-These exported values are incredibly useful when using Pulumi stacks.
+These exported values are incredibly useful when using Pulumi stacks. For
+example, let's say you have two systems that depend on one another, perhaps a
+frontend application with a database and a complex backend API. You might have
+two separate staging environments that you want to have reference one another.
+You can use stack references to share automatically generated connection strings
+from the staged API to the staged frontend application to see how they might
+work together.
+
+Next up, we're going to change gears and start exploring how Pulumi handles
+secrets.

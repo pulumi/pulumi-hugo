@@ -19,7 +19,7 @@ block_external_search_index: true
 ---
 
 All resource input and output values are recorded as
-[state]({{< relref "/docs/intro/concepts/state/" >}}) and are stored in the
+[state]({{< relref "/docs/intro/concepts/state" >}}) and are stored in the
 Pulumi Service, a file, or a pluggable provider that you choose. These raw
 values are usually just server names, configuration settings, and so on. In some
 cases, however, these values contain sensitive data, such as database passwords
@@ -30,7 +30,8 @@ however, Pulumi also supports encrypting specific values as "secrets" for extra
 protection. Encryption ensures that these values never appear as plain-text in
 your state file. By default, the encryption method uses automatic, per-stack
 encryption keys provided by the Pulumi Service or you can use a
-[provider of your own choosing]({{< relref "/docs/intro/concepts/secrets/#configuring-secrets-encryption" >}})
+[provider of your own
+choosing]({{< relref "/docs/intro/concepts/secrets#configuring-secrets-encryption" >}})
 instead.
 
 To encrypt a configuration setting before runtime, you can use the CLI command
@@ -117,9 +118,10 @@ mongo_password = config.require_secret("mongo_password")
 
 {{% /choosable %}}
 
-We need to make a few changes to use this new username and password. First, let's go 
-ahead and make sure when our mongo container is created, it has the correct username and password. 
-Add the following environment variables to the `mongo` container:
+We need to make a few changes to use this new username and password. First,
+let's go ahead and make sure when our `mongo` container is created, it has the
+correct username and password. Add the following environment variables to the
+`mongo` container:
 
 ```python
                                    envs=[
@@ -158,8 +160,8 @@ mongo_container = docker.Container("mongo_container",
 
 ```
 
-We need to have our seed container use the new password to connect. Change the `command` in the `data_seed_container`
-resource to look like this:
+We need to have our seed container use the new password to connect. Change the
+`command` in the `data_seed_container` resource to look like this:
 
 ```python
 data_seed_container = docker.Container("data_seed_container",
@@ -191,8 +193,8 @@ data_seed_container = docker.Container("data_seed_container",
                                        )
 ```
 
-Finally, we need to update the backend container to use the new authentication. We need to slightly change the value of
-`mongo_host` first:
+Finally, we need to update the backend container to use the new authentication.
+We need to slightly change the value of `mongo_host` first:
 
 ```bash
 pulumi config set mongo_host mongo
@@ -285,4 +287,7 @@ S3cr37
 
 For more information on how Pulumi uses secrets, including how to set them
 programmatically, review the
-[corresponding docs]({{< relref "/docs/intro/concepts/secrets/" >}}).
+[corresponding docs]({{< relref "/docs/intro/concepts/secrets" >}}).
+
+From here, we're moving on to the last part of the Pulumi in Practice pathway:
+testing. Onward!
