@@ -44,7 +44,7 @@ Let's start by making our new Pulumi program in a new directory:
 
 {{< chooser language "typescript,python" / >}}
 
-{{% choosable language typescript %}}
+<!--{{% choosable language typescript %}}
 
 ```bash
 mkdir my-second-app
@@ -52,7 +52,7 @@ cd my-second-app
 $ pulumi new typescript -y
 ```
 
-{{% /choosable %}}
+{{% /choosable %}}-->
 
 {{% choosable language python %}}
 
@@ -64,7 +64,7 @@ $ pulumi new python -y
 
 {{% /choosable %}}
 
-<!-- {{% choosable language go %}}
+<!--{{% choosable language go %}}
 
 ```bash
 mkdir my-second-app
@@ -82,7 +82,7 @@ cd my-second-app
 $ pulumi new csharp -y
 ```
 
-{{% /choosable %}} -->
+{{% /choosable %}}-->
 
 Let's go ahead and create a `staging` stack here as well:
 
