@@ -346,6 +346,7 @@ frontend_container = docker.Container("frontend_container",
                                       )],
                                       envs=[
                                           f"LISTEN_PORT={frontend_port}",
+                                          f"PROXY_PROTOCOL=http://",
                                           f"HTTP_PROXY=backend-{stack}:{backend_port}"
                                       ],
                                       networks_advanced=[docker.ContainerNetworksAdvancedArgs(
