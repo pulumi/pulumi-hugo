@@ -32,13 +32,13 @@ minutes to complete.
 ## Prerequisites
 
 You will need the following tools to complete this module:
-- A [Pulumi account and token](http:app.pulumi.com)
+- A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#account-tokens" >}})
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - [Docker](https://docs.docker.com/get-docker/)
 - Python 3.8 or later
 
-As to skills, you should be able to
+As to skills, you should be able to  <!-- Grammar note: No colon on lists when the list completes the sentence like this :) -->
 
 - use your local terminal.
 - read and understand basic Python code.

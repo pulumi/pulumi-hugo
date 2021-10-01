@@ -31,7 +31,7 @@ This pathway demonstrates how to use Pulumi from an operational perspective. We 
 ## Prerequisites
 
 You will need the following tools to complete this module:
-- A [Pulumi account and token](http:app.pulumi.com)
+- A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - The Boba Tea app from Pulumi Fundamentals
