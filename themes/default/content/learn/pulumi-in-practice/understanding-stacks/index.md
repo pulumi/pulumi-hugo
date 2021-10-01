@@ -20,66 +20,13 @@ block_external_search_index: true
 ---
 
 Every Pulumi program is deployed to a stack. A stack is an isolated,
-independently [configurable]({{< relref "/docs/intro/concepts/config/" >}})
+independently [configurable]({{< relref "/docs/intro/concepts/config" >}})
 instance of a Pulumi program. Stacks are commonly used to denote different
 phases of development (such as `development`, `staging`, and `production`) or
 feature branches (such as `feature-x-dev`).
 
 A project can have as many stacks as you need. By default, Pulumi creates a
 stack for you when you start a new project using the `pulumi new` command.
-Let's create a new project now for use in this tutorial:
-
-{{< chooser language "typescript,python" / >}}
-
-{{% choosable language typescript %}}
-
-```bash
-mkdir my-first-app
-cd my-first-app
-$ pulumi new typescript -y
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```bash
-mkdir my-first-app
-cd my-first-app
-$ pulumi new python -y
-```
-
-{{% /choosable %}}
-
-<!-- {{% choosable language go %}}
-
-```bash
-mkdir my-first-app
-cd my-first-app
-$ pulumi new go -y
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```bash
-mkdir my-first-app
-cd my-first-app
-$ pulumi new csharp -y
-```
-
-{{% /choosable %}} -->
-
-This command prints output similar to the following example with a bit more
-information and status as it goes:
-
-```
-Created stack 'dev'
-...
-Your new project is ready to go! ✨
-To perform an initial deployment, run 'pulumi up'
-```
 ## Create a stack
 
 To create a new stack, we use the command `pulumi stack init stackName`. This
@@ -107,25 +54,7 @@ $ pulumi stack init staging
 $ pulumi stack init staging
 ```
 
-{{% /choosable %}}
-
-<!-- {{% choosable language go %}}
-
-```bash
-$ pulumi stack init staging
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```bash
-$ pulumi stack init staging
-```
-
-{{% /choosable %}} -->
-
-## Listing Stacks
+## Listing stacks
 We have a couple of stacks in our project now&mdash;but how do we know which
 ones we have? If we run the command `pulumi stack ls`, it will tell us!
 
@@ -140,7 +69,7 @@ Notice that the `staging` stack has an `*` after its name; this asterisk marks
 this stack as the active stack (i.e., the stack that all our commands will run
 on).
 
-## Selecting Stacks
+## Selecting stacks
 
 When we run a Pulumi command (such as `config`, `up`, or `destroy`), the command
 operates on the *active* stack. But what if we want to change which stack is
@@ -157,3 +86,7 @@ staging  n/a            n/a             https://app.pulumi.com/***/my-first-app/
 ```
 
 Notice that `dev` is now the active stack.
+
+Next up, we're going to explore how to get information out of a stack to use in
+other places, like elsewhere in our program or in general spots like your
+browser.
