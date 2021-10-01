@@ -43,7 +43,7 @@ You should already have completed
 [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}).
 
 You will need the following tools to complete this tutorial:
-- A [Pulumi account and token](http://app.pulumi.com)
+- A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - Python 3.8 or later

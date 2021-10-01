@@ -35,7 +35,7 @@ You should have completed the
 
 You will need the following tools to complete this module:
 
-* A [Pulumi account and token](http://app.pulumi.com)
+* A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
 
 As to skills, you should be able to
 
