@@ -39,13 +39,17 @@ stack in a single stack (again, we'll explore stacks in [Pulumi in
 Practice]({{< relref "/learn/pulumi-in-practice" >}})). Keep in mind that an
 application can use multiple task definitions.
 
-Let's add this code above the instantiations of the `Container()` class.
+Let's add this code:
 
 {{< chooser language "python" / >}}
 
 {{% choosable language python %}}
 
 ```python
+# Add this line to your imports
+import json
+
+# Add these lines above the instantiations of the `Container()` class
 task_definition = aws.ecs.TaskDefinition('app-task',
     family='fargate-task-definition',
     cpu='256',
@@ -156,6 +160,7 @@ check your code against this code:
 
 ```python
 import os
+import json
 import pulumi
 import pulumi_docker as docker
 import pulumi_aws as aws
