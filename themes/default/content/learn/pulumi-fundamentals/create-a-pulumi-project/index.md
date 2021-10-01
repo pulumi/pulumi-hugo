@@ -22,11 +22,11 @@ block_external_search_index: true
 ---
 
 Infrastructure in Pulumi is organized into
-[_projects_](https://www.pulumi.com/docs/reference/glossary/#project), the
-highest level component in a Pulumi ecosystem. Each project is a single
+[_projects_](https://www.pulumi.com/docs/reference/glossary/#project). In the 
+Pulumi ecosystem, a project represents a Pulumi
 [_program_](https://www.pulumi.com/docs/reference/glossary/#program)
 that, when run, declares the desired infrastructure for Pulumi to manage.
-Projects are how we manage
+The program has corresponding
 [_stacks_](https://www.pulumi.com/docs/reference/glossary/#stack), or isolated,
 independently configurable instances of your Pulumi program. We'll talk more
 about stacks later in the

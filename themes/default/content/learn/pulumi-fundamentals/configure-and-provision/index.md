@@ -181,8 +181,8 @@ referencing `baseImageName` from the `Image` resource. Pulumi now knows there is
 a dependency between these two resources and will know to create the
 `Container` resource _after_ the `Image` resource. Another dependency to note is
 that the `backend_container` depends on the `mongo_container`. If we tried to
-run `pulumi up` without the `mongo_container` running, we would get an error
-message.
+run `pulumi up` without the `mongo_container` running or present somewhere in
+state, Pulumi will let us know that the resource doesn't exist and will stop.
 
 The backend container also requires environment variables to connect to the
 mongo container and set the node environment for Express.js. These are set in
@@ -366,9 +366,9 @@ we need to add products to the database.
 
 ## Populate the database
 
-Now we can populate MongoDB and set up our Pulumi file to autopopulate the next
-time we deploy. First, copy the `products.json` file into the same directory as
-your {{% langfile %}} file.
+Now we can populate MongoDB and set up our Pulumi program to autopopulate the
+next time we deploy. First, copy the `products.json` file into the same
+directory as your {{% langfile %}} file.
 
 ```bash
 cp app/data/products.json .
@@ -453,7 +453,9 @@ more about removing the project from your history in another pathway.
 
 ---
 
-Congratulations, you've now finished Pulumi Fundamentals! Head back to the main
-page and explore some other modules to understand more about Pulumi. The best
-next steps to take are to choose one of the Fundamentals for a cloud-based
-provider of your choice.
+Congratulations, you've now finished Pulumi Fundamentals! You learned to create
+a Pulumi project; work on your Pulumi program to build Docker images,
+containers, and networks; and deploy the infrastructure locally with your first
+resource provider. Now, head back to the main page and explore some other
+tutorials to understand more about Pulumi. The best next steps to take are to
+choose one of the Fundamentals for a cloud-based provider of your choice.

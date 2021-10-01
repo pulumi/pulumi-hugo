@@ -24,10 +24,11 @@ In this part, we'll create our first Pulumi
 [_resource_](https://www.pulumi.com/docs/reference/glossary/#resources).
 Resources in Pulumi are the basic building blocks of your infrastructure,
 whether that's a database instance or a compute instance or a specific storage
-bucket. In Pulumi, you have resources managed by [_resource
-providers_](https://www.pulumi.com/docs/reference/glossary/#resource-provider),
-and then you can group those resources to abstract them (such as a group of
-compute instances that all have the same configuration and implementation).
+bucket. In Pulumi, [_resource
+providers_](https://www.pulumi.com/docs/reference/glossary/#resource-provider)
+manage your resources. You can group those resources to abstract them (such as a
+group of compute instances that all have the same configuration and
+implementation) via component resources.
 
 In this case, our resources are going to be Docker containers and images that we
 build locally using infrastructure as code. Our resource provider is Docker, and
@@ -39,7 +40,7 @@ executor that compiles the code we write and interprets it for Pulumi.
 
 Create a directory called `app` inside the directory you made in the previous
 lesson. Clone the code repository there, then move everything from the code
-repository directory to the `app/` directory.
+repository directory to the `app/` directory:
 
 ```bash
 mkdir app
@@ -92,7 +93,7 @@ for any Python package install. You'll want to ensure the package gets added to
 the `requirements.txt` file at some point.
 
 Back inside your Pulumi program, let's build your first Docker image. Remember
-that a Pulumi program is the code that defines the ideal configuration of your
+that a Pulumi program is the code that defines the desired state of your
 infrastructure using a general-purpose programming language. In this case, we're
 using Python, so our main file is {{% langfile %}}. Inside your program's
 {{% langfile %}} file, use any editor to add the following code:
@@ -118,12 +119,18 @@ backend = docker.Image("backend",
 ```
 {{% /choosable %}}
 
-In this file, we import, or call, the main Pulumi package and the Docker
-provider. Then, we figure out which stack we're on in the command line, and
-populate the `stack` variable for later use. When we build our backend image,
-we name it in our stack as "backend" before passing some arguments to the Docker
-provider. The Docker provider uses the build context and the image name to build
-an image, and it does not push the image up anywhere.
+In this file, we import the main Pulumi package and the Docker provider. Then,
+we figure out which stack we're operating against, and populate the `stack`
+variable for later use. When we build our backend image, we name it in our stack
+as "backend" before passing some arguments to the Docker provider. The Docker
+provider uses the build context and the image name to build an image, and it
+does not push the image up anywhere.
+
+Notice that we're mixing in some language constructs in here like `os.getcwd()`.
+With Pulumi, we have access to the full language ecosystem, including
+third-party libraries. Pulumi also has typing support, so you can use the tools
+in your favorite IDE, like completion, to verify that you're using the correct
+types for any inputs you're using. Pretty cool!
 
 Run `pulumi up`, and Pulumi should build your Docker image. First, though, it
 gives you a preview of the changes you'll be making to the stack and asks if the
