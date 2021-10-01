@@ -36,7 +36,7 @@ You must already have completed [Pulumi
 Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}).
 
 You will need the following tools to complete this tutorial:
-- A [Pulumi account and token](http:app.pulumi.com)
+- A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - Python 3.8 or later
@@ -49,7 +49,7 @@ Pulumi]({{< relref "/docs/intro/cloud-providers/aws/setup/" >}}) before you
 begin.
 {{% /notes %}}
 
-As to skills, you should be able to
+As to skills, you should be able to <!-- Grammar note: No colon on lists when the list completes the sentence like this :) -->
 
 - use your local terminal.
 - read and understand basic Python code.
