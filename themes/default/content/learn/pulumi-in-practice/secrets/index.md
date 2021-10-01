@@ -124,7 +124,10 @@ Add the following environment variables to the `mongo` container:
 ```python
                                    envs=[
                                          f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
-                                         f"MONGO_INITDB_ROOT_PASSWORD={mongo_password}"
+                                        pulumi.Output.concat(
+                                             "MONGO_INITDB_ROOT_PASSWORD=",
+                                             config.require_secret("mongo_password")
+                                         )
                                      ],
 ```
 
@@ -141,7 +144,10 @@ mongo_container = docker.Container("mongo_container",
                                    )],
                                    envs=[
                                          f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
-                                         f"MONGO_INITDB_ROOT_PASSWORD={mongo_password}"
+                                         pulumi.Output.concat(
+                                             "MONGO_INITDB_ROOT_PASSWORD=",
+                                             config.require_secret("mongo_password")
+                                         )
                                      ],
                                    networks_advanced=[docker.ContainerNetworksAdvancedArgs(
                                        name=network.name,
@@ -169,7 +175,15 @@ data_seed_container = docker.Container("data_seed_container",
                                        )],
                                        command=[ # This is the changed part!
                                            "sh", "-c",
-                                           f"mongoimport --host mongo -u {mongo_username} -p {mongo_password} --authenticationDatabase admin --db cart --collection products --type json --file /home/products.json --jsonArray"
+                                           pulumi.Output.concat(
+                                               "mongoimport --host ",
+                                               mongo_host,
+                                               " -u ",
+                                               mongo_username,
+                                               " -p ",
+                                               config.require_secret("mongo_password"),
+                                               " --authenticationDatabase admin --db cart --collection products --type json --file /home/products.json --jsonArray"
+                                           )
                                        ],
                                        networks_advanced=[docker.ContainerNetworksAdvancedArgs(
                                            name=network.name
@@ -195,7 +209,16 @@ backend_container = docker.Container("backend_container",
                                          external=backend_port
                                      )],
                                      envs=[
-                                         f"DATABASE_HOST=mongodb://{mongo_username}:{mongo_password}@{mongo_host}:{mongo_port}", #Changed!
+                                         Output.concat(
+                                             "DATABASE_HOST=mongodb://",
+                                             mongo_username,
+                                             ":",
+                                             config.require_secret("mongo_password"),
+                                             "@",
+                                             mongo_host,
+                                             ":",
+                                             f"{mongo_port}",
+                                         ), #Changed!
                                          f"DATABASE_NAME={database}?authSource=admin", # Also changed!
                                          f"NODE_ENV={node_environment}"
                                      ],
@@ -256,7 +279,7 @@ an output, it will not display.
 If we would like to see the plain-text value, we can do it with this command:
 
 ```bash
-$ pulumi stack output password --show-secrets
+$ pulumi stack output mongo_password --show-secrets
 S3cr37
 ```
 
