@@ -39,9 +39,7 @@ Learn more in the [AWS Lambda functions blog post]({{< relref "/blog/aws-lambda-
 
 ### New resources in the Azure Native provider
 
-We shipped new versions of the Azure Native provider (1.29.0 through 1.34.0) that collectively added 14 new resources across services like Azure SQL, Azure API Management, and more that you can now manage with the Azure Native provider.
-
-[See the full list](https://github.com/pulumi/pulumi-azure-native/blob/master/CHANGELOG.md#1340-2021-09-30)
+We shipped new versions of the Azure Native provider (1.29.0 through 1.34.0) that collectively added [14 new resources](https://github.com/pulumi/pulumi-azure-native/blob/master/CHANGELOG.md#1340-2021-09-30) across services like Azure SQL, Azure API Management, and more that you can now manage with the Azure Native provider.
 
 ## Pulumi CLI and core technologies
 
