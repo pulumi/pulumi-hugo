@@ -1,5 +1,5 @@
 ---
-title: "Stack Outputs"
+title: "Understanding Stack Outputs"
 layout: topic
 date: 2021-09-20T08:33:26-05:00
 draft: false
