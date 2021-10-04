@@ -81,6 +81,7 @@ Long-time collaborator Angel Rivera from CircleCI joins the Deploy track to talk
 The GitHub team participated in three sessions last year including the Architectures and Platforms and Security and Policy panels. This year, the team returns with Rizel Bobb-Semple delivering a plenary session showing you how to get From Code to Cloud without learning new tools.
 
 ## Honeycomb
+
 If you missed Charity Major’s summit session last year about Testing In Production, stop reading and go watch it. Then, register for Liz Fong-Jones’ Build track session this year: What is OpenTelemetry.
 
 ## NS1
