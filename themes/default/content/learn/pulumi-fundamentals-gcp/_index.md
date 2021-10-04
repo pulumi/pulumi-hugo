@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Fundamentals on GCP"
+title: "GCP Fundamentals for Pulumi"
 layout: module
 date: 2021-09-10T09:43:18-05:00
 draft: true

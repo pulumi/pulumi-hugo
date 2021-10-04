@@ -23,13 +23,16 @@ tutorials:
         learning journey with Pulumi.
 
 overview: |
-    Welcome to Learn Pulumi! The learning pathways here will help you learn all
-    of the concepts of Pulumi, along with best practices and architectural
-    patterns, through real-life examples. In each tutorial, you'll complete a
-    series of steps while exploring Pulumi to complete a project or build a
-    system. Start with Pulumi Fundamentals to get comfortable with the
-    vocabulary, and then head to one of the cloud-specific tutorials to get
-    farther down your learning pathway.
+    <h1>Welcome to Learn Pulumi!</h1>
+    
+    The learning pathways will help you learn all of the concepts of Pulumi,
+    along with best practices and architectural patterns, through real-life
+    examples.
+    
+    In each tutorial, you'll complete a series of steps while exploring Pulumi\
+    to complete a project or build a system. Start with Pulumi Fundamentals to
+    get comfortable with the vocabulary, and then head to one of the
+    cloud-specific tutorials to get farther down your learning pathway.
 
 # Exclude from search-engine indexing for now.
 block_external_search_index: true

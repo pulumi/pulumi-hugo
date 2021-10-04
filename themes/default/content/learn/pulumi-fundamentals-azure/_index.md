@@ -1,27 +1,19 @@
 ---
-title: "Pulumi Fundamentals on Azure"
+title: "Azure Fundamentals for Pulumi"
 layout: module
 date: 2021-09-10T09:43:34-05:00
 draft: true
 description: Learn how to apply Pulumi to Azure.
 meta_desc: Learn how to apply Pulumi to Azure.
 index: 1
-
-# The meta_image appears in social-media previews and on the Learn Pulumi home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for reference.
 meta_image: meta.png
-
 youll_learn:
     - Working with the Azure resource provider
     - Creating remote resources
     - Using Pulumi with abstractions
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - fundamentals
     - azure
-
 providers:
     - azure
 block_external_search_index: true

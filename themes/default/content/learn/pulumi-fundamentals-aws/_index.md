@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Fundamentals on AWS"
+title: "AWS Fundamentals for Pulumi"
 layout: module
 date: 2021-09-10T09:42:50-05:00
 draft: true
