@@ -16,7 +16,7 @@ It's now possible to provide resource methods from Pulumi Packages. Resource met
 
 When authoring component resources, it's often useful to provide additional functionality through methods on the component. For example, the `Cluster` component in the [`eks`]({{<relref "/docs/reference/pkg/eks">}}) package has a [`getKubeconfig`](https://github.com/pulumi/pulumi-eks/blob/700d73e961976e58762cb9c723ad2fa838052f46/nodejs/eks/cluster.ts#L1482) method that can be used to generate a kubeconfig for authentication with the cluster that does not use the default AWS credential provider chain, but is instead scoped based on the passed-in arguments. Until now, that method has only been available from JavaScript/TypeScript (the language the `Cluster` component was written in). With the new support for resource methods for Pulumi Packages, we can make this method available to all the Pulumi languages, which is exactly what we've done in [#628](https://github.com/pulumi/pulumi-eks/pull/628).
 
-{{< chooser language "typescript,python,csharp,go" >}
+{{< chooser language "typescript,python,csharp,go" >}}
 
 {{% choosable language typescript %}}
 
@@ -26,7 +26,7 @@ const kubeconfig = cluster.getKubeconfig(...);
 ```
 
 {{% /choosable %}}
-{{% choosable language python %}
+{{% choosable language python %}}
 
 ```python
 cluster = eks.Cluster("mycluster")
@@ -34,16 +34,16 @@ kubeconfig = cluster.get_kubeconfig(...)
 ```
 
 {{% /choosable %}}
-{{% choosable language csharp %}
+{{% choosable language csharp %}}
 
 ```csharp
 var cluster = new Cluster("mycluster");
 var kubeconfig = cluster.GetKubeconfig(...);
 ```
 
-{{% /choosable %}
+{{% /choosable %}}
 
-{{% choosable language go %}
+{{% choosable language go %}}
 
 ```go
 cluster, err := eks.NewCluster(ctx, "mycluster", nil)
@@ -56,7 +56,7 @@ if err != nil {
 }
 ```
 
-{{% /choosable %}
+{{% /choosable %}}
 
 {{% /chooser %}}
 
@@ -209,7 +209,7 @@ We can implement the component in TypeScript/JavaScript, Python, or Go, and make
 
 Here's the implementation of the `Message` component:
 
-{{< chooser language "typescript,python,go" >}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language typescript %}}
 
@@ -242,7 +242,7 @@ class Message extends pulumi.ComponentResource {
 ```
 
 {{% /choosable %}}
-{{% choosable language python %}
+{{% choosable language python %}}
 
 ```python
 from typing import Optional
@@ -274,7 +274,7 @@ class Message(pulumi.ComponentResource):
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}
+{{% choosable language go %}}
 
 ```go
 import (
@@ -322,7 +322,7 @@ func (c *Message) GetMessage(args *GetMessageArgs) StringOutput {
 }
 ```
 
-{{% /choosable %}
+{{% /choosable %}}
 
 {{% /chooser %}}
 
@@ -330,7 +330,7 @@ func (c *Message) GetMessage(args *GetMessageArgs) StringOutput {
 
 Next, wire up the provider RPCs with the component implementation.
 
-{{< chooser language "typescript,python,go" >}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language typescript %}}
 
@@ -393,7 +393,7 @@ main(process.argv.slice(2));
 ```
 
 {{% /choosable %}}
-{{% choosable language python %}
+{{% choosable language python %}}
 
 ```python
 from typing import Optional
@@ -448,7 +448,7 @@ if __name__ == "__main__":
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}
+{{% choosable language go %}}
 
 ```go
 import (
@@ -535,7 +535,7 @@ func main() {
 }
 ```
 
-{{% /choosable %}
+{{% /choosable %}}
 
 {{% /chooser %}}
 
@@ -545,7 +545,7 @@ The `Construct` RPC is called when creating an instance of the component. The `C
 
 Now we can build and try out using the component and its method from any Pulumi language:
 
-{{< chooser language "typescript,python,csharp,go" >}
+{{< chooser language "typescript,python,csharp,go" >}}
 
 {{% choosable language typescript %}}
 
@@ -557,7 +557,7 @@ export const message = component.getMessage({ recipient: "Alice" }); // Exports 
 ```
 
 {{% /choosable %}}
-{{% choosable language python %}
+{{% choosable language python %}}
 
 ```python
 component = example.Message("mycomponent", message="hello world")
@@ -566,7 +566,7 @@ pulumi.export("message", message) # Exports "Alice, hello world!"
 ```
 
 {{% /choosable %}}
-{{% choosable language csharp %}
+{{% choosable language csharp %}}
 
 ```csharp
 var component = new Message("mycomponent", new MessageArgs
@@ -580,9 +580,9 @@ this.Message = component.GetMessage(new MessageGetMessageArgs
 });
 ```
 
-{{% /choosable %}
+{{% /choosable %}}
 
-{{% choosable language go %}
+{{% choosable language go %}}
 
 ```go
 component, err := example.NewMessage(ctx, "mycomponent", &example.MessageArgs{
@@ -598,7 +598,7 @@ if err != nil {
 pulumi.Export("message", message) // Exports "Alice, hello world!"
 ```
 
-{{% /choosable %}
+{{% /choosable %}}
 
 {{% /chooser %}}
 
