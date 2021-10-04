@@ -1,17 +1,17 @@
 ---
-title: "Secrets"
+title: "Working with Secrets"
 layout: topic
 date: 2021-09-20T08:33:36-05:00
 draft: false
-description: Here is a brief description of what this topic will cover.
-meta_desc: Here is a brief description of what this topic will cover.
+description: Explore how Pulumi handles secrets across all environments.
+meta_desc: Explore how Pulumi handles secrets across all environments.
 index: 4
 estimated_time: 10
 meta_image: meta.png
 authors:
     - matt-stratton
 tags:
-    - change-me
+    - learn
 links:
     - text: Some Website
       url: http://something.com

@@ -1,5 +1,5 @@
 ---
-title: "Stack References"
+title: "Understanding Stack References"
 layout: topic
 date: 2021-09-20T08:33:49-05:00
 draft: false
