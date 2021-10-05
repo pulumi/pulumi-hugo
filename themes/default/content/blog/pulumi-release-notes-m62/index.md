@@ -59,3 +59,9 @@ options:
 <script id="asciicast-2BQoAe9gx9E07gBiM9h9A1cra" src="https://asciinema.org/a/2BQoAe9gx9E07gBiM9h9A1cra.js" async></script>
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/8058)
+
+### Output property enhancements
+
+Generally useful for Pulumi users using Multi-language Components, the enhancements made here will improve previews and parallelism during destroy. We’ve expanded the definition of the Output property type to include dependencies, as well as its resolved value, and support to serialize the outputs.
+
+Thanks [@BenjaminSchiborr](https://github.com/BenjaminSchiborr) for their contribution in improving error messages related to these enhancements!
