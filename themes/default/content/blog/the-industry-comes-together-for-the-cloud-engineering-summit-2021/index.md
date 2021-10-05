@@ -38,7 +38,7 @@ tags:
 
 When we launched the [first-ever Cloud Engineering Summit](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpE6LxGPnfLfBQLbC7zX8FT) last year, we were humbled by the generosity and support from partners and sponsors across the industry who helped to make the summit a success. For [this year’s event]({{< relref "/cloud-engineering-summit" >}}), we’re equally thrilled to have an amazing group of sponsors participating in the summit and it’s worth a quick ‘guided tour’ of the teams that are helping us to pull off this amazing event.
 
-<a href="{{< relref "/cloud-engineering-summit" >}}" class="btn">Save your spot &#x2192;</a>
+<a href="{{< relref "/cloud-engineering-summit/?iaid=sponsor-blog" >}}" class="btn">Save your spot &#x2192;</a>
 
 ## Amazon Web Services
 
