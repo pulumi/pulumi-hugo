@@ -62,6 +62,6 @@ options:
 
 ### Output property enhancements
 
-Generally useful for Pulumi users using Multi-language Components, the enhancements made here will improve previews and parallelism during destroy. We’ve expanded the definition of the Output property type to include dependencies, as well as its resolved value, and support to serialize the outputs.
+To make Pulumi Component Package previews more useful and to improve parallelism of operations like destroy, we’ve expanded the definition of the Output property type to include dependencies, as well as its resolved value, and support to serialize the outputs.
 
 Thanks [@BenjaminSchiborr](https://github.com/BenjaminSchiborr) for their contribution in improving error messages related to these enhancements!
