@@ -90,4 +90,4 @@ Last year, Johnathan Sullivan joined the [Culture, Process, and Tools]({{< relre
 
 ## ...and many more
 
-Beyond the teams and sessions mentioned above, the Cloud Engineering Summit wouldn’t be possible without help and support from a long list of sponsors and collaborators including Codefresh, Split, and Uffizzi. [Register today]({{< relref "/resources/the-future-of-cloud-engineering-culture-process-tools" >}}) to see what all the fuss is about.
+Beyond the teams and sessions mentioned above, the Cloud Engineering Summit wouldn’t be possible without help and support from a long list of sponsors and collaborators including Codefresh, Split, and Uffizzi. [Register today]({{< relref "/cloud-engineering-summit" >}}) to see what all the fuss is about.
