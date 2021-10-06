@@ -47,6 +47,7 @@ Cloud engineering is a central character in the next chapter of how the modern c
 Panther Labs helps modern security teams build world-class detection and response pipelines using code and automation, developer-friendly workflows, and big data primitives. Its Platform Team is responsible for a large, complex serverless architecture on AWS. Because of the limitations of its legacy Infrastructure-as-Code (IaC) tool, the team was unable to manage and scale its cloud infrastructure with the speed and automation that the company needed to support its fast-growing business. After comparing different alternatives, Panther Labs decided to migrate to the Pulumi Cloud Engineering Platform. Pulumi increased the company’s deployment speeds by up to 10X, reduced the size of its infrastructure codebase by >50%, and enabled its developers to adopt cloud engineering best practices to deliver its cloud applications faster and more reliably.
 
 ### Results
+
 - Infrastructure teardowns were twice as fast, fresh deployments were four times as fast, and simple changes were more than ten times as fast.
 - The infrastructure codebase was reduced by more than 50%.
 - Developers could use a programming language and existing software development practices that they already knew.
