@@ -47,7 +47,7 @@ also filter logs by a particular user by selecting their profile picture.
 ## Automated Export
 
 {{% notes "info" %}}
-This feature is only available to some Pulumi Enterprise editions. If you don't see it in your organization, [contact us]({{< relref "/contact?form=sales" >}}).
+This feature is only available to some Pulumi Enterprise editions. If you don't see it in your organization, [contact sales]({{< relref "/contact?form=sales" >}}).
 {{% /notes %}}
 
 To configure the export of audit logs to AWS S3 using the console:
