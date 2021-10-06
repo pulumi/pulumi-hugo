@@ -60,7 +60,7 @@ After the summit, you can also join Kat Cosgrove for free hands-on training show
 
 The 2020 Cloud Engineering Summit featured Amanda Silver in a [Future of Cloud Engineering panel]({{< relref "/resources/getting-started-with-google-cloud-platform" >}}) and Adora Nwodo showed everyone [how to manage apps and infrastructure in a single CI/CD pipeline]({{< relref "/resources/managing-your-cloud-application-and-infrastructure-deployment-in-one-pipeline" >}}). Adora will return to the summit again this year to talk about _Software engineering in infrastructure engineering_.
 
-For those looking to expand their cloud engineering skillset after the summit, Lee Briggs will host two workshops to show attendees [how to get started with Azure]({{< relref "/resources/getting-started-with-azure-native" >}}).
+For those looking to expand their cloud engineering skillset after the summit, Matt Stratton will host two workshops to show attendees [how to get started with Azure]({{< relref "/resources/getting-started-with-azure-native" >}}).
 
 ## NGINX
 
