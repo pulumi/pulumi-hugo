@@ -86,7 +86,7 @@ If you missed Charity Major’s summit session last year about [Testing In Produ
 
 ## NS1
 
-Last year, Johnathan Sullivan joined the [Culture, Process, and Tools]({{< relref "/resources/the-future-of-cloud-engineering-culture-process-tools" >}}) panel and we’re excited to welcome Chris Buijs to this year’s Deploy panel.
+Last year, Johnathan Sullivan joined the [Culture, Process, and Tools]({{< relref "/resources/the-future-of-cloud-engineering-culture-process-tools" >}}) panel, and we’re excited to welcome Chris Buijs to this year’s Deploy panel.
 
 ## ...and many more
 
