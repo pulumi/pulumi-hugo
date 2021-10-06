@@ -54,7 +54,7 @@ To configure the export of audit logs to AWS S3 using the console:
 
 1. Navigate to the organization's **Settings**.
 1. Navigate to **Audit Logs**.
-1. Use the three dot menu on the left and select **Configure Audit Logs to S3**, *please note that this will only be visible if the feature has been [activated]({{< relref "/contact" >}}) for your organization*.
+1. Use the three dot menu and select **Configure Audit Logs to S3**. [Contact us]({{< relref "/contact" >}}) to activate this feature in your enterprise organization.
 
 <img src="/images/docs/reference/console/ale-menu.png">
 
