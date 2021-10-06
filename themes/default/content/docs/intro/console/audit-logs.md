@@ -58,7 +58,7 @@ To configure the export of audit logs to AWS S3 using the console:
 
 <img src="/images/docs/reference/console/ale-menu.png">
 
-1. Follow the direction in the stepper to create an AWS S3 bucket.
+1. Follow the instructions to create an AWS S3 bucket.
 1. Provide bucket name and a filepath where Pulumi audit logs will be exported eg: 'Pulumi-audit-logs'.
 1. Copy the provided policy.
 1. In the AWS console create an IAM role.
