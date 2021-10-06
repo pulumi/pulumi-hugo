@@ -5,7 +5,7 @@ allow_long_title: True
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2021-10-06
+date: 2021-10-07
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting your post for review.
@@ -72,6 +72,7 @@ WhyLabs helps organizations run their AI applications with certainty by monitori
 - Pulumi enables WhyLabs to shift infrastructure left because testing and security controls are automated with Pulumi and GitLab integration. Peer reviews and accountability are built into the GitLab CI/CD pipeline.
 - Pulumi’s integration with GitLab enables WhyLabs to deliver infrastructure through CI/CD pipelines just like with application code, which increases iteration frequency and accelerates time to market.
 - Pulumi’s support for multiple cloud providers will help WhyLabs expand their platform in the future to meet customers’ needs.
+
 [Read the full case study→]({{< relref "/case-studies/whylabs" >}})
 <br>
 <br>
@@ -81,10 +82,11 @@ Fauna provides a flexible, developer-friendly, transactional database delivered 
 
 ### Results
 
-- Delivered its new multi-region, multi-cloud database feature by using familiar and existing software tools and practices that were enabled by Pulumi
-- Built and managed its complex cloud architecture more efficiently by using familiar languages like Python
-- Increased the reliability and quality of infrastructure using existing code review processes and running unit tests
-- Controlled access to its infrastructure using Pulumi’s SSO integration with its identity provider service
+- Delivered its new multi-region, multi-cloud database feature by using familiar and existing software tools and practices that were enabled by Pulumi.
+- Built and managed its complex cloud architecture more efficiently by using familiar languages like Python.
+- Increased the reliability and quality of infrastructure using existing code review processes and running unit tests.
+- Controlled access to its infrastructure using Pulumi’s SSO integration with its identity provider service.
+
 [Read Fauna's blog post→](https://fauna.com/blog/building-faunas-gdpr-compliant-distributed-and-scalable-database)
 <br>
 <br>
