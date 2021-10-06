@@ -13,7 +13,7 @@ overview:
 
 benefits:
     title: Benefits of Migrating from Terraform to Pulumi
-    benefits:
+    benefits1:
       items:
         - title: Bring software development practices to infrastructure
           icon: code
@@ -33,6 +33,8 @@ benefits:
           description: |
             Pulumi allows you to create reusable infrastructure that can be shared and reused by anyone in any language. You can build and share components for commonly used architectures or shared resources with organizational best practices. With Pulumi, you can write your components once in your preferred language and make them available in all the other languages supported by Pulumi.
 
+    benefits2:
+      items:
         - title: Fully integrated secrets management
           icon: security
           icon_color: violet
