@@ -36,7 +36,7 @@ tags:
 # See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
 # for additional details, and please remove these comments before submitting for review.
 ---
-The story of how the cloud fuels startup innovation seems never ending. In the beginning, AWS birthed cloud computing with its first service, SQS, in 2004 and quickly released several additional services (like S3, EC2, and SimpleDB). From this innovation, startups flourished because they were able to build, experiment, and grow faster than before at much lower cost. Airbnb, Netflix, Zynga, and many more were born, and the rest is history. 
+The story of how the cloud fuels startup innovation seems never ending. In the beginning, AWS birthed cloud computing with its first service, SQS, in 2004 and quickly released several additional services (like S3, EC2, and SimpleDB). From this innovation, startups flourished because they were able to build, experiment, and grow faster than before at much lower cost. Airbnb, Netflix, Zynga, and many more were born, and the rest is history.
  
 Today, a new generation of startups is flourishing because of the cloud, but this time with modern cloud architectures that are distributed, API-driven, and more resilient and scalable than ever. Today’s startups have to get to market even faster and rapidly innovate in order to delight customers and carve out market share. Most startups understand the benefits of adopting the modern cloud to help them achieve this. However, their ability to reap these benefits for competitive advantage depends on how well they can harness the modern cloud. 
  
