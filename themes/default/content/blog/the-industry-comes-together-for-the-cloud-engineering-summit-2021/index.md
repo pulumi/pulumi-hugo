@@ -82,7 +82,7 @@ The GitHub team participated in three sessions last year including the [Architec
 
 ## Honeycomb
 
-If you missed Charity Major’s summit session last year about [Testing In Production]({{< relref "/resources/testing-in-production" >}}), stop reading and go watch it. Then, register for Liz Fong-Jones’ Build track session this year: _What is OpenTelemetry_.
+If you missed Charity Major’s summit session last year about [Testing In Production]({{< relref "/resources/testing-in-production" >}}), stop reading and go watch it. Then, register for Liz Fong-Jones’s Build track session this year: _What is OpenTelemetry_.
 
 ## NS1
 
