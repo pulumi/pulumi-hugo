@@ -1,6 +1,6 @@
 ---
 title: "Cloud engineering fuels the next chapter of startup innovation"
-
+allow_long_title: True
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
