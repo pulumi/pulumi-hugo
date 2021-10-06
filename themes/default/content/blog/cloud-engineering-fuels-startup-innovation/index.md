@@ -69,8 +69,6 @@ WhyLabs helps organizations run their AI applications with certainty by monitori
 - Pulumi enables WhyLabs to shift infrastructure left because testing and security controls are automated with Pulumi and GitLab integration. Peer reviews and accountability are built into the GitLab CI/CD pipeline.
 - Pulumi’s integration with GitLab enables WhyLabs to deliver infrastructure through CI/CD pipelines just like with application code, which increases iteration frequency and accelerates time to market.
 - Pulumi’s support for multiple cloud providers will help WhyLabs expand their platform in the future to meet customers’ needs.
-
-
 [Read the full case study→]({{< relref "/case-studies/whylabs" >}})
 <br>
 <br>
