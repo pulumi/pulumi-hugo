@@ -69,7 +69,7 @@ To configure the export of audit logs to AWS S3 using the console:
 
 <img src="/images/docs/reference/console/test-ale-configuration.png">
 
-1. After a successful test, click **Save and Apply**.
+1. After a successful test, select **Save and Apply**.
 1. After an hour, verify that logs have successfully started exporting.
 
 <img src="/images/docs/reference/console/ale-success.png">
