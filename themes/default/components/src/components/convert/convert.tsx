@@ -520,8 +520,8 @@ export class Convert {
                         </p>
                         <p>
                             There could be a problem with the code you submitted, or it might use a
-                            feature { this.conversionTool.name } doesn't support. Join us in
-                            <a href="https://slack.pulumi.com/">Community Slack</a> for help.
+                            feature { this.conversionTool.name } doesn't support. Join us
+                            in <a href="https://slack.pulumi.com/">Community Slack</a> for help.
                         </p>
                     </div>
                     <div class={ this.combineClasses("alert", "alert-warn", this.alertDismissed ? "dismissed" : undefined) }>
@@ -532,8 +532,8 @@ export class Convert {
                         <p>
                             The code was valid, but { this.conversionTool.name } was unable to convert it completely.
                             There could be a problem with the code you submitted, or it might use a
-                            feature { this.conversionTool.name } doesn't support. Join us in
-                            <a href="https://slack.pulumi.com/">Community Slack</a> for help.
+                            feature { this.conversionTool.name } doesn't support. Join us
+                            in <a href="https://slack.pulumi.com/">Community Slack</a> for help.
                         </p>
                     </div>
                 </div>;
