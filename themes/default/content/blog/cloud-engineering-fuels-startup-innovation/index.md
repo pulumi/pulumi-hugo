@@ -15,7 +15,7 @@ draft: false
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
 meta_desc: |
-    Cloud engineering is fueling startup innovation. Read on to see three mini-stories of cloud engineering in action with startups. 
+    Cloud engineering is fueling startup innovation. Read on for three mini-stories of cloud engineering in action with startups. 
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
