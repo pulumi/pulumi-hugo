@@ -73,10 +73,9 @@ WhyLabs helps organizations run their AI applications with certainty by monitori
 - Pulumi’s support for multiple cloud providers will help WhyLabs expand their platform in the future to meet customers’ needs.
 
 [Read the full case study→]({{< relref "/case-studies/whylabs" >}})
-<br>
-<br>
 
 ## Fauna
+
 Fauna provides a flexible, developer-friendly, transactional database delivered as a secure and scalable cloud API with native GraphQL. It needed to provide a way for customers to use its databases while meeting data residency requirements, such as complying with GDPR or FIPS. This meant allowing customers to store data in specific geographies while maintaining low latency and high availability. To build this capability, Fauna’s engineers needed a repeatable, scalable, and efficient way to build, deploy, and manage databases on behalf of its customers. Every database is backed by a cluster of nodes across multiple regions and cloud providers. After evaluating CloudFormation and Terraform, Fauna found that these tools’ domain-specific languages and features would be insufficient for the project. Fauna chose Pulumi to build, deploy, and manage its multi-cloud infrastructure because Pulumi enabled cloud engineering best practices that met its requirements. This included the ability to use a familiar and powerful programming language like Python, integration with existing software development workflows and tools, and software engineering automation.
 
 ### Results
