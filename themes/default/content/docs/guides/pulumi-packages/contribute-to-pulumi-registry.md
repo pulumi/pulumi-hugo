@@ -1,6 +1,6 @@
 ---
 title: Contribute to Pulumi Registry
-meta_desc: Enable your customers to manage your cloud resources using Pulumi. Share opinionated cloud components that quickly stand up well-architected cloud architectures. Contribute a Pulumi Package–a Provider or a Component–to Pulumi Registry.
+meta_desc: Enable your customers to manage your cloud resources with Pulumi. Share opinionated cloud components that quickly stand up well-architected cloud architectures.
 menu:
     userguides:
         parent: pulumi-packages
