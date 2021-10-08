@@ -1,6 +1,6 @@
 ---
 title: "Which Azure Container Solution is right for you?"
-date: 2021-08-31T13:51:22-07:00
+date: 2021-10-8T08:00:00-07:00
 draft: true
 meta_desc: "A look at the container solutions available in Azure"
 meta_image: "azure-top-5.png"
