@@ -1,19 +1,15 @@
 ---
 title: "Pulumi Recommended Patterns: The basics"
-date: 2021-09-28T23:20:26Z
-draft: true
-meta_desc: "Learn and apply Pulumi recommended patterns to improve your infrastructure and easily scale your deployments using modern infrastructure as code"
+date: 2021-10-11T23:20:26Z
+draft: false
+meta_desc: |
+    "Learn and apply Pulumi recommended patterns to improve your infrastructure and easily scale your deployments using modern infrastructure as code"
 meta_image: meta.png
 authors:
     - aurelien-requiem
-
 tags:
-    - best-practices
-    - recommended-patterns
-
+    - cloud-engineering
 ---
-
-# Pulumi Recommended Patterns: The basics
 
 As a customer engineer, one of the most rewarding aspects of my work is to listen to customers and our diverse community to learn and share how they succeed in their day-to-day projects.
 
@@ -25,7 +21,7 @@ Let's dive in!
 
 Pulumi is an infrastructure-as-code tool, and it is at the center of many other services, platforms, and products. Pulumi can act as a unifying agent for many of these services, enabling users to combine multiple services seamlessly at once to create exciting and innovative platforms. In this way, Pulumi is the 'hub' connecting the diverse 'spokes' of your solution, allowing you to really get rolling.
 
-Pulumi is predominantly used with cloud providers like Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and Kubernetes. But [many more](https://www.pulumi.com/docs/reference/pkg/) are available and supported. At the time of this writing, Pulumi supports 52 providers.
+Pulumi is predominantly used with cloud providers like Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and Kubernetes. But [many more]({{< relref "/docs/reference/pkg" >}}) are available and supported. At the time of this writing, Pulumi supports 52 providers.
 
 With such an impressive ecosystem, it's quite normal to follow your vendors' best practices as they are key ingredients to your long-term success on these platforms.
 
@@ -77,7 +73,7 @@ The first thing you'll notice when you write a Pulumi app is that every single r
 
 Depending on the resource type, a second name (a *cloud resource name* if you like) may also be provided. If this *cloud resource name* is unspecified, Pulumi uses the *Pulumi resource name* and appends a random string. The random string helps in avoiding name collisions between cloud resources.
 
-As a best practice, we recommend that you explicitly name all (or at least most) of your *cloud resources*. Being explicit with resource names allows you to use string manipulation more easily rather than having to work with an [Output](https://www.pulumi.com/docs/intro/concepts/inputs-outputs/).
+As a best practice, we recommend that you explicitly name all (or at least most) of your *cloud resources*. Being explicit with resource names allows you to use string manipulation more easily rather than having to work with an [Output]({{< relref "/docs/intro/concepts/inputs-outputs" >}}).
 
 ![a code snippet that shows a Pulumi program that uses resource names and then manipulates that string in the program](images/resource-names.svg)
 
@@ -85,7 +81,9 @@ As a best practice, we recommend that you explicitly name all (or at least most)
 
 In this example, the resource `inputBucket` only has a Pulumi resource name set whereas `outputBucket` has both the Pulumi resource name and the cloud resource name set. As a result of the lack of a cloud resource name, `inputBucketName` uses the Pulumi resource name as the base name with an extra random string at the end. As for `outputBucketName`, the cloud resource name is set as specified by our code.
 
-Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution to avoid name collisions across many projects and stacks. A way to achieve this is to use a customer name or a project name. However, be mindful that some resource names are limited in length depending on the type of resources provisioned and the vendor used. In our example, an S3 bucket name cannot be longer than 63 characters. As an example, this string works because it is 43 characters long: `acmecorp-dev-my-confidential-reports-bucket`.
+Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution to avoid name collisions across many projects and stacks. A way to achieve this is to use a customer name or a project name. As [suggested](https://stackoverflow.com/a/69270933) by my colleague Mikhail, the resource name prefix may be composed of multiple values, such as `${organization}-${tenant}-${environment}-${resourceName}`.
+
+However, be mindful that some resource names are limited in length depending on the type of resources provisioned and the vendor used. In our example, an S3 bucket name cannot be longer than 63 characters. As an example, this string works because it is 43 characters long: `acmecorp-dev-my-confidential-reports-bucket`.
 
 ### Handling secrets securely
 
@@ -93,9 +91,9 @@ Deploying any infrastructure or services almost always means dealing with secret
 
 If you've worked with other popular tools, you often have to resort to different means to securely your handle secrets. If you want to embed your secrets as part of your deployment, you may have to store your secrets in plain text in the deployment configuration files; even if you can avoid this, encrypted secrets may **still** leak as plain text values in the deployment state files.
 
-Pulumi goes above and beyond to ensure your secrets are secret at all times. First, the Pulumi Service always transmits and stores entire state files securely. Pulumi also supports encrypting specific values as "[secrets](https://www.pulumi.com/docs/intro/concepts/secrets/)" for extra protection. By default, the encryption method uses automatic, per-stack data encryption keys (DEK) provided by the Pulumi Service. This ensures your secrets are secure both in-transit and at rest, including in your stack state files. Last, Pulumi makes it easy for developers to make any variables a secret, and it's as simple as flipping the light switch.
+Pulumi goes above and beyond to ensure your secrets are secret at all times. First, the Pulumi Service always transmits and stores entire state files securely. Pulumi also supports encrypting specific values as "[secrets]({{< relref "/docs/intro/concepts/secrets" >}})" for extra protection. By default, the encryption method uses automatic, per-stack data encryption keys (DEK) provided by the Pulumi Service. This ensures your secrets are secure both in-transit and at rest, including in your stack state files. Last, Pulumi makes it easy for developers to make any variables a secret, and it's as simple as flipping the light switch.
 
-Let's have a look at how [Secrets](https://www.pulumi.com/docs/intro/concepts/secrets/) work in Pulumi.
+Let's explore how [secrets]({{< relref "/docs/intro/concepts/secrets" >}}) work in Pulumi.
 
 #### Secrets in the stack configuration file
 
@@ -135,7 +133,7 @@ It's often acceptable to provide your passwords, API keys, or other sensitive in
 
 ![a code snippet of a Pulumi program that generates and uses a random password](images/password.svg)
 
-In this code, we generate a password using the API [`RandomPassword`](https://www.pulumi.com/docs/reference/pkg/random/randompassword/). As you would expect because we're using Pulumi's API, Pulumi already knows that the property `dbPassword.result` is a secret and encrypts it by default.
+In this code, we generate a password using the API [`RandomPassword`]({{< relref "/docs/reference/pkg/random/randompassword" >}}). As you would expect because we're using Pulumi's API, Pulumi already knows that the property `dbPassword.result` is a secret and encrypts it by default.
 
 #### From plain text to secret
 
@@ -160,7 +158,7 @@ For this first article, we laid down the important foundations of infrastructure
 * Follow your vendors' best practices as early as possible.
 * Choose the programming language and the IDE you're the most comfortable with.
 * Give your Pulumi resources a name in Pulumi and in your cloud environment.
-* Leverage Pulumi [secrets](https://www.pulumi.com/docs/intro/concepts/secrets/) to protect your sensitive information during deployment.
+* Leverage Pulumi [secrets]({{< relref "/docs/intro/concepts/secrets" >}}) to protect your sensitive information during deployment.
 
 In the next article, we'll discuss code reusability and code documentation to accelerate your developer experience. We show you how to have a multi-stack environment, protect critical resources, and more.
 
