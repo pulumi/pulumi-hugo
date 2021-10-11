@@ -27,10 +27,10 @@ With such an impressive ecosystem, it's quite normal to follow your vendors' bes
 
 Here are a few links to get you started:
 
-* AWS: https://aws.amazon.com/organizations/getting-started/best-practices/
-* Azure: https://docs.microsoft.com/en-us/azure/security/fundamentals/best-practices-and-patterns
-* GCP: https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations
-* Kubernetes: https://kubernetes.io/docs/setup/best-practices/
+* [AWS](https://aws.amazon.com/organizations/getting-started/best-practices/)
+* [Azure](https://docs.microsoft.com/en-us/azure/security/fundamentals/best-practices-and-patterns)
+* [GCP](https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations)
+* [Kubernetes](https://kubernetes.io/docs/setup/best-practices/)
 
 While these recommendations are important, don't wait to have adopted them all before you start using Pulumi. Rather, integrating Pulumi early in your cloud journey will empower you to implement better cloud practices with more integrated security and improved development velocity.
 
@@ -58,10 +58,10 @@ If you're unsure which IDE you should be using, here is a list of features you w
 
 And just as with the cloud vendors, you should definitely consider the do's, don'ts, and recommended patterns for the programming language you selected. Following these best practices gives you safe guardrails and streamlines your developer experience across teams sharing the same programming language. Here's the main ones for a few languages:
 
-* TypeScript: https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html
-* Python https://www.python.org/dev/peps/pep-0008/, https://www.python.org/dev/peps/pep-0020/, and https://data-flair.training/blogs/python-best-practices/
-* C# https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
-* Golang: https://golangdocs.com/golang-best-practices and https://talks.golang.org/2013/bestpractices.slide#1
+* [TypeScript](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html)
+* Python: [PEP 8](https://www.python.org/dev/peps/pep-0008/), [PEP 20](https://www.python.org/dev/peps/pep-0020/), and [an additional blog post](https://data-flair.training/blogs/python-best-practices/)
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+* Golang: [Golang docs](https://golangdocs.com/golang-best-practices) and [a talk](https://talks.golang.org/2013/bestpractices.slide#1)
 
 ## Pulumi recommended patterns
 
