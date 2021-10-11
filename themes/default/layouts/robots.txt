@@ -1,3 +1,11 @@
+{{- if ne hugo.Environment "production" }}
+# Allow the Swiftbot crawler specifically for non-prod envs so that SwiftType-based search
+# continues to work.
+# https://swiftype.com/documentation/site-search/crawler-configuration/robots-txt#allow
+User-agent: Swiftbot
+Disallow:
+{{ end }}
+
 User-agent: *
 {{- if ne hugo.Environment "production" }}
 Disallow: *
