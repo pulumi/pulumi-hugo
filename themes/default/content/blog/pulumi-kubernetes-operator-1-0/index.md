@@ -7,7 +7,7 @@ meta_desc: "Pulumi Kubernetes Operator 1.0: GitOps, Automation API, State Backen
 meta_image: operator.png
 ---
 
-Last year we released the [Pulumi Kubernetes Operator]({{< relref "/blog/pulumi-kubernetes-operator" >}}), a new cloud-native way to manage and deploy cloud infrastructure using Pulumi from within your Kubernetes environment. Since then, we’ve worked with many Pulumi users who have adopted the Pulumi Kubernetes Operator at increasingly larger scales and for a wide variety of use cases. Today, we’re excited to make the [1.0 release](TBD) of the Pulumi Kubernetes Operator available.
+Last year we released the [Pulumi Kubernetes Operator]({{< relref "/blog/pulumi-kubernetes-operator" >}}), a new cloud-native way to manage and deploy cloud infrastructure using Pulumi from within your Kubernetes environment. Since then, we’ve worked with many Pulumi users who have adopted the Pulumi Kubernetes Operator at increasingly larger scales and for a wide variety of use cases. Today, we’re excited to make the [1.0 release](https://github.com/pulumi/pulumi-kubernetes-operator/releases/tag/v1.0.0) of the Pulumi Kubernetes Operator available.
 
 The Pulumi Kubernetes Operator defines a Kubernetes Custom Resource called `pulumi.com/v1/Stack`, which represents a Pulumi [stack]({{< relref "/docs/intro/concepts/stack" >}}). The Pulumi stack can be authored in any supported Pulumi language (TypeScript, Python, Go, .NET) and can deploy and manage cloud infrastructure in any supported cloud (AWS, Azure, GCP, Kubernetes and 60+ additional cloud and SaaS providers). The Pulumi Kubernetes Operator triggers cloud deployments based on changes to the `Stack` Custom Resource or the resources it tracks.
 
