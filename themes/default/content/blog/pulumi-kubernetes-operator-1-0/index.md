@@ -30,6 +30,10 @@ spec:
 
 The Pulumi Kubernetes Operator can also be used along with Pulumi’s [Kubernetes provider]({{< relref "/docs/intro/cloud-providers/kubernetes" >}}), which allows Pulumi programs to deploy resources to Kubernetes, either in the same cluster as the operator, or in another cluster. This can be used to package up complex Kubernetes infrastructure into more abstracted units, to mix Kubernetes and cloud infrastructure into a single unit of deployment, to define how application workloads are deployed into a cluster, or for a wide variety of additional use cases. The Pulumi Kubernetes provider has full support for the Kubernetes API available in every Pulumi language, along with newly improved support for [Helm]({{< relref "/blog/full-access-to-helm-features-through-new-helm-release-resource-for-kubernetes" >}}).
 
+{{% notes type="info" %}}
+We're at [KubeCon North America 2021](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) this week - come meet us at booth [SU8](https://events.linuxfoundation.org/wp-content/uploads/2021/10/KubeCon_NA_2021_Collateral_17x11_v2.pdf) if you are there! We also have two Kuberentes-focused webinars coming up where you can learn more about working with Pulumi and Kubernetes: [Provision, Manage and Scale Kubernetes on Any Cloud](https://get.spot.io/lp/provision-manage-scalek8s) (Oct 14th) and [From Zero to Production in Kubernetes]({{< relref "/resources/from-zero-to-production-in-kubernetes" >}}) (Oct 21st).
+{{% /notes %}}
+
 ## What’s New in Pulumi Kubernetes Operator 1.0?
 
 The 1.0 release includes many significant enhancements since the initial launch, as well as scalability, performance and quality improvements.
@@ -94,9 +98,24 @@ This includes capabilities like [Leader Election](https://sdk.operatorframework.
 
 The Pulumi Kubernetes Operator automatically manages a lot of details of Pulumi deployments, and as a result, it’s critical to be able to get insight into the operation of the Operator. Previously, this was available either via operator logs, or via the Pulumi Console. As part of the 1.0 release, the Operator is also now exporting Prometheus-compatible metrics for `stacks_active` and `stacks_failing`. These can be used to drive reporting and other workflows inside the Kubernetes cluster.
 
-<!-- TODO: Screenshot or curl output of metrics? -->
+```bash
+$ kubectl port-forward service/pulumi-kubernetes-operator-metrics 8383:8383 &
+$ curl -s localhost:8383/metrics | grep "stacks_active\|stacks_failing"
+# HELP stacks_active Number of stacks currently tracked by the Pulumi Kubernetes Operator
+# TYPE stacks_active gauge
+stacks_active 2
+# HELP stacks_failing Number of stacks currently registered where the last reconcile failed
+# TYPE stacks_failing gauge
+stacks_failing{name="stack-test-aws-s3-commit-change-5wuczx",namespace="default"} 1
+```
 
-<!-- TODO: ### Documentation -->
+### Documentation
+
+We've added new documentation and enhanced existing documentatin to ensure it's easy to get started with the Pulumi Kubernetes Operator.
+
+Full `Stack` Custom Resoruce [API documentation](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md) is now available.  And guides for [deploying the Pulumi Kubernetes Operator](https://github.com/pulumi/pulumi-kubernetes-operator#deploy-the-operator) and [creating `Stack` resources](https://github.com/pulumi/pulumi-kubernetes-operator#deploy-the-operator) are available for use either from `kubectl`/YAML or using the Pulumi Kubernetes Provider.
+
+[![API Docs](./docs.png)](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md)
 
 ## What’s Next
 
