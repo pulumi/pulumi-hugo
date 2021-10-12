@@ -277,7 +277,7 @@ func main() {
 					"stack":             "<YOUR_ORG>/nginx/dev",
 					"projectRepo":       "https://github.com/metral/pulumi-nginx",
 					"commit":            "2b0889718d3e63feeb6079ccd5e4488d8601e353",
-                    // branch: "refs/heads/master", // Alternatively, track master branch.
+					// "branch":         "refs/heads/master", // Alternatively, track master branch.
 					"destroyOnFinalize": true,
 				},
 			},
@@ -311,7 +311,7 @@ Stack CustomResources provide the following properties to configure the Stack up
   and stack itself upon deletion of the CR.
 - Switching to an open source backend.
 
-Detailed documentation on the configuration on Stack CRs is available [here](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md).
+Detailed documentation on Stack CR configuration is available [here](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md).
 
 ### Extended Examples
 
