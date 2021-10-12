@@ -112,7 +112,7 @@ const mystack = new k8s.apiextensions.CustomResource("my-stack", {
                 },
             },
         },
-        stack: "vivek/nginx/dev",
+        stack: "<YOUR_ORG>/nginx/dev",
         projectRepo: "https://github.com/metral/pulumi-nginx",
         commit: "2b0889718d3e63feeb6079ccd5e4488d8601e353",
         // branch: "refs/heads/master", // Alternatively, track master branch.
