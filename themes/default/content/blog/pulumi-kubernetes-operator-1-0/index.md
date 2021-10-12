@@ -61,9 +61,9 @@ Along with support for branch tracking, the Operator also now supports access to
 
 ### Building on the Pulumi Automation API
 
-A couple months after we released the Pulumi Kubernetes Operator, we also released the initial version of the [Pulumi Automation API]({{< relref "/docs/guides/automation-api" >}}). The Automation API provides an SDK for embedding Pulumi deployments inside your own software and systems, allowing you to build your own interfaces for managing cloud infrastructure. The design of the Automation API was heavily influenced by the work we had done to build the Pulumi Kubernetes Operator, which was a perfect example of one of these custom interfaces - the Pulumi Kubernetes Operator embeds Pulumi deployments inside Kubernetes, offering a new interface (Kubernetes `Stack` resources) for managing cloud infrastructure.
+A couple months after we released the Pulumi Kubernetes Operator, we also released the initial version of the [Pulumi Automation API]({{< relref "/docs/guides/automation-api" >}}). The Automation API provides an SDK for embedding Pulumi deployments inside your own software and systems, allowing you to build your own interfaces for managing cloud infrastructure. The design of the Automation API was heavily influenced by our experience building the Pulumi Kubernetes Operator, which was a perfect example of one of these custom interfaces - the Pulumi Kubernetes Operator embeds Pulumi deployments inside Kubernetes, offering a new interface (Kubernetes `Stack` resources) for managing cloud infrastructure.
 
-Since then, we’ve moved the Pulumi Kubernetes Operator over to use the Pulumi Automation API, significantly reducing the size of the operator implementation, building on a robust foundation shared with dozens of other projects in the Pulumi ecosystem, and benefiting from many improvements and features added to the Pulumi Automation API. Earlier this year, the [Pulumi Automation API itself reached GA]({{< relref "/blog/pulumiup-automation-api-ga" >}}) as part of the [Pulumi 3.0]({{< relref "/blog/pulumi-3-0" >}}) release.
+Since then, we’ve moved the Pulumi Kubernetes Operator over to use the Pulumi Automation API, significantly reducing the size of the operator implementation, building on a robust foundation shared with dozens of other projects in the Pulumi ecosystem, and benefiting from many improvements and features added to the Pulumi Automation API. Earlier this year, the [Pulumi Automation API]({{< relref "/blog/pulumiup-automation-api-ga" >}}) also reached GA as part of the [Pulumi 3.0]({{< relref "/blog/pulumi-3-0" >}}) release.
 
 ### Support for any state and secrets management backend
 
@@ -88,7 +88,7 @@ spec:
 
 The Pulumi Kubernetes Operator manages cloud infrastructure deployments which can take seconds to tens of minutes to complete. Although Pulumi ensures these deployments can be continued if interrupted, we want to ensure as little disruption to critical cloud infrastructure deployments as possible via the Operator. As a result, we have added a few key features to ensure that the Pulumi Kubernetes Operator can be safely upgraded to new versions without disrupting any deployments that are in-flight.
 
-This included the use of several capabilities from the Kubernetes Operator SDK, including [Leader Election](https://sdk.operatorframework.io/docs/building-operators/golang/advanced-topics/#leader-with-lease), [Graceful Shutdown](https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/manager#Options) and more.
+This includes capabilities like [Leader Election](https://sdk.operatorframework.io/docs/building-operators/golang/advanced-topics/#leader-with-lease), [Graceful Shutdown](https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/manager#Options) and more.
 
 ### Prometheus Metrics
 
