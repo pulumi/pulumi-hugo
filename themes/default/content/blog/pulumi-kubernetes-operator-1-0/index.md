@@ -113,7 +113,7 @@ stacks_failing{name="stack-test-aws-s3-commit-change-5wuczx",namespace="default"
 
 We've added new documentation and enhanced existing documentation to ensure it's easy to get started with the Pulumi Kubernetes Operator.
 
-Full `Stack` Custom Resoruce [API documentation](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md) is now available.  And guides for [deploying the Pulumi Kubernetes Operator](https://github.com/pulumi/pulumi-kubernetes-operator#deploy-the-operator) and [creating `Stack` resources](https://github.com/pulumi/pulumi-kubernetes-operator#deploy-the-operator) are available for use either from `kubectl`/YAML or using the Pulumi Kubernetes Provider.
+Full `Stack` Custom Resource [API documentation](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md) is now available.  And guides for [deploying the Pulumi Kubernetes Operator](https://github.com/pulumi/pulumi-kubernetes-operator#deploy-the-operator) and [creating `Stack` resources](https://github.com/pulumi/pulumi-kubernetes-operator#deploy-the-operator) are available for use either from `kubectl`/YAML or using the Pulumi Kubernetes Provider.
 
 [![API Docs](./docs.png)](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/stacks.md)
 
