@@ -18,6 +18,20 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dd>
     <dt>
         <span class="font-mono">
+            PULUMI_CONFIG
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Sets <a href="/docs/intro/concepts/config">configuration</a> for <a href="/docs/guides/testing/unit">unit testing</a>. Must be in JSON format.
+        </p>
+        <p>
+            <b>This environment variable is ignored during normal Pulumi operations - e.g. {{% md %}}`up`, `pre`, etc{{% /md %}}</b>
+        </p>
+        <pre><code class="text-xs">PULUMI_HOME="{'project:myTag':'val1','project:mySecret':'val2'}"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
             PULUMI_ENABLE_LEGACY_APPLY
         </span>
     </dt>
