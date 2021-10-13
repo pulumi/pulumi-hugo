@@ -70,6 +70,17 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dd>
     <dt>
         <span class="font-mono">
+            PULUMI_CONFIG_PASSPHRASE_FILE
+        </span>
+    </dt>
+    <dd>
+        <p>
+            An alternative method to providing {{% md %}}`PULUMI_CONFIG_PASSPHRASE`{{% /md %}}. Set this to a path to a file that contains the passphrase value.
+        </p>
+        <pre><code class="text-xs">PULUMI_CONFIG_PASSPHRASE_FILE="/tmp/passphrase.txt"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
             PULUMI_CONSOLE_DOMAIN
         </span>
     </dt>
