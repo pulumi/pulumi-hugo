@@ -6,15 +6,37 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
 <dl class="tabular tabular-5-col">
     <dt>
         <span class="font-mono">
-            PULUMI_HOME
+            PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK
         </span>
     </dt>
     <dd>
         <p>
-            Overrides the folder where the Pulumi CLI stores its artifacts: plugins, workspaces, templates, and
-            credentials file. By default, artifacts are stored next to Pulumi binaries in <code>~/.pulumi</code>.
+            Skips the minimum CLI version check used by Automation API to ensure compatibility. We do not recommend using this variable as it may result in unexpected behavior or confusing error messages from Automation API.
         </p>
-        <pre><code class="text-xs">PULUMI_HOME="/path/to/artifacts"</code></pre>
+        <pre><code class="text-xs">PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_ACCESS_TOKEN
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Set this environment variable to authenticate into the Pulumi Service backend and bypass the access
+            token prompt when running {{% md %}}`pulumi login`{{% /md %}}.
+        </p>
+        <pre><code class="text-xs">PULUMI_ACCESS_TOKEN="your-access-token"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_BACKEND_URL
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Set this environment variable to use a specified backend instead of the default backend.  See <a href="/docs/intro/concepts/state">State and Backends</a> for details on valid backend URLs.
+        </p>
+        <pre><code class="text-xs">PULUMI_BACKEND_URL=s3://your-pulumi-state-bucket</code></pre>
     </dd>
     <dt>
         <span class="font-mono">
@@ -26,9 +48,49 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
             Sets <a href="/docs/intro/concepts/config">configuration</a> for <a href="/docs/guides/testing/unit">unit testing</a>. Must be in JSON format.
         </p>
         <p>
-            <b>This environment variable is ignored during normal Pulumi operations - e.g. {{% md %}}`up`, `pre`, etc{{% /md %}}</b>
+            <b>This environment variable is ignored during normal Pulumi operations - e.g. {{% md %}}`up`, `pre`, etc{{% /md %}}.</b>
         </p>
         <pre><code class="text-xs">PULUMI_HOME="{'project:myTag':'val1','project:mySecret':'val2'}"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_CONFIG_PASSPHRASE
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Set this as an environment variable to protect and unlock your configuration values and secrets. Your passphrase
+            is used to generate a unique key for your stack, and configuration and encrypted state values are then encrypted
+            using {{% md %}}`AES-256-GCM`{{% /md %}}.
+            Read <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#secrets-and-pluggable-encryption">the change log</a>
+            and <a href="/docs/intro/concepts/config">Configuration and Secrets</a> to learn more about Pulumi's configuration
+            and secrets management system.
+        </p>
+        <pre><code class="text-xs">PULUMI_CONFIG_PASSPHRASE="your-passphrase"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_CONSOLE_DOMAIN
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Overrides the domain used when generating links to the Pulumi Console.
+        </p>
+        <pre><code class="text-xs">PULUMI_CONSOLE_DOMAIN="yourhost.domain.com"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_DEBUG_PROMISE_LEAKS
+        </span>
+    </dt>
+    <dd>
+        <p>
+            As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0166-2018-11-28"><code>v0.12.2</code></a>,
+            the promise leak experience has been improved and shows a simple error message. Set this environment variable to
+            get more verbose error messages when debugging promise leaks.
+        </p>
+        <pre><code class="text-xs">PULUMI_DEBUG_PROMISE_LEAKS=true</code></pre>
     </dd>
     <dt>
         <span class="font-mono">
@@ -59,48 +121,6 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dd>
     <dt>
         <span class="font-mono">
-            PULUMI_TEST_MODE
-        </span>
-    </dt>
-    <dd>
-        <p>
-            As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0177-2019-04-17"><code>v0.17.7</code></a>,
-            you can enable a new "test mode" by setting this to {{% md %}}`true`{{% /md %}} in either the Node.js or Python SDK. This mode allows you
-            to unit test your Pulumi programs without needing to run them using the Pulumi CLI. Read the change log for details
-            on limitations and other environment variables that must be set.
-        </p>
-        <pre><code class="text-xs">PULUMI_TEST_MODE=true</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
-            PULUMI_CONFIG_PASSPHRASE
-        </span>
-    </dt>
-    <dd>
-        <p>
-            Set this as an environment variable to protect and unlock your configuration values and secrets. Your passphrase
-            is used to generate a unique key for your stack, and configuration and encrypted state values are then encrypted
-            using {{% md %}}`AES-256-GCM`{{% /md %}}.
-            Read <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#secrets-and-pluggable-encryption">the change log</a>
-            and <a href="/docs/intro/concepts/config">Configuration and Secrets</a> to learn more about Pulumi's configuration
-            and secrets management system.
-        </p>
-        <pre><code class="text-xs">PULUMI_CONFIG_PASSPHRASE="your-passphrase"</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
-            PULUMI_SKIP_UPDATE_CHECK
-        </span>
-    </dt>
-    <dd>
-        <p>
-            As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0179-2019-04-30"><code>v0.17.9</code></a>,
-            you may skip the Pulumi version update check by setting this environment variable.
-        </p>
-        <pre><code class="text-xs">PULUMI_SKIP_UPDATE_CHECK=true</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
             PULUMI_ENABLE_LEGACY_PLUGIN_SEARCH
         </span>
     </dt>
@@ -112,6 +132,29 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
             environment variable to opt into the legacy plugin load behavior.
         </p>
         <pre><code class="text-xs">PULUMI_ENABLE_LEGACY_PLUGIN_SEARCH=true</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_HOME
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Overrides the folder where the Pulumi CLI stores its artifacts: plugins, workspaces, templates, and
+            credentials file. By default, artifacts are stored next to Pulumi binaries in <code>~/.pulumi</code>.
+        </p>
+        <pre><code class="text-xs">PULUMI_HOME="/path/to/artifacts"</code></pre>
+    </dd>
+    <dt>
+        <span class="font-mono">
+            PULUMI_PREFER_YARN
+        </span>
+    </dt>
+    <dd>
+        <p>
+            Set this environment variable to opt-in to using {{% md %}}`yarn`{{% /md %}} instead of {{% md %}}`npm`{{% /md %}} for installing Node.js dependencies.
+        </p>
+        <pre><code class="text-xs">PULUMI_PREFER_YARN=true</code></pre>
     </dd>
     <dt>
         <span class="font-mono">
@@ -128,53 +171,6 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dd>
     <dt>
         <span class="font-mono">
-            PULUMI_ACCESS_TOKEN
-        </span>
-    </dt>
-    <dd>
-        <p>
-            Set this environment variable to authenticate into the Pulumi Service backend and bypass the access
-            token prompt when running {{% md %}}`pulumi login`{{% /md %}}.
-        </p>
-        <pre><code class="text-xs">PULUMI_ACCESS_TOKEN="your-access-token"</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
-            PULUMI_BACKEND_URL
-        </span>
-    </dt>
-    <dd>
-        <p>
-            Set this environment variable to use a specified backend instead of the default backend.  See <a href="/docs/intro/concepts/state">State and Backends</a> for details on valid backend URLs.
-        </p>
-        <pre><code class="text-xs">PULUMI_BACKEND_URL=s3://your-pulumi-state-bucket</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
-            PULUMI_DEBUG_PROMISE_LEAKS
-        </span>
-    </dt>
-    <dd>
-        <p>
-            As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0166-2018-11-28"><code>v0.12.2</code></a>,
-            the promise leak experience has been improved and shows a simple error message. Set this environment variable to
-            get more verbose error messages when debugging promise leaks.
-        </p>
-        <pre><code class="text-xs">PULUMI_DEBUG_PROMISE_LEAKS=true</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
-            PULUMI_PREFER_YARN
-        </span>
-    </dt>
-    <dd>
-        <p>
-            Set this environment variable to opt-in to using {{% md %}}`yarn`{{% /md %}} instead of {{% md %}}`npm`{{% /md %}} for installing Node.js dependencies.
-        </p>
-        <pre><code class="text-xs">PULUMI_PREFER_YARN=true</code></pre>
-    </dd>
-    <dt>
-        <span class="font-mono">
             PULUMI_SKIP_CONFIRMATIONS
         </span>
     </dt>
@@ -188,25 +184,29 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dd>
     <dt>
         <span class="font-mono">
-            PULUMI_CONSOLE_DOMAIN
+            PULUMI_SKIP_UPDATE_CHECK
         </span>
     </dt>
     <dd>
         <p>
-            Overrides the domain used when generating links to the Pulumi Console.
+            As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0179-2019-04-30"><code>v0.17.9</code></a>,
+            you may skip the Pulumi version update check by setting this environment variable.
         </p>
-        <pre><code class="text-xs">PULUMI_CONSOLE_DOMAIN="yourhost.domain.com"</code></pre>
+        <pre><code class="text-xs">PULUMI_SKIP_UPDATE_CHECK=true</code></pre>
     </dd>
     <dt>
         <span class="font-mono">
-            PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK
+            PULUMI_TEST_MODE
         </span>
     </dt>
     <dd>
         <p>
-            Skips the minimum CLI version check used by Automation API to ensure compatibility. We do not recommend using this variable as it may result in unexpected behavior or confusing error messages from Automation API.
+            As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0177-2019-04-17"><code>v0.17.7</code></a>,
+            you can enable a new "test mode" by setting this to {{% md %}}`true`{{% /md %}} in either the Node.js or Python SDK. This mode allows you
+            to unit test your Pulumi programs without needing to run them using the Pulumi CLI. Read the change log for details
+            on limitations and other environment variables that must be set.
         </p>
-        <pre><code class="text-xs">PULUMI_AUTOMATION_API_SKIP_VERSION_CHECK=true</code></pre>
+        <pre><code class="text-xs">PULUMI_TEST_MODE=true</code></pre>
     </dd>
     <dt>
         <span class="font-mono">
