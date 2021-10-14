@@ -36,7 +36,7 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
         <p>
             Set this environment variable to use a specified backend instead of the default backend.  See <a href="/docs/intro/concepts/state">State and Backends</a> for details on valid backend URLs.
         </p>
-        <pre><code class="text-xs">PULUMI_BACKEND_URL=s3://your-pulumi-state-bucket</code></pre>
+        <pre><code class="text-xs">PULUMI_BACKEND_URL="s3://your-pulumi-state-bucket"</code></pre>
     </dd>
     <dt>
         <span class="font-mono">
@@ -45,10 +45,10 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dt>
     <dd>
         <p>
-            Sets <a href="/docs/intro/concepts/config">configuration</a> for <a href="/docs/guides/testing/unit">unit testing</a>. Must be in JSON format.
+            Sets <a href="{{< relref "/docs/intro/concepts/config" >}}">configuration</a> for <a href="{{< relref "/docs/guides/testing/unit" >}}">unit testing</a>. Must be in JSON format.
         </p>
         <p>
-            <b>This environment variable is ignored during normal Pulumi operations - e.g. {{% md %}}`up`, `pre`, etc{{% /md %}}.</b>
+            <strong>This environment variable is ignored during normal Pulumi operations -- e.g., <code>up</code>, <code>preview</code>, etc.</strong>
         </p>
         <pre><code class="text-xs">PULUMI_HOME="{'project:myTag':'val1','project:mySecret':'val2'}"</code></pre>
     </dd>
@@ -61,7 +61,7 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
         <p>
             Set this as an environment variable to protect and unlock your configuration values and secrets. Your passphrase
             is used to generate a unique key for your stack, and configuration and encrypted state values are then encrypted
-            using {{% md %}}`AES-256-GCM`{{% /md %}}.
+            using <code>AES-256-GCM</code>.
             Read <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#secrets-and-pluggable-encryption">the change log</a>
             and <a href="/docs/intro/concepts/config">Configuration and Secrets</a> to learn more about Pulumi's configuration
             and secrets management system.
@@ -75,7 +75,7 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dt>
     <dd>
         <p>
-            An alternative method to providing {{% md %}}`PULUMI_CONFIG_PASSPHRASE`{{% /md %}}. Set this to a path to a file that contains the passphrase value.
+            An alternative method to providing <code>PULUMI_CONFIG_PASSPHRASE</code>. Set this to the path of a file that contains the passphrase value.
         </p>
         <pre><code class="text-xs">PULUMI_CONFIG_PASSPHRASE_FILE="/tmp/passphrase.txt"</code></pre>
     </dd>
@@ -111,8 +111,8 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     <dd>
         <p>
             As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#100-beta1-2019-08-13"><code>1.0.0-beta1</code></a>,
-            input properties are no longer propagated to missing output properties during a {{% md %}}`pulumi preview`{{% /md %}}. If this causes issues
-            in your Pulumi program, set this to {{% md %}}`true`{{% /md %}} to enable the old behavior.
+            input properties are no longer propagated to missing output properties during a <code>pulumi preview</code>. If this causes issues
+            in your Pulumi program, set this to <code>true</code> to enable the old behavior.
         </p>
         <pre><code class="text-xs">PULUMI_ENABLE_LEGACY_APPLY=true</code></pre>
     </dd>
@@ -125,8 +125,8 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
         <p>
             As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#01723-2019-07-16"><code>v0.17.23</code></a>,
             the detection of differences between the actual and desired state of a resource is left entirely up to that resource's
-            provider. This change can expose bugs in the resource providers that lead to diffs being present even if the desired
-            configuration matches the actual state of the resource. Set this to {{% md %}}`1`{{% /md %}} or {{% md %}}`true`{{% /md %}} to enable the old diff behavior.
+            provider. This change can expose bugs in resource providers that lead to diffs being present even if the desired
+            configuration matches the actual state of the resource. Set this to <code>1</code> or <code>true</code> to enable the old diff behavior.
         </p>
         <pre><code class="text-xs">PULUMI_ENABLE_LEGACY_DIFF=true</code></pre>
     </dd>
@@ -163,7 +163,7 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     </dt>
     <dd>
         <p>
-            Set this environment variable to opt-in to using {{% md %}}`yarn`{{% /md %}} instead of {{% md %}}`npm`{{% /md %}} for installing Node.js dependencies.
+            Set this environment variable to opt-in to using <code>yarn</code> instead of <code>npm</code> for installing Node.js dependencies.
         </p>
         <pre><code class="text-xs">PULUMI_PREFER_YARN=true</code></pre>
     </dd>
@@ -175,7 +175,7 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     <dd>
         <p>
             As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0166-2018-11-28"><code>v0.16.6</code></a>,
-            the Pulumi CLI uses {{% md %}}`python3`{{% /md %}} instead of {{% md %}}`python`{{% /md %}} when running a Python program. Set this environment variable to
+            the Pulumi CLI uses <code>python3</code> instead of <code>python</code> when running a Python program. Set this environment variable to
             run a different Python binary.
         </p>
         <pre><code class="text-xs">PULUMI_PYTHON_CMD="python-version-binary"</code></pre>
@@ -213,7 +213,7 @@ meta_desc: A list of different environment variables the Pulumi CLI supports.
     <dd>
         <p>
             As of <a href="https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md#0177-2019-04-17"><code>v0.17.7</code></a>,
-            you can enable a new "test mode" by setting this to {{% md %}}`true`{{% /md %}} in either the Node.js or Python SDK. This mode allows you
+            you can enable a new "test mode" by setting this to<code>true</code> in either the Node.js or Python SDK. This mode allows you
             to unit test your Pulumi programs without needing to run them using the Pulumi CLI. Read the change log for details
             on limitations and other environment variables that must be set.
         </p>
