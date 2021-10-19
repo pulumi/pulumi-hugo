@@ -147,7 +147,6 @@ An object type.
 | `properties`  | [`map[Property]`](#property)                    | No       | Properties, if present, is a map from property name to Property that describes the type's properties.                                                             |
 | `type`        | `string`                                        | No       | Type must be "object" if this is an object type, or the underlying type for an enum.                                                                              |
 | `required`    | `array[string]`                                 | No       | Required, if present, is a list of the names of an object type's required properties. These properties must be set for inputs and will always be set for outputs. |
-| `plain`       | `array[string]`                                 | No       | Plain, if present, is a list of the names of an object type's plain properties. These properties only accept prompt values.                                       |
 | `language`    | [`map[ObjectTypeLanguge]`](#objecttypelanguage) | No       | Language specifies additional language-specific data about the type.                                                                                              |
 
 ### ComplexType
@@ -168,12 +167,12 @@ A resource description.
 | All [`ObjectType`](#objecttype) properties, as well as: |                                              |          |                                                                                                                                                                      |
 | `inputProperties`                                       | [`map[Property]`](#property)                 | No       | Description is the description of the property, if any.                                                                                                              |
 | `requiredInputs`                                        | `array[string]`                              | No       | RequiredInputs is a list of the names of the resource's required input properties.                                                                                   |
-| `plainInputs`                                           | `array[string]`                              | No       | PlainInputs is a list of the names of the resource's plain input properties that only accept prompt values.                                                          |
 | `stateInputs`                                           | [`ObjectType`](#objecttype)                  | No       | StateInputs is an optional ObjectType that describes additional inputs that may be necessary to get an existing resource. If this is unset, only an ID is necessary. |
 | `aliases`                                               | [`array[Alias]`](#alias)                     | No       | Aliases is the list of aliases for the resource.                                                                                                                     |
 | `deprecationMessage`                                    | `string`                                     | No       | DeprecationMessage indicates whether or not the resource is deprecated.                                                                                              |
 | `language`                                              | [`map[ResourceLanguage]`](#resourcelanguage) | No       | Language specifies additional language-specific data about the resource.                                                                                             |
 | `isComponent`                                           | `boolean`                                    | No       | IsComponent indicates whether the resource is a ComponentResource.                                                                                                   |
+| `methods`                                               | `map[string]string`                          | No       | Methods maps method names to functions in this schema.                                                                                                               |
 
 ### Function
 
@@ -199,21 +198,23 @@ A reference to a type.
 | `items`                | [`Type`](#type)                   | No       | Items, if set, describes the element type of an array.                                                               |
 | `oneOf`                | [`array[Type]`](#type)            | No       | OneOf indicates that values of the type may be one of any of the listed types.                                       |
 | `discriminator`        | [`Discriminator`](#discriminator) | No       | Discriminator informs the consumer of an alternative schema based on the value associated with it.                   |
+| `plain`                | `boolean`                         | No       | Plain indicates that when used as an input, this type does not accept eventual values.                               |
 
 ### Property
 
 An object or resource property.
 
-| Property                                    | Type                                         | Required | Description                                                                                                                  |
-|---------------------------------------------|----------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------|
-| All [`Type`](#type) properties, as well as: |                                              |          |                                                                                                                              |
-| `description`                               | `string`                                     | No       | Description is the description of the property, if any.                                                                      |
-| `const`                                     | `any`                                        | No       | Const is the constant value for the property, if any. The type of the value must be assignable to the type of the property.  |
-| `default`                                   | `any`                                        | No       | Default is the default value for the property, if any. The type of the value must be assignable to the type of the property. |
-| `defaultInfo`                               | `Default`                                    | No       | DefaultInfo contains additional information about the property's default value, if any.                                      |
-| `deprecationMessage`                        | `string`                                     | No       | DeprecationMessage indicates whether or not the property is deprecated.                                                      |
-| `language`                                  | [`map[PropertyLanguage]`](#propertylanguage) | No       | Language specifies additional language-specific data about the property.                                                     |
-| `secret`                                    | `boolean`                                    | No       | Secret specifies if the property is secret (default false).                                                                  |
+| Property                                    | Type                                         | Required | Description                                                                                                                   |
+|---------------------------------------------|----------------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| All [`Type`](#type) properties, as well as: |                                              |          |                                                                                                                               |
+| `description`                               | `string`                                     | No       | Description is the description of the property, if any.                                                                       |
+| `const`                                     | `any`                                        | No       | Const is the constant value for the property, if any. The type of the value must be assignable to the type of the property.   |
+| `default`                                   | `any`                                        | No       | Default is the default value for the property, if any. The type of the value must be assignable to the type of the property.  |
+| `defaultInfo`                               | `Default`                                    | No       | DefaultInfo contains additional information about the property's default value, if any.                                       |
+| `deprecationMessage`                        | `string`                                     | No       | DeprecationMessage indicates whether or not the property is deprecated.                                                       |
+| `language`                                  | [`map[PropertyLanguage]`](#propertylanguage) | No       | Language specifies additional language-specific data about the property.                                                      |
+| `secret`                                    | `boolean`                                    | No       | Secret specifies if the property is secret (default false).                                                                   |
+| `replaceOnChanges`                          | `boolean`                                    | No       | ReplaceOnChanges specifies if the associated object should be updated with a replace operation instead of a update operation. |
 
 ### EnumValue
 

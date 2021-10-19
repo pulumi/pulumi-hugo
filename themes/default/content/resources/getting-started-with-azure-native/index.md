@@ -38,11 +38,8 @@ url_slug: "getting-started-with-azure-native"
 
 # Webinar pages support multiple session via the 'multiple' property.
 multiple:
-    - datetime: 2021-08-05T09:00:00-07:00
-      hubspot_form_id: d69a09b6-9f49-4d07-a4fd-98668b1fac26
-
-    - datetime: 2021-08-11T04:00:00-07:00
-      hubspot_form_id: 5b3b8768-f2d5-45a5-8c0a-673a39b08a8f
+    - datetime: 2021-10-21T09:00:00-07:00
+      hubspot_form_id: 7de43dee-4699-46e9-9ce3-9a6fffd56aa5
 
 # The content of the hero section.
 hero:
@@ -58,11 +55,11 @@ main:
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/yzTSUDp2KXU"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2021-04-28T09:00:00-07:00
+    sortable_date: 2021-10-21T09:00:00-07:00
     # Duration of the webinar.
     duration: "1 hour"
     # Datetime of the webinar.
-    datetime: "April 28th, 2021"
+    datetime: "OCTOBER 21st, 2021"
     # Description of the webinar.
     description: |
         Microsoft Azure’s product offering is continuously evolving, and infrastructure tools often can’t keep up with the speed of innovation. Pulumi’s Azure Native provider is built directly from the Azure API, bringing power of familiar programming languages to Azure without sacrificing on latest features.
@@ -71,14 +68,8 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Sophia Parafina
-          role: Developer Advocate, Pulumi
-
         - name: Matt Stratton
-          role: Developer Advocate, Pulumi
-
-        - name: Mikhail Shilkov
-          role: Software Engineer, Pulumi
+          role: Staff Developer Advocate, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:

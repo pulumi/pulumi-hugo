@@ -7,7 +7,7 @@ meta_desc: "In this workshop, we’ll use the Google Cloud native provider to bu
 featured: false
 
 # If the video is pre-recorded or live.
-pre_recorded: true
+pre_recorded: false
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
 pulumi_tv: false
@@ -20,7 +20,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: false
+gated: true
 
 # The layout of the landing page.
 type: webinars
@@ -50,11 +50,11 @@ main:
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/2CHXNWiREBE"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2021-06-10T09:00:00-07:00
+    sortable_date: 2021-10-21T12:00:00-07:00
     # Duration of the webinar.
-    duration: "2 hours"
+    duration: "1 hour"
     # Datetime of the webinar.
-    datetime: "JUNE 10TH, 2021"
+    datetime: "OCTOBER 21st, 2021"
     # Description of the webinar.
     description: |
         Google Cloud’s product offering is continuously evolving, and infrastructure tools often can’t keep up with the speed of innovation. Pulumi’s Google Cloud Native provider is built directly from the Google Cloud API, bringing power of familiar programming languages to Google Cloud without sacrificing on latest features.
@@ -63,8 +63,8 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Lee Briggs
-          role: Community Engineer
+        - name: "Kat Cosgrove"
+          role: "Staff Developer Advocate, Pulumi"
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
@@ -75,5 +75,5 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: 642fa736-77ef-4f0f-8a83-342a70794380
+    hubspot_form_id: 9a26e438-5bdc-4221-9ade-483ee8ea6844
 ---

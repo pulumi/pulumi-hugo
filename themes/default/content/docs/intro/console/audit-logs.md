@@ -44,7 +44,39 @@ also filter logs by a particular user by selecting their profile picture.
 
 <img src="/images/docs/guides/self-hosted/auditlogs.png">
 
-## Export Audit Logs Using the Console
+## Automated Export
+
+{{% notes "info" %}}
+This feature is only available to some Pulumi Enterprise editions. If you don't see it in your organization, [contact sales]({{< relref "/contact?form=sales" >}}).
+{{% /notes %}}
+
+To configure the export of audit logs to AWS S3 using the console:
+
+1. Navigate to the organization's **Settings**.
+1. Navigate to **Audit Logs**.
+1. Use the three dot menu and select **Configure Audit Logs to S3**.
+
+<img src="/images/docs/reference/console/ale-menu.png">
+
+1. Follow the instructions to create an AWS S3 bucket.
+1. Provide bucket name and a filepath where Pulumi audit logs will be exported eg: 'Pulumi-audit-logs'.
+1. Copy the provided policy.
+1. In the AWS console create an IAM role.
+1. Select **Another AWS Account** and check **Require external ID**.
+1. Provide the Account ID and External ID, then attach the policy you created.
+1. Provide the arn of the IAM role.
+1. Test your configuration.
+
+<img src="/images/docs/reference/console/test-ale-configuration.png">
+
+1. After a successful test, select **Save and Apply**.
+1. After an hour, verify that logs have successfully started exporting.
+
+<img src="/images/docs/reference/console/ale-success.png">
+
+## Manual Export
+
+### Export Audit Logs Using the Console
 
 To export audit logs using the console:
 
@@ -52,56 +84,39 @@ To export audit logs using the console:
 1. Navigate to **Audit Logs**.
 1. Select **Download**.
 
-## Exporting Audit Logs Using the API
+### Exporting Audit Logs Using the API
 
-The audit logs can be exported through the API using the following endpoint. A `startTime`
-query parameter must be passed and is used to query audit records _before_ the specified
-`startTime` (UNIX timestamp).
-
-```
-GET https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${time}
-```
-
-Query parameters can be used to filter records involving a specific user.
-
-```
-GET https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${time}&userFilter=${user}
-```
-
-Example using curl:
-
-```
-curl \
-    -H 'Accept: application/vnd.pulumi+4' \
-    -H 'Authorization: token abcdefghijklmnopqrstuvwxyz' \
-    -H 'Content-Type: application/csv' \
-    --compressed \
-    'https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${startTime}'
-```
-
-> _Note: Substitute `${org}`, `${user}`,  and `${time}` for your actual values - e.g. `org`, `username`, and `1583460637`._
+{{% notes "info" %}}
+See [Pulumi Service REST API]({{< relref "/docs/reference/service-rest-api#audit-logs" >}}) for full details of the API endpoint to export audit log events. This API is rate-limited and only intended for occasional use, see automated export section above if you need frequent export.
+{{% /notes %}}
 
 ### Supported Audit Log Formats
 
-Pulumi supports multiple formats for exporting audit logs. These formats can be specified by appending the `format` query parameter, for example, `format=csv`or `format=cef`.
+The Pulumi Service REST API supports multiple formats for exporting audit log events.
+
+#### JSON Format
+
+The JSON format is composed of the following fields:
+
+| Field | Description |
+|---------------------------|---------------------------|
+| timestamp | the RFC3339 timestamp of when the event was recorded |
+| sourceIP | IP Address of the client originating the request to invoke this event |
+| event | the name of the event |
+| decscription | detailed description of the event that occurred |
+| user | details of the user invoking the event (login, name, and avatar URL) |
 
 #### CSV Format
 
-CSV (comma separated values) is the default format returned when exporting logs through the API. If the `format` query param is not specified, the logs will be returned in CSV format.
+The CSV (comma separated values) format is composed of the following fields:
 
 ```
-GET https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${time}&format=csv
-```
-
-The CSV is composed of the following fields:
-
-```
-Timestamp, Name, Login, Event, Description ,SourceIP, RequireOrgAdmin, RequireStackAdmin, AuthenticationFailure
+Timestamp, Name, Login, Event, Description, SourceIP, RequireOrgAdmin, RequireStackAdmin, AuthenticationFailure
 ```
 
 | Field                     | Description                                                                                                             |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Timestamp             | the RFC3339 timestamp of when the event was recorded.                                                                   |
+| Timestamp             | the RFC3339 timestamp of when the event was recorded                                                                   |
 | Name                  | name of the user invoking the event                                                                                     |
 | Login                 | username of the user invoking the event                                                                                 |
 | Event                 | the name of the event                                                                                                   |
@@ -113,11 +128,7 @@ Timestamp, Name, Login, Event, Description ,SourceIP, RequireOrgAdmin, RequireSt
 
 #### CEF Format
 
-CEF (common event format) is an audit and logging event format supported by a wide range of SIEM (security information and event management) systems. Specify the query param `format=cef` to retrieve audit logs in CEF format:
-
-```
-GET https://api.pulumi.com/api/orgs/${org}/auditlogs/export?startTime=${time}&format=cef
-```
+CEF (common event format) is an audit and logging event format supported by a wide range of SIEM (security information and event management) systems.
 
 The format is as follows:
 

@@ -28,15 +28,15 @@ key_features:
               icon: global
               icon_color: yellow
               description: |
-                Access the full breadth of services in AWS, Azure, GCP, and [50+ providers](/docs/intro/cloud-providers/) through
+                Access the full breadth of services in AWS, Azure, GCP, and [60+ providers](/registry/) through
                 a complete and consistent SDK interface.
 
             - title: Create reusable infrastructure
               icon: puzzle
               icon_color: yellow
               description:
-                Deploy and configure cloud infrastructure with  [Pulumi Packages](/docs/guides/pulumi-packages/), which can be
-                shared and reused by anyone and in any language.
+                Build and share cloud infrastructure with reusable [Pulumi Packages](/product/packages), which
+                encapsulate your cloud architectures and best practices. 
 
         - description: Deploy cloud infrastructure and applications together
           features:
@@ -45,13 +45,13 @@ key_features:
               icon_color: salmon
               description: |
                 Deploy infrastructure interactively with a CLI, programmatically with Pulumi’s
-                Automation API, or through your [CI/CD process](/docs/guides/continuous-delivery/).
+                [Automation API](/automation/), or through your [CI/CD process](/docs/guides/continuous-delivery/).
 
             - title: Deployments as Code
               icon: gear
               icon_color: salmon
               description: |
-                Run deployments from your application code at runtime with [Automation API](/docs/guides/automation-api/). Create infrastructure APIs, custom platforms, and CLIs.
+                Run deployments from your application code at runtime with [Automation API](/automation/). Create infrastructure APIs, custom platforms, and CLIs.
 
             - title: Preview and test changes
               icon: eye

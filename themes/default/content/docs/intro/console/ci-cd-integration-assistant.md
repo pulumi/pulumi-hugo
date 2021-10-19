@@ -94,7 +94,7 @@ without needing to leave the page.
 In the following example the assistant is being used to configure a GitHub Actions workflow.
 So the assistant provides a direct link to configure secrets for your workflow.
 
-> See the [Cloud Providers]({{< relref "/docs/intro/cloud-providers" >}}) page to find the setup page for your cloud provider.
+> See the [Cloud Providers]({{< relref "/registry" >}}) page to find the setup page for your cloud provider.
 
 ### Add the workflow
 
@@ -133,5 +133,3 @@ still get a workflow template that is customized to your stack.
 This option is more suitable for teams that want to use different services for their VCS repo and CI/CD needs. For example, you want
 to be able to use Azure Pipelines with a GitHub repository and just want the workflow template for Azure Pipelines.
 {{% /notes %}}
-
-![Get Workflow](/images/docs/reference/console/get-workflow.png)

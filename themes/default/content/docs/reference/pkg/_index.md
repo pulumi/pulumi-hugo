@@ -5,7 +5,7 @@ meta_desc: Documentation and examples for working with cloud providers and other
 menu:
   reference:
     name: API Reference
-    weight: 2
+    weight: 1
 ---
 
 Pulumi offers APIs for working with a wide variety of cloud platforms, as well as
@@ -28,7 +28,7 @@ explore what's possible, you've come to the right place.
 
 ### Infrastructure
 
-{{< resource-providers "aiven,auth0,azuread,azuredevops,consul,docker,kafka,keycloak,kong,mailgun,okta,pagerduty,rabbitmq,rancher2,spotinst,splunk,vault,venafi,opsgenie,rke,confluent,nomad,minio" >}}
+{{< resource-providers "aiven,auth0,azuread,azuredevops,consul,docker,kafka,keycloak,kong,mailgun,okta,pagerduty,rabbitmq,rancher2,spotinst,splunk,vault,venafi,opsgenie,rke,confluent,nomad,minio,snowflake" >}}
 
 ### Database
 
@@ -56,8 +56,7 @@ explore what's possible, you've come to the right place.
 
 ### Preview Providers
 
-{{< resource-providers "google-native" >}}
-
+{{< resource-providers "aws-native,google-native" >}}
 
 ## Package Documentation
 
@@ -118,7 +117,7 @@ SDK reference documentation, organized by language.
     </dd>
     <dt>AWS EKS Cluster</dt>
     <dd>
-        <a href="{{< relref "/docs/reference/pkg/eks" >}}">@pulumi/eks</a>
+        <a href="{{< relref "/registry/packages/eks/api-docs" >}}">@pulumi/eks</a>
         <p>Simpler interfaces for working with AWS EKS.</p>
     </dd>
     <dt>Kubernetes Extensions</dt>
@@ -134,7 +133,7 @@ SDK reference documentation, organized by language.
 <dl class="tabular">
     <dt>AWS EKS Cluster</dt>
     <dd>
-        <a href="{{< relref "/docs/reference/pkg/eks" >}}">pulumi_eks</a>
+        <a href="{{< relref "/registry/packages/eks/api-docs" >}}">pulumi_eks</a>
         <p>Simpler interfaces for working with AWS EKS.</p>
     </dd>
 </dl>
@@ -144,7 +143,7 @@ SDK reference documentation, organized by language.
 <dl class="tabular">
     <dt>AWS EKS Cluster</dt>
     <dd>
-        <a href="{{< relref "/docs/reference/pkg/eks" >}}">eks</a>
+        <a href="{{< relref "/registry/packages/eks/api-docs" >}}">eks</a>
         <p>Simpler interfaces for working with AWS EKS.</p>
     </dd>
 </dl>
@@ -154,7 +153,7 @@ SDK reference documentation, organized by language.
 <dl class="tabular">
     <dt>AWS EKS Cluster</dt>
     <dd>
-        <a href="{{< relref "/docs/reference/pkg/eks" >}}">Pulumi.Eks</a>
+        <a href="{{< relref "/registry/packages/eks/api-docs" >}}">Pulumi.Eks</a>
         <p>Simpler interfaces for working with AWS EKS.</p>
     </dd>
 </dl>

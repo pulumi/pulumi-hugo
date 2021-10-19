@@ -1,9 +1,17 @@
 {{ define "hero" }}
-    {{ partial "hero" (dict "title" .Params.title )}}
+    <header class="page-hero">
+        <div class="dot-background-container">
+            <div class="dot-background"></div>
+        </div>
+        <div class="dot-overlay"></div>
+        <div class="page-hero-title relative px-3">
+            <img class="mx-auto mb-6 w-full lg:w-2/3" src="/images/cloud-eng-summit-2021.svg" />
+        </div>
+    </header>
 {{ end }}
 
 {{ define "main" }}
-    <section class="relative my-16">
+    <section class="relative mb-16">
         <div class="shape-background cloud-engineering-summit-big-dots">
             <div class="relative w-full h-full">
                 <div class="circle-left"></div>
@@ -11,29 +19,53 @@
             </div>
         </div>
 
-        <div class="container mx-auto">
-            <img class="mx-auto mb-6" src="/images/cloud-eng-summit-purple.png" />
-            <pulumi-date-countdown
-                date-string="2021-10-20T09:00:00-07:00"
-                text-class="text-3xl text-black text-center"
-                value-label-class="text-xl"
-                countdown-over-text="The Cloud Engineering Summit has started!"
-            >
-            </pulumi-date-countdown>
-            <div class="max-w-4xl mx-auto text-center">
-                <p class="mt-10">
-                    The Cloud Engineering Summit is a virtual day of learning and speed talks for cloud practitioners
-                    and anyone who's passionate about cloud infrastructure, modern applications, and everything
-                    in between.
-                </p>
+        <div class="container mx-auto flex flex-wrap">
+            <div class="w-full lg:w-1/2 p-6">
+                <h3 class="text-center">
+                    <pulumi-datetime date="2021-10-20T08:00:00-07:00"></pulumi-datetime>
+                </h3>
+                <pulumi-date-countdown
+                    date-string="2021-10-20T08:00:00-07:00"
+                    text-class="text-3xl text-black text-center"
+                    value-label-class="text-xl"
+                    countdown-over-text="The Cloud Engineering Summit has started!"
+                >
+                </pulumi-date-countdown>
+                <div class="text-center my-12">
+                    <div class="pb-12">
+                        <a class="btn-primary lg:hidden" href="#register">Save your spot</a>
+                    </div>
+                    <div>
+                        <a class="btn-secondary" href="{{ relref . "/cloud-engineering-summit/agenda" }}">See the agenda</a>
+                    </div>
+                </div>
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="mt-10">
+                        The Cloud Engineering Summit is a virtual day of learning for cloud
+                        practitioners that focuses on best practices for building, deploying
+                        and managing modern cloud infrastructure.
+                    </p>
+                </div>
+            </div>
+
+            <div id="register" class="w-full lg:w-1/2 p-6">
+                <div class="bg-gray-200 rounded p-6">
+                    <h4>Register Now</h4>
+                    <pulumi-hubspot-form form-id="{{ .Params.hubspot_form_id }}"></pulumi-hubspot-form>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto text-center my-16">
-        <h3>Get notified when registration opens</h3>
-        <div class="flex items-center justify-center">
-            <pulumi-hubspot-form form-id="929d85ee-10e1-42c6-90d7-eab27730d9e5" class="newsletter newsletter-wide newsletter-dark-border"></pulumi-hubspot-form>
+    <section id="speakers" class="container mx-auto text-center">
+        <h1 class="m-0">Cloud Engineering Summit</h1>
+        <h2 class="mt-0 mb-10">Featured Speakers</h2>
+        <div class="my-10">
+            <a class="btn-secondary" href="{{ relref . "/cloud-engineering-summit/speakers" }}">View all speakers</a>
+        </div>
+
+        <div class="cloud-engineering-summit-speaker-wall">
+            <script type="text/javascript" src="https://sessionize.com/api/v2/{{ .Params.sessionize_id }}/view/SpeakerWall"></script>
         </div>
     </section>
 
@@ -49,13 +81,8 @@
 
         <div class="container mx-auto">
             <h2 class="text-center">Summit Tracks</h2>
-            <div class="text-center max-w-4xl mx-auto">
-                <p class="mb-12">
-                    We're inviting everyone from the community to submit a talk, including infrastructure
-                    (DevOps, SREs, infra) engineers, platform engineers, application developers, full-stack engineers,
-                    and security professionals. If you have a story to tell - we'd love to hear it!
-                </p>
-                <a href="https://sessionize.com/cloud-engineering-summit-hosted-by-pulumi/" class="btn-secondary">Submit a CFP</a>
+            <div class="text-center my-12">
+                <a class="btn-secondary" href="{{ relref . "/cloud-engineering-summit/agenda" }}">See the agenda</a>
             </div>
 
             {{ range $item := .Params.tracks_outline }}
@@ -64,11 +91,9 @@
                         <div class="p-6 lg:p-8 card mb-16 lg:mx-0 lg:ml-8 lg:mb-0 bg-white">
                             <h3>{{ $item.name }}</h3>
 
-                            <ul>
-                                {{ range $topic := $item.topics }}
-                                    <li>{{ $topic }}</li>
-                                {{ end }}
-                            </ul>
+                            {{ range $topic := $item.topics }}
+                                <p>{{ $topic }}</p>
+                            {{ end }}
                         </div>
                     </div>
 
@@ -79,6 +104,143 @@
                     </div>
                 </div>
             {{ end }}
+        </div>
+    </section>
+
+    <section id="workshops" class="container mx-auto my-32">
+        <h2 class="text-center mb-12">{{ .Params.workshops.title }}</h2>
+
+        <div class="benefits-section relative">
+            <div class="shape-background home-benefits-section">
+                <div class="shape-container">
+                    <div class="circle-left"></div>
+                    <div class="circle-right"></div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-stretch justify-center">
+                {{ range $item := .Params.workshops.items }}
+                    <div class="w-full lg:w-1/2 p-4 my-2">
+                        <div class="card h-full text-center py-16 px-8 relative bg-white">
+                            <div class="icon-section mb-4">
+                                {{ partial "color-icon.html" (dict "icon" $item.icon "icon_color" $item.icon_color) }}
+                            </div>
+                            <div>
+                                <h5>{{ $item.title }}</h5>
+                            </div>
+                            <div class="description">
+                                <p>{{ $item.description }}</p>
+                            </div>
+                            <div class="mt-8">
+                                {{ range $time := $item.times }}
+                                    <p class="text-sm my-2">
+                                        <span class="mr-2"><i class="fas fa-calendar"></i></span>
+                                        <pulumi-datetime class="inline-block" date="{{ $time }}"></pulumi-datetime>
+                                    </p>
+                                {{ end }}
+                            </div>
+                            <div class="card-cta-btn">
+                                <a href="{{ $item.link }}" class="btn-primary">Save your spot</a>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section id="sponsors" class="container mx-auto mt-32">
+        <h2 class="text-center">Brought to you by</h2>
+        <div class="flex flex-wrap items-center justify-center">
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4 h-32">
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="h-32" src="/logos/tech/aws-logo.svg" alt="Amazon Web Services" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4 h-32">
+                <a href="https://www.apple.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-full" src="/logos/tech/apple-logo.png" alt="Apple" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4 h-32">
+                <a href="https://bridgecrew.io/" target="_blank" rel="noopener noreferrer">
+                    <img class="h-16 lg:h-32" src="/logos/tech/bridgecrew-logo.svg" alt="Bridgecrew" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4 h-32">
+                <a href="https://circleci.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/ci-cd/circle-ci-wordmark.png" alt="Circle CI" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4 h-32">
+                <a href="https://codefresh.io/" target="_blank" rel="noopener noreferrer">
+                    <img class="h-16 lg:h-32" src="/logos/tech/ci-cd/codefresh-wordmark.png" alt="Codefresh" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/github-wordmark.png" alt="Github" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/google-cloud-ces.png" alt="Google Cloud" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://www.honeycomb.io/" target="_blank" rel="noopener noreferrer">
+                    <img class="h-16 lg:h-32" src="/logos/tech/honeycomb-logo.svg" alt="Honeycomb" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://www.microsoft.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/microsoft-logo.png" alt="Microsoft" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/nginx-black.png" alt="NGINX" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://ns1.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="h-16" src="/logos/tech/ns1.png" alt="NS1" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="/">
+                    <img class="h-16" src="/images/logo/logo-on-white.svg" alt="Pulumi" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://www.split.io/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/split-logo.png" alt="Split" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://uffizzi.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/tech/uffizzi-logo.png" alt="Uffizzi" />
+                </a>
+            </div>
+
+            <div class="w-full lg:w-1/5 flex items-center justify-center mx-8 my-4">
+                <a href="https://whylabs.ai/" target="_blank" rel="noopener noreferrer">
+                    <img class="w-2/3 lg:w-full mx-auto" src="/logos/customers/whylabs-wordmark.svg" alt="Whylabs" />
+                </a>
+            </div>
         </div>
     </section>
 

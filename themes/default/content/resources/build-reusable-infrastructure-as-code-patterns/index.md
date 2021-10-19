@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "How to Build Reusable Infrastructure as Code Patterns"
+title: "How to Author and Publish Pulumi Packages"
 meta_desc: "In this workshop, we’ll guide you through an example of building a reusable Pulumi component for a hypothetical “production ready application” in Python."
 
 # A featured webinar will display first in the list.
@@ -39,33 +39,33 @@ url_slug: "build-reusable-infrastructure-as-code-patterns"
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "How to Build Reusable Infrastructure as Code Patterns"
+    title: "How to Author and Publish Pulumi Packages"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "How to Build Reusable Infrastructure as Code Patterns"
+    title: "How to Author and Publish Pulumi Packages"
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/3BaDCrCw5FM"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2021-06-17T09:00:00-07:00
+    sortable_date: 2021-06-21T12:00:00-07:00
     # Duration of the webinar.
-    duration: "2 hours"
+    duration: "1 hour"
     # Datetime of the webinar.
-    datetime: "JUNE 17th, 2021"
+    datetime: "OCTOBER 21st, 2021"
     # Description of the webinar.
     description: |
-        One of the great benefits of adopting Infrastructure as Code is that you can drastically reduce the amount of repetition when declaring your infrastructure. Using familiar languages like Python means you can use functions, loops and object oriented programming paradigms to reduce the boilerplate.
+        One of the great benefits of adopting [Infrastructure as Code](/what-is/what-is-infrastructure-as-code/) is that you can drastically reduce the amount of repetition when declaring your infrastructure. Using familiar languages like Python means you can use functions, loops and object oriented programming paradigms to reduce the boilerplate.
 
         In this workshop, we’ll guide you through an example of building a reusable Pulumi component for a hypothetical “production ready application” in Python and help you understand how to build reusable abstractions for your infrastructure as code workflow.
 
 
     # The webinar presenters
     presenters:
-        - name: Matt Stratton
-          role: Staff Developer Advocate, Pulumi
+        - name: Lee Briggs
+          role: Sales Engineer, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
@@ -76,5 +76,5 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: 5db894f7-de5b-4c6c-8702-6479cda25607
+    hubspot_form_id: fa3c8cbb-64bd-4c8a-bd16-3b1b3a5e2d24
 ---

@@ -315,11 +315,14 @@ import * as pulumi from "@pulumi/pulumi";
 // Get the GCP project registry repository.
 const registry = gcp.container.getRegistryRepository();
 
+// Get the repository URL
+const repositoryUrl = registry.then(_r => _r.repositoryUrl);
+
 // Build a Docker image from a local Dockerfile context in the
 // './node-app' directory, and push it to the registry.
 const customImage = "node-app";
 const appImage = new docker.Image(customImage, {
-    imageName: pulumi.interpolate`${registry.repositoryUrl}/${customImage}:v1.0.0`,
+    imageName: pulumi.interpolate`${repositoryUrl}/${customImage}:v1.0.0`,
     build: {
         context: `./${customImage}`,
     },
@@ -365,11 +368,14 @@ import * as pulumi from "@pulumi/pulumi";
 // Get the GCP project registry repository.
 const registry = gcp.container.getRegistryRepository();
 
+// Get the repository URL
+const repositoryUrl = registry.then(_r => _r.repositoryUrl);
+
 // Build a Docker image from a local Dockerfile context in the
 // './node-app' directory, and push it to the registry.
 const customImage = "node-app";
 const appImage = new docker.Image(customImage, {
-    imageName: pulumi.interpolate`${registry.repositoryUrl}/${customImage}:v1.0.0`,
+    imageName: pulumi.interpolate`${repositoryUrl}/${customImage}:v1.0.0`,
     build: {
         context: `./${customImage}`,
     },
@@ -670,7 +676,7 @@ For a complete example, check out our Kubernetes [Graceful App Rollout][tutorial
 tutorial for more details on how to update a Deployment automatically
 when it's ConfigMap changes.
 
-[tutorial-app-rollout]: {{< relref "/docs/tutorials/kubernetes/configmap-rollout" >}}
+[tutorial-app-rollout]: {{< relref "/registry/packages/kubernetes/how-to-guides/configmap-rollout" >}}
 
 ## Deploy a Job
 
@@ -1020,4 +1026,4 @@ Coming soon.
 To learn more about how to work with Kubernetes and Pulumi, check out the
 [Kubernetes Tutorials][k8s-tutorials] for details.
 
-[k8s-tutorials]: {{< relref "/docs/tutorials/kubernetes" >}}
+[k8s-tutorials]: {{< relref "/registry/packages/kubernetes/how-to-guides" >}}
