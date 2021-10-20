@@ -1,0 +1,27 @@
+name: Build
+on:
+  push:
+    branches:
+      - not-master
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Check out branch
+        uses: actions/checkout@v2
+
+      - name: Fetch the latest pulumi/theme
+        run: |
+          hugo mod get github.com/pulumi/theme
+
+      - name: Commit artifacts
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: go.*
+          commit_message: Update go.mod
