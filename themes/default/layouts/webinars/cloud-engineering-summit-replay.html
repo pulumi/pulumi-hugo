@@ -110,7 +110,7 @@
                     <h4>Session Information</h4>
 
                     <div class="mb-8">
-                        <p>{{ .Params.main.description }}</p>
+                        <p>{{ .Params.main.description | markdownify }}</p>
 
                         <h5>Presenters</h5>
                         <ul class="list-none p-0">
