@@ -23,11 +23,11 @@
                 {{ $cesBuild = $cesBuild | append . }}
             {{ end }}
 
-            {{ if eq .Params.cloud_engineering_summit.track "manage" }}
+            {{ if eq .Params.cloud_engineering_summit.track "deploy" }}
                 {{ $cesDeploy = $cesDeploy | append . }}
             {{ end }}
 
-            {{ if eq .Params.cloud_engineering_summit.track "deploy" }}
+            {{ if eq .Params.cloud_engineering_summit.track "manage" }}
                 {{ $cesManage = $cesManage | append . }}
             {{ end }}
         {{ end }}
