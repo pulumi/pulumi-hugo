@@ -12,7 +12,7 @@
     {{ $cesDeploy := slice }}
     {{ $cesManage := slice }}
 
-    {{ range $webinars }}
+    {{ range sort $webinars ".Params.main.sortable_date" "asc" }}
         {{ if isset .Params "cloud_engineering_summit" }}
 
             {{ if eq .Params.cloud_engineering_summit.track "keynote" }}
