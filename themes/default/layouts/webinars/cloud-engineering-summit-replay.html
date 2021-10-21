@@ -1,0 +1,129 @@
+{{ define "hero" }}
+    {{ partial "hero" (dict "title" .Params.title )}}
+{{ end }}
+
+{{ define "main" }}
+    <!-- Get the webinars as they contain the CES sessions -->
+    {{ $webinars := (where $.Site.Pages "Type" "webinars") }}
+
+    <!-- Create slices for each section of CES so we create the nav -->
+    {{ $cesKeynotes := slice }}
+    {{ $cesBuild := slice }}
+    {{ $cesDeploy := slice }}
+    {{ $cesManage := slice }}
+
+    {{ range $webinars }}
+        {{ if isset .Params "cloud_engineering_summit" }}
+
+            {{ if eq .Params.cloud_engineering_summit.track "keynote" }}
+                {{ $cesKeynotes = $cesKeynotes | append . }}
+            {{ end }}
+
+            {{ if eq .Params.cloud_engineering_summit.track "build" }}
+                {{ $cesBuild = $cesBuild | append . }}
+            {{ end }}
+
+            {{ if eq .Params.cloud_engineering_summit.track "manage" }}
+                {{ $cesDeploy = $cesDeploy | append . }}
+            {{ end }}
+
+            {{ if eq .Params.cloud_engineering_summit.track "deploy" }}
+                {{ $cesManage = $cesManage | append . }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+
+    <section class="container mx-auto mt-4 mb-16">
+        <div class="max-w-5xl mx-auto">
+            <div class="card mb-10" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe src="{{ .Params.main.youtube_url }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="w-1/3 p-3">
+                <div class="card p-3">
+                    <h4>Watch more sessions</h4>
+
+                    <ul class="list-none p-0" data-faq-type="faq-pricing">
+                        <li class="accordion-item text-2xl py-3 border-b-2">
+                            {{ partial "accordian-header" (dict "text" "Keynotes" "large_header" true) }}
+
+                            <div class="accordion-item-body-no-animation text-base">
+                                <ul class="list-none p-0">
+                                    {{ range $cesKeynotes }}
+                                        <li>
+                                            <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item text-2xl py-3 border-b-2">
+                            {{ partial "accordian-header" (dict "text" "Build" "large_header" true) }}
+
+                            <div class="accordion-item-body-no-animation text-base">
+                                <p>
+                                    info
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item text-2xl py-3 border-b-2">
+                            {{ partial "accordian-header" (dict "text" "Deploy" "large_header" true) }}
+
+                            <div class="accordion-item-body-no-animation text-base">
+                                <p>
+                                    Transcript
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item text-2xl py-3">
+                            {{ partial "accordian-header" (dict "text" "Manage" "large_header" true) }}
+
+                            <div class="accordion-item-body-no-animation text-base">
+                                <p>
+                                    info
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="w-2/3 p-3">
+                <div class="card p-3">
+                    <h4>Session Information</h4>
+
+                    <div class="mb-8">
+                        <p>{{ .Params.main.description }}</p>
+
+                        <h5>Presenters</h5>
+                        <ul class="list-none p-0">
+                            {{ range .Params.main.presenters }}
+                                <li class="mb-4">
+                                    <div class="text-purple">{{ .name }}</div>
+                                    <div class="text-sm">{{ .role }}</div>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+
+                    <ul class="list-none p-0 border-t-2" data-faq-type="faq-pricing">
+                        <li class="accordion-item text-2xl py-3">
+                            {{ partial "accordian-header" (dict "text" "Session Transcript" "large_header" true) }}
+
+                            <div class="accordion-item-body-no-animation text-base">
+                                <p>
+                                    Transcript coming soon.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{{ end }}
