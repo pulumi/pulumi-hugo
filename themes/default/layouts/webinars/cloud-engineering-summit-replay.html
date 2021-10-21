@@ -64,13 +64,13 @@
                             {{ partial "accordian-header" (dict "text" "Build" "large_header" true) }}
 
                             <div class="accordion-item-body-no-animation text-base">
-                                <p>
+                                <ul class="list-none p-0">
                                     {{ range $cesBuild }}
                                         <li>
                                             <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
                                         </li>
                                     {{ end }}
-                                </p>
+                                </ul>
                             </div>
                         </li>
 
@@ -78,13 +78,13 @@
                             {{ partial "accordian-header" (dict "text" "Deploy" "large_header" true) }}
 
                             <div class="accordion-item-body-no-animation text-base">
-                                <p>
+                                <ul class="list-none p-0">
                                     {{ range $cesDeploy }}
                                         <li>
                                             <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
                                         </li>
                                     {{ end }}
-                                </p>
+                                </ul>
                             </div>
                         </li>
 
@@ -92,13 +92,13 @@
                             {{ partial "accordian-header" (dict "text" "Manage" "large_header" true) }}
 
                             <div class="accordion-item-body-no-animation text-base">
-                                <p>
+                                <ul class="list-none p-0">
                                     {{ range $cesManage }}
                                         <li>
                                             <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
                                         </li>
                                     {{ end }}
-                                </p>
+                                </ul>
                             </div>
                         </li>
                     </ul>
