@@ -65,7 +65,11 @@
 
                             <div class="accordion-item-body-no-animation text-base">
                                 <p>
-                                    info
+                                    {{ range $cesBuild }}
+                                        <li>
+                                            <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
+                                        </li>
+                                    {{ end }}
                                 </p>
                             </div>
                         </li>
@@ -75,7 +79,11 @@
 
                             <div class="accordion-item-body-no-animation text-base">
                                 <p>
-                                    Transcript
+                                    {{ range $cesDeploy }}
+                                        <li>
+                                            <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
+                                        </li>
+                                    {{ end }}
                                 </p>
                             </div>
                         </li>
@@ -85,7 +93,11 @@
 
                             <div class="accordion-item-body-no-animation text-base">
                                 <p>
-                                    info
+                                    {{ range $cesManage }}
+                                        <li>
+                                            <a href="/resources/{{ .Params.url_slug }}/">{{ .Params.title }}</a>
+                                        </li>
+                                    {{ end }}
                                 </p>
                             </div>
                         </li>
