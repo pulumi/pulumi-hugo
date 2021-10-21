@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Bringing software development practices to your infrastructure"
+title: "Bringing software development practices to infrastructure"
 meta_desc: Learn how to use practices from software development like test driven development and CI/CD to manage complexity at each stage of cloud development.
 
 cloud_engineering_summit:

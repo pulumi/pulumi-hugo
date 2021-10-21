@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Kubernetes isn’t the answer, but what was the question again?"
+title: "Kubernetes isn’t the answer but what was the question again?"
 meta_desc: In this session, you'll learn to discover how to ask the right questions and how to find the right answers, using Kubernetes as an example.
 
 cloud_engineering_summit:

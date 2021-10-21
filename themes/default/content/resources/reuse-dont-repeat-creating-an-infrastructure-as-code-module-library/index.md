@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Reuse Don't Repeat, Creating an Infrastructure as Code Module Library"
+title: "Reuse Don't Repeat, Creating an IaC Library"
 meta_desc: In this session you'll gain an understanding on the benefits of creating reusable modules, what sort of modules you can create, how to go about creating them.
 
 cloud_engineering_summit:
