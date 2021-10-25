@@ -13,14 +13,14 @@ tags:
 It's been an incredibly busy few weeks at Pulumi. We've met thousands of you at our second annual Cloud Engineering Summit, shipped major new releases like Pulumi Registry and Pulumi Kubernetes Operator 1.0 and continued to innovate on and improve the entire Pulumi Cloud Engineering Platform. [Get caught up on Cloud Engineering Summit]({{<relref "/cloud-engineering-summit/replay">}}) to learn what's coming in cloud engineering, or read on for this month's news.
 
 - [Cloud Engineering Summit]({{<relref "/blog/pulumi-release-notes-m63#cloud-engineering-summit">}})
-- New and updated cloud providers
+- Pulumi Registry, Pulumi Packages, & integrations
+  - [Pulumi Registry: your window to the cloud]({{<relref "/blog/pulumi-release-notes-m63#pulumi-registry-your-window-to-the-cloud">}})
   - [Pulumi Kubernetes Operator 1.0]({{<relref "/blog/pulumi-release-notes-m63#pulumi-kubernetes-operator-10">}})
   - [New resources in the Azure Native provider]({{<relref "/blog/pulumi-release-notes-m63#new-resources-in-the-azure-native-provider">}})
 - Pulumi CLI and core technologies
   - [Resource methods for Pulumi Packages]({{<relref "/blog/pulumi-release-notes-m63#resource-methods-for-pulumi-packages">}})
   - [Automation API: delete, unprotect state in .NET]({{<relref "/blog/pulumi-release-notes-m63#automation-api-delete-unprotect-state-in-net">}})
-- Pulumi Service and Pulumi.com
-  - [Pulumi Registry: your window to the cloud]({{<relref "/blog/pulumi-release-notes-m63#pulumi-registry-your-window-to-the-cloud">}})
+- Pulumi Service & Pulumi.com
   - [Automated audit log export]({{<relref "/blog/pulumi-release-notes-m63#automated-audit-log-export">}})
 
 <!--more-->
@@ -33,7 +33,25 @@ On October 20th, thousands of you joined us for our second annual Cloud Engineer
 
 {{<youtube "42rWrRycw_o">}}
 
-## New and updated cloud providers
+## Pulumi Registry, Pulumi Packages, & integrations
+
+### Pulumi Registry: your window to the cloud
+
+As the Pulumi community has grown, we’ve [heard from many of you](https://github.com/pulumi/pulumi/issues/3297) that you needed a central hub where you could find all the cloud resources you can build with Pulumi. [Pulumi Registry]({{<relref "/registry">}}) is that place: a searchable collection of [Pulumi Packages]({{<relref "/product/packages">}}) published by Pulumi and our partners. With Pulumi Registry, you can easily find the package with the resources you need, install that package directly into your project, and start building. You can choose from Providers that give you full access to everything a cloud provider has to offer, or choose a Component that gets you started quickly with best practices and sensible defaults baked in.
+
+![A screenshot of the Pulumi Registry home page](registry.png)
+
+[Visit Pulumi Registry]({{<relref "/registry">}}) or [read the announcement]({{<relref "/blog/introducing-pulumi-registry">}}).
+
+### New Pulumi Components for AWS, Azure, and popular Helm charts
+
+As part of the launch of Pulumi Registry, we've also created new Pulumi Components that can help you get started quickly with common cloud infrastructure, including:
+
+- AWS services like API Gateway, VPC, Redshift, and Aurora
+- Azure Container Registry
+- Popular Helm charts including cert-manager, CoreDNS, and NGINX
+
+Visit [Visit Pulumi Registry]({{<relref "/registry">}}) and filter to Components to get started.
 
 ### Pulumi Kubernetes Operator 1.0
 
@@ -53,6 +71,10 @@ spec:
 ```
 
 [Read the 1.0 announcement for more info]({{<relref "/blog/pulumi-kubernetes-operator-1-0">}})
+
+### New resources in the AWS Native provider
+
+We shipped a new version of the AWS Native provider (0.2.0) that added [19 new resources](https://github.com/pulumi/pulumi-aws-native/compare/v0.1.0...v0.2.0#diff-1ac835cc58d7899e9299c7570151c7b0d7732c78f1bd53fe25fd4189b72e168e) giving you access to resources like `AWS::ApiGateway::Authorizer`, `AWS::IAM::Role`, and `AWS::Lightsail::Instance`.
 
 ### New resources in the Azure Native provider
 
@@ -82,15 +104,7 @@ await stack.State.UnprotectAsync(resource.Urn);
 
 [Learn more in this GitHub PR](https://github.com/pulumi/pulumi/pull/8202)
 
-## Pulumi Service and Pulumi.com
-
-### Pulumi Registry: your window to the cloud
-
-As the Pulumi community has grown, we’ve [heard from many of you](https://github.com/pulumi/pulumi/issues/3297) that you needed a central hub where you could find all the cloud resources you can build with Pulumi. [Pulumi Registry]({{<relref "/registry">}}) is that place: a searchable collection of [Pulumi Packages]({{<relref "/product/packages">}}) published by Pulumi and our partners. With Pulumi Registry, you can easily find the package with the resources you need, install that package directly into your project, and start building. You can choose from Providers that give you full access to everything a cloud provider has to offer, or choose a Component that gets you started quickly with best practices and sensible defaults baked in.
-
-![A screenshot of the Pulumi Registry home page](registry.png)
-
-[Visit Pulumi Registry]({{<relref "/registry">}}) or [read the announcement]({{<relref "/blog/introducing-pulumi-registry">}}).
+## Pulumi Service & Pulumi.com
 
 ### Automated audit log export
 
