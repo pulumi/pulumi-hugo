@@ -1539,7 +1539,7 @@ PATCH /api/orgs/{organization}/teams/{team}
 | `addStackPermission` | object | body | object specifying stack and permissions - see following parameters |
 | `addStackPermission.projectName` | string | body - addStackPermission object | project name |
 | `addStackPermission.stackName` | string | body - addStackPermission object | stack name |
-| `addStackPermission.permission` | integer | body - addStackPermission object | number representing stakc permissions: 101 (read), 102 (edit), 103 (admin) |
+| `addStackPermission.permission` | integer | body - addStackPermission object | number representing stack permissions: 101 (read), 102 (edit), 103 (admin) |
 
 #### Example
 
