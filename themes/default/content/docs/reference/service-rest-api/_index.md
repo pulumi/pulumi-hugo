@@ -1537,9 +1537,9 @@ PATCH /api/orgs/{organization}/teams/{team}
 | `organization` | string | path | organization name |
 | `team` | string | path | team name |
 | `addStackPermission` | object | body | object specifying stack and permissions - see following parameters |
-| `addStackPermission. projectName` | string | body - addStackPermission object | project name |
-| `addStackPermission. stackName` | string | body - addStackPermission object | stack name |
-| `addStackPermission. permission` | integer | body - addStackPermission object | number representing stack permissions: 101 (read), 102 (edit), 103 (admin) |
+| `addStackPermission .projectName` | string | object | project name |
+| `addStackPermission .stackName` | string | object | stack name |
+| `addStackPermission .permission` | integer | object | number representing stack permissions: 101 (read), 102 (edit), 103 (admin) |
 
 #### Example
 
@@ -1578,8 +1578,8 @@ PATCH /api/orgs/{organization}/teams/{team}
 | `organization` | string | path | organization name |
 | `team` | string | path | team name |
 | `removeStack` | object | body | object specifying stack and permissions - see following parameters |
-| `removeStack. projectName` | string | body - removeStack object | project name |
-| `removeStack. stackName` | string | body - removeStack object | stack name |
+| `removeStack .projectName` | string | object | project name |
+| `removeStack .stackName` | string | object | stack name |
 
 #### Example
 
