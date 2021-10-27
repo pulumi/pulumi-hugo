@@ -18,12 +18,14 @@
                 {{ range $.Site.Data.team.team }}
                     {{ if (and (eq .status "active") (eq .role "developer-advocate")) }}
                         <li class="text-center w-48 mx-4 mb-8">
-                            <img class="rounded mb-4 shadow-md mx-auto" src="/images/team/{{ .id }}.jpg" alt="{{ .name }}" >
-                            <h4 class="mb-0 text-gray-900">{{ .name }}</h4>
-                            <div>{{ .title }}</div>
-                            <div class="text-center">
-                                {{ partial "widgets/social-icons.html" (dict "social" .social)}}
-                            </div>
+                            <a class="hover:underline hover:text-black text-black" href="/developer-advocates/{{ .id }}">
+                                <img class="rounded mb-4 shadow-md mx-auto" src="/images/team/{{ .id }}.jpg" alt="{{ .name }}" >
+                                <h4 class="mb-0 text-gray-900">{{ .name }}</h4>
+                                <div>{{ .title }}</div>
+                                <div class="text-center">
+                                    {{ partial "widgets/social-icons.html" (dict "social" .social)}}
+                                </div>
+                            </a>
                         </li>
                     {{ end }}
                 {{ end }}
