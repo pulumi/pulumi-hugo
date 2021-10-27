@@ -1,0 +1,59 @@
+{{ define "hero" }}
+    {{ partial "hero" (dict "title" .Title) }}
+{{ end }}
+
+{{ define "main" }}
+    <section id="team" class="px-4">
+        <div class="container md:mx-auto max-w-5xl text-center">
+            <!-- Hide the list initially, in order to avoid any visual flicker when shuffled. -->
+            <ul class="list-none justify-center p-0">
+                {{ $person := .Params.person }}
+                {{ range $.Site.Data.team.team }}
+                    {{ if eq .id $person }}
+                        <li class="text-center mx-4 mb-8">
+                            <div>
+                                <img class="card mx-auto" src="/images/team/{{ .id }}.jpg" alt="{{ .name }}" >
+                            </div>
+                            <div class="card bg-white p-6 text-left mt-4 max-w-3xl mx-auto">
+                                <h4 class="text-left">Bio</h4>
+                                <p>{{ .bio | markdownify }}</p>
+                            </div>
+                            <div class="text-center text-5xl">
+                                {{ partial "widgets/social-icons.html" (dict "social" .social)}}
+                                <p class="text-base m-0">Email: {{ .social.email }}</p>
+                            </div>
+                        </li>
+                    {{ end }}
+                {{ end }}
+            </ul>
+        </div>
+    </section>
+
+    <section id="shownotes" class="container mx-auto text-center">
+        <h2>Shownotes</h2>
+        <p>Coming soon...</p>
+    </section>
+
+    <section id="contact" class="pt-16 px-4">
+      <div class="container mx-auto text-center ">
+          <h2 class="text-4xl my-6">Questions for {{ .Title }}?</h2>
+          <div class="w-full md:max-w-2xl md:mx-auto">
+
+              <div class="mt-4 mx-auto md:w-full md:mt-0 p-10 bg-white rounded rounded-lg shadow-lg border border-gray-300">
+                  <div class="mx-auto flex justify-center">
+                      <div class="hs-form hs-form-fg-dark font-normal">
+                        <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}"></pulumi-hubspot-form>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      <div class="text-center mb-16 mt-8">
+        <p class="mt-8">
+            <img class="mx-auto" src="/images/developer-advocates/backpack-hat-handsup-blue-waterbottle.png" alt="A platypus" />
+        </p>
+    </div>
+  </section>
+
+{{ end }}
