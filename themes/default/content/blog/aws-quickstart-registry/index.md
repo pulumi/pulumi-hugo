@@ -14,7 +14,7 @@ tags:
     - registry
 ---
 
-Pulumi makes configuring, deploying, and managing criticial AWS resources straightforward, like it should be. AWS's core services are designed for modularity within the AWS ecosystem, which is great for flexibility but makes building best-practice AWS environments surprisingly difficult. Most "best practice" features on AWS should really be the standard practice, but complicated cross-service relationships are difficult to implement correctly. Pulumi and the AWS Quick Starts in the Pulumi registry abstract use higher-order components to abstract away that underlying complexity which makes building and deploying new applications faster than ever.
+Pulumi makes configuring, deploying, and managing critical AWS resources straightforward (like it should be). AWS's core services are designed for modularity within the AWS ecosystem, which is great for flexibility, but makes building best-practice AWS environments surprisingly difficult. Most "best practice" features on AWS should really be the standard practice, but complicated cross-service relationships are difficult to implement correctly. Pulumi and the AWS Quick Starts in the [Pulumi Registry](https://www.pulumi.com/registry/) use higher-order components to abstract away that underlying complexity which makes building and deploying new applications faster than ever.
 
 <!--more-->
 
