@@ -44,7 +44,7 @@ const notificationEmail = process.env.notificationEmail;
 const dbPasswordSecret = pulumi.secret(process.env.databasePassword);
 
 // Create a best-practices VPC
-// Deploys 21
+// Deploys 21 resources
 const multiAvailabilityZoneVpc = new vpcQuickstart.Vpc("example-aurora-vpc", {
     cidrBlock: "10.0.0.0/16",
     availabilityZoneConfig: [{
