@@ -10,6 +10,7 @@ estimated_time: 10
 meta_image: meta.png
 authors:
     - matt-stratton
+    - laura-santamaria
 tags:
     - learn
 links:
@@ -21,7 +22,8 @@ block_external_search_index: true
 Pulumi programs are authored in a general-purpose language like TypeScript,
 Python, Go, or C#. The full power of each language is available, including
 access to tools and libraries for that runtime. As it happens, that includes
-testing frameworks.
+testing frameworks. For this activity, we're going to talk specifically about
+unit tests, the bottom or foundation of the testing pyramid.
 
 When running an update, your Pulumi program talks to the Pulumi CLI to
 orchestrate the deployment. The idea of unit tests is to cut this communication
@@ -30,7 +32,7 @@ from within the same OS process and return dummy data for each call that your
 Pulumi program makes.
 
 Because mocks don’t execute any real work, unit tests run very fast. Also, they
-can be made deterministic because tests don’t depend on the behavior of any
+can be made deterministic because tests don't depend on the behavior of any
 external system.
 
 ## Break up our code
@@ -54,12 +56,25 @@ import my_docker
 
 {{% /choosable %}}
 
-## Add Mocks
+## Add mocks
+
+{{< chooser languge "python" / >}}
+
+{{% choosable language python %}}
+
+For our purposes, we're going to use the built-in `unittest` library to reduce
+dependencies and make the tutorial shorter.
+
+<!-- TODO: Add this:
+At the end, we'll give a quick demonstration of the popular `pytest` library for comparison purposes.
+-->
+
+{{% /choosable %}}
 
 Let’s add the following code to mock the external calls to the Pulumi CLI.
 
-Create a file for the test code, called `test_my_docker.py`. 
-Add the following code to it!
+Create a file for the test code, called `test_my_docker.py`. Add the following
+code to it:
 
 {{< chooser language "python" / >}}
 
@@ -68,30 +83,28 @@ Add the following code to it!
 ```python 
 import pulumi
 
+
 class MyMocks(pulumi.runtime.Mocks):
     def new_resource(self, args: pulumi.runtime.MockResourceArgs):
         return [args.name + '_id', args.inputs]
+
     def call(self, args: pulumi.runtime.MockCallArgs):
         return {}
+
 
 pulumi.runtime.set_mocks(MyMocks())
 ```
 
 {{% /choosable %}}
 
-We need to set the configuration since it was made required:
+We need to set the configuration the mocked Pulumi calls expect since we set
+them as required. Add this code after the declaration of the `MyMocks()` class:
 
 {{< chooser language "python" / >}}
 
 {{% choosable language python %}}
 
 ```python
-import unittest
-import pulumi
-
-# ... MyMocks as shown above
-pulumi.runtime.set_mocks(MyMocks())
-
 pulumi.runtime.set_all_config({
   "project:backend_port": "3000",
   "project:database": "cart",
@@ -100,38 +113,50 @@ pulumi.runtime.set_all_config({
   "project:mongo_port": "27017",
   "project:node_environment": "development"
 })
-
-# It's important to import `my_docker` _after_ the mocks are defined.
-import my_docker
-
-class TestingWithMocks(unittest.TestCase):
-    # TODO(check 1): Use the proper Mongo docker image.
 ```
 
 {{% /choosable %}}
 
-## Write tests
-
-Update `test_my_docker.py` to add the following tests:
+<!-- TODO: This absolutely violates PEP 8. We need to explain this better. -->
+Then, we need to import our `my_docker` module. Since the Pulumi CLI needs to be
+mocked before the main module can run, we have to import it partway through the
+test file. Add this line after the configuration details:
 
 {{< chooser language "python" / >}}
 
 {{% choosable language python %}}
 
 ```python
-  # Test if the proper image name is used.
-  @pulumi.runtime.test
-  def test_docker_image(self):
-      def check_image_name(args):
-          image_name = args
-          self.assertIn('mongo:bionic', image_name, 'must use bionic')
-
-      return pulumi.Output.all(my_docker.mongo_image.name).apply(check_image_name)
+import my_docker
 ```
 
 {{% /choosable %}}
 
-So now your `test_my_docker.py` file looks like this:
+## Write tests
+
+Now, we're going to create a testing class and populate some tests. Add the
+following code after the import of our main module:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
+```python
+class TestingWithMocks(unittest.TestCase):
+    # TODO(check 1): Use the proper Mongo docker image.
+    # Test if the proper image name is used.
+    @pulumi.runtime.test
+    def test_docker_image(self):
+        def check_image_name(args):
+            image_name = args
+            self.assertIn('mongo:bionic', image_name, 'must use bionic')
+
+        return pulumi.Output.all(my_docker.mongo_image.name).apply(check_image_name)
+```
+
+{{% /choosable %}}
+
+So now your overall `test_my_docker.py` file should match this code:
 
 {{< chooser language "python" / >}}
 
@@ -204,6 +229,8 @@ OK
 {{% /choosable %}}
 
 <!--TODO: make the test fail, etc, but this is just to get started.-->
+
+<!-- TODO: This test completely fails if you don't have the Docker daemon running, which is contrary to standard unit testing behavior. The result should only rely on Python. -->
 
 ---
 
