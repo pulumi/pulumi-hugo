@@ -1,84 +1,63 @@
 ---
 title: "Policy as Code"
 layout: topic
-
-# The date represents the date the course was created. Posts with future dates are visible
-# in development, but excluded from production builds. Use the time and timezone-offset
-# portions of of this value to schedule posts for publishing later.
 date: 2021-09-15T12:20:24-05:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting the topic for review.
-draft: true
-
-# The description summarizes the course. It appears on the Learn home and module index pages.
+draft: false
 description: Learn how to use Pulumi to define and enforce policies.
-
-# The meta_desc property is used for targeting search results or social-media previews.
 meta_desc: Learn how to use Pulumi to define and enforce policies.
-
-# The order in which the topic appears in the module.
 index: 4
-
-# The estimated time, in minutes, for new users to complete the topic.
 estimated_time: 10
-
-# The meta_image appears in social-media previews and on the Learn Pulumi home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for reference.
 meta_image: meta.png
-
-# The optional meta_video also appears in social-media previews (taking precedence
-# over the image) and on the module's index page. A placeholder video representing
-# the recommended format, dimensions and aspect ratio has been provided for reference.
-# meta_video:
-#     url: 'http://destination-bucket-568cee2.s3-website-us-west-2.amazonaws.com/video/2020-09-03-16-46-41.mp4'
-#     thumb: 'http://destination-bucket-568cee2.s3-website-us-west-2.amazonaws.com/thumbs/2020-09-03-16-46-41.jpg'
-#     preview: 'http://destination-bucket-568cee2.s3-website-us-west-2.amazonaws.com/previews/2020-09-03-16-46-41.jpg'
-#     poster: 'http://destination-bucket-568cee2.s3-website-us-west-2.amazonaws.com/posters/2020-09-03-16-46-41.jpg'
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - kat-cosgrove
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - policy-as-code
     - learn
-
-# When provided, links are rendered at the bottom of the topic page.
 links:
     - text: Some Website
       url: http://something.com
-
-# Exclude from search-engine indexing for now.
 block_external_search_index: true
 ---
 
-[Pulumi CrossGuard](https://www.pulumi.com/docs/guides/crossguard/) is a product that provides gated deployments via Policy as Code.
+[Pulumi CrossGuard](https://www.pulumi.com/docs/guides/crossguard/) is a product
+that provides gated deployments via Policy as Code.
 
-Often organizations want to empower developers to manage their infrastructure yet are concerned about giving them full access. CrossGuard allows administrators to provide autonomy to their developers while ensuring compliance to defined organization policies.
+Often organizations want to empower developers to manage their infrastructure
+yet are concerned about giving them full access. CrossGuard allows
+administrators to provide autonomy to their developers while ensuring compliance
+to defined organization policies.
 
-Using Policy as Code, users can express business or security rules as functions that are executed against resources in their stacks. Then using CrossGuard, organization administrators can apply these rules to particular stacks within their organization. When policies are executed as part of your Pulumi deployments, any violation will gate or block that update from proceeding.
+Using Policy as Code, users can express business or security rules as functions
+that are executed against resources in their stacks. Then using CrossGuard,
+organization administrators can apply these rules to particular stacks within
+their organization. When policies are executed as part of your Pulumi
+deployments, any violation will gate or block that update from proceeding.
 
-Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be applied to Pulumi stacks written in any language. Learn more about language support for policies.
+Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be
+applied to Pulumi stacks written in any language. [Learn more about language
+support for policies.]()
 
 ## Terminology
 
-* **Policy Pack** - a set of related policies - i.e. “Security”, “Cost Optimization”, “Data Location”. The categorization of policies into a policy pack is left up to the user.
+* **Policy Pack** - a set of related policies (i.e., "Security", "Cost
+  Optimization", "Data Location"). The categorization of policies into a policy
+  pack is left up to the user.
 
-* **Policy** - an individual policy - i.e. “prohibit use of instances larger than t3.medium”.
+* **Policy** - an individual policy (i.e., "prohibit use of instances larger
+  than t3.medium")
 
-* **Enforcement Level** - the impact of a policy violation - i.e. “mandatory” or “advisory”.
+* **Enforcement Level** - the impact of a policy violation (i.e., "mandatory" or
+  "advisory")
+
 Learn more about Policy as Code core concepts.
 
 ## Creating a Policy Pack
 
 Let’s start with authoring your first Policy Pack.
 
-Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be applied to Pulumi stacks written in any language. [More information on language support for policies.](https://www.pulumi.com/docs/guides/crossguard/#languages)
+Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be
+applied to Pulumi stacks written in any language. [More information on language
+support for policies.](https://www.pulumi.com/docs/guides/crossguard/#languages)
 
 {{< chooser language "typescript,python" / >}}
 
@@ -101,9 +80,15 @@ $ mkdir policypack && cd policypack
 $ pulumi policy new aws-typescript
 ```
 
-4. Tweak the Policy Pack in the `index.ts` file as desired. The existing policy in the template (which is annotated below) mandates that an AWS S3 bucket not have public read or write permissions enabled.
+4. Tweak the Policy Pack in the `index.ts` file as desired. The existing policy
+  in the template (which is annotated below) mandates that an AWS S3 bucket not
+  have public read or write permissions enabled.
 
-Each Policy must have a unique name, description, and validation function. Here we use the `validateResourceOfType` helper so that our validation function is only called for AWS S3 bucket resources. An enforcement level can be set on the Policy Pack (applies to all policies) and/or on each individual policy (overriding any Policy Pack value).
+Each Policy must have a unique name, description, and validation function. Here,
+we use the `validateResourceOfType` helper so that our validation function is
+only called for AWS S3 bucket resources. An enforcement level can be set on the
+Policy Pack (applies to all policies) and/or on each individual policy
+(overriding any Policy Pack value).
 
 ```typescript
 // Create a new Policy Pack.
@@ -155,9 +140,13 @@ $ mkdir policypack && cd policypack
 $ pulumi policy new aws-python
 ```
 
-4. Tweak the Policy Pack in the `__main__.py` file as desired. The existing policy in the template (which is annotated below) mandates that an AWS S3 bucket not have public read or write permissions enabled.
+4. Tweak the Policy Pack in the `__main__.py` file as desired. The existing
+  policy in the template (which is annotated below) mandates that an AWS S3
+  bucket not have public read or write permissions enabled.
 
-Each Policy must have a unique name, description, and validation function. An enforcement level can be set on the Policy Pack (applies to all policies) and/or on each individual policy (overriding any Policy Pack value).
+Each Policy must have a unique name, description, and validation function. An
+enforcement level can be set on the Policy Pack (applies to all policies) and/or
+on each individual policy (overriding any Policy Pack value).
 
 ```python
 # The validation function is called before each resource is created or updated.
@@ -199,27 +188,37 @@ PolicyPack(
 
 {{% /choosable %}}
 
-You can find more example Policy Packs in the [examples repo](https://github.com/pulumi/examples/tree/master/policy-packs). [Policy Pack best practices](https://www.pulumi.com/docs/guides/crossguard/best-practices/) details the best practices for writing a Policy Pack.
+You can find more example Policy Packs in the [examples
+repo](https://github.com/pulumi/examples/tree/master/policy-packs). [Policy Pack 
+est practices](https://www.pulumi.com/docs/guides/crossguard/best-practices/)
+details the best practices for writing a Policy Pack.
 
 ## Running Locally
 
-Now let’s take a look at how to run the Policy Pack locally against a Pulumi program.
+Now let’s take a look at how to run the Policy Pack locally against a Pulumi
+program.
 
 {{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
-1. Use the `--policy-pack` flag with `pulumi preview` or `pulumi up` to specify the path to the directory containing your Policy Pack when previewing/updating a Pulumi program.
+1. Use the `--policy-pack` flag with `pulumi preview` or `pulumi up` to specify
+  the path to the directory containing your Policy Pack when previewing/updating
+  a Pulumi program.
 
-If you don’t have a Pulumi program readily available, you can create a new program for testing by running `pulumi new aws-typescript` in an empty directory. This AWS example will create an S3 bucket, which is perfect for testing our Policy.
+If you don’t have a Pulumi program readily available, you can create a new
+program for testing by running `pulumi new aws-typescript` in an empty
+directory. This AWS example will create an S3 bucket, which is perfect for
+testing our Policy.
 
-In the Pulumi program’s directory run:
+In the Pulumi program's directory, run:
 
 ```bash
 pulumi preview --policy-pack <path-to-policy-pack-directory>
 ```
 
-If the Pulumi stack is in compliance, we expect the output to simply tell us which Policy Packs were run.
+If the Pulumi stack is in compliance, we expect the output to simply tell us
+which Policy Packs were run.
 
 ```
  Previewing update (dev):
@@ -243,7 +242,8 @@ const bucket = new aws.s3.Bucket("my-bucket", {
 });
 ```
 
-3. We then run the `pulumi preview` command again and this time get an error message indicating we failed the preview because of a policy violation.
+3. We then run the `pulumi preview` command again and this time get an error
+  message indicating we failed the preview because of a policy violation.
 
 ```
 Previewing update (dev):
@@ -265,9 +265,14 @@ Previewing update (dev):
 
 {{% choosable language python %}}
 
-1. Use the `--policy-pack` flag with `pulumi preview` or `pulumi up` to specify the path to the directory containing your Policy Pack when previewing/updating a Pulumi program.
+1. Use the `--policy-pack` flag with `pulumi preview` or `pulumi up` to specify
+  the path to the directory containing your Policy Pack when previewing/updating
+  a Pulumi program.
 
-If you don’t have a Pulumi program readily available, you can create a new program for testing by running `pulumi new aws-python` in an empty directory. This AWS example will create an S3 bucket, which is perfect for testing our Policy.
+If you don’t have a Pulumi program readily available, you can create a new
+program for testing by running `pulumi new aws-python` in an empty directory.
+This AWS example will create an S3 bucket, which is perfect for testing our
+Policy.
 
 In the Pulumi program’s directory run:
 
@@ -275,7 +280,8 @@ In the Pulumi program’s directory run:
 pulumi preview --policy-pack <path-to-policy-pack-directory>
 ```
 
-If the Pulumi stack is in compliance, we expect the output to simply tell us which Policy Packs were run.
+If the Pulumi stack is in compliance, we expect the output to simply tell us
+which Policy Packs were run.
 
 ```
  Previewing update (dev):
@@ -297,7 +303,8 @@ If the Pulumi stack is in compliance, we expect the output to simply tell us whi
 bucket = s3.Bucket('my-bucket', acl="public-read")
 ```
 
-3. We then run the `pulumi preview` command again and this time get an error message indicating we failed the preview because of a policy violation.
+3. We then run the `pulumi preview` command again and this time get an error
+  message indicating we failed the preview because of a policy violation.
 
 ```
 Previewing update (dev):
@@ -317,21 +324,36 @@ Previewing update (dev):
 
 {{% /choosable %}}
 
-Now that your Policy Pack is ready to go, let’s enforce the pack across your organization.
+Now that your Policy Pack is ready to go, let’s enforce the pack across your
+organization.
 
 ## Enforcing a Policy Pack
 
-Note: Server-side enforcement of policy packs across an organization is only available in Pulumi Enterprise. See [pricing](https://www.pulumi.com/pricing/) for more details.
+{{% notes type="info" %}}
 
-Once you’ve validated the behavior of your policies, an organization administrator can publish them to the Pulumi Console to be enforced across your organization. Any Pulumi client (a developer’s workstation, CI/CD tool, etc) that interacts with a stack via the Pulumi Console will have policy enforcement during the execution of `preview` and `update`. Policy Packs are versioned by the Pulumi Console so that updated policies can be published and applied as ready and also reverted to previous versions as needed.
+Server-side enforcement of policy packs across an organization is only available
+in Pulumi Enterprise. See [pricing](https://www.pulumi.com/pricing/) for more
+details.
 
-1. From within the Policy Pack directory, run the following command to publish your pack:
+{{% /notes %}}
+
+Once you've validated the behavior of your policies, an organization
+administrator can publish them to the Pulumi Console to be enforced across your
+organization. Any Pulumi client (a developer's workstation, CI/CD tool, etc.)
+that interacts with a stack via the Pulumi Console will have policy enforcement
+during the execution of `preview` and `update`. Policy Packs are versioned by
+the Pulumi Console so that updated policies can be published and applied as
+ready and also reverted to previous versions as needed.
+
+1. From within the Policy Pack directory, run the following command to publish
+  your pack:
 
 ```bash
 pulumi policy publish <org-name>
 ```
 
-The output will tell you what version of the Policy Pack you just published. The Pulumi service provides a monotonic version number for Policy Packs.
+The output will tell you what version of the Policy Pack you just published. The
+Pulumi service provides a monotonic version number for Policy Packs.
 
 ```
 Obtaining policy metadata from policy plugin
@@ -341,9 +363,13 @@ Publishing my-policy-pack to myorg
 Published as version 1.0.0
 ```
 
-The Policy Pack version is specified in the `package.json` file for TypeScript/JavaScript (Node.js) packs and in the PulumiPolicy.yaml file for Python packs. A version can only be used one time and once published the version can never be used by that Policy Pack again.
+The Policy Pack version is specified in the `package.json` file for
+TypeScript/JavaScript (Node.js) packs and in the `PulumiPolicy.yaml` file for
+Python packs. A version can only be used one time, and once published, the
+version can never be used by that Policy Pack again.
 
-2. You can enable this Policy Pack to your organization’s default Policy Group by running:
+2. You can enable this Policy Pack to your organization's default Policy Group
+  by running:
 
 ```bash
 pulumi policy enable <org-name>/<policy-pack-name> <latest|version>
@@ -355,6 +381,8 @@ For example, to enable the Policy Pack created in the previous step:
 pulumi policy enable myorg/my-policy-pack latest
 ```
 
-The CLI by default enables the Policy Pack to your default Policy Group. If you would like to add the Policy Pack to a different Policy Group, you can use the `--policy-group` flag.
+The CLI by default enables the Policy Pack to your default Policy Group. If you
+would like to add the Policy Pack to a different Policy Group, you can use the
+`--policy-group` flag.
 
 
