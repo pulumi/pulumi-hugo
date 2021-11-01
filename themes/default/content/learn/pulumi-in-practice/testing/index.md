@@ -23,7 +23,11 @@ Pulumi programs are authored in a general-purpose language like TypeScript,
 Python, Go, or C#. The full power of each language is available, including
 access to tools and libraries for that runtime. As it happens, that includes
 testing frameworks. For this activity, we're going to talk specifically about
-unit tests, the bottom or foundation of the testing pyramid.
+unit tests, the bottom or foundation of the testing pyramid. In the future,
+we'll add in integration tests and end-to-end tests, but we're sticking with a
+simple demonstration of testing for now.
+
+<!-- See previous note -->
 
 When running an update, your Pulumi program talks to the Pulumi CLI to
 orchestrate the deployment. The idea of unit tests is to cut this communication
@@ -230,7 +234,9 @@ OK
 
 <!--TODO: make the test fail, etc, but this is just to get started.-->
 
-<!-- TODO: This test completely fails if you don't have the Docker daemon running, which is contrary to standard unit testing behavior. The result should only rely on Python. -->
+<!-- TODO: This test completely fails if you don't have the Docker daemon
+running. Consider whether this is the unit we're actually testing or whether
+we're testing the unit of the pulumi_docker implementation in the code. -->
 
 ---
 
