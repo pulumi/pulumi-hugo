@@ -1,5 +1,5 @@
 ---
-title: "Access Control"
+title: "Managing Access with Access Control"
 layout: topic
 date: 2021-09-15T12:20:24-05:00
 draft: false
@@ -10,6 +10,7 @@ estimated_time: 10
 meta_image: meta.png
 authors:
     - kat-cosgrove
+    - laura-santamaria
 tags:
     - learn
     - access-control
@@ -22,12 +23,16 @@ block_external_search_index: true
 
 Say you want to allow teammates to make changes to your Boba Shop app, but you
 want to control who has access to specific aspects of it. Using [Pulumi
-Crosswalk](https://www.pulumi.com/docs/guides/crosswalk/kubernetes/),
-configuring RBAC ([Role Based Access
+Crosswalk]({{< relref "docs/guides/crosswalk/kubernetes" >}}), configuring
+RBAC ([Role Based Access
 Control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)) is a
 little less painful. This module will focus on Crosswalk for Kubernetes, but we
-also provide [Crosswalk for
-AWS](https://www.pulumi.com/docs/guides/crosswalk/aws/).
+also provide [Crosswalk for AWS]({{< relref "docs/guides/crosswalk/aws" >}}).
+
+{{% notes "info" %}}
+We're not using the Boba Tea Shop app here as we're not building it on
+Kubernetes just yet.
+{{% /notes %}}
 
 {{< chooser cloud "aws,azure,gcp" / >}}
 
@@ -193,10 +198,10 @@ defaults][crosswalk-configure-defaults]), and a `RoleBinding` to associate the
 Kubernetes `Role` to the IAM `devs` role.
 
 <!-- markdownlint-disable url -->
-[crosswalk-configure-defaults]: {{< relref "/docs/guides/crosswalk/kubernetes/configure-defaults" >}}
+[crosswalk-configure-defaults]: {{< relref "docs/guides/crosswalk/kubernetes/configure-defaults" >}}
 [k8s-rbac-docs]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [gke-predefined-roles]: https://cloud.google.com/kubernetes-engine/docs/how-to/iam#predefined
-[crosswalk-identity]: {{< relref "/docs/guides/crosswalk/kubernetes/identity" >}}
+[crosswalk-identity]: {{< relref "docs/guides/crosswalk/kubernetes/identity" >}}
 <!-- markdownlint-enable url -->
 
 Assume the `admin` user.
@@ -304,16 +309,21 @@ $ kubectl delete --namespace=`pulumi stack output appsNamespaceName` pod/nginx s
 
 For a complete example of this in action, see [Simplifying Kubernetes RBAC in
 Amazon EKS][simplify-rbac].
-[simplify-rbac]: {{< relref "/blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages/" >}}
+
+<!--markdownlint-disable url -->
+[simplify-rbac]: {{< relref "blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages" >}}
+<!-- markdownlint-enable url -->
 
 {{% /choosable %}}
 
 See the [official Kubernetes RBAC docs][k8s-rbac-docs] for more details.
 
 <!-- markdownlint-disable url -->
-[crosswalk-identity]: {{< relref "/docs/guides/crosswalk/kubernetes/identity" >}}
+[crosswalk-identity]: {{< relref "docs/guides/crosswalk/kubernetes/identity" >}}
 [k8s-rbac-docs]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
-[crosswalk-configure-defaults]: {{< relref "/docs/guides/crosswalk/kubernetes/configure-defaults" >}}
+[crosswalk-configure-defaults]: {{< relref "docs/guides/crosswalk/kubernetes/configure-defaults" >}}
 <!-- markdownlint-enable url -->
 
-
+You've now gotten to explore a bit about access control. Next up, we're going to
+explore how you can start using webhooks to sent events to other systems, like
+chatops or other monitoring systems.
