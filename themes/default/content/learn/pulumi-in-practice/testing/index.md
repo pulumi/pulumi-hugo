@@ -245,4 +245,4 @@ pathway, you learned all about stacks, outputs, and stack references so you can
 work in multiple environments. You also learned about secrets in Pulumi and
 testing with standard third-party frameworks. The best next step in your journey
 to learn Pulumi is to work on the [Pulumi in
-Operations]({{< relref "/learn/pulumi/operations" >}}) pathway.
+Operations]({{< relref "learn/pulumi-operations" >}}) pathway.
