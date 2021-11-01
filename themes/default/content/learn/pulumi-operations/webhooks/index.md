@@ -1,5 +1,5 @@
 ---
-title: "Webhooks"
+title: "Working with Webhooks"
 layout: topic
 date: 2021-09-15T12:20:24-05:00
 draft: false
@@ -28,7 +28,15 @@ registered webhooks. The webhook can then be used to emit some notification,
 start running integration tests, or even update additional stacks.
 
 Webhooks can be used for pretty much anything you want and are the foundation of
-most ChatOps workflows.
+most ChatOps workflows. For our boba tea shop application, let's say you're now
+part of a team responsible for the deployment and management of the overall
+infrastructure. You're working asynchronously with your team, and there's a lot
+of work happening on your environments as your boba shop grows. Webhooks going
+into your chat infrastructure ensures, at a basic level, everyone can know what
+activities are happening at any point in time. On a more advanced level, you can
+send in chat-based commands to ask Pulumi to deploy your changes to the boba
+shop infrastructure. Let's explore how we could use webhooks with our app if we
+have the Team or Enterprise plan.
 
 ## Management
 
