@@ -1,5 +1,5 @@
 ---
-title: "Policy as Code"
+title: "Defining Policy as Code"
 layout: topic
 date: 2021-09-15T12:20:24-05:00
 draft: false
@@ -10,6 +10,7 @@ estimated_time: 10
 meta_image: meta.png
 authors:
     - kat-cosgrove
+    - laura-santamaria
 tags:
     - policy-as-code
     - learn
@@ -19,76 +20,70 @@ links:
 block_external_search_index: true
 ---
 
-[Pulumi CrossGuard](https://www.pulumi.com/docs/guides/crossguard/) is a product
-that provides gated deployments via Policy as Code.
-
-Often organizations want to empower developers to manage their infrastructure
-yet are concerned about giving them full access. CrossGuard allows
-administrators to provide autonomy to their developers while ensuring compliance
-to defined organization policies.
+As the owner of the Boba Tea Shop app and its infrastructure, your team might
+want to allow others to manage parts of the infrastructure, offloading the work,
+for example, to the frontend team for the frontend infrastructure and code.
+However, giving everyone full access is a security incident waiting to happen.
+Generally, it's better to manage that access and gate deployments with something
+known as Policy as Code. For Pulumi, we have [Pulumi
+CrossGuard]({{< relref "docs/guides/crossguard" >}}), which provides gated
+deployments via Policy as Code. CrossGuard allows admins to provide autonomy to
+others while ensuring compliance to defined organization policies.
 
 Using Policy as Code, users can express business or security rules as functions
-that are executed against resources in their stacks. Then using CrossGuard,
-organization administrators can apply these rules to particular stacks within
-their organization. When policies are executed as part of your Pulumi
-deployments, any violation will gate or block that update from proceeding.
+that are executed against resources in their stacks (which we call _policies_,
+like prohibiting use of instances larger than a specific size). Then using
+CrossGuard, org admins can apply these rules to particular stacks within their
+org. When policies are executed as part of your Pulumi deployments, any
+violation will gate, or block, that update from proceeding.
 
 Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be
-applied to Pulumi stacks written in any language. [Learn more about language
-support for policies.]()
+applied to Pulumi stacks written in any language. Any and all related policies
+are grouped into _policy packs_ that also include the _enforcement level_, which
+is the impact of a policy violation like a mandatory fix or a preferred fix.
 
-## Terminology
+## Create a Policy Pack
 
-* **Policy Pack** - a set of related policies (i.e., "Security", "Cost
-  Optimization", "Data Location"). The categorization of policies into a policy
-  pack is left up to the user.
+Let’s start with authoring your first Policy Pack. We're going to use a general
+policy for this example instead of part of our Boba Shop app.
 
-* **Policy** - an individual policy (i.e., "prohibit use of instances larger
-  than t3.medium")
-
-* **Enforcement Level** - the impact of a policy violation (i.e., "mandatory" or
-  "advisory")
-
-Learn more about Policy as Code core concepts.
-
-## Creating a Policy Pack
-
-Let’s start with authoring your first Policy Pack.
-
-Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be
-applied to Pulumi stacks written in any language. [More information on language
-support for policies.](https://www.pulumi.com/docs/guides/crossguard/#languages)
-
-{{< chooser language "typescript,python" / >}}
-
-{{% choosable language typescript %}}
-
-1. Install prerequisites.
-
-    * [Install Pulumi](https://www.pulumi.com/docs/get-started/install/)
-    * [Install Node.js](https://nodejs.org/en/download/)
-
-2. Create a directory for your Policy Pack and move into it.
+First, create a directory for your Policy Pack and move into it.
 
 ```bash
 $ mkdir policypack && cd policypack
 ```
 
-3. Run the `pulumi policy new` command.
+Next, run the `pulumi policy new` command.
+
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
 
 ```bash
 $ pulumi policy new aws-typescript
 ```
 
-4. Tweak the Policy Pack in the `index.ts` file as desired. The existing policy
-  in the template (which is annotated below) mandates that an AWS S3 bucket not
-  have public read or write permissions enabled.
+{{% /choosable %}}
 
-Each Policy must have a unique name, description, and validation function. Here,
-we use the `validateResourceOfType` helper so that our validation function is
-only called for AWS S3 bucket resources. An enforcement level can be set on the
-Policy Pack (applies to all policies) and/or on each individual policy
-(overriding any Policy Pack value).
+{{% choosable language python %}}
+
+```bash
+$ pulumi policy new aws-python
+```
+
+{{% /choosable %}}
+
+This command creates a Policy Pack in the {{% langfile %}} file. The policy in the
+template mandates that an AWS S3 bucket not have public read or write
+permissions enabled, a very common use case. Each Policy must have a unique
+name, description, and validation function. Here, we use a validation helper so
+that our validation function is only called for AWS S3 bucket resources. An
+enforcement level can be set on the Policy Pack so it applies to all policies or
+on each individual policy, which then overrides any overall Policy Pack enforcement level.
+
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
 
 ```typescript
 // Create a new Policy Pack.
@@ -122,31 +117,6 @@ new PolicyPack("policy-pack-typescript", {
 {{% /choosable %}}
 
 {{% choosable language python %}}
-
-1. Install prerequisites.
-
-    * [Install Pulumi](https://www.pulumi.com/docs/get-started/install/)
-    * [Install Python](https://www.python.org/downloads/)
-
-2. Create a directory for your Policy Pack and move into it.
-
-```bash
-$ mkdir policypack && cd policypack
-```
-
-3. Run the `pulumi policy new` command.
-
-```bash
-$ pulumi policy new aws-python
-```
-
-4. Tweak the Policy Pack in the `__main__.py` file as desired. The existing
-  policy in the template (which is annotated below) mandates that an AWS S3
-  bucket not have public read or write permissions enabled.
-
-Each Policy must have a unique name, description, and validation function. An
-enforcement level can be set on the Policy Pack (applies to all policies) and/or
-on each individual policy (overriding any Policy Pack value).
 
 ```python
 # The validation function is called before each resource is created or updated.
@@ -189,27 +159,21 @@ PolicyPack(
 {{% /choosable %}}
 
 You can find more example Policy Packs in the [examples
-repo](https://github.com/pulumi/examples/tree/master/policy-packs). [Policy Pack 
-est practices](https://www.pulumi.com/docs/guides/crossguard/best-practices/)
-details the best practices for writing a Policy Pack.
+repo](https://github.com/pulumi/examples/tree/master/policy-packs), or read
+about [the best practices for writing a Policy
+Pack](https://www.pulumi.com/docs/guides/crossguard/best-practices/).
 
-## Running Locally
+## Run it locally
 
-Now let’s take a look at how to run the Policy Pack locally against a Pulumi
+Now let's run the Policy Pack locally against a Pulumi program. Use the
+`--policy-pack` flag with `pulumi preview` or `pulumi up` to specify the path to
+the directory containing your Policy Pack when previewing or updating a Pulumi
 program.
 
-{{< chooser language "typescript,python" / >}}
-
-{{% choosable language typescript %}}
-
-1. Use the `--policy-pack` flag with `pulumi preview` or `pulumi up` to specify
-  the path to the directory containing your Policy Pack when previewing/updating
-  a Pulumi program.
-
-If you don’t have a Pulumi program readily available, you can create a new
-program for testing by running `pulumi new aws-typescript` in an empty
-directory. This AWS example will create an S3 bucket, which is perfect for
-testing our Policy.
+We're going to use the simple example from the [CI/CD
+tutorial]({{< relref "learn/pulumi-operations/ci-cd" >}}) earlier in this
+pathway for testing out your new policy. That AWS example will create an S3
+bucket, which is perfect for testing our policy.
 
 In the Pulumi program's directory, run:
 
@@ -231,10 +195,14 @@ which Policy Packs were run.
 
  Policy Packs run:
      Name                                                 Version
-     aws-typescript (/Users/user/path/to/policy-pack)     (local)
+     aws-language (/Users/user/path/to/policy-pack)     (local)
 ```
 
-2. We can then edit the stack code to specify the ACL to be public-read.
+We can then edit the stack code to specify the ACL to be public-read.
+
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
 
 ```typescript
 const bucket = new aws.s3.Bucket("my-bucket", {
@@ -242,69 +210,18 @@ const bucket = new aws.s3.Bucket("my-bucket", {
 });
 ```
 
-3. We then run the `pulumi preview` command again and this time get an error
-  message indicating we failed the preview because of a policy violation.
-
-```
-Previewing update (dev):
-      Type                 Name          Plan       Info
-  +   pulumi:pulumi:Stack  test-dev      create     1 error
-  +   └─ aws:s3:Bucket     my-bucket     create
-
- Diagnostics:
-   pulumi:pulumi:Stack (test-dev):
-     error: preview failed
-
- Policy Violations:
-     [mandatory]  aws-typescript v0.0.1  s3-no-public-read (my-bucket: aws:s3/bucket:Bucket)
-     Prohibits setting the publicRead or publicReadWrite permission on AWS S3 buckets.
-     You cannot set public-read or public-read-write on an S3 bucket. Read more about ACLs here: https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html
-```
-
 {{% /choosable %}}
 
 {{% choosable language python %}}
-
-1. Use the `--policy-pack` flag with `pulumi preview` or `pulumi up` to specify
-  the path to the directory containing your Policy Pack when previewing/updating
-  a Pulumi program.
-
-If you don’t have a Pulumi program readily available, you can create a new
-program for testing by running `pulumi new aws-python` in an empty directory.
-This AWS example will create an S3 bucket, which is perfect for testing our
-Policy.
-
-In the Pulumi program’s directory run:
-
-```bash
-pulumi preview --policy-pack <path-to-policy-pack-directory>
-```
-
-If the Pulumi stack is in compliance, we expect the output to simply tell us
-which Policy Packs were run.
-
-```
- Previewing update (dev):
-      Type                 Name          Plan
-  +   pulumi:pulumi:Stack  test-dev      create
-  +   └─ aws:s3:Bucket     my-bucket     create
-
- Resources:
-     + 2 to create
-
- Policy Packs run:
-     Name                                             Version
-     aws-python (/Users/user/path/to/policy-pack)     (local)
-```
-
-2. We can then edit the stack code to specify the ACL to be public-read.
 
 ```python
 bucket = s3.Bucket('my-bucket', acl="public-read")
 ```
 
-3. We then run the `pulumi preview` command again and this time get an error
-  message indicating we failed the preview because of a policy violation.
+{{% /choosable %}}
+
+We then run the `pulumi preview` command again and this time get an error
+message indicating we failed the preview because of a policy violation.
 
 ```
 Previewing update (dev):
@@ -317,23 +234,20 @@ Previewing update (dev):
      error: preview failed
 
  Policy Violations:
-     [mandatory]  aws-python v0.0.1  s3-no-public-read (my-bucket: aws:s3/bucket:Bucket)
+     [mandatory]  aws-language v0.0.1  s3-no-public-read (my-bucket: aws:s3/bucket:Bucket)
      Prohibits setting the publicRead or publicReadWrite permission on AWS S3 buckets.
      You cannot set public-read or public-read-write on an S3 bucket. Read more about ACLs here: https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html
 ```
 
-{{% /choosable %}}
-
 Now that your Policy Pack is ready to go, let’s enforce the pack across your
 organization.
 
-## Enforcing a Policy Pack
+## Enforce a Policy Pack across an organization
 
 {{% notes type="info" %}}
 
 Server-side enforcement of policy packs across an organization is only available
-in Pulumi Enterprise. See [pricing](https://www.pulumi.com/pricing/) for more
-details.
+in Pulumi Enterprise.
 
 {{% /notes %}}
 
@@ -345,8 +259,9 @@ during the execution of `preview` and `update`. Policy Packs are versioned by
 the Pulumi Console so that updated policies can be published and applied as
 ready and also reverted to previous versions as needed.
 
-1. From within the Policy Pack directory, run the following command to publish
-  your pack:
+Let's say you, as the admin of the Boba Tea Shop, want to enforce a Policy Pack
+across your Boba Tea Shop org. From within the Policy Pack directory, run the
+following command to publish your pack:
 
 ```bash
 pulumi policy publish <org-name>
@@ -368,14 +283,14 @@ TypeScript/JavaScript (Node.js) packs and in the `PulumiPolicy.yaml` file for
 Python packs. A version can only be used one time, and once published, the
 version can never be used by that Policy Pack again.
 
-2. You can enable this Policy Pack to your organization's default Policy Group
-  by running:
+Now, enable the Policy Pack to your org's default Policy Group:
 
 ```bash
 pulumi policy enable <org-name>/<policy-pack-name> <latest|version>
 ```
 
-For example, to enable the Policy Pack created in the previous step:
+Since we called it `my-policy-pack` and we want to enable the latest version, we
+would use the following command:
 
 ```bash
 pulumi policy enable myorg/my-policy-pack latest
@@ -385,4 +300,10 @@ The CLI by default enables the Policy Pack to your default Policy Group. If you
 would like to add the Policy Pack to a different Policy Group, you can use the
 `--policy-group` flag.
 
+---
 
+Congratulations! You've finished the Pulumi in Operations pathway! In this
+pathway, you learned all about using Pulumi with CI/CD systems, managing access
+control, using webhooks, and working with Policy as Code so you can manage your
+Pulumi-based systems. Go build new things, and watch this space for more
+learning experiences on Pulumi!
