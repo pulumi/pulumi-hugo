@@ -174,4 +174,4 @@ In the next article, we'll discuss code reusability and code documentation to ac
 
 Thank you to Stephanie Swenson at [Furō](https://www.furo.io/) for reviewing and suggesting many great edits in this article.
 
-Thank you to Laura Santamaria at [Pulumi](https://www.pulumi.com/) for reviewing and suggesting many great edits in this article.
+Thank you to Laura Santamaria, David Flanagan, Joe Duffy and Luke Hoban at [Pulumi](https://www.pulumi.com/) for sharing their knowledge, reviewing, and suggesting edits in this article.
