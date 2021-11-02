@@ -69,21 +69,29 @@ Now we're all set, so let's dive into writing a Pulumi application.
 
 ### Give your resources a name
 
-The first thing you'll notice when you write a Pulumi app is that every single resource must have its own name. This *Pulumi resource name* is used inside your stack state file to uniquely identify your resources.
+The first thing you'll notice when you write a Pulumi app is that every single resource must have its own name. This *Pulumi resource name* or a logical resource name if you prefer, is used inside your stack state file to uniquely identify your resources. This is also what you will see at first when exploring your stack resources in the Pulumi web console.
 
-Depending on the resource type, a second name (a *cloud resource name* if you like) may also be provided. If this *cloud resource name* is unspecified, Pulumi uses the *Pulumi resource name* and appends a random string. The random string helps in avoiding name collisions between cloud resources.
+Depending on the resource type, a second name (a *cloud resource name* or a *physical resource name* if you like) may also be provided. This is the name that will be visible in your Cloud vendor web console. If this *cloud resource name* is unspecified, Pulumi uses the *Pulumi resource name* and appends a [random suffix]({{< relref "/docs/intro/concepts/resources/#autonaming" >}}) to it to make it unique.
 
-As a best practice, we recommend that you explicitly name all (or at least most) of your *cloud resources*. Being explicit with resource names allows you to use string manipulation more easily rather than having to work with an [Output]({{< relref "/docs/intro/concepts/inputs-outputs" >}}).
+As a recommendation, you should use explicit names for all your *Pulumi resource names* and then let Pulumi determine what the *Cloud resource names* should be. Let's Look at the benefits:
+
+* As vendors have different requirements, *Cloud resource names* have different lengths and constraints. Pulumi knows this and will make sure the name matches the vendor requirements.
+* The random suffix ensures that two stacks for the same project can be deployed without their resources colliding.
+* Finally, the random suffix allows Pulumi to do **zero-downtime** resource updates. Due to the way some cloud providers work, certain updates require replacing resources rather than updating them in place. By default, Pulumi creates replacements first, then updates the existing references to them, and finally deletes the old resources.
 
 ![a code snippet that shows a Pulumi program that uses resource names and then manipulates that string in the program](images/resource-names.svg)
 
 ![an animation showing the Pulumi program running with output that gives the stated resource name and a resource name with an appended string](images/pulumi-up-resource-names.svg)
 
-In this example, the resource `inputBucket` only has a Pulumi resource name set whereas `outputBucket` has both the Pulumi resource name and the cloud resource name set. As a result of the lack of a cloud resource name, `inputBucketName` uses the Pulumi resource name as the base name with an extra random string at the end. As for `outputBucketName`, the cloud resource name is set as specified by our code.
+In this example, the resource `inputBucket` only has a Pulumi resource name set whereas `outputBucket` has both the Pulumi resource name and the cloud resource name set. As a result of the lack of a cloud resource name, `inputBucketName` uses the Pulumi resource name as the base name with a random suffix. As for `outputBucketName`, the cloud resource name is set as specified by our code.
 
-Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution to avoid name collisions across many projects and stacks. A way to achieve this is to use a customer name or a project name. As [suggested](https://stackoverflow.com/a/69270933) by my colleague Mikhail, the resource name prefix may be composed of multiple values, such as `${organization}-${tenant}-${environment}-${resourceName}`.
+Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution quickly identify resources across multiple projects and stacks. A way to achieve this is to use a customer name or a project name. As [suggested](https://stackoverflow.com/a/69270933) by my colleague Mikhail, the resource name prefix may be composed of multiple values, such as `${organization}-${tenant}-${environment}-${resourceName}`.
 
-However, be mindful that some resource names are limited in length depending on the type of resources provisioned and the vendor used. In our example, an S3 bucket name cannot be longer than 63 characters. As an example, this string works because it is 43 characters long: `acmecorp-dev-my-confidential-reports-bucket`.
+Here is a few links to better understand physical names and auto-naming:
+
+* [Resources and auto-naming]({{< relref "/docs/intro/concepts/resources/#autonaming" >}})
+* [Infrastructure as Code Resource Naming]({{< relref "/blog/infrastructure-as-code-resource-naming/" >}})
+* [Why do resource names have random hex character suffixes?]({{< relref "/docs/troubleshooting/faq/#why-do-resource-names-have-random-hex-character-suffixes" >}})
 
 ### Handling secrets securely
 
