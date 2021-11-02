@@ -32,7 +32,7 @@ Here are a few links to get you started:
 * [GCP](https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations)
 * [Kubernetes](https://kubernetes.io/docs/setup/best-practices/)
 
-While these recommendations are important, don't wait to have adopted them all before you start using Pulumi. Rather, integrating Pulumi early in your cloud journey will empower you to implement better cloud practices with more integrated security and improved development velocity.
+While these recommendations are important, you don't have to wait to adopt them all before you start using Pulumi. Rather, integrating Pulumi early in your cloud journey will empower you to implement better cloud practices with more integrated security and improved development velocity.
 
 ## First coding steps with Pulumi
 
