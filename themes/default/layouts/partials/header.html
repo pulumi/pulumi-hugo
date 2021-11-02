@@ -64,8 +64,33 @@
                             </ul>
                         </div>
                     </li>
-                    <li>
-                        <a href="{{ relref . "/product" }}">Products</a>
+                    <li class="header-nav-item-drop-down">
+                        <span class="dropdown-title whitespace-nowrap">Product</span>
+                        <span class="dropdown-menu-caret"></span>
+                        <div class="header-nav-drop-down-menu">
+                            <ul>
+                                <li>
+                                    <a href="{{ relref . "/product" }}">
+                                        Cloud Engineering Platform
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ relref . "/product/automation-api" }}">
+                                        Automation API
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ relref . "/product/packages" }}">
+                                        Packages
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ relref . "/product/crossguard" }}">
+                                        Policy as Code
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="{{ relref . "/pricing" }}">Pricing</a>
@@ -120,7 +145,11 @@
                         <li class="mobile-menu-subitem"><a href="{{ relref . "/solutions" }}">Solutions</a></li>
                         <li class="mobile-menu-subitem"><a href="{{ relref . "/case-studies" }}">Case Studies</a></li>
 
-                        <li class="mobile-menu-item"><a href="{{ relref . "/product" }}">Products</a></li>
+                        <li class="mobile-menu-item whitespace-nowrap"><a href="{{ relref . "/product" }}">Product</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/product" }}">Cloud Engineering Platform</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/product/automation-api" }}">Automation API</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/product/packages" }}">Packages</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/product/crossguard" }}">Crossguard</a></li>
 
                         <li class="mobile-menu-item"><a href="{{ relref . "/pricing" }}">Pricing</a></li>
 

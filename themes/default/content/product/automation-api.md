@@ -6,6 +6,8 @@ meta_title: Automation API
 meta_desc: |
     Use infrastructure as code directly from your favorite language to
     create custom tools, portals, and frameworks for any cloud architecture.
+aliases:
+  - /automation
 
 customer_logos:
   title: Leading engineering organizations are building with Pulumi

@@ -2,9 +2,10 @@
 # TODO: update these values
 title: Cloud Engineering
 meta_desc: Apply software engineering practices and tools across infrastructure, development, and compliance teams to tame the complexity of modern cloud applications.
-
 type: page
 layout: cloud-engineering
+aliases:
+  - /cloud-engineering
 
 overview:
     title: Software engineering practices made for the cloud
