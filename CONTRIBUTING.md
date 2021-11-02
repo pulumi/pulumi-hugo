@@ -58,7 +58,9 @@ Which, on a page inside the `./content/reference` directory, will generate:
 - Top level headings use **Title Case**, where each word starts with a capital letter.
 - All other headings use **Sentence case**, where only the first word and any proper nouns have a capital letter.
 - Use capitalization only for a proper noun, and use throughout. For example, "stack" should almost always be lowercase in text.
-
+- When directing the user to interact with a button on a page, use "select" instead of "click" so that is not pointer-specific (for ex: for mobile phones, screen readers, etc.).
+- Try to use "navigate" instead of "go to".
+- Avoid directional words, as folks that use screen readers do not have the same information about where things are placed on the page directionally.
 ### Referring to "things"
 
 - References to the Pulumi CLI or CLI commands should be enclosed in backticks (e.g., `pulumi up`).
