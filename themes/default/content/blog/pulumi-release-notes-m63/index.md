@@ -37,7 +37,7 @@ On October 20th, thousands of you joined us for our second annual Cloud Engineer
 
 ### Pulumi Registry: your window to the cloud
 
-As the Pulumi community has grown, we’ve [heard from many of you](https://github.com/pulumi/pulumi/issues/3297) that you needed a central hub where you could find all the cloud resources you can build with Pulumi. [Pulumi Registry]({{<relref "/registry">}}) is that place: a searchable collection of [Pulumi Packages]({{<relref "/product/packages">}}) published by Pulumi and our partners. With Pulumi Registry, you can easily find the package with the resources you need, install that package directly into your project, and start building. You can choose from Providers that give you full access to everything a cloud provider has to offer, or choose a Component that gets you started quickly with best practices and sensible defaults baked in.
+As the Pulumi community has grown, we’ve [heard from many of you](https://github.com/pulumi/pulumi/issues/3297) that you needed a central hub where you could find all the cloud resources you can build with Pulumi. [Pulumi Registry]({{<relref "/registry">}}) is that place: a searchable collection of [Pulumi Packages]({{<relref "/product/pulumi-packages">}}) published by Pulumi and our partners. With Pulumi Registry, you can easily find the package with the resources you need, install that package directly into your project, and start building. You can choose from Providers that give you full access to everything a cloud provider has to offer, or choose a Component that gets you started quickly with best practices and sensible defaults baked in.
 
 ![A screenshot of the Pulumi Registry home page](registry.png)
 

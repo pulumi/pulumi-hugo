@@ -224,7 +224,7 @@ superpowers:
 
   - title: Smart Architecture
     cta: Learn more
-    cta_url: "/product/packages"
+    cta_url: "/product/pulumi-packages"
     icon_type: architecture
     description: |
         YAML and templated DSLs force you to write the same boilerplate code over and over.

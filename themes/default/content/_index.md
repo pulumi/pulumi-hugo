@@ -111,7 +111,7 @@ benefits:
       icon: download-from-cloud
       icon_color: violet
       description: |
-        Leverage a rich, programmable cloud interface and [reusable packages](/product/packages/) that abstract
+        Leverage a rich, programmable cloud interface and [reusable packages](/product/pulumi-packages/) that abstract
         away complexity, bringing cloud concepts closer to application architectures.
 
     - title: Use engineering practices with infrastructure
