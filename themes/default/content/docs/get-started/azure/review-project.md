@@ -76,7 +76,7 @@ account = storage.StorageAccount('sa',
 primary_key = storage.list_storage_account_keys_output(
     resource_group_name=resource_group.name,
     account_name=account.name
-).apply(lambda accountKeys: accountKeys.keys[0].value)
+).accountKeys.keys[0].value
 
 pulumi.export("primary_storage_key", primary_key)
 ```
