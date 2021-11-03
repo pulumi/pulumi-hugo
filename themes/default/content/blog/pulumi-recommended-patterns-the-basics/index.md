@@ -87,7 +87,7 @@ In this example, the resource `inputBucket` only has a Pulumi resource name set 
 
 Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution to identify resources across multiple projects and stacks quickly. A way to achieve this goal is to use a customer name or a project name. As [suggested](https://stackoverflow.com/a/69270933) by my colleague Mikhail, the resource name prefix may be composed of multiple values, such as `${organization}-${tenant}-${environment}-${resourceName}`.
 
-Here is a few links to better understand physical names and auto-naming:
+Here are a few links to understand physical names and auto-naming a bit better:
 
 * [Resources and auto-naming]({{< relref "/docs/intro/concepts/resources/#autonaming" >}})
 * [Infrastructure as Code Resource Naming]({{< relref "/blog/infrastructure-as-code-resource-naming/" >}})
