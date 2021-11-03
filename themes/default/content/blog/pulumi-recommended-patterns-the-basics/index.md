@@ -73,7 +73,7 @@ The first thing you'll notice when you write a Pulumi app is that every single r
 
 Depending on the resource type, a second name (a *cloud resource name* or a *physical resource name* if you like) may also be provided. This name will be what is used in your cloud vendor's web console. If this *cloud resource name* is unspecified, Pulumi uses the *Pulumi resource name* and appends a [random suffix]({{< relref "/docs/intro/concepts/resources#autonaming" >}}) to it to make it unique.
 
-As a recommendation, you should use explicit names for all your *Pulumi resource names* and then let Pulumi determine what the *Cloud resource names* should be. Let's Look at the benefits:
+As a recommendation, you should use explicit names for all your *Pulumi resource names* and then let Pulumi determine what the *cloud resource names* should be. Let's explore the benefits:
 
 * As vendors have different requirements, *Cloud resource names* have different lengths and constraints. Pulumi knows this and will make sure the name matches the vendor requirements.
 * The random suffix ensures that two stacks for the same project can be deployed without their resources colliding.
