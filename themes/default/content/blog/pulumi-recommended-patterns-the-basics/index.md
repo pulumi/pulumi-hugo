@@ -89,7 +89,7 @@ Along with this recommendation, using a unique prefix in the name of your resour
 
 Here are a few links to understand physical names and auto-naming a bit better:
 
-* [Resources and auto-naming]({{< relref "/docs/intro/concepts/resources/#autonaming" >}})
+* [Resources and auto-naming]({{< relref "/docs/intro/concepts/resources#autonaming" >}})
 * [Infrastructure as Code Resource Naming]({{< relref "/blog/infrastructure-as-code-resource-naming/" >}})
 * [Why do resource names have random hex character suffixes?]({{< relref "/docs/troubleshooting/faq/#why-do-resource-names-have-random-hex-character-suffixes" >}})
 
