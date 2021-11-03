@@ -64,7 +64,7 @@ const tests = new policy.PolicyPack("tests-pack", {
 
 This code does a few things worth describing. First, it imports all the packages that we're going to use. Notably, this includes the Policy SDK package for testing, and the AWS and Pulumi SDK packages. Note that it does **not** import the Pulumi program with the EKS cluster definition. The tests are going to run against any program that satisfies its invariants.
 
-Then, the code creates a single [stack policy](https://pulumi.com/docs/guides/crossguard/core-concepts/#stack-validation-policy) to describe the properties of the EKS cluster. The first implicit property is the fact that there is an EKS cluster in the stack at all. If the cluster is not found, or several clusters are found, the test reports a violation (failure).
+Then, the code creates a single [stack policy](https://pulumi.com/docs/guides/policy-as-code/core-concepts/#stack-validation-policy) to describe the properties of the EKS cluster. The first implicit property is the fact that there is an EKS cluster in the stack at all. If the cluster is not found, or several clusters are found, the test reports a violation (failure).
 
 Now, we can add the tests for our two properties. Add the following code in place of the first TODO item:
 

@@ -34,13 +34,13 @@ This year, Pulumi is participating in Hacktoberfest with three areas where the c
 
 ### Policy as Code
 
-[Pulumi CrossGuard](https://www.pulumi.com/docs/guides/crossguard/) allows you to create policies for logic that you may want to enforce on your cloud resources as code. Policies are written as validation functions that are evaluated against all resources in your Pulumi stack. An example of this in practice is [AWSGuard](https://github.com/pulumi/pulumi-policy-aws), a library that codifies best practices for AWS.
+[Pulumi CrossGuard](https://www.pulumi.com/docs/guides/policy-as-code/) allows you to create policies for logic that you may want to enforce on your cloud resources as code. Policies are written as validation functions that are evaluated against all resources in your Pulumi stack. An example of this in practice is [AWSGuard](https://github.com/pulumi/pulumi-policy-aws), a library that codifies best practices for AWS.
 
 Here are some helpful links to get you started with Policy as Code:
 
-* [Crossguard Core Concepts](https://www.pulumi.com/docs/guides/crossguard/core-concepts/) - An in-depth guide to the core concepts for Policy as Code.
+* [Crossguard Core Concepts](https://www.pulumi.com/docs/guides/policy-as-code/core-concepts/) - An in-depth guide to the core concepts for Policy as Code.
 * [Example Policy Packs](https://github.com/pulumi/examples/tree/master/policy-packs) - Example policies for common cloud providers.
-* [Configurable Policy Packs](https://www.pulumi.com/docs/guides/crossguard/configuration/) - A guide to authoring flexible Policy Packs that can be configured and reused.
+* [Configurable Policy Packs](https://www.pulumi.com/docs/guides/policy-as-code/configuration/) - A guide to authoring flexible Policy Packs that can be configured and reused.
 
 ### Automation API
 

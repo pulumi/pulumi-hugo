@@ -65,5 +65,5 @@ Check out the following articles to get started:
 
 - [AWS Identity and Access Management with Pulumi]({{< relref "/docs/guides/crosswalk/aws/iam" >}})
 - [AWS Lambda with Pulumi]({{< relref "/docs/guides/crosswalk/aws/lambda" >}})
-- [Get Started with Pulumi Policy as Code]({{< relref "/docs/guides/crossguard/get-started" >}})
+- [Get Started with Pulumi Policy as Code]({{< relref "/docs/guides/policy-as-code/get-started" >}})
 - [Get Started with Kubernetes with Pulumi]({{< relref "/docs/guides/crosswalk/kubernetes" >}})

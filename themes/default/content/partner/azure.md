@@ -233,7 +233,7 @@ superpowers:
 
   - title: Be Proactive, Not Reactive
     cta: Learn more
-    cta_url: "/docs/guides/crossguard"
+    cta_url: "/docs/guides/policy-as-code"
     icon_type: policy
     description: |
         When you enable Pulumi's Policy as Code feature, you instantly gain the power to

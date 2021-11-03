@@ -1,16 +1,18 @@
 ---
-title: Policy as Code ("CrossGuard")
-meta_desc: Pulumi's Policy as Code offering, CrossGuard, allows you to set guardrails for resources so
+title: Policy as Code
+meta_desc: Pulumi's Policy as Code offering, Policy as Code, allows you to set guardrails for resources so
            best practices and security compliance are always followed.
 menu:
     userguides:
-        identifier: crossguard
+        identifier: policy-as-code
         weight: 6
+aliases:
+  - /guides/crossguard
 ---
 
-CrossGuard is Pulumi's new Policy as Code offering. CrossGuard empowers you to set guardrails to enforce compliance for resources so developers within an organization can provision their own infrastructure while sticking to best practices and security compliance. Using Policy as Code, you can write flexible business or security policies.
+Policy as Code empowers you to set guardrails to enforce compliance for resources so developers within an organization can provision their own infrastructure while sticking to best practices and security compliance. Using Policy as Code, you can write flexible business or security policies.
 
-Using CrossGuard, organization administrators can apply these rules to particular stacks within their organization. When policies are executed as part of your Pulumi deployments, any violation will gate or block that update from proceeding.
+Using Policy as Code, organization administrators can apply these rules to particular stacks within their organization. When policies are executed as part of your Pulumi deployments, any violation will gate or block that update from proceeding.
 
 ## Languages
 
@@ -27,12 +29,12 @@ Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be 
 
 ## Getting Started
 
-To get started with Pulumi CrossGuard, [download and install Pulumi]({{< relref "/docs/get-started/install" >}}). Afterwards,
+To get started with Pulumi Policy as Code, [download and install Pulumi]({{< relref "/docs/get-started/install" >}}). Afterwards,
 try the [Getting Started tutorial]({{< relref "./get-started" >}}).
 
-## Pulumi CrossGuard policies for AWS (AWSGuard)
+## Pulumi Policy as Code policies for AWS (AWSGuard)
 
-In addition to being able to implement your own CrossGuard policies, we've also created a set of policies that codifies best practices for AWS that you can adopt and use in a Policy Pack. AWSGuard is a configurable library that you can use to enforce best practices for your own Pulumi stacks or organization. [Learn more and get started with AWSGuard]({{< relref "./awsguard" >}}).
+In addition to being able to implement your own policies, we've also created a set of policies that codifies best practices for AWS that you can adopt and use in a Policy Pack. AWSGuard is a configurable library that you can use to enforce best practices for your own Pulumi stacks or organization. [Learn more and get started with AWSGuard]({{< relref "./awsguard" >}}).
 
 ## Configuring Policy Packs
 
@@ -65,4 +67,4 @@ If you're looking for some example Policy Packs, take a look at these:
 
 ## FAQs
 
-Get the answers to some [Frequently Asked Questions]({{< relref "./faq" >}}) about CrossGuard.
+Get the answers to some [Frequently Asked Questions]({{< relref "./faq" >}}) about Policy as Code.
