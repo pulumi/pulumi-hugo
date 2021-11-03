@@ -49,7 +49,7 @@ While the idea around components for different use-cases certainly sounded inter
 
 ### 2. Using YAML Instead of Code
 
-At Webiny, we believe [cloud engineering](https://www.pulumi.com/cloud-engineering/) and infrastructure-as-code is the future, so, naturally, we wanted our users to use familiar code (ideally TypeScript) and development tools to define their cloud infrastructure. Within Serverless Components, the components are configured via YAML files, of which we were never really big fans, simply because of the fact that writing code instead of configurations gives more flexibility to developers.
+At Webiny, we believe [cloud engineering](https://www.pulumi.com/product/cloud-engineering) and infrastructure-as-code is the future, so, naturally, we wanted our users to use familiar code (ideally TypeScript) and development tools to define their cloud infrastructure. Within Serverless Components, the components are configured via YAML files, of which we were never really big fans, simply because of the fact that writing code instead of configurations gives more flexibility to developers.
 
 ### 3. Vendor Lock-In
 
@@ -269,7 +269,7 @@ Webiny aims to be a multi-cloud compatible solution, and this is something Pulum
 
 With that, we would also like to create various project templates, which would, for example, enable users to quickly start working on a new GraphQL or REST HTTP API, a simple React application, a microservice, and more. All of these require specific cloud infrastructure resources to be deployed, and again, this is where Pulumi will make our users' lives much easier.
 
-Finally, I already mentioned the [Automation API](https://www.pulumi.com/products/automation-api/) as something that we might look into in the future, as it seems it’s something that can be seamlessly integrated with Webiny.
+Finally, I already mentioned the [Automation API](https://www.pulumi.com/product/automation-api/) as something that we might look into in the future, as it seems it’s something that can be seamlessly integrated with Webiny.
 
 ## Conclusion
 

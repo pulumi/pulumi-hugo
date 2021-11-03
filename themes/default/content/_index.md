@@ -81,12 +81,12 @@ deploy:
       description: Validate every change with testing and built-in policies.
 
     - title: Automate worldwide delivery
-      description: Scale up your delivery with [advanced automation](/products/automation-api/) as you grow.
+      description: Scale up your delivery with [advanced automation](/product/automation-api/) as you grow.
 
 manage:
   title: Manage
   description: |
-    Manage cloud applications and infrastructure with a shared platform that helps teams adopt [Cloud Engineering](/cloud-engineering/) through collaboration, visibility, and policies and controls.
+    Manage cloud applications and infrastructure with a shared platform that helps teams adopt [Cloud Engineering](/product/cloud-engineering) through collaboration, visibility, and policies and controls.
   items:
     - title: Secure by default
       description: Automatic encryption for secrets and state.
