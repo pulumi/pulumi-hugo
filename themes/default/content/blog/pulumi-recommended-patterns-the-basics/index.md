@@ -69,7 +69,7 @@ Now we're all set, so let's dive into writing a Pulumi application.
 
 ### Give your resources a name
 
-The first thing you'll notice when you write a Pulumi app is that every single resource must have its own name. This *Pulumi resource name* or a logical resource name if you prefer, is used inside your stack state file to uniquely identify your resources. This is also what you will see at first when exploring your stack resources in the Pulumi web console.
+The first thing you'll notice when you write a Pulumi app is that every single resource must have its own name. This *Pulumi resource name*, or a logical resource name if you prefer, is used inside your stack state file to uniquely identify your resources. This name is also what you will find at first when exploring your stack resources in the Pulumi web console.
 
 Depending on the resource type, a second name (a *cloud resource name* or a *physical resource name* if you like) may also be provided. This is the name that will be visible in your Cloud vendor web console. If this *cloud resource name* is unspecified, Pulumi uses the *Pulumi resource name* and appends a [random suffix]({{< relref "/docs/intro/concepts/resources/#autonaming" >}}) to it to make it unique.
 
