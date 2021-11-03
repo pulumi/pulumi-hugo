@@ -269,7 +269,7 @@ Webiny aims to be a multi-cloud compatible solution, and this is something Pulum
 
 With that, we would also like to create various project templates, which would, for example, enable users to quickly start working on a new GraphQL or REST HTTP API, a simple React application, a microservice, and more. All of these require specific cloud infrastructure resources to be deployed, and again, this is where Pulumi will make our users' lives much easier.
 
-Finally, I already mentioned the [Automation API](https://www.pulumi.com/automation/) as something that we might look into in the future, as it seems it’s something that can be seamlessly integrated with Webiny.
+Finally, I already mentioned the [Automation API](https://www.pulumi.com/products/automation-api/) as something that we might look into in the future, as it seems it’s something that can be seamlessly integrated with Webiny.
 
 ## Conclusion
 
