@@ -1,9 +1,10 @@
 ---
 title: Pulumi Packages
 meta_desc: Pulumi Packages give you the tools to easily build and deploy cloud infrastructure with TypeScript/JavaScript, Python, Go, and C#.
-
 type: page
 layout: product-packages
+aliases:
+  - /packages
 
 overview:
     title: Build and reuse cloud infrastructure as code
