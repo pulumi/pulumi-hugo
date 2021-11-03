@@ -75,7 +75,7 @@ Depending on the resource type, a second name (a *cloud resource name* or a *phy
 
 As a recommendation, you should use explicit names for all your *Pulumi resource names* and then let Pulumi determine what the *cloud resource names* should be. Let's explore the benefits:
 
-* As vendors have different requirements, *Cloud resource names* have different lengths and constraints. Pulumi knows this and will make sure the name matches the vendor requirements.
+* As vendors have different requirements, *cloud resource names* have different lengths and constraints. Pulumi knows this fact and will make sure the name matches the vendor requirements.
 * The random suffix ensures that two stacks for the same project can be deployed without their resources colliding.
 * Finally, the random suffix allows Pulumi to do **zero-downtime** resource updates. Due to the way some cloud providers work, certain updates require replacing resources rather than updating them in place. By default, Pulumi creates replacements first, then updates the existing references to them, and finally deletes the old resources.
 
