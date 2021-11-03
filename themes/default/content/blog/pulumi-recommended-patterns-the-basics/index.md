@@ -85,7 +85,7 @@ As a recommendation, you should use explicit names for all your *Pulumi resource
 
 In this example, the resource `inputBucket` only has a Pulumi resource name set whereas `outputBucket` has both the Pulumi resource name and the cloud resource name set. As a result of the lack of a cloud resource name, `inputBucketName` uses the Pulumi resource name as the base name with a random suffix. As for `outputBucketName`, the cloud resource name is set as specified by our code.
 
-Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution quickly identify resources across multiple projects and stacks. A way to achieve this is to use a customer name or a project name. As [suggested](https://stackoverflow.com/a/69270933) by my colleague Mikhail, the resource name prefix may be composed of multiple values, such as `${organization}-${tenant}-${environment}-${resourceName}`.
+Along with this recommendation, using a unique prefix in the name of your resources is an elegant solution to identify resources across multiple projects and stacks quickly. A way to achieve this goal is to use a customer name or a project name. As [suggested](https://stackoverflow.com/a/69270933) by my colleague Mikhail, the resource name prefix may be composed of multiple values, such as `${organization}-${tenant}-${environment}-${resourceName}`.
 
 Here is a few links to better understand physical names and auto-naming:
 
