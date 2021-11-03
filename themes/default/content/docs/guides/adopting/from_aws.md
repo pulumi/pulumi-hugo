@@ -131,14 +131,14 @@ class Program
 {
     static Task<int> Main()
     {
-        return Deployment.RunAsync(() =>
+        return Deployment.RunAsync(async () =>
         {
-            var network = CloudFormation.GetStack.Invoke(new CloudFormation.GetStackInvokeArgs
+            var network = CloudFormation.GetStack.InvokeAsync(new CloudFormation.GetStackArgs
             {
                 Name = "my-network-stack",
             });
 
-            var subnetId = network.Apply(result => result.Outputs["SubnetId"]);
+            var subnetId = (string)network.Outputs["SubnetId"];
 
             var web = new Ec2.Instance("web", new Ec2.InstanceArgs
             {
