@@ -21,16 +21,12 @@ links:
 block_external_search_index: true
 ---
 
-Infrastructure in Pulumi is organized into
-[_projects_](https://www.pulumi.com/docs/reference/glossary/#project). In the 
-Pulumi ecosystem, a project represents a Pulumi
-[_program_](https://www.pulumi.com/docs/reference/glossary/#program)
-that, when run, declares the desired infrastructure for Pulumi to manage.
-The program has corresponding
-[_stacks_](https://www.pulumi.com/docs/reference/glossary/#stack), or isolated,
-independently configurable instances of your Pulumi program. We'll talk more
-about stacks later in the
-[Pulumi in Practice]({{< relref "/learn/pulumi-in-practice" >}}) pathway.
+Infrastructure in Pulumi is organized into _projects_.[^1] In the Pulumi
+ecosystem, a project represents a Pulumi _program_[^2] that, when run, declares
+the desired infrastructure for Pulumi to manage. The program has corresponding
+_stacks_,[^3] or isolated, independently configurable instances of your Pulumi
+program. We'll talk more about stacks later in the [Building with
+Pulumi]({{< relref "/learn/building-with-pulumi" >}}) pathway.
 
 ## Create a directory
 
@@ -103,7 +99,7 @@ The basic project created by `pulumi new` is comprised of multiple files:
 <li><strong><code>tsconfig.json</code></strong>: your project's TypeScript configuration file</li>{{% /choosable %}}
 {{% choosable language python %}}<li><strong><code>requirements.txt</code></strong>: your project's Python dependency information</li>{{% /choosable %}}
 <li><strong><code>Pulumi.yaml</code></strong>: your project's metadata, containing its name and language</li>
-<li><strong><code>venv</code></strong>: a [virtualenv](https://pypi.org/project/virtualenv/) for your project</li>
+<li><strong><code>venv</code></strong>: a <a href="https://pypi.org/project/virtualenv/">virtualenv</a> for your project</li>
 </ul>
 
 Use the command <code>cat</code>{{% langfile %}} to see the contents of your project's empty
@@ -135,4 +131,8 @@ by hand.
 {{% choosable language python %}}Note that the Pulumi CLI creates a virtual
 environment, <code>venv</code>, for the project.{{% /choosable %}}
 Let's move on to creating your first real bit of infrastructure with Pulumi:
-some Dockerimages.
+some Docker images.
+
+[^1]: [project](https://www.pulumi.com/docs/reference/glossary/#project)
+[^2]: [program](https://www.pulumi.com/docs/reference/glossary/#program)
+[^3]: [stack](https://www.pulumi.com/docs/reference/glossary/#stack)

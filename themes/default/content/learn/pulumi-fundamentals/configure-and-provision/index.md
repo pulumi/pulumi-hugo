@@ -26,10 +26,10 @@ block_external_search_index: true
 Now that we've created our images, we can provision our application with a
 network and containers. First, we're going to add configuration to our Pulumi
 program. Pulumi is a tool to
-[configure](https://www.pulumi.com/docs/intro/concepts/config/) your
-infrastructure, and that includes being able to configure the different stacks
-with different values. As a result, it makes sense to include the basic
-configurations as variables at the top of your program.
+[configure]({{< relref "docs/intro/concepts/config" >}}) your infrastructure,
+and that includes being able to configure the different stacks with different
+values. As a result, it makes sense to include the basic configurations as
+variables at the top of your program.
 
 ## Configure the application
 
@@ -132,7 +132,7 @@ that use the ports; we only have image resources.
 In the last topic, we built Docker images. Now we want to create Docker
 containers and pass our configuration to them. Our containers will need to
 connect to each other, so we will need to create a
-[`Network`](https://www.pulumi.com/docs/reference/pkg/docker/network/), which is
+[`Network`]({{< relref "docs/reference/pkg/docker/network" >}}), which is
 another resource. Add the following code at the bottom of your program:
 
 {{< chooser language "python" / >}}
@@ -147,7 +147,7 @@ network = docker.Network("network", name=f"services-{stack}")
 {{% /choosable %}}
 
 Define a new
-[`Container`](https://www.pulumi.com/docs/reference/pkg/docker/container/)
+[`Container`]({{< relref "docs/reference/pkg/docker/container" >}})
 resource in your Pulumi program below the `Network` resource, like this:
 
 {{< chooser language "python" / >}}

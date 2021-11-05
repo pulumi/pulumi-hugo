@@ -18,12 +18,11 @@ links:
 block_external_search_index: true
 ---
 
-All resource input and output values are recorded as
-[state]({{< relref "/docs/intro/concepts/state" >}}) and are stored in the
-Pulumi Service, a file, or a pluggable provider that you choose. These raw
-values are usually just server names, configuration settings, and so on. In some
-cases, however, these values contain sensitive data, such as database passwords
-or service tokens.
+All resource input and output values are recorded as _state_[^1] and are stored
+in the Pulumi Service, a file, or a pluggable provider that you choose. These
+raw values are usually just server names, configuration settings, and so on. In
+some cases, however, these values contain sensitive data, such as database
+passwords or service tokens.
 
 The Pulumi Service always transmits and stores entire state files securely;
 however, Pulumi also supports encrypting specific values as "secrets" for extra
@@ -291,3 +290,5 @@ programmatically, review the
 
 From here, we're moving on to the last part of the Pulumi in Practice pathway:
 testing. Onward!
+
+[^1]: [state]({{< relref "/docs/intro/concepts/state" >}})

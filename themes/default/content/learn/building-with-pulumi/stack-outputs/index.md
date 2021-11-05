@@ -19,17 +19,15 @@ block_external_search_index: true
 ---
 
 We've created some resources. Now, let's see how we can use outputs outside of
-Pulumi. In this part, we're going to explore [_stack
-outputs_]({{< relref "/docs/reference/glossary#stack-output" >}}).
-Stack outputs are, as you might guess, the values exported from any given stack.
-These values are shown during an update, can be retrieved with the Pulumi CLI, 
-and are displayed in the [Pulumi Console](https://app.pulumi.com) once you've
-exported them. Example values include resource IDs, computed IP addresses, and
-DNS names. They're extremely useful when you want to run commands with the CLI
-that reference those values. Note, though, that stack outputs are for the
-current stack only. If you want to get values from another stack, you want to
-use stack references, which bridge different stacks through inter-stack
-dependencies.
+Pulumi. In this part, we're going to explore _stack outputs_.[^1] Stack outputs
+are, as you might guess, the values exported from any given stack. These values
+are shown during an update, can be retrieved with the Pulumi CLI, and are
+displayed in the [Pulumi Console](https://app.pulumi.com) once you've exported
+them. Example values include resource IDs, computed IP addresses, and DNS names.
+They're extremely useful when you want to run commands with the CLI that
+reference those values. Note, though, that stack outputs are for the current
+stack only. If you want to get values from another stack, you want to use stack
+references, which bridge different stacks through inter-stack dependencies.
 
 Typically, you will pass some value from your resources into the output, but to
 illustrate how stack outputs work, we will set some stack outputs manually:
@@ -191,3 +189,5 @@ http://localhost:3002
 ```
 
 Next up, we'll explore how to share outputs with other stacks. Let's go!
+
+[^1]: [stack outputs]({{< relref "/docs/reference/glossary#stack-output" >}})

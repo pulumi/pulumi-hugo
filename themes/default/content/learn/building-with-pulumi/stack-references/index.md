@@ -21,17 +21,14 @@ block_external_search_index: true
 ---
 
 We've created some resources. Now, let's see how we can use outputs outside of
-Pulumi. In this part, we're going to explore more about stacks, [_stack
-outputs_](https://www.pulumi.com/docs/reference/glossary/#stack-output), and
-[_stack
-references_](https://www.pulumi.com/docs/reference/glossary/#stack-reference).
-Stack outputs are, as you might guess, the values exported from any given stack.
-These values can also be obtained from the [Pulumi
-Console](https://app.pulumi.com), and they're extremely useful when you want to
-run commands with the CLI that reference those values. Note, though, that stack
-outputs are for the current stack only. If you want to get values from another
-stack, you want to use stack references, which bridge different stacks through
-inter-stack dependencies.
+Pulumi. In this part, we're going to explore more about stacks, _stack
+outputs_,[^1] and _stack references_.[^2] Stack outputs are, as you might guess,
+the values exported from any given stack. These values can also be obtained from
+the [Pulumi Console](https://app.pulumi.com), and they're extremely useful when
+you want to run commands with the CLI that reference those values. Note, though,
+that stack outputs are for the current stack only. If you want to get values
+from another stack, you want to use stack references, which bridge different
+stacks through inter-stack dependencies.
 
 Stack references allow you to access the outputs of one stack from another
 stack. Inter-stack dependencies allow one stack to reference the outputs of
@@ -202,3 +199,6 @@ work together.
 
 Next up, we're going to change gears and start exploring how Pulumi handles
 secrets.
+
+[^1]: [stack output]({{< relref "docs/reference/glossary#stack-output" >}})
+[^2]: [stack reference]({{< relref "docs/reference/glossary#stack-reference" >}})
