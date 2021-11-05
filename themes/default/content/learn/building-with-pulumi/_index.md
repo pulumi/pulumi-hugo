@@ -1,12 +1,12 @@
 ---
-title: "Pulumi in Practice"
+title: "Building with Pulumi"
 layout: module
 date: 2021-09-20T08:30:13-05:00
 draft: false
 description: Learn how to use Pulumi for more complex configurations with mulitple environments.
 meta_desc: Learn how to use Pulumi for more complex configurations with multiple environments.
 index: 4
-meta_image: meta.png
+meta_image: Practice.png
 youll_learn:
     - Using stacks for unique configurations of different environments
     - Sharing values from one Pulumi program or project to another

@@ -10,7 +10,7 @@ meta_desc: |
     Learn how to use Pulumi to build, configure, and deploy a real-life, modern
     application.
 index: 0
-meta_image: meta.png
+meta_image: Fundamentals.png
 youll_learn:
     - creating projects
     - configuring and provisioning infrastructure

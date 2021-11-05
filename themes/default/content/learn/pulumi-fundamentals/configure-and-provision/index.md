@@ -458,5 +458,6 @@ Congratulations, you've now finished Pulumi Fundamentals! You learned to create
 a Pulumi project; work on your Pulumi program to build Docker images,
 containers, and networks; and deploy the infrastructure locally with your first
 resource provider. Now, head back to the main page and explore some other
-tutorials to understand more about Pulumi. The best next steps to take are to
-choose one of the Fundamentals for a cloud-based provider of your choice.
+tutorials to understand more about Pulumi. The best next step to take is to
+explore the [Building with
+Pulumi]({{< relref "learn/building-with-pulumi" >}}) pathway.
