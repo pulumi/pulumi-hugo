@@ -25,7 +25,7 @@ tutorials:
 overview: |
     <h1>Welcome to Learn Pulumi!</h1>
     
-    The learning pathways will help you learn all of the concepts of Pulumi,
+    These learning pathways will help you learn all of the concepts of Pulumi,
     along with best practices and architectural patterns, through real-life
     examples.
     
