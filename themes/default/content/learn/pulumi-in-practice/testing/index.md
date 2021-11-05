@@ -59,6 +59,10 @@ start with a stub and build from there.
 
 Create a new file called `my_first_app.py` and copy the following code into it:
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
 ```python
 import json
 import pulumi
@@ -130,6 +134,8 @@ cluster = aws.ecs.Cluster('my-cluster')
 #########################################
 ```
 
+{{% /choosable %}}
+
 In this code, we've got a lot of comments that indicate what will eventually get
 built. We've got a couple things in there we can test, though, which is what we
 will focus on here.
@@ -153,16 +159,16 @@ some unit tests!
 
 ## Add mocks
 
-{{< chooser languge "python" / >}}
-
-{{% choosable language python %}}
-
 The `pytest` library is one of the most popular libraries for Python unit
 testing, so we're going to use that library here. If you're trying to reduce
 dependencies, you can also use the built-in `unittest` library, which will be
 fairly similar to this code.
 
 Before you go too far, install `pytest`:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```shell
 $ pip install pytest
@@ -298,7 +304,8 @@ def test_myfirstapp_tags():
         assert tags, f'instance {urn} must have tags'
         assert 'Name' in tags, f'instance {urn} must have a name tag'
 
-    return pulumi.Output.all(my_first_app.cluster.urn, my_first_app.cluster.tags).apply(check_tags)```
+    return pulumi.Output.all(my_first_app.cluster.urn, my_first_app.cluster.tags).apply(check_tags)
+```
 
 {{% /choosable %}}
 
@@ -351,6 +358,10 @@ That's exactly what we want! If you examine the code in `my_first_app.py`,
 you'll find that we don't actually have any tags defined on the cluster. Let's
 go back and add some. Add the following code to the `Cluster` instantiation:
 
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
 ```python
 cluster = aws.ecs.Cluster('my-cluster',
                           tags={
@@ -358,14 +369,26 @@ cluster = aws.ecs.Cluster('my-cluster',
                           })
 ```
 
+{{% /choosable %}}
+
 There were two tests we declared, though. If we rerun our tests, we'll get a new
 error:
 
-```python
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
+
+```bash
 FAILED test_my_first_app.py::test_myfirstapp_tags - AssertionError: instance urn:pulumi:stack::project::pulumi:pulumi:Stack$aws:ecs/cluster:Cluster::my-cluster must have a name tag
 ```
 
+{{% /choosable %}}
+
 So let's make a name tag:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```python
 cluster = aws.ecs.Cluster('my-cluster',
@@ -374,9 +397,15 @@ cluster = aws.ecs.Cluster('my-cluster',
                           })
 ```
 
+{{% /choosable %}}
+
 Note that we capitalize the term `Name` because that's AWS's standard.
 
 Now run your tests with `pytest`. You'll get the following output:
+
+{{< chooser language "python" / >}}
+
+{{% choosable language python %}}
 
 ```bash
 ============================ test session starts =============================
@@ -388,6 +417,8 @@ test_my_first_app.py .                                                   [100%]
 
 ============================ 1 passed, 0 warnings in 0.22s ===================
 ```
+
+{{% /choosable %}}
 
 And there we go! Our first test that we've written helped us adjust our new AWS
 Pulumi code for our cloud-based deployment. We'll eventually build out this
