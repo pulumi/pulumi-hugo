@@ -32,11 +32,18 @@ build locally using infrastructure as code. Our resource provider is Docker, and
 we're using Python as our _language host_, or the executor that compiles the
 code we write and interprets it for Pulumi.
 
+{{% notes type="info %}}
+Note that we're only using Docker here to make it easier to learn about Pulumi
+(mainly because setting up a new account on any of the cloud providers can take
+some time and can introduce a lot of complexity). Most users are using one of
+the major cloud providers to build with Pulumi.
+{{% /notes %}}
+
 ## Verify your application
 
-Create a directory called `app` inside the directory you made in the previous
-tutorial. Clone the code repository there, then move everything from the code
-repository directory to the `app/` directory:
+Create a directory called `app` inside the `my-first-app` directory you made in
+the previous tutorial. Clone the code repository there, then move everything
+from the code repository directory to the `app/` directory:
 
 ```bash
 mkdir app
@@ -85,8 +92,8 @@ pip3 install pulumi_docker
 ```
 
 You should see output showing the provider package being installed, just like
-for any Python package install. You'll want to ensure the package gets added to
-the `requirements.txt` file at some point.
+for any Python package install. Add the package to the `requirements.txt` file
+by adding `pulumi_docker` on a new line at the end of the file.
 
 Back inside your Pulumi program, let's build your first Docker image. Remember
 that a Pulumi program is the code that defines the desired state of your
@@ -129,7 +136,14 @@ third-party libraries. Pulumi also has typing support, so you can use the tools
 in your favorite IDE, like completion, to verify that you're using the correct
 types for any inputs you're using. Pretty cool!
 
-Run `pulumi up`, and Pulumi should build your Docker image. First, though, it
+Run `pulumi up`.
+
+{{% notes type="info" %}}
+Note that it make take a bit before you get any output because Docker is doing a
+lot of work in the background before it connects to Pulumi. Be patient!
+{{% /notes %}}
+
+Pulumi should build your Docker image. First, though, it
 gives you a preview of the changes you'll be making to the stack and asks if the
 changes appear okay to you. You'll need to reply "yes" to the prompt to actually
 build the image. After the command finishes, you will see your image if you run
@@ -227,14 +241,16 @@ mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 {{% /choosable %}}
 
 If your code looks the same, great! Otherwise, update yours to match this code.
-Now, run `pulumi up` to build all of the images that we'll need. From here, we
-can move on to configuring and provisioning our containers.
+
+Now, run `pulumi up` to build all of the images that we'll need.
 
 {{% notes type="info" %}}
 Note that, in the future, you don't need to run `pulumi up` in stages like this
 to create your infrastructure. You can write the entire program and then run it.
 We're only doing a step-by-step process here to make learning easier.
 {{% /notes %}}
+
+From here, we can move on to configuring and provisioning our containers.
 
 Onward!
 
