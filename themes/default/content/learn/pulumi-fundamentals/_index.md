@@ -63,7 +63,7 @@ a MongoDB instance for storing product data.
 This tutorial discusses using Pulumi to create infrastructure,
 configure that infrastructure, and push your infrastructure to production.
 
-For this starting tutorial, we will use Docker to let you learn the basics of
+For this tutorial, we will use Docker to let you learn the basics of
 Pulumi without a cloud account. We will explore creating a Pulumi Project,
 building Docker images, and configuring and provisioning containers.
 
