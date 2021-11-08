@@ -3,8 +3,8 @@ title: "Creating Docker Images"
 layout: topic
 date: 2021-09-07T14:06:50-05:00
 draft: false
-description: Use Pulumi to build Docker images locally.
-meta_desc: Use Pulumi to build Docker images locally.
+description: Use Pulumi and the Docker provider to build Docker images locally.
+meta_desc: Use Pulumi and the Docker provider to build Docker images locally.
 index: 1
 estimated_time: 10
 meta_image: meta.png
