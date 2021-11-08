@@ -211,7 +211,7 @@ node_environment = config.require("node_environment")
 {{% /choosable %}}
 
 We also need to create `Container` resources for the frontend and mongo
-containers. Put the mongo container declaration above the backend one, and the
+containers. Put the `mongo_container` declaration just above the `backend_container` one, and the
 frontend declaration at the bottom. Here's the code for the mongo container:
 
 {{< chooser language "python" / >}}
