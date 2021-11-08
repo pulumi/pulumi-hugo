@@ -1,7 +1,7 @@
 ---
-title: Events & Workshops
+title: Resources
 meta_desc: |
-    Information about past and upcoming events and workshops. You can register for upcoming sessions or view previously recorded content.
+    Resources about modern cloud native topics to connect, collaborate, and learn new techniques and best practices.
 
 aliases:
   - /webinar
