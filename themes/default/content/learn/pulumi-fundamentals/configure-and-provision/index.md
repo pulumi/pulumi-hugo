@@ -376,8 +376,14 @@ cp app/data/products.json .
 ```
 
 Then, we'll mount the file to an ephemeral seed container, and then use
-`mongoimport` to transfer that data into the database. Add the following lines
-of code to your Pulumi file, then run `pulumi up`.
+`mongoimport` to transfer that data into the database. The ephemeral container
+imports the data we need into the initialized database, all in a container that
+does work and shuts down and removes itself after the import is completed. This
+kind of workflow with temporary containers is fairly common when updating
+databases intermittently with data pulled from another system. Generally,
+however, you would typically wire the database to an API and update it that way.
+This example demonstrates, however, that you _can_ do this workflow with Pulumi,
+just like you could with Docker.
 
 Add this snippet after the `backend_container` declaration:
 
@@ -416,7 +422,10 @@ mounts](https://docs.docker.com/storage/bind-mounts/). In this case, we're using
 a bind mount over a volume for simplicity.
 
 Once you've added this snippet, run `pulumi up` to refresh the data in the
-database.
+database. From here, you can choose to comment out or remove that seed container
+as long as you have the infrastructure up and running. If you were to rebuild
+this environment elsewhere, though, or to tear it down and rebuild it from
+scratch, you'll need to have this resource in your code.
 
 Open a browser to `http://localhost:3001`, and our application is now deployed.
 
