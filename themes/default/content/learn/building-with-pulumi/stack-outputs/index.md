@@ -12,14 +12,11 @@ authors:
     - matt-stratton
 tags:
     - learn
-links:
-    - text: Some Website
-      url: http://something.com
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 We've created some resources. Now, let's see how we can use outputs outside of
-Pulumi. In this part, we're going to explore _stack outputs_.[^1] Stack outputs
+Pulumi. In this part, we're going to explore _stack outputs_. Stack outputs
 are, as you might guess, the values exported from any given stack. These values
 are shown during an update, can be retrieved with the Pulumi CLI, and are
 displayed in the [Pulumi Console](https://app.pulumi.com) once you've exported
@@ -190,4 +187,4 @@ http://localhost:3002
 
 Next up, we'll explore how to share outputs with other stacks. Let's go!
 
-[^1]: [stack outputs]({{< relref "/docs/reference/glossary#stack-output" >}})
+<!-- [^1]: [stack outputs]({{< relref "/docs/reference/glossary#stack-output" >}}) -->

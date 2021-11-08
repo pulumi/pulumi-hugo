@@ -2,7 +2,7 @@
 title: "Pulumi Fundamentals"
 layout: module
 date: 2021-09-10T12:00:00-05:00
-draft: true
+draft: false
 description: |
     Learn how to use Pulumi to build, configure, and deploy a real-life, modern
     application.
@@ -10,15 +10,15 @@ meta_desc: |
     Learn how to use Pulumi to build, configure, and deploy a real-life, modern
     application.
 index: 0
-meta_image: Fundamentals.png
+meta_image: fundamentals.png
 youll_learn:
-    - creating projects
-    - configuring and provisioning infrastructure
+    - Creating projects
+    - Configuring and provisioning infrastructure
 tags:
     - fundamentals
 providers:
     - docker
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 For this tutorial, we're going to learn more about cloud computing by exploring
@@ -58,13 +58,13 @@ have adapted this application from
 consists of a frontend client, a backend REST server to manage transactions, and
 a MongoDB instance for storing product data.
 
-## About this tutorial
+## About this pathway
 
-This tutorial discusses using Pulumi to create infrastructure,
-configure that infrastructure, and push your infrastructure to production.
+This pathway discusses using Pulumi to create infrastructure, configure that
+infrastructure, and push your infrastructure to production.
 
-For this tutorial, we will use Docker to let you learn the basics of
-Pulumi without a cloud account. We will explore creating a Pulumi Project,
-building Docker images, and configuring and provisioning containers.
+For this pathway, we will use Docker to let you learn the basics of Pulumi
+without a cloud account. We will explore creating a Pulumi Project, building
+Docker images, and configuring and provisioning containers.
 
 Let's get started!

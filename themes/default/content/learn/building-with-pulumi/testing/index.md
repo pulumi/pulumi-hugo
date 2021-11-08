@@ -13,10 +13,8 @@ authors:
     - laura-santamaria
 tags:
     - learn
-links:
-    - text: Some Website
-      url: http://something.com
-block_external_search_index: true
+    - testing
+block_external_search_index: false
 ---
 
 Pulumi programs are authored in a general-purpose language like TypeScript,

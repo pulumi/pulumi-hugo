@@ -13,10 +13,7 @@ authors:
 tags:
     - stacks
     - learn
-links:
-    - text: Some Website
-      url: http://something.com
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 Every Pulumi program is deployed to a stack. A stack is an isolated,

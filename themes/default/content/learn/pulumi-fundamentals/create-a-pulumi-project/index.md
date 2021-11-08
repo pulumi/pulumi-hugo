@@ -2,7 +2,7 @@
 title: "Creating a Pulumi Project"
 layout: topic
 date: 2021-09-10T12:00:00-05:00
-draft: true
+draft: false
 description: Create your first Pulumi project.
 meta_desc: Create your first Pulumi project.
 index: 0
@@ -15,17 +15,14 @@ tags:
     - fundamentals
     - projects
     - docker
-links:
-    - text: Code Repo
-      url: https://github.com/pulumi/tutorial-pulumi-fundamentals
-block_external_search_index: true
+block_external_search_index: false
 ---
 
-Infrastructure in Pulumi is organized into _projects_.[^1] In the Pulumi
-ecosystem, a project represents a Pulumi _program_[^2] that, when run, declares
-the desired infrastructure for Pulumi to manage. The program has corresponding
-_stacks_,[^3] or isolated, independently configurable instances of your Pulumi
-program. We'll talk more about stacks later in the [Building with
+Infrastructure in Pulumi is organized into _projects_. In the Pulumi ecosystem,
+a project represents a Pulumi _program_ that, when run, declares the desired
+infrastructure for Pulumi to manage. The program has corresponding _stacks_, or
+isolated, independently configurable instances of your Pulumi program. We'll
+talk more about stacks later in the [Building with
 Pulumi]({{< relref "/learn/building-with-pulumi" >}}) pathway.
 
 ## Create a directory
@@ -46,19 +43,11 @@ independent project, name the directory differently.
 Since a Pulumi project is just a directory with some files in it, it is possible
 for you to create a new one by hand. The `pulumi new` command-line interface
 (CLI) command, however, automates the process and ensures you have everything
-you need, so let's use that command. You can use Typescript or Python for this 
-tutorial (Go and C# are coming soon!), and the `-y` flag answers "yes" to the
-prompts to create a default project:
+you need, so let's use that command. Use Python for this tutorial (TypeScript,
+Go, and C# are coming soon!), and the `-y` flag answers "yes" to the prompts to
+create a default project:
 
-{{< chooser language "typescript,python" / >}}
-
-{{% choosable language typescript %}}
-
-```bash
-$ pulumi new typescript -y
-```
-
-{{% /choosable %}}
+{{< chooser language "python" / >}}
 
 {{% choosable language python %}}
 
@@ -95,25 +84,15 @@ The basic project created by `pulumi new` is comprised of multiple files:
 
 <ul>
 <li><strong><code>{{% langfile %}}</code></strong>: your program's main entrypoint file</li>
-{{% choosable language typescript %}}<li><strong><code>package.json</code></strong>: your project's NodeJS configuration file</li>
-<li><strong><code>tsconfig.json</code></strong>: your project's TypeScript configuration file</li>{{% /choosable %}}
 {{% choosable language python %}}<li><strong><code>requirements.txt</code></strong>: your project's Python dependency information</li>{{% /choosable %}}
 <li><strong><code>Pulumi.yaml</code></strong>: your project's metadata, containing its name and language</li>
 <li><strong><code>venv</code></strong>: a <a href="https://pypi.org/project/virtualenv/">virtualenv</a> for your project</li>
 </ul>
 
-Use the command <code>cat</code>{{% langfile %}} to see the contents of your project's empty
-program:
+Use the command <code>cat</code>{{% langfile %}} to explore the contents of your
+project's empty program:
 
-{{< chooser language "typescript, python" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-import * as pulumi from "@pulumi/pulumi";
-```
-
-{{% /choosable %}}
+{{< chooser language "python" / >}}
 
 {{% choosable language python %}}
 
@@ -127,12 +106,10 @@ import pulumi
 
 Feel free to explore the other files, although we won't be editing any of them
 by hand.
-{{% choosable language typescript%}}{{% /choosable %}}
-{{% choosable language python %}}Note that the Pulumi CLI creates a virtual
-environment, <code>venv</code>, for the project.{{% /choosable %}}
+
 Let's move on to creating your first real bit of infrastructure with Pulumi:
 some Docker images.
 
-[^1]: [project](https://www.pulumi.com/docs/reference/glossary/#project)
-[^2]: [program](https://www.pulumi.com/docs/reference/glossary/#program)
-[^3]: [stack](https://www.pulumi.com/docs/reference/glossary/#stack)
+<!-- [^1]: [project](https://www.pulumi.com/docs/reference/glossary/#project) -->
+<!-- [^2]: [program](https://www.pulumi.com/docs/reference/glossary/#program) -->
+<!-- [^3]: [stack](https://www.pulumi.com/docs/reference/glossary/#stack) -->

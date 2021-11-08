@@ -2,7 +2,7 @@
 title: "Configuring and Provisioning Containers"
 layout: topic
 date: 2021-09-07T14:12:59-05:00
-draft: true
+draft: false
 description: Configure and provision your first containers locally with Pulumi.
 meta_desc: Configure and provision your first containers locally with Pulumi.
 index: 2
@@ -20,7 +20,7 @@ tags:
 links:
     - text: Code Repo
       url: https://github.com/pulumi/tutorial-pulumi-fundamentals
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 Now that we've created our images, we can provision our application with a

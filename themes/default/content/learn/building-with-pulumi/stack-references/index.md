@@ -14,18 +14,15 @@ tags:
     - learn
     - stacks
     - outputs
-links:
-    - text: Some Website
-      url: http://something.com
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 We've created some resources. Now, let's see how we can use outputs outside of
-Pulumi. In this part, we're going to explore more about stacks, _stack
-outputs_,[^1] and _stack references_.[^2] Stack outputs are, as you might guess,
-the values exported from any given stack. These values can also be obtained from
-the [Pulumi Console](https://app.pulumi.com), and they're extremely useful when
-you want to run commands with the CLI that reference those values. Note, though,
+Pulumi. In this part, we're going to explore more about stacks, _stack outputs_,
+and _stack references_. Stack outputs are, as you might guess, the values
+exported from any given stack. These values can also be obtained from the
+[Pulumi Console](https://app.pulumi.com), and they're extremely useful when you
+want to run commands with the CLI that reference those values. Note, though,
 that stack outputs are for the current stack only. If you want to get values
 from another stack, you want to use stack references, which bridge different
 stacks through inter-stack dependencies.
@@ -39,7 +36,7 @@ the stack outputs from the program we just created.
 
 Let's start by making our new Pulumi program in a new directory:
 
-{{< chooser language "typescript,python" / >}}
+{{< chooser language "python" / >}}
 
 <!--{{% choosable language typescript %}}
 
@@ -89,12 +86,10 @@ $ pulumi stack init staging
 
 Now comes the fun part! Let's add a little code to pull in the values from the
 `my-first-app` stacks, based on the corresponding environment.
-<!-- NOTE: I removed this sentence as the variable is not in all of the code.-LAS
-In the following code, change `YOURNAME` to the name/org for your Pulumi account.-->
 
 Add this code to the {{< langfile >}} file inside of `my-second-app`.
 
-{{< chooser language "typescript,python" / >}}
+{{< chooser language "python" / >}}
 
 <!-- {{% choosable language typescript %}}
 
@@ -200,5 +195,5 @@ work together.
 Next up, we're going to change gears and start exploring how Pulumi handles
 secrets.
 
-[^1]: [stack output]({{< relref "docs/reference/glossary#stack-output" >}})
-[^2]: [stack reference]({{< relref "docs/reference/glossary#stack-reference" >}})
+<!-- [^1]: [stack output]({{< relref "docs/reference/glossary#stack-output" >}}) -->
+<!-- [^2]: [stack reference]({{< relref "docs/reference/glossary#stack-reference" >}}) -->

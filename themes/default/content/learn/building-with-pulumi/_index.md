@@ -6,7 +6,7 @@ draft: false
 description: Learn how to use Pulumi for more complex configurations with multiple environments.
 meta_desc: Learn how to use Pulumi for more complex configurations with multiple environments.
 index: 4
-meta_image: Practice.png
+meta_image: practice.png
 youll_learn:
     - Using stacks for unique configurations of different environments
     - Sharing values from one Pulumi program or project to another
@@ -16,7 +16,7 @@ tags:
     - learn
 providers:
     - aws
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 This tutorial digs a little deeper into what it means to create multiple Pulumi

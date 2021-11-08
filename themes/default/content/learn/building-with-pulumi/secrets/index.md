@@ -12,13 +12,11 @@ authors:
     - matt-stratton
 tags:
     - learn
-links:
-    - text: Some Website
-      url: http://something.com
-block_external_search_index: true
+    - secrets
+block_external_search_index: false
 ---
 
-All resource input and output values are recorded as _state_[^1] and are stored
+All resource input and output values are recorded as _state_ and are stored
 in the Pulumi Service, a file, or a pluggable provider that you choose. These
 raw values are usually just server names, configuration settings, and so on. In
 some cases, however, these values contain sensitive data, such as database
@@ -291,4 +289,4 @@ programmatically, review the
 From here, we're moving on to the last part of the Pulumi in Practice pathway:
 testing. Onward!
 
-[^1]: [state]({{< relref "/docs/intro/concepts/state" >}})
+<!-- [^1]: [state]({{< relref "/docs/intro/concepts/state" >}}) -->

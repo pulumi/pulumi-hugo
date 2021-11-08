@@ -2,7 +2,7 @@
 title: "Creating Docker Images"
 layout: topic
 date: 2021-09-07T14:06:50-05:00
-draft: true
+draft: false
 description: Use Pulumi to build Docker images.
 meta_desc: Use Pulumi to build Docker images.
 index: 1
@@ -17,19 +17,19 @@ tags:
 links:
     - text: Code Repo
       url: https://github.com/pulumi/tutorial-pulumi-fundamentals
-block_external_search_index: true
+block_external_search_index: false
 ---
 
-In this part, we'll create our first Pulumi _resource_.[^1] Resources in Pulumi
-are the basic building blocks of your infrastructure, whether that's a database
+In this part, we'll create our first Pulumi _resource_. Resources in Pulumi are
+the basic building blocks of your infrastructure, whether that's a database
 instance or a compute instance or a specific storage bucket. In Pulumi,
-_resource providers_[^2] manage your resources. You can group those resources to
+_resource providers_ manage your resources. You can group those resources to
 abstract them (such as a group of compute instances that all have the same
 configuration and implementation) via component resources.
 
 In this case, our resources are going to be Docker containers and images that we
 build locally using infrastructure as code. Our resource provider is Docker, and
-we're using Python as our _language host_,[^3] or the executor that compiles the
+we're using Python as our _language host_, or the executor that compiles the
 code we write and interprets it for Pulumi.
 
 ## Verify your application
@@ -135,7 +135,7 @@ build the image. After the command finishes, you will see your image if you run
 the command `docker images` or `docker image ls` (depending on your preference).
 
 Let's dig a bit deeper into the code and explore the various Pulumi concepts. 
-Every resource has _inputs_[^4] and _outputs_.[^5] Inputs are values that are
+Every resource has _inputs_ and _outputs_. Inputs are values that are
 provided to the resource. Outputs are the resource's properties. Note that
 Pulumi can't know the output until the resource has completed provisioning as
 some of those outputs are provided by the provider after everything has loaded,
@@ -237,8 +237,8 @@ We're only doing a step-by-step process here to make learning easier.
 
 Onward!
 
-[^1]: [resource](https://www.pulumi.com/docs/reference/glossary/#resources)
+<!-- [^1]: [resource](https://www.pulumi.com/docs/reference/glossary/#resources)
 [^2]: [resource providers](https://www.pulumi.com/docs/reference/glossary/#resource-provider)
 [^3]: [language host](https://www.pulumi.com/docs/reference/glossary/#language-host)
 [^4]: [input](https://www.pulumi.com/docs/intro/concepts/inputs-outputs/)
-[^5]: [output](https://www.pulumi.com/docs/reference/glossary/#outputs)
+[^5]: [output](https://www.pulumi.com/docs/reference/glossary/#outputs) -->
