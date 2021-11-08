@@ -35,7 +35,7 @@ overview: |
     explore further.
 
 # Exclude from search-engine indexing for now.
-block_external_search_index: true
+block_external_search_index: false
 ---
 
 Ipsum lorem
