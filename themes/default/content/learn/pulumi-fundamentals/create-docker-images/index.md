@@ -35,7 +35,7 @@ code we write and interprets it for Pulumi.
 ## Verify your application
 
 Create a directory called `app` inside the directory you made in the previous
-lesson. Clone the code repository there, then move everything from the code
+tutorial. Clone the code repository there, then move everything from the code
 repository directory to the `app/` directory:
 
 ```bash
