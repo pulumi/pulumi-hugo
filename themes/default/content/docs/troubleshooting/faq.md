@@ -43,6 +43,10 @@ $ pulumi stack init acme-corp/widget-server
 
 ## Pulumi Service
 
+## How does Pulumi store state?
+
+Pulumi needs to store the result of operations. On creation of a Pulumi resource, Pulumi makes a call to the cloud providers’ API and then it stores the result of that API call. The place where Pulumi stores that result is called the “state”. The state can be stored using the Pulumi service, Amazon S3, Azure Blob Storage, or Google Cloud Storage Buckets.
+
 ## How does Pulumi depend on the Pulumi Service?
 
 Pulumi uses the Pulumi Service to store information about the current state of your application, which is used during updates, previews and destroys as the source of truth for the current state of your cloud resources. We refer to this state as the "checkpoint" for your application. In addition, the Pulumi Service ensures that for a given stack, only a single update is running at once (so, if you and someone else are collaborating on a stack together, it ensures that you both don't update the same stack at the same time.) Once your stack has been deployed, it has no dependency on the Pulumi Service. To learn more about how the Pulumi engine uses pulumi.com, see [How Pulumi Works]({{< relref "/docs/intro/concepts/how-pulumi-works" >}}).
@@ -101,3 +105,19 @@ When you run a preview, update or destroy, pulumi decrypts this data. It is plai
 ### Are my secrets ever visible?
 
 Pulumi provides primitives so you can enforce your [secrets]({{< relref "/docs/intro/concepts/secrets#secrets" >}}) are stored in a secure manner in the CLI, state file and Pulumi Console. During an update, your secrets will be unencrypted in memory and visible to your Pulumi program. It is your responsibility to ensure that you do not persist them outside of Pulumi without securing them.
+
+## Understanding Pulumi
+
+### Does Pulumi use Terraform?
+
+Some Pulumi providers leverage the Terraform schemas in order to know what resources and parameters are available, and to determine the return and response attributes.
+
+Pulumi does also provide native providers which are mapped directly to the cloud provider APIs and do not leverage the Terraform schemas.
+
+### Is Pulumi imperative or declaritive?
+
+Pulumi is a declarative tool that uses imperative languages to define your end state. The language is used for authoring your program, it’s not used for talking to the cloud provider API.
+
+### How will Pulumi make me more productive?
+
+Pulumi uses strongly typed languages with programming languages that support [Intellisense](https://code.visualstudio.com/docs/editor/intellisense) and the [Language Server Protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol) which means when you are defining Pulumi programs you rarely need to leave your IDE.
