@@ -3,8 +3,8 @@ title: "Testing Your Pulumi Programs"
 layout: topic
 date: 2021-09-30T08:18:13-05:00
 draft: false
-description: Explore how to test your Pulumi programs.
-meta_desc: Explore how to test your Pulumi programs.
+description: Explore how to test your Pulumi programs with standard tooling.
+meta_desc: Explore how to test your Pulumi programs with standard tooling.
 index: 5
 estimated_time: 10
 meta_image: meta.png
@@ -185,7 +185,7 @@ code to it:
 
 {{% choosable language python %}}
 
-```python 
+```python
 import pulumi
 
 
@@ -329,7 +329,7 @@ You will get output like this:
 ============================ test session starts =============================
 platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
 rootdir: /Users/<user>/my-first-app
-collected 1 item                                                                       
+collected 1 item
 
 test_my_first_app.py F                                                   [100%]
 
@@ -409,7 +409,7 @@ Now run your tests with `pytest`. You'll get the following output:
 ============================ test session starts =============================
 platform darwin -- Python 3.9.6, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
 rootdir: /Users/<user>/my-first-app
-collected 1 item                                                                       
+collected 1 item
 
 test_my_first_app.py .                                                   [100%]
 

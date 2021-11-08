@@ -36,6 +36,7 @@ minutes to complete.
 ## Prerequisites
 
 You will need the following tools to complete this tutorial:
+
 - A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).

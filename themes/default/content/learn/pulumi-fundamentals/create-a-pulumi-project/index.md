@@ -3,8 +3,8 @@ title: "Creating a Pulumi Project"
 layout: topic
 date: 2021-09-10T12:00:00-05:00
 draft: false
-description: Create your first Pulumi project.
-meta_desc: Create your first Pulumi project.
+description: Create your first Pulumi project using the CLI.
+meta_desc: Create your first Pulumi project using the CLI.
 index: 0
 estimated_time: 5
 meta_image: meta.png

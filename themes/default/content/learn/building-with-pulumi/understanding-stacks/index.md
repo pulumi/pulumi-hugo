@@ -3,8 +3,8 @@ title: "Understanding Stacks"
 layout: topic
 date: 2021-09-20T08:33:14-05:00
 draft: false
-description: Learn a bit more about stacks.
-meta_desc: Learn a bit more about stacks.
+description: Learn a bit more about stacks as part of using Pulumi.
+meta_desc: Learn a bit more about stacks as part of using Pulumi.
 index: 1
 estimated_time: 10
 meta_image: meta.png
@@ -24,6 +24,7 @@ feature branches (such as `feature-x-dev`).
 
 A project can have as many stacks as you need. By default, Pulumi creates a
 stack for you when you start a new project using the `pulumi new` command.
+
 ## Create a stack
 
 To create a new stack, we use the command `pulumi stack init stackName`. This
@@ -36,9 +37,9 @@ alphanumeric characters, hyphens, underscores, or periods.
 
 Let's create a new stack in our project, for our staging environment:
 
-{{< chooser language "typescript,python" / >}}
+{{< chooser language "python" / >}}
 
-{{% choosable language typescript %}}
+{{% choosable language python %}}
 
 ```bash
 $ pulumi stack init staging
@@ -46,12 +47,8 @@ $ pulumi stack init staging
 
 {{% /choosable %}}
 
-
-```bash
-$ pulumi stack init staging
-```
-
 ## Listing stacks
+
 We have a couple of stacks in our project now&mdash;but how do we know which
 ones we have? If we run the command `pulumi stack ls`, it will tell us!
 
@@ -62,6 +59,7 @@ dev       2 minutes ago  10              https://app.pulumi.com/***/my-first-app
 staging*  n/a            n/a             https://app.pulumi.com/***/my-first-app/staging
 
 ```
+
 Notice that the `staging` stack has an `*` after its name; this asterisk marks
 this stack as the active stack (i.e., the stack that all our commands will run
 on).

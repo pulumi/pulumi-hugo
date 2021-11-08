@@ -60,7 +60,7 @@ import os
 import pulumi
 import pulumi_docker as docker
 
-# get configuration 
+# get configuration
 config = pulumi.Config()
 frontend_port = config.require_int("frontend_port")
 backend_port = config.require_int("backend_port")
@@ -160,7 +160,7 @@ backend_container = docker.Container("backend_container",
                         name=f"backend-{stack}",
                         image=backend.base_image_name,
                         ports=[docker.ContainerPortArgs(
-                            internal=backend_port, 
+                            internal=backend_port,
                             external=backend_port)],
                         envs=[
                             f"DATABASE_HOST={mongo_host}",
@@ -224,7 +224,7 @@ mongo_container = docker.Container("mongo_container",
                         image=mongo_image.latest,
                         name=f"mongo-{stack}",
                         ports=[docker.ContainerPortArgs(
-                          internal=mongo_port, 
+                          internal=mongo_port,
                           external=mongo_port
                         )],
                         networks_advanced=[docker.ContainerNetworksAdvancedArgs(
@@ -442,7 +442,7 @@ View Live: https://app.pulumi.com/<org>/<project>/<stack>/updates/<update-id>
 
 ...
 
-The resources in the stack have been deleted, but the history and configuration associated with the stack are still maintained. 
+The resources in the stack have been deleted, but the history and configuration associated with the stack are still maintained.
 If you want to remove the stack completely, run 'pulumi stack rm dev'.
 ```
 

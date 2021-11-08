@@ -3,8 +3,8 @@ title: "Creating Docker Images"
 layout: topic
 date: 2021-09-07T14:06:50-05:00
 draft: false
-description: Use Pulumi to build Docker images.
-meta_desc: Use Pulumi to build Docker images.
+description: Use Pulumi to build Docker images locally.
+meta_desc: Use Pulumi to build Docker images locally.
 index: 1
 estimated_time: 10
 meta_image: meta.png
@@ -42,7 +42,7 @@ repository directory to the `app/` directory:
 mkdir app
 cd app
 git clone git@github.com:pulumi/tutorial-pulumi-fundamentals.git
-mv -f tutorial-pulumi-fundamentals/* . && rm -rf tutorial-pulumi-fundamentals/ 
+mv -f tutorial-pulumi-fundamentals/* . && rm -rf tutorial-pulumi-fundamentals/
 ```
 
 Let's explore the contents of the `app/` directory. There is a backend, a
@@ -113,6 +113,7 @@ backend = docker.Image("backend",
                         skip_push=True
                         )
 ```
+
 {{% /choosable %}}
 
 In this file, we import the main Pulumi package and the Docker provider. Then,
@@ -134,7 +135,7 @@ changes appear okay to you. You'll need to reply "yes" to the prompt to actually
 build the image. After the command finishes, you will see your image if you run
 the command `docker images` or `docker image ls` (depending on your preference).
 
-Let's dig a bit deeper into the code and explore the various Pulumi concepts. 
+Let's dig a bit deeper into the code and explore the various Pulumi concepts.
 Every resource has _inputs_ and _outputs_. Inputs are values that are
 provided to the resource. Outputs are the resource's properties. Note that
 Pulumi can't know the output until the resource has completed provisioning as

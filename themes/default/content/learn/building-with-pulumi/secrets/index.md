@@ -99,7 +99,6 @@ export let password = dbPassword
 
 {{% /choosable %}}
 
-
 {{% choosable language python %}}
 
 ```python
@@ -229,6 +228,7 @@ backend_container = docker.Container("backend_container",
 
 
 ```
+
 <!-- {{% choosable language go %}}
 
 ```go

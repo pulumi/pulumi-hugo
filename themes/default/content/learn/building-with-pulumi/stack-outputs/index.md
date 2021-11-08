@@ -57,7 +57,6 @@ ctx.Export("x", pulumi.String("hello"))
 
 {{% /choosable %}}
 
-
 {{% choosable language csharp %}}
 
 ```csharp
@@ -89,9 +88,9 @@ Updating (dev)
 View Live: https://app.pulumi.com/***/my-first-app/dev/updates/3
 
 
-    pulumi:pulumi:Stack my-first-app-dev running 
+    pulumi:pulumi:Stack my-first-app-dev running
     pulumi:pulumi:Stack my-first-app-dev  
- 
+
 Outputs:
   + url: "http://localhost:3001"
 

@@ -101,7 +101,6 @@ export let shopUrl =  myFirstApp.getOutput("url");
 
 {{% /choosable %}} -->
 
-
 {{% choosable language python %}}
 
 ```python
@@ -178,12 +177,13 @@ stack to reference in this new project's stack:
 
 ```bash
 
-     Type                 Name               Status     
-     pulumi:pulumi:Stack  my-second-app-staging             
- 
+     Type                 Name               Status
+     pulumi:pulumi:Stack  my-second-app-staging
+
 Outputs:
   + shopUrl: "http://localhost:3002"
 ```
+
 These exported values are incredibly useful when using Pulumi stacks. For
 example, let's say you have two systems that depend on one another, perhaps a
 frontend application with a database and a complex backend API. You might have
