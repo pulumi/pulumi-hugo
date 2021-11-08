@@ -32,7 +32,7 @@ build locally using infrastructure as code. Our resource provider is Docker, and
 we're using Python as our _language host_, or the executor that compiles the
 code we write and interprets it for Pulumi.
 
-{{% notes type="info %}}
+{{% notes type="info" %}}
 Note that we're only using Docker here to make it easier to learn about Pulumi
 (mainly because setting up a new account on any of the cloud providers can take
 some time and can introduce a lot of complexity). Most users are using one of
