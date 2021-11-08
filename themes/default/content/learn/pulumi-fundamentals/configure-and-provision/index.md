@@ -182,7 +182,7 @@ a dependency between these two resources and will know to create the
 `Container` resource _after_ the `Image` resource. Another dependency to note is
 that the `backend_container` depends on the `mongo_container`. If we tried to
 run `pulumi up` without the `mongo_container` running or present somewhere in
-state, Pulumi will let us know that the resource doesn't exist and will stop.
+state, Pulumi would let us know that the resource didn't exist and would stop.
 
 The backend container also requires environment variables to connect to the
 mongo container and set the node environment for Express.js. These are set in
