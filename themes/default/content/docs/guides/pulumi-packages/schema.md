@@ -108,7 +108,7 @@ Complete schema examples that include a much wider range of schema configuration
 | `description`       | `string`                                   | No       | Description is the description of the package.                                                                                    |
 | `keywords`          | `array[string]`                            | No       | Keywords is the list of keywords that are associated with the package, if any.
 Some reserved keywords can be specified as well that help with categorizing the package in the Pulumi registry. `category/<name>` and `kind/<type>` are the only reserved keywords at this time,
-where `<name>` can be one of: `cloud`, `database`, `infrastructure`, `network`, `utility`, `vcs` and `<type>` is either `native` or `component`. If the package is a TF-based provider, then don't include a
+where `<name>` can be one of: `cloud`, `database`, `infrastructure`, `network`, `utility`, `vcs` and `<type>` is either `native` or `component`. If the package is a bridged Terraform provider, then don't include a
 `kind/` label. |
 | `homepage`          | `string`                                   | No       | Homepage is the package's homepage.                                                                                               |
 | `license`           | `string`                                   | No       | License indicates which license is used for the package's contents.                                                               |
