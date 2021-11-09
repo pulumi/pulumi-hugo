@@ -32,7 +32,7 @@ There is a [GitHub issue related to the idea of automatic rollbacks](https://git
 
 ## Organizations
 
-## How do I create a stack inside an Organization instead of my User account?
+### How do I create a stack inside an Organization instead of my User account?
 
 To create a stack in a different Pulumi organization, prefix the stack's
 name with the organization name. For example:
@@ -43,15 +43,15 @@ $ pulumi stack init acme-corp/widget-server
 
 ## Pulumi Service
 
-## How does Pulumi store state?
+### How does Pulumi store state?
 
 Pulumi needs to store the result of operations. On creation of a Pulumi resource, Pulumi makes a call to the cloud providers’ API and then it stores the result of that API call. The place where Pulumi stores that result is called the “state”. The state can be stored using the Pulumi service, Amazon S3, Azure Blob Storage, or Google Cloud Storage Buckets.
 
-## How does Pulumi depend on the Pulumi Service?
+### How does Pulumi depend on the Pulumi Service?
 
 Pulumi uses the Pulumi Service to store information about the current state of your application, which is used during updates, previews and destroys as the source of truth for the current state of your cloud resources. We refer to this state as the "checkpoint" for your application. In addition, the Pulumi Service ensures that for a given stack, only a single update is running at once (so, if you and someone else are collaborating on a stack together, it ensures that you both don't update the same stack at the same time.) Once your stack has been deployed, it has no dependency on the Pulumi Service. To learn more about how the Pulumi engine uses pulumi.com, see [How Pulumi Works]({{< relref "/docs/intro/concepts/how-pulumi-works" >}}).
 
-## What happens if app.pulumi.com is down?
+### What happens if app.pulumi.com is down?
 
 Any infrastructure that you’ve deployed using Pulumi will continue working and can be managed with your cloud provider’s console or CLI, that is, app.pulumi.com should not affect any runtime behavior of your application.
 
