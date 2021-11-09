@@ -22,13 +22,13 @@ Kubecon North America is over, but the recordings are now online! Every talk you
 
 <!--more-->
 
-Kubecon North America is over, but the recordings are now online! Every talk you wanted to see and couldn’t is available on YouTube, so here’s some highlights from me -- cloud native trends, updates from projects and SIGs, and a few of my favorite talks!
+Kubecon North America is over, but the recordings are now online! Every talk you wanted to see and couldn’t is available on YouTube, so here’s some highlights from me -- cloud native trends, updates from projects and SIGs (Special Interest Groups), and a few of my favorite talks!
 
 #### SBOM is Coming: Why You Should Care and How You Can Help - Frederick Kautz & Allan Friedman
 
 {{< youtube "4wUejdZ6KHM?rel=0" >}}
 
-A major trend throughout the conference was supply chain security and SBOMs. There were quite a few talks on these subjects, but Frederick Kautz and Allan Friedman give a great overview of exactly what an SBOM is, and why it’s important.
+A major trend throughout the conference was supply chain security and SBOMs (Software Bill of Materials). There were quite a few talks on these subjects, but Frederick Kautz and Allan Friedman give a great overview of exactly what an SBOM is, and why it’s important.
 
 #### Notary: State of the Container Supply Chain - Justin Cormack, Docker & Steve Lasker, Microsoft
 
