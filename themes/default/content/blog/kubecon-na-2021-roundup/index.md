@@ -34,7 +34,7 @@ A major trend throughout the conference was supply chain security and SBOMs (Sof
 
 {{< youtube "hpcQJ21mn_g?rel=0" >}}
 
-On supply chain security, Steve Lasker presents updates to Notary v2. It’s changed quite a bit since v1 and there are more changes on the horizon. With the rising concerns surrounding supply chain security, I expect Notary and tools like it to be increasingly important. No worries if you aren’t already familiar with Notary -- Steve explains it well.
+On supply chain security, Steve Lasker presents updates to Notary v2. It’s changed quite a bit since v1 and there are more changes on the horizon. With the rising concerns surrounding supply chain security, I expect Notary and tools like it to be increasingly important. No worries if you aren’t already familiar with Notary&mdash;Steve explains it well.
 
 #### A Vulnerable Tale About Burnout - Julia Simon, CloudOps
 
