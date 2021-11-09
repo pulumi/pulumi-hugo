@@ -16,8 +16,6 @@ currently in progress and then exit and report the error or failure.
 
 To accomplish a _manual_ rollback after a failed deployment, revert the code and configuration changes of the failed deployment and run `pulumi up` to update your infrastructure to its previous state.
 
-There is a [GitHub issue related to the idea of automatic rollbacks](https://github.com/pulumi/pulumi/issues/96) if you would like to add to the discussion.
-
 ## Organizations
 
 ### How do I create a stack inside an Organization instead of my User account?
