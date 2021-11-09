@@ -52,7 +52,7 @@ PodSecurityPolicy has been deprecated. Many of you may be relying on this, and d
 
 {{< youtube "QOiyWWFjG5Q?rel=0" >}}
 
-An open source project lives or dies by its contributors, both technical and non-technical. Kubernetes is huge and requires a lot of contributors to keep it growing, so we have SIG Contributor Experience to make sure they stay happy and the community stays healthy. Alison Dowdney and Cristoph Blecker go into just how SIG Contributor Experience operates, plus updates. If you’re in a leadership position for an open source project, there are some lessons to be learned from this talk.
+An open source project lives or dies by its contributors, both technical and non-technical. Kubernetes is huge and requires a lot of contributors to keep it growing, so we have SIG Contributor Experience to make sure they stay happy and the community stays healthy. Alison Dowdney and Christoph Blecker go into just how SIG Contributor Experience operates, plus updates. If you’re in a leadership position for an open source project, there are some lessons to be learned from this talk.
 
 #### Kubernetes Exposed! Seven of Nine Hidden Secrets That Will Give You... Ian Coldwater & Brad Geesaman
 
