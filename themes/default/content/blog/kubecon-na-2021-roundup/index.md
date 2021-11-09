@@ -18,7 +18,7 @@ tags:
     - conferences
 ---
 
-Kubecon North America is over, but the recordings are now online! Every talk you wanted to see and couldn’t is available on YouTube, so here’s some highlights -- cloud native trends, updates from projects and SIGs, and a few of my favorite talks!
+KubeCon North America 2021 is over, but the recordings are now online! Every talk you wanted to attend and couldn’t is available on YouTube, so here’s some highlights&mdash;cloud native trends, updates from projects and SIGs, and a few of my favorite talks!
 
 <!--more-->
 
