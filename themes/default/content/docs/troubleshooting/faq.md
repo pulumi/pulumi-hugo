@@ -33,7 +33,7 @@ $ pulumi stack init acme-corp/widget-server
 
 ### How does Pulumi store state?
 
-Pulumi needs to store the result of operations. On creation of a Pulumi resource, Pulumi makes a call to the cloud provider's API and then it stores the result of that API call. The place where Pulumi stores that result is called the "state" or "checkpoint". The state can be stored using the Pulumi Service, Amazon S3, Azure Blob Storage, Google Cloud Storage Buckets, or as a file on your local machine that you manage yourself.
+Pulumi needs to store the result of operations. On creation of a Pulumi resource, Pulumi makes a call to the cloud provider's API and then it stores the result of that API call. The place where Pulumi stores that result is called the "state" or "checkpoint". The state can be stored using the Pulumi Service or in files on Amazon S3, Azure Blob Storage, Google Cloud Storage Buckets, or as a file on your local machine that you manage yourself.
 
 ### How does Pulumi depend on the Pulumi Service?
 
@@ -118,4 +118,4 @@ Pulumi is a declarative tool that uses imperative languages to define your end s
 
 ### How will Pulumi make me more productive?
 
-Pulumi uses strongly typed languages with programming languages that support [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) and the [Language Server Protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol) which means when you are defining Pulumi programs you rarely need to leave your IDE.
+Pulumi uses strongly typed languages with programming languages that support [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) and the [Language Server Protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol) which means when you are defining Pulumi programs, you rarely need to leave your IDE.
