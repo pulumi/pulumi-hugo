@@ -69,7 +69,7 @@ To use Pulumi without the Pulumi Service, log in using `pulumi login --local` or
 
 Run `pulumi login` and you’ll be back to using the Pulumi Service. You will need to migrate any existing stacks to the Service.
 
-### I've been using the local endpoint, can I migrate to the Pulumi Service?
+### I've been using a self-managed backend, can I migrate to the Pulumi Service?
 
 Yes, you can! The Pulumi CLI allows you to export and import checkpoints so you can do the following.  Suppose the stack “my-app-production” has been managed with a local checkpoint file, and you want to migrate it to pulumi.com. If you are currently logged in to the local endpoint, run the following commands:
 
@@ -110,9 +110,7 @@ Pulumi provides primitives so you can enforce your [secrets]({{< relref "/docs/i
 
 ### Does Pulumi use Terraform?
 
-Some Pulumi providers leverage the Terraform schemas in order to know what resources and parameters are available, and to determine the return and response attributes.
-
-Pulumi does also provide native providers which are mapped directly to the cloud provider APIs and do not leverage the Terraform schemas.
+Pulumi does not use the Terraform engine in any way. However, some Pulumi providers leverage the Terraform schemas in order to know what resources and parameters are available, and to determine the return and response attributes. On the other hand, Pulumi native providers are mapped directly to the cloud provider APIs and do not leverage the Terraform schemas.
 
 ### Is Pulumi imperative or declaritive?
 
