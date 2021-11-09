@@ -7,18 +7,6 @@ menu:
 aliases: ["/docs/reference/faq/"]
 ---
 
-## Supported clouds and languages
-
-### How can I add support for my favorite cloud?
-
-To enable a new cloud, you need to create a Pulumi Resource Provider. This provider requires a [gRPC](https://grpc.io/) interface and can be implemented directly; explore the [Pulumi Resource Provider Boilerplate](https://github.com/pulumi/pulumi-provider-boilerplate) to get started and [https://github.com/pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes) for a complete example of building out a provider.
-
-If there is an existing Terraform Resource Provider for the target, you can also use [Terraform Bridge](https://github.com/pulumi/pulumi-terraform-bridge/blob/master/README.md) and [pulumi-aws resources.go](https://github.com/pulumi/pulumi-aws/blob/master/provider/resources.go) for a specific example.
-
-### How can I add support for my favorite language?
-
-Supported languages run out of process and communicate over gRPC with the Pulumi engine and resource providers. Check out the [protocol definitions](https://github.com/pulumi/pulumi/tree/master/sdk/proto) along with the language providers themselves. You can explore how we added [support for Go](https://github.com/pulumi/pulumi/pull/1456), which should help with scoping. There is also a summary of the core work items needed as part of adding support for a typical new language on the [New Language wiki page](https://github.com/pulumi/pulumi/wiki/New-Language-Bring-up).
-
 ## Automatic Rollbacks
 
 ### Does Pulumi support automatic rollback in the event of an error or failure?
@@ -96,15 +84,27 @@ You can disable this [auto-naming]({{< relref "/docs/intro/concepts/resources#au
 
 ## Secrets
 
+### Are my secrets ever visible?
+
+Pulumi provides primitives so you can enforce your [secrets]({{< relref "/docs/intro/concepts/secrets#secrets" >}}) are stored in a secure manner in the CLI, state file and Pulumi Console. During an update, your secrets will be decrypted in memory and visible to your Pulumi program. It is your responsibility to ensure that you do not persist them outside of Pulumi without securing them.
+
 ### How does Pulumi manage secrets?
 
 When you set a [configuration]({{< relref "/docs/intro/concepts/config" >}}) value, you may pass `--secret` to `pulumi config set` which causes the value to be encrypted so it can be safely persisted in `Pulumi.<stack-name>.yaml`. For every stack the Pulumi service manages a unique encryption key, which it uses to encrypt secrets for that stack (and this is configurable to use your own custom secrets provider). Because a different key is used for each stack, encrypting the same value across two different stacks will lead to different encrypted strings being stored in the `Pulumi.<stack-name>.yaml` files. This also means that you cannot copy an encrypted value from one file to another using a text editor. Instead, you must use `pulumi config set`.
 
 When you run a preview, update or destroy, pulumi decrypts this data. It is plain text during the execution of your deployment, and any part of your Pulumi program may access it using the Pulumi config object.
 
-### Are my secrets ever visible?
+## Supported clouds and languages
 
-Pulumi provides primitives so you can enforce your [secrets]({{< relref "/docs/intro/concepts/secrets#secrets" >}}) are stored in a secure manner in the CLI, state file and Pulumi Console. During an update, your secrets will be decrypted in memory and visible to your Pulumi program. It is your responsibility to ensure that you do not persist them outside of Pulumi without securing them.
+### How can I add support for my favorite cloud?
+
+To enable a new cloud, you need to create a Pulumi Resource Provider. This provider requires a [gRPC](https://grpc.io/) interface and can be implemented directly; explore the [Pulumi Resource Provider Boilerplate](https://github.com/pulumi/pulumi-provider-boilerplate) to get started and [https://github.com/pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes) for a complete example of building out a provider.
+
+If there is an existing Terraform Resource Provider for the target, you can also use [Terraform Bridge](https://github.com/pulumi/pulumi-terraform-bridge/blob/master/README.md) and [pulumi-aws resources.go](https://github.com/pulumi/pulumi-aws/blob/master/provider/resources.go) for a specific example.
+
+### How can I add support for my favorite language?
+
+Supported languages run out of process and communicate over gRPC with the Pulumi engine and resource providers. Check out the [protocol definitions](https://github.com/pulumi/pulumi/tree/master/sdk/proto) along with the language providers themselves. You can explore how we added [support for Go](https://github.com/pulumi/pulumi/pull/1456), which should help with scoping. There is also a summary of the core work items needed as part of adding support for a typical new language on the [New Language wiki page](https://github.com/pulumi/pulumi/wiki/New-Language-Bring-up).
 
 ## Understanding Pulumi
 
