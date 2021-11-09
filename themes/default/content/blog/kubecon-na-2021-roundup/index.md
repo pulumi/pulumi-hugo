@@ -46,7 +46,7 @@ Taking things to a more human place, burnout was a common theme this year. It’
 
 {{< youtube "HsRRmlTJpls?rel=0" >}}
 
-PodSecurityPolicy has been deprecated. Many of you may be relying on this, and deprecations frequently sound scary, but Tabitha Sable and Tim Allclair are here to soothe your fears. They go to great lengths explaining what PSP is, why it was deprecated, what exactly this means for people relying on it, and where we’re going next.
+PodSecurityPolicy (PSP) has been deprecated. Many of you may be relying on this, and deprecations frequently sound scary, but Tabitha Sable and Tim Allclair are here to soothe your fears. They go to great lengths explaining what PSP is, why it was deprecated, what exactly this means for people relying on it, and where we’re going next.
 
 #### SIG Contributor Experience Deep Dive - Alison Dowdney, Weaveworks & Christoph Blecker, Red Hat
 
