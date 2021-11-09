@@ -53,7 +53,7 @@ Pulumi uses the Pulumi Service to store information about the current state of y
 
 ### What happens if app.pulumi.com is down?
 
-Any infrastructure that you’ve deployed using Pulumi will continue working and can be managed with your cloud provider’s console or CLI, that is, app.pulumi.com should not affect any runtime behavior of your application.
+Any infrastructure that you’ve deployed using Pulumi will continue working and can be managed with your cloud provider’s console or CLI. app.pulumi.com does not affect any runtime behavior of your application.
 
 If app.pulumi.com is down, you'll be unable to preview, update, or destroy a stack using Pulumi. Some commands, like `pulumi logs`, use app.pulumi.com to find the correct log stream so will not function until pulumi.com recovers; however, your cloud provider will still produce logs that you can use for diagnostics, which you can view via your cloud console or CLI.
 
@@ -69,9 +69,9 @@ To use Pulumi without the Pulumi Service, log in using `pulumi login --local` or
 
 Run `pulumi login`, and you’ll be back to using the Pulumi Service. You will need to migrate any existing stacks to the Service.
 
-### I've been using a self-managed backend, can I migrate to the Pulumi Service?
+### How to migrate from a self-managed backend to the Pulumi Service?
 
-Yes, you can! The Pulumi CLI allows you to export and import checkpoints so you can do the following.  Suppose the stack “my-app-production” has been managed with a local checkpoint file, and you want to migrate it to pulumi.com. If you are currently logged in to the local endpoint, run the following commands:
+The Pulumi CLI allows you to export and import checkpoints so you can do the following. Suppose the stack “my-app-production” has been managed with a local checkpoint file, and you want to migrate it to pulumi.com. If you are currently logged in to the local endpoint, run the following commands:
 
 ```sh
 $ pulumi stack select my-app-production # switch to the stack we want to export
@@ -110,11 +110,11 @@ Pulumi provides primitives so you can enforce your [secrets]({{< relref "/docs/i
 
 ### Does Pulumi use Terraform?
 
-Pulumi does not use the Terraform engine in any way. However, some Pulumi providers use [Terraform schemas](https://www.terraform.io/docs/extend/schemas/index.html) in order to know what resources and parameters are available, and to determine the return and response attributes. On the other hand, [Pulumi native providers](https://www.pulumi.com/blog/pulumiup-native-providers/) are mapped directly to the cloud provider APIs and do not use Terraform schemas.
+Pulumi does not use the Terraform engine in any way. However, some Pulumi providers use the open-source [Terraform schemas](https://www.terraform.io/docs/extend/schemas/index.html) in order to know what resources and parameters are available, and to determine the return and response attributes. On the other hand, [Pulumi native providers](https://www.pulumi.com/blog/pulumiup-native-providers/) are mapped directly to the cloud provider APIs and do not use Terraform schemas.
 
 ### Is Pulumi imperative or declarative?
 
-Pulumi is a declarative tool that uses imperative languages to define your end state. The language is used for authoring your program, it’s not used for talking to the cloud provider API.
+Pulumi is a declarative tool that uses imperative languages to define your end state. The language is used for authoring your program. It’s not used for talking to the cloud provider API.
 
 ### How will Pulumi make me more productive?
 
