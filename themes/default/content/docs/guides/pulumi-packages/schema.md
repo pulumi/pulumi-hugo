@@ -106,7 +106,7 @@ Complete schema examples that include a much wider range of schema configuration
 | `displayName`       | `string`                                   | No       | The human-friendly name of the package.                                                                                           |
 | `version`           | `string`                                   | Yes      | Version is the version of the package. The version must be valid semver.                                                          |
 | `description`       | `string`                                   | No       | Description is the description of the package.                                                                                    |
-| `keywords`          | `array[string]`                            | No       | Keywords is the list of keywords that are associated with the package, if any. 
+| `keywords`          | `array[string]`                            | No       | Keywords is the list of keywords that are associated with the package, if any.
 Some reserved keywords can be specified as well that help with categorizing the package in the Pulumi registry. `category/<name>` and `kind/<type>` are the only reserved keywords at this time,
 where `<name>` can be one of: `cloud`, `database`, `infrastructure`, `network`, `utility`, `vcs` and `<type>` is either `native` or `component`. If the package is a TF-based provider, then don't include a
 `kind/` label. |
