@@ -47,7 +47,7 @@ If app.pulumi.com is down, you'll be unable to preview, update, or destroy a sta
 
 ### Can I use Pulumi without depending on the Pulumi Service?
 
-We think that using the Pulumi service and the Pulumi tool together provide the right combination of usability, safety, and security. However, for users with especially unique requirements, it is possible to use the Pulumi tool apart from the Service.
+Using the Pulumi service with Pulumi provide a good combination of usability, safety, and security. However, for users with especially unique requirements, it is possible to use Pulumi apart from the Pulumi Service.
 
 When you use Pulumi without the Pulumi Service, the checkpoint for your stack is stored locally or in your own external self-managed state storage. If that file is lost or outdated, Pulumi can no longer operate on your stack. To collaborate with others on your stack, you must host this file yourself and protect against conflicting updates to it. If you use your own checkpoint file, the Pulumi Service features, such as the deployment history and resource view, will not be available.
 
