@@ -86,7 +86,7 @@ stats:
     title: Open source. Enterprise ready.
     description: |
         Pulumi’s modern Infrastructure as Code SDK is an open-source project that’s supported
-        by an active and enthusiastic community. We welcome feedback and contributions from anyone.
+        by an active and enthusiastic community. We welcome feedback and contributions from anyone. Visit our public roadmap [here](/blog/relaunching-pulumis-public-roadmap).
     community:
       number: "10,000s"
       description: of community members
