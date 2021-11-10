@@ -48,7 +48,7 @@ See the instructions in your new repository's `README.md` file for specific inst
 
 ## Write documentation
 
-To help others in the Pulumi community use your package, we recommend authoring some documentation. In your repository, there is a `docs/` folder with a few template pages you can use that correspond to the various tabs on a package page in Pulumi Registry (like [this page for AWS Native]({{<relref "/registry/packages/aws-native">}})). Use the guidance in the following sections to author content in these pages.
+To help others in the Pulumi community use your package, we recommend authoring some documentation. In your repository, there should be a `docs/` folder with a few template pages you can use that correspond to the various tabs on a package page in Pulumi Registry (like [this page for AWS Native]({{<relref "/registry/packages/aws-native">}})). Use the guidance in the following sections to author content in these pages.
 
 ### Overview, installation, & configuration
 
@@ -71,7 +71,8 @@ Metadata for your package is generated from the `schema.json` in your repository
 - `publisher`: your personal/company name, as you'd like it to be shown on Registry
 - `keywords`:
   - `category/CATEGORY`: replace `CATEGORY` with one of `cloud`, `database`, `infrastructure`, `monitoring`, `network`, `utility`, `versioncontrol`
-  - `kind/KIND`: replace `KIND` with one of `native`, TODO FOR COMPONENT AND BRIDGED
+  - `kind/KIND`: replace `KIND` with one of `native`, `component`
+    - Note: don't set a kind if you're bridging a Terraform provider
 
 ### API docs
 
