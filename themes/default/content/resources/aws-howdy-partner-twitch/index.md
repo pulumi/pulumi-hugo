@@ -63,7 +63,7 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Laura Santamarina
+        - name: Laura Santamaria
           role: Developer Advocate, Pulumi
 
         - name: Andrew Park
