@@ -34,7 +34,7 @@ block_external_search_index: true
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: "https://developer.microsoft.com/en-us/reactor/#filter?dayfrom=12-15-2021&id=164F545C22E17E5E9298B1C84B9E3E1E"
+url_slug: "https://aka.ms/DeployServerlessReactor"
 
 # The content of the hero section.
 hero:
