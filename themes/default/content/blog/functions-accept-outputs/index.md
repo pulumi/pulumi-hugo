@@ -68,6 +68,7 @@ GetCredentials.Invoke(new GetCredentialsInvokeArgs
    RegistryId = registryId
 });
 ```
+
 {{% /choosable %}}
 
 <!--more-->
@@ -343,7 +344,6 @@ more, check out the following updated Pulumi examples:
 - [azure-py-appservice example](https://github.com/pulumi/examples/tree/master/azure-py-appservice)
 - [aws-ts-appsync example](https://github.com/pulumi/examples/tree/master/aws-ts-appsync)
 - [azure-cs-aks-cosmos-helm](https://github.com/pulumi/examples/tree/master/azure-cs-aks-cosmos-helm)
-
 
 ## Compatibility
 
