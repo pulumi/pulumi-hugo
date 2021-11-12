@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: "PulumipusTV - Fun with Datadog with Dan Maher"
-meta_desc: "Join Matt Stratton and Dan Haher from DAtadog to learn how to set up monitoring for any stack and any app using Pulumi and Datadog"
+meta_desc: "Join Matt Stratton and Dan Haher from Datadog to learn how to set up monitoring for any stack and any app using Pulumi and Datadog"
 
 # A featured webinar will display first in the list.
 featured: false
