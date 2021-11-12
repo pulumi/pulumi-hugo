@@ -7,7 +7,7 @@ meta_image: meta.png
 authors:
     - anton-tayanovskyy
 tags:
-    - packages
+    - features
 ---
 
 Pulumi 3.17.1 makes it easier to compose function calls and resources.
