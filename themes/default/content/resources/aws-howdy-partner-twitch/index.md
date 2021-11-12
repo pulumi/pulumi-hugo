@@ -67,7 +67,7 @@ main:
           role: Developer Advocate, Pulumi
 
         - name: Andrew Park
-          role: Partner Solutions Architect, AWS
+          role: Specialist Solutions Architect, AWS
 
         - name: Marina Novikova
           role: Partner Solutions Architect, AWS
