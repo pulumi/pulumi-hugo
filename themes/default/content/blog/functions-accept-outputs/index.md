@@ -1,41 +1,14 @@
 ---
 title: "Functions Now Accept Outputs"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
 date: 2021-11-12T13:14:58-05:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
 draft: false
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
 meta_desc: With Pulumi 3.17.1 you can now call functions directly with resource outputs without an extra apply.
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - anton-tayanovskyy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - packages
-
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
 ---
-
-
 
 Pulumi 3.17.1 makes it easier to compose function calls and resources.
 In practice you often need to call a function with a resource output.
