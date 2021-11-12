@@ -63,7 +63,7 @@ main:
     datetime: ""
     # Description of the webinar.
     description: |
-        Join Matt Stratton and Dan Haher from DAtadog to learn how to set up monitoring for any stack and any app using Pulumi and Datadog.
+        Join Matt Stratton and Dan Haher from Datadog to learn how to set up monitoring for any stack and any app using Pulumi and Datadog.
 
     # The webinar presenters
     presenters:
