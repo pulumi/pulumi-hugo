@@ -56,11 +56,9 @@ OR across all of those policies when evaluating them.
 For more extensive details about IAM policies and their contents, refer to the [AWS access policies documentation](
 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
-{{% choosable language typescript %}}
+#### Strongly Typed Policy Documents (TypeScript-only)
 
-### Strongly Typed Policy Documents
-
-Pulumi Crosswalk for AWS defines [the `aws.iam.PolicyDocument` interface](
+Pulumi Crosswalk for AWS in TypeScript defines [the `aws.iam.PolicyDocument` interface](
 {{< relref "/registry/packages/aws/api-docs/iam" >}}) to add strong type checking to your policy documents. By using
 this type, we will know at compile time whether we've mistyped an attribute:
 
@@ -93,31 +91,75 @@ const role = new aws.iam.Role("instance-role", {
 const profile = new aws.iam.InstanceProfile("instance-profile", { role });
 ```
 
-{{% /choosable %}}
-
-{{% choosable language "typescript,javascript" %}}
-
-### Using Pre-Defined IAM Managed Policies
+### Pre-Defined IAM Managed Policies
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. Standalone policy means that
 the policy has its own Amazon Resource Name (ARN) that includes the policy name. For example,
-`arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy. The `aws.iam.ManagedPolicies` module exports a collection of
-constants for all available managed policies so that you don't need to remember the ARNs.
+`arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy.
 
-For example, the above is available as `aws.iam.ManagedPolicies.IAMReadOnlyAccess`:
+In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string,
+but that requires that you either memorize or look up the ARN each time. Instead, you can use the strongly typed
+`ManagedPolicy` enum, which exports a collection of constants for all available managed policies.
+
+For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
+enum value:
+
+{{< chooser language "typescript,python,go,csharp" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
 const role = ...;
 const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rpa", {
     role: role,
-    policyArn: aws.iam.ManagedPolicies.IAMReadOnlyAccess,
+    policyArn: aws.iam.ManagedPolicy.IAMReadOnlyAccess,
 });
 ```
 
-For a full list of available managed policy ARNs, refer to the
-[API documentation]({{< relref "/registry/packages/aws/api-docs/iam" >}}).
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+role = ...
+role_policy_attachment = aws.iam.RolePolicyAttachment('rpa',
+    role=role,
+    policy_arn=aws.iam.ManagedPolicy.IAMReadOnlyAccess,
+)
+```
 
 {{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+role := ...
+rolePolicyAttachment, err := iam.NewRolePolicyAttachment("rpa", &iam.RolePolicyAttachmentArgs{}
+    Role: role,
+    PolicyArn: iam.ManagedPolicyIAMReadOnlyAccess,
+})
+if err != nil {
+    return err
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+var role = ...;
+var rolePolicyAttachment = new Iam.RolePolicyAttachment("rpa", new Iam.RolePolicyAttachmentArgs
+{
+    Role = role,
+    PolicyArn = Iam.ManagedPolicy.IAMReadOnlyAccess.ToString(),
+})
+```
+
+{{% /choosable %}}
+
+For a full list of available managed policy ARNs, refer to the
+[API documentation]({{< relref "/registry/packages/aws/api-docs/iam" >}}).
 
 ## Creating IAM Users, Groups, and Roles
 
