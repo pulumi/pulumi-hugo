@@ -389,3 +389,5 @@ providers:
 | pulumi-google-native | 0.8.0   |
 | pulumi-azure         | 4.26.0  |
 | pulumi-gcp           | 5.26.0  |
+
+
