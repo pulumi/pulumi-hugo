@@ -14,7 +14,7 @@ tags:
 It's been another exciting few weeks here at Pulumi! We've caught our breath from [Cloud Engineering Summit]({{<relref "/cloud-engineering-summit">}}) (don't forget to check out the talks if you haven't yet!) and we're back to adding new value and highly-requested fixes across the Pulumi Cloud Engineering Platform. Read on to learn about new providers, new enhancements to the core Pulumi experience, and more!
 
 - Pulumi Registry, Pulumi Packages, & integrations
-  - [`dependsOn` can now await a fully-deployed Helm chart]({{<relref "/blog/pulumi-release-notes-m64#dependson-can-now-await-a-fully-deployed-helm-chart">}})
+  - [`dependsOn` can now await a fully-deployed Helm `Chart` resource]({{<relref "/blog/pulumi-release-notes-m64#dependson-can-now-await-a-fully-deployed-helm-chart-resource">}})
   - [New provider: Elastic Cloud]({{<relref "/blog/pulumi-release-notes-m64#new-provider-elastic-cloud">}})
   - [AWS Native provider supports auto-naming]({{<relref "/blog/pulumi-release-notes-m64#aws-native-provider-supports-auto-naming">}})
   - [New resources in the AWS Native provider]({{<relref "/blog/pulumi-release-notes-m64#new-resources-in-the-aws-native-provider">}})
