@@ -30,9 +30,9 @@ It's been another exciting few weeks here at Pulumi! We've caught our breath fro
 
 ## Pulumi Registry, Pulumi Packages, & integrations
 
-### `dependsOn` can now await a fully-deployed Helm chart
+### `dependsOn` can now await a fully-deployed Helm `Chart` resource
 
-Pulumi's [`dependsOn` option]({{<relref "/docs/intro/concepts/resources#dependson">}}) enables you to write programs that deploy resources in a specific order. Previously, using this option with Helm charts could be confusing because Pulumi would consider the resource ready once it had registered the chart, even if Helm was still deploying some of the resources defined by the chart. Now, you can depend on a new `ready` attribute that will ensure that none of the dependent resources are deployed until the chart is deployed. For example, the code sample below creates an NGINX Ingress Controller and then creates a Kubernetes `ConfigMap` that depends on the controller being fully deployed.
+Pulumi's [`dependsOn` option]({{<relref "/docs/intro/concepts/resources#dependson">}}) enables you to write programs that deploy resources in a specific order. Previously, using this option with a Helm `Chart` resource could be confusing because Pulumi would consider the resource ready once it had registered the chart, even if Helm was still deploying some of the resources defined by the chart. Now, you can depend on a new `ready` attribute that will ensure that none of the dependent resources are deployed until the chart is deployed. For example, the code sample below creates an NGINX Ingress Controller and then creates a Kubernetes `ConfigMap` that depends on the controller being fully deployed.
 
 ```typescript
 import * as k8s from "@pulumi/kubernetes";
@@ -53,6 +53,10 @@ new k8s.core.v1.ConfigMap("foo", {
     data: {foo: "bar"}
 }, {dependsOn: nginxIngress.ready})
 ```
+
+{{% notes type="info" %}}
+This change impacts the older Helm [`Chart`]({{<relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) resource. The new Helm [`Release`]({{<relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}}) resource always waits for the Helm chart to be fully deployed.
+{{% /notes %}}
 
 [Learn more about `dependsOn` and Helm charts in this GitHub issue](https://github.com/pulumi/pulumi-kubernetes/issues/861)
 
