@@ -12,7 +12,7 @@ tags:
 
 Pulumi 3.17.1 makes it easier to compose function calls and resources.
 In practice you often need to call a function with a resource output.
-Previous versions of Pulumi required an `apply` form do this, which
+Previous versions of Pulumi required an `apply` to do this, which
 was unfortunate:
 
 - new Pulumi users would get stuck and ask for help as the solution
