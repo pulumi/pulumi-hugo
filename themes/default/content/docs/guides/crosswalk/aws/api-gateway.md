@@ -61,31 +61,78 @@ An Event Handler Route is an API that will map to a [Lambda Function](https://aw
 the path, HTTP method, and the Lambda Function to invoke when the API is called. Pulumi offers multiple ways of defining
 the Lambda Function and it provisions the appropriate permissions so that API Gateway can communicate with it.
 
-An easy way to define the Lambda Function, which mimics modern REST web application frameworks in style, is to
-write the application code inline with the API Gateway definition itself. This example creates an AWS API Gateway
-endpoint with a single API, listening at `/` for `GET` requests, which simply returns a `200 OK` for each call:
+This example creates an AWS API Gateway endpoint with a single API, listening at `/` for `GET` requests, which simply returns a `200 OK` for each call:
+
+{{< chooser language "typescript,python,go" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as awsx from "@pulumi/awsx";
+import * as apigateway from "@pulumi/aws-apigateway";
+import * as aws from "@pulumi/aws";
 
-// Define a new GET endpoint that just returns a 200 and "hello" in the body.
-const api = new awsx.apigateway.API("example", {
+// Create a Lambda Function
+const helloHandler = new aws.lambda.CallbackFunction("hello-handler", {
+    callback: async (ev, ctx) => {
+        return {
+            statusCode: 200,
+            body: "Hello, API Gateway!",
+        };
+    },
+});
+
+// Create a REST API that invokes the Lambda Function
+const api = new apigateway.RestAPI("api", {
     routes: [{
         path: "/",
         method: "GET",
-        eventHandler: async (event) => {
-            // This code runs in an AWS Lambda anytime `/` is hit.
-            return {
-                statusCode: 200,
-                body: "Hello, API Gateway!",
-            };
-        },
+        eventHandler: helloHandler,
     }],
-})
+});
 
-// Export the auto-generated API Gateway base URL.
 export const url = api.url;
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+# Create a Lambda Function
+# helloHandler = ...
+
+# Create a REST API that invokes the Lambda Function and uses a few other route kinds
+api = apigateway.RestAPI('api', routes=[
+    apigateway.RouteArgs(path="/", method="GET", event_handler=helloHandler)
+])
+
+pulumi.export('url', api.url)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+// Create a Lambda Function
+// helloHandler, err := ...
+
+// Create a REST API that invokes the Lambda Function
+getMethod := apigateway.MethodGET
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+    Routes: []apigateway.RouteArgs{
+        apigateway.RouteArgs{
+            Path:         "/",
+            Method:       &getMethod,
+            EventHandler: helloHandler,
+        },
+    },
+})
+
+ctx.Export("url", restAPI.Url)
+```
+
+{{% /choosable %}}
 
 By running `pulumi up`, we will provision the API Gateway, its routes, and we'll get back the URL:
 
@@ -93,22 +140,31 @@ By running `pulumi up`, we will provision the API Gateway, its routes, and we'll
 $ pulumi up -y
 Updating (dev):
 
-     Type                                Name                      Status
- +   pulumi:pulumi:Stack                 crosswalk-aws-dev         created
- +   └─ aws:apigateway:x:API             example                   created
- +      ├─ aws:iam:Role                  example4c238266           created
- +      ├─ aws:iam:RolePolicyAttachment  example4c238266-32be53a2  created
- +      ├─ aws:lambda:Function           example4c238266           created
- +      ├─ aws:apigateway:RestApi        example                   created
- +      ├─ aws:apigateway:Deployment     example                   created
- +      ├─ aws:lambda:Permission         example-fa520765          created
- +      └─ aws:apigateway:Stage          example                   created
+     Type                                Name                    Status
+ +   pulumi:pulumi:Stack                 simple-dev              created
+ +   ├─ aws:iam:Role                     hello-handler           created
+ +   ├─ aws:lambda:Function              hello-handler           created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-019020e7  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-74d12784  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-7cd09230  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-b5aeb6b6  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-4aaabb8e  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-1b4caae3  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-e1a3786d  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-a1de8170  created
+ +   ├─ aws:iam:RolePolicyAttachment     hello-handler-6c156834  created
+ +   └─ apigateway:index:RestAPI         api                     created
+ +      └─ aws:apigateway:x:API          api                     created
+ +         ├─ aws:apigateway:RestApi     api                     created
+ +         ├─ aws:apigateway:Deployment  api                     created
+ +         ├─ aws:lambda:Permission      api-fa520765            created
+ +         └─ aws:apigateway:Stage       api                     created
 
 Outputs:
     url: "https://no90ji5v23.execute-api.us-west-2.amazonaws.com/stage/"
 
 Resources:
-    + 9 created
+    + 18 created
 
 Duration: 25s
 ```
@@ -118,89 +174,6 @@ We can `curl` the URL to see that it is up and running:
 ```bash
 $ curl $(pulumi stack output url)
 Hello, API Gateway!
-```
-
-This example uses Pulumi Crosswalk for AWS's built-in Lambda Function support. In this example, we are
-specifying the code inline, and using the default Lambda property values. We can customize aspects of this
-Function such as, for example, increasing the memory size available to our Function to 256MB:
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Define a new GET endpoint that just returns a 200 and "hello" in the body.
-const api = new awsx.apigateway.API("example", {
-    routes: [{
-        path: "/",
-        method: "GET",
-        eventHandler: new aws.lambda.CallbackFunction("get-handler", {
-            memorySize: 256,
-            callback: async (event) => {
-                // This code runs in an AWS Lambda anytime `/` is hit.
-                return {
-                    statusCode: 200,
-                    body: "Hello, API Gateway!",
-                };
-            },
-        }),
-    }],
-})
-
-// Export the auto-generated API Gateway base URL.
-export const url = api.url;
-```
-
-In many cases, you might want to define your application logic in a different set of files than your
-API Gateway infrastructure. Using modules lets you do this easily. For instance, we might have a subdirectory
-named `app/` that contains a `routes.js` file:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Define our routes, independent from the API Gateway itself.
-export async function helloHandler(
-        event: awsx.apigateway.Request): Promise<awsx.apigateway.Response> {
-    return {
-        statusCode: 200,
-        body: "Hello, API Gateway!",
-    };
-}
-```
-
-Then for our API Gateway infrastructure definition we can simply write:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-import * as routes from "./app/routes";
-
-// Define a new GET endpoint that just returns a 200 and "hello" in the body.
-const api = new awsx.apigateway.API("example", {
-    routes: [{ path: "/", method: "GET", eventHandler: routes.helloHandler }],
-})
-
-// Export the auto-generated API Gateway base URL.
-export const url = api.url;
-```
-
-If you prefer to keep your application and infrastructure code in entirely separate projects, you can define
-Lambdas in the usual way and consume them from the AWS API Gateway resources. For instance, if you already have a
-Lambda Function provisioned in AWS, you can reference it using `aws.lambda.Function.get`:
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Define a new GET endpoint from an existing Lambda Function.
-const api = new awsx.apigateway.API("example", {
-    routes: [{
-        path: "/",
-        method: "GET",
-        eventHandler: aws.lambda.Function.get("get-handler", "your_lambda_id"),
-    }],
-})
-
-// Export the auto-generated API Gateway base URL.
-export const url = api.url;
 ```
 
 For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}). Any of the techniques described may be used in combination with the `awsx.apigateway.API` class.
