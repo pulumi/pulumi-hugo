@@ -1,6 +1,6 @@
 ---
 # Name of the video.
-title: "Easily build container-based AWS Lambda functions using Pulumi"
+title: "Easily build container-based AWS Lambda Functions"
 meta_desc: "Watch as Pulumi VP of Engineering, Lee Zen, helps you to get started using Container Image Support in AWS Lambda."
 
 # A featured video will display first in the list.
