@@ -3,7 +3,7 @@ title: "Nov. 17 releases: `dependOn` Helm charts, new Elastic Cloud provider, fu
 date: 2021-11-17T08:00:00-07:00
 draft: false
 allow_long_title: true
-meta_desc: 
+meta_desc: The latest Pulumi updates include a new provider for Elastic Cloud, easier ways to create more complex infrastructure, better support for organizations, & more
 meta_image: meta.png
 authors:
     - alex-mullans
