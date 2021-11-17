@@ -25,7 +25,7 @@ is inexpensive, has no minimum fees, and you only pay for the API calls you rece
 Pulumi Crosswalk for Amazon Web Services (AWS) provides better AWS API management through significantly easier ways of programming an API Gateway. This includes using
 infrastructure as code techniques for simple, declarative APIs, including easy Lambda-based handlers.
 
-## Defining an AWS API Gateway Endpoint and Routes
+## Create and Configure Routes
 
 AWS API Gateway creates REST APIs that:
 
@@ -55,7 +55,7 @@ There are multiple ways to define APIs using Pulumi Crosswalk for AWS:
 
 Multiple endpoints on the same API Gateway can be defined using a combination of these techniques.
 
-### Defining a Lambda Function Event Handler Route
+### Lambda Request Handling
 
 An Event Handler Route is an API that will map to a [Lambda Function](https://aws.amazon.com/lambda/). You will specify
 the path, HTTP method, and the Lambda Function to invoke when the API is called. Pulumi offers multiple ways of defining
@@ -186,7 +186,7 @@ Hello, API Gateway!
 
 For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
 
-### Defining a Static Route Served by S3
+### Static File Serving with S3
 
 A Static Route serves static content from [S3](https://aws.amazon.com/s3/) at an API endpoint.
 
@@ -272,7 +272,7 @@ behavior in the static route, set the `index` to `false` as part of configuring 
 Finally, the content type for all files in a path referencing a directory is inferred. If the local path instead
 points to a single file, you can specify the content type explicitly with the `contentType` property.
 
-### Defining an Integration Route
+### Integration Routes
 
 If neither of the above route types work for you, [AWS API Gateway _integrations_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API
 Gateway endpoint to backend services that will execute code in response to requests. The previous lambda and 
@@ -367,194 +367,7 @@ ctx.Export("url", restAPI.Url)
 
 {{% /choosable %}}
 
-### Defining an OpenAPI Specification for an Entire Endpoint
-
-AWS API Gateway supports the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly known as
-"Swagger") for defining APIs. Using OpenAPI to define your APIs eases integration with other API authoring, modeling,
-and testing tools, at some added complexity cost as you will need to understand the mechanics of how API Gateway
-works and what HTTP headers it uses to accomplish its integrations.
-
-To use an OpenAPI specification to initialize your API Gateway, supply an entire OpenAPI specification as a string
-in the `swaggerString` property. For example, this API invokes an existing Lambda whose ID is `your_lambda_id`:
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Look up an existing Lambda Function by ID, so that we can get its ARN. (If we knew the ARN ahead
-// of time, this would not be necessary, we can just use it in the URI below.)
-const handler = aws.lambda.Function.get("get-handler", "your_lambda_id");
-
-// Define a GET endpoint that invokes our Lambda Function-based handler.
-const api = new awsx.apigateway.API("example", {
-    swaggerString: handler.arn.apply(arn => JSON.stringify({
-        "swagger": "2.0",
-        "info": {
-            "title": "example",
-            "version": "1.0",
-        },
-        "paths": {
-            "/": {
-                "get": {
-                    "x-amazon-apigateway-integration": {
-                        "httpMethod": "POST",
-                        "passthroughBehavior": "when_no_match",
-                        "type": "aws_proxy",
-                        "uri": `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${arn}/invocations`,
-                    },
-                },
-            },
-        },
-        "x-amazon-apigateway-api-key-source": "HEADER",
-        "x-amazon-apigateway-binary-media-types": [ "*/*" ],
-        "x-amazon-apigateway-gateway-responses": {
-            "ACCESS_DENIED": {
-                "responseTemplates": {
-                    "application/json": "{\"message\": \"404 Not found\" }",
-                },
-                "statusCode": 404,
-            },
-            "MISSING_AUTHENTICATION_TOKEN": {
-                "responseTemplates": {
-                    "application/json": "{\"message\": \"404 Not found\" }",
-                },
-                "statusCode": 404,
-            },
-        },
-    })),
-});
-
-// Export the auto-generated AWS API Gateway base URL.
-export const url = api.url;
-```
-
-This is more complex than the above examples, but this in an escape hatch that you can use to access any API
-Gateway features not yet supported by the easier abstractions in Pulumi Crosswalk for AWS API Gateway. You must manually
-provide permission for any route targets to be invoked by API Gateway when using this option.
-
-For more information about AWS API Gateway's support for OpenAPI, including exporting specifications from existing
-APIs for consumption from other tools, see [Documenting a REST API in API Gateway](
-https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html)
-
-### Defining an OpenAPI Specification for a Single Route
-
-Being able to provide an OpenAPI specification for an entire API Gateway lets you take matters into your own
-hands if you need to access a feature not supported directly by `awsx.apigateway.API`. However, if you'd like to
-define just a single API using OpenAPI, you can define a Raw Data Route, by supplying a `data` property.
-
-The `data` property is just the `x-amazon-apigateway-integration` object, which can be seen in the above example.
-The route's other parameters, such as its path and method, otherwise use the same approaches seen earlier.
-
-For instance, the same API Gateway endpoint that invokes a Lambda Function can be authored as follows:
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Look up an existing Lambda Function by ID, so that we can get its ARN. (If we knew the ARN ahead
-// of time, this would not be necessary, we can just use it in the URI below.)
-const handler = aws.lambda.Function.get("get-handler", "your_lambda_id");
-
-// Define a GET endpoint that invokes our Lambda Function-based handler.
-const api = new awsx.apigateway.API("example", {
-    routes: [{
-        path: "/",
-        method: "GET",
-        data: {
-            "x-amazon-apigateway-integration": {
-                "httpMethod": "POST",
-                "passthroughBehavior": "when_no_match",
-                "type": "aws_proxy",
-                "uri": handler.arn.apply(arn =>
-                    `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${arn}/invocations`),
-            },
-        },
-    }],
-});
-
-// Export the auto-generated AWS API Gateway base URL.
-export const url = api.url;
-```
-
-For full details on what the OpenAPI integration object may contain, refer to the full
-[x-amazon-apigateway-integration Object documentation](
-https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-integration.html).
-
-## Performing AWS API Gateway Request Validation
-
-API Gateway can perform basic validations against request parameters, a request payload or both. When a
-validation fails, a 400 error is returned immediately, without invoking the backend integration, and the
-validation results are published to the CloudWatch Logs, eliminating unnecessary calls to the backend.
-
-For basic validation, API Gateway verifies either or both of these conditions:
-
-* The required request parameters in the URI, query string, and headers of an incoming request are
-  included and non-blank.
-* The applicable request payload adheres to the configured JSON schema request model of the method.
-
-When enabling validation, you will choose a validation scope, in addition to validation rules.
-
-### Assigning Validators to APIs and Methods
-
-Validators can be assigned for an entire API or at the individual method level, such as only for `POST` on a given
-route. The validators defined at a method level override any validator set at the global API level.
-
-To enable validation, pass the `requestValidator` property on the API object or individual route. The following
-validator values are available:
-
-* `"ALL"`: Validate both the request body and request parameters.
-* `"BODY_ONLY"`: Validate only the request body.
-* `"PARAMS_ONLY"`:  Validate only the request parameters.
-
-For example, this enables parameter validation on all routes, and all validation on a specific route:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-const api = new awsx.apigateway.API("example", {
-    requestValidator: "PARAMS_ONLY",
-    routes: [
-        {
-            // ...
-            requestValidator: "ALL",
-        },
-        // ...
-    ],
-});
-```
-
-This enables validation already specified in the underlying models. The `awsx.apigateway.API` class also
-supports mechanisms to specify the validation rules in the API Gateway configuration.
-
-### Request Parameter Validation
-
-To validate that a given request parameter is present in each request, use the `requiredParams` route property.
-This is an array where each entry defines a different parameter. Each entry specifies the parameter `name` and where
-it is expected to be found (`"path"`, `"query"`, or `"header"`), using the `in` property.
-
-For example, this ensures that the `key` querystring parameter is present on all requests:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-const api = new awsx.apigateway.API("example", {
-    routes: [{
-        // ...
-        requestValidator: "PARAMS_ONLY",
-        requiredParams: [{ name: "key", in: "query" }],
-    }],
-})
-```
-
-For additional information about request validation, refer to [Enable Request Validation in AWS API Gateway](
-https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
-
-### Request Body Validation
-
-> Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
-> Comment on [this open issue](https://github.com/pulumi/pulumi-awsx/issues/198) with details about your use case.
-
-## Controlling and Managing Access to APIs
+## Controlling Access to APIs
 
 AWS API Gateway supports several mechanisms for controlling and managing access to your APIs. This includes authentication
 and authorization -- e.g., resource policies, standard AWS IAM roles and policies, Cognito user pools, and Lambda
@@ -573,7 +386,7 @@ Details on each is below. For those not directly supported, all of these capabil
 [Controlling and Managing Access to a REST API in AWS API Gateway](
 https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html).
 
-### Authorizing Requests using Cognito Authorizers
+### Cognito Authorizers
 
 [Cognito Authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
 allow you to use [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html)
@@ -606,7 +419,7 @@ const apiWithCognitoAuthorizer = new awsx.apigateway.API("cognito-protected-api"
 
 This will require that a user authenticate, obtain an identity/access token, and call your API with said token.
 
-### Authorizing Requests using Lambda Authorizers
+### Lambda Authorizers
 
 [Lambda Authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
 are AWS Lambda Functions that control access to an API. This allows you to use information in the request itself,
@@ -874,6 +687,80 @@ const api = new awsx.apigateway.API("myapi", {
 If you prefer, you can return the [AuthorizerResponse](
 {{< relref "/docs/reference/pkg/nodejs/pulumi/awsx/apigateway#Authorizer" >}}) data structure explicitly.
 
+## Request Validation
+
+API Gateway can perform basic validations against request parameters, a request payload or both. When a
+validation fails, a 400 error is returned immediately, without invoking the backend integration, and the
+validation results are published to the CloudWatch Logs, eliminating unnecessary calls to the backend.
+
+For basic validation, API Gateway verifies either or both of these conditions:
+
+* The required request parameters in the URI, query string, and headers of an incoming request are
+  included and non-blank.
+* The applicable request payload adheres to the configured JSON schema request model of the method.
+
+When enabling validation, you will choose a validation scope, in addition to validation rules.
+
+### Assigning Validators to APIs and Methods
+
+Validators can be assigned for an entire API or at the individual method level, such as only for `POST` on a given
+route. The validators defined at a method level override any validator set at the global API level.
+
+To enable validation, pass the `requestValidator` property on the API object or individual route. The following
+validator values are available:
+
+* `"ALL"`: Validate both the request body and request parameters.
+* `"BODY_ONLY"`: Validate only the request body.
+* `"PARAMS_ONLY"`:  Validate only the request parameters.
+
+For example, this enables parameter validation on all routes, and all validation on a specific route:
+
+```typescript
+import * as awsx from "@pulumi/awsx";
+
+const api = new awsx.apigateway.API("example", {
+    requestValidator: "PARAMS_ONLY",
+    routes: [
+        {
+            // ...
+            requestValidator: "ALL",
+        },
+        // ...
+    ],
+});
+```
+
+This enables validation already specified in the underlying models. The `awsx.apigateway.API` class also
+supports mechanisms to specify the validation rules in the API Gateway configuration.
+
+### Request Parameter Validation
+
+To validate that a given request parameter is present in each request, use the `requiredParams` route property.
+This is an array where each entry defines a different parameter. Each entry specifies the parameter `name` and where
+it is expected to be found (`"path"`, `"query"`, or `"header"`), using the `in` property.
+
+For example, this ensures that the `key` querystring parameter is present on all requests:
+
+```typescript
+import * as awsx from "@pulumi/awsx";
+
+const api = new awsx.apigateway.API("example", {
+    routes: [{
+        // ...
+        requestValidator: "PARAMS_ONLY",
+        requiredParams: [{ name: "key", in: "query" }],
+    }],
+})
+```
+
+For additional information about request validation, refer to [Enable Request Validation in AWS API Gateway](
+https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
+
+### Request Body Validation
+
+> Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
+> Comment on [this open issue](https://github.com/pulumi/pulumi-awsx/issues/198) with details about your use case.
+
 ### Tracking and Limiting Requests with Usage Plans with API Keys
 
 After you create, test, and deploy your APIs, you can use AWS API Gateway usage plans to make them available to your
@@ -946,7 +833,7 @@ For more information about Usage Plans and API Keys, refer to
 [Create and Use Usage Plans with API Keys](
 https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
 
-## Configuring AWS API Gateway Custom Domains and SSL using Route53 and ACM
+## Custom Domains and SSL
 
 AWS API Gateway will automatically provision and assign a domain name, URL that contains the stage, and SSL
 support. It will look something like `https://no90ji5v23.execute-api.us-west-2.amazonaws.com/stage/`. The host
@@ -1071,6 +958,121 @@ const webDnsRecord = new aws.route53.Record("webDnsRecord", {
 For more information about the options and levels of customizability available for edge-optimized AWS API Gateways
 and custom domains, refer to [Set up Custom Domain Name for an API in API Gateway](
 https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+
+## OpenAPI
+
+AWS API Gateway supports the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly known as
+"Swagger") for defining APIs. Using OpenAPI to define your APIs eases integration with other API authoring, modeling,
+and testing tools, at some added complexity cost as you will need to understand the mechanics of how API Gateway
+works and what HTTP headers it uses to accomplish its integrations.
+
+### Defining an Entire Endpoint
+
+To use an OpenAPI specification to initialize your API Gateway, supply an entire OpenAPI specification as a string
+in the `swaggerString` property. For example, this API invokes an existing Lambda whose ID is `your_lambda_id`:
+
+```typescript
+import * as aws from "@pulumi/aws";
+import * as awsx from "@pulumi/awsx";
+
+// Look up an existing Lambda Function by ID, so that we can get its ARN. (If we knew the ARN ahead
+// of time, this would not be necessary, we can just use it in the URI below.)
+const handler = aws.lambda.Function.get("get-handler", "your_lambda_id");
+
+// Define a GET endpoint that invokes our Lambda Function-based handler.
+const api = new awsx.apigateway.API("example", {
+    swaggerString: handler.arn.apply(arn => JSON.stringify({
+        "swagger": "2.0",
+        "info": {
+            "title": "example",
+            "version": "1.0",
+        },
+        "paths": {
+            "/": {
+                "get": {
+                    "x-amazon-apigateway-integration": {
+                        "httpMethod": "POST",
+                        "passthroughBehavior": "when_no_match",
+                        "type": "aws_proxy",
+                        "uri": `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${arn}/invocations`,
+                    },
+                },
+            },
+        },
+        "x-amazon-apigateway-api-key-source": "HEADER",
+        "x-amazon-apigateway-binary-media-types": [ "*/*" ],
+        "x-amazon-apigateway-gateway-responses": {
+            "ACCESS_DENIED": {
+                "responseTemplates": {
+                    "application/json": "{\"message\": \"404 Not found\" }",
+                },
+                "statusCode": 404,
+            },
+            "MISSING_AUTHENTICATION_TOKEN": {
+                "responseTemplates": {
+                    "application/json": "{\"message\": \"404 Not found\" }",
+                },
+                "statusCode": 404,
+            },
+        },
+    })),
+});
+
+// Export the auto-generated AWS API Gateway base URL.
+export const url = api.url;
+```
+
+This is more complex than the above examples, but this in an escape hatch that you can use to access any API
+Gateway features not yet supported by the easier abstractions in Pulumi Crosswalk for AWS API Gateway. You must manually
+provide permission for any route targets to be invoked by API Gateway when using this option.
+
+For more information about AWS API Gateway's support for OpenAPI, including exporting specifications from existing
+APIs for consumption from other tools, see [Documenting a REST API in API Gateway](
+https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html)
+
+### Defining a Single Route
+
+Being able to provide an OpenAPI specification for an entire API Gateway lets you take matters into your own
+hands if you need to access a feature not supported directly by `awsx.apigateway.API`. However, if you'd like to
+define just a single API using OpenAPI, you can define a Raw Data Route, by supplying a `data` property.
+
+The `data` property is just the `x-amazon-apigateway-integration` object, which can be seen in the above example.
+The route's other parameters, such as its path and method, otherwise use the same approaches seen earlier.
+
+For instance, the same API Gateway endpoint that invokes a Lambda Function can be authored as follows:
+
+```typescript
+import * as aws from "@pulumi/aws";
+import * as awsx from "@pulumi/awsx";
+
+// Look up an existing Lambda Function by ID, so that we can get its ARN. (If we knew the ARN ahead
+// of time, this would not be necessary, we can just use it in the URI below.)
+const handler = aws.lambda.Function.get("get-handler", "your_lambda_id");
+
+// Define a GET endpoint that invokes our Lambda Function-based handler.
+const api = new awsx.apigateway.API("example", {
+    routes: [{
+        path: "/",
+        method: "GET",
+        data: {
+            "x-amazon-apigateway-integration": {
+                "httpMethod": "POST",
+                "passthroughBehavior": "when_no_match",
+                "type": "aws_proxy",
+                "uri": handler.arn.apply(arn =>
+                    `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${arn}/invocations`),
+            },
+        },
+    }],
+});
+
+// Export the auto-generated AWS API Gateway base URL.
+export const url = api.url;
+```
+
+For full details on what the OpenAPI integration object may contain, refer to the full
+[x-amazon-apigateway-integration Object documentation](
+https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-integration.html).
 
 ## Additional API Gateway Resources
 
