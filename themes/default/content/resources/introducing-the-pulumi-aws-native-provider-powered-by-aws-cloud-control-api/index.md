@@ -54,7 +54,7 @@ main:
 transcript: |
     Hi there, Laura from Pulumi here. Today, we're going to go check out the new native provider for AWS, that you can use with Pulumi. Native providers work directly with the cloud providers resource model. In this case, we're working with AWS's Cloud Control API, which directly accesses AWS's resource model. That means you get direct access to the resource model as well. Built only by AWS. You can rely on everything that they have, and you're not really relying on any kind of a bridge.
 
-    But what does that really mean for you as the user? Well, you get same-day updates. If you see something really cool at re:Invent, as long as it's on the AWS, it's out for Pulumi. In addition, you get a solid and reliable provisioning experience, just like you're using the console.
+    But what does that really mean for you as the user? Well, you get same-day updates. If you see something really cool at re:Invent, as long as it's on AWS, it's out for Pulumi. In addition, you get a solid and reliable provisioning experience, just like you're using the console.
 
     Finally, of course, you can use any programming language that works with Pulumi, just like you've come to know and love. Enough about the high level stuff though. Let's go code.
 
