@@ -68,12 +68,12 @@ This example creates an AWS API Gateway endpoint with a single API, listening at
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as apigateway from "@pulumi/aws-apigateway";
 import * as aws from "@pulumi/aws";
+import * as apigateway from "@pulumi/aws-apigateway";
 
-// Create a Lambda Function
 const helloHandler = new aws.lambda.CallbackFunction("hello-handler", {
     callback: async (ev, ctx) => {
+        console.log(JSON.stringify(ev));
         return {
             statusCode: 200,
             body: "Hello, API Gateway!",
@@ -81,7 +81,7 @@ const helloHandler = new aws.lambda.CallbackFunction("hello-handler", {
     },
 });
 
-// Create a REST API that invokes the Lambda Function
+// Define an endpoint that invokes a lambda to handle requests
 const api = new apigateway.RestAPI("api", {
     routes: [{
         path: "/",
@@ -98,12 +98,17 @@ export const url = api.url;
 {{% choosable language python %}}
 
 ```python
+import json
+import pulumi
+import pulumi_aws as aws
+import pulumi_apigateway as apigateway
+
 # Create a Lambda Function
 # helloHandler = ...
 
-# Create a REST API that invokes the Lambda Function and uses a few other route kinds
+# Define an endpoint that invokes a lambda to handle requests
 api = apigateway.RestAPI('api', routes=[
-    apigateway.RouteArgs(path="/", method="GET", event_handler=helloHandler)
+    apigateway.RouteArgs(path="/", method="GET", event_handler=helloHandler),
 ])
 
 pulumi.export('url', api.url)
@@ -117,17 +122,20 @@ pulumi.export('url', api.url)
 // Create a Lambda Function
 // helloHandler, err := ...
 
-// Create a REST API that invokes the Lambda Function
+// Define an endpoint that invokes a lambda to handle requests
 getMethod := apigateway.MethodGET
 restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
     Routes: []apigateway.RouteArgs{
-        apigateway.RouteArgs{
+        {
             Path:         "/",
             Method:       &getMethod,
             EventHandler: helloHandler,
         },
     },
 })
+if err != nil {
+    return err
+}
 
 ctx.Export("url", restAPI.Url)
 ```
@@ -176,14 +184,13 @@ $ curl $(pulumi stack output url)
 Hello, API Gateway!
 ```
 
-For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}). Any of the techniques described may be used in combination with the `awsx.apigateway.API` class.
+For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
 
 ### Defining a Static Route Served by S3
 
 A Static Route serves static content from [S3](https://aws.amazon.com/s3/) at an API endpoint.
 
-To ease population of the S3 bucket to serve from, and connecting it to the API Gateway, you specify the local path --
-either a file or an entire directory -- and Pulumi will upload the contents as S3 objects.
+With the API Gateway component, you specify a local path (either a file or an entire directory) and we will manage the creation of the S3 bucket and the synchronisation of the files to S3 objects.
 
 Let's say we have a directory `www` containing a single `index.html` file:
 
@@ -193,20 +200,64 @@ Let's say we have a directory `www` containing a single `index.html` file:
 
 The following program will create an AWS API Gateway that serves this content at the `/` URL:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
+{{< chooser language "typescript,python,go" / >}}
 
-// Define a GET endpoint that serves an entire directory of static content.
-const api = new awsx.apigateway.API("example", {
+{{% choosable language "javascript,typescript" %}}
+
+```typescript
+import * as apigateway from "@pulumi/aws-apigateway";
+
+// Define an endpoint that serves an entire directory of static content.
+const api = new apigateway.RestAPI("api", {
     routes: [{
         path: "/",
         localPath: "www",
     }],
-})
+});
 
-// Export the auto-generated API Gateway base URL.
 export const url = api.url;
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import json
+import pulumi
+import pulumi_apigateway as apigateway
+
+# Define an endpoint that serves an entire directory of static content.
+api = apigateway.RestAPI('api', routes=[
+    apigateway.RouteArgs(path="/", local_path="www"),
+])
+
+pulumi.export('url', api.url)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+// Define an endpoint that serves an entire directory of static content.
+localPath := "www"
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+    Routes: []apigateway.RouteArgs{
+        {
+            Path:      "/",
+            LocalPath: &localPath,
+        },
+    },
+})
+if err != nil {
+    return err
+}
+
+ctx.Export("url", restAPI.Url)
+```
+
+{{% /choosable %}}
 
 After running `pulumi up`, we can `curl` the resulting endpoint:
 
@@ -216,46 +267,16 @@ $ curl $(pulumi stack output url)
 ```
 
 By default, any index documents will be automatically served by S3 when directories are retrieved over HTTP. (See [AWS: Configuring an Index Document](https://docs.aws.amazon.com/AmazonS3/latest/dev/IndexDocumentSupport.html).) To suppress this
-behavior, simply pass `index: false` as part of configuring your static route:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Define a GET endpoint that serves an entire directory of static content.
-const api = new awsx.apigateway.API("example", {
-    routes: [{
-        path: "/",
-        localPath: "www",
-        index: false,
-    }],
-})
-
-// Export the auto-generated API Gateway base URL.
-export const url = api.url;
-```
-
-After making this change, the earlier `curl` command will return a 404:
-
-```bash
-$ curl $(pulumi stack output url)
-{ "message": "404 Not found" }
-```
-
-We must instead request the `index.html` document explicitly:
-
-```bash
-$ curl $(pulumi stack output url)/index.html
-<h1>Hello, AWS API Gateway + S3!</h1>
-```
+behavior in the static route, set the `index` to `false` as part of configuring your static route. Alternatively, to use a different default document name, set `index` to a string containing the file name e.g. `default.html`.
 
 Finally, the content type for all files in a path referencing a directory is inferred. If the local path instead
 points to a single file, you can specify the content type explicitly with the `contentType` property.
 
 ### Defining an Integration Route
 
-If neither of the above route types work for you, AWS API Gateway uses so-called _integrations_ to hook up an API
-Gateway endpoint to backend services that will execute code in response to requests. The above examples use
-integrations internally, even if it's not evident in the simple interface exposed.
+If neither of the above route types work for you, [AWS API Gateway _integrations_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API
+Gateway endpoint to backend services that will execute code in response to requests. The previous lambda and 
+static examples use integrations internally, even if it's not evident in the simple interface exposed.
 
 Integrations give you full control over how HTTP requests are handled, and responses served, by an API Gateway
 route. If you want more flexibility than the earlier methods, to proxy HTTP requests, to integrate with
@@ -280,26 +301,71 @@ An Integration Route is a route that will map an endpoint to a specified backend
 The following example sets up an `http_proxy` integration type that simply passes requests/responses directly
 through to another endpoint, in this case `https://www.google.com`:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
+{{< chooser language "typescript,python,go" / >}}
 
-// Define a GET endpoint that proxies HTTP requests to https://www.google.com.
-const api = new awsx.apigateway.API("example", {
+{{% choosable language "javascript,typescript" %}}
+
+```typescript
+import * as apigateway from "@pulumi/aws-apigateway";
+
+// Define an endpoint that proxies HTTP requests to https://www.google.com.
+const api = new apigateway.RestAPI("api", {
     routes: [{
-        path: "/google",
+        path: "/",
         target: {
             type: "http_proxy",
             uri: "https://www.google.com",
-        },
+        }
     }],
 });
 
-// Export the auto-generated AWS API Gateway base URL.
 export const url = api.url;
 ```
 
-For more information AWS API Gateway Integrations, visit the
-[AWS documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html).
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import json
+import pulumi
+import pulumi_apigateway as apigateway
+
+# Define an endpoint that proxies HTTP requests to https://www.google.com.
+api = apigateway.RestAPI('api', routes=[
+    apigateway.RouteArgs(path="/integration", target=apigateway.TargetArgs(uri="https://www.google.com", type="http_proxy"))
+])
+
+pulumi.export('url', api.url)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+// Define an endpoint that proxies HTTP requests to https://www.google.com.
+getMethod := apigateway.MethodGET
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+    Routes: []apigateway.RouteArgs{
+        {
+            Path:   "/",
+            Method: &getMethod,
+            Target: apigateway.TargetArgs{
+                Type: apigateway.IntegrationType_Http_proxy,
+                Uri:  pulumi.String("https://www.google.com"),
+            },
+        },
+    },
+})
+if err != nil {
+    return err
+}
+
+ctx.Export("url", restAPI.Url)
+```
+
+{{% /choosable %}}
 
 ### Defining an OpenAPI Specification for an Entire Endpoint
 
