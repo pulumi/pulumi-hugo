@@ -1,7 +1,7 @@
 ---
 title: "Abstraction and Encapsulation"
 layout: module
-date: 2021-11-17T16:25:19-08:00
+date: 2021-11-17
 draft: true
 description: |
     Explore abstraction and encapsulation with Pulumi programs using packages
@@ -62,5 +62,9 @@ Pulumi for other projects.
 In this pathway, we will explore how you could use Pulumi as a tool to help you
 abstract and encapsulate your resource definitions as reusable models and
 packages for others to use.
+
+Note that this pathway will not have as many code samples to use as we will be
+defining patterns, exploring architecture, and discussing procedures for
+Registry publication.
 
 This pathway is considered an advanced pathway.

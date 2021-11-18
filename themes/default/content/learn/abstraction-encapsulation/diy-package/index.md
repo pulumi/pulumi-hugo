@@ -1,5 +1,5 @@
 ---
-title: "Abstraction"
+title: "Building a Package"
 layout: topic
 date: 2021-11-17
 draft: true
@@ -7,7 +7,7 @@ description: |
     Here is a brief description of what this topic will cover.
 meta_desc: |
     Here is a brief description of what this topic will cover.
-index: 0
+index: 4
 estimated_time: 10
 meta_image: meta.png
 authors:
@@ -20,8 +20,10 @@ links:
 block_external_search_index: true
 ---
 
-## Breaking apart Pulumi code
+## Creating a schema
 
-## Understanding resources as objects
+## Building the SDKs
 
-## Sharing abstractions (or when is this a package?)
+## Publishing your package
+
+## Getting on the Pulumi Registry
