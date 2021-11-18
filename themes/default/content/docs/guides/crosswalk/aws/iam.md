@@ -369,7 +369,7 @@ const devs = new aws.iam.Group("devs", {
     path: "/users/",
 });
 const myDeveloperPolicy = new aws.iam.GroupPolicy("my_developer_policy", {
-    group: devs,
+    group: devs.id,
     policy: {
         Version: "2012-10-17",
         Statement: [{
