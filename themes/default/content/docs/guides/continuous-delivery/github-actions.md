@@ -397,10 +397,10 @@ any resource changes will be left on the Pull Request, as well as links to the P
 Console for more detailed information.
 
 You can install the Pulumi GitHub App now, by visiting
-[github.com/apps/pulumi](https://github.com/apps/pulumi) or clicking the button below.
+[github.com/apps/pulumi](https://github.com/apps/pulumi).
 
 <a class="btn" href="https://github.com/apps/pulumi" target="_blank">
-    INSTALL
+    Install
 </a>
 
 Example comment when using the Pulumi GitHub App:
