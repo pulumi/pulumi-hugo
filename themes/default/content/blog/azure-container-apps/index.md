@@ -77,6 +77,7 @@ Comparing to other vendors: Azure Container Apps are in the same space as **Goog
 Let's walk through the steps to build an example application with Azure Container Apps using infrastructure as code in familiar languages. In this scenario, we create an HTTP application that is available via a public domain name. We'll use Pulumi to provision the necessary resources. In this example, we will use TypeScript however you could also use JavaScript, Python, Go, and C#.
 
 You can check out the complete source code in the Pulumi Examples:
+
 - [TypeScript Azure Container Apps Example](https://github.com/pulumi/examples/tree/master/azure-ts-containerapps)
 - [C# Azure Container Apps Example](https://github.com/pulumi/examples/tree/master/azure-cs-containerapps)
 - [Python Azure Container Apps Example](https://github.com/pulumi/examples/tree/master/azure-py-containerapps)
