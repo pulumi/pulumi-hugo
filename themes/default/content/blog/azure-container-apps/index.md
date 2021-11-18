@@ -491,7 +491,7 @@ This post shows how to use Pulumi to build a container image and publish it as a
 - [Get Started with Pulumi for Azure today.]({{<relref "/docs/get-started/azure">}})
 - [Read about Azure Container Apps announcement.](https://aka.ms/containerapps/ignite-blog)
 
-#### Check out the complete Azure Container Apps example
+#### Complete Azure Container Apps example
 
 - [TypeScript Azure Container Apps Example](https://github.com/pulumi/examples/tree/master/azure-ts-containerapps)
 - [C# Azure Container Apps Example](https://github.com/pulumi/examples/tree/master/azure-cs-containerapps)
