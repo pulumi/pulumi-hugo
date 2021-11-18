@@ -43,8 +43,9 @@ The fastest way to get up and running is to choose from one of the following Get
     </div>
 </div>
 
-> The Getting Started guides currently only demonstrate C#. For F# and Visual Basic,
-> they will work just fine &mdash; the guides simply aren't ready for them yet.
+{{% notes "info" %}}
+The Getting Started guides only demonstrate C#, but will also work for F# and Visual Basic.
+{{% /notes %}}
 
 ## Prerequisites
 
