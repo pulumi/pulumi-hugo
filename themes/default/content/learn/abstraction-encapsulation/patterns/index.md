@@ -1,5 +1,5 @@
 ---
-title: "Cloud Engineering Design Patterns"
+title: "Exploring Cloud Engineering Design Patterns"
 layout: topic
 date: 2021-11-17
 draft: true

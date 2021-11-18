@@ -1,5 +1,5 @@
 ---
-title: "Encapsulation"
+title: "Understanding Encapsulation"
 layout: topic
 date: 2021-11-17
 draft: true
