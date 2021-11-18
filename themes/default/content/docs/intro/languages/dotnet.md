@@ -22,22 +22,22 @@ The fastest way to get up and running is to choose from one of the following Get
 
 <div class="tiles mt-4">
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/aws" >}}">
+        <a class="tile p-4" href="{{< relref "/docs/get-started/aws/?language=csharp" >}}">
             <img class="h-8 mx-auto" src="/logos/tech/aws.svg" alt="AWS">
         </a>
     </div>
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/azure" >}}">
+        <a class="tile p-4" href="{{< relref "/docs/get-started/azure/?language=csharp" >}}">
             <img class="h-8 mx-auto" src="/logos/tech/azure.svg" alt="Azure">
         </a>
     </div>
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/gcp" >}}">
+        <a class="tile p-4" href="{{< relref "/docs/get-started/gcp/?language=csharp" >}}">
             <img class="h-8 mx-auto" src="/logos/tech/gcp.svg" alt="Google Cloud">
         </a>
     </div>
     <div class="flex-1 pb-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/kubernetes" >}}">
+        <a class="tile p-4" href="{{< relref "/docs/get-started/kubernetes/?language=csharp" >}}">
             <img class="h-8 mx-auto" src="/logos/tech/k8s.svg" alt="Kubernetes">
         </a>
     </div>
