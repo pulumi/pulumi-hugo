@@ -383,7 +383,7 @@ const myDeveloperPolicy = new aws.iam.GroupPolicy("my_developer_policy", {
 // Finally add the users as members to this group.
 const devTeam = new aws.iam.GroupMembership("dev-team", {
     group: devs.id,
-    users: [ jane, mary ],
+    users: [ jane.id, mary.id ],
 });
 ```
 
