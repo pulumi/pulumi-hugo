@@ -70,8 +70,28 @@
                     <li>
                         <a href="{{ relref . "/pricing" }}">Pricing</a>
                     </li>
-                    <li>
-                        <a href="{{ relref . "/docs" }}">Docs</a>
+                    <li class="header-nav-item-drop-down">
+                        <span class="dropdown-title">Docs</span>
+                        <span class="dropdown-menu-caret"></span>
+                        <div class="header-nav-drop-down-menu">
+                            <ul>
+                                <li>
+                                    <a href="{{ relref . "/docs" }}">
+                                        Docs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ relref . "/registry" }}">
+                                        Registry
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ relref . "/docs/reference/pulumi-sdk" }}">
+                                        SDK Reference
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="header-nav-item-drop-down">
                         <span class="dropdown-title">Learn</span>
@@ -129,7 +149,10 @@
 
                         <li class="mobile-menu-item"><a href="{{ relref . "/pricing" }}">Pricing</a></li>
 
-                        <li class="mobile-menu-item"><a href="{{ relref . "/docs" }}">Docs</a></li>
+                        <li class="mobile-menu-item whitespace-nowrap"><a href="{{ relref . "/docs" }}">Docs</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/docs" }}">Docs</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/registry" }}">Registry</a></li>
+                        <li class="mobile-menu-subitem"><a href="{{ relref . "/docs/reference/pulumi-sdk" }}">SDK Reference</a></li>
 
                         <li class="mobile-menu-item"><a href="#">Learn</a></li>
                         <li class="mobile-menu-subitem"><a href="{{ relref . "/blog" }}">Blog</a></li>
