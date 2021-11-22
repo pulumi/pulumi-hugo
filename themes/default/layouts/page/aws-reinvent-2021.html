@@ -3,11 +3,11 @@
 {{ end }}
 
 {{ define "main" }}
-    <section id="overview" class="max-w-5xl mx-auto">
+    <section id="overview" class="max-w-5xl mx-auto p-3">
         <h2>Events</h2>
         <div class="flex flex-col lg:flex-row justify-center items-stretch my-8">
             {{ range $item := .Params.events.items }}
-                <div class="w-full lg:w-1/2 p-2">
+                <div class="w-full lg:w-1/2 p-2 my-6">
                     <div class="card p-6 text-center bg-white h-full relative">
                         <div>
                             {{ partial "color-icon.html" (dict "icon" $item.icon "icon_color" $item.icon_color) }}
@@ -24,7 +24,7 @@
         </div>
     </section>
 
-    <section id="details" class="max-w-5xl mx-auto">
+    <section id="details" class="max-w-5xl mx-auto p-3">
         <h2>Newsroom</h2>
         <div class="flex flex-wrap lg:flex-row justify-center items-stretch my-8">
             {{ range $item := .Params.newsroom }}
@@ -44,7 +44,7 @@
         </div>
     </section>
 
-    <section id="cta" class="max-w-5xl mx-auto">
+    <section id="cta" class="max-w-5xl mx-auto p-3">
         <h2>{{ .Params.hiring.title }}</h2>
         <p>{{ .Params.hiring.description | markdownify }}
         <ul class="list-none p-0 border-t-2 border-b-2" data-faq-type="faq-pricing">
