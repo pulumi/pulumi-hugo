@@ -3,11 +3,11 @@ title: "AWS re:Invent 2021"
 meta_desc: "Join the Pulumi team in the exhibit hall where we will be showcasing the latest Pulumi features and answering any and all questions about the cloud."
 
 events:
-  title: The benefits of using Pulumi
+  title: Events
   items:
-    - title: AWS Dev Days Getting started Pululmi on AWS
+    - title: AWS Dev Days Getting Started Pulumi on AWS
       url: /resources/aws-dev-day-getting-started-with-aws/
-      date: 2021-12-14T09:00:00-07:00
+      date: 2021-12-14T09:00:00-08:00
       icon: code-window
       icon_color: salmon
       description: |
@@ -15,30 +15,32 @@ events:
 
     - title: AWS - Howdy Partner
       url: /resources/aws-howdy-partner-twitch/
-      date: 2021-12-08T14:00:00-07:00
+      date: 2021-12-08T14:00:00-08:00
       icon: download-from-cloud
       icon_color: violet
       description: |
         Join Pulumi and the AWS team for a fun live coding session showing off the new AWS Native Provider.
 
 newsroom:
-  - title: Announcing the Pulumi AWS Native Provider
-    url: /blog/announcing-aws-native/
-    icon: nodes
-    icon_color: purple
-    description: "Pulumi Native Providers like AWS Native are a new type of Pulumi Package that give you a complete and consistent interface for the modern cloud."
+  title: Newsroom
+  items:
+    - title: Announcing the Pulumi AWS Native Provider
+      url: /blog/announcing-aws-native/
+      icon: nodes
+      icon_color: purple
+      description: "Pulumi Native Providers like AWS Native are a new type of Pulumi Package that give you a complete and consistent interface for the modern cloud."
 
-  - title: Eureka! How Pulumi Brought Sanity to Our DevOps Team
-    url: https://www.anitian.com/eureka-how-pulumi-brought-sanity-to-our-devops-team/
-    icon: guage
-    icon_color: salmon
-    description: "Learn how Anitian used Pulumi help accelerate their cloud usage an achieve their strategic business goals."
+    - title: Eureka! How Pulumi Brought Sanity to Our DevOps Team
+      url: https://www.anitian.com/eureka-how-pulumi-brought-sanity-to-our-devops-team/
+      icon: guage
+      icon_color: salmon
+      description: "Learn how Anitian used Pulumi help accelerate their cloud usage an achieve their strategic business goals."
 
-  - title: AWS Lambda Functions Powered by AWS Graviton2 Processors
-    url: /blog/aws-lambda-functions-powered-by-graviton2/
-    icon: download-from-cloud
-    icon_color: yellow
-    description: "Let’s use Pulumi to deploy a new AWS Lambda Function using a Graviton2 architecture."
+    - title: AWS Lambda Functions Powered by AWS Graviton2 Processors
+      url: /blog/aws-lambda-functions-powered-by-graviton2/
+      icon: download-from-cloud
+      icon_color: yellow
+      description: "Let’s use Pulumi to deploy a new AWS Lambda Function using a Graviton2 architecture."
 
 
 hiring:
