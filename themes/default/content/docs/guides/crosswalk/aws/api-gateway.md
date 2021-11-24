@@ -22,8 +22,11 @@ is inexpensive, has no minimum fees, and you only pay for the API calls you rece
 
 ## Overview
 
-Pulumi Crosswalk for Amazon Web Services (AWS) provides better AWS API management through significantly easier ways of programming an API Gateway. This includes using
-infrastructure as code techniques for simple, declarative APIs, including easy Lambda-based handlers.
+Pulumi Crosswalk for Amazon Web Services (AWS) provides better AWS API management through significantly easier
+ways of programming an API Gateway. This includes using infrastructure as code techniques for simple, declarative
+APIs, including easy Lambda integration.
+
+Full examples can be found in the [Pulumi Registry for the AWS API Gateway component](https://www.pulumi.com/registry/packages/aws-apigateway/).
 
 ## Create and Configure Routes
 
@@ -38,7 +41,7 @@ Each API Gateway instance defines a new API endpoint and a collection of API rou
 > Internally the API Gateway resource uses a collection of supporting objects, like resources, methods, and more,
 > however one of the benefits of Pulumi Crosswalk for AWS is that it hides these mechanics behind a simpler interface.
 
-Each API Gateway deployment is associated with a so-called _stage_. A stage is simply a version of your API, such
+Each API Gateway deployment is associated with a _stage_. A stage is simply a version of your API, such
 as `stage`, `prod`, `v1`, or `v2`. For simple APIs, you will likely just have one. You can always define a custom
 stage name, but if you leave it off, a default of `stage` will be chosen.
 
@@ -61,7 +64,15 @@ An Event Handler Route is an API that will map to a [Lambda Function](https://aw
 the path, HTTP method, and the Lambda Function to invoke when the API is called. Pulumi offers multiple ways of defining
 the Lambda Function and it provisions the appropriate permissions so that API Gateway can communicate with it.
 
-This example creates an AWS API Gateway endpoint with a single API, listening at `/` for `GET` requests, which simply returns a `200 OK` for each call:
+This example creates an AWS API Gateway endpoint with a single API, listening at `/` for `GET` requests, which simply returns a `200 OK` for each call.
+
+The path can be parameterized to match specific patterns:
+
+- A literal pattern e.g. `/pets` will only match `/pets`
+- A parameterized patern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
+- A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
+
+For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
 
 {{< chooser language "typescript,python,go" / >}}
 
@@ -71,9 +82,9 @@ This example creates an AWS API Gateway endpoint with a single API, listening at
 import * as aws from "@pulumi/aws";
 import * as apigateway from "@pulumi/aws-apigateway";
 
+// Create a Lambda Function
 const helloHandler = new aws.lambda.CallbackFunction("hello-handler", {
   callback: async (ev, ctx) => {
-    console.log(JSON.stringify(ev));
     return {
       statusCode: 200,
       body: "Hello, API Gateway!",
@@ -100,13 +111,12 @@ export const url = api.url;
 {{% choosable language python %}}
 
 ```python
-import json
 import pulumi
 import pulumi_aws as aws
 import pulumi_apigateway as apigateway
 
 # Create a Lambda Function
-# helloHandler = ...
+# helloHandler = aws.lambda_.Function(...)
 
 # Define an endpoint that invokes a lambda to handle requests
 api = apigateway.RestAPI('api', routes=[
@@ -116,13 +126,24 @@ api = apigateway.RestAPI('api', routes=[
 pulumi.export('url', api.url)
 ```
 
+Create the Lambda handler:
+
+```python
+def handler(event, context):
+    print(event)
+    return {
+        "statusCode": 200,
+        "body": "Hello, API Gateway!",
+    }
+```
+
 {{% /choosable %}}
 
 {{% choosable language go %}}
 
 ```go
 // Create a Lambda Function
-// helloHandler, err := ...
+// helloHandler, err := lambda.NewFunction(...)
 
 // Define an endpoint that invokes a lambda to handle requests
 getMethod := apigateway.MethodGET
@@ -135,11 +156,30 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
         },
     },
 })
-if err != nil {
-    return err
-}
 
 ctx.Export("url", restAPI.Url)
+```
+
+Create the Lambda handler:
+
+```go
+package main
+
+import (
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	return events.APIGatewayProxyResponse{
+		StatusCode: 200,
+		Body:       "Hello, API Gateway!",
+	}, nil
+}
+
+func main() {
+	lambda.Start(handler)
+}
 ```
 
 {{% /choosable %}}
@@ -186,15 +226,13 @@ $ curl $(pulumi stack output url)
 Hello, API Gateway!
 ```
 
-For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
-
 ### Static File Serving with S3
 
 A Static Route serves static content from [S3](https://aws.amazon.com/s3/) at an API endpoint.
 
 With the API Gateway component, you specify a local path (either a file or an entire directory) and we will manage the creation of the S3 bucket and the synchronisation of the files to S3 objects.
 
-Let's say we have a directory `www` containing a single `index.html` file:
+If we have a directory `www` containing a `index.html` file:
 
 ```html
 <h1>Hello, AWS API Gateway + S3!</h1>
@@ -207,8 +245,6 @@ The following program will create an AWS API Gateway that serves this content at
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as apigateway from "@pulumi/aws-apigateway";
-
 // Define an endpoint that serves an entire directory of static content.
 const api = new apigateway.RestAPI("api", {
   routes: [
@@ -218,8 +254,6 @@ const api = new apigateway.RestAPI("api", {
     },
   ],
 });
-
-export const url = api.url;
 ```
 
 {{% /choosable %}}
@@ -227,16 +261,10 @@ export const url = api.url;
 {{% choosable language python %}}
 
 ```python
-import json
-import pulumi
-import pulumi_apigateway as apigateway
-
 # Define an endpoint that serves an entire directory of static content.
 api = apigateway.RestAPI('api', routes=[
     apigateway.RouteArgs(path="/", local_path="www"),
 ])
-
-pulumi.export('url', api.url)
 ```
 
 {{% /choosable %}}
@@ -254,11 +282,6 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
         },
     },
 })
-if err != nil {
-    return err
-}
-
-ctx.Export("url", restAPI.Url)
 ```
 
 {{% /choosable %}}
@@ -270,11 +293,12 @@ $ curl $(pulumi stack output url)
 <h1>Hello, AWS API Gateway + S3!</h1>
 ```
 
-By default, any index documents will be automatically served by S3 when directories are retrieved over HTTP. (See [AWS: Configuring an Index Document](https://docs.aws.amazon.com/AmazonS3/latest/dev/IndexDocumentSupport.html).) To suppress this
-behavior in the static route, set the `index` to `false` as part of configuring your static route. Alternatively, to use a different default document name, set `index` to a string containing the file name e.g. `default.html`.
+By default, any index documents will be automatically served by S3 when directories are retrieved over HTTP.
+(See [AWS: Configuring an Index Document](https://docs.aws.amazon.com/AmazonS3/latest/dev/IndexDocumentSupport.html).)
+To suppress this behavior in the static route, set the `index` to `false` as part of configuring your static route.
+Alternatively, to use a different default document name, set `index` to a string containing the file name e.g. `default.html`.
 
-Finally, the content type for all files in a path referencing a directory is inferred. If the local path instead
-points to a single file, you can specify the content type explicitly with the `contentType` property.
+If the local path points to a directory, the route will automatically be created as a proxy path (i.e. `/{proxy+}`) to match all sub-directories and the content type for all files will be inferred automatically. If the local path points to a single file you can specify the content type explicitly with the `contentType` property.
 
 ### Integration Routes
 
@@ -310,8 +334,6 @@ through to another endpoint, in this case `https://www.google.com`:
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as apigateway from "@pulumi/aws-apigateway";
-
 // Define an endpoint that proxies HTTP requests to https://www.google.com.
 const api = new apigateway.RestAPI("api", {
   routes: [
@@ -324,8 +346,6 @@ const api = new apigateway.RestAPI("api", {
     },
   ],
 });
-
-export const url = api.url;
 ```
 
 {{% /choosable %}}
@@ -333,16 +353,10 @@ export const url = api.url;
 {{% choosable language python %}}
 
 ```python
-import json
-import pulumi
-import pulumi_apigateway as apigateway
-
 # Define an endpoint that proxies HTTP requests to https://www.google.com.
 api = apigateway.RestAPI('api', routes=[
     apigateway.RouteArgs(path="/integration", target=apigateway.TargetArgs(uri="https://www.google.com", type="http_proxy"))
 ])
-
-pulumi.export('url', api.url)
 ```
 
 {{% /choosable %}}
@@ -364,11 +378,6 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
         },
     },
 })
-if err != nil {
-    return err
-}
-
-ctx.Export("url", restAPI.Url)
 ```
 
 {{% /choosable %}}
@@ -406,9 +415,6 @@ To require users to sign in through Cognito, you must specify the source of the 
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as apigateway from "@pulumi/aws-apigateway";
-
 // Create a user pool to contain authorized users of the API
 const userPool = new aws.cognito.UserPool("user-pool");
 
@@ -435,11 +441,6 @@ const api = new apigateway.RestAPI("api", {
 {{% choosable language python %}}
 
 ```python
-import json
-import pulumi
-import pulumi_aws as aws
-import pulumi_apigateway as apigateway
-
 # Create a user pool to contain authorized users of the API
 userPool = aws.cognito.UserPool("user-pool")
 
@@ -464,9 +465,6 @@ api = apigateway.RestAPI("api", routes=[
 ```go
 // Create a user pool to contain authorized users of the API
 userPool, err := cognito.NewUserPool(ctx, "user-pool", &cognito.UserPoolArgs{})
-if err != nil {
-    return err
-}
 
 localPath := "www"
 restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
@@ -485,9 +483,6 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
         },
     },
 })
-if err != nil {
-    return err
-}
 ```
 
 {{% /choosable %}}
@@ -526,21 +521,9 @@ If you wish to reuse an Authorizer across multiple routes, you can declare it in
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as apigateway from "@pulumi/aws-apigateway";
-import {
-  APIGatewayAuthorizerEvent,
-  APIGatewayAuthorizerResult,
-} from "aws-lambda";
-
-const authLambda = new aws.lambda.CallbackFunction<
-  APIGatewayAuthorizerEvent,
-  APIGatewayAuthorizerResult
->("auth", {
+// Define the authorizer lambder handler
+const authLambda = new aws.lambda.CallbackFunction("auth", {
   callback: async (event, context) => {
-    if (event.type !== "REQUEST") {
-      throw new Error("Unexpected authorization type");
-    }
     // --- Add your own custom authorization logic here. ---
     const effect =
       event.headers?.Authorization === "goodToken" ? "Allow" : "Deny";
@@ -587,45 +570,9 @@ export const url = api.url;
 
 {{% choosable language python %}}
 
-Define the authorizer lambder handler in `.authorizer/handler.py`
-
 ```python
-def handler(event, context):
-    print(event)
-    # --- Add your own custom authorization logic here. ---
-    return {
-        "principalId": "my-user",
-        "policyDocument": {
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "execute-api:Invoke",
-                "Effect": "Allow" if event["headers"]["Authorization"] == "goodToken" else "Deny",
-                "Resource": event["methodArn"],
-            }]
-        },
-    }
-```
-
-Use the authorizer with the API route
-
-```python
-import json
-import pulumi
-import pulumi_aws as aws
-import iam
-import pulumi_aws_apigateway as apigateway
-
-# Create lambda role and policies
-# lambdaRole = ...
-
-authLambda = aws.lambda_.Function("auth-lambda",
-                                  role=lambdaRole.arn,
-                                  runtime=aws.lambda_.Runtime.PYTHON3D8,
-                                  code=pulumi.AssetArchive({
-                                      ".": pulumi.FileArchive("./authorizer"),
-                                  }),
-                                  handler="handler.handler",
-                                  )
+# Create Lambda using the handler below
+# authLambda = aws.lambda_.Function(...)
 
 # Define an endpoint that invokes a lambda to handle requests
 api = apigateway.RestAPI('api', routes=[
@@ -641,8 +588,24 @@ api = apigateway.RestAPI('api', routes=[
                              handler=authLambda
                          )]),
 ])
+```
 
-pulumi.export('url', api.url)
+Define the authorizer lambder handler:
+
+```python
+def handler(event, context):
+    return {
+        "principalId": "my-user",
+        "policyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "execute-api:Invoke",
+                # --- Add your own custom authorization logic here. ---
+                "Effect": "Allow" if event["headers"]["Authorization"] == "goodToken" else "Deny",
+                "Resource": event["methodArn"],
+            }]
+        },
+    }
 ```
 
 {{% /choosable %}}
@@ -651,19 +614,7 @@ pulumi.export('url', api.url)
 
 ```go
 // Create lambda role and policies
-// role := ...
-
-authLambda, err := lambda.NewFunction(ctx, "auth", &lambda.FunctionArgs{
-  Runtime: lambda.RuntimePython3d8,
-  Code: pulumi.NewAssetArchive(map[string]interface{}{
-    ".": pulumi.NewFileArchive("./authorizer"),
-  }),
-  Handler: pulumi.String("handler.handler"),
-  Role:    role.Arn, // Insists on role being created explicitly
-}, pulumi.DependsOn([]pulumi.Resource{logPolicy}))
-if err != nil {
-  return err
-}
+// authLambda, err := lambda.NewFunction(...)
 
 localPath := "www"
 authType := "custom"
@@ -687,11 +638,43 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
     },
   },
 })
-if err != nil {
-  return err
+```
+
+Define the authorizer lambder handler:
+
+```go
+package main
+
+import (
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func handler(request events.APIGatewayCustomAuthorizerRequestTypeRequest) (events.APIGatewayCustomAuthorizerResponse, error) {
+	var effect string
+	if request.Headers["Authorization"] == "goodToken" {
+		effect = "Allow"
+	} else {
+		effect = "Deny"
+	}
+	return events.APIGatewayCustomAuthorizerResponse{
+		PrincipalID: "my-user",
+		PolicyDocument: events.APIGatewayCustomAuthorizerPolicy{
+			Version: "2012-10-17",
+			Statement: []events.IAMPolicyStatement{
+				{
+					Action:   []string{"execute-api:Invoke"},
+					Effect:   effect,
+					Resource: []string{request.MethodArn},
+				},
+			},
+		},
+	}, nil
 }
 
-ctx.Export("url", restAPI.Url)
+func main() {
+	lambda.Start(handler)
+}
 ```
 
 {{% /choosable %}}
