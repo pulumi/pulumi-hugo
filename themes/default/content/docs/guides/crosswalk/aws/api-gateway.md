@@ -713,20 +713,55 @@ validator values are available:
 
 For example, this enables parameter validation on all routes, and all validation on a specific route:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
+{{< chooser language "typescript,python,go" / >}}
 
-const api = new awsx.apigateway.API("example", {
+{{% choosable language "javascript,typescript" %}}
+
+```typescript
+const api = new apigateway.RestAPI("api", {
   requestValidator: "PARAMS_ONLY",
   routes: [
     {
       // ...
       requestValidator: "ALL",
     },
-    // ...
   ],
 });
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+api = apigateway.RestAPI('api',
+                         request_validator="PARAMS_ONLY",
+                         routes=[
+                             apigateway.RouteArgs(
+                                 # ...
+                                 request_validator="ALL"),
+                         ])
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+paramsOnly := apigateway.RequestValidator_PARAMS_ONLY
+requestValidatorALL := apigateway.RequestValidatorALL
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+    RequestValidator: &paramsOnly,
+    Routes: []apigateway.RouteArgs{
+      {
+        // ...
+        RequestValidator: &requestValidatorALL,
+      },
+  },
+})
+```
+
+{{% /choosable %}}
 
 This enables validation already specified in the underlying models. The `awsx.apigateway.API` class also
 supports mechanisms to specify the validation rules in the API Gateway configuration.
@@ -739,23 +774,56 @@ it is expected to be found (`"path"`, `"query"`, or `"header"`), using the `in` 
 
 For example, this ensures that the `key` querystring parameter is present on all requests:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
+{{< chooser language "typescript,python,go" / >}}
 
-const api = new awsx.apigateway.API("example", {
-  routes: [
+{{% choosable language "javascript,typescript" %}}
+
+```typescript
+const api = new apigateway.RestAPI("api", {
+    routes: [
+        {
+            // ...
+            requestValidator: "PARAMS_ONLY",
+            requiredParameters: [{ name: "key", in: "query" }],
+        },
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+api = apigateway.RestAPI('api', routes=[
+    # Serve an entire directory of static content
+    apigateway.RouteArgs(
+        # ...
+        request_validator="ALL",
+        required_parameters=[apigateway.RequiredParameterArgs(name="key", in_="query")]),
+])
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+requestValidatorALL := apigateway.RequestValidatorALL
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+  Routes: []apigateway.RouteArgs{
     {
       // ...
-      requestValidator: "PARAMS_ONLY",
-      requiredParams: [{ name: "key", in: "query" }],
+      RequestValidator: &requestValidatorALL,
+      RequiredParameters: []apigateway.RequiredParameterArgs{
+        {
+          Name: pulumi.StringPtr("key"),
+          In:   pulumi.StringPtr("query"),
+        },
+      },
     },
-  ],
-});
+  })
 ```
 
 For additional information about request validation, refer to [Enable Request Validation in AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
-
-### Request Body Validation
 
 > Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
 > Comment on [this open issue](https://github.com/pulumi/pulumi-awsx/issues/198) with details about your use case.
