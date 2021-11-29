@@ -170,8 +170,8 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 | GITLAB_OAUTH_ENDPOINT | Used for GitLab API calls. |
 | PULUMI_DATABASE_USER_NAME | Name of the database user the Pulumi Service connects as. Leave default unless you are having trouble connecting to your database.
 | PULUMI_DATABASE_USER_PASSWORD | Password of the database user the Pulumi Service connects as. Leave default unless you are having trouble connecting to your database.
-| PULUMI_DISABLE_EMAIL_LOGIN | When `true` the API will disallow logins using the email/password identity. To hide the email login option from the Console refer to the [email identity configuration]({{< relref "console#email-identity" >}}) for the Console. |
-| PULUMI_DISABLE_EMAIL_SIGNUP | When `true` the API will disallow signups using the email/password identity. To hide the email signup option from the Console refer to the [email identity configuration]({{< relref "console#email-identity" >}}) for the Console. |
+| PULUMI_DISABLE_EMAIL_LOGIN | When `true` the API will disallow logins using the email/password identity. To hide the email login option from the Console refer to the [email identity configuration]({{< relref "/docs/guides/self-hosted/console#email-identity" >}}) for the Console. |
+| PULUMI_DISABLE_EMAIL_SIGNUP | When `true` the API will disallow signups using the email/password identity. To hide the email signup option from the Console refer to the [email identity configuration]({{< relref "/docs/guides/self-hosted/console#email-identity" >}}) for the Console. |
 | RECAPTCHA_SECRET_KEY | reCAPTCHA secret key for self-service password reset. Create a [site key and a secret key from Google](https://www.google.com/recaptcha/admin). |
 | SAML_CERTIFICATE_PUBLIC_KEY | Public key used by the [IdP]({{< relref "../saml/sso#terminology" >}}) to sign SAML assertions. Learn how to [set SAML_CERTIFICATE_PUBLIC_KEY]({{< relref "saml-sso" >}}). |
 | SAML_CERTIFICATE_PRIVATE_KEY | Private key used by Pulumi to validate the SAML assertions sent by the IdP. Learn how to [set SAML_CERTIFICATE_PRIVATE_KEY]({{< relref "saml-sso" >}}). |
