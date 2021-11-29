@@ -10,7 +10,8 @@ meta_desc: |
     Explore abstraction and encapsulation with Pulumi programs using packages
     and the Registry.
 index: 6
-meta_image: meta.png
+# meta_image: meta.png
+level: intermediate
 youll_learn:
     - Making reusable abstractions
     - Encapsulating Pulumi components
@@ -50,7 +51,7 @@ need to know all four languages.
 
 In addition, you should be able to
 - code in either Go, Python, or TypeScript/Javascript
-- 
+- write valid JSON
 
 We recommend that you either have completed [Pulumi
 Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with
@@ -67,4 +68,4 @@ Note that this pathway will not have as many code samples to use as we will be
 defining patterns, exploring architecture, and discussing procedures for
 Registry publication.
 
-This pathway is considered an advanced pathway.
+<!-- This pathway is considered an advanced pathway. -->

@@ -13,10 +13,10 @@ meta_image: meta.png
 authors:
     - laura-santamaria
 tags:
-    - change-me
-links:
-    - text: Some Website
-      url: http://something.com
+    - learn
+# links:
+    # - text: Some Website
+    #   url: http://something.com
 block_external_search_index: true
 ---
 
