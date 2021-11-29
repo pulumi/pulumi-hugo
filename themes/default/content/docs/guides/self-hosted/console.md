@@ -89,6 +89,13 @@ The following are the core environment variables that are required at a minimum.
 | BITBUCKET_OAUTH_ID| Atlassian Bitbucket OAuth consumer client ID. Used for Bitbucket OAuth signins. |
 | BITBUCKET_OAUTH_SECRET | |
 
+### Email and password {#email-identity}
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| PULUMI_HIDE_EMAIL_LOGIN| Hides the email identity as a login option. To disable the API handler for email logins refer to the [API container environment variables]({{< relref "api#other-env-vars" >}}). |
+| PULUMI_HIDE_EMAIL_SIGNUP | Hides the email identity as a signup option. To disable the API handler for email signups refer to the [API container environment variables]({{< relref "api#other-env-vars" >}}). |
+
 ### TLS Environment Variables
 
 The following environment variables must be configured to enable TLS. The values of the environment variables may either be a filepath or the actual value of the entity. If these variables are set, the console will be served over HTTPS (i.e. using TLS) using port `3443`. If the following variables are not set the console will default to serving over HTTP using port `3000`.
