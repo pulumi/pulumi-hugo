@@ -6,6 +6,7 @@ draft: false
 description: Learn how to use Pulumi for more complex configurations with multiple environments.
 meta_desc: Learn how to use Pulumi for more complex configurations with multiple environments.
 index: 4
+level: novice
 meta_image: practice.png
 youll_learn:
     - Using stacks for unique configurations of different environments

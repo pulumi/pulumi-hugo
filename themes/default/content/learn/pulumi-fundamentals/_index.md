@@ -11,6 +11,7 @@ meta_desc: |
     application.
 index: 0
 meta_image: fundamentals.png
+level: init
 youll_learn:
     - Creating projects
     - Configuring and provisioning infrastructure
