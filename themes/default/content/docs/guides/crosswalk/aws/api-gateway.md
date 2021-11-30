@@ -69,7 +69,7 @@ This example creates an AWS API Gateway endpoint with a single API, listening at
 The path can be parameterized to match specific patterns:
 
 - A literal pattern e.g. `/pets` will only match `/pets`
-- A parameterized patern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
+- A parameterized pattern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
 - A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
 
 For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
@@ -646,34 +646,34 @@ Define the authorizer lambder handler:
 package main
 
 import (
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
+  "github.com/aws/aws-lambda-go/events"
+  "github.com/aws/aws-lambda-go/lambda"
 )
 
 func handler(request events.APIGatewayCustomAuthorizerRequestTypeRequest) (events.APIGatewayCustomAuthorizerResponse, error) {
-	var effect string
-	if request.Headers["Authorization"] == "goodToken" {
-		effect = "Allow"
-	} else {
-		effect = "Deny"
-	}
-	return events.APIGatewayCustomAuthorizerResponse{
-		PrincipalID: "my-user",
-		PolicyDocument: events.APIGatewayCustomAuthorizerPolicy{
-			Version: "2012-10-17",
-			Statement: []events.IAMPolicyStatement{
-				{
-					Action:   []string{"execute-api:Invoke"},
-					Effect:   effect,
-					Resource: []string{request.MethodArn},
-				},
-			},
-		},
-	}, nil
+  var effect string
+  if request.Headers["Authorization"] == "goodToken" {
+    effect = "Allow"
+  } else {
+    effect = "Deny"
+  }
+  return events.APIGatewayCustomAuthorizerResponse{
+    PrincipalID: "my-user",
+    PolicyDocument: events.APIGatewayCustomAuthorizerPolicy{
+      Version: "2012-10-17",
+      Statement: []events.IAMPolicyStatement{
+        {
+          Action:   []string{"execute-api:Invoke"},
+          Effect:   effect,
+          Resource: []string{request.MethodArn},
+        },
+      },
+    },
+  }, nil
 }
 
 func main() {
-	lambda.Start(handler)
+  lambda.Start(handler)
 }
 ```
 
@@ -823,86 +823,168 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
   })
 ```
 
+{{% /choosable %}}
+
 For additional information about request validation, refer to [Enable Request Validation in AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
 
 > Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
 > Comment on [this open issue](https://github.com/pulumi/pulumi-awsx/issues/198) with details about your use case.
 
-### Tracking and Limiting Requests with Usage Plans with API Keys
+### Use API Keys to Limit Requests
 
 After you create, test, and deploy your APIs, you can use AWS API Gateway usage plans to make them available to your
 customers. These usage plans and API keys allow customers to use your API at agreed-upon request rates and quotas
 that meet their business requirements and budget constraints. If desired, you can set API-level throttling limits.
 
-To require an API Key for an API Gateway route you set the `apiKeyRequired` property equal to `true`. At the API level,
+To require an API Key for an API Gateway route you set the "api key required" property to true. At the API level,
 you can choose if you want the API Key source to be `HEADER` (i.e. client includes a `x-api-key` header with the API
 Key) or `AUTHORIZER` (i.e. a Lambda authorizer sends the API Key as part of the authorization response). If the API
-Key source is not set, then the source will default to `HEADER`:
+Key source is not set, then the source will default to `HEADER`.
+
+Here's an example how to configure the API and routes to use API Keys:
+
+{{< chooser language "typescript,python,go" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as awsx from "@pulumi/awsx";
 
-const api = new awsx.apigateway.API("myapi", {
-  routes: [
-    {
-      path: "/a",
-      method: "GET",
-      eventHandler: async () => {
-        return {
-          statusCode: 200,
-          body: "<h1>Hello world!</h1>",
-        };
-      },
-      apiKeyRequired: true,
-    },
-  ],
-  apiKeySource: "AUTHORIZER",
-});
-```
-
-You will also need to create a usage plan (`new aws.apigateway.UsagePlan`) and an API key (`new aws.apigateway.ApiKey`)
-and then associate the key with the usage plan (`new aws.apigateway.UsagePlanKey`). To simplify the creation of API
-Keys associated with your API you can use `awsx.apigateway.createAssociatedAPIKeys`, which create a Usage Plan, API
-Keys and associates the API Keys by creating a UsagePlanKey. Below is an example of using this helper function:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-const apikeys = awsx.apigateway.createAssociatedAPIKeys("my-api-keys", {
-  apis: [api],
-  apiKeys: [
-    {
-      name: "test-key",
-    },
-  ],
-});
-
-// Export the API Key if desired
-export const apiKeyValue = apikeys.keys[0].apikey.value;
-```
-
-`awsx.apigateway.createAssociatedAPIKeys` will return an object that contains the Usage Plan, API Keys and Usage Plan
-Keys. Instead of providing the APIs, you can also specify the api stages for the Usage Plan as follows:
-
-```ts
-import * as awsx from "@pulumi/awsx";
-
-const apikeys = awsx.apigateway.createAssociatedAPIKeys("my-api-keys", {
-  usagePlan: {
-    apiStages: [
-      {
-        apiId: api.restAPI.id,
-        stage: api.stage.stageName,
-      },
+const api = new apigateway.RestAPI("api", {
+    routes: [
+        {
+            // ...
+            apiKeyRequired: true,
+        }
     ],
-  },
-  apiKeys: [
-    {
-      name: "test-key",
-    },
-  ],
+    apiKeySource: "AUTHORIZER",
 });
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+api = apigateway.RestAPI('api', api_key_source="AUTHORIZER", routes=[
+    apigateway.RouteArgs(# ...
+                         api_key_required=True)
+])
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+apiKeyRequired := true
+authorizer := apigateway.APIKeySourceAUTHORIZER
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+  ApiKeySource: &authorizer,
+  Routes: []apigateway.RouteArgs{
+    {
+      // ...
+      ApiKeyRequired: &apiKeyRequired,
+    },
+  },
+})
+```
+
+{{% /choosable %}}
+
+There's 3 steps to configure API Keys for the API:
+
+1. Create the API Key (i.e. for a customer)
+2. Create a usage plan for the API (which can optionally define quotas and throttles)
+3. Associate the key to the usage plan.
+
+Below is an example of using creating these components:
+
+{{< chooser language "typescript,python,go" / >}}
+
+{{% choosable language "javascript,typescript" %}}
+
+```typescript
+// Create an API key to manage usage
+const apiKey = new aws.apigateway.ApiKey("api-key");
+// Define usage plan for an API stage
+const usagePlan = new aws.apigateway.UsagePlan("usage-plan", {
+    apiStages: [{
+        apiId: api.api.id,
+        stage: api.stage.stageName,
+        // throttles: [{ path: "/path/GET", rateLimit: 1 }]
+    }],
+    // quotaSettings: {...},
+    // throttleSettings: {...},
+});
+// Associate the key to the plan
+new aws.apigateway.UsagePlanKey("usage-plan-key", {
+    keyId: apiKey.id,
+    keyType: "API_KEY",
+    usagePlanId: usagePlan.id,
+});
+
+export const apiKeyValue = apiKey.value;
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+# Create an API key to manage usage
+api_key = aws.apigateway.ApiKey("api-key")
+# Define usage plan for an API stage
+usage_plan = aws.apigateway.UsagePlan("usage-plan",
+                                      api_stages=[aws.apigateway.UsagePlanApiStageArgs(
+                                          api_id=api.api.id,
+                                          stage=api.stage.stage_name)])
+# Associate the key to the plan
+aws.apigateway.UsagePlanKey('usage-plan-key',
+                            key_id=api_key.id,
+                            key_type="API_KEY",
+                            usage_plan_id=usage_plan.id)
+
+pulumi.export('api-key-value', api_key.value)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+// Create an API key to manage usage
+apiKey, err := awsapigateway.NewApiKey(ctx, "api-key", &awsapigateway.ApiKeyArgs{})
+if err != nil {
+  return err
+}
+
+// Define usage plan for an API stage
+usagePlan, err := awsapigateway.NewUsagePlan(ctx, "usage-plan", &awsapigateway.UsagePlanArgs{
+  ApiStages: awsapigateway.UsagePlanApiStageArray{
+    awsapigateway.UsagePlanApiStageArgs{
+      ApiId: restAPI.Api.ID(), // API and Stage aren't currently typed in Go.
+      Stage: restAPI.Stage.StateName,
+    },
+  },
+})
+if err != nil {
+  return err
+}
+
+// Associate the key to the plan
+_, err = awsapigateway.NewUsagePlanKey(ctx, "usage-plan-key", &awsapigateway.UsagePlanKeyArgs{
+  KeyId:       apiKey.ID(),
+  KeyType:     pulumi.String("API_KEY"),
+  UsagePlanId: usagePlan.ID(),
+})
+if err != nil {
+  return err
+}
+
+ctx.Export("api-key-value", apiKey.Value)
+```
+
+{{% /choosable %}}
 
 For more information about Usage Plans and API Keys, refer to
 [Create and Use Usage Plans with API Keys](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
