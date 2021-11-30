@@ -1217,40 +1217,73 @@ define just a single API using OpenAPI, you can define a Raw Data Route, by supp
 The `data` property is just the `x-amazon-apigateway-integration` object, which can be seen in the above example.
 The route's other parameters, such as its path and method, otherwise use the same approaches seen earlier.
 
-For instance, the same API Gateway endpoint that invokes a Lambda Function can be authored as follows:
+For instance, the same API Gateway endpoint that proxies through to another API can be authored as follows:
+
+{{< chooser language "typescript,python,go" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
+const api = new apigateway.RestAPI("api", {
+    routes: [
+        {
+            path: "/",
+            method: "GET",
+            data: {
+                "x-amazon-apigateway-integration": {
+                    httpMethod: "GET",
+                    passthroughBehavior: "when_no_match",
+                    type: "http_proxy",
+                    uri: "https://httpbin.org/uuid",
+                },
+            },
+        },
+    ],
+});
+```
 
-// Look up an existing Lambda Function by ID, so that we can get its ARN. (If we knew the ARN ahead
-// of time, this would not be necessary, we can just use it in the URI below.)
-const handler = aws.lambda.Function.get("get-handler", "your_lambda_id");
+{{% /choosable %}}
 
-// Define a GET endpoint that invokes our Lambda Function-based handler.
-const api = new awsx.apigateway.API("example", {
-  routes: [
-    {
-      path: "/",
-      method: "GET",
-      data: {
+{{% choosable language python %}}
+
+```python
+api = apigateway.RestAPI('api', routes=[
+    apigateway.RouteArgs(path="/", method="GET", data={
         "x-amazon-apigateway-integration": {
-          httpMethod: "POST",
-          passthroughBehavior: "when_no_match",
-          type: "aws_proxy",
-          uri: handler.arn.apply(
-            (arn) =>
-              `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${arn}/invocations`
-          ),
+            "httpMethod": "GET",
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy",
+            "uri": "https://httpbin.org/uuid",
+        },
+    }),
+])
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+getMethod := apigateway.MethodGET
+restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+  Routes: []apigateway.RouteArgs{
+    {
+      Path:   "/",
+      Method: &getMethod,
+      Data: map[string]interface{}{
+        "x-amazon-apigateway-integration": map[string]interface{}{
+          "httpMethod":          "GET",
+          "passthroughBehavior": "when_no_match",
+          "type":                "http_proxy",
+          "uri":                 "https://httpbin.org/uuid",
         },
       },
     },
-  ],
-});
-
-// Export the auto-generated AWS API Gateway base URL.
-export const url = api.url;
+  },
+})
 ```
+
+{{% /choosable %}}
 
 For full details on what the OpenAPI integration object may contain, refer to the full
 [x-amazon-apigateway-integration Object documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-integration.html).
