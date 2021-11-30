@@ -1146,60 +1146,96 @@ works and what HTTP headers it uses to accomplish its integrations.
 ### Defining an Entire Endpoint
 
 To use an OpenAPI specification to initialize your API Gateway, supply an entire OpenAPI specification as a string
-in the `swaggerString` property. For example, this API invokes an existing Lambda whose ID is `your_lambda_id`:
+in the "swagger string" property. For example, this API proxies a route through to another HTTP endpoint:
+
+{{< chooser language "typescript,python,go" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Look up an existing Lambda Function by ID, so that we can get its ARN. (If we knew the ARN ahead
-// of time, this would not be necessary, we can just use it in the URI below.)
-const handler = aws.lambda.Function.get("get-handler", "your_lambda_id");
-
-// Define a GET endpoint that invokes our Lambda Function-based handler.
-const api = new awsx.apigateway.API("example", {
-  swaggerString: handler.arn.apply((arn) =>
-    JSON.stringify({
-      swagger: "2.0",
-      info: {
-        title: "example",
-        version: "1.0",
-      },
-      paths: {
-        "/": {
-          get: {
-            "x-amazon-apigateway-integration": {
-              httpMethod: "POST",
-              passthroughBehavior: "when_no_match",
-              type: "aws_proxy",
-              uri: `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${arn}/invocations`,
+const swaggerAPI = new apigateway.RestAPI("swagger-api", {
+    swaggerString: JSON.stringify({
+        swagger: "2.0",
+        info: {
+            title: "example",
+            version: "1.0",
+        },
+        paths: {
+            "/": {
+                get: {
+                    "x-amazon-apigateway-integration": {
+                        httpMethod: "GET",
+                        passthroughBehavior: "when_no_match",
+                        type: "http_proxy",
+                        uri: "https://httpbin.org/uuid",
+                    },
+                },
             },
-          },
         },
-      },
-      "x-amazon-apigateway-api-key-source": "HEADER",
-      "x-amazon-apigateway-binary-media-types": ["*/*"],
-      "x-amazon-apigateway-gateway-responses": {
-        ACCESS_DENIED: {
-          responseTemplates: {
-            "application/json": '{"message": "404 Not found" }',
-          },
-          statusCode: 404,
-        },
-        MISSING_AUTHENTICATION_TOKEN: {
-          responseTemplates: {
-            "application/json": '{"message": "404 Not found" }',
-          },
-          statusCode: 404,
-        },
-      },
+        "x-amazon-apigateway-binary-media-types": ["*/*"],
     })
-  ),
 });
-
-// Export the auto-generated AWS API Gateway base URL.
-export const url = api.url;
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+swagger_api = apigateway.RestAPI("swagger-api",
+                                 swagger_string=json.dumps({
+                                     "swagger": "2.0",
+                                     "info": {
+                                         "title": "example",
+                                         "version": "1.0",
+                                     },
+                                     "paths": {
+                                         "/": {
+                                             "get": {
+                                                 "x-amazon-apigateway-integration": {
+                                                     "httpMethod": "GET",
+                                                     "passthroughBehavior": "when_no_match",
+                                                     "type": "http_proxy",
+                                                     "uri": "https://httpbin.org/uuid",
+                                                 },
+                                             },
+                                         },
+                                     },
+                                     "x-amazon-apigateway-binary-media-types": ["*/*"],
+                                 })
+                                 )
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+swaggerAPI, err := apigateway.NewRestAPI(ctx, "swagger-api", &apigateway.RestAPIArgs{
+  SwaggerString: pulumi.String(`{
+    "swagger": "2.0",
+    "info": {
+      "title": "example",
+      "version": "1.0"
+    },
+    "paths": {
+      "/": {
+        "get": {
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy",
+            "uri": "https://httpbin.org/uuid"
+          }
+        }
+      }
+    },
+    "x-amazon-apigateway-binary-media-types": ["*/*"]
+  }`),
+})
+```
+
+{{% /choosable %}}
 
 This is more complex than the above examples, but this in an escape hatch that you can use to access any API
 Gateway features not yet supported by the easier abstractions in Pulumi Crosswalk for AWS API Gateway. You must manually
