@@ -249,6 +249,14 @@
                 </div>
             {{ end }}
         </div>
+
+        <div class="flex flex-wrap items-center justify-center">
+            {{ range $logo := .Params.customer_logos.small_logos }}
+                <div class="w-1/5 lg:w-1/12 p-3">
+                    {{ partial "customer-logo.html" (dict "logo" $logo "hoverable" true) }}
+                </div>
+            {{ end }}
+        </div>
     </section>
 
     <!-- Video -->

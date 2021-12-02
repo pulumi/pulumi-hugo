@@ -150,6 +150,25 @@ customer_logos:
       link: /case-studies/sourcegraph
     - name: whylabs
       link: /case-studies/whylabs
+  small_logos:
+    - webflow
+    - supabase
+    - ro
+    - cockroach-labs
+    - tableau
+    - angellist
+    - fenergo
+    - fauna
+    - mindbody
+    - clearsale
+    - bio-fire
+    - materialize
+    - univision
+    - kavak
+    - blockfi
+    - common-room
+    - linktree
+
 
 get_started:
   tweets:
