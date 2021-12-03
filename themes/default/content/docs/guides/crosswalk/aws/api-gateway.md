@@ -166,19 +166,19 @@ Create the Lambda handler:
 package main
 
 import (
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
+    "github.com/aws/aws-lambda-go/events"
+    "github.com/aws/aws-lambda-go/lambda"
 )
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	return events.APIGatewayProxyResponse{
-		StatusCode: 200,
-		Body:       "Hello, API Gateway!",
-	}, nil
+    return events.APIGatewayProxyResponse{
+        StatusCode: 200,
+        Body:       "Hello, API Gateway!",
+    }, nil
 }
 
 func main() {
-	lambda.Start(handler)
+    lambda.Start(handler)
 }
 ```
 
@@ -957,13 +957,22 @@ apiKey, err := awsapigateway.NewApiKey(ctx, "api-key", &awsapigateway.ApiKeyArgs
 if err != nil {
   return err
 }
-
+apiId := restAPI.Api.ApplyT(func(api *awsapigateway.RestApi) pulumi.StringOutput {
+  return api.ID().ToStringOutput()
+}).ApplyT(func(id interface{}) string {
+  return id.(string)
+}).(pulumi.StringOutput)
+stageName := restAPI.Stage.ApplyT(func(stage *awsapigateway.Stage) pulumi.StringOutput {
+  return stage.StageName
+}).ApplyT(func(stageName interface{}) string {
+  return stageName.(string)
+}).(pulumi.StringOutput)
 // Define usage plan for an API stage
 usagePlan, err := awsapigateway.NewUsagePlan(ctx, "usage-plan", &awsapigateway.UsagePlanArgs{
   ApiStages: awsapigateway.UsagePlanApiStageArray{
     awsapigateway.UsagePlanApiStageArgs{
-      ApiId: restAPI.Api.ID(), // API and Stage aren't currently typed in Go.
-      Stage: restAPI.Stage.StateName,
+      ApiId: apiId,
+      Stage: stageName,
     },
   },
 })
@@ -985,6 +994,13 @@ ctx.Export("api-key-value", apiKey.Value)
 ```
 
 {{% /choosable %}}
+
+If using the `HEADER` API Key Source, when making a request, set the `x-api-key` header to the exported "api key value" e.g.:
+
+```bash
+$ curl -w '\n' -H "x-api-key: $(pulumi stack output api-key-value --show-secrets)" "$(pulumi stack output url)"
+Hello, API Gateway!
+```
 
 For more information about Usage Plans and API Keys, refer to
 [Create and Use Usage Plans with API Keys](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
