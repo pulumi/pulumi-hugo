@@ -848,7 +848,6 @@ Here's an example how to configure the API and routes to use API Keys:
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
-
 const api = new apigateway.RestAPI("api", {
     routes: [
         {
@@ -997,10 +996,23 @@ ctx.Export("api-key-value", apiKey.Value)
 
 If using the `HEADER` API Key Source, when making a request, set the `x-api-key` header to the exported "api key value" e.g.:
 
+{{% choosable language "javascript,typescript" %}}
+
+```bash
+$ curl -w '\n' -H "x-api-key: $(pulumi stack output apiKeyValue --show-secrets)" "$(pulumi stack output url)"
+Hello, API Gateway!
+```
+
+{{% /choosable %}}
+
+{{% choosable language "python,go" %}}
+
 ```bash
 $ curl -w '\n' -H "x-api-key: $(pulumi stack output api-key-value --show-secrets)" "$(pulumi stack output url)"
 Hello, API Gateway!
 ```
+
+{{% /choosable %}}
 
 For more information about Usage Plans and API Keys, refer to
 [Create and Use Usage Plans with API Keys](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
@@ -1011,143 +1023,298 @@ AWS API Gateway will automatically provision and assign a domain name, URL that 
 support. It will look something like `https://no90ji5v23.execute-api.us-west-2.amazonaws.com/stage/`. The host
 portion of the URL refers to an API endpoint which can be edge-optimized or regional.
 
-Although it's a great convenience to have a URL automatically created with SSL support that just works right
-away, the resulting URL isn't user-friendly or very easy to remember, and may not be suitable for business
+Although it's great to have a URL automatically created with SSL support that works immediately,
+the resulting URL isn't user-friendly or very easy to remember, and may not be suitable for business
 scenarios that require using company domains. To provide a simpler and more intuitive URL for your API users,
-you can configure a custom domain name (e.g., `api.acmecorp.com`) as the API's host name, and customize the
+you can configure a custom domain name (e.g., `api.acmecorp.example`) as the API's host name, and customize the
 base path of the URL to map to an alternative URL (e.g., one that does not include the `/stage` at the end).
 
 For example, we may map `https://no90ji5v23.execute-api.us-west-2.amazonaws.com/stage/` instead to
-`https://api.acmecorp.com/web-ordering`. In doing so, API Gateway will also set up an edge-optimized
+`https://api.acmecorp.example/web-ordering`. In doing so, API Gateway will also set up an edge-optimized
 [Amazon CloudFront Content Distribution Network (CDN)](https://aws.amazon.com/cloudfront/).
 
-We now will walk through the various steps required to set this up.
+These are the steps required to set up a new domain for an API using Route53 and
+[AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html).
+We could instead import one into ACM that has been issued by a third-party certificate authority.
 
-First, we provision an `awsx.apigateway.API` in any of the ways we've seen above. We'll use something simple:
+{{< chooser language "typescript,python,go" / >}}
 
-```typescript
-import * as awsx from "@pulumi/awsx";
+1. Create a Certificate in AWS ACM. A managed certificate can be created for free for use with AWS services.
+   The creation and validation of the certificate can be fully automated via DNS validation:
 
-// Define a new GET endpoint that just returns a 200 and "hello" in the body.
-const api = new awsx.apigateway.API("example", {
-  routes: [
-    {
-      path: "/",
-      method: "GET",
-      eventHandler: async (event) => {
-        // This code runs in an AWS Lambda anytime `/` is hit.
-        return {
-          statusCode: 200,
-          body: "Hello, API Gateway!",
-        };
-      },
-    },
-  ],
-});
-```
+{{% choosable language "javascript,typescript" %}}
 
-Let us assume we are hard-coding the domain name (although Pulumi's configuration system can be used instead):
-
-```typescript
-const domain = "acmecorp.com";
-```
-
-Although API Gateway will create a regional domain name for our API, we must now explicitly configure a DNS
-zone and record to map the custom domain name to the regional domain name for API requests. For this example,
-we will use [Amazon Route53's Domain Name System (DNS) Service](https://aws.amazon.com/route53/) for this task.
-
-Add the creation of a Route53 DNS zone:
-
-```typescript
-// Create a DNS zone for our custom domain.
-const webDnsZone = new aws.route53.Zone("webDnsZone", {
-  name: domain,
-});
-```
-
-Next we will provision an SSL/TLS certificate to use for our custom domain name. We will use
-[AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) to generate
-a new certificate. We could instead import one into ACM that has been issued by a third-party certificate authority.
-Note that we must create this certificate in the `us-east-1` (Northern Virginia) region, per AWS rules.
-
-```typescript
-// Provision an SSL certificate to enable SSL -- ensuring to do so in us-east-1.
-const awsUsEast1 = new aws.Provider("usEast1", { region: "us-east-1" });
-const sslCert = new aws.acm.Certificate(
-  "sslCert",
-  {
-    domainName: domain,
-    validationMethod: "DNS",
-  },
-  { provider: awsUsEast1 }
-);
-
-// Create the necessary DNS records for ACM to validate ownership, and wait for it.
-const sslCertValidationRecord = new aws.route53.Record(
-  "sslCertValidationRecord",
-  {
-    zoneId: webDnsZone.id,
-    name: sslCert.domainValidationOptions[0].resourceRecordName,
-    type: sslCert.domainValidationOptions[0].resourceRecordType,
-    records: [sslCert.domainValidationOptions[0].resourceRecordValue],
-    ttl: 10 * 60 /* 10 minutes */,
-  }
-);
-const sslCertValidationIssued = new aws.acm.CertificateValidation(
-  "sslCertValidationIssued",
-  {
-    certificateArn: sslCert.arn,
-    validationRecordFqdns: [sslCertValidationRecord.fqdn],
-  },
-  { provider: awsUsEast1 }
-);
-```
-
-This code snippet not only provisions the certificate, but also uses DNS validation to eliminate any manual
-steps, and to wait until the certificate is ready.
-
-After this, we will direct API Gateway to use our new domain and a different base path than `stage/`. Without
-such a mapping, API requests bound for the custom domain name cannot reach our API Gateway.
-
-```typescript
-// Configure an edge-optimized domain for our API Gateway. This will configure a Cloudfront CDN
-// distribution behind the scenes and serve our API Gateway at a custom domain name over SSL.
-const webDomain = new aws.apigateway.DomainName("webCdn", {
-  certificateArn: sslCertValidationIssued.certificateArn,
-  domainName: domain,
-});
-const webDomainMapping = new aws.apigateway.BasePathMapping(
-  "webDomainMapping",
-  {
-    restApi: web.restAPI,
-    stageName: web.stage.stageName,
-    domainName: webDomain.id,
-  }
-);
-```
-
-There is one step remaining, which is to create the A record in our DNS zone that allows external traffic
-to reach out new custom domain. After doing so, our AWS API Gateway will be reachable at our custom URL.
-
-```typescript
-// Finally create an A record for our domain that directs to our custom domain.
-const webDnsRecord = new aws.route53.Record(
-  "webDnsRecord",
-  {
-    name: webDomain.domainName,
-    type: "A",
-    zoneId: webDnsZone.id,
-    aliases: [
+  ```typescript
+  const domain = "api.acmecorp.example";
+  const awsUsEast1 = new aws.Provider("aws-provider-us-east-1", { region: "us-east-1" });
+  const sslCertificate = new aws.acm.Certificate(
+      "ssl-cert",
       {
-        evaluateTargetHealth: true,
-        name: webDomain.cloudfrontDomainName,
-        zoneId: webDomain.cloudfrontZoneId,
+          domainName: domain,
+          validationMethod: "DNS",
       },
-    ],
-  },
-  { dependsOn: sslCertValidationIssued }
-);
-```
+      { provider: awsUsEast1 }
+  );
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+  ```python
+  domain = "api.acmecorp.example"
+  aws_us_east_1 = aws.Provider("aws-provider-us-east-1", region="us-east-1")
+  ssl_cert = aws.acm.Certificate("ssl-cert",
+      domain_name=domain,
+      validation_method="DNS",
+      opts=ResourceOptions(provider=aws_us_east_1))
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+  ```go
+  domain := pulumi.String("api.acmecorp.example")
+  awsUsEast1, err := aws.NewProvider(ctx, "aws-provider-us-east-1", &aws.ProviderArgs{Region: pulumi.String("us-east-1")})
+  sslCertificate, err := acm.NewCertificate(ctx,
+    "ssl-cert",
+    &acm.CertificateArgs{
+      DomainName:       domain,
+      ValidationMethod: pulumi.String("DNS"),
+    },
+    pulumi.Provider(awsUsEast1),
+  )
+  ```
+
+{{% /choosable %}}
+
+  > If the SSL Certificate is for use with API Gateway's Cloudfront endpoints it must be created in us-east-1
+  > independent to where the API is deployed.
+
+2. Create a DNS record to prove we do own the domain. This can be automated as follows if your domain is hosted in Route53:
+
+{{% choosable language "javascript,typescript" %}}
+
+  ```typescript
+  // Create a DNS zone for our custom domain
+  const zone = new aws.route53.Zone("dns-zone", {
+      name: domain,
+  });
+  // Create DNS record to prove to ACM that we own the domain
+  const sslCertificateValidationDnsRecord = new aws.route53.Record(
+      "ssl-cert-validation-dns-record",
+      {
+          zoneId: zone.zoneId,
+          name: sslCertificate.domainValidationOptions[0].resourceRecordName,
+          type: sslCertificate.domainValidationOptions[0].resourceRecordType,
+          records: [sslCertificate.domainValidationOptions[0].resourceRecordValue],
+          ttl: 10 * 60, // 10 minutes
+      }
+  );
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+  ```python
+  # Create a DNS zone for our custom domain
+  zone = aws.route53.Zone("dns-zone", name=domain)
+  ssl_cert_validation_dns_record = aws.route53.Record("ssl-cert-validation-dns-record",
+          zone_id=zone_id,
+          name=ssl_cert.domain_validation_options.apply(lambda options: options[0].resource_record_name),
+          type=ssl_cert.domain_validation_options.apply(lambda options: options[0].resource_record_type),
+          records=[ssl_cert.domain_validation_options.apply(lambda options: options[0].resource_record_value)],
+          ttl=10*60)
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+  ```go
+  zone, err := route53.NewZone(ctx, "zone", &route53.ZoneArgs{Name: pulumi.String(domain)})
+  domainValidationOption := sslCertificate.DomainValidationOptions.ApplyT(func(options acm.CertificateDomainValidationOptionArray) interface{} {
+      return options[0]
+  })
+  // Create DNS record to prove to ACM that we own the domain
+  sslCertificateValidationDnsRecord, err := route53.NewRecord(ctx,
+      "ssl-cert-validation-dns-record",
+      &route53.RecordArgs{
+          ZoneId: zone.ZoneId,
+          Name: domainValidationOption.ApplyT(func(option acm.CertificateDomainValidationOption) *string {
+              return option.ResourceRecordName
+          }).(pulumi.StringOutput),
+          Type: domainValidationOption.ApplyT(func(option acm.CertificateDomainValidationOption) *string {
+              return option.ResourceRecordType
+          }).(pulumi.StringOutput),
+          Records: pulumi.StringArray{
+              domainValidationOption.ApplyT(func(option acm.CertificateDomainValidationOption) *string {
+                  return option.ResourceRecordValue
+              }).(pulumi.StringOutput),
+          },
+          Ttl: pulumi.Int(10 * 60), // 10 minutes
+      },
+  )
+  ```
+
+{{% /choosable %}}
+
+3. Wait for the certificate validation to complete (again we always run this in the us-east-1 region -
+where the certificate resides):
+
+{{% choosable language "javascript,typescript" %}}
+
+  ```typescript
+  const validatedSslCertificate = new aws.acm.CertificateValidation(
+      "ssl-cert-validation",
+      {
+          certificateArn: sslCertificate.arn,
+          validationRecordFqdns: [sslCertificateValidationDnsRecord.fqdn],
+      },
+      { provider: awsUsEast1 }
+  );
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+  ```python
+  validated_ssl_certificate = aws.acm.CertificateValidation("ssl-cert-validation",
+                                                            certificate_arn=ssl_cert.arn,
+                                                            validation_record_fqdns=[ssl_cert_validation_dns_record.fqdn])
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+  ```go
+  validatedSslCertificate, err := acm.NewCertificateValidation(ctx,
+      "ssl-cert-validation",
+      &acm.CertificateValidationArgs{
+          CertificateArn:        sslCertificate.Arn,
+          ValidationRecordFqdns: pulumi.StringArray{sslCertificateValidationDnsRecord.Fqdn},
+      },
+      pulumi.Provider(awsUsEast1),
+  )
+  ```
+
+{{% /choosable %}}
+
+4. Configure our API Gateway to serve on the custom domain with the SSL certificate we created:
+
+{{% choosable language "javascript,typescript" %}}
+
+  ```typescript
+  const apiDomainName = new aws.apigateway.DomainName("api-domain-name", {
+      certificateArn: validatedSslCertificate.certificateArn,
+      domainName: domain,
+  });
+  const dnsRecord = new aws.route53.Record("api-dns", {
+      zoneId: zone.zoneId,
+      type: "A",
+      name: domain,
+      aliases: [{
+          name: apiDomainName.cloudfrontDomainName,
+          evaluateTargetHealth: false,
+          zoneId: apiDomainName.cloudfrontZoneId,
+      }]
+  });
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+  ```python
+  api_domain_name = aws.apigateway.DomainName("api-domain-name",
+                                              certificate_arn=validated_ssl_certificate.certificate_arn,
+                                              domain_name=domain)
+  # Create DNS record
+  aws.route53.Record("api-dns",
+                      zone_id=zone.zone_id,
+                      type="A",
+                      name=domain,
+                      aliases=[aws.route53.RecordAliasArgs(
+                          name=api_domain_name.cloudfront_domain_name,
+                          evaluate_target_health=False,
+                          zone_id=api_domain_name.cloudfront_zone_id)])
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+  ```go
+  apiDomainName, err := apigateway.NewDomainName(ctx, "api-domain-name",
+      &apigateway.DomainNameArgs{
+          CertificateArn: validatedSslCertificate.CertificateArn,
+          DomainName:     pulumi.String(domain),
+      },
+  )
+  _, err = route53.NewRecord(ctx, "api-dns",
+      &route53.RecordArgs{
+          ZoneId: zone.ZoneId,
+          Type:   pulumi.String("A"),
+          Name:   pulumi.String(domain),
+          Aliases: route53.RecordAliasArray{
+              route53.RecordAliasArgs{
+                  Name:                 apiDomainName.CloudfrontDomainName,
+                  EvaluateTargetHealth: pulumi.Bool(false),
+                  ZoneId:               apiDomainName.CloudfrontZoneId,
+              },
+          },
+      })
+  ```
+
+{{% /choosable %}}
+
+5. Tell API Gateway which stage of the API to serve on the custom domain. This also eliminates the `stage/` prefix in the path.
+
+{{% choosable language "javascript,typescript" %}}
+
+  ```typescript
+  const basePathMapping = new aws.apigateway.BasePathMapping(
+      "api-domain-mapping",
+      {
+          restApi: api.api.id,
+          stageName: api.stage.stageName,
+          domainName: apiDomainName.domainName,
+      }
+  );
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+  ```python
+  base_path_mapping = aws.apigateway.BasePathMapping("api-domain-mapping",
+                                                      rest_api=api.api.id,
+                                                      stage_name=api.stage.stage_name,
+                                                      domain_name=api_domain_name.domain_name)
+
+  ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+  ```go
+  basePathMapping, err := awsapigateway.NewBasePathMapping(ctx,
+      "api-domain-mapping",
+      &awsapigateway.BasePathMappingArgs{
+          RestApi:    apiId,
+          StageName:  stageName,
+          DomainName: apiDomainName.DomainName,
+      },
+  )
+  ```
+
+{{% /choosable %}}
 
 For more information about the options and levels of customizability available for edge-optimized AWS API Gateways
 and custom domains, refer to [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
