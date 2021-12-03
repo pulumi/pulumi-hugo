@@ -1039,7 +1039,7 @@ We could instead import one into ACM that has been issued by a third-party certi
 
 {{< chooser language "typescript,python,go" / >}}
 
-1. Create a Certificate in AWS ACM. A managed certificate can be created for free for use with AWS services.
+First, create a Certificate in AWS ACM. A managed certificate can be created for free for use with AWS services.
    The creation and validation of the certificate can be fully automated via DNS validation:
 
 {{% choosable language "javascript,typescript" %}}
@@ -1092,7 +1092,7 @@ We could instead import one into ACM that has been issued by a third-party certi
   > If the SSL Certificate is for use with API Gateway's Cloudfront endpoints it must be created in us-east-1
   > independent to where the API is deployed.
 
-2. Create a DNS record to prove we do own the domain. This can be automated as follows if your domain is hosted in Route53:
+Next, create a DNS record to prove we do own the domain. This can be automated as follows if your domain is hosted in Route53:
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1161,8 +1161,8 @@ We could instead import one into ACM that has been issued by a third-party certi
 
 {{% /choosable %}}
 
-3. Wait for the certificate validation to complete (again we always run this in the us-east-1 region -
-where the certificate resides):
+We must now wait for the certificate validation to complete before we can proceed with configuring API Gateway
+(again, we always run this in the us-east-1 region - where the certificate resides):
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1204,7 +1204,7 @@ where the certificate resides):
 
 {{% /choosable %}}
 
-4. Configure our API Gateway to serve on the custom domain with the SSL certificate we created:
+Once ACM has validated our certificate, we can configure API Gateway with the domain and SSL certificate:
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1272,7 +1272,7 @@ where the certificate resides):
 
 {{% /choosable %}}
 
-5. Tell API Gateway which stage of the API to serve on the custom domain. This also eliminates the `stage/` prefix in the path.
+Finally, we tell API Gateway which stage of the API to serve on the custom domain. This also eliminates the `stage/` prefix in the path.
 
 {{% choosable language "javascript,typescript" %}}
 
