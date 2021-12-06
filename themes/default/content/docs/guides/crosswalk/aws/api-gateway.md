@@ -26,7 +26,7 @@ Pulumi Crosswalk for Amazon Web Services (AWS) provides better AWS API managemen
 ways of programming an API Gateway. This includes using infrastructure as code techniques for simple, declarative
 APIs, including easy Lambda integration.
 
-Full examples can be found in the [Pulumi Registry for the AWS API Gateway component](https://www.pulumi.com/registry/packages/aws-apigateway/).
+Full examples can be found in the [AWS API Gateway component](https://www.pulumi.com/registry/packages/aws-apigateway/) in the Pulumi Registry.
 
 ## Create and Configure Routes
 
@@ -38,8 +38,12 @@ AWS API Gateway creates REST APIs that:
 
 Each API Gateway instance defines a new API endpoint and a collection of API routes, each of which has a distinct URL.
 
-> Internally the API Gateway resource uses a collection of supporting objects, like resources, methods, and more,
-> however one of the benefits of Pulumi Crosswalk for AWS is that it hides these mechanics behind a simpler interface.
+{{% notes type="info" %}}
+
+Internally the API Gateway resource uses a collection of supporting objects, like resources, methods, and more,
+however one of the benefits of Pulumi Crosswalk for AWS is that it hides these mechanics behind a simpler interface.
+
+{{% /notes %}}
 
 Each API Gateway deployment is associated with a _stage_. A stage is simply a version of your API, such
 as `stage`, `prod`, `v1`, or `v2`. For simple APIs, you will likely just have one. You can always define a custom
@@ -72,7 +76,7 @@ The path can be parameterized to match specific patterns:
 - A parameterized pattern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
 - A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
 
-For more complete information about creating Lambda Functions, [see the Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
+For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation]({{< relref "lambda" >}}).
 
 {{< chooser language "typescript,python,go" / >}}
 
@@ -298,11 +302,13 @@ By default, any index documents will be automatically served by S3 when director
 To suppress this behavior in the static route, set the `index` to `false` as part of configuring your static route.
 Alternatively, to use a different default document name, set `index` to a string containing the file name e.g. `default.html`.
 
-If the local path points to a directory, the route will automatically be created as a proxy path (i.e. `/{proxy+}`) to match all sub-directories and the content type for all files will be inferred automatically. If the local path points to a single file you can specify the content type explicitly with the `contentType` property.
+If the local path points to a directory, the route will automatically be created as a proxy path (i.e. `/{proxy+}`) to match
+all sub-directories and the content type for all files will be inferred automatically. If the local path points to a single
+file you can specify the content type explicitly with the `contentType` property.
 
 ### Integration Routes
 
-If neither of the above route types work for you, [AWS API Gateway _integrations_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API
+If neither of the above route types work for you, [AWS API Gateway integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API
 Gateway endpoint to backend services that will execute code in response to requests. The previous lambda and
 static examples use integrations internally, even if it's not evident in the simple interface exposed.
 
@@ -827,8 +833,12 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 For additional information about request validation, refer to [Enable Request Validation in AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
 
-> Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
-> Comment on [this open issue](https://github.com/pulumi/pulumi-awsx/issues/198) with details about your use case.
+{{% notes type="info" %}}
+
+Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
+Comment on [this open issue](https://github.com/pulumi/pulumi-awsx/issues/198) with details about your use case.
+
+{{% /notes %}}
 
 ### Use API Keys to Limit Requests
 
