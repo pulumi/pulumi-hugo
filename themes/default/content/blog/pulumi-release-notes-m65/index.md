@@ -20,7 +20,6 @@ TODO
 - Pulumi CLI and core technologies
   - [Exclude protected resources from `pulumi destroy`]({{<relref "/blog/pulumi-release-notes-m65#exclude-protected-resources-from-pulumi-destroy">}})
   - [Pulumi Package plugins can now be hosted on GitHub Releases]({{<relref "/blog/pulumi-release-notes-m65#pulumi-package-plugins-can-now-be-hosted-on-github-releases">}})
-  - [Python 3.6 support will be deprecated soon]({{<relref "/blog/pulumi-release-notes-m64#python-36-support-will-be-deprecated-soon">}})
 - Pulumi Service & Pulumi.com
   - [More ways to share invites to your organization]({{<relref "/blog/pulumi-release-notes-m65#more-ways-to-share-invites-to-your-organization">}})
   - [Self-Hosted Pulumi Service can disable email sign-up and login]({{<relref "/blog/pulumi-release-notes-m65#self-hosted-pulumi-service-can-disable-email-sign-up-and-login">}})
