@@ -1,8 +1,8 @@
 ---
-title: "Dec. 8 releases: TODO"
-date: 2021-12-8T08:00:00-07:00
+title: "Dec. 8 releases: K8s examples, exclude protected resources from destroy, easier invites to the Pulumi Service"
+date: 2021-12-08T08:00:00-07:00
 allow_long_title: true
-meta_desc: The latest Pulumi updates include TODO
+meta_desc: The latest Pulumi updates include support for locally-stored Helm charts, new examples in our Kubernetes documentation, and new features for the Pulumi Service
 meta_image: meta.png
 authors:
     - alex-mullans
@@ -10,11 +10,11 @@ tags:
     - features
 ---
 
-TODO
+With the holiday season approaching, we've been focused on tidying up our products, delivering asks we've heard from you in GitHub and at conferences, and looking ahead to 2022! Read on to learn about what's new this release:
 
 - Pulumi Registry, Pulumi Packages, & integrations
   - [Helm `Release` resource supports local charts]({{<relref "/blog/pulumi-release-notes-m65#helm-release-resource-supports-local-charts">}})
-  - [New examples for the Kubernetes native provider]({{<relref "/blog/pulumi-release-notes-m65#new-examples-for-kubernetes-native-provider">}})
+  - [New examples for the Kubernetes native provider]({{<relref "/blog/pulumi-release-notes-m65#new-examples-for-the-kubernetes-native-provider">}})
   - [New resources in the AWS Native provider]({{<relref "/blog/pulumi-release-notes-m65#new-resources-in-the-aws-native-provider">}})
   - [New resources in the Azure Native provider]({{<relref "/blog/pulumi-release-notes-m65#new-resources-in-the-azure-native-provider">}})
 - Pulumi CLI and core technologies
@@ -36,14 +36,134 @@ When you're developing or using a Helm chart stored on your local machine, it ca
 
 ### New examples for the Kubernetes native provider
 
-We've added additional examples to our [native provider for Kubernetes]({{<relref "/registry/packages/kubernetes">}}) to make it easier to get started with common resources:
+We've added additional examples to our [native provider for Kubernetes]({{<relref "/registry/packages/kubernetes">}}) to make it easier to get started with common resources. Jump into Pulumi Registry with the links below:
 
 - [Deployment]({{<relref "/registry/packages/kubernetes/api-docs/apps/v1/deployment#example-usage">}})
 - [StatefulSet]({{<relref "/registry/packages/kubernetes/api-docs/apps/v1/statefulset#example-usage">}})
 - [Job]({{<relref "/registry/packages/kubernetes/api-docs/batch/v1/job#example-usage">}})
 - [Pod]({{<relref "/registry/packages/kubernetes/api-docs/core/v1/pod#example-usage">}})
-- [Service]({{<relref "/registry/packages/kubernetes/api-docs/core/v1/service#example-usage">}})
 - [Ingress]({{<relref "/registry/packages/kubernetes/api-docs/networking/v1/ingress#example-usage">}})
+- [Service]({{<relref "/registry/packages/kubernetes/api-docs/core/v1/service#example-usage">}}) - shown below:
+
+{{< chooser language "typescript,python,csharp,go" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as kubernetes from "@pulumi/kubernetes";
+
+const my_service = new kubernetes.core.v1.Service("my_service", {
+    spec: {
+        selector: {
+            app: "MyApp",
+        },
+        ports: [{
+            protocol: "TCP",
+            port: 80,
+            targetPort: 9376,
+        }],
+    },
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_kubernetes as kubernetes
+
+my_service = kubernetes.core.v1.Service(
+    "my_service",
+    spec=kubernetes.core.v1.ServiceSpecArgs(
+        selector={
+            "app": "MyApp",
+        },
+        ports=[kubernetes.core.v1.ServicePortArgs(
+            protocol="TCP",
+            port=80,
+            target_port=9376,
+        )],
+    ))
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+using Kubernetes = Pulumi.Kubernetes;
+
+class MyStack : Stack
+{
+    public MyStack()
+    {
+        var service = new Kubernetes.Core.V1.Service("my_service", new Kubernetes.Types.Inputs.Core.V1.ServiceArgs
+        {
+            Spec = new Kubernetes.Types.Inputs.Core.V1.ServiceSpecArgs
+            {
+                Selector = 
+                {
+                    { "app", "MyApp" },
+                },
+                Ports = 
+                {
+                    new Kubernetes.Types.Inputs.Core.V1.ServicePortArgs
+                    {
+                        Protocol = "TCP",
+                        Port = 80,
+                        TargetPort = 9376,
+                    },
+                },
+            },
+        });
+    }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
+	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := corev1.NewService(ctx, "my_service", &corev1.ServiceArgs{
+			Spec: &corev1.ServiceSpecArgs{
+				Selector: pulumi.StringMap{
+					"app": pulumi.String("MyApp"),
+				},
+				Ports: corev1.ServicePortArray{
+					&corev1.ServicePortArgs{
+						Protocol:   pulumi.String("TCP"),
+						Port:       pulumi.Int(80),
+						TargetPort: pulumi.Int(9376),
+					},
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}
+```
+
+{{% /choosable %}}
+
+{{% /chooser %}}
 
 ### New resources in the AWS Native provider
 
@@ -54,9 +174,9 @@ We shipped new versions of the AWS Native provider (0.5.0 through 0.8.0) that ad
 We shipped new versions of the Azure Native provider (1.46.0 through 1.49.0) that collectively added [8 new resources](https://github.com/pulumi/pulumi-azure-native/blob/master/CHANGELOG.md#1450-2021-11-05).
 
 {{% notes type="warning" %}}
-Azure Native version 1.47.0 fixes a security issue that could result in your Azure credentials being stored in your state in cleartext. We recommend updating to the latest version of the Azure Native provider.
+Azure Native version 1.47.0 fixes a security issue that could result in your Azure credentials being stored in your state in cleartext. Read the [description of the issue](https://github.com/pulumi/pulumi-azure-native/blob/master/CHANGELOG.md#1470-2021-11-19) to see if you're affected and how to remediate any cleartext secrets.
 
-Read the [description of the issue](https://github.com/pulumi/pulumi-azure-native/blob/master/CHANGELOG.md#1470-2021-11-19) to see if you're affected and how to remediate any cleartext secrets.
+As a precaution, we recommend updating to the latest version of the Azure Native provider.
 {{% /notes %}}
 
 ## Pulumi CLI and core technologies
