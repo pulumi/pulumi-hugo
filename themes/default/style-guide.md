@@ -25,7 +25,7 @@ This document defines some general styles we adhere to in the docs.
 ### Example
 
 ```
-{{% notes type="warning" %}}
+{{% notes type="info" %}}
 This is a info note.
 {{% /notes %}}
 
