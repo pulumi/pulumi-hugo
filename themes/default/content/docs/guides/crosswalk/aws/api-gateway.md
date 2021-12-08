@@ -1145,7 +1145,7 @@ Next, create a DNS record to prove we do own the domain. This can be automated a
 
   ```go
   zone, err := route53.NewZone(ctx, "zone", &route53.ZoneArgs{Name: pulumi.String(domain)})
-  domainValidationOption := sslCertificate.DomainValidationOptions.ApplyT(func(options acm.CertificateDomainValidationOptionArray) interface{} {
+  domainValidationOption := sslCertificate.DomainValidationOptions.ApplyT(func(options []acm.CertificateDomainValidationOption) interface{} {
       return options[0]
   })
   // Create DNS record to prove to ACM that we own the domain
@@ -1153,16 +1153,16 @@ Next, create a DNS record to prove we do own the domain. This can be automated a
       "ssl-cert-validation-dns-record",
       &route53.RecordArgs{
           ZoneId: zone.ZoneId,
-          Name: domainValidationOption.ApplyT(func(option acm.CertificateDomainValidationOption) *string {
-              return option.ResourceRecordName
+          Name: domainValidationOption.ApplyT(func(option interface{}) string {
+            return *option.(acm.CertificateDomainValidationOption).ResourceRecordName
           }).(pulumi.StringOutput),
-          Type: domainValidationOption.ApplyT(func(option acm.CertificateDomainValidationOption) *string {
-              return option.ResourceRecordType
+          Type: domainValidationOption.ApplyT(func(option interface{}) string {
+            return *option.(acm.CertificateDomainValidationOption).ResourceRecordType
           }).(pulumi.StringOutput),
           Records: pulumi.StringArray{
-              domainValidationOption.ApplyT(func(option acm.CertificateDomainValidationOption) *string {
-                  return option.ResourceRecordValue
-              }).(pulumi.StringOutput),
+            domainValidationOption.ApplyT(func(option interface{}) string {
+              return *option.(acm.CertificateDomainValidationOption).ResourceRecordValue
+            }).(pulumi.StringOutput),
           },
           Ttl: pulumi.Int(10 * 60), // 10 minutes
       },
@@ -1194,7 +1194,8 @@ We must now wait for the certificate validation to complete before we can procee
   ```python
   validated_ssl_certificate = aws.acm.CertificateValidation("ssl-cert-validation",
                                                             certificate_arn=ssl_cert.arn,
-                                                            validation_record_fqdns=[ssl_cert_validation_dns_record.fqdn])
+                                                            validation_record_fqdns=[ssl_cert_validation_dns_record.fqdn],
+                                                            opts=ResourceOptions(provider=aws_us_east_1))
   ```
 
 {{% /choosable %}}
