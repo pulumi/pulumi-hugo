@@ -11,6 +11,12 @@ This document defines some general styles we adhere to in the docs.
 - Avoid using violent language (e.g., _kill_)
 - Avoid pop-culture references
 
+## Headings
+
+- You should be able to scan the headings of a document and get a good sense of the page
+- Every page should have exactly one h1
+- Never skip a heading level, e.g., if your previous heading level was a 2, the next heading can be a 2 or a 3, but not a 4 or 5
+
 ## Links
 
 - Link text should be descriptive and be understandable outside of the context that it is in.
@@ -40,4 +46,4 @@ This is a warning  note.
 
 ### Example
 
-> This is soemthing a person said.
+> This is something a person said.
