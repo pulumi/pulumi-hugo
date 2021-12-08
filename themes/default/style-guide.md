@@ -25,7 +25,7 @@ This document defines some general styles we adhere to in the docs.
 ## Notes and Warnings
 
 - Use notes to communicate important information
-- Try and limit the use of notes within a single page
+- Try and limit the number of notes within a single page
 - Use info for general information, and warnings for more important information
 
 ### Example
