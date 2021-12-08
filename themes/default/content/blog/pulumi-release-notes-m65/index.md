@@ -17,6 +17,7 @@ With the holiday season approaching, we've been focused on tidying up our produc
   - [New examples for the Kubernetes native provider]({{<relref "/blog/pulumi-release-notes-m65#new-examples-for-the-kubernetes-native-provider">}})
   - [New resources in the AWS Native provider]({{<relref "/blog/pulumi-release-notes-m65#new-resources-in-the-aws-native-provider">}})
   - [New resources in the Azure Native provider]({{<relref "/blog/pulumi-release-notes-m65#new-resources-in-the-azure-native-provider">}})
+  - [Support for Kubernetes 1.23]({{<relref "/blog/pulumi-release-notes-m65#support-for-kubernetes-123">}})
 - Pulumi CLI and core technologies
   - [Exclude protected resources from `pulumi destroy`]({{<relref "/blog/pulumi-release-notes-m65#exclude-protected-resources-from-pulumi-destroy">}})
   - [Pulumi Package plugins can now be hosted on GitHub Releases]({{<relref "/blog/pulumi-release-notes-m65#pulumi-package-plugins-can-now-be-hosted-on-github-releases">}})
@@ -178,6 +179,10 @@ Azure Native version 1.47.0 fixes a security issue that could result in your Azu
 
 As a precaution, we recommend updating to the latest version of the Azure Native provider.
 {{% /notes %}}
+
+### Support for Kubernetes 1.23
+
+The Pulumi [Kubernetes native provider]({{<relref "/registry/packages/kubernetes">}}) now supports the latest version of Kubernetes that was released on December 7th: version 1.23. See the [Kubernetes v1.23.0 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md) to learn about the new Kubernetes features and updates you can use via our Kubernetes native provider.
 
 ## Pulumi CLI and core technologies
 
