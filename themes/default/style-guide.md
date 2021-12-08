@@ -15,14 +15,14 @@ This document defines some general styles we adhere to in the docs.
 
 - You should be able to scan the headings of a document and get a good sense of the page
 - Every page should have exactly one h1
-- Never skip a heading level, e.g., if your previous heading level was a 2, the next heading can be a 2 or a 3, but not a 4 or 5
+- Don't skip heading levels in Markdown files, e.g., if your previous heading level was a 2, the next heading should be a 2 or a 3, but not a 4 or 5
 
 ## Links
 
 - Link text should be descriptive and be understandable outside of the context that it is in.
 - Avoid link text like _here_, _click here_, _see here_
 
-## Notes and Warning
+## Notes and Warnings
 
 - Use notes to communicate important information
 - Try and limit the use of notes within a single page
@@ -32,17 +32,17 @@ This document defines some general styles we adhere to in the docs.
 
 ```
 {{% notes type="info" %}}
-This is a info note.
+This is an info note.
 {{% /notes %}}
 
 {{% notes type="warning" %}}
-This is a warning  note.
+This is a warning note.
 {{% /notes %}}
 ```
 
-## Quotes
+## Blockquotes
 
-- Use quotes only when you are quoting a person.
+- Use blockquotes only when you are quoting content from another source.
 
 ### Example
 
