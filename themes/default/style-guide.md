@@ -1,4 +1,5 @@
 # Style Guide
+
 This document defines some general styles we adhere to in the docs.
 
 ## Words are important
@@ -24,19 +25,22 @@ This document defines some general styles we adhere to in the docs.
 
 ## Notes and Warnings
 
-- Use notes to communicate important information
-- Try and limit the number of notes within a single page
-- Use info for general information, and warnings for more important information
+Our docs currently support two kinds of note: `info`-level and `warning`-level.
 
-### Example
+- Use notes in general to communicate important information
+- Try and limit the number of notes within a single page
+- Use `info`-level notes to convey general information
+- Use `warning`-level notes for information that if missed, could lead to negative consequences
+
+### Examples
 
 ```
 {{% notes type="info" %}}
-This is an info note.
+This bit of info is important enough to call out, but not critical.
 {{% /notes %}}
 
 {{% notes type="warning" %}}
-This is a warning note.
+This bit of info is serious. If you missed it, bad things could happen.
 {{% /notes %}}
 ```
 
