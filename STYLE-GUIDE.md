@@ -12,6 +12,9 @@ This document defines some general styles we adhere to in the docs.
 - Avoid using violent language (e.g., _kill_)
 - Avoid pop-culture references
 
+Want to learn about why these words should be avoided?
+Check out [Google's inclusive documentation guide](https://developers.google.com/style/inclusive-documentation).
+
 ## Headings
 
 - You should be able to scan the headings of a document and get a good sense of the page
