@@ -91,7 +91,51 @@ Once you've authored and tested your package locally, you can publish it to make
 - The binary Pulumi resource provider plugin to a binary hosting provider of your choice
 - The package documentation–overview, installation & configuration, API docs, and how-to guides–to [Pulumi Registry]({{<relref "/registry">}})
 
-Future iterations of this guide will cover how to publish the first three items; for now, these are left as an exercise for the package author.
+### Configure package registry credentials
+
+_Note: you only have to do this step once; if you've already done it, skip to the next step._
+
+The boilerplate repositories provide a GitHub Actions workflow in the `.github/workflows` folder that will publish your npm, NuGet, and Python SDK packages to their respective registries. For it to work, you need to provide credentials to those registries.
+
+For each step in the following list, create an encrypted secret in your GitHub repository using [these instructions](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository):
+
+1. Create an [npm registry token](https://docs.npmjs.com/creating-and-viewing-access-tokens) and then add it to your GitHub repository as an encrypted secret called `NPM_TOKEN`
+1. Create a [NuGet Gallery API Key](https://docs.microsoft.com/en-us/nuget/nuget-org/publish-a-package#create-api-keys) and then add it to your GitHub repository as an encrypted secret called `NUGET_PUBLISH_KEY`
+1. Create an [PyPI token](https://pypi.org/help/#apitoken) and then add it to your GitHub repository as an encrypted secret called `PYPI_PASSWORD`
+
+### Choose a version number
+
+Now you're ready to start the publish process. First choose the version at which you'd like to publish. Pulumi Packages use [Semantic Versioning](https://semver.org) to determine package versions. If you're publishing the first version of your package, `0.0.1` is a good version number with which to start.
+
+### Tag the repository
+
+Next, create a Git tag. We recommend doing this by creating a [GitHub release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) but you can also do it manually from the `git` CLI. When you create the release, append a `v` to the version when you create the tag. For example, if you're using version `0.0.1`, create the tag `v0.0.1`.
+
+{{% notes type="info" %}}
+To publish your Go module, your repository needs to have a tag matching the format `sdk/v*`, where `*` is replaced with the version number you select in this step. The GitHub Actions workflow described in the next step automatically sets this tag for you; you don't need to do it yourself.
+{{% /notes %}}
+
+### Publish the npm, NuGet, and Python SDK packages, and the Go module
+
+When you create the GitHub release, the GitHub Actions workflow to create and publish your npm, NuGet, and Python packages, and the Go module, is kicked off automatically. You can follow its progress by clicking the "Actions" tab in your package's repository.
+
+#### Package names
+
+The GitHub Actions workflow will automatically create npm, NuGet, and Python packages for you, but you must first provide the package names in your `schema.json` in the `language` object. We recommend naming your packages using the following guidelines:
+
+- npm: `@[your-namespace]/pulumi-[package-name]`
+  - Replace `[your-namespace]` with your [npm scope](https://docs.npmjs.com/cli/v7/using-npm/scope). If possible, your repository's GitHub organization or user name should match your npm scope.
+  - Replace `[package-name]` with the name of your repository but remove the `pulumi-` prefix.
+- NuGet: `[your-namespace].Pulumi.[package-name]`
+  - Replace `[your-namespace]` with your [reserved ID prefix](https://docs.microsoft.com/en-us/nuget/nuget-org/id-prefix-reservation). If possible, your repository's GitHub organization or user name should match your reserved ID prefix.
+  - Replace `[package-name]` with the name of your repository but remove the `pulumi-` prefix.
+- PyPI: `[your-namespace]-pulumi-[package-name]`
+  - Replace `[your-namespace]` with the name of your GitHub organization or user name.
+  - Replace `[package-name]` with the name of your repository but remove the `pulumi-` prefix.
+
+### Publish the plugin
+
+The GitHub Actions workflow will automatically publish your plugin to your GitHub release.
 
 ### Publish the documentation
 
