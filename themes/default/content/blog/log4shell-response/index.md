@@ -71,6 +71,24 @@ the logging system is isolated so that it cannot trigger any program, process,
 or workflow, it should also not be able to make any call out to the internet
 save perhaps from an approved list of servers (e.g., your PagerDuty endpoint).
 
+### Consider deploying a WAF
+
+One way to ensure that your logging system, or any part of your network really,
+is unable to connect with or be connected to the internet in unexpected ways is
+to add a web application firewall (WAF). Many of the common WAFs out there have
+already deployed rules to block the JNDI Lookup's most common problem spots.
+
+In the registry, we've got a couple of different WAF providers you could add to
+your infrastructure to help block that traffic.
+[Cloudflare](https://www.pulumi.com/registry/packages/cloudflare/) and
+[AWS WAF](https://www.pulumi.com/registry/packages/aws/api-docs/waf/webacl/)
+are just two examples, and the basics of calling each one can be found in those
+docs. Both
+[Cloudflare](https://blog.cloudflare.com/cve-2021-44228-log4j-rce-0-day-mitigation/)
+and [AWS](https://aws.amazon.com/security/security-bulletins/AWS-2021-005/) have
+detailed their mitigation strategies in various posts over the past few days if
+you want to read more.
+
 ---
 
 All in all, there is always risk when using third-party tools. The idea is to
@@ -92,3 +110,8 @@ details.
 We know how hard this is considering that many platforms and systems are in code
 freeze for the holiday season. We wish you the best of luck in remediation
 efforts.
+
+ (Thank you to my colleagues,
+[Lee Briggs](https://www.pulumi.com/blog/author/lee-briggs/) and
+[Piers Karsenbarg](https://www.pulumi.com/blog/author/piers-karsenbarg/), for
+helping me track the code down and for kicking off this post, respectively!)
