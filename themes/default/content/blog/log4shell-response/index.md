@@ -3,9 +3,9 @@ title: "Dealing with Log4Shell"
 date: 2021-12-13
 draft: false
 meta_desc: |
-    Pulumi does not use the log4j library and is not directly affected. However,
-    if you want to learn more about mitigation techniques as users of
-    third-party systems, read on.
+    Pulumi does not use log4j and is not directly affected. However, if you want
+    to learn more about mitigation techniques as users of third-party systems,
+    read on.
 meta_image: meta.png
 authors:
     - laura-santamaria
