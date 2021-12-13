@@ -3,7 +3,7 @@ title: "Understanding State"
 date: 2021-12-13
 draft: false
 meta_desc: |
-    Do a quick dive into state and state management.
+    Do a quick dive into state and state management via some real-life physics.
 meta_image: meta.png
 authors:
     - laura-santamaria
@@ -66,7 +66,7 @@ connectivity and more. If you *really* want to go down the rabbit hole here, I'm
 going to point you to formal methods, especially TLA+. Formal methods are a
 great way to model state for distributed, concurrent systems to identify race
 conditions, poor assumptions, and other common flaws in temporal logic. For now,
-though, we're going to keep talking about state in the more abstract sense. 
+though, we're going to keep talking about state in the more abstract sense.
 
 Putting all of the states together along with the transitions they can have so
 that we have pathways from initial states to next states in a clean pattern, we
@@ -92,7 +92,7 @@ I hope this short introduction to how state works, especially with
 infrastructure-as-code platforms, helps get you on your way! If you want to read
 more about state with Pulumi (and get some nifty diagrams), head to
 [State and Backends]({{< relref "/docs/intro/concepts/state" >}}). Until
-next time! 
+next time!
 
 ---
 
