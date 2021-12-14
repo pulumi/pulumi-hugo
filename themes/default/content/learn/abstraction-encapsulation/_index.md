@@ -29,7 +29,7 @@ block_external_search_index: true
 ## Time
 
 How long this tutorial will take depends on your internet connection, reading
-speed, and other factors. On average, this tutorial should take you about XXXXXX
+speed, and other factors. On average, this tutorial should take you about 30
 minutes to complete.
 
 ## Prerequisites
@@ -40,18 +40,10 @@ You will need the following tools to complete this pathway:
   token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
   - If you don't have an account, go to the [signup
     page](https://app.pulumi.com/signup).
-- Git (version XX.XX.XX or higher)
-- Go (version XX.XX.XX or higher)
-- Python (version XX.XX or higher)
-- .NET Core (version XX.XX.XX or higher)
-- TypeScript (version XX.XX.XX or higher)
-
-Note that the languages must be installed to generate the packages; you do not
-need to know all four languages.
+- An AWS account (the free version should be fine)
 
 In addition, you should be able to
-- code in either Go, Python, or TypeScript/Javascript
-- write valid JSON
+- read code in either Python
 
 We recommend that you either have completed [Pulumi
 Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with
@@ -65,7 +57,6 @@ abstract and encapsulate your resource definitions as reusable models and
 packages for others to use.
 
 Note that this pathway will not have as many code samples to use as we will be
-defining patterns, exploring architecture, and discussing procedures for
-Registry publication.
+defining patterns, exploring architecture, and discussing resources.
 
 <!-- This pathway is considered an advanced pathway. -->
