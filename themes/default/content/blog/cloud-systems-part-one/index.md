@@ -193,7 +193,7 @@ web_bucket = s3.Bucket('s3-website-bucket',
     ))
 ```
 
-Here, we are instantiating an s3 Bucket object and assigning it to the web_bucket variable. S3 buckets are capable of hosting websites, but we have to tell the bucket that’s what it’s going to be doing, and what it shouyld expect the index document to be called. Ours is just called index.html.
+Here, we are instantiating an s3 Bucket object and assigning it to the `web_bucket` variable. S3 buckets are capable of hosting websites, but we have to tell the bucket that’s what it’s going to be doing and what it should expect the index document to be called. Ours is just called `index.html`.
 
 ```python
 content_dir = "website"
