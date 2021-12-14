@@ -171,7 +171,7 @@ Your browser should automatically open to localhost:8080, but if it doesn’t, n
 
 ## Configuring an S3 Bucket
 
-It’s time to deploy this thing to S3. From your project’s root, run source venv/bin/activate to make sure we’re in a virtual environment and run pip3 install pulumi-aws. From now on, we’ll be working in `__main__.py`
+It’s time to deploy this thing to S3. From your project’s root, run `source venv/bin/activate` to make sure we’re in a virtual environment, and run `pip3 install pulumi-aws`. From now on, we’ll be working in `__main__.py`
 
 For imports, we need the following:
 
