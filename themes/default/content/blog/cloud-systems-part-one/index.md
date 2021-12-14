@@ -159,7 +159,7 @@ body {
 
 Your `normalize.css` can be copied from [this respository](github.com/necolas/normalize.css), and the expected `background.jpg` can be downloaded from [this repository](https://github.com/katcosgrove/cloud-systems-101/blob/main/part-one/website/background.jpg).
 
-To see what this looks like before we deploy it, install live-server:
+To see what this looks like before we deploy it, install `live-server`:
 
 `npm install -g live-server`
 
