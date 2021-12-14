@@ -184,7 +184,7 @@ from pulumi import export, FileAsset
 from pulumi_aws import s3
 ```
 
-We’re going to be reading files from the OS and working with JSON, so we need the first three packages from the standard Python library. We’re also going to be using Pulumi. You will already have the `pulumi` package installed, but we also need the AWS provider. To get that, run `pip3 install pulumi-aws`.
+We’re going to be reading files from the operating system and working with JSON, so we need the first three packages from the standard Python library. We’re also going to be using Pulumi. You will already have the `pulumi` package installed, but we also need the AWS provider, which we just installed.
 
 ```python
 web_bucket = s3.Bucket('s3-website-bucket',
