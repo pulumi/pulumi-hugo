@@ -112,8 +112,8 @@
         https://en.wikipedia.org/wiki/Canonical_link_element
     -->
 
-    {{ if .Params.canonical_link }}
-        <link rel="canonical" href="{{ .Params.canonical_link }}" >
+    {{ if .Params.canonical_url }}
+        <link rel="canonical" href="{{ .Params.canonical_url }}" >
     {{ else }}
         <link rel="canonical" href="{{ .Site.Params.canonicalURL }}{{ .RelPermalink }}" >
     {{ end }}
