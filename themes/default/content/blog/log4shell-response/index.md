@@ -13,6 +13,10 @@ tags:
     - security
 ---
 
+Pulumi does not use log4j and is not directly affected by Log4Shell. However, if
+you want to learn more about mitigation techniques as users of third-party
+systems, read on.
+
 The recent security vulnerability CVE-2021-44228, or Log4Shell, that affects the
 log4j logging library for Java is a significant CVE for cloud engineers due to
 its wide-ranging attack possibilities. While we here at Pulumi do not use Java
