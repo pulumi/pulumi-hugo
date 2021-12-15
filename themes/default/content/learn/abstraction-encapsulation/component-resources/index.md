@@ -66,16 +66,16 @@ class OurBucketComponent(pulumi.ComponentResource):
         super().__init__('pkg:index:OurBucketComponent', name, None, opts)
         child_opts = pulumi.ResourceOptions(parent=self)
         policy_list = {
-            'default': {...},
-            'locked' : {...},
-            'permissive': {...}
+            'default': '{...}',
+            'locked' : '{...}',
+            'permissive': '{...}'
         }
         bucket = aws.s3.bucket(name)
         def define_policy(policy_name):
             try:
-                for policy_name in policy_list:
+                if policy_name in policy_list.keys():
                     json_data = policy_list[f"{policy_name}"]
-                return json_data
+                return json.dumps(json_data)
             except Exception as err:
                 raise err
         bucket_policy = aws_classic.s3.BucketPolicy(

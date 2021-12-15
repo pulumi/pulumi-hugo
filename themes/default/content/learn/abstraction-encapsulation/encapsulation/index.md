@@ -122,14 +122,14 @@ import ...
 class OurBucketClass(self, name_me, policy_name):
 
     policy_list = {
-        'default': {...},
-        'locked' : {...},
-        'permissive': {...}
+        'default': '{...}',
+        'locked' : '{...}',
+        'permissive': '{...}'
     }
 
     def define_policy(policy_name, bucket_id):
         try:
-            for policy_name in policy_list:
+            if policy_name in policy_list.keys():
                 json_data = policy_list[f"{policy_name}"]
             return bucket_id.arn.apply(lambda arn: json.dumps(json_data))
         except Exception as err:
