@@ -40,7 +40,7 @@ than keep asking questions of your providers (which you absolutely should do!).
 
 The following thoughts assume that you are not in control of the possible
 logging server and cannot update the version of log4j. If you have access to do
-so, stop and update the library to 2.15.0 or higher immediately (see the [Apache
+so, stop and update the library to 2.16.0 or higher immediately (see the [Apache
 Log4j Security Vulnerabilities
 page](https://logging.apache.org/log4j/2.x/security.html) for more information).
 
@@ -107,15 +107,20 @@ Please note that we are not a logging provider, and we are not the experts on
 the subject, just fellow users. If you are looking for remediation help for your
 systems that directly run log4j, please refer to the [Apache Log4j Security
 Vulnerabilities page](https://logging.apache.org/log4j/2.x/security.html) for
-proper remediation steps and the official [CVE
-record](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) for more
-details.
+proper remediation steps and the official CVE records
+([CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)
+and
+[CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))
+for more details.
 
 We know how hard this is considering that many platforms and systems are in code
 freeze for the holiday season. We wish you the best of luck in remediation
 efforts.
 
  (Thank you to my colleagues,
-[Lee Briggs](https://www.pulumi.com/blog/author/lee-briggs/) and
-[Piers Karsenbarg](https://www.pulumi.com/blog/author/piers-karsenbarg/), for
-helping me track the code down and for kicking off this post, respectively!)
+[Lee Briggs](https://www.pulumi.com/blog/author/lee-briggs/),
+[Piers Karsenbarg](https://www.pulumi.com/blog/author/piers-karsenbarg/)
+and
+[Aurélien Requiem](https://www.pulumi.com/blog/author/aurelien-requiem/), for
+helping me track the code down, kicking off this post, and catching the newer
+of the two vulnerabilities before publication, respectively!)
