@@ -48,23 +48,28 @@ actual component resource.
 
 ## Converting to a component resource
 
-When we're converting to a component resource, 
+When we're converting to a component resource, we're subclassing (or composing
+from an anonymous field, if you're into Go) the `ComponentResource` so that our
+new component resource can get all of the lovely benefits of a resource (state
+tracking, diffs, name fields, etc.) that other resources have.
+
+In Python, we subclass by using `super()` in the initialization of the class.
+This call ensures that Pulumi registers the component resource as a resource
+properly.
 
 ```python
 import ...
-
-# Our policy list probably is defined elsewhere; this is for illustration only.
-policy_list = {
-    'default': {...},
-    'locked' : {...},
-    'permissive': {...}
-}
 
 
 class OurBucketComponent(pulumi.ComponentResource):
     def __init__(self, name, policy_name='default', opts=None):
         super().__init__('pkg:index:OurBucketComponent', name, None, opts)
         child_opts = pulumi.ResourceOptions(parent=self)
+        policy_list = {
+            'default': {...},
+            'locked' : {...},
+            'permissive': {...}
+        }
         bucket = aws.s3.bucket(name)
         def define_policy(policy_name):
             try:
@@ -79,8 +84,22 @@ class OurBucketComponent(pulumi.ComponentResource):
             policy=bucket.arn.apply(lambda arn: define_policy(policy_name)),
             opts=pulumi.ResourceOptions(parent=bucket)
         )
-        self.register_outputs({})
+        self.register_outputs({
+            "bucket_name": bucket.bucket_name
+        })
 ```
+
+Within `super()`'s init, we pass in a name for the resource, which we recommend
+being of the form `<package>:<module>:<type>` to avoid type conflicts since it's
+being registered alongside other resources like the Bucket resource we're
+calling (`aws:s3:Bucket`).
+
+That last call, `self.register_outputs({})`, passes Pulumi the expected outputs
+so Pulumi can read the results of the creation or update of a component resource
+just like any other resource, so don't forget it! You can register default
+outputs using this call, as well. It's not hard to imagine we will always want
+the bucket name for our use case, so we pass that in as an always-given output
+for our component resource.
 
 ---
 

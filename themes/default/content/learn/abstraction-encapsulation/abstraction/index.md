@@ -8,7 +8,7 @@ description: |
 meta_desc: |
     Learn more about abstracting Pulumi code into classes, models, and objects.
 index: 0
-estimated_time: 10
+estimated_time: 5
 meta_image: meta.png
 authors:
     - laura-santamaria
@@ -56,12 +56,13 @@ we don't know which infrastructure each team will need. However, each team will
 need some kind of storage location that has an access policy, no matter whether
 they're doing a serverless build or a compute-based build.
 
+Mentally, we're defining a sort of abstraction like this:
 
+![A diagram showing a user doing an action that touches the storage through a policy](./abstraction.png)
 
-
-Ipsum lorem
-
-
-
+Seems pretty clean, doesn't it? Abstraction is thinking through what we
+experience when we call the code, so that anyone calling that code experiences
+the same thing. The part that gets complicated is when we start translating that
+idea to code.
 
 Let's now go explore the more practical encapsulation concept!

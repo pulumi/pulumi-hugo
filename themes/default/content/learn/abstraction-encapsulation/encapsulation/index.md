@@ -118,13 +118,14 @@ policies, and the values are JSON documents.
 ```python
 import ...
 
-policy_list = {
-    'default': {...},
-    'locked' : {...},
-    'permissive': {...}
-}
 
-class OurBucketClass(self, name_me, policy_name, policy_list):
+class OurBucketClass(self, name_me, policy_name):
+
+    policy_list = {
+        'default': {...},
+        'locked' : {...},
+        'permissive': {...}
+    }
 
     def define_policy(policy_name, bucket_id):
         try:
@@ -145,6 +146,5 @@ class OurBucketClass(self, name_me, policy_name, policy_list):
 ```
 
 In Pulumi, everything, including your resources, can be modeled, abstracted, and
-encapsulated just like anything in your programming language of choice.
-
-Next up, let's explore the idea of sharing these groupings with others!
+encapsulated just like anything in your programming language of choice. Why does
+that matter, or why should you care? The answer to that question is up next!
