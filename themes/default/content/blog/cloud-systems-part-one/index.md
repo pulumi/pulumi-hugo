@@ -1,7 +1,7 @@
 ---
 title: "Cloud Systems Part One: Static Sites and AWS S3"
 
-date: 2021-12-10T09:44:47-08:00
+date: 2021-15   -10T09:44:47-08:00
 
 draft: false
 
@@ -24,7 +24,7 @@ Cloud engineering is taking over software development. In a lot of ways, this is
 
 The simplest website you can build is a static site. That means no web server, just HTML, CSS, and maybe some front-end JavaScript. Static sites can still be beautiful and interactive though, and for many people, they’re more than enough.
 
-[Amazon S3](https://aws.amazon.com/s3/) (Simple Storage Service) is an AWS service that provides cloud storage for files, stored as objects in buckets. AWS charges you only for what you use rather than selling you chunks of data, so it scales pretty well and tends to be fairly cost-effective. You can throw just about anything in an S3 bucket, from data lakes to images to logs. This also means that you can use it to host a static website! Let’s look at how.
+[Amazon S3](https://aws.amazon.com/s3/) (Simple Storage Service) is an AWS service that provides cloud storage for files, stored as objects in buckets. You can think of it like an external harddrive: plug it into your computer, and you have more storage space for your files, photos, and movies that you can unplug at will and move to another computer. An S3 bucket behaves very similarly in that you can throw just about anything in it, from data lakes to images to logs, and connect it to an application. This also means that you can use it to host a static website! Let’s look at how.
 
 ## Prerequisites:
 
@@ -159,7 +159,9 @@ body {
 
 Your `normalize.css` can be copied from [this respository](github.com/necolas/normalize.css), and the expected `background.jpg` can be downloaded from [this repository](https://github.com/katcosgrove/cloud-systems-101/blob/main/part-one/website/background.jpg).
 
-To see what this looks like before we deploy it, install `live-server`:
+To see what this looks like before we deploy it, we're going to use a tool called `live-server`. This isn't a real, functional webserver, but it's a useful tool during development for static websites. It will reload automatically when a change is detected, so you don't have to wait for deploys.
+
+Install it with this:
 
 `npm install -g live-server`
 
