@@ -134,7 +134,7 @@ class OurBucketClass(self, name_me, policy_name):
             return bucket_id.arn.apply(lambda arn: json.dumps(json_data))
         except Exception as err:
             raise err
- 
+
     bucket = aws.s3.bucket(f"{name_me}")
     bucket_policy = aws_classic.s3.BucketPolicy(
         f"{name_me}-policy",
