@@ -41,7 +41,7 @@ You will need the following tools to complete this pathway:
 - An AWS account (the free version should be fine)
 
 In addition, you should be able to
-- read code in either Python
+- code in Python
 
 We recommend that you either have completed [Pulumi
 Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with
