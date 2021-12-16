@@ -27,7 +27,7 @@ interface for others to use.
 ## Scaffolding
 
 Let’s start out by scaffolding the code by importing the right libraries and
-doing a bit of conversion of our basic Pulumi commands (create, configure, 
+doing a bit of conversion of our basic Pulumi commands (create, configure,
 refresh, destroy, and update). to code with the automation API library:
 
 ```python

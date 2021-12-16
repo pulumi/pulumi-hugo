@@ -112,7 +112,7 @@ These logs appear in the console as you run an update, which appears as
 something like this:
 
 ```bash
-$ pulumi up               
+$ pulumi up
 Previewing update (dev)
 
 ...
@@ -135,10 +135,10 @@ Diagnostics:
     Output: JQ==
     Output: :BO91@2m3WO[VC]h&b&5t7f4
     Output: 0bd8b1f9-01c5-f71f-949b-8c9b0bc95b04
- 
+
     Refreshing (dev)
 ...
- 
+
 
 Do you want to perform this update? yes
 Updating (dev)
@@ -163,7 +163,7 @@ Diagnostics:
     Output: JQ==
     Output: :BO91@2m3WO[VC]h&b&5t7f4
     Output: 0bd8b1f9-01c5-f71f-949b-8c9b0bc95b04
- 
+
     Refreshing (dev)
 ...
 ```
