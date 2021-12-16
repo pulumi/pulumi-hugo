@@ -211,7 +211,7 @@ Resources:
 Duration: 1s
 
 info: Successfully updated the stack
-info: Summary: 
+info: Summary:
 {
     "same": 4
 }
