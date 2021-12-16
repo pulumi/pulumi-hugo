@@ -62,7 +62,7 @@ destroy call to return so we can use it in our API for an ephemeral random call.
 Use this diff to make those changes:
 
 ```bash
-$ diff __main__.py basic_pulumi.py 
+$ diff __main__.py basic_pulumi.py
 10c10
 < def set_context(org, project, stack, dirname):
 ---
@@ -261,7 +261,7 @@ Resources:
 Duration: 2s
 
 info: Successfully updated the stack
-info: Summary: 
+info: Summary:
 {
     "create": 2
 }
