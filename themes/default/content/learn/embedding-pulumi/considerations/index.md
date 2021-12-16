@@ -3,8 +3,12 @@ title: "Understanding Extra Considerations"
 layout: topic
 date: 2021-12-15
 draft: false
-description: Here is a brief description of what this topic will cover.
-meta_desc: Here is a brief description of what this topic will cover.
+description: |
+    Explore why it's important to consider logging and error handling when using
+    the Automation API.
+meta_desc: |
+    Explore why it's important to consider logging and error handling when using
+    the Automation API.
 index: 2
 estimated_time: 10
 meta_image: meta.png
@@ -12,9 +16,6 @@ authors:
     - laura-santamaria
 tags:
     - learn
-# links:
-    # - text: Some Website
-    #   url: http://something.com
 block_external_search_index: false
 ---
 

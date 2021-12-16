@@ -27,7 +27,7 @@ block_external_search_index: false
 ## Time
 
 How long this tutorial will take depends on your internet connection, reading
-speed, and other factors. On average, this tutorial should take you about __
+speed, and other factors. On average, this tutorial should take you about 30
 minutes to complete.
 
 ## Prerequisites
@@ -42,7 +42,6 @@ You will need the following tools to complete this pathway:
 In addition, you should be able to
 
 - code in Python
-- understand some basics about APIs
 
 We recommend that you either have completed [Pulumi
 Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with

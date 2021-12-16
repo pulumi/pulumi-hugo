@@ -3,18 +3,19 @@ title: "Getting Started"
 layout: topic
 date: 2021-12-15
 draft: false
-description: Here is a brief description of what this topic will cover.
-meta_desc: Here is a brief description of what this topic will cover.
+description: |
+    Set up your local system to start building a working example of the
+    Automation API.
+meta_desc: |
+    Set up your local system to start building a working example of the
+    Automation API.
 index: 0
-estimated_time: 10
+estimated_time: 5
 meta_image: meta.png
 authors:
     - laura-santamaria
 tags:
     - learn
-# links:
-    # - text: Some Website
-    #   url: http://something.com
 block_external_search_index: false
 ---
 
@@ -38,7 +39,8 @@ Just like in all of our other pathways, we're going to create a new Pulumi
 project to hold our code. You could keep working in whatever project that you
 already have set up, but it will get a bit messy if you do. Create a new
 directory and run `pulumi new` with the python template. If you need a refresher
-on how to do so, head to <fundamentals link>.
+on how to do so, head to [Pulumi
+Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}).
 
 Call the directory `learn-auto-api`, which we'll use as the name in the rest of
 this pathway. If you name it something different, don't forget to change the
