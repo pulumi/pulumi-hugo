@@ -209,17 +209,23 @@ def update_stack(stack):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    set_context(...)
-    find_local(...)
-    spin_venv(...)
-    set_stack(...)
-    configure_project(...)
-    refresh_stack(...)
     if len(args) > 0:
         if args[0] == "destroy":
             destroy = True
-            destroy_stack(...)
-    update_stack(...)
+    context = set_context(org='<org>',
+                          project='burner-program',
+                          stack='dev',
+                          dirname='burner-program'
+                          )
+    spin_venv(context['dirname'])
+    stack = set_stack(context=context)
+    configure_project(stack=stack)
+    refresh_stack(stack=stack)
+    if len(args) > 0:
+        if args[0] == "destroy":
+            destroy = True
+            destroy_stack(stack=stack)
+    update_stack(stack=stack)
 
 ```
 
