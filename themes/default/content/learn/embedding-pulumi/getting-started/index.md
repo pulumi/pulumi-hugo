@@ -28,7 +28,7 @@ some sort of API, perhaps a website.
 This is exactly where Pulumi's Automation API can come in handy. Let's get
 started!
 
-## Getting started
+## Setting up
 
 We're going to automate the use of Pulumi's CLI so we can use it in pipelines,
 APIs, and web interfaces. For the Pulumi program we're using to test our
