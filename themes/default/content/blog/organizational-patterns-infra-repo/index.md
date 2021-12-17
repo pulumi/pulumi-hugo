@@ -11,7 +11,7 @@ date: 2021-12-17T05:46:04-06:00
 # Set this property to `false` before submitting your post for review.
 draft: false
 
-meta_desc: Using Pulumi is more than just writing code and components - there are several success patterns related to how your teams build & deploy Pulumi programs. In this first post of a series, we explore one of these patterns - the centralized platform infrastructure repository.
+meta_desc: Using Pulumi is more than just writing code and components! In this first post of a series, we explore an important organizational pattern - the centralized platform infrastructure repository.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -35,7 +35,7 @@ An emergent organizational pattern these days is that of a centralized "platform
 
 For many of the examples I'll be using to illustrate this pattern, I refer to a conversation I had recently with Jacob Foard, who is the Tech Lead for the Platform Team at [GreenPark Sports](https://greenparksports.com/). This pattern is used at GreenPark Sports, and he was very clear about the benefits of the pattern.
 
-One of the key concepts to keep in mind is that when providing a platform, it is made up of more than just the compute and other resources provided by AWS, GCP, Azure, or even your own Kubernetes implementations. The platform also includes the infrastructure that is shared between the various teams, such as monitoring and observability tooling, version control/pipeline services, as well as secret and key management. 
+One of the key concepts to keep in mind is that when providing a platform, it is made up of more than just the compute and other resources provided by AWS, GCP, Azure, or even your own Kubernetes implementations. The platform also includes the infrastructure that is shared between the various teams, such as monitoring and observability tooling, version control/pipeline services, as well as secret and key management.
 
 In this pattern, your main infrastructure repository is made up of directories for each product/service that your teams use, in addition to directories for each higher level shared service. Each of these directories is itself a Pulumi program. So it would look something like this:
 
@@ -60,14 +60,17 @@ In this pattern, your main infrastructure repository is made up of directories f
 │   └── vault
 └── .etc
 ```
+
 In the above (fictional, but inspired by the GreenPark Sports pattern) example, the Bluth Company has two main services that are used in all of its environments ("Banana Stand" and "Sudden Valley"). The main `apps.go` file is the entry point that simply calls functions from each of the various apps to "set up" those apps, as well as the common infrastructure that an environment might require (networks, storage, etc). Note that the way you structure your code is up to you, and likely will vary depending upon the runtime for your particular Pulumi program, but this is the general idea.
 
 Similarly, the `github` and `datadog` directories are Pulumi programs that are responsible for the "core" infrastructure for those services (perhaps creating roles, etc). The `pkg` directory is a directory that contains packages that are used by the other programs to implement that infrastructure. Again, the `pkg` convention is used by Go, but other runtimes will have a similar approach.
 
 ## Examples
+
 These examples are not complete runnable code, but used to illustrate the pattern. While these examples are using Go, they are written in a way that is compatible with any language that supports the Pulumi language.
 
 `main.go`
+
 ```go
 package main
 
@@ -93,6 +96,7 @@ func main() {
 ```
 
 `apps.go`
+
 ```go
 package apps
 import (
@@ -109,6 +113,7 @@ func SetupApps(
 ```
 
 `bananastand.go`
+
 ```go
 package apps
 // imports, etc
@@ -127,4 +132,4 @@ One important part of this pattern is that the platform team does not want to be
 
 In the fictional Bluth example, there is one Pulumi program that is used regardless of environment, and the different configurations are handled by the use of stacks. However, there are situations where you might have complex enough differences between your environments where the amount of conditionals you require in your code to handle this would make for very challenging maintenance and understanding of the code! This is the case with GreenPark Sports, so in their implementation, instead of a single `bluth-apps` directory at the root of the repo, you would instead have `bluth-prod`, `bluth-dev`, etc.
 
-This approach does generate duplication of code, and it can provide challenges at scale, but it is up to you and your teams to determine the tradeoffs of the branching/conditional logic vs separate programs. 
+This approach does generate duplication of code, and it can provide challenges at scale, but it is up to you and your teams to determine the tradeoffs of the branching/conditional logic vs separate programs.
