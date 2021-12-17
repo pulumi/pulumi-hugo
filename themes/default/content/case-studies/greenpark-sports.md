@@ -88,5 +88,3 @@ Pulumi enabled GreenPark Sports to empower its developers with self-service clou
 - The platform team empowered developers to build and deploy cloud infrastructure on a self-service basis while still enforcing security and compliance.
 - Everyone can build, deploy, and manage cloud infrastructure, Kubernetes, and SaaS providers with general-purpose languages (Go, TypeScript/JavaScript, Python, C#) and existing development tools (e.g. IDEs, test frameworks, package managers).
 - Simplified Kubernetes deployments because the platform team can manage Kubernetes resources, custom resources, and Helm charts from a single platform using general-purpose languages like Go.
-
-Want to work at GreenPark Sports? <a href="https://boards.greenhouse.io/greenparksports" _target="_blank" rel="noopener noreferrer">They're hiring!</a>
