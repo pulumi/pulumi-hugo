@@ -1,7 +1,7 @@
 ---
 title: GreenPark Sports
 description: |
-    Pulumi enabled GreenPark Sports to empower its developers with self-service cloud infrastructure through a “developer-first” approach.
+    Pulumi enabled GreenPark Sports to empower its developers with self-service cloud infrastructure, enabling them to quickly and easily deploy Kubernetes clusters and contribute infrastructure code.
 meta_desc: |
     Pulumi enabled GreenPark Sports to empower its developers with self-service cloud infrastructure through a “developer-first” approach.
 
@@ -10,7 +10,7 @@ customer_logo: /logos/customers/greenpark-sports-wordmark.png
 customer_url: https://greenparksports.com/
 
 exec_summary: |
-    GreenPark Sports creates digital experiences and games for the new generation of sports and esports fans. To increase velocity, its platform team wanted to make cloud infrastructure self-service by empowering the company’s developers to build and deploy Kubernetes applications. However, GreenPark’s legacy infrastructure tool used a domain-specific language (DSL) that impeded adoption by developers. The platform team migrated to Pulumi so that they could build, deploy, and manage infrastructure with general-purpose languages (Go, Python, TypeScript/JavaScript, C#), enabling developers to easily provision and use cloud infrastructure for developing cloud applications. This increased development velocity because more developers could deploy updates faster and more frequently. Since GreenPark adopted Pulumi, every developer now uses Infrastructure as Code to deploy changes, up from only 30% before Pulumi. Developers have also increased cloud deployments by 70%.
+    GreenPark Sports creates digital experiences and games for the new generation of sports and esports fans. To increase velocity, its platform team wanted to make cloud infrastructure self-service by empowering the company’s developers to build and deploy Kubernetes applications. However, GreenPark’s legacy infrastructure tool used a domain-specific language (DSL) that impeded adoption by developers. The platform team migrated to Pulumi so that it could build, deploy, and manage infrastructure with general-purpose languages (Go, Python, TypeScript/JavaScript, C#), enabling developers to easily provision and use cloud infrastructure for developing cloud applications. This increased development velocity because more developers could deploy updates faster and more frequently. Since GreenPark adopted Pulumi, every developer now uses Infrastructure as Code to deploy changes, up from only 30% before Pulumi. Developers have also increased cloud deployments by 70%.
 
 sections:
     - label: Exec Summary
@@ -29,7 +29,7 @@ sections:
 
 ## Democratizing Cloud Infrastructure to Power Sports Fandom
 
-### GreenPark Sports
+### About GreenPark Sports
 
 GreenPark Sports is a social gaming developer for next generation sports and esports fans.  Its mission is to bring global sports fans together to connect, compete, celebrate, and collaborate in a uniquely social and immersive experience. First launched in January 2021, the free to play mobile app now includes early gameplay within multiple fan universes, including the League of Legends Championship Series (LCS), LaLiga, and the National Basketball Association (NBA). GreenPark Sports has been building towards a blockchain digital collectible experience along with their 1st NFT drop in late Fall 2021.
 
@@ -60,22 +60,22 @@ After deciding on Pulumi, Jacob and his team built a system based on a “develo
 
 #### Migrating Infrastructure to Pulumi
 
-First, the platform team migrated its infrastructure from Terraform to Pulumi. This included Kubernetes resources, Google Cloud resources, GitHub repos, DataDog, CloudFlare, Confluent for Kafka, Consul, and Vault. This enabled them to build, deploy, and manage all of their cloud and SaaS resources from a single platform, using Go as their language of choice.
+First, the platform team [migrated](/tf2pulumi/) its infrastructure from Terraform to Pulumi. This included Kubernetes resources, Google Cloud resources, GitHub repos, DataDog, CloudFlare, Confluent for Kafka, Consul, and Vault. This enabled them to build, deploy, and manage all of their cloud and SaaS resources from a single platform, using Go as their language of choice.
 
 <img class="block mx-auto md:max-w-4xl my-8" src="/images/case-studies/greenpark-sports-monorepo-diagram.png">
 <p class="text-sm italic text-center">GreenPark Sports uses a monorepo to manage its infrastructure code.</p>
 
 #### Simplifying Kubernetes Deployments
 
-Pulumi also simplified how they manage Kubernetes deployments. It gave them a strongly-typed way of modeling Kubernetes resources with standard languages (e.g., Go) instead of YAML. Using Pulumi’s native support for Kubernetes, they could access 100% of Kubernetes’ APIs. They could also build and manage Helm charts and Kubernetes custom resource definitions with Pulumi’s cloud native integrations.
+Pulumi also simplified how they manage Kubernetes deployments. It gave them a strongly-typed way of modeling Kubernetes resources with standard languages (e.g., Go) instead of YAML. Using Pulumi’s [native support for Kubernetes](/kubernetes), they could access 100% of Kubernetes’ APIs. They could also build and manage Helm charts and Kubernetes custom resource definitions with Pulumi’s cloud native integrations.
 
 #### Building Reusable Cloud Infrastructure
 
-Next, Jacob’s team built a set of reusable Pulumi components in Go which developers could use to build and deploy new services without having to think about infrastructure configurations. Components abstract away infrastructure complexity, making them easy to consume. For example, Jacob’s team built a component in 8 lines of code representing a service with around 100 resources configured with best practices. When using the component, developers only needed to input a name for the service, the environment they’re running in, and a few other settings.
+Next, Jacob’s team built a set of [reusable Pulumi components](/docs/intro/concepts/resources/#components) in Go which developers could use to build and deploy new services without having to think about infrastructure configurations. Components abstract away infrastructure complexity, making them easy to consume. For example, Jacob’s team built a component in 8 lines of code representing a service with around 100 resources configured with best practices. When using the component, developers only needed to input a name for the service, the environment they’re running in, and a few other settings.
 
 #### Empowering Developers to Self-Service with Infrastructure
 
-Finally, Jacob’s team established a workflow that allows developers to independently deploy infrastructure. It also ensures that changes comply with company standards and security. In this workflow, all changes are managed through GitHub pull requests (PRs). If someone wants to deploy something new or an update, they create a PR and the platform team reviews the request. Using the Pulumi Console, platform team members can visualize what resources will be created or changed. They can also view logs of past changes. If the PR is approved and merged, then the changes are built, tested, and deployed with GreenPark’s CI/CD workflow, which uses Flux CD and Bazel.
+Finally, Jacob’s team established a workflow that allows developers to independently deploy infrastructure. It also ensures that changes comply with company standards and security. In this workflow, all changes are managed through GitHub pull requests (PRs). If someone wants to deploy something new or an update, they create a PR and the platform team reviews the request. Using the Pulumi Service console, platform team members can visualize what resources will be created or changed. They can also view logs of past changes. If the PR is approved and merged, then the changes are built, tested, and deployed with GreenPark’s CI/CD workflow, which uses Flux CD and Bazel.
 
 As a result, GreenPark increased Infrastructure as Code adoption from less than one-third of engineers to 100%. Engineers now also deploy 70% more changes than before Pulumi. It’s also straightforward for the platform team to onboard new developers to infrastructure. Jacob says, “Before Pulumi, the barrier to entry for developers using the cloud was high. Now, a developer can just call a function, just as they normally would. Infrastructure is now familiar because everything is in Go instead of HCL. Everything just works.”
 

@@ -28,7 +28,7 @@ sections:
 ---
 ## Building the Data API for Modern Applications using Modern Infrastructure Practices
 
-### Fauna
+### About Fauna
 
 Fauna is a flexible, developer-friendly, transactional database delivered as a secure and scalable cloud API with native GraphQL. With Fauna, you simply create a database and never have to worry about database operations. Fauna handles it all—provisioning, scaling, sharding, replication and correctness. With Fauna, developers can simplify code, reduce costs, and ship faster by replacing their entire database infrastructure with a highly productive, programmable, yet operations-free data API. Some Fauna customers include innovators such as DIGITALAX, Hannon Hill, EIDU, MJH Life Sciences, MeetKai, Delicious Simplicity, and Matter Supply Co.
 
@@ -48,7 +48,7 @@ Fauna’s engineers needed a modern, cloud engineering solution that would meet 
 
 ### Why Pulumi?
 
-Fauna chose Pulumi because it would allow its developers to adopt modern, cloud engineering practices out-of-the-box and increase velocity. With Pulumi, developers can build infrastructure as code with standard languages they already know, such as Python, TypeScript/JavaScript, Go, and C#. They can deploy infrastructure changes through existing CI/CD pipelines, just like application code. Finally, they can manage cloud infrastructure and applications with full visibility into every resource, access controls, and Policy as Code.
+Fauna chose Pulumi because it would allow its developers to adopt modern, [cloud engineering](/cloud-engineering) practices out-of-the-box and increase velocity. With Pulumi, developers can build infrastructure as code with standard languages they already know, such as Python, TypeScript/JavaScript, Go, and C#. They can deploy infrastructure changes through existing CI/CD pipelines, just like application code. Finally, they can manage cloud infrastructure and applications with full visibility into every resource, access controls, and Policy as Code.
 
 ### How Fauna Built Region Groups with Pulumi
 
@@ -76,7 +76,7 @@ Fauna could also easily integrate its secrets manager tool, HashiCorp Vault, wit
 
 ### Future plans
 
-Fauna is using Pulumi's [Automation API]({{< relref "/docs/guides/automation-api">}}) to manage its quality assurance clusters and plans to extend its use in production clusters to further automate its infrastructure deployment process by running changes through a CI/CD pipeline. Automation API enables Fauna to use the Pulumi engine as an SDK and build applications that dynamically manage infrastructure. Fauna also plans to adopt Pulumi’s [AWS Native Provider]({{< relref "/blog/announcing-aws-native" >}}), which provides 100% coverage of resources in the AWS Cloud Control API and has same-day access to new AWS launches.
+Fauna is using Pulumi's [Automation API]({{< relref "/automation">}}) to manage its quality assurance clusters and plans to extend its use in production clusters to further automate its infrastructure deployment process by running changes through a CI/CD pipeline. Automation API enables Fauna to use the Pulumi engine as an SDK and build applications that dynamically manage infrastructure. Fauna also plans to adopt Pulumi’s [AWS Native Provider]({{< relref "/blog/announcing-aws-native" >}}), which provides 100% coverage of resources in the AWS Cloud Control API and has same-day access to new AWS launches.
 
 ### How Pulumi Benefits Fauna
 
