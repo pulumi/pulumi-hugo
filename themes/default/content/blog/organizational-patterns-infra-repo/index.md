@@ -133,3 +133,9 @@ One important part of this pattern is that the platform team does not want to be
 In the fictional Bluth example, there is one Pulumi program that is used regardless of environment, and the different configurations are handled by the use of stacks. However, there are situations where you might have complex enough differences between your environments where the amount of conditionals you require in your code to handle this would make for very challenging maintenance and understanding of the code! This is the case with GreenPark Sports, so in their implementation, instead of a single `bluth-apps` directory at the root of the repo, you would instead have `bluth-prod`, `bluth-dev`, etc.
 
 This approach does generate duplication of code, and it can provide challenges at scale, but it is up to you and your teams to determine the tradeoffs of the branching/conditional logic vs separate programs.
+
+## Conclusion
+
+This pattern works well depending upon the makeup of your teams and services. It is a pattern that facilitates collaboration between teams and focuses on having a central platform team that enables product teams, rather than getting in their way.
+
+Watch for the next posts in this series, where we will dig into some other patterns as well!
