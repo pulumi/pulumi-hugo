@@ -11,7 +11,7 @@ date: 2021-12-17T05:46:04-06:00
 # Set this property to `false` before submitting your post for review.
 draft: false
 
-meta_desc: Using Pulumi is more than just writing code and components! In this first post of a series, we explore an important organizational pattern - the centralized platform infrastructure repository.
+meta_desc: In this first post of a series, we explore an important organizational pattern of using Pulumi - the centralized platform infrastructure repository.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
