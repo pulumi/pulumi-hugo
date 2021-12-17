@@ -1,7 +1,8 @@
 ---
 title: "Using AWS Quick Starts with the Pulumi Registry"
-date: 2021-10-28
+date: 2021-12-17
 meta_desc: "Pulumi releases AWS Quick Start packages in the Pulumi registry"
+meta_image: pulumi-aws-quickstart-registry.png
 authors:
     - aidan-hoolachan
 tags:
@@ -14,7 +15,7 @@ tags:
     - registry
 ---
 
-As somebody who works on AWS projects across numerous projects, teams, and industries; I see the following three common types of infrastructure problems. I think the Pulumi Registry provides an incredible alternative to each of these problems and will fundamentally change how people interact with AWS.
+As somebody who works on AWS projects across numerous projects, teams, and industries; I see the following three common types of infrastructure problems. I think the Pulumi Registry provides an incredible solution to each of these problems and will fundamentally change how people interact with AWS.
 
 Common AWS infrastructure problems:
 
@@ -24,7 +25,7 @@ Common AWS infrastructure problems:
   
   - **AWS Lock-in** - These are companies who lean into the AWS ecosystem for convenience sake. They might choose Cognito over a third-party Identity Provider even though the third-party Identity Provider might be a superior service.
 
-The underlying reason for these problems is that AWS's core services are designed for modularity within the AWS ecosystem, which is great for flexibility and experienced AWS developers, but it makes building best-practice AWS environments surprisingly difficult. Most "best practice" features on AWS, like email alarms when a database goes down, should really be the standard practice, but those features currently require complicated cross-service relationships that are difficult to implement correctly. The AWS ecosystem has been waiting for a layer of abstraction on top of these resources.
+The underlying cause of these problems is that AWS's core services are designed for modularity within the AWS ecosystem, which is great for flexibility and experienced AWS developers, but it makes building best-practice AWS environments surprisingly difficult. Most "best practice" features on AWS, like email alarms when a database goes down, should really be the standard practice, but those features currently require complicated cross-service relationships that are difficult to implement correctly. The AWS ecosystem has been waiting for a layer of abstraction on top of these resources.
 
 Pulumi and the AWS Quick Starts in the [Pulumi Registry](https://www.pulumi.com/registry/) use higher-order components to abstract away that underlying complexity which makes configuring, deploying, and managing critical AWS resources straightforward -- like it should be. 
 
@@ -109,5 +110,13 @@ These AWS Quick Start components are recommended for developers with all levels 
 For experienced AWS developers who want to use these components and are concerned about abstraction, there are several options: (1) review the underlying open source code, (2) do a quick proof-of-concept deployment and use Pulumi's resource management tools to review the resources, and (3) when necessary, alter the underlying code! In my experience, because I was so accustomed to defining every painful detail of AWS infrastructure, the abstractions felt almost too easy to use. However, once I became comfortable with the underlying design patterns, these packages made deploying complicated AWS architectures incredibly easy, quick, and reliable.
 
 For service providers considering providing a Pulumi package for their service offering -- as an AWS developer, the most exciting part of this toolset is the ability to choose non-AWS tools without sacrificing convenience. I sometimes choose Cognito over Okta simply because Cognito is in the AWS ecosystem. If service provider packages are as convenient as using native AWS tools, they become more competitive with AWS' native services.
+
+Returning to the initial three problems:
+
+  - **AWS Console Wizard Fever** - By creating many of the "helper" resources (like email notifications when the database goes down), the Pulumi registry serves the same purpose as the AWS Console wizards -- "best practice" infrastructure / applications are available at the click of a button.
+  
+  - **YAML/JSON CloudFormation Template Ceiling** - Software / programming languages are much easier to work with than YAML or JSON templates. Programming languages provide simpler logic, abstraction, auto-complete, guardrails, open-source imports, and all of the other benefits of programming languages. Furthermore, the Pulumi framework provides infrastructure review tools during deployments, which mitigates the risks of programming language bugs affecting deployments (eg. there are robust safeguards against an infinite "for" loop spinning up an infinite number of EC2 instances).
+  
+  - **AWS Lock-in** - In addition to Pulumi making it substantially easier to use AWS services, Pulumi makes it substantially easier to use other SAAS and cloud providers alongside AWS resources. As the registry matures around standard abstractions, I can imagine constructs for "Postgres Database" or "Serverless Website" or "Next.js Deployment" that are implemented by multiple SAAS or cloud providers such that a developer can switch clouds with a few minor configuration changes.
 
 For getting started, I recommend starting with the examples for the [AWS Quick Start VPC](https://github.com/pulumi/pulumi-aws-quickstart-vpc/tree/main/examples), [AWS Quick Start Aurora Postgres](https://github.com/pulumi/pulumi-aws-quickstart-aurora-postgres/tree/master/examples), and [Aurora Quick Start Redshift](https://github.com/pulumi/pulumi-aws-quickstart-redshift/tree/main/examples).
