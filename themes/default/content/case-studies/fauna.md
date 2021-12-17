@@ -1,7 +1,7 @@
 ---
 title: Fauna
 description: |
-    Pulumi enabled Fauna to develop a crucial new feature, Region Groups, by giving developers the capabilities they needed to build and deploy quickly and safely.
+    Pulumi enabled Fauna to develop a crucial new feature, Region Groups, by giving developers a way of building and deploying multi-cloud applications quickly and safely with software engineering.
 meta_desc: |
     Pulumi enabled Fauna to develop a crucial new feature, Region Groups, by giving developers the capabilities they needed to build and deploy quickly and safely.
 
