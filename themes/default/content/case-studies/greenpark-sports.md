@@ -1,7 +1,7 @@
 ---
 title: GreenPark Sports
 description: |
-    Pulumi enabled GreenPark Sports to empower its developers with self-service cloud infrastructure, enabling them to quickly and easily deploy Kubernetes clusters and contribute infrastructure code.
+    Pulumi enabled GreenPark Sports to empower its developers with self-service cloud infrastructure, allowing them to quickly and easily deploy Kubernetes clusters and contribute infrastructure code.
 meta_desc: |
     Pulumi enabled GreenPark Sports to empower its developers with self-service cloud infrastructure through a “developer-first” approach.
 
