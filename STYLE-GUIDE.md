@@ -47,7 +47,7 @@ This bit of info is serious. If you missed it, bad things could happen.
 
 ## Paragraphs and Line Breaks
 
-When writing paragraphs, keep the entire paragraph on a single line and use "soft wrapping" in your IDE/editor to avoid a horizontal scroll.  By keeping all content on a single line, PR reviewers will be able to use GitHub's suggestion feature, which allows the reviewer to directly suggest a change to the content and allows authors to directly incorporate the suggestion into their PR if desired.
+When writing paragraphs, keep the entire paragraph on a single line and use "soft wrapping" in your IDE/editor to avoid a horizontal scroll. By keeping all content on a single line, PR reviewers will be able to use GitHub's suggestion feature, which allows the reviewer to directly suggest a change to the content and allows authors to directly incorporate the suggestion into their PR if desired.
 
 For details on GitHub's suggestion feature, see [Incorporating feedback in your pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
 
