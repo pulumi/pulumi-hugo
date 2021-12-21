@@ -57,7 +57,7 @@ Pulumi organization administrators can invite new members to an organization.
 To invite a new member:
 
 1. Select the members tab.
-2. To invite new members using their email addresses, select **Invite members**. After the new member(s) have been invited, they will receive an email with a link to click to accept the invitation.
+2. To invite a new member using their email address, select **Invite members**. After the new member is invited, they will receive an email allowing them to accept the invite.
 3. To invite new members by sharing a link, select **Copy new invite link**. This will copy a link to your clipboard that you can share directly.
 
 New member invitation links never expire and may only be used one time.
