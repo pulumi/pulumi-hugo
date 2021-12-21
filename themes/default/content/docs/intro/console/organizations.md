@@ -58,11 +58,11 @@ To invite a new member:
 
 1. Select the members tab.
 2. To invite a new member using their email address, select **Invite members**. After the new member is invited, they will receive an email allowing them to accept the invite.
-3. To invite new members by sharing a link, select **Copy new invite link**. This will copy a link to your clipboard that you can share directly.
+3. To invite a new member by sharing a link, select **Copy new invite link**. This will copy a link to your clipboard that you can share directly.
 
 New member invitation links never expire and may only be used one time.
 
-Pulumi organization administrators can monitor current organization members and pending invitations on the Members console page. For pending invitations, administrators can re-send email invitations, copy links for both email and link generated invitations, revoke invitations, and see any errors that pending members encountered when attempting to accept invitations.
+Pulumi organization administrators can monitor current organization members and pending invitations on the Members console page. For pending invitations, administrators can re-send email invitations, copy links for both email and link generated invitations, and revoke invitations. The invitation status column in the members table includes the date an invitation was sent, and will note if a potential member encountered an error while attempting to accept an invitation. In this case, a tooltip will share the exact error that was encountered.
 
 ## Switching Between Organizations
 
@@ -149,3 +149,5 @@ Pulumi Enterprise provides support for any SAML 2.0-based identity provider.
 * [Azure Active Directory]({{< relref "/docs/guides/saml/aad" >}})
 * [G Suite]({{< relref "/docs/guides/saml/gsuite" >}})
 * [Okta]({{< relref "/docs/guides/saml/okta" >}})
+
+Members of SSO organizations can login to Pulumi with the organization name auto-filled in the UI by visiting `https://app.pulumi.com/welcome/<organization-name>/sso`.
