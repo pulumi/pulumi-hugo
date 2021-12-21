@@ -58,9 +58,9 @@ To invite a new member:
 
 1. Select the members tab.
 2. To invite new members using their email addresses, select **Invite members**. After the new member(s) have been invited, they will receive an email with a link to click to accept the invitation.
-3. To invite new members by sharing a link, select **Copy new invite link**. This will copy a link to your clipboard that you can share directly. 
+3. To invite new members by sharing a link, select **Copy new invite link**. This will copy a link to your clipboard that you can share directly.
 
-New member invitation links never expire and may only be used one time. 
+New member invitation links never expire and may only be used one time.
 
 Pulumi organization administrators can monitor current organization members and pending invitations on the Members console page. For pending invitations, administrators can re-send email invitations, copy links for both email and link generated invitations, revoke invitations, and see any errors that pending members encountered when attempting to accept invitations.
 
