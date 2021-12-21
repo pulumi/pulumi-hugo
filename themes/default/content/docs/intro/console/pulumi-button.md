@@ -70,9 +70,27 @@ After you've verified your project template works as expected, you can add a but
 
 There are two ways to reference the project template:
 
-- Implicitly without a `template` parameter. For public GitHub repositories or gists, if you don't specify a `template` parameter, Pulumi will infer the URL to the template using the HTTP `referer` header that is sent. This makes the button stable under forks and branches of the repository.
-
 - Explicitly specifying a `template` parameter that points to the project. This is useful for buttons that aren't inside a repository, such as in blog posts or other web pages, or when the README isn't in the same directory as the project template.
+
+- Implicitly without a `template` parameter. For public GitHub repositories or gists, if you don't specify a `template` parameter, Pulumi will infer the URL to the template using the HTTP `referer` header that is sent. Note that this is **no longer recommended** as more browsers, such as Safari, tend to [default to not sending the full referer](https://stackoverflow.com/questions/62225068/safari-mobile-and-desktop-are-hiding-full-referrer-url-why).
+
+### Explicit Templates
+
+Alternatively, you can explicitly specify the `template` parameter.
+
+Here's an example in Markdown:
+
+```markdown
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/aws-js-s3-folder)
+```
+
+Or, the equivalent HTML:
+
+```html
+<a href="https://app.pulumi.com/new?template=https://github.com/pulumi/examples/aws-js-s3-folder">
+  <img src="https://get.pulumi.com/new/button.svg" alt="Deploy">
+</a>
+```
 
 ### Implicit Templates
 
@@ -95,24 +113,6 @@ Or, the equivalent HTML:
 ```
 
 A `button.png` is also available.
-
-### Explicit Templates
-
-Alternatively, you can explicitly specify the `template` parameter.
-
-Here's an example in Markdown:
-
-```markdown
-[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/aws-js-s3-folder)
-```
-
-Or, the equivalent HTML:
-
-```html
-<a href="https://app.pulumi.com/new?template=https://github.com/pulumi/examples/aws-js-s3-folder">
-  <img src="https://get.pulumi.com/new/button.svg" alt="Deploy">
-</a>
-```
 
 ### Button Image
 
