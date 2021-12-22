@@ -37,7 +37,7 @@ tags:
 Using Pulumi is more than just writing code and components. In addition to common software development practices, there are also a number of success patterns related to how your company or team builds and deploys Pulumi programs to successfully build, deploy, and manage your infrastructure and applications. In this continuation of a series, I will explore one of these patterns - a specialized automation team.
 
 <!--more-->
-I want to approach this pattern with a bit of caution - there are patterns and anti-patterns related to having a single central team focused on automation. 
+I want to approach this pattern with a bit of caution - there are patterns and anti-patterns related to having a single central team focused on automation.
 
 The anti-pattern is to have an "automation team" within your organization who is tasked with creating all infrastructure as code for the entire organization. This is a common pattern, but it is generally rife with issues.
 
@@ -49,9 +49,9 @@ There are different mechanisms for how this automation team can enable others - 
 
 Depending upon the size and skills of the company and this group, they may also be responsible for creating training materials for the other groups. These are usually based upon existing Pulumi training materials, but customized for the specific needs and culture of the company.
 
-## Resuable components
+## Reusable components
 
-This central automation team also often provides reusable components that might be shared across multiple development teams. This helps the individual teams to not have to "reinvent the wheel" and bring in this components into their own particular needs. 
+This central automation team also often provides reusable components that might be shared across multiple development teams. This helps the individual teams to not have to "reinvent the wheel" and bring in this components into their own particular needs.
 
 As a simple example, a component could be created (and published as a library to be consumed by product teams) that defines a Kubernetes deployment.
 
