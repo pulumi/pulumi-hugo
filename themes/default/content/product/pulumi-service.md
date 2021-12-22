@@ -70,6 +70,8 @@ capabilities:
                 Your infrastructure [state is encrypted](/docs/intro/concepts/state/#state-encryption) in transit and at rest.
 
                 Sensitive configurations (e.g. database passwords, cloud tokens) are [stored as secrets](/docs/intro/concepts/secrets/).
+                
+                Use default secrets manager or integrate with AWS KMS, Azure Key Vault, Google KMS, and HashiCorp Vault.
 
         - title: Increase developer productivity and collaboration
           image: /images/product/console-stack-timeline.svg
@@ -108,11 +110,11 @@ capabilities:
                 Use identity and access controls to manage who can make changes to your infrastructure.
 
               more_info: |
+                Invite new team members and share projects to collaborate on infrastructure.
+
                 Single sign-on with any [SAML 2.0](/docs/guides/saml/) identity provider like Azure Active Directory, G Suite, Okta, and OneLogin.
 
                 Manage Pulumi access from your central identity provider via [SCIM 2.0 integration](/docs/guides/scim/).
-
-                Invite new team members and share projects to collaborate on infrastructure.
 
                 Set [role-based access controls](/docs/intro/console/teams/) that limit who can access infrastructure.
 
