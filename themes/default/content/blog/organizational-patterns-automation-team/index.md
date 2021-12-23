@@ -45,7 +45,7 @@ Understanding how to build and deploy a service or application requires a certai
 
 A more successful pattern is to have the automation team act as enablers and providers for the other groups within the company. This is a team of subject matter experts in using Pulumi, and not only do they have the knowledge to build and deploy infrastructure, but they are familiar with various patterns and good practices for how to build and deploy infrastructure.
 
-There are different mechanisms for how this automation team can enable others - one way is to have them temporarily embed with a product team to work alongside them to build their automation. Then, when the product team is done, the automation team member can go and help another squad.
+There are different mechanisms for how this automation team can enable others. One way is to embed them temporarily within a product team to work alongside them to build their automation. Then, when the product team is done, the automation team member can go and help another squad.
 
 Depending upon the size and skills of the company and this group, they may also be responsible for creating training materials for the other groups. These are usually based upon existing Pulumi training materials, but customized for the specific needs and culture of the company.
 
