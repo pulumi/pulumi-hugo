@@ -77,6 +77,7 @@ $ curl "https://raw.githubusercontent.com/pulumi/pulumi/master/.devcontainer/Doc
 Next, we'll clean up the `.devcontainer/devcontainer.json` file and set up the necessary credentials.
 
 First edit `devcontainer.json` as follows:
+
 - Replace the "name" field with `Pulumi`
 - Remove the "args" line
 - Replace the "remoteUser" value with `user`
