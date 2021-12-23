@@ -43,7 +43,7 @@ The anti-pattern is to have an "automation team" within your organization who is
 
 Understanding how to build and deploy a service or application requires a certain amount of domain knowledge of that service. If you have a single set of people across your entire company who need to write Pulumi programs for each and every application or service, you are now expecting that small group to not only be experts in Pulumi, but also every bit of infrastructure and software applications (both third party and created internally) across your organization.
 
-A more successful pattern is to have the automation team act as enablers and providers for the other groups within the company. This team are subject matter experts in using Pulumi, and not only do they have the knowledge to build and deploy infrastructure, but they are familiar with various patterns and good practices for how to build and deploy infrastructure.
+A more successful pattern is to have the automation team act as enablers and providers for the other groups within the company. This is a team of subject matter experts in using Pulumi, and not only do they have the knowledge to build and deploy infrastructure, but they are familiar with various patterns and good practices for how to build and deploy infrastructure.
 
 There are different mechanisms for how this automation team can enable others - one way is to have them temporarily embed with a product team to work alongside them to build their automation. Then, when the product team is done, the automation team member can go and help another squad.
 
