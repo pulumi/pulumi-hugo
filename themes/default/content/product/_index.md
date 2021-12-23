@@ -86,7 +86,7 @@ stats:
     title: Open source. Enterprise ready.
     description: |
         Pulumi’s modern Infrastructure as Code CLI and SDK is an [open-source project](https://github.com/pulumi/) that’s supported
-        by an active community. We maintain a [public roadmap](/blog/relaunching-pulumis-public-roadmap/) and welcome feedback and contributions from anyone.
+        by an active community. We maintain a [public roadmap](/blog/relaunching-pulumis-public-roadmap/) and welcome feedback and contributions.
     community:
         number: "10,000s"
         description: of community members
