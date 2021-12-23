@@ -99,7 +99,7 @@ stats:
     cta:
         title: Managed infrastructure state, encryption, and more
         description: |
-            Pulumi’s secure cloud backend (the Pulumi Service) provides built-in state management and encrypts configuration secrets in transit and at rest.
+            Pulumi’s secure cloud backend (the [Pulumi Service](/product/pulumi-service/)) provides built-in state management and encrypts configuration secrets in transit and at rest.
             You can also host your own backend locally or with a cloud provider.
 
 get_started:
