@@ -135,9 +135,9 @@ open_source:
     title: The easiest way to use Pulumi open source
     image: /images/product/service-open-source-diagram.svg
     description: |
-        Pulumi Service is a managed service for the open source CLI and SDK. It tracks your infrastructure’s state and coordinates updates with the CLI, which creates or updates resources to reach your infrastructure’s desired state.
+        Pulumi Service is a managed service for the open source CLI and SDK. It tracks your [infrastructure’s state](/docs/intro/concepts/state/) and coordinates updates with the CLI, which creates or updates resources to reach your infrastructure’s [desired state](/docs/intro/concepts/how-pulumi-works/).
 
-        You can also use any cloud or on-premises storage to build and run your own backend.
+        You can also use any cloud or on-premises storage to build and [run your own backend](/docs/intro/concepts/state/#logging-into-a-self-managed-backend).
 
 security:
     title: Pulumi takes security seriously
