@@ -55,9 +55,9 @@ capabilities:
         - title: Manage infrastructure state and secrets
           image: /images/product/console-resource-graph.svg
           details:
-            - title: Fully-managed backend
+            - title: Fully-managed, single source of truth
               description: |
-                Store the single source of truth for your infrastructure’s state in a backend with built-in scaling, availability, and fault tolerance.
+                Store your infrastructure’s state for any cloud in Pulumi's secure backend, which has built-in scaling, availability, and fault tolerance.
 
               more_info: |
                 Allow developers to safely deploy in parallel with concurrent state-locking.
@@ -66,14 +66,14 @@ capabilities:
 
             - title: Automatic secrets management
               description: |
-                Use built-in secrets management for encrypted data such as credentials or tokens. You can also bring your own secret store.
+                Use built-in secrets management for encrypted data such as credentials or tokens. You can also bring your own secrets manager.
 
               more_info: |
                 Your infrastructure [state is encrypted](/docs/intro/concepts/state/#state-encryption) in transit and at rest.
 
                 Sensitive configurations (e.g. database passwords, cloud tokens) are [stored as secrets](/docs/intro/concepts/secrets/).
 
-                Use default secrets manager or integrate with AWS KMS, Azure Key Vault, Google KMS, and HashiCorp Vault.
+                Use Pulumi's secrets manager or integrate with AWS KMS, Azure Key Vault, Google KMS, and HashiCorp Vault.
 
         - title: Increase developer productivity and collaboration
           image: /images/product/console-stack-timeline.svg
@@ -83,11 +83,11 @@ capabilities:
                 Visualize projects, stacks, and cloud resources so you and developers in your organization know what’s running and where.
 
               more_info: |
-                [Timelines](/docs/intro/console/projects-and-stacks/#stack-activity) show diffs of changed resources and who made the changes.
+                View [timelines](/docs/intro/console/projects-and-stacks/#stack-activity) that show diffs of changed resources and who made the changes.
 
                 [Tag stacks](/docs/intro/concepts/stack/#stack-tags) for easier filtering and searching.
 
-                [Audit logs](/docs/intro/console/audit-logs/) of all user activity.
+                Track the activity of users within your organization with [audit logs](/docs/intro/console/audit-logs/).
 
             - title: Software delivery integrations
               description: |
