@@ -58,19 +58,16 @@ As a simple example, a component could be created (and published as a library to
 ```javascript
 import * as deploy from "@mycorp/deploy";
 
-const kuard new deploy.Deployment("kuard", {
+const kuard = new deploy.Deployment("kuard", {
     image: "gcr.io/kuard-project/kuard:latest",
     replicas: 1,
-    ports: [{
-        name: "http",
-        port: 8080,
-        targetPort: 8080,
-    }],
 });
 
 ```
 
 What's happened here in our (incomplete!) example is that the published package only exposes the parts that the team needs to change; the rest is provided by the automation team.
+
+The application team don’t need to duplicate values (such as number of replicas, ports, etc) because the abstractions cater for them. The application team also didn’t need to apply any metadata, health checks, and environment variables because it can be inferred through convention, increasing velocity across the organization. When values are provided by the application team, they override convention and they can still iterate and experiment, providing feedback to the automation team.
 
 ## Final tips
 
