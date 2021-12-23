@@ -51,7 +51,7 @@ Depending upon the size and skills of the company and this group, they may also 
 
 ## Reusable components
 
-This central automation team also often provides reusable components that might be shared across multiple development teams. This helps the individual teams to not have to "reinvent the wheel" and bring in this components into their own particular needs.
+This central automation team also often provides reusable components that might be shared across multiple development teams. This helps the individual teams to not have to "reinvent the wheel" and to bring in these components for their own particular needs.
 
 As a simple example, a component could be created (and published as a library to be consumed by product teams) that defines a Kubernetes deployment.
 
