@@ -62,7 +62,7 @@ capabilities:
               more_info: |
                 Allow developers to safely deploy in parallel with concurrent state-locking.
 
-                [Complete history](/docs/intro/concepts/state/#checkpoints) so you can audit changes or rollback to previous versions.
+                Audit changes or rollback to previous versions with a [complete history](/docs/intro/concepts/state/#checkpoints) of your state.
 
             - title: Automatic secrets management
               description: |
