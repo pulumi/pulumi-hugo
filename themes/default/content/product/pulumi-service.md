@@ -8,7 +8,7 @@ overview:
     titleTop: Fully-managed
     titleBottom: cloud engineering platform
     description: |
-        Pulumi Service enables infrastructure and development teams to focus on building, deploying, and managing modern cloud applications faster and reliably. It is a managed service that handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
+        The Pulumi Service is the easiest way to use Pulumi open source at scale, enabling infrastructure and development teams to focus on building, deploying, and managing modern cloud applications faster and reliably. It is a managed service that handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
 
 case_studies:
     title: Customers innovating with Pulumi Service
