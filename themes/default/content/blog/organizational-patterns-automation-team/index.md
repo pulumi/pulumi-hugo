@@ -41,7 +41,7 @@ I want to approach this pattern with a bit of caution - there are patterns and a
 
 The anti-pattern is to have an "automation team" within your organization who is tasked with creating all infrastructure as code for the entire organization. This is a common pattern, but it is generally rife with issues.
 
-Understanding how to build and deploy a service or application requires a certain amount of domain knowledge of that service. If you have a single set of people across your entire company who are need to write Pulumi programs for each and every application or service, you are now expecting that small group to not only be experts in Pulumi, but also every bit of infrastructure and software applications (both third party and created internally) across your organization.
+Understanding how to build and deploy a service or application requires a certain amount of domain knowledge of that service. If you have a single set of people across your entire company who need to write Pulumi programs for each and every application or service, you are now expecting that small group to not only be experts in Pulumi, but also every bit of infrastructure and software applications (both third party and created internally) across your organization.
 
 A more successful pattern is to have the automation team act as enablers and providers for the other groups within the company. This team are subject matter experts in using Pulumi, and not only do they have the knowledge to build and deploy infrastructure, but they are familiar with various patterns and good practices for how to build and deploy infrastructure.
 
