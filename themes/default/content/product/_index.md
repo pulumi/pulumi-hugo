@@ -99,7 +99,7 @@ stats:
     cta:
         title: The easiest way to use Pulumi open source at scale
         description: |
-            The [Pulumi Service](/product/pulumi-service/)) is a fully-managed service for the open-source CLI and SDK that comes with built-in state and secrets management, and many more features. It enables you to focus your time on building, deploying, and managing cloud applications with your favorite languages and software engineering. 
+            The [Pulumi Service](/product/pulumi-service/) is a fully-managed service for the open-source CLI and SDK. It enables you and your team to focus on building, deploying, and managing cloud applications with your favorite languages.
 
 get_started:
     title: Getting started
