@@ -11,41 +11,43 @@ overview:
         Pulumi Service enables infrastructure and development teams to focus on building, deploying, and managing modern cloud applications faster and reliably. It is a managed service that handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
 
 case_studies:
-    - name: Atlassian
-      link: /case-studies/atlassian
-      logo: atlassian
-      description: |
-        Developers reduced their time spent on maintenance by 50%.
+    title: Customers innovating with Pulumi Service
+    items:
+        - name: Atlassian
+          link: /case-studies/atlassian
+          logo: atlassian
+          description: |
+            Developers reduced their time spent on maintenance by 50%.
 
-    - name: GreenPark Sports
-      link: /case-studies/greenpark-sports
-      logo: greenpark-sports
-      description: |
-        All developers contribute infrastructure code and deploy 70% more changes.
+        - name: GreenPark Sports
+          link: /case-studies/greenpark-sports
+          logo: greenpark-sports
+          description: |
+            All developers contribute infrastructure code and deploy 70% more changes.
 
-    - name: Panther Labs
-      link: /case-studies/panther-labs
-      logo: panther-labs
-      description: |
-        Increased velocity and speed, with deployments that are up to 10x faster.
+        - name: Panther Labs
+          link: /case-studies/panther-labs
+          logo: panther-labs
+          description: |
+            Increased velocity and speed, with deployments that are up to 10x faster.
 
-    - name: Mercedes-Benz
-      link: /case-studies/mercedes-benz
-      logo: mercedes-benz
-      description: |
-        Enabled developers to deploy Kubernetes clusters quickly and easily.
+        - name: Mercedes-Benz
+          link: /case-studies/mercedes-benz
+          logo: mercedes-benz
+          description: |
+            Enabled developers to deploy Kubernetes clusters quickly and easily.
 
-    - name: Lemonade
-      link: /case-studies/lemonade
-      logo: lemonade
-      description: |
-        Standardized infrastructure architectures with reusable components.
+        - name: Lemonade
+          link: /case-studies/lemonade
+          logo: lemonade
+          description: |
+            Standardized infrastructure architectures with reusable components.
 
-    - name: Snowflake
-      link: /case-studies/snowflake
-      logo: snowflake
-      description: |
-        Built a multi-cloud, Kubernetes-based platform to standardize all deployments
+        - name: Snowflake
+          link: /case-studies/snowflake
+          logo: snowflake
+          description: |
+            Built a multi-cloud, Kubernetes-based platform to standardize all deployments
 
 capabilities:
     title: Key capabilities
@@ -70,7 +72,7 @@ capabilities:
                 Your infrastructure [state is encrypted](/docs/intro/concepts/state/#state-encryption) in transit and at rest.
 
                 Sensitive configurations (e.g. database passwords, cloud tokens) are [stored as secrets](/docs/intro/concepts/secrets/).
-                
+
                 Use default secrets manager or integrate with AWS KMS, Azure Key Vault, Google KMS, and HashiCorp Vault.
 
         - title: Increase developer productivity and collaboration
@@ -157,15 +159,6 @@ deployment:
           icon_color: yellow
           description: |
             Run the Pulumi Service in your on-premises or cloud environment and manage it yourself.
-
-customers:
-    title: Read case studies about our customers
-    items:
-        - lemonade
-        - credijusto
-        - lykke
-        - snowflake
-        - sourcegraph
 
 pricing:
     title: Pricing
