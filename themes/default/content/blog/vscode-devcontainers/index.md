@@ -73,6 +73,7 @@ $ curl "https://raw.githubusercontent.com/pulumi/pulumi/master/.devcontainer/Doc
 ```
 
 ## Container configuration
+
 Next, we'll clean up the `.devcontainer/devcontainer.json` file and set up the necessary credentials.
 
 First edit `devcontainer.json` as follows:
