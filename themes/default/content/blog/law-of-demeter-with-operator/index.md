@@ -8,11 +8,11 @@ authors: ["david-flanagan"]
 tags: ["Kubernetes", "GitOps", "Platform Engineering"]
 ---
 
-This time last year, I presented [Applying the Law of Demeter to GitOps](https://www.youtube.com/watch?v=gLZpt8a9YuA) at [GitOps Days 2020](https://www.gitopsdays.com/). During this session, I wanted the audience to understand and be able to identify when their applications and continuous delivery pipelines have too much knowledge of the platform in which they're going to run. As an industry, we're seeing a great deal of momentum towards Platform Engineering and with this comes a Broca divide; a strict division of responsibilities: to build a platform and to consume a platform.
+This time last year, I presented [Applying the Law of Demeter to GitOps](https://www.youtube.com/watch?v=gLZpt8a9YuA) at [GitOps Days 2020](https://www.gitopsdays.com/). During this session, I wanted the audience to understand and be able to identify when their applications and continuous delivery pipelines have too much knowledge of the platform in which they're going to run. As an industry, we're seeing a great deal of momentum towards Platform Engineering and with this comes a Broca divide, a strict division of responsibilities: to build a platform and to consume a platform.
 
-The major actionable takeaway from my session was simple: application teams MUST provide a deployment that has no variants to account for the environment in which it is deployed; as this knowledge lives outside the realm of platform consumption. Instead, the platform will provide everything the application needs to function. We've seen a lot of this before, notably via the [12-factor manifesto](https://12factor.net/).
+The major actionable takeaway from my session was simple: Application teams MUST provide a deployment that has no variants to account for the environment in which it is deployed as this knowledge lives outside the realm of platform consumption. Instead, the platform will provide everything the application needs to function. We've seen a lot of this before, notably via the [12-factor manifesto](https://12factor.net/).
 
-Over the course of the last year I've collected my thinking more and more around this pattern and I condensed it down into a single [tweet](https://twitter.com/rawkode/status/1456169286750375936):
+Over the course of the last year I've collected my thinking more and more around this pattern, and I condensed it down into a single [tweet](https://twitter.com/rawkode/status/1456169286750375936):
 
 > #GitOps isn’t a decision of push vs pull for continuous delivery. It’s more deciding whether your application tells the environment how to deploy itself, or whether the environment tells your application how to run. 
 > 
@@ -24,7 +24,7 @@ So what does this all mean in a more practical sense?
 
 Time and time again I see the same violation of the Law of Demeter with Kubernetes and GitOps: Ingress.
 
-Application delivery teams require Ingress resources within Kubernetes to expose their applications to their customers. Often, Helm or Kustomize are used to provide bases that can be extended for each environment. We can see an example of the boundary violation in the [Kustomize examples](https://github.com/kubernetes-sigs/kustomize/tree/master/examples/multibases). I'm not calling out Kustomize here, Pulumi also has [examples of this pattern](https://github.com/pulumi/examples/blob/master/kubernetes-ts-configmap-rollout/index.ts).
+Application delivery teams require Ingress resources within Kubernetes to expose their applications to their customers. Often, Helm or Kustomize is used to provide bases that can be extended for each environment. We can see an example of the boundary violation in the [Kustomize examples](https://github.com/kubernetes-sigs/kustomize/tree/master/examples/multibases). I'm not calling out Kustomize here; Pulumi also has [examples of this pattern](https://github.com/pulumi/examples/blob/master/kubernetes-ts-configmap-rollout/index.ts).
 
 Unfortunately, this pattern has become quite common. Leaking environment information down the stack is what we're trying to avoid, but doing so can be rather tricky.
 
@@ -65,11 +65,11 @@ However, there's a better way.
 
 ### Pulumi Operator
 
-The Pulumi Operator hit major milestone in October this year, [releasing version 1.0](https://www.pulumi.com/blog/pulumi-kubernetes-operator-1-0/).
+The Pulumi Operator hit major milestone in October this year, [releasing version 1.0]({{< relref "/blog/pulumi-kubernetes-operator-1-0" >}}).
 
-The Pulumi Operator allows us to leverage the power of Pulumi at the application team level, for GitOps. This bond between Pulumi for building platforms and Pulumi for consuming platforms means we can have a strictly typed exchange of "knowns" between our platform and our application that happens at execution time.
+The Pulumi Operator allows us to leverage the power of Pulumi at the application team level for GitOps. This bond between Pulumi for building platforms and Pulumi for consuming platforms means we can have a strictly typed exchange of "knowns" between our platform and our application that happens at execution time.
 
-Let's imagine, in TypeScript, that we have the following, versioned, interface:
+Let's imagine, in TypeScript, that we have the following versioned interface:
 
 ```typescript
 export interface Environment {
@@ -83,7 +83,7 @@ export interface Environment {
 
 With this contract, the Platform Engineering team can ensure that every cluster, or namespace, has a ConfigMap called `environment` can be consumed by the Pulumi Operator. In this, the Pulumi program, the GitOps delivery pipeline from the application team, can begin to grok the environment to which it is being deployed.
 
-With this knowledge, it can begin to augment the manifests as they're applied  to the cluster.
+With this knowledge, it can begin to augment the manifests as they're applied to the cluster.
 
 Let's go back to our Ingress example and see how this could be done.
 
@@ -107,7 +107,7 @@ data:
 
 The specification for what an environment looks like will differ from organization to organization, but this hopefully provides enough context for some of the things you may wish to encapsulate this way.
 
-Next, our application team defines their delivery via Pulumi too. The first thing they do as part of the delivery is load the environment config. This can then be used to augment any resources that need to be environment aware.
+Next, our application team defines their delivery via Pulumi, too. The first thing they do as part of the delivery is load the environment config. This data can then be used to augment any resources that need to be environment aware.
 
 ```typescript
 import * as k8s from "@pulumi/kubernetes";
