@@ -1,8 +1,8 @@
-;---
+---
 title: Improving the GitOps Pipeline with the Pulumi Operator
 date: 2021-12-24T17:08:06Z
-draft: true
-meta_desc:
+draft: false
+meta_desc: In this article, we look at how the Pulumi Operator can help us adhere to law of demeter and cleanup our GitOps pipelines.
 meta_image: meta.png
 authors: ["david-flanagan"]
 tags: ["continuous-delivery", "gitops", "kubernetes"]
@@ -14,8 +14,8 @@ Instead, the platform will provide everything the application needs to function.
 
 Over the course of the last year I've collected my thinking more and more around this pattern, and I condensed it down into a single [tweet](https://twitter.com/rawkode/status/1456169286750375936):
 
-> #GitOps isn’t a decision of push vs pull for continuous delivery. It’s more deciding whether your application tells the environment how to deploy itself, or whether the environment tells your application how to run. 
-> 
+> #GitOps isn’t a decision of push vs pull for continuous delivery. It’s more deciding whether your application tells the environment how to deploy itself, or whether the environment tells your application how to run.
+>
 > You want the latter. You want GitOps.
 
 So what does this all mean in a more practical sense?
