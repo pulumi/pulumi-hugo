@@ -1,4 +1,4 @@
----
+;---
 title: Improving the GitOps Pipeline with the Pulumi Operator
 date: 2021-12-24T17:08:06Z
 draft: true
@@ -8,9 +8,9 @@ authors: ["david-flanagan"]
 tags: ["continuous-delivery", "gitops", "kubernetes"]
 ---
 
-This time last year, I presented [Applying the Law of Demeter to GitOps](https://www.youtube.com/watch?v=gLZpt8a9YuA) at [GitOps Days 2020](https://www.gitopsdays.com/). During this session, I wanted the audience to understand and be able to identify when their applications and continuous delivery pipelines have too much knowledge of the platform in which they're going to run. As an industry, we're seeing a great deal of momentum towards Platform Engineering and with this comes a Broca divide, a strict division of responsibilities: to build a platform and to consume a platform.
+This time last year, I presented [Applying the Law of Demeter to GitOps](https://www.youtube.com/watch?v=gLZpt8a9YuA) at [GitOps Days 2020](https://www.gitopsdays.com/). The [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) is a design principle, proposed in 1988, which encourages loose coupling between systems. During this session, I wanted the audience to understand and be able to identify when their applications and continuous delivery pipelines have too much knowledge of the platform in which they're going to run. As an industry, we're seeing a great deal of momentum towards Platform Engineering and with this comes a Broca divide, a strict division of responsibilities: to build a platform and to consume a platform.
 
-The major actionable takeaway from my session was simple: Application teams MUST provide a deployment that has no variants to account for the environment in which it is deployed as this knowledge lives outside the realm of platform consumption. Instead, the platform will provide everything the application needs to function. We've seen a lot of this before, notably via the [12-factor manifesto](https://12factor.net/).
+Instead, the platform will provide everything the application needs to function. We've seen a lot of this before, notably via the [12-factor manifesto](https://12factor.net/).
 
 Over the course of the last year I've collected my thinking more and more around this pattern, and I condensed it down into a single [tweet](https://twitter.com/rawkode/status/1456169286750375936):
 
@@ -51,17 +51,11 @@ spec:
               number: 80
 ```
 
-The violation here is `host: staging.example.org` inside of the application team resources. We now have a constraint binding the platform and the application together.
+The violation here is `host: staging.example.org` inside of the application team resources. We now have a constraint binding the platform and the application together. If we continue down this path, the platform team can't launch new environments without first reaching out to the application teams to ensure they have a base that can provide the correct domain name for these resources.
 
-Sadly, this is difficult to solve; but not impossible.
+What we really want is for the platform team to be able to launch platforms whenever they want, increasing their ability to iterate and experiment with the platform. At the same time, by removing the bases and variance from the application teams, we ensure that they have a single blueprint for how to deploy their application. Win/Win.
 
-### Admission Controllers
-
-Previously my solution to this problem was to use a dynamic admission controller, provided by the platform. The admission controller would monitor for all Ingress resources and modify them, during admission, to enrich the resource with the base domain for the environment the application is deployed to.
-
-You can get quite far with this approach using [Kyverno's mutating policies](https://kyverno.io/docs/writing-policies/mutate/).
-
-However, there's a better way.
+Sadly, this is a difficult problem to solve; though not impossible.
 
 ### Pulumi Operator
 
@@ -81,9 +75,7 @@ export interface Environment {
 }
 ```
 
-With this contract, the Platform Engineering team can ensure that every cluster, or namespace, has a ConfigMap called `environment` can be consumed by the Pulumi Operator. In this, the Pulumi program, the GitOps delivery pipeline from the application team, can begin to grok the environment to which it is being deployed.
-
-With this knowledge, it can begin to augment the manifests as they're applied to the cluster.
+With this contract, the Platform Engineering team can ensure that every cluster, or namespace, has a ConfigMap called `environment` can be consumed by the Pulumi Operator. In this, the Pulumi program, the GitOps delivery pipeline from the application team, can begin to grok the environment to which it is being deployed. With this knowledge, it can begin to augment the manifests before they're applied to the cluster.
 
 Let's go back to our Ingress example and see how this could be done.
 
