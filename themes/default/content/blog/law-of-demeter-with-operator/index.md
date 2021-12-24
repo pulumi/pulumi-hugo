@@ -1,11 +1,11 @@
 ---
-title: Adhering to the Law of Demeter with the Pulumi Operator
-h1: ""
-date: "2021-12-21"
-meta_desc: ""
-meta_image: ""
+title: Improving the GitOps Pipeline with the Pulumi Operator
+date: 2021-12-24T17:08:06Z
+draft: true
+meta_desc:
+meta_image: meta.png
 authors: ["david-flanagan"]
-tags: ["Kubernetes", "GitOps", "Platform Engineering"]
+tags: ["continuous-delivery", "gitops", "kubernetes"]
 ---
 
 This time last year, I presented [Applying the Law of Demeter to GitOps](https://www.youtube.com/watch?v=gLZpt8a9YuA) at [GitOps Days 2020](https://www.gitopsdays.com/). During this session, I wanted the audience to understand and be able to identify when their applications and continuous delivery pipelines have too much knowledge of the platform in which they're going to run. As an industry, we're seeing a great deal of momentum towards Platform Engineering and with this comes a Broca divide, a strict division of responsibilities: to build a platform and to consume a platform.
