@@ -23,9 +23,9 @@ Cloud engineering is taking over software development. In a lot of ways, this is
 
 <!--more-->
 
-## Part Two: Containers and AWS Elastic Container Service
-
 In part one of this series, we built a personal website and deployed it to AWS S3. That works perfectly well for a static, single-page application with minimal interactivity, but if you want server-side routing or database interactivity, things have to get a little bit more complicated. In part two of this series, we’ll be adding a couple more pages to our personal website, adding server-side routing, and containerizing it with Docker.
+
+## Containers
 
 So, what’s a container and why would you want to use one? You can think of a container here the exact same way you think of containers on a shipping barge. On that barge is a bunch of shipping containers, and inside each shipping container is a bunch of packages. The barge itself is your computer (or your cloud environment), and the shipping containers house your applications.
 

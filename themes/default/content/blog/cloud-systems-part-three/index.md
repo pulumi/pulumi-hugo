@@ -21,7 +21,7 @@ Cloud engineering is taking over software development. In a lot of ways, this is
 
 <!--more-->
 
-## Part Three: Deploying to Amazon's Elastic Container Service
+## Elastic Container Service
 
 In the previous tutorial, we extended our personal website to use the Flask web framework, add server-side routing, and package everything up into a Docker container. It's still only running locally, though, and we want to deploy it. To do that, today we'll be learning to use Pulumi to deploy to Amazon's Elastic Container Service. If you completed part two of this series, we'll be picking up right where we left off. If you're just now joining me, you can get the completed code by forking and cloning [this repository](https://github.com/katcosgrove/cloud-systems-101).
 
