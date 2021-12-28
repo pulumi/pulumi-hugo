@@ -8,13 +8,13 @@
             Fully managed cloud engineering platform
         </h2>
         <p class="max-w-3xl mx-auto mt-6">
-            The Pulumi Service is a fully-managed service for the
+            The <a href="{{ relref . "/product/pulumi-service" }}">Pulumi Service</a> is a fully-managed service for the
             open source CLI and SDK. It provides secure state & secrets management,
             collaboration features, CI/CD integrations, compliance enforcement, identity and access controls, and more.
         </p>
         <p class="mt-6">
-            Prefer to self-manage without our platform features? Use Pulumi open source with 
-            <a class="text-blue-600 underline" href="{{ relref . "/docs/intro/concepts/state/#logging-into-a-self-managed-backend" }}">your own backend</a>.
+            Prefer to self-manage without our platform features? Use Pulumi open source with
+            <a class="text-blue-600 underline" href="{{ relref . "/docs/intro/concepts/state#logging-into-a-self-managed-backend" }}">your own backend</a>.
         </p>
     </section>
 
@@ -322,6 +322,25 @@
 
         <p class="text-2xl font-bold lg:hidden mt-12 pl-5">Product</p>
         <ul class="list-none p-0 mx-5 xl:ml-12 lg:hidden" data-faq-type="faq-product">
+            <li class="accordion-item text-2xl py-3">
+                {{ partial "accordian-header" (dict "text" "What are Pulumi open source and Pulumi Service?" "large_header" true) }}
+
+                <div class="accordion-item-body-no-animation text-base">
+                    <p>
+                         Pulumi's modern Infrastructure as Code CLI and SDK are an open-source project that
+                         is supported by an active community. Pulumi Service is a managed service for the
+                         open source CLI and SDK. It tracks your infrastructure’s state and coordinates
+                         updates with the CLI, which creates or updates resources to reach your infrastructure’s
+                         desired state. It also manages secrets, supports SAML SSO, integrates with CI/CD pipelines,
+                         enforces compliance rules, and much more.
+                    </p>
+                    <p>
+                        You're not required to use <a href="{{ relref . "/product/pulumi-service" }}">Pulumi Service</a>.
+                        You can use any cloud or on-premises storage to build and run your own backend.
+                    </p>
+                </div>
+            </li>
+
             <li class="accordion-item text-2xl py-3">
                 {{ partial "accordian-header" (dict "text" "Can I use Pulumi for free?" "large_header" true) }}
 
