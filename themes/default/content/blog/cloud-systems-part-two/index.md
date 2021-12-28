@@ -1,11 +1,11 @@
 ---
-title: "Cloud Systems Part Two: Docker and Amazon ECS"
+title: "Cloud Systems Part Two: Containerizing a Website"
 
-date: 2021-12-20T12:26:10-08:00
+date: 2021-12-27T12:26:10-08:00
 
 draft: false
 
-meta_desc: In this series, learn modern cloud engineering practices and tooling, continuing with containerizing a personal website and deploying it to Amazon ECS!
+meta_desc: In this series, learn modern cloud engineering practices and tooling, continuing with expanding our personal website and containerizing it!
 
 meta_image: meta.png
 
@@ -25,25 +25,25 @@ Cloud engineering is taking over software development. In a lot of ways, this is
 
 ## Part Two: Containers and AWS Elastic Container Service
 
-In part one of this series, we built a personal website and deployed it to AWS S3. That works perfectly well for a static, single-page application with minimal interactivity, but if you want server-side routing or database interactivity, things have to get a little bit more complicated. In part two of this series, we’ll be adding a couple more pages to our personal website, adding server-side routing, containerizing it, and deploying it to AWS Elastic Container Service.
+In part one of this series, we built a personal website and deployed it to AWS S3. That works perfectly well for a static, single-page application with minimal interactivity, but if you want server-side routing or database interactivity, things have to get a little bit more complicated. In part two of this series, we’ll be adding a couple more pages to our personal website, adding server-side routing, and containerizing it with Docker.
 
-So, what’s a container and why would you want to use one? You can think of a container here the exact same way you think of containers on a shipping barge. On that barge is a bunch of shipping containers, and inside each shipping container is a bunch of packages. The barge itself is your computer (or your cloud environment), and the shipping containers house your applications. It may also help to think of them as smaller, more lightweight incarnations of virtual machines. While a virtual machine virtualizers the machine’s physical hardware through the use of a hypervisor, a container virtualizes only the operating system.
+So, what’s a container and why would you want to use one? You can think of a container here the exact same way you think of containers on a shipping barge. On that barge is a bunch of shipping containers, and inside each shipping container is a bunch of packages. The barge itself is your computer (or your cloud environment), and the shipping containers house your applications.
+
+It may also help to think of them as smaller, more lightweight incarnations of virtual machines. While a virtual machine virtualizes the machine’s physical hardware through the use of a hypervisor, a container virtualizes only the operating system. A virtual machine is usually several gigabytes in size, whereas a container is usually less than a gigabyte. The small size and speed of deployment as compared to a traditional virtual machine has given rise to the popularity of designing applications as collections of microservices (several single-purpose services running in containers that, when working together, make up your complete application) instead of monoliths (all of your application code and services running as a single unit, often within a single file).
 
 Deploying your application using containers allows you to package your application code alongside everything required to run it, including its dependencies and an operating system. You know how sometimes you hand code off to someone else, but it doesn’t run for them, so you go “Well, it works on *my* machine,” and just shrug? Using a container is pretty similar to just deploying your machine. The most popular container engine today is Docker, so that’s what we’ll be using today.
 
 ## Prerequisites:
 
-- An AWS account
-
 - [Pulumi account](https://app.pulumi.com)
 
-- [Pulumi installed and configured for AWS](https://www.pulumi.com/docs/get-started/aws/begin/)
-
-- Docker
+- [Docker](https://www.docker.com/products/docker-desktop)
 
 - Python3
 
 Before we go into containerizing and deploying our website, let’s make it a little bit more useful. For this, we’re going to be using Flask, a lightweight web framework for Python. Fork and clone [this GitHub repository](https://github.com/katcosgrove/cloud-systems-101) to get the full sample code for part two of this series.
+
+## Expanding the Website
 
 Our file structure gets more complicated now that we are building a more dynamic website with server-side routing and throwing it into a Docker container. You will have something like this:
 
@@ -69,6 +69,98 @@ container-tutorial
 ```
 
 Everything contained within the `app` directory is the website itself. We now have server-side routing, and a few different pages. To run it locally and see what the new website looks like, `pip3 install flask` to install the Flask web framework and then run `python3 server.py` from the `app` directory. Flask will return an IP address where your website is running; navigate there in your browser and click around a bit!
+
+`server.py`
+
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route('/portfolio')
+def portfolio():
+    return render_template("portfolio.html")
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80, debug=True)
+```
+
+Where before our entire website was made up of a single HTML file, we now have several, and we're using Flask to handle the routing between them. In this server file, three routs are defined: home, about, and portfolio. Flask handles serving these up for us, and associating a route with a particular HTML file. This way, we get a nice `www.mywebsite.com/about` URL instead of something like `www.mywebsite.com/about.html`. Building a website this way also means we have the ability to apply some logic to each of these routes, such as adding database interaction, user login, and passing conditional variables from the server to the templates that will be rendering each page. We aren't doing any of that yet, but we will!
+
+At the bottom, we're binding the Flask application to `0.0.0.0:80`. You can change that to any other unoccupied local IP address and port you like.
+
+## Templating
+
+Flask can make use of a templating engine called Jinja2 to make adding pages to your website a bit less repetitive. You start with one template, in this case called `base.html`, that contains any HTML you want to exist on every single page.
+
+`base.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello world!</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='normalize.css') }}>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fas fa-cat"></i></div>
+        <nav>
+                <ul>
+                    <li {% if request.path == url_for('home') %} class="active" {% endif %}>
+                        <a href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li {% if request.path == url_for('about') %} class="active" {% endif %}>
+                        <a href="{{ url_for('about') }}">About</a>
+                    </li>
+                    <li {% if request.path == url_for('portfolio') %} class="active" {% endif %}>
+                        <a href="{{ url_for('portfolio') }}">Portfolio</a>
+                    </li>
+                </ul>
+            </nav>
+        <ul class="social">
+                <li><a href="http://github.com/katcosgrove" target="_blank"><i class="fab fa-github-alt"></i></a></li>
+                <li><a href="http://twitter.com/Dixie3Flatline" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="http://linkedin.com/in/katcosgrove" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+    </header>
+{% block content %}{% endblock %}
+</body>
+<script src="https://kit.fontawesome.com/b4747495ea.js" crossorigin="anonymous"></script>
+</html>
+```
+
+This file includes some metadata, stylesheets, the header, navigation, and any Javascript we want to link in. All of the content in this file will exist on every page. Below the header, in the body, you'll see `{% block content %} {% endblock %}`. That's where additional, page-specific content will be added.
+
+`index.html`
+
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content">
+    <h1>Your Name</h1>
+    <h3>Job Title at Company</h3>
+</div>
+
+{% endblock %}
+```
+
+This is all that exists in our `index.html` now. The first directive tells Jinja2 that this bit of HTML goes in the `base.html` template, and the remaining two wrap the content we want to insert. The same thing is happening in `about.html` and `portfolio.html`. Neat, right? Jinja2 is not unique to Flask, so you can use this templating engine with another web framework if you prefer.
+
+While we could deploy this as-is, it's a bit unwieldy. Let's wrap it up into a container.
 
 ## Dockerizing our Website
 
@@ -101,261 +193,28 @@ To see this run locally, we first need to build and tag the image. From the same
 
 `docker build --tag container-tutorial:latest .`
 
-Note the trailing dot, which is the part of the command that indicates the location of the Dockerfile we want to build.
+We are calling the docker CLI, telling it we want to build a container, and indicating that we want to tag it at the same time. The tag isn't strictly necessary for the container to run, but it does make the container easier to identify and interact with. We're also assigning it a version of `latest`. Note the trailing dot at the end of the command, which is the part of the command that indicates the location of the Dockerfile we want to build.
+
+Run `docker images` to see a list of all images you have built. Something like this should be in the list:
+
+```bash
+cloud-systems                                                       latest                                                             0ce569ac0360   10 days ago    408MB
+```
 
 Now the container is built, we need to run it and forward the container’s port to a local port so we can see our site.
 
-`docker run  -d -p 80:80 container-tutorial`
+`docker run -d -p 80:80 container-tutorial`
 
-Go to `localhost` in your browser, and there’s the website! Neat. Let’s deploy this thing, though.
+There's a lot going on in that command, so let's take a closer look. the `-d` flag is short for `--detach`, and it tells the Docker engine that we want to print the container's ID and run it in the background. The `-p` flag is short for `--publish`, and it tells the Docker engine to publish the container's port to the host. In this case, port 80.
 
-## Configuring Amazon ECS
-
-Amazon’s ECS (Elastic Container Service) is a tool used for container orchestration. It allows you to deploy containerized applications into a cluster, defined as tasks. We’re going to use Pulumi to define all of the necessary rules and settings to do this in a secure manner, then create our infrastructure and deploy the containerized website. Let’s break down the code required to do that, found in `__main__.py`.
-
-```python
-import json
-import base64
-import pulumi
-import pulumi_aws as aws
-import pulumi_docker as docker
-```
-
-First, we have our imports. We’re working with both AWS and Docker, so we need both of those Pulumi providers.
-
-```python
-app_cluster = aws.ecs.Cluster("app-cluster")
-
-app_vpc = aws.ec2.Vpc("app-vpc",
-    cidr_block="172.31.0.0/16",
-    enable_dns_hostnames=True)
-
-app_vpc_subnet = aws.ec2.Subnet("app-vpc-subnet",
-    cidr_block="172.31.32.0/20",
-    vpc_id=app_vpc.id)
-```
-
-In this codeblock, we're first creating our ECS cluster and naming it `app-cluster`. Then create a VPC (Virtual Private Cloud), and a subnet for it.
-
-```python
-app_gateway = aws.ec2.InternetGateway("app-gateway",
-    vpc_id=app_vpc.id)
-
-app_routetable = aws.ec2.RouteTable("app-routetable",
-    routes=[
-        aws.ec2.RouteTableRouteArgs(
-            cidr_block="0.0.0.0/0",
-            gateway_id=app_gateway.id,
-        )
-    ],
-    vpc_id=app_vpc.id)
-
-app_routetable_association = aws.ec2.MainRouteTableAssociation("app_routetable_association",
-    route_table_id=app_routetable.id,
-    vpc_id=app_vpc.id)
-```
-
-Next, we need a gateway and a route table to associate with the VPC so that it can communicate with the internet.
-
-```python
-app_security_group = aws.ec2.SecurityGroup("security-group",
-    vpc_id=app_vpc.id,
-    description="Enables HTTP access",
-    ingress=[aws.ec2.SecurityGroupIngressArgs(
-        protocol='tcp',
-        from_port=80,
-        to_port=80,
-        cidr_blocks=['0.0.0.0/0'],
-    )],
-    egress=[aws.ec2.SecurityGroupEgressArgs(
-        protocol='-1',
-        from_port=0,
-        to_port=0,
-        cidr_blocks=['0.0.0.0/0'],
-    )])
-```
-
-Just about everything you do in AWS requires a security group. This one enables HTTP access by allowing ingress to and from port 80 only, and egress anywhere.
-
-```python
-# Creating an IAM role used by Fargate to execute all our services
-app_exec_role = aws.iam.Role("app-exec-role",
-    assume_role_policy="""{
-        "Version": "2012-10-17",
-        "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-                "Service": "ecs-tasks.amazonaws.com"
-            },
-            "Effect": "Allow",
-            "Sid": ""
-        }]
-    }""")
-
-# Attaching execution permissions to the exec role
-exec_policy_attachment = aws.iam.RolePolicyAttachment("app-exec-policy", role=app_exec_role.name,
-    policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-
-# Creating an IAM role used by Fargate to manage tasks
-app_task_role = aws.iam.Role("app-task-role",
-    assume_role_policy="""{
-        "Version": "2012-10-17",
-        "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-                "Service": "ecs-tasks.amazonaws.com"
-            },
-            "Effect": "Allow",
-            "Sid": ""
-        }]
-    }""")
-
-# Attaching execution permissions to the task role
-task_policy_attachment = aws.iam.RolePolicyAttachment("app-access-policy", role=app_task_role.name,
-    policy_arn=aws.iam.ManagedPolicy.AMAZON_ECS_FULL_ACCESS)
-```
-
-Services also require IAM roles. In this case, we need to allow AWS Fargate (the serverless compute engine that will actually be responsible for running things) to execute our services and manage our tasks, so we create new roles for both and apply execution permissions to both.
-
-```python
-# Creating storage space to upload a docker image of our app to
-app_ecr_repo = aws.ecr.Repository("app-ecr-repo",
-    image_tag_mutability="MUTABLE")
-
-# Attaching an application life cycle policy to the storage
-app_lifecycle_policy = aws.ecr.LifecyclePolicy("app-lifecycle-policy",
-    repository=app_ecr_repo.name,
-    policy="""{
-        "rules": [
-            {
-                "rulePriority": 10,
-                "description": "Remove untagged images",
-                "selection": {
-                    "tagStatus": "untagged",
-                    "countType": "imageCountMoreThan",
-                    "countNumber": 1
-                },
-                "action": {
-                    "type": "expire"
-                }
-            }
-        ]
-    }""")
-```
-
-The last thing we need to do for our infrastructure before we can start deploying to it is create a repository on Amazon ECR (Elastic Container Registry) where our Docker image will live, then attach an application lifecycle policy to that repository. This makes sure that we expire and remove any untagged images in the repository.
-
-## Deploying a Dockerized Flask Application to ECS
-
-We're now ready to deploy our website and wire all of this up!
-
-```python
-flask_targetgroup = aws.lb.TargetGroup("flask-targetgroup",
-    port=80,
-    protocol="TCP",
-    target_type="ip",
-    vpc_id=app_vpc.id)
-
-flask_balancer = aws.lb.LoadBalancer("flask-balancer",
-    load_balancer_type="network",
-    internal=False,
-    security_groups=[],
-    subnets=[app_vpc_subnet.id])
-
-flask_listener = aws.lb.Listener("flask-listener",
-    load_balancer_arn=flask_balancer.arn,
-    port=80,
-    protocol="TCP",
-    default_actions=[aws.lb.ListenerDefaultActionArgs(
-        type="forward",
-        target_group_arn=flask_targetgroup.arn
-    )])
-```
-
-First, we need to make it possible for our Flask application to communicate with the internet. That requires three pieces of configuration: a target group for port 80, a load balancer to spread out incoming requests and make sure our website doesn't get overwhelmed as easily, and a listener to forward public traffic to the defined target group.
-
-```python
-def get_registry_info(rid):
-    creds = aws.ecr.get_credentials(registry_id=rid)
-    decoded = base64.b64decode(creds.authorization_token).decode()
-    parts = decoded.split(':')
-    if len(parts) != 2:
-        raise Exception("Invalid credentials")
-    return docker.ImageRegistry(creds.proxy_endpoint, parts[0], parts[1])
-
-app_registry = app_ecr_repo.registry_id.apply(get_registry_info)
-
-flask_image = docker.Image("flask-dockerimage",
-    image_name=app_ecr_repo.repository_url,
-    build="./website",
-    skip_push=False,
-    registry=app_registry
-)
-```
-
-A small helper function is required here. It's grabbing some of our AWS credentials, specificaly an authorization token, so that we can talk to the registry. Next, we build the Docker image for our website and push it to the repository we created in Amazon ECR earlier. The Dockerfile is in `./website`.
-
-```python
-flask_task_definition = aws.ecs.TaskDefinition("flask-task-definition",
-    family="frontend-task-definition-family",
-    cpu="256",
-    memory="512",
-    network_mode="awsvpc",
-    requires_compatibilities=["FARGATE"],
-    execution_role_arn=app_exec_role.arn,
-    task_role_arn=app_task_role.arn,
-    container_definitions=pulumi.Output.all(flask_image.image_name).apply(lambda args: json.dumps([{
-        "name": "flask-container",
-        "image": args[0],
-        "memory": 512,
-        "essential": True,
-        "portMappings": [{
-            "containerPort": 80,
-            "hostPort": 80,
-            "protocol": "tcp"
-        }],
-    }])))
-```
-
-We need a task definition for the Flask instance. AWS Fargate will be managing this for us, using the roles we defined earlier. We're also handing it a container definition, including the image name and a little bit of information about it, like the container and host ports.
-
-```python
-flask_service = aws.ecs.Service("flask-service",
-    cluster=app_cluster.arn,
-    desired_count=1,
-    launch_type="FARGATE",
-    task_definition=flask_task_definition.arn,
-    wait_for_steady_state=False,
-    network_configuration=aws.ecs.ServiceNetworkConfigurationArgs(
-        assign_public_ip=True,
-        subnets=[app_vpc_subnet.id],
-        security_groups=[app_security_group.id]
-    ),
-    load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-        target_group_arn=flask_targetgroup.arn,
-        container_name="flask-container",
-        container_port=80,
-    )],
-    opts=pulumi.ResourceOptions(depends_on=[flask_listener]),
-)
-```
-
-Finally, we actually launch our website. We need to create a new service definition and hand it all of the resources we created earlier, beginning with the ECS cluster itself. It has the task definition, our network configurations, and our load balancers, and we make sure that this particular piece of code isn't executed until the listener we created to watch for traffic is online.
-
-As a shortcut to finding our website, export the DNS name of our load balancer as an output from Pulumi:
-
-```python
-pulumi.export("app-url", flask_balancer.dns_name)
-```
-
-We're ready to go! Set your AWS region:
+Run `docker ps` to get a list of all running containers, and you'll see something like this:
 
 ```bash
-pulumi config aws:region us-west-2
+CONTAINER ID   IMAGE                COMMAND               CREATED       STATUS       PORTS                                       NAMES
+f95362faf3cd   container-tutorial   "python3 server.py"   7 days ago    Up 7 days    0.0.0.0:80->80/tcp, :::80->80/tcp           affectionate_jackson
+
 ```
 
-Then run `pulumi up` to watch it go!
+That's our website! You can see the container ID, the image tag, the commands that ran for it to start the application, its host, the container port, and the port it forwarded to. Go to `localhost` in your browser, and the website is up!
 
-We now have a functional, multi-page website with server-side routing, packaged up into a Docker container and deployed to a fully-configured AWS ECS cluster in just a couple hundred lines of Python, all without leaving the same repository our website is stored in. What if we want to be able to scale really large, though? Some resiliency would be nice. Stay tuned for the next blog for an introduction to Kubernetes, where we'll learn to deploy our website to Amazon's Elastic Kubermetes Service!
+We're hosting this locally, though. It's not accessible by the wider internet, and even if it was, our machines would be dealing with all of the traffic. There's nothing in place to distribute traffic or restrict access. Worry not, cloud services exist for that, too. In the next in this series, we'll take our containerized website and deploy it to AWS Elastic Container Service, complete with AWS networking configuration, IAM roles, and AWS Fargate!
