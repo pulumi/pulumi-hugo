@@ -280,7 +280,7 @@ As a shortcut to finding our website, export the DNS name of our load balancer a
 pulumi.export("app-url", flask_balancer.dns_name)
 ```
 
-We're ready to go! Set your AWS region:
+We're ready to go! Set your AWS region in your terminal:
 
 ```bash
 pulumi config set aws:region us-west-2
