@@ -141,7 +141,7 @@ Flask can make use of a templating engine called Jinja2 to make adding pages to 
 </html>
 ```
 
-This file includes some metadata, stylesheets, the header, navigation, and any Javascript we want to link in. All of the content in this file will exist on every page. Below the header, in the body, you'll see `{% block content %} {% endblock %}`. That's where additional, page-specific content will be added.
+This file includes some metadata, stylesheets, the header, navigation, and any Javascript we want to link in. All of the content in this file will exist on every page. Below the header, in the body, you'll find `{% block content %} {% endblock %}`. That's where additional, page-specific content will be added.
 
 `index.html`
 
