@@ -189,7 +189,7 @@ CMD [ "server.py" ]
 
 This Dockerfile says that our container should be running Ubuntu Linux version 20.04 as its operating system. It will pull the Ubuntu image from Docker Hub, their public image registry, though you can pull from another registry here as well. The `COPY` directive moves our website’s files (the `app` directory) into the container. We then set our working directory for all future commands run inside of the container to `/app` to reduce the amount of typing we have to do later on, update Ubuntu, and install some dependencies using both apt and from the `requirements.txt` file we also copy over. Lastly, an entrypoint and command to actually start our application are defined. There is a slightly less verbose way to start the application, but this way of defining an `ENTRYPOINT` and `CMD` is fairly common, so it’s worth having here.
 
-To see this run locally, we first need to build and tag the image. From the same directory as your Dockerfile, run the following command:
+To run locally, we first need to build and tag the image. From the same directory as your Dockerfile, run the following command:
 
 `docker build --tag container-tutorial:latest .`
 
