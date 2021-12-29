@@ -59,4 +59,3 @@ var db = new Database("db", new DatabaseArgs(),
 {{% /choosable %}}
 
 {{< /chooser >}}
-

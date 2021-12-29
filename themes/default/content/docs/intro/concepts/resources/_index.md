@@ -26,17 +26,14 @@ menu:
         "#replaceonchanges": "/docs/intro/concepts/resources/options/replaceonchanges",
         "#transformations": "/docs/intro/concepts/resources/options/transformations",
         "#version": "/docs/intro/concepts/resources/options/version",
-        
         "#components": "/docs/intro/concepts/resources/components",
         "#authoring-a-new-component-resource": "/docs/intro/concepts/resources/components/#authoring-a-new-component-resource",
         "#creating-a-child-resource": "/docs/intro/concepts/resources/components/#creating-a-child-resource",
         "#registering-component-outputs": "/docs/intro/concepts/resources/components/#registering-component-outputs",
         "#inheriting-resource-providers": "/docs/intro/concepts/resources/components/#inheriting-resource-providers",
-
         "#providers": "/docs/intro/concepts/resources/providers",
         "#default-provider-configuration": "/docs/intro/concepts/resources/providers/#default-provider-configuration",
         "#explicit-provider-configuration": "/docs/intro/concepts/resources/providers/#explicit-provider-configuration",
-        
         "#dynamicproviders": "/docs/intro/concepts/resources/dynamicproviders",
     };
 
@@ -45,7 +42,6 @@ menu:
         location.href = redirect;
     }
 </script>
-
 
 Resources represent the fundamental units that make up your cloud infrastructure, such as a compute instance, a storage bucket, or a Kubernetes cluster.
 
