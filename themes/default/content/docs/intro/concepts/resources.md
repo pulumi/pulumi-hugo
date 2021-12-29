@@ -357,6 +357,8 @@ Only top-level resource properties can be designated secret. If sensitive data i
 
 This option provides a list of aliases for a resource or component resource. If you’re changing the name, type, or parent path of a resource or component resource, you can add the old name to the list of aliases for a resource to ensure that existing resources will be migrated to the new name instead of being deleted and replaced with the new named resource.
 
+Aliases are frequently used when refactoring Pulumi programs.
+
 For example, imagine we change a database resource’s name from `old-name-for-db` to `new-name-for-db`. By default, when we run pulumi up, we see that the old resource is deleted and the new one created. If we annotate that resource with the aliases option, however, the resource is updated in-place:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
@@ -456,6 +458,8 @@ var db = new Database("new-name-for-db", new DatabaseArgs(),
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+Aliases are impliclty inherited from a parent, so that if a parent is moved (new name, new type, etc.), all children will also be aliased appropriately.  This includes both updating the parent type in the qualified type in the child's URN, as well as updating the child name prefix if the name starts with the parent name.  If there are aliases for both the parent and the child, all combinations of parent and child aliases are computed, allowing any combination of these previous parent and child identities to be treated as the same as the new identity. This process is inherited through any number of levels of parent/child relationships.  
 
 #### customTimeouts
 
