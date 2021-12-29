@@ -143,7 +143,7 @@ Specifically:
 
 See below for details on each of these functions.
 
-#### How Dynamic Providers Work
+## How Dynamic Providers Work
 
 Dynamic providers are a flexible and low-level mechanism that allow you to include arbitrary code directly into the deployment process. While most code in a Pulumi program runs while the desired state of the resources is constructed (in other words, as the resource graph is built), the code inside a dynamic provider’s implementation, such as `create` or `update`, runs during resource provisioning, while the resource graph is being turned into a set of CRUD operations scheduled against the cloud provider.
 
@@ -151,7 +151,7 @@ In fact, these two phases of execution actually run in completely separate proce
 
 Because your implementation of the resource provider interface must be used by a different process, potentially at a different point in time, dynamic providers are built on top of the same [function serialization]({{< relref "/docs/intro/concepts/function-serialization" >}}) that is used for turning callbacks into AWS Lambdas or Google Cloud Functions. Because of this serialization, there are some limits on what can be done inside the implementation of the resource provider interface. You can read more about these limitations in the function serialization documentation.
 
-#### The Resource Provider Interface
+## The Resource Provider Interface
 
 Implementing the `pulumi.dynamic.ResourceProvider` interface requires implementing a subset of the methods listed further down in this section. Each of these methods can be asynchronous, and most implementations of these methods will perform network I/O to provision resources in a backing cloud provider or other resource model. There are several important contracts between a dynamic provider and the Pulumi CLI that inform when these methods are called and with what data.
 
@@ -254,7 +254,7 @@ class MyResource(Resource):
 {{% /choosable %}}
 {{< /chooser >}}
 
-##### check(olds, news)
+### check(olds, news)
 
 The `check` method is invoked before any other methods. The resolved input properties that were originally provided to the resource constructor by the user are passed to it. The operation is passed both the old input properties that were stored in the *state file* after the previous update to the resource, as well as the new inputs from the current deployment. It has two jobs:
 
@@ -263,14 +263,14 @@ The `check` method is invoked before any other methods. The resolved input prope
 
 The inputs returned from the call to `check` will be the inputs that the Pulumi engine uses for all further processing of the resource, including the values that will be passed back in to `diff`, `create`, `update`, or other operations. In many cases, the news can be returned directly as the checked inputs. But in cases where the provider needs to populate defaults, or do some normalization on values, it may want to do that in the `check` method so that this data is complete and normalized prior to being passed in to other methods.
 
-##### create(inputs)
+### create(inputs)
 
 The `create` method is invoked when the URN of the resource created by the user is not found in the existing state of the deployment. The engine passes the provider the checked inputs returned from the call to `check`. The `create` method creates the resource in the cloud provider. It then returns two pieces of data:
 
 1. An id that can uniquely identify the resource in the backing provider for later lookups, and
 1. A set of outputs from the backing provider that should be returned to the user code as properties on the CustomResource object. These outputs are stored in the checkpoint file. If an error occurs, an exception can be thrown from the create method that should be returned to the user.
 
-##### diff(id, olds, news)
+### diff(id, olds, news)
 
 The `diff` method is invoked when the URN of the resource created by the user already exists. Because the resource already exists it will need to be either updated or replaced. The `diff` method is passed the `id` of the resource, as returned by `create`, as well as the old outputs from the checkpoint file, which are values returned from a previous call to either `create` or `update`. The checked inputs from the current deployment are passed to the diff method.
 
@@ -281,19 +281,19 @@ It returns four optional values:
 - `stables`: An array of property names that are known not to change between updates. Pulumi will use this information to allow some [`apply`]({{< relref "/docs/reference/pkg/python/pulumi#outputs-and-inputs" >}}) calls on [`Output[T]`]({{< relref "/docs/reference/pkg/python/pulumi#outputs-and-inputs" >}}) to be processed during `previews` because it knows that the values of these property names will stay the same during an update.
 - `deleteBeforeReplace`: true if the proposed replacements require that the existing resource be deleted before creating the new one. By default, Pulumi will try to create the new resource before deleting the old one to avoid downtime. If an error occurs, an exception can be thrown from the diff method to return this error to the user.
 
-##### update(id, olds, news)
+### update(id, olds, news)
 
 The `update` method is invoked if the call to diff indicates that a replacement is unnecessary. The method is passed the `id` of the resource as returned by `create`, and the old outputs from the checkpoint file, which are values returned from a previous call to either `create` or `update`. The new checked inputs are also passed from the current deployment. The `update` method is expected to do the work in the cloud provider to update an existing resource to the new desired state. It then returns a new set of `outputs` from the cloud provider that should be returned to the user code as properties on the [`CustomResource`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.CustomResource" >}}) object, and stored into the checkpoint file. If an error occurs, an exception can be thrown from the `update` method to return this error to the user.
 
-##### delete(id, props)
+### delete(id, props)
 
 The `delete` operation is invoked if the URN exists in the previous state but not in the new desired state, or if a replacement is needed. The method is passed the `id` of the resource as returned by `create`, and the old outputs from the checkpoint file, which are values returned from a previous call to either `create` or `update`. The method deletes the corresponding resource from the cloud provider. Nothing needs to be returned. If an error occurs, an exception can be thrown from the `delete` method to return this error to the user.
 
-##### read(id, props)
+### read(id, props)
 
 The `read` method is invoked when the Pulumi engine needs to get data about a resource that is not managed by Pulumi. The method is passed the `id` of the resource, as tracked in the cloud provider, and an optional bag of additional properties that can be used to disambiguate the request, if needed. The `read` method looks up the requested resource, and returns the canonical `id` and output properties of this resource if found. If an error occurs, an exception can be thrown from the `read` method to return this error to the user.
 
-#### Dynamic Resource Inputs
+## Dynamic Resource Inputs
 
 The inputs to your `pulumi.dynamic.ResourceProvider`’s functions come from subclasses of `pulumi.dynamic.Resource`. These inputs include any values in the input arguments passed to the `pulumi.dynamic.Resource` constructor. This is just a map of key/value pairs however, in statically typed languages, you can declare types for these input shapes.
 
@@ -366,7 +366,7 @@ class MyResource(Resource):
 
 {{< /chooser >}}
 
-#### Dynamic Resource Outputs
+## Dynamic Resource Outputs
 
 Any outputs can be returned by your create function in the outs property of `pulumi.dynamic.CreateResult`.
 
@@ -456,9 +456,9 @@ class MyResource(Resource):
 
 {{< /chooser >}}
 
-#### Dynamic Provider Examples
+## Dynamic Provider Examples
 
-##### Example: Random
+### Example: Random
 
 This example generates a random number using a dynamic provider. It highlights using dynamic providers to run some code only when a resource is created, and then store the results of that in the state file so that this value is maintained across deployments of the resource. Because we want our random number to be created once, and then remain stable for subsequent updates, we cannot simply use a random number generator in our program; we need dynamic providers. The result is a provider similar to the one provided in `@pulumi/random`, just specific to our program and language.
 
@@ -547,7 +547,7 @@ class Random(Resource):
 
 Now, with this, we can construct new `Random` resource instances, and Pulumi will drive the right calls at the right time.
 
-##### Example: GitHub Labels REST API
+### Example: GitHub Labels REST API
 
 This example highlights how to make REST API calls to a backing provider to perform CRUD operations. In this case, the backing provider is the GitHub API in this case. Because the resource provider method implementations will be serialized and used in a different process, we keep all the work to initialize the REST client and to make calls to it, local to each function.
 
@@ -715,7 +715,7 @@ export("label_url", label.url)
 
 {{< /chooser >}}
 
-##### Additional Examples
+### Additional Examples
 
 - [Add a Custom Domain to an Azure CDN endpoint](https://github.com/pulumi/examples/tree/master/classic-azure-ts-dynamicresource)
     Similar to the previous example, this is another example of a shortcoming of the regular Azure resource provider available in Pulumi. However, due to the availability of a REST API, we can easily add a custom domain to an Azure CDN resource using a dynamic provider.

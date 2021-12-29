@@ -19,7 +19,7 @@ All resource constructors accept an options argument that provide the following 
 - [import]({{< relref "import" >}}): bring an existing cloud resource into Pulumi.
 - [parent]({{< relref "parent" >}}): establish a parent/child relationship between resources.
 - [protect]({{< relref "protect" >}}): prevent accidental deletion of a resource by marking it as protected.
-- [provider]({{< relref "provider" >}}): pass an [explicitly configured provider]({{< relref "#explicit-provider-configuration" >}}), instead of using the default global provider.
+- [provider]({{< relref "provider" >}}): pass an [explicitly configured provider]({{< relref "../providers/#explicit-provider-configuration" >}}), instead of using the default global provider.
 - [replaceOnChanges]({{< relref "replaceonchanges" >}}): declare that changes to certain properties should be treated as forcing a replacement.
 - [transformations]({{< relref "transformations" >}}): dynamically transform a resource’s properties on the fly.
 - [version]({{< relref "version" >}}): pass a provider plugin version that should be used when operating on a resource.
