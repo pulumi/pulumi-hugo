@@ -5,7 +5,7 @@ date: 2021-12-28T14:52:42Z
 
 draft: false
 
-meta_desc: In this series, learn modern cloud engineering practices and tooling, continuing with deploying our conmtainerized website to AWS Elastic Container Service!
+meta_desc: In this series, learn modern cloud engineering practices and tooling, continuing with deploying our containerized website to AWS Elastic Container Service!
 
 authors:
     - kat-cosgrove
@@ -65,7 +65,9 @@ app_vpc_subnet = aws.ec2.Subnet("app-vpc-subnet",
     vpc_id=app_vpc.id)
 ```
 
-In this codeblock, we're first creating our ECS cluster and naming it `app-cluster`. Then create a VPC (Virtual Private Cloud), and a subnet for it. It is possible to use the default VPC here rather than defining one, but AWS networking is complex, so it's worth knowing that it is possible to define a custom VPC.
+In this codeblock, we're first creating our ECS cluster and naming it `app-cluster`. Then create a VPC (Virtual Private Cloud), and a subnet for it. VPCs are like miniature local networks, with subnets providing the addressing within that mini network. Using a VPC means you can wire up your system as you like it without worrying about how that network setup might collide with other AWS resources, since you define how that network can connect outward. If you've ever used Docker networking, you'll be familiar with the idea that an internal network is different than the external interface.
+
+It is possible to use the default VPC here rather than defining one, but AWS networking is complex, so it's worth knowing that it is possible to define a custom VPC.
 
 ```python
 app_gateway = aws.ec2.InternetGateway("app-gateway",
@@ -85,7 +87,7 @@ app_routetable_association = aws.ec2.MainRouteTableAssociation("app_routetable_a
     vpc_id=app_vpc.id)
 ```
 
-Next, we need a gateway and a route table. The gateway's job is to provide a target in that route table we just created and associated with our VPC, so that it can direct internet traffic. This allows our VPC to communicate with the public internet.
+Next, we need a gateway and a route table. The gateway's job is to provide a target in that route table we just created and associated with our VPC. This allows our VPC to communicate with the public internet.
 
 ```python
 app_security_group = aws.ec2.SecurityGroup("security-group",
@@ -149,6 +151,8 @@ task_policy_attachment = aws.iam.RolePolicyAttachment("app-access-policy", role=
 
 We're going to be using [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) to actually run our container. Fargate is a serverless compute platform designed for running containers without requiring you to provision and manage clusters of EC2 (Elastic Compute Cloud) instances. Since our website is containerized and very small, it's perfect for us. Services also require IAM roles, and in this case, we need to allow Fargate to execute our services and manage our tasks, so we create new roles for both and apply execution permissions to them.
 
+In the context of Fargate, a task is a collection of containers, and a task definition tells AWS what needs to be running all at once in order to make an application run. The task definitions will be written later onm but first we need to define policies. It's important that these policies be created first, or the task definitions won't create correctly later on.
+
 ```python
 # Creating storage space to upload a docker image of our app to
 app_ecr_repo = aws.ecr.Repository("app-ecr-repo",
@@ -204,7 +208,7 @@ flask_listener = aws.lb.Listener("flask-listener",
     )])
 ```
 
-First, we need to make it possible for our Flask application to communicate with the internet. That requires three pieces of configuration: a target group for port 80, a load balancer to spread out incoming requests and make sure our website doesn't get overwhelmed as easily, and a listener to forward public traffic to the defined target group.
+First, we need to make it possible for our Flask application to communicate with the internet. That requires three pieces of configuration: a target group for port 80, a load balancer to spread out incoming requests and make sure our website doesn't get overwhelmed as easily, and a listener to forward public traffic to the defined target group. The target group is directed at the endpoint for the VPC we created earlier, 
 
 ```python
 def get_registry_info(rid):
