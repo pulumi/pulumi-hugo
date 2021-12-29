@@ -207,7 +207,7 @@ Now the container is built, we need to run it and forward the container’s port
 
 There's a lot going on in that command, so let's take a closer look. the `-d` flag is short for `--detach`, and it tells the Docker engine that we want to print the container's ID and run it in the background. The `-p` flag is short for `--publish`, and it tells the Docker engine to publish the container's port to the host. In this case, port 80.
 
-Run `docker ps` to get a list of all running containers, and you'll see something like this:
+Run `docker ps` to get a list of all running containers, and you'll find something like this:
 
 ```bash
 CONTAINER ID   IMAGE                COMMAND               CREATED       STATUS       PORTS                                       NAMES
