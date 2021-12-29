@@ -94,7 +94,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
 ```
 
-Where before our entire website was made up of a single HTML file, we now have several, and we're using Flask to handle the routing between them. In this server file, three routs are defined: home, about, and portfolio. Flask handles serving these up for us, and associating a route with a particular HTML file. This way, we get a nice `www.mywebsite.com/about` URL instead of something like `www.mywebsite.com/about.html`. Building a website this way also means we have the ability to apply some logic to each of these routes, such as adding database interaction, user login, and passing conditional variables from the server to the templates that will be rendering each page. We aren't doing any of that yet, but we will!
+Where before our entire website was made up of a single HTML file, we now have several, and we're using Flask to handle the routing between them. In this server file, three routes are defined: `home`, `about`, and `portfolio`. Flask handles serving these up for us and associating a route with a particular HTML file. This way, we get a nice `www.mywebsite.com/about` URL instead of something like `www.mywebsite.com/about.html`. Building a website this way also means we have the ability to apply some logic to each of these routes, such as adding database interaction, user login, and passing conditional variables from the server to the templates that will be rendering each page. We aren't doing any of that yet, but we will!
 
 At the bottom, we're binding the Flask application to `0.0.0.0:80`. You can change that to any other unoccupied local IP address and port you like.
 
