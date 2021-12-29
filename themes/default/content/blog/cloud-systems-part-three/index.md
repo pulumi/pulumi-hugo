@@ -208,7 +208,7 @@ flask_listener = aws.lb.Listener("flask-listener",
     )])
 ```
 
-First, we need to make it possible for our Flask application to communicate with the internet. That requires three pieces of configuration: a target group for port 80, a load balancer to spread out incoming requests and make sure our website doesn't get overwhelmed as easily, and a listener to forward public traffic to the defined target group. The target group is directed at the endpoint for the VPC we created earlier, 
+First, we need to make it possible for our Flask application to communicate with the internet. That requires three pieces of configuration: a target group for port 80, a load balancer to spread out incoming requests and make sure our website doesn't get overwhelmed as easily, and a listener to forward public traffic to the defined target group. The target group is directed at the endpoint for the VPC we created earlier, defining the port as it is unknown until runtime.
 
 ```python
 def get_registry_info(rid):
