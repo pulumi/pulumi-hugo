@@ -215,6 +215,6 @@ f95362faf3cd   container-tutorial   "python3 server.py"   7 days ago    Up 7 day
 
 ```
 
-That's our website! You can see the container ID, the image tag, the commands that ran for it to start the application, its host, the container port, and the port it forwarded to. Go to `localhost` in your browser, and the website is up!
+That's our website! You can get the container ID, the image tag, the commands that ran for it to start the application, its host, the container port, and the port it forwarded to. Go to `localhost` in your browser, and the website is up!
 
 We're hosting this locally, though. It's not accessible by the wider internet, and even if it was, our machines would be dealing with all of the traffic. There's nothing in place to distribute traffic or restrict access. Worry not, cloud services exist for that, too. In the next in this series, we'll take our containerized website and deploy it to AWS Elastic Container Service, complete with AWS networking configuration, IAM roles, and AWS Fargate!
