@@ -201,7 +201,7 @@ Run `docker images` to get a list of all images you have built. Something like t
 cloud-systems                                                       latest                                                             0ce569ac0360   10 days ago    408MB
 ```
 
-Now the container is built, we need to run it and forward the container’s port to a local port so we can see our site.
+Now the container is built, we need to run it and forward the container’s port to a local port so we can interact with our site.
 
 `docker run -d -p 80:80 container-tutorial`
 
