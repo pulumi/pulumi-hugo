@@ -274,7 +274,7 @@ flask_service = aws.ecs.Service("flask-service",
 
 Finally, we actually launch our website. We need to create a new service definition and hand it all of the resources we created earlier, beginning with the ECS cluster itself. It has the task definition, our network configurations, and our load balancers, and we make sure that this particular piece of code isn't executed until the listener we created to watch for traffic is online.
 
-As a shortcut to finding our website, export the DNS name of our load balancer as an output from Pulumi:
+As a shortcut to finding our website, export the DNS name of our load balancer as an output from Pulumi as the last part of the program:
 
 ```python
 pulumi.export("app-url", flask_balancer.dns_name)
