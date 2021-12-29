@@ -195,7 +195,7 @@ To see this run locally, we first need to build and tag the image. From the same
 
 We are calling the docker CLI, telling it we want to build a container, and indicating that we want to tag it at the same time. The tag isn't strictly necessary for the container to run, but it does make the container easier to identify and interact with. We're also assigning it a version of `latest`. Note the trailing dot at the end of the command, which is the part of the command that indicates the location of the Dockerfile we want to build.
 
-Run `docker images` to see a list of all images you have built. Something like this should be in the list:
+Run `docker images` to get a list of all images you have built. Something like this should be in the list:
 
 ```bash
 cloud-systems                                                       latest                                                             0ce569ac0360   10 days ago    408MB
