@@ -164,7 +164,7 @@ While we could deploy this as-is, it's a bit unwieldy. Let's wrap it up into a c
 
 ## Dockerizing our Website
 
-In the `website` directory, we have something called a Dockerfile. Dockerfiles tell the Docker engine what to do with your application, how your container should behave with respect to the wider internet or other containers, and what needs to be done inside of the container for your application to run. Ours looks like this:
+In the `website` directory, we have something called a Dockerfile. Dockerfiles tell the Docker engine what to do with your application, how your container should behave with respect to the wider internet or other containers, and what needs to be done inside of the container for your application to run. This is ours:
 
 ```bash
 FROM ubuntu:20.04
