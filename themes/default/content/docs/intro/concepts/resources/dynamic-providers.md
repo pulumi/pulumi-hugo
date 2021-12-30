@@ -4,7 +4,7 @@ meta_desc: Dynamic resource providers are providers that can be written inside y
 menu:
   intro:
     parent: resources
-    weight: 5
+    weight: 2
 ---
 
 There are three types of resource providers. The first are the standard resource providers. These resource providers are built and maintained by Pulumi. There is a second kind, called a dynamic resource provider, which we will discuss here. These resource providers run only in the context of your program. They are not shareable. The third type of resource provider is shareable. You write it yourself and then you can distribute it so that others can use it.

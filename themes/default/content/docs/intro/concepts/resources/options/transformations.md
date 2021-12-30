@@ -109,21 +109,75 @@ var vpc = new MyVpcComponent("vpc", new ComponentResourceOptions
 
 {{< /chooser >}}
 
-{{% choosable language "typescript,javascript,python,go" %}}
-Transformations can also be applied in bulk to many resources in a stack by using the `registerStackTransformation` function.
+## Stack Transformations
+
+Transformations can also be applied in bulk to many or all resources in a stack by using Stack Transformations, which are applied to the root stack resource and as a result inherited by all other resources in the stack.
+
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+pulumi.runtime.registerStackTransformation((args) => {
+    if (isTaggable(args.type)) {
+        args.props["tags"] = Object.assign(args.props["tags"], autoTags);
+        return { props: args.props, opts: args.opts };
+    }
+};
+```
+
 {{% /choosable %}}
 
-{{% choosable language "csharp" %}}
-Transformations can also be applied in bulk to many resources in a stack by using the `Stack` constructor's `StackOptions.ResourceTransformations` property:
+{{% choosable language typescript %}}
+
+```typescript
+pulumi.runtime.registerStackTransformation(args => {
+    // ...
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+def my_transformation(args):
+    # ...
+
+pulumi.runtime.register_stack_transformation(my_transformation)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+ctx.RegisterStackTransformation(
+    func(args *pulumi.ResourceTransformationArgs) *pulumi.ResourceTransformationResult {
+        // ...
+    },
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
 
 ```csharp
 public class MyStack : Stack
 {
-    public MyStack() : base(new StackOptions { ResourceTransformations = ... })
+    public MyStack() : base(new StackOptions { ResourceTransformations = { MyTransformation } })
     {
         ...
+    }
+
+    private static ResourceTransformationResult? MyTransformation(ResourceTransformationArgs args) 
+    {
+        // ...
     }
 }
 ```
 
 {{% /choosable %}}
+
+{{< /chooser >}}

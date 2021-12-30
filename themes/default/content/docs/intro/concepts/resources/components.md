@@ -4,10 +4,10 @@ meta_desc: A component resource is a logical grouping of resources.
 menu:
   intro:
     parent: resources
-    weight: 3
+    weight: 1
 ---
 
-A component resource is a logical grouping of resources. Components resources usually instantiate a set of related resources in their constructor, aggregate them as children, and create a larger, useful abstraction that encapsulates their implementation details.
+A component resource is a logical grouping of resources. Components usually instantiate a set of related resources in their constructor, aggregate them as children, and create a larger, useful abstraction that encapsulates their implementation details.
 
 Here are a few examples of component resources:
 

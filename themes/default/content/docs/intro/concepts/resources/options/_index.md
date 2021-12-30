@@ -5,7 +5,7 @@ menu:
   intro:
     identifier: options
     parent: resources
-    weight: 2
+    weight: 3
 ---
 
 All resource constructors accept an options argument that provide the following resource options:
