@@ -58,4 +58,3 @@ var res2 = new MyResource("res2", new MyResourceArgs(),
 {{% /choosable %}}
 
 {{< /chooser >}}
-
