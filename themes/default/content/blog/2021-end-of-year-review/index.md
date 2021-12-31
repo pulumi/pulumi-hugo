@@ -33,7 +33,8 @@ The Azure Native provider, which communicates directly with the Azure resource m
 We had a bit of fun on April Fool’s Day with [Pulumi Interstellar]({{< relref "/blog/pulumi-interstellar" >}}) (if you don’t understand April Fool’s Day because it’s not something you have in your country, please know this is a joke for fun).
 
 The biggest news for April, though, was our PulumiUP event, where we showcased new releases for the Pulumi platform. Here are the big announcements:
-* [Pulumi 3.0]({{<relref "/blog/pulumi-3-0" >}}): Automation API, native Providers, Packages and Components, improved SDKs for Python and Go, and new integrations and features. 
+
+* [Pulumi 3.0]({{<relref "/blog/pulumi-3-0" >}}): Automation API, native Providers, Packages and Components, improved SDKs for Python and Go, and new integrations and features.
 * [Pulumi Packages and multi-language Components]({{< relref "/blog/pulumiup-pulumi-packages-multi-language-components" >}})
 * The [Google Cloud Native Provider]({{< relref "/blog/pulumiup-google-native-provider" >}})
 
@@ -54,6 +55,7 @@ We announced Pulumi Team Edition with usage-based pricing and a free tier to get
 ### July
 
 July was a month of education, with articles on Cloud Engineering as a concept, more on testing, and a new series on Kubernetes:
+
 * [Cloud Enginering]({{< relref "/blog/wtf-is-cloud-engineering" >}})
 * [Testing]({{< relref "/blog/testing-in-practice" >}})
 * [Kubernetes]({{< relref "/blog/kubernetes-fundamentals-part-one" >}})
@@ -97,6 +99,7 @@ We reworked [functions to accept outputs]({{< relref "/blog/functions-accept-out
 ### December
 
 We started some more educational series:
+
 * [Cloud Systems]({{< relref "/blog/cloud-systems-part-one" >}})
 * [Organizational Patterns]({{< relref "/blog/organizational-patterns-infra-repo" >}})
 * [GitOps with the Pulumi Operator]({{< relref "/blog/improving-gitops-with-pulumi-operator" >}})
