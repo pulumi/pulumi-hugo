@@ -57,7 +57,6 @@ For us to make this easier, we have two issues:
 1. How do we automate the generation of the SDKs, ensuring that the SDKs are always up to date?
 2. Where do we publish them?
 
-
 ### Automation
 
 GitHub Actions plays such a large role in our developer world these days, especially for open source projects. So it was an easy choice to make that any automation I build out for this will be built on top of GitHub Actions. Knowing that we want the SDKs to be up to date, we also know that this automation must run on a regular cadence. As such, the beginnnig of our GitHub Action can take some shape:
@@ -187,7 +186,6 @@ Nice.
 ### Prior Art
 
 While writing this article, I discovered an [old repository](https://github.com/pulumi/pulumi-kubernetes-crds) within the Pulumi organization that actually did something similar to this last year 😮 It's not automated like this new initiative, but it was great to find that previous attempts to improve the developer experience for Kubernetes teams using Pulumi. Mad props to Paul Stack and Albert Zhong.
-
 
 So that's it! Thanks for reading. We hope you find this useful and we encourage you to join us and help by adding your favourite Kubernetes SDKs to the automation.
 
