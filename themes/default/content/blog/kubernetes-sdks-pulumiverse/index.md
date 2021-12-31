@@ -158,7 +158,7 @@ The job to generate the SDK and publish it to npm looks like this:
     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-Like I said earlier, the hardwork was already done; we just needed to glue some automation together to improve the DX.
+Like I said earlier, the hard work was already done; we just needed to glue some automation together to improve the DX.
 
 ### Publishing
 
@@ -170,7 +170,7 @@ You can checkout the [repository today](https://github.com/pulumiverse/kubernete
 
 Currently, the automation publishes NodeJS SDKs (JavaScript and TypeScript) to npm, but plans to add Python will be executed very soon. We're also looking to publish packages for dotNet, but research is still underway.
 
-Sadly, I don't expect to publish packages for Go ... sadly, because Go modules use GitHub for fetching source code - we'd need to publish generated code to the repository and I'm not entirely keen on that approach. I could possibly be persuaded, but I'd love some suggestions for alternate ways to resolve this.
+I don't expect to publish packages for Go ... sadly, because Go modules use GitHub for fetching source code - we'd need to publish generated code to the repository and I'm not entirely keen on that approach. I could possibly be persuaded, but I'd love some suggestions for alternate ways to resolve this.
 
 We currently provide SDKs for:
 
