@@ -39,7 +39,7 @@ pulumi.export("bucket", bucket.bucket_name)
 ```
 
 Here, we're creating one resource and exporting the output from that resource.
-Generally, however, there's a lot more to building up infrastructure with a
+In practice however, production systems typically have more requirements than a
 storage object. We need access policies, for one. Depending on how you're using
 that storage, you might need networking and other resources, as well. All of
 these use cases for a storage object requires some kind of policy, though, so
@@ -109,7 +109,7 @@ class OurBucketClass(self, name_me):
     )
 ```
 
-But that JSON list of the policy is an object, too, that we can tuck away,
+But that JSON blob of the policy is also an object which we can encapsulate,
 making our storage object class more usable outside of this specific context.
 Let's imagine we have a referenceable list of common access policies, perhaps
 a simple key:value store. In the store, keys are strings that are names of

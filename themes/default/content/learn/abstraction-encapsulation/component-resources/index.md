@@ -31,7 +31,7 @@ could be a base component like an `s3.Bucket` object that's managed by external
 providers like your favorite cloud provider. Alternatively, a resource could be
 a group of other resources that implements abstraction and encapsulation for
 reasons like defining a common pattern. This latter type of resource is called a
-_Component Resource_ in Pulumi's terminology.
+[_Component Resource_](https://www.pulumi.com/docs/intro/concepts/resources/#components) in Pulumi's terminology.
 
 ## Deciding to create a component resource
 

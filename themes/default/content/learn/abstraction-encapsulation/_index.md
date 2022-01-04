@@ -50,11 +50,9 @@ Pulumi for other projects.
 
 ## About this pathway
 
-In this pathway, we will explore how you could use Pulumi as a tool to help you
+In this pathway, we will explore how you can use Pulumi as a tool to help you
 abstract and encapsulate your resource definitions as reusable models for others
 to use.
 
 Note that this pathway will not have as many code samples to use as we will be
 defining patterns, exploring architecture, and discussing resources.
-
-<!-- This pathway is considered an advanced pathway. -->

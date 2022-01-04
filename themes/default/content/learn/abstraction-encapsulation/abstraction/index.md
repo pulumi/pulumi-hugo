@@ -19,9 +19,9 @@ block_external_search_index: false
 
 Just like any application code, Pulumi infrastructure code can be abstracted,
 enabling us to work with models or objects, depending on which language we use
-to define that code. If we use an object-oriented langauge such as Javascript,
-Python, or Typescript, we can create and instantiate classes. For languages like
-Go, we can build up interfaces. Either way, we're thinking in terms of taking
+to define that code. If we use an object-oriented language such as JavaScript,
+Python, or TypeScript, we can create and instantiate classes. For languages like
+Go, we can build up interfaces. In all cases, we're thinking in terms of taking
 code that we've written and making it reusable in some form.
 
 Breaking apart Pulumi code is essential to keeping a clean, well-organized, and
@@ -36,8 +36,8 @@ Let's first explore abstraction.
 ## Thinking in abstraction
 
 When we use our code for our Pulumi program, we're generally starting out with a
-declarative thought process. We write code that declares we want three resources
-of a specific type, in that order, and run the code to create those three
+declarative approach: We write code that declares, for example, we want three resources
+of a specific type, provisioned in the order in which we declare them, and run the code to create those three
 resources in order.
 
 To get to more complex architectures, we need to enable the ability to break
