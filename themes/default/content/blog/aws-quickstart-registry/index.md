@@ -1,6 +1,6 @@
 ---
 title: "Using AWS Quick Starts with the Pulumi Registry"
-date: 2021-12-17
+date: 2022-01-05
 meta_desc: "Pulumi releases AWS Quick Start packages in the Pulumi registry"
 meta_image: pulumi-aws-quickstart-registry.png
 authors:
