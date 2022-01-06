@@ -17,6 +17,8 @@ tags:
 
 As somebody who works on AWS projects across numerous projects, teams, and industries; I see the following three common types of infrastructure problems. I think the Pulumi Registry provides an incredible solution to each of these problems and will fundamentally change how people interact with AWS.
 
+<!--more-->
+
 Common AWS infrastructure problems:
 
   - **AWS Console Wizard Fever** - These companies use the AWS Console to deploy resources. They move very quickly initially but eventually their AWS accounts become cluttered with untracked resources and they need to do some heavy lifting to set up robust dev / staging / prod environments. Many AWS developers scoff at the idea of using the Console, but I actually think this is currently an okay approach for a lot of people / companies in the early stages of AWS development. The console provides a **lot** of assistance when doing deployments and most people don't need very complicated infrastructure initially. It's not ideal because of the tech debt but it's the right choice for many situations (at least, it was the right choice before the Pulumi registry).
@@ -28,8 +30,6 @@ Common AWS infrastructure problems:
 The underlying cause of these problems is that AWS's core services are designed for modularity within the AWS ecosystem, which is great for flexibility and experienced AWS developers, but it makes building best-practice AWS environments surprisingly difficult. Most "best practice" features on AWS, like email alarms when a database goes down, should really be the standard practice, but those features currently require complicated cross-service relationships that are difficult to implement correctly. The AWS ecosystem has been waiting for a layer of abstraction on top of these resources.
 
 Pulumi and the AWS Quick Starts in the [Pulumi Registry](https://www.pulumi.com/registry/) use higher-order components to abstract away that underlying complexity which makes configuring, deploying, and managing critical AWS resources straightforward -- like it should be. 
-
-<!--more-->
 
 Configuring an Aurora Postgresql database with best practices (again, what should really just be the standard practices) requires specialized AWS knowledge and provisioning a zoo of other critical resources:
 
