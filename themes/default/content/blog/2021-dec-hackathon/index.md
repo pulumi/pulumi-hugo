@@ -26,7 +26,7 @@ One cool thing that we tracked this round is all of the different ways we collab
 
 During the demo at the end of the hackathon, we asked teams to self-report which strategies they found the most helpful, what they learned, and obviously what the results of their hackathon project were. We found that everyone level-set to how their team chose to work, and the pairing of people based on location and work preferences helped a lot to have teams succeed.
 
-–-
+---
 We'll have more from each team soon! Keep watch on this space for new posts about hackathon projects.
 
 If you like our way of working and are interested in a new position, we have a lot of positions open right now and will have more in the future! Please head over to our [careers page]({{< relref "/careers" >}}) to find out how to apply.
