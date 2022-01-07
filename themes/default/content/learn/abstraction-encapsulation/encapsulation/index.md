@@ -19,15 +19,11 @@ block_external_search_index: false
 
 So we've explored a bit about abstraction. What about encapsulation?
 
-Encapsulation is the logical conclusion of an abstracted system: Breaking logic
-down into reusable components. In doing so, we ensure better maintainability,
-readability, and reusability. To illustrate that, let's explore a practical
-example.
+Encapsulation is the logical conclusion of an abstracted system: Breaking logic down into reusable components. In doing so, we ensure better maintainability, readability, and reusability. To illustrate that, let's explore a practical example.
 
 ## Breaking apart Pulumi code
 
-Let's take a fairly uncomplicated piece of Pulumi code: the definition of an s3
-bucket:
+Let's take a fairly uncomplicated piece of Pulumi code: the definition of an s3 bucket:
 
 ```python
 import pulumi
@@ -38,13 +34,7 @@ bucket = aws.s3.bucket("my-bucket")
 pulumi.export("bucket", bucket.bucket_name)
 ```
 
-Here, we're creating one resource and exporting the output from that resource.
-In practice however, production systems typically have more requirements than a
-storage object. We need access policies, for one. Depending on how you're using
-that storage, you might need networking and other resources, as well. All of
-these use cases for a storage object requires some kind of policy, though, so
-when thinking about encapsulating our storage object needs, we probably want to
-put those two together. Let's adjust our code accordingly:
+Here, we're creating one resource and exporting the output from that resource. In practice however, production systems typically have more requirements than a storage object. We need access policies, for one. Depending on how you're using that storage, you might need networking and other resources, as well. All of these use cases for a storage object requires some kind of policy, though, so when thinking about encapsulating our storage object needs, we probably want to put those two together. Let's adjust our code accordingly:
 
 ```python
 import json
@@ -77,9 +67,7 @@ bucket_policy = aws_classic.s3.BucketPolicy(
 pulumi.export("bucket", bucket.bucket_name)
 ```
 
-Now, that's nice, but what if we need to make three different storage objects
-for three different use cases? We could start out by creating a resource
-grouping for the kind of resource we wanted to use:
+Now, that's nice, but what if we need to make three different storage objects for three different use cases? We could start out by creating a resource grouping for the kind of resource we wanted to use:
 
 ```python
 import ...
@@ -109,11 +97,7 @@ class OurBucketClass(self, name_me):
     )
 ```
 
-But that JSON blob of the policy is also an object which we can encapsulate,
-making our storage object class more usable outside of this specific context.
-Let's imagine we have a referenceable list of common access policies, perhaps
-a simple key:value store. In the store, keys are strings that are names of
-policies, and the values are JSON documents.
+But that JSON blob of the policy is also an object which we can encapsulate, making our storage object class more usable outside of this specific context. Let's imagine we have a referenceable list of common access policies, perhaps a simple key:value store. In the store, keys are strings that are names of policies, and the values are JSON documents.
 
 ```python
 import ...
@@ -145,6 +129,4 @@ class OurBucketClass(self, name_me, policy_name):
 
 ```
 
-In Pulumi, everything, including your resources, can be modeled, abstracted, and
-encapsulated just like anything in your programming language of choice. Why does
-that matter, or why should you care? The answer to that question is up next!
+In Pulumi, everything, including your resources, can be modeled, abstracted, and encapsulated just like anything in your programming language of choice. Why does that matter, or why should you care? The answer to that question is up next!
