@@ -14,17 +14,62 @@ As part of our winter hackathon near the end of last year, we decided to explore
 
 A simple example of this idea is a modern web application with a static front-end and an API, where the front-end needs to know the URL of the API to be able to call it and the API needs to know the source domain of the front-end to allow it access via CORS. As these two resources rely on one another to be created, they are circular dependencies.
 
-[DIAGRAM]
+![Image showing a JS app passing its domain to an API and the API passing its domain to the JS app](intro.png)
 
 For a deployable example, let’s build a serverless game of ping-pong—two functions which invoke each other until one misses!
 
-[EXAMPLE WITH TYPESCRIPT ERROR]
+```typescript
+const ping = new CallbackFunction("ping", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: pong.name, // <-- Can't access `pong` yet!
+    },
+  },
+});
+
+const pong = new CallbackFunction("pong", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: ping.name,
+    },
+  },
+});
+```
 
 Programming languages don’t let us create one object which takes a value from another object that doesn’t yet exist. Therefore, we can’t express a circular dependency in this way.
 
 The simplest workaround for this error is to get a reference to our own stack, which contains the outputs from the previous deployment. Now, we set the reference to `pong` within `ping` from the output of the last deployment.
 
-[EXAMPLE WITH STACK REFERENCE]
+```typescript
+const currentStack = new pulumi.StackReference(
+  `acme-org/${pulumi.getProject()}/${pulumi.getStack()}`
+);
+
+const ping = new CallbackFunction("ping", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: currentStack
+        .getOutput("pongName")
+        .apply((pongName) => pongName ?? ""),
+    },
+  },
+});
+
+const pong = new CallbackFunction("pong", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: ping.name,
+    },
+  },
+});
+
+export const pingName = ping.name;
+export const pongName = pong.name;
+```
 
 The downside of this approach is that we have to deploy twice to reach the desired state because we need the results of the previous deployment, though this approach might be fine for simple one-off circumstances.
 
@@ -40,7 +85,32 @@ The `state` object does 3 tasks:
 2. Update the value in the stack state using a “set” method.
 3. Automatically triggers another deployment if its value has changed.
 
-[EXAMPLE OF STATE]
+```typescript
+const pongName = new pulumi.State("pong-name", {
+  initialValue: "",
+});
+
+const ping = new CallbackFunction("ping", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: pongName.value,
+    },
+  },
+});
+
+const pong = new CallbackFunction("pong", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: ping.name,
+    },
+  },
+});
+
+// Engine re-runs "up" if this changes the value
+pongName.set(pong.name);
+```
 
 Deployments should always match the preview, but when triggering the re-deployment, we’re making a change that wasn’t in the preview. This action could also result in a never-ending loop where every deployment makes another change to the state and triggers another deployment. So let’s explore a different option that might not have this issue.
 
@@ -48,7 +118,32 @@ Deployments should always match the preview, but when triggering the re-deployme
 
 This option looks almost identical to the “state” concept above, except we’re calling them references (refs):
 
-[EXAMPLE OF REFS]
+```typescript
+const pongName = new pulumi.Ref("pong-name", {
+  initialValue: "",
+});
+
+const ping = new CallbackFunction("ping", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: pongName, // Special type the Pulumi engine will track
+    },
+  },
+});
+
+const pong = new CallbackFunction("pong", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: ping.name,
+    },
+  },
+});
+
+// Determine affected resources and re-update
+pongName.set(pong.name);
+```
 
 The difference between refs and state is that, instead of triggering a whole re-deploy when the value changes, refs would be integrated into the dependency graph—similar to resources. When the value of the ref changes, we could internally work out which resources depend on that ref and change the target state for only those resources.
 
@@ -60,7 +155,29 @@ Both the “state” and “refs” approaches also have the downside of not mak
 
 We could explicitly model the third step by using a new resource type suffixed with “patch”:
 
-[EXAMPLE OF PATCH RESOURCE]
+```typescript
+const ping = new CallbackFunction("ping", {
+  callback: pingPongHandler,
+});
+
+const pong = new CallbackFunction("pong", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: ping.name,
+    },
+  },
+});
+
+const pingPatch = new CallbackFunctionPatch("ping-patch", {
+  id: ping.id,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: pong.name,
+    },
+  },
+});
+```
 
 The provider presents pseudo-resources for update or patch operations. The `patch` resource is using the same underlying resource as the original resource. This option is a very flexible approach that could be implemented by providers right now. These patch resources could also be used for resources that exist outside the Pulumi stack. The drawback is that the `patch` operation has to be implemented in each provider individually, and it significantly increases the overall size of each provider and its associated SDK. We’re still evaluating whether this option would be a good one considering that size increase, which increases download times as an example impact, and the engineering resources to implement the change. We have one more option to consider, as well.
 
@@ -68,7 +185,28 @@ The provider presents pseudo-resources for update or patch operations. The `patc
 
 When using the SDK, we could write something like the following code to create then update a little later on:
 
-[EXAMPLE WITH UPDATE]
+```typescript
+const ping = new CallbackFunction("ping", {
+  callback: pingPongHandler,
+});
+
+const pong = new CallbackFunction("pong", {
+  callback: pingPongHandler,
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: ping.name,
+    },
+  },
+});
+
+const updatedPing = ping.update({
+  environment: {
+    variables: {
+      OPPONENT_FN_NAME: pong.name,
+    },
+  },
+});
+```
 
 When declaring a resource in a Pulumi program, you’re essentially saying, “This is the state I want my resource to be in.” The update method returns a whole new copy of the resource with new properties containing the outputs of the update.
 
