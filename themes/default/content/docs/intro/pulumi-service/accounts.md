@@ -21,7 +21,7 @@ up. You may use any of the following identities to sign up:
 * [Email](https://app.pulumi.com/signin/email)
 * [Single Sign-on](https://app.pulumi.com/signin/sso)
 
-Your account lets you authenticate in to the Pulumi Service, where you can do the
+Your account lets you authenticate to the Pulumi Service, where you can do the
 following:
 
 * Manage your profile settings, including your account password, access tokens, and subscriptions

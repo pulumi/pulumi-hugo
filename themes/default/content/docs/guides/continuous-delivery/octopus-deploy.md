@@ -12,7 +12,7 @@ menu:
 ## Prerequisites
 
 - A working installation of Octopus or a hosted instance from [https://octopus.com](https://octopus.com).
-- An account on the [Pulumi Service](https://app.pulumi.com).
+- An account in the [Pulumi Service](https://app.pulumi.com).
 - The [latest version of Pulumi]({{< relref "/docs/get-started/install" >}}).
 - Setup a new project and [stack]({{< relref "/docs/intro/concepts/stack" >}}) using one of our [Get Started]({{< relref "/docs/get-started" >}}) guides or simply by running [`pulumi new`]({{< relref "/docs/reference/cli/pulumi_new" >}})
 and choosing one of the many templates that are available.

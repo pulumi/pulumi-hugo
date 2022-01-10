@@ -1774,7 +1774,7 @@ POST /api/orgs/{organization}/hooks
 | `displayName` | string | body | name of webhook |
 | `organizationName` | string | body | organization name |
 | `payloadUrl` | string | body | URL to send request to |
-| `secretName` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/intro/pulumi-service/webhooks/#headers) for more information  |
+| `secretName` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs]({{< relref "/docs/intro/pulumi-service/webhooks#headers" >}}) for more information  |
 
 #### Example
 

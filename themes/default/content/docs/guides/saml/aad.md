@@ -114,7 +114,7 @@ sign in to the Pulumi Service using your SAML SSO credentials.
 
 Navigate to [https://app.pulumi.com/signin/sso/](https://app.pulumi.com/signin/sso/) and enter the
 name of your Pulumi organization. If everything is configured correctly, you should be prompted to
-sign in to to your Azure AD instance, and then immediately redirected back to the Pulumi Service.
+sign in to your Azure AD instance, and then immediately be redirected back to the Pulumi Service.
 
 ![Pulumi Service](/images/docs/reference/service/saml-aad/pulumi-console-signin.png)
 

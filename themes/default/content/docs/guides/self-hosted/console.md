@@ -14,7 +14,7 @@ Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relr
 To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
 
-The Pulumi Service allows users to view the stacks they have created, see any past activities recorded for those stacks. It also allows you to manage RBAC for your users.
+The Pulumi Service allows users to view the stacks they have created and see any past activities recorded for those stacks. It also allows you to manage RBAC for your users.
 
 In order for the CLI to persist the state of a particular stack, a user must login to the CLI. In order to login to the CLI, you should have created an account using the Console first.
 

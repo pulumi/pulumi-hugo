@@ -449,7 +449,7 @@ We can very clearly see such failures in the Pulumi Service:
 
 ![Failed Deployment](./failed-deployment.png)
 
-And if we click into it, we'll see the complete Mocha test output:
+And if we select it, we'll see the complete Mocha test output:
 
 ![Failed Deployment Details](./failed-deployment-details.png)
 
