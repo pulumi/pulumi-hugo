@@ -57,7 +57,6 @@ As with any Pulumi project, it is defined by a [Pulumi.yaml](https://bitbucket.o
 
 ## Outputs / Inputs
 
-
 There's probably a good reason most samples that show how to use Pulumi are one big file. That's because it can be initially difficult to grok the concept of provision-time "output" and "input" values. This isn't isolated to Pulumi --- I've seen similar problems with examples (and real code) with other IaC tools like Terraform, Puppet, and Chef. It's not a big surprise, either. When thinking imperatively or defining infrastructure manually we tend to have a different mindset to the one required to think declaratively.
 
 Despite the documentation, it can be quite confusing and becomes even more so when you deviate from the "one big file". It can become positively baffling when, as this application does, the infrastructure code is aware of the application code and performs the deployment of the application as part of the infrastructure update. I wanted to test the application logic separately from having to run Pulumi, so that separation of code was essential.
