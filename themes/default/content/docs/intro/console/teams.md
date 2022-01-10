@@ -17,7 +17,7 @@ Teams are only available to organizations using Pulumi Enterprise.
 To learn more about our editions visit our [pricing page]({{< relref "/pricing" >}}).
 {{% /notes %}}
 
-The Pulumi Console offers role-based access control (RBAC) using teams. Teams allow organization admins to assign a set of stack permissions
+The Pulumi Service offers role-based access control (RBAC) using teams. Teams allow organization admins to assign a set of stack permissions
 to a group of users.
 
 ## Creating a Team{#creating-a-team}
@@ -41,7 +41,7 @@ If your Pulumi organization is backed by GitHub, you can import your existing
 GitHub teams into Pulumi.
 
 For these teams, membership is managed on GitHub, while the set of stack
-permissions granted to team members is managed on the Pulumi Console.
+permissions granted to team members is managed in the Pulumi Service.
 
 ## Team Permissions
 

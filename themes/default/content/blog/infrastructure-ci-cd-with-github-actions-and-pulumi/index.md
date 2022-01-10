@@ -78,7 +78,7 @@ If you’d like to request support for more CI/CD services, please use [this con
 
 You may already be familiar with Git-based services such as [GitHub](https://github.com/), Bitbucket, and GitLab. Adding your code to a central VCS allows you to secure your codebase against failures and boost team collaboration. When you add an automated CI/CD pipeline, your team will deliver software safely and efficiently by ensuring that automated tests are passed prior to every deployment. This process is valuable for application code and infrastructure code.
 
-The Assistant also goes beyond helping you get started with an automated pipeline. It works throughout the Pulumi Console providing hints for configuring a VCS for projects that are not already configured. It can also help identify updates to stacks that were not run in an automated pipeline (in the activity tab). These additions will help you quickly identify the stacks where best practices are not followed and take corrective actions.
+The Assistant also goes beyond helping you get started with an automated pipeline. It works throughout the Pulumi Service providing hints for configuring a VCS for projects that are not already configured. It can also help identify updates to stacks that were not run in an automated pipeline (in the activity tab). These additions will help you quickly identify the stacks where best practices are not followed and take corrective actions.
 You can access the Assistant in the Integrations option of your stack’s settings page to help you through the whole process of configuring a VCS to setting up a working automated pipeline.
 
 Learn more about the [CI/CD Integration Assistant in our user guide]({{< relref "/docs/intro/console/ci-cd-integration-assistant" >}}).

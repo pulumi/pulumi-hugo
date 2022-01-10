@@ -29,7 +29,7 @@ To create a project:
 
 ## Stack Permissions
 
-The Pulumi Console provides fine-grained access controls for stacks. Stack permissions are
+The Pulumi Service provides fine-grained access controls for stacks. Stack permissions are
 based on the member's role within the organization, and on their team membership.
 Additionally, any member who creates a stack is granted admin permissions on that stack.
 

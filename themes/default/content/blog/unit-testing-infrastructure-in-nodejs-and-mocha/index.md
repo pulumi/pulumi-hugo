@@ -445,7 +445,7 @@ For instance, let's say somehow the VPC wasn't known at preview time, and ended 
 resolving to the default VPC. Even though the deployment occurred, we'd want to
 know that we now have an issue that we need to go track down.
 
-We can very clearly see such failures in the Pulumi Console:
+We can very clearly see such failures in the Pulumi Service:
 
 ![Failed Deployment](./failed-deployment.png)
 

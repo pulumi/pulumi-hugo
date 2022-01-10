@@ -1,6 +1,6 @@
 ---
-title: Pulumi Console
-meta_desc: An overview of the Pulumi Console web application.
+title: Pulumi Service
+meta_desc: An overview of the Pulumi Service web application.
 menu:
   intro:
     identifier: console
@@ -11,7 +11,7 @@ aliases:
 - /docs/intro/console/accounts-and-organizations/editions/
 ---
 
-The [Pulumi Console](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses it unless you [explicitly opt out]({{< relref "/docs/intro/concepts/state" >}}).
+The [Pulumi Service](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses it unless you [explicitly opt out]({{< relref "/docs/intro/concepts/state" >}}).
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 
 <a class="btn btn-secondary" href="https://app.pulumi.com/signup" target="_blank">Sign up</a>
 
-When you sign into the Pulumi Console, an personal account is automatically
+When you sign in to the Pulumi Service, an personal account is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
 You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO]({{< relref "/docs/guides/saml" >}}), you'll need to create a Pulumi [organization]({{< relref "organizations" >}}).
@@ -35,7 +35,7 @@ scale, with advanced or custom needs.
 For more information about the specific differences and capabilities offered for the
 Pulumi Team and Enterprise editions, refer to the [pricing page]({{< relref "/pricing" >}}).
 
-Explore the following sections to learn more about the features and benefits of using the Pulumi Console.
+Explore the following sections to learn more about the features and benefits of using the Pulumi Service.
 
 ## Accounts & Organizations
 

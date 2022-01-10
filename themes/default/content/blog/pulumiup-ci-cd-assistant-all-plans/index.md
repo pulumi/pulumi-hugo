@@ -26,9 +26,9 @@ The CI/CD Assistant helps you realize all these benefits by getting version cont
 1. **Creating a CI/CD workflow file** that shows how to run Pulumi in your CI/CD system
 1. **Validating** that everything was configured correctly
 
-When you've configured version control and CI/CD on a Pulumi stack, you get additional helpful metadata in the Pulumi Console: each update shows the commit, branch, pull request (if applicable), and build number - all with links to your version control and CI/CD systems so you can dig into additional detail.
+When you've configured version control and CI/CD on a Pulumi stack, you get additional helpful metadata in the Pulumi Service: each update shows the commit, branch, pull request (if applicable), and build number - all with links to your version control and CI/CD systems so you can dig into additional detail.
 
-![A screenshot of the Pulumi Console showing a stack update with version control and CI/CD metadata](ci-cd-console.png)
+![stack update with version control and CI/CD metadata](ci-cd-console.png)
 
 👉 [Learn more]({{< relref "/docs/intro/console/ci-cd-integration-assistant" >}})
 
@@ -36,7 +36,7 @@ When you've configured version control and CI/CD on a Pulumi stack, you get addi
 
 The CI/CD Assistant delivers on the Pulumi Cloud Engineering Platform's promise of your cloud, your language, your way, by providing broad support for over a dozen of the most popular CI/CD services:
 
-![A screenshot of the Pulumi Console showing all of the CI/CD providers supported by Pulumi: AWS Code Services, Azure DevOps, CircleCI, CodeFresh, GitHub Actions, GitLab CI, Google Cloud Build, Jenkins, JetBrains TeamCity, Kubernetes Operator, Travis CI, Octopus, Spinnaker](ci-cd-assistant-logos.png)
+![CI/CD providers supported by Pulumi: AWS Code Services, Azure DevOps, CircleCI, CodeFresh, GitHub Actions, GitLab CI, Google Cloud Build, Jenkins, JetBrains TeamCity, Kubernetes Operator, Travis CI, Octopus, Spinnaker](ci-cd-assistant-logos.png)
 
 If you use a version control or CI/CD provider that's not on this list, you can file a feature request. We'd love to hear from you!
 

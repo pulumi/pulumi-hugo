@@ -28,9 +28,9 @@ account for each of your identities, if that's what you want to do.
 ## Creating a new Pulumi account using your Atlassian identity
 
 To get started using your Atlassian identity, you can navigate to
-<https://app.pulumi.com> and click the Atlassian button to authenticate.
+<https://app.pulumi.com> and select the Atlassian button to authenticate.
 If you are already logged-in to Pulumi, you should first logout and then
-head back to the Pulumi Console.
+head back to the Pulumi Service.
 
 ![atlassian-1](./atlassian-1.png)
 

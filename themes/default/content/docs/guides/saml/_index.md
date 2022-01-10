@@ -2,7 +2,7 @@
 title: SAML Single Sign-on (SSO)
 meta_desc:
   This page provides an overview of how to configure any SAML 2.0 identity provider
-  with the Pulumi Console.
+  with the Pulumi Service.
 menu:
   userguides:
     weight: 8
@@ -13,7 +13,7 @@ aliases:
   - /docs/console/accounts/saml/
 ---
 
-The [Pulumi Console](https://app.pulumi.com) can be configured to work with any SAML 2.0 identity provider. SAML support requires Pulumi Enterprise. To learn more about the capabilities of Pulumi Enterprise, refer to the [pricing page]({{< relref "/pricing" >}}).
+The [Pulumi Service](https://app.pulumi.com) can be configured to work with any SAML 2.0 identity provider. SAML support requires Pulumi Enterprise. To learn more about the capabilities of Pulumi Enterprise, refer to the [pricing page]({{< relref "/pricing" >}}).
 
 > Looking for information on how to enable SAML SSO for self-hosted Pulumi? Learn more [here]({{< relref "docs/guides/self-hosted/saml-sso" >}}).
 

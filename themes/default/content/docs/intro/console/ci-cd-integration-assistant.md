@@ -1,6 +1,6 @@
 ---
 title: CI/CD Integration Assistant
-meta_desc: An overview of the CI/CD integration assistant in the Pulumi Console.
+meta_desc: An overview of the CI/CD integration assistant in the Pulumi Service.
 menu:
   intro:
     parent: console

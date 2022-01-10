@@ -6,10 +6,10 @@ menu:
     weight: 4
 ---
 
-The Pulumi Service REST API is used by the Pulumi CLI and the Pulumi Console to query and interact with state information, history, stack tags, etc. This API is available for end users to integrate into their own automation use cases.
+The Pulumi Service REST API is used by the Pulumi CLI and the console to query and interact with state information, history, stack tags, etc. This API is available for end users to integrate into their own automation use cases.
 
 {{% notes "info" %}}
-While the Pulumi Service REST API is used by the Pulumi CLI and Pulumi Console, Pulumi makes no guarantees about changes that might affect backwards compatibility or cause breaking changes.
+While the Pulumi Service REST API is used by the Pulumi CLI and the console, Pulumi makes no guarantees about changes that might affect backwards compatibility or cause breaking changes.
 {{% /notes %}}
 
 ## Endpoint URL
@@ -288,7 +288,7 @@ Status: 200 OK
 
 ### Transfer Stack
 
-Transfers the stack from one organization in the Pulumi Console to a different organization. The user calling this operation must have the necessary [stack permissions]({{< relref "/docs/intro/console/projects-and-stacks#stack-permissions" >}}) for this operation to be successful.
+Transfers the stack from one organization in the Pulumi Service to a different organization. The user calling this operation must have the necessary [stack permissions]({{< relref "/docs/intro/console/projects-and-stacks#stack-permissions" >}}) for this operation to be successful.
 
 This operation will return a 409 response error if an update is currently in progress.
 

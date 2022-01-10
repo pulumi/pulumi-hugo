@@ -10,7 +10,7 @@ tags:
     - security
 ---
 
-Pulumi's Cloud Engineering Platform helps teams of all sizes deliver and manage cloud apps and infrastructure. In the Pulumi console, everyone on the team can see the infrastructure the team is responsible for, when it was last deployed, how it’s configured, and more. You can see a full breakdown of the infrastructure and understand how the team brings together individual cloud services to create applications. When you bring your teams together on Pulumi, you get a “single pane of glass” over all the cloud applications and infrastructure managed with Pulumi.
+Pulumi's Cloud Engineering Platform helps teams of all sizes deliver and manage cloud apps and infrastructure. In the Pulumi Service, everyone on the team can see the infrastructure the team is responsible for, when it was last deployed, how it’s configured, and more. You can see a full breakdown of the infrastructure and understand how the team brings together individual cloud services to create applications. When you bring your teams together on Pulumi, you get a “single pane of glass” over all the cloud applications and infrastructure managed with Pulumi.
 
 <!--more-->
 
@@ -31,7 +31,7 @@ To configure single sign-on with SAML for your Pulumi organization, use the guid
 - [Google Cloud Identity & Access Management]({{< ref "/docs/guides/saml/gsuite" >}})
 - [Generic guide (for all other IdPs)]({{< ref "/docs/guides/saml/sso" >}})
 
-![Screenshot of Pulumi console opened to SAML configuration](saml-in-console.png)
+![SAML configuration](saml-in-console.png)
 After configuring your IdP, any and all changes, either to your cloud applications and infrastructure, or your account's settings, will be tracked and associated with the user who performed that activity. The end result is full end-to-end visibility and attestation for important changes to your Pulumi organization.
 
 ## User and group synchronization via SCIM
@@ -45,7 +45,7 @@ To configure user and group synchronization via SCIM, use the guide that matches
 
 ## Distributed, least privilege access permissions model
 
-In addition to support for standards like SAML and SCIM, the Pulumi Console's Role-Based Access Control (RBAC) permissions model enables you to set up a least privilege access model for your infrastructure resources. In such a model, all access to infrastructure is specifically granted to individual users by creating [Teams]({{< ref "/docs/intro/console/teams" >}}) that have the appropriate level of access (Read, Write, or Admin) to a set of [Stacks]({{< ref "/docs/intro/console/projects-and-stacks" >}}), then adding users to those teams. Team membership can be managed manually by Team Admins or automatically using SCIM group synchronization.
+In addition to support for standards like SAML and SCIM, the Role-Based Access Control (RBAC) permissions model enables you to set up a least privilege access model for your infrastructure resources. In such a model, all access to infrastructure is specifically granted to individual users by creating [Teams]({{< ref "/docs/intro/console/teams" >}}) that have the appropriate level of access (Read, Write, or Admin) to a set of [Stacks]({{< ref "/docs/intro/console/projects-and-stacks" >}}), then adding users to those teams. Team membership can be managed manually by Team Admins or automatically using SCIM group synchronization.
 
 Learn how to create Teams in the [Teams docs]({{< ref "/docs/intro/console/teams" >}}).
 

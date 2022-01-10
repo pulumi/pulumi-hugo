@@ -56,7 +56,7 @@ To create a webhook:
 
 If a secret is provided, webhook deliveries will contain a signature
 in the HTTP request header that can be used to authenticate messages as coming from
-the Pulumi Console.
+the Pulumi Service.
 
 ## Event Notifications
 
@@ -89,7 +89,7 @@ Payloads contain several headers.
 
 | Header | Description |
 |--------|-------------|
-| `Pulumi-Webhook-ID` | Unique ID for each webhook sent which you can reference when looking at delivery logs in the Pulumi Console. |
+| `Pulumi-Webhook-ID` | Unique ID for each webhook sent which you can reference when looking at delivery logs in the Pulumi Service. |
 | `Pulumi-Webhook-Kind` | The kind of webhook event, e.g. `stack_update`. |
 | `Pulumi-Webhook-Signature` | Only set if the webhook has a shared secret. HMAC hex digest of the request payload, using the `sha256` hash function and the webhook secret as the HMAC key. |
 
