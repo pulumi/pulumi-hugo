@@ -288,7 +288,7 @@ Status: 200 OK
 
 ### Transfer Stack
 
-Transfers the stack from one organization in the Pulumi Service to a different organization. The user calling this operation must have the necessary [stack permissions]({{< relref "/docs/intro/console/projects-and-stacks#stack-permissions" >}}) for this operation to be successful.
+Transfers the stack from one organization in the Pulumi Service to a different organization. The user calling this operation must have the necessary [stack permissions]({{< relref "/docs/intro/pulumi-service/projects-and-stacks#stack-permissions" >}}) for this operation to be successful.
 
 This operation will return a 409 response error if an update is currently in progress.
 
@@ -1310,7 +1310,7 @@ Status: 200 OK
 
 ### Add User to Organization
 
-User must have already signed up for a Pulumi account and meet the [organization membership requirements]({{< relref "/docs/intro/console/organizations#organization-types" >}}) to be added to the organization, otherwise a 4xx error will occur.
+User must have already signed up for a Pulumi account and meet the [organization membership requirements]({{< relref "/docs/intro/pulumi-service/organizations#organization-types" >}}) to be added to the organization, otherwise a 4xx error will occur.
 
 If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration]({{< relref "/docs/guides/scim" >}}) documentation.
 
@@ -1774,7 +1774,7 @@ POST /api/orgs/{organization}/hooks
 | `displayName` | string | body | name of webhook |
 | `organizationName` | string | body | organization name |
 | `payloadUrl` | string | body | URL to send request to |
-| `secretName` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/intro/console/webhooks/#headers) for more information  |
+| `secretName` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/intro/pulumi-service/webhooks/#headers) for more information  |
 
 #### Example
 

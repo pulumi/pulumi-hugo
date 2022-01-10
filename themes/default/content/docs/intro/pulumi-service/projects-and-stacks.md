@@ -6,11 +6,11 @@ menu:
     parent: pulumi-service
     weight: 4
 aliases:
-- /docs/intro/console/project-and-stack-management/
+- /docs/intro/pulumi-service/project-and-stack-management/
 - /docs/reference/service/roles-and-access-controls/
 - /docs/console/collaboration/stack-permissions/
-- /docs/intro/console/stack-permissions/
-- /docs/intro/console/projects-and-stacks/
+- /docs/intro/pulumi-service/stack-permissions/
+- /docs/intro/pulumi-service/projects-and-stacks/
 ---
 
 Projects group stacks together and are folders containing a Pulumi.yaml file.
@@ -36,7 +36,7 @@ Additionally, any member who creates a stack is granted admin permissions on tha
 
 Organization admins can control the stack default permissions at the organization level from the organization's **Settings**.
 There are four types of stack permissions: `None`, `Read`, `Write`, and `Admin`.
-[Team permissions]({{< relref "/docs/intro/console/teams#team-permissions" >}}) will expand these default permissions.
+[Team permissions]({{< relref "/docs/intro/pulumi-service/teams#team-permissions" >}}) will expand these default permissions.
 
 Stack permissions allow users to perform the following actions:
 

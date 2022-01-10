@@ -54,7 +54,7 @@ on Pulumi.
 This allows you to set permissions on
 [Stacks]({{< relref "/docs/intro/concepts/stack" >}}) owned by your
 organization. You can learn more about
-[Teams]({{< relref "/docs/intro/console/teams" >}})
+[Teams]({{< relref "/docs/intro/pulumi-service/teams" >}})
 in the Pulumi and how those permissions get applied too.
 
 ## CI Integration

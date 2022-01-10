@@ -8,8 +8,8 @@ menu:
 no_on_this_page: true
 aliases:
 - /docs/reference/service
-- /docs/intro/console/accounts-and-organizations/editions/
-- /docs/intro/console/
+- /docs/intro/pulumi-service/accounts-and-organizations/editions/
+- /docs/intro/pulumi-service/
 ---
 
 The [Pulumi Service](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses it unless you [explicitly opt out]({{< relref "/docs/intro/concepts/state" >}}).
@@ -40,26 +40,26 @@ Explore the following sections to learn more about the features and benefits of 
 
 ## Accounts & Organizations
 
-* [Accounts]({{< relref "/docs/intro/console/accounts" >}})
-* [Organizations]({{< relref "/docs/intro/console/organizations" >}})
+* [Accounts]({{< relref "/docs/intro/pulumi-service/accounts" >}})
+* [Organizations]({{< relref "/docs/intro/pulumi-service/organizations" >}})
 * [SAML Integrations]({{< relref "/docs/guides/saml" >}})
 
 ## Collaboration
 
 Collaborate with other developers and coordinate on updates. Provide fine-grained access to stacks and use RBAC (Role-based Access Control) for your organization.
 
-* [Organization Roles]({{< relref "/docs/intro/console/organizations#organization-roles" >}})
-* [Teams]({{< relref "/docs/intro/console/teams" >}})
-* [Stack Permissions]({{< relref "/docs/intro/console/projects-and-stacks#stack-permissions" >}})
-* [Project and Stack Management]({{< relref "/docs/intro/console/projects-and-stacks" >}})
-* [Audit Logs]({{< relref "/docs/intro/console/audit-logs" >}})
+* [Organization Roles]({{< relref "/docs/intro/pulumi-service/organizations#organization-roles" >}})
+* [Teams]({{< relref "/docs/intro/pulumi-service/teams" >}})
+* [Stack Permissions]({{< relref "/docs/intro/pulumi-service/projects-and-stacks#stack-permissions" >}})
+* [Project and Stack Management]({{< relref "/docs/intro/pulumi-service/projects-and-stacks" >}})
+* [Audit Logs]({{< relref "/docs/intro/pulumi-service/audit-logs" >}})
 
 ## Integrations and Extensions
 
 Integrate Pulumi with your current continuous delivery pipeline. Build your own extensions, and create reusable templates.
 
-* [CI/CD Integration Assistant]({{< relref "/docs/intro/console/ci-cd-integration-assistant" >}})
+* [CI/CD Integration Assistant]({{< relref "/docs/intro/pulumi-service/ci-cd-integration-assistant" >}})
 * [Continuous Delivery]({{< relref "/docs/guides/continuous-delivery" >}})
 * [Pulumi Service REST API]({{< relref "/docs/reference/service-rest-api" >}})
-* [Webhooks]({{< relref "/docs/intro/console/webhooks" >}})
-* ["Deploy with Pulumi" Button]({{< relref "/docs/intro/console/pulumi-button" >}})
+* [Webhooks]({{< relref "/docs/intro/pulumi-service/webhooks" >}})
+* ["Deploy with Pulumi" Button]({{< relref "/docs/intro/pulumi-service/pulumi-button" >}})

@@ -6,10 +6,10 @@ menu:
     parent: pulumi-service
     weight: 1
 aliases:
-  - /docs/intro/console/accounts/
-  - /docs/intro/console/accounts/account/
-  - /docs/intro/console/accounts-and-organizations/
-  - /docs/intro/console/accounts-and-organizations/accounts/
+  - /docs/intro/pulumi-service/accounts/
+  - /docs/intro/pulumi-service/accounts/account/
+  - /docs/intro/pulumi-service/accounts-and-organizations/
+  - /docs/intro/pulumi-service/accounts-and-organizations/accounts/
 ---
 
 If you haven't created your Pulumi account, navigate to [app.pulumi.com](https://app.pulumi.com) and sign
@@ -25,9 +25,9 @@ Your account lets you authenticate in to the Pulumi Service, where you can do th
 following:
 
 * Manage your profile settings, including your account password, access tokens, and subscriptions
-* [Add an organization]({{< relref "/docs/intro/console/organizations" >}}) backed by Atlassian, GitHub, GitLab, or a SAML
+* [Add an organization]({{< relref "/docs/intro/pulumi-service/organizations" >}}) backed by Atlassian, GitHub, GitLab, or a SAML
   2.0-compatible identity provider, such as Active Directory, Okta, or G Suite
-* [Manage your projects and stacks]({{< relref "/docs/intro/console/projects-and-stacks" >}})
+* [Manage your projects and stacks]({{< relref "/docs/intro/pulumi-service/projects-and-stacks" >}})
 
 ## Profile
 
