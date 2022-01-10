@@ -3,7 +3,7 @@ title: CI/CD Integration Assistant
 meta_desc: An overview of the CI/CD integration assistant in the Pulumi Service.
 menu:
   intro:
-    parent: console
+    parent: pulumi-service
     weight: 7
 aliases:
 - /docs/intro/console/extensions/

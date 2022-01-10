@@ -3,13 +3,14 @@ title: Projects and Stacks
 meta_desc: An overivew of Project and Stack Management within the Pulumi Cloud Service.
 menu:
   intro:
-    parent: console
+    parent: pulumi-service
     weight: 4
 aliases:
 - /docs/intro/console/project-and-stack-management/
 - /docs/reference/service/roles-and-access-controls/
 - /docs/console/collaboration/stack-permissions/
 - /docs/intro/console/stack-permissions/
+- /docs/intro/console/projects-and-stacks/
 ---
 
 Projects group stacks together and are folders containing a Pulumi.yaml file.

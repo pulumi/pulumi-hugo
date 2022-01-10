@@ -3,12 +3,13 @@ title: Pulumi Service
 meta_desc: An overview of the Pulumi Service web application.
 menu:
   intro:
-    identifier: console
+    identifier: pulumi-service
     weight: 5
 no_on_this_page: true
 aliases:
 - /docs/reference/service
 - /docs/intro/console/accounts-and-organizations/editions/
+- /docs/intro/console/
 ---
 
 The [Pulumi Service](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses it unless you [explicitly opt out]({{< relref "/docs/intro/concepts/state" >}}).
