@@ -38,7 +38,7 @@ const pong = new CallbackFunction("pong", {
 });
 ```
 
-Programming languages don’t let us create one object which takes a value from another object that doesn’t yet exist. Therefore, we can’t express a circular dependency in this way.
+Programming languages don’t let us create one object that takes a value from another object that doesn’t yet exist. Therefore, we can’t express a circular dependency in this way.
 
 The simplest workaround for this error is to get a reference to our own stack, which contains the outputs from the previous deployment. Now, we set the reference to `pong` within `ping` from the output of the last deployment.
 
