@@ -77,7 +77,7 @@ How then could we make the process easier and clearer for users who need to reso
 
 ## Option 1: State
 
-Instead of referencing outputs directly from our stack’s previous deploy, and manually deploying twice, we could introduce a special type called “state”.
+Instead of referencing outputs directly from our stack’s previous deploy and manually deploying twice, we could introduce a special type called “state”.
 
 The `state` object does 3 tasks:
 
