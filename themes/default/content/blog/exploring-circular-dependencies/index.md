@@ -112,7 +112,7 @@ const pong = new CallbackFunction("pong", {
 pongName.set(pong.name);
 ```
 
-Deployments should always match the preview, but when triggering the re-deployment, we’re making a change that wasn’t in the preview. This action could also result in a never-ending loop where every deployment makes another change to the state and triggers another deployment. So let’s explore a different option that might not have this issue.
+The first deployment will match the preview, but when triggering the re-deployment, we’re making a change that wasn’t in the first preview. This action could also result in a never-ending loop where every deployment makes another change to the state and triggers another deployment. So let’s explore a different option that might not have this issue.
 
 ## Option 2: Refs
 
