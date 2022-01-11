@@ -6,7 +6,7 @@ menu:
     weight: 4
 ---
 
-The Pulumi Service REST API is used by the Pulumi CLI and the console to query and interact with state information, history, stack tags, etc. This API is available for end users to integrate into their own automation use cases.
+The Pulumi Service REST API is used by the Pulumi CLI to query and interact with state information, history, stack tags, etc. This API is available for end users to integrate into their own automation use cases.
 
 {{% notes "info" %}}
 While the Pulumi Service REST API is used by the Pulumi CLI and the console, Pulumi makes no guarantees about changes that might affect backwards compatibility or cause breaking changes.
