@@ -1,13 +1,16 @@
 ---
 title: "Exploring how to solve circular dependencies"
-date: 2022-01-07
-draft: true
+date: 2022-01-12
+draft: false
 meta_desc: Hack day project exploring approaches to solving circular resource dependencies.
 meta_image: meta.png
 authors:
   - daniel-bradley
+  - fraser-waters
+  - mikhail-shilkov
 tags:
   - features
+  - hackathon
 ---
 
 As part of our hackathon near the end of last year, we decided to explore solutions to a common problem when people are using Pulumi for their systems. A question that’s been asked in a few different forms is how to resolve circular dependencies between resources in a Pulumi program.
