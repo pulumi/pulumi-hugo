@@ -10,7 +10,7 @@ tags:
   - features
 ---
 
-As part of our winter hackathon near the end of last year, we decided to explore solutions to a common thought when people are using Pulumi for their systems. A question that’s been asked in a few different forms is how to resolve circular dependencies between resources in a Pulumi program.
+As part of our hackathon near the end of last year, we decided to explore solutions to a common thought when people are using Pulumi for their systems. A question that’s been asked in a few different forms is how to resolve circular dependencies between resources in a Pulumi program.
 
 A simple example of this idea is a modern web application with a static front-end and an API, where the front-end needs to know the URL of the API to be able to call it and the API needs to know the source domain of the front-end to allow it access via CORS. As these two resources rely on one another to be created, they are circular dependencies.
 
