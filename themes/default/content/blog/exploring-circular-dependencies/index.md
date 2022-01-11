@@ -16,7 +16,7 @@ A simple example of this idea is a modern web application with a static front-en
 
 ![Image showing a JS app passing its domain to an API and the API passing its domain to the JS app](intro.png)
 
-For a deployable example, let’s build a serverless game of ping-pong—two functions which invoke each other until one misses!
+For a deployable example, let’s build a serverless game of ping-pong—two functions that invoke one another until one misses!
 
 ```typescript
 const ping = new CallbackFunction("ping", {
