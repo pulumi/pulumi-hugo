@@ -52,7 +52,7 @@ Imagine you were building a print-on-demand service, for example, and you wanted
 
 ![Figure 1: Write new orders to the database](./figure-1.png)
 
-It'd definitely work, and again, it's quite common. But at some point, you might find this tight coupling between API Gateway and Lambda too limiting. Say you wanted to be notified whenever a new order was received --- with a Slack message, maybe, in one of your team's shared workspace channels. Under the current design, you'd probably add a few lines of code to the Lambda function to import an HTTP library and make a call to the Slack API to post the message:
+It'd definitely work, and again, it's quite common. But at some point, you might find this tight coupling between API Gateway and Lambda too limiting. Say you wanted to be notified whenever a new order was received, with a Slack message, maybe, in one of your team's shared workspace channels. Under the current design, you'd probably add a few lines of code to the Lambda function to import an HTTP library and make a call to the Slack API to post the message:
 
 ![Figure 2: Also notify Slack](./figure-2.png)
 
@@ -73,7 +73,7 @@ Let's see how. Here's a revised architecture diagram showing how you might appro
 Now let's have a look at what it'd be like to build it with Pulumi. We won't build _everything_ in this diagram --- things like writing to the database or messaging Slack are left for you to explore --- but we will build enough to give you clear picture and a working example of how to connect all of these parts into a working application. Specifically:
 
 * an API Gateway [instance](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html) to act as a container for your public API, along with a [_stage_](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html) and a [_route_](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) to handle inbound HTTP requests;
-* an EventBridge [integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations.html) (comprised of an EventBus and EventRule) to handle notifications from API Gateway, and finally;
+* an EventBridge [integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations.html) (comprised of an EventBus and EventRule) to handle notifications from API Gateway; and finally
 * one or more Lambda functions to be invoked in response to event-rule matches.
 
 Let's get started.
@@ -104,7 +104,7 @@ Make sure you [configure your AWS credentials](https://www.pulumi.com/registry/p
 
 {{% notes %}}
 
-In this post, we'll be using [API Gateway V2](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/api-reference.html), as it's newer and has few features (like [auto-deploy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#aws-resource-apigatewayv2-stage-properties)) that make it easier to work with in this context. The same ideas apply to both V1 and V2, though, so while V2 still lacks full feature parity with V1, the underlying resources we'll be using --- methods, routes, integrations --- are the same. You'll find links to examples of both at the end of this post.
+In this post, we'll be using [API Gateway V2](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/api-reference.html) as it's newer and has a few features (like [auto-deploy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#aws-resource-apigatewayv2-stage-properties)) that make it easier to work with in this context. The same ideas apply to both V1 and V2, though, so while V2 still lacks full feature parity with V1, the underlying resources we'll be using --- methods, routes, integrations --- are the same. You'll find links to examples of both at the end of this post.
 
 {{% /notes %}}
 
