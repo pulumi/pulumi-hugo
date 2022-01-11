@@ -127,7 +127,7 @@ const ping = new CallbackFunction("ping", {
   callback: pingPongHandler,
   environment: {
     variables: {
-      OPPONENT_FN_NAME: pongName, // Special type the Pulumi engine will track
+      OPPONENT_FN_NAME: pongName.value, // Special type the Pulumi engine will track
     },
   },
 });
