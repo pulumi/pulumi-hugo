@@ -19,6 +19,7 @@ tags:
     - api-gateway
     - eventbridge
     - lambda
+    - serverless
 ---
 
 If you're familiar with [Amazon API Gateway](https://aws.amazon.com/api-gateway/), you know it's all about making it easier to provision and manage a web API. Maybe you've used it, as I have, with [Crosswalk]({{< relref "/docs/guides/crosswalk/aws" >}}), our AWS extension library, to stand up a REST API and handle requests with AWS Lambda functions:
@@ -545,8 +546,10 @@ When you're happy, be sure to tidy up with a `pulumi destroy`.
 
 ## What's next?
 
-There's a lot more you can do with integrations like this that didn't cover: add more Lambda function handlers to the program, have EventBridge target [other AWS services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) ([Step Functions](https://aws.amazon.com/step-functions) might be a good one to try next), validate HTTP request bodies (with API Gateway [models](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html), to keep bad data from ever reaching EventBridge), and more. Hopefully this gives you sense of what's possible, though. And as promised, you'll find examples using both API Gateway V1 and V2 in our [examples repo](https://github.com/pulumi/examples):
+There's a lot more you can do with integrations like this that didn't cover: add more Lambda function handlers to the program, have EventBridge target [other AWS services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) ([Step Functions](https://aws.amazon.com/step-functions) might be a good one to try next), validate HTTP request bodies (with API Gateway [models](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html), to keep bad data from ever reaching EventBridge), and more. Hopefully this gives you sense of what's possible, though.
 
-* [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-eventbridge) (TypeScript)
-* [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-py-apigatewayv2-eventbridge) (Python)
-* [API Gateway V1 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigateway-eventbridge) (TypeScript, with request validation and custom HTTP response)
+And as promised, you'll find examples using both versions of API Gateway (V1 and V2) in our [examples repository on GitHub](https://github.com/pulumi/examples):
+
+* [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-eventbridge) in TypeScript
+* [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-py-apigatewayv2-eventbridge) in Python
+* [API Gateway V1 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigateway-eventbridge) in TypeScript, with validation and custom HTTP response
