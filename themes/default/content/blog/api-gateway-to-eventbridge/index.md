@@ -1,6 +1,6 @@
 ---
 title: "API Gateway to EventBridge with Pulumi"
-date: 2022-01-12
+date: 2022-01-12T13:00:00-07:00
 draft: true
 meta_desc: |
     Use Pulumi with Amazon API Gateway and EventBridge, Amazon's serverless event bus, to
