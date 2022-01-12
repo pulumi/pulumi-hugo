@@ -148,11 +148,9 @@ const pong = new CallbackFunction("pong", {
 pongName.set(pong.name);
 ```
 
-The difference between refs and state is that, instead of triggering a whole re-deploy when the value changes, refs would be integrated into the dependency graph similarly to resources. When the value of the ref changes, we could internally work out which resources depend on that ref and change the target state for only those resources.
+The difference between refs and state is that, instead of triggering a whole re-deploy when the value changes, refs would be integrated into the dependency graph similarly to resources. When the value of the ref changes, we could internally work out which resources depend on that ref and change the target state for only those resources. This avoids the possibility of a never-ending update loop.
 
-A reference would only be allowed to be updated once in a program to avoid creating never-ending loops. For example, if a resource uses a reference value, then we update the reference value from that same resource; if that continues indefinitely, the program might never exit.
-
-Both the “state” and “refs” approaches also have the downside of not making the final outputs of the updated resource available to the rest of the program. The resource object would still have the values from after it first deployed. This means that other parts of the program might still deploy differently on subsequent deployments. Let’s explore another option that might address that problem.
+Both the “state” and “refs” approaches have the downside of not making the final outputs of the updated resource available to the rest of the program. The resource object would still have the values from after it first deployed. This means that other parts of the program might still deploy differently on subsequent deployments. Let’s explore another option that might address that problem.
 
 ## Option 3: Create patch resources
 
