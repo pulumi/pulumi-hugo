@@ -23,7 +23,7 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 When you sign in to the Pulumi Service, an personal account is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
-You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO]({{< relref "/docs/guides/saml" >}}), you'll need to create a Pulumi [organization]({{< relref "docs/intro/pulumi-service/organizations" >}}).
+You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO]({{< relref "/docs/guides/saml" >}}), you'll need to create a Pulumi [organization]({{< relref "organizations" >}}).
 
 The following editions are also available as upgrade options:
 
