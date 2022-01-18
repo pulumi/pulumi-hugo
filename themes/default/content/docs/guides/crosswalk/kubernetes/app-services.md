@@ -16,8 +16,6 @@ These services tend to include datastores, and managers for ingress, DNS, and TL
 They can be shared amongst several apps or be specific to workloads, and are
 usually a mix of cloud provider and custom services.
 
-## Example Code
-
 {{% choosable cloud aws %}}
 
 * [AWS app services stack on GitHub](https://github.com/pulumi/kubernetes-guides/tree/master/aws/05-app-services)
