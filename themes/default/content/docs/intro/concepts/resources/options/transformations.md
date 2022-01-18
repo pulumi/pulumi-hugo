@@ -171,7 +171,7 @@ public class MyStack : Stack
         ...
     }
 
-    private static ResourceTransformationResult? MyTransformation(ResourceTransformationArgs args) 
+    private static ResourceTransformationResult? MyTransformation(ResourceTransformationArgs args)
     {
         // ...
     }
