@@ -11,7 +11,7 @@ The `import` resource option imports an existing cloud resource so that Pulumi c
 
 To import a resource, first specify the `import` option with the resource’s ID. This ID is the same as would be returned by the id property for any resource created by Pulumi; the ID is resource-specific. Pulumi reads the current state of the resource with the given ID from the cloud provider. Next, you must specify all required arguments to the resource constructor so that it exactly matches the state to import. By doing this, you end up with a Pulumi program that will accurately generate a matching desired state.
 
-This example imports an existing EC2 security group with ID sg-04aeda9a214730248 and an EC2 instance with ID `i-06a1073de86f4adef`:
+This example imports an existing EC2 security group with ID `sg-04aeda9a214730248` and an EC2 instance with ID `i-06a1073de86f4adef`:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 

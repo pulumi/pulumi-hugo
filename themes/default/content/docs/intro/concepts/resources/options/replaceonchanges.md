@@ -84,7 +84,7 @@ var widget = new Pulumi.Kubernetes.ApiExtensions.CustomResource("widget", new Wi
 
 {{< /chooser >}}
 
-The property paths provided as input to `replaceOnChanges` can each describe a subset of the properties of the resource which should trigger a replacement on changes.  The `*` wildcard can be used in any part of a path.  A few examples of what changes will trigger replacement for a given property path string:
+The property paths provided as input to `replaceOnChanges` can each describe a subset of the properties of the resource which should trigger a replacement on changes.  The `*` wildcard can be used in any part of a path.  A few examples of what changes will trigger replacement for a given property path string are:
 
 - `*`: any property change
 - `spec`: any change to the `spec` property or any of its children
@@ -95,6 +95,6 @@ The property paths provided as input to `replaceOnChanges` can each describe a s
 The property paths passed to `replaceOnChanges` should always be the "camelCase" version of the property name, as used in the core Pulumi resource model.
 {{% /notes %}}
 
-If there initialization errors on a resource (because the resource was created but failed to fully initialize correctly on a previous deployment), then this will typically cause the resource to be updated on the following Pulumi update, even if there are no other changes to the resources inputs.  If `*` is specified as a property path for `replaceOnChanges`, then initialization errors will trigger a replacement instead of an update.
+If there are initialization errors on a resource (because the resource was created but failed to fully initialize correctly on a previous deployment) then the resource will normally be updated on the following Pulumi update, even if there are no other changes to the resource's inputs.  If `*` is specified as a property path for `replaceOnChanges`, then initialization errors will trigger a replacement instead of an update.
 
 The `replaceOnChanges` resource option can be combined with the [`deleteBeforeReplace`]({{< relref "deletebeforereplace" >}}) resource option to trigger a resource to be deleted before it is replaced whenever a given input has changes.

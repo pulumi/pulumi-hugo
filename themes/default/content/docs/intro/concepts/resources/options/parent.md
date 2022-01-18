@@ -57,7 +57,7 @@ var child = new MyResource("child", new MyResourceArgs(),
 
 {{< /chooser >}}
 
-Using parents can clarify causality or why a given resource was created in the first place. For example, this pulumi up output shows an AWS Virtual Private Cloud (VPC) with two subnets attached to it, and also shows that the VPC directly belongs to the implicit pulumi:pulumi:Stack resource:
+Using parents can clarify causality or why a given resource was created in the first place. For example, this pulumi up output shows an AWS Virtual Private Cloud (VPC) with two subnets attached to it, and also shows that the VPC directly belongs to the implicit `pulumi:pulumi:Stack` resource:
 
 ```bash
 Previewing update (dev):

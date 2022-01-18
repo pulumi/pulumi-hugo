@@ -13,7 +13,7 @@ The `aliases` resource option provides a list of aliases for a resource or compo
 
 Aliases are frequently used when refactoring Pulumi programs.
 
-For example, imagine we change a database resource’s name from `old-name-for-db` to `new-name-for-db`. By default, when we run pulumi up, we see that the old resource is deleted and the new one created. If we annotate that resource with the aliases option, however, the resource is updated in-place:
+For example, imagine we change a database resource’s name from `old-name-for-db` to `new-name-for-db`. By default, when we run `pulumi up`, we see that the old resource is deleted and the new one created. If we annotate that resource with the aliases option, however, the resource is updated in-place:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
