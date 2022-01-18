@@ -24,8 +24,8 @@ To enable the integration with your GitLab project, you will need to ensure you 
   * After you add the organization, ensure that it uses GitLab [as its identity provider]({{< relref "/docs/intro/pulumi-service/organizations#changing-identity-providers" >}}).
 
 {{% notes type="warning" %}}
-If you have [Merged Results Pipeline](https://docs.gitlab.com/ee/ci/pipelines/pipelines_for_merged_results.html) enabled for your project you must disable
-it. For more information, see the [GitLab issue](https://gitlab.com/gitlab-org/gitlab/-/issues/350086).
+This feature is currently not compatible with pipelines for [merged results pipelines](https://docs.gitlab.com/ee/ci/pipelines/pipelines_for_merged_results.html).
+See the [GitLab issue](https://gitlab.com/gitlab-org/gitlab/-/issues/350086) for details as to why.
 {{% /notes %}}
 
 ## Configuring the GitLab Webhook
