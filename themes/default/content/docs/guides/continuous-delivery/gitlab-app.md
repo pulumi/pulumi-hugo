@@ -25,7 +25,7 @@ To enable the integration with your GitLab project, you will need to ensure you 
 
 {{% notes type="warning" %}}
 If you have [Merged Results Pipeline](https://docs.gitlab.com/ee/ci/pipelines/pipelines_for_merged_results.html) enabled for your project you must disable
-it. For more information, see https://gitlab.com/gitlab-org/gitlab/-/issues/350086.
+it. For more information, see the [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/350086) on GitLab.
 {{% /notes %}}
 
 ## Configuring the GitLab Webhook
