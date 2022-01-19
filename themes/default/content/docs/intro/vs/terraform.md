@@ -29,7 +29,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 
 | Feature | Pulumi | Terraform |
 | ------- | ------ | --------- |
-| [Language Support]({{< relref "/docs/intro/vs/terraform/#languagesupport) | Python, TypeScript, JavaScript, Go, C#, F# | Hashicorp Configuration Language (HCL" >}}) |
+| [Language Support]({{< relref "/docs/intro/vs/terraform/#languagesupport" >}}) | Python, TypeScript, JavaScript, Go, C#, F# | Hashicorp Configuration Language (HCL)) |
 | [IDE Support](#ide-support) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
 | [State Management]({{< relref "/docs/intro/vs/terraform/#statemanagement" >}}) | Managed through Pulumi Service by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
 | [Provider Support]({{< relref "/docs/intro/vs/terraform/#providersupport" >}}) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
