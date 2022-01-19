@@ -11,94 +11,189 @@ aliases:
 - /docs/reference/vs/terraform/
 ---
 
-Terraform and Pulumi hold a lot of similarities, but they differ in a few key ways. This page helps provide a rundown of the differences. First, Pulumi is like Terraform, in that you create, deploy, and manage [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) on any cloud. But where
-Terraform requires the use of a custom programming language, Pulumi allows you to use familiar general purpose languages and tools to accomplish the same goals. Like Terraform, Pulumi is
-[open source on GitHub](https://github.com/pulumi/pulumi) and is [free to use]({{< relref "/docs/get-started" >}}).
+Choosing the right cloud engineering platform is critical. We want you to have the best information possible to pick the solution that fits your needs.
 
-Both Terraform and Pulumi support many cloud providers, including AWS, Azure, and Google Cloud,
-plus other services like CloudFlare, Digital Ocean, and more. Thanks to integration with Terraform providers, Pulumi
-is able to support a superset of the providers that Terraform currently offers.
+## What is Terraform?
+
+Terraform provides open-source [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) software for cloud service management with a consistent CLI workflow. Terraform allows you to write, plan, and apply changes to deliver infrastructure as code.
+
+## Pulumi vs. Terraform: Similarities
+
+Terraform and Pulumi have some similarities in that you can create, deploy and manage infrastructure as code on any cloud. Like Terraform, Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and is [free to use]({{< relref "/docs/get-started" >}}). Both Terraform and Pulumi offer a desired state infrastructure as code model where the code represents the desired infrastructure state and the deployment engine compares this desired state with the stack’s current state and determines what resources need to be created, updated or deleted.  Both Terraform and Pulumi support many cloud providers, including [AWS]({{< relref "/aws" >}}), [Azure]({{< relref "/azure" >}}), and [Google Cloud]({{< relref "/gcp" >}}), plus other services like CloudFlare, Digital Ocean, and more. Thanks to integration with Terraform providers, Pulumi is also able to support a superset of the providers that Terraform currently offers.
+
+## Pulumi vs. Terraform: Key Differences
+
+Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: Hashicorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python]({{< relref "/docs/intro/languages/python" >}}), [TypeScript]({{< relref "/docs/intro/languages/typescript" >}}), [JavaScript]({{< relref "/docs/intro/languages/javascript" >}}), [Go]({{< relref "/docs/intro/languages/go" >}}) and [.NET]({{< relref "/docs/intro/languages/dotnet" >}}) with the tools you already use to accomplish the same goals.
 
 Here is a summary of the key differences between Pulumi and Terraform:
 
-| **Component** | **Pulumi** | **Terraform** |
-| :--- | :--- | :--- |
-| [Language Support]({{< relref "#languagesupport" >}}) | Python, TypeScript, JavaScript, Go, C#, F# | Hashicorp Configuration Language (HCL) |
-| [State Management]({{< relref "#statemanagement" >}}) | Managed through Pulumi Service by default, self-managed options available | Self-managed by default, managed SaaS offering available |
-| [Provider Support]({{< relref "#providersupport" >}}) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage | Support across multiple IaaS, SaaS, and PaaS providers |
-| [OSS License]({{< relref "#license" >}}) | Apache License 2.0 | Mozilla Public License 2.0 |
+| Feature | Pulumi | Terraform |
+| ------- | ------ | --------- |
+| [Language Support]({{< relref "/docs/intro/vs/terraform/#languagesupport) | Python, TypeScript, JavaScript, Go, C#, F# | Hashicorp Configuration Language (HCL" >}}) |
+| [IDE Support](#ide-support) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
+| [State Management]({{< relref "/docs/intro/vs/terraform/#statemanagement" >}}) | Managed through Pulumi Service by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
+| [Provider Support]({{< relref "/docs/intro/vs/terraform/#providersupport" >}}) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
+| [Cloud Native Support](#cloud-native-support) | Richly typed. Includes CRDs & in-cluster operator support for GitOps delivery. | Core API typed. Generic support for CRD. |
+| [Dynamic Provider Support](#dynamic-provider-support) | Yes | No |
+| [OSS License]({{< relref "/docs/intro/vs/terraform/#license" >}}) | Apache License 2.0 | Mozilla Public License 2.0 |
+| [Infrastructure Reuse and Modularity](#infrastructure-reuse-and-modularity) | Flexible. Reuse functions, classes, packages, and Pulumi components. | Constrained. Can only reuse Terraform modules. |
+| [Testing and Validation](#testing-and-validation) | Unit, property, and integration testing. Supports popular test frameworks. | Integration testing only |
+| [Modes of Execution](#modes-of-execution) | Run CLI commands or initiate commands programmatically with Automation API. | Run CLI commands or perform remote runs with SaaS offering. |
+| [Embed within Application Code](#embed-within-application-code) | Yes. Automation API | No |
+| [Works with 3rd Party CI/CD Tools](#works-with-third-party-cicd-tools) | Yes | Yes |
+| [Policy as Code](#policy-as-code) | Yes | Yes |
+| [Secrets Management](#secrets-management) | Yes. Secrets are encrypted in transit and in the state file. | No. Secrets are stored in a  separate product (Vault). There is no way to encrypt them in the state file. |
+| [Full Audit Capabilities](#full-audit-capabilities) | Across AWS, Azure and other clouds | Limited |
+| [Adopt Existing Resources](#adopt-existing-resources) | Yes. Generates code as part of the import process. | Yes. No code generation capabilities. |
+| [Import Code from other IaC Tools](#import-code-from-other-iac-tools) | Yes | No |
 
-If you have Terraform HCL that you would like to convert to Pulumi, see [Converting Terraform HCL to Pulumi]({{< relref "/docs/guides/adopting/from_terraform#converting-terraform-hcl-to-pulumi" >}}) in our Adopting Pulumi user guide.
+[Get started]
+
+[Video]
 
 The following sections go into further detail on the differences between Pulumi and Terraform.
 
-## Language Support {#languagesupport}
+### Language Support
 
-Terraform requires that you and your team write programs in a custom domain-specific-language (DSL) called HashiCorp Configuration Language
-(HCL). In contrast, Pulumi lets you use programming languages like Python, Go, JavaScript, TypeScript, and C#. Because of the use of familiar languages, you get familiar constructs like for loops, functions, and classes. This significantly improves the ability to cut down on boilerplate and enforce best practices. Instead of creating
-a new ecosystem of modules and sharing, Pulumi lets you leverage existing package management tools and techniques.
+Terraform requires that you and your team write programs in a custom domain-specific-language (DSL) called HashiCorp Configuration Language (HCL). In contrast, Pulumi lets you use programming languages like Python, Go, JavaScript, TypeScript, and C#. Because of the use of familiar languages, you get familiar constructs like for conditionals, loops, functions, and classes. This significantly improves the ability to cut down on boilerplate and enforce best practices. With HCL, it is extremely common to copy and paste blocks of HCL code between different projects. Pulumi’s supported programming languages have been built over multiple decades to tame complexity at scale -- the very complexity modern cloud architectures operating at global scale need to tackle. Instead of creating a new ecosystem of modules and sharing, Pulumi lets you leverage existing package management tools and techniques.
 
-For more information on the languages that Pulumi supports, see [Languages]({{< relref "/docs/intro/languages" >}}).
+### IDE Support
 
-## State Management {#statemanagement}
+Terraform has plugins for some IDEs. However, the features are varied and limited. With Pulumi, you can tap into decades of innovation with great IDEs. The IDEs automatically provide code completion, strong typing, error squiggles, rich resource documentation, and more.
 
-The Terraform engine takes care of provisioning and updating resources. With Pulumi, you use general
-purpose languages to express desired state, and Pulumi's engine similarly gives you diffs and a way to robustly update
-your infrastructure.
+### State Management
 
-By default, Terraform requires that you manage concurrency and state manually, by way of its "state files." Pulumi,
-in contrast, uses the free [Pulumi Service](https://app.pulumi.com) to eliminate these concerns. This makes getting started with
-Pulumi, and operationalizing it in a team setting, much easier. For advanced use cases, it is possible to use
-[Pulumi without the service]({{< relref "/docs/troubleshooting/faq#can-i-use-pulumi-without-depending-on-pulumicom" >}}),
-which works a lot more like Terraform, but it requires you to manage state and concurrency issues. Pulumi errs on the side of ease-of-use.
+The Terraform engine takes care of provisioning and updating resources. With Pulumi, you use general purpose languages to express desired state, and Pulumi’s engine similarly gives you diffs and a way to robustly update your infrastructure.
 
-For more information on how Pulumi manages state or how to use different backends, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
+By default, Terraform requires that you manage concurrency and state manually, by way of its “state files.” Pulumi, in contrast, uses the free [Pulumi Service](https://app.pulumi.com/) to eliminate these concerns. This makes getting started with Pulumi, and operationalizing it in a team setting, much easier. For advanced use cases, it is possible to use [Pulumi without the Service]({{< relref "/docs/troubleshooting/faq/#can-i-use-pulumi-without-depending-on-pulumicom" >}}), which works a lot more like Terraform, but it requires you to manage state and concurrency issues. Pulumi errs on the side of ease-of-use.
 
-## Provider Support {#providersupport}
+For more information on how Pulumi manages state or how to use different backends, see [State and Backends]({{< relref "/docs/intro/concepts/state/" >}}).
 
-Pulumi has deep support for cloud native technologies, like Kubernetes, and supports advanced deployment
-scenarios that cannot be expressed with Terraform. This includes Prometheus-based canaries, automatic Envoy
-sidecar injection, and more. Pulumi is a proud member of the Cloud Native Computing Foundation (CNCF).
+### Provider Support
 
-### Using Terraform Providers
+Pulumi supports over 60 of the leading cloud providers and modern cloud SaaS offerings including Amazon Web Services, Microsoft Azure, Google Cloud, Kubernetes, Auth0, CloudFlare, Confluent Cloud, Datadog, DigitalOcean, Docker, GitHub, Kong, MinIO, MongoDB Atlas, PagerDuty, Snowflake, Spot by NetApp, and SumoLogic. Pulumi has Native Providers for AWS, Azure, Google, and Kubernetes which provides same-day support for every new release. For more information on Pulumi providers, see [Pulumi Registry]({{< relref "/registry/" >}}).
 
-Pulumi is able to adapt [any Terraform Provider](https://github.com/terraform-providers) for use with Pulumi, enabling
-management of any infrastructure supported by the Terraform Providers ecosystem using Pulumi programs.
+Pulumi also has deep support for cloud native technologies, like Kubernetes, and supports advanced deployment scenarios that cannot be expressed with Terraform. This includes Prometheus-based canaries, automatic Envoy sidecar injection, and more. Pulumi is a proud member of the Cloud Native Computing Foundation (CNCF).
 
-Indeed, some of Pulumi's most interesting providers have been created this way, delivering access to robust,
-tried-and-true infrastructure management.  The Terraform Providers ecosystem is mature and healthy, and enjoys
-contributions from many cloud and infrastructure leaders across the industry, ourselves included.
+#### Using Terraform Providers
 
-Most Pulumi users don't need to know about this detail, however we are proud to be building on the work of others,
-and contributing our own open source back to this vibrant ecosystem, and thought you should know.
+Pulumi is able to adapt [any Terraform Provider](https://github.com/terraform-providers) for use with Pulumi, enabling management of any infrastructure supported by the Terraform Providers ecosystem using Pulumi programs.
 
-In the event you'd like to add new providers, or understand how this integration works, check out the
-[Pulumi Terraform bridge repo](https://github.com/pulumi/pulumi-terraform-bridge).  This bridge is fully open source and
-makes it easy to create new Pulumi providers out of existing Terraform Providers.
+Indeed, some of Pulumi’s most interesting providers have been created this way, delivering access to robust, tried-and-true infrastructure management. The Terraform Providers ecosystem is mature and healthy, and enjoys contributions from many cloud and infrastructure leaders across the industry, ourselves included.
 
-### Converting From Terraform
+Most Pulumi users don’t need to know about this detail, however we are proud to be building on the work of others, and contributing our own open source back to this vibrant ecosystem, and thought you should know.
 
-Pulumi offers a tool, [tf2pulumi](https://github.com/pulumi/tf2pulumi), that converts Terraform HashiCorp Configuration Language to Pulumi. It is
-open source on GitHub, and works for most projects we have come across; if you run into a snag, Issues and Pull
-Requests are welcome!
+In the event you’d like to add new providers, or understand how this integration works, check out the [Pulumi Terraform bridge repo](https://github.com/pulumi/pulumi-terraform-bridge). This bridge is fully open source and makes it easy to create new Pulumi providers out of existing Terraform Providers.
 
-To learn more, see [Converting Terraform HCL to Pulumi]({{< relref "/docs/guides/adopting/from_terraform#converting-terraform-hcl-to-pulumi" >}}) in our Adopting Pulumi user guide.
+#### Converting From Terraform to Pulumi
 
-For an example on how to do this conversion, see our article, [From Terraform to Infrastructure as Software](
-{{< relref "from-terraform-to-infrastructure-as-software" >}}).
+Pulumi offers a tool, [tf2pulumi](https://github.com/pulumi/tf2pulumi), that converts Terraform HashiCorp Configuration Language to Pulumi. It is open source on GitHub, and works for most projects we have come across; if you run into a snag, Issues and Pull Requests are welcome!
 
-### Using Pulumi and Terraform Side-by-Side
+To learn more, see [Converting Terraform HCL]({{< relref "/docs/guides/adopting/from_terraform/#converting-terraform-hcl-to-pulumi" >}}) to Pulumi in our Adopting Pulumi user guide.
 
-Pulumi supports [consuming local or remote Terraform state]({{< relref "using-terraform-remote-state-with-pulumi" >}}) from your Pulumi programs. This helps with
-incremental adoption, whereby you continue managing a subset of your infrastructure with Terraform, while you incrementally move to Pulumi.
+For an example on how to do this Terraform to Pulumi conversion, see our article, [From Terraform to Infrastructure as Software]({{< relref "/blog/from-terraform-to-infrastructure-as-software/" >}}).
 
-For example, maybe you would like to keep your VPC and low-level network definitions written in Terraform so as to
-avoid any disruption, or maybe because some of the team would like to stay on Terraform for now and make a shift in the future. Using the
-state reference support described previously, you can author higher-level infrastructure in Pulumi that consumes the
-Terraform-provisioned VPC information (such as the VPC ID, Subnet IDs, etc.), making the co-existence of Pulumi and Terraform easy to automate.
+#### Using Pulumi and Terraform Side-by-Side
 
-To learn more, see [Referencing Terraform State]({{< relref "/docs/guides/adopting/from_terraform#referencing-terraform-state" >}}) in our Adopting Pulumi user guide.
+Pulumi supports [consuming local or remote Terraform state]({{< relref "/blog/using-terraform-remote-state-with-pulumi/" >}}) from your Pulumi programs. This helps with incremental adoption, whereby you continue managing a subset of your infrastructure with Terraform, while you incrementally move to Pulumi.
 
-## OSS License {#license}
+For example, maybe you would like to keep your VPC and low-level network definitions written in Terraform so as to avoid any disruption, or maybe because some of the team would like to stay on Terraform for now and make a shift in the future. Using the state reference support described previously, you can author higher-level infrastructure in Pulumi that consumes the Terraform-provisioned VPC information (such as the VPC ID, Subnet IDs, etc.), making the co-existence of Pulumi and Terraform easy to automate.
+
+To learn more, see [Referencing Terraform State]({{< relref "/docs/guides/adopting/from_terraform/#referencing-terraform-state" >}}) in our Adopting Pulumi user guide.
+
+### Cloud Native Support
+
+Pulumi supports the cloud native ecosystem. This includes a native Kubernetes provider with 100% Kubernetes API coverage in all languages, including compile-time type-checking. Pulumi also includes Helm 2 and 3 support, strongly typed CustomResourceDefinitions (CRDs), deploying Kubernetes YAML or Kustomize templates, as well as a YAML-to-Pulumi conversion tool that can translate any Kubernetes YAML into your desired language. Pulumi also offers playbooks with built-in best practices for production cluster deployments for AWS EKS, Azure AKS, and Google GKE. Pulumi also offers a Kubernetes operator that allows you to continuously deliver via GitOps. Terraform offers similar support for the Kubernetes core API and Helm but has generic support for CRDs, meaning no compile-type type-checking or auto-complete.
+
+### Dynamic Provider Support
+
+Pulumi provides dynamic providers that allow you to extend your system by creating new kinds of custom resources by directly coding CRUD operations for the new resource in your Pulumi program. This can be used to support new resource types in addition to performing complex integrations like database migrations, configuration management for virtual machines, and more, all orchestrated alongside your IaC workflows. Terraform does not have a direct equivalent to Dynamic Providers and would require writing complex and proprietary modules in order to build custom resources with CRUD operations. To learn more, see [Dynamic Providers]({{< relref "/docs/intro/concepts/resources/#dynamicproviders" >}}).
+
+### OSS License
 
 Terraform uses the weak copyleft [Mozilla Public License 2.0](https://github.com/hashicorp/terraform/blob/main/LICENSE). Conversely, Pulumi open-source projects use the permissive and business-friendly [Apache License 2.0](https://github.com/pulumi/pulumi/blob/master/LICENSE). This includes the core [Pulumi repo](https://github.com/pulumi/pulumi), all of the open-source Pulumi resource providers (such as the [Azure Native provider](https://github.com/pulumi/pulumi-azure-native)), conversion utilities like [tf2pulumi](https://github.com/pulumi/tf2pulumi), and other useful projects.
+
+### Infrastructure Reuse and Modularity
+
+Pulumi promotes creating reusable and modular components which allows standard and well-architected infrastructure building blocks to be templatized and easily reused. With Pulumi, you can reuse functions, classes, and packages. Pulumi also has a built-in component model that lets you abstract and encapsulate complexity with higher-level abstractions. These components have a trackable state, appear in diffs, and use a logical name that tracks the resource identity across deployments. Pulumi also provides Pulumi Packages which allows you to author components in one language and make the component accessible in all the other languages that Pulumi supports. Terraform uses HCL which requires you to build proprietary modules and Go-based providers in order to build modular and reusable infrastructure. For more information about how to author reusable components, see [Component Resources]({{< relref "/docs/intro/concepts/resources/#components" >}}).
+
+Pulumi also provides the [Pulumi Registry]({{< relref "/registry/" >}}) which is a searchable collection of Pulumi Packages published by Pulumi and our partners. With Pulumi Registry, you can easily find the package with the resources you need, install that package directly into your project, and start building.
+
+### Testing and Validation
+
+Terraform supports integration testing. With Pulumi, you can take advantage of native testing frameworks and perform automated tests of your infrastructure because Pulumi uses general purpose programming languages to provision cloud resources. Pulumi provides unit tests (fast in-memory tests that mock all external calls), property tests (run resource-level assertions while infrastructure is being deployed), and integration tests (deploy ephemeral infrastructure and run external tests against it).
+
+For more information on how to run tests with Pulumi, see [Testing]({{< relref "/docs/guides/testing/" >}}).
+
+### Modes of Execution
+
+Both Pulumi and Terraform can execute commands through their CLI. Terraform can also do remote operations through Terraform Cloud. Pulumi also provides two APIs by which you can execute Pulumi commands. First, the Automation API allows you to provision, update, and destroy infrastructure through Pulumi directly in your application code. This enables higher order orchestration workflows and dynamically managed infrastructure. Second, the REST API allows you to query and interact with state information, history, stack tags when using the Managed Pulumi Service. To learn more, see [Automation API]({{< relref "/docs/guides/automation-api" >}}) and [REST API]({{< relref "/docs/reference/service-rest-api" >}}).
+
+### Embed within Application Code
+
+Pulumi has the ability to embed Pulumi programs directly into your application code through the Automation API, a programmatic interface for running Pulumi programs without the Pulumi CLI. The Automation API is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. You can easily create custom experiences on top of Pulumi that are tailored to your use-case, domain, and team. Terraform does not have an equivalent to Automation API. To learn more, see [Automation API]({{< relref "/docs/guides/automation-api/" >}}).
+
+### Works with Third-Party CI/CD Tools
+
+Pulumi integrates with existing CI/CD providers including AWS Code Services, Azure DevOps, CircleCI, CodeFresh, GitHub Actions, GitLab Pipelines, Google Cloud Build, Jenkins, Octopus Deploy, Jetbrains TeamCity, Spinnaker, and Travis. Pulumi allows you to use the same CI/CD system for your infrastructure as your application code.
+
+[CI/CD Assistant screenshot]
+
+For more information on how to integrate your CI/CD system with Pulumi, see [Continuous Delivery]({{< relref "/docs/guides/continuous-delivery/" >}}).
+
+### Policy as Code
+
+Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinal also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego.
+
+For more information on how to implement policy as code using Pulumi, see [Policy as Code ("CrossGuard")]({{< relref "/docs/guides/crossguard/" >}}).
+
+### Secrets Management
+
+Pulumi always transmits and stores entire state files securely; however, Pulumi also supports encrypting sensitive values (e.g., database passwords, SaaS tokens, credentials files)  as secrets for extra protection. Secrets are supported as a first-class primitive within Pulumi.  Pulumi encrypts secrets in transit and at rest, and anything a secret touches (e.g., CLI outputs, Pulumi logs, Pulumi program, state file) is tainted and gets encrypted, which prevents you from accidently disclosing a secret. Every stack has its own encryption key. Pulumi also provides an extensible encryption facility that allows you to elect to use your own keys managed by a 3rd party solution. Terraform manages secrets through Vault, a separate product. Secrets are not encrypted within the state file.
+
+[Table]
+
+[Code snippet]
+
+For more information on storing secrets with Pulumi, see [Secrets]({{< relref "/docs/intro/concepts/secrets/" >}}).
+
+### Full Audit Capabilities
+
+Pulumi provides audit logs that enable you to track the activity of users within an organization. Audit logs capture the UNIX timestamp of the event, the user who invoked the action, the event that took place, and the source IP of the call the user made. These logs are available to organizations with an Enterprise level subscription. The logs are immutable and record all user actions.Terraform Cloud only provides a stream of audit events that describe changes throughout an organization with 14 days of retention. To learn more, see [Audit Logs]({{< relref "/docs/intro/console/audit-logs/" >}}).
+
+### Adopt Existing Resources
+
+Both Pulumi and Terraform support importing existing resources so that they can be managed by each. Pulumi also allows you to generate code in your language of choice from the existing state. Terraform only supports importing state but requires you to hand-author the HCL. To learn more, see [Importing Infrastructure]({{< relref "/docs/guides/adopting/import/" >}}) in our Adopting Pulumi user guide.
+
+### Import Code from Other IaC Tools
+
+Pulumi allows you to convert templates by Terraform HCL , Kubernetes YAML, and Azure ARM into Pulumi programs. This preserves existing program structure, which may be important if you carefully designed your existing infrastructure as code layout in terms of names, modules, and configurability. Conversion takes care of the static program structure and will automatically generate a new, fully-functional Pulumi program that matches the source infrastructure as code program. To learn more, see [Conversion]({{< relref "/docs/guides/adopting/#conversion" >}}) in our Adopting Pulumi user guide.
+
+## Terraform Terminology and Command Equivalence
+
+Learning Pulumi terminology and commands is simple. Many of the existing Terraform vocabulary and commands that you already know have direct equivalents in Pulumi. Below are two tables that show common Terraform terms and their Pulumi equivalents and Terraform CLI commands and the equivalent Pulumi CLI commands.
+
+| Terraform | Pulumi |
+| --------- | ------ |
+| `init` | `pulumi new` |
+| `validate` | |
+| `plan` | `pulumi preview` |
+| `apply` | `pulumi up` |
+| `destroy` | `pulumi destroy` |
+| `console` |
+| `fmt` | |
+| `force-unlock` | |
+| `get` | |
+| `graph` | `pulumi stack graph` |
+| `import` | `pulumi import -f resources.json` |
+| `login` | `pulumi login` |
+| `logout` | `pulumi logout` |
+| `output` | `pulumi stack output` |
+| `providers` | `pulumi plugin` |
+| `refresh` | `pulumi refresh` |
+| `show` | `pulumi stack` |
+| `state` | `pulumi state` |
+| `taint` | `pulumi up --replace` |
+| `untaint` | |
+| `version` | `pulumi version` |
+| `workspace` | `pulumi stack` |
