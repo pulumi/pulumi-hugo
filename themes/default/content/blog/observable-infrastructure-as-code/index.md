@@ -31,8 +31,7 @@ Why not setting things up before I move deployment from my development machine t
 
 This article will show you how to make your Pulumi deployment observable with [@honeycomb_io](https://dev.to/honeycomb_io)
 
-[](#prerequisites)Pre-Requisites
----------------------------------------------------------------------------------------------
+## Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - [A Pulumi account](https://www.pulumi.com/)
