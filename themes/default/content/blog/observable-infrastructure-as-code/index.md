@@ -39,8 +39,7 @@ This article will show you how to make your Pulumi deployment observable with [@
 - A Pulumi stack
 - [A Honeycomb account](https://www.honeycomb.io/)
 
-[](#the-pulumi-automationapi)The Pulumi Automation-API
--------------------------------------------------------------------------------------------------------------------
+## The Pulumi Automation-API
 
 This API is a programmatical interface to the Pulumi CLI. Think Puppeteer for Pulumi instead of Chrome.
 
@@ -73,8 +72,7 @@ Then we call `stack.up()` and wait. The outputs generated from the API aren't as
 
 Also, the `up` command of the API allows us to catch all events that are happening during the deployment. This is the data we're after.
 
-[](#the-deployment-events)The Deployment Events
-------------------------------------------------------------------------------------------------------------
+## The Deployment Events
 
 The `up` method of the `stack` object takes a config object. We can use the `onEvent` attribute to listen to all the changes.
 
@@ -120,8 +118,7 @@ onEvent: (event) => {
 
 If we run things like this, we get all the information we need to send to Honeycomb. The next step is to tell Honeycomb what's up.
 
-[](#sending-data-to-honeycomb)Sending Data to Honeycomb
---------------------------------------------------------------------------------------------------------------------
+## Sending Data to Honeycomb
 
 Honeycomb provides us with two libraries. The [Node.js Beeline](https://docs.honeycomb.io/getting-data-in/javascript/beeline-nodejs/) and [Libhoney](https://docs.honeycomb.io/getting-data-in/javascript/libhoney/).
 
@@ -133,15 +130,13 @@ In this case, we aren't building an HTTP server, so the Beelines instrumentation
 
 So for our deployment example, I will stick to Libhoney.
 
-[](#honeycomb-events-amp-traces)Honeycomb Events & Traces
-----------------------------------------------------------------------------------------------------------------------
+## Honeycomb Events & Traces
 
 Honeycomb uses events to figure out what's happening in your system. Suppose the events have special attributes, like `trace.trace_id` and `trace.span_id`, Honeycomb can correlate them. This way, it can tell you things like, "The trace for your request took 300ms and consisted of 100ms authentication and 200ms database access."
 
 So you can pump all your information to Honeycomb via events. Sometimes it doesn't need to be correlated; you only want to tell Honeycomb that your server uses 20% of memory. But in our case, we want to tie up all events related to one deployment into a trace, so we can figure out what we deploy, how long it takes, and if something goes wrong, what resource was responsible.
 
-[](#linking-up-pulumi-amp-honeycomb)Linking up Pulumi & Honeycomb
-------------------------------------------------------------------------------------------------------------------------------
+## Linking up Pulumi & Honeycomb
 
 We need to initialize Libhoney and send the correct "Honeycomb event" for every "Pulumi event."
 
@@ -198,8 +193,7 @@ The result will look like this:
 
 Not very interesting, but at least we know it run without crashing and how long it took.
 
-[](#getting-more-details)Getting More Details
-----------------------------------------------------------------------------------------------------------
+## Getting More Details
 
 The next step is to get the details. What were the config parameters? How long did different parts of the deployment take?
 
@@ -313,8 +307,7 @@ If we run that example, we should see something like this:
 
 [![Honeycomb span with details](./second-result.png)](./second-result.png)
 
-[](#getting-resource-deployment-durations)Getting Resource Deployment Durations
---------------------------------------------------------------------------------------------------------------------------------------------
+## Getting Resource Deployment Durations
 
 The resources have additional details for us. As a `name` for the event, we will use the operation (create, update, delete) and as `service_name` we use the name of the resource in the Pulumi definition.
 
@@ -392,8 +385,7 @@ The final trace should look a bit like this:
 
 [![Final Honeycomb trace](./final-trace.png)](./final-trace.png)
 
-[](#getting-errors)Getting Errors
-----------------------------------------------------------------------------------------------
+## Getting Errors
 
 The last step, getting deployment errors, I leave as an exercise for the reader.
 
@@ -405,8 +397,7 @@ Also, the event includes an `urn` that can be used to correlate the error to a H
 
 If you add an `error` field to a Honeycomb event, it will automatically counted to your errors in Honeycomb.
 
-[](#summary)Summary
---------------------------------------------------------------------------------
+## Summary
 
 IaC observability becomes rather simple when using Pulumi and Honeycomb.
 
