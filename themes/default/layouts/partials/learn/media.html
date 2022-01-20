@@ -1,12 +1,26 @@
 {{ if .context.Params.meta_video }}
-    <div class="my-8">
+    <!--TODO: Move all the styles that make it responsive to the theme. -->
+    <div class="my-8" style="position:relative;height:0;max-width: 100%;padding-bottom: 56.25%;">
         {{ with .context.Params.meta_video }}
-            <video
-                class="rounded shadow-lg"
-                src="{{ .url }}"
-                alt="{{ .Title }}"
-                poster="{{ .poster }}"
-                controls></video>
+            {{ if eq .source "YouTube" }}
+                <div style="position:absolute; height: 100%; width: 100%;">
+                    <iframe
+                        src="{{ .url }}"
+                        title="YouTube video player"
+                        frameborder="0"
+                        height="100%"
+                        width="100%"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            {{ else }}
+                <video
+                    class="rounded shadow-lg"
+                    src="{{ .url }}"
+                    alt="{{ .Title }}"
+                    poster="{{ .poster }}"
+                    controls></video>
+            {{ end }}
         {{ end }}
     </div>
 {{ else if .context.Params.meta_image }}

@@ -15,6 +15,12 @@ tags:
     - fundamentals
     - projects
     - docker
+meta_video:
+    source: 'YouTube'
+    url: 'https://www.youtube.com/embed/MMIdlLTPu5o'
+    thumb: video-thumbnail.png
+    preview: video-thumbnail.png
+    poster: video-thumbnail.png
 block_external_search_index: false
 ---
 

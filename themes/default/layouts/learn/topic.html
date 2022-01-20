@@ -14,6 +14,7 @@
                 {{ partial "docs/breadcrumb.html" . }}
                 <h1>{{ .Title }}</h1>
             </header>
+            {{ partial "learn/media" (dict "context" .) }}
             <section class="container mx-auto my-8">
                 {{ .Content }}
             </section>
