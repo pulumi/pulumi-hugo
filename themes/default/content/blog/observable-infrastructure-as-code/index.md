@@ -72,7 +72,7 @@ We use the `LocalWorkspace` object to load our stack. This leaves the wholes sta
 
 Then we call `stack.up()` and wait. The outputs generated from the API aren't as pretty as the ones from the CLI, but they contain the same information.
 
-Also, the up command of the API allows us to catch all events that are happening during the deployment. This is the data we're after.
+Also, the `up` command of the API allows us to catch all events that are happening during the deployment. This is the data we're after.
 
 [](#the-deployment-events)The Deployment Events
 ------------------------------------------------------------------------------------------------------------
