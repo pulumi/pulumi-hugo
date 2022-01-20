@@ -146,7 +146,7 @@ So you can pump all your information to Honeycomb via events. Sometimes it doesn
 
 We need to initialize Libhoney and send the correct "Honeycomb event" for every "Pulumi event."
 
-But let's start with getting one event into Honeycomb. The pulumi up event.
+But let's start with getting one event into Honeycomb: the `pulumi up` event.
 
 ```javascript
 const Libhoney = require("libhoney")
