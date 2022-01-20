@@ -93,7 +93,7 @@ organization. Select the **Settings** tab, and then select **Access Management**
 
 In the **Membership Requirements** section, select the **Change requirements** button.
 
-Select the **SAML SSO** for the IDP and then **Next**.
+Select **SAML SSO** for the IDP and then **Next**.
 
 Paste the IDP metadata descriptor into the bottom card
 titled **SAML SSO Settings**. Then select **Save** at the bottom of the card.
