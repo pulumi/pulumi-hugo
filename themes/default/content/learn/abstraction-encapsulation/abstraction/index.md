@@ -19,7 +19,7 @@ block_external_search_index: false
 
 Just like any application code, Pulumi infrastructure code can be abstracted, enabling us to work with models or objects, depending on which language we use to define that code. If we use an object-oriented language such as JavaScript, Python, or TypeScript, we can create and instantiate classes. For languages like Go, we can build up interfaces. In all cases, we're thinking in terms of taking code that we've written and making it reusable in some form.
 
-Breaking apart Pulumi code is essential to keeping a clean, well-organized, and easily maintained code base that enables teams to collaborate to enhance current systems. As the owners of the infrastructure for the Pulumipus brand, we've got a lot of resources to maintain, and it's much better to reuse code that we write once rather than repeating ourselves continuously in our program and throughout all of the programs we maintain.
+Breaking apart Pulumi code is essential to keeping a clean, well-organized, and easily maintained code base that enables teams to collaborate to enhance current systems. Over the course of these pathways, we've been pretending we're part of a fictional organization called Pulumipus (after Pulumi's beloved mascot), so let's imagine that we've now scaled beyond the basic boba shop from the Fundamentals series to an entire brand with many, many smaller organizations. As the owners of the infrastructure for the Pulumipus brand, we've got a lot of resources to maintain, and it's much better to reuse code that we write once rather than repeating ourselves continuously in our program and throughout all of the programs we maintain.
 
 Let's first explore abstraction.
 
@@ -31,7 +31,7 @@ To get to more complex architectures, we need to enable the ability to break apa
 
 ## Exploring an example
 
-Let's imagine the Pulumipus brand is expanding to all kinds of systems, and so we don't know which infrastructure each team will need. However, each team will need some kind of storage location that has an access policy, no matter whether they're doing a serverless build or a compute-based build.
+Let's imagine the Pulumipus brand is expanding to all kinds of systems, and so we don't know which infrastructure each team will need. However, each team will need some kind of storage for objects that has access policies and security controls, no matter whether they're doing a serverless build or a VM-based build.
 
 Mentally, we're defining a sort of abstraction like this:
 
