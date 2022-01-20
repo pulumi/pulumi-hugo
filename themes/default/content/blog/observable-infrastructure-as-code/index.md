@@ -17,6 +17,7 @@ tags:
 Pulumi community member [Kay Plößer](https://kay.is/) spent some time digging into setting up observability of a Pulumi deployment using [Honeycomb](https://www.honeycomb.io/). Read more to find out all the details on configuring Honeycomb and Pulumi together, with a side dish of [Automation API]({{< relref "/docs/guides/automation-api/" >}})!
 
 <!--more-->
+***
 Last few weeks, I procrastinated doing real product-related things with setting up monitoring for my infrastructure deployment.
 
 I'm using [@pulumidev](https://dev.to/pulumidev), a cloud-provider independent IaC framework that allows me to define my infrastructure in TypeScript and use whatever provider I need.
