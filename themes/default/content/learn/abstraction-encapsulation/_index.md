@@ -28,19 +28,13 @@ How long this tutorial will take depends on your internet connection, reading sp
 
 ## Prerequisites
 
-You will need the following tools to complete this pathway:
+You will need the following tools and skills to complete this pathway:
 
-- A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
-  - If you don't have an account, go to the [signup page](https://app.pulumi.com/signup).
+- A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}}) (If you don't have an account, go to the [signup page](https://app.pulumi.com/signup))
 - An AWS account (the free version should be fine)
-
-In addition, you should be able to
-- code in Python
-
-We recommend that you either have completed [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with Pulumi]({{< relref "/learn/building-with-pulumi" >}}) OR have experience using Pulumi for other projects.
+- Familiarity with the Python programming language
+- Completion of the [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with Pulumi]({{< relref "/learn/building-with-pulumi" >}}) pathways, OR have experience using Pulumi for other projects
 
 ## About this pathway
 
 In this pathway, we will explore how you can use Pulumi as a tool to help you abstract and encapsulate your resource definitions as reusable models for others to use.
-
-Note that this pathway will not have as many code samples to use as other pathways. We will be defining patterns, exploring architecture, and discussing resources.
