@@ -1,6 +1,6 @@
 ---
 title: Pulumi vs. Terraform
-meta_desc: "Pulumi is like Terraform: create, deploy, and manage infrastructure as code on any cloud. But unlike Terraform you can use familiar languages and tools."
+meta_desc: "Pulumi and Terraform have a few similarities, but they differ in many key ways. This page helps provide a rundown of the differences."
 linktitle: Terraform
 menu:
   intro:
