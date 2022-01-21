@@ -145,8 +145,6 @@ Pulumi has the ability to embed Pulumi programs directly into your application c
 
 Pulumi integrates with existing CI/CD providers including AWS Code Services, Azure DevOps, CircleCI, CodeFresh, GitHub Actions, GitLab Pipelines, Google Cloud Build, Jenkins, Octopus Deploy, Jetbrains TeamCity, Spinnaker, and Travis. Pulumi allows you to use the same CI/CD system for your infrastructure as your application code. Terraform also has similar support with existing CI/CD providers.
 
-![The Pulumi Service CI/CD Integrations Assistant](./cicd-assistant.png)
-
 For more information on how to integrate your CI/CD system with Pulumi, see [Continuous Delivery]({{< relref "/docs/guides/continuous-delivery/" >}}).
 
 ### Policy as Code {#policy}
