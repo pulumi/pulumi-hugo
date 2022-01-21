@@ -33,7 +33,7 @@ Terraform and Pulumi have some similarities in that you can create, deploy and m
 
 ## Pulumi vs. Terraform: Key Differences {#differences}
 
-Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: HashiCorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python]({{< relref "/docs/intro/languages/python" >}}), [TypeScript]({{< relref "/docs/intro/languages/typescript" >}}), [JavaScript]({{< relref "/docs/intro/languages/javascript" >}}), [Go]({{< relref "/docs/intro/languages/go" >}}) and [.NET]({{< relref "/docs/intro/languages/dotnet" >}}) with the tools you already use to accomplish the same goals.
+Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: HashiCorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python]({{< relref "/docs/intro/languages/python" >}}), [TypeScript]({{< relref "/docs/intro/languages/typescript" >}}), [JavaScript]({{< relref "/docs/intro/languages/javascript" >}}), [Go]({{< relref "/docs/intro/languages/go" >}}) and [.NET]({{< relref "/docs/intro/languages/dotnet" >}}) with the tools you already use to accomplish the same goals. Terraform has recently released the beta of a development kit that allows you to use programming languages that compile to HCL.
 
 Here is a summary of the key differences between Pulumi and Terraform:
 
@@ -53,7 +53,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Third-party CI/CD Tools Support](#cicd) | Yes | Yes |
 | [Policy as Code](#policy) | Yes | Yes |
 | [Secrets Management](#secrets) | Yes. Secrets are encrypted in transit and in the state file. | No. Secrets are stored in a  separate product (Vault). There is no way to encrypt them in the state file. |
-| [Full Audit Capabilities](#auditing) | Across AWS, Azure and other clouds | Limited |
+| [Audit Capabilities](#auditing) | Yes | Limited |
 | [Adopt Existing Resources](#adopting) | Yes. Generates code as part of the import process. | Yes. No code generation capabilities. |
 | [Aliases](#aliases) | Yes | Limited |
 | [Transformations](#transformations) | Yes | No |
