@@ -1,7 +1,8 @@
 ---
 title: Troubleshooting
-meta_desc: A collection of common troubleshooting techniques when using the Pulumi CLI
-           and Cloud Services.
+meta_desc:
+  A collection of common troubleshooting techniques when using the Pulumi CLI
+  and Cloud Services.
 menu:
   troubleshooting:
     weight: 1
@@ -26,19 +27,19 @@ issues](https://github.com/pulumi/pulumi/issues/new) and upvoting existing issue
 ## Diagnosing Issues
 
 There are a few tools available to get additional diagnostics on how your Pulumi program is
-behaving.  These can be useful for self-diagnosing issues, and for sharing details as part
+behaving. These can be useful for self-diagnosing issues, and for sharing details as part
 of issue reports.
 
 ### Verbose Logging
 
 Verbose logging of the internals of the Pulumi engine and resource providers can be enabled by
 passing the `-v` flag to any `pulumi` CLI command. The `--logtostderr` flag can be added to send
-this verbose logging directly to `stderr` for easier access.  Pulumi emits logs at a variety of log
+this verbose logging directly to `stderr` for easier access. Pulumi emits logs at a variety of log
 levels between `1` and `9`.
 
 > These logs may include sensitive information that is provided from your execution environment to
-your cloud provider (and which Pulumi may not even itself be aware of) so be careful to audit before
-sharing.
+> your cloud provider (and which Pulumi may not even itself be aware of) so be careful to audit before
+> sharing.
 
 ```
 $ pulumi up --logtostderr -v=9 2> out.txt
@@ -57,7 +58,7 @@ $ TF_LOG=TRACE pulumi up --logtostderr -v=9 2> out.txt
 
 If you are seeing unexpectedly slow performance, you can gather a trace to understand what
 operations are being performed throughout the deployment and what the long poles are for your
-deployment.  In most cases, the most time consuming operations will be the provisioning of one or more resources in your cloud
+deployment. In most cases, the most time consuming operations will be the provisioning of one or more resources in your cloud
 provider, however, there may be cases where Pulumi itself is doing work that is limiting the performance
 of your deployments, and this may indicate an opportunity to further improve the Pulumi deployment
 orchestration engine to get the maximal parallelism and performance possible for your cloud
@@ -99,7 +100,7 @@ This section covers a few problems that can arise when working with Pulumi.
 
 ### [409] Conflict: Another update is currently in progress. {#conflict}
 
-One of the services that `pulumi.com` provides is *concurrency control*. The service will allow
+One of the services that `pulumi.com` provides is _concurrency control_. The service will allow
 at most one user to update a particular stack at a time. This is accomplished by using "leases"; whenever a user
 requests an update, they request a "lease" on the stack that gives them the right to update the requested stack.
 The service makes sure that only one person has a lease active at a time.
@@ -108,12 +109,12 @@ If you get this error message, this means that the service believes that somebod
 a lease to the stack that you are attempting to update. There are two reasons why this could be:
 
 1. Somebody else is currently updating the stack. If you are working on a stack with more than one collaborator, it could
-be that your collaborators have initiated an update without your knowledge. You can confirm this by visiting the Pulumi
-web console and seeing who initiated the most recent update.
+   be that your collaborators have initiated an update without your knowledge. You can confirm this by visiting the Pulumi
+   web console and seeing who initiated the most recent update.
 2. You were just updating the stack, but the Pulumi command-line tool crashed in the middle of the update.
 
 If you are working on a stack with no other collaborators, it is common to encounter situation number 2 if you
-run into a bug in Pulumi. If you are *absolutely sure* that this update was not triggered by someone else, you can use the
+run into a bug in Pulumi. If you are _absolutely sure_ that this update was not triggered by someone else, you can use the
 `pulumi cancel` command to cancel the current update. This operation revokes the "lease" that the service has given
 to the person who initiated the stack update.
 
@@ -283,48 +284,48 @@ $ pulumi stack export --file state.json
 This file contains a lot of information. At the top-level, this JSON object has two fields:
 
 1. A `version`, indicating the version of the file format you're currently looking at. Don't
-change this.
+   change this.
 1. A `deployment`, which represents the state of the last deployment that this stack completed.
 
 The `deployment` object itself has three fields:
 
 1. A `manifest`, which contains some metadata about the previous deployment. You should not ever
-need to edit this.
+   need to edit this.
 1. A list of `pending_operations`, which is a record of the operations that the Pulumi engine
-started but hasn't seen finish yet.
+   started but hasn't seen finish yet.
 1. A list of `resources`, which is a record of all resource that Pulumi knows about. When you create
-a resource, that resource's information is stored here.
+   a resource, that resource's information is stored here.
 
 The possible fields of a resource are:
 
 1. `urn` - This resource's URN, or "universal resource name", which is a Pulumi-specific universal
-resource identifier.
+   resource identifier.
 1. `custom` - A boolean indicating whether or not this resource is a "custom" resource, which means that
-it uses a resource provider to operate. Component resources are not `custom`.
+   it uses a resource provider to operate. Component resources are not `custom`.
 1. `delete` - A boolean indicating whether or not this resource is pending deletion.
 1. `id` - This resource's ID, which is a provider-specific resource identifier. This often corresponds to
-a cloud provider's identifier for a resource.
+   a cloud provider's identifier for a resource.
 1. `type` - The Pulumi type of this resource.
 1. `inputs` - A map of "inputs" for this resource. Inputs are the set of key-value pairs used as an input
-to a resource provider that created or updated the given resource.
+   to a resource provider that created or updated the given resource.
 1. `outputs` - A map of "outputs" for this resource. Outputs are the set of key-value pairs that were given
-to Pulumi by a resource provider after a resource has been provisioned.
+   to Pulumi by a resource provider after a resource has been provisioned.
 1. `parent` - A URN for this resource's parent resource.
 1. `protect` - A boolean indicating whether or not this resource is protected. If a resource is protected,
-it can't be deleted.
+   it can't be deleted.
 1. `external` - A boolean indicating whether or not this resource is "external" to Pulumi. If a resource is
-External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources
-that are "read" using the `get` function are External.
+   External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources
+   that are "read" using the `get` function are External.
 1. `dependencies` - A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies
-between resources and so it is important that this list be the full list of resources upon which this resource
-depends.
+   between resources and so it is important that this list be the full list of resources upon which this resource
+   depends.
 1. `initErrors` - A list of errors that occured that prevented this particular resource from initializing. Some resource
-providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize.
+   providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize.
 1. `provider` - A provider reference to the provider that is responsible for this particular resource.
 
 The `resources` field is a list, not a set; the order of resources in the list is important and is enforced by
-the Pulumi engine. Resources in a deployment must be in *dependency order* - if a resource A depends on a resource B,
-resource A *must* appear after resource B in the list.
+the Pulumi engine. Resources in a deployment must be in _dependency order_ - if a resource A depends on a resource B,
+resource A _must_ appear after resource B in the list.
 
 Once you have completed any edits to your stack's state, you can import your changes by running:
 
@@ -353,7 +354,7 @@ field once the Ingress resource is ready to route traffic.
 
 In some cases this may be fixed by running `pulumi refresh`.
 
-###### *Traefik*
+###### _Traefik_
 
 For the Traefik controller, verify that the `kubernetes.ingressEndpoint` config
 is [set properly](https://docs.traefik.io/providers/kubernetes-ingress/). This option was
@@ -384,7 +385,7 @@ above) and you see this warning, then it is likely that this is the source.
 
 Currently, a warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
 pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such,
-we recommend updating your code In a future version, Pulumi *may* be updated to throw instead of producing a warning when this happens.
+we recommend updating your code In a future version, Pulumi _may_ be updated to throw instead of producing a warning when this happens.
 It is recommended that Pulumi apps be updated to prevent breakage.
 
 To address the issue update your app to use one of the following forms:
@@ -403,7 +404,7 @@ const ids = pulumi.output(aws.ec2.getSubnetIds(..., { parent }));
 ```
 
 This is the preferred way to solve this issue. In this form all resource function calls will always execute asynchronously,
-returning their result through a `Promise<...>`.  The result of the call is then wrapped into an `Output` so it can easily be
+returning their result through a `Promise<...>`. The result of the call is then wrapped into an `Output` so it can easily be
 passed as a resource input and to make it [simple to access properties]({{< relref "/docs/intro/concepts/inputs-outputs#lifting" >}}) off of it.
 
 If you do not want to change all calls to be `async` (perhaps because only one is encountering a problem), you can alternatively
@@ -416,12 +417,12 @@ const ids = pulumi.output(aws.ec2.getSubnetIds(..., { provider, async: true }));
 const ids = pulumi.output(aws.ec2.getSubnetIds(..., { parent, async: true }));
 ```
 
-In this form, the `async: true` flag is passed in which forces `getSubnetIds` to always execute asynchronously.  The result
+In this form, the `async: true` flag is passed in which forces `getSubnetIds` to always execute asynchronously. The result
 of the call is then wrapped into an `Output` so it can easily be passed as a resource input and to make it
 [simple to access properties]({{< relref "/docs/intro/concepts/inputs-outputs#lifting" >}}) off of it.
 
 Sometimes, however, this approach is not possible because the call to the resource function happens a layer deeper (possibly in a
-component not under your control).  In that case, we recommend the solution in the next section:
+component not under your control). In that case, we recommend the solution in the next section:
 
 ### Register the provider first
 
@@ -435,11 +436,11 @@ const ids = aws.ec2.getSubnetIds(..., { provider }); // or
 const ids = aws.ec2.getSubnetIds(..., { parent });
 ```
 
-In this form, the ProviderResource is explicitly registered first, allowing it to be safely used *synchronously* in the resource
+In this form, the ProviderResource is explicitly registered first, allowing it to be safely used _synchronously_ in the resource
 function calls. This registration should generally be done immediately after creating the provider. With this form the resource function
 results can be used immediately, without needing to operate on them as promises (i.e. no need for `await` or `.then(...)`).
 
-This approach makes it possible to safely perform these resource function calls synchronously.  However, it may require refactoring
+This approach makes it possible to safely perform these resource function calls synchronously. However, it may require refactoring
 some code due to the need to potentially use `async`/`await` code in areas of a program that are currently synchronous.
 
 ## StackReference.getOutputSync/requireOutputSync called on a StackReference whose name is a Promise/Output {#stackreference-sync}
@@ -450,7 +451,9 @@ The warning occurs when calling `getOutputSync` or `requireOutputSync` on a `Sta
 For example:
 
 ```ts
-const stackReference = new StackReference("...", { name: otherResource.outputValue });
+const stackReference = new StackReference("...", {
+  name: otherResource.outputValue,
+});
 const val = stackReference.getOutputSync("outputName");
 ```
 
@@ -459,7 +462,7 @@ above) and you see this warning, then it is likely that this is the source.
 
 Currently, a warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
 pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such,
-we recommend updating your code. In a future version, Pulumi *may* be updated to throw instead of producing a warning when this happens.
+we recommend updating your code. In a future version, Pulumi _may_ be updated to throw instead of producing a warning when this happens.
 It is recommended that Pulumi apps be updated to prevent breakage.
 
 There are only two ways supported to avoid this issue:
@@ -467,16 +470,18 @@ There are only two ways supported to avoid this issue:
 ### Use getOutput/requireOutput instead {#use-getoutput}
 
 ```ts
-const stackReference = new StackReference("...", { name: otherResource.outputValue });
+const stackReference = new StackReference("...", {
+  name: otherResource.outputValue,
+});
 const val = stackReference.getOutput("outputName");
 ```
 
-In this form the result of the call is an `Output` (which internally asynchronously retrieves the stack output value).  This can
+In this form the result of the call is an `Output` (which internally asynchronously retrieves the stack output value). This can
 easily be passed as a resource input and supports [simple to access properties]({{< relref "/docs/intro/concepts/inputs-outputs#lifting" >}}) off of it.
 
 However, because the value is not known synchronously, it is not possible to have the value affect the flow of your application.
 For example if the output value is an array, there is no way to know the length of the array in order to make specific resources
-corresponding to it.  If the exact value is needed for this purpose the only way to get it is like so:
+corresponding to it. If the exact value is needed for this purpose the only way to get it is like so:
 
 ### Pass the stack reference name in as a string
 
@@ -513,7 +518,7 @@ There are two ways to fix this, one way if you have access to an Intel based com
 1. Download latest version of Pulumi: `https://www.pulumi.com/docs/get-started/install/versions/` (current version is [https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz](https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz)) and extract to ~/.pulumi/bin
 1. Add Pulumi to path: `export PATH=$PATH:~/.pulumi/bin`
 1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)
-1. Install Pulumi provider: `arch -x86_64 pulumi plugin install resource {provider_name} v{version}` (where  {provider_name} is the name of the provider, i.e. aws and {version} is the same version number that your package has updated to) *
+1. Install Pulumi provider: `arch -x86_64 pulumi plugin install resource {provider_name} v{version}` (where {provider_name} is the name of the provider, i.e. aws and {version} is the same version number that your package has updated to) \*
 1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
 1. Run a Pulumi preview: `arch -x86_64 pulumi pre`
 1. Remove Pulumi again `rm -rf ~/.pulumi`
@@ -521,8 +526,16 @@ There are two ways to fix this, one way if you have access to an Intel based com
 1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
 1. Run a Pulumi preview to check everything is ok: `pulumi pre`
 
-* `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
+- `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
 
 ### I'm seeing other errors, please help
 
 Get in touch with us, either through the [Community Slack](https://slack.pulumi.com) or by emailing our support team: [support@pulumi.com](mailto:support@pulumi.com).
+
+## I can't connect to the Pulumi Service
+
+If your network is locked down to external traffic, you're using the service to manage your state, and your security team need to give you access to the service then here's the information you can pass over.
+
+The URL that the Pulumi CLI connects to is: `https://api.pulumi.com` (not `https://app.pulumi.com`, although if you want to view the console then you'll need access to that as well).
+
+All access goes over HTTPS via port 443.
