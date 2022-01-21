@@ -32,7 +32,7 @@ If you're already familiar with Terraform, learning Pulumi terminology and comma
 | State | [State]({{< relref "/docs/intro/concepts/state" >}}) |
 | State Version | [Update Events]({{< relref "/docs/reference/service-rest-api#list-update-events" >}}) |
 | Backend | [Backend]({{< relref "/docs/intro/concepts/state" >}}) |
-| Deposed | [Pending Operations]({{< relref "/docs/reference/service-rest-api#list-update-events" >}}) |
+| Deposed | [Pending Operations]({{< relref "/docs/troubleshooting#interrupted-update-recovery" >}}) |
 
 ## Commands
 
