@@ -6,6 +6,7 @@ meta_desc: "Pulumi is like Terraform: create, deploy, and manage infrastructure 
 If you're already familiar with Terraform, learning Pulumi terminology and commands is simple. Many of the existing Terraform vocabulary and commands that you already know have direct equivalents in Pulumi. The table below lists common Terraform terms and CLI commands along with their Pulumi equivalents.
 
 ## Terminology
+
 | Terraform | Pulumi |
 | --------- | ------ |
 | Workspace | [Stack](https://www.pulumi.com/docs/intro/concepts/stack/) |
@@ -22,6 +23,7 @@ If you're already familiar with Terraform, learning Pulumi terminology and comma
 | Deposed | [Pending Operations](https://www.pulumi.com/docs/reference/service-rest-api/#list-update-events) |
 
 ## Commands
+
 | Terraform | Pulumi |
 | --------- | ------ |
 | `init` | `pulumi new` |
