@@ -22,13 +22,13 @@ Terraform and Pulumi have some similarities in that you can create, deploy and m
 
 ## Pulumi vs. Terraform: Key Differences {#differences}
 
-Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: Hashicorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python]({{< relref "/docs/intro/languages/python" >}}), [TypeScript]({{< relref "/docs/intro/languages/typescript" >}}), [JavaScript]({{< relref "/docs/intro/languages/javascript" >}}), [Go]({{< relref "/docs/intro/languages/go" >}}) and [.NET]({{< relref "/docs/intro/languages/dotnet" >}}) with the tools you already use to accomplish the same goals.
+Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: HashiCorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python]({{< relref "/docs/intro/languages/python" >}}), [TypeScript]({{< relref "/docs/intro/languages/typescript" >}}), [JavaScript]({{< relref "/docs/intro/languages/javascript" >}}), [Go]({{< relref "/docs/intro/languages/go" >}}) and [.NET]({{< relref "/docs/intro/languages/dotnet" >}}) with the tools you already use to accomplish the same goals.
 
 Here is a summary of the key differences between Pulumi and Terraform:
 
 | Feature | Pulumi | Terraform |
 | ------- | ------ | --------- |
-| [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F# | Hashicorp Configuration Language (HCL)) |
+| [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F# | HashiCorp Configuration Language (HCL)) |
 | [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
 | [State Management](#state) | Managed through Pulumi Service by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
 | [Provider Support](#providers) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
@@ -112,7 +112,7 @@ Pulumi provides dynamic providers that allow you to extend your system by creati
 
 ### OSS License {#license}
 
-Terraform uses the weak copyleft [Mozilla Public License 2.0](https://github.com/hashicorp/terraform/blob/main/LICENSE). Conversely, Pulumi open-source projects use the permissive and business-friendly [Apache License 2.0](https://github.com/pulumi/pulumi/blob/master/LICENSE). This includes the core [Pulumi repo](https://github.com/pulumi/pulumi), all of the open-source Pulumi resource providers (such as the [Azure Native provider](https://github.com/pulumi/pulumi-azure-native)), conversion utilities like [tf2pulumi](https://github.com/pulumi/tf2pulumi), and other useful projects.
+Terraform uses the weak copyleft [Mozilla Public License 2.0](https://github.com/HashiCorp/terraform/blob/main/LICENSE). Conversely, Pulumi open-source projects use the permissive and business-friendly [Apache License 2.0](https://github.com/pulumi/pulumi/blob/master/LICENSE). This includes the core [Pulumi repo](https://github.com/pulumi/pulumi), all of the open-source Pulumi resource providers (such as the [Azure Native provider](https://github.com/pulumi/pulumi-azure-native)), conversion utilities like [tf2pulumi](https://github.com/pulumi/tf2pulumi), and other useful projects.
 
 ### Infrastructure Reuse and Modularity {#reuse}
 
@@ -144,7 +144,7 @@ For more information on how to integrate your CI/CD system with Pulumi, see [Con
 
 ### Policy as Code {#policy}
 
-Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinal also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego.
+Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinel also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego.
 
 For more information on how to implement policy as code using Pulumi, see [Policy as Code ("CrossGuard")]({{< relref "/docs/guides/crossguard/" >}}).
 
