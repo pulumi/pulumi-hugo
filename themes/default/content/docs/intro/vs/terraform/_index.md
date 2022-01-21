@@ -164,11 +164,11 @@ Both Pulumi and Terraform support importing existing resources so that they can 
 
 ### Aliases
 
-Both Pulumi and Terraform support aliases. [WIP]
+Aliases help facilitate refactoring by allowing you to modify certain properties of a resource without risk of replacing it. With an alias, you can change the logical name of a given resource, change its parent (i.e., move it from one component to another), change its underlying resource type, or even move it to an entirely different project or stack. Both Pulumi and Terraform support the notion of resource renaming and reparenting, but Terraform does not currently support declaratively changing a resource's underlying type or moving it to another workspace. To learn more, see [Aliases]({{< relref "/docs/intro/concepts/resources/options/aliases" >}}) in the Resource documentation.
 
 ### Transformations
 
-Transformations, which are unique to Pulumi, allow you to programmatically set or override the input properties of resources belonging to a particular collection, such as the child resources of a Pulumi component or even all of the resources belonging to a stack. Transformations make it easy to apply consistent settings across your infrastructure without having to manipulate the properties of individual resources. To learn more, see [Transformations]({{< relref "docs/intro/concepts/resources/options/transformations" >}}).
+Transformations, which are unique to Pulumi, allow you to programmatically set or override the input properties of resources belonging to a particular collection, such as the child resources of a Pulumi component or even all of the resources belonging to a stack. Transformations make it easy to apply consistent settings across your infrastructure without having to manipulate the properties of individual resources. To learn more, see [Transformations]({{< relref "docs/intro/concepts/resources/options/transformations" >}}) in the Resource documentation.
 
 ### Import Code from Other IaC Tools {#converting}
 
