@@ -6,7 +6,6 @@ menu:
   intro:
     parent: vs
     weight: 1
-
 aliases:
 - /docs/reference/vs/terraform/
 ---
@@ -39,12 +38,14 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Infrastructure Reuse and Modularity](#reuse) | Flexible. Reuse functions, classes, packages, and Pulumi components. | Constrained. Can only reuse Terraform modules. |
 | [Testing and Validation](#testing) | Unit, property, and integration testing. Supports popular test frameworks. | Integration testing only |
 | [Modes of Execution](#modes) | Run CLI commands or initiate commands programmatically with Automation API. | Run CLI commands or perform remote runs with SaaS offering. |
-| [Embed within Application Code](#embedding) | Yes. Automation API | No |
+| [Embed within Application Code](#embedding) | Yes, via Automation API | No |
 | [Third-party CI/CD Tools Support](#cicd) | Yes | Yes |
 | [Policy as Code](#policy) | Yes | Yes |
 | [Secrets Management](#secrets) | Yes. Secrets are encrypted in transit and in the state file. | No. Secrets are stored in a  separate product (Vault). There is no way to encrypt them in the state file. |
 | [Full Audit Capabilities](#auditing) | Across AWS, Azure and other clouds | Limited |
 | [Adopt Existing Resources](#adopting) | Yes. Generates code as part of the import process. | Yes. No code generation capabilities. |
+| [Aliases](#aliases) | Yes | Limited |
+| [Transformations](#transformations) | Yes | No |
 | [Import Code from other IaC Tools](#converting) | Yes | No |
 
 Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi]({{< relref "/docs/guides/adopting/from_terraform/#converting-terraform-hcl-to-pulumi" >}}) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, review our [Terminology Equivalence]({{< relref "/docs/intro/vs/terraform/terminology" >}}) table. If you would like to deploy a simple program, follow our Get Started guide:
@@ -149,21 +150,25 @@ For more information on how to implement policy as code using Pulumi, see [Polic
 
 ### Secrets Management {#secrets}
 
-Pulumi always transmits and stores entire state files securely. However, Pulumi also supports encrypting sensitive values (e.g., database passwords, SaaS tokens, credentials files)  as secrets for extra protection. Secrets are supported as a first-class primitive within Pulumi.  Pulumi encrypts secrets in transit and at rest, and anything a secret touches (e.g., CLI outputs, Pulumi logs, Pulumi program, state file) is tainted and gets encrypted, which prevents you from accidently disclosing a secret. Every stack has its own encryption key. Pulumi also provides an extensible encryption facility that allows you to elect to use your own keys managed by a 3rd party solution. Terraform manages secrets through Vault, a separate product. However, even when pulling secrets from Vault, secrets are stored as plaintext and not encrypted within the state file.
-
-[Table]
-
-[Code snippet]
+Pulumi always transmits and stores entire state files securely. However, Pulumi also supports encrypting sensitive values (e.g., database passwords, SaaS tokens, credentials files)  as secrets for extra protection. Secrets are supported as a first-class primitive within Pulumi.  Pulumi encrypts secrets in transit and at rest, and anything a secret touches (e.g., CLI outputs, Pulumi logs, Pulumi program, state file) is tainted and gets encrypted, which prevents you from accidentally disclosing a secret. Every stack has its own encryption key. Pulumi also provides an extensible encryption facility that allows you to elect to use your own keys managed by a 3rd party solution. Terraform manages secrets through Vault, a separate product. However, even when pulling secrets from Vault, secrets are stored as plaintext and not encrypted within the state file.
 
 For more information on storing secrets with Pulumi, see [Secrets]({{< relref "/docs/intro/concepts/secrets/" >}}).
 
 ### Audit Capabilities {#auditing}
 
-Pulumi provides audit logs that enable you to track the activity of users within an organization. Audit logs capture the UNIX timestamp of the event, the user who invoked the action, the event that took place, and the source IP of the call the user made. These logs are available to organizations with an Enterprise level subscription. The logs are immutable and record all user actions.Terraform Cloud only provides a stream of audit events that describe changes throughout an organization with 14 days of retention. To learn more, see [Audit Logs]({{< relref "/docs/intro/console/audit-logs/" >}}).
+Pulumi provides audit logs that enable you to track the activity of users within an organization. Audit logs capture the UNIX timestamp of the event, the user who invoked the action, the event that took place, and the source IP of the call the user made. These logs are available to organizations with an Enterprise level subscription. The logs are immutable and record all user actions. Terraform Cloud only provides a stream of audit events that describe changes throughout an organization with 14 days of retention. To learn more, see [Audit Logs]({{< relref "/docs/intro/console/audit-logs/" >}}).
 
 ### Adopt Existing Resources {#adopting}
 
 Both Pulumi and Terraform support importing existing resources so that they can be managed by each. Pulumi also allows you to generate code in your language of choice from the existing state. Terraform only supports importing state but requires you to hand-author the HCL. To learn more, see [Importing Infrastructure]({{< relref "/docs/guides/adopting/import/" >}}) in our Adopting Pulumi user guide.
+
+### Aliases
+
+Both Pulumi and Terraform support aliases. [WIP]
+
+### Transformations
+
+Transformations, which are unique to Pulumi, allow you to programmatically set or override the input properties of resources belonging to a particular collection, such as the child resources of a Pulumi component or even all of the resources belonging to a stack. Transformations make it easy to apply consistent settings across your infrastructure without having to manipulate the properties of individual resources. To learn more, see [Transformations]({{< relref "docs/intro/concepts/resources/options/transformations" >}}).
 
 ### Import Code from Other IaC Tools {#converting}
 
