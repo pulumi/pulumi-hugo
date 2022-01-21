@@ -5,17 +5,34 @@ meta_desc: "Pulumi is like Terraform: create, deploy, and manage infrastructure 
 
 If you're already familiar with Terraform, learning Pulumi terminology and commands is simple. Many of the existing Terraform vocabulary and commands that you already know have direct equivalents in Pulumi. The table below lists common Terraform terms and CLI commands along with their Pulumi equivalents.
 
+## Terminology
+| Terraform | Pulumi |
+| --------- | ------ |
+| Workspace | [Stack](https://www.pulumi.com/docs/intro/concepts/stack/) |
+| Variables | [Stack Config](https://www.pulumi.com/docs/intro/concepts/config/) |
+| Directory | [Project](https://www.pulumi.com/docs/intro/concepts/project/) |
+| Module | [Component](https://www.pulumi.com/docs/intro/concepts/resources/components/) |
+| Resource | [Resource](https://www.pulumi.com/docs/intro/concepts/resources/) |
+| Interpolation | [Interpolation](https://www.pulumi.com/docs/reference/cli/pulumi_up/) |
+| Run | [Up](https://www.pulumi.com/docs/reference/cli/pulumi_up/) |
+| Output Values | [Outputs](https://www.pulumi.com/docs/intro/concepts/inputs-outputs/) |
+| State | [State](https://www.pulumi.com/docs/intro/concepts/state/) |
+| State Version | [Update Events](https://www.pulumi.com/docs/reference/service-rest-api/#list-update-events) |
+| Backend | [Backend](https://www.pulumi.com/docs/intro/concepts/state/) |
+| Deposed | [Pending Operations](https://www.pulumi.com/docs/reference/service-rest-api/#list-update-events) |
+
+## Commands
 | Terraform | Pulumi |
 | --------- | ------ |
 | `init` | `pulumi new` |
-| `validate` | |
+| `validate` | Validation is performed with the inherent syntax checking and testing frameworks in the supported programming languages |
 | `plan` | `pulumi preview` |
 | `apply` | `pulumi up` |
 | `destroy` | `pulumi destroy` |
-| `console` |
-| `fmt` | |
-| `force-unlock` | |
-| `get` | |
+| `console` | Pulumi commands can be evaluated in a standard programming language shell |
+| `fmt` | Standard programming language linting tools checks for format and style |
+| `force-unlock` | `pulumi cancel` |
+| `get` | Reusable modules are directly imported as a library in the programming language |
 | `graph` | `pulumi stack graph` |
 | `import` | `pulumi import -f resources.json` |
 | `login` | `pulumi login` |
@@ -25,7 +42,5 @@ If you're already familiar with Terraform, learning Pulumi terminology and comma
 | `refresh` | `pulumi refresh` |
 | `show` | `pulumi stack` |
 | `state` | `pulumi state` |
-| `taint` | `pulumi up --replace` |
-| `untaint` | |
 | `version` | `pulumi version` |
 | `workspace` | `pulumi stack` |
