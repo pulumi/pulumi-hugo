@@ -39,7 +39,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 
 | Feature | Pulumi | Terraform |
 | ------- | ------ | --------- |
-| [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F# | HashiCorp Configuration Language (HCL)) |
+| [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F# | HashiCorp Configuration Language (HCL) |
 | [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
 | [State Management](#state) | Managed through Pulumi Service by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
 | [Provider Support](#providers) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
@@ -133,9 +133,7 @@ Pulumi also provides the [Pulumi Registry]({{< relref "/registry/" >}}) which is
 
 ### Testing and Validation {#testing}
 
-Terraform supports integration testing. With Pulumi, you can take advantage of native testing frameworks and perform automated tests of your infrastructure because Pulumi uses general purpose programming languages to provision cloud resources. Pulumi provides unit tests (fast in-memory tests that mock all external calls), property tests (run resource-level assertions while infrastructure is being deployed), and integration tests (deploy ephemeral infrastructure and run external tests against it).
-
-For more information on how to run tests with Pulumi, see [Testing]({{< relref "/docs/guides/testing/" >}}).
+Terraform supports integration testing. With Pulumi, you can take advantage of native testing frameworks and perform automated tests of your infrastructure because Pulumi uses general purpose programming languages to provision cloud resources. Pulumi provides unit tests (fast in-memory tests that mock all external calls), property tests (run resource-level assertions while infrastructure is being deployed), and integration tests (deploy ephemeral infrastructure and run external tests against it). For more information on how to run tests with Pulumi, see [Testing]({{< relref "/docs/guides/testing/" >}}).
 
 ### Modes of Execution {#modes}
 
@@ -155,15 +153,11 @@ For more information on how to integrate your CI/CD system with Pulumi, see [Con
 
 ### Policy as Code {#policy}
 
-Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinel also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego.
-
-For more information on how to implement policy as code using Pulumi, see [Policy as Code ("CrossGuard")]({{< relref "/docs/guides/crossguard/" >}}).
+Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinel also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego. For more information on how to implement policy as code using Pulumi, see [Policy as Code ("CrossGuard")]({{< relref "/docs/guides/crossguard/" >}}).
 
 ### Secrets Management {#secrets}
 
-Pulumi always transmits and stores entire state files securely. However, Pulumi also supports encrypting sensitive values (e.g., database passwords, SaaS tokens, credentials files)  as secrets for extra protection. Secrets are supported as a first-class primitive within Pulumi.  Pulumi encrypts secrets in transit and at rest, and anything a secret touches (e.g., CLI outputs, Pulumi logs, Pulumi program, state file) is tainted and gets encrypted, which prevents you from accidentally disclosing a secret. Every stack has its own encryption key. Pulumi also provides an extensible encryption facility that allows you to elect to use your own keys managed by a 3rd party solution. Terraform manages secrets through Vault, a separate product. However, even when pulling secrets from Vault, secrets are stored as plaintext and not encrypted within the state file.
-
-For more information on storing secrets with Pulumi, see [Secrets]({{< relref "/docs/intro/concepts/secrets/" >}}).
+Pulumi always transmits and stores entire state files securely. However, Pulumi also supports encrypting sensitive values (e.g., database passwords, SaaS tokens, credentials files)  as secrets for extra protection. Secrets are supported as a first-class primitive within Pulumi.  Pulumi encrypts secrets in transit and at rest, and anything a secret touches (e.g., CLI outputs, Pulumi logs, Pulumi program, state file) is tainted and gets encrypted, which prevents you from accidentally disclosing a secret. Every stack has its own encryption key. Pulumi also provides an extensible encryption facility that allows you to elect to use your own keys managed by a 3rd party solution. Terraform manages secrets through Vault, a separate product. However, even when pulling secrets from Vault, secrets are stored as plaintext and not encrypted within the state file. For more information on storing secrets with Pulumi, see [Secrets]({{< relref "/docs/intro/concepts/secrets/" >}}).
 
 ### Audit Capabilities {#auditing}
 
