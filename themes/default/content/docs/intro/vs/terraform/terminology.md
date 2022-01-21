@@ -3,24 +3,36 @@ title: "Terminology and Command Equivalence"
 meta_desc: "Pulumi is like Terraform: create, deploy, and manage infrastructure as code on any cloud. But unlike Terraform you can use familiar languages and tools."
 ---
 
+<style>
+    main table {
+        font-size: 0.94em;
+        width: 100%;
+    }
+
+    main table th:first-child,
+    main table td:first-child {
+        width: 33%;
+    }
+</style>
+
 If you're already familiar with Terraform, learning Pulumi terminology and commands is simple. Many of the existing Terraform vocabulary and commands that you already know have direct equivalents in Pulumi. The table below lists common Terraform terms and CLI commands along with their Pulumi equivalents.
 
 ## Terminology
 
 | Terraform | Pulumi |
 | --------- | ------ |
-| Workspace | [Stack](https://www.pulumi.com/docs/intro/concepts/stack/) |
-| Variables | [Stack Config](https://www.pulumi.com/docs/intro/concepts/config/) |
-| Directory | [Project](https://www.pulumi.com/docs/intro/concepts/project/) |
-| Module | [Component](https://www.pulumi.com/docs/intro/concepts/resources/components/) |
-| Resource | [Resource](https://www.pulumi.com/docs/intro/concepts/resources/) |
-| Interpolation | [Interpolation](https://www.pulumi.com/docs/reference/cli/pulumi_up/) |
-| Run | [Up](https://www.pulumi.com/docs/reference/cli/pulumi_up/) |
-| Output Values | [Outputs](https://www.pulumi.com/docs/intro/concepts/inputs-outputs/) |
-| State | [State](https://www.pulumi.com/docs/intro/concepts/state/) |
-| State Version | [Update Events](https://www.pulumi.com/docs/reference/service-rest-api/#list-update-events) |
-| Backend | [Backend](https://www.pulumi.com/docs/intro/concepts/state/) |
-| Deposed | [Pending Operations](https://www.pulumi.com/docs/reference/service-rest-api/#list-update-events) |
+| Workspace | [Stack]({{< relref "/docs/intro/concepts/stack" >}}) |
+| Variables | [Stack Config]({{< relref "/docs/intro/concepts/config" >}}) |
+| Directory | [Project]({{< relref "/docs/intro/concepts/project" >}}) |
+| Module | [Component]({{< relref "/docs/intro/concepts/resources/components" >}}) |
+| Resource | [Resource]({{< relref "/docs/intro/concepts/resources" >}}) |
+| Interpolation | [Interpolation]({{< relref "/docs/reference/cli/pulumi_up" >}}) |
+| Run | [Up]({{< relref "/docs/reference/cli/pulumi_up" >}}) |
+| Output Values | [Outputs]({{< relref "/docs/intro/concepts/inputs-outputs" >}}) |
+| State | [State]({{< relref "/docs/intro/concepts/state" >}}) |
+| State Version | [Update Events]({{< relref "/docs/reference/service-rest-api#list-update-events" >}}) |
+| Backend | [Backend]({{< relref "/docs/intro/concepts/state" >}}) |
+| Deposed | [Pending Operations]({{< relref "/docs/reference/service-rest-api#list-update-events" >}}) |
 
 ## Commands
 
