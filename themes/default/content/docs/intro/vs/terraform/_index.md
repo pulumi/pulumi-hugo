@@ -10,6 +10,17 @@ aliases:
 - /docs/reference/vs/terraform/
 ---
 
+<style>
+    main table {
+        font-size: 0.94em;
+    }
+
+    main table th,
+    main table td {
+        width: 33.3%;
+    }
+</style>
+
 Choosing the right cloud engineering platform is critical. We want you to have the best information possible to pick the solution that fits your needs.
 
 ## What is Terraform?
