@@ -529,7 +529,7 @@ Get in touch with us, either through the [Community Slack](https://slack.pulumi.
 
 ## I can't connect to the Pulumi Service
 
-If your network is locked down to external traffic, you're using the service to manage your state, and your security team need to give you access to the service then here's the information you can pass over.
+If your network is locked down to external traffic, you're using the service to manage your state, and your security team needs to give you access to the service then here's the information you can pass over.
 
 The URL that the Pulumi CLI connects to is: `https://api.pulumi.com` (not `https://app.pulumi.com`, although if you want to view the console then you'll need access to that as well).
 
