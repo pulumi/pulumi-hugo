@@ -26,7 +26,7 @@ If you're already familiar with Terraform, learning Pulumi terminology and comma
 | Directory | [Project]({{< relref "/docs/intro/concepts/project" >}}) |
 | Module | [Component]({{< relref "/docs/intro/concepts/resources/components" >}}) |
 | Resource | [Resource]({{< relref "/docs/intro/concepts/resources" >}}) |
-| Interpolation | [Interpolation]({{< relref "/docs/reference/cli/pulumi_up" >}}) |
+| Interpolation | [Interpolation]({{< relref "/docs/intro/concepts/inputs-outputs#outputs-and-strings" >}}) |
 | Run | [Up]({{< relref "/docs/reference/cli/pulumi_up" >}}) |
 | Output Values | [Outputs]({{< relref "/docs/intro/concepts/inputs-outputs" >}}) |
 | State | [State]({{< relref "/docs/intro/concepts/state" >}}) |
