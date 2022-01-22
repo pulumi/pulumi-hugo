@@ -1,7 +1,10 @@
 ---
 title: Six Things You Might Not Know About the Pulumi Service
 date: 2022-01-24
-meta_desc: In this post, we'll highlight some features of the Pulumi Service you might not be aware of, making it even easier to manage your infrastructure using Pulumi.
+meta_desc: |
+    In this post, we'll highlight some features of the Pulumi Service you might not be aware of, making it even easier to manage your infrastructure using Pulumi. Let’s get started!
+summary: |
+    In this post, we'll highlight some features of the Pulumi Service you might not be aware of, making it even easier to manage your infrastructure using Pulumi. Let’s get started!
 meta_image: meta.png
 authors:
     - chris-smith
