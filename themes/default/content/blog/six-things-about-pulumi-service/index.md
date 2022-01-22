@@ -22,23 +22,23 @@ The first thing we'll cover is the [Pulumi stack tags]({{< relref "/docs/intro/c
 
 While you can create, edit, and remove stack tags using the Pulumi CLI (see [`pulumi stack tag`]({{< relref "/docs/reference/cli/pulumi_stack_tag" >}})), you can also do so in the Pulumi Console:
 
-![image of stack tag CRUD in the service](https://user-images.githubusercontent.com/274700/150612443-b0b187e1-6329-42ca-816f-01de1bc5d4ff.gif)
+![Adding and removing stack tags in the Service ](https://user-images.githubusercontent.com/274700/150612443-b0b187e1-6329-42ca-816f-01de1bc5d4ff.gif)
 
 Once set, you can quickly filter stacks on your organization’s Projects tab as well.
 
-![image of filtering stacks by tag in the service](https://user-images.githubusercontent.com/274700/150613454-1554b763-2e8b-42e9-80ce-e629048bb1b9.png)
+![Filtering stacks by tag name](https://user-images.githubusercontent.com/274700/150613454-1554b763-2e8b-42e9-80ce-e629048bb1b9.png)
 
 ## Thing 2: Link Updates to your CI/CD pipeline
 
 Another helpful thing the Pulumi Service can do is link the Pulumi stack update to the CI/CD job or run that was used to perform it, as well as to the specific source commit:
 
-![image of the stack update header card, with links to the github PR, source commit, etc.](https://user-images.githubusercontent.com/274700/150612892-f8e84597-2ce2-4687-8acc-236a57f6c6a4.png)
+![The stack update header, showing links to GitHub source commit](https://user-images.githubusercontent.com/274700/150612892-f8e84597-2ce2-4687-8acc-236a57f6c6a4.png)
 
 When Pulumi updates a stack, it will store some information about the local machine state, such the current git SHA if the stack resides in a `git` repository. It is with this data that the Pulumi Service links to relevant services where possible.
 
 If you're curious to know all of the information Pulumi has for a stack update, you can navigate to the Environment tab for that update:
 
-![The Environment tab](https://user-images.githubusercontent.com/274700/150613104-510c755f-180e-4f0c-a2cb-e9f9816649e6.png)
+![The Environment tab of a stack update](https://user-images.githubusercontent.com/274700/150613104-510c755f-180e-4f0c-a2cb-e9f9816649e6.png)
 
 ## Thing 3: Custom Update Messages
 
@@ -50,7 +50,7 @@ By passing the `--message` (or `-m`) flag to `pulumi up`, you can provide a cust
 $ pulumi up --message "Release the hounds\!"
 ```
 
-![image of update message, with a custom string. E.g. “rollback to commit XXX because of issue #yyy”](https://user-images.githubusercontent.com/274700/150614494-b1c6aef1-aed0-4de5-a815-f4f8ddcef48a.png)
+![An update in the Service with a custom message](https://user-images.githubusercontent.com/274700/150614494-b1c6aef1-aed0-4de5-a815-f4f8ddcef48a.png)
 
 ## Thing 4: Viewing Resource Changes
 
@@ -60,11 +60,11 @@ The standard view mimics the Pulumi CLI's output. However, you can switch to the
 
 The Diff view displays all of the properties of modified resources, along with their previous/updated values. This can be helpful when trying to understand exactly what happened for a stack update.
 
-![image of the diff view in action.](https://user-images.githubusercontent.com/274700/150618931-5881cc70-36ab-4e46-b01c-53c13b8edfa1.png)
+![The diff view, showing resource-property changes](https://user-images.githubusercontent.com/274700/150618931-5881cc70-36ab-4e46-b01c-53c13b8edfa1.png)
 
 The _Diagnostic view_ just outputs so-called “diagnostic” messages from the Pulumi update. Most commonly, this is where you will see the output of things like calls to JavaScript’s `console.log(...)` or Python’s `print(...)` functions. It'll also include the output of dependent tools, like the output when building Docker containers.
 
-![intentionally NOT showing a view of the diagnostic view, since it’s unlikely to be that interesting](https://user-images.githubusercontent.com/274700/150619125-8067b1c6-843d-4f52-999c-69f8e184870e.png)
+![The diagnostic view, showing the output of a Docker image build](https://user-images.githubusercontent.com/274700/150619125-8067b1c6-843d-4f52-999c-69f8e184870e.png)
 
 ## Thing 5: Stack Resource Visualization
 
@@ -88,7 +88,7 @@ Notice here that the resources that are part of a [_component_](https://www.pulu
 
 But you don’t need to just settle for a "top-level view" of your resources. You can click on any specific resource on the Resources tab, and see all of the properties of that resource.
 
-![image of the resource details page](https://user-images.githubusercontent.com/274700/150619959-7025d772-14e5-45a7-b660-78a1fc8d769b.png)
+![The Resource details view, showing all properties of a TargetGroup resource](https://user-images.githubusercontent.com/274700/150619959-7025d772-14e5-45a7-b660-78a1fc8d769b.png)
 
 This allows you to see all of the properties that Pulumi is tracking for that resource. It will also show you any relationships to other resources in the same stack.
 
