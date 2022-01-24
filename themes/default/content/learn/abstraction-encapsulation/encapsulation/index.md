@@ -67,7 +67,7 @@ bucket_policy = aws_classic.s3.BucketPolicy(
 pulumi.export("bucket", bucket.bucket_name)
 ```
 
-Now, that's nice, but what if we need to make three different storage objects for three different use cases? We could start out by creating a resource grouping for the kind of resource we wanted to use:
+Now, that's nice, but what if we need to make three different storage objects for three different use cases? Sure, we could copy and paste the code over and over, but that's not good practice. It introduces the possibility for errors, makes the whole codebase harder to maintain (what if there's an update to the policy versions that has to go out for security reasons?!?), and in general creates more headaches than it solves. Instead, let's encapsulate the code into something more reusable. We could start out by creating a resource grouping for the kind of resource we wanted to use:
 
 ```python
 import ...
@@ -130,4 +130,4 @@ class OurBucketClass(self, name_me, policy_name):
 
 ```
 
-In Pulumi, everything, including your resources, can be modeled, abstracted, and encapsulated just like anything in your programming language of choice. Why does that matter, or why should you care? The answer to that question is up next!
+This way of breaking out the code is only the beginning, though. It still is stuck in the weeds of being specifically following the resource model of an S3 bucket on AWS, and an end user building on top of your code probably doesn't care about these low-level constructs. In Pulumi, everything, including your resources, can be modeled, abstracted, and encapsulated just like anything in your programming language of choice. Why does that matter, or why should you care? The answer to that question is up next!
