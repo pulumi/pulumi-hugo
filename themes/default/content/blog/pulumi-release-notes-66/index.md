@@ -40,9 +40,9 @@ tags:
 Over the holidays we have been releasing new features and improvements. Read on to learn about what's new this release!
 
 - Cloud Providers and Packages
-  - [New `Command` package]({{<relref "/blog/pulumi-release-notes-66/#new-command-package">}})
+  - [New `Command` package]({{<relref "/blog/pulumi-release-notes-66#new-command-package">}})
   - [Support pulumi import for Kubernetes CRDs]({{<relref "/blog/pulumi-release-notes-m66##support-pulumi-import-for-kubernetes-crds">}})
-  - [Various improvements to Helm Release]({{<relref "/blog/pulumi-release-notes-m66##various-improvements-to-helm-release">}})
+  - [Various improvements to Helm Release]({{<relref "/blog/pulumi-release-notes-m66#various-improvements-to-helm-release">}})
 - Pulumi CLI and core technologies
   - [Support using native ES modules as Pulumi scripts]({{<relref "/blog/pulumi-release-notes-m66#support-using-native-es-modules-as-pulumi-scripts">}})
   - [Support packages with plugins hosted in any third-party location ]({{<relref "/blog/pulumi-release-notes-m66#support-packages-with-plugins-hosted-in-any-third-party-location">}})
