@@ -43,11 +43,11 @@ Over the holidays we have been releasing new features and improvements. Read on 
 
 - Cloud Providers and Packages
   - [New `Command` package]({{<relref "/blog/pulumi-release-notes-66#new-command-package">}})
-  - [Support pulumi import for Kubernetes CRDs]({{<relref "/blog/pulumi-release-notes-m66##support-pulumi-import-for-kubernetes-crds">}})
+  - [Support pulumi import for Kubernetes CRDs]({{<relref "/blog/pulumi-release-notes-m66#support-pulumi-import-for-kubernetes-crds">}})
   - [Various improvements to Helm Release]({{<relref "/blog/pulumi-release-notes-m66#various-improvements-to-helm-release">}})
 - Pulumi CLI and core technologies
   - [Support using native ES modules as Pulumi scripts]({{<relref "/blog/pulumi-release-notes-m66#support-using-native-es-modules-as-pulumi-scripts">}})
-  - [Support packages with plugins hosted in any third-party location ]({{<relref "/blog/pulumi-release-notes-m66#support-packages-with-plugins-hosted-in-any-third-party-location">}})
+  - [Support packages with plugins hosted in any third-party location]({{<relref "/blog/pulumi-release-notes-m66#support-packages-with-plugins-hosted-in-any-third-party-location">}})
   - [State locking default enabled]({{<relref "/blog/pulumi-release-notes-m66#state-locking-default-enabled">}})
 - Pulumi Service & Pulumi.com
   - [Third-party audit log tracking for secrets decryption]({{<relref "/blog/pulumi-release-notes-m66#third-party-audit-log-tracking-for-secrets-decryption">}})
@@ -85,20 +85,20 @@ This milestone we spent some time making improvements to the Helm `Release` supp
 
 ## Pulumi CLI and core technologies
 
-### Support using native ES modules as Pulumi scripts: 
+### Support using native ES modules as Pulumi scripts
 
 Native ECMAScript module (ESM) support has been added for the Node.js SDK. Pulumi users can now use Pulumi in projects with "type": "module" configured.
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/7764)
 
-### Support packages with plugins hosted in any third-party location 
+### Support packages with plugins hosted in any third-party location
 
 Pulumi Packages can now host their plugins anywhere (like GitHub releases) instead of needing to be published by Pulumi. We now detect any dependency that contains pulumi-plugin.json and treat it as a Pulumi Package, automatically downloading associated plugins as needed. To support this, the freshly generated Multi-Language Component (MLC) plugin will now include pulumi-plugin.json by default.
 
 Learn more in the following GitHub issues: [#8515](https://github.com/pulumi/pulumi/issues/8515), [#8516](https://github.com/pulumi/pulumi/issues/8516), [#8517](https://github.com/pulumi/pulumi/issues/8517), [#8530](https://github.com/pulumi/pulumi/issues/8530), [#8527](https://github.com/pulumi/pulumi/issues/8527) and [#8532](https://github.com/pulumi/pulumi/issues/8532).
 
 
-### State locking default enabled 
+### State locking default enabled
 
 We [previously added](https://github.com/pulumi/pulumi/pull/2697) support for self-managed backend state locking behind the  PULUMI_SELF_MANAGED_STATE_LOCKING=1 flag. After positive feedback from users on this feature, we are making this the default when using a local or cloud backend such as Amazon S3, Google Cloud Storage and Azure Blob Storage. 
 
