@@ -113,11 +113,12 @@ class OurBucketClass(self, name_me, policy_name):
 
     def define_policy(policy_name, bucket_id):
         try:
-            if policy_name in policy_list.keys():
-                json_data = policy_list[f"{policy_name}"]
+            json_data = policy_list[f"{policy_name}"]
             return bucket_id.arn.apply(lambda arn: json.dumps(json_data))
-        except Exception as err:
-            raise err
+        except KeyError as err:
+            add_note = "Policy name needs to be 'default', 'locked', or 'permissive'."
+            print(f"Error: {add_note}. You used {policy_name}.")
+            raise
 
     bucket = aws_native.s3.bucket(f"{name_me}")
     bucket_policy = aws_classic.s3.BucketPolicy(
