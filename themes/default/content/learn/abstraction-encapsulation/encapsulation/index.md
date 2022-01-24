@@ -7,7 +7,7 @@ description: |
     Explore encapsulation of cloud resources with Pulumi.
 meta_desc: |
     Explore encapsulation of cloud resources with Pulumi.
-index: 1
+index: 0
 estimated_time: 10
 meta_image: meta.png
 authors:
@@ -17,9 +17,9 @@ tags:
 block_external_search_index: false
 ---
 
-So we've explored a bit about abstraction. What about encapsulation?
+Encapsulation is one part of what makes a programming language so powerful. Without encapsulation, programs would still be sets of commands. Encapsulation is generally considered as part of an object-oriented paradigm, but it's present in other software development paradigms like functional programming (e.g., lexical closures). But what does this have to do with infrastructure? Well, by using encapsulation we break logic down into reusable components. In doing so, we ensure better maintainability, readability, and reusability&mdash;all critical to good infrastructure as code both in theory and in practice.
 
-Encapsulation is the logical conclusion of an abstracted system: Breaking logic down into reusable components. In doing so, we ensure better maintainability, readability, and reusability. To illustrate that, let's explore a practical example.
+Breaking apart Pulumi code is essential to keeping a clean, well-organized, and easily maintained code base that enables teams to collaborate to enhance current systems. Over the course of these pathways, we've been pretending we're part of a fictional organization called Pulumipus (after Pulumi's beloved mascot), so let's imagine that we've now scaled beyond the basic boba shop from the Fundamentals series to an entire brand with many, many smaller organizations. As the owners of the infrastructure for the Pulumipus brand, we've got a lot of resources to maintain, and it's much better to reuse code that we write once rather than repeating ourselves continuously in our program and throughout all of the programs we maintain. To illustrate that, let's explore a practical example.
 
 ## Breaking apart Pulumi code
 
@@ -27,9 +27,9 @@ Let's take a fairly uncomplicated piece of Pulumi code: the definition of an s3 
 
 ```python
 import pulumi
-import pulumi_aws_native as aws
+import pulumi_aws_native as aws_native
 
-bucket = aws.s3.bucket("my-bucket")
+bucket = aws_native.s3.bucket("my-bucket")
 
 pulumi.export("bucket", bucket.bucket_name)
 ```
@@ -40,9 +40,9 @@ Here, we're creating one resource and exporting the output from that resource. I
 import json
 import pulumi
 import pulumi_aws as aws_classic
-import pulumi_aws_native as aws
+import pulumi_aws_native as aws_native
 
-bucket = aws.s3.bucket("my-bucket")
+bucket = aws_native.s3.bucket("my-bucket")
 bucket_policy = aws_classic.s3.BucketPolicy(
     "my-bucket-policy",
     bucket=bucket.id,
@@ -74,7 +74,7 @@ import ...
 
 
 class OurBucketClass(self, name_me):
-    bucket = aws.s3.bucket(f"{name_me}")
+    bucket = aws_native.s3.bucket(f"{name_me}")
     bucket_policy = aws_classic.s3.BucketPolicy(
         f"{name_me}-policy",
         bucket=bucket.id,
@@ -119,7 +119,7 @@ class OurBucketClass(self, name_me, policy_name):
         except Exception as err:
             raise err
 
-    bucket = aws.s3.bucket(f"{name_me}")
+    bucket = aws_native.s3.bucket(f"{name_me}")
     bucket_policy = aws_classic.s3.BucketPolicy(
         f"{name_me}-policy",
         bucket=bucket.id,

@@ -51,7 +51,7 @@ class OurBucketComponent(pulumi.ComponentResource):
             'locked' : '{...}',
             'permissive': '{...}'
         }
-        bucket = aws.s3.bucket(name)
+        bucket = aws_native.s3.bucket(name)
         def define_policy(policy_name):
             try:
                 if policy_name in policy_list.keys():
