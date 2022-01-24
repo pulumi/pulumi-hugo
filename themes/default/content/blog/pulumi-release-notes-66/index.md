@@ -1,5 +1,5 @@
 ---
-title: "Jan. 2nd releases: Pulumi Packages support for plugins hosted anywhere and Pulumi Service 3rd party audit for secrets decryption."
+title: "Jan. 2nd releases: Pulumi Packages support for plugins hosted anywhere and Pulumi Service 3rd party audit for secrets decryption"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
