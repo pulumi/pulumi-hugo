@@ -28,12 +28,15 @@ How long this tutorial will take depends on your internet connection, reading sp
 
 ## Prerequisites
 
-You will need the following tools and skills to complete this pathway:
+You will need the following knowledge to complete this pathway:
+
+- Completion of the [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with Pulumi]({{< relref "/learn/building-with-pulumi" >}}) pathways, OR have experience using Pulumi for other projects
+
+Optionally, if you want to build some of the examples yourself to experiment, you'll need the following tools and skills:
 
 - A [Pulumi account and token]({{< relref "/docs/intro/console/accounts#access-tokens" >}}) (If you don't have an account, go to the [signup page](https://app.pulumi.com/signup))
 - An AWS account (the free version should be fine)
 - Familiarity with the Python programming language
-- Completion of the [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with Pulumi]({{< relref "/learn/building-with-pulumi" >}}) pathways, OR have experience using Pulumi for other projects
 
 ## About this pathway
 
