@@ -35,3 +35,4 @@ Mentally, we're defining an abstract cloud storage system like this:
 
 Seems pretty clean, doesn't it? Abstraction is thinking through what we experience when we call the code, so that anyone calling that code experiences the same thing. The part that gets complicated is when we start translating that idea to code. To abstract something away, we provide a higher-level interface for someone to use to request that experience overall without needing to know all of the low-level details regarding how that experience is put together, such as which policies are necessarily to get the desired result.
 
+Now that we've explored abstraction, how do you start to share these abstractions with others? Let's go explore component resources!
