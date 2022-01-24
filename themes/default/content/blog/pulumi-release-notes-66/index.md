@@ -1,5 +1,5 @@
 ---
-title: "Jan. 2nd releases: Pulumi packages support for plugins hosted anywhere and Pulumi Service 3rd party audit for secrets decryption."
+title: "Jan. 2nd releases: Pulumi Packages support for plugins hosted anywhere and Pulumi Service 3rd party audit for secrets decryption."
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
@@ -7,9 +7,11 @@ title: "Jan. 2nd releases: Pulumi packages support for plugins hosted anywhere a
 # of this value to schedule posts for publishing later.
 date: 2022-01-21T13:20:48-08:00
 
+allow_long_title: true
+
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting your post for review.
-draft: true
+draft: false
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
