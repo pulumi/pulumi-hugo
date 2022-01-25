@@ -2,9 +2,9 @@
 title: Six Things You Might Not Know About the Pulumi Service
 date: 2022-01-24
 meta_desc: |
-    In this post, we'll highlight some features of the Pulumi Service you might not be aware of, making it even easier to manage your infrastructure using Pulumi.
+    In this post, we'll highlight a number of the lesser-known features of the Pulumi Service that make it even easier to manage your infrastructure with Pulumi.
 summary: |
-    In this post, we'll highlight some features of the Pulumi Service you might not be aware of, making it even easier to manage your infrastructure using Pulumi. Let’s get started!
+    As a reader of this blog, you've probably heard of the Pulumi Service, the default state-management backend of the Pulumi CLI, and if that's the case, there's a good chance you've also heard of many of its key features. But did you know we're adding new features to the Service all the time---some of which are incredibly easy to miss? In this post, we'll highlight a few of those lesser-known features that we think make it even easier to manage your infrastructure with Pulumi.
 meta_image: meta.png
 authors:
     - chris-smith
@@ -15,9 +15,9 @@ tags:
     - features
 ---
 
-As a reader of this blog, you've probably already heard of the [Pulumi Service]({{< relref "/product/pulumi-service" >}}), the default state-management [backend]({{< relref "/docs/intro/concepts/state" >}}) of the Pulumi CLI. If that's the case, there's also a good chance you've heard of a number of the Service's key features, like helping you organize your [projects and stacks]({{< relref "/docs/intro/pulumi-service/projects-and-stacks" >}}), collaborate with others with the help of [organizations]({{< relref "/docs/intro/pulumi-service/organizations" >}}), or handle sensitive data securely with built-in support for [encrypted secrets](https://www.pulumi.com/docs/intro/concepts/secrets/).
+As a reader of this blog, you've probably heard of the [Pulumi Service]({{< relref "/product/pulumi-service" >}}), the default state-management [backend]({{< relref "/docs/intro/concepts/state" >}}) of the Pulumi CLI. If that's the case, there's also a good chance you've heard of a number of the Service's key features, like helping you organize your [projects and stacks]({{< relref "/docs/intro/pulumi-service/projects-and-stacks" >}}), collaborate with others with the help of [organizations]({{< relref "/docs/intro/pulumi-service/organizations" >}}), or handle sensitive data securely with built-in support for [encrypted secrets](https://www.pulumi.com/docs/intro/concepts/secrets/).
 
-What you might not know, though, is that we're adding new features to the Pulumi Service all the time, and that some of these features can  be fairly easy to miss. So in this post, we're going to highlight some of the features you might _not_ be aware of, and that make it even easier to manage your infrastructure with Pulumi.
+What you might not know, though, is that we're adding new features to the Pulumi Service all the time, and that some of these features can  be fairly easy to miss. So in this post, we'll highlight a handful of the features you might _not_ be aware of, and that we think make it even easier to manage your infrastructure with Pulumi.
 
 Let’s get started!
 
