@@ -42,7 +42,7 @@ import pulumi
 import pulumi_aws as aws_classic
 import pulumi_aws_native as aws_native
 
-bucket = aws_native.s3.bucket("my-bucket")
+bucket = aws_native.s3.Bucket("my-bucket")
 bucket_policy = aws_classic.s3.BucketPolicy(
     "my-bucket-policy",
     bucket=bucket.id,
@@ -74,59 +74,76 @@ import ...
 
 
 class OurBucketClass(self, name_me):
-    bucket = aws_native.s3.bucket(f"{name_me}")
-    bucket_policy = aws_classic.s3.BucketPolicy(
-        f"{name_me}-policy",
-        bucket=bucket.id,
-        policy=bucket.arn.apply(
-            lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Action": [
-                        "s3:GetObject"
-                    ],
-                    "Resource": [
-                        f"{arn}/*"
-                    ]
-                }]
-            })
-        ),
-        opts=pulumi.ResourceOptions(parent=bucket)
-    )
+    def __init__(self, name_me, policy_name):
+        self.name_me = name_me
+        self.policy_name = policy_name
+        self.bucket = aws_native.s3.Bucket(f"{self.name_me}")
+        self.bucket_policy = aws_classic.s3.BucketPolicy(
+            f"{name_me}-policy",
+            bucket=bucket.id,
+            policy=bucket.arn.apply(
+                lambda arn: json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Principal": "*",
+                        "Action": [
+                            "s3:GetObject"
+                        ],
+                        "Resource": [
+                            f"{arn}/*"
+                        ]
+                    }]
+                })
+            ),
+            opts=pulumi.ResourceOptions(parent=bucket)
+        )
 ```
 
-But that JSON blob of the policy is also an object which we can encapsulate, making our storage object class more usable outside of this specific context. Let's imagine we have a referenceable list of common access policies, perhaps a simple key:value store. In the store, keys are strings that are names of policies, and the values are JSON documents.
+But that JSON blob of the policy is also an object which we can encapsulate, making our storage object class more usable outside of this specific context. Let's imagine we have a referenceable list of common access policies, perhaps a simple key:value store. In the store, keys are strings that are names of policies, and the values are JSON documents stored in separate files so you can reuse them.
 
 ```python
 import ...
 
+# Note: In each json file where the resource ARN would be, I've placed the string "fakeobjectresourcething" as a placeholder for the ARN that's defined at runtime.
+with open('default.json') as f:
+    default = json.load(f)
+ # Repeat to define each json file
 
-class OurBucketClass(self, name_me, policy_name):
 
-    policy_list = {
-        'default': '{...}',
-        'locked' : '{...}',
-        'permissive': '{...}'
-    }
+class OurBucketClass:
+    def __init__(self, name_me, policy_name):
+        self.name_me = name_me
+        self.policy_name = policy_name
+        self.bucket = aws_native.s3.Bucket(f"{self.name_me}")
+        self.policy_list = {
+            'default': default,
+            'locked': '{...}',
+            'permissive': '{...}'
+        }
 
-    def define_policy(policy_name, bucket_id):
+    def define_policy(self):
+        policy_name = self.policy_name
         try:
-            json_data = policy_list[f"{policy_name}"]
-            return bucket_id.arn.apply(lambda arn: json.dumps(json_data))
+            json_data = self.policy_list[f"{policy_name}"]
+            policy = self.bucket.arn.apply(lambda arn: json.dumps(json_data).replace('fakeobjectresourcething', arn))
+            return policy
         except KeyError as err:
-            add_note = "Policy name needs to be 'default', 'locked', or 'permissive'."
+            add_note = "Policy name needs to be 'default', 'locked', or 'permissive'"
             print(f"Error: {add_note}. You used {policy_name}.")
             raise
 
-    bucket = aws_native.s3.bucket(f"{name_me}")
-    bucket_policy = aws_classic.s3.BucketPolicy(
-        f"{name_me}-policy",
-        bucket=bucket.id,
-        policy=define_policy(policy_name, bucket.id)
-        opts=pulumi.ResourceOptions(parent=bucket)
-    )
+    def set_policy(self):
+        bucket_policy = aws_classic.s3.BucketPolicy(
+            f"{self.name_me}-policy",
+            bucket=self.bucket.id,
+            policy=self.define_policy(),
+            opts=pulumi.ResourceOptions(parent=self.bucket)
+        )
+        return bucket_policy
+
+
+bucket1 = OurBucketClass('laura-bucket-1', 'default')
 
 ```
 

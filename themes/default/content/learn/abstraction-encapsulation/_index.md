@@ -11,8 +11,8 @@ index: 6
 meta_image: meta.png
 level: intermediate
 youll_learn:
-    - Making reusable abstractions
     - Encapsulating Pulumi components
+    - Making reusable abstractions
     - Building your own resources
 tags:
     - learn

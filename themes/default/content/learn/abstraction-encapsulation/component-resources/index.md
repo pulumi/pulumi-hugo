@@ -43,37 +43,50 @@ import ...
 
 
 class OurBucketComponent(pulumi.ComponentResource):
-    def __init__(self, name, policy_name='default', opts=None):
+    def __init__(self, name_me, policy_name='default', opts=None):
         super().__init__('pkg:index:OurBucketComponent', name, None, opts)
         child_opts = pulumi.ResourceOptions(parent=self)
-        policy_list = {
-            'default': '{...}',
-            'locked' : '{...}',
+        self.name_me = name_me
+        self.policy_name = policy_name
+        self.bucket = aws_native.s3.Bucket(f"{self.name_me}")
+        self.policy_list = {
+            'default': default,
+            'locked': '{...}',
             'permissive': '{...}'
         }
-        bucket = aws_native.s3.bucket(name)
-        def define_policy(policy_name):
-            try:
-                if policy_name in policy_list.keys():
-                    json_data = policy_list[f"{policy_name}"]
-                return json.dumps(json_data)
-            except Exception as err:
-                raise err
-        bucket_policy = aws_classic.s3.BucketPolicy(
-            name,
-            bucket=bucket.id,
-            policy=bucket.arn.apply(lambda arn: define_policy(policy_name)),
-            opts=pulumi.ResourceOptions(parent=bucket)
-        )
         self.register_outputs({
-            "bucket_name": bucket.bucket_name
+            "bucket_name": self.bucket.bucket_name
         })
+
+    def define_policy(self):
+        policy_name = self.policy_name
+        try:
+            json_data = self.policy_list[f"{policy_name}"]
+            policy = self.bucket.arn.apply(lambda arn: json.dumps(json_data).replace('fakeobjectresourcething', arn))
+            return policy
+        except KeyError as err:
+            add_note = "Policy name needs to be 'default', 'locked', or 'permissive'"
+            print(f"Error: {add_note}. You used {policy_name}.")
+            raise
+
+    def set_policy(self):
+        bucket_policy = aws_classic.s3.BucketPolicy(
+            f"{self.name_me}-policy",
+            bucket=self.bucket.id,
+            policy=self.define_policy(),
+            opts=pulumi.ResourceOptions(parent=self.bucket)
+        )
+        return bucket_policy
+
+
+
 ```
 
 Within `super()`'s init, we pass in a name for the resource, which we recommend being of the form `<package>:<module>:<type>` to avoid type conflicts since it's being registered alongside other resources like the Bucket resource we're calling (`aws:s3:Bucket`).
 
-That last call, `self.register_outputs({})`, passes Pulumi the expected outputs so Pulumi can read the results of the creation or update of a component resource just like any other resource, so don't forget that call! You can register default outputs using this call, as well. It's not hard to imagine we will always want the bucket name for our use case, so we pass that in as an always-given output for our component resource.
+That last call in the init, `self.register_outputs({})`, passes Pulumi the expected outputs so Pulumi can read the results of the creation or update of a component resource just like any other resource, so don't forget that call! You can register default outputs using this call, as well. It's not hard to imagine we will always want the bucket name for our use case, so we pass that in as an always-given output for our component resource.
 
+From here, you can deploy it and get your custom resource appearing in the resource tree in your terminal! You can also share it with others so they can import the resource and use it without ever needing to understand all of the underlying needs of a standard storage system on AWS.
 ---
 
 Congratulations! You've now finished this pathway on abstraction and encapsulation in Pulumi programs! In this pathway, you've learned about thinking of code in abstract forms, wrapping up logical groupings of code to make reuse easier, and building with component resources to make those logical groupings something that Pulumi recognizes.

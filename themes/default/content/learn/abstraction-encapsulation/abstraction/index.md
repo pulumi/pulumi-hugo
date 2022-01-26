@@ -17,7 +17,7 @@ tags:
 block_external_search_index: false
 ---
 
-Encapsulation is the natural conclusion of abstraction. Just like any application code, Pulumi infrastructure code can be abstracted, enabling us to work with high-level, generic representations of the things we need to build. If we use an object-oriented language such as JavaScript, Python, or TypeScript, we can create and instantiate classes. For languages like Go, we can build up interfaces. In all cases, we're thinking in terms of taking code that we've written and making it reusable in some form.Let's first explore abstraction.
+Encapsulation is the natural conclusion of abstraction. Just like any application code, Pulumi infrastructure code can be abstracted, enabling us to work with high-level, generic representations of the things we need to build. If we use an object-oriented language such as JavaScript, Python, or TypeScript, we can create and instantiate classes. For languages like Go, we can build up interfaces. In all cases, we're thinking in terms of taking code that we've written and making it reusable in some form. Let's first explore abstraction.
 
 ## Thinking in abstraction
 
@@ -35,4 +35,20 @@ Mentally, we're defining an abstract cloud storage system like this:
 
 Seems pretty clean, doesn't it? Abstraction is thinking through what we experience when we call the code, so that anyone calling that code experiences the same thing. The part that gets complicated is when we start translating that idea to code. To abstract something away, we provide a higher-level interface for someone to use to request that experience overall without needing to know all of the low-level details regarding how that experience is put together, such as which policies are necessarily to get the desired result.
 
-Now that we've explored abstraction, how do you start to share these abstractions with others? Let's go explore component resources!
+With Pulumi, one way to abstract the prior work away to match this diagram a bit better might be to wrap the whole thing in another class that requires you to define which cloud provider you want to use, kind of like this pseudo code layout:
+
+```python
+import ...
+
+class StorageClass:
+    def __init__(self, cloud):
+        cloud = self.cloud
+
+    if cloud is 'aws':
+        # aws class here
+    elif cloud is 'gcp:
+        # gcp class here
+    elif ...
+```
+
+There's a cleaner way to do this, though, with Pulumi if you want to start to share these abstractions with others. We call them _Component Resources_. Let's go explore them next!
