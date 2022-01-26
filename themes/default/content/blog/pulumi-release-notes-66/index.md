@@ -69,7 +69,7 @@ The Command package supports quite a few common patterns involving local and rem
 - [Using local.Command with curl to manage an external REST API]({{<relref "/registry/packages/command/#invoking-a-lambda-during-pulumi-deployment">}})
 - [Graceful cleanup of workloads in a Kubernetes cluster]({{<relref "/registry/packages/command/#graceful-cleanup-of-workloads-in-a-kubernetes-cluster">}})
 
-[Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/99)
+Learn more in the [Command package GitHub issue](https://github.com/pulumi/pulumi/issues/99)
 
 ### Support `pulumi import` for Kubernetes CRDs
 
