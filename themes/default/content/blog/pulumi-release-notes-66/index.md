@@ -77,7 +77,7 @@ We have added `pulumi import` support for Kubernetes CustomResourceDefiniton (CR
 
 ### Various improvements to Helm `Release`
 
-This milestone we spent some time making improvements to the Helm `Release` support. Of particular note are the ability to import existing Helm releases installed via the Helm command line into Pulumi (#1818 ) and the ability to supply Helm values through YAML files (#1828). In addition, we have made a variety of bug fixes this iteration to make Helm Release a more robust option to use for your Kubernetes environment.
+This milestone we spent some time making improvements to the Helm `Release` support. Of particular note are the ability to import existing Helm releases installed via the Helm command line into Pulumi and the ability to supply Helm values through YAML files. In addition, we have made a variety of bug fixes this iteration to make Helm Release a more robust option to use for your Kubernetes environment.
 
 Learn more in these GitHub issues:
 - [Fix import handling for Helm `Release`](https://github.com/pulumi/pulumi-kubernetes/pull/1818)
