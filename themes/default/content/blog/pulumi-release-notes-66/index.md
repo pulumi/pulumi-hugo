@@ -39,7 +39,7 @@ tags:
 
 ---
 
-Over the holidays we have been releasing new features and improvements. Read on to learn about what's new this release!
+Over the holidays we have been releasing new features and improvements. Read on to learn about what's new in this release!
 
 - Cloud Providers and Packages
   - [New `Command` package]({{<relref "/blog/pulumi-release-notes-66#new-command-package">}})
