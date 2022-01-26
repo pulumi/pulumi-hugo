@@ -5,7 +5,7 @@ title: "Jan. 2nd releases: Pulumi Packages support for plugins hosted anywhere a
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-01-25T13:20:48-08:00
+date: 2022-01-26T13:20:48-08:00
 
 allow_long_title: true
 
