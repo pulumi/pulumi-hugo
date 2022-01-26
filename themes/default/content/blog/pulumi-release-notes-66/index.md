@@ -48,7 +48,7 @@ Over the holidays we have been releasing new features and improvements. Read on 
   - [Support packages with plugins hosted in any third-party location]({{<relref "/blog/pulumi-release-notes-m66#support-packages-with-plugins-hosted-in-any-third-party-location">}})
   - [State locking default enabled]({{<relref "/blog/pulumi-release-notes-m66#state-locking-default-enabled">}})
 - Pulumi Service 
-  - [Third-party audit log tracking for secrets decryption]({{<relref "/blog/pulumi-release-notes-m66#third-party-audit-log-tracking-for-secrets-decryption">}})
+  - [Audit logging for third-party secrets managers]({{<relref "/blog/pulumi-release-notes-66/audit-logging-for-third-party-secrets-managers">}})
 
 <!--more-->
 
@@ -113,7 +113,7 @@ We [previously added](https://github.com/pulumi/pulumi/pull/2697) support for se
 
 ## Pulumi Service & Pulumi.com
 
-### Third-party audit log tracking for secrets decryption
+### Audit logging for third-party secrets managers
 
 Previously secret decryption [Audit Log]({{<relref "/docs/intro/pulumi-service/audit-logs/">}}) events were only logged for users using the Pulumi Service secrets provider. Now users who use the Pulumi Service for their state but a third-party secrets provider (AWS KMS, Azure KeyVault, HashiCorp Vault, etc.) will have a log of these events. 
 
