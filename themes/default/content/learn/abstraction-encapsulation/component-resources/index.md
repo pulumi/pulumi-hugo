@@ -86,14 +86,20 @@ class OurBucketComponent(pulumi.ComponentResource):
 
 ```
 
-Within `super()`'s init, we pass in a name for the resource, which we recommend being of the form `<package>:<module>:<type>` to avoid type conflicts since it's being registered alongside other resources like the Bucket resource we're calling (`aws:s3:Bucket`).
+Within `super()`'s init, we pass in a name for the resource, which [we recommend]({{< relref "/docs/intro/concepts/resources/components#authoring-a-new-component-resource" >}}) being of the form `<package>:<module>:<type>` to avoid type conflicts since it's being registered alongside other resources like the Bucket resource we're calling (`aws:s3:Bucket`).
 
-That last call in the init, `self.register_outputs({})`, passes Pulumi the expected outputs so Pulumi can read the results of the creation or update of a component resource just like any other resource, so don't forget that call! You can register default outputs using this call, as well. It's not hard to imagine we will always want the bucket name for our use case, so we pass that in as an always-given output for our component resource.
+That last call in the init, `self.register_outputs({})`, passes Pulumi the expected outputs so Pulumi can read the results of the creation or update of a component resource just like any other resource, so don't forget that call! You can [register default outputs using this call]({{< relref "/docs/intro/concepts/resources/components#registering-component-outputs" >}}), as well. It's not hard to imagine we will always want the bucket name for our use case, so we pass that in as an always-given output for our component resource.
 
 From here, you can deploy it and get your custom resource appearing in the resource tree in your terminal! You can also share it with others so they can import the resource and use it without ever needing to understand all of the underlying needs of a standard storage system on AWS.
 
 ---
 
 Congratulations! You've now finished this pathway on abstraction and encapsulation in Pulumi programs! In this pathway, you've learned about thinking of code in abstract forms, wrapping up logical groupings of code to make reuse easier, and building with component resources to make those logical groupings something that Pulumi recognizes.
+
+There's a lot more to explore regarding this topic in Pulumi. We're working on more pathways, but for now, check out some more resources:
+
+* [An AWS/Python example](https://github.com/pulumi/examples/tree/master/aws-py-wordpress-fargate-rds)
+* [An Azure/Python example](https://github.com/pulumi/examples/tree/master/classic-azure-py-webserver-component)
+* [A GCP/Python example](https://github.com/pulumi/examples/tree/master/gcp-py-network-component)
 
 Go build new things, and watch this space for more learning experiences with Pulumi!
