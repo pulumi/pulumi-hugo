@@ -23,7 +23,7 @@ Just like any application code, Pulumi infrastructure code can be abstracted, en
 
 When we use our code for our Pulumi program, we're generally starting out with a very basic case. Perhaps we're building out a general proof-of-concept, or a one-off architecture for learning purposes. In those cases, keeping all of the code in a single file with no classes, functions, or other structures probably is enough.
 
-To get to more complex architectures, we need to enable the ability to break apart that code so we can reuse components and call things in any order we choose, knowing that we will get the expected result each time. We also need to allow others to use parts of our code without necessarily needing to know precisely how it's put together. This abstractionist way of thinking means we're thinking in terms of the mental models we use to understand the cloud architectures that are available to us&mdash;or what we want to make available to others in our organization.
+To get to more complex architectures, we need the ability to break apart that code so we can reuse components and call things in any order we choose, knowing that we will get the expected result each time. We also need to allow others to use parts of our code without necessarily needing to know precisely how it's put together. This abstractionist way of thinking means we're thinking in terms of the mental models we use to understand the cloud architectures that are available to us&mdash;or what we want to make available to others in our organization.
 
 ## Exploring an example
 
