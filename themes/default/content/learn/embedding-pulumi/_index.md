@@ -56,5 +56,3 @@ infrastructure deployment and maintenance.
 Note that this pathway will not have a specific application and infrastructure
 to stand up. Rather, we're exploring the Pulumi system, so you can use either a
 code example of your own or one of ours.
-
-<!-- This pathway is considered an advanced pathway. -->
