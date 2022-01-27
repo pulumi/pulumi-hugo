@@ -42,9 +42,12 @@ In Python, we subclass by using `super()` in the initialization of the class. Th
 import ...
 
 
+# Create a class that encapsulates the functionality while subclassing the ComponentResource class (using the ComponentResource class as a template).
 class OurBucketComponent(pulumi.ComponentResource):
     def __init__(self, name_me, policy_name='default', opts=None):
+        # By calling super(), we ensure any instantiation of this class inherits from the ComponentResource class so we don't have to declare all the same things all over again.
         super().__init__('pkg:index:OurBucketComponent', name, None, opts)
+        # This definition ensures the new component resource acts like anything else in the Pulumi ecosystem when being called in code.
         child_opts = pulumi.ResourceOptions(parent=self)
         self.name_me = name_me
         self.policy_name = policy_name
@@ -54,6 +57,7 @@ class OurBucketComponent(pulumi.ComponentResource):
             'locked': '{...}',
             'permissive': '{...}'
         }
+        # We also need to register all the expected outputs for this component resource that will get returned by default.
         self.register_outputs({
             "bucket_name": self.bucket.bucket_name
         })
