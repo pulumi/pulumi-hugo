@@ -364,6 +364,7 @@ Pulumi supports two distinct means of using Helm Charts:
 We discuss and provide examples for each approach in this section.
 
 ### Emulating Helm Charts With Chart Resources
+
 With the [Helm V2]({{< relref "/registry/packages/kubernetes/api-docs/helm/v2/release" >}}) and [Helm V3]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release" >}}) chart resources, Pulumi renders the templates and applies them directly, much like with `ConfigFile` and `ConfigGroup` shown earlier, which means all provisioning happens client-side using your Kubernetes authentication setup without needing a server-side component such as Tiller (for Helm V2).
 
 The `Chart` resource type provides a number of options to control where to fetch the chart's contents from. This includes:
@@ -525,7 +526,7 @@ class Program
 
 {{< /chooser >}}
 
-Similar to `ConfigFile` and `ConfigGroup` resource types shown above, all provisioned resources are available via the `getResource` function. 
+Similar to `ConfigFile` and `ConfigGroup` resource types shown above, all provisioned resources are available via the `getResource` function.
 
 After running `pulumi up`, we will see the resulting resources created, and the load balanced IP address will be printed:
 
@@ -565,9 +566,10 @@ $ curl http://$(pulumi stack output frontendIp)
 ```
 
 ### Natively installing Helm Charts as Releases
-A new [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}})) resource (GA as of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes Provider and SDK) is available in addition to the `Chart` resources discussed earlier. In this case, the Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively support managing [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. As a result, known limitations with the Chart resources around supporting [Helm Chart Lifecycle Hooks](https://helm.sh/docs/topics/charts_hooks/) are mitigated. 
 
-The `Release` resource type's inputs closely mirror the options supported by the Helm CLI and deviate slightly from the API supported by the `Chart` resources. Some key options are highlighted here: 
+A new [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}})) resource (GA as of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes Provider and SDK) is available in addition to the `Chart` resources discussed earlier. In this case, the Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively support managing [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. As a result, known limitations with the Chart resources around supporting [Helm Chart Lifecycle Hooks](https://helm.sh/docs/topics/charts_hooks/) are mitigated.
+
+The `Release` resource type's inputs closely mirror the options supported by the Helm CLI and deviate slightly from the API supported by the `Chart` resources. Some key options are highlighted here:
 
 * `chart`: The required chart name (for instance, `"wordpress"`). In case of a local helm chart, a path can be specified as well.
 * `repositoryOpts`: (Optional) Bag containing URL and authentication/authorization information for the hosting Helm repository, if any.
@@ -581,11 +583,13 @@ For more details on all the supported inputs, please refer to the [API reference
 Unlike `Chart` resource types, `Release` doesn't include references to the underlying Kubernetes resources created during the installation. As a result, just the `Release` resource is encoded in Pulumi state by default. The `Release` resource type includes the [`ReleaseStatus`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release/#releasestatus" >}}) as an output type. The `namespace`, `name` and other fields in `ReleaseStatus` can be used to invoke `get` calls on relevant resource types to read installed resources into Pulumi state. See the example used in the next section for an instance of this.
 
 #### Installing a Helm Release
+
 To illustrate provisioning a Helm Chart using Pulumi, we will deploy the same `wordpress` chart as we did using the Helm `Chart` using `Release` instead:
 
 {{< chooser language "typescript,python,go,csharp" >}}
 
 {{% choosable language typescript %}}
+
 ```typescript
 import * as k8s from "@pulumi/kubernetes";
 import * as pulumi from "@pulumi/pulumi";
@@ -604,9 +608,11 @@ const svc = k8s.core.v1.Service.get("wpdev-wordpress", pulumi.interpolate`${word
 // Export the ingress IP for the wordpress frontend.
 export const frontendIp = svc.status.loadBalancer.ingress[0].ip;
 ```
+
 {{% /choosable %}}
 
 {{% choosable language python %}}
+
 ```python
 import pulumi
 from pulumi import Output
@@ -635,9 +641,11 @@ srv = Service.get("wpdev-wordpress", Output.concat(wordpress.status.namespace, "
 # Export the ingress IP for Wordpress frontend.
 pulumi.export("frontendIP", srv.status.load_balancer.ingress[0].ip)
 ```
+
 {{% /choosable %}}
 
 {{% choosable language go %}}
+
 ```go
 package main
 
@@ -681,9 +689,11 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 
 {{% choosable language csharp %}}
+
 ```csharp
 using Pulumi;
 using Pulumi.Kubernetes.Core.V1;
@@ -718,18 +728,20 @@ class MyStack : Stack
     public Output<string> FrontendIP { get; set; }
 }
 ```
-{{% /choosable %}}
-{{ < /chooser > }}
 
+{{% /choosable %}}
+
+{{< /chooser >}}
 After running `pulumi up`, we will see the resulting resources created, and the load balanced IP address will be printed:
+
 ```
 Updating (dev)
 
-     Type                              Name                                      Status      
- +   pulumi:pulumi:Stack               <project/stack>                           created     
- +   ├─ kubernetes:helm.sh/v3:Release  wpdev                                     created     
-     └─ kubernetes:core/v1:Service     wpdev-wordpress                                       
- 
+     Type                              Name                                      Status
+ +   pulumi:pulumi:Stack               <project/stack>                           created
+ +   ├─ kubernetes:helm.sh/v3:Release  wpdev                                     created
+     └─ kubernetes:core/v1:Service     wpdev-wordpress
+
 Outputs:
     frontendIp        : "34.71.25.45"
 
@@ -740,13 +752,14 @@ Duration: 1m28s
 ```
 
 We can now use the Helm CLI to confirm that a release has been created:
+
 ```
 helm list -a
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
 wpdev-xxxxxxxx  default         1               2022-02-01 01:06:08.513501 -0800 PST    deployed        wordpress-....
 ```
 
-In addition, unlike the Chart resources, existing Helm releases deployed using the Helm CLI can be imported readily using the `pulumi import` command. 
+In addition, unlike the Chart resources, existing Helm releases deployed using the Helm CLI can be imported readily using the `pulumi import` command.
 
 ## Converting Kubernetes YAML
 
