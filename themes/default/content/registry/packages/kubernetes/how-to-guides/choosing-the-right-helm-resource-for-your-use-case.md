@@ -46,7 +46,7 @@ However, in return for these improvements, Helm Release resource incurs a few in
 
 1. The ability to support transformations is limited to that offered by the `Helm` CLI (running `helm install` with `--post-renderer postrenderer`)
 2. Since Pulumi is not directly managing the underlying Kubernetes resource installed by `Helm`, `CrossGuard` policies can't be enforced on these resources.
-3. Pulumi doesn't render fine-grained diffs in previews scoped to affected Kubernetes resources when Helm configuration changes.
+3. Fine-grained preview support is limited, since the Helm client is responsible for managing the underlying Kubernetes resources.
 
 ## What Helm Resource is Right For My Use Case?
 
