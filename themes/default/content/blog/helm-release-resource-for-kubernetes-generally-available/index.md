@@ -48,7 +48,7 @@ The existing [Helm Chart]({{< relref "/registry/packages/kubernetes/api-docs/hel
 
 The Kubernetes provider has supported a means to deploy [Helm Charts](https://helm.sh/) since [2018]({{< relref "/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code">}}) through the [Helm V2 Chart]({{< relref "/registry/packages/kubernetes/api-docs/helm/v2/chart">}}), and later, [Helm V3 Chart]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) resources. These resources simulated Helm installation by resolving the templates for underlying resources from the chart and installing them on the target Kubernetes environment directly.
 
-In contrast, the new [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}}) resource uses the Helm SDK natively to perform all Helm operations. This comes with some inherrent advantages:
+In contrast, the new [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}}) resource uses the Helm SDK natively to perform all Helm operations. This comes with some inherent advantages:
 
 1. Support for the full spectrum of Helm features
 2. Ability to import existing Helm releases into Pulumi state
