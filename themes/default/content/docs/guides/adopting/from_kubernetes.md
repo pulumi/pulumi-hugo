@@ -759,7 +759,7 @@ NAME            NAMESPACE       REVISION        UPDATED                         
 wpdev-xxxxxxxx  default         1               2022-02-01 01:06:08.513501 -0800 PST    deployed        wordpress-....
 ```
 
-In addition, unlike the Chart resources, existing Helm releases deployed using the Helm CLI can be imported readily using the `pulumi import` command.
+The Helm Release resource also supports importing existing Helm releases by using the `pulumi import` command.
 
 ## Converting Kubernetes YAML
 
