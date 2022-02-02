@@ -574,7 +574,7 @@ The [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/re
 The `Release` resource type's inputs closely mirror the options supported by the Helm CLI and deviate slightly from the API supported by the `Chart` resources. Some key options are highlighted here:
 
 * `chart`: The required chart name (for instance, `"wordpress"`). For a local helm chart, a path can be specified instead.
-* `repositoryOpts`: (Optional) Bag containing URL and authentication/authorization information for the hosting Helm repository, if any.
+* `repositoryOpts`: (Optional) Options to configure URL and authentication/authorization information for the hosting Helm repository, if any.
 * `version`: (Optional) The semantic chart version to pull (by default `"latest"`).
 * `values`: (Optional) A dictionary of named key/value values for Charts with parameters.
 * `skipAwait`: (Optional) Whether or not to skip waiting on the availability of all resources installed by the chart. By default, this is set to `false` (i.e. awaits all resources) which allows us to chain dependent resources and execution to the `Release` resource.
@@ -586,7 +586,7 @@ Unlike `Chart` resource types, `Release` doesn't include references to the under
 
 #### Installing a Helm Release
 
-To illustrate provisioning a Helm Chart using Pulumi, we will deploy the same `wordpress` chart as we did using the Helm `Chart` using `Release` instead:
+To illustrate provisioning a Helm Chart using Pulumi, we will deploy the same `wordpress` chart as we did earlier using the `Release` resource:
 
 {{< chooser language "typescript,python,go,csharp" >}}
 
