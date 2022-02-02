@@ -359,7 +359,7 @@ class MyStack : Stack
                     ["create"] = true,
                 }
             },
-            // By default Release resource will wait till all created resources
+            // By default Release resource will wait until all created resources
             // are available. Set this to true to skip waiting on resources being
             // available.
             SkipAwait = false,
