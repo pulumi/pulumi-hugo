@@ -580,7 +580,7 @@ The `Release` resource type's inputs closely mirror the options supported by the
 
 For more details on all the supported inputs, please refer to the [API reference documentation]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release/#inputs" >}}).
 
-Unlike `Chart` resource types, `Release` doesn't include references to the underlying Kubernetes resources created during the installation. As a result, just the `Release` resource is encoded in Pulumi state by default. The `Release` resource type includes the [`ReleaseStatus`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release/#releasestatus" >}}) as an output type. The `namespace`, `name` and other fields in `ReleaseStatus` can be used to invoke `get` calls on relevant resource types to read installed resources into Pulumi state. See the example used in the next section for an instance of this.
+Unlike `Chart` resource types, `Release` doesn't include references to the underlying Kubernetes resources created during the installation. As a result, only the `Release` resource is stored in Pulumi state by default. The `Release` resource type includes the [`ReleaseStatus`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release/#releasestatus" >}}) as an output type. The following example shows how to retrieve resources managed by a Release.
 
 #### Installing a Helm Release
 
