@@ -408,7 +408,8 @@ Thanks to our community of early adopters, we received excellent feedback on the
 You can learn more about Helm Release from the following sources:
 
 1. The `Helm Release` [API Reference docs]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}}) are an excellent starting point to learn more about the API in each of the supported languages along with code samples.
-2. Example projects using Helm Release
+2. The [Pulumi adoption guide for Kubernetes users]({{< relref "/docs/guides/adopting/from_kubernetes/#deploying-helm-charts">}}) contrasts using `Chart` and `Release` to deploy Wordpress using each of the supported languages.
+3. Example projects using Helm Release
    <!-- Add links to examples after pulumi/examples PRs merge -->
 
 If you have questions or run into issues, please don't hesitate to reach out by filing issues on [Github](https://github.com/pulumi/pulumi-kubernetes/issues) or asking questions on [Community Slack](https://slack.pulumi.com). Happy charting!
