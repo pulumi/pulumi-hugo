@@ -586,7 +586,7 @@ Unlike `Chart` resource types, `Release` doesn't include references to the under
 
 #### Installing a Helm Release
 
-To illustrate provisioning a Helm Chart using Pulumi, we will deploy the same `wordpress` chart as we did earlier using the `Release` resource:
+To illustrate provisioning a Helm Chart using the `Release` resource, we will deploy the same `wordpress` chart as we did earlier:
 
 {{< chooser language "typescript,python,go,csharp" >}}
 
