@@ -22,7 +22,7 @@ The [`Helm V2 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v2
 3. Ability to leverage transformations to programmatically manipulate resources installed by Helm charts in any of the Pulumi supported programming languages
 4. Detailed previews and diffs rendered in the Pulumi CLI and Console for each Kubernetes resource resulting from Helm Chart config changes
 
-We have seen significant adoption of these resources over the years. However, these resources also come with some limitations which have affected some of our Kubernetes users:
+We have seen significant adoption of these resources over the years. However, since these resources are not directly managed by Helm, the following limitations apply:
 
 ### Limitations
 
