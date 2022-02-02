@@ -5,34 +5,34 @@ aliases: ["/docs/reference/tutorials/kubernetes/chart-vs-release/"]
 layout: how-to-guide
 ---
 
-The Kubernetes provider and SDK has supported a means to deploy [Helm Charts](https://helm.sh/) since [2018]({{< relref "/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code">}}) through the [`Helm V2 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v2/chart">}}), and later, [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) resources. These resources simulated Helm installation by retrieving the templates for underlying resources from the chart and installing them on the target Kubernetes environment directly.
+The Kubernetes provider and SDK has supported a means to deploy [Helm Charts](https://helm.sh/) since [2018]({{< relref "/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code">}}) through the [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) resource. This resource simulated Helm installation by retrieving the templates for underlying resources from the chart and installing them on the target Kubernetes environment directly.
 
 In September 2021 we announced the **public preview** of a new [`Helm Release`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}}) which adds an additional option to the mix for Pulumi's Kubernetes users. As of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes SDK and Provider, this resource is now **Generally Available**.
 
-This guide should help you choose the best option for your use case.
+Existing users of the [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) can continue to use that resource. However, if you are deploying Helm Charts through Pulumi for new use cases, you have a new option to consider. This guide should help you choose the best option for your use case.
 
-## Helm Chart Resources
+## Helm Chart Resource
 
-The [`Helm V2 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v2/chart">}}), and [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) resources render the templates from your chart and then manage them directly with the Pulumi Kubernetes provider. These resources are implemented as [`Component Resources`]({{< relref "/docs/intro/concepts/resources/components/" >}}) which provide a number of benefits for Pulumi users:
+The [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart">}}) resource renders the templates from your chart and then manage them directly with the Pulumi Kubernetes provider. `Chart` is implemented as a [`Component Resource`]({{< relref "/docs/intro/concepts/resources/components/" >}}) which provide a number of benefits for Pulumi users:
 
 ### Benefits
 
 1. Visibility into all resources encapsulated by the Chart in Pulumi's state, allowing users to directly query properties of individual resources.
 2. Tight integration with Pulumi's Policy-as-Code framework - [`CrossGuard`]({{< relref "/docs/guides/crossguard/" >}}) to enforce policies on all resources installed by Helm charts
-3. Ability to leverage transformations to programmatically manipulate resources installed by Helm charts in any of the Pulumi supported programming languages
+3. Ability to leverage [transformations]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart/#chart-with-transformations" > }}) to programmatically manipulate resources installed by Helm charts in any of the Pulumi supported programming languages
 4. Detailed previews and diffs rendered in the Pulumi CLI and Console for each Kubernetes resource resulting from Helm Chart config changes
 
-We have seen significant adoption of these resources over the years. However, since these resources are not directly managed by Helm, the following limitations apply:
+We have seen significant adoption of `Chart` over the years. However, since these resources are not directly managed by Helm, the following limitations apply:
 
 ### Limitations
 
 1. No support for [Helm Chart Hooks](https://helm.sh/docs/topics/charts_hooks/) - i.e. equivalent of running `helm install` with the `--no-hooks` option
 2. No ability to import existing Helm releases into Pulumi state
-3. No ability to interoperate using the Helm CLI on resources installed by Pulumi
+3. No interoperability using the Helm CLI on resources installed by Pulumi
 
 ## Helm Release Resource
 
-The Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively manage [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. This addresses most of the limitations of the `Chart` resources:
+The Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively manage [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. This addresses most of the limitations of the `Chart` resource:
 
 ### Benefits
 
