@@ -370,7 +370,7 @@ class MyStack : Stack
         // We can look up resources once the release is installed. The release's
         // status field is set once the installation completes, so this, combined
         // with `skip_await=False` above, will wait to retrieve the Redis master
-        // ClusterIP till all resources in the Chart are available.
+        // ClusterIP until all resources in the Chart are available.
         var status = release.Status;
         var service = Service.Get("redist-master-svc", Output.All(status).Apply(
             s => $"{s[0].Namespace}/{s[0].Name}-master"));
