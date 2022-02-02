@@ -19,7 +19,7 @@ The [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3
 
 1. Visibility into all resources encapsulated by the Chart in Pulumi's state, allowing users to directly query properties of individual resources.
 2. Tight integration with Pulumi's Policy-as-Code framework - [`CrossGuard`]({{< relref "/docs/guides/crossguard/" >}}) to enforce policies on all resources installed by Helm charts
-3. Ability to leverage [transformations]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart/#chart-with-transformations" > }}) to programmatically manipulate resources installed by Helm charts in any of the Pulumi supported programming languages
+3. Ability to leverage [transformations]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart/#chart-with-transformations" >}}) to programmatically manipulate resources installed by Helm charts in any of the Pulumi supported programming languages
 4. Detailed previews and diffs rendered in the Pulumi CLI and Console for each Kubernetes resource resulting from Helm Chart config changes
 
 We have seen significant adoption of `Chart` over the years. However, since these resources are not directly managed by Helm, the following limitations apply:
@@ -74,7 +74,7 @@ If you have existing Helm Releases deployed through a version of the Helm CLI an
 
 #### Fine Grained Diffs and Transformations
 
-`Chart` resources have direct access to the Kubernetes resources installed by the chart before installation. As a result, `Chart` resources support `transformations` which allow program authors to programmatically manipulate resources before they are installed by Pulumi. This is a very powerful tool which has enabled several advanced use cases for our users. Unfortunately, `Helm Release` does not have the same flexibility in offering transformations support.
+`Chart` resources have direct access to the Kubernetes resources installed by the chart before installation. As a result, `Chart` resources support [`transformations`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart/#chart-with-transformations" >}}) which allow program authors to programmatically manipulate resources before they are installed by Pulumi. This is a very powerful tool which has enabled several advanced use cases for our users. Unfortunately, `Helm Release` does not have the same flexibility in offering transformations support.
 
 Similarly, `Chart` resources can enumerate underlying resources and their inputs, thus providing fine-grained diffs and richer previews.
 
