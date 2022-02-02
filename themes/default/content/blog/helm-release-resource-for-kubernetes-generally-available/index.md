@@ -121,7 +121,7 @@ const release = new k8s.helm.v3.Release("redis-helm", {
 });
 
 
-// We can lookup resources once the release is installed. The release's
+// We can look up resources once the release is installed. The release's
 // status field is set once the installation completes, so this, combined
 // with `skipAwait: false` above, will wait to retrieve the Redis master
 // ClusterIP till all resources in the Chart are available.
