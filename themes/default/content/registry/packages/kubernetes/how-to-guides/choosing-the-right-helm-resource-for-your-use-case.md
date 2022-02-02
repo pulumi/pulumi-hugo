@@ -32,7 +32,7 @@ We have seen significant adoption of these resources over the years. However, si
 
 ## Helm Release Resource
 
-The Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively manage [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. The addresses many of the main limitations with the `Chart` resources mentioned above:
+The Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively manage [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. This addresses most of the limitations of the `Chart` resources:
 
 ### Benefits
 
