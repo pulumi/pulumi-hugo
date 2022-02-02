@@ -78,7 +78,7 @@ If you have existing Helm Releases deployed through a version of the Helm CLI an
 
 Similarly, `Chart` resources can enumerate underlying resources and their inputs, thus providing fine-grained diffs and richer previews.
 
-If these are important to your environment or use case, then the `Helm Chart` resource should be preferred.
+If these are important for your use case, then the `Helm Chart` resource is preferred.
 
 #### Enforcing CrossGuard Policies on Kubernetes Resources
 
