@@ -567,7 +567,7 @@ $ curl http://$(pulumi stack output frontendIp)
 
 ### Natively installing Helm Charts as Releases
 
-A new [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}})) resource (GA as of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes Provider and SDK) is available in addition to the `Chart` resources discussed earlier. In this case, the Pulumi Kubernetes provider uses an embedded version of the Helm SDK to natively support managing [`Helm Releases`](https://helm.sh/docs/glossary/#release) on the target Kubernetes cluster. As a result, known limitations with the Chart resources around supporting [Helm Chart Lifecycle Hooks](https://helm.sh/docs/topics/charts_hooks/) are mitigated.
+The [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}})) resource (GA as of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes Provider) is another option for installing Charts. In this case, the Pulumi Kubernetes provider uses an embedded version of the Helm SDK to provide full-fidelity support for managing [`Helm Releases`](https://helm.sh/docs/glossary/#release).
 
 The `Release` resource type's inputs closely mirror the options supported by the Helm CLI and deviate slightly from the API supported by the `Chart` resources. Some key options are highlighted here:
 
