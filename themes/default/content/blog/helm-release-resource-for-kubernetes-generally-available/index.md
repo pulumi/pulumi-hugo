@@ -63,7 +63,7 @@ Both the `Chart` and `Helm Release` resource are complimentary with their own pr
 If you aren't already familiar with using Pulumi with Kubernetes, head on over to [Pulumi's getting started guide for Kubernetes]({{< relref "/docs/get-started/kubernetes/" >}}) first.
 
 1. In your chosen Kubernetes Pulumi project, make sure the referenced version of the Pulumi-Kubernetes SDK is at least `v3.15.0`.
-2. Helm Release support is configured to target the relevant cluster pointed to by the Kubernetes provider associated with it and no additional configuration is required by default. However, more advanced configuration options are supported, see the provider configuration [documentation]({{< relref "/registry/packages/kubernetes/api-docs/provider/#helmdriver_nodejs" >}}) for more details.
+2. Like other Kubernetes resources managed by Pulumi, the target cluster for Helm Release is configured with a [Provider]({{< relref "/registry/packages/kubernetes/api-docs/provider">}}). The default options work for typical cases, and we also provide [advanced configuration options]({{< relref "/registry/packages/kubernetes/api-docs/provider/#helmdriver_nodejs" >}}) for private registries, etc.
 3. Refer to the instructions for your chosen language in the [resource documentation]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release/#create" >}}) to create a Helm Release resource.
 
 Lets look at a concrete example of Helm Release in action. In the following snippet we install [Redis](https://redis.io/) through a Helm Chart in each of the supported Pulumi languages using the new Helm Release resource:
