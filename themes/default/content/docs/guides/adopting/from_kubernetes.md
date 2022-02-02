@@ -571,7 +571,7 @@ The [Helm Release]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/re
 
 The `Release` resource type's inputs closely mirror the options supported by the Helm CLI and deviate slightly from the API supported by the `Chart` resources. Some key options are highlighted here:
 
-* `chart`: The required chart name (for instance, `"wordpress"`). In case of a local helm chart, a path can be specified as well.
+* `chart`: The required chart name (for instance, `"wordpress"`). For a local helm chart, a path can be specified instead.
 * `repositoryOpts`: (Optional) Bag containing URL and authentication/authorization information for the hosting Helm repository, if any.
 * `version`: (Optional) The semantic chart version to pull (by default `"latest"`).
 * `values`: (Optional) A dictionary of named key/value values for Charts with parameters.
