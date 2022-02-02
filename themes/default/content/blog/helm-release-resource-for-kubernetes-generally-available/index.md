@@ -1,7 +1,7 @@
 ---
 title: "Helm Release Resource for Kubernetes Generally Available"
 
-h1: "Announcing General Availability of Helm Release Resource for Kubernetes"
+h1: "Helm Release Resource for Kubernetes Generally Available"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,

@@ -365,7 +365,7 @@ We discuss and provide examples for each approach in this section.
 
 ### Emulating Helm Charts With Chart Resources
 
-With the [Helm V2]({{< relref "/registry/packages/kubernetes/api-docs/helm/v2/release" >}}) and [Helm V3]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release" >}}) chart resources, Pulumi renders the templates and applies them directly, much like with `ConfigFile` and `ConfigGroup` shown earlier, which means all provisioning happens client-side using your Kubernetes authentication setup without needing a server-side component such as Tiller (for Helm V2).
+With the [Helm V3]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release" >}}) chart resources, Pulumi renders the templates and applies them directly, much like with `ConfigFile` and `ConfigGroup` shown earlier, which means all provisioning happens client-side using your Kubernetes authentication setup without needing a server-side component.
 
 The `Chart` resource type provides a number of options to control where to fetch the chart's contents from. This includes:
 
@@ -389,7 +389,7 @@ To illustrate provisioning a Helm Chart using Pulumi, we will deploy the `wordpr
 ```javascript
 let k8s = require("@pulumi/kubernetes");
 
-// Deploy the latest version of the stable/wordpress chart.
+// Deploy v9.6.0 version of the wordpress chart.
 let wordpress = new k8s.helm.v3.Chart("wpdev", {
     fetchOpts: {
         repo: "https://charts.bitnami.com/bitnami"
@@ -411,6 +411,7 @@ module.exports = {
 ```typescript
 import * as k8s from "@pulumi/kubernetes";
 
+// Deploy v9.6.0 version of the wordpress chart.
 // Deploy the latest version of the stable/wordpress chart.
 const wordpress = new k8s.helm.v3.Chart("wpdev", {
     fetchOpts: {
@@ -432,7 +433,7 @@ export const frontendIp = frontend.status.loadBalancer.ingress[0].ip;
 import pulumi
 from pulumi_kubernetes.helm.v3 import Chart, ChartOpts
 
-# Deploy the latest version of the stable/wordpress chart.
+# Deploy v9.6.0 version of the wordpress chart.
 wordpress = Chart('wpdev', ChartOpts(
     fetch_opts={'repo': 'https://charts.bitnami.com/bitnami'},
     chart='wordpress',
@@ -458,7 +459,7 @@ import (
 
 func main() {
     pulumi.Run(func(ctx *pulumi.Context) error {
-        // Deploy a wordpress chart.
+        // Deploy v9.6.0 version of the wordpress chart.
         wordpress, err := helmv3.NewChart(ctx, "wpdev", helmv3.ChartArgs{
             Chart:   pulumi.String("wordpress"),
             Version: pulumi.String("9.6.0"),
@@ -500,7 +501,8 @@ class Program
     {
         return Pulumi.Deployment.RunAsync(() =>
         {
-            // Deploy the latest version of the stable/wordpress chart.
+
+            // Deploy v9.6.0 version of the wordpress chart.
             var wordpress = new Chart("wpdev", new ChartArgs
             {
                 Chart = "wordpress",
@@ -627,13 +629,7 @@ wordpress = Release(
         repository_opts=RepositoryOptsArgs(
             repo="https://charts.bitnami.com/bitnami",
         ),
-        # Force to use ClusterIP so no assumptions on support for LBs etc. is required.
         version="9.6.0",
-        values={
-            "service": {
-                "type": "ClusterIP",
-            }
-        },
     ),
 )
 
