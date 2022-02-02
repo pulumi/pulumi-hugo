@@ -76,7 +76,7 @@ If you have existing Helm Releases deployed through a version of the Helm CLI an
 
 `Chart` resources have direct access to the Kubernetes resources installed by the chart before installation. As a result, `Chart` resources support `transformations` which allow program authors to programmatically manipulate resources before they are installed by Pulumi. This is a very powerful tool which has enabled several advanced use cases for our users. Unfortunately, `Helm Release` does not have the same flexibility in offering transformations support.
 
-Similarly, `Chart` resources can enumerate underlying resources and their inputs, thus providing fine-grained diffs on individual resources and richer previews.
+Similarly, `Chart` resources can enumerate underlying resources and their inputs, thus providing fine-grained diffs and richer previews.
 
 If these are important to your environment or use case, then the `Helm Chart` resource should be preferred.
 
