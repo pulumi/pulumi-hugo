@@ -7,11 +7,11 @@ h1: "Helm Release Resource for Kubernetes Generally Available"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-01-31T15:43:58-08:00
+date: 2022-02-04T09:00:00-08:00
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting your post for review.
-draft: true
+draft: false
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -409,8 +409,11 @@ Thanks to our community of early adopters, we received excellent feedback on the
 You can learn more about Helm Release from the following sources:
 
 1. The `Helm Release` [API Reference docs]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release">}}) are an excellent starting point to learn more about the API in each of the supported languages along with code samples.
-2. The [Pulumi adoption guide for Kubernetes users]({{< relref "/docs/guides/adopting/from_kubernetes/#deploying-helm-charts">}}) contrasts using `Chart` and `Release` to deploy Wordpress using each of the supported languages.
-3. Example projects using Helm Release
-   <!-- Add links to examples after pulumi/examples PRs merge -->
+2. Our guide on [choosing between the Chart and Release resource for your use case]({{< relref "/registry/packages/kubernetes/how-to-guides/choosing-the-right-helm-resource-for-your-use-case/">}})
+3. One of our sample projects where you can see the Helm `Release` resource in action in any one of Pulumi's supported languages:
+   * [TypeScript]({{< relref "/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-release-wordpress/">}})
+   * [Python]({{< relref "/registry/packages/kubernetes/how-to-guides/kubernetes-py-helm-release-wordpress/">}})
+   * [C#]({{< relref "/registry/packages/kubernetes/how-to-guides/kubernetes-cs-helm-release-wordpress/">}})
+   * [Go]({{< relref "/registry/packages/kubernetes/how-to-guides/kubernetes-go-helm-release-wordpress/">}})
 
 If you have questions or run into issues, please don't hesitate to reach out by filing issues on [Github](https://github.com/pulumi/pulumi-kubernetes/issues) or asking questions on [Community Slack](https://slack.pulumi.com). Happy charting!

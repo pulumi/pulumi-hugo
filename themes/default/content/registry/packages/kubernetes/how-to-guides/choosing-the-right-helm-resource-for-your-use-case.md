@@ -37,7 +37,7 @@ The Pulumi Kubernetes provider uses an embedded version of the Helm SDK to nativ
 ### Benefits
 
 1. Since we use Helm's native support for downloading, processing and installing charts, all the major features of Helm Charts such as hooks can be readily supported
-2. Existing Helm releases installed via the Helm CLI can be imported into Pulumi state as of [v3.12.1](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.12.1) of the Pulumi Kubernetes SDK
+2. Existing Helm releases installed via the Helm CLI can be [imported]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release/#import">}}) into Pulumi state as of [v3.12.1](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.12.1) of the Pulumi Kubernetes SDK
 3. Releases installed via Pulumi are serialized by the chosen Helm driver in the cluster and can be queried by the Helm CLI.
 
 However, it has a few limitations:
