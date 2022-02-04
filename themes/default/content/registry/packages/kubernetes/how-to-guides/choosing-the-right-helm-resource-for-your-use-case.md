@@ -89,11 +89,11 @@ If these are important for your use case, then the `Helm Chart` resource is pref
 ### Helm Chart
 
 * [API Reference Docs with examples]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart" >}})
-* [Provisioning Helm Charts]({{< relref "/docs/guides/adopting/from_kubernetes/#provisioning-a-helm-chart" >}})
+* [Provisioning Helm Charts]({{< relref "/docs/guides/adopting/from_kubernetes#provisioning-a-helm-chart" >}})
 * [Sample Project that installs Wordpress via Helm Chart in Typescript]({{< relref "/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-wordpress" >}})
 
 ### Helm Release
 
 * [API Reference Docs with examples]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/release" >}})
-* [Installing Helm Releases]({{< relref "/docs/guides/adopting/from_kubernetes/#installing-a-helm-release" >}})
+* [Installing Helm Releases]({{< relref "/docs/guides/adopting/from_kubernetes#installing-a-helm-release" >}})
 * [Sample Project that installs Wordpress via Helm Release in Typescript]({{< relref "/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-release-wordpress" >}})
