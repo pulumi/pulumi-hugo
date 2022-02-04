@@ -18,7 +18,7 @@ The [`Helm V3 Chart`]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3
 ### Benefits
 
 1. Visibility into all resources encapsulated by the Chart in Pulumi's state, allowing users to directly query properties of individual resources.
-2. Tight integration with Pulumi's Policy-as-Code framework - [`CrossGuard`]({{< relref "/docs/guides/crossguard/" >}}) to enforce policies on all resources installed by Helm charts
+2. Tight integration with Pulumi's Policy-as-Code framework - [`CrossGuard`]({{< relref "/docs/guides/crossguard" >}}) to enforce policies on all resources installed by Helm charts
 3. Ability to leverage [transformations]({{< relref "/registry/packages/kubernetes/api-docs/helm/v3/chart/#chart-with-transformations" >}}) to programmatically manipulate resources installed by Helm charts in any of the Pulumi supported programming languages
 4. Detailed previews and diffs rendered in the Pulumi CLI and Console for each Kubernetes resource resulting from Helm Chart config changes
 
