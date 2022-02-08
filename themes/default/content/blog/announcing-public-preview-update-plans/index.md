@@ -41,7 +41,7 @@ Update Plans are in public preview. We recommend using it only in non-critical, 
 
 {{% /notes %}}
 
-We’re eager for you to try the public preview of Update Plans and let us know what you think. To try it out, make sure you’ve updated to Pulumi 3.24.0 then set the following environment variable in your shell:
+We’re eager for you to try the public preview of Update Plans and let us know what you think. To try it out, make sure you’ve updated to Pulumi [3.24.1](https://github.com/pulumi/pulumi/releases/tag/v3.24.1) then set the following environment variable in your shell:
 
 ```sh
 
