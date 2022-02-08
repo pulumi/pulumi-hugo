@@ -13,17 +13,17 @@ Pulumi’s previews are an important part of any workflow where you want to see 
 
 <!--more-->
 
-Today, I’m excited to announce the public preview of Update Plans, a new Pulumi feature that provides exactly this guarantee. Update Plans enable review and approval workflows for your infrastructure. Plans also help catch any unexpected changes that might happen between when you preview a change and when you apply that change. Update Plans work by saving the results of a `pulumi preview` to a _plan file_, which enables you to restrict subsequent `pulumi up` operations to only the actions saved in the plan file. This helps you ensure that what you saw in the `pulumi preview` is what will actually happen when you run `pulumi up`.
+Today, I’m excited to announce the public preview of Update Plans, a new Pulumi feature which guarantees that operations shown in `pulumi preview` will actually run on `pulumi up`. Plans also help catch any unexpected changes that might happen between when you preview a change and when you apply that change. Update Plans work by saving the results of a `pulumi preview` to a _plan file_, which enables you to restrict subsequent `pulumi up` operations to only the actions saved in the plan file. This helps you ensure that what you saw in the `pulumi preview` is what will actually happen when you run `pulumi up`.
 
 Here’s an example of Update Plans in action.
 
 {{< asciicast id="466347" >}}
 
-All that was required to make use of plans was adding `--save-plan <file>` to the preview command and `--plan <file>` to the up command. This was a pretty trivial example where our program did what our plan expected so everything just ran as normal. If we start again with the same plan but change the program slightly we can see that update plans returns an error and blocks the change.
+To get started, you only need to add `--save-plan <file>` to the preview command and `--plan <file>` to the up command. In the video above, we demonstrated a pretty trivial example where our program did what our plan expected, so everything just ran as normal. If we start again with the same plan but change the program slightly, we can see that Update Plans returns an error and blocks the change.
 
 {{< asciicast id="466462" >}}
 
-When updates fail to validate against the plan pulumi will print what constraint failed. In the example above the resource `urn:pulumi:dev::aws-ts-webserver::aws:ec2/instance:Instance::web-server-www` changed the value of the property `userData`.
+When updates fail to validate against the plan, Pulumi will print what constraint failed. In the example above, the resource `urn:pulumi:dev::aws-ts-webserver::aws:ec2/instance:Instance::web-server-www` changed the value of the property `userData`.
 
 ## New scenario enabled by Update Plans: pull request validation workflows
 
