@@ -1,6 +1,6 @@
 ---
 title: "Announcing the public preview of Update Plans"
-date: 2022-02-08 # TODO update this
+date: 2022-02-09
 meta_desc: Update Plans enable you to see and confirm the updates that will be made to your infrastructure and then apply those updates at a later time.
 meta_image: update_plans_preview.png
 authors:
