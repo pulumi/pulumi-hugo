@@ -27,7 +27,6 @@ All that was required to make use of plans was adding `--save-plan <file>` to th
 
 When updates fail to validate against the plan pulumi will print what constraint failed. In the example above the resource `urn:pulumi:dev::aws-ts-webserver::aws:ec2/instance:Instance::web-server-www` changed the value of the property `userData`.
 
-
 ## New scenario enabled by Update Plans: pull request validation workflows
 
 Software development teams commonly use version control-based workflows to review and monitor the code that is added to a codebase. For example, many teams protect their primary branch (e.g. `main`, `master`, `trunk`) from direct code pushes and instead require a pull or merge request where the changes can be reviewed and continuous integration (CI) and tests can be run.
