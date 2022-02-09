@@ -342,16 +342,16 @@ node_environment = config.require("node_environment")
 {{% choosable language typescript %}}
 
 We also need to create `Container` resources for the frontend and mongo
-containers. Put the `mongo_container` declaration just above the `backend_container` one, and the
-`frontend_container` declaration at the end of the file. Here's the code for the mongo container:
+containers. Put the `mongoContainer` declaration just above the `backendContainer` one, and the
+`frontendContainer` declaration at the end of the file. Here's the code for the mongo container:
 
 {{% /choosable %}}
 
 {{% choosable language python %}}
 
 We also need to create `Container` resources for the frontend and mongo
-containers. Put the `mongoContainer` declaration just above the `backendContainer` one, and the
-`frontendContainer` declaration at the end of the file. Here's the code for the mongo container:
+containers. Put the `mongo_container` declaration just above the `backend_container` one, and the
+`frontend_container` declaration at the end of the file. Here's the code for the mongo container:
 
 {{% /choosable %}}
 
