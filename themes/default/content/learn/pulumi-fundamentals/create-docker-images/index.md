@@ -81,7 +81,7 @@ host machine.
 {{% choosable language typescript %}}
 
 Before we start writing our Pulumi program, we need to install the right
-provider. In this case, we want to use the `@pulumi/docker` provider for Python,
+provider. In this case, we want to use the `@pulumi/docker` provider for Node.js,
 our language host. Let's to install the provider now:
 
 ```bash
@@ -211,19 +211,19 @@ takes the following inputs:
 
 {{% choosable language python %}}
 
-- `name`: a name for the resource we are creating
-- `build`: the Docker build context (i.e., the path to the app)
-- `image_name`: the qualified image name which can include a tag
-- `skip_push`: a flag that defines whether to push to a registry
+-   `name`: a name for the resource we are creating
+-   `build`: the Docker build context (i.e., the path to the app)
+-   `image_name`: the qualified image name which can include a tag
+-   `skip_push`: a flag that defines whether to push to a registry
 
 {{% /choosable %}}
 
 {{% choosable language typescript %}}
 
-- `name`: a name for the resource we are creating
-- `build.context`: the Docker build context (i.e., the path to the app)
-- `imageName`: the qualified image name which can include a tag
-- `skipPush`: a flag that defines whether to push to a registry
+-   `name`: a name for the resource we are creating
+-   `build.context`: the Docker build context (i.e., the path to the app)
+-   `imageName`: the qualified image name which can include a tag
+-   `skipPush`: a flag that defines whether to push to a registry
 
 {{% /choosable %}}
 
@@ -241,7 +241,7 @@ program, so add this code after the previous fragment.
 
 ```typescript
 // build our frontend image!
-const frontendImageName = "frontend"
+const frontendImageName = "frontend";
 const frontend = new docker.Image("frontend", {
     build: {
         context: `${process.cwd()}/app/frontend`,
@@ -316,7 +316,7 @@ const backend = new docker.Image("backend", {
 });
 
 // build our frontend image!
-const frontendImageName = "frontend"
+const frontendImageName = "frontend";
 const frontend = new docker.Image("frontend", {
     build: {
         context: `${process.cwd()}/app/frontend`,
@@ -329,7 +329,6 @@ const frontend = new docker.Image("frontend", {
 const mongoImage = new docker.RemoteImage("mongo", {
     name: "mongo:bionic",
 });
-
 ```
 
 {{% /choosable %}}

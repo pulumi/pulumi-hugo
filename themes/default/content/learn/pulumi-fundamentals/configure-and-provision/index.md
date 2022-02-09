@@ -88,7 +88,7 @@ const backend = new docker.Image("backend", {
 });
 
 // build our frontend image!
-const frontendImageName = "frontend"
+const frontendImageName = "frontend";
 const frontend = new docker.Image("frontend", {
     build: {
         context: `${process.cwd()}/app/frontend`,
@@ -101,7 +101,6 @@ const frontend = new docker.Image("frontend", {
 const mongoImage = new docker.RemoteImage("mongo", {
     name: "mongo:bionic",
 });
-
 ```
 
 {{% /choosable %}}
@@ -146,7 +145,7 @@ mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 Try and run your `pulumi up` again at this point. You should get an error like
 this:
 
-{{% choosable language python %}}
+{{% choosable language "typescript,python" %}}
 
 ```bash
 Diagnostics:
@@ -246,7 +245,7 @@ const backend_container = new docker.Container("backend_container", {
     envs: [
         `DATABASE_HOST=${mongoHost}`,
         `DATABASE_NAME=${database}`,
-        `NODE_ENV=${nodeEnvironment}`
+        `NODE_ENV=${nodeEnvironment}`,
     ],
     networksAdvanced: [
         {
@@ -340,9 +339,21 @@ node_environment = config.require("node_environment")
 
 {{% /choosable %}}
 
+{{% choosable language typescript %}}
+
 We also need to create `Container` resources for the frontend and mongo
 containers. Put the `mongo_container` declaration just above the `backend_container` one, and the
 `frontend_container` declaration at the end of the file. Here's the code for the mongo container:
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+We also need to create `Container` resources for the frontend and mongo
+containers. Put the `mongoContainer` declaration just above the `backendContainer` one, and the
+`frontendContainer` declaration at the end of the file. Here's the code for the mongo container:
+
+{{% /choosable %}}
 
 {{< chooser language "typescript,python" / >}}
 
@@ -362,9 +373,7 @@ const mongoContainer = new docker.Container("mongo_container", {
     networksAdvanced: [
         {
             name: network.name,
-            aliases: [
-                "mongo",
-            ],
+            aliases: ["mongo"],
         },
     ],
 });
@@ -481,7 +490,7 @@ const backend = new docker.Image("backend", {
 });
 
 // build our frontend image!
-const frontendImageName = "frontend"
+const frontendImageName = "frontend";
 const frontend = new docker.Image("frontend", {
     build: {
         context: `${process.cwd()}/app/frontend`,
@@ -513,34 +522,36 @@ const mongoContainer = new docker.Container("mongo_container", {
     networksAdvanced: [
         {
             name: network.name,
-            aliases: [
-                "mongo",
-            ],
+            aliases: ["mongo"],
         },
     ],
 });
 
 // create the backend container!
-const backend_container = new docker.Container("backend_container", {
-    name: `backend-${stack}`,
-    image: backend.baseImageName,
-    ports: [
-        {
-            internal: backendPort,
-            external: backendPort,
-        },
-    ],
-    envs: [
-        `DATABASE_HOST=${mongoHost}`,
-        `DATABASE_NAME=${database}`,
-        `NODE_ENV=${nodeEnvironment}`
-    ],
-    networksAdvanced: [
-        {
-            name: network.name,
-        },
-    ],
-}, { dependsOn: [ mongoContainer ]});
+const backend_container = new docker.Container(
+    "backend_container",
+    {
+        name: `backend-${stack}`,
+        image: backend.baseImageName,
+        ports: [
+            {
+                internal: backendPort,
+                external: backendPort,
+            },
+        ],
+        envs: [
+            `DATABASE_HOST=${mongoHost}`,
+            `DATABASE_NAME=${database}`,
+            `NODE_ENV=${nodeEnvironment}`,
+        ],
+        networksAdvanced: [
+            {
+                name: network.name,
+            },
+        ],
+    },
+    { dependsOn: [mongoContainer] }
+);
 
 // create the frontend container!
 const frontendContainer = new docker.Container("frontendContainer", {
@@ -700,7 +711,8 @@ const dataSeedContainer = new docker.Container("dataSeedContainer", {
         },
     ],
     command: [
-        "sh", "-c",
+        "sh",
+        "-c",
         "mongoimport --host mongo --db cart --collection products --type json --file /home/products.json --jsonArray",
     ],
     networksAdvanced: [
