@@ -88,19 +88,19 @@ This command creates all the files we need, initializes a new stack named `dev`
 
 The basic project created by `pulumi new` is comprised of multiple files:
 
--   `Pulumi.yaml`: your project's metadata, containing its name and language
--   {{< langfile >}}: your program's main entrypoint file
+- `Pulumi.yaml`: your project's metadata, containing its name and language
+- {{< langfile >}}: your program's main entrypoint file
 
 {{% choosable language typescript %}}
 
--   `package.json`: your project's Node.js dependency information
+- `package.json`: your project's Node.js dependency information
 
 {{% /choosable %}}
 
 {{% choosable language python %}}
 
--   `requirements.txt`: your project's Python dependency information
--   `venv`: a [virtualenv](https://pypi.org/project/virtualenv/) for your project
+- `requirements.txt`: your project's Python dependency information
+- `venv`: a [virtualenv](https://pypi.org/project/virtualenv/) for your project
 
 {{% /choosable %}}
 
