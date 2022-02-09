@@ -38,10 +38,7 @@ const api = new awsx.apigateway.API("my-api", {
             eventHandler: async (apiGatewayEvent) => {
                 return {
                     statusCode: 200,
-                    body: JSON.stringify([
-                        "thingOne",
-                        "thingTwo",
-                    ]),
+                    body: JSON.stringify(["thingOne", "thingTwo"]),
                 };
             },
         },
@@ -56,7 +53,7 @@ I love this abstraction, and I use it all the time; it's an incredibly convenien
 
 Indeed, this arrangement is the API contract of a [Lambda _proxy_ integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html)---API Gateway integrations come in [many shapes and sizes](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations.html); Lambda integrations just happen to be one of the more popular---and much of the time, an approach like this one works out just fine. But depending on the needs of the application, it might not always be the best fit.
 
-Imagine you were building a print-on-demand service, for example, and you wanted to expose an API to let your customers upload  documents and have them converted into orders. On AWS, you might reach for API Gateway, as above, to define an HTTP method and route (`POST /uploads`, say), wire it up to an AWS Lambda, and have the Lambda parse the upload, write the order to a database, and return a response. Visually, such a design might look something like this:
+Imagine you were building a print-on-demand service, for example, and you wanted to expose an API to let your customers upload documents and have them converted into orders. On AWS, you might reach for API Gateway, as above, to define an HTTP method and route (`POST /uploads`, say), wire it up to an AWS Lambda, and have the Lambda parse the upload, write the order to a database, and return a response. Visually, such a design might look something like this:
 
 ![A diagram showing an HTTP POST made to an API Gateway endpoint, the endpoint invoking a Lambda function, and the Lambda function writing an order to a database.](./figure-1.png)
 
@@ -80,9 +77,9 @@ Let's see how. Here's a revised architecture diagram showing how you might appro
 
 Now let's have a look at what it'd be like to build it with Pulumi. We won't build _everything_ in this diagram---things like writing to the database or messaging Slack are left for you to explore---but we will build enough to give you clear picture and a working example of how to connect all of these parts into a working application. Specifically:
 
-* an API Gateway [instance](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html) to act as a container for your public API, along with a [_stage_](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html) and a [_route_](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) to handle inbound HTTP requests;
-* an EventBridge [integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations.html) (comprised of an event bus and event rule) to handle notifications from API Gateway; and finally,
-* one or more Lambda functions to be invoked in response to event-rule matches.
+-   an API Gateway [instance](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html) to act as a container for your public API, along with a [_stage_](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html) and a [_route_](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) to handle inbound HTTP requests;
+-   an EventBridge [integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations.html) (comprised of an event bus and event rule) to handle notifications from API Gateway; and finally,
+-   one or more Lambda functions to be invoked in response to event-rule matches.
 
 Let's get started.
 
@@ -118,7 +115,7 @@ In this post, we'll be using [API Gateway V2](https://docs.aws.amazon.com/apigat
 
 ## Create the API gateway and stage
 
-Start by replacing the contents of {{% langfile %}} with the following code to declare a new API Gateway [API]({{< relref "/registry/packages/aws/api-docs/apigatewayv2/api" >}}):
+Start by replacing the contents of {{< langfile >}} with the following code to declare a new API Gateway [API]({{< relref "/registry/packages/aws/api-docs/apigatewayv2/api" >}}):
 
 {{< chooser language "typescript,python" / >}}
 
@@ -241,25 +238,21 @@ Add the following lines for the integration and route. The comments should expla
 // ...
 
 // Define a policy granting API Gateway permission to publish to EventBridge.
-const apiGatewayRole = new aws.iam.Role("api-gateway-role",
-    {
-        assumeRolePolicy: {
-            Version: "2012-10-17",
-            Statement: [
-                {
-                    Action: "sts:AssumeRole",
-                    Effect: "Allow",
-                    Principal: {
-                        Service: "apigateway.amazonaws.com",
-                    },
+const apiGatewayRole = new aws.iam.Role("api-gateway-role", {
+    assumeRolePolicy: {
+        Version: "2012-10-17",
+        Statement: [
+            {
+                Action: "sts:AssumeRole",
+                Effect: "Allow",
+                Principal: {
+                    Service: "apigateway.amazonaws.com",
                 },
-            ],
-        },
-        managedPolicyArns: [
-            "arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess",
+            },
         ],
     },
-);
+    managedPolicyArns: ["arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess"],
+});
 
 // Create an API Gateway integration to forward requests to EventBridge.
 const integration = new aws.apigatewayv2.Integration("integration", {
@@ -355,9 +348,9 @@ The hard part’s done: you’ve declared an API and route, mapped that route to
 
 So to finish things off, you need:
 
-* a Lambda function to handle uploads,
-* an EventBridge [_target_](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) to bind your event rule to that function, and
-* an IAM policy granting EventBridge permission to invoke the function.
+-   a Lambda function to handle uploads,
+-   an EventBridge [_target_](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) to bind your event rule to that function, and
+-   an IAM policy granting EventBridge permission to invoke the function.
 
 {{% choosable language typescript %}}
 
@@ -382,7 +375,6 @@ First, make a new folder and file alongside your Pulumi program, at `./api/handl
 const lambda = new aws.lambda.CallbackFunction("lambda", {
     policies: [aws.iam.ManagedPolicies.CloudWatchLogsFullAccess],
     callback: async (event: any) => {
-
         // For now, just log the event, including the uploaded document.
         // That'll be enough to verify everything's working.
         console.log({ source: event.source, detail: event.detail });
@@ -547,6 +539,6 @@ When you're happy, be sure to tidy up with a `pulumi destroy`.
 
 There's a lot more you can do with integrations like this that we didn't cover: add more Lambda function handlers, have EventBridge target [other AWS services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) ([Step Functions](https://aws.amazon.com/step-functions) might be a good one to try next), validate HTTP request bodies (with API Gateway [models](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html), to keep bad data from ever reaching EventBridge), and more. Hopefully this gives you sense of what's possible, though. And as promised, you'll find examples that use both versions of API Gateway in our [examples repository on GitHub](https://github.com/pulumi/examples):
 
-* [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-eventbridge) in TypeScript
-* [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-py-apigatewayv2-eventbridge) in Python
-* [API Gateway V1 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigateway-eventbridge) in TypeScript, with request validation and custom HTTP response mapping
+-   [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-eventbridge) in TypeScript
+-   [API Gateway V2 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-py-apigatewayv2-eventbridge) in Python
+-   [API Gateway V1 to EventBridge](https://github.com/pulumi/examples/tree/master/aws-ts-apigateway-eventbridge) in TypeScript, with request validation and custom HTTP response mapping

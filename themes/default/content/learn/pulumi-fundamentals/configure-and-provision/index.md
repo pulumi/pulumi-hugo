@@ -675,7 +675,7 @@ we need to add products to the database.
 
 Now we can populate MongoDB and set up our Pulumi program to autopopulate the
 next time we deploy. First, copy the `products.json` file into the same
-directory as your {{% langfile %}} file.
+directory as your {{< langfile >}} file.
 
 ```bash
 cp app/data/products.json .
