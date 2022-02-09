@@ -13,13 +13,13 @@ Pulumi’s previews are an important part of any workflow where you want to see 
 
 <!--more-->
 
-Today, I’m excited to announce the public preview of Update Plans, a new Pulumi feature which guarantees that operations shown in `pulumi preview` will actually run on `pulumi up`. Plans also help catch any unexpected changes that might happen between when you preview a change and when you apply that change. Update Plans work by saving the results of a `pulumi preview` to a _plan file_, which enables you to restrict subsequent `pulumi up` operations to only the actions saved in the plan file. This helps you ensure that what you saw in the `pulumi preview` is what will actually happen when you run `pulumi up`.
+Today, I’m excited to announce the public preview of Update Plans, a new Pulumi feature which guarantees that operations shown in `pulumi preview` will run on `pulumi up`. Update Plans also help catch any unexpected changes that might happen between when you preview a change and when you apply that change. Update Plans work by saving the results of a `pulumi preview` to a _plan file_, which enables you to restrict subsequent `pulumi up` operations to only the actions saved in the plan file. This helps you ensure that what you saw in the `pulumi preview` is what will actually happen when you run `pulumi up`.
 
-Here’s an example of Update Plans in action. In this example we're creating a new AWS EC2 instance and associated security group. We first plan that change with `pulumi preview --save-plan plan.json`, we then examain the plan file to see the resource changes the plan expects to make, and finally run the an update constrained to the plan with `pulumi up --plan plan.json`.
+Here’s an example of Update Plans in action. In this example we're creating a new AWS EC2 instance and associated security group. First, we plan the change with `pulumi preview --save-plan plan.json`, and then we examine the plan file to see which resources the plan expects to change. Finally, we run an update that's constrained to the plan with `pulumi up --plan plan.json`.
 
 {{< asciicast id="466347" >}}
 
-To get started, you only need to add `--save-plan <file>` to the preview command and `--plan <file>` to the up command. In the video above, we demonstrated a pretty trivial example where our program did what our plan expected, so everything just ran as normal. If we clear the infrastructure we just created and start again with the same plan but change the program slightly, to have a different `userData` value, we can see that Update Plans returns an error and blocks the change.
+To get started, you only need to add `--save-plan <file>` to the preview command and `--plan <file>` to the up command. In the video above, we demonstrated a pretty trivial example where our program did what our plan expected, so everything ran just as expected. But what if we changed our program to have a different `userData` value and ran it against the same plan? If we clear the infrastructure we just created and use the same plan with the changed program, then Update Plans will return an error and block the change.
 
 {{< asciicast id="466462" >}}
 
