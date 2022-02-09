@@ -46,7 +46,15 @@ you need, so let's use that command. Use Python for this tutorial (TypeScript,
 Go, and C# are coming soon!), and the `-y` flag answers "yes" to the prompts to
 create a default project:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```bash
+$ pulumi new typescript -y
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -81,17 +89,34 @@ This command creates all the files we need, initializes a new stack named `dev`
 
 The basic project created by `pulumi new` is comprised of multiple files:
 
-<ul>
-<li><strong><code>{{% langfile %}}</code></strong>: your program's main entrypoint file</li>
-{{% choosable language python %}}<li><strong><code>requirements.txt</code></strong>: your project's Python dependency information</li>{{% /choosable %}}
-<li><strong><code>Pulumi.yaml</code></strong>: your project's metadata, containing its name and language</li>
-<li><strong><code>venv</code></strong>: a <a href="https://pypi.org/project/virtualenv/">virtualenv</a> for your project</li>
-</ul>
+* `Pulumi.yaml`: your project's metadata, containing its name and language
+* {{< langfile >}}: your program's main entrypoint file
 
-Use the command <code>cat</code>{{% langfile %}} to explore the contents of your
+{{% choosable language typescript %}}
+
+* `package.json`: your project's Node.js dependency information
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+* `requirements.txt`: your project's Python dependency information
+* `venv`: a [virtualenv](https://pypi.org/project/virtualenv/) for your project
+
+{{% /choosable %}}
+
+Use the command <code>cat</code>{{< langfile >}} to explore the contents of your
 project's empty program:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 

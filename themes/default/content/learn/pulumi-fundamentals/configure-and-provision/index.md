@@ -35,7 +35,19 @@ variables at the top of your program.
 Add the following configuration variables to your Pulumi program below the
 imports:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+// get configuration
+const config = new pulumi.Config();
+const frontendPort = config.requireNumber("frontendPort");
+const backendPort = config.requireNumber("backendPort");
+const mongoPort = config.requireNumber("mongoPort");
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -50,7 +62,49 @@ mongo_port = config.require_int("mongo_port")
 
 Your Pulumi program should now match this code:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as docker from "@pulumi/docker";
+
+// get configuration
+const config = new pulumi.Config();
+const frontendPort = config.requireNumber("frontendPort");
+const backendPort = config.requireNumber("backendPort");
+const mongoPort = config.requireNumber("mongoPort");
+
+const stack = pulumi.getStack();
+
+const backendImageName = "backend";
+const backend = new docker.Image("backend", {
+    build: {
+        context: `${process.cwd()}/app/backend`,
+    },
+    imageName: `${backendImageName}:${stack}`,
+    skipPush: true,
+});
+
+// build our frontend image!
+const frontendImageName = "frontend"
+const frontend = new docker.Image("frontend", {
+    build: {
+        context: `${process.cwd()}/app/frontend`,
+    },
+    imageName: `${frontendImageName}:${stack}`,
+    skipPush: true,
+});
+
+// build our mongodb image!
+const mongoImage = new docker.RemoteImage("mongo", {
+    name: "mongo:bionic",
+});
+
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -92,8 +146,6 @@ mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 Try and run your `pulumi up` again at this point. You should get an error like
 this:
 
-{{< chooser language "python" / >}}
-
 {{% choosable language python %}}
 
 ```bash
@@ -111,11 +163,27 @@ Remember how we can use the same program to define multiple stacks? Let's set
 the ports for this stack, which the Pulumi command line knows already from when
 you first initialized the project (it's the `dev` stack by default):
 
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```bash
+pulumi config set frontendPort 3001
+pulumi config set backendPort 3000
+pulumi config set mongoPort 27017
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
 ```bash
 pulumi config set frontend_port 3001
 pulumi config set backend_port 3000
 pulumi config set mongo_port 27017
 ```
+
+{{% /choosable %}}
 
 This set of commands creates a file in your directory called `Pulumi.dev.yaml`
 to store the configuration for this stack.
@@ -134,7 +202,18 @@ connect to each other, so we will need to create a
 [`Network`]({{< relref "registry/packages/docker/api-docs/network" >}}), which
 is another resource. Add the following code at the bottom of your program:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+// create a network!
+const network = new docker.Network("network", {
+    name: `services-${stack}`,
+});
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -149,7 +228,35 @@ Define a new
 [`Container`]({{< relref "registry/packages/docker/api-docs/container" >}})
 resource in your Pulumi program below the `Network` resource, like this:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+// create the backend container!
+const backend_container = new docker.Container("backend_container", {
+    name: `backend-${stack}`,
+    image: backend.baseImageName,
+    ports: [
+        {
+            internal: backendPort,
+            external: backendPort,
+        },
+    ],
+    envs: [
+        `DATABASE_HOST=${mongoHost}`,
+        `DATABASE_NAME=${database}`,
+        `NODE_ENV=${nodeEnvironment}`
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+});
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -188,16 +295,40 @@ mongo container and set the node environment for Express.js. These are set in
 `./app/backend/src/.env`. Like before we can set them using `pulumi config` on
 the command line:
 
+{{% choosable language typescript %}}
+
+```typescript
+pulumi config set mongoHost mongodb://mongo:27017
+pulumi config set database cart
+pulumi config set nodeEnvironment development
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
 ```bash
 pulumi config set mongo_host mongodb://mongo:27017
 pulumi config set database cart
 pulumi config set node_environment development
 ```
 
+{{% /choosable %}}
+
 Then, we need to add them to the top of our program with the rest of the
 configuration variables.
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+const mongoHost = config.require("mongoHost"); // Note that strings are the default, so it's not `config.requireString`, just `config.require`.
+const database = config.require("database");
+const nodeEnvironment = config.require("nodeEnvironment");
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -213,7 +344,33 @@ We also need to create `Container` resources for the frontend and mongo
 containers. Put the `mongo_container` declaration just above the `backend_container` one, and the
 `frontend_container` declaration at the end of the file. Here's the code for the mongo container:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+// create the mongo container!
+const mongoContainer = new docker.Container("mongo_container", {
+    image: mongoImage.latest,
+    name: `mongo-${stack}`,
+    ports: [
+        {
+            internal: mongoPort,
+            external: mongoPort,
+        },
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+            aliases: [
+                "mongo",
+            ],
+        },
+    ],
+});
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -237,7 +394,34 @@ mongo_container = docker.Container("mongo_container",
 
 And the code for the frontend container:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+// create the frontend container!
+const frontendContainer = new docker.Container("frontendContainer", {
+    image: frontend.baseImageName,
+    name: `frontend-${stack}`,
+    ports: [
+        {
+            internal: frontendPort,
+            external: frontendPort,
+        },
+    ],
+    envs: [
+        `LISTEN_PORT=${frontendPort}`,
+        `HTTP_PROXY=backend-${stack}:${backendPort}`,
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+});
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -268,7 +452,119 @@ Let's see what the whole program looks like next.
 
 Now that we know how to create a container we can complete our program.
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as docker from "@pulumi/docker";
+
+// get configuration
+const config = new pulumi.Config();
+const frontendPort = config.requireNumber("frontendPort");
+const backendPort = config.requireNumber("backendPort");
+const mongoPort = config.requireNumber("mongoPort");
+const mongoHost = config.require("mongoHost"); // Note that strings are the default, so it's not `config.requireString`, just `config.require`.
+const database = config.require("database");
+const nodeEnvironment = config.require("nodeEnvironment");
+
+const stack = pulumi.getStack();
+
+const backendImageName = "backend";
+const backend = new docker.Image("backend", {
+    build: {
+        context: `${process.cwd()}/app/backend`,
+    },
+    imageName: `${backendImageName}:${stack}`,
+    skipPush: true,
+});
+
+// build our frontend image!
+const frontendImageName = "frontend"
+const frontend = new docker.Image("frontend", {
+    build: {
+        context: `${process.cwd()}/app/frontend`,
+    },
+    imageName: `${frontendImageName}:${stack}`,
+    skipPush: true,
+});
+
+// build our mongodb image!
+const mongoImage = new docker.RemoteImage("mongo", {
+    name: "mongo:bionic",
+});
+
+// create a network!
+const network = new docker.Network("network", {
+    name: `services-${stack}`,
+});
+
+// create the mongo container!
+const mongoContainer = new docker.Container("mongo_container", {
+    image: mongoImage.latest,
+    name: `mongo-${stack}`,
+    ports: [
+        {
+            internal: mongoPort,
+            external: mongoPort,
+        },
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+            aliases: [
+                "mongo",
+            ],
+        },
+    ],
+});
+
+// create the backend container!
+const backend_container = new docker.Container("backend_container", {
+    name: `backend-${stack}`,
+    image: backend.baseImageName,
+    ports: [
+        {
+            internal: backendPort,
+            external: backendPort,
+        },
+    ],
+    envs: [
+        `DATABASE_HOST=${mongoHost}`,
+        `DATABASE_NAME=${database}`,
+        `NODE_ENV=${nodeEnvironment}`
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+}, { dependsOn: [ mongoContainer ]});
+
+// create the frontend container!
+const frontendContainer = new docker.Container("frontendContainer", {
+    image: frontend.baseImageName,
+    name: `frontend-${stack}`,
+    ports: [
+        {
+            internal: frontendPort,
+            external: frontendPort,
+        },
+    ],
+    envs: [
+        `LISTEN_PORT=${frontendPort}`,
+        `HTTP_PROXY=backend-${stack}:${backendPort}`,
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+});
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
@@ -386,7 +682,36 @@ just like you could with Docker.
 
 Add this snippet after the `backend_container` declaration:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+const dataSeedContainer = new docker.Container("dataSeedContainer", {
+    image: mongoImage.latest,
+    name: "dataSeed",
+    mustRun: false,
+    rm: true,
+    mounts: [
+        {
+            target: "/home/products.json",
+            type: "bind",
+            source: `${process.cwd()}/products.json`,
+        },
+    ],
+    command: [
+        "sh", "-c",
+        "mongoimport --host mongo --db cart --collection products --type json --file /home/products.json --jsonArray",
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+});
+```
+
+{{% /choosable %}}
 
 {{% choosable language python %}}
 
