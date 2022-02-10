@@ -85,6 +85,7 @@ provider. In this case, we want to use the `@pulumi/docker` provider for Node.js
 our language host. Let's to install the provider now:
 
 ```bash
+cd ../
 npm install @pulumi/docker
 ```
 
@@ -168,7 +169,7 @@ does not push the image up anywhere.
 {{% choosable language typescript %}}
 
 Notice that we're mixing in some language constructs in here like `process.cwd()`.
-With Pulumi, we have access to the full language ecosystem, including
+With Pulumi, we have access to the full language ecosystem, including built-ins and
 third-party libraries. Pulumi also has typing support, so you can use the tools
 in your favorite IDE, like completion, to verify that you're using the correct
 types for any inputs you're using. Pretty cool!

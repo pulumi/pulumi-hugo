@@ -145,7 +145,18 @@ mongo_image = docker.RemoteImage("mongo", name="mongo:bionic")
 Try and run your `pulumi up` again at this point. You should get an error like
 this:
 
-{{% choosable language "typescript,python" %}}
+{{% choosable language typescript %}}
+
+```bash
+Diagnostics:
+  pulumi:pulumi:Stack (my-first-app-dev):
+    error: Missing required configuration variable 'my-first-app:frontendPort'
+        please set a value using the command `pulumi config set my-first-app:frontendPort <value>`
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 ```bash
 Diagnostics:
@@ -233,7 +244,7 @@ resource in your Pulumi program below the `Network` resource, like this:
 
 ```typescript
 // create the backend container!
-const backend_container = new docker.Container("backend_container", {
+const backendContainer = new docker.Container("backendContainer", {
     name: `backend-${stack}`,
     image: backend.baseImageName,
     ports: [
@@ -252,7 +263,7 @@ const backend_container = new docker.Container("backend_container", {
             name: network.name,
         },
     ],
-});
+}, { dependsOn: [ mongoContainer ]});
 ```
 
 {{% /choosable %}}
@@ -281,13 +292,29 @@ backend_container = docker.Container("backend_container",
 
 {{% /choosable %}}
 
+{{% choosable language typescript %}}
+
 It is important to note something here. In the `Container` resource, we are
 referencing `baseImageName` from the `Image` resource. Pulumi now knows there is
+a dependency between these two resources and will know to create the
+`Container` resource _after_ the `Image` resource. Another dependency to note is
+that the `backendContainer` depends on the `mongoContainer`. If we tried to
+run `pulumi up` without the `mongoContainer` running or present somewhere in
+state, Pulumi would let us know that the resource didn't exist and would stop.
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+It is important to note something here. In the `Container` resource, we are
+referencing `base_image_name` from the `Image` resource. Pulumi now knows there is
 a dependency between these two resources and will know to create the
 `Container` resource _after_ the `Image` resource. Another dependency to note is
 that the `backend_container` depends on the `mongo_container`. If we tried to
 run `pulumi up` without the `mongo_container` running or present somewhere in
 state, Pulumi would let us know that the resource didn't exist and would stop.
+
+{{% /choosable %}}
 
 The backend container also requires environment variables to connect to the
 mongo container and set the node environment for Express.js. These are set in
@@ -361,7 +388,7 @@ containers. Put the `mongo_container` declaration just above the `backend_contai
 
 ```typescript
 // create the mongo container!
-const mongoContainer = new docker.Container("mongo_container", {
+const mongoContainer = new docker.Container("mongoContainer", {
     image: mongoImage.latest,
     name: `mongo-${stack}`,
     ports: [
@@ -510,7 +537,7 @@ const network = new docker.Network("network", {
 });
 
 // create the mongo container!
-const mongoContainer = new docker.Container("mongo_container", {
+const mongoContainer = new docker.Container("mongoContainer", {
     image: mongoImage.latest,
     name: `mongo-${stack}`,
     ports: [
@@ -528,30 +555,26 @@ const mongoContainer = new docker.Container("mongo_container", {
 });
 
 // create the backend container!
-const backend_container = new docker.Container(
-    "backend_container",
-    {
-        name: `backend-${stack}`,
-        image: backend.baseImageName,
-        ports: [
-            {
-                internal: backendPort,
-                external: backendPort,
-            },
-        ],
-        envs: [
-            `DATABASE_HOST=${mongoHost}`,
-            `DATABASE_NAME=${database}`,
-            `NODE_ENV=${nodeEnvironment}`,
-        ],
-        networksAdvanced: [
-            {
-                name: network.name,
-            },
-        ],
-    },
-    { dependsOn: [mongoContainer] }
-);
+const backendContainer = new docker.Container("backendContainer", {
+    name: `backend-${stack}`,
+    image: backend.baseImageName,
+    ports: [
+        {
+            internal: backendPort,
+            external: backendPort,
+        },
+    ],
+    envs: [
+        `DATABASE_HOST=${mongoHost}`,
+        `DATABASE_NAME=${database}`,
+        `NODE_ENV=${nodeEnvironment}`,
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+}, { dependsOn: [ mongoContainer ]});
 
 // create the frontend container!
 const frontendContainer = new docker.Container("frontendContainer", {
@@ -793,8 +816,7 @@ If you want to remove the stack completely, run 'pulumi stack rm dev'.
 
 Now your resources should all be cleared! That last comment you see in the
 output notes that the stack and all of the configuration and history will stay
-in your dashboard on the Pulumi Service ([app.pulumi.com](https://app.pulumi.com/) and will be stored in
-the Pulumi Service that maintains the history. For now, that's okay. We'll talk
+in your dashboard on the Pulumi Service ([app.pulumi.com](https://app.pulumi.com/)). For now, that's okay. We'll talk
 more about removing the project from your history in another pathway.
 
 ---

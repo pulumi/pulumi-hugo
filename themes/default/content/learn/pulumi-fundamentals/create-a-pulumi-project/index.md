@@ -70,20 +70,11 @@ information and status as it goes:
 
 ```bash
 Created project 'my-first-app'
-
-Please enter your desired stack name.
-To create a stack in an organization, use the format <org-name>/<stack-name> (e.g. `acmecorp/dev`).
-Created stack 'dev'
+...
 
 Installing dependencies...
+...
 
-
-added 104 packages, and audited 105 packages in 4s
-
-31 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
 Finished installing dependencies
 
 Your new project is ready to go! ✨
