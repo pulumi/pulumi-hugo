@@ -47,7 +47,7 @@ These logs may include sensitive information that is provided from your executio
 $ pulumi up -v=9 --logflow
 ```
 
-Add the `--logtostderr` flag to send this verbose logging directly to `stderr` for easier access. 
+Add the `--logtostderr` flag to send this verbose logging directly to `stderr` for easier access.
 
 ```
 $ pulumi up -v=9 --logtostderr 2> out.txt

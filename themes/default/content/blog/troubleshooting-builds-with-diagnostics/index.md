@@ -1,69 +1,35 @@
 ---
 title: "Troubleshooting Builds With Diagnostics"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
 date: 2022-02-10T12:00:55-06:00
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
 draft: true
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
-meta_desc:
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: Explore how to gather diagnostic data to debug your Pulumi programs.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
-    - joe-duffy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
+    - laura-santamaria
 tags:
-    - change-me
-
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
+    - troubleshooting
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional). To do that, just add an HTML comment like the one below.
+One of the most common things a developer, an operations professional, a security researcher, and a quality assurance engineer all have in common is the pain of troubleshooting. No matter where you are in an IT organization, you probably have cursed your system at some point as you stare at a wall of characters representing an error somewhere. Whenever humans interact with a system, we introduce chaos, and the more complex the system, the more likely the system's diagnostic data is complex and multi-layered. Pulumi, as a system that represents some of the more complex systems we can make, is no exception. So let's demystify diagnostics in Pulumi.
 
 <!--more-->
 
-And then everything _after_ that comment will appear on the post page itself.
+## Getting data
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+First, if you don't know how to get diagnostic data from a Pulumi run, our [troubleshooting page]({{< relref "/docs/troubleshooting" >}}) is a good place to start. There's a section specifically on [diagnostics]({{< relref "/docs/troubleshooting#diagnosing-issues" >}}). To get that data, add the `-v` flag with a number representing the logging level you need:
 
-## Writing the Post
-
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/docs/blob/master/BLOGGING.md). For general formatting guidelines, see the Style Guide section of [CONTRIBUTING.md](https://github.com/pulumi/docs/blob/master/CONTRIBUTING.md#style-guide).
-
-## Code Samples
-
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
+```bash
+pulumi up -v=5
 ```
 
-## Images
+How do you decide which level to ask for? In the classic style of professionals discussing complex data, it depends. We often encourage people to start at level 9, which gives you almost everything you need. Level 1 can be thought of as equivalent to `CRITICAL` messages only---Red Alert, panic panic panic. Level 9, on the other hand, can be thought of as equivalent to `DEBUG` messages and above---give me all the things. And then, of course, you can turn it to 11, which can be thought of as `TRACE` in many logging paradigms.
 
-![Placeholder Image](meta.png)
+Now, that flag only covers what Pulumi's engine is doing. 
 
-## Videos
 
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
 
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
 
-## Tweets
+https://github.com/pulumi/pulumi/blob/master/pkg/cmd/pulumi/pulumi.go#L181-L182
+https://github.com/pulumi/pulumi/blob/master/sdk/go/common/util/logging/log.go
 
-{{< tweet 1147203941609984002 >}}
+
