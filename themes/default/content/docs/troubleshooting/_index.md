@@ -31,27 +31,35 @@ of issue reports.
 
 ### Verbose Logging
 
-Verbose logging of the internals of the Pulumi engine and resource providers can be enabled by
-passing the `-v` flag to any `pulumi` CLI command. The `--logtostderr` flag can be added to send
-this verbose logging directly to `stderr` for easier access.  Pulumi emits logs at a variety of log
-levels between `1` and `9`.
+Enable verbose logging from the Pulumi engine by passing the `-v` flag to any `pulumi` CLI command. Pulumi emits logs at a variety of log levels between `1` and `11`, with `1` representing the least amount of data and `11` the highest. We recommend starting with level `9` to ensure you get most of the diagnostic data available for debugging.
 
-> These logs may include sensitive information that is provided from your execution environment to
-your cloud provider (and which Pulumi may not even itself be aware of) so be careful to audit before
-sharing.
-
-```
-$ pulumi up --logtostderr -v=9 2> out.txt
+```bash
+$ pulumi up -v=9
 ```
 
-Individual resource providers may also have additional flags to customize their diagnostic logging.
-For example, for any Pulumi resource providers that expose a Terraform resource provider into
-Pulumi, you can use [`TF_LOG`](https://www.terraform.io/docs/internals/debugging.html) set to
-`TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR`.
+To get verbose logging from a provider, add the `--logflow` flag.
+
+{{% notes type="warning" %}}
+These logs may include sensitive information that is provided from your execution environment to your cloud provider (and which Pulumi may not even itself be aware of) so be careful to audit before sharing.
+{{% /notes %}}
+
+``` bash
+$ pulumi up -v=9 --logflow
+```
+
+Add the `--logtostderr` flag to send this verbose logging directly to `stderr` for easier access. 
+
+```
+$ pulumi up -v=9 --logtostderr 2> out.txt
+```
+
+Individual resource providers may also have additional flags to customize their diagnostic logging. For example, for any Pulumi resource providers that expose a Terraform resource provider into Pulumi, you can use [`TF_LOG`](https://www.terraform.io/docs/internals/debugging.html) set to `TRACE`, `DEBUG`, `INFO`, `WARN`, or `ERROR`.
 
 ```
 $ TF_LOG=TRACE pulumi up --logtostderr -v=9 2> out.txt
 ```
+
+Note that these flags work for any Pulumi CLI command, not just `pulumi up`.
 
 ### Performance
 
