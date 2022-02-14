@@ -377,3 +377,22 @@ class MyStack
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+While default providers are enabled by default, they can be disabled on a per stack basis. You might want to do this if passing an Explicit Providers is required for all created resources. For example, to disable the `aws` provider, you can run
+
+```sh
+$ pulumi config set --path 'pulumi:disable-default-providers[0]' aws
+```
+
+If you want to also disable the `kubernetes` default provider, run
+
+```sh
+$ pulumi config set --path 'pulumi:disable-default-providers[1]' kubernetes
+```
+
+To disable all default providers, use `*` as the package name:
+
+```sh
+$ pulumi config set --path 'pulumi:disable-default-providers[2]' '*'
+```
+
