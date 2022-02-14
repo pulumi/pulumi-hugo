@@ -395,4 +395,3 @@ To disable all default providers, use `*` as the package name:
 ```sh
 $ pulumi config set --path 'pulumi:disable-default-providers[2]' '*'
 ```
-
