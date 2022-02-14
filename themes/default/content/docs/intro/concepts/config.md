@@ -240,3 +240,12 @@ Console.WriteLine($"Active: {data.GetProperty("active")}");
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+## Special Configuration Options
+
+This is a list of configuration keys that the Pulumi CLI is aware of:
+
+| Tag                                 | Type             | Description                                                                                               |
+|-------------------------------------|------------------|-----------------------------------------------------------------------------------------------------------|
+| `pulumi:disable-default-providers` | Sequence[String] | Packages for which default providers should be disabled. `*` disables default providers for all packages. |
+
