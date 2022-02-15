@@ -36,13 +36,48 @@ are stored in your state file.
 Inside our `my-first-app` program that we have been working with, let's set a
 username and password for mongoDB:
 
+{{< chooser language "typescript,python" />}}
+
+{{% choosable language typescript %}}
+
+```bash
+$ pulumi config set mongoUsername admin
+$ pulumi config set --secret mongoPassword S3cr37
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
 ```bash
 $ pulumi config set mongo_username admin
 $ pulumi config set --secret mongo_password S3cr37
 ```
 
+{{% /choosable %}}
+
 If we list the configuration for our stack, the plain-text value for
 `mongo-password` will not be printed:
+
+{{% choosable language typescript %}}
+
+```bash
+$ pulumi config
+
+KEY              VALUE
+backendPort      3000
+database         cart
+frontendPort     3001
+mongoHost        mongodb://mongo:27017
+mongoPassword    [secret]
+mongoPort        27017
+mongoUsername    admin
+nodeEnvironment  development
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 ```bash
 $ pulumi config
@@ -58,7 +93,30 @@ mongo_port        27017
 node_environment  development
 ```
 
+{{% /choosable %}}
+
 This is also encrypted in the associated configuration file:
+
+{{% choosable language typescript %}}
+
+```bash
+$ cat Pulumi.dev.yaml
+
+config:
+  my-first-app:backendPort: "3000"
+  my-first-app:database: cart
+  my-first-app:frontendPort: "3001"
+  my-first-app:mongoHost: mongodb://mongo:27017
+  my-first-app:mongoPassword:
+    secure: AAABAMmuAKv483Tczly/PfmWF//BCMktAKQz6/OXLbP/xcEEOCk=
+  my-first-app:mongoPort: "27017"
+  my-first-app:mongoUsername: admin
+  my-first-app:nodeEnvironment: development
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 ```bash
 $ cat Pulumi.dev.yaml
@@ -73,25 +131,25 @@ config:
   my-first-app:mongo_host: mongodb://mongo:27017
   my-first-app:mongo_port: "27017"
   my-first-app:node_environment: development
-
-
 ```
+
+{{% /choosable %}}
 
 We can access the secrets similarly to other configuration data, however we must
 specify that it is a secret:
 
 Add this code to the {{< langfile >}} inside of `my-first-app`:
 
-{{< chooser language "python" / >}}
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
 ```typescript
 const config = new pulumi.Config();
+// ...
 
-const dbPassword = config.requireSecret("dbPassword");
-
-export let password = dbPassword;
+const mongoUsername = config.require("mongoUsername");
+export const mongoPassword = config.requireSecret("mongoPassword");
 ```
 
 {{% /choosable %}}
@@ -101,35 +159,49 @@ export let password = dbPassword;
 ```python
 
 config = pulumi.Config()
-
 #...
 
 mongo_username = config.require("mongo_username")
 mongo_password = config.require_secret("mongo_password")
-
 ```
 
 {{% /choosable %}}
 
 We need to make a few changes to use this new username and password. First,
 let's go ahead and make sure when our `mongo` container is created, it has the
-correct username and password. Add the following environment variables to the
-`mongo` container:
+correct username and password. Update the container definition to use the `envs`
+input property to set environment variables for the database username and password:
 
-```python
-                                   envs=[
-                                         f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
-                                        pulumi.Output.concat(
-                                             "MONGO_INITDB_ROOT_PASSWORD=",
-                                             config.require_secret("mongo_password")
-                                         )
-                                     ],
+{{% choosable language typescript %}}
+
+```typescript
+const mongoContainer = new docker.Container("mongoContainer", {
+    image: mongoImage.latest,
+    name: `mongo-${stack}`,
+    ports: [
+        {
+            internal: mongoPort,
+            external: mongoPort,
+        },
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+            aliases: ["mongo"],
+        },
+    ],
+    envs: [
+        `MONGO_INITDB_ROOT_USERNAME=${mongoUsername}`,
+        `MONGO_INITDB_ROOT_PASSWORD=${mongoPassword}`,
+    ],
+});
 ```
 
-So the entire `docker.Container` resource will look like this:
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 ```python
-
 mongo_container = docker.Container("mongo_container",
                                    image=mongo_image.latest,
                                    name=f"mongo-{stack}",
@@ -137,21 +209,53 @@ mongo_container = docker.Container("mongo_container",
                                        internal=mongo_port,
                                        external=mongo_port
                                    )],
-                                   envs=[
-                                         f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
-                                         pulumi.Output.concat(
-                                             "MONGO_INITDB_ROOT_PASSWORD=",
-                                             config.require_secret("mongo_password")
-                                         )
-                                     ],
                                    networks_advanced=[docker.ContainerNetworksAdvancedArgs(
                                        name=network.name,
                                        aliases=["mongo"]
-                                   )]
+                                   )],
+                                   envs=[
+                                         f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
+                                         f"MONGO_INITDB_ROOT_PASSWORD={mongo_password}"
+                                     ]
                                    )
-
-
 ```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+We need to have our seed container use the new password to connect. Change the
+`command` in the `dataSeedContainer` resource to look like this:
+
+```typescript
+const dataSeedContainer = new docker.Container("dataSeedContainer", {
+    image: mongoImage.latest,
+    name: "dataSeed",
+    mustRun: false,
+    rm: true,
+    mounts: [
+        {
+            target: "/home/products.json",
+            type: "bind",
+            source: `${process.cwd()}/products.json`,
+        },
+    ],
+    command: [
+        "sh",
+        "-c",
+        pulumi.interpolate`mongoimport --host ${mongoHost} -u ${mongoUsername} -p ${mongoPassword} --authentication admin --db cart --collection products --type json --file /home/products.json --jsonArray`,
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 We need to have our seed container use the new password to connect. Change the
 `command` in the `data_seed_container` resource to look like this:
@@ -186,12 +290,60 @@ data_seed_container = docker.Container("data_seed_container",
                                        )
 ```
 
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+Finally, we need to update the backend container to use the new authentication.
+We need to slightly change the value of `mongoHost` first:
+
+```bash
+$ pulumi config set mongoHost mongo
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
 Finally, we need to update the backend container to use the new authentication.
 We need to slightly change the value of `mongo_host` first:
 
 ```bash
-pulumi config set mongo_host mongo
+$ pulumi config set mongo_host mongo
 ```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+Then, update the `backendContainer` resource as follows:
+
+```typescript
+const backendContainer = new docker.Container("backendContainer", {
+    name: `backend-${stack}`,
+    image: backend.baseImageName,
+    ports: [
+        {
+            internal: backendPort,
+            external: backendPort,
+        },
+    ],
+    envs: [
+        pulumi.interpolate`DATABASE_HOST=mongodb://${mongoUsername}:${mongoPassword}@${mongoHost}:${mongoPort}`,
+        `DATABASE_NAME=${database}?authSource=admin`,
+        `NODE_ENV=${nodeEnvironment}`,
+    ],
+    networksAdvanced: [
+        {
+            name: network.name,
+        },
+    ],
+}, { dependsOn: [ mongoContainer ]});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 Then, update the `backend_container` resource as follows:
 
@@ -222,51 +374,9 @@ backend_container = docker.Container("backend_container",
                                      )],
                                      opts=pulumi.ResourceOptions(depends_on=[mongo_container])
                                      )
-
-
-```
-
-<!-- {{% choosable language go %}}
-
-```go
-
-import (
-  "fmt"
-
-  "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-  pulumi.Run(func(ctx *pulumi.Context) error {
-    dbPassword := c.RequireSecret("dbPassword")
-    ctx.Export("x", pulumi.String(dbPassword))
-
-    return nil
-  }
-}
-
 ```
 
 {{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-
-class AppStack : Stack
-{
-    public AppStack()
-    {
-        var config = new Config();
-
-        var dbPassword = config.RequireSecret("dbPassword");
-        this.dbPassword = Output.Create(dbPassword);
-    }
-}
-
-```
-
-{{% /choosable %}} -->
 
 When we run `pulumi up`, we see that the output is set (so our use of the secret
 worked!), but Pulumi knows that value was a secret, so when we try to set it as
@@ -274,10 +384,23 @@ an output, it will not display.
 
 If we would like to see the plain-text value, we can do it with this command:
 
+{{% choosable language typescript %}}
+
+```bash
+$ pulumi stack output mongoPassword --show-secrets
+S3cr37
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
 ```bash
 $ pulumi stack output mongo_password --show-secrets
 S3cr37
 ```
+
+{{% /choosable %}}
 
 For more information on how Pulumi uses secrets, including how to set them
 programmatically, review the

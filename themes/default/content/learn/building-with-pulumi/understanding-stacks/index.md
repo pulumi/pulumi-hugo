@@ -35,8 +35,6 @@ alphanumeric characters, hyphens, underscores, or periods.
 
 Let's create a new stack in our project, for our staging environment:
 
-{{< chooser language "python" / >}}
-
 {{% choosable language python %}}
 
 ```bash
