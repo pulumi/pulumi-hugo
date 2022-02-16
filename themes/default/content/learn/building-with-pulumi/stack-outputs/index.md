@@ -103,24 +103,6 @@ $ pulumi stack select dev
 Now, run the following command to get the values for this stack's configuration
 configuration:
 
-{{% choosable language typescript %}}
-
-```bash
-$ pulumi config
-
-KEY              VALUE
-backendPort      3000
-database         cart
-frontendPort     3001
-mongoHost        mongodb://mongo:27017
-mongoPort        27017
-nodeEnvironment  development
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
 ```bash
 $ pulumi config
 
@@ -133,27 +115,8 @@ mongo_port        27017
 node_environment  development
 ```
 
-{{% /choosable %}}
-
 Let's set the configuration for the `staging` stack. We'll use the same values
 as `dev`, except the `frontend_port` will be set to `3002`.
-
-{{% choosable language typescript %}}
-
-```bash
-$ pulumi stack select staging
-
-$ pulumi config set frontendPort 3002
-$ pulumi config set backendPort 3000
-$ pulumi config set mongoPort 27017
-$ pulumi config set mongoHost mongodb://mongo:27017
-$ pulumi config set database cart
-$ pulumi config set nodeEnvironment development
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
 
 ```bash
 $ pulumi stack select staging
@@ -166,14 +129,10 @@ $ pulumi config set database cart
 $ pulumi config set node_environment development
 ```
 
-{{% /choosable %}}
-
 You should have two new files in your directory now: `Pulumi.dev.yaml` and
 `Pulumi.staging.yaml`. If you take a look at them, you'll see each one has the
 value for `frontend_port` set (along with some other values we set in the
 Fundamentals tutorial):
-
-{{% choosable language python %}}
 
 ```bash
 $ cat Pulumi.staging.yaml
@@ -186,24 +145,6 @@ config:
   my-first-app:mongo_port: "27017"
   my-first-app:node_environment: development
 ```
-
-{{% /choosable %}}
-
-{{% choosable language typescript %}}
-
-```bash
-$ cat Pulumi.staging.yaml
-
-config:
-  my-first-app:backendPort: "3000"
-  my-first-app:database: cart
-  my-first-app:frontendPort: "3001"
-  my-first-app:mongoHost: mongodb://mongo:27017
-  my-first-app:mongoPort: "27017"
-  my-first-app:nodeEnvironment: development
-```
-
-{{% /choosable %}}
 
 Now, if you run `pulumi up` while in the `staging` stack, we should see that the
 frontend port is now set to `3002`:

@@ -38,46 +38,13 @@ username and password for mongoDB:
 
 {{< chooser language "typescript,python" />}}
 
-{{% choosable language typescript %}}
-
-```bash
-$ pulumi config set mongoUsername admin
-$ pulumi config set --secret mongoPassword S3cr37
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
 ```bash
 $ pulumi config set mongo_username admin
 $ pulumi config set --secret mongo_password S3cr37
 ```
 
-{{% /choosable %}}
-
 If we list the configuration for our stack, the plain-text value for
-`mongo-password` will not be printed:
-
-{{% choosable language typescript %}}
-
-```bash
-$ pulumi config
-
-KEY              VALUE
-backendPort      3000
-database         cart
-frontendPort     3001
-mongoHost        mongodb://mongo:27017
-mongoPassword    [secret]
-mongoPort        27017
-mongoUsername    admin
-nodeEnvironment  development
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
+`mongo_password` will not be printed:
 
 ```bash
 $ pulumi config
@@ -93,30 +60,7 @@ mongo_port        27017
 node_environment  development
 ```
 
-{{% /choosable %}}
-
 This is also encrypted in the associated configuration file:
-
-{{% choosable language typescript %}}
-
-```bash
-$ cat Pulumi.dev.yaml
-
-config:
-  my-first-app:backendPort: "3000"
-  my-first-app:database: cart
-  my-first-app:frontendPort: "3001"
-  my-first-app:mongoHost: mongodb://mongo:27017
-  my-first-app:mongoPassword:
-    secure: AAABAMmuAKv483Tczly/PfmWF//BCMktAKQz6/OXLbP/xcEEOCk=
-  my-first-app:mongoPort: "27017"
-  my-first-app:mongoUsername: admin
-  my-first-app:nodeEnvironment: development
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
 
 ```bash
 $ cat Pulumi.dev.yaml
@@ -133,12 +77,10 @@ config:
   my-first-app:node_environment: development
 ```
 
-{{% /choosable %}}
-
 We can access the secrets similarly to other configuration data, however we must
 specify that it is a secret:
 
-Add this code to the {{< langfile >}} inside of `my-first-app`:
+Add this code to {{< langfile >}} inside of `my-first-app`:
 
 {{< chooser language "typescript,python" / >}}
 
@@ -148,8 +90,8 @@ Add this code to the {{< langfile >}} inside of `my-first-app`:
 const config = new pulumi.Config();
 // ...
 
-const mongoUsername = config.require("mongoUsername");
-export const mongoPassword = config.requireSecret("mongoPassword");
+const mongoUsername = config.require("mongo_username");
+export const mongoPassword = config.requireSecret("mongo_password");
 ```
 
 {{% /choosable %}}
@@ -171,6 +113,8 @@ We need to make a few changes to use this new username and password. First,
 let's go ahead and make sure when our `mongo` container is created, it has the
 correct username and password. Update the container definition to use the `envs`
 input property to set environment variables for the database username and password:
+
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -221,6 +165,8 @@ mongo_container = docker.Container("mongo_container",
 ```
 
 {{% /choosable %}}
+
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
 
@@ -292,19 +238,6 @@ data_seed_container = docker.Container("data_seed_container",
 
 {{% /choosable %}}
 
-{{% choosable language typescript %}}
-
-Finally, we need to update the backend container to use the new authentication.
-We need to slightly change the value of `mongoHost` first:
-
-```bash
-$ pulumi config set mongoHost mongo
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
 Finally, we need to update the backend container to use the new authentication.
 We need to slightly change the value of `mongo_host` first:
 
@@ -312,11 +245,11 @@ We need to slightly change the value of `mongo_host` first:
 $ pulumi config set mongo_host mongo
 ```
 
-{{% /choosable %}}
+Then, update the backend container resource as follows:
+
+{{< chooser language "typescript,python" / >}}
 
 {{% choosable language typescript %}}
-
-Then, update the `backendContainer` resource as follows:
 
 ```typescript
 const backendContainer = new docker.Container("backendContainer", {
@@ -344,8 +277,6 @@ const backendContainer = new docker.Container("backendContainer", {
 {{% /choosable %}}
 
 {{% choosable language python %}}
-
-Then, update the `backend_container` resource as follows:
 
 ```python
 backend_container = docker.Container("backend_container",
@@ -406,7 +337,8 @@ For more information on how Pulumi uses secrets, including how to set them
 programmatically, review the
 [corresponding docs]({{< relref "/docs/intro/concepts/secrets" >}}).
 
-From here, we're moving on to the last part of the Pulumi in Practice pathway:
-testing. Onward!
+---
 
-<!-- [^1]: [state]({{< relref "/docs/intro/concepts/state" >}}) -->
+Congratulations! You’ve finished the Building with Pulumi pathway! In this pathway, you learned all about stacks, outputs, and stack references so you can work in multiple environments. You also learned about secrets in Pulumi and how to use them in your programs.
+
+Go build new things, and watch this space for more learning experiences on Pulumi!

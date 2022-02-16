@@ -56,26 +56,6 @@ $ pulumi new python -y
 
 {{% /choosable %}}
 
-<!--{{% choosable language go %}}
-
-```bash
-mkdir my-second-app
-cd my-second-app
-$ pulumi new go -y
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```bash
-mkdir my-second-app
-cd my-second-app
-$ pulumi new csharp -y
-```
-
-{{% /choosable %}}-->
-
 Let's go ahead and create a `staging` stack here as well:
 
 ```bash
