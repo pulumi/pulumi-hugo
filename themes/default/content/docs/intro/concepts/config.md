@@ -245,6 +245,14 @@ Console.WriteLine($"Active: {data.GetProperty("active")}");
 
 This is a list of configuration keys that the Pulumi CLI is aware of:
 
-| Tag                                 | Type             | Description                                                                                               |
-|-------------------------------------|------------------|-----------------------------------------------------------------------------------------------------------|
-| `pulumi:disable-default-providers` | Sequence[String] | Packages for which default providers should be disabled. `*` disables default providers for all packages. |
+### `pulumi:disable-default-providers`
+
+A list of packages for which default providers should be disabled. `*` disables default providers for all packages.
+
+In the following example, the default providers for [aws]({{< relref "registry/packages/aws/" >}}) and [kubernetes]({{< relref "registry/packages/kubernetes/" >}}) are disabled.
+
+```yaml
+- pulumi:disable-default-providers:
+    - aws
+    - kubernetes
+```
