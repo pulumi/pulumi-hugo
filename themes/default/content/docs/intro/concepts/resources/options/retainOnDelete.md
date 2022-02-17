@@ -10,6 +10,8 @@ menu:
 
 The `retainOnDelete` resource option marks a resource to be retained. If a resource is retained then when
 Pulumi deletes or replaces the resource it will not call through to the resource provider's `Delete` method.
+As a result, the resource will not be deleted from the backing cloud provider, but will be removed from the
+Pulumi state.
 
 This option can be used for shared resources that other stacks might be making use of.
 
