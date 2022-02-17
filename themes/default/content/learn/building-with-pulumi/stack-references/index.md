@@ -71,8 +71,6 @@ Add this code to the {{< langfile >}} file inside of `my-second-app`.
 
 {{% choosable language typescript %}}
 
-<!-- Note to reviewer: This won't work unless `pulumi up` was run on the `staging` (which is the currently selected) stack in the previous step. We should probably fix this before merging. -->
-
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
