@@ -378,10 +378,12 @@ class MyStack
 
 {{< /chooser >}}
 
+## Disabling Default Providers
+
 While default providers are enabled by default, they [can be disabled]({{< relref
-"/docs/intro/concepts/config#special-configuration-options" >}}) on a per stack basis. You might want to do this if
-passing an explicit providers is required for all created resources. For example, to disable the `aws` provider, you can
-run
+"/docs/intro/concepts/config#special-configuration-options" >}}) on a per stack basis. Disabling default
+providers is a good idea if you want to ensure that your programs must be explicit about which provider they
+will use. For example, to disable the `aws` provider, you can run:
 
 ```sh
 $ pulumi config set --path 'pulumi:disable-default-providers[0]' aws
