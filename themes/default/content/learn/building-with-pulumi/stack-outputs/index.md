@@ -26,7 +26,7 @@ references, which bridge different stacks through inter-stack dependencies.
 Typically, you will pass some value from your resources into the output, but to
 illustrate how stack outputs work, we will set some stack outputs manually:
 
-In the {{< langfile >}} file of `my-first-app`, add the following line:
+At the end of the {{< langfile >}} file of `my-first-app`, add the following line:
 
 {{< chooser language "typescript,python" / >}}
 
@@ -76,7 +76,6 @@ particular stack.
 
 ```bash
 $ pulumi stack output url
-
 http://localhost:3001
 ```
 
@@ -105,7 +104,6 @@ configuration:
 
 ```bash
 $ pulumi config
-
 KEY               VALUE
 backend_port      3000
 database          cart
@@ -140,7 +138,7 @@ $ cat Pulumi.staging.yaml
 config:
   my-first-app:backend_port: "3000"
   my-first-app:database: cart
-  my-first-app:frontend_port: "3001"
+  my-first-app:frontend_port: "3002"
   my-first-app:mongo_host: mongodb://mongo:27017
   my-first-app:mongo_port: "27017"
   my-first-app:node_environment: development
@@ -151,7 +149,6 @@ frontend port is now set to `3002`:
 
 ```bash
 $ pulumi stack output url
-
 http://localhost:3002
 ```
 

@@ -347,7 +347,7 @@ containers. Put the `mongo_container` declaration just above the `backend_contai
 ```typescript
 // create the mongo container!
 const mongoContainer = new docker.Container("mongoContainer", {
-    image: mongoImage.latest,
+    image: mongoImage.repoDigest,
     name: `mongo-${stack}`,
     ports: [
         {
@@ -371,7 +371,7 @@ const mongoContainer = new docker.Container("mongoContainer", {
 ```python
 # create the mongo container!
 mongo_container = docker.Container("mongo_container",
-                        image=mongo_image.latest,
+                        image=mongo_image.repo_digest,
                         name=f"mongo-{stack}",
                         ports=[docker.ContainerPortArgs(
                           internal=mongo_port,
@@ -496,7 +496,7 @@ const network = new docker.Network("network", {
 
 // create the mongo container!
 const mongoContainer = new docker.Container("mongoContainer", {
-    image: mongoImage.latest,
+    image: mongoImage.repoDigest,
     name: `mongo-${stack}`,
     ports: [
         {
@@ -600,7 +600,7 @@ network = docker.Network("network", name=f"services-{stack}")
 
 # create the mongo container!
 mongo_container = docker.Container("mongo_container",
-                        image=mongo_image.latest,
+                        image=mongo_image.repo_digest,
                         name=f"mongo-{stack}",
                         ports=[docker.ContainerPortArgs(
                           internal=mongo_port,
@@ -687,7 +687,7 @@ Add this snippet after the `backend_container` declaration:
 
 ```typescript
 const dataSeedContainer = new docker.Container("dataSeedContainer", {
-    image: mongoImage.latest,
+    image: mongoImage.repoDigest,
     name: "dataSeed",
     mustRun: false,
     rm: true,
@@ -717,7 +717,7 @@ const dataSeedContainer = new docker.Container("dataSeedContainer", {
 
 ```python
 data_seed_container = docker.Container("data_seed_container",
-                                       image=mongo_image.latest,
+                                       image=mongo_image.repo_digest,
                                        name="data_seed",
                                        must_run=False,
                                        rm=True,

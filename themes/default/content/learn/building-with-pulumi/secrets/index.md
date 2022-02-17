@@ -33,12 +33,12 @@ To encrypt a configuration setting before runtime, you can use the CLI command
 `pulumi config set` command with a `--secret` flag. All these encrypted values
 are stored in your state file.
 
-Inside our `my-first-app` program that we have been working with, let's set a
-username and password for mongoDB:
-
-{{< chooser language "typescript,python" />}}
+Inside our `my-first-app` program that we have been working with, let's switch
+back to the `dev` stack and set a username and password for MongoDB:
 
 ```bash
+$ pulumi stack select dev
+
 $ pulumi config set mongo_username admin
 $ pulumi config set --secret mongo_password S3cr37
 ```
@@ -48,7 +48,6 @@ If we list the configuration for our stack, the plain-text value for
 
 ```bash
 $ pulumi config
-
 KEY               VALUE
 backend_port      3000
 database          cart
@@ -78,9 +77,7 @@ config:
 ```
 
 We can access the secrets similarly to other configuration data, however we must
-specify that it is a secret:
-
-Add this code to {{< langfile >}} inside of `my-first-app`:
+specify that it is a secret. Add this code to {{< langfile >}} inside of `my-first-app`:
 
 {{< chooser language "typescript,python" / >}}
 
@@ -120,7 +117,7 @@ input property to set environment variables for the database username and passwo
 
 ```typescript
 const mongoContainer = new docker.Container("mongoContainer", {
-    image: mongoImage.latest,
+    image: mongoImage.repoDigest,
     name: `mongo-${stack}`,
     ports: [
         {
@@ -147,7 +144,7 @@ const mongoContainer = new docker.Container("mongoContainer", {
 
 ```python
 mongo_container = docker.Container("mongo_container",
-                                   image=mongo_image.latest,
+                                   image=mongo_image.repo_digest,
                                    name=f"mongo-{stack}",
                                    ports=[docker.ContainerPortArgs(
                                        internal=mongo_port,
@@ -175,7 +172,7 @@ We need to have our seed container use the new password to connect. Change the
 
 ```typescript
 const dataSeedContainer = new docker.Container("dataSeedContainer", {
-    image: mongoImage.latest,
+    image: mongoImage.repoDigest,
     name: "dataSeed",
     mustRun: false,
     rm: true,
@@ -208,7 +205,7 @@ We need to have our seed container use the new password to connect. Change the
 
 ```python
 data_seed_container = docker.Container("data_seed_container",
-                                       image=mongo_image.latest,
+                                       image=mongo_image.repo_digest,
                                        name="data_seed",
                                        must_run=False,
                                        rm=True,
@@ -305,6 +302,13 @@ backend_container = docker.Container("backend_container",
                                      )],
                                      opts=pulumi.ResourceOptions(depends_on=[mongo_container])
                                      )
+```
+
+And finally, add a line at the end of the program to export password as a stack output:
+
+```python
+#...
+pulumi.export("mongo_password", mongo_password)
 ```
 
 {{% /choosable %}}
