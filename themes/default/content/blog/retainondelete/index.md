@@ -14,7 +14,7 @@ draft: true
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: Introducing the new resource option retainOnDelete, to allow sharing of cloud resources.
+meta_desc: Introducing the new resource option retainOnDelete.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
