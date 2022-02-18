@@ -8,22 +8,20 @@ menu:
     weight: 13
 ---
 
-The `retainOnDelete` resource option marks a resource to be retained. If a resource is retained then when
-Pulumi deletes or replaces the resource it will not call through to the resource provider's `Delete` method.
-As a result, the resource will not be deleted from the backing cloud provider, but will be removed from the
-Pulumi state.
+The `retainOnDelete` resource option marks a resource to be retained. If this option is set then Pulumi will
+not call through to the resource provider's `Delete` method when deleting or replacing the resource during
+`pulumi up` or `pulumi destroy`. As a result, the resource will not be deleted from the backing cloud
+provider, but will be removed from the Pulumi state.
 
-This option can be used for shared resources that other stacks might be making use of.
-
-To actually delete a retained resource, it must first be *unretained*.
+To actually delete a retained resource, this setting must first be set to `false`.
 
 * Set `retainOnDelete: false` and then run `pulumi up`
 
-Once the resource is unretained, it can be fully deleted as part of a following update.
+Once the resource is no longer marked retained, it can be fully deleted as part of a following update.
 
-If a retained resource is deleted by Pulumi and you later want to actually delete it from the backing cloud provider you will either need to use
-your provider's manual interface to find and delete the resource, or import the resource back into Pulumi then
-unretain and delete it.
+If a retained resource is deleted by Pulumi and you later want to actually delete it from the backing cloud
+provider you will either need to use your provider's manual interface to find and delete the resource, or
+import the resource back into Pulumi to unset `retainOnDelete` and delete it again fully.
 
 The default is to inherit this value from the parent resource, and `false` for resources without a parent.
 
@@ -32,14 +30,14 @@ The default is to inherit this value from the parent resource, and `false` for r
 {{% choosable language javascript %}}
 
 ```javascript
-let db = new Database("db", {}, { retainOnDelete: true});
+let db = new Database("db", {}, { retainOnDelete: true });
 ```
 
 {{% /choosable %}}
 {{% choosable language typescript %}}
 
 ```typescript
-let db = new Database("db", {}, { retainOnDelete: true});
+let db = new Database("db", {}, { retainOnDelete: true });
 ```
 
 {{% /choosable %}}
