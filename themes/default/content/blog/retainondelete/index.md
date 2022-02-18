@@ -35,7 +35,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-While Pulumi lets you manage your infrastrucutre with code there are some cases where operations need to
+While Pulumi lets you manage your infrastructure with code there are some cases where operations need to
 happen outside the standard deployment lifecycle. Pulumi now supports retaining resources on delete allowing a
 number of new workflows.
 
@@ -48,34 +48,40 @@ resource when replacing or removing it from the stack.
 
 ## Retain on delete
 
-We now support a new resource option [retain on delete]({{< relref "docs/intro/concepts/resources/options/retainOnDelete" >}})
-that allows you to specifiy this case to the engine.
+We now support a new resource option [retain on delete]({{< relref
+"docs/intro/concepts/resources/options/retainOnDelete" >}}) that allows you to specify this case to the
+engine.
 
-When a resource marked with `retainOnDelete` is deleted or replaced by a Pulumi update the engine will not
-call through to the resource providers `Delete` function. This is the similar to AWS Cloud Formation's [Retain
+When a resource marked with `retainOnDelete` is deleted or replaced by a Pulumi update the engine it doesn't
+delete the actual resource in the cloud. That is it won't call through to the resource providers `Delete`
+function. This is the similar to AWS Cloud Formation's [Retain
 DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
 
-## Supporting data storage policies
+## New workflows enabled
+
+This feature enables a number of new workflows with Pulumi.
+
+### Supporting data storage policies
 
 Using this new feature it is now possible to uncouple resource lifecycles from deployment cycles. This can be
-espically useful to teams with policy around data and storage. For example your company may require that all
+especially useful to teams with policy around data and storage. For example your company may require that all
 S3 storage is backed up and retained for some amount of time. Using `RetainOnDelete` you can ensure that the
 S3 buckets that Pulumi creates aren't deleted by Pulumi, leaving the data alive for your storage policy team
 to backup and then delete when no longer required.
 
-## Supporting shared resources
+### Supporting shared resources
 
-Another workflow this option enables is the ability to manage externaly owned resources via Pulumi deploments.
-You may have an external long lived resource that you want to temporarily manage via a Pulumi program, but
-then relquinsh back to the external owner rather than deleting when your finished with it.
+Another workflow this option enables is the ability to manage externally owned resources via Pulumi
+deployments. You may have an external long lived resource that you want to temporarily manage via a Pulumi
+program, but then relinquish back to the external owner rather than deleting when your finished with it.
 
-Using a combiniation of [import](https://www.pulumi.com/docs/guides/adopting/import/) and `retainOnDelete` you
-can bring a resource under managment and then relinqish it back to the external owner.
+Using a combination of [import](https://www.pulumi.com/docs/guides/adopting/import/) and `retainOnDelete` you
+can bring a resource under management and then relinquish it back to the external owner.
 
-## Working around provider bugs
+### Working around provider issues
 
-Lastly not really a new workflow but `retainOnDelete` can also be used to work around some provider bugs. Some
-providers will fail to refresh and correctly detect that a resource is now deleted leading pulumi to
+Lastly not really a new workflow but `retainOnDelete` can also be used to work around some provider issues.
+Some providers will fail to refresh and correctly detect that a resource is now deleted leading pulumi to
 continually erroring trying to issue a delete call to something that no longer exists. While you could always
 manually edit your state file to resolve cases like this `retainOnDelete` give you the option to fix this via
 program changes instead. Simply mark the faulty resource with `retainOnDelete`, run `pulumi up` to apply the
@@ -84,7 +90,8 @@ the resource from your state file without communicating with the faulty provider
 
 ## Using retain on delete
 
-Setting retain on delete is done via a resource option. The following example builds two AWS S3 bucket objects, with one used for logging which will not be deleted by Pulumi.
+Setting retain on delete is done via a resource option. The following example builds two AWS S3 bucket
+objects, with one used for logging which will not be deleted by Pulumi.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
