@@ -112,4 +112,3 @@ const bucket = new aws.s3.Bucket("bucket", {
 ```
 
 Read more about retain on delete in our [docs]({{< relref "docs/intro/concepts/resources/options/retainOnDelete" >}}). Let us know how you get on with this new feature at our community [Slack](https://slack.pulumi.com/)!
-
