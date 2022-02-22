@@ -1,0 +1,87 @@
+{{ define "hero" }}
+    {{ partial "hero" (dict "title" .Params.title ) }}
+{{ end }}
+
+{{ define "main" }}
+    <section id="info" class="container mx-auto text-center mt-8">
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-1/2">
+                <img class="mx-auto" src="{{ .Params.overview.image }}" alt="Pulumi Community Summit" />
+            </div>
+
+            <div class="w-full lg:w-1/2 flex justify-center items-center">
+                <p>
+                    Join your friends in the Pulumi community on March 23rd, 2020 for the first ever Pulumi
+                    Community Summit .This virtual event will include an “Open Spaces” concept where you can
+                    propose and vote on topics ahead of time. Those topics with the most interest will form
+                    the agenda for the day, with virtual break out rooms centered around those themes. Still
+                    uncertain about “Open Spaces”? Take a look at the organizers at
+                    <a href="https://devopsdays.org/open-space-format/" target="_blank" rel="noopener noreferrer" >DevOps Days</a>
+                    for their more detailed description.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2>Save the date</h2>
+
+            <h4>
+                <pulumi-datetime date="2022-03-23T07:00:00-07:00"></pulumi-datetime>
+            </h4>
+
+            <div class="flex flex-wrap justify-center items-center py-12">
+                <div class="w-full lg:w-1/3">
+                    <a href="#" class="btn-secondary">Google Calendar</a>
+                </div>
+
+                <div class="w-full lg:w-1/3">
+                    <a href="#" class="btn-secondary">Outlook</a>
+                </div>
+
+                <div class="w-full lg:w-1/3">
+                    <a href="#" class="btn-secondary">Office 365</a>
+                </div>
+            </div>
+
+            <p><a href="#">Download Calendar Invite</a></p>
+        </div>
+    </section>
+
+    <section id="faq" class="container mx-auto my-16">
+        <h2 class="text-center mb-12">Frequently Asked Questions</h2>
+
+        <h3>Who should attend?</h3>
+        <p>
+            Any practitioner, engineer, developer or professional who is interested in Pulumi and Cloud Engineering.
+            Feel free to invite your friends and colleagues. Cloud Engineering practitioners include infrastructure
+            (DevOps, SREs), platform engineers, application developers, and security professionals who are building
+            modern cloud-based applications  and infrastructure. They help their organizations achieve digital
+            transformation goals and address both the challenges and opportunities posed by rapid innovation,
+            scale, reliability, security, and compliance.
+
+        </p>
+
+        <h4>What are appropriate topics?</h4>
+        <p>
+            Suggested topics could include K8's, Azure, Migrations, Python, specifics about using Pulumi,
+            culture or gaming are fun to discuss. Even pets are fair game - feel free to bring yours along
+            for the summit.
+        </p>
+
+        <h4>Do I have to travel?</h4>
+        <p>
+            As travel restrictions and comfort levels change, we may introduce this event in-person but for
+            now, we will host a virtual environment for our community to gather, discuss and network.
+        </p>
+    </section>
+
+    <section class="container mx-auto my-12 md:my-24 p-6 lg:p-0">
+        <div class="w-full bg-violet-600 rounded shadow p-16 pt-24 text-center">
+            <h2 class="text-white">{{ .Params.get_started.title }}</h2>
+            <p class="text-white">{{ .Params.get_started.description }}</p>
+            <div class="mt-16">
+                <a class="btn-secondary" href="{{ relref . "/docs/get-started" }}">{{ .Params.get_started.cta_text }}</a>
+            </div>
+        </div>
+    </section>
+{{ end }}
