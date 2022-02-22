@@ -125,7 +125,6 @@ Once I had everything migrated to Pulumi I set up a Gitlab CI/CD flow which allo
 
 When your infrastructure starts growing it becomes hard to manage unless you group your resources. Pulumi's solution to this are the so called [component resources](https://www.pulumi.com/docs/intro/concepts/resources/#components). They are "logical components" which you define yourself.
 
-
 ```shell
 $ pulumi stack
 ...
@@ -164,17 +163,16 @@ $ pulumi stack --show-urns
 
 Let's have a look at one of the URNs in more detail, shall we?
 
-
 ```shell
 urn:pulumi:prod::VT::vt:RedisServer$aws:elasticache/parameterGroup:ParameterGroup::vt-redis-prod
 
 ```
 
--   stack name: prod
--   project name: VT
--   parent resource type: vt:RedisServer
--   resource type: aws:elasticache/parameterGroup:ParameterGroup
--   resource name: vt-redis-prod
+- stack name: prod
+- project name: VT
+- parent resource type: vt:RedisServer
+- resource type: aws:elasticache/parameterGroup:ParameterGroup
+- resource name: vt-redis-prod
 
 All URNs need to be unique, which means every resource of the same type, with the same parent (in the same stack and project) needs to have a unique resource name.
 
@@ -255,7 +253,6 @@ This will cause my *vt-redis-prod* resource to be created in the Pulumi state.
 ## Writing IAM (JSON) policies with Pulumi outputs
 
 Imagine having an IAM policy that referenced an ECR repository, just as an example. You might want the policy to grant access only to that particular ECR repository. You might be temped to try something like this:
-
 
 ```json
 aws.iam.Policy(
