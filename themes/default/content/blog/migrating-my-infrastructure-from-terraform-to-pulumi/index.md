@@ -178,7 +178,6 @@ All URNs need to be unique, which means every resource of the same type, with th
 
 Normally I would have written and imported my parameter group definition something like this:
 
-
 ```python
 # components/redis_server.py
 class RedisServer(ComponentResource):
