@@ -3,16 +3,16 @@
 {{ end }}
 
 {{ define "main" }}
-    <section id="info" class="container mx-auto text-center mt-8">
-        <div class="flex flex-wrap">
-            <div class="w-full lg:w-1/2">
+    <section id="info" class="max-w-5xl mx-auto text-center mt-8">
+        <div class="">
+            <div class="w-full ">
                 <img class="mx-auto" src="{{ .Params.overview.image }}" alt="Pulumi Community Summit" />
             </div>
 
-            <div class="w-full lg:w-1/2 flex justify-center items-center">
+            <div class="w-full flex justify-center items-center">
                 <p>
                     Join your friends in the Pulumi community on March 23rd, 2020 for the first ever Pulumi
-                    Community Summit .This virtual event will include an “Open Spaces” concept where you can
+                    Community Summit. This virtual event will include an “Open Spaces” concept where you can
                     propose and vote on topics ahead of time. Those topics with the most interest will form
                     the agenda for the day, with virtual break out rooms centered around those themes. Still
                     uncertain about “Open Spaces”? Take a look at the organizers at
@@ -22,28 +22,28 @@
             </div>
         </div>
 
-        <div class="mt-12">
+        <div class="max-w-4xl mx-auto card bg-white mt-12 p-12">
             <h2>Save the date</h2>
 
             <h4>
-                <pulumi-datetime date="2022-03-23T07:00:00-07:00"></pulumi-datetime>
+                <pulumi-datetime date="2022-03-23T08:00:00-07:00"></pulumi-datetime>
             </h4>
 
             <div class="flex flex-wrap justify-center items-center py-12">
-                <div class="w-full lg:w-1/3">
-                    <a href="#" class="btn-secondary">Google Calendar</a>
+                <div class="w-full lg:w-1/2">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pulumi%20Community%20Summit&dates=20220323T150000Z/20220323T190000Z&details=Join%20your%20friends%20in%20the%20Pulumi%20community%20on%20March%2023rd%2C%202020%20for%20the%20first%20ever%20Pulumi%20Community%20Summit.%20This%20virtual%20event%20will%20include%20an%20%E2%80%9COpen%20Spaces%E2%80%9D%20concept%20where%20you%20can%20propose%20and%20vote%20on%20topics%20ahead%20of%20time.%20Those%20topics%20with%20the%20most%20interest%20will%20form%20the%20agenda%20for%20the%20day%2C%20with%20virtual%20break%20out%20rooms%20centered%20around%20those%20themes&location=https://pulumi.com/community-summit/">
+                        <img class="h-24 mx-auto" src="/logos/misc/google-calendar.svg" alt="Google Calendar" />
+                    </a>
                 </div>
 
-                <div class="w-full lg:w-1/3">
-                    <a href="#" class="btn-secondary">Outlook</a>
-                </div>
-
-                <div class="w-full lg:w-1/3">
-                    <a href="#" class="btn-secondary">Office 365</a>
+                <div class="w-full lg:w-1/2">
+                    <a target="_blank" rel="noopener noreferrer" href="https://outlook.office.com/calendar/0/deeplink/compose?body=Join%20your%20friends%20in%20the%20Pulumi%20community%20on%20March%2023rd%2C%202020%20for%20the%20first%20ever%20Pulumi%20Community%20Summit.%20This%20virtual%20event%20will%20include%20an%20%E2%80%9COpen%20Spaces%E2%80%9D%20concept%20where%20you%20can%20propose%20and%20vote%20on%20topics%20ahead%20of%20time.%20Those%20topics%20with%20the%20most%20interest%20will%20form%20the%20agenda%20for%20the%20day%2C%20with%20virtual%20break%20out%20rooms%20centered%20around%20those%20themes&location=https://pulumi.com/community-summit/&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2022-03-23T15%3A00%3A00%2B00%3A00&enddt=2022-03-23T19%3A00%3A00%2B00%3A00&subject=Pulumi%20Community%20Summit">
+                        <img class="h-24 mx-auto" src="/logos/misc/outlook.svg" alt="Outlook" />
+                    </a>
                 </div>
             </div>
 
-            <p><a href="#">Download Calendar Invite</a></p>
+            <p><a href="#" class="btn-secondary">Download Calendar Invite</a></p>
         </div>
     </section>
 
