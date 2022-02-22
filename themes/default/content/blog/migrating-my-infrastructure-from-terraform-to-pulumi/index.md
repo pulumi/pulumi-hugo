@@ -44,12 +44,12 @@ You might already know a bit of Pulumi, but here's a very quick overview plus so
 
 ![image.png](./resources.png)
 
--   Pulumi allows you to write your IaC using TypeScript, Javascript, Python, Go or C#.
--   You define *resources* which have *inputs* and *outputs*. As an example, a resource could be an RDS database Instance. One of it's inputs would be the database version to use. One of the outputs would be the hostname / address of the server.
--   The outputs are lazily evaluated, and their exact value is often not known until after you've executed your code. I.e. you wouldn't have the `db_instance.address` until the instance had been created. Think of outputs as promises / futures.
--   You can use [component resources](https://www.pulumi.com/docs/intro/concepts/resources/#components) to group your resources into logical groups - similar to how Terraform modules work. If you don't do this there's a high risk you'll end up with a very messy setup further down the line.
--   Read Pulumi's own [overview](https://www.pulumi.com/docs/intro/concepts/) and [naming](https://www.pulumi.com/docs/intro/concepts/resources/#autonaming) docs before attempting to use Pulumi yourself. I'd say that's the most important bit to know about.
--   Pulumi are using the [open core](https://en.wikipedia.org/wiki/Open-core_model) model where most features are free, but some extra goodies are on a paid tier. You can use the open source version and do state management yourself, but you miss out on certain features.
+- Pulumi allows you to write your IaC using TypeScript, Javascript, Python, Go or C#.
+- You define *resources* which have *inputs* and *outputs*. As an example, a resource could be an RDS database Instance. One of it's inputs would be the database version to use. One of the outputs would be the hostname / address of the server.
+- The outputs are lazily evaluated, and their exact value is often not known until after you've executed your code. I.e. you wouldn't have the `db_instance.address` until the instance had been created. Think of outputs as promises / futures.
+- You can use [component resources](https://www.pulumi.com/docs/intro/concepts/resources/#components) to group your resources into logical groups - similar to how Terraform modules work. If you don't do this there's a high risk you'll end up with a very messy setup further down the line.
+- Read Pulumi's own [overview](https://www.pulumi.com/docs/intro/concepts/) and [naming](https://www.pulumi.com/docs/intro/concepts/resources/#autonaming) docs before attempting to use Pulumi yourself. I'd say that's the most important bit to know about.
+- Pulumi are using the [open core](https://en.wikipedia.org/wiki/Open-core_model) model where most features are free, but some extra goodies are on a paid tier. You can use the open source version and do state management yourself, but you miss out on certain features.
 
 So what does Pulumi code look like? Below is a minimal extract of some of the Python code I've written (slightly altered).
 
