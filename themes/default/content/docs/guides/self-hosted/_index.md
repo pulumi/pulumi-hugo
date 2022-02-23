@@ -56,4 +56,4 @@ However, Pulumi provides installers to support common deployment environments.
 
 ## Components
 
-The Pulumi self-hosted [Components]({{< relref "components" >}}) consist of Docker images Pulumi service's frontend UI and backend API.
+The Pulumi self-hosted [Components]({{< relref "components" >}}) consist of Docker images for the Pulumi service's frontend UI and backend API.
