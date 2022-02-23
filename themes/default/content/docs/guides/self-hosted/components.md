@@ -5,7 +5,7 @@ menu:
         parent: self_hosted
         identifier: self_hosted_components
         weight: 70
-meta_desc: The Pulumi service container images. 
+meta_desc: The Pulumi service container images page links and docker hub links.
 ---
 
 {{% notes type="info" %}}
