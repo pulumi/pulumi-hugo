@@ -1,5 +1,5 @@
 ---
-title: ECS Hosted Installer
+title: ECS-Hosted Installer
 menu:
     userguides:
         parent: self_hosted
@@ -7,8 +7,6 @@ menu:
         weight: 5
 meta_desc: Installer for deploying the self-hosted Pulumi service in ECS.
 ---
-
-# ECS-Hosted Installer
 
 The "ECS-hosted" installer is used to deploy the self-hosted Pulumi service in Amazon Elastic Container Service.  
 

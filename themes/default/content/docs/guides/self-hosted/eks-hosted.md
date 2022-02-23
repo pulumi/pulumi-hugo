@@ -1,5 +1,5 @@
 ---
-title: EKS Hosted Installer
+title: EKS-Hosted Installer
 menu:
     userguides:
         parent: self_hosted
@@ -7,8 +7,6 @@ menu:
         weight: 6
 meta_desc: Installer for deploying the self-hosted Pulumi service in EKS.
 ---
-
-# EKS-Hosted Installer
 
 The "EKS-hosted" installer is used to deploy the self-hosted Pulumi service in Amazon Elastic Kuberenetes Service (EKS).  
 
