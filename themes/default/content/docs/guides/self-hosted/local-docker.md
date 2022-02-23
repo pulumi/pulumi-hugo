@@ -1,3 +1,13 @@
+---
+title: Local Docker Installer
+menu:
+    userguides:
+        parent: self_hosted
+        identifier: self_hosted_localdocker_installer
+        weight: 4
+meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
+---
+
 # Local-Docker Installer
 The "local-docker" installer is generally meant to be used where an on-premise solution is needed or where the cloud-based installation solutions (i.e. EKS, ECS, AKS) are not possible. 
 
@@ -14,8 +24,6 @@ The customer is required to provide and manage the following:
     * `GRANT CREATE USER ON *.* TO 'pulumi'@'%' WITH GRANT OPTION`
 * Object storage (e.g. Minio) with
   * At least 200GB SSD storage space.
-
-
 
 ## Local-Docker Deployment
 

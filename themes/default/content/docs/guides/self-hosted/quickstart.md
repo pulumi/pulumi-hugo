@@ -1,3 +1,12 @@
+---
+title: Quickstart Installer
+menu:
+    userguides:
+        parent: self_hosted
+        identifier: self_hosted_quickstart_installer
+        weight: 3
+meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
+---
 
 # Quickstart Installer
 
