@@ -2,7 +2,7 @@
 title: Pulumi API
 menu:
     userguides:
-        parent: self_hosted
+        parent: self_hosted_components
         identifier: self_hosted_api_service
         weight: 1
 meta_desc: Pulumi API is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
