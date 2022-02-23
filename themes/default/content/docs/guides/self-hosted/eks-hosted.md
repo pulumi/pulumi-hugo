@@ -12,7 +12,7 @@ meta_desc: Installer for deploying the self-hosted Pulumi service in EKS.
 
 The "EKS-hosted" installer is used to deploy the self-hosted Pulumi service in Amazon Elastic Kuberenetes Service (EKS).  
 
-# Prerequisites
+## Prerequisites
 
 The customer is required to provide and manage the following:
 
@@ -32,13 +32,13 @@ The EKS-hosted installation of Pulumi deploys the following services:
 
 ### Pulumi deploying Pulumi
 
-This installer uses Pulumi to deploy the Pulumi service. 
+This installer uses Pulumi to deploy the Pulumi service.  
 In this case, one uses the pulumi CLI with a self-managed backend (e.g. S3) to deploy all services listed above to stand up the self-hosted Pulumi Service.  
-The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`. 
+The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`.
 
 To this end, you need to set up the following:
 
-* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the docker server. 
+* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the docker server.
 * [Login to S3-compatible backend]({{<relref "docs/intro/concepts/state#logging-into-the-aws-s3-backend">}})
 
 ### Deployment Steps
@@ -55,7 +55,7 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 * `pulumi login` to the self-managed (not self-hosted) backend as chosen above when installing the self-hosted service.
 * `pulumi config set imageTag {image tag}` to set the version you want to use.
-* `pulumi up` to deploy the updates. 
+* `pulumi up` to deploy the updates.
 
 ### Database Maintenance
 
@@ -69,7 +69,7 @@ The buckets will have names of the form:
 * `pulumi-checkpoint-XXX`
 * `pulumi-policy-XXX`
 
-### Updating the EKS Cluster Kubernetes Version 
+### Updating the EKS Cluster Kubernetes Version
 
 If running the Pulumi Service with Kubernetes version 1.19 or later, then simply update the `clusterConfig:ClusterVersion` configuration property to the desired version.  
 Then, rerun the `npm run install -- update --` command to update the cluster with the new version.

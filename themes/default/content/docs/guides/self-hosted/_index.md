@@ -60,7 +60,7 @@ The component repositories are private. [Contact us]({{< relref "/contact.md" >}
 The Pulumi service Docker container images can be run using any OCI-compatible container orchestrator.
 However, Pulumi provides installers to support common deployment environments.
 
-* [Quickstart Installer]({{< relref "quickstart" >}}): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local docker environment. 
+* [Quickstart Installer]({{< relref "quickstart" >}}): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local docker environment.
 * [Local-Docker Installer]({{< relref "local-docker" >}}): Using a Pulumi-provided Pulumi program written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution using a customer-provided docker environment,  a customer-provided MySQL database and a customer-provided object store (e.g. Minio).
 * [ECS-Hosted Installer]({{< relref "ecs-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript or Go, one can automate the deployment and maintenance of a production-grade self-hosted solution.
 * [EKS-Hosted Installer]({{< relref "eks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution running on Amazon Elastic Kubernetes Sevice (EKS). This solution most closely matches the managed service deployment model.
