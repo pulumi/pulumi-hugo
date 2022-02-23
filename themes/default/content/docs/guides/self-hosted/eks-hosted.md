@@ -1,10 +1,10 @@
 ---
-title: EKS-Hosted Installer
+title: EKS-Hosted Install
 menu:
     userguides:
         parent: self_hosted
         identifier: self_hosted_ekshosted_installer
-        weight: 6
+        weight: 30
 meta_desc: Installer for deploying the self-hosted Pulumi service in EKS.
 ---
 

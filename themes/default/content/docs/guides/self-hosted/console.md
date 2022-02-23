@@ -2,7 +2,7 @@
 title: Pulumi Service
 menu:
     userguides:
-        parent: self_hosted
+        parent: self_hosted_components
         identifier: self_hosted_console_service
         weight: 2
 meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.

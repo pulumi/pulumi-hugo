@@ -1,10 +1,10 @@
 ---
-title: ECS-Hosted Installer
+title: ECS-Hosted Instal
 menu:
     userguides:
         parent: self_hosted
         identifier: self_hosted_ecshosted_installer
-        weight: 5
+        weight: 20
 meta_desc: Installer for deploying the self-hosted Pulumi service in ECS.
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: Quickstart Installer
+title: Quickstart Install
 menu:
     userguides:
         parent: self_hosted
         identifier: self_hosted_quickstart_installer
-        weight: 4
+        weight: 10
 meta_desc: Quickstart installer for testing of the self-hosted Pulumi service.
 ---
 

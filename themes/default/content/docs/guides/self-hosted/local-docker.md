@@ -1,10 +1,10 @@
 ---
-title: Local-Docker Installer
+title: Local-Docker Install
 menu:
     userguides:
         parent: self_hosted
         identifier: self_hosted_localdocker_installer
-        weight: 8
+        weight: 50
 meta_desc: Installer for deploying the self-hosted Pulumi service in docker.
 ---
 

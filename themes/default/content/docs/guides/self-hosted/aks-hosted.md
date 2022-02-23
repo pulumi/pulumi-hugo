@@ -1,10 +1,10 @@
 ---
-title: AKS-Hosted Installer
+title: AKS-Hosted Install
 menu:
     userguides:
         parent: self_hosted
         identifier: self_hosted_akshosted_installer
-        weight: 7
+        weight: 40
 meta_desc: Installer for deploying the self-hosted Pulumi service in AKS.
 ---
 
