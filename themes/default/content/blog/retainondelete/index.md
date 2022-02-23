@@ -1,38 +1,13 @@
 ---
 title: "Retain on Delete"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
-date: 2022-02-17T10:14:31Z
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
-draft: true
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
-meta_desc: Introducing the new resource option retainOnDelete.
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+date: 2022-02-23
+meta_desc: Introducing the new resource option RetainOnDelete.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - fraser-waters
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - features
 
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
 ---
 
 Pulumi is frequently used to manage the entire lifecycle of a resource, from creation, to updates, to replacement, to deletion. However, there are some cases where it is important to ensure that a resource's life can extend beyond the lifetime of the Pulumi program that created it. To support these use cases, Pulumi now support a new resource option `RetainOnDelete` which allows a resource to be retained in the backing cloud provider even after it is delete from the Pulumi stack it is part of.
@@ -43,7 +18,7 @@ We've seen a number of user questions over the years about keeping resources aft
 
 ## Retain on delete
 
-We now support a new resource option [retain on delete]({{< relref "docs/intro/concepts/resources/options/retainOnDelete" >}}) that allows you to specify this case to the engine.
+We [now support](https://github.com/pulumi/pulumi/releases/tag/v3.25.0) a new resource option [retain on delete]({{< relref "docs/intro/concepts/resources/options/retainOnDelete" >}}) that allows you to specify this case to the engine.
 
 When a resource marked with `RetainOnDelete` is deleted or replaced by a Pulumi update, the resource is removed from the Pulumi state but Pulumi does not delete the actual resource in the cloud. That is it won't call through to the resource provider's `Delete` function. This is the similar to AWS Cloud Formation's [Retain DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
 
