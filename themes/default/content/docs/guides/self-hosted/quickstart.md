@@ -47,10 +47,10 @@ Your Pulumi sales contact should be able to provide you with this.
 {{% /notes %}}
 
 ## Quickstart System Management and Maintenance
+
 Since the quickstart option is meant to be used for testing purposes, there is no real maintenance or management needed other than perhaps updating the service containers with the latest versions.
 
 ### Updating the Pulumi Service Containers
+
 For testing purposes, it is recommended to use the `latest` image tag in the docker compose file and re-run the `run-ee.sh` script when there are newer versions of the service image pushed to docker hub.  
 If you specified a specific image version in the docker compose file, then simply update the version tag and re-run the `run-ee.sh` script.
-
-
