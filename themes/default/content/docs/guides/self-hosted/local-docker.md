@@ -4,8 +4,8 @@ menu:
     userguides:
         parent: self_hosted
         identifier: self_hosted_localdocker_installer
-        weight: 4
-meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
+        weight: 8
+meta_desc: Installer for deploying the self-hosted Pulumi service in docker.
 ---
 
 # Local-Docker Installer
