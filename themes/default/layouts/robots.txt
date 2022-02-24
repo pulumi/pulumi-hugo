@@ -7,4 +7,4 @@ Disallow: *
 Disallow: /docs/search/$
 
 Sitemap: https://www.pulumi.com/sitemap.xml
-Host: https://www.pulumi.com
+Host: www.pulumi.com
