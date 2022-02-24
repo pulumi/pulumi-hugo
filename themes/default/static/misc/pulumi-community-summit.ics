@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ical.marudot.com//iCal Event Maker
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo-outlook/America/Los_Angeles
+X-LIC-LOCATION:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220222T220231Z
+UID:1645567322261-98285@ical.marudot.com
+DTSTART;TZID=America/Los_Angeles:20220323T070000
+DTEND;TZID=America/Los_Angeles:20220323T120000
+SUMMARY:Pulumi Community Summit
+URL:https://pulumi.com/community-summit/
+DESCRIPTION:Join your friends in the Pulumi community on March 23rd\, 2020 for the first ever Pulumi Community Summit .This virtual event will include an “Open Spaces” concept where you can  propose and vote on topics ahead of time. Those topics with the most interest will form the agenda for the day\, with virtual break out rooms centered around those themes. Still uncertain about “Open Spaces”? Take a look at the organizers at DevOps Days for their more detailed description.
+LOCATION:Virtual
+END:VEVENT
+END:VCALENDAR
