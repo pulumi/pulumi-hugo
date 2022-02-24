@@ -9,3 +9,4 @@ require (
 )
 
 replace github.com/pulumi/pulumi-hugo/themes/default => ./themes/default
+replace github.com/pulumi/theme => ../theme
