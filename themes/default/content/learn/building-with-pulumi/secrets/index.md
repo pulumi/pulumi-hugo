@@ -313,11 +313,11 @@ pulumi.export("mongo_password", mongo_password)
 
 {{% /choosable %}}
 
-When we run `pulumi up`, we see that the output is set (so our use of the secret
+When we run `pulumi up`, we find the output is set (so our use of the secret
 worked!), but Pulumi knows that value was a secret, so when we try to set it as
 an output, it will not display.
 
-If we would like to see the plain-text value, we can do it with this command:
+If we would like to get the plain-text value, we can do it with this command:
 
 {{% choosable language typescript %}}
 
