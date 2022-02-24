@@ -156,7 +156,7 @@ mongo_container = docker.Container("mongo_container",
                                    )],
                                    envs=[
                                          f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
-                                         f"MONGO_INITDB_ROOT_PASSWORD={mongo_password}"
+                                         mongo_password.apply(lambda password: f"MONGO_INITDB_ROOT_PASSWORD={password}" )
                                      ]
                                    )
 ```
