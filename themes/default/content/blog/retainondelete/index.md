@@ -38,7 +38,7 @@ Using a combination of [import](https://www.pulumi.com/docs/guides/adopting/impo
 
 ### Working around provider issues
 
-Although it isn't really a workflow, `RetainOnDelete` can also be used to work around some provider issues. Some providers may fail to refresh and detect that a resource is now deleted, leading Pulumi to issue a delete call to something that no longer exists. While you could always manually edit your state file to resolve cases like this, `RetainOnDelete` give you the option to fix this via program changes instead. Simply mark the faulty resource with `RetainOnDelete`, run `pulumi up` to apply the mark and then delete the resource from your program and run `pulumi up` again. The engine will cleanly delete the resource from your state file without communicating with the faulty provider.
+Although it isn't really a workflow, `RetainOnDelete` can also be used to work around some provider issues. Some providers may fail to refresh and detect that a resource is now deleted, leading Pulumi to issue a delete call to a resource that no longer exists. While you could always manually edit your state file to resolve cases like this, `RetainOnDelete` give you the option to fix this via program changes instead. Simply mark the faulty resource with `RetainOnDelete`, run `pulumi up` to apply the mark and then delete the resource from your program and run `pulumi up` again. The engine will cleanly delete the resource from your state file without communicating with the faulty provider.
 
 ## Using retain on delete
 
