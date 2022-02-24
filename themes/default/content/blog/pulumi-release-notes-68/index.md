@@ -32,21 +32,20 @@ authors:
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - features
-
 ---
 
 The team has been busy releasing new features and improvements in the last 3 weeks. Read on to learn about what's new in this release!
 
 - Cloud Providers and Packages
-  - [Helm Release for Kubernetes GA]({{< relref "/blog/pulumi-release-notes-68#helm-release-for-kubernetes-ga" >}})
-  - [Default org considered when running any command with a stack name]({{< relref "/blog/pulumi-release-notes-68#default-org-considered-when-running-any-command-with-a-stack-name" >}})
+  - [Helm Release for Kubernetes GA](#helm-release-for-kubernetes-ga)
+  - [Default org considered when running any command with a stack name](#default-org-considered-when-running-any-command-with-a-stack-name)
 - Pulumi CLI and core technologies
-  - [Public preview of Update Plans]({{< relref "/blog/pulumi-release-notes-68#public-preview-of-update-plans" >}})
-  - [Disable default provider]({{< relref "/blog/pulumi-release-notes-68#disable-default-provider" >}})
-  - [`pulumi up --target` wildcard URN support]({{< relref "/blog/pulumi-release-notes-68#pulumi-up---target-wildcard-urn-support" >}})
+  - [Public preview of Update Plans](#public-preview-of-update-plans)
+  - [Disable default provider](#disable-default-provider)
+  - [`pulumi up --target` wildcard URN support](#pulumi-up---target-wildcard-urn-support)
 - Pulumi Service
-  - [Sign-up and sign-in experience revamp]({{< relref "/blog/pulumi-release-notes-68#sign-up-and-sign-up-experience-revamp" >}})
-  - [Show resource URN on resource detail page]({{< relref "/blog/pulumi-release-notes-68#show-resource-urn-on-resource-detail-page" >}})
+  - [Sign-up and sign-in experience revamp](#sign-up-and-sign-up-experience-revamp)
+  - [Show resource URN on resource detail page](#show-resource-urn-on-resource-detail-page)
 
 <!--more-->
 
@@ -57,27 +56,25 @@ The team has been busy releasing new features and improvements in the last 3 wee
 Back in September 2021 we announced public preview for the Helm Release resource in Pulumi’s Kubernetes provider. Over the last few months, we have had a very encouraging uptake in usage and several meaningful discussions with users in the community that have helped shape improvements to this resource. Thanks to this collaboration, we have been able to make the Helm Release resource GA (generally available) in v3.15.0 of the Pulumi Kubernetes Provider and SDK, in all Pulumi supported languages. We are excited to offer yet another tool to Pulumi users to effectively manage their Kubernetes footprint.
 
 
-Learn more in our [Helm release blog post]({{< relref "blog/helm-release-resource-for-kubernetes-generally-available/" >}}) and these GitHub issues:
+Learn more in our [Helm release blog post]({{< relref "/blog/helm-release-resource-for-kubernetes-generally-available" >}}) and these GitHub issues:
 - [Honor namespace specification for all resources installed by Helm Release](https://github.com/pulumi/pulumi-kubernetes/pull/1747)
 - [Make values optional](https://github.com/pulumi/pulumi-kubernetes/pull/1761)
 - [Make RepositoryOpts optional](https://github.com/pulumi/pulumi-kubernetes/pull/1806)
 - [Support local charts](https://github.com/pulumi/pulumi-kubernetes/pull/1809)
 
 
-### Default org considered when running any command with a stack name
-Now that we have added the ability to take [advantage of a default org](https://github.com/pulumi/pulumi/pull/8352), we have added functionality to take into account where there are abilities to pass a stack name as part of a command, such as `pulumi up -s <stackname>` or as part of a `stack select` command.
-
-[Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/8409)
+### Consider default org when running commands that accept stack names
+Now that we have added the ability to take [advantage of a default org](https://github.com/pulumi/pulumi/pull/8352), we have added functionality to take into account where there are abilities to pass a stack name as part of a command, such as `pulumi up -s <stackname>` or as part of a `stack select` command. [Learn more in the GitHub issue](https://github.com/pulumi/pulumi/issues/8409).
 
 ## Pulumi CLI and core technologies
 
 ### Public preview of Update Plans
 
-Pulumi’s previews are an important part of any workflow where you want to see the changes that will be made to your infrastructure before actually making the changes (with pulumi up). However, today there is no guarantee that the `pulumi up` operation will do only what was previewed; if the program, or your infrastructure, changes between the preview and the update, the update might make additional changes to bring your infrastructure back in line with what’s defined in your program. We’ve heard from many of you that you need a strong guarantee about exactly which changes an update will make to your infrastructure, especially in critical and production environments.
+Pulumi’s previews are an important part of any workflow where you want to see the changes that will be made to your infrastructure before actually making the changes (with `pulumi up`). However, today there is no guarantee that the `pulumi up` operation will do only what was previewed; if the program, or your infrastructure, changes between the preview and the update, the update might make additional changes to bring your infrastructure back in line with what’s defined in your program. We’ve heard from many of you that you need a strong guarantee about exactly which changes an update will make to your infrastructure, especially in critical and production environments.
 
-As a result, we launched a public preview of Update Plans, a new Pulumi feature which guarantees that operations shown in `pulumi preview` will run on `pulumi up`. Update Plans also help catch any unexpected changes that might happen between when you preview a change and when you apply that change. Update Plans work by saving the results of a `pulumi preview` to a plan file, which enables you to restrict subsequent `pulumi up` operations to only the actions saved in the plan file. This helps you ensure that what you saw in the pulumi preview is what will actually happen when you run `pulumi up`.
+As a result, we launched a public preview of Update Plans, a new Pulumi feature which guarantees that operations shown in `pulumi preview` will run on `pulumi up`. Update Plans also help catch any unexpected changes that might happen between when you preview a change and when you apply that change. Update Plans work by saving the results of a `pulumi preview` to a plan file, which enables you to restrict subsequent `pulumi up` operations to only the actions saved in the plan file. This helps you ensure that what you saw in the `pulumi preview` is what will actually happen when you run `pulumi up`.
 
-Learn more in our [blog post on Update Plans]({{< relref "/blog/announcing-public-preview-update-plans/" >}}) and in this [Update Plans GitHub issue](https://github.com/pulumi/pulumi/issues/2318)
+Learn more in our [blog post on Update Plans]({{< relref "/blog/announcing-public-preview-update-plans" >}}) and in this [Update Plans GitHub issue](https://github.com/pulumi/pulumi/issues/2318).
 
 
 ### Disable default provider
@@ -102,13 +99,11 @@ This adds a new entry to the list `pulumi:disable-default-providers`. To disable
 ```sh
 $ pulumi config set --path 'pulumi:disable-default-providers[0]' '*'
 ```
-Learn more in the [Disable Default Providers GitHub issue](https://github.com/pulumi/pulumi/issues/3383)
+Learn more in the [Disable Default Providers GitHub issue](https://github.com/pulumi/pulumi/issues/3383).
 
 ### `pulumi up --target` wildcard URN support
 
-Our community had requested that we add wildcard URN support to `pulumi up --target` and as a result we now support wildcards for `pulumi up --target <urn>` and similar commands. 
-
-Learn more in the [Wildcards support Github issue](https://github.com/pulumi/pulumi/issues/5870)
+Our community had requested that we add wildcard URN support to `pulumi up --target` and as a result we now support wildcards for `pulumi up --target <urn>` and similar commands. Learn more in the [Wildcards support GitHub issue](https://github.com/pulumi/pulumi/issues/5870).
 
 ## Pulumi Service & Pulumi.com
 
@@ -116,16 +111,18 @@ Learn more in the [Wildcards support Github issue](https://github.com/pulumi/pul
 
 We spent time this milestone revamping our sign-in and sign-up process in the Pulumi Service. Our intentions were to make it easier to differentiate and toggle between the sign-in and sign-up experiences. As part of this work we also refreshed the design to align with our public website. Take a look! 
 
-The new Pulumi Service sign-in page
+The new Pulumi Service sign-in page:
+
 ![A screenshot of the Pulumi Service sign-in page"](sign-in.png)
 
-The new Pulumi Service create an account page
+The new Pulumi Service create an account page:
+
 ![A screenshot of the Pulumi Service create an account page"](sign-up.png)
 
 ### Show resource URN on resource detail page
 
-We added the resource URN on the resource details page within the Pulumi Service UI. This enables users to easily find the URN for commands like `pulumi up --replace` or `--target`. Users can easily copy the resource URN to their clipboard by clicking on the copy icon.
+We added the resource URN on the resource details page within the Pulumi Service. This enables users to easily find the URN for commands like `pulumi up --replace` or `--target`. Users can easily copy the resource URN to their clipboard by clicking on the copy icon.
 
-The new resource details page that includes resource URN
+The new resource details page that includes resource URN:
 
 ![A screenshot of the Pulumi Service UI Resource page with resource URN](urn.png)
