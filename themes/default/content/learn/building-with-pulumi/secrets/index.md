@@ -133,7 +133,7 @@ const mongoContainer = new docker.Container("mongoContainer", {
     ],
     envs: [
         `MONGO_INITDB_ROOT_USERNAME=${mongoUsername}`,
-        `MONGO_INITDB_ROOT_PASSWORD=${mongoPassword}`,
+        pulumi.interpolate`MONGO_INITDB_ROOT_PASSWORD=${mongoPassword}`,
     ],
 });
 ```
@@ -156,9 +156,8 @@ mongo_container = docker.Container("mongo_container",
                                    )],
                                    envs=[
                                          f"MONGO_INITDB_ROOT_USERNAME={mongo_username}",
-                                         mongo_password.apply(lambda password: f"MONGO_INITDB_ROOT_PASSWORD={password}" )
-                                     ]
-                                   )
+                                         mongo_password.apply(lambda password: f"MONGO_INITDB_ROOT_PASSWORD={password}")
+                                   ])
 ```
 
 {{% /choosable %}}
