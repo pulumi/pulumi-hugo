@@ -1,5 +1,5 @@
 ---
-title: ECS-Hosted Instal
+title: ECS-Hosted Install
 menu:
     userguides:
         parent: self_hosted
