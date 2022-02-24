@@ -159,7 +159,6 @@ Remember how we can use the same program to define multiple stacks? Let's set
 the ports for this stack, which the Pulumi command line knows already from when
 you first initialized the project (it's the `dev` stack by default):
 
-
 ```bash
 pulumi config set frontend_port 3001
 pulumi config set backend_port 3000
