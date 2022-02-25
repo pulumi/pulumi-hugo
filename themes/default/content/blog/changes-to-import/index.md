@@ -77,8 +77,8 @@ The engine will now issue the following steps to import resources:
 1. Use the providers `Read` function to get the inputs and outputs for the resource.
 2. Pass the input set to the providers `Check` method.
 3. Warn if there are any check failures.
-7. Save the input and output set from `Read` into the stacks state.
-8. Pass the input set to the code generator to generate a `new Resource` call to match the imported state.
+4. Save the input and output set from `Read` into the stacks state.
+5. Pass the input set to the code generator to generate a `new Resource` call to match the imported state.
 
 Note that we no longer end up with filled in default values in our final result, and we carry on in the face of check failures and so can still generate some code. If providers can give complete and accurate results from `Read` the above flow will result in correctly generated code. However it doesn't result in quite the correct stack state, this is due to how the data flow of our import system currently works. Currently we generate code based on the value of `inputs` in the state file, however normally the value stored at `inputs` in the state file is the result from `Check`, not what is directly in the users program. As such when you run the first `pulumi up` after an import the engine will think that there is a diff to apply. This is just the default values being filled in by `Check` and saved to the state file and shouldn't cause any actual changes.
 
@@ -93,6 +93,7 @@ Many of Pulumi's resource providers make use of Terraform providers. We call the
 Terraform currently has a slightly odd behavior that missing values for some properties are zero initialized by its `Refresh` method (what we use to implement Pulumi's `Read` method in the terraform bridge). This has the result that when Pulumi asks to read a given Terraform resource some top level properties (such as S3 buckets `acl` property) come back as missing, while other top level properties and all nested properties (such as S3 buckets `versioning.mfaDelete`) come back with some zero value.
 
 For example reading an AWS S3 bucket object with the current Terraform bridge results in the following property set:
+
 ```
 {
     "__defaults": [],
@@ -121,6 +122,7 @@ For example reading an AWS S3 bucket object with the current Terraform bridge re
 ```
 
 We've made [a change](https://github.com/pulumi/pulumi-terraform-bridge/pull/453) to the Terraform bridge to try and elide these zero properties that _should_ just be missing. Reading the same S3 bucket with these changes gives the following much smaller property set:
+
 ```
 {
     "__defaults": [],
@@ -143,6 +145,7 @@ The following examples are by no means a complete representation of the changes 
 Imports of S3 bucket objects would succeeded in the old system but the generated code is now slightly different.
 
 Previously we would have generated code to set properties like `acl` and `forceDestroy` to their default values.
+
 ```
 const my_bucket = new aws.s3.Bucket("my-bucket", {
     acl: "private",
@@ -154,6 +157,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", {
 ```
 
 Now we no longer set those default values, but we do now set some generated values that are returned from `Read`.
+
 ```
 const my_bucket = new aws.s3.Bucket("my-bucket", {
     arn: "arn:aws:s3:::my-bucket-3f85c54",
@@ -166,6 +170,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", {
 ```
 
 The above accurately reflects what `Read` has told us of the inputs set for this bucket, although due to the way the AWS provider happens to work we could elide all these properties. This is because the provider will use outputs saved in the state file and the new inputs to calculate the update diff, and a property that exists in the old output and is missing from the new inputs is simply left at the old output value. As none of the properties for `Bucket` are marked required the following also works and is equivalent:
+
 ```
 const my_bucket = new aws.s3.Bucket("my-bucket", { }, { protect: true });
 ```
@@ -173,6 +178,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", { }, { protect: true });
 ### AWS EC2 Instances
 
 Previously trying to import an EC2 instance would fail with the following errors:
+
 ```
 aws:ec2:Instance (test):
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "instance_type": one of `instance_type,launch_template` must be specified. Examine values at 'Instance.InstanceType'.
@@ -180,9 +186,7 @@ aws:ec2:Instance (test):
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "ami": one of `ami,launch_template` must be specified. Examine values at 'Instance.Ami'.
 ```
 
-This was because none of `instance_type`, `launch_template`, or `ami` are marked as required and so they were
-stripped out from the input set passed to `Check`. Either `ami` and `instance_type` or `launch_template` are
-actually required, but that is not expressed in the schema.
+This was because none of `instance_type`, `launch_template`, or `ami` are marked as required and so they were stripped out from the input set passed to `Check`. Either `ami` and `instance_type` or `launch_template` are actually required, but that is not expressed in the schema.
 
 With the new changes an EC2 instance can be imported without warnings:
 
@@ -223,6 +227,7 @@ const test = new aws.ec2.Instance("test", {
 ```
 
 Again this reflects what `Read` has told us of the inputs set for this instance, and again due to the way the AWS provider works many of these inputs could be elided and the provider would pick up the values from the saved output set. The following is again equivalent to the above given the saved state:
+
 ```
 const test = new aws.ec2.Instance("test", {
     ami: "ami-082b5a644766e0e6f",
@@ -235,6 +240,7 @@ const test = new aws.ec2.Instance("test", {
 ### Kubernetes Deployment
 
 An example of a resource that isn't affected by the changes to the import system is a Kubernetes `apps.v1.Deployment`. Both the current and new import system result in the following:
+
 ```
 const test = new kubernetes.apps.v1.Deployment("test", {
     apiVersion: "apps/v1",
@@ -303,6 +309,37 @@ const test = new kubernetes.apps.v1.Deployment("test", {
 });
 ```
 
+### AWS Lambda
+
+Previously trying to import an EC2 instance would fail with the following errors:
+
+```
+error: Preview failed: diffing urn:pulumi:dev::slss-tps::aws:lambda/function:Function::my-function: handler and runtime must be set when PackageType is Zip
+```
+
+This was because `handler`, and `runtime` were not marked as required and so they were stripped out from the input set passed to `Check`, but the default for `PackageType` is `Zip` thus triggering the error.
+
+With the new changes a lambda can be imported without warnings:
+
+```
+const my_function = new aws.lambda.Function("my-function", {
+    architectures: ["x86_64"],
+    handler: "__index.handler",
+    memorySize: 128,
+    name: "zipTpsReports-b706c31",
+    reservedConcurrentExecutions: -1,
+    role: "arn:aws:iam::616138583583:role/zipTpsReports-85098e8",
+    runtime: "nodejs12.x",
+    sourceCodeHash: "ujyqnjzeSLW/mtBT8t1HhW2CyqGH/sHbS3bhxV4a7Hs=",
+    timeout: 180,
+    tracingConfig: {
+        mode: "PassThrough",
+    },
+}, {
+    protect: true,
+});
+```
+
 ## Feedback
 
-We're aware this could have a large impact to some of our users so we wanted to make sure this information was released early in preparation for this change being released. If you have questions or worries about this change let us know at our community [Slack](https://slack.pulumi.com/) or [GitHub Discussions](https://github.com/pulumi/pulumi/discussions).
+We're aware this could have a large impact to some of our users so we wanted to make sure we explained these changes well. If you have questions or worries about this change let us know at our community [Slack](https://slack.pulumi.com/) or [GitHub Discussions](https://github.com/pulumi/pulumi/discussions).
