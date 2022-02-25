@@ -1,6 +1,6 @@
 ---
 title: "Fullstack Pulumi: Deploying a MERN Stack App on DigitalOcean"
-date: 2022-02-06
+date: 2022-02-28
 meta_desc: Here be a whole bunch of infrastructural interestingness.
 meta_image: meta.png
 authors:
