@@ -311,7 +311,7 @@ const test = new kubernetes.apps.v1.Deployment("test", {
 
 ### AWS Lambda
 
-Previously trying to import an EC2 instance would fail with the following errors:
+Previously trying to import an AWS lambda function would fail with the following errors:
 
 ```
 error: Preview failed: diffing urn:pulumi:dev::slss-tps::aws:lambda/function:Function::my-function: handler and runtime must be set when PackageType is Zip
