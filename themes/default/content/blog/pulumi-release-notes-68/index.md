@@ -11,6 +11,7 @@ allow_long_title: true
 
 # Draft posts are visible in development, but excluded from production builds.
 # Set this property to `false` before submitting your post for review.
+
 draft: false
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)

@@ -3,9 +3,9 @@ title: "Abstraction and Encapsulation"
 layout: module
 date: 2021-11-17
 description: |
-    Explore abstraction and encapsulation with Pulumi programs using component resources.
+    Explore abstraction and encapsulation with Pulumi and component resources.
 meta_desc: |
-    Explore abstraction and encapsulation with Pulumi programs using component resources.
+    Explore abstraction and encapsulation with Pulumi and component resources.
 index: 6
 meta_image: meta.png
 level: intermediate
@@ -34,7 +34,7 @@ Optionally, if you want to build some of the examples yourself to experiment, yo
 
 - A [Pulumi account and token]({{< relref "/docs/intro/pulumi-service/accounts#access-tokens" >}}) (If you don't have an account, go to the [signup page](https://app.pulumi.com/signup))
 - An AWS account (the free version should be fine)
-- Familiarity with the Python programming language
+- Familiarity with either the TypeScript or Python programming language
 
 ## About this pathway
 
