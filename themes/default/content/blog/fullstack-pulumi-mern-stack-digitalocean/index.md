@@ -369,7 +369,7 @@ Now try making a commit to your repository (any commit will do), and watch as th
 
 ![here](./redeploying.png)
 
-If you're up for it, you might also try scaling the service by bumping the `instanceCount` from `1` to `2` in the code --- or better, making that value configurable by stack:
+Finally, if you're up for it, you might also try scaling the service by bumping the `instanceCount` from `1` to `2` in the code --- or better, making that value configurable by stack:
 
 ```diff
   const config = new pulumi.Config();
