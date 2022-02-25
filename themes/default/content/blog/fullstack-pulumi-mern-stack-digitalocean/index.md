@@ -14,11 +14,11 @@ tags:
 
 As a developer, I get lots of ideas for web applications --- little things, usually: crafty ways to keep track of my kids' allowances, managing workout routines or shopping lists, and be honest, most of them never see the light of day. Once in a while, though, an idea will hang around long enough to convince me to do something about it, and I'll be forced to confront the dreaded decision of what to use for the technology stack.
 
-As a JavaScript developer, I have options --- probably too many. Thanks to the massive JavaScript community and ecosystem, I've got roughly a hundred and fifty million libraries and frameworks to choose from, and keeping up with it all is basically impossible. Which is why, when I just want to get something done, I'll often reach for a combination of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
+As a JavaScript developer, I have options --- too many. Thanks to the massive JavaScript community and ecosystem, I've got roughly a hundred and fifty million libraries and frameworks to choose from, and keeping up with all of them is basically impossible. Which is why, when I just want to get something done, I'll often reach for a set of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
 
 MERN-stack apps are three-tier web applications built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language --- JavaScript (or TypeScript, if you like) --- to manage all three layers of the application stack: the front end, as a single-page app built statically with React; the back end, as a REST API managed with Express; and the database, as collections of JSON-like documents with MongoDB. It's not _always_ the right tool for the job, but for the kinds of apps I tend find myself building, it usually works out pretty well.
 
-![stuff](./meta.png)
+![stuff](./tiers.png)
 
 Of course, once I'm done _building_ a MERN app, I'm faced with a whole other problem: figuring out how to get the thing off my laptop and onto the web.
 
@@ -97,7 +97,7 @@ Earlier I mentioned that every cloud provider handles web-app deployment a littl
 
 One is that because App Platform apps are comprised these of high-level [_components_](https://docs.digitalocean.com/products/app-platform/concepts/) --- abstractions like [static site](https://docs.digitalocean.com/products/app-platform/concepts/static-site/), [service](https://docs.digitalocean.com/products/app-platform/concepts/service/), and [database](https://docs.digitalocean.com/products/app-platform/concepts/database/) --- they're pretty much purpose-built for an application like this one, and DigitalOcean customizes the deployment of each component based on its type. Static websites are distributed and cached on DigitalOcean's CDN, services are packaged and delivered as containers (using its own [Kubernetes](https://www.digitalocean.com/products/kubernetes) platform), and databases are deployed as easily configurable managed services. All of this means you're not only able to stay focused on the application itself, but that you can scale each of these services up, down, or out as needed, and even delegate your front-end and back-end build processes to DigitalOcean to be triggered by commits on one or more external source-code repositories.
 
-![tiers mapped to components](./meta.png)
+![tiers mapped to components](./mapped-tiers.png)
 
 App Platform apps can be configured in one of two ways --- either manually, in the browser, by defining their components individually in the DigitalOcean web console, or programmatically, in the form of an [_App Spec_](https://docs.digitalocean.com/products/app-platform/concepts/app-spec/), a JSON document that can be submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/). In our case, we'll go the latter route and use Pulumi and the [DigitalOcean provider package]({{< relref "/registry/packages/digitalocean" >}}) to define an app spec that contains:
 
@@ -312,7 +312,7 @@ Make sure you've installed the DigitalOcean GitHub app as described above --- yo
 
 ![the app](./digitalocean-github-app.png)
 
-Return to the command line and run `pulumi up`:
+Then return to the command line and run `pulumi up`:
 
 ```bash
 $ pulumi up
