@@ -14,15 +14,15 @@ tags:
 
 As a developer, I get lots of ideas for web applications --- little things, usually: crafty ways to keep track of my kids' allowances, managing workout routines or shopping lists, and be honest, most of them never see the light of day. Once in a while, though, an idea will hang around long enough to convince me to do something about it, and I'll be forced to confront the dreaded decision of what to use for the technology stack.
 
-As a JavaScript developer, I have options --- too many. Thanks to the massive JavaScript community and ecosystem, I've got roughly a hundred and fifty million libraries and frameworks to choose from, and keeping up with all of them is basically impossible. Which is why, when I just want to get something done, I'll often reach for a set of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
+As a JavaScript developer, I have options --- arguably too many. Thanks to the massive JavaScript community and ecosystem, I've got roughly a hundred and fifty million libraries and frameworks to choose from, and keeping up them all is basically impossible. Which is why, when I just want to get something done, I'll often reach for a set of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
 
-MERN-stack apps are three-tier web applications built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language --- JavaScript (or TypeScript, if you like) --- to manage all three layers of the application stack: the front end, as a single-page app built statically with React; the back end, as a REST API managed with Express; and the database, as collections of JSON-like documents with MongoDB. It's not _always_ the right tool for the job, but for the kinds of apps I tend find myself building, it usually works out pretty well.
+MERN-stack apps are three-tier web applications built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language --- JavaScript (or if you like, TypeScript) --- to manage all three layers of the application stack: the front end, as a single-page app built statically with React; the back end, as a REST API managed with Express; and the database, as collections of JSON-like documents with MongoDB. It's definitely not _always_ the right tool for the job, but for the kinds of apps I tend find myself building, it usually works out pretty well.
 
 ![stuff](./tiers.png)
 
-Of course, once I'm done _building_ a MERN app, I'm faced with a whole other problem: figuring out how to get the thing off my laptop and onto the web.
+Of course, once I'm _done_ building a MERN app, I'm faced with a whole other problem: figuring out how to get it off of my laptop and onto the web.
 
-The cloud hasn't made this very easy for developers. Even if all you want is to deploy a simple app into the cloud, choosing a provider, figuring out which of that provider's resources are the right fit and how to use them, grokking networking, permissions, billing, etc., can be dizzying --- and the truth is that as a developer, I'd really rather not have to deal any of it. What I want is to focus on my app, and when I'm ready to ship it, push my code to a repository and wait patiently for a URL that I can paste into a browser and have everything _just work_.
+The cloud hasn't made this very easy for developers. Even if all you want is to deploy a simple app like this one into the cloud, choosing a provider, figuring out which provider-specific resources to use (and how to use them), setting up networking, permissions, etc., can be dizzying --- and the truth is that as a developer, I'd really prefer not to deal with any of it. What I want is to focus on my app, and when I'm ready to ship it, push my code to a repository and wait patiently for a URL that I can paste into a browser and have everything _just work_.
 
 Which is why I was so delighted to discover the [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform).
 
@@ -99,15 +99,15 @@ One is that because App Platform apps are comprised these of high-level [_compon
 
 ![tiers mapped to components](./mapped-tiers.png)
 
-App Platform apps can be configured in one of two ways --- either manually, in the browser, by defining their components individually in the DigitalOcean web console, or programmatically, in the form of an [_App Spec_](https://docs.digitalocean.com/products/app-platform/concepts/app-spec/), a JSON document that can be submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/). In our case, we'll go the latter route and use Pulumi and the [DigitalOcean provider package]({{< relref "/registry/packages/digitalocean" >}}) to define an app spec that contains:
+App Platform apps can be configured in one of two ways: manually, in the browser, by defining their components individually in the DigitalOcean web console, or programmatically, in the form of an [_App Spec_](https://docs.digitalocean.com/products/app-platform/concepts/app-spec/), a JSON document that can be submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/). We'll go the latter route and use Pulumi and the [DigitalOcean provider package]({{< relref "/registry/packages/digitalocean" >}}) to define an app spec that contains:
 
 * A `staticSite` component mapped to the `frontend` folder
 * A `service` component mapped to the `backend` folder
-* A `database` component mapped to a managed MongoDB cluster (and whose access will also be restricted to only the `service` component)
+* A `database` component mapped to a managed MongoDB cluster (whose access will also be restricted to only the `service` component)
 
 And once deployed, it'll all be running at a single URL.
 
-Let's start by creating new Pulumi project.
+We'll start by creating new Pulumi project.
 
 ## Creating the project
 
