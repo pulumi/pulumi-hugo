@@ -37,7 +37,6 @@ including all the required frontmatter parameters.
    ---
    title: "My New Post"
    date: 2019-07-17T14:26:50-07:00
-   draft: true
    meta_image: meta.png
    authors:
        - joe-duffy
