@@ -37,7 +37,7 @@ Let's get started.
 The code for this walkthrough is [available as a template repository on GitHub](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean), so if you want to follow along (and you should!), you should [grab a copy of your own](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean/generate) to work with, either by forking the repository or creating a new one from the template. Once you've done that:
 
 * [Clone the repository](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean) to your local machine
-* [Install and configure Pulumi and Node.js](https://www.pulumi.com/docs/get-started/aws/begin/?language=nodejs) (we'll use TypeScript)
+* [Install Pulumi]({{< relref "/docs/get-started/install" >}}) and [Node.js](https://nodejs.org/)
 * [Install and configure MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 * [Sign into DigitalOcean](cloud.digitalocean.com/) and get a [personal access token](https://cloud.digitalocean.com/account/api/tokens) with read-write permissions
 * Grant DigitalOcean access to your GitHub repository. To do that, [visit the Apps page](https://cloud.digitalocean.com/apps), choose Create App, and following the steps to install the GitHub app and return to the Console
@@ -111,12 +111,27 @@ We'll start by creating new Pulumi project.
 
 ## Creating the project
 
-In the root of the repository, make a new folder called `infra`, change to it, then run `pulumi new` using the `digitalocean-typescript` [project template](https://github.com/pulumi/templates):
+In the root of the repository, make a new folder called `infra`, change to it, then run `pulumi new` using a `digitalocean` [project template](https://github.com/pulumi/templates):
+
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
 
 ```bash
 $ mkdir infra && cd infra
 $ pulumi new digitalocean-typescript
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```bash
+$ mkdir infra && cd infra
+$ pulumi new digitalocean-python
+```
+
+{{% /choosable %}}
 
 At the prompts, use the following values:
 
@@ -143,6 +158,10 @@ With these values in place, you're ready to start writing the program.
 
 In your IDE of choice, open {{% langfile %}} and replace the sample code with the following lines to import the Pulumi SDKs and the configuration values you just set, and add a line to specify the [DigitalOcean region](https://docs.digitalocean.com/products/platform/availability-matrix/) to deploy into:
 
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as digitalocean from "@pulumi/digitalocean";
@@ -156,7 +175,30 @@ const branch = config.require("branch");
 const region = digitalocean.Region.SFO3;
 ```
 
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_digitalocean as digitalocean
+
+# Our stack-specific configuration.
+config = pulumi.Config()
+repo = config.require("repo")
+branch = config.require("branch")
+
+# The DigitalOcean region to deploy into.
+region = digitalocean.Region.SFO3
+```
+
+{{% /choosable %}}
+
 Next, add a few lines to [declare the a managed MongoDB cluster](https://docs.digitalocean.com/products/databases/mongodb/how-to/create/). We'll use just one node for now --- additional replica nodes can be provisioned by increasing the `nodeCount` value --- and the least expensive [performance settings](https://www.digitalocean.com/pricing#managed-databases):
+
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
 
 ```typescript
 // ...
@@ -177,9 +219,38 @@ const db = new digitalocean.DatabaseDb("db", {
 });
 ```
 
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+# ...
+
+# Our MongoDB cluster (currently just one node).
+cluster = digitalocean.DatabaseCluster("cluster", digitalocean.DatabaseClusterArgs(
+    engine = "mongodb",
+    version = "4",
+    region = region,
+    size = digitalocean.DatabaseSlug.D_B_1_VPCU1_GB,
+    node_count = 1
+))
+
+# The database we'll use for our grocery list.
+db = digitalocean.DatabaseDb("db", digitalocean.DatabaseDbArgs(
+    name = "grocery-list",
+    cluster_id = cluster.id
+));
+```
+
+{{% /choosable %}}
+
 Now for the App Platform spec itself. Notice the `digitalocean.App` resource takes just one argument, `spec`, which defines all three of the components of the application: static site, service, and database. Both the static site and the service are configured to use the same GitHub repository (the `sourceDir` properties indicate their folders within the repository), and both are configured (with the `deployOnPush` flag) to be rebuilt and redeployed by DigitalOcean on every commit.
 
 The service has a few additional settings that you can use to manage its runtime behavior and deployment topology. As in development, we'll configure it to listen on port 8000 and be available at `/api` --- the entire app will ultimately be proxied transparently by an [App Platform load balancer](https://docs.digitalocean.com/products/app-platform/concepts/load-balancer/) --- and it'll be powered by just one container instance, again using the least expensive [performance tier](https://docs.digitalocean.com/products/app-platform/).
+
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
 
 ```typescript
 // ...
@@ -268,9 +339,106 @@ const app = new digitalocean.App("app", {
 });
 ```
 
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+# ...
+
+# The App Platform spec that defines our grocery list.
+app = digitalocean.App("app", digitalocean.AppArgs(
+    spec = digitalocean.AppSpecArgs(
+        name = "grocery-list",
+        region = region,
+
+        # The React front end.
+        static_sites = [
+            digitalocean.AppSpecStaticSiteArgs(
+                name = "frontend",
+                github = digitalocean.AppSpecJobGithubArgs(
+                    repo = repo,
+                    branch = branch,
+                    deploy_on_push = True
+                ),
+                source_dir = "/frontend",
+                build_command = "npm install && npm run build",
+                output_dir = "/dist",
+            )
+        ],
+
+        # The Express back end.
+        services = [
+            digitalocean.AppSpecServiceArgs(
+                name = "backend",
+                github = digitalocean.AppSpecJobGithubArgs(
+                    repo = repo,
+                    branch = branch,
+                    deploy_on_push = True
+                ),
+                source_dir = "/frontend",
+                build_command = "npm install && npm run build",
+                run_command = "npm start",
+                http_port = 8000,
+                routes = [
+                    digitalocean.AppSpecServiceRouteArgs(
+                        path = "/api",
+                        preserve_path_prefix = True
+                    )
+                ],
+                instance_size_slug = "basic-xxs",
+                instance_count = 1,
+
+                # To connect to MongoDB, the service needs a DATABASE_URL, which
+                # is conveniently exposed as an environment variable because the
+                # database belongs to the app (see below). The CA_CERT allows for
+                # a secure connection between API service and database.
+                envs = [
+                    digitalocean.AppSpecServiceEnvArgs(
+                        key = "DATABASE_URL",
+                        scope = "RUN_AND_BUILD_TIME",
+                        value = "${db.DATABASE_URL}"
+                    ),
+                    digitalocean.AppSpecServiceEnvArgs(
+                        key = "CA_CERT",
+                        scope = "RUN_AND_BUILD_TIME",
+                        value = "${db.CA_CERT}"
+                    )
+                ]
+            )
+        ],
+
+        # Include the MongoDB cluster as an integrated App Platform component.
+        databases = [
+            digitalocean.AppSpecDatabaseArgs(
+                # The `db` name defines the prefix of the tokens used (above) to
+                # read the environment variables exposed by the database cluster.
+                name = "db",
+
+                # MongoDB clusters are only available in "production" mode.
+                # https://docs.digitalocean.com/products/app-platform/concepts/database/
+                production = True,
+
+                # A reference to the managed cluster we declared above.
+                cluster_name = cluster.name,
+
+                # The engine value must be uppercase, so we transform it with Python.
+                engine = cluster.engine.apply(lambda engine: engine.upper()),
+            )
+        ]
+    ),
+))
+```
+
+{{% /choosable %}}
+
 Technically that's all we need to configure the application --- but it wouldn't be a bad idea to add one last thing.
 
 By default, managed MongoDB clusters are configured to be publicly accessible --- which is great if you need to be able to connect one yourself, but not so great as a strategy for preventing internet miscreants from doing the same. You can fix this easily by adding a `DatabaseFirewall` resource to declare the app as a [_trusted source_](https://docs.digitalocean.com/products/app-platform/how-to/manage-databases/), thereby rejecting all inbound traffic originating from elsewhere:
+
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
 
 ```typescript
 // ...
@@ -287,7 +455,32 @@ const trustedSource = new digitalocean.DatabaseFirewall("trusted-source", {
 });
 ```
 
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+# ...
+
+# Adding a database firewall setting restricts access solely to our app.
+trusted_source = digitalocean.DatabaseFirewall("trusted-source", digitalocean.DatabaseFirewallArgs(
+    cluster_id = cluster.id,
+    rules = [
+        digitalocean.DatabaseFirewallRuleArgs(
+            type = "app",
+            value = app.id,
+        )
+    ],
+))
+```
+
+{{% /choosable %}}
+
 And finally, we can add one last line to export the app URL (to be generated by DigitalOcean) as a Pulumi [stack output]({{< relref "/docs/intro/concepts/inputs-outputs" >}}):
+
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
 
 ```typescript
 // ...
@@ -295,6 +488,19 @@ And finally, we can add one last line to export the app URL (to be generated by 
 // The DigitalOcean-assigned URL for our app.
 export const { liveUrl } = app;
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+# ...
+
+# The DigitalOcean-assigned URL for our app.
+pulumi.export("liveUrl", app.live_url)
+```
+
+{{% /choosable %}}
 
 With that, you're ready to deploy.
 
@@ -355,9 +561,21 @@ Duration: 2m30s
 
 Again, it'll probably take a few minutes to get everything spun up for the first time, but when the process completes, you'll have a working app at the URL provided by DigitalOcean, emitted as a Pulumi stack output:
 
+{{% choosable language typescript %}}
+
 ```bash
 $ open $(pulumi stack output liveUrl)
 ```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```bash
+$ open $(pulumi stack output live_url)
+```
+
+{{% /choosable %}}
 
 ![The app now running in the DigitalOcean cloud](./deployed.png)
 
@@ -371,16 +589,26 @@ Now try making a commit to your repository (any commit will do), and watch as th
 
 Finally, if you're up for it, you might also try scaling the service by bumping the `instanceCount` from `1` to `2` in the code --- or better, making that value configurable by stack:
 
+{{% chooser language "typescript,python" /%}}
+
+{{% choosable language typescript %}}
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+{{% /choosable %}}
+
 ```diff
   const config = new pulumi.Config();
   const repo = config.require("repo");
   const branch = config.require("branch");
-+ const serviceInstanceCount = config.requireNumber("service_instance_count");
++ const service_instance_count = config.requireNumber("service_instance_count");
   ...
         services: [
-            {
+            digitalocean.AppSpecServiceArgs(
                 ...
-+               instanceCount: serviceInstanceCount,
++               instance_count: service_instance_count,
 ```
 
 ```bash
