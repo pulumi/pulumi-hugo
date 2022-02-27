@@ -1,7 +1,7 @@
 ---
-title: "Fullstack Pulumi: Deploying a MERN Stack App on DigitalOcean"
+title: "Fullstack Pulumi: Deploying a MERN Stack App to DigitalOcean"
 date: 2022-02-28
-meta_desc: In this post, you'll learn how to use Pulumi and DigitalOcean's App Platform to deploy and manage a database-backed web application.
+meta_desc: Use Pulumi with DigitalOcean's App Platform to deploy and manage three-tier web application.
 meta_image: meta.png
 authors:
     - christian-nunciato
@@ -12,41 +12,41 @@ tags:
     - web-apps
 ---
 
-As a developer, I get lots of ideas for web applications --- little things, mostly: crafty ways to keep track of my kids' allowances, managing workout routines or shopping lists, and be honest, most of them never see the light of day. Once in a while, though, an idea will hang around long enough to convince me to do something about it, and I'll be forced to confront the dreaded decision of what to use for the technology stack.
+As a developer, I get lots of ideas for web apps --- little things, mostly: new ways to keep track of my kids' allowances, habit trackers, shopping lists, and to be honest, most of them never see the light of day. Every once in a while, though, an idea will hang around long enough to convince me to do something about it, and I'll be forced to confront the dreaded decision of what to use for the technology stack.
 
-As a JavaScript developer, I have options --- arguably too many. Thanks to the massive JavaScript community and ecosystem, I've got roughly a hundred and fifty million libraries and frameworks to choose from, and keeping up them all is basically impossible. Which is why, when I just want to get something done, I'll often reach for a set of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
+As a JavaScript developer, I have options --- too many, in fact. Thanks to the massive JavaScript community and ecosystem, I've got roughly a hundred and twenty million libraries and frameworks to choose from, and keeping up them all is basically impossible. Which is why, when I just want to get something done, I'll often reach for a combination of tools known collectively as [the MERN stack](https://www.mongodb.com/mern-stack).
 
-MERN-stack apps are three-tier web applications built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language --- JavaScript (or if you like, TypeScript) --- to manage all three layers of the application stack: the front end, as a single-page app built statically with React; the back end, as a REST API managed with Express; and the database, as collections of JSON-like documents with MongoDB. It's definitely not _always_ the right tool for the job, but for the kinds of apps I tend find myself building, it usually works out pretty well.
+MERN-stack apps are three-tier web applications built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use a single language --- JavaScript (or TypeScript, if you like) --- to manage all three layers of the application stack: the front end, as a single-page app built statically with React; the back end, as a REST API managed with Express; and the database, as a collection of JSON-like documents with MongoDB. The MERN might not _always_ the best tool for the job, but for the kinds of apps I tend to find myself building, it usually works out pretty well.
 
 ![The tiers of a typical web application: front end, back end, and database](./tiers.png)
 
-Of course, once I'm _done_ building a MERN app, I'm faced with a whole other problem: figuring out how to get it off of my laptop and onto the web.
+Of course, once I'm done _building_ whatever MERN app I've chosen to build, I'm faced with a whole other problem: figuring out how to get it off of my laptop and onto the web.
 
-The cloud hasn't made this very easy for developers. Even if all you want is to deploy a simple app like this one into the cloud, choosing a provider, figuring out which provider-specific resources to use (and how to use them), setting up networking, permissions, etc., can be dizzying --- and the truth is that as a developer, I'd really prefer not to deal with any of it. What I want is to focus on my app, and when I'm ready to ship it, push my code to a repository and wait patiently for a URL that I can paste into a browser and have everything _just work_.
+The cloud hasn't made this very easy for developers. From choosing a cloud provider to figuring out the right resources to use (and how to use them), setting up networking, debugging permissions, and so on, can all be overwhelming --- and the truth is that as a developer, I really don't want to have to deal with any of it. What I want is to be able to focus on my app, and when I'm ready to ship it, push my code to a repository and wait patiently for a URL to emerge that I can paste into a browser and have everything _just work_.
 
 Which is why I was so delighted to discover the [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform).
 
-If you've used DigitalOcean before, you know they care about making infrastructure approachable for developers. But what you might not know (or at least I didn't myself until recently) is that you can do a lot more with DigitalOcean than just [virtual machines](https://www.digitalocean.com/products/droplets). App Platform is a [fairly new](https://www.digitalocean.com/blog/introducing-digitalocean-app-platform-reimagining-paas-to-make-it-simpler-for-you-to-build-deploy-and-scale-apps), fully-managed platform service that offers a set of high-level abstractions built to align with the tiers of a typical web application. If you're looking for way to deploy and manage a MERN app (or just about any kind of web app for that matter), App Platform can be an excellent way to go --- and as you'll see, with Pulumi and a little bit of code, you can drive the whole process without ever having to leave the comfort of your IDE.
+If you've used DigitalOcean before, you know they're all about making infrastructure accessible to developers. But what you might not know (or at least I didn't myself until recently) is that you can do a lot more with DigitalOcean than just [virtual machines](https://www.digitalocean.com/products/droplets). App Platform is a [fairly new](https://www.digitalocean.com/blog/introducing-digitalocean-app-platform-reimagining-paas-to-make-it-simpler-for-you-to-build-deploy-and-scale-apps), fully-managed platform service that offers a set of high-level abstractions made to align with the tiers of a typical web application. If what you're looking for is a way to manage this kind of application, App Platform is definitely an option worth considering --- and as you'll see, with Pulumi and a little bit of code, you can manage the whole process without ever leaving the comfort of your IDE.
 
-So let's build ourselves a MERN app and deploy it to App Platform with Pulumi. As the aim is to focus on the infrastructure and how to code it, we'll start with a pre-baked app  --- a web-based grocery list --- map its tiers to App Platform constructs, and wire it all together with Pulumi.
-
-Let's get started.
+So let's build ourselves a MERN app and deploy it on App Platform with Pulumi. As the aim is to focus on the infrastructure and how to code it, we'll start with a pre-baked web application  --- a web-based grocery list --- and map its tiers to App Platform constructs before wiring everything up with Pulumi.
 
 ## First steps: setting up {#setting-up}
 
-The code for this walkthrough is [available as a template repository on GitHub](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean), so if you want to follow along (and you should!), you should [grab a copy of your own](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean/generate) to work with, either by forking the repository or creating a new one from the template. Once you've done that:
+The code for this walkthrough is [available as a template repository on GitHub](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean), so if you want to follow along (and you should!), you should [grab a copy of your own](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean/generate) to work with by forking the repository or creating a new one from the template. Once you've done that, you should also:
 
 * [Clone the repository](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean) to your local machine
 * [Install Pulumi]({{< relref "/docs/get-started/install" >}}) and [Node.js](https://nodejs.org/)
-* [Install and configure MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 * [Sign into DigitalOcean](cloud.digitalocean.com/) and get a [personal access token](https://cloud.digitalocean.com/account/api/tokens) with read-write permissions
-* Grant DigitalOcean access to your GitHub repository. To do that, [visit the Apps page](https://cloud.digitalocean.com/apps), choose Create App, and following the steps to install the GitHub app and return to the Console
+* Grant DigitalOcean access to your GitHub repository by [visiting the Apps page](https://cloud.digitalocean.com/apps), choosing Create App, and following the steps to install the GitHub app
+* Optionally, if you'd like to develop the application locally as well, [install and configure MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
-One thing to note: we'll be creating real DigitalOcean resources, here, so there's a chance you'll incur a slight cost for the resources you use. But since we'll be using the least expensive plan settings available, and tearing everything down when we're done, that cost shouldn't amount to more than a penny or two at most.
+One thing to note: since we'll be provisioning real DigitalOcean resources, there's a chance you could incur a slight cost in doing so. But since we'll be using the least expensive plan settings available, and tearing everything down when we're done, that cost shouldn't amount to more than a few pennies or so.
+
+Let's get started.
 
 ## Cloning and inspecting the repository
 
-Once you've cloned your copy of the template repository and navigated to the root, you'll see a couple of folders and files that look something like this:
+Once you've cloned your copy of the template repository and navigated to the root, you'll see a couple of files and folders that look something like this:
 
 ```bash
 ├── frontend
@@ -55,59 +55,59 @@ Once you've cloned your copy of the template repository and navigated to the roo
 └── package.json
 ```
 
-The `frontend` folder contains the React application. Its job is to render the list of groceries and give us something to interact with (adding items, checking them off, deleting them, and so on). I generated the scaffolding for this app with a tool called [Vite](https://vitejs.dev/), and all of its logic --- form fields, click handlers, API calls, etc. --- is contained in `src/App.tsx`.
+The `frontend` folder contains the React application, and its job is to render the list of groceries and give you something to interact with (to add items, check them off, delete them, and so on). The scaffolding for the app was generated with a tool called [Vite](https://vitejs.dev/), and all of its logic --- form fields, click handlers, API calls, etc. --- is contained in `src/App.tsx`.
 
-The `backend` folder contains the Express application that defines the REST API. It sets up four API routes to handle the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations you'd expect in an app like this one:
+The `backend` folder contains the Express application, which defines the REST API. It sets up four API routes to handle the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations you'd expect in an app like this one:
 
 * `GET /api/items` fetches all items from the database and returns them as a JSON array
-* `POST /api/items` takes a new item and writes it to the database
-* `PUT /api/items/:id` updates an existing item (e.g., to toggle its checked/unchecked status)
-* `DELETE /api/items/:id` deletes an item
+* `POST /api/items` accepts a new item and writes it to the database
+* `PUT /api/items/:id` updates an existing item (to toggle its checked/unchecked status)
+* `DELETE /api/items/:id` deletes an item from the database
 
 The back end supports three configurable properties, all of which are exposed as optional environment variables:
 
 * `BACKEND_SERVICE_PORT`, which defaults to `8000`
 * `BACKEND_ROUTE_PREFIX`, which defaults to `/api`
-* `DATABASE_URL`, which defaults to `mongodb://127.0.0.1` to facilitate local development
+* `DATABASE_URL`, which defaults to `mongodb://127.0.0.1` for local development
 
-## Running the application locally
+## Running the application locally (optional)
 
-I'm a big fan of using [Makefiles](https://www.gnu.org/software/make/manual/html_node/Introduction.html) to simplify dev tasks, so I've included for you one here as well. Once you've [installed MongoDB locally and started the service](https://docs.mongodb.com/manual/administration/install-community/) (which by default should be listening on port `27107`), you can install all front-end and back-end dependencies and start the development server:
+I'm a big fan of [Makefiles](https://www.gnu.org/software/make/manual/html_node/Introduction.html) for simplifing dev tasks, so I've included one for you here as well. Once you've [installed MongoDB locally and started the service](https://docs.mongodb.com/manual/administration/install-community/) (which by default should be listening on port `27107`), you can install all front-end and back-end dependencies and start the development server:
 
 ```bash
 $ make ensure  # installs front-end and back-end dependencies.
 $ make dev     # starts the front-end and back-end development servers.
 ```
 
-With the development server running, you can browse to [http://localhost:3000](http://localhost:3000) and see the app:
+With the development server running, you can browse to <http://localhost:3000> and see the app:
 
 ![The application running in a browser on localhost](./localhost.png)
 
-The front-end and back-end development servers are configured to recompile your TypeScript to JavaScript automatically, and the front-end server is set up to proxy the back-end service (which runs at `http://localhost:8000`) at the root-relative path of `/api`. Proxying the API in this way is an easy way to avoid having to wrestle with [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)-related issues, and as you'll see when we deploy, App Platform supports it out of the box.
+The front-end and back-end development servers are set up to compile your TypeScript to JavaScript automatically, and the front-end server is configured to proxy the back-end service (which runs at `http://localhost:8000`) at a root-relative path of `/api`. Proxying the API in this way lets you avoid having to wrestle with [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)-related issues, and as you'll see when we deploy, App Platform also conveniently supports it out of the box.
 
-Try adding a few items and marking them off, just to make sure everything's working properly. If you've got a MongoDB client installed as well --- I generally like [MongoDB Compass](https://www.mongodb.com/products/compass) --- you should be able to see the `grocery-list` database, and the `items` collection, filling up with delicious foods:
+Try adding a few items and marking them off, just to make sure everything's working as you'd expect. If you've got a MongoDB client installed as well --- I generally use [MongoDB Compass](https://www.mongodb.com/products/compass) --- you should be able to find the `grocery-list` database and see the `items` collection filling up with delicious foods:
 
 ![MongoDB Compass, showing the grocery-list database and the items collection](./localhost-db.png)
 
-Now let's have a look at how to deploy this stuff.
+Now, let's have a look at how to deploy this stuff.
 
 ## Charting a course
 
-Earlier I mentioned that every cloud provider handles web-app deployment a little differently, often in multiple ways, and that's true for DigitalOcean as well. You _could_ deploy the front end as a [DigitalOcean Space](https://www.digitalocean.com/products/spaces), or both the front end and back end (and even the database) with a single [Droplet](https://www.digitalocean.com/products/droplets). But given the shape of this application, the best fit is really is [App Platform](https://docs.digitalocean.com/products/app-platform/concepts/), for several reasons.
+Earlier I mentioned that every cloud provider handles web-app deployment a little differently, often in multiple ways, and that's true for DigitalOcean as well. You _could_ deploy the front end as a [DigitalOcean Space](https://www.digitalocean.com/products/spaces), or both the front end and back end (and even the database) as a [DigitalOcean Droplet](https://www.digitalocean.com/products/droplets). But given the shape of this application, the best fit is really is [App Platform](https://docs.digitalocean.com/products/app-platform/concepts/), for several reasons.
 
-One is that because App Platform apps are comprised these of high-level [_components_](https://docs.digitalocean.com/products/app-platform/concepts/) --- abstractions like [static site](https://docs.digitalocean.com/products/app-platform/concepts/static-site/), [service](https://docs.digitalocean.com/products/app-platform/concepts/service/), and [database](https://docs.digitalocean.com/products/app-platform/concepts/database/) --- they're pretty much purpose-built for an application like this one, and DigitalOcean customizes the deployment of each component based on its type. Static websites are distributed and cached on DigitalOcean's CDN, services are packaged and delivered as containers (using its own [Kubernetes](https://www.digitalocean.com/products/kubernetes) platform), and databases are deployed as easily configurable managed services. All of this means you're not only able to stay focused on the application itself, but that you can scale each of these services up, down, or out as needed, and even delegate your front-end and back-end build processes to DigitalOcean to be triggered by commits on one or more external source-code repositories.
+One is that because App Platform apps are comprised these high-level [_components_](https://docs.digitalocean.com/products/app-platform/concepts/) --- abstractions like [static site](https://docs.digitalocean.com/products/app-platform/concepts/static-site/), [service](https://docs.digitalocean.com/products/app-platform/concepts/service/), and [database](https://docs.digitalocean.com/products/app-platform/concepts/database/) --- they're pretty much purpose-built for an application like this one, and DigitalOcean customizes the deployment of each component based on its type. Static websites are distributed and cached on DigitalOcean's CDN, services are packaged and delivered as containers (with its [Kubernetes](https://www.digitalocean.com/products/kubernetes) platform), and databases are deployed as configurable managed services. All of this means you're not only able to remain focused on the application itself, but you can scale each one of these services up, down, or out however you like, and even have your front-end and back-end build processes handled by DigitalOcean in response to commits on one or more external source-code repositories.
 
-![Front end, back end, and database tiers mapped to their corresponding App Platform components](./mapped-tiers.png)
-
-App Platform apps can be configured in one of two ways: manually, in the browser, by defining their components individually in the DigitalOcean web console, or programmatically, in the form of an [_App Spec_](https://docs.digitalocean.com/products/app-platform/concepts/app-spec/), a JSON document that can be submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/). We'll go the latter route and use Pulumi and the [DigitalOcean provider package]({{< relref "/registry/packages/digitalocean" >}}) to define an app spec that contains:
+App Platform apps can be configured in one of two ways: either manually, by defining their components individually in the DigitalOcean web console, or programmatically, in the form of an App Platform [_spec_](https://docs.digitalocean.com/products/app-platform/concepts/app-spec/), a JSON document submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/). In our case, we'll be going the latter route, using Pulumi with the [DigitalOcean provider package]({{< relref "/registry/packages/digitalocean" >}}) to define an app spec that contains three components:
 
 * A `staticSite` component mapped to the `frontend` folder
 * A `service` component mapped to the `backend` folder
 * A `database` component mapped to a managed MongoDB cluster (whose access will also be restricted to only the `service` component)
 
-And once deployed, it'll all be running at a single URL.
+![Front end, back end, and database tiers mapped to their corresponding App Platform components](./mapped-tiers.png)
 
-We'll start by creating new Pulumi project.
+And once deployed, it'll all be available at a single URL.
+
+Let's start by creating new Pulumi project.
 
 ## Creating the project
 
