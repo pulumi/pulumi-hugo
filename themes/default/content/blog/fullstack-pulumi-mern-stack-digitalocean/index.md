@@ -12,11 +12,11 @@ tags:
     - web-apps
 ---
 
-As a developer, I get lots of ideas for web apps --- little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. Most of them, however, never see the light of day, and not just because I'm lazy. I also tend to get hung up trying to decide what to use for the technology stack.
+As a developer, I get lots of ideas for web apps --- little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. Most of them, however, never see the light of day, and not just because I'm lazy; I also tend to get hung up trying to decide what to use for the technology stack.
 
 <!--more-->
 
-And as a JavaScript developer, I certainly have options --- too many, in fact, and that's part of the problem. Having roughly a hundred and fifty million libraries and frameworks to choose from is definitely better than having none, but at the same time, all that choice can make the deciding rather difficult. Which is why, when I just want to get something done, I'll often reach for a combination of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
+And as a JavaScript developer, I certainly have options --- too many, in fact, and that's part of the problem. Having roughly a hundred and fifty million libraries and frameworks to choose from is definitely better than having none, but at the same time, all that choice can make the actual choosing rather difficult. Which is why, when I just want to get something done, I'll often reach for a combination of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
 
 MERN-stack apps are three-tier web apps built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language --- JavaScript (or TypeScript, if you like) --- to manage all three layers of the application stack: the front end as a single-page app built statically with React; the back end as a REST API managed with Express; and the database as a collection of JSON-like documents with MongoDB. MERN might not _always_ the right tool for the job, but for the kinds of apps I tend to find myself building, it generally works out pretty well.
 
@@ -24,7 +24,7 @@ MERN-stack apps are three-tier web apps built with [MongoDB](https://www.mongodb
 
 Still, once I'm _finished_ building my app, I'm often faced with a whole other problem: figuring out how to get the app off of my laptop and onto the web.
 
-The cloud hasn't made this an easy task for developers. Choosing a cloud provider, deciding which resources to use (and how to use them), setting up networking, debugging permissions, navigating billing, and all the rest, can be overwhelming --- and that's before you've given a single thought to anything having to do with automation or infrastructure as code. Most developers, myself included, would generally prefer not deal with any of this. What we want, I think, is to be able to focus on our apps, and we're ready to ship, push our code to a repository and wait patiently for a URL to emerge that we can paste into a browser and have everything _just work_.
+The cloud hasn't made this an easy task for developers. Choosing a cloud provider, deciding which resources to use (and how to use them), setting up networking, debugging permissions, navigating billing, and all the rest, can be overwhelming --- and that's before you've given a single thought to anything having to do with automation or infrastructure as code. Most developers. What we want, I think, is to be able to focus on our apps, and we're ready to ship, push our code to a repository and wait patiently for a URL to emerge that we can paste into a browser and have everything _just work_.
 
 Which is why I was so delighted when I discovered [DigitalOcean's App Platform](https://www.digitalocean.com/products/app-platform).
 
@@ -594,23 +594,35 @@ And finally, try scaling the service by bumping the `instanceCount` from `1` to 
 
 {{% choosable language typescript %}}
 
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-{{% /choosable %}}
-
 ```diff
   const config = new pulumi.Config();
   const repo = config.require("repo");
   const branch = config.require("branch");
-+ const service_instance_count = config.requireNumber("service_instance_count");
++ const serviceInstanceCount = config.requireNumber("service_instance_count");
+  ...
+        services: [
+            digitalocean.AppSpecServiceArgs(
+                ...
++               instanceCount: serviceInstanceCount,
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```diff
+  config = pulumi.Config()
+  repo = config.require("repo")
+  branch = config.require("branch")
+  service_instance_count = config.requireNumber("service_instance_count");
   ...
         services: [
             digitalocean.AppSpecServiceArgs(
                 ...
 +               instance_count: service_instance_count,
 ```
+
+{{% /choosable %}}
 
 ```bash
 $ pulumi config set service_instance_count 2
