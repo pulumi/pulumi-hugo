@@ -15,5 +15,5 @@ The component repositories are private. [Contact us]({{< relref "/contact.md" >}
 | Component | Repository |
 | --------- | ---------- |
 | [API]({{< relref "api" >}}) | [https://hub.docker.com/r/pulumi/service/](https://hub.docker.com/r/pulumi/service/) |
-| [Console]({{< relref "console" >}}) |	[https://hub.docker.com/r/pulumi/console/](https://hub.docker.com/r/pulumi/console/) |
+| [Web console]({{< relref "console" >}}) |	[https://hub.docker.com/r/pulumi/console/](https://hub.docker.com/r/pulumi/console/) |
 | Migrations | [https://hub.docker.com/r/pulumi/migrations/](https://hub.docker.com/r/pulumi/migrations/) |
