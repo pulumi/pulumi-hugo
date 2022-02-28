@@ -12,17 +12,19 @@ tags:
     - web-apps
 ---
 
-As a developer, I get lots of ideas for web apps --- little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. The trouble, though, is that most of them never see the light of day, in part because I get so hung up trying to decide on the technology stack.
+As a developer, I get lots of ideas for web apps --- little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. Most of them, however, never see the light of day, and not just because I'm lazy. I also tend to get hung up trying to decide what to use for the technology stack.
 
-The problem isn't just what to use for the app, either. Yes, that decision can be a challenging one, in light of the hundred-and-fifty-million-odd libraries and frameworks I have to choose from as a JavaScript developer. But at the same time, I know I can also cut through a lot of that difficulty by going with a combination of tools I already know well --- like [the MERN stack](https://www.mongodb.com/mern-stack), for example.
+<!--more-->
+
+And as a JavaScript developer, I certainly have options --- too many, in fact, and that's part of the problem. Having roughly a hundred and fifty million libraries and frameworks to choose from is definitely better than having none, but at the same time, all that choice can make the deciding rather difficult. Which is why, when I just want to get something done, I'll often reach for a combination of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
 
 MERN-stack apps are three-tier web apps built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language --- JavaScript (or TypeScript, if you like) --- to manage all three layers of the application stack: the front end as a single-page app built statically with React; the back end as a REST API managed with Express; and the database as a collection of JSON-like documents with MongoDB. MERN might not _always_ the right tool for the job, but for the kinds of apps I tend to find myself building, it generally works out pretty well.
 
 ![The tiers of a typical web application: front end, back end, and database](./tiers.png)
 
-The bigger problem is that once I'm _finished_ building, I'm faced with a whole other problem: figuring out how to get the app off of my laptop and onto the actual web.
+Still, once I'm _finished_ building my app, I'm often faced with a whole other problem: figuring out how to get the app off of my laptop and onto the web.
 
-The cloud hasn't made this an easy task for developers. Choosing a cloud provider, deciding which resources to use (and how to use them), setting up networking, debugging permissions, navigating billing, and all the rest, can be overwhelming --- and that's before you've given a single thought to anything having to do with automation or infrastructure as code. Most developers, myself included, would generally prefer not deal with any of this. What we want, I think, is to be able to focus our apps, and we're ready to ship, push our code to a repository and wait patiently for a URL to emerge that we can paste into a browser and have everything _just work_.
+The cloud hasn't made this an easy task for developers. Choosing a cloud provider, deciding which resources to use (and how to use them), setting up networking, debugging permissions, navigating billing, and all the rest, can be overwhelming --- and that's before you've given a single thought to anything having to do with automation or infrastructure as code. Most developers, myself included, would generally prefer not deal with any of this. What we want, I think, is to be able to focus on our apps, and we're ready to ship, push our code to a repository and wait patiently for a URL to emerge that we can paste into a browser and have everything _just work_.
 
 Which is why I was so delighted when I discovered [DigitalOcean's App Platform](https://www.digitalocean.com/products/app-platform).
 
