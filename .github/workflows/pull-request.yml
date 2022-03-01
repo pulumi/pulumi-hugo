@@ -40,20 +40,8 @@ jobs:
           role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
           role-session-name: PullRequestPreviewSession
 
-      - name: Check out the docs repo
-        uses: actions/checkout@v2
-        with:
-          repository: pulumi/docs
-          path: docs
-
       - name: Run a full docs build
-        run: HUGO_MODULE_REPLACEMENTS="github.com/pulumi/pulumi-hugo/themes/default -> $(pwd)/../themes/default" make ensure ensure_tools build
-        working-directory: docs
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.CI_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
-          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make ci-build-full-site
 
       - name: Build and deploy preview
         run: make ci-pull-request
