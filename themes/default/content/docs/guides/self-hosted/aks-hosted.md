@@ -25,7 +25,7 @@ This installer uses Pulumi to deploy the Pulumi Service. In this case, one uses 
 
 To this end, you need to set up the following:
 
-* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the Docker server
+* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on your workstation
 * [Login to Azure Blob Storage Backend]({{<relref "docs/intro/concepts/state#logging-into-the-azure-blob-storage-backend">}})
 
 ### Deployment Steps
@@ -36,7 +36,7 @@ See the [README](https://github.com/pulumi/pulumi-self-hosted-installers/aks-hos
 
 ### Pulumi Service Updates
 
-When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's [README](https://github.com/pulumi/pulumi-self-hosted-installers/aks-hosted/README.md) file to set the `imageTag` configuration property for the installer to use.
+When deploying the Service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's [README](https://github.com/pulumi/pulumi-self-hosted-installers/aks-hosted/README.md) file to set the `imageTag` configuration property for the installer to use.
 
 When ready to update the Pulumi Sevice containers to use a different version, do the following:
 
@@ -46,12 +46,12 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 ### Database Maintenance
 
-The installer configures the RDS backend database for replication and checkpointing. So no additional maintenance is needed by the customer.
+Currently, the installer deploys a single-server MySQL backend database server. Therefore, the customer should enable regular backups for the DB.
 
 ### Blob Storage Maintenance
 
-The service automatically creates backups of checkpoint files. However the customer may want to enable automated backup of the blob storage created by the installer.
+The service automatically creates backups of checkpoint files. However, the customer may want to enable automated backup of the blob storage created by the installer.
 
 ### Updating the AKS Cluster Kubernetes Version
 
-Currently, the AKS installer uses kubernetes version 1.19.11. To update to a later version contact the Pulumi support team.
+To update to a later version of Kubernetes, contact the Pulumi support team.

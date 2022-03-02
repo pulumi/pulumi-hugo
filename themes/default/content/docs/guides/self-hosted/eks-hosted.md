@@ -30,13 +30,11 @@ The EKS-hosted installation of Pulumi deploys the following services:
 
 ### Pulumi deploying Pulumi
 
-This installer uses Pulumi to deploy the Pulumi service.  
-In this case, one uses the pulumi CLI with a self-managed backend (e.g. S3) to deploy all services listed above to stand up the self-hosted Pulumi Service.  
-The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`.
+This installer uses Pulumi to deploy the Pulumi service. In this case, one uses the pulumi CLI with a self-managed backend (e.g. S3) to deploy all services listed above to stand up the self-hosted Pulumi Service. The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`.
 
 To this end, you need to set up the following:
 
-* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the docker server.
+* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on your workstation
 * [Login to S3-compatible backend]({{<relref "docs/intro/concepts/state#logging-into-the-aws-s3-backend">}})
 
 ### Deployment Steps
@@ -61,7 +59,7 @@ The installer configures the RDS backend database for replication and checkpoint
 
 ### Blob Storage Maintenance
 
-The service automatically creates backups of checkpoint files. However the customer may want to enable AWS Backup to periodically backup the S3 buckets created by the installer.  
+The service automatically creates backups of checkpoint files. However, the customer may want to enable AWS Backup to periodically backup the S3 buckets created by the installer.  
 The buckets will have names of the form:
 
 * `pulumi-checkpoint-XXX`

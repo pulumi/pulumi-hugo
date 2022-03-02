@@ -20,10 +20,10 @@ The customer is required to provide and manage the following:
   * At least 2 isolated subnets available.
     * An "isolated" subnet means it can only route traffic within the subnet. So there is no NAT gateway.
 * Route53 hosted zone.
-* ACM Certiciate that covers FQDNs of the form (note `{subdomain}` is optional):
-  * `{subdomain}.{zoneDomainName}`
-  * `api.{subdomain}.{zoneDomainName}`
-  * `app.{subdomain}.{zoneDomainName}`
+* ACM Certiciate that covers FQDNs of the following form, where `{subdomain}` is optional:
+  * `{subdomain}.{zoneDomainName}`  
+  * `api.{subdomain}.{zoneDomainName}`  
+  * `app.{subdomain}.{zoneDomainName}`  
 * KMS key to be used the self-hosted Pulumi Service for encryption/decryption purposes.
 
 ## ECS-Hosted Deployment
@@ -41,13 +41,11 @@ The ECS-hosted installation of Pulumi deploys the following services:
 
 ### Pulumi deploying Pulumi
 
-This installer uses Pulumi to deploy the Pulumi service.  
-In this case, one uses the pulumi CLI with a self-managed backend (e.g. S3) to deploy all services listed above to stand up the self-hosted Pulumi Service.  
-The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`.
+This installer uses Pulumi to deploy the Pulumi service. In this case, one uses the pulumi CLI with a self-managed backend (e.g. S3) to deploy all services listed above to stand up the self-hosted Pulumi Service. The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`.
 
 To this end, you need to set up the following:
 
-* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the docker server.
+* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on your workstation
 * [Login to S3-compatible backend]({{<relref "docs/intro/concepts/state#logging-into-the-aws-s3-backend">}})
 
 ### Deployment Steps
