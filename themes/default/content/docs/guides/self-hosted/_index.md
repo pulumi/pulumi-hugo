@@ -45,10 +45,10 @@ The Pulumi Service [Docker container images]({{< relref "components" >}}) can be
 However, Pulumi provides [installers](https://github.com/pulumi/pulumi-self-hosted-installers) to support common deployment environments:
 
 * [Quickstart Docker Compose Install]({{< relref "quickstart-docker-compose" >}}): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local Docker environment.
-* [ECS-Hosted Install]({{< relref "ecs-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript or Go, one can automate the deployment and maintenance of a production-grade self-hosted solution.
-* [EKS-Hosted Install]({{< relref "eks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution running on Amazon Elastic Kubernetes Sevice (EKS). This solution most closely matches the managed service deployment model.
-* [AKS-Hosted Install]({{< relref "aks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution on Azure Kubernetes Service (AKS).
-* [Local-Docker Install]({{< relref "local-docker" >}}): Using a Pulumi-provided Pulumi program written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution using a customer-provided docker environment,  a customer-provided MySQL database and a customer-provided object store (e.g. Minio).
+* [ECS-Hosted Install]({{< relref "ecs-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in TypeScript or Go, one can automate the deployment and maintenance of a production-grade self-hosted solution.
+* [EKS-Hosted Install]({{< relref "eks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution running on Amazon Elastic Kubernetes Sevice (EKS). This solution most closely matches the managed service deployment model.
+* [AKS-Hosted Install]({{< relref "aks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution on Azure Kubernetes Service (AKS).
+* [Local-Docker Install]({{< relref "local-docker" >}}): Using a Pulumi-provided Pulumi program written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution using a customer-provided docker environment,  a customer-provided MySQL database and a customer-provided object store (e.g. Minio).
 
 ## Components
 
