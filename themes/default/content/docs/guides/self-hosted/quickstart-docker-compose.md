@@ -1,11 +1,11 @@
 ---
-title: Quickstart Install
+title: Quickstart Docker Compose Install
 menu:
     userguides:
         parent: self_hosted
-        identifier: self_hosted_quickstart_installer
+        identifier: self_hosted_quickstart_docker_compose_install
         weight: 10
-meta_desc: Quickstart installer for testing of the self-hosted Pulumi service.
+meta_desc: Quickstart Docker compose installer for testing of the self-hosted Pulumi service.
 ---
 
 The Pulumi service Docker container images can be run using any OCI-compatible container orchestrator. We provide sample docker-compose files that can help you get started with your self-evaluation quickly.
@@ -24,9 +24,11 @@ For example, `PULUMI_DATA_PATH=/my/persistent/dir LOCAL_DATABASE_NAME=my-db LOCA
 
 Regardless of the quickstart option you choose below, `run-ee.sh` will be the way to start the necessary containers. There will be at most 3 containers (including the DB) for the system to be considered complete.
 
-## Quickstart Deployment Options
+## Quickstart Docker Compose Deployment Options
 
-### Quickstart Option #1 - Using the all-in-one approach
+The [Quickstart Docker Compose Installer](https://github.com/pulumi/pulumi-self-hosted-installers/quickstart-docker-compose) is used to deploy a test system using Docker.
+
+### Option #1 - Using the all-in-one approach
 
 If you would like to use Pulumi’s all-in-one solution, you just need to run the run-ee.sh like this: `run-ee.sh -f ./all-in-one/docker-compose.yml`.
 This will start all components using working defaults, including a DB container that is migrated using our DB scripts.
@@ -35,7 +37,7 @@ This will start all components using working defaults, including a DB container 
 Environment variables should be set in the `./all-in-one/docker-compose.yml` file.
 {{% /notes %}}
 
-### Quickstart Option #2 - Provide your own Database
+### Option #2 - Provide your own Database
 
 The service is tested against a MySQL version 5.6 instance. It is assumed that you have a DB instance called `pulumi-db` running at port `3306` and accessible within a network called `pulumi-ee`.
 
@@ -44,7 +46,7 @@ You will need the `migrations` folder downloaded locally, which contains the DB 
 Your Pulumi sales contact should be able to provide you with this.
 {{% /notes %}}
 
-## Quickstart System Management and Maintenance
+## Quickstart Docker Compose System Management and Maintenance
 
 Since the quickstart option is meant to be used for testing purposes, there is no real maintenance or management needed other than perhaps updating the service containers with the latest versions.
 

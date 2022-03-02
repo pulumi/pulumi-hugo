@@ -10,21 +10,16 @@ meta_desc: Pulumi Enterprise gives you the option to self-host Pulumi within you
 {{% notes type="info" %}}
 Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Enterprise.
 
-To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
+To manage your state with a self-*managed* backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
 
-This guide walks you through the components that are required to get the Pulumi Service running in your own environment.
+This guide presents the overall architecture for self-hosting the Pulumi Service as well as available reference architectures and related installers. 
 
-There are two services that need to be hosted for the purposes of remote state management and a management UI for users. To store user data, and the state for your [stacks]({{< relref "/docs/intro/concepts/stack" >}}), the following components are also needed:
+## Managed Pulumi Service vs Self-Hosted Pulumi Service
 
-* MySQL 5.6 DB server with at least 20GB storage space for data
-* Minimum 50GB SSD for object storage
+Pulumi Service (i.e. [app.pulumi.com](https://app.pulumi.com)) is a fully managed SaaS providing state management, a secrets manager and features such as SSO, audit logs, centralized stack and policy management to name a few. As a SaaS, Pulumi manages all aspects of the service.
 
-> **Note**: You are responsible for the safe backup and storage of the object storage volume, as well as your DB’s data volume.
-
-## Self-Hosted vs. Managed Pulumi Service
-
-The self-hosted version of the Pulumi Service also offers some features that are not available with the managed version (i.e. [app.pulumi.com](https://app.pulumi.com)). The self-hosted installation of Pulumi provides full control of your data -- a requirement for enterprises in certain industries with specific security compliance requirements.
+The self-hosted version of the service provides all the same capabilities as the SaaS offering. The self-hosted deployment requires that the customer manages data backups and keeping the service running and up to date.  However, the self-hosted solution allows the customer to run the service in fully within their own environment. 
 
 If you are unsure about whether a self-hosted version of the Pulumi Service is right for your organization, [contact us]({{< relref "/contact.md" >}}) to learn more.
 
@@ -45,10 +40,11 @@ Here are some examples of deployment topologies:
 
 ## Deployment Options
 
-The Pulumi service Docker container images can be run using any OCI-compatible container orchestrator.
-However, Pulumi provides installers to support common deployment environments.
+The Pulumi service [Docker container images]({{< relref "components" >}}) can be run using any OCI-compatible container orchestrator.
 
-* [Quickstart Install]({{< relref "quickstart" >}}): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local docker environment.
+However, Pulumi provides [installers](https://github.com/pulumi/pulumi-self-hosted-installers) to support common deployment environments:
+
+* [Quickstart Docker Compose Install]({{< relref "quickstart-docker-compose" >}}): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local docker environment.
 * [ECS-Hosted Install]({{< relref "ecs-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript or Go, one can automate the deployment and maintenance of a production-grade self-hosted solution.
 * [EKS-Hosted Install]({{< relref "eks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution running on Amazon Elastic Kubernetes Sevice (EKS). This solution most closely matches the managed service deployment model.
 * [AKS-Hosted Install]({{< relref "aks-hosted" >}}): Using a Pulumi-provided set of Pulumi programs written in Typescript, one can automate the deployment and maintenance of a production-grade self-hosted solution on Azure Kubernetes Service (AKS).

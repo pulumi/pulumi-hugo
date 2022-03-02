@@ -3,12 +3,12 @@ title: EKS-Hosted Install
 menu:
     userguides:
         parent: self_hosted
-        identifier: self_hosted_ekshosted_installer
+        identifier: self_hosted_eks_hosted_install
         weight: 30
 meta_desc: Installer for deploying the self-hosted Pulumi service in EKS.
 ---
 
-The "EKS-hosted" installer is used to deploy the self-hosted Pulumi service in Amazon Elastic Kuberenetes Service (EKS).  
+The [EKS-Hosted Installer](https://github.com/pulumi/pulumi-self-hosted-installers/eks-hosted) installer is used to deploy the self-hosted Pulumi service in Amazon Elastic Kuberenetes Service (EKS).
 
 ## Prerequisites
 
@@ -41,13 +41,13 @@ To this end, you need to set up the following:
 
 ### Deployment Steps
 
-See the README.md file provided with the installer package for detailed deployment steps.
+See the [README](https://github.com/pulumi/pulumi-self-hosted-installers/eks-hosted/README.md) file provided with the installer package for detailed deployment steps.
 
 ## EKS-Hosted System Management and Maintenance
 
 ### Pulumi Service Updates
 
-When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's README file for how to set the `imageTag` configuration property for the installer to use.
+When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's [README](https://github.com/pulumi/pulumi-self-hosted-installers/eks-hosted/README.md) file to set the `imageTag` configuration property for the installer to use.
 
 When ready to update the Pulumi Sevice containers to use a different version, do the following:
 
@@ -59,7 +59,7 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 The installer configures the RDS backend database for replication and checkpointing. So no additional maintenance is needed by the customer.
 
-### Blob Storage Mataintenance
+### Blob Storage Maintenance
 
 The service automatically creates backups of checkpoint files. However the customer may want to enable AWS Backup to periodically backup the S3 buckets created by the installer.  
 The buckets will have names of the form:
@@ -69,7 +69,7 @@ The buckets will have names of the form:
 
 ### Updating the EKS Cluster Kubernetes Version
 
-If running the Pulumi Service with Kubernetes version 1.19 or later, then simply update the `clusterConfig:ClusterVersion` configuration property to the desired version.  
+If your EKS-hosted installation was deployed on Kubernetes version 1.19 or later, you can update the `clusterConfig:ClusterVersion` configuration property to the desired version.  
 Then, rerun the `npm run install -- update --` command to update the cluster with the new version.
 
 {{% notes type="info" %}}

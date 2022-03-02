@@ -3,12 +3,12 @@ title: Local-Docker Install
 menu:
     userguides:
         parent: self_hosted
-        identifier: self_hosted_localdocker_installer
+        identifier: self_hosted_local_docker_install
         weight: 50
 meta_desc: Installer for deploying the self-hosted Pulumi service in docker.
 ---
 
-The "local-docker" installer is generally meant to be used where an on-premise solution is needed or where the cloud-based installation solutions (i.e. EKS, ECS, AKS) are not possible.
+The [Local-Docker Installer](https://github.com/pulumi/pulumi-self-hosted-installers/local-docker) is generally meant to be used where an on-premise solution is needed or where the cloud-based installation solutions (i.e. EKS, ECS, AKS) are not possible.
 
 ## Prerequisites
 
@@ -42,13 +42,13 @@ To this end, you need to set up the following:
 
 ### Deployment Steps
 
-See the README.md file provided with the installer package for detailed deployment steps.
+See the [README](https://github.com/pulumi/pulumi-self-hosted-installers/local-docker/README.md) file provided with the installer package for detailed deployment steps.
 
 ## Local-Docker System Management and Maintenance
 
 ### Pulumi Service Updates
 
-When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's README file for how to set the `imageTag` configuration property for the installer to use.
+When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's [README](https://github.com/pulumi/pulumi-self-hosted-installers/local-docker/README.md) file to set the `imageTag` configuration property for the installer to use.
 
 When ready to update the Pulumi Sevice containers to use a different version, do the following:
 
@@ -60,6 +60,6 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 The customer should perform standard DB maintenance for their MySQL database.
 
-### Blob Storage Mataintenance
+### Blob Storage Maintenance
 
 The customer should perform standard storage maintenance for their blob storage.

@@ -3,12 +3,12 @@ title: ECS-Hosted Install
 menu:
     userguides:
         parent: self_hosted
-        identifier: self_hosted_ecshosted_installer
+        identifier: self_hosted_ecs_hosted_install
         weight: 20
 meta_desc: Installer for deploying the self-hosted Pulumi service in ECS.
 ---
 
-The "ECS-hosted" installer is used to deploy the self-hosted Pulumi service in Amazon Elastic Container Service.  
+The [ECS-Hosted Installer](https://github.com/pulumi/pulumi-self-hosted-installers/ecs-hosted) is used to deploy the self-hosted Pulumi service in Amazon Elastic Container Service.  
 
 ## Prerequisites
 
@@ -52,13 +52,13 @@ To this end, you need to set up the following:
 
 ### Deployment Steps
 
-See the README.md file provided with the installer package for detailed deployment steps.
+See the [README](https://github.com/pulumi/pulumi-self-hosted-installers/ecs-hosted/README.md) file provided with the installer package for detailed deployment steps.
 
 ## ECS-Hosted System Management and Maintenance
 
 ### Pulumi Service Updates
 
-When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's README file for how to set the `imageTag` configuration property for the installer to use.
+When deploying the service, it is recommended to pin the Pulumi Service image tag to a specific version. See the installer's [README](https://github.com/pulumi/pulumi-self-hosted-installers/ecs-hosted/README.md) file to set the `imageTag` configuration property for the installer to use.
 
 When ready to update the Pulumi Sevice containers to use a different version, do the following:
 
@@ -70,9 +70,9 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 The installer configures the RDS backend database for replication and checkpointing. So no additional maintenance is needed by the customer.
 
-### Blob Storage Mataintenance
+### Blob Storage Maintenance 
 
-The service automatically creates backups of checkpoint files. However the customer may want to enable AWS Backup to periodically backup the S3 buckets created by the installer.  
+The service automatically creates backups of checkpoint (i.e. state) files. However the customer may want to enable AWS Backup to periodically backup the S3 buckets created by the installer.  
 The buckets will have names of the form:
 
 * `pulumi-checkpoint-XXX`
