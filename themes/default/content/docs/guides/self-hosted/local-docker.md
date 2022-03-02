@@ -34,7 +34,7 @@ This installer uses Pulumi to deploy the Pulumi service. In this case, one uses 
 
 To this end, you need to set up the following:
 
-* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the docker server.
+* [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on the Docker server
 * [Login to S3-compatible backend]({{<relref "docs/intro/concepts/state#logging-into-the-aws-s3-backend">}})
   * The assumption here is that you would use a bucket in the object store being you are using for the self-hosted Pulumi service. You can use a different state backend if you prefer.
   * It is NOT recommended to use the `local` backend option since you want to make sure this state file is backed up and secured.
