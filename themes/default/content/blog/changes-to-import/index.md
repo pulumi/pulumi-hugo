@@ -1,5 +1,5 @@
 ---
-title: "Overhaul of the `pulumi import` system"
+title: "Improving the `pulumi import` experience"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
@@ -14,7 +14,7 @@ draft: true
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: Changes to the pulumi import system and terraform bridge
+meta_desc: Recent improvements to `pulumi import` make it an even smoother way to import existing cloud infrastructure into Pulumi.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -35,9 +35,9 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Importing resources to Pulumi is a fundamental requirement to allow bringing over existing infrastructure into Pulumi programs. Unfortunately the existing system has resulted in users hitting a number of issues that has made this task harder than it ought to be.
+Importing resources to Pulumi is a fundamental feature which enables bringing over existing cloud infrastructure into your Pulumi programs. We introduced the [`pulumi import`]() command last year, which makes it easy to import an existing resource into your Pulumi state, as well as generating the source code that you can use to manage that resource in Pulumi going forward.  As users have applied `pulumi import` to a vast array of different cloud resources and provided feedback on the feature, we've identified a few opportunities to further streamline the experience using `pulumi import`.
 
-Today we're announcing plans to rework the import system to try and fix most of these issues. This system is still not perfect and we want to give users a heads up on issues they may still need to work around.
+Today we're happy to announce changes to the import system to fix most of these issues. We want to give users a heads up on the improvements they should expect to see and also take a chance to explain some of the limitations that might still be encountered.
 
 <!--more-->
 
