@@ -52,4 +52,5 @@ Since the quickstart option is meant to be used for testing purposes, there is n
 ### Updating the Pulumi Service Containers
 
 For testing purposes, it is recommended to use the `latest` image tag in the docker compose file and re-run the `run-ee.sh` script when there are newer versions of the service image pushed to docker hub.  
+
 If you specified a specific image version in the docker compose file, then simply update the version tag and re-run the `run-ee.sh` script.
