@@ -16,8 +16,8 @@ The AKS-hosted installation of Pulumi deploys the following services:
 
 * Active Directory application
 * Virtual Network and Subnets
-* Managed MySQL Server and DB for persistent state and automated replication and snapshotting.
-* Blob storage for checkpoints and policy packs.
+* Managed MySQL Server and DB for persistent state and automated replication and snapshotting
+* Blob storage for checkpoints and policy packs
 
 ### Pulumi deploying Pulumi
 
