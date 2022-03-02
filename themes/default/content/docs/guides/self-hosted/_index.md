@@ -13,13 +13,13 @@ Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relr
 To manage your state with a self-*managed* backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
 
-This guide presents the overall architecture for self-hosting the Pulumi Service as well as available reference architectures and related installers. 
+This guide presents the overall architecture for self-hosting the Pulumi Service as well as available reference architectures and related installers.
 
 ## Managed Pulumi Service vs Self-Hosted Pulumi Service
 
 Pulumi Service (i.e. [app.pulumi.com](https://app.pulumi.com)) is a fully managed SaaS providing state management, a secrets manager and features such as SSO, audit logs, centralized stack and policy management to name a few. As a SaaS, Pulumi manages all aspects of the service.
 
-The self-hosted version of the service provides all the same capabilities as the SaaS offering. The self-hosted deployment requires that the customer manages data backups and keeping the service running and up to date.  However, the self-hosted solution allows the customer to run the service in fully within their own environment. 
+The self-hosted version of the service provides all the same capabilities as the SaaS offering. The self-hosted deployment requires that the customer manages data backups and keeping the service running and up to date.  However, the self-hosted solution allows the customer to run the service in fully within their own environment.
 
 If you are unsure about whether a self-hosted version of the Pulumi Service is right for your organization, [contact us]({{< relref "/contact.md" >}}) to learn more.
 

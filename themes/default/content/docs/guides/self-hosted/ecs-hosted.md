@@ -70,7 +70,7 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 The installer configures the RDS backend database for replication and checkpointing. So no additional maintenance is needed by the customer.
 
-### Blob Storage Maintenance 
+### Blob Storage Maintenance
 
 The service automatically creates backups of checkpoint (i.e. state) files. However the customer may want to enable AWS Backup to periodically backup the S3 buckets created by the installer.  
 The buckets will have names of the form:

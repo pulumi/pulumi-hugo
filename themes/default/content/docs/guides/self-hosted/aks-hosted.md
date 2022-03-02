@@ -10,7 +10,7 @@ meta_desc: Installer for deploying the self-hosted Pulumi service in AKS.
 
 The "AKS-hosted" installer is used to deploy the self-hosted Pulumi service in Azure Kubernetes Service (AKS).
 
-The [AKS-Hosted Installer](https://github.com/pulumi/pulumi-self-hosted-installers/aks-hosted) installer is used to deploy the self-hosted Pulumi service in Azure Kubernetes Service (AKS) 
+The [AKS-Hosted Installer](https://github.com/pulumi/pulumi-self-hosted-installers/aks-hosted) installer is used to deploy the self-hosted Pulumi service in Azure Kubernetes Service (AKS)
 
 ## AKS-Hosted Deployment
 
