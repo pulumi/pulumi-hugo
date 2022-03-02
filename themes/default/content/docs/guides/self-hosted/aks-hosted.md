@@ -5,7 +5,7 @@ menu:
         parent: self_hosted
         identifier: self_hosted_aks_hosted_install
         weight: 40
-meta_desc: Installer for deploying the self-hosted Pulumi service in AKS.
+meta_desc: Installer for deploying the self-hosted Pulumi Service in AKS.
 ---
 
 The "AKS-hosted" installer is used to deploy the self-hosted Pulumi service in Azure Kubernetes Service (AKS).
