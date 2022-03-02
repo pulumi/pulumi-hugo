@@ -35,7 +35,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Importing resources to Pulumi is a fundamental feature which enables bringing over existing cloud infrastructure into your Pulumi programs. We introduced the [`pulumi import`]() command last year, which makes it easy to import an existing resource into your Pulumi state, as well as generating the source code that you can use to manage that resource in Pulumi going forward.  As users have applied `pulumi import` to a vast array of different cloud resources and provided feedback on the feature, we've identified a few opportunities to further streamline the experience using `pulumi import`.
+Importing resources to Pulumi is a fundamental feature which enables bringing over existing cloud infrastructure into your Pulumi programs. We introduced the [`pulumi import`]({{< relref "blog/pulumi-import-generate-iac-for-existing-cloud-resources/" >}}) command last year, which makes it easy to import an existing resource into your Pulumi state, as well as generating the source code that you can use to manage that resource in Pulumi going forward.  As users have applied `pulumi import` to a vast array of different cloud resources and provided feedback on the feature, we've identified a few opportunities to further streamline the experience using `pulumi import`.
 
 Today we're happy to announce changes to the import system to fix most of these issues. We want to give users a heads up on the improvements they should expect to see and also take a chance to explain some of the limitations that might still be encountered.
 
