@@ -40,7 +40,7 @@ Here are some examples of deployment topologies:
 
 ## Deployment Options
 
-The Pulumi service [Docker container images]({{< relref "components" >}}) can be run using any OCI-compatible container orchestrator.
+The Pulumi Service [Docker container images]({{< relref "components" >}}) can be run using any OCI-compatible container orchestrator.
 
 However, Pulumi provides [installers](https://github.com/pulumi/pulumi-self-hosted-installers) to support common deployment environments:
 
