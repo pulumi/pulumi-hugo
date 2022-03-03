@@ -112,6 +112,8 @@ In practice, it's common to have a combination of approaches. Let's build an exa
 
 We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!). This project can include resources like Azure Resource Groups or AWS VPCs.
 
+Within this project, we create stacks for each unique configuration (often times stacks are related to SDLC environments like dev, staging, and production). These stacks are often deployed independently of each other and are often deployed in different regions. To use a metaphor, our Pulumi program code defines the shape of our dial, and the configuration in the different stack configuration files (e.g., `Pulumi.dev.yaml`, `Pulumi.staging.yaml`, `Pulumi.prod.yaml`) defines the actual dial setting. These "dial settings" might include things like subscription IDs, regions, etc. that are specific to that environment.
+
 This project looks a bit like this:
 
 ```
@@ -122,7 +124,7 @@ This project looks a bit like this:
   └── Pulumi.prod.yaml
 ```
 
-Within this project, we create stacks for each unique configuration (often times stacks are related to SDLC environments like dev, staging, and production). These stacks are often deployed independently of each other and are often deployed in different regions. To use a metaphor, our Pulumi program code defines the shape of our dial, and the configuration in the different stack configuration files (e.g., `Pulumi.dev.yaml`, `Pulumi.staging.yaml`, `Pulumi.prod.yaml`) defines the actual dial setting. These "dial settings" might include things like subscription IDs, regions, etc. that are specific to that environment. 
+![A diagram showing how the different stacks in a project overlay with the program](img/infra-project.jpg)
 
 Now that we have our base infrastructure, we can create a separate Pulumi project per application or service for each one's deployment and configuration that will include all the resources that the service needs, which are not provided by the base infrastructure project.
 
@@ -149,6 +151,8 @@ It's generally a good practice to keep our projects on the smaller side as this 
 As we consider making our approach even more accesible and robust across teams, we bring in the idea of [Component Resources]({{< relref "/docs/intro/concepts/resources/components" >}}). Component Resources group affiliated resources together according the standard practices of the organization.
 
 Back to our example, our service needs a database and a subnet (or other networking). We can template these resources by creating a component resource, which abstracts these details away from the rest of the program. So now, any time someone needs to use Pulumi to add a standard application, they can call a resource called `Application` with associated parameters (e.g., the container, parcel, folder). Behind the scenes, everything is being set up according to your organization's standards.
+
+![A diagram showing how the different stacks in a project overlay with the program](img/application-project.jpg)
 
 These component resources can be packaged up and stored alongside all of your other package management, so consumers in your organization can access them like any other library or package. If we want to add component resources to our monorepo example, it will look like this:
 
