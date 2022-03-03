@@ -40,7 +40,7 @@ In the last 12 months, we have experienced 350% year-over-year growth of our ent
 
 The Pulumi Cloud Engineering Platform enables organizations to build, deploy, and manage modern cloud infrastructure and applications with infrastructure as code using popular  programming languages. With Pulumi, infrastructure and platform engineers can empower other developers in their organization to easily build modern cloud applications with self-service infrastructure or reusable infrastructure components. Full-stack developers or developers at companies without platform teams can quickly become proficient at building and deploying cloud infrastructure using Pulumi’s SDK and libraries, all backed by the ease and power of general-purpose programming languages.
 
-Pulumi adoption continues to accelerate across enterprises around the world with more than 1M downloads per month. These enterprise customers have specific requirements, like advanced security and compliance features, premium support, and self-hosting options. Today, the Pulumi Business Critical Edition joins our existing offerings, the Pulumi Team Edition and the Pulumi Enterprise Edition, to meet these customers' needs. We are thrilled to be launching a new offering that enables us to support the most sophisticated production workloads in the modern cloud.
+Pulumi adoption continues to accelerate across enterprises around the world with more than one million downloads per month. These enterprise customers have specific requirements, like advanced security and compliance features, premium support, and self-hosting options. Today, the Pulumi Business Critical Edition joins our existing offerings, the Pulumi Team Edition and the Pulumi Enterprise Edition, to meet these customers' needs. We are thrilled to be launching a new offering that enables us to support the most sophisticated production workloads in the modern cloud.
 
 Existing customers of Pulumi Team and Enterprise Editions are unaffected by these changes. Customers who are looking to expand to leverage the features of Pulumi Business Critical Edition can [contact us]({{< relref "/contact" >}}) to get started. New customers trialing Pulumi for their organization will get access to all of the features of Business Critical Edition during their 14 day trial.
 
@@ -50,10 +50,10 @@ Full details of our Pulumi Service editions can be found on [our pricing page]({
 
 The Pulumi Business Critical edition includes everything in the Pulumi Enterprise Edition, plus:
 
-- Organization policies and enforcement
-- Self-hosting available
-- Cross-domain identity (SCIM)
-- Automatic export of audit logs
+- [Organization policies and enforcement]({{< relref "/docs/guides/crossguard/" >}})
+- [Self-hosting available]({{< relref "/docs/guides/crossguard/" >}})
+- [Cross-domain identity (SCIM)]({{< relref "/docs/guides/scim/" >}})
+- [Automatic export of audit logs]({{< relref "docs/intro/pulumi-service/audit-logs/#automated-export" >}})
 - 24 x 7 support included
 - Premium training, onboarding and certain professional services
 
