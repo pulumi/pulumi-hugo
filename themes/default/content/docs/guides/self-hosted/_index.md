@@ -4,11 +4,11 @@ menu:
     userguides:
         identifier: self_hosted
         weight: 9
-meta_desc: Pulumi Enterprise gives you the option to self-host Pulumi within your organization's infrastructure.
+meta_desc: Pulumi Business Critical Edition gives you the option to self-host Pulumi within your organization's infrastructure.
 ---
 
 {{% notes type="info" %}}
-Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Enterprise.
+Self-hosting is only available with **Pulumi Business Critical**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Pulumi Service.
 
 To manage your state with a self-*managed* backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}

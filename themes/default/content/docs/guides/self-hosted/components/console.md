@@ -5,7 +5,7 @@ menu:
         parent: self_hosted_components
         identifier: self_hosted_console_service
         weight: 2
-meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
+meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Pulumi Business Critical Edition.
 ---
 
 {{% notes type="info" %}}
@@ -37,7 +37,7 @@ You can run this container on the same host that your API container is running o
 ## What's In The Container?
 
 {{% notes type="info" %}}
-The container image repository is private. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Enterprise Edition.
+The container image repository is private. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Pulumi Service.
 {{% /notes %}}
 
 The Console container runs a web server using a Node 10-based image.
