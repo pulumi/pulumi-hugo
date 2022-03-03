@@ -112,21 +112,61 @@ In practice, it's common to have a combination of approaches. This is an example
 
 We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!). This project can include resources like Azure Resource Groups or AWS VPCs.
 
-Within this project, we create stacks for each unique configuration (often times stacks are related to SDLC environments like dev, staging, and production). These stacks are often deployed independently of each other and are often deployed in different regions. To use a metaphor, our Pulumi program code defines the shape of our dial, and the configuration in the different stack configuration files (e.g., `Pulumi.dev.yaml`, `Pulumi.staging.yaml`, `Pulumi.prod.yaml`) defines the actual dial setting. These "dial settings" might include things like subscription IDs, regions, etc. that are specific to that environment.
+This project looks a bit like this:
 
-This project lays down our base infrastructure. One of the advantages to keeping this separate is there is likely a limited number of users we want to be able to deploy these things; not every indvidual team needs to be able to do this.
+```
+├─ infrastructure
+  ├── main.go
+  ├── Pulumi.dev.yaml
+  ├── Pulumi.staging.yaml
+  └── Pulumi.prod.yaml
+```
+
+Within this project, we create stacks for each unique configuration (often times stacks are related to SDLC environments like dev, staging, and production). These stacks are often deployed independently of each other and are often deployed in different regions. To use a metaphor, our Pulumi program code defines the shape of our dial, and the configuration in the different stack configuration files (e.g., `Pulumi.dev.yaml`, `Pulumi.staging.yaml`, `Pulumi.prod.yaml`) defines the actual dial setting. These "dial settings" might include things like subscription IDs, regions, etc. that are specific to that environment. 
 
 Now that we have our base infrastructure, we can create a separate Pulumi project per application or service for each one's deployment and configuration that will include all the resources that the service needs, which are not provided by the base infrastructure project.
 
-Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well.
+These projects can be part of the [same monorepo as the infrastructure project](https://www.pulumi.com/blog/organizational-patterns-infra-repo/), or they can be separate repos, depending upon your orgaizational needs. One of the advantages to keeping the infrastructure project in a separate repo/project is there is likely a limited number of users we want to be able to deploy these things; not every indvidual team needs to be able to do this. In this example, we will use a monorepo, however.
 
-It's generally a good practice to keep our projects on the smaller side as this helps reduce the effect of a deployment (i.e., the micro-stacks model described earlier).
+Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well. When we add our example service, our monorepo starts to look like this:
+
+```
+├── infrastructure
+│   ├── main.go
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+├── myApp
+│   ├── main.go
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+└── .etc
+```
+
+It's generally a good practice to keep our projects on the smaller side as this helps reduce the effect and impact of a deployment. If you have applications that require different rates of change, it may be useful to split them up into separate repos, aka micro-stacks.
 
 As we consider making our approach even more accesible and robust across teams, we bring in the idea of [Component Resources]({{< relref "/docs/intro/concepts/resources/components" >}}). Component Resources group affiliated resources together according the standard practices of the organization.
 
 Back to our example, our service needs a database and a subnet (or other networking). We can template these resources by creating a component resource, which abstracts these details away from the rest of the program. So now, any time someone needs to use Pulumi to add a standard application, they can call a resource called `Application` with associated parameters (e.g., the container, parcel, folder). Behind the scenes, everything is being set up according to your organization's standards.
 
-These component resources can be packaged up and stored alongside all of your other package management, so consumers in your organization can access them like any other library or package.
+These component resources can be packaged up and stored alongside all of your other package management, so consumers in your organization can access them like any other library or package. If we want to add component resources to our monorepo example, it will look like this:
+
+```
+├── infrastructure
+│   ├── main.go
+│   ├── Pulumi.dev.yaml
+│   └── Pulumi.prod.yaml
+├── myApp
+│   ├── main.go
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+├── pkg
+│   └──application
+│     └── app.go
+└── .etc
+```
 
 ### Other examples
 
