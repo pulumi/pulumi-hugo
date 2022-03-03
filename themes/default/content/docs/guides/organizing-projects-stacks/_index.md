@@ -108,7 +108,7 @@ Stacks have associated metadata in the form of name/value tags. You can assign c
 
 ## Example
 
-In practice, it's common to have a combination of approaches. This is an example of an orgaizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
+In practice, it's common to have a combination of approaches. Let's build an example of an organizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
 
 We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!). This project can include resources like Azure Resource Groups or AWS VPCs.
 
