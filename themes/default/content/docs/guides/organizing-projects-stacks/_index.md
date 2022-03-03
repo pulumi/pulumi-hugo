@@ -118,7 +118,7 @@ This project lays down our base infrastructure. One of the advantages to keeping
 
 Now that we have our base infrastructure, we can create a separate Pulumi project per application or service for each one's deployment and configuration that will include all the resources that the service needs, which are not provided by the base infrastructure project.
 
-Our example service is made up of an API and a database (RDS, CosmosDB, etc). Our Pulumi program for the project defines the resources for the API, and the database, and it can also deploy the actual code as well.
+Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well.
 
 It's generally a good practice to keep our projects on the smaller side, as this helps reduce the "blast radius" of a deployment (aka the Micro-Stacks model described earlier).
 
