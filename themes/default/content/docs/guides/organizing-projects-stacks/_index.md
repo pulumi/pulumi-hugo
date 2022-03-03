@@ -110,7 +110,7 @@ Stacks have associated metadata in the form of name/value tags. You can assign c
 
 In practice, it's common to have a combination of approaches. This is an example of an orgaizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
 
-We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!) This can include resources like Azure Resource Groups or AWS VPCs.
+We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!). This project can include resources like Azure Resource Groups or AWS VPCs.
 
 Within this project, we create stacks for each unique configuration (often times stacks related to SDLC environments like dev, staging, and production). These stacks are often deployed independently of each other, and are often deployed in different regions. To use a metaphor, our Pulumi program code defines the shape of our dial, and the configuration in the different stack configuration files (e.g. `Pulumi.dev.yaml`, `Pulumi.staging.yaml`, `Pulumi.prod.yaml`) defines the actual dial setting. These "dial settings" might include things like subscription IDs, regions, etc, that are specific to that environment.
 
