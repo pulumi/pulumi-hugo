@@ -120,7 +120,7 @@ Now that we have our base infrastructure, we can create a separate Pulumi projec
 
 Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well.
 
-It's generally a good practice to keep our projects on the smaller side, as this helps reduce the "blast radius" of a deployment (aka the Micro-Stacks model described earlier).
+It's generally a good practice to keep our projects on the smaller side as this helps reduce the effect of a deployment (i.e., the micro-stacks model described earlier).
 
 As we consider making our approach even more accesible and robust across teams, we bring in the idea of [Component Resources]({{< relref "/docs/intro/concepts/resources/components/" >}}). Component Resources group affiliated resources together according the standard practices of the organization.
 
