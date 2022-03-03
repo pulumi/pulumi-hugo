@@ -5,7 +5,7 @@ menu:
         parent: self_hosted
         identifier: self_hosted_sso
         weight: 3
-meta_desc: Learn how to make the self-hosted Pulumi ready for SAML SSO with any IdP. Self-hosting is available as part of the Enterprise Edition.
+meta_desc: Learn how to make the self-hosted Pulumi ready for SAML SSO with any IdP. Self-hosting is available as part of the Pulumi Business Critical Edition.
 ---
 
 The self-hosted option allows you to control various aspects of the Pulumi Service including how users will sign in to the [Pulumi Service]({{< relref "console" >}}).
