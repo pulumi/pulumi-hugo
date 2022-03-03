@@ -116,7 +116,7 @@ Within this project, we create stacks for each unique configuration (often times
 
 This project lays down our base infrastructure. One of the advantages to keeping this separate is there is likely a limited number of users we want to be able to deploy these things; not every indvidual team needs to be able to do this.
 
-Now that we have our base infrastructure, we can create a separate Pulumi project per application or service, for its deployment and configuration - which will include all the resources that the service needs (which are not provided by the base infrasturcture project).
+Now that we have our base infrastructure, we can create a separate Pulumi project per application or service for each one's deployment and configuration that will include all the resources that the service needs, which are not provided by the base infrastructure project.
 
 Our example service is made up of an API and a database (RDS, CosmosDB, etc). Our Pulumi program for the project defines the resources for the API, and the database, and it can also deploy the actual code as well.
 
