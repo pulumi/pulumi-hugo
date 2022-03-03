@@ -16,7 +16,6 @@ exec_summary: |
 
 In this whitepaper, we will look at the implications of cloud engineering and present solutions for adopting cloud engineering to fully maximize the benefits of the modern cloud and capitalize on software engineering as a lever for digital transformation.
 
-
 sections:
     - label: Executive Summary
       anchor: executive-summary
@@ -49,10 +48,11 @@ Cloud engineering teams define cloud infrastructure using standard programming l
 Cloud engineering teams deliver both infrastructure and application code through a unified process that increases efficiency and quality. Unit, property, and integration tests are run to validate infrastructure changes before deploying to production, reducing errors and increasing deployment confidence. Teams also programmatically deploy infrastructure through APIs or orchestration workflows, moving away from CLI-driven workflows. Infrastructure changes are tracked with end-to-end change histories with the ability to easily roll back changes if needed. 
 
 ### Manage
-Cloud engineering teams manage and secure their cloud infrastructure and applications through repeatable, auditable code and management processes that enable visibility. Teams use policy-as-code as programmable guardrails to enforce security, best practices, and cost across all infrastructure. Auditing controls that track all cloud resource changes across all cloud infrastructure enable faster, more reliable compliance even across the most complex of architectures and deployments. Finally,enabling deeper visibility increases collaboration between infrastructure, development, and compliance teams by reducing miscommunication and friction among teams. 
+Cloud engineering teams manage and secure their cloud infrastructure and applications through repeatable, auditable code and management processes that enable visibility. Teams use policy-as-code as programmable guardrails to enforce security, best practices, and cost across all infrastructure. Auditing controls that track all cloud resource changes across all cloud infrastructure enable faster, more reliable compliance even across the most complex of architectures and deployments. Finally,enabling deeper visibility increases collaboration between infrastructure, development, and compliance teams by reducing miscommunication and friction among teams.<br> 
 
-Cloud engineering is a practice that provides a blueprint on the processes to employ in order to use software engineering across infrastructure, development, and compliance teams to transform the way infrastructure is managed. The next section discusses the tools needed to make it easier to adopt the practices. 
+---
 
+Cloud engineering is a practice that provides a blueprint on the processes to employ in order to use software engineering across infrastructure, development, and compliance teams to transform the way infrastructure is managed. The next section discusses the tools needed to make it easier to adopt the practices.
 
 ## Accelerating Innovation through Cloud Engineering
 
@@ -126,14 +126,37 @@ Pulumi promotes creating reusable and modular components which allows standard a
 The next step after building reusable and modular components is establishing a secure software supply chain for each of the components. Enterprises broadly implement software versioning and supply chain for application development. Pulumi brings true software versioning and a secure software supply chain to the way organizations manage infrastructure. Legacy markup and DSL toolchains have limited supply chain capabilities leading to configuration drift and insecure practices. Teams often copy-and-paste configuration changes, and when critical security misconfigurations happen in an environment, they need to manually track down all places in which the same configuration mistakes were copied. With Pulumi, an infrastructure change is versioned just like software. Out-of-date versions can be audited the same way, and rollouts can be performed using standard release techniques, giving teams confidence they aren’t running out of date configurations.
 
 #### Automating and orchestrating the control plane 
-SSPs have a control and data plane. The control plane exposes the interface that users interact with and orchestrates the provisioning of infrastructure requested. The data plane is the shared platform components or application components used by developers. The Pulumi Automation API allows the embedding of Pulumi programs directly into the application code of the SSP control plane. The Automation API is a strongly typed, programmatic interface for running Pulumi programs without the Pulumi CLI. With the Automation API, enterprises can build control planes that natively execute Pulumi programs to provision data plane infrastructure components. No other infrastructure as code tool has this capability. 
+SSPs have a control and data plane. The control plane exposes the interface that users interact with and orchestrates the provisioning of infrastructure requested. The data plane is the shared platform components or application components used by developers. The Pulumi Automation API allows the embedding of Pulumi programs directly into the application code of the SSP control plane. The Automation API is a strongly typed, programmatic interface for running Pulumi programs without the Pulumi CLI. With the Automation API, enterprises can build control planes that natively execute Pulumi programs to provision data plane infrastructure components. No other infrastructure as code tool has this capability.
 
-_Pulumi provides a platform that supports all stages of the cloud engineering journey with each stage progressively unlocking greater benefits of the modern cloud. Enterprises rely on Pulumi as a trusted advisor and partner through this entire journey._
+---
+
+Pulumi provides a platform that supports all stages of the cloud engineering journey with each stage progressively unlocking greater benefits of the modern cloud. Enterprises rely on Pulumi as a trusted advisor and partner through this entire journey.
 
 
 ## Success Stories
 
 Organizations of all sizes, from startups to the Global 2000, have chosen Pulumi for their cloud engineering and modernization needs. Below is a list of customers and their transformational story. 
+
+#### Snowflake
+Snowflake’s platform team enabled its developers to deploy standardized Kubernetes environments across AWS, Azure, and Google Cloud with a self-service platform that’s powered by Pulumi and Golang.
+[Read the case study]({{< relref "/case-studies/snowflake/" >}})
+
+#### Mercedes-Benz
+Mercedes-Benz Research & Development North America and its platform team enabled developers to deploy standardized Kubernetes environments on Azure with a self-service platform.
+[Read the case study]({{< relref "/case-studies/mercedes-benz/" >}})
+
+#### Atlassian
+Atlassian Bitbucket reduced its developers’ time spent on cloud maintenance by 50% through creating a self-service platform that deploys standard development environments for Bitbucket.
+[Read the case study]({{< relref "/case-studies/atlassian/" >}})
+
+#### Skai
+Skai’s DevOps group migrated a core monolith service from its private cloud to AWS, and it refactored its infrastructure codebase to use standard programming languages like Python by using Pulumi. 
+[Read the case study]({{< relref "/blog/kenshoo-migrates-to-aws-with-pulumi/" >}})
+
+#### SANS Institute
+SANS Institute’s DevOps team reduced deployment times for a key service by up to 70% by moving from a domain-specific language to Pulumi and implementing software engineering practices like Git and CI/CD. 
+[Read the case study]({{< relref "/case-studies/sans-institute/" >}})
+
 
 ## Conclusion
 
