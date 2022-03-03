@@ -3,7 +3,7 @@ title: Accelerating Enterprise Innovation through Cloud Engineering
 description: |
     Pulumi is a cloud engineering platform that enables enterprises to use an unified software engineering process to deliver infrastructure and applications together for greater innovation velocity. 
 meta_desc: |
-    Pulumi is a cloud engineering platform that enables enterprises to use an unified software engineering process to deliver infrastructure and applications together for greater innovation velocity. 
+    Pulumi is a cloud engineering platform that enables enterprises to use a unified engineering process to deliver infrastructure and applications together.
     
 type: case-studies
 
