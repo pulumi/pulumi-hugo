@@ -106,6 +106,28 @@ its associated Pulumi stack. Read more about
 
 Stacks have associated metadata in the form of name/value tags. You can assign custom tags to stacks (when logged into the [Pulumi Service backend]({{< relref "/docs/intro/concepts/state" >}})) to customize how stacks are listed in the [Pulumi Service](https://app.pulumi.com). For example, if you have many projects with separate stacks for production, staging, and testing environments, it may be useful to group stacks by environment instead of by project. To do this, you could assign a custom `environment` tag to each stack, assigning a value of `production` to each production stack, `staging` to each staging stack, etc. Then in the Pulumi Service, you'll be able to group stacks by `Tag: environment`. For more information, see [Stack tags]({{< relref "/docs/intro/concepts/stack#stack-tags" >}}).
 
-## Examples
+## Example
+
+In practice, it's common to have a combination of approaches. This is an example of an orgaizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
+
+We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!) This can include resources like Azure Resource Groups or AWS VPCs.
+
+Within this project, we create stacks for each unique configuration (often times stacks related to SDLC environments like dev, staging, and production). These stacks are often deployed independently of each other, and are often deployed in different regions. To use a metaphor, our Pulumi program code defines the shape of our dial, and the configuration in the different stack configuration files (e.g. `Pulumi.dev.yaml`, `Pulumi.staging.yaml`, `Pulumi.prod.yaml`) defines the actual dial setting. These "dial settings" might include things like subscription IDs, regions, etc, that are specific to that environment.
+
+This project lays down our base infrastructure. One of the advantages to keeping this separate is there is likely a limited number of users we want to be able to deploy these things; not every indvidual team needs to be able to do this.
+
+Now that we have our base infrastructure, we can create a separate Pulumi project per application or service, for its deployment and configuration - which will include all the resources that the service needs (which are not provided by the base infrasturcture project).
+
+Our example service is made up of an API and a database (RDS, CosmosDB, etc). Our Pulumi program for the project defines the resources for the API, and the database, and it can also deploy the actual code as well.
+
+It's generally a good practice to keep our projects on the smaller side, as this helps reduce the "blast radius" of a deployment (aka the Micro-Stacks model described earlier).
+
+As we consider making our approach even more accesible and robust across teams, we bring in the idea of [Component Resources]({{< relref "docs/intro/concepts/resources/components/" >}}). Component Resources group affiliated resources together according the standard practices of the organization.
+
+Back to our example, our service needs a database and a subnet (or other networking). We can template these resources by creating a component resource, which abstracts these details away from the rest of the program. So now any time someone needs to use Pulumi to add a standard application, the can just call a resource called `Application` with associated parameters (i.e., the container, parcel, folder, etc). Behind the scenes, everything is being set up according to your organization's standards.
+
+These component resources can be packaged up and stored alongside all of your other package management, so consumers in your organization can access them like any other library or package.
+
+### Other examples
 
 See also the use of multiple projects and stacks in [Crosswalk for Kubernetes]({{< relref "/docs/guides/crosswalk/kubernetes" >}}), which contains a tutorial, reference architecture, and collection of prod-first code examples that demonstrate industry best-practices for **using Kubernetes** in contexts where an **organization of people** must ship **production applications.**
