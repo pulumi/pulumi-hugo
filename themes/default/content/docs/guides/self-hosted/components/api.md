@@ -5,16 +5,16 @@ menu:
         parent: self_hosted_components
         identifier: self_hosted_api_service
         weight: 1
-meta_desc: Pulumi API is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
+meta_desc: Pulumi API is one of the components required for self-hosting the Pulumi Service. Self-hosting is available as part of the Pulumi Business Critical Edition.
 ---
 
 {{% notes type="info" %}}
-Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Enterprise.
+Self-hosting is only available with **Pulumi Business Critical**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Service.
 
 To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
 
-The Pulumi API is one of the components required for self-hosting Pulumi in your organization's environment. It provides the necessary APIs for both the CLI and the [Console]({{< relref "console" >}}).
+The Pulumi API is one of the components required for self-hosting the Pulumi Service in your organization's environment. It provides the necessary APIs for both the CLI and the [Console]({{< relref "console" >}}).
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ The Pulumi API is one of the components required for self-hosting Pulumi in your
 ## What's In The Container?
 
 {{% notes type="info" %}}
-The container image repository is private. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Enterprise Edition.
+The container image repository is private. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Service.
 {{% /notes %}}
 
 The API service is a Go-based application. This is a single binary application that has all of the dependencies it needs in order to run.
