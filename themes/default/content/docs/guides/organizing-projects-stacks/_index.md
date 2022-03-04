@@ -176,4 +176,4 @@ These component resources can be packaged up and stored alongside all of your ot
 
 ### Other examples
 
-See also the use of multiple projects and stacks in [Crosswalk for Kubernetes]({{< relref "/docs/guides/crosswalk/kubernetes" >}}), which contains a tutorial, reference architecture, and collection of prod-first code examples that demonstrate industry best-practices for **using Kubernetes** in contexts where an **organization of people** must ship **production applications.**
+See also the use of multiple projects and stacks in [Crosswalk for Kubernetes]({{< relref "/docs/guides/crosswalk/kubernetes" >}}), which contains a tutorial, reference architecture, and collection of prod-first code examples that demonstrate industry best-practices for using Kubernetes in contexts where an organization of people must ship production applications.
