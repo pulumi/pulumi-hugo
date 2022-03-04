@@ -130,7 +130,7 @@ This project looks a bit like this:
 
 Now that we have our base infrastructure, we can create a separate Pulumi project per application or service for each one's deployment and configuration that will include all the resources that the service needs, which are not provided by the base infrastructure project.
 
-These projects can be part of the [same monorepo as the infrastructure project](https://www.pulumi.com/blog/organizational-patterns-infra-repo/), or they can be separate repos, depending upon your orgaizational needs. One of the advantages to keeping the infrastructure project in a separate repo/project is there is likely a limited number of users we want to be able to deploy these things; not every indvidual team needs to be able to do this. In this example, we will use a monorepo, however.
+These projects can be part of the [same monorepo as the infrastructure project](https://www.pulumi.com/blog/organizational-patterns-infra-repo/), or they can be separate repos, depending upon your organizational needs. One of the advantages to keeping the infrastructure project in a separate repo/project is that there is likely a limited number of users we want to be able to deploy these things; not every individual team needs to be able to do this. In this example, we will use a monorepo, however.
 
 Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well. When we add our example service, our monorepo starts to look like this:
 
