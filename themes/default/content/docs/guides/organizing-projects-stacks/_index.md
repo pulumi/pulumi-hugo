@@ -1,6 +1,6 @@
 ---
 title: Organizing Projects and Stacks
-meta_desc: An overview of best practices when organization and structuring cloud projects and stacks.
+meta_desc: An overview of best practices when organizing and structuring cloud projects and stacks.
 menu:
   userguides:
     name: Organizing Projects and Stacks
@@ -110,7 +110,7 @@ Stacks have associated metadata in the form of name/value tags. You can assign c
 
 ### Monorepo with base infrastructure project
 
-In practice, it's common to have a combination of approaches. Let's build an example of an organizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
+Let's build an example of an organizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
 
 We start with a central base "infrastructure" project, which contains things that are common across multiple services (or perhaps even your entire organization!). This project can include resources like Azure Resource Groups or AWS VPCs.
 
