@@ -150,7 +150,7 @@ Our example service is made up of an API and a database (RDS, CosmosDB, etc.). O
 
 It's generally a good practice to keep our projects on the smaller side as this helps reduce the effect and impact of a deployment. If you have applications that require different rates of change, it may be useful to split them up into separate repos, aka micro-stacks.
 
-As we consider making our approach even more accesible and robust across teams, we bring in the idea of [Component Resources]({{< relref "/docs/intro/concepts/resources/components" >}}), which are a way to group affiliated resources together according the standard practices of the organization.
+As we consider making our approach even more accessible and robust across teams, we bring in the idea of [Component Resources]({{< relref "/docs/intro/concepts/resources/components" >}}), which are a way to group affiliated resources together according the standard practices of the organization.
 
 Back to our example, our service needs a database and a subnet (or other networking). We can template these resources by creating a component resource, which abstracts these details away from the rest of the program. So now, any time someone needs to use Pulumi to add a standard application, they can call a resource called `Application` with its associated parameters (e.g., the container, parcel, folder). Behind the scenes, everything is being set up according to your organization's standards.
 
