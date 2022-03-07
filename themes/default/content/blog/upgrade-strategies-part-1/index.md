@@ -1,7 +1,7 @@
 ---
-title: "Upgrade Strategies: An Introduction for Infrastructure as Code"
+title: "Upgrade Strategies: An Introduction for IaC"
 date: 2022-03-07T09:59:56-06:00
-meta_desc: Explore upgrade strategies for infrastructure using IaC in part 1 of this series.
+meta_desc: Explore upgrade strategies for infrastructure using infrastructure as code in part 1 of this series.
 meta_image: meta.png
 authors:
     - laura-santamaria
