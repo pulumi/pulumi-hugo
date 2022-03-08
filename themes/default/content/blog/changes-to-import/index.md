@@ -5,6 +5,7 @@ meta_desc: Recent improvements to `pulumi import` make it an even smoother way t
 meta_image: meta.png
 authors:
     - fraser-waters
+    - david-flanagan
 tags:
     - features
     - migration
@@ -17,8 +18,7 @@ At Pulumi, we understand that many cloud engineers and platform teams around the
 
 To help you understand the changes we've made to help you on your journey, let's take a look at some side by sides examples of how import used to work vs. what we're releasing today.
 
-
-### Importing without Default Values
+### Example: AWS S3 Bucket
 
 Previously when importing an S3 bucket, we would set the default values for properties like `acl` and `forceDestroy`. The new behavior will not include properties with default values in the generated code, keeping your code more inline with how you'd write it yourself. Artisanal codegen for the artisinal cloud engineer.
 
@@ -55,22 +55,24 @@ The above accurately reflects what the providers `Read` function has told us of 
 const my_bucket = new aws.s3.Bucket("my-bucket", { }, { protect: true });
 ```
 
-### AWS EC2 Instances
+### Example: AWS EC2 Instances
 
-Previously trying to import an EC2 instance would fail with the following errors:
+Previously, when trying to import an EC2 instance with `pulumi import`, you'd be presented with a list of required properties that weren't satisfied. The challenge here is that none of these fields are required by the schema, but at least one is required for the resource to be valid. Like above, the new behavior will read from the provider and inherit the missing properties, providing everything required to codegen. This provides a much cleaner and intuitive experience for the user.
 
-```
+#### Old Behavior 
+
+```shell
 aws:ec2:Instance (test):
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "instance_type": one of `instance_type,launch_template` must be specified. Examine values at 'Instance.InstanceType'.
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "launch_template": one of `ami,instance_type,launch_template` must be specified. Examine values at 'Instance.LaunchTemplate'.
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "ami": one of `ami,launch_template` must be specified. Examine values at 'Instance.Ami'.
 ```
 
-This was because none of `instance_type`, `launch_template`, or `ami` are marked as required and so the engine didn't use them to validate the input properties we're valid, but either `ami` and `instance_type` or `launch_template` are actually required (It's just not expressed in the schema) and so the property validation would fail.
+#### New Behavior
 
-With the new changes an EC2 instance can be imported without warnings:
+The import will be successful and we'll be presented with a rich resource in your language of choice.
 
-```
+```typescript
 const test = new aws.ec2.Instance("test", {
     ami: "ami-082b5a644766e0e6f",
     associatePublicIpAddress: true,
@@ -108,7 +110,7 @@ const test = new aws.ec2.Instance("test", {
 
 Again this reflects what `Read` has told us of the inputs set for this instance, and again due to the way the AWS provider works many of these inputs could be elided and the provider would pick up the values from the saved output set. The following is again equivalent to the above given the saved state:
 
-```
+```typescript
 const test = new aws.ec2.Instance("test", {
     ami: "ami-082b5a644766e0e6f",
     instanceType: "t2.micro"
@@ -117,108 +119,17 @@ const test = new aws.ec2.Instance("test", {
 });
 ```
 
-### Kubernetes Deployment
+### Everything is Better, Yes?
 
-An example of a resource that isn't affected by the changes to the import system is a Kubernetes `apps.v1.Deployment`. Both the current and new import system result in the following:
+To quote our old friend, Harlan, "Everything is better, yes?"
 
-```
-const test = new kubernetes.apps.v1.Deployment("test", {
-    apiVersion: "apps/v1",
-    kind: "Deployment",
-    metadata: {
-        annotations: {
-            "deployment.kubernetes.io/revision": "1",
-            "pulumi.com/autonamed": "true",
-        },
-        labels: {
-            "app.kubernetes.io/managed-by": "pulumi",
-        },
-        name: "redis-leader-bl6bm6zu",
-        namespace: "default",
-    },
-    spec: {
-        progressDeadlineSeconds: 600,
-        replicas: 1,
-        revisionHistoryLimit: 10,
-        selector: {
-            matchLabels: {
-                app: "redis-leader",
-            },
-        },
-        strategy: {
-            rollingUpdate: {
-                maxSurge: `25%`,
-                maxUnavailable: `25%`,
-            },
-            type: "RollingUpdate",
-        },
-        template: {
-            metadata: {
-                labels: {
-                    app: "redis-leader",
-                },
-            },
-            spec: {
-                containers: [{
-                    image: "redis",
-                    imagePullPolicy: "Always",
-                    name: "redis-leader",
-                    ports: [{
-                        containerPort: 6379,
-                        protocol: "TCP",
-                    }],
-                    resources: {
-                        requests: {
-                            cpu: "100m",
-                            memory: "100Mi",
-                        },
-                    },
-                    terminationMessagePath: "/dev/termination-log",
-                    terminationMessagePolicy: "File",
-                }],
-                dnsPolicy: "ClusterFirst",
-                restartPolicy: "Always",
-                schedulerName: "default-scheduler",
-                securityContext: {},
-                terminationGracePeriodSeconds: 30,
-            },
-        },
-    },
-}, {
-    protect: true,
-});
-```
+![](./Comtrya.gif)
 
-### AWS Lambda
+While we've only shown you a couple of examples of this new behaviour, rest assured that the benefits of it stretch far and wide across the majority of Pulumi resources.
 
-Previously trying to import an AWS lambda function would fail with the following errors:
+If you've ever had a problem importing a resource before, we encourage you to try it again and let us know if you run into any problems.
 
-```
-error: Preview failed: diffing urn:pulumi:dev::slss-tps::aws:lambda/function:Function::my-function: handler and runtime must be set when PackageType is Zip
-```
-
-This was because `handler`, and `runtime` were not marked as required and so they were stripped out from the input set used to validate, but the default for `PackageType` is `Zip` thus triggering the error.
-
-With the new changes a lambda can be imported without warnings:
-
-```
-const my_function = new aws.lambda.Function("my-function", {
-    architectures: ["x86_64"],
-    handler: "__index.handler",
-    memorySize: 128,
-    name: "zipTpsReports-b706c31",
-    reservedConcurrentExecutions: -1,
-    role: "arn:aws:iam::616138583583:role/zipTpsReports-85098e8",
-    runtime: "nodejs12.x",
-    sourceCodeHash: "ujyqnjzeSLW/mtBT8t1HhW2CyqGH/sHbS3bhxV4a7Hs=",
-    timeout: 180,
-    tracingConfig: {
-        mode: "PassThrough",
-    },
-}, {
-    protect: true,
-});
-```
+Curious how this all works? Let's dive in.
 
 ## Technical details
 
