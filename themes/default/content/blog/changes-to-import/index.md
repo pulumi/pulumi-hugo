@@ -1,38 +1,14 @@
 ---
 title: "Improving the `pulumi import` experience"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
-date: 2022-02-18T10:00:59Z
-
-# Draft posts are visible in development, but excluded from production builds.
-# Set this property to `false` before submitting your post for review.
-draft: true
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
+date: 2022-03-10
 meta_desc: Recent improvements to `pulumi import` make it an even smoother way to import existing cloud infrastructure into Pulumi.
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - fraser-waters
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - features
-
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
+    - migration
+    - import
 ---
 
 Importing resources to Pulumi is a fundamental feature which enables bringing over existing cloud infrastructure into your Pulumi programs. We introduced the [`pulumi import`]({{< relref "blog/pulumi-import-generate-iac-for-existing-cloud-resources/" >}}) command last year, which makes it easy to import an existing resource into your Pulumi state, as well as generating the source code that you can use to manage that resource in Pulumi going forward.  As users have applied `pulumi import` to a vast array of different cloud resources and provided feedback on the feature, we've identified a few opportunities to further streamline the experience using `pulumi import`.
