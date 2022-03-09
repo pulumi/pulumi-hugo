@@ -40,8 +40,8 @@ jobs:
           role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
           role-session-name: PullRequestPreviewSession
 
-      - name: Run a full docs build
-        run: make ci-build-full-site
+      # - name: Run a full docs build
+      #   run: make ci-build-full-site
 
       - name: Build and deploy preview
         run: make ci-pull-request
