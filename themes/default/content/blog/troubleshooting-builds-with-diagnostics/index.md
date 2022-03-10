@@ -24,7 +24,11 @@ pulumi up -v=5
 
 How do you decide which level to ask for? In the classic style of professionals discussing complex data, it depends. We often encourage people to start at level 9, which gives you almost everything you need. Level 1 can be thought of as equivalent to `CRITICAL` messages only---Red Alert, panic panic panic. Level 9, on the other hand, can be thought of as equivalent to `DEBUG` messages and above---give me all the things. And then, of course, you can turn it to 11, which can be thought of as `TRACE` in many logging paradigms.
 
-Now, that flag only covers what Pulumi's engine is doing. 
+Now, that flag only covers what Pulumi's engine is doing. Most of the time, you also need data from the [providers]({{< relref "/docs/reference/glossary#resource-provider" >}}) you're calling. Each API that Pulumi works with has their own format of diagnostic data, and we need to pass in a flag to ensure those logs bubble up. Why is there a separate flag? Well,
+
+## Understanding data
+
+
 
 
 
