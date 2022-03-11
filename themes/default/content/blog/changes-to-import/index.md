@@ -57,7 +57,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", { protect: true });
 
 ### Example: AWS EC2 Instances
 
-Previously, when trying to import an EC2 instance with `pulumi import`, you'd be presented with a list of required properties that weren't satisfied. The challenge here is that none of these fields are required by the schema, but at least one is required for the resource to be valid. Like above, the new behavior will read from the provider and inherit the missing properties, providing everything required to codegen. This provides a much cleaner and intuitive experience for the user.
+Previously, when trying to import an EC2 instance with `pulumi import`, you'd be presented with a list of required properties that weren't satisfied. The challenge here is that none of these fields are marked as required, but at least one is required for the resource to be valid. Like above, the new behavior will read from the provider and inherit the missing properties, providing everything required to correctly import. This provides a much cleaner and intuitive experience for the user.
 
 #### Old Behavior
 
@@ -177,8 +177,6 @@ The engine will now issue the following steps to import resources:
 Note that we no longer end up with filled in default values in our final result, and we carry on in the face of check failures and so can still generate some code. If providers can give complete and accurate results from `Read` the above flow will result in correctly generated code. However it doesn't result in quite the correct stack state, this is due to how the data flow of our import system currently works. Currently we generate code based on the value of `inputs` in the state file, however normally the value stored at `inputs` in the state file is the result from `Check`, not what is directly in the users program. As such when you run the first `pulumi up` after an import your state file will change slightly as the engine calls `Check` and saves the inputs with defaults filled in. This should normally be transparent to the user, but there may be some cases where providers think this is a trivial diff.
 
 There are two complications with fixing the above. The first is that during import if `Read` doesn't return valid results then `Check` can fail and so we won't have a property set returned from it that we can save to the state file. This case will always have to fall back to just storing the properties returned by `Read` and triggering a check failure during `up` that will need to be manually resolved. The second complication is that the code generation for import works off the state file rather than a separate data flow specifically for imported resources. We plan on improving this but in the spirit of agility we felt that a slightly better import feature today would be more useful to our users than a perfect import feature later.
-
-We'll go through some examples comparing the old and new system in a bit.
 
 ### Terraform `Read`
 
