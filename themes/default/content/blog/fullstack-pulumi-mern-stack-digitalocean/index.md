@@ -1,6 +1,6 @@
 ---
 title: "Fullstack Pulumi: Deploying a MERN Stack App to DigitalOcean"
-date: 2022-02-28
+date: 2022-03-11
 meta_desc: Use Pulumi with DigitalOcean's App Platform to deploy and manage three-tier web application.
 meta_image: meta.png
 authors:
@@ -12,11 +12,11 @@ tags:
     - web-apps
 ---
 
-As a developer, I get lots of ideas for web apps --- little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. Most of them, however, never see the light of day, and not just because I'm lazy; I also tend to get hung up trying to decide what to use for the technology stack.
+As a developer, I get lots of ideas for web apps---little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. Most of them, however, never see the light of day, and not just because I'm lazy; I also tend to get hung up trying to decide what to use for the technology stack.
 
 <!--more-->
 
-And as a JavaScript developer, I certainly have options --- too many, in fact, and that's part of the problem. Having roughly a hundred and fifty million libraries and frameworks to choose from is definitely better than having none, but at the same time, all that choice can make the actual choosing rather difficult. Which is why, when I just want to get something done, I'll often reach for a combination of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
+And as a JavaScript developer, I certainly have options---too many, in fact, and that's part of the problem. Having roughly a hundred and fifty million libraries and frameworks to choose from is definitely better than having none, but at the same time, all that choice can make the actual choosing rather difficult. Which is why, when I just want to get something done, I'll often reach for a combination of tools known as [the MERN stack](https://www.mongodb.com/mern-stack).
 
 MERN-stack apps are three-tier web apps built with [MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/). You can read all about them [in the MongoDB docs](https://www.mongodb.com/mern-stack), but the gist is that they allow you use one language---JavaScript (or TypeScript, if you like)---to manage all three layers of the application stack: the front end as a single-page app built statically with React, the back end as a REST API managed with Express, and the database as a collection of JSON-like documents with MongoDB. MERN might not _always_ the right tool for the job, but for the kinds of apps I tend to find myself building, it generally works out pretty well.
 
@@ -24,7 +24,7 @@ MERN-stack apps are three-tier web apps built with [MongoDB](https://www.mongodb
 
 Still, once I'm _finished_ building my app, I'm often faced with a whole other problem: figuring out how to get the app off of my laptop and onto the web.
 
-The cloud hasn't made this an easy task for developers. Choosing a cloud provider, deciding which resources to use (and how to use them), setting up networking, debugging permissions, navigating billing, and all the rest, can be overwhelming --- and that's before you've given a single thought to anything having to do with automation or infrastructure as code. Most developers. What we want, I think, is to be able to focus on our apps, and we're ready to ship, push our code to a repository and wait patiently for a URL to emerge that we can paste into a browser and have everything _just work_.
+The cloud hasn't made this an easy task for developers. Choosing a cloud provider, deciding which resources to use (and how to use them), setting up networking, debugging permissions, navigating billing, and all the rest, can be overwhelming---and that's before you've given a single thought to anything having to do with automation or infrastructure as code. What we want, I think, is to be able to focus on our apps, and we're ready to ship, push our code to a repository and wait patiently for a URL to emerge that we can paste into a browser and have everything _just work_.
 
 Which is why I was so delighted when I discovered [DigitalOcean's App Platform](https://www.digitalocean.com/products/app-platform).
 
@@ -155,6 +155,10 @@ $ pulumi config set branch "your-main-branch"               # e.g., main
 
 With these values in place, you're ready to start writing the program.
 
+{{% notes %}}
+App Platform also supports GitLab and other Git-based repositories as well. See the [App Specification docs](https://docs.digitalocean.com/products/app-platform/references/app-specification-reference/) for details.
+{{% /notes %}}
+
 ## Writing the program
 
 In your IDE of choice, open {{% langfile %}} and replace the sample code with the following lines to import the Pulumi and DigitalOcean SDKs and the configuration values you just set, and add a line to specify the [DigitalOcean region](https://docs.digitalocean.com/products/platform/availability-matrix/) to deploy into:
@@ -247,7 +251,7 @@ db = digitalocean.DatabaseDb("db", digitalocean.DatabaseDbArgs(
 
 Now for the App Platform spec itself. Notice the `digitalocean.App` resource takes just one argument, `spec`, which defines all three of the components of the app: static site, service, and database. Both the static site and the service are configured to use the same GitHub repository (the `sourceDir` properties indicate their folders within the repository), and both are configured (via the `deployOnPush` flag) to be rebuilt and redeployed by DigitalOcean on every commit.
 
-The service has a few additional settings that you can use to manage its runtime behavior and deployment topology as well. As in development, we'll configure the service to listen on port 8000 and be available at `/api` --- the entire app will ultimately be proxied transparently by an [App Platform load balancer](https://docs.digitalocean.com/products/app-platform/concepts/load-balancer/) --- and it'll be powered by just one container instance, again using the least expensive [performance settings](https://docs.digitalocean.com/products/app-platform/):
+The service has a few additional settings that you can use to manage its runtime behavior and deployment topology as well. As in development, we'll configure the service to listen on port 8000 and be available at `/api`---the entire app will ultimately be proxied transparently by an [App Platform load balancer](https://docs.digitalocean.com/products/app-platform/concepts/load-balancer/)---and it'll be powered by just one container instance, again using the least expensive [performance settings](https://docs.digitalocean.com/products/app-platform/):
 
 {{% chooser language "typescript,python" /%}}
 
@@ -433,7 +437,7 @@ app = digitalocean.App("app", digitalocean.AppArgs(
 
 {{% /choosable %}}
 
-Technically that's all we need to configure the application,---but it wouldn't be a bad idea to add one last thing.
+Technically that's all we need to configure the application---but it wouldn't be a bad idea to add one last thing.
 
 By default, managed MongoDB clusters are configured to be publicly accessible---which is great if you need to be able to connect one yourself, but not so great as a strategy for preventing internet miscreants from doing the same. You can fix this easily by adding a `DatabaseFirewall` resource to declare the app as a [_trusted source_](https://docs.digitalocean.com/products/app-platform/how-to/manage-databases/), thereby rejecting all inbound traffic originating from elsewhere:
 
@@ -584,7 +588,7 @@ You should also be able to explore your shiny new grocery-list app in the Digita
 
 ![The grocery-list app and its components in the DigitalOcean console](./in-the-console.png)
 
-Now try making a commit to your repository (any commit will do), and watch as the app redeploys automatically:
+Now try making a commit to your repository (any commit will do, but ideally one to the `frontend` or `backend` folder), and watch as the app redeploys automatically:
 
 ![App Platform rebuilding the app in response to a GitHub commit](./redeploying.png)
 
