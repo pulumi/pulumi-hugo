@@ -2,14 +2,14 @@
 title: Pulumi Service
 menu:
     userguides:
-        parent: self_hosted
+        parent: self_hosted_components
         identifier: self_hosted_console_service
         weight: 2
-meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Enterprise Edition.
+meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Pulumi Business Critical Edition.
 ---
 
 {{% notes type="info" %}}
-Self-hosting is only available with **Pulumi Enterprise**. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate Self-Hosted Pulumi Enterprise.
+Self-hosting is only available with **Pulumi Business Critical**. If you would like to evaluate the Self-Hosted Pulumi Service, sign up for the [30 day trial]({{< relref "/product/self-hosted#self-hosted-trial" >}}) or [contact us]({{< relref "/contact.md" >}}).
 
 To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
@@ -37,7 +37,7 @@ You can run this container on the same host that your API container is running o
 ## What's In The Container?
 
 {{% notes type="info" %}}
-The container image repository is private. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Enterprise Edition.
+The container image repository is private. [Contact us]({{< relref "/contact.md" >}}) if you would like to evaluate the Self-Hosted Pulumi Service.
 {{% /notes %}}
 
 The Console container runs a web server using a Node 10-based image.
@@ -93,8 +93,8 @@ The following are the core environment variables that are required at a minimum.
 
 | Variable Name | Description |
 | ------------- | ----------- |
-| PULUMI_HIDE_EMAIL_LOGIN | When `true`, hides the email identity as a login option but does not disable the API handler. To disable the API handler for email logins set the API container environment variable `PULUMI_DISABLE_EMAIL_LOGIN`. Refer to the API container [environment variables]({{< relref "/docs/guides/self-hosted/api#other-env-vars" >}}) for more information. |
-| PULUMI_HIDE_EMAIL_SIGNUP | When `true` hides the email identity as a signup option but does not disable the API handler. To disable the API handler for email signups set the API container environment variable `PULUMI_DISABLE_EMAIL_SIGNUP`. Refer to the API container [environment variables]({{< relref "/docs/guides/self-hosted/api#other-env-vars" >}}) for more information. |
+| PULUMI_HIDE_EMAIL_LOGIN | When `true`, hides the email identity as a login option but does not disable the API handler. To disable the API handler for email logins set the API container environment variable `PULUMI_DISABLE_EMAIL_LOGIN`. Refer to the API container [environment variables]({{< relref "/docs/guides/self-hosted/components/api#other-env-vars" >}}) for more information. |
+| PULUMI_HIDE_EMAIL_SIGNUP | When `true` hides the email identity as a signup option but does not disable the API handler. To disable the API handler for email signups set the API container environment variable `PULUMI_DISABLE_EMAIL_SIGNUP`. Refer to the API container [environment variables]({{< relref "/docs/guides/self-hosted/components/api#other-env-vars" >}}) for more information. |
 
 ### TLS Environment Variables
 
