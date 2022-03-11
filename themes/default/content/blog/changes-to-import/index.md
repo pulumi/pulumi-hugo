@@ -1,6 +1,6 @@
 ---
 title: "Improving the `pulumi import` experience"
-date: 2022-03-10
+date: 2022-03-11
 meta_desc: Recent improvements to `pulumi import` make it an even smoother way to import existing cloud infrastructure into Pulumi.
 meta_image: meta.png
 authors:
