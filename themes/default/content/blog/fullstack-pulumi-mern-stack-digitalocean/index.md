@@ -1,7 +1,7 @@
 ---
-title: "Fullstack Pulumi: Deploying a MERN Stack App to DigitalOcean"
+title: "Fullstack Pulumi: Deploying the MERN Stack on DigitalOcean"
 date: 2022-03-11
-meta_desc: Use Pulumi with DigitalOcean's App Platform to deploy and manage three-tier web application.
+meta_desc: Use Pulumi with DigitalOcean's App Platform to deploy and manage a three-tier web application.
 meta_image: meta.png
 authors:
     - christian-nunciato
@@ -9,7 +9,6 @@ tags:
     - digitalocean
     - fullstack
     - typescript
-    - web-apps
 ---
 
 As a developer, I get lots of ideas for web apps---little things, mostly: nifty ways to keep track of my kids' allowances, habit trackers, shopping lists. Most of them, however, never see the light of day, and not just because I'm lazy; I also tend to get hung up trying to decide what to use for the technology stack.
