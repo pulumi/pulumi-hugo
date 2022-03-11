@@ -59,7 +59,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", { }, { protect: true });
 
 Previously, when trying to import an EC2 instance with `pulumi import`, you'd be presented with a list of required properties that weren't satisfied. The challenge here is that none of these fields are required by the schema, but at least one is required for the resource to be valid. Like above, the new behavior will read from the provider and inherit the missing properties, providing everything required to codegen. This provides a much cleaner and intuitive experience for the user.
 
-#### Old Behavior 
+#### Old Behavior
 
 ```shell
 aws:ec2:Instance (test):
@@ -123,7 +123,7 @@ const test = new aws.ec2.Instance("test", {
 
 To quote our old friend, Harlan, "Everything is better, yes?"
 
-![](./Comtrya.gif)
+![Comtrya](./Comtrya.gif)
 
 While we've only shown you a couple of examples of this new behaviour, rest assured that the benefits of it stretch far and wide across the majority of Pulumi resources.
 
