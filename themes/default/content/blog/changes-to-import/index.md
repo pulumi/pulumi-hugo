@@ -62,6 +62,7 @@ Previously, when trying to import an EC2 instance with `pulumi import`, you'd be
 #### Old Behavior
 
 ```shell
+$  pulumi import aws:ec2/instance:Instance test i-085d780737c600c7e
 aws:ec2:Instance (test):
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "instance_type": one of `instance_type,launch_template` must be specified. Examine values at 'Instance.InstanceType'.
   error: aws:ec2/instance:Instance resource 'test' has a problem: Missing required argument: "launch_template": one of `ami,instance_type,launch_template` must be specified. Examine values at 'Instance.LaunchTemplate'.
@@ -72,11 +73,16 @@ aws:ec2:Instance (test):
 
 The import will be successful and we'll be presented with a rich resource in your language of choice.
 
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language typescript %}}
+
 ```typescript
 const test = new aws.ec2.Instance("test", {
     ami: "ami-082b5a644766e0e6f",
     associatePublicIpAddress: true,
-    availabilityZone: "us-west-2b",
+    availabilityZone: "us-west-2c",
     capacityReservationSpecification: {
         capacityReservationPreference: "open",
     },
@@ -93,20 +99,155 @@ const test = new aws.ec2.Instance("test", {
         httpPutResponseHopLimit: 1,
         httpTokens: "optional",
     },
-    privateIp: "172.31.20.37",
+    privateIp: "172.31.0.188",
     rootBlockDevice: {
         iops: 100,
         volumeSize: 8,
         volumeType: "gp2",
     },
-    securityGroups: ["secgrp-b0c0140"],
-    subnetId: "subnet-c7d926bf",
+    securityGroups: ["default"],
+    subnetId: "subnet-43f43a1e",
     tenancy: "default",
-    vpcSecurityGroupIds: ["sg-053fffb857c2a2eec"],
+    vpcSecurityGroupIds: ["sg-4d436f12"],
 }, {
     protect: true,
 });
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+test = aws.ec2.Instance("test",
+    ami="ami-082b5a644766e0e6f",
+    associate_public_ip_address=True,
+    availability_zone="us-west-2c",
+    capacity_reservation_specification=aws.ec2.InstanceCapacityReservationSpecificationArgs(
+        capacity_reservation_preference="open",
+    ),
+    cpu_core_count=1,
+    cpu_threads_per_core=1,
+    credit_specification=aws.ec2.InstanceCreditSpecificationArgs(
+        cpu_credits="standard",
+    ),
+    iam_instance_profile="",
+    instance_initiated_shutdown_behavior="stop",
+    instance_type="t2.micro",
+    metadata_options=aws.ec2.InstanceMetadataOptionsArgs(
+        http_endpoint="enabled",
+        http_put_response_hop_limit=1,
+        http_tokens="optional",
+    ),
+    private_ip="172.31.0.188",
+    root_block_device=aws.ec2.InstanceRootBlockDeviceArgs(
+        iops=100,
+        volume_size=8,
+        volume_type="gp2",
+    ),
+    security_groups=["default"],
+    subnet_id="subnet-43f43a1e",
+    tenancy="default",
+    vpc_security_group_ids=["sg-4d436f12"],
+    opts=pulumi.ResourceOptions(protect=True))
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+ _, err := ec2.NewInstance(ctx, "test", &ec2.InstanceArgs{
+    Ami:                      pulumi.String("ami-082b5a644766e0e6f"),
+    AssociatePublicIpAddress: pulumi.Bool(true),
+    AvailabilityZone:         pulumi.String("us-west-2c"),
+    CapacityReservationSpecification: &ec2.InstanceCapacityReservationSpecificationArgs{
+            CapacityReservationPreference: pulumi.String("open"),
+    },
+    CpuCoreCount:      pulumi.Int(1),
+    CpuThreadsPerCore: pulumi.Int(1),
+    CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
+            CpuCredits: pulumi.String("standard"),
+    },
+    IamInstanceProfile:                pulumi.Any(""),
+    InstanceInitiatedShutdownBehavior: pulumi.String("stop"),
+    InstanceType:                      pulumi.String("t2.micro"),
+    MetadataOptions: &ec2.InstanceMetadataOptionsArgs{
+            HttpEndpoint:            pulumi.String("enabled"),
+            HttpPutResponseHopLimit: pulumi.Int(1),
+            HttpTokens:              pulumi.String("optional"),
+    },
+    PrivateIp: pulumi.String("172.31.0.188"),
+    RootBlockDevice: &ec2.InstanceRootBlockDeviceArgs{
+            Iops:       pulumi.Int(100),
+            VolumeSize: pulumi.Int(8),
+            VolumeType: pulumi.String("gp2"),
+    },
+    SecurityGroups: pulumi.StringArray{
+            pulumi.String("default"),
+    },
+    SubnetId: pulumi.String("subnet-43f43a1e"),
+    Tenancy: pulumi.String("default"),
+    VpcSecurityGroupIds: pulumi.StringArray{
+            pulumi.String("sg-4d436f12"),
+    },
+}, pulumi.Protect(true))
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+var test = new Aws.Ec2.Instance("test", new Aws.Ec2.InstanceArgs
+    {
+        Ami = "ami-082b5a644766e0e6f",
+        AssociatePublicIpAddress = true,
+        AvailabilityZone = "us-west-2c",
+        CapacityReservationSpecification = new Aws.Ec2.Inputs.InstanceCapacityReservationSpecificationArgs
+        {
+            CapacityReservationPreference = "open",
+        },
+        CpuCoreCount = 1,
+        CpuThreadsPerCore = 1,
+        CreditSpecification = new Aws.Ec2.Inputs.InstanceCreditSpecificationArgs
+        {
+            CpuCredits = "standard",
+        },
+        IamInstanceProfile = "",
+        InstanceInitiatedShutdownBehavior = "stop",
+        InstanceType = "t2.micro",
+        MetadataOptions = new Aws.Ec2.Inputs.InstanceMetadataOptionsArgs
+        {
+            HttpEndpoint = "enabled",
+            HttpPutResponseHopLimit = 1,
+            HttpTokens = "optional",
+        },
+        PrivateIp = "172.31.0.188",
+        RootBlockDevice = new Aws.Ec2.Inputs.InstanceRootBlockDeviceArgs
+        {
+            Iops = 100,
+            VolumeSize = 8,
+            VolumeType = "gp2",
+        },
+        SecurityGroups =
+        {
+            "default",
+        },
+        SubnetId = "subnet-43f43a1e",
+        Tenancy = "default",
+        VpcSecurityGroupIds =
+        {
+            "sg-4d436f12",
+        },
+    }, new CustomResourceOptions
+    {
+        Protect = true,
+    });
+    ```
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 Again this reflects what `Read` has told us of the inputs set for this instance, and again due to the way the AWS provider works many of these inputs could be elided and the provider would pick up the values from the saved output set. The following is again equivalent to the above given the saved state:
 
