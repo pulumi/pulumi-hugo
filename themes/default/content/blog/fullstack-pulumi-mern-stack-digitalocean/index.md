@@ -671,7 +671,7 @@ Duration: 19s
 
 ## Wrapping up, and next steps
 
-Hopefully this gives you a sense of the kinds of things you can do with Pulumi and DigitalOcean---and I definitely encourage you to spend a little time with the [App Platform docs](https://docs.digitalocean.com/products/app-platform/) to dig a bit deeper into some of these concepts and explore a few others we weren't able to cover. You'll find the [full source for this walkthrough on GitHub](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean), of course, with [`finished` branch](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean/tree/main) containing the completed Pulumi program for reference.
+Hopefully this gives you a sense of the kinds of things you can do with Pulumi and DigitalOcean---and I definitely encourage you to spend a little time with the [App Platform docs](https://docs.digitalocean.com/products/app-platform/) to dig a bit deeper into some of these concepts and explore a few others we weren't able to cover. You'll find the [full source for this walkthrough on GitHub](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean), of course, with [`finished` branch](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean/tree/finished) containing the completed Pulumi program for reference.
 
 From here, you might think about:
 
