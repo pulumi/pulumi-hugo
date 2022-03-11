@@ -73,7 +73,6 @@ aws:ec2:Instance (test):
 
 The import will be successful and we'll be presented with a rich resource in your language of choice.
 
-
 {{< chooser language "typescript,python,go,csharp" >}}
 
 {{% choosable language typescript %}}
