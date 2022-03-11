@@ -42,7 +42,7 @@ The code for this walkthrough is [available as a template repository on GitHub](
 * Grant DigitalOcean access to your GitHub repository by [visiting the Apps page](https://cloud.digitalocean.com/apps), choosing Create App, and following the steps to install DigitalOcean's GitHub app.
 * Optionally, if you'd like to develop the application locally as well, [install and configure MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/).
 
-One thing to note: since we'll be provisioning real DigitalOcean resources, there's a chance you could incur a slight cost for what you use. However, as we'll be using the least expensive plan settings available, and tearing everything down when we're through, that cost shouldn't amount to more than a few pennies or so.
+One thing to note: Since we'll be provisioning real DigitalOcean resources, there's a chance you could incur a slight cost for what you use. However, as we'll be using the least expensive plan settings available, and tearing everything down when we're through, that cost shouldn't amount to more than a few pennies or so.
 
 Let's get started.
 
@@ -671,10 +671,10 @@ Hopefully this gives you a sense of the kinds of things you can do with Pulumi a
 
 From here, you might think about:
 
-* Adding a [`digitalocean.DnsRecord`]({{< relref "/registry/packages/digitalocean/api-docs/dnsrecord" >}}) to give your app a [custom domain name](https://docs.digitalocean.com/products/networking/dns/)
+* Adding a [`digitalocean.DnsRecord`]({{< relref "/registry/packages/digitalocean/api-docs/dnsrecord" >}}) to give your app a [custom domain name](https://docs.digitalocean.com/products/networking/dns/).
 
-* Creating a second stack with [`pulumi stack init`]({{< relref "/docs/reference/cli/pulumi_stack_init" >}}) and adjusting the program to make the source `branch` configurable --- a `production` stack, say, designed to deploy in response to commits to a `release` branch
+* Creating a second stack with [`pulumi stack init`]({{< relref "/docs/reference/cli/pulumi_stack_init" >}}) and adjusting the program to make the source `branch` configurable---a `production` stack, say, designed to deploy in response to commits to a `release` branch.
 
-* Using Pulumi's [GitHub Action]({{< relref "/docs/guides/continuous-delivery/github-actions" >}}) to run previews and updates as part of a pull-request based workflow
+* Using Pulumi's [GitHub Action]({{< relref "/docs/guides/continuous-delivery/github-actions" >}}) to run previews and updates as part of a pull-request based workflow.
 
 Happy coding!
