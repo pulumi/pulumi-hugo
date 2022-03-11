@@ -139,7 +139,7 @@ This section is technically detailed and requires some understanding of the Pulu
 
 ### The importance of `Provider.Read`
 
-Our import system depends on the ability for a [resource provider]({{< relref "docs/intro/concepts/resources/providers/" >}}) to be able to read the existing state of a resource and report back to Pulumi the current value of it's inputs and outputs.
+Our import system depends on the ability for a [resource provider]({{< relref "docs/intro/concepts/resources/providers" >}}) to be able to read the existing state of a resource and report back to Pulumi the current value of it's inputs and outputs.
 
 This isn't always possible to return accurately. For example if a resource's inputs don't match up 1-to-1 with it's output state and the underlying provider can only read the current output state there's no way for it to always construct the correct input state. There could also be bugs in the provider's `Read` method that result in inaccurate reads. We've designed the import system to be tolerant to these cases, but it does mean we don't expect perfect import results for every resource.
 
