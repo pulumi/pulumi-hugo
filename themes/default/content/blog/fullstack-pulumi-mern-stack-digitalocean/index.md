@@ -140,7 +140,7 @@ At the prompts, use the following values:
 * For description, use `Deploying a MERN-stack app on DigitalOcean`
 * For stack name, use `dev`, the default
 
-When the command completes, you'll have a new [Pulumi stack]({{< relref "/intro/concepts/stack" >}}), but you'll still have a few things to configure. For one, the Pulumi DigitalOcean provider needs to be [configured]({{< relref "/registry/packages/digitalocean/installation-configuration" >}}) to communicate with DigitalOcean on your behalf (to provision your app and its various resources). For this, you can use the access token you obtained [earlier](#setting-up) from the DigitalOcean console, and you can apply it by setting a single environment variable:
+When the command completes, you'll have a new [Pulumi stack]({{< relref "/docs/intro/concepts/stack" >}}), but you'll still have a few things to configure. For one, the Pulumi DigitalOcean provider needs to be [configured]({{< relref "/registry/packages/digitalocean/installation-configuration" >}}) to communicate with DigitalOcean on your behalf (to provision your app and its various resources). For this, you can use the access token you obtained [earlier](#setting-up) from the DigitalOcean console, and you can apply it by setting a single environment variable:
 
 ```bash
 $ export DIGITALOCEAN_TOKEN="your-access-token"
