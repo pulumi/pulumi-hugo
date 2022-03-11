@@ -12,7 +12,7 @@ tags:
     - import
 ---
 
-Last year, we [introduced a new feature]({{< relref "blog/pulumi-import-generate-iac-for-existing-cloud-resources" >}}) for Pulumi that allowed you to import existing infrastructure into your Pulumi program. Not only did it bring the resource into the Pulumi state file, but it could generate the source code for your Pulumi program too. Today, we're excited to announce that we've listened to feedback and delivered a plethora of updates an fixies to streamline the import experience; to make it **more useful**, **more convenient**, and **more powerful**.
+Last year, we [introduced a new feature]({{< relref "blog/pulumi-import-generate-iac-for-existing-cloud-resources" >}}) for Pulumi that allowed you to import existing infrastructure into your Pulumi program. Not only did it bring the resource into the Pulumi state file, but it could generate the source code for your Pulumi program too. Today, we're excited to announce that we've listened to feedback and delivered a plethora of updates an fixes to streamline the import experience; to make it **more useful**, **more convenient**, and **more powerful**.
 
 At Pulumi, we understand that many cloud engineers and platform teams around the world don't have the luxury of greenfield projects, more often than not we're stuck with the impossible task of "refactoring" or "migrating" existing projects to more modern stacks to help increase team productivity, velocity, and stability. These projects aren't trivial and we want to make it easier for teams and organizations to bring their infrastructure into a cloud engineering world. Oh, and worry not you lucky greenfielders ... even if you just wanna ClickOps your way through some resources and import them into your program; that's gonna work just fine too; we won't tell if you don't 😉
 
@@ -20,7 +20,7 @@ To help you understand the changes we've made to help you on your journey, let's
 
 ### Example: AWS S3 Bucket
 
-Previously when importing an S3 bucket, we would set the default values for properties like `acl` and `forceDestroy`. The new behavior will not include properties with default values in the generated code, keeping your code more inline with how you'd write it yourself. Artisanal codegen for the artisinal cloud engineer.
+Previously when importing an S3 bucket, we would set the default values for properties like `acl` and `forceDestroy`. The new behavior will not include properties with default values in the generated code, keeping your code more inline with how you'd write it yourself. Artisanal codegen for the artisanal cloud engineer.
 
 #### Code Comparison
 
@@ -52,7 +52,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", {
 The above accurately reflects what the providers `Read` function has told us of the inputs set for this bucket, although due to the way the AWS provider happens to work we could elide all these properties. This is because the provider will use outputs saved in the state file and the new inputs to calculate the update diff, and a property that exists in the old output and is missing from the new inputs is simply left at the old output value. As none of the properties for `Bucket` are marked required the following also works and is equivalent:
 
 ```
-const my_bucket = new aws.s3.Bucket("my-bucket", { }, { protect: true });
+const my_bucket = new aws.s3.Bucket("my-bucket", { protect: true });
 ```
 
 ### Example: AWS EC2 Instances
