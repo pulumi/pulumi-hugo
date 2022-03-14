@@ -12,15 +12,15 @@ tags:
     - import
 ---
 
-Last year, we [introduced a new feature]({{< relref "blog/pulumi-import-generate-iac-for-existing-cloud-resources" >}}) for Pulumi that allowed you to import existing infrastructure into your Pulumi program. Not only did it bring the resource into the Pulumi state file, but it could generate the source code for your Pulumi program too. Today, we're excited to announce that we've listened to feedback and delivered a plethora of updates an fixes to streamline the import experience; to make it **more useful**, **more convenient**, and **more powerful**.
+Last year, we [introduced a new Pulumi feature]({{< relref "blog/pulumi-import-generate-iac-for-existing-cloud-resources" >}}) that allows you to import existing infrastructure into your Pulumi program. Not only did it bring the resource into the Pulumi state file, but it could generate the source code for your Pulumi program too. Today, we're excited to announce that we've listened to feedback and delivered a plethora of updates and fixes to streamline the import experience; to make it **more useful**, **more convenient**, and **more powerful**.
 
-At Pulumi, we understand that many cloud engineers and platform teams around the world don't have the luxury of greenfield projects, more often than not we're stuck with the impossible task of "refactoring" or "migrating" existing projects to more modern stacks to help increase team productivity, velocity, and stability. These projects aren't trivial and we want to make it easier for teams and organizations to bring their infrastructure into a cloud engineering world. Oh, and worry not you lucky greenfielders ... even if you just wanna ClickOps your way through some resources and import them into your program; that's gonna work just fine too; we won't tell if you don't 😉
+At Pulumi, we understand that many cloud engineers and platform teams around the world don't have the luxury of greenfield projects, more often than not we're stuck with the impossible task of "refactoring" or "migrating" existing projects to more modern stacks to help increase team productivity, velocity, and stability. These projects aren't trivial and we want to make it easier for teams and organizations to bring their infrastructure into a cloud engineering world. Oh, and worry not you lucky greenfielders ... even if you just wanna ClickOps your way through some resources and import them into your program; that's gonna work just fine too; we won't tell if you don't 😉.
 
-To help you understand the changes we've made to help you on your journey, let's take a look at some side by sides examples of how import used to work vs. what we're releasing today.
+To help you understand the changes we've made to help you on your journey, let's take a look at some side-by-side examples of how `pulumi import` used to work vs. what we're releasing today.
 
 ### Example: AWS S3 Bucket
 
-Previously when importing an S3 bucket, we would set the default values for properties like `acl` and `forceDestroy`. The new behavior will not include properties with default values in the generated code, keeping your code more inline with how you'd write it yourself. Artisanal codegen for the artisanal cloud engineer.
+Previously when importing an S3 bucket, we would set the default values for properties like `acl` and `forceDestroy`. The new behavior will not include properties with default values in the generated code, keeping your code inline with how you'd write it yourself. Artisanal codegen for the artisanal cloud engineer.
 
 #### Code Comparison
 
@@ -49,7 +49,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", {
 });
 ```
 
-The above accurately reflects what the providers `Read` function has told us of the inputs set for this bucket, although due to the way the AWS provider happens to work we could elide all these properties. This is because the provider will use outputs saved in the state file and the new inputs to calculate the update diff, and a property that exists in the old output and is missing from the new inputs is simply left at the old output value. As none of the properties for `Bucket` are marked required the following also works and is equivalent:
+The above accurately reflects what the providers `Read` function has told us of the inputs set for this bucket, although due to the way the AWS provider works, we could elide all these properties. This is because the provider will use outputs saved in the state file and the new inputs to calculate the update diff. A property that exists in the old output and is missing from the new inputs is simply left at the old output value. As none of the properties for `Bucket` are marked required the following works as well and is equivalent:
 
 ```
 const my_bucket = new aws.s3.Bucket("my-bucket", { protect: true });
@@ -57,7 +57,7 @@ const my_bucket = new aws.s3.Bucket("my-bucket", { protect: true });
 
 ### Example: AWS EC2 Instances
 
-Previously, when trying to import an EC2 instance with `pulumi import`, you'd be presented with a list of required properties that weren't satisfied. The challenge here is that none of these fields are marked as required, but at least one is required for the resource to be valid. Like above, the new behavior will read from the provider and inherit the missing properties, providing everything required to correctly import. This provides a much cleaner and intuitive experience for the user.
+Previously, when trying to import an EC2 instance with `pulumi import`, you'd be presented with a list of required properties that weren't satisfied. Like above, the new behavior will read from the provider and inherit the missing properties, providing everything required to correctly import. This provides a cleaner and more intuitive experience for the user.
 
 #### Old Behavior
 
@@ -275,7 +275,7 @@ Curious how this all works? Let's dive in.
 
 We've never really explained how the import system works before, which has lead to a lot of confusion from users when they encountered errors with it. Given the changes we're making here we felt it a good time to give a more detailed write up of how the engine works to try and help users understand why their import results are the way they are.
 
-This section is technically detailed and requires some understanding of the Pulumi architecture, but is not necessary to understand to be able to use the import system.
+This section requires some understanding of the Pulumi architecture, but that understanding is not necessary to be able to use `pulumi import`.
 
 ### The importance of `Provider.Read`
 
@@ -370,4 +370,4 @@ We'll continue to work on the Terraform bridge to give better results here. For 
 
 ## Feedback
 
-We're aware this could have a large impact to some of our users so we wanted to make sure we explained these changes well. If you have questions or worries about this change let us know at our community [Slack](https://slack.pulumi.com/) or [GitHub Discussions](https://github.com/pulumi/pulumi/discussions).
+We're aware this could have a large impact to some of our users so we wanted to make sure we explained these changes well. If you have questions or concerns about this change let us know in our community [Slack](https://slack.pulumi.com/) or [in GitHub Discussions](https://github.com/pulumi/pulumi/discussions).
