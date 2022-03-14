@@ -1,7 +1,7 @@
 ---
 title: Project File Reference
 linktitle: Project File
-meta_desc: A list of settings for the Pulumi project file.
+meta_desc: Documentation of the settings that are valid for the Pulumi project file.
 menu:
   reference:
     name: Project File
