@@ -5,12 +5,12 @@ draft: false
 meta_desc: In this article, we deploy k3s and use the Command package to retrieve our kubeconfig from the virtual-machine and create a Kubernetes provider
 meta_image: meta.png
 authors: ["david-flanagan"]
-tags: ["Config"]
+tags: ["config"]
 ---
 
 A really common question that we receive on the Pulumi team is, "How can we set config at a project level, that can be used across all stacks?".
 
-When I say "really common" ... I mean really really common.
+When I say "really common" ... I mean really, really common.
 
 This [issue](https://github.com/pulumi/pulumi/issues/2307) was first open in 2018 and has received 52 upvotes from the community. Not only that, we've had plenty of similiar issues created over the years too.
 
@@ -23,7 +23,7 @@ This is clearly a feature that our community has asked for and we're currently w
 
 ## Project Level Config
 
-Typically, when we need to access our stack configuration in our Pulumi program, we use the `config` package.
+Typically, when you need to access the stack configuration in a Pulumi program, you use the `config` package.
 
 {{< chooser language "typescript,go,python,csharp" >}}
 
@@ -54,6 +54,8 @@ region := conf.Require("region")
 {{% choosable language python %}}
 
 ```python
+import pulumi
+
 config = pulumi.Config();
 region = config.require('region');
 ```
@@ -63,7 +65,9 @@ region = config.require('region');
 {{% choosable language csharp %}}
 
 ```csharp
-var config = new Pulumi.Config();
+using Pulumi;
+
+var config = new Config();
 var region = config.Require("region");
 ```
 
@@ -73,7 +77,7 @@ var region = config.Require("region");
 
 This code will reach from the `Pulumi.<stack-name>.yaml` file and give you access to the configuration values for the prefix you want to load.
 
-So if we want project level config that works across all stacks, we can "hard code" the configuration. It sounds too simple, right?
+So if you want project level config that works across all stacks, you can "hard code" the configuration. It sounds too simple, right?
 
 {{< chooser language "typescript,go,python,csharp" >}}
 
@@ -84,7 +88,7 @@ const projectLevelConfig = {
   region: "us-west-2",
   encryptionKmsKey: "arn:aws:kms:us-west-2:...",
   issueEmail: "bugs@ellingsonmineral.com"
-}
+};
 ```
 
 {{% /choosable %}}
@@ -134,21 +138,21 @@ var projectLevelConfig = new Dictionary<string, string>
 
 {{% /chooser %}}
 
-These objects/structs/dictionaries can all be consumed and imported across the various components and files within your Pulumi program, but they cannot be used at an organizational level across multiple Pulumi program's ... unless you've got a mono-repo. Do you? 😅
+These objects/structs/dictionaries can all be consumed and imported across the various components and files within your Pulumi program, but they cannot be used at an organizational level across multiple Pulumi programs ... unless you've got a mono-repo. Do you? 😅
 
 ## Organization Level Config
 
-So if we want to provide organizational level config, we need to fall deeper into the programming language eco-system that we're using to build our infrastructure. Every programming language has a way to parse and consume JSON and YAML files. Better yet, every programming language has a way to fetch a remote JSON/YAML file and give you a object/struct/dictionary.
+So if you want to provide organizational level config, you need to fall deeper into the programming language ecosystem that you're using to build your infrastructure. Every programming language has a way to parse and consume JSON and YAML files. Better yet, every programming language has a way to fetch a remote JSON/YAML file and give you a object/struct/dictionary.
 
-So really, there's no reason you can't use a remote JSON file to provide a common configuration object across all your Pulumi programs. That being said, there are definitely reason's you **shouldn't** use a remote JSON file. Maintaining a remote JSON file is much more of a burden than it will initially seem. As you add more values to your JSON file and more teams/projects begin to rely on it, you'll start to feel the pain of schema management. How do I know that the JSON I'm pulling down has the values I need and that fields haven't been changed or replaced? 😬
+So really, there's no reason you can't use a remote JSON file to provide a common configuration object across all your Pulumi programs. That being said, there are definitely reasons you _shouldn't_ use a remote JSON file. Maintaining a remote JSON file is much more of a burden than it will initially seem. As you add more values to your JSON file and more teams/projects begin to rely on it, you'll start to feel the pain of schema management. How do I know that the JSON I'm pulling down has the values I need and that fields haven't been changed or replaced? 😬
 
-So while I 💯 feel like you shouldn't do this, you __can__ if you really need to. Just make sure you understand the tradeoffs and enforce a schema.
+So while I 💯 feel like you shouldn't do this, you _can_ if you really need to. Just make sure you understand the tradeoffs and enforce a schema.
 
 A common way to manage schema is to use a [JSON Schema](https://json-schema.org/) or [CUE](https://cuelang.org) to define the structure of your JSON file.
 
-By using one of these methods, you can publish a schema that is available within your organization and people can have confidence that the value they pull remotely can be deserialized to a strict type. Using CI/CD you can also ensure the value itself confirms to the schema before updating the public document.
+By using one of these methods, you can publish a schema that is available within your organization and people can have confidence that the value they pull remotely can be deserialized to a strict type. Using CI/CD you can also ensure the value itself conforms to the schema before updating the public document.
 
-With JSON Schema, we'd define something like:
+With JSON Schema, you'd define something like:
 
 ```json
 {
@@ -183,7 +187,7 @@ issueEmail: string | *"bugs@ellingsonmineral.com"
 
 Now, the project level stuff actually works pretty darn well as it is. Our project level is configuration as code and you'll be successful with that approach.
 
-However, as previously mentioned, the organization level config is prone and ripe with pain, confusion, and delusion. It requires non-trivial tooling and process to ensure that a global document is valid and consistent with downstream consumers.
+However, as previously mentioned, the organization level config is prone and rife with pain, confusion, and delusion. It requires non-trivial tooling and process to ensure that a global document is valid and consistent with downstream consumers.
 
 What I've shown you is a "if you must" approach that I would use myself. We've also not even handled the "merge" of organization level with project level overrides, and then stack level overrides. Of course, with code it's all possible, but it's more and more code that you need to write that we don't want you to need to write, right? Good.
 
@@ -191,4 +195,4 @@ Pulumi wants to make this better for you. While this feature doesn't exist yet, 
 
 If you want to share your opinions on how **YOU** would like this feature to be implemented, jump into the comments. We'd love to hear from you!
 
-Speak soon
+Speak soon.
