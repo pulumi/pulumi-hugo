@@ -97,7 +97,7 @@ It'll ask for the passphrase. This is the passphrase that Pulumi is going to use
 Looking at the project in VSCode, we can see a new file has been created.
 ![Create new file](./images/pulumi-stack-init-passphrase-2.jpg)
 
-Let's add two keys (one normal and one secret) 
+Let's add two keys (one normal and one secret):
 
 ```sh
 $ pulumi config set normalKey normalValue` `pulumi config set --secret secretKey secretValue
