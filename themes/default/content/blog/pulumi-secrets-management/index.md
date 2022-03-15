@@ -143,7 +143,7 @@ $ az keyvault key create --name pulumiencryptionkey --vault-name pulumiazvault
 
 When you create the vault and key from the CLI, a policy is created by default but it doesn't set 'encrypt' and 'decrypt' policy for us, so use this command to include that.
 
-Extract Object Id of your account (you can pull this from Azure AD or run the command below to extract it. Use your account here)\
+Extract Object Id of your account (you can pull this from Azure AD or run the command below to extract it. Use your account here.):
 
 ```sh
 $ az ad user show --id <your account name>
