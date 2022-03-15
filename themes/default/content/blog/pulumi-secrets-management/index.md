@@ -193,6 +193,7 @@ You change the secrets provider of any of your stack anytime via this command.
 ```sh
 pulumi stack change-secrets-provider "<secrets-provider>"
 ```
+
  It's pretty straightforward, once the provider is changed, Pulumi will use the new secrets provider to encrypt configuration and state files.
 
 ## Summary
