@@ -116,7 +116,7 @@ Notice, we need to enter the passphrase every time we are performing any operati
 
 This would be a similar approach for any other cloud-based provider but we are looking at Azure Key Vault here. In order to use the Azure Key Vault for managing the encryption keys, the approach is same i.e., we set `--secret-provider` to Azure Key Vault via the CLI
 
-`sh
+```sh
 $ pulumi stack init <name> --secrets-provider="<provider>://<provider-settings>"
 
 e.g.,
