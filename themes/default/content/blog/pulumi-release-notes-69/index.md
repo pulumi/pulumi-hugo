@@ -51,41 +51,36 @@ Last year, we introduced a new Pulumi import feature that allows you to import e
 
 You can now use the `pulumi import` command to import using all input fields instead of only the ones flagged as required, which will result in less check failures. If there are check failures, they are now treated as a warning not an error. In addition, we added an optional flag to `pulumi import` that allows users to skip the code generation step of import.
 
-Learn more in the [Improved Import blog post](https://www.pulumi.com/blog/changes-to-import/), [import improvements GitHub issue](https://github.com/pulumi/pulumi/issues/9134) and the [disable codegen GitHub issue](https://github.com/pulumi/pulumi/issues/9134). 
+Learn more in the [Improved Import blog post]({{< relref "/blog/changes-to-import" >}}), [import improvements GitHub issue](https://github.com/pulumi/pulumi/issues/9134) and the [disable codegen GitHub issue](https://github.com/pulumi/pulumi/issues/9134). 
 
 
 ### Add `RetainOnDelete` as a resource option
 
 Pulumi is frequently used to manage the entire lifecycle of a resource, from creation, to updates, to replacement, to deletion. However, there are some cases where it is important to ensure that a resource’s life can extend beyond the lifetime of the Pulumi program that created it. To support these use cases, Pulumi now supports a new resource option `RetainOnDelete` which allows a resource to be retained in a cloud provider even after it is deleted from the Pulumi stack it is part of.
 
-Learn more in the [RetainOnDelete blog post](https://www.pulumi.com/blog/retainondelete/) and in the [RetainOnDelete GitHub issue](https://github.com/pulumi/pulumi/issues/7747).
+Learn more in the [RetainOnDelete blog post]({{< relref "/blog/retainondelete" >}}) and in the [RetainOnDelete GitHub issue](https://github.com/pulumi/pulumi/issues/7747).
 
 
-### `pulumi up --target` wildcard URN support
+### New `pulumi state rename` command
 
-Users of the `--target` flag had requested the ability to use wildcards instead of manually specifying each targeted resource. As a result we now support wildcards for `pulumi up --target <urn>` and similar commands. Learn more in the [Wildcards support GitHub issue](https://github.com/pulumi/pulumi/issues/5870).
+In some cases users may need to rename existing resources, which historically has been done by editing the checkpoint file directly. We’ve now made this even easier by offering a CLI command to rename resources. You can now use `pulumi state rename` to rename resources in an easy and safe manner. This feature will also be useful for customers migrating to the Azure AD provider without replacing resources. 
 
-### Consider default org when running commands that accept stack names
-Now that we have added the ability to take [advantage of a default org](https://github.com/pulumi/pulumi/pull/8352), we have added functionality to take into account where there are abilities to pass a stack name as part of a command, such as `pulumi up -s <stackname>` or as part of a `stack select` command. [Learn more in the GitHub issue](https://github.com/pulumi/pulumi/issues/8409).
+Learn more in the [add `pulumi state` GitHub issue](https://github.com/pulumi/pulumi/issues/2060).
 
-## Pulumi Service & Pulumi.com
+### Default `pulumi plugin install` to the latest version
 
-### Sign-up and sign-in experience revamp
+When using `pulumi plugin install`, the version argument is now optional and will default to the latest version when a version argument is not provided. This will save users time when they want to use the latest plugin version as they no longer need to look it up. 
 
-We revamped our sign-in and sign-up process in the Pulumi Service. Our intentions were to make it easier to differentiate and toggle between the sign-in and sign-up experiences. As part of this work we also refreshed the design to align with our public website. Take a look! 
+Learn more in the [latest plugin version GitHub issue](https://github.com/pulumi/pulumi/issues/9001).
 
-The new Pulumi Service sign-in page:
+### Add console output in non-interactive mode
 
-![A screenshot of the Pulumi Service sign-in page"](sign-in.png)
+When resources are slow to create, Pulumi will now have a dot spinner in non-interactive mode. When running Pulumi in a hosted CI environment (such as CircleCI) if there is no console output while waiting for resources to create the CI tool may forcibly terminate the job. We have added a parameter to set a delay for a heartbeat message in non-interactive mode to keep the CI tool from killing jobs. 
 
-The new Pulumi Service create an account page:
+Learn more in the [console output non-interactive mode GitHub issue](https://github.com/pulumi/pulumi/issues/6574).
 
-![A screenshot of the Pulumi Service create an account page"](sign-up.png)
+### Support `pulumi cancel` for filestate backends
 
-### Show resource URN on resource detail page
+We now support `pulumi cancel` for self-managed state backends, such as S3. 
 
-We added the resource URN on the resource details page within the Pulumi Service. This enables users to easily find the URN for commands like `pulumi up --replace` or `--target`. Users can easily copy the resource URN to their clipboard by clicking on the copy icon.
-
-The new resource details page that includes resource URN:
-
-![A screenshot of the Pulumi Service UI Resource page with resource URN](urn.png)
+Learn more in the [support `pulumi cancel` GitHub issue](https://github.com/pulumi/pulumi/issues/4605).
