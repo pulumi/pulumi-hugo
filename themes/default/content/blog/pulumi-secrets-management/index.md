@@ -155,7 +155,7 @@ Look up for ObjectId of your account:
 $ az keyvault set-policy --name pulumiazvault --object-id <Object Id from above> --key-permissions encrypt decrypt get create delete list update import backup restore recover
 ```
 
-*I prefer using Azure AD Application instead of any individual user account for such scenarios. In that case you will need the ObjectId of the application instead.*
+_I prefer using Azure AD Application instead of any individual user account for such scenarios. In that case you will need the ObjectId of the application instead._
 
 Now we have the key vault with a key that we will use for encryption along with the right access policy set. ![Screensho of the azure keyvault](./images/az-keyvault-with-key.jpg)
 
