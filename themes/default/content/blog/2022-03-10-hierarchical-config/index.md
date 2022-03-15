@@ -1,8 +1,8 @@
 ---
 title: "Hierarchical Config: The Interim Solution"
-date: 2022-03-10T10:00:00Z
+date: 2022-03-15T10:00:00Z
 draft: false
-meta_desc: In this article, we deploy k3s and use the Command package to retrieve our kubeconfig from the virtual-machine and create a Kubernetes provider
+meta_desc: In this aritcle, Rawkode takes a look at how he'd manage project and organizational configuration for Pulumi programs.
 meta_image: meta.png
 authors: ["david-flanagan"]
 tags: ["config"]
@@ -12,7 +12,7 @@ A really common question that we receive on the Pulumi team is, "How can we set 
 
 When I say "really common" ... I mean really, really common.
 
-This [issue](https://github.com/pulumi/pulumi/issues/2307) was first open in 2018 and has received 52 upvotes from the community. Not only that, we've had plenty of similiar issues created over the years too.
+This [issue](https://github.com/pulumi/pulumi/issues/2307) was first open in 2018 and has received 52 votes from the community. Not only that, we've had plenty of similar issues created over the years too.
 
 - [Feature-Request: project-wide secrets #2445](https://github.com/pulumi/pulumi/issues/2445)
 - [Feature Request: Global Config Values](https://github.com/pulumi/pulumi-aws/issues/1052)
@@ -84,7 +84,7 @@ So if you want project level config that works across all stacks, you can "hard 
 {{% choosable language typescript %}}
 
 ```typescript
-const projectLevelConfig = {
+export const projectLevelConfig = {
   region: "us-west-2",
   encryptionKmsKey: "arn:aws:kms:us-west-2:...",
   issueEmail: "bugs@ellingsonmineral.com"
@@ -174,7 +174,7 @@ With JSON Schema, you'd define something like:
 }
 ```
 
-With CUE, this is much more concise. CUE is really awesome and I encourage you to check it out.
+With CUE, this is much more concise. [CUE is really awesome and I encourage you to check it out](https://cuelang.org).
 
 ```yaml
 region: string | *"eu-west-2"
@@ -189,7 +189,7 @@ Now, the project level stuff actually works pretty darn well as it is. Our proje
 
 However, as previously mentioned, the organization level config is prone and rife with pain, confusion, and delusion. It requires non-trivial tooling and process to ensure that a global document is valid and consistent with downstream consumers.
 
-What I've shown you is a "if you must" approach that I would use myself. We've also not even handled the "merge" of organization level with project level overrides, and then stack level overrides. Of course, with code it's all possible, but it's more and more code that you need to write that we don't want you to need to write, right? Good.
+What I've shown you is a "if you must" approach that I would use myself. We've also not even handled the "merge" of organization level with project level overrides, and then stack level overrides. Of course, with code it's all possible, but it's more and more code that you need to write that we don't want you to need to write, right? Right!
 
 Pulumi wants to make this better for you. While this feature doesn't exist yet, we are actively working on it. If you want to follow along with the progress, I suggest you watch/subscribe to [this issue](https://github.com/pulumi/pulumi/issues/2307).
 
