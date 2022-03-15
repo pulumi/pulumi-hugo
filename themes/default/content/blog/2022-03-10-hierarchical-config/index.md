@@ -19,7 +19,7 @@ This [issue](https://github.com/pulumi/pulumi/issues/2307) was first open in 201
 - [How to share a config between projects](https://github.com/pulumi/pulumi/issues/5473)
 - [Project-wide variables (not stack specific) #6719](https://github.com/pulumi/pulumi/issues/6719)
 
-This is clearly a feature that our community is asked for and we're currently working on delivering it as soon as we can. However, in the interim, I'm going to show you a few ways that you can get around this now.
+This is clearly a feature that our community has asked for and we're currently working on delivering it as soon as we can. However, in the interim, I'm going to show you a few ways that you can get around this now.
 
 ## Project Level Config
 
