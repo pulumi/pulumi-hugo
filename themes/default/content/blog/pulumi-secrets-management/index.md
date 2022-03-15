@@ -203,4 +203,4 @@ Pulumi provides a robust mechanism for configuration management of your infrastr
 You can find the source code for this blog post [here](https://github.com/sanjaybhagia/pulumi-examples/tree/950d6b4889999be548a21cccb9945ad5f9cd20a0/pulumi-azvault).
 
 ***
-*This article was originally posted at [https://www.sanjaybhagia.com/2021/01/26/pulumi-secrets-management](https://www.sanjaybhagia.com/2021/01/26/pulumi-secrets-management). Reposted here with permission.*
+_This article was originally posted at [https://www.sanjaybhagia.com/2021/01/26/pulumi-secrets-management](https://www.sanjaybhagia.com/2021/01/26/pulumi-secrets-management). Reposted here with permission._
