@@ -30,7 +30,7 @@ Typically, when we need to access our stack configuration in our Pulumi program,
 {{% choosable language typescript %}}
 
 ```typescript
-import { Config } from "@pulumi/pulumi"
+import { Config } from "@pulumi/pulumi";
 
 const config = new Config();
 const region = config.require("region");
