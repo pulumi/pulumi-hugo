@@ -104,7 +104,8 @@ $ pulumi config set normalKey normalValue` `pulumi config set --secret secretKe
 
 ![Add two keys](./images/pulumi-stack-init-passphrase-3.jpg)
 
-This is how our stack file looks like ![Stack output](./images/pulumi-stack-init-passphrase-4.jpg)
+This is how our stack file looks like:
+![Stack output](./images/pulumi-stack-init-passphrase-4.jpg)
 
 If you pay attention, the secure value in `Pulumi.passphrasestack.yaml` is different to what we had in `Pulumi.dev.yaml`
 
