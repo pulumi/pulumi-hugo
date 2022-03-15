@@ -149,7 +149,7 @@ Extract Object Id of your account (you can pull this from Azure AD or run the co
 $ az ad user show --id <your account name>
 ```
 
-Look up for ObjectId of your account
+Look up for ObjectId of your account:
 
 ```sh
 $ az keyvault set-policy --name pulumiazvault --object-id <Object Id from above> --key-permissions encrypt decrypt get create delete list update import backup restore recover
