@@ -185,11 +185,9 @@ issueEmail: string | *"bugs@ellingsonmineral.com"
 
 ## Pulumi Native Hierarchical Configuration
 
-Now, the project level stuff actually works pretty darn well as it is. Our project level is configuration as code and you'll be successful with that approach.
+So we've worked out that project level configuration is a data structure within our Pulumi programs and it works pretty darn well.
 
-However, as previously mentioned, the organization level config is prone and rife with pain, confusion, and delusion. It requires non-trivial tooling and process to ensure that a global document is valid and consistent with downstream consumers.
-
-What I've shown you is a "if you must" approach that I would use myself. We've also not even handled the "merge" of organization level with project level overrides, and then stack level overrides. Of course, with code it's all possible, but it's more and more code that you need to write that we don't want you to need to write, right? Right!
+However, the organization level config is prone and rife with pain, confusion, and delusion. It requires non-trivial tooling and process to ensure that a global document is valid and consistent with downstream consumers. What I've shown you is a "if you must" approach that I would use myself. We've also not even handled the "merge" of organization level with project level overrides, and then stack level overrides. Of course, with code it's all possible, but it's more and more code that you need to write that we don't want you to need to write, right? Right!
 
 Pulumi wants to make this better for you. While this feature doesn't exist yet, we are actively working on it. If you want to follow along with the progress, I suggest you watch/subscribe to [this issue](https://github.com/pulumi/pulumi/issues/2307).
 
