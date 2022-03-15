@@ -166,7 +166,7 @@ You can set this if you want to use the credentials from the CLI (that you alrea
 
 Checkout [Azure Environment Authentication](https://docs.microsoft.com/en-us/azure/developer/go/azure-sdk-authorization#use-environment-based-authentication) if you wish to use other authentication mechanism such as Client Credentials, Username/Password etc.
 
-*I prefer using Client Credentials since I'm using Azure AD Application approach.*
+_I prefer using Client Credentials since I'm using Azure AD Application approach._
 
 ### Create a new stack
 
