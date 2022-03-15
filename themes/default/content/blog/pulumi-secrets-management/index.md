@@ -85,7 +85,8 @@ Let's create a new stack in our codebase that we used in the previous blogpost (
 $ pulumi stack init passphrasestack --secrets-provider passphrase
 ```
 
-or create a new project 
+or create a new project:
+
 ```shell
 $ pulumi new azure-csharp --secrets-provider passphrase
 ```
