@@ -101,6 +101,7 @@ Let's add two keys (one normal and one secret) 
 ```sh
 $ pulumi config set normalKey normalValue` `pulumi config set --secret secretKey secretValue
 ```
+
 ![Add two keys](./images/pulumi-stack-init-passphrase-3.jpg)
 
 This is how our stack file looks like ![Stack output](./images/pulumi-stack-init-passphrase-4.jpg)
