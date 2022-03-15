@@ -93,7 +93,8 @@ $ pulumi new azure-csharp --secrets-provider passphrase
 It'll ask for the passphrase. This is the passphrase that Pulumi is going to use to encrypt the configuration system.
 ![Initialize the stack](./images/pulumi-stack-init-passphrase-1.jpg)
 
-Looking at the project in VSCode, we can see a new file has been created ![Create new file](./images/pulumi-stack-init-passphrase-2.jpg)
+Looking at the project in VSCode, we can see a new file has been created.
+![Create new file](./images/pulumi-stack-init-passphrase-2.jpg)
 
 Let's add two keys (one normal and one secret) 
 ```sh
