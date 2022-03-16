@@ -47,7 +47,7 @@ The team has been busy releasing new features and improvements in the last 3 wee
 
 ### `pulumi import` Improvements
 
-Last year, we introduced a new Pulumi import feature that allows you to import existing infrastructure into your Pulumi program. We’ve listened to feedback and delivered a plethora of updates and fixes to streamline the import experience; to make it more useful, more convenient, and more powerful. Not only can this feature bring a resource into your Pulumi state file, but it can also generate the source code for your Pulumi program too. 
+Last year, we introduced a new Pulumi import feature that allows you to import existing infrastructure into your Pulumi program. We’ve listened to feedback and delivered a plethora of updates and fixes to streamline the import experience to make it more useful, more convenient, and more powerful. Not only can this feature bring a resource into your Pulumi state file, but it can also generate the source code for your Pulumi program too. 
 
 You can now use the `pulumi import` command to import using all input fields instead of only the ones flagged as required, which will result in less check failures. If there are check failures, they are now treated as a warning not an error. In addition, we added an optional flag to `pulumi import` that allows users to skip the code generation step of import.
 
