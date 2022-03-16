@@ -63,7 +63,7 @@ Learn more in the [RetainOnDelete blog post]({{< relref "/blog/retainondelete" >
 
 ### New `pulumi state rename` command
 
-In some cases users may need to rename existing resources, which historically has been done by editing the checkpoint file directly. We’ve now made this even easier by offering a CLI command to rename resources. You can now use `pulumi state rename` to rename resources in an easy and safe manner. This feature will also be useful for customers migrating to the Azure AD provider without replacing resources. 
+In some cases users may need to rename existing resources, which historically has been done by editing the checkpoint file directly. We’ve now made this even easier by offering a CLI command to rename resources. You can now use [`pulumi state rename`]({{< relref "docs/reference/cli/pulumi_state_rename" >}}) to rename resources in an easy and safe manner. This feature will also be useful for customers migrating to the Azure AD provider without replacing resources. 
 
 Learn more in the [add `pulumi state` GitHub issue](https://github.com/pulumi/pulumi/issues/2060).
 
