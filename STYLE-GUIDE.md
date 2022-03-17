@@ -40,7 +40,7 @@ Associated `h1` - Fullstack Pulumi: Deploying the MERN Stack on DigitalOcean
 
 ## Links
 
-* Link text should be descriptive and have meaning outside of the surrounding context: Avoid link text like _here_, _click here_, _see here_ and instead link to the title of the linked page, e.g. "see [Pulumi Pricing](https://www.pulumi.com/pricing/)".  (While this practice beneftis all readers, and search engines, it is of particular important for visually impared users who use screen readers and often jump through the links of a document.)
+* Link text should be descriptive and have meaning outside of the surrounding context: Avoid link text like _here_, _click here_, _see here_ and instead link to the title of the linked page (e.g, `see [Pulumi Pricing](https://www.pulumi.com/pricing/)`).  (While this practice benefits all readers and search engines, it is of particular importance for visually impaired users who use screen readers and often jump through the links of a document.)
 
 ## Notes and Warnings
 
