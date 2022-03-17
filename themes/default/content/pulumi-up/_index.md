@@ -1,5 +1,5 @@
 ---
-title: PulumiUP: Virtual Cloud Engineering Event | May 4-5 2022
+title: "PulumiUP: Virtual Cloud Engineering Event | May 4–5 2022"
 type: page
 layout: pulumi-up-2022
 meta_image: /images/pulumiup/2022-save-the-date.png
