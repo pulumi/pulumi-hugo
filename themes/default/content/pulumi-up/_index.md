@@ -4,8 +4,7 @@ type: page
 layout: pulumi-up-2022
 meta_image: /images/pulumiup/2022-save-the-date.png
 meta_desc: |
-    PulumiUP introduces you to the emerging practice of Cloud Engineering. Hear from the Pulumi team
-    and assorted industry experts.
+    PulumiUP is a virtual conference with industry-recognized leaders, demos, and panel discussions about the future of IaC, Cloud Engineering & DevOps and Cloud.
 
 event_date: 2022-05-04T09:00:00-07:00
 
