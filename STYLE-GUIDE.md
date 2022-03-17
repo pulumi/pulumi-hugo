@@ -26,7 +26,7 @@ Words are important.  Pulumi strives to use language that is clear, harmonious, 
 
 ## Images
 
-* Include a minimum of one image that supports your topic beneath the first `h2`. 
+* If it makes sense, include an image that supports your topic beneath the first `h2`. 
   - Use a file name that matches the keywords in the `h1` or `h2`.
   - Create an ALT tag that directly matches the file name for accessibility.
 
