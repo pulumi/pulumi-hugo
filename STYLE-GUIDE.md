@@ -22,7 +22,7 @@ Words are important.  Pulumi strives to use language that is clear, harmonious, 
 *  Include keywords relating to the content immediately following the heading in `h2` and deeper.
 *  Try to front-load your keywords into the sentence to indicate more immediately to the reader the subject matter of the following content.
 *  - Alternate your topical keywords, visit the [online Thesarus](https://www.thesaurus.com/) if you are stuck.
-*  Try not to use repetitive headings (e.g., starting with the same word, using the same keyword)
+*  Try not to use repetitive headings (e.g., starting with the same word, using the same keyword).
 
 ## Images
 
