@@ -1,0 +1,236 @@
+---
+title: "Unlock Programmatic Control by Disabling Default Providers"
+date: 2022-03-18
+meta_desc: Introducing the new config parameter disable-default-providers.
+authors: [ ian-wahbe ]
+tags: [ features ]
+---
+
+As of 3.23.0, users can disable the default provider with Pulumi. So what does this mean for you? If you’ve been using Pulumi for a bit, you’ll have encountered provider resources, which are how we abstract the global state of a cloud provider. All resources have an associated provider. If no provider is supplied in the user’s code, a default provider is created to serve the resource. On the other hand, explicit providers defined by the user allow programmatic and dynamic control of how a resource deploys into a cloud. A Pulumi resource can be instructed to use an explicit provider by setting the provider resource option or by inheriting the provider from the resource's parent resource.
+
+<!-- more -->
+
+As an example, consider this basic s3 bucket and object for AWS, with an explicit provider that defines an AWS region:
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+const west = new aws.Provider("provider", {
+  region: aws.Region.USWest2,
+});
+
+// Create `bucket` with explicitly set provider `west`
+const bucket = new aws.s3.Bucket("my-bucket", {
+  website: {
+    indexDocument: "index.html",
+  },
+}, { provider: west });
+
+// Inherit provider `west` from parent `bucket`
+const bucketObject = new aws.s3.BucketObject("index.html", {
+  acl: "public-read",
+  contentType: "text/html",
+  bucket: bucket,
+  source: new pulumi.asset.FileAsset("index.html"),
+}, { parent: bucket });
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+west = aws.Provider("provider", region="us-east-1")
+
+bucket = aws.s3.Bucket(
+    "my-bucket",
+    website=aws.s3.BucketWebsiteArgs(index_document="index.html"),
+    opts=ResourceOptions(provider=west),
+)
+
+bucketObject = aws.s3.BucketObject(
+    "index.html",
+    acl="public-read",
+    content_type="text/html",
+    bucket=bucket,
+    source=asset.FileAsset("index.html"),
+    opts=ResourceOptions(parent=bucket),
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+west, err := aws.NewProvider(ctx, "provider", &aws.ProviderArgs{
+	Region: aws.RegionUSEast1,
+})
+if err != nil {
+	return err
+}
+
+bucket, err := s3.NewBucket(ctx, "my-bucket", &s3.BucketArgs{
+	Website: s3.BucketWebsiteArgs{
+	IndexDocument: pulumi.StringPtr("index.html"),
+	},
+}, pulumi.Provider(west))
+if err != nil {
+	return err
+}
+
+_, err = s3.NewBucketObject(ctx, "index.html", &s3.BucketObjectArgs{
+	Acl:         s3.CannedAclPublicRead,
+	ContentType: pulumi.StringPtr("text/html"),
+	Bucket:      bucket,
+	Source:      pulumi.NewFileAsset("index.html"),
+}, pulumi.Parent(bucket))
+if err != nil {
+	return err
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+var west = new Aws.Provider("provider", new Aws.ProviderArgs {
+        Region = "us-east-1",
+});
+
+var bucket = new S3.Bucket("my-bucket", new S3.BucketArgs {
+        Website = new Aws.S3.Inputs.BucketWebsiteArgs {
+            IndexDocument = "index.html"
+        },
+    },
+    new CustomResourceOptions { Provider = west },
+);
+
+new S3.BucketObject("index.html", new S3.BucketObjectArgs {
+        Acl = "public-read",
+        ContentType = "text/html",
+        Bucket = bucket,
+        Source = FileAsset("index.html"),
+     },
+    new CustomResourceOptions { Parent = bucket },
+);
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+Default providers help keep simple things simple but make other actions impossible. As demonstrated in the above example, AWS providers, whether they are explicit or default, control the deployment region. That means multi-region deployments necessitate explicit providers. Likewise, deploying to a newly created Kubernetes cluster requires explicit providers since Kubernetes providers describe their cluster. There are many scenarios when explicit providers are mandatory for a correct deployment. When it is important that only explicitly configured providers are used, default providers lead to unpredictable deployments.
+
+Imagine you are trying to create a bucket in each AWS region you have access to. I might write the following code:
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+const filter = {
+  allRegions: false,
+  filters: [{
+    name: "opt-in-status",
+    values: ["opted-in", "opt-in-not-required"],
+  }],
+};
+
+async function regionalBuckets(
+  config: pulumi.Config,
+): Promise<Array<aws.s3.Bucket>> {
+  const bucketList = new Array<aws.s3.Bucket>();
+  for (
+    const region in (await aws.getRegions(filter)).names
+  ) {
+    const provider = new aws.Provider(`${region}-provider`, {
+      region: region as aws.Region,
+      accessKey: config.requireSecret("key"),
+      secretKey: config.requireSecret("secret"),
+    });
+    const bucket = new aws.s3.Bucket(`${region}-bucket`, {}, { provider });
+    bucketList.push(bucket);
+  }
+  return bucketList;
+}
+
+const config = new pulumi.Config();
+export const buckets = regionalBuckets(config);
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+filters = [
+    aws.GetRegionsFilterArgs(
+        name="opt-in-status", values=["opted-in", "opt-in-not-required"]
+    )
+]
+
+
+async def regional_buckets(config: pulumi.Config) -> Output[List[s3.Bucket]]:
+    bucket_list = []
+    for region in (await aws.get_regions(filters=filters)).names:
+        provider = aws.Provider(
+            f"{region}-provider",
+            region=region,
+            # access_key=config.require_secret("key"),
+            # secret_key=config.require_secret("secret"),
+        )
+        bucket = s3.Bucket(f"{region}-bucket", opts=ResourceOptions(provider=provider))
+        bucket_list.append(bucket)
+    return bucket_list
+
+
+config = pulumi.Config()
+pulumi.export("buckets", regional_buckets(config))
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+This code will create a bucket in each region that the currently logged-in AWS account has access to. If someone else ran the same code on a computer logged in to another account, Pulumi could create different buckets, even though all buckets were provisioned by an explicit provider. This behavior is because we forgot to specify the provider for the call to `aws.getRegions`. As a result, you might not notice that something unexpected happened because there would be no error. By disabling the default `aws` provider, we would get the following error instead:
+
+```
+Error: Invoke: Default provider for 'aws' disabled. 'aws:index/getRegions:getRegions' must use an explicit provider.
+```
+
+To prevent this category of problem, Pulumi now offers the ability to disable default providers on a per-stack basis.  
+
+Disabling default providers has been a popular community request. To meet that request, we’ve added the ability to disable default providers in the 3.23.0 release. The Pulumi config variable `pulumi:disable-default-providers` represents the list of packages whose default providers are disabled. Attempting to invoke a disabled default provider will fail, raising an error as in the previous example.
+
+## How to disable default providers
+
+Disabling a default provider involves adding the relevant package name to the config list `pulumi:disable-default-providers`. For example, disabling the default provider for Kubernetes and AWS would look like this snippet in the configuration file:
+
+```yaml
+pulumi:disable-default-providers:
+- aws
+- kubernetes
+```
+
+If you want to enforce that no resource should use a default provider, you would add the following snippet to the configuration file:
+
+```yaml
+pulumi:disable-default-providers: [“*”]
+```
+
+Now that you can disable the default provider, you don’t have to worry about all of the possible unexpected consequences accidentally relying on your system configuration. We can’t wait to find out what you’ll build next! If you want to have an impact on our roadmap, you can go to our public roadmap and vote on issues with the rest of the community. Let us know what you think!
