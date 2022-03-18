@@ -31,6 +31,8 @@ tags: ["go", "migration", "packages", "github-provider"]
 What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional). To do that, just add an HTML comment like the one below.
 
 TODO: summary for index page
+TODO: make sure style is good
+TODO: make all the inline links come back 
 
 <!--more-->
 
@@ -94,9 +96,9 @@ $ ls
 Pulumi.yaml	go.mod		go.sum		main.go
 ```
 
-We now have a pulumi project yaml, and the beginnings of a small Go program all set up. 
+We now have a pulumi project yaml, and the beginnings of a small Go program all set up.
 
-According to the provider docs, we needed to add some configuration: a properly scoped token, as well as set Pulumi as the GitHub org.
+According to the provider docs, we need to add some configuration: a properly scoped token, as well as set Pulumi as the GitHub org.
 
 ```bash
 $ export GITHUB_TOKEN=YYYYYYYYYYYYYY
@@ -105,8 +107,7 @@ $ export GITHUB_OWNER=pulumi
 
 ## Capturing Current State of Resources
 
-Now, Pulumi is great at creating new infrastructure from scratch via code. 
-But this wasn’t a from-scratch situation - we had to migrate existing resources - GitHub teams - to be under Pulumi management, without disrupting anyone’s access to our GitHub organization.
+Now, Pulumi is _great_ at creating new infrastructure from scratch via code. But this wasn’t a from-scratch situation. We had to migrate existing resources - GitHub teams - to Pulumi, without disrupting anyone’s access.
 
 Enter Pulumi Import.
 
@@ -118,7 +119,7 @@ Previewing import (pulumi/prod)
 
      Type                  Name                Plan       
      pulumi:pulumi:Stack   team-mgmt-prod             
- =   └─ github:index:Team  animals      	   import     
+ =   └─ github:index:Team  animals             import     
  
 Resources:
     = 1 to import
@@ -129,27 +130,26 @@ Importing (pulumi/prod)
 
      Type                  Name                Status       
      pulumi:pulumi:Stack   team-mgmt-prod               
- =   └─ github:index:Team  animals	        imported     
+ =   └─ github:index:Team  animals             imported     
  
 Resources:
     = 1 imported
     1 unchanged
 ```
 
-Now that we have imported the Team resource, it is part of our Pulumi Stack. But it is not part of our main.go program yet.
-Helpfully, Pulumi Import replies with sample code on how to add the imported resource to your Pulumi program, in the language you selected for your project:
+Now that we have imported the Team resource, it is part of our Pulumi Stack. But it is not part of our main.go program yet. Helpfully, Pulumi Import replies with sample code on how to add the imported resource to your Pulumi program, in the language you selected for your project:
 
-
+```bash
 Please copy the following code into your Pulumi application. Not doing so will cause Pulumi to report that an update will happen on the next update command.
 
 Please note that the imported resources are marked as protected. To destroy them you will need to remove the `protect` option and run `pulumi update` *before* the destroy will take effect.
 
-```go
+
 package main
 
 import (
-	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+    "github.com/pulumi/pulumi-github/sdk/v4/go/github"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
@@ -180,8 +180,7 @@ Resources:
     2 unchanged
 ```
 
-Since pulumi preview shows no changes, we now know that our code reflects the existing infrastructure.
-It’s a bit funny to think about your program working well when it does nothing, but this was a huge first step in preserving existing infrastructure and ensuring all of our coworkers could continue their daily work uninterrupted!
+Since pulumi preview shows no changes, we now know that our code reflects the existing infrastructure. It’s a bit funny to think about your program working well when it does nothing, but this was a huge first step in preserving existing infrastructure and ensuring all of our coworkers could continue their daily work uninterrupted!
 
 To finish up, we unprotect the resource:
 
@@ -191,8 +190,7 @@ $ pulumi state unprotect 'urn:pulumi:prod::team-mgmt::github:index/team:Team::an
 
 ## Creating Configuration
 
-Next, we import the remaining teams and refactor the code to handle multiple teams at once.
-This is also the time when we’re organizing our organization structure into a yaml configuration file.
+Next, we import the remaining teams and refactor the code to handle multiple teams at once. This is also the time to write our organization structure into a yaml configuration file.
 
 ```yaml
 ---
@@ -326,8 +324,7 @@ func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
 }
 ```
 
-Running this as part of main.go will result in beautifully nested teams on the GitHub UI.
-But with Pulumi, we can do even better. We can set Pulumi.Parent() on the child teams:
+Running this as part of main.go will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set Pulumi.Parent() on the child teams:
 
 ```go
 for _, childTeam := range parentTeam.Teams {
@@ -356,8 +353,7 @@ Which will be reflected on the Pulumi stack’s Graph View on the Pulumi website
 
 ![Stack Graph View](stack-graph-view.png)
 
-Adding this relationship to Pulumi is mostly a visual nicety in our case; however, certain Pulumi properties get inherited in a helpful way.
-Note that on GitHub, it is possible to create multiple layers of teams, whereas the example code in this blog post only shows a single layer of subteam structure. We are small enough at Pulumi to not need more, but you may want to expand on the solution if you do.
+Adding this relationship to Pulumi is mostly a visual nicety in our case; however, certain Pulumi properties get inherited in a helpful way. Note that on GitHub, it is possible to create multiple layers of teams, whereas the example code in this blog post only shows a single layer of subteam structure. We are small enough at Pulumi to not need more, but you may want to expand on the solution if you do.
 
 ## Adding People
 
@@ -374,7 +370,7 @@ teams:
      - username: "owlcat"
 ```
 
-A TeamMembership in GitHub is a cross reference between a Team and a User. Fortunately these do not need to be explicitly imported, as they are merely establishing relationships between GitHub Users and Teams. We can add TeamMembers to the stack with a  Members struct and a new  Members[] field on the model and an extra function. Again, Pulumi lets us use the promised output of the Team ID to set the TeamId field in the TeamMembership:
+A TeamMembership in GitHub is a cross reference between a Team and a User. Fortunately these do not need to be explicitly imported, as they are merely establishing relationships between GitHub Users and Teams. We can add TeamMembers to the stack with a Members struct and a new  Members[] field on the model and an extra function. Again, Pulumi lets us use the promised output of the Team ID to set the TeamId field in the TeamMembership:
 
 ```go
 type Team struct {
@@ -433,8 +429,7 @@ That’s pretty great so far! While there are many org chart tools, what makes t
 
 ## Add CI
 
-In order for this tool to be used by everyone, we keep code and configuration in a GitHub repository.
-We can use Pulumi’s GitHub Actions to run a pulumi preview on a pull request, and a pulumi up on merge to main.
+In order for this tool to be used by everyone, we keep code and configuration in a GitHub repository. We can use Pulumi’s GitHub Actions to run a pulumi preview on a pull request, and a pulumi up on merge to main.
 
 Here’s what that looks like on the pull request:
 
@@ -515,17 +510,17 @@ Note that we are calling refresh: true in both Workflows, which uses Pulumi Refr
 
 Now, anyone with access to the GitHub management repo can:
 
-Create, re-parent, delete or rename teams and re-create any memberships via pull request
-Add and remove team members via pull request
-Audit and explicitly maintain org structure via git history and review processes
+- Create, re-parent, delete or rename teams and re-create any memberships via pull request
+- Add and remove team members via pull request
+- Audit and explicitly maintain org structure via git history and review processes
 
 But of course…there’s more!
-Managing Permissions
+
+## Managing Permissions
+
 The next step involved a lot of thinking about repo permissions and permission access.
 
-Shortly after I joined Pulumi, my team was combined with another team and all of their repositories - none of which I had access to. Moreover, all of our team names were outdated.
-
-I could rename the teams using pulumi-github…but I could not transfer all of the repository access we all needed to our new team. Yet.
+Shortly after I joined Pulumi, my team was combined with another team and all of their repositories - none of which I had access to. Moreover, all of our team names were outdated. I could rename the teams using pulumi-github…but I could not transfer all of the repository access we all needed to our new team. Yet.
 
 On GitHub, parent teams pass permissions down to child teams. But what if we wanted permissions to be more granular?
 
@@ -619,9 +614,9 @@ With this addition, we can now combine teams with zero access disruptions as fol
 
 1. Create the new team in the org config
 2. Create a TeamRepository config for the new team with desired permission levels
-3. Open a pull request and let CI and Pulumi do the rest. 
+3. Open a pull request and let CI and Pulumi do the rest.
 
-Now we can develop standards around repository permissions based on teams’ roles and areas of responsibility, and we have tooling in place that can maintain these standards for everyone in the org to see. In fact, we can standardize the meaning of “code ownership” via access levels in this way - one centralized management location rather than asking your grandboss to click through the UI for you.
+Now we can develop standards around repository permissions based on teams’ roles and areas of responsibility, and we have tooling in place that can maintain these standards for everyone in the org to see. In fact, we can standardize the meaning of “code ownership” via access levels in this way - one centralized management location rather than asking your grandboss to dig through the UI for you.
 
 ## Future challenges
 
