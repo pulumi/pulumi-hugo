@@ -352,9 +352,9 @@ Resources:
 2 unchanged
 ```
 
-Which will be reflected on the Pulumi stack’s Graph View on the Pulumi website: 
+Which will be reflected on the Pulumi stack’s Graph View on the Pulumi website:
 
-TODO: insert image
+![Stack Graph View](stack-graph-view.png)
 
 Adding this relationship to Pulumi is mostly a visual nicety in our case; however, certain Pulumi properties get inherited in a helpful way.
 Note that on GitHub, it is possible to create multiple layers of teams, whereas the example code in this blog post only shows a single layer of subteam structure. We are small enough at Pulumi to not need more, but you may want to expand on the solution if you do.
@@ -630,33 +630,3 @@ We want to automate some of these steps: adding new teammates to the org should 
 To prevent state drift, we will want to run a regular reconciliation job to CI.
 
 Of course, we will add other Pulumi providers on top of this org structure so we can sync our Slack teams, our Bamboo teams, and our gsuite groups.
-
-
-And then everything _after_ that comment will appear on the post page itself.
-
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
-
-## Writing the Post
-
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/docs/blob/master/BLOGGING.md). For general formatting guidelines, see the Style Guide section of [CONTRIBUTING.md](https://github.com/pulumi/docs/blob/master/CONTRIBUTING.md#style-guide).
-
-## Code Samples
-
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
-```
-
-## Images
-
-![Placeholder Image](meta.png)
-
-## Videos
-
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
-
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
-
-## Tweets
-
-{{< tweet 1147203941609984002 >}}
