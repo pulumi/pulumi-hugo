@@ -157,9 +157,6 @@ async function regionalBuckets(
   }
   return bucketList;
 }
-
-const config = new pulumi.Config();
-export const buckets = regionalBuckets(config);
 ```
 
 {{% /choosable %}}
@@ -186,10 +183,6 @@ async def regional_buckets(config: pulumi.Config) -> Output[List[s3.Bucket]]:
         bucket = s3.Bucket(f"{region}-bucket", opts=ResourceOptions(provider=provider))
         bucket_list.append(bucket)
     return bucket_list
-
-
-config = pulumi.Config()
-pulumi.export("buckets", regional_buckets(config))
 ```
 
 {{% /choosable %}}
@@ -197,11 +190,42 @@ pulumi.export("buckets", regional_buckets(config))
 {{% choosable language go %}}
 
 ```go
+var filters = []aws.GetRegionsFilter{{
+	Name:   "opt-in-status",
+	Values: []string{"opted-in", "opt-in-not-required"},
+}}
+
+func regionalBuckets(ctx *pulumi.Context, config config.Config) (s3.BucketArray, error) {
+	var bucketList s3.BucketArray
+	regions, err := aws.GetRegions(ctx, &aws.GetRegionsArgs{Filters: filters})
+	if err != nil {
+		return nil, err
+	}
+	for _, region := range regions.Names {
+		provider, err := aws.NewProvider(ctx, region+"-provider", &aws.ProviderArgs{
+			Region: pulumi.String(region),
+			// AccessKey: config.RequireSecret("key"),
+			// SecretKey: config.RequireSecret("secret"),
+		})
+		if err != nil {
+			return nil, err
+		}
+		bucket, err := s3.NewBucket(ctx, region+"-bucket", nil, pulumi.Provider(provider))
+		if err != nil {
+			return nil, err
+		}
+		bucketList = append(bucketList, bucket)
+	}
+	return bucketList, nil
+}
 ```
 
 {{% /choosable %}}
 
 {{% choosable language csharp %}}
+
+```csharp
+```
 
 {{% /choosable %}}
 
