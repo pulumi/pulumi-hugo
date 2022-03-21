@@ -1,163 +1,233 @@
-<nav class="top-nav-bar transition-all">
-    <div class="top-nav-container lg:container lg:px-4">
-        {{ partial "banner" . }}
-
-        <ul class="hidden w-full lg:flex lg:w-1/2 justify-end items-center order-first lg:order-last">
-            <li class="github-widget mr-8">
-                <a data-track="header-github-pulumi" class="github-button" href="https://github.com/pulumi/pulumi" data-size="small" data-show-count="true" aria-label="Star pulumi/pulumi on GitHub">Star</a>
-            </li>
-            <li class="mr-8"><a data-track="header-slack" href="https://slack.pulumi.com/" target="_blank">
-                <i class="fab fa-slack"></i>
-                Slack
-            </a></li>
-            <li class="mr-8"><a data-track="header-docs" href="{{ relref . "/docs" }}">
-                <i class="fas fa-book mr-0.5"></i>
-                Docs
-            </a></li>
-            <li class="mr-8"><a data-track="header-registry" href="{{ relref . "/registry" }}">
-                <i class="fas fa-archive mr-0.5"></i>
-                Registry
-                </a></li>
-            <li><a data-track="header-console" href="https://app.pulumi.com/" target="_blank">
-                <i class="fas fa-user-circle"></i>
-                Sign In
-            </a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="header-container">
-    <nav class="lg:container lg:mx-auto lg:px-4">
-        <header>
-            <div class="flex flex-col lg:flex-row">
-                <div class="logo-container">
-                    <a data-track="header-pulumi-logo" class="block" href="/">
-                        <img class="normal-logo h-8" src="/images/logo/logo-on-white.svg" alt="Pulumi logo">
-                        <img class="dark-logo hidden h-8" src="/images/logo/logo-on-black.svg" alt="Pulumi logo">
-                    </a>
-                </div>
-                <ul class="desktop-menu">
-                    <li class="header-nav-item-drop-down">
-                        <span class="dropdown-title whitespace-nowrap">Cloud Engineering</span>
-                        <span class="dropdown-menu-caret"></span>
-                        <div class="header-nav-drop-down-menu">
-                            <ul>
-                                <li>
-                                    <a href="{{ relref . "/cloud-engineering" }}">
-                                        Overview
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/cloud-engineering-summit" }}">
-                                        2021 Summit
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/solutions" }}">
-                                        Solutions
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/case-studies" }}">
-                                        Case Studies
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="{{ relref . "/product" }}">Products</a>
-                    </li>
-                    <li>
-                        <a href="{{ relref . "/pricing" }}">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="{{ relref . "/docs" }}">Docs</a>
-                    </li>
-                    <li class="header-nav-item-drop-down">
-                        <span class="dropdown-title">Learn</span>
-                        <span class="dropdown-menu-caret"></span>
-                        <div class="header-nav-drop-down-menu">
-                            <ul>
-                                <li>
-                                    <a href="{{ relref . "/blog" }}">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/learn" }}">
-                                        Learn Pulumi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/case-studies" }}">
-                                        Case Studies
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/resources" }}">
-                                        Resources
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ relref . "/resources#upcoming" }}">
-                                        Workshops
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+{{ if hasPrefix .RelPermalink "/docs/" }}
+    <nav class="top-nav-bar registry transition-all px-4 py-2.5">
+        <div class="top-nav-container lg:container lg:px-4 text-white">
+            <div data-track="header-pulumi-logo" class="logo-nav-button" aria-haspopup="true" aria-controls="logo-nav-menu">
+                <img class="h-6" src="/images/logo/logo-on-black.svg" alt="Pulumi logo">
+                <i class="fa fa-chevron-down ml-4 pr-1 hidden lg:block"></i>
+                <div class="flex-1"></div>
+                <i class="lg:hidden fa fa-bars text-white text-2xl mobile-menu-toggle-icon"></i>
+                <i class="lg:hidden hidden fa fa-times text-white text-2xl mobile-menu-toggle-icon"></i>
+            </div>
+            <ul id="logo-nav-menu" role="menu" class="logo-nav-menu hidden">
+                <li role="none"><a role="menuitem" href="/">Pulumi Home</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /docs/get-started" }}">Get Started</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /cloud-engineering" }}">Cloud Engineering</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /product" }}">Products</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /pricing" }}">Pricing</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /docs" }}">Docs</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /blog" }}">Blog</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /learn" }}">Learn Pulumi</a></li>
+                <li role="none"><a role="menuitem" href="{{ relref . " /resources" }}">Events & Workshops</a></li>
+                <ul role="menu" class="sm:hidden">
+                    <li role="none"><a role="menuitem" href="https://github.com/pulumi/pulumi">GitHub</a></li>
+                    <li role="none"><a role="menuitem" href="https://slack.pulumi.com">Slack</a></li>
+                    <li role="none"><a role="menuitem" href="{{ relref . " /registry" }}">Registry</a></li>
+                    <li role="none"><a role="menuitem" href="https://app.pulumi.com">Sign In</a></li>
                 </ul>
+            </ul>
+            <a class="get-started-header-button" href="{{ relref . " /docs/get-started" }}">Get Started</a>
+            <div class="flex-1"></div>
+            <ul class="hidden w-full lg:flex lg:w-1/2 justify-end items-center order-first lg:order-last">
+                <li class="github-widget mr-8">
+                    <a data-track="header-github-pulumi" class="github-button" href="https://github.com/pulumi/pulumi"
+                        data-size="small" data-show-count="true" aria-label="Star pulumi/pulumi on GitHub">
+                        Star
+                    </a>
+                </li>
+                <li class="mr-8">
+                    <a data-track="header-slack" href="https://slack.pulumi.com/">
+                        <i class="fab fa-slack"></i>
+                        Slack
+                    </a>
+                </li>
+                <li class="mr-8">
+                    <a data-track="header-github" href="{{ relref . " /docs" }}">
+                        <i class="fas fa-book mr-0.5"></i>
+                        Docs
+                    </a>
+                </li>
+                <li class="mr-8">
+                    <a data-track="header-github" href="{{ relref . " /registry" }}">
+                        <i class="fas fa-archive mr-0.5"></i>
+                        Registry
+                    </a>
+                </li>
+                <li><a data-track="header-console" href="https://app.pulumi.com/" target="_blank">
+                        <i class="fas fa-user-circle"></i>
+                        Sign In
+                    </a></li>
+            </ul>
+        </div>
+    </nav>
 
-                <input class="mobile-menu-toggle" type="checkbox" id="mobile-menu" name="mobile-menu" />
-                <span class="mobile-menu-icon">
-                    <label class="mobile-menu-closed" for="mobile-menu">
-                        {{ partial "icon" (dict "icon" "hamburger-closed") }}
-                    </label>
-                    <label class="mobile-menu-open hidden" for="mobile-menu">
-                        {{ partial "icon" (dict "icon" "hamburger-open") }}
-                    </label>
-                </span>
+    <div class="header-container">
+        {{ partial "docs/search.html" . }}
+    </div>
 
-                <ul class="mobile-menu">
-                    <ul>
-                        <li class="mobile-menu-item whitespace-nowrap"><a href="{{ relref . "/cloud-engineering" }}">Cloud Engineering</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/cloud-engineering" }}">Overview</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/solutions" }}">Solutions</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/case-studies" }}">Case Studies</a></li>
+{{ else }}
 
-                        <li class="mobile-menu-item"><a href="{{ relref . "/product" }}">Products</a></li>
+    <nav class="top-nav-bar transition-all">
+        <div class="top-nav-container lg:container lg:px-4">
+            {{ partial "banner" . }}
 
-                        <li class="mobile-menu-item"><a href="{{ relref . "/pricing" }}">Pricing</a></li>
+            <ul class="hidden w-full lg:flex lg:w-1/2 justify-end items-center order-first lg:order-last">
+                <li class="github-widget mr-8">
+                    <a data-track="header-github-pulumi" class="github-button" href="https://github.com/pulumi/pulumi" data-size="small" data-show-count="true" aria-label="Star pulumi/pulumi on GitHub">Star</a>
+                </li>
+                <li class="mr-8"><a data-track="header-slack" href="https://slack.pulumi.com/" target="_blank">
+                    <i class="fab fa-slack"></i>
+                    Slack
+                </a></li>
+                <li class="mr-8"><a data-track="header-docs" href="{{ relref . "/docs" }}">
+                    <i class="fas fa-book mr-0.5"></i>
+                    Docs
+                </a></li>
+                <li class="mr-8"><a data-track="header-registry" href="{{ relref . "/registry" }}">
+                    <i class="fas fa-archive mr-0.5"></i>
+                    Registry
+                    </a></li>
+                <li><a data-track="header-console" href="https://app.pulumi.com/" target="_blank">
+                    <i class="fas fa-user-circle"></i>
+                    Sign In
+                </a></li>
+            </ul>
+        </div>
+    </nav>
 
-                        <li class="mobile-menu-item"><a href="{{ relref . "/docs" }}">Docs</a></li>
-
-                        <li class="mobile-menu-item"><a href="#">Learn</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/blog" }}">Blog</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/learn" }}">Learn Pulumi</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/resources" }}">Resources</a></li>
-                        <li class="mobile-menu-subitem"><a href="{{ relref . "/resources#upcoming" }}">Workshops</a></li>
-                    </ul>
-                    <div class="flex items-center justify-between py-4 px-2 border-t my-4 mx-2 border-gray-200">
-                        <a href="https://github.com/pulumi/pulumi">GitHub</a>
-                        <a href="https://slack.pulumi.com/">Slack</a>
-                        <a href="{{ relref . "/docs" }}">Docs</a>
-                        <a href="{{ relref . "/registry" }}">Registry</a>
-                        <a href="https://app.pulumi.com/">Sign In</a>
+    <div class="header-container">
+        <nav class="lg:container lg:mx-auto lg:px-4">
+            <header>
+                <div class="flex flex-col lg:flex-row">
+                    <div class="logo-container">
+                        <a data-track="header-pulumi-logo" class="block" href="/">
+                            <img class="normal-logo h-8" src="/images/logo/logo-on-white.svg" alt="Pulumi logo">
+                            <img class="dark-logo hidden h-8" src="/images/logo/logo-on-black.svg" alt="Pulumi logo">
+                        </a>
                     </div>
-                    <div class="text-center bg-violet-600 text-white py-4">
-                         <a class="block" data-track="header-get-started-mobile" href="{{ relref . "/docs/get-started" }}" title="Get started with Pulumi by creating your first project">
+                    <ul class="desktop-menu">
+                        <li class="header-nav-item-drop-down">
+                            <span class="dropdown-title whitespace-nowrap">Cloud Engineering</span>
+                            <span class="dropdown-menu-caret"></span>
+                            <div class="header-nav-drop-down-menu">
+                                <ul>
+                                    <li>
+                                        <a href="{{ relref . "/cloud-engineering" }}">
+                                            Overview
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/cloud-engineering-summit" }}">
+                                            2021 Summit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/solutions" }}">
+                                            Solutions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/case-studies" }}">
+                                            Case Studies
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="{{ relref . "/product" }}">Products</a>
+                        </li>
+                        <li>
+                            <a href="{{ relref . "/pricing" }}">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="{{ relref . "/docs" }}">Docs</a>
+                        </li>
+                        <li class="header-nav-item-drop-down">
+                            <span class="dropdown-title">Learn</span>
+                            <span class="dropdown-menu-caret"></span>
+                            <div class="header-nav-drop-down-menu">
+                                <ul>
+                                    <li>
+                                        <a href="{{ relref . "/blog" }}">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/learn" }}">
+                                            Learn Pulumi
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/case-studies" }}">
+                                            Case Studies
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/resources" }}">
+                                            Resources
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/resources#upcoming" }}">
+                                            Workshops
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <input class="mobile-menu-toggle" type="checkbox" id="mobile-menu" name="mobile-menu" />
+                    <span class="mobile-menu-icon">
+                        <label class="mobile-menu-closed" for="mobile-menu">
+                            {{ partial "icon" (dict "icon" "hamburger-closed") }}
+                        </label>
+                        <label class="mobile-menu-open hidden" for="mobile-menu">
+                            {{ partial "icon" (dict "icon" "hamburger-open") }}
+                        </label>
+                    </span>
+
+                    <ul class="mobile-menu">
+                        <ul>
+                            <li class="mobile-menu-item whitespace-nowrap"><a href="{{ relref . "/cloud-engineering" }}">Cloud Engineering</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/cloud-engineering" }}">Overview</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/solutions" }}">Solutions</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/case-studies" }}">Case Studies</a></li>
+
+                            <li class="mobile-menu-item"><a href="{{ relref . "/product" }}">Products</a></li>
+
+                            <li class="mobile-menu-item"><a href="{{ relref . "/pricing" }}">Pricing</a></li>
+
+                            <li class="mobile-menu-item"><a href="{{ relref . "/docs" }}">Docs</a></li>
+
+                            <li class="mobile-menu-item"><a href="#">Learn</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/blog" }}">Blog</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/learn" }}">Learn Pulumi</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/resources" }}">Resources</a></li>
+                            <li class="mobile-menu-subitem"><a href="{{ relref . "/resources#upcoming" }}">Workshops</a></li>
+                        </ul>
+                        <div class="flex items-center justify-between py-4 px-2 border-t my-4 mx-2 border-gray-200">
+                            <a href="https://github.com/pulumi/pulumi">GitHub</a>
+                            <a href="https://slack.pulumi.com/">Slack</a>
+                            <a href="{{ relref . "/docs" }}">Docs</a>
+                            <a href="{{ relref . "/registry" }}">Registry</a>
+                            <a href="https://app.pulumi.com/">Sign In</a>
+                        </div>
+                        <div class="text-center bg-violet-600 text-white py-4">
+                            <a class="block" data-track="header-get-started-mobile" href="{{ relref . "/docs/get-started" }}" title="Get started with Pulumi by creating your first project">
+                                Get Started
+                            </a>
+                        </div>
+                    </ul>
+
+                    <div class="cta-container">
+                        <a class="header-btn-primary" data-track="header-get-started" href="{{ relref . "/docs/get-started" }}" title="Get started with Pulumi by creating your first project">
                             Get Started
                         </a>
                     </div>
-                </ul>
-
-                <div class="cta-container">
-                    <a class="header-btn-primary" data-track="header-get-started" href="{{ relref . "/docs/get-started" }}" title="Get started with Pulumi by creating your first project">
-                        Get Started
-                    </a>
                 </div>
-            </div>
-        </header>
-    </nav>
-</div>
+            </header>
+        </nav>
+    </div>
+{{end }}
+
