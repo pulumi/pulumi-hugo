@@ -109,7 +109,7 @@ Resources:
     1 unchanged
 ```
 
-Now that we have imported the Team resource, it is part of our Pulumi Stack. But it is not part of our main.go program yet. Helpfully, Pulumi Import replies with sample code on how to add the imported resource to your Pulumi program, in the language you selected for your project:
+Now that we have imported the `Team` resource, it is part of our Pulumi Stack. But it is not part of our main.go program yet. Helpfully, Pulumi Import replies with sample code on how to add the imported resource to your Pulumi program, in the language you selected for your project:
 
 ```bash
 Please copy the following code into your Pulumi application. Not doing so will cause Pulumi to report that an update will happen on the next update command.
@@ -140,7 +140,7 @@ func main() {
 }
 ```
 
-After adding the team to main.go as suggested, this is the output of pulumi preview:
+After adding the team to `main.go` as suggested, this is the output of `pulumi preview`:
 
 ```bash
 Previewing update (pulumi/prod)
@@ -152,7 +152,7 @@ Resources:
     2 unchanged
 ```
 
-Since pulumi preview shows no changes, we now know that our code reflects the existing infrastructure. It’s a bit funny to think about your program working well when it does nothing, but this was a huge first step in preserving existing infrastructure and ensuring all of our coworkers could continue their daily work uninterrupted!
+Since `pulumi preview` shows no changes, we now know that our code reflects the existing infrastructure. It’s a bit funny to think about your program working well when it does nothing, but this was a huge first step in preserving existing infrastructure and ensuring all of our coworkers could continue their daily work uninterrupted!
 
 To finish up, we [unprotect the resource](https://www.pulumi.com/docs/reference/cli/pulumi_state_unprotect/):
 
@@ -230,10 +230,10 @@ The next step involved a lot of thinking about team memberships and team nesting
 
 TODO: still looking for a concise graphic instead of ascii art
 
-```bash 
+```bash
 Parent Team                           Parent
                                         |
-                            --—---------------------
+                            -------------------------
                             |                       |
 Child Teams               Child1                 Child2
 (inherit all permissions)
@@ -256,8 +256,8 @@ Here is where things get a little tricky. Any GitHub Team can have subteams, but
 1. Create a parent team, using a team name
 2. Obtain its team ID
 3. Create any child teams, also using a team name
-4. Write the parent team’s ID into the ParentTeamId field of each child team.
-5. Do all of the above in a single pulumi up.
+4. Write the parent team’s ID into the `ParentTeamId field` of each child team.
+5. Do all of the above in a single `pulumi up`.
 
 This is where maintaining infrastructure with Pulumi truly shines. In our code, we can use [Pulumi Apply](https://www.pulumi.com/docs/intro/concepts/inputs-outputs/#apply) to hold on to the promise of a parent team ID, and pass this promise into the appropriate field:
 
@@ -298,7 +298,7 @@ func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
 }
 ```
 
-Running this as part of main.go will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set [Pulumi.Parent()](https://www.pulumi.com/docs/intro/concepts/resources/options/parent/) on the child teams:
+Running this as part of `main.go` will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set [`pulumi.Parent()`](https://www.pulumi.com/docs/intro/concepts/resources/options/parent/) on the child teams:
 
 ```go
 for _, childTeam := range parentTeam.Teams {
@@ -309,7 +309,7 @@ for _, childTeam := range parentTeam.Teams {
 }
 ```
 
-With this, we can see the relationship between the resources on pulumi up:
+With this, we can see the relationship between the resources on `pulumi up`:
 
 ```bash
 Updating (prod)
@@ -323,7 +323,7 @@ Resources:
 2 unchanged
 ```
 
-Which will be reflected on the Pulumi stack’s Graph View on the Pulumi website:
+Which will be reflected on the Pulumi stack’s Graph View in the Pulumi Service:
 
 ![Stack Graph View](stack-graph-view.png)
 
@@ -344,7 +344,7 @@ teams:
      - username: "owlcat"
 ```
 
-A [TeamMembership in GitHub](https://www.pulumi.com/registry/packages/github/api-docs/teammembership/) is a cross reference between a Team and a User. Fortunately these do not need to be explicitly imported, as they are merely establishing relationships between GitHub Users and Teams. We can add TeamMembers to the stack with a Members struct and a new  Members[] field on the model and an extra function. Again, Pulumi lets us use the promised output of the Team ID to set the TeamId field in the TeamMembership:
+A [`TeamMembership` in GitHub](https://www.pulumi.com/registry/packages/github/api-docs/teammembership/) is a cross reference between a `Team` and a `User`. Fortunately these do not need to be explicitly imported, as they are merely establishing relationships between GitHub Users and Teams. We can add `TeamMemberships` to the stack with a `Members` struct, a new `Members[]` field on the `Team` struct, and an extra function. Again, Pulumi lets us use the promised output of the team ID to set the `TeamId` field in the `TeamMembership`:
 
 ```go
 type Team struct {
@@ -379,7 +379,7 @@ func addMembers(ctx *pulumi.Context, members []Member, team *github.Team, teamNa
 }
 ```
 
-Running pulumi up:
+Running `pulumi up`:
 
 ```bash
 Updating (prod)
@@ -403,7 +403,7 @@ That’s pretty great so far! While there are many org chart tools, what makes t
 
 ## Add CI
 
-In order for this tool to be used by everyone, we keep code and configuration in a GitHub repository. We can use [Pulumi’s GitHub Action](https://www.pulumi.com/docs/guides/continuous-delivery/github-actions/) to run a pulumi preview on a pull request, and a pulumi up on merge to main.
+In order for this tool to be used by everyone, we keep code and configuration in a GitHub repository. We can use [Pulumi’s GitHub Action](https://www.pulumi.com/docs/guides/continuous-delivery/github-actions/) to run a `pulumi preview` on a pull request, and a `pulumi up` on merge to main.
 
 Here’s what that looks like on the pull request:
 
@@ -480,11 +480,11 @@ jobs:
          stack-name: pulumi/prod
 ```
 
-Note that we are calling refresh: true in both Workflows, which uses [Pulumi Refresh](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/) to make sure that the existing GitHub resources are aligned with the resource state in our stack.
+Note that we are calling `refresh: true` in both Workflows, which uses [Pulumi Refresh](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/) to make sure that the existing GitHub resources are aligned with the resource state in our stack.
 
 Now, anyone with access to the GitHub management repo can:
 
-- Create, re-parent, delete or rename teams and re-create any memberships via pull request
+- Create, re-parent, delete or rename teams and re-create any memberships via pull request to the config file
 - Add and remove team members via pull request
 - Audit and explicitly maintain org structure via git history and review processes
 
@@ -492,13 +492,13 @@ But of course…there’s more!
 
 ## Managing Permissions
 
-The next step involved a lot of thinking about repo permissions and permission access.
+The next step involved a lot of thinking about repository permissions and permission access.
 
-Shortly after I joined Pulumi, my team was combined with another team and all of their repositories - none of which I had access to. Moreover, all of our team names were outdated. I could rename the teams using pulumi-github…but I could not transfer all of the repository access we all needed to our new team. Yet.
+Shortly after I joined Pulumi, my team was combined with another team. They brought along all of their repositories - none of which I had access to. Moreover, all of our team names were outdated. I could rename the teams using pulumi-github…but I could not transfer all of the repository access we all needed to our new team. Yet.
 
 On GitHub, parent teams pass permissions down to child teams. But what if we wanted permissions to be more granular?
 
-Here's where [TeamRepositories](https://www.pulumi.com/registry/packages/github/api-docs/teamrepository/) come in. A TeamRepository has three fields: a team ID, a repository name, and a permission. Just like TeamMemberships, this resource is a link between a Team and a Repository and does not need to be imported.
+Here's where [`TeamRepositories`](https://www.pulumi.com/registry/packages/github/api-docs/teamrepository/) come in. A `TeamRepository` has three fields: a team ID, a repository name, and a permission. Just like `TeamMemberships`, this resource is a link between a `Team` and a `Repository` and does not need to be imported.
 
 We gave each team their own config file with permission levels listing repository names:
 
@@ -568,7 +568,7 @@ func setupTeamRepos(ctx *pulumi.Context, team *github.Team, teamName string) err
 }
 ```
 
-And the output of running pulumi up:
+And the output of running `pulumi up`:
 
 ```bash
 Updating (prod)
@@ -596,6 +596,6 @@ Now we can develop standards around repository permissions based on teams’ rol
 
 We want to automate some of these steps: adding new teammates to the org should also automatically add them to this repository so they can self-serve their onboarding and see Pulumi work in action!
 
-To prevent state drift, we will want to run a regular reconciliation job to CI.
+To prevent state drift, we will run a regular reconciliation job in CI.
 
 Of course, we will add other Pulumi providers on top of this org structure so we can sync our Slack teams, our Bamboo teams, and our gsuite groups.
