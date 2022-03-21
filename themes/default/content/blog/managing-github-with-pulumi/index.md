@@ -27,7 +27,7 @@ We at Pulumi wanted to reduce this kind of management friction, and we decided t
 
 ## The Goal
 
-First, we set a few ground rules. We decided that administrative privileges over Pulumi's github repositories should flow as follows:
+First, we set a few ground rules. We decided that administrative privileges over Pulumi's GitHub repositories should flow as follows:
 
 1. An employee is part of one or more GitHub teams.
 2. Teams have appropriately scoped permissions over each repository they own.
@@ -68,7 +68,7 @@ $ ls
 Pulumi.yaml go.mod  go.sum  main.go
 ```
 
-We now have a pulumi project yaml, and the beginnings of a small Go program all set up.
+We now have a pulumi project YAML configuration file and the beginnings of a small Go program all set up.
 
 According to the [provider configuration documentation](https://www.pulumi.com/registry/packages/github/installation-configuration/), we need to add a properly scoped token, as well as set "pulumi" as our GitHub organization owner.
 
@@ -79,11 +79,11 @@ $ export GITHUB_OWNER=pulumi
 
 ## Capturing Current State of Resources
 
-Now, Pulumi is _great_ at creating new infrastructure from scratch via code. But this wasn’t a from-scratch situation. We had to migrate existing resources - GitHub teams - to Pulumi, without disrupting anyone’s access.
+Now, Pulumi is _great_ at creating new infrastructure from scratch via code. But this wasn’t a from-scratch situation. We had to migrate existing resources---GitHub teams---to Pulumi, without disrupting anyone’s access.
 
 Enter [Pulumi Import](https://www.pulumi.com/docs/reference/cli/pulumi_import/).
 
-What Pulumi Import does, in a nutshell, is find existing infrastructure by unique ID (in the github provider’s case, the team ID), and add them to a Pulumi Stack. You can find the specific import instructions on the registry documentation for each resource. In this case we want the [GitHub import instructions](https://www.pulumi.com/registry/packages/github/api-docs/team/#import).
+What Pulumi Import does, in a nutshell, is find existing infrastructure by unique ID (in the GitHub provider’s case, the team ID), and add them to a Pulumi Stack. You can find the specific import instructions on the registry documentation for each resource. In this case we want the [GitHub import instructions](https://www.pulumi.com/registry/packages/github/api-docs/team/#import).
 
 ```bash
 $ pulumi import github:index/team:Team animals 1234567
@@ -109,7 +109,7 @@ Resources:
     1 unchanged
 ```
 
-Now that we have imported the `Team` resource, it is part of our Pulumi Stack. But it is not part of our main.go program yet. Helpfully, Pulumi Import replies with sample code on how to add the imported resource to your Pulumi program, in the language you selected for your project:
+Now that we have imported the `Team` resource, it is part of our Pulumi Stack. But it is not part of our `main.go` program yet. Helpfully, Pulumi Import replies with sample code on how to add the imported resource to your Pulumi program, in the language you selected for your project:
 
 ```bash
 Please copy the following code into your Pulumi application. Not doing so will cause Pulumi to report that an update will happen on the next update command.
@@ -162,7 +162,7 @@ $ pulumi state unprotect 'urn:pulumi:prod::team-mgmt::github:index/team:Team::an
 
 ## Creating Configuration
 
-Next, we import the remaining teams and refactor the code to handle multiple teams at once. This is also the time to write our organization structure into a yaml configuration file.
+Next, we import the remaining teams and refactor the code to handle multiple teams at once. This is also the time to write our organization structure into a YAML configuration file.
 
 ```yaml
 ---
@@ -226,7 +226,7 @@ Notice how the GitHub provider allows us to use team names to create teams. In c
 
 ## Relationships Are Hard
 
-The next step involved a lot of thinking about team memberships and team nesting. [GitHub allows teams to be nested](https://docs.github.com/en/organizations/organizing-members-into-teams/requesting-to-add-a-child-team). This groups teams by area of responsibility, but also allows for certain properties, such as permissions, to be inherited by subteams.
+The next step involved a lot of thinking about team memberships and team nesting. [GitHub allows teams to be nested](https://docs.github.com/en/organizations/organizing-members-into-teams/requesting-to-add-a-child-team). This groups teams by area of responsibility but also allows for certain properties, such as permissions, to be inherited by subteams.
 
 ```bash
 Parent Team                           Parent
@@ -249,11 +249,11 @@ type Team struct {
 }
 ```
 
-Here is where things get a little tricky. Any GitHub Team can have subteams, but not every Team has a parent Team. We also did not want to have to hardcode GitHub team IDs into our configuration files. We needed to
+Here is where things get a little tricky. Any GitHub Team can have subteams, but not every Team has a parent Team. We also did not want to have to hardcode GitHub Team IDs into our configuration files. We needed to meet the following requirements:
 
-1. Create a parent team, using a team name
-2. Obtain its team ID
-3. Create any child teams, also using a team name
+1. Create a parent team, using a team name.
+2. Obtain its team ID.
+3. Create any child teams, also using a team name.
 4. Write the parent team’s ID into the `ParentTeamId field` of each child team.
 5. Do all of the above in a single `pulumi up`.
 
@@ -329,7 +329,7 @@ Adding this relationship to Pulumi is mostly a visual nicety in our case; howeve
 
 ## Adding People
 
-Next, teams should have members! Let’s add them to the yaml config:
+Next, teams should have members! Let’s add them to the YAML config:
 
 ```yaml
 org: "pulumi-demo-org"
@@ -392,10 +392,10 @@ Resources:
     4 unchanged
 ```
 
-Alright! So now we have:
+Alright! So now we have
 
-1. Imported existing teams to a Pulumi Stack to track and organize all GitHub teams from a central repository
-2. Added team members to teams
+1. Imported existing teams to a Pulumi Stack to track and organize all GitHub teams from a central repository, and
+2. Added team members to teams.
 
 That’s pretty great so far! While there are many org chart tools, what makes this one useful to us is that we can declare the desired org state in a config file, and then let Pulumi figure out what changes should be applied. Let’s automate that!
 
@@ -440,7 +440,7 @@ jobs:
          comment-on-pr: true
 ```
 
-And the pulumi update on merge to main:
+And the `pulumi up` on merge to main:
 
 ```yaml
 name: Update
@@ -482,17 +482,17 @@ Note that we are calling `refresh: true` in both Workflows, which uses [Pulumi R
 
 Now, anyone with access to the GitHub management repo can:
 
-- Create, re-parent, delete or rename teams and re-create any memberships via pull request to the config file
-- Add and remove team members via pull request
-- Audit and explicitly maintain org structure via git history and review processes
+- Create, re-parent, delete, or rename teams and re-create any memberships via pull request to the config file.
+- Add and remove team members via pull request.
+- Audit and explicitly maintain org structure via git history and review processes.
 
-But of course…there’s more!
+But of course… there’s more!
 
 ## Managing Permissions
 
 The next step involved a lot of thinking about repository permissions and permission access.
 
-Shortly after I joined Pulumi, my team was combined with another team. They brought along all of their repositories - none of which I had access to. Moreover, all of our team names were outdated. I could rename the teams using pulumi-github…but I could not transfer all of the repository access we all needed to our new team. Yet.
+Shortly after I joined Pulumi, my team was combined with another team. They brought along all of their repositories---none of which I had access to. Moreover, all of our team names were outdated. I could rename the teams using `pulumi-github`… but I could not transfer all of the repository access we all needed to our new team. Yet.
 
 On GitHub, parent teams pass permissions down to child teams. But what if we wanted permissions to be more granular?
 
@@ -584,11 +584,11 @@ Resources:
 
 With this addition, we can now combine teams with zero access disruptions as follows:
 
-1. Create the new team in the org config
-2. Create a TeamRepository config for the new team with desired permission levels
+1. Create the new team in the org config.
+2. Create a TeamRepository config for the new team with desired permission levels.
 3. Open a pull request and let CI and Pulumi do the rest.
 
-Now we can develop standards around repository permissions based on teams’ roles and areas of responsibility, and we have tooling in place that can maintain these standards for everyone in the org to see. In fact, we can standardize the meaning of “code ownership” via access levels in this way - one centralized management location rather than asking your grandboss to dig through the UI for you.
+Now we can develop standards around repository permissions based on teams’ roles and areas of responsibility, and we have tooling in place that can maintain these standards for everyone in the org to see. In fact, we can standardize the meaning of “code ownership” via access levels in this way---one centralized management location rather than asking your grandboss to dig through the UI for you.
 
 ## Future challenges
 
@@ -596,4 +596,4 @@ We want to automate some of these steps: adding new teammates to the org should 
 
 To prevent state drift, we will run a regular reconciliation job in CI.
 
-Of course, we will add other Pulumi providers on top of this org structure so we can sync our Slack teams, our Bamboo teams, and our gsuite groups.
+Of course, we will add other Pulumi providers on top of this org structure so we can sync our other tooling.
