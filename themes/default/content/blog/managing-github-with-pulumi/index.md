@@ -42,9 +42,9 @@ That’s quite a lot.
 
 GitHub is good at many things, but a full-on organization management tool it is not.
 
-Have you ever needed your manager to manually enable admin permission on a repo for you?
-Or have you needed to page the CEO to add you to a team, because your manager was out that day?
-Have you ever wondered who is on what team? Or which team owns a repo?
+Have you ever needed your manager to manually enable admin permission on a repo for you?  
+Or have you needed to page the CEO to add you to a team, because your manager was out that day?  
+Have you ever wondered who is on what team? Or which team owns a repo?  
 What if you change teams, or a team changes names? A reorg happens, and the “platform-integrations” team is no more, but we still need to call it that on GitHub because it is the team with all the repository accesses?
 
 When I joined Pulumi in 2021, all of the above happened to me within my first few weeks.
