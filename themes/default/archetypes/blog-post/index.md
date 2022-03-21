@@ -41,7 +41,7 @@ Either way, avoid using images or code samples [in the first 70 words](https://g
 
 ## Writing the Post
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the Style Guide section of [CONTRIBUTING.md](https://https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
 
 ## Code Samples
 
