@@ -49,7 +49,7 @@ What if you change teams, or a team changes names? A reorg happens, and the “p
 
 When I joined Pulumi in 2021, all of the above happened to me within my first few weeks.
 
-We at Pulumi wanted to reduce these kinds of management friction, and we decided to solve it the Pulumi way: with declarative infrastructure using the [Pulumi GitHub](https://github.com/pulumi/pulumi-github) provider.
+We at Pulumi wanted to reduce these kinds of management friction, and we decided to solve it the Pulumi way: with declarative infrastructure using the [Pulumi GitHub provider](https://github.com/pulumi/pulumi-github).
 
 ## The Goal
 
@@ -96,7 +96,7 @@ Pulumi.yaml	go.mod		go.sum		main.go
 
 We now have a pulumi project yaml, and the beginnings of a small Go program all set up.
 
-According to the provider documentation, we need to [add some configuration](https://www.pulumi.com/registry/packages/github/installation-configuration/): a properly scoped token, as well as set "pulumi" as our GitHub organization owner.
+According to the [provider configuration documentation](https://www.pulumi.com/registry/packages/github/installation-configuration/), we need to add a properly scoped token, as well as set "pulumi" as our GitHub organization owner.
 
 ```bash
 $ export GITHUB_TOKEN=YYYYYYYYYYYYYY
@@ -109,7 +109,7 @@ Now, Pulumi is _great_ at creating new infrastructure from scratch via code. But
 
 Enter [Pulumi Import](https://www.pulumi.com/docs/reference/cli/pulumi_import/).
 
-What Pulumi Import does, in a nutshell, is find existing infrastructure by unique ID (in the github provider’s case, the team ID), and add them to a Pulumi Stack. You can find the specific import instructions on the [registry documentation for each resource](https://www.pulumi.com/registry/packages/github/api-docs/team/#import).
+What Pulumi Import does, in a nutshell, is find existing infrastructure by unique ID (in the github provider’s case, the team ID), and add them to a Pulumi Stack. You can find the specific import instructions on the registry documentation for each resource. In this case we want the [GitHub import instructions](https://www.pulumi.com/registry/packages/github/api-docs/team/#import).
 
 ```bash
 $ pulumi import github:index/team:Team animals 1234567
