@@ -177,8 +177,8 @@ async def regional_buckets(config: pulumi.Config) -> Output[List[s3.Bucket]]:
         provider = aws.Provider(
             f"{region}-provider",
             region=region,
-            # access_key=config.require_secret("key"),
-            # secret_key=config.require_secret("secret"),
+            access_key=config.require_secret("key"),
+            secret_key=config.require_secret("secret"),
         )
         bucket = s3.Bucket(f"{region}-bucket", opts=ResourceOptions(provider=provider))
         bucket_list.append(bucket)
@@ -204,8 +204,8 @@ func regionalBuckets(ctx *pulumi.Context, config config.Config) (s3.BucketArray,
 	for _, region := range regions.Names {
 		provider, err := aws.NewProvider(ctx, region+"-provider", &aws.ProviderArgs{
 			Region: pulumi.String(region),
-			// AccessKey: config.RequireSecret("key"),
-			// SecretKey: config.RequireSecret("secret"),
+			AccessKey: config.RequireSecret("key"),
+			SecretKey: config.RequireSecret("secret"),
 		})
 		if err != nil {
 			return nil, err
@@ -225,6 +225,26 @@ func regionalBuckets(ctx *pulumi.Context, config config.Config) (s3.BucketArray,
 {{% choosable language csharp %}}
 
 ```csharp
+async Task<S3.Bucket[]> regionalBuckets(Pulumi.Config config) {
+    var filter = new Aws.Inputs.GetRegionsFilterArgs{
+             Name = "opt-in-status",
+            Values = {"opted-in", "opt-in-not-required"},
+    };
+    var regions = await Aws.GetRegions.InvokeAsync(new Aws.GetRegionsArgs{Filters = {filter}});
+    var bucketList = new List<S3.Bucket>();
+    foreach (var region  in regions.Names) {
+        var provider = new Aws.Provider(region+"-provider", new Aws.ProviderArgs {
+                Region = region,
+                AccessKey = config.GetSecret("key")!,
+                SecretKey = config.GetSecret("secret")!,
+        });
+        var bucket = new S3.Bucket(region+"-bucket", null, new CustomResourceOptions {
+                Provider = provider
+            });
+        bucketList.Add(bucket);
+    }
+    return bucketList.ToArray();
+}
 ```
 
 {{% /choosable %}}
