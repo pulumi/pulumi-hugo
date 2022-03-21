@@ -1,38 +1,10 @@
 ---
 title: "How we manage GitHub at Pulumi with Pulumi"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
 date: 2022-03-18T15:29:33-07:00
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
 meta_desc: In this article, Guinevere Saenger describes how Pulumi migrated management of GitHub team permissions using Pulumi all the way down.
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
-meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors: ["guinevere-saenger"]
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
-tags: ["go", "migration", "packages", "github-provider"]
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
+tags: ["go", "migration", "packages"]
 ---
-
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional). To do that, just add an HTML comment like the one below.
-
-TODO: summary for index page
-
-<!--more-->
 
 Ah, GitHub. The home of all developers. The place where we share code. The world’s most awkward social media site. The secret LinkedIn for techies. The tool we use for company org structure, work planning, code ownership, and permissions…
 
@@ -49,7 +21,9 @@ What if you change teams, or a team changes names? A reorg happens, and the “p
 
 When I joined Pulumi in 2021, all of the above happened to me within my first few weeks.
 
-We at Pulumi wanted to reduce these kinds of management friction, and we decided to solve it the Pulumi way: with declarative infrastructure using the [Pulumi GitHub provider](https://github.com/pulumi/pulumi-github).
+We at Pulumi wanted to reduce this kind of management friction, and we decided to solve it the Pulumi way: with declarative infrastructure using the [Pulumi GitHub provider](https://github.com/pulumi/pulumi-github).
+
+<!--more-->
 
 ## The Goal
 
