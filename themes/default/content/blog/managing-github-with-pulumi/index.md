@@ -228,14 +228,12 @@ Notice how the GitHub provider allows us to use team names to create teams. In c
 
 The next step involved a lot of thinking about team memberships and team nesting. [GitHub allows teams to be nested](https://docs.github.com/en/organizations/organizing-members-into-teams/requesting-to-add-a-child-team). This groups teams by area of responsibility, but also allows for certain properties, such as permissions, to be inherited by subteams.
 
-TODO: still looking for a concise graphic instead of ascii art
-
 ```bash
 Parent Team                           Parent
                                         |
                             -------------------------
                             |                       |
-Child Teams               Child1                 Child2
+Child Teams               Child1                  Child2
 (inherit all permissions)
 ```
 
