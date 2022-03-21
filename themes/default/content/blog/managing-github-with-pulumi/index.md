@@ -46,8 +46,8 @@ This command will walk you through creating a new Pulumi project.
 Enter a value or leave blank to accept the (default), and press <ENTER>.
 Press ^C at any time to quit.
 
-project name: (team-management) 
-project description: (A minimal Go Pulumi program) 
+project name: (team-management)
+project description: (A minimal Go Pulumi program)
 Created project 'team-management'
 
 Please enter your desired stack name.
@@ -65,7 +65,7 @@ Your new project is ready to go! ✨
 To perform an initial deployment, run 'pulumi up'
 
 $ ls
-Pulumi.yaml	go.mod		go.sum		main.go
+Pulumi.yaml go.mod  go.sum  main.go
 ```
 
 We now have a pulumi project yaml, and the beginnings of a small Go program all set up.
@@ -89,10 +89,10 @@ What Pulumi Import does, in a nutshell, is find existing infrastructure by uniqu
 $ pulumi import github:index/team:Team animals 1234567
 Previewing import (pulumi/prod)
 
-     Type                  Name                Plan       
-     pulumi:pulumi:Stack   team-mgmt-prod             
- =   └─ github:index:Team  animals             import     
- 
+     Type                  Name                Plan
+     pulumi:pulumi:Stack   team-mgmt-prod
+ =   └─ github:index:Team  animals             import
+
 Resources:
     = 1 to import
     12 unchanged
@@ -100,10 +100,10 @@ Resources:
 Do you want to perform this import?  yes
 Importing (pulumi/prod)
 
-     Type                  Name                Status       
-     pulumi:pulumi:Stack   team-mgmt-prod               
- =   └─ github:index:Team  animals             imported     
- 
+     Type                  Name                Status
+     pulumi:pulumi:Stack   team-mgmt-prod
+ =   └─ github:index:Team  animals             imported
+
 Resources:
     = 1 imported
     1 unchanged
@@ -146,8 +146,8 @@ After adding the team to `main.go` as suggested, this is the output of `pulumi p
 Previewing update (pulumi/prod)
 
      Type                   Name                 Plan       Info
-     pulumi:pulumi:Stack    team-mgmt-prod                  
- 
+     pulumi:pulumi:Stack    team-mgmt-prod
+
 Resources:
     2 unchanged
 ```
@@ -191,7 +191,7 @@ type Organization struct {
 
 func main() {
   pulumi.Run(func(ctx *pulumi.Context) error {
-  
+
 //import accurate team info from yaml
 orgFilePath, err := filepath.Abs("./org.yaml")
 if err != nil {
@@ -206,7 +206,7 @@ err = yaml.Unmarshal(yamlFile, &org)
 if err != nil {
   return err
 }
-    
+
 for _, team := range org.Teams {
     ghTeam, err := github.NewTeam(ctx, team.Slug, &github.TeamArgs{
         Description: pulumi.String(team.Description),
@@ -261,7 +261,7 @@ This is where maintaining infrastructure with Pulumi truly shines. In our code, 
 
 ```go
 func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
-  
+
 // set up parent team, i.e. engineering
   ghParentTeam, err := github.NewTeam(ctx, parentTeam.Slug, &github.TeamArgs{
      Description: pulumi.String(parentTeam.Description),
@@ -272,7 +272,7 @@ func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
      fmt.Println("encountered error creating new Pulumi github team: ", parentTeam.Name)
      return err
   }
-  
+
 //set up nested teams
   for _, childTeam := range parentTeam.Teams {
      // set each child team's parent team ID to the current team ID
@@ -285,7 +285,7 @@ func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
            x := fmt.Sprintf("%v", id)
            y, _ := strconv.Atoi(x)
            return y
-        }).(pulumi.IntOutput), 
+        }).(pulumi.IntOutput),
      }, pulumi.Protect(false))
      if err != nil {
         fmt.Println("encountered error creating new Pulumi github team: ", childTeam.Name)
@@ -312,10 +312,10 @@ With this, we can see the relationship between the resources on `pulumi up`:
 ```bash
 Updating (prod)
 
-     Type                     Name            Status       
-     pulumi:pulumi:Stack      team-mgmt-prod                    
- +   └─ github:index:Team     newteam         created     
- +      └─ github:index:Team  newchildteam    created   
+     Type                     Name            Status
+     pulumi:pulumi:Stack      team-mgmt-prod
+ +   └─ github:index:Team     newteam         created
+ +      └─ github:index:Team  newchildteam    created
 Resources:
     + 2 created
 2 unchanged
@@ -382,11 +382,11 @@ Running `pulumi up`:
 ```bash
 Updating (prod)
 
-     Type                            Name                      Status      
-     pulumi:pulumi:Stack             team-mgmt-prod                        
- +   ├─ github:index:TeamMembership  animals-owlcat            created     
- +   └─ github:index:TeamMembership  animals-platypus          created     
- 
+     Type                            Name                      Status
+     pulumi:pulumi:Stack             team-mgmt-prod
+ +   ├─ github:index:TeamMembership  animals-owlcat            created
+ +   └─ github:index:TeamMembership  animals-platypus          created
+
 Resources:
     + 2 created
     4 unchanged
@@ -571,12 +571,12 @@ And the output of running `pulumi up`:
 ```bash
 Updating (prod)
 
-     Type                            Name                      Status      
-     pulumi:pulumi:Stack             team-mgmt-prod                        
- +   ├─ github:index:TeamRepository  owls-animals-admin        created     
- +   ├─ github:index:TeamRepository  capybaras-animals-admin   created     
+     Type                            Name                      Status
+     pulumi:pulumi:Stack             team-mgmt-prod
+ +   ├─ github:index:TeamRepository  owls-animals-admin        created
+ +   ├─ github:index:TeamRepository  capybaras-animals-admin   created
 
- 
+
 Resources:
     + 2 created
     2 changes. 4 unchanged
