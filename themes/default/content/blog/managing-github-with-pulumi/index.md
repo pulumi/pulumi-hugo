@@ -324,7 +324,7 @@ Resources:
 2 unchanged
 ```
 
-Which will be reflected on the Pulumi stack’s Graph View in the Pulumi Service:
+Which will be reflected on the Pulumi Stack’s Graph View in the Pulumi Service:
 
 ![Stack Graph View](stack-graph-view.png)
 
@@ -345,7 +345,7 @@ teams:
      - username: "owlcat"
 ```
 
-A [`TeamMembership` in GitHub]({{< relref "/registry/packages/github/api-docs/teammembership" >}}) is a cross reference between a `Team` and a `User`. Fortunately these do not need to be explicitly imported, as they are merely establishing relationships between GitHub Users and Teams. We can add `TeamMemberships` to the stack with a `Members` struct, a new `Members[]` field on the `Team` struct, and an extra function. Again, Pulumi lets us use the promised output of the team ID to set the `TeamId` field in the `TeamMembership`:
+A [`TeamMembership` in GitHub]({{< relref "/registry/packages/github/api-docs/teammembership" >}}) is a cross reference between a `Team` and a `User`. Fortunately these do not need to be explicitly imported, as they are merely establishing relationships between GitHub Users and Teams. We can add `TeamMemberships` to the Stack with a `Members` struct, a new `Members[]` field on the `Team` struct, and an extra function. Again, Pulumi lets us use the promised output of the team ID to set the `TeamId` field in the `TeamMembership`:
 
 ```go
 type Team struct {
@@ -481,7 +481,7 @@ jobs:
          stack-name: pulumi/prod
 ```
 
-Note that we are calling `refresh: true` in both Workflows, which uses [Pulumi Refresh]({{< relref "/docs/reference/cli/pulumi_refresh" >}}) to make sure that the existing GitHub resources are aligned with the resource state in our stack.
+Note that we are calling `refresh: true` in both Workflows, which uses [Pulumi Refresh]({{< relref "/docs/reference/cli/pulumi_refresh" >}}) to make sure that the existing GitHub resources are aligned with the resource state in our Stack.
 
 Now, anyone with access to the GitHub management repo can:
 
