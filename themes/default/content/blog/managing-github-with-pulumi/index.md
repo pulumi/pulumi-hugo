@@ -86,7 +86,7 @@ Now, Pulumi is _great_ at creating new infrastructure from scratch via code. But
 
 Enter [Pulumi Import]({{< relref "/docs/reference/cli/pulumi_import" >}}).
 
-What Pulumi Import does, in a nutshell, is find existing infrastructure by unique ID (in the GitHub provider’s case, the team ID), and add them to a Pulumi Stack. You can find the specific import instructions on the registry documentation for each resource. In this case we want the [GitHub import instructions]({{< relref "/registry/packages/github/api-docs/team/#import" >}}).
+What Pulumi Import does, in a nutshell, is find existing infrastructure by unique ID (in the GitHub provider’s case, the team ID), and add them to a Pulumi Stack. You can find the specific import instructions on the registry documentation for each resource. In this case we want the [GitHub import instructions]({{< relref "/registry/packages/github/api-docs/team#import" >}}).
 
 ```bash
 $ pulumi import github:index/team:Team animals 1234567
@@ -240,7 +240,7 @@ Child Teams               Child1                  Child2
 (inherit all permissions)
 ```
 
-To establish this relationship, we set a [ParentTeamId]({{< relref "/registry/packages/github/api-docs/team/#state_parentteamid_go" >}}) on child teams. First off, we add a new field to our Teams struct:
+To establish this relationship, we set a [ParentTeamId]({{< relref "/registry/packages/github/api-docs/team#state_parentteamid_go" >}}) on child teams. First off, we add a new field to our Teams struct:
 
 ```go
 type Team struct {
@@ -260,7 +260,7 @@ Here is where things get a little tricky. Any GitHub Team can have subteams, but
 4. Write the parent team’s ID into the `ParentTeamId field` of each child team.
 5. Do all of the above in a single `pulumi up`.
 
-This is where maintaining infrastructure with Pulumi truly shines. In our code, we can use [Pulumi Apply]({{< relref "/docs/intro/concepts/inputs-outputs/#apply" >}}) to hold on to the promise of a parent team ID, and pass this promise into the appropriate field:
+This is where maintaining infrastructure with Pulumi truly shines. In our code, we can use [Pulumi Apply]({{< relref "/docs/intro/concepts/inputs-outputs#apply" >}}) to hold on to the promise of a parent team ID, and pass this promise into the appropriate field:
 
 ```go
 func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
