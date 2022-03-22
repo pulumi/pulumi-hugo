@@ -4,7 +4,7 @@ date: 2022-03-22T11:29:33-07:00
 meta_desc: In this article, Guinevere Saenger describes how Pulumi migrated management of GitHub team permissions using Pulumi all the way down.
 meta_image: "use-case-stories.png"
 authors: ["guinevere-saenger"]
-tags: ["go", "migration", "packages"]
+tags: ["go", "migration", "packages", "github-actions", "people-ops", "ci-cd"]
 ---
 
 Ah, GitHub. The home of all developers. The place where we share code. The world’s most awkward social media site. The secret LinkedIn for techies. The tool we use for company org structure, work planning, code ownership, and permissions…
