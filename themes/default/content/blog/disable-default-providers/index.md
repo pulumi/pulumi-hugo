@@ -140,7 +140,7 @@ example, [AWS providers][aws-prov], whether they are explicit or default, contro
 multi-region deployments necessitate explicit providers. Likewise, deploying to a newly created Kubernetes cluster
 requires explicit providers since [Kubernetes providers][k8s-prov] describe their cluster. There are many scenarios when
 explicit providers are mandatory for a correct deployment. When it is important that only explicitly configured
-providers are used, default providers lead to unpredictable deployments.
+providers are used, default providers can lead to unpredictable deployments.
 
 [aws-prov]:{{< relref "/registry/packages/aws/api-docs/provider/" >}}
 [k8s-prov]:{{< relref "/registry/packages/kubernetes/api-docs/provider/" >}}
@@ -312,9 +312,10 @@ configuration file:
 pulumi:disable-default-providers: [“*”]
 ```
 
-Now that you can disable the default provider, you don’t have to worry about all of the possible unexpected consequences
+Now that you can [disable the default provider][dis-def-prov], you don’t have to worry about all of the possible unexpected consequences
 accidentally relying on your system configuration. We can’t wait to find out what you’ll build next! If you want to have
 an impact on our roadmap, you can go to our [public roadmap][roadmap] and vote on issues with the rest of the community.
 Let us know what you think!
 
+[dis-def-prov]:{{< relref "/docs/intro/concepts/resources/providers#disabling-default-providers" >}}
 [roadmap]:https://github.com/orgs/pulumi/projects/44
