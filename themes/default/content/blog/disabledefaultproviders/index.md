@@ -6,7 +6,19 @@ authors: [ ian-wahbe ]
 tags: [ features ]
 ---
 
-As of 3.23.0, users can disable the default provider with Pulumi. So what does this mean for you? If you’ve been using Pulumi for a bit, you’ll have encountered provider resources, which are how we abstract the global state of a cloud provider. All resources have an associated provider. If no provider is supplied in the user’s code, a default provider is created to serve the resource. On the other hand, explicit providers defined by the user allow programmatic and dynamic control of how a resource deploys into a cloud. A Pulumi resource can be instructed to use an explicit provider by setting the provider resource option or by inheriting the provider from the resource's parent resource.
+As of 3.23.0, users can disable the default provider with Pulumi. So what does this mean for you? If you’ve been using
+Pulumi for a bit, you’ll have encountered [provider resources][prov-res], which are how we abstract the global state of
+a cloud provider. All resources have an associated provider. If no provider is supplied in the user’s code, a [default
+provider][def-prov] is created to serve the resource. On the other hand, explicit providers defined by the user allow
+programmatic and dynamic control of how a resource deploys into a cloud. A Pulumi [resource][res] can be instructed to
+use an explicit provider by setting the [provider resource option][prov-res-opts] or by inheriting the provider from the
+resource's [parent resource][par-res].
+
+[prov-res]:{{< relref "/docs/intro/concepts/resources/providers" >}}
+[def-prov]:{{< relref "/docs/intro/concepts/resources/providers#default-provider-configuration" >}}
+[res]:{{< relref "/docs/intro/concepts/resources" >}}
+[prov-res-opts]:{{< relref "/docs/intro/concepts/resources/options/provider" >}}
+[par-res]:{{< relref "/docs/intro/concepts/resources/options/parent" >}}
 
 <!-- more -->
 
@@ -123,7 +135,15 @@ new S3.BucketObject("index.html", new S3.BucketObjectArgs {
 
 {{< /chooser >}}
 
-Default providers help keep simple things simple but make other actions impossible. As demonstrated in the above example, AWS providers, whether they are explicit or default, control the deployment region. That means multi-region deployments necessitate explicit providers. Likewise, deploying to a newly created Kubernetes cluster requires explicit providers since Kubernetes providers describe their cluster. There are many scenarios when explicit providers are mandatory for a correct deployment. When it is important that only explicitly configured providers are used, default providers lead to unpredictable deployments.
+Default providers help keep simple things simple but make other actions impossible. As demonstrated in the above
+example, [AWS providers][aws-prov], whether they are explicit or default, control the deployment region. That means
+multi-region deployments necessitate explicit providers. Likewise, deploying to a newly created Kubernetes cluster
+requires explicit providers since [Kubernetes providers][k8s-prov] describe their cluster. There are many scenarios when
+explicit providers are mandatory for a correct deployment. When it is important that only explicitly configured
+providers are used, default providers lead to unpredictable deployments.
+
+[aws-prov]:{{< relref "/registry/packages/aws/api-docs/provider/" >}}
+[k8s-prov]:{{< relref "/registry/packages/kubernetes/api-docs/provider/" >}}
 
 Imagine you are trying to create a bucket in each AWS region you have access to. I might write the following code:
 
@@ -251,7 +271,11 @@ async Task<S3.Bucket[]> regionalBuckets(Pulumi.Config config) {
 
 {{< /chooser >}}
 
-This code will create a bucket in each region that the currently logged-in AWS account has access to. If someone else ran the same code on a computer logged in to another account, Pulumi could create different buckets, even though all buckets were provisioned by an explicit provider. This behavior is because we forgot to specify the provider for the call to `aws.getRegions`. As a result, you might not notice that something unexpected happened because there would be no error. By disabling the default `aws` provider, we would get the following error instead:
+This code will create a bucket in each region that the currently logged-in AWS account has access to. If someone else
+ran the same code on a computer logged in to another account, Pulumi could create different buckets, even though all
+buckets were provisioned by an explicit provider. This behavior is because we forgot to specify the provider for the
+call to `aws.getRegions`. As a result, you might not notice that something unexpected happened because there would be no
+error. By disabling the default `aws` provider, we would get the following error instead:
 
 ```
 Error: Invoke: Default provider for 'aws' disabled. 'aws:index/getRegions:getRegions' must use an explicit provider.
@@ -259,11 +283,21 @@ Error: Invoke: Default provider for 'aws' disabled. 'aws:index/getRegions:getReg
 
 To prevent this category of problem, Pulumi now offers the ability to disable default providers on a per-stack basis.  
 
-Disabling default providers has been a popular community request. To meet that request, we’ve added the ability to disable default providers in the 3.23.0 release. The Pulumi config variable `pulumi:disable-default-providers` represents the list of packages whose default providers are disabled. Attempting to invoke a disabled default provider will fail, raising an error as in the previous example.
+Disabling default providers has been a popular [community request][req]. To meet that request, we’ve added the ability to
+disable default providers in the [3.23.0 release][release]. The Pulumi config variable `pulumi:disable-default-providers`
+represents the list of packages whose default providers are disabled. Attempting to invoke a disabled default provider
+will fail, raising an error as in the previous example.
+
+[req]:https://github.com/pulumi/pulumi/issues/3383
+[release]:https://github.com/pulumi/pulumi/releases/tag/v3.23.0
 
 ## How to disable default providers
 
-Disabling a default provider involves adding the relevant package name to the config list `pulumi:disable-default-providers`. For example, disabling the default provider for Kubernetes and AWS would look like this snippet in the configuration file:
+Disabling a default provider involves adding the relevant package name to the config list
+`pulumi:disable-default-providers`. For example, disabling the default provider for Kubernetes and AWS would look like
+this snippet in the [configuration file][config]:
+
+[config]:{{< relref "/docs/intro/concepts/project/#stack-settings-file" >}}
 
 ```yaml
 pulumi:disable-default-providers:
@@ -271,10 +305,16 @@ pulumi:disable-default-providers:
 - kubernetes
 ```
 
-If you want to enforce that no resource should use a default provider, you would add the following snippet to the configuration file:
+If you want to enforce that no resource should use a default provider, you would add the following snippet to the
+configuration file:
 
 ```yaml
 pulumi:disable-default-providers: [“*”]
 ```
 
-Now that you can disable the default provider, you don’t have to worry about all of the possible unexpected consequences accidentally relying on your system configuration. We can’t wait to find out what you’ll build next! If you want to have an impact on our roadmap, you can go to our public roadmap and vote on issues with the rest of the community. Let us know what you think!
+Now that you can disable the default provider, you don’t have to worry about all of the possible unexpected consequences
+accidentally relying on your system configuration. We can’t wait to find out what you’ll build next! If you want to have
+an impact on our roadmap, you can go to our [public roadmap][roadmap] and vote on issues with the rest of the community. Let us
+know what you think!
+
+[roadmap]:https://github.com/orgs/pulumi/projects/44
