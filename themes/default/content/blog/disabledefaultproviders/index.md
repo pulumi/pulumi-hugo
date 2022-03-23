@@ -1,6 +1,6 @@
 ---
 title: "Unlock Programmatic Control by Disabling Default Providers"
-date: 2022-03-18
+date: 2022-03-23
 meta_desc: Introducing the new config parameter disable-default-providers.
 authors: [ ian-wahbe ]
 tags: [ features ]
@@ -283,10 +283,10 @@ Error: Invoke: Default provider for 'aws' disabled. 'aws:index/getRegions:getReg
 
 To prevent this category of problem, Pulumi now offers the ability to disable default providers on a per-stack basis.  
 
-Disabling default providers has been a popular [community request][req]. To meet that request, we’ve added the ability to
-disable default providers in the [3.23.0 release][release]. The Pulumi config variable `pulumi:disable-default-providers`
-represents the list of packages whose default providers are disabled. Attempting to invoke a disabled default provider
-will fail, raising an error as in the previous example.
+Disabling default providers has been a popular [community request][req]. To meet that request, we’ve added the ability
+to disable default providers in the [3.23.0 release][release]. The Pulumi config variable
+`pulumi:disable-default-providers` represents the list of packages whose default providers are disabled. Attempting to
+invoke a disabled default provider will fail, raising an error as in the previous example.
 
 [req]:https://github.com/pulumi/pulumi/issues/3383
 [release]:https://github.com/pulumi/pulumi/releases/tag/v3.23.0
@@ -314,7 +314,7 @@ pulumi:disable-default-providers: [“*”]
 
 Now that you can disable the default provider, you don’t have to worry about all of the possible unexpected consequences
 accidentally relying on your system configuration. We can’t wait to find out what you’ll build next! If you want to have
-an impact on our roadmap, you can go to our [public roadmap][roadmap] and vote on issues with the rest of the community. Let us
-know what you think!
+an impact on our roadmap, you can go to our [public roadmap][roadmap] and vote on issues with the rest of the community.
+Let us know what you think!
 
 [roadmap]:https://github.com/orgs/pulumi/projects/44
