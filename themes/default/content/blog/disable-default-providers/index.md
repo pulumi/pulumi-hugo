@@ -288,8 +288,8 @@ to disable default providers in the [3.23.0 release][release]. The Pulumi config
 `pulumi:disable-default-providers` represents the list of packages whose default providers are disabled. Attempting to
 invoke a disabled default provider will fail, raising an error as in the previous example.
 
-[req]:https://github.com/pulumi/pulumi/issues/3383
-[release]:https://github.com/pulumi/pulumi/releases/tag/v3.23.0
+[req]:<https://github.com/pulumi/pulumi/issues/3383>
+[release]:<https://github.com/pulumi/pulumi/releases/tag/v3.23.0>
 
 ## How to disable default providers
 
@@ -318,4 +318,4 @@ an impact on our roadmap, you can go to our [public roadmap][roadmap] and vote o
 Let us know what you think!
 
 [dis-def-prov]:{{< relref "/docs/intro/concepts/resources/providers#disabling-default-providers" >}}
-[roadmap]:https://github.com/orgs/pulumi/projects/44
+[roadmap]:<https://github.com/orgs/pulumi/projects/44>
