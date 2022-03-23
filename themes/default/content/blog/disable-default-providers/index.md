@@ -3,6 +3,7 @@ title: "Unlock Programmatic Control by Disabling Default Providers"
 date: 2022-03-23
 meta_desc: Introducing the new config parameter disable-default-providers.
 authors: [ ian-wahbe ]
+meta_image: disable-default-providers.png
 tags: [ features ]
 ---
 
