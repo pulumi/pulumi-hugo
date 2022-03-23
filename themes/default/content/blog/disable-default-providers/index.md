@@ -22,7 +22,7 @@ resource's [parent resource][par-res].
 
 <!-- more -->
 
-As an example, consider this basic s3 bucket and object for AWS, with an explicit provider that defines an AWS region:
+As an example, consider this basic S3 bucket and object for AWS, with an explicit provider that defines an AWS region:
 
 {{< chooser language "typescript,python,go,csharp" >}}
 
