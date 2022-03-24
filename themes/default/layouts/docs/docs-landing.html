@@ -1,0 +1,132 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8 mt-2">
+    <div class="lg:flex">
+        <div class="lg:hidden mb-6">
+            <button class="docs-sidebar-toggle items-center px-3 py-2 border rounded">
+                Toggle Docs Navigation
+            </button>
+        </div>
+
+        <div class="docs-sidebar-content hidden lg:block lg:w-3/12 pr-8 mb-2 pt-8 lg:order-first lg:border-none lg:pt-0 lg:mt-0">
+            <div class="sticky-sidebar">
+                <div class="lg:mt-1 mb-6">
+                    {{ partial "docs/search.html" . }}
+                </div>
+                <div>
+                    {{ partial "docs/toc.html" . }}
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:w-6/12 lg:px-4">
+            {{ partial "docs/breadcrumb.html" . }}
+
+            <div class="flex flex-col sm:flex-row mb-9">
+                <h1>{{ .Title }}</h1>
+                <a class="docs-landing-btn-primary max-w-xs text-center bg-violet-600 text-white py-1 text-base leading-9 px-6 rounded-full" data-track="header-get-started" href="/docs/get-started/"
+                    title="Get started with Pulumi by creating your first project">
+                    Get Started
+                </a>
+            </div>
+
+            <div>
+                <h3>What is Pulumi?</h3>
+                <div class="text-base xl:mr-24">
+                    <p>The Pulumi Cloud Engineering Platform is an infrastructure-as-software platform comprised of the open-source
+                        Pulumi
+                        CLI and SDK, the Pulumi Service, and the Pulumi Registry.</p>
+                
+                    <p id="docs-landing-read-more-content" class="hidden">Use Pulumi to unlock the power of cloud engineering:
+                        building, deploying, and managing cloud infrastructure useing
+                        real programming languages like C#, Go, JavaScript/TypeScript, and Python.</p>
+                
+                    <a id="docs-landing-read-more-trigger" class="flex items-center text-blue-600 cursor-pointer"><span
+                            class="underline ">Read more</span><i class="fas fa-caret-right text-center w-6"></i></a>
+                    <a id="docs-landing-read-less-trigger" class="flex items-center text-blue-600 cursor-pointer hidden"><span
+                            class="underline ">Read less</span><i class="fas fa-caret-down text-center w-6"></i></a>
+                </div>
+                              
+                <h3 class="mb-6">Documentation Index</h3>
+                <div class="w-full bg-blue-100 py-2.5 flex items-center justify-center text-lg text-black mb-10 px-10 text-center rounded"><span>Looking for Pulumi Package API Documentation? Visit the <a class="underline" href="{{ relref . "/registry" }}">Pulumi Registry</a></span></div>
+                <div class="flex flex-col md:flex-row lg:flex-col xl:flex-row">
+                {{ $toc_sections_left_col := slice "Getting Started" "User Guides" "Converters" }}
+                {{ $toc_sections_right_col := slice "Intro" "Reference" "Support" }}
+                {{ $toc_menus := dict "Getting Started" .Site.Menus.getstarted "Intro" .Site.Menus.intro "User Guides"
+                .Site.Menus.userguides "Converters" .Site.Menus.converters "Reference" .Site.Menus.reference "Support"
+                .Site.Menus.troubleshooting }}
+                    <div class="flex-col mr-8 w-full md:w-2/4 lg:w-full xl:w-2/4">
+                        {{ range $toc_sections_left_col }}
+                        {{ $toc_name := . }}
+                        {{ $toc_menu := (index $toc_menus $toc_name) }}
+                            <div class="card w-full pt-6 pb-2 pl-8 mb-8 relative overflow-hidden">
+                                {{ if ne $toc_name "User Guides"}}
+                                    <div class="shape-background block docs-landing-{{$toc_name | urlize}}">
+                                        <div class="shape-container">
+                                            <div class="circle-left"></div>
+                                            <div class="circle-top"></div>
+                                            <div class="circle-bottom"></div>
+                                        </div>
+                                    </div>
+                                {{ end }}
+                                <div class="flex-col">
+                                    <h3 class="mb-6 text-gray-800 text-xl">{{$toc_name}}</h3>
+                                    {{ range $item := $toc_menu }}
+                                        <div class="mb-4 ml-4">
+                                            <a href="{{ $item.URL }}" data-track="landing-{{ $item.Name | urlize }}" class="text-blue-600 text-lg leading-5 underline">{{ $item.Name }}</a>
+                                        </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            
+                        {{end}}
+                    </div>
+
+                    <div class="flex-col w-full md:w-2/4 lg:w-full xl:w-2/4">
+                        {{ range $toc_sections_right_col }}
+                        {{ $toc_name := . }}
+                        {{ $toc_menu := (index $toc_menus $toc_name) }}
+                            <div class="card w-full pt-6 pb-2 pl-8 mb-8 relative overflow-hidden">
+                                {{ if eq $toc_name "Reference"}}
+                                    <div class="shape-background block docs-landing-{{$toc_name | urlize}}">
+                                        <div class="shape-container">
+                                            <div class="circle-left"></div>
+                                            <div class="circle-top"></div>
+                                            <div class="circle-bottom"></div>
+                                        </div>
+                                    </div>
+                                {{ end }}
+                                <div class="flex-col">
+                                    <h3 class="mb-6 text-gray-800 text-xl">{{$toc_name}}</h3>
+                                    {{ range $item := $toc_menu }}
+                                        {{ if and (ne $item.Name "API Reference") (ne $item.Name "Cloud Providers")}}
+                                            <div class="mb-4 ml-4">
+                                                <a href="{{ $item.URL }}" data-track="landing-{{ .Name | urlize }}" class="text-blue-600 text-lg leading-5 underline">{{ $item.Name }}</a>
+                                            </div>
+                                        {{ end }}
+                                    {{ end }}
+                                </div>
+                            </div>
+                        {{end}}
+                    </div>
+
+                </div>
+                <div class="text-lg text-gray-800 mt-4">Have questions or need help? <a class="underline text-blue-600" href="{{ relref . " /contact.md" }}">Contact us</a>.</div>
+            </div>
+        </div>
+
+        <div class="lg:w-3/12 lg:pl-8">
+            <div class="sticky-sidebar">
+                <div class="ml-2 hidden lg:block">
+                    {{ partial "docs/right-nav.html" . }}
+                </div>
+
+                <div>
+                    {{ partial "docs/feedback.html" . }}
+                </div>
+
+                {{ partial "right-nav-ad.html" }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
