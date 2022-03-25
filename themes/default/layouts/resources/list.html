@@ -9,6 +9,7 @@
     <!-- Grab the webinar and event page data. -->
     {{ $webinars := (where $.Site.Pages "Type" "webinars") }}
     {{ $events := (where $.Site.Pages "Type" "events") }}
+    {{ $livestreams := (where $.Site.Pages "Type" "livestreams") }}
 
     <!-- Create dicts so we can sort the resources by start/publish date. -->
     {{ $resourcesWithDate := slice }}
@@ -29,6 +30,12 @@
             {{ end }}
         {{ end }}
     {{ end }}
+        <!-- Create the resource data dicts for livestreams. -->
+    {{ range $livestreams }}
+        {{ if ne .Params.unlisted true }}
+            {{ $resourcesWithDate = $resourcesWithDate | append (dict "date" .Params.main.sortable_date "data" .) }}
+        {{ end }}
+    {{ end }}
 
     <!-- Create the resource data dicts for events. -->
     {{ range $events }}
@@ -47,6 +54,7 @@
             <span id="upcoming" class="hidden"></span>
             <span id="videos" class="hidden"></span>
             <span id="pulumitv" class="hidden"></span>
+            <span id="livestreams" class="hidden"></span>
             <span id="whitepapers" class="hidden"></span>
 
             <!-- The event filter -->
@@ -72,6 +80,7 @@
             <h3 class="hidden ml-5 text-black" data-filter-title="videos"><i class="fas fa-video mr-8"></i>Videos</h3>
             <h3 class="hidden ml-5 text-black" data-filter-title="pulumitv"><i class="fas fa-tv mr-8"></i>PulumiTV</h3>
             <h3 class="hidden ml-5 text-black" data-filter-title="whitepapers"><i class="fas fa-book mr-8"></i>Whitepapers</h3>
+            <h3 class="hidden ml-5 text-black" data-filter-title="livestreams"><i class="fas fa-book mr-8"></i>Livestreams</h3>
             <!-- Resources list. -->
             <ul class="flex flex-wrap justify-center list-none p-0 sm:p-2 resource-list">
 
@@ -122,7 +131,15 @@
                         {{ else }}
                             {{ $filters = $filters | append "upcoming" }}
                         {{ end }}
-
+                    {{ else if eq $data.Type "livestreams" }}
+                        {{ $icon = "tv" }}
+                        {{ $filters = $filters | append "livestream" }}
+                        {{ $description = $data.Params.meta_desc }}
+                        {{ $displayDate = dateFormat "January 2, 2006" $data.Params.main.sortable_date }}
+                        {{ if not $data.Params.pre_recorded }}
+                            {{ $filters = $filters | append "upcoming"}}
+                        {{ end }}
+                        {{ $link = printf "/resources/%s" $data.Params.url_slug }}
                     {{ else if eq $data.Type "events" }}
                         <!-- Set the appropriate values for the event. -->
                         {{ $description = $data.Params.event.description }}

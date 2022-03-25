@@ -24,6 +24,9 @@ sections:
     - label: PulumiTV
       anchor: pulumitv
       icon: tv
+    - label: Livestreams
+      anchor: livestreams
+      icon: video
     - label: Whitepapers
       anchor: whitepapers
       icon: book
