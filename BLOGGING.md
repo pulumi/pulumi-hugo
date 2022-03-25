@@ -20,7 +20,7 @@ proceed to the next section.
 
 ## Make a New Post
 
-1. Move onto a new branch for your blog post using `git checkout initials/your-blog-post` (replace initials with your initials, and replace your-blog-post with the name of your blog post). 
+1. Move onto a new branch for your blog post using `git checkout -b initials/your-blog-post` (replace initials with your initials, and replace your-blog-post with the name of your blog post). 
 
 2. Resist the temptation to copy-and-tweak an existing post! Instead, run the following
 command into the terminal (at the root of the project). This will generate a new file,
