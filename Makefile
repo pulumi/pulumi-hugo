@@ -46,3 +46,8 @@ new-learn-module:
 .PHONY: new-learn-topic
 new-learn-topic:
 	./scripts/content/new-learn-topic.sh
+
+.PHONY: new-livestream
+new-livestream:
+	hugo new --kind livestream --contentDir themes/default/content \
+	"resources/$(shell bash -c 'read -p "Slug (e.g., 'my-new-post'): " slug; echo $$slug')"
