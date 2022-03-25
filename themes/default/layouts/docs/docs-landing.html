@@ -21,9 +21,9 @@
         <div class="lg:w-6/12 lg:px-4">
             {{ partial "docs/breadcrumb.html" . }}
 
-            <div class="flex flex-col sm:flex-row mb-9">
-                <h1>{{ .Title }}</h1>
-                <a class="docs-landing-btn-primary max-w-xs text-center bg-violet-600 text-white py-1 text-base leading-9 px-6 rounded-full" data-track="header-get-started" href="/docs/get-started/"
+            <div class="flex flex-col sm:flex-row md:flex-col xl:flex-row mb-9">
+                <h1 class="mr-6">{{ .Title }}</h1>
+                <a class="docs-landing-btn-primary w-36 text-center bg-violet-600 text-white py-1 text-base leading-9 px-6 rounded-full" data-track="header-get-started" href="/docs/get-started/"
                     title="Get started with Pulumi by creating your first project">
                     Get Started
                 </a>
@@ -47,11 +47,11 @@
                 </div>
                               
                 <h3 class="mb-6">Documentation Index</h3>
-                <div class="w-full bg-blue-100 py-2.5 flex items-center justify-center text-lg text-black mb-10 px-10 text-center rounded"><span>Looking for Pulumi Package API Documentation? Visit the <a class="underline" href="{{ relref . "/registry" }}">Pulumi Registry</a></span></div>
+                <div class="w-full bg-blue-100 py-2.5 flex items-center justify-center text-base text-black mb-10 px-10 text-center rounded"><span>Looking for Pulumi Package API Documentation? Visit the <a class="underline" href="{{ relref . "/registry" }}">Pulumi Registry</a></span></div>
                 <div class="flex flex-col md:flex-row lg:flex-col xl:flex-row">
-                {{ $toc_sections_left_col := slice "Getting Started" "User Guides" "Converters" }}
-                {{ $toc_sections_right_col := slice "Intro" "Reference" "Support" }}
-                {{ $toc_menus := dict "Getting Started" .Site.Menus.getstarted "Intro" .Site.Menus.intro "User Guides"
+                {{ $toc_sections_left_col := slice "Get Started with Pulumi" "User Guides" "Support" }}
+                {{ $toc_sections_right_col := slice "Intro" "Converters" "Reference" }}
+                {{ $toc_menus := dict "Get Started with Pulumi" .Site.Menus.getstarted "Intro" .Site.Menus.intro "User Guides"
                 .Site.Menus.userguides "Converters" .Site.Menus.converters "Reference" .Site.Menus.reference "Support"
                 .Site.Menus.troubleshooting }}
                     <div class="flex-col mr-8 w-full md:w-2/4 lg:w-full xl:w-2/4">
@@ -69,11 +69,13 @@
                                     </div>
                                 {{ end }}
                                 <div class="flex-col">
-                                    <h3 class="mb-6 text-gray-800 text-xl">{{$toc_name}}</h3>
+                                    <div class="mb-6 text-gray-800 text-xl font-display">{{$toc_name}}</div>
                                     {{ range $item := $toc_menu }}
-                                        <div class="mb-4 ml-4">
-                                            <a href="{{ $item.URL }}" data-track="landing-{{ $item.Name | urlize }}" class="text-blue-600 text-lg leading-5 underline">{{ $item.Name }}</a>
-                                        </div>
+                                        {{ if ne $item.Name "Overview"}}
+                                            <div class="mb-4 ml-4">
+                                                <a href="{{ $item.URL }}" data-track="landing-{{ $item.Name | urlize }}" class="text-blue-600 text-lg leading-5 underline">{{ $item.Name }}</a>
+                                            </div>
+                                        {{ end }}
                                     {{ end }}
                                 </div>
                             </div>
@@ -86,7 +88,7 @@
                         {{ $toc_name := . }}
                         {{ $toc_menu := (index $toc_menus $toc_name) }}
                             <div class="card w-full pt-6 pb-2 pl-8 mb-8 relative overflow-hidden">
-                                {{ if eq $toc_name "Reference"}}
+                                {{ if eq $toc_name "Converters"}}
                                     <div class="shape-background block docs-landing-{{$toc_name | urlize}}">
                                         <div class="shape-container">
                                             <div class="circle-left"></div>
@@ -96,9 +98,9 @@
                                     </div>
                                 {{ end }}
                                 <div class="flex-col">
-                                    <h3 class="mb-6 text-gray-800 text-xl">{{$toc_name}}</h3>
+                                    <div class="mb-6 text-gray-800 text-xl font-display">{{$toc_name}}</div>
                                     {{ range $item := $toc_menu }}
-                                        {{ if and (ne $item.Name "API Reference") (ne $item.Name "Cloud Providers")}}
+                                        {{ if and (ne $item.Name "API Reference") (ne $item.Name "Cloud Providers") (ne $item.Name "Overview")}}
                                             <div class="mb-4 ml-4">
                                                 <a href="{{ $item.URL }}" data-track="landing-{{ .Name | urlize }}" class="text-blue-600 text-lg leading-5 underline">{{ $item.Name }}</a>
                                             </div>
