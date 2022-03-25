@@ -23,7 +23,7 @@ What is user experience, or UX? There are plenty of answers depending on who you
 
 Here at Pulumi, our UX team asks questions for and about developers. Our purpose is to understand the Pulumi user and do right by them. We come into conversations as user advocates on the lookout for stumbling blocks.
 
-We are a cross-disciplinary UX team. Our designers define and imagine new experiences. Our dedicated UX engineer brings them to life. Collaboration affords us a dual-perspective on every problem. It also empowers us to make the changes we want to see. Together, our team adds value across Pulumi's CLI, Service, marketing website, Docs, and Registry. 
+We are a cross-disciplinary UX team. Our designers define and imagine new experiences. Our dedicated UX engineer brings them to life. Collaboration affords us a dual-perspective on every problem. It also empowers us to make the changes we want to see. Together, our team adds value across Pulumi's CLI, Service, marketing website, Docs, and Registry.
 
 Some of the principles that matter most to us:
 
@@ -39,7 +39,7 @@ Since the new year, our team has grown from one to four. Recently, we opened a [
 
 ## Where you've seen us
 
-You’ll find the UX team's work everywhere. Maybe you noticed the revamped pricing page following our [Business Critical launch](https://www.pulumi.com/blog/business-critical-launch/). 
+You’ll find the UX team's work everywhere. Maybe you noticed the revamped pricing page following our [Business Critical launch](https://www.pulumi.com/blog/business-critical-launch/).
 
 ![Editions](editions.svg)
 
