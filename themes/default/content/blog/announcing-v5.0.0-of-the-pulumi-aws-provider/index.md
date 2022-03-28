@@ -1,6 +1,6 @@
 ---
 title: "Announcing v5.0.0 of the Pulumi AWS Provider"
-date: 2022-03-23
+date: 2022-03-28
 meta_desc: "v5.0.0 of the Pulumi AWS Provider is now available"
 meta_image: meta.png
 authors:
@@ -9,12 +9,14 @@ tags:
 - aws
 ---
 
-We are excited to announce v5.0.0 of the Pulumi AWS Provider. Pulumi prides itself on how it continually tries to ensure
-that major version releases are compatible with existing applications. The upstream provider that this is based upon, has had
-a major breaking change in the S3 Bucket resource. In order to ensure that our users are not impacted, We have extended
-our provider to provider both the old implementation and the new implementation of the S3 Bucket resource.
-This means that all existing usages of S3 Bucket will continue to work as normal. We also now offer the ability to
-create a v2 variants of the S3 Bucket.
+We are excited to announce v5.0.0 of the Pulumi [AWS Classic](https://www.pulumi.com/registry/packages/aws/) provider. The AWS Classic provider is one of the most heavily used providers across the Pulumi ecosystem, and offers access to the full surface area of the upstream Terraform AWS Provider from within Pulumi projects in all supported Pulumi languages. The v5.0.0 release brings a substantial set of [fixes and improvements](https://github.com/hashicorp/terraform-provider-aws/blob/main/CHANGELOG.md#400-february-10-2022) to the provider, including a number of breaking
+changes as part of the major version release.
+
+<!--more-->
+
+At Pulumi, we take compatibility seriously, and are concious of the impact that major version updates can have on developer adoption. To that end, it is always our goal to minimize the extent of breaking changes where possible, and to provide easy paths for adoption of new versions. Among the breaking changes that come along with the upstream provider update, one in particular has potential to be disruptive to common usage of the Pulumi AWS Classic provider - a change to the API for the AWS S3 Bucket resource which removes many features from the Bucket resource and introduces new resources to represent these capabilities.
+
+In order to ensure that Pulumi AWS Classic users are not adversly impacted by this breaking change, we have extended the Pulumi AWS Classic provider to offer both the old implementation and the new implementation of the S3 Bucket resource. This means that all existing usages of S3 Bucket will continue to work as normal. We also now offer the ability to create a v2 variants of the S3 Bucket supported in the new upstream AWS provider.
 
 Let's consider an existing implemention of an S3 Bucket that is used to create a static website:
 
@@ -157,7 +159,7 @@ class WebsiteStack : Stack
     public WebsiteStack()
     {
         var siteBucket = new Bucket("s3-website-bucket", new BucketArgs{});
-        
+
         var websiteConfig = new Aws.S3.BucketWebsiteConfigurationV2("website-config", new Aws.S3.BucketWebsiteConfigurationV2Args
         {
             Bucket = siteBucket.Bucket,
@@ -239,5 +241,5 @@ Your existing infrastructure is not going to change and thus we can easily migra
 
 ## Get Started Today!
 
-You can browse our [API reference docs](https://www.pulumi.com/registry/packages/aws/) with inline examples or explore 
+You can browse our [API reference docs](https://www.pulumi.com/registry/packages/aws/) with inline examples or explore
 the [Pulumi AWS SDKs](https://github.com/pulumi/pulumi-aws) repository to get started today!
