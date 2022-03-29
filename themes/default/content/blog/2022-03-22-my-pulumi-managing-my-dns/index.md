@@ -1,6 +1,6 @@
 ---
 title: "My Pulumi: Managing My DNS"
-date: 2022-03-22T10:00:00Z
+date: 2022-03-29T10:00:00Z
 draft: false
 meta_desc: In this aritcle, Rawkode shows how he uses Pulumi to manage the DNS records for his many domains.
 meta_image: meta.png
