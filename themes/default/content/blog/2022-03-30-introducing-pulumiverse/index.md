@@ -59,15 +59,12 @@ The Kubernetes SDKs project aims to provide multi-language SDKs for interacting 
 
 This is just the beginning, and we want to expand this collection quickly. So if you're working with Kubernetes and want a rich developer experience for authoring custom resources, open an issue and let us know what you need.
 
-### Pulumi Unifi
-
-[Unifi Provider](https://github.com/pulumiverse/pulumi-unifi)
-
-This community-maintained provider is one example of how you can share your providers with the world as part of the Pulumiverse.
-
-### Pulumi Concourse
+### Pulumi Concourse & Unifi
 
 [Concourse Provider](https://github.com/pulumiverse/pulumi-concourse)
+[Unifi Provider](https://github.com/pulumiverse/pulumi-unifi)
+
+These are community-maintained providers and are examples of how you can share your providers with the world as part of the Pulumiverse.
 
 ### Your Project?
 
