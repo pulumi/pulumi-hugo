@@ -109,10 +109,3 @@ Sometimes, though, you might not be able to find a clear reason why your program
 ---
 
 I hope this article helps you get where you need to go when your Pulumi program doesn't stand up quite right! To learn more about troubleshooting Pulumi, [head to the docs]({{< relref "/docs/troubleshooting" >}}), and feel free to [reach out to me on Twitter](https://twitter.com/nimbinatus) to let me know if you found this article helpful!
-
-
-
-https://github.com/pulumi/pulumi/blob/master/pkg/cmd/pulumi/pulumi.go#L181-L182
-https://github.com/pulumi/pulumi/blob/master/sdk/go/common/util/logging/log.go
-
-
