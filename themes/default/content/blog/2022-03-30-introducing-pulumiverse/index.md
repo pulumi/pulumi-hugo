@@ -17,11 +17,7 @@ Fortunately, two other wonderful Pulumi community members stepped up and started
 
 I spoke with [Ringo De Smet](https://twitter.com/ringods), Head of CI/CD at Napoleon Games and founding Pulumiverse member, and he had this to say about why he's excited to create the Pulumiverse:
 
-> For infrastructure automation, we had other great tools which preceded Pulumi: Chef, Puppet, Ansible. Any of these tools have a vibrant community of people preventing that all of us need to re-invent the wheel. We had Sous-Chefs[1] for Chef & Vox Pupuli[2] for Puppet. But I see a lot of Pulumi users implementing the same stuff over and over again. That's why I think Pulumi needs it's own community. So I started it: Pulumiverse[3]
-
-[1]: https://sous-chefs.org
-[2]: https://voxpupuli.org
-[3]: https://github.com/pulumiverse
+> For infrastructure automation, we had other great tools which preceded Pulumi: Chef, Puppet, Ansible. Any of these tools have a vibrant community of people preventing that all of us need to re-invent the wheel. We had [Sous-Chefs](https://sous-chefs.org) for Chef & [Vox Pupuli](https://voxpupuli.org) for Puppet. But I see a lot of Pulumi users implementing the same stuff over and over again. That's why I think Pulumi needs it's own community. So I started it: [Pulumiverse](https://github.com/pulumiverse)
 
 ## What is the Pulumiverse?
 
@@ -35,7 +31,7 @@ The Pulumiverse launches with just a few projects, but we know that, with the su
 
 ### Awesome Pulumi
 
-[Awesome Pulumi](https://github.com/pulumiverse/awesome-pulumi)
+🐙 [Awesome Pulumi](https://github.com/pulumiverse/awesome-pulumi)
 
 Everybody loves an awesome list, and this one delivers to you a list of awesome Pulumi resources, books, tutorials, talks, and much more.
 
@@ -43,7 +39,7 @@ Want your project listed? Open a PR. We can't wait to share it with everyone.
 
 ### Kubernetes SDKs
 
-[Kubernetes SDKs](https://github.com/pulumiverse/kubernetes-sdks)
+🐙 [Kubernetes SDKs](https://github.com/pulumiverse/kubernetes-sdks)
 
 The Kubernetes SDKs project aims to provide multi-language SDKs for interacting with Kubernetes Custom Resource Definitions (CRDs). Currently, it automatically builds SDKs for:
 
@@ -61,8 +57,8 @@ This is just the beginning, and we want to expand this collection quickly. So if
 
 ### Pulumi Concourse & Unifi
 
-[Concourse Provider](https://github.com/pulumiverse/pulumi-concourse)
-[Unifi Provider](https://github.com/pulumiverse/pulumi-unifi)
+- [Concourse Provider](https://github.com/pulumiverse/pulumi-concourse)
+- [Unifi Provider](https://github.com/pulumiverse/pulumi-unifi)
 
 These are community-maintained providers and are examples of how you can share your providers with the world as part of the Pulumiverse.
 
