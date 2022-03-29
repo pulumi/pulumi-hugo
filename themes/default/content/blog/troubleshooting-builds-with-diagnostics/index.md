@@ -16,11 +16,17 @@ One of the most common things a developer, an operations professional, a securit
 
 ## Getting data
 
-First, if you don't know how to get diagnostic data from a Pulumi run, our [troubleshooting page]({{< relref "/docs/troubleshooting" >}}) is a good place to start. There's a section specifically on [diagnostics]({{< relref "/docs/troubleshooting#diagnosing-issues" >}}). However, let's dig in on this a bit.
+First, if you don't know how to get diagnostic data from a Pulumi run, our [troubleshooting page]({{< relref "/docs/troubleshooting" >}}) is a good place to start. There's a section specifically on [diagnostics]({{< relref "/docs/troubleshooting#diagnosing-issues" >}}). If you're in a hurry, though, here's the fast answer that gives you every single piece of data you could possibly want:
+
+```bash
+TF_LOG=TRACE PULUMI_DEBUG_PROMISE_LEAKS=true pulumi <command> -v=11 --logflow --logtostderr 2>&1 | tee -a pulumi_log.txt
+```
+
+However, let's dig in on this a bit as there's a lot to unpack.
 
 ### Data sources
 
-There are two different kinds of diagnostics you can get from a standard Pulumi CLI command because there're actually two pieces running: the Pulumi [deployment engine]({{< relref "/docs/intro/concepts/how-pulumi-works#deployment-engine" >}}) and the [providers]({{< relref "/docs/reference/glossary#resource-provider" >}}) (resource providers, cloud providers, etc.). To get data from each piece, you need to run different flags. In general, the root flag you'll always need is the `-v` flag, which stands for "verbose" (that's standard for most CLIs). That flag gives you data from the deployment engine. If you want general diagnostics for a `pulumi up`, you would add the `-v` flag with a number representing the logging level you need:
+There are two different kinds of diagnostics you can get from a standard Pulumi CLI command because there're actually two pieces running: the Pulumi [deployment engine]({{< relref "/docs/intro/concepts/how-pulumi-works#deployment-engine" >}}) and the [resource providers]({{< relref "/docs/reference/glossary#resource-provider" >}}). To get data from each piece, you need to run different flags. In general, the root flag you'll always need is the `-v` flag, which stands for "verbose" (that's standard for most CLIs). That flag gives you data from the deployment engine. If you want general diagnostics for a `pulumi up`, you would add the `-v` flag with a number representing the logging level you need:
 
 ```bash
 pulumi up -v=5
@@ -28,13 +34,19 @@ pulumi up -v=5
 
 How do you decide which level to ask for? In the classic style of professionals discussing complex data, "it depends." We often encourage people to start at level 9, which gives you almost everything you need. Level 1 can be thought of as equivalent to `CRITICAL` messages only---Red Alert, panic panic panic. Level 9, on the other hand, can be thought of as equivalent to `DEBUG` messages and above---give me all the things. And then, of course because [every dial needs to unlock more power](https://youtu.be/KOO5S4vxi0o), you can turn it up to 11, which can be thought of as `TRACE` in many logging paradigms.
 
-Now, that flag only covers what Pulumi's engine is doing. Most of the time, you also need data from the providers you're calling. Each API that Pulumi works with has their own format of diagnostic data, and we need to pass in a flag to ensure those logs bubble up. Why is there a separate flag? Well, some Pulumi providers use a schema from the Terraform community to connect to various systems since so many didn't really have create-read-update-delete (CRUD) operations mapped out when they started. For those providers, an environment variable is needed to surface the right data in the diagnostics. For non-"bridged" providers (meaning providers that don't use the Terraform schema), you won't need that variable to get set, but you do need a different flag to ask those child processes to bubble up their data. Because there are a lot of moving parts in a Pulumi program, there're a lot of places to get data from, and all of these flags allow you to decide what data you need.
+Now, that flag only covers what Pulumi's engine is doing. Most of the time, you also need data from the providers you're calling. Each API that Pulumi works with has their own format of diagnostic data, and we need to pass in a flag to ensure those logs bubble up. Why is there a separate flag? Well, some Pulumi providers use a schema from the Terraform community to connect to various systems. Many providers didn't really have create-read-update-delete (CRUD) operations mapped out when they started, which is why the Terraform schema exists in the first place. For those providers, an environment variable is needed to surface the right data in the diagnostics. For non-"bridged" providers (meaning providers that don't use the Terraform schema), you won't need that variable to get set, but you do need a different flag to ask those child processes to bubble up their data. Because there are a lot of moving parts in a Pulumi program, there're a lot of places to get data from, and all of these flags allow you to decide what data you need.
 
 So, to get diagnostic data for "bridged" providers, you need to add in the `TF_LOG` environment variable:
 
 ```bash
 TF_LOG=DEBUG pulumi up -v=5
 ```
+
+How can you tell if a provider uses the Terraform bridge? There's two ways. First, you can [open up the provider in the Registry](https://registry.pulumi.com/) and check the **Package Details** at the bottom of the API docs landing page. If the Notes section lists the provider as based on a Terraform provider, you know the provider uses the Terraform bridge.
+
+ ![An example provider's Package Details that contains a link to the provider's GitHub repo, the open-source license information for the provider, and a note explaining the provider is based off of a Terraform provider.](./package_details.png "Package Details on a provider")
+
+Second, if you'd rather check from the provider's repository, you can search for `tfgen` in the repository's Makefile, like in [this search of the Makefile for the Aiven provider](https://github.com/pulumi/pulumi-aiven/search?l=Makefile&q=tfgen).
 
 To get data from another provider that isn't "bridged," you need to pass in the `--logflow` flag, which asks the providers (all child processes) to bubble up their data:
 
@@ -48,7 +60,38 @@ In practice, we generally use all of these together because that way, you don't 
 TF_LOG=DEBUG pulumi up -v=9 --logflow
 ```
 
-If you really, really want to go down the rabbit hole, there's also an environment variable to help debug promise leaks. It's very rare you'll need it, but in case you do:
+If you really, really want to go down the rabbit hole, there's also an environment variable to help debug promise leaks. If you have a promise leak somewhere in your code, Pulumi [prints an error message](https://github.com/pulumi/pulumi/blob/f8a9698ca9599240223bed8305bbdfe4c4a5446a/sdk/nodejs/runtime/debuggable.ts#L36-L46) that tells you to use the `PULUMI_DEBUG_PROMISE_LEAKS` environment variable to rerun your command:
+
+```go
+export function leakedPromises(): [Set<Promise<any>>, string] {
+    const leaked = leakCandidates;
+    const promisePlural = leaked.size === 0 ? "promise was" : "promises were";
+    const message = leaked.size === 0 ? "" :
+        `The Pulumi runtime detected that ${leaked.size} ${promisePlural} still active\n` +
+        "at the time that the process exited. There are a few ways that this can occur:\n" +
+        "  * Not using `await` or `.then` on a Promise returned from a Pulumi API\n" +
+        "  * Introducing a cyclic dependency between two Pulumi Resources\n" +
+        "  * A bug in the Pulumi Runtime\n" +
+        "\n" +
+        "Leaving promises active is probably not what you want. If you are unsure about\n" +
+        "why you are seeing this message, re-run your program "
+            + "with the `PULUMI_DEBUG_PROMISE_LEAKS`\n" +
+        "environment variable. The Pulumi runtime will then print out additional\n" +
+        "debug information about the leaked promises.";
+
+    if (debugPromiseLeaks) {
+        for (const leak of leaked) {
+            console.error("Promise leak detected:");
+            console.error(promiseDebugString(leak));
+        }
+    }
+
+    leakCandidates = new Set<Promise<any>>();
+    return [leaked, message];
+}
+```
+
+The variable causes Pulumi to dump the context, stack trace, and error for the leak. It's very rare you'll need to do this kind of debugging, but in case you do:
 
 ```bash
 PULUMI_DEBUG_PROMISE_LEAKS=true pulumi up -v=11
@@ -68,7 +111,7 @@ If you want to write that diagnostic data to a file and not to stdout/stderr, yo
 TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr &>> pulumi_log.txt
 ```
 
-Alternatively,  you could stream that diagnostic data to stdout/stderr *and* write it to a file with a slight change to that line:
+Alternatively, you could stream that diagnostic data to stdout/stderr *and* write it to a file with a slight change to that line:
 
 ```bash
 TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr 2>&1 | tee -a pulumi_log.txt
@@ -94,7 +137,7 @@ Previewing update (dev)
 ...
 ```
 
-We can walk through this, though! Like most logging data, there's some initial labels, timestamps, and process data in the beginning of the line. But the part you want to focus on is the part just before that closing bracket (`]`). In this snippet, you can find the calls to various parts of the Pulumi deployment engine, like `backend.go` or `api.go` (and their relevant lines in the code, so [backend.go:409](https://github.com/pulumi/pulumi/blob/master/pkg/backend/httpstate/backend.go#L409) for that first line). The human-readable messages do give some context, as well. You can use this data to understand where we are in the calls that the engine makes. There's also plugins, which are the various providers. You might find `langruntime_plugin.go`, which reports on what the language host is doing, or `eventsink.go`, which shares which events (or actions happening in the system) are occurring when. As plugins are getting installed, you likely will find a bunch of "skipping file in plugin directory" messages if you've been running Pulumi for a bit. That's all of the older versions of plugins in your Pulumi plugin directory being checked and skipped if a newer one is available and required. Eventually, you'll get to a bunch of [gRPC](https://grpc.io/) calls, which are remote procedure calls that basically provide connecting glue among all of the various subroutines that are running on both the local machine and the remote Pulumi Service.
+We can walk through this, though! Like most logging data, there's some initial labels, timestamps, and process data in the beginning of the line. But the part you want to focus on is the part just before that closing bracket (`]`). In this snippet, you can find the calls to various parts of the Pulumi deployment engine, like `backend.go` or `api.go` (and their relevant lines in the code, so [backend.go:409](https://github.com/pulumi/pulumi/blob/master/pkg/backend/httpstate/backend.go#L409) for that first line). The human-readable messages do give some context, as well. You can use this data to understand where we are in the calls that the engine makes. There's also plugins, which are the various providers. You might find `langruntime_plugin.go`, which reports on what the language host is doing, or `eventsink.go`, which shares which events (or actions happening in the system) are occurring when. As plugins are getting installed, you likely will find a bunch of "skipping file in plugin directory" messages if you've been running Pulumi for a bit. That's all of the older versions of plugins in your Pulumi plugin directory being checked and skipped if a newer one is available and required. Eventually, you'll get to a bunch of [gRPC](https://grpc.io/) calls, which are [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) that basically provide connecting glue among all of the various subroutines that are running on both the local machine and the remote Pulumi Service.
 
 ## Fixing errors
 
