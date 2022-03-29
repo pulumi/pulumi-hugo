@@ -20,15 +20,15 @@ First, if you don't know how to get diagnostic data from a Pulumi run, our [trou
 
 ### Data sources
 
-There's two different kinds of diagnostics you can get from a standard Pulumi CLI command because there's actually two pieces running: the Pulumi [deployment engine]({{< relref "/docs/intro/concepts/how-pulumi-works#deployment-engine" >}}) and the [providers]({{< relref "/docs/reference/glossary#resource-provider" >}}) (resource providers, cloud providers, etc.). To get data from each piece, you need to run different flags. In general, the root flag you'll always need is the `-v` flag, which stands for "verbose" (that's standard for most CLIs). That flag gives you data from the deployment engine. So, if you want general diagnostics for a `pulumi up`, you would add the `-v` flag with a number representing the logging level you need:
+There are two different kinds of diagnostics you can get from a standard Pulumi CLI command because there're actually two pieces running: the Pulumi [deployment engine]({{< relref "/docs/intro/concepts/how-pulumi-works#deployment-engine" >}}) and the [providers]({{< relref "/docs/reference/glossary#resource-provider" >}}) (resource providers, cloud providers, etc.). To get data from each piece, you need to run different flags. In general, the root flag you'll always need is the `-v` flag, which stands for "verbose" (that's standard for most CLIs). That flag gives you data from the deployment engine. If you want general diagnostics for a `pulumi up`, you would add the `-v` flag with a number representing the logging level you need:
 
 ```bash
 pulumi up -v=5
 ```
 
-How do you decide which level to ask for? In the classic style of professionals discussing complex data, it depends. We often encourage people to start at level 9, which gives you almost everything you need. Level 1 can be thought of as equivalent to `CRITICAL` messages only---Red Alert, panic panic panic. Level 9, on the other hand, can be thought of as equivalent to `DEBUG` messages and above---give me all the things. And then, of course because [every dial needs to unlock more power](https://youtu.be/KOO5S4vxi0o), you can turn it up to 11, which can be thought of as `TRACE` in many logging paradigms.
+How do you decide which level to ask for? In the classic style of professionals discussing complex data, "it depends." We often encourage people to start at level 9, which gives you almost everything you need. Level 1 can be thought of as equivalent to `CRITICAL` messages only---Red Alert, panic panic panic. Level 9, on the other hand, can be thought of as equivalent to `DEBUG` messages and above---give me all the things. And then, of course because [every dial needs to unlock more power](https://youtu.be/KOO5S4vxi0o), you can turn it up to 11, which can be thought of as `TRACE` in many logging paradigms.
 
-Now, that flag only covers what Pulumi's engine is doing. Most of the time, you also need data from the providers you're calling. Each API that Pulumi works with has their own format of diagnostic data, and we need to pass in a flag to ensure those logs bubble up. Why is there a separate flag? Well, some Pulumi providers use a schema from the Terraform community to connect to various systems since so many didn't really have create-read-update-delete (CRUD) operations mapped out when they started. For those providers, an environment variable is needed to surface the right data in the diagnostics. For non-"bridged" providers (meaning providers that don't use the Terraform schema), you won't need that variable to get set, but you do need a different flag to ask those child processes to bubble up their data. Because there are a lot of moving parts in a Pulumi program, there's a lot of places to get data from, and all of these flags allow you to decide what data you need.
+Now, that flag only covers what Pulumi's engine is doing. Most of the time, you also need data from the providers you're calling. Each API that Pulumi works with has their own format of diagnostic data, and we need to pass in a flag to ensure those logs bubble up. Why is there a separate flag? Well, some Pulumi providers use a schema from the Terraform community to connect to various systems since so many didn't really have create-read-update-delete (CRUD) operations mapped out when they started. For those providers, an environment variable is needed to surface the right data in the diagnostics. For non-"bridged" providers (meaning providers that don't use the Terraform schema), you won't need that variable to get set, but you do need a different flag to ask those child processes to bubble up their data. Because there are a lot of moving parts in a Pulumi program, there're a lot of places to get data from, and all of these flags allow you to decide what data you need.
 
 So, to get diagnostic data for "bridged" providers, you need to add in the `TF_LOG` environment variable:
 
@@ -68,7 +68,7 @@ If you want to write that diagnostic data to a file and not to stdout/stderr, yo
 TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr &>> pulumi_log.txt
 ```
 
-And, if you're unfamiliar with your shell, you could stream that diagnostic data to stdout/stderr *and* write it to a file with a slight change to that line:
+Alternatively,  you could stream that diagnostic data to stdout/stderr *and* write it to a file with a slight change to that line:
 
 ```bash
 TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr 2>&1 | tee -a pulumi_log.txt
@@ -76,7 +76,7 @@ TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr 2>&1 | tee -a pulumi_log.tx
 
 ## Understanding data
 
-Now, while it's great to get the data, it's not useful unless we can understand what the troubleshooting data actually means. If you were to run these commands, you would get what might appear to be a bunch of unhelpful data:
+While it's great to get the data, it's not useful unless we can understand what the troubleshooting data actually means. If you were to run these commands, you would get what might appear to be a bunch of unhelpful data:
 
 ```bash
 $ pulumi up -v=11 --logtostderr --logflow
