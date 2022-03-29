@@ -12,7 +12,9 @@ Hello, my name is David Flanagan, and I own more domains than I need. The proble
 
 ## Overview
 
-Using Pulumi's ComponentResource API, we're able to provide a nice developer experience for manipulating DNS records through methods on an object---we call this object the "Domain Controller." I have a domain controller for every domain that I own. Through this controller I can add DNS records through helper methods that keep the interface as simple as can be. Let's explore it.
+Using Pulumi's ComponentResource API, we're able to provide a nice developer experience for manipulating DNS records through methods on an object---we call this object the "Domain Controller." I have a domain controller for every domain that I own. Through this controller I can add DNS records through helper methods that keep the interface as simple as can be.
+
+So, let's explore this. First, I'll show you the consumer API and how you work with the `Controller`, then I'll show you how it was put together.
 
 ### Fetching the Controller
 
