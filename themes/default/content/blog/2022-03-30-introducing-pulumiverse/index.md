@@ -63,6 +63,8 @@ This is just the beginning, and we want to expand this collection quickly. So if
 
 [Unifi Provider](https://github.com/pulumiverse/pulumi-unifi)
 
+This community-maintained provider is one example of how you can share your providers with the world as part of the Pulumiverse.
+
 ### Pulumi Concourse
 
 [Concourse Provider](https://github.com/pulumiverse/pulumi-concourse)
