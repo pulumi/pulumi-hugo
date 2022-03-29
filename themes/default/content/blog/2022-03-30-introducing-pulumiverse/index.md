@@ -9,6 +9,8 @@ tags: ["community"]
 ---
 Today, we're excited to announce that we're working with the Pulumi community to provide a place to interact and collaborate on Pulumi-based libraries, projects, and educational materials: the [Pulumiverse](https://github.com/pulumiverse).
 
+<!--more-->
+
 This project is especially important to me, because it's an idea that I've tried in the past, 2018 😯, and failed to commit to and give it the attention it deserves.
 
 Fortunately, two other wonderful Pulumi community members stepped up and started to put together their own programme and with me now being at Pulumi, the timing was amazingly serendipitous.
