@@ -1,0 +1,30 @@
+{{ define "main" }}
+    <div class="container mx-auto flex items-start">
+
+        <div class="w-8/12 mx-auto">
+            <header class="container mx-auto my-8 px-4">
+                {{ partial "docs/breadcrumb.html" . }}
+
+                <h1>{{ .Title }}</h1>
+
+                {{ if .Params.description }}
+                    <p class="text-xl my-8">
+                        {{ .Params.description }}
+                    </p>
+                {{ end }}
+            </header>
+            {{ partial "learn/media" (dict "context" .) }}
+            <section class="container mx-auto my-8 px-4">
+                {{ .Content }}
+            </section>
+            <section class="container mx-auto my-y px-4">
+            {{ range sort $.Site.Data.learn.glossary.entries "term" }}
+                <div class="flex-1 mt-8">
+                    <h3 class="mt-2 mb-0">{{ .term }} </h3>
+                    <p>{{ .description }}</p>
+                </div>
+            {{ end }}
+            </section>
+        </div>
+    </div>
+{{ end }}
