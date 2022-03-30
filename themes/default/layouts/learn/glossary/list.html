@@ -30,7 +30,7 @@
                 {{ $anchor := .term | anchorize }}
                 <div class="flex-1 mt-8">
                     <h2 id="{{ $anchor }}" class="mt-2 mb-0">{{ .term }} </h2>
-                    <p>{{ .description }}</p>
+                    <p>{{ .description | markdownify }}</p>
 
                     {{ if .link }}
                         <p>

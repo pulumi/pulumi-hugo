@@ -14,7 +14,7 @@ entries:
 
     - term: Cloud Engineering
       description: |
-          A software development philosophy wherein application development and delivery
+          A software development [philosophy](https://en.wikipedia.org/wiki/Philosophy) wherein application development and delivery
           relies heavily on the use of cloud-based services and resources, rather than
           in-house or on-prem services such as hosting.
       link: cloud-engineering
