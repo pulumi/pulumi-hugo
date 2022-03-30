@@ -1,6 +1,6 @@
 ---
 title: "Introducing the Pulumiverse"
-date: 2022-03-30T10:00:00Z
+date: 2022-03-30T10:00:01Z
 draft: false
 meta_desc: The Pulumiverse is a community organized project to help people contribute and use Pulumi more effectively
 meta_image: meta.png
