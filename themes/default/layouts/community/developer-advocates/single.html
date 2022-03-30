@@ -1,0 +1,111 @@
+{{ define "hero" }}
+    {{ partial "hero" (dict "title" "Developer Advocates") }}
+{{ end }}
+
+{{ define "main" }}
+    {{ $personData := index $.Site.Data.team.team .Params.id }}
+    <section class="max-w-4xl container mx-auto py-8 px-4 text-lg">
+        <div class="my-8 flex flex-col md:flex-row">
+            <div class="md:w-1/3">
+                <img class="rounded-full mb-4 shadow-md mx-auto" src="/images/team/{{ $personData.id }}.jpg" alt="{{ $personData.name }}" >
+            </div>
+            <div class="text-center md:text-left md:w-2/3 md:pl-8">
+                <h2>{{ $personData.name }}</h2>
+                {{ partial "widgets/social-icons.html" (dict "social" $personData.social)}}
+                <div class="my-8 text-left">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="max-w-4xl container mx-auto py-8 px-4 text-lg">
+        <h3 class="mb-4">Speaking</h2>
+        <div class="flex bg-gray-200 text-gray-700 text-md font-display p-4">
+            <div class="w-1/3">Event</div>
+            <div class="w-1/3">Title</div>
+            <div class="w-1/3">Details</div>
+        </div>
+        {{ range $talk := .Params.talks }}
+            <div class="flex text-sm p-4">
+                <div class="w-1/3">
+                    <a class="text-blue-500 underline" href="{{ $talk.url }}">
+                        {{ $talk.event }}
+                    </a>
+                </div>
+                <div class="w-1/3">
+                    <span>{{ $talk.title }}</span>
+                </div>
+                <div class="w-1/3">
+                    <div>
+                        <time time="{{ $talk.date }}">
+                            {{ time.Format "1/2/2006 @ 3:04 PM" $talk.date }}
+                        </time>
+                        {{ if $talk.slides }}
+                            &bull; <a class="text-blue-500 underline" href="{{ $talk.slides }}">Slides</a>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {{ end }}
+    </section>
+
+    <section class="max-w-4xl container mx-auto py-8 px-4 text-lg">
+        <h3 class="mb-4">Recent Blog Posts</h2>
+
+        {{ $allPosts := where .Site.RegularPages "Type" "blog" }}
+        {{ $authorPosts := slice }}
+        {{ range $allPosts }}
+            {{ $post := . }}
+            {{ range .Params.Authors }}
+                {{ if eq . "kat-cosgrove" }}
+                    {{ $authorPosts = $authorPosts | append $post }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ range first 5 $authorPosts }}
+            <article class="my-8 flex flex-col md:flex-row">
+                <div class="md:w/12">
+                    {{ if .Params.meta_image }}
+                        <a class="block" href="{{ .RelPermalink }}"><img class="rounded-lg md:mt-0 md:max-w-xs border-2 border-gray-100"
+                            src="{{ (.Resources.GetMatch .Params.meta_image).RelPermalink }}"
+                            alt="{{ .Title }}"></a>
+                    {{ end }}
+                </div>
+                <div class="md:w/12 md:px-4 pt-2 md:py-4">
+                    <h4 class="no-anchor text-2xl mt-0"><a data-track="post-{{ .Title | urlize }}" href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                    <div class="flex items-center text-sm text-gray-700">
+                        <time>
+                            {{ .Date.Format "Monday, Jan 2, 2006" }}
+                        </time>
+                    </div>
+                </div>
+            </article>
+            <hr>
+        {{ end }}
+    </section>
+
+    <section id="hidden" class="py-8 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl my-6">Get in touch!</h2>
+            <div class="w-full md:max-w-2xl md:mx-auto">
+                <div class="mt-4 mx-auto md:w-full md:mt-0 p-10 bg-white rounded rounded-lg shadow-lg border border-gray-300">
+                    <div class="mx-auto flex justify-center">
+                        <div class="hs-form hs-form-fg-dark font-normal">
+                            <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}"></pulumi-hubspot-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="text-center mt-8 mb-16 px-8">
+            <img class="mx-auto max-w-full" src="/images/developer-advocates/backpack-hat-handsup-blue-waterbottle.png" alt="A platypus">
+        </div>
+    </section>
+{{ end }}
