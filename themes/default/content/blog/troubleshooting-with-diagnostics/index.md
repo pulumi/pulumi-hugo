@@ -63,8 +63,8 @@ TF_LOG=DEBUG pulumi up -v=9 --logflow
 Those flags, though, don't tell the CLI where to send the data for you to examine. You might be working on a system that doesn't allow you to write logs anywhere, you might be streaming that data to another platform, or you might be able to write to a file to examine or parse later. In general, if you just run `pulumi up -v=9` or another command that doesn't tell Pulumi where to put the logs, they'll get written to a standard directory. You get that directory from the `pulumi about` command as it varies depending on which operating system you're on. For example, here's mine from a recent project:
 
 ```bash
-$ pulumi about                                                                                                                    
-CLI          
+$ pulumi about
+CLI
 
 # ...
 
