@@ -16,10 +16,10 @@ One of the most common things a developer, an operations professional, a securit
 
 ## Getting data
 
-First, if you don't know how to get diagnostic data from a Pulumi run, our [troubleshooting page]({{< relref "/docs/troubleshooting" >}}) is a good place to start. There's a section specifically on [diagnostics]({{< relref "/docs/troubleshooting#diagnosing-issues" >}}). If you're in a hurry, though, here's the fast answer that gives you every single piece of data you could possibly want:
+First, if you don't know how to get diagnostic data from a Pulumi run, our [troubleshooting page]({{< relref "/docs/troubleshooting" >}}) is a good place to start. There's a section specifically on [diagnostics]({{< relref "/docs/troubleshooting#diagnosing-issues" >}}). If you're in a hurry, though, here's a fast answer that gives you a ton of data:
 
 ```bash
-TF_LOG=TRACE PULUMI_DEBUG_PROMISE_LEAKS=true pulumi <command> -v=11 --logflow --logtostderr 2>&1 | tee -a pulumi_log.txt
+TF_LOG=TRACE pulumi <command> -v=11 --logflow --logtostderr 2> pulumi_log.txt
 ```
 
 However, let's dig in on this a bit as there's a lot to unpack.
@@ -42,11 +42,9 @@ So, to get diagnostic data for "bridged" providers, you need to add in the `TF_L
 TF_LOG=DEBUG pulumi up -v=5
 ```
 
-How can you tell if a provider uses the Terraform bridge? There's two ways. First, you can [open up the provider in the Registry](https://registry.pulumi.com/) and check the **Package Details** at the bottom of the API docs landing page. If the Notes section lists the provider as based on a Terraform provider, you know the provider uses the Terraform bridge.
+How can you tell if a provider uses the Terraform bridge? You can [open up the provider in the Registry](https://registry.pulumi.com/), and check the **Package Details** at the bottom of the API docs landing page. If the Notes section lists the provider as based on a Terraform provider, you know the provider uses the Terraform bridge.
 
  ![An example provider's Package Details that contains a link to the provider's GitHub repo, the open-source license information for the provider, and a note explaining the provider is based off of a Terraform provider.](./package_details.png "Package Details on a provider")
-
-Second, if you'd rather check from the provider's repository, you can search for `tfgen` in the repository's Makefile, like in [this search of the Makefile for the Aiven provider](https://github.com/pulumi/pulumi-aiven/search?l=Makefile&q=tfgen).
 
 To get data from another provider that isn't "bridged," you need to pass in the `--logflow` flag, which asks the providers (all child processes) to bubble up their data:
 
@@ -60,55 +58,45 @@ In practice, we generally use all of these together because that way, you don't 
 TF_LOG=DEBUG pulumi up -v=9 --logflow
 ```
 
-If you really, really want to go down the rabbit hole, there's also an environment variable to help debug promise leaks. If you have a promise leak somewhere in your code, Pulumi [prints an error message](https://github.com/pulumi/pulumi/blob/f8a9698ca9599240223bed8305bbdfe4c4a5446a/sdk/nodejs/runtime/debuggable.ts#L36-L46) that tells you to use the `PULUMI_DEBUG_PROMISE_LEAKS` environment variable to rerun your command:
-
-```go
-export function leakedPromises(): [Set<Promise<any>>, string] {
-    const leaked = leakCandidates;
-    const promisePlural = leaked.size === 0 ? "promise was" : "promises were";
-    const message = leaked.size === 0 ? "" :
-        `The Pulumi runtime detected that ${leaked.size} ${promisePlural} still active\n` +
-        "at the time that the process exited. There are a few ways that this can occur:\n" +
-        "  * Not using `await` or `.then` on a Promise returned from a Pulumi API\n" +
-        "  * Introducing a cyclic dependency between two Pulumi Resources\n" +
-        "  * A bug in the Pulumi Runtime\n" +
-        "\n" +
-        "Leaving promises active is probably not what you want. If you are unsure about\n" +
-        "why you are seeing this message, re-run your program "
-            + "with the `PULUMI_DEBUG_PROMISE_LEAKS`\n" +
-        "environment variable. The Pulumi runtime will then print out additional\n" +
-        "debug information about the leaked promises.";
-
-    if (debugPromiseLeaks) {
-        for (const leak of leaked) {
-            console.error("Promise leak detected:");
-            console.error(promiseDebugString(leak));
-        }
-    }
-
-    leakCandidates = new Set<Promise<any>>();
-    return [leaked, message];
-}
-```
-
-The variable causes Pulumi to dump the context, stack trace, and error for the leak. It's very rare you'll need to do this kind of debugging, but in case you do:
-
-```bash
-PULUMI_DEBUG_PROMISE_LEAKS=true pulumi up -v=11
-```
-
 ### Data return
 
-Those flags, though, don't tell the CLI where to send the data for you to examine. You might be working on a system that doesn't allow you to write logs anywhere, you might be streaming that data to another platform, or you might be able to write to a file to examine or parse later. If you want to write the diagnostic data to stdout/stderr, you need to add the `--logtostderr` flag:
+Those flags, though, don't tell the CLI where to send the data for you to examine. You might be working on a system that doesn't allow you to write logs anywhere, you might be streaming that data to another platform, or you might be able to write to a file to examine or parse later. In general, if you just run `pulumi up -v=9` or another command that doesn't tell Pulumi where to put the logs, they'll get written to a standard directory. You get that directory from the `pulumi about` command as it varies depending on which operating system you're on. For example, here's mine from a recent project:
+
+```bash
+$ pulumi about                                                                                                                    
+CLI          
+
+# ...
+
+Pulumi locates its logs in /var/folders/j_/p8w1p4s900dbnk9pc5gpp2ym0000gn/T/ by default
+```
+
+So I would go hunt for logs in that directory. All of the files start with `pulumi`:
+
+```bash
+$ ls /var/folders/j_/p8w1p4s900dbnk9pc5gpp2ym0000gn/T | grep pulumi
+pulumi-language-python.INFO
+pulumi-language-python.<redacted>.log.INFO.20220330-100938.56922
+pulumi-language-python.<redacted>.log.INFO.20220330-100941.56927
+pulumi-resource-random.INFO
+pulumi-resource-random.<redacted>.log.INFO.20220330-100939.56926
+pulumi-resource-random.<redacted>.log.INFO.20220330-100942.56931
+pulumi.INFO
+pulumi.<redacted>.log.INFO.20220330-100937.56921
+```
+
+From there, I can dig into logs from my language host (`pulumi-language-*`), my resource providers (`pulumi-resource-*`), and the Pulumi deployment engine (`pulumi.*`).
+
+If you want to write the diagnostic data to stdout/stderr, you need to add the `--logtostderr` flag:
 
 ```bash
 TF_LOG=DEBUG pulumi up -v=9 --logflow --logtostderr
 ```
 
-If you want to write that diagnostic data to a file and not to stdout/stderr, you can use your standard output pipe to point the data to a file (in this example, we're appending to any existing logfile):
+If you want to write that diagnostic data to a file and not to stdout/stderr, you can use your standard output pipe to point the data to a file (in this example, we're writing to `pulumi_log.txt` in the current directory):
 
 ```bash
-TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr &>> pulumi_log.txt
+TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr &> pulumi_log.txt
 ```
 
 Alternatively, you could stream that diagnostic data to stdout/stderr *and* write it to a file with a slight change to that line:
