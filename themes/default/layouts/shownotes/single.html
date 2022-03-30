@@ -1,0 +1,74 @@
+{{ define "hero" }}
+    {{ $personData := index $.Site.Data.team.team .Params.id }}
+    {{ partial "hero" (dict "title" $personData.name) }}
+{{ end }}
+
+{{ define "main" }}
+{{ $personData := index $.Site.Data.team.team .Params.id }}
+    <section class="max-w-4xl container mx-auto py-8 px-4 text-justify text-lg">
+        <img class="rounded mb-4 shadow-md mx-auto" src="/images/team/{{ $personData.id }}.jpg" alt="{{ $personData.name }}" >
+        <div>{{ $personData.title }}</div>
+        <div class="text-center">
+            {{ partial "widgets/social-icons.html" (dict "social" $personData.social)}}
+        </div>
+        <p>
+            {{ $.Content }}
+        </p>
+    </section>
+    <section class="max-w-4xl container mx-auto py-8 px-4 text-center text-lg">
+        <h2 class="text-4xl my-6">Speaking</h2>
+        <table>
+            <tr>
+                <th>Event</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Slides</th>
+            </tr>
+            {{ range $talk := $.Params.talks }}
+                <tr>
+                    <td><a href = "{{ $talk.url }}">{{ $talk.event }}</a></td>
+                    <td>{{ $talk.title }}</td>
+                    <td>{{ $talk.date }}</td>
+                    <td><a href = "{{ $talk.slides }}">Download</a></td>
+
+                </tr>
+             {{ end }}
+        </table>
+        <h2>blog posts</h2>
+
+        {{/*  {{ range first 5 (where site.RegularPages "Type" "blog") }}
+        {{ $blogPosts := where .Site.RegularPages "Type" "blog" }}
+        {{ $blogPost}}  */}}
+        {{/*  {{ $blogPosts := where .Data.Pages "Section" "blog" }}  */}}
+        {{/*  {{ range (where "Params.authors" "in" "kat-cosgrove") }}  */}}
+        {{/*  {{ range where (where site.RegularPages "Type" "blog") "Params.authors" "intersect" "kat-cosgrove" }}  */}}
+        {{/*  {{ range first 5 (where (where site.RegularPages "Type" "blog") (index .Params "authors") "=" "kat-cosgrove") }}  */}}
+        {{/*  {{ range where (where site.RegularPages "Type" "blog") "Params.authors" "not in" "['matt-stratton']" }}  */}}
+
+            {{/*  {{ .Params.Authors }}<br>
+        {{ end }}  */}}
+    </section>
+
+    <section id="contact" class="pt-16 px-4">
+      <div class="container mx-auto text-center ">
+          <h2 class="text-4xl my-6">Get in touch!</h2>
+          <div class="w-full md:max-w-2xl md:mx-auto">
+  
+              <div class="mt-4 mx-auto md:w-full md:mt-0 p-10 bg-white rounded rounded-lg shadow-lg border border-gray-300">
+                  {{/*  <div class="mx-auto flex justify-center">
+                      <div class="hs-form hs-form-fg-dark font-normal">
+                        <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}"></pulumi-hubspot-form>
+                      </div>
+                  </div>  */}}
+              </div>
+  
+          </div>
+      </div>
+      <div class="text-center mb-16 mt-8">
+        <p class="mt-8">
+            <img class="mx-auto" src="/images/developer-advocates/backpack-hat-handsup-blue-waterbottle.png" alt="A platypus" />
+        </p>
+    </div>
+  </section>
+
+{{ end }}
