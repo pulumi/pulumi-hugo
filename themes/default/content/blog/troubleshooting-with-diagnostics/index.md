@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting Builds With Diagnostics"
+title: "Troubleshooting with Diagnostics"
 date: 2022-03-29T12:00:55-06:00
 draft: false
 meta_desc: Explore how to gather diagnostic data to debug your Pulumi programs.
@@ -105,9 +105,15 @@ Alternatively, you could stream that diagnostic data to stdout/stderr *and* writ
 TF_LOG=TRACE pulumi up -v=11 --logflow --logtostderr 2>&1 | tee -a pulumi_log.txt
 ```
 
+In practice, though, we just pipe to the logs as they're easier to parse, and we recommend you do the same:
+
+```bash
+TF_LOG=TRACE pulumi up -v=11 --logtostderr 2> pulumi_log.txt
+```
+
 ## Understanding data
 
-While it's great to get the data, it's not useful unless we can understand what the troubleshooting data actually means. If you were to run these commands, you would get what might appear to be a bunch of unhelpful data:
+While it's great to get the data, it's not useful unless we can understand what the troubleshooting data actually means. If you were to run these commands, you would get a ton of valuable information about what happened during the deployment:
 
 ```bash
 $ pulumi up -v=11 --logtostderr --logflow
@@ -125,7 +131,7 @@ Previewing update (dev)
 ...
 ```
 
-We can walk through this, though! Like most logging data, there's some initial labels, timestamps, and process data in the beginning of the line. But the part you want to focus on is the part just before that closing bracket (`]`). In this snippet, you can find the calls to various parts of the Pulumi deployment engine, like `backend.go` or `api.go` (and their relevant lines in the code, so [backend.go:409](https://github.com/pulumi/pulumi/blob/master/pkg/backend/httpstate/backend.go#L409) for that first line). The human-readable messages do give some context, as well. You can use this data to understand where we are in the calls that the engine makes. There's also plugins, which are the various providers. You might find `langruntime_plugin.go`, which reports on what the language host is doing, or `eventsink.go`, which shares which events (or actions happening in the system) are occurring when. As plugins are getting installed, you likely will find a bunch of "skipping file in plugin directory" messages if you've been running Pulumi for a bit. That's all of the older versions of plugins in your Pulumi plugin directory being checked and skipped if a newer one is available and required. Eventually, you'll get to a bunch of [gRPC](https://grpc.io/) calls, which are [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) that basically provide connecting glue among all of the various subroutines that are running on both the local machine and the remote Pulumi Service.
+How can we identify the parts we need to troubleshoot the problem we ran into? Let's walk through it! Like most logging data, there's some initial labels, timestamps, and process data in the beginning of the line. But the part you want to focus on is the part just before that closing bracket (`]`). In this snippet, you can find the calls to various parts of the Pulumi deployment engine, like `backend.go` or `api.go` (and their relevant lines in the code, so [backend.go:409](https://github.com/pulumi/pulumi/blob/master/pkg/backend/httpstate/backend.go#L409) for that first line). The human-readable messages do give some context, as well. You can use this data to understand where we are in the calls that the engine makes. There's also plugins, which are the various providers. You might find `langruntime_plugin.go`, which reports on what the language host is doing, or `eventsink.go`, which shares which events (or actions happening in the system) are occurring when. As plugins are getting installed, you likely will find a bunch of "skipping file in plugin directory" messages if you've been running Pulumi for a bit. That's all of the older versions of plugins in your Pulumi plugin directory being checked and skipped if a newer one is available and required. Eventually, you'll get to a bunch of [gRPC](https://grpc.io/) calls, which are [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) that basically provide connecting glue among all of the various subroutines that are running on both the local machine and the remote Pulumi Service.
 
 ## Fixing errors
 
