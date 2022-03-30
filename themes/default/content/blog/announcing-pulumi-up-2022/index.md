@@ -1,7 +1,7 @@
 ---
 title: "Announcing PulumiUP 2022: The Cloud Awakens!"
 date: 2022-03-31
-meta_desc:
+meta_desc: Today we announce the second annual PulumiUP virtual conference taking place on May 4, 2022. Join us!
 meta_image: meta.png
 authors:
     - george-huang
