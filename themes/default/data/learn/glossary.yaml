@@ -17,6 +17,7 @@ entries:
           A software development philosophy wherein application development and delivery
           relies heavily on the use of cloud-based services and resources, rather than
           in-house or on-prem services such as hosting.
+      link: cloud-engineering
 
     - term: Compiler
       description: |
@@ -134,7 +135,7 @@ entries:
 
     - term: Policy as Code
       description: |
-          Allows you to define and enforce business and security policies for your 
+          Allows you to define and enforce business and security policies for your
           application through the use of a programming language, similar to Infrastructure as Code.
 
     - term: Relational Database
@@ -148,10 +149,10 @@ entries:
 
     - term: Serverless
       description: |
-          A cloud computing model in which resources are allocated to an application on an 
-          as-needed basis, rather than the "always on" model of more classic cloud computing. 
-          Users do not need configure or maintain the servers their applications are running 
-          on, and billing is typically based exclusively on the resources consumed by the 
+          A cloud computing model in which resources are allocated to an application on an
+          as-needed basis, rather than the "always on" model of more classic cloud computing.
+          Users do not need configure or maintain the servers their applications are running
+          on, and billing is typically based exclusively on the resources consumed by the
           application while it is in use.
 
     - term: Service Mesh
@@ -167,8 +168,8 @@ entries:
 
     - term: SLO
       description: |
-          A part of a Service Level Agreement that defines measurable characteristics for 
-          the performance of the service provider, such as incident response time, availability, 
+          A part of a Service Level Agreement that defines measurable characteristics for
+          the performance of the service provider, such as incident response time, availability,
           and support response time.
 
     - term: Source Control
