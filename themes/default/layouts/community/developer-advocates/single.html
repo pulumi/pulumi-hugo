@@ -65,7 +65,7 @@
     {{ range $allPosts }}
         {{ $post := . }}
         {{ range .Params.Authors }}
-            {{ if eq . "kat-cosgrove" }}
+            {{ if eq . $personData.id }}
                 {{ $authorPosts = $authorPosts | append $post }}
             {{ end }}
         {{ end }}
