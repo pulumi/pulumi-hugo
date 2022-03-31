@@ -6,7 +6,7 @@ layout: glossary/single
 
 ## Definition
 
-A type of database that does not store its data in tables. Also called non-relational databases, NoSQL databases can be document-based (like MongoDB), column-based (like Apache Cassandra), graph-based (like Neo4j), or key-value (like DynamoDB). Other flavors of NoSQL databases do exist, including hybrids, but these are the most commonly-used.
+A type of database that organizes data into some data structure other than the two-dimensional tables seen in relational databases. Also called non-relational databases, NoSQL databases can be document-based (like MongoDB), column-based (like Apache Cassandra), graph-based (like Neo4j), or key-value (like DynamoDB). Other flavors of NoSQL databases do exist, including hybrids, but these are the most commonly-used.
 
 | Database Type 	| Use Cases                                                      	| Cloud Examples                  	| Self-hosted Examples 	|
 |---------------	|----------------------------------------------------------------	|---------------------------------	|----------------------	|

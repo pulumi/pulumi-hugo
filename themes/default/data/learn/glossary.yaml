@@ -61,6 +61,16 @@ entries:
           unit tests. However, it also includes testing infrastructure, applying policies,
           and spinning up and testing ephemeral environments.
 
+    - term: Database Cache
+      description: |
+          A database cache is supplementary to your primary database, either built into your 
+          database itself or as an additional layer. It exists to radically speed up read 
+          access to frequently-queried data and reduce pressure on the primary database, 
+          allowing you to scale while consuming fewer resources. Caches exist for both 
+          relational and non-relational databases. These solutions frequently use a key-value 
+          data structure.
+      link: cache-database
+
     - term: Dependency
       description: |
           Code, libraries, or tools that your application relies on to operate. May or
