@@ -8,7 +8,7 @@ authors: ["david-flanagan"]
 tags: ["community"]
 ---
 
-March 15th, 2022 ... just two weeks ago. The Go team [released Go 1.18](https://go.dev/blog/go1.18) to the world. What seems like a trivial point release actually brings a huge new feature to the Go language: Generics.
+March 15th, 2022... just two weeks ago. The Go team [released Go 1.18](https://go.dev/blog/go1.18) to the world. What seems like a trivial point release actually brings a huge new feature to the Go language: Generics.
 
 In this article, I want to show you how you can use this new feature to build a great developer experience with your abstractions for your Pulumi programs.
 
@@ -26,13 +26,13 @@ Once you've done these two steps, you're ready to start using generics in your P
 
 ## Using Generics
 
-Let's start by asking a question. What is a good use-case for generics? In my experience, generics work really well for allowing us to provide a common interface to our consumers (Developers using our APIs) that allows them to use that same interface to accomplish a collection of similar tasks that require different implementations.
+Let's start by asking a question. What is a good use-case for generics? In my experience, generics work really well for allowing us to provide a common interface to our consumers (developers using our APIs) that allows them to use that same interface to accomplish a collection of similar tasks that require different implementations.
 
-For example, let's assume we want to provide a platform to our developers and allow them to install **ANY** Kubernetes resource. Our goal is to provide an `AddComponent` method that they can call to install either pre-supported components, by the platform team, or their own custom components. The glue and important aspect here is that all these components conform to the same interface.
+For example, let's assume we want to provide a platform to our developers and allow them to install **ANY** Kubernetes resource. Our goal is to provide an `AddComponent` method that they can call to install either pre-supported components, components created by the platform team, or their own custom components. The glue and important aspect here is that all these components conform to the same interface.
 
 ### Defining The Interface
 
-In the simplest form, we just need an `Install` function to call that returns an error, or an array of Pulumi resources.
+In the simplest form, we just need an `Install` function to call that returns either an error or an array of Pulumi resources.
 
 ```go
 type Component interface {
@@ -42,7 +42,7 @@ type Component interface {
 
 ### Creating our Components
 
-Now we need to provide a component that satifies this interface. So let's assume that we want to install nginx. First, we create a struct that contains fields for any points of configuration. For today's example, we'll just request the  version to be installed and a name; the name being used to ensure if the component is installed more than once it can be uniquely identified.
+Now we need to provide a component that satisfies this interface. So let's assume that we want to install nginx. First, we create a struct that contains fields for any points of configuration. For today's example, we'll just request the version to be installed and a name; the name being used to ensure if the component is installed more than once, it can be uniquely identified.
 
 ```go
 type Nginx struct {
@@ -103,7 +103,7 @@ func (c *Nginx) Install(ctx *pulumi.Context) ([]pulumi.Resource, error) {
 }
 ```
 
-This is obviously rather contrived, but hopefully you can see the power of using generics as an interface for platform engineering. Our `AddComponent` implementation for nginx could return a deployment, a service, an ingress, with horizontal pod auto-scalers, or any other resource that you want.
+This is rather contrived, but hopefully you can see the power of using generics as an interface for platform engineering. Our `AddComponent` implementation for nginx could return a deployment, a service, an ingress with horizontal pod auto-scalers, or any other resource that you want.
 
 ## Using the Components
 
