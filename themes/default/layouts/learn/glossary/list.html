@@ -17,14 +17,12 @@
             {{ $terms := sort $.Site.Data.learn.glossary.entries "term" }}
             {{ $page := .}}
 
-            {{ range $terms }}
-                {{ $anchor := .term | anchorize }}
-                <div>
-                    <ul>
-                        <li><a href="#{{ $anchor }}">{{ .term }}</a></li>
-                    </ul>
-                </div>
-            {{ end }}
+            <ul>
+                {{ range $terms }}
+                    {{ $anchor := .term | anchorize }}
+                    <li><a href="#{{ $anchor }}">{{ .term }}</a></li>
+                {{ end }}
+            </ul>
 
             {{ range $terms }}
                 {{ $anchor := .term | anchorize }}
