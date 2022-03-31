@@ -6,6 +6,16 @@ layout: developer-advocates/single
 aliases:
   - /david
 talks:
+  - event: Dublin PHP
+    title: Introduction to Time Series
+    url: https://www.meetup.com/PHP-Dublin/
+    date: 2019-11-27T10:00:00.000-07:00
+    slides: https://noti.st/rawkode/cSaVMC/introduction-to-time-series
+  - event: Time Series Belgium
+    title: The Telegraf Toolbelt
+    url: https://www.meetup.com/Time-Series-Belgium/
+    date: 2019-11-13T10:00:00.000-07:00
+    slides: https://noti.st/rawkode/zWEVI1/the-telegraf-toolbelt
 form:
     hubspot_form_id: 87c6f1d4-a928-4298-b4b4-89164561e01b
 ---
