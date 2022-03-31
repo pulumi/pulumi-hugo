@@ -98,7 +98,7 @@ entries:
           A package manager for Kubernetes. Written in YAML, a Helm chart allows you to
           define, install, and upgrade complex Kubernetes applications.
 
-    - term: Infrastructure As Code
+    - term: Infrastructure as Code
       description: |
           A tool that allows you to manage and provision infrastructure such as containers
           and network configuration through your code, in a way that can be versioned just
