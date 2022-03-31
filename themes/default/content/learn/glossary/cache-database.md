@@ -10,7 +10,7 @@ A database cache is supplementary to your primary database, either built into yo
 
 ### Use Cases
 
-Placing the data most frequently requested by users in fast-access memory or closer to the front-end allows you to serve up content much more quickly. As a result, it is particularly useful for applications where speed is key, such as real-time or location-based recommendation engines, mobile development, and web development. 
+Placing the data most frequently requested by users in fast-access memory or closer to the front-end allows you to serve up content much more quickly. As a result, it is particularly useful for applications where speed is key, such as real-time or location-based recommendation engines, mobile development, and web development.
 
 ### Examples
 
