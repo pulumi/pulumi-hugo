@@ -17,7 +17,6 @@ entries:
           A software development [philosophy](https://en.wikipedia.org/wiki/Philosophy) wherein application development and delivery
           relies heavily on the use of cloud-based services and resources, rather than
           in-house or on-prem services such as hosting.
-      link: cloud-engineering
 
     - term: Compiler
       description: |
@@ -129,9 +128,10 @@ entries:
     - term: NoSQL Database
       description: |
           A type of database that does not store its data in tables. Also called
-          non-relational databases, NoSQL databases can be document-based (like MongoDB),
-          column-based (like Apache Cassandra), graph-based (like Neo4j), or key-value
+          non-relational databases, NoSQL databases can be [document-based](/learn/glossary/document-oriented.md) (like MongoDB),
+          [column-based](/learn/glossary/column-oriented.md) (like Apache Cassandra), [graph-based](/learn/glossary/graph-oriented.md) (like Neo4j), or [key-value](/learn/glossary/key-value.md)
           (like DynamoDB).
+      link: nosql
 
     - term: Policy as Code
       description: |
