@@ -6,16 +6,16 @@ layout: developer-advocates/single
 aliases:
   - /kat
 talks:
-  - event: FlooConf
-    title: How to do a thing
-    url: https://katrules.com
-    date: 2019-02-19T10:00:00.000-07:00
-    slides: https://google.com
-  - event: KubeCon Mars
-    title: How to do a thing
-    url: https://devopsdays.org
-    date: 2022-02-19T10:00:00.000-07:00
-    slides: https://matty.com
+  - event: Devoxx UK
+    title: Gatekeeping and the DevOps Revolution
+    url: https://devoxx.co.uk
+    date: 2021-11-02T10:00:00.000-07:00
+    slides: https://docs.google.com/presentation/d/1yKtURFwJkDRgs708DgUSTY4nH22Q2jr7BmGxf-dI2WM/edit?usp=sharing
+  - event: Devoxx UK
+    title: CI/CD Through the Ages
+    url: https://devoxx.co.uk
+    date: 2021-11-01T10:00:00.000-07:00
+    slides: https://docs.google.com/presentation/d/1UfndXUMQajNhYe7PgxgTjrM8fYc7fwwTlB9MH6dRjhE/edit?usp=sharing
 form:
     hubspot_form_id: 87c6f1d4-a928-4298-b4b4-89164561e01b
 ---
