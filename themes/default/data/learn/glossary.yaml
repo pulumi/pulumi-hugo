@@ -14,7 +14,7 @@ entries:
 
     - term: Cloud Engineering
       description: |
-          A software development [philosophy](https://en.wikipedia.org/wiki/Philosophy) wherein application development and delivery
+          A software development wherein application development and delivery
           relies heavily on the use of cloud-based services and resources, rather than
           in-house or on-prem services such as hosting.
 
@@ -128,8 +128,8 @@ entries:
     - term: NoSQL Database
       description: |
           A type of database that does not store its data in tables. Also called
-          non-relational databases, NoSQL databases can be [document-based](/learn/glossary/document-oriented.md) (like MongoDB),
-          [column-based](/learn/glossary/column-oriented.md) (like Apache Cassandra), [graph-based](/learn/glossary/graph-oriented.md) (like Neo4j), or [key-value](/learn/glossary/key-value.md)
+          non-relational databases, NoSQL databases can be [document-based](/learn/glossary/document-oriented) (like MongoDB),
+          [column-based](/learn/glossary/column-oriented) (like Apache Cassandra), [graph-based](/learn/glossary/graph-oriented) (like Neo4j), or [key-value](/learn/glossary/key-value)
           (like DynamoDB).
       link: nosql
 

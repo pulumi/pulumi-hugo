@@ -14,4 +14,4 @@ The speed that the columnar model provides makes this an extremely popular choic
 
 ### Examples
 
-Keyspaces, CosmoDB, Apache Cassandra
+[Keyspaces](https://aws.amazon.com/keyspaces/), [CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/) , [Apache Cassandra](https://cassandra.apache.org/_/index.html)

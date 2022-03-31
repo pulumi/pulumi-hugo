@@ -14,4 +14,4 @@ The strength of a graph-oriented database lies in its ability to enable semantic
 
 ### Examples
 
-Neptune, Neo4j
+[Neptune](https://aws.amazon.com/neptune/), [Neo4j](https://neo4j.com/)

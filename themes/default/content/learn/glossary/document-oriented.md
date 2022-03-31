@@ -16,4 +16,4 @@ Because of the flexibility and speed that document databases allow, they are a g
 
 ### Examples
 
-DocumentDB, CosmosDB, Firestore, MongoDB
+[DocumentDB](https://aws.amazon.com/documentdb/), [CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/), [Firestore](https://firebase.google.com/docs/firestore), [MongoDB](https://www.mongodb.com/)

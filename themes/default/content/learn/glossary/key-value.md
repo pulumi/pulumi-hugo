@@ -16,4 +16,4 @@ These types of databases are used when flexibility and speed are key. They are p
 
 ### Examples
 
-DynamoDB, CosmosDB, Bigtable, Redis
+[DynamoDB](https://aws.amazon.com/dynamodb/), [CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/), [Bigtable](https://cloud.google.com/bigtable), [Redis](https://redis.io/)
