@@ -9,11 +9,9 @@ tags:
     - pulumi-events
 ---
 
-Calling all cloud engineers! Today we announce the second annual [PulumiUP]({{< relref "/pulumi-up" >}}) virtual conference taking place on May 4, 2022. We will also host the inaugural Pulumi Community Summit on May 5 to virtually assemble the world’s cloud, infrastructure, and Pulumi practitioners of all experience levels (hint: that’s you --- all are welcome)!
+Calling all cloud engineers! Today we announce the second annual [PulumiUP]({{< relref "/pulumi-up" >}}) virtual conference taking place on May 4, 2022. We will also host the inaugural Pulumi Community Summit on May 5 to virtually assemble the world’s cloud, infrastructure, and Pulumi practitioners of all experience levels (hint: that’s you---all are welcome)! [Register for both events here]({{< relref "/pulumi-up" >}}).
 
 <!--more-->
-
-Calling all cloud engineers! Today we announce the second annual [PulumiUP]({{< relref "/pulumi-up" >}}) virtual conference taking place on May 4, 2022. We will also host the inaugural Pulumi Community Summit on May 5 to virtually assemble the world’s cloud, infrastructure, and Pulumi practitioners of all experience levels (hint: that’s you --- all are welcome)! [Register for both events here]({{< relref "/pulumi-up" >}}).
 
 We’ve worked hard to curate a half-day of learning and expert insights from the people that are forming the best practices of the modern cloud and cloud native infrastructure era. On May 4, join us for four hours of exciting Pulumi product news and demos, technical talks, case studies of modern cloud innovators, and conversations on cloud topics that you won’t hear anywhere else. Hear from Pulumi’s CEO and CTO, pioneering engineers and engineering leaders from different industries, and Pulumi’s engineers. We are also introducing two tracks designed for Practitioners and Engineering Leaders.
 
@@ -44,10 +42,10 @@ Stay tuned as we will announce the full agenda and speakers soon on our website 
 
 **Two Tracks**: Choose from two session tracks that are designed for Practitioners and Engineering Leaders, in addition to the keynote and main stage presentations.
 
-**Inaugural Community Summit**: Connect and engage with Pulumi practitioners from around the world --- from the comfort of your home. We are hosting a Community Summit on May 5 featuring lightning talks and discussions.
+**Inaugural Community Summit**: Connect and engage with Pulumi practitioners from around the world---from the comfort of your home. We are hosting a Community Summit on May 5 featuring lightning talks and discussions.
 
 **Workshops**: Get hands-on with Pulumi and cloud engineering in 1-hour workshops that will cover the fundamentals of Infrastructure as Code as well as more advanced subjects for experienced Pulumi users.
 
 ## Join us on May 4 and 5!
 
-[Register for PulumiUP and the Community Summit now]({{< relref "/pulumi-up" >}})! We will send you updates on the final agenda and speakers, and post-event updates such as session recordings and upcoming events.
+[Register for PulumiUP and the Community Summit now]({{< relref "/pulumi-up" >}})! We will send you updates on the final agenda and speakers and post-event updates such as session recordings and upcoming events.

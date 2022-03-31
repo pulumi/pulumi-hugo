@@ -21,7 +21,7 @@ registration:
           title: "PulumiUP"
           description: |
             PulumiUP is for anyone who is interested in cloud engineering, cloud infrastructure,
-            software development, modern applications or Pulumi. Whether you're a seasoned cloud
+            software development, modern applications, or Pulumi. Whether you're a seasoned cloud
             engineer or just curious to learn what cloud engineering is all about, PulumiUP will
             teach you something new about the future and fundamentals of building on the cloud.
 
@@ -29,9 +29,9 @@ registration:
           title: "Community Summit"
           description: |
             Join your friends in the Pulumi community for the first ever Pulumi Community Summit.
-            This virtual event will include an “Open Spaces'' concept where you can propose and
+            This virtual event will include an "Open Spaces" concept where you can propose and
             vote on topics ahead of time. Those topics with the most interest will form the agenda
-            for the day, with virtual break out rooms centered around those themes.
+            for the day, with virtual breakout rooms centered around those themes.
 
         - hubspot_form_id: "1103e1e2-8a6d-4664-a006-14b27265adfd"
           title: "Workshop Series"
