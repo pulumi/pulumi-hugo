@@ -56,9 +56,10 @@
 
         <div class="mt-8 h-24">
             <event-session-registration-modal
-                modal-title="Save Your Spot"
+                modal-title="Register Now"
                 button-text="Register"
                 button-class="btn-primary"
+                event-sessions="{{ .Params.registration.main | jsonify }}"
             >
             </event-session-registration-modal>
         </div>
@@ -77,12 +78,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="">
-            <div class="flex items-center justify-center mt-8">
-                <pulumi-hubspot-form form-id="f456537d-1ac8-4004-8ba7-9f5997321445" class="newsletter newsletter-wide ml-8"></pulumi-hubspot-form>
-            </div>
-        </div> -->
     </section>
 
     <section id="sessions" class="white-background">
@@ -104,6 +99,7 @@
                                             modal-title="Save Your Spot"
                                             button-text="Save Your Seat"
                                             button-class="btn-pulumiup-card"
+                                            event-sessions="{{ .Params.registration.main | jsonify }}"
                                         >
                                         </event-session-registration-modal>
 
@@ -145,6 +141,7 @@
                                             modal-title="Save Your Spot"
                                             button-text="Save Your Seat"
                                             button-class="btn-pulumiup-card"
+                                            event-sessions="{{ .Params.registration.main | jsonify }}"
                                         >
                                         </event-session-registration-modal>
 
@@ -212,8 +209,10 @@
 
         <div class="mt-16 text-center">
             <event-session-registration-modal
+                modal-title="Register Now"
                 button-text="Register"
                 button-class="btn-primary"
+                event-sessions="{{ .Params.registration.main | jsonify }}"
             >
             </event-session-registration-modal>
         </div>
@@ -319,8 +318,10 @@
 
             <div class="mt-8">
                 <event-session-registration-modal
+                    modal-title="Register Now"
                     button-text="Register"
                     button-class="btn-primary"
+                    event-sessions="{{ .Params.registration.main | jsonify }}"
                 >
                 </event-session-registration-modal>
             </div>
