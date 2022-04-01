@@ -1,6 +1,6 @@
 ---
 title: "Unlock Programmatic Control by Disabling Default Providers"
-date: 2022-03-29
+date: 2022-04-01
 meta_desc: Introducing the new config parameter disable-default-providers.
 authors: [ ian-wahbe ]
 meta_image: disable-default-providers.png
@@ -10,7 +10,7 @@ tags: [ features ]
 As of 3.23.0, users can disable the default provider with Pulumi. So what does this mean for you? If you’ve been using
 Pulumi for a bit, you’ll have encountered [provider resources][prov-res], which are how we abstract the global state of
 a cloud provider. All resources have an associated provider. If no provider is supplied in the user’s code, a [default
-provider][def-prov] is created to serve the resource. On the other hand, explicit providers defined by the user allow
+provider][def-prov] is created to serve the resource. Explicit providers, which are  defined by the user in code, allow
 programmatic and dynamic control of how a resource deploys into a cloud. A Pulumi [resource][res] can be instructed to
 use an explicit provider by setting the [provider resource option][prov-res-opts] or by inheriting the provider from the
 resource's [parent resource][par-res].
@@ -275,14 +275,15 @@ async Task<S3.Bucket[]> regionalBuckets(Pulumi.Config config) {
 This code will create a bucket in each region that the currently logged-in AWS account has access to. If someone else
 ran the same code on a computer logged in to another account, Pulumi could create different buckets, even though all
 buckets were provisioned by an explicit provider. This behavior is because we forgot to specify the provider for the
-call to `aws.getRegions`. As a result, you might not notice that something unexpected happened because there would be no
-error. By disabling the default `aws` provider, we would get the following error instead:
+call to `aws.getRegions`. You might not notice that something unexpected happened because there would be no error
+message, just inconsistent deployments. To prevent this category of problem, Pulumi now offers the ability to
+disable default providers on a per-stack basis.  
+
+By disabling the default `aws` provider, we would get the following error:
 
 ```
 Error: Invoke: Default provider for 'aws' disabled. 'aws:index/getRegions:getRegions' must use an explicit provider.
 ```
-
-To prevent this category of problem, Pulumi now offers the ability to disable default providers on a per-stack basis.  
 
 Disabling default providers has been a popular [community request][req]. To meet that request, we’ve added the ability
 to disable default providers in the [3.23.0 release][release]. The Pulumi config variable
