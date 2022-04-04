@@ -107,7 +107,7 @@ get_started:
           link_text: Start Free Trial
 
         - title: Self-Hosted Pulumi Service
-          link: /product/self-hosted/
+          link: /product/self-hosted/#self-hosted-trial
           link_text: Request Free Trial
 
         - title: Migration Tools
