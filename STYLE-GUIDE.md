@@ -1,6 +1,6 @@
 # Style Guide
 
-This document defines some general styles we adhere to in the docs.
+This document defines some general styles we adhere to in the docs. New additions to this document should already be accepted and in common practice. If they are not accepted or in common practice, start with an issue and relevant prs before adding to this style guide.
 
 ## Use Inclusive Language
 
