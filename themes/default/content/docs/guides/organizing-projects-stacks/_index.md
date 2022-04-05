@@ -121,6 +121,7 @@ This project looks a bit like this:
 ```
 ├─ infrastructure
   ├── main.go
+  ├── Pulumi.yaml
   ├── Pulumi.dev.yaml
   ├── Pulumi.staging.yaml
   └── Pulumi.prod.yaml
@@ -137,11 +138,13 @@ Our example service is made up of an API and a database (RDS, CosmosDB, etc.). O
 ```
 ├── infrastructure
 │   ├── main.go
+│   ├── Pulumi.yaml
 │   ├── Pulumi.dev.yaml
 │   ├── Pulumi.staging.yaml
 │   └── Pulumi.prod.yaml
 ├── myApp
 │   ├── main.go
+│   ├── Pulumi.yaml
 │   ├── Pulumi.dev.yaml
 │   ├── Pulumi.staging.yaml
 │   └── Pulumi.prod.yaml
@@ -161,10 +164,33 @@ These component resources can be packaged up and stored alongside all of your ot
 ```
 ├── infrastructure
 │   ├── main.go
+│   ├── Pulumi.yaml
 │   ├── Pulumi.dev.yaml
 │   └── Pulumi.prod.yaml
 ├── myApp
 │   ├── main.go
+│   ├── Pulumi.yaml
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+├── pkg
+│   └──application
+│     └── app.go
+└── .etc
+```
+
+To be clear, each of the applications/services inside our monorepo (and the `infrastructure` project is treated the same way as each independent application/service) are a separate Pulumi project, with their own stacks, and their own `Pulumi.yaml`. Given that each service is a separate Pulumi project, they can all use different programming languages. Let's take a look at how it might look if the `infrastructure` team prefers to write in Go, and the myApp team prefers TypeScript:
+
+```
+├── infrastructure
+│   ├── main.go
+│   ├── Pulumi.yaml
+│   ├── Pulumi.dev.yaml
+│   └── Pulumi.prod.yaml
+├── myApp
+│   ├── index.ts
+│   ├── package.json
+│   ├── Pulumi.yaml
 │   ├── Pulumi.dev.yaml
 │   ├── Pulumi.staging.yaml
 │   └── Pulumi.prod.yaml
