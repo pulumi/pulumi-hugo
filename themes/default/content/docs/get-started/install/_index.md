@@ -129,9 +129,9 @@ Subsequent updates can be installed in the usual way:
 > choco upgrade pulumi
 ```
 
-### Winget 
+### Winget
 
-Install Pulumi using [winget-cli](https://github.com/microsoft/winget-cli/) package manager. This is built-in on Windows 11 and later. 
+Install Pulumi using [winget-cli](https://github.com/microsoft/winget-cli/) package manager. This is built-in on Windows 11 and later.
 
 ```powershell
 > winget install pulumi
@@ -145,8 +145,8 @@ To update Pulumi to a more recent version:
 
 ### Standalone Installer
 
-You can download the latest [Pulumi Installer for Windows x64](https://github.com/pulumi/pulumi-winget/releases/tag/v{{< latest-version >}}) and run it like any other installer. It will automatically add Pulumi to the path and make it available machine-wide.
- 
+You can download the latest [Pulumi Installer for Windows x64](https://github.com/pulumi/pulumi-winget/releases) and run it like any other installer. It will automatically add Pulumi to the path and make it available machine-wide.
+
 ### Installation Script
 
 1. Open a new command prompt window (**WIN+R**: `cmd.exe`):
@@ -167,9 +167,9 @@ Alternatively, you can install Pulumi manually using binaries built for Windows 
 1. Download [Pulumi {{< latest-version >}} binaries for Windows x64](https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-windows-x64.zip). For prior versions and release notes, see the [Available Versions]({{< relref "/docs/get-started/install/versions" >}}) page.
 <!-- markdownlint-enable url -->
 
-2. Unzip the file and extract the contents to a folder such as `C:\pulumi`.
+1. Unzip the file and extract the contents to a folder such as `C:\pulumi`.
 
-3. Add `C:\pulumi\bin` to your path via **System Properties** -> **Advanced** -> **Environment Variables** -> **User Variables** -> **Path** -> **Edit**.
+1. Add `C:\pulumi\bin` to your path via **System Properties** -> **Advanced** -> **Environment Variables** -> **User Variables** -> **Path** -> **Edit**.
 
 {{% /choosable %}}
 
