@@ -131,7 +131,7 @@ Subsequent updates can be installed in the usual way:
 
 ### Winget
 
-Install Pulumi using [winget-cli](https://github.com/microsoft/winget-cli/) package manager. This is built-in on Windows 11 and later.
+Install Pulumi using the [winget-cli](https://github.com/microsoft/winget-cli/) package manager. This is built-in on Windows 11 and later.
 
 ```powershell
 > winget install pulumi
