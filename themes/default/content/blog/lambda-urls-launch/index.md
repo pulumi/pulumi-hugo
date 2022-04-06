@@ -54,54 +54,51 @@ In short, Lambda Function URLs give you an easier way to configure, deploy and m
 
 Ready to try out Function URLs for yourself? A function URL can be applied to any function alias from the AWS Console, CLI, or other Lambda API -- including from your Pulumi programs! Let’s see what that looks like:
 
-{{< chooser language "typescript,python" / >}}
+{{< chooser language "typescript" / >}}
 
 {{% choosable language typescript %}}
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws"
 import * as awsnative from "@pulumi/aws-native";
 
+const lambdaRole = new awsnative.iam.Role("lambdaRole", {
+    assumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Action": "sts:AssumeRole",
+                "Principal": {
+                    "Service": "lambda.amazonaws.com",
+                },
+                "Effect": "Allow",
+                "Sid": "",
+            },
+        ],
+    },
+});
+
+const lambdaRoleAttachment = new aws.iam.RolePolicyAttachment("lambdaRoleAttachment", {
+    role: pulumi.interpolate`${lambdaRole.roleName}`,
+    policyArn: aws.iam.ManagedPolicy.AWSLambdaBasicExecutionRole,
+});
+
 const helloFunction = new awsnative.lambda.Function('helloFunction', {
-  role: "lambdaRole.arn",
-  runtime: "nodejs14.x",
-  handler: "index.handler",
-  code: {
-    zipFile: `exports.handler = function(event, context, callback){ callback(null, {"response": "Hello "}); };`,
-  },
+    role: lambdaRole.arn,
+    runtime: "nodejs14.x",
+    handler: "index.handler",
+    code: {
+        zipFile: `exports.handler = function(event, context, callback){ callback(null, {"response": "Hello "}); };`,
+    },
 });
 
 const lambdaUrl = new awsnative.lambda.Url("test", {
-  targetFunctionArn: helloFunction.arn,
-  authType: awsnative.lambda.UrlAuthType.None,
+    targetFunctionArn: helloFunction.arn,
+    authType: awsnative.lambda.UrlAuthType.None,
 });
 
 export const url = lambdaUrl.functionUrl;
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import pulumi
-import pulumi_aws_native as aws_native
-
-hello_function = aws_native.lambda_.Function("test",
-    runtime = "nodejs14.x",
-    role = "lambdaRole.arn",
-    handler = "index.handler",
-    code = aws_native.lambda_.FunctionCodeArgs(
-        zip_file = "exports.handler = function(event, context, callback){ callback(null, {'response': 'Hello'}); };",
-    ),
-)
-
-lambdaUrl = aws_native.lambda_.Url("test", {
-  "target_function_arn": hello_function.arn,
-  "authorizationType": aws_native.lambda_.UrlAuthType.NONE,
-    })
-
-url = lambdaUrl.functionUrl
 ```
 
 {{% /choosable %}}
