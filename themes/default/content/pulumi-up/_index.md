@@ -72,6 +72,8 @@ schedule_overview:
     description: |
       In this workshop, we’re going to learn more about cloud computing and Infrastructure as Code by exploring how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker. We will create a frontend, a backend, and a database to deploy the Pulumipus Boba Tea Shop, and along the way, learn more about how Pulumi works to make managing all of these different moving pieces a little bit less painful!
 
+      <a href="/resources/introduction-to-infrastructure-as-code/" class="underline">Save your spot</a> &#8594;
+
   - title: PulumiVision
     day: Friday, May 6th
     time: 12:30PM - 1:30PM PDT
