@@ -18,7 +18,7 @@ sessions:
         Joe Duffy, CEO of Pulumi, walks us through the evolution of the cloud and the modernization of infrastructure as code to support the changing needs of development and operations organizations. He will introduce the new features of Pulumi that will further help teams tackle scalability challenges, increase developer productivity, and manage multi-cloud complexity.
 
     - title: "Pulumi Infrastructure as Code "
-      presenters: [ "joe-duffy", "luke-hoban" ]
+      presenters: [ "kat-cosgrove", "aaron-friel", "mikhail-shilkov" ]
       description: |
         Demos will be shared including new Pulumi features in this hands-on, coding-heavy session. You will learn how to build, deploy, and manage cloud applications with infrastructure as code, powered by popular programming languages. You can expect to pick up new best practices for taming cloud complexity and supercharging your productivity when building with modern cloud architectures.
 
