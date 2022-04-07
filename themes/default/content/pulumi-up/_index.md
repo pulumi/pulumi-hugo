@@ -66,6 +66,12 @@ schedule_overview:
       vote on topics ahead of time. Those topics with the most interest will form the agenda
       for the day, with virtual breakout rooms centered around those themes.
 
+  - title: PulumiVision
+    day: Thursday, May 5th
+    time: 12:00PM - 1:00PM PDT
+    description: |
+      Join Pulumi Developer Advocate, Matty Stratton along with CTO Luke Hoban to discuss recent Pulumi feature announcements.
+
   - title: "Workshop: Introduction to Infrastructure as Code"
     day: Thursday, May 5th
     time: 2:30PM - 3:30PM PDT
@@ -73,12 +79,6 @@ schedule_overview:
       In this workshop, we’re going to learn more about cloud computing and Infrastructure as Code by exploring how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker. We will create a frontend, a backend, and a database to deploy the Pulumipus Boba Tea Shop, and along the way, learn more about how Pulumi works to make managing all of these different moving pieces a little bit less painful!
 
       <a href="/resources/introduction-to-infrastructure-as-code/" class="underline">Save your spot</a> &#8594;
-
-  - title: PulumiVision
-    day: Friday, May 6th
-    time: 12:30PM - 1:30PM PDT
-    description: |
-      Join Pulumi Developer Advocate, Matty Stratton along with CTO Luke Hoban to discuss recent Pulumi feature announcements.
 
 registration:
     sponsor:
