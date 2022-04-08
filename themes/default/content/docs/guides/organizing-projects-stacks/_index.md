@@ -377,7 +377,3 @@ There are a couple of reasons that this pattern is helpful. One, in this particu
 Additionally, by breaking out the function, we can easily reuse it in other places in our code. For example, if we wanted to forward the Prometheus service to a different port, we could simply change the `localPort` parameter.
 
 {{% /choosable %}}
-
-{{% choosable language go %}}
-golang stuff
-{{% /choosable %}}
