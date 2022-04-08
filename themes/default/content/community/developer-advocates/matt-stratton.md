@@ -1,6 +1,7 @@
 ---
 title: Matt Stratton
 id: matt-stratton
+first_name: Matt
 meta_desc: Matt Stratton is a member of the Developer Advocacy team at Pulumi.
 layout: developer-advocates/single
 aliases:
@@ -23,6 +24,8 @@ talks:
     slides: https://speaking.mattstratton.com/Wwwhs3/kubernetes-you-rainbow-infused-space-unicorn-what-leslie-knope-can-teach-us-about-devops
 form:
     hubspot_form_id: 87c6f1d4-a928-4298-b4b4-89164561e01b
+giveaway:
+    hubspot_form_id: d1360304-bd20-4d03-a635-90caf1e9e1cb
 ---
 Matt Stratton is a Staff Developer Advocate at Pulumi, founder and co-host of the popular [Arrested DevOps](https://www.arresteddevops.com/) podcast, and the global chair of the [DevOpsDays](https://www.devopsdays.org/) set of conferences.
 
