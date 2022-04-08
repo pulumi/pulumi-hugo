@@ -344,10 +344,7 @@ import (
 func main() {
   pulumi.Run(func(ctx *pulumi.Context) error {
 
-        _, err := NewServiceDeployment(ctx, "redis-leader", &ServiceDeploymentArgs{
-          Image: pulumi.String("redis"),
-          Ports: pulumi.IntArray{pulumi.Int(6379)},
-    })
+        _, err := forwardPrometheusService(ctx)
     if err != nil {
       return err
     }
@@ -367,7 +364,7 @@ import (
   "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
-func forwardPrometheusService(name string, quantity int, ctx *pulumi.Context) iam.RoleArray {
+func forwardPrometheusService(ctx *pulumi.Context)  {
 ...
 
   return nil
