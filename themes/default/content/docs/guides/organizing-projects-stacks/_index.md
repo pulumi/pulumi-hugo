@@ -278,7 +278,7 @@ See also the use of multiple projects and stacks in [Crosswalk for Kubernetes]({
 
 ## Organizing your project code
 
-Within your Pulumi project, there are a good practices to consider to help keep your code organized, maintainable, and understandable.
+Within your Pulumi project, there are good practices to consider to help keep your code organized, maintainable, and understandable.
 
 {{< chooser language "typescript,go" / >}}
 
