@@ -324,10 +324,6 @@ export function forwardPrometheusService(
 
 ```
 
-There are a couple of reasons that this pattern is helpful. One, in this particular case, is that the `forwardPrometheusService` function exists to forward the Prometheus service to localhost, so we can check it. If you are running in-cluster, we probably don't need it! So we could add a conditional to determine if we need to run that function - which makes our code a lot clearer.
-
-Additionally, by breaking out the function, we can easily reuse it in other places in our code. For example, if we wanted to forward the Prometheus service to a different port, we could simply change the `localPort` parameter.
-
 {{% /choosable %}}
 
 {{% choosable language go %}}
@@ -372,8 +368,8 @@ func forwardPrometheusService(ctx *pulumi.Context)  {
 
 ```
 
+{{% /choosable %}}
+
 There are a couple of reasons that this pattern is helpful. One, in this particular case, is that the `forwardPrometheusService` function exists to forward the Prometheus service to localhost, so we can check it. If you are running in-cluster, we probably don't need it! So we could add a conditional to determine if we need to run that function - which makes our code a lot clearer.
 
 Additionally, by breaking out the function, we can easily reuse it in other places in our code. For example, if we wanted to forward the Prometheus service to a different port, we could simply change the `localPort` parameter.
-
-{{% /choosable %}}
