@@ -251,7 +251,7 @@ These component resources can be packaged up and stored alongside all of your ot
 
 {{% /choosable %}}
 
-To be clear, each of the applications/services inside our monorepo (and the `infrastructure` project is treated the same way as each independent application/service) are a separate Pulumi project, with their own stacks, and their own `Pulumi.yaml`. Given that each service is a separate Pulumi project, they can all use different programming languages. Let's take a look at how it might look if the `infrastructure` team prefers to write in Go, and the myApp team prefers TypeScript:
+To be clear, each of the applications/services inside our monorepo (including the `infrastructure` project) are a separate Pulumi project, with their own stacks, and their own `Pulumi.yaml`. Given that each service is a separate Pulumi project, they can all use different programming languages. Let's take a look at how it might look if the `infrastructure` team prefers to write in Go, and the myApp team prefers TypeScript:
 
 ```
 ├── infrastructure
