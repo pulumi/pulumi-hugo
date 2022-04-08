@@ -1,7 +1,7 @@
 ---
 # Name of the lifestream.
 title: Let’s Build A Multi-Language Pulumi Component"
-meta_desc: "Join Lee and Matty from Pulumi for a fun, interactive livestream episode as they build a new Pulumi component that supports multiple languages - it's going to be fun AND educational! Plus, possible guest appearances by cute dogs."
+meta_desc: "Join Lee & Matty from Pulumi for a fun, interactive livestream episode as they build a new Pulumi component that supports multiple languages."
 
 # A featured livestream will display first in the list.
 featured: false
