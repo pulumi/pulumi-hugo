@@ -328,7 +328,7 @@ export function forwardPrometheusService(
 
 {{% choosable language go %}}
 
-Organize your code in a way that makes it easy to understand and maintain. One way to do this in Typescript is to break out your code into separate files, and then import them into your main file. In this example, the entrypoint for our Pulumi program is `main.go`, but we use the `utils.go` file for supporting functions.
+Organize your code in a way that makes it easy to understand and maintain. One way to do this in Go is to break out your code into separate files, and then import them into your main file. In this example, the entrypoint for our Pulumi program is `main.go`, but we use the `utils.go` file for supporting functions.
 
 ```go
 // main.go
