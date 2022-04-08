@@ -226,6 +226,7 @@ These component resources can be packaged up and stored alongside all of your ot
 │     └── app.ts
 └── .etc
 ```
+
 {{% /choosable %}}
 
 {{% choosable language go %}}
@@ -249,7 +250,6 @@ These component resources can be packaged up and stored alongside all of your ot
 ```
 
 {{% /choosable %}}
-
 
 To be clear, each of the applications/services inside our monorepo (and the `infrastructure` project is treated the same way as each independent application/service) are a separate Pulumi project, with their own stacks, and their own `Pulumi.yaml`. Given that each service is a separate Pulumi project, they can all use different programming languages. Let's take a look at how it might look if the `infrastructure` team prefers to write in Go, and the myApp team prefers TypeScript:
 
@@ -360,11 +360,11 @@ func main() {
 // utils.go
 package main
 import (
-	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
-	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
-	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+  appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
+  corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
+  metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
+  "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+  "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
 func forwardPrometheusService(name string, quantity int, ctx *pulumi.Context) iam.RoleArray {
