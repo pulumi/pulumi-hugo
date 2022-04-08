@@ -15,8 +15,11 @@ Can’t make it to Valencia for KubeCon this year? Timezone doesn’t work for t
 
 Five open source companies have teamed up to bring you top-notch, KubeCon-grade crash courses on cloud native tech. No vendor pitches, just awesome open source content on projects such as Linkerd, cert-manager, CockroachDB, Pulumi, Polaris, and Goldilocks. 
 With Kubernetes becoming the new standard for cloud-hosted application development, DevOps teams are driving the technology choices for enterprise-grade cloud native tooling. Freely available open source solutions are often the primary source for these tooling decisions.
+
 KubeCrash provides a half-day knowledge sharing and virtual learning environment for developers, reliability engineers, cloud security specialists, and platform engineers. Learn directly from the maintainers of some of the most popular open source projects in this series of focused talks and workshops. 
+
 ## The KubeCrash program
+
 Come prepared for a schedule packed with great content and actionable insights directly from the teams that maintain some of the ecosystem's most popular open source projects. The program will cover the latest learnings on implementing scalable zero-trust, scanning workloads for improved cloud native security, using service mesh to ensure high availability across multi-cluster infrastructure, and delivering "serverless" for multi-cloud deployments.
 ### Program overview 
 
