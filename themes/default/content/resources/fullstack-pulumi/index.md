@@ -1,13 +1,13 @@
 ---
 # Name of the lifestream.
-title: "Name of the Livestream"
-meta_desc: "Search Description"
+title: "Fullstack Pulumi: Deploying the MERN Stack on DigitalOcean"
+meta_desc: "In this stream, Matty Stratton will take a tour through deploying the MERN Stack on Digital Ocean (as explained by Christian Nunciat"
 
 # A featured livestream will display first in the list.
 featured: false
 
 # If the livestream has concluded, set this to true.
-pre_recorded: false
+pre_recorded: true
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
 pulumi_tv: false
@@ -22,36 +22,36 @@ unlisted: false
 type: livestreams
 
 # The url slug for the livestream landing page.
-url_slug: "{{ .Name }}"
+url_slug: "fullstack-pulumi"
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: ""
+    title: "Fullstack Pulumi: Deploying the MERN Stack on DigitalOcean"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
 # Content for the left hand side section of the page.
 main:
     # Livestream title.
-    title: ""
-    # Hero image (put in the same directory as this file)
-    image: ""
+    title: "Fullstack Pulumi: Deploying the MERN Stack on DigitalOcean"
     # the ID of the YouTube Live video. For example, "Tbl8XHR-1-o" (not the full url)
-    youtube_id: ""
+    youtube_id: "GNVoGC2IU0w"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2020-02-05T10:00:00-07:00
+    sortable_date: 2022-03-31T10:00:00-07:00
     # Duration of the stream.
     duration: "1 hour"
     # Datetime of the stream.
     datetime: ""
     # Description of the stream.
-    description: ""
+    description: "In this stream, Matty Stratton will take a tour through deploying the MERN Stack on Digital Ocean (as explained by Christian Nunciato in https://www.pulumi.com/blog/fullstack...). Tune in for all the fun!"
 
     # The livestream hosts and guests
     presenters:
-        - name: ""
-          role: ""
+        - name: "Matty Stratton"
+          role: "Pulumi"
+        - name: "Christian Nunciato"
+          role: "Pulumi"
 
 # This section contains the transcript for a video. It is optional.
 transcript: |

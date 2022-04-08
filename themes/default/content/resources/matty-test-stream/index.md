@@ -35,6 +35,7 @@ hero:
 main:
     # Webinar title.
     title: "Matty Test Stream"
+    image: "kat-and-matty.png"
     # URL for embedding a URL for ungated webinars.
     youtube_id: "Tbl8XHR-1-o"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.

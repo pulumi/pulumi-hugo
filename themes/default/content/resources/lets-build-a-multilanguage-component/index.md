@@ -1,7 +1,7 @@
 ---
 # Name of the lifestream.
-title: "Name of the Livestream"
-meta_desc: "Search Description"
+title: Let’s Build A Multi-Language Pulumi Component"
+meta_desc: "Join Lee and Matty from Pulumi for a fun, interactive livestream episode as they build a new Pulumi component that supports multiple languages - it's going to be fun AND educational! Plus, possible guest appearances by cute dogs."
 
 # A featured livestream will display first in the list.
 featured: false
@@ -22,36 +22,37 @@ unlisted: false
 type: livestreams
 
 # The url slug for the livestream landing page.
-url_slug: "{{ .Name }}"
+url_slug: "lets-build-a-multilanguage-component"
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: ""
+    title: "Let’s Build A Multi-Language Pulumi Component"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
 # Content for the left hand side section of the page.
 main:
     # Livestream title.
-    title: ""
-    # Hero image (put in the same directory as this file)
-    image: ""
+    title: "Let’s Build A Multi-Language Pulumi Component"
     # the ID of the YouTube Live video. For example, "Tbl8XHR-1-o" (not the full url)
-    youtube_id: ""
+    youtube_id: "4psf6WVLxtY"
+    image: "lee-briggs.png"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2020-02-05T10:00:00-07:00
+    sortable_date: 2020-04-08T09:00:00-07:00
     # Duration of the stream.
     duration: "1 hour"
     # Datetime of the stream.
-    datetime: ""
+    datetime: "2020-04-08T09:00:00-07:00"
     # Description of the stream.
-    description: ""
+    description: "Join Lee and Matty from Pulumi for a fun, interactive livestream episode as they build a new Pulumi component that supports multiple languages - it's going to be fun AND educational! Plus, possible guest appearances by cute dogs."
 
     # The livestream hosts and guests
     presenters:
-        - name: ""
-          role: ""
+        - name: "Matty Stratton"
+          role: "Pulumi"
+        - name: "Lee Briggs"
+          role: "Pulumi"
 
 # This section contains the transcript for a video. It is optional.
 transcript: |

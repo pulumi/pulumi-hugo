@@ -133,7 +133,7 @@
                         {{ end }}
                     {{ else if eq $data.Type "livestreams" }}
                         {{ $icon = "tv" }}
-                        {{ $filters = $filters | append "livestream" }}
+                        {{ $filters = $filters | append "livestreams" }}
                         {{ $description = $data.Params.meta_desc }}
                         {{ $displayDate = dateFormat "January 2, 2006" $data.Params.main.sortable_date }}
                         {{ if not $data.Params.pre_recorded }}
