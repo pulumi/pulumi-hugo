@@ -4,7 +4,7 @@
 
 {{ define "main" }}
     <section id="ctas" class="container mx-auto my-16 text-center">
-        <h2>Interact with us at Kubecon!</h2>
+        <h2>Interact with us at KubeCon + CloudNativeCon!</h2>
 
         <div class="my-16">
             <div class="lg:flex lg:flex-wrap justify-center items-stretch">
@@ -23,7 +23,7 @@
                             </p>
                         </div>
                         <div class="card-cta-btn">
-                            <a href="#" class="btn-primary">Meet with us</a>
+                            <a href="{{ relref . "/contact.md" }}?form=sales" class="btn-primary">Meet with us</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             </p>
                         </div>
                         <div class="card-cta-btn">
-                            <a href="{{ relref . "/contact.md" }}?form=onboarding" class="btn-primary">Register</a>
+                            <a href="{{ relref . "/resources/using-pulumi-to-supercharge-your-deployments" }}" class="btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
