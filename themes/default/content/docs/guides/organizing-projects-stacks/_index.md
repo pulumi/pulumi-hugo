@@ -118,6 +118,23 @@ Within this project, we create stacks for each unique configuration (often times
 
 This project looks a bit like this:
 
+{{< chooser language "typescript,go" / >}}
+
+{{% choosable language typescript %}}
+
+```
+├─ infrastructure
+  ├── index.ts
+  ├── Pulumi.yaml
+  ├── Pulumi.dev.yaml
+  ├── Pulumi.staging.yaml
+  └── Pulumi.prod.yaml
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
 ```
 ├─ infrastructure
   ├── main.go
@@ -127,6 +144,8 @@ This project looks a bit like this:
   └── Pulumi.prod.yaml
 ```
 
+{{% /choosable %}}
+
 ![A diagram showing how the different stacks in a project overlay with the program](img/infra-project.jpg)
 
 Now that we have our base infrastructure, we can create a separate Pulumi project per application or service for each one's deployment and configuration that will include all the resources that the service needs, which are not provided by the base infrastructure project.
@@ -134,6 +153,29 @@ Now that we have our base infrastructure, we can create a separate Pulumi projec
 These projects can be part of the [same monorepo as the infrastructure project](https://www.pulumi.com/blog/organizational-patterns-infra-repo/), or they can be separate repos, depending upon your organizational needs. One of the advantages to keeping the infrastructure project in a separate repo/project is that there is likely a limited number of users we want to be able to deploy these things; not every individual team needs to be able to do this. In this example, we will use a monorepo, however.
 
 Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well. When we add our example service, our monorepo starts to look like this:
+
+{{< chooser language "typescript,go" / >}}
+{{% choosable language typescript %}}
+
+```
+├── infrastructure
+│   ├── index.ts
+│   ├── Pulumi.yaml
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+├── myApp
+│   ├── index.ts
+│   ├── Pulumi.yaml
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+└── .etc
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
 
 ```
 ├── infrastructure
@@ -151,6 +193,8 @@ Our example service is made up of an API and a database (RDS, CosmosDB, etc.). O
 └── .etc
 ```
 
+{{% /choosable %}}
+
 It's generally a good practice to keep our projects on the smaller side as this helps reduce the effect and impact of a deployment. If you have applications that require different rates of change, it may be useful to split them up into separate repos, aka micro-stacks.
 
 As we consider making our approach even more accessible and robust across teams, we bring in the idea of [Component Resources]({{< relref "/docs/intro/concepts/resources/components" >}}), which are a way to group affiliated resources together according the standard practices of the organization.
@@ -160,6 +204,31 @@ Back to our example, our service needs a database and a subnet (or other network
 ![A diagram showing how the different stacks in a project overlay with the program](img/application-project.jpg)
 
 These component resources can be packaged up and stored alongside all of your other package management, so consumers in your organization can access them like any other library or package. If we want to add component resources to our monorepo example, it will look like this:
+
+{{< chooser language "typescript,go" / >}}
+
+{{% choosable language typescript %}}
+
+```
+├── infrastructure
+│   ├── index.ts
+│   ├── Pulumi.yaml
+│   ├── Pulumi.dev.yaml
+│   └── Pulumi.prod.yaml
+├── myApp
+│   ├── index.ts
+│   ├── Pulumi.yaml
+│   ├── Pulumi.dev.yaml
+│   ├── Pulumi.staging.yaml
+│   └── Pulumi.prod.yaml
+├── pkg
+│   └──application
+│     └── app.ts
+└── .etc
+```
+{{% /choosable %}}
+
+{{% choosable language go %}}
 
 ```
 ├── infrastructure
@@ -178,6 +247,9 @@ These component resources can be packaged up and stored alongside all of your ot
 │     └── app.go
 └── .etc
 ```
+
+{{% /choosable %}}
+
 
 To be clear, each of the applications/services inside our monorepo (and the `infrastructure` project is treated the same way as each independent application/service) are a separate Pulumi project, with their own stacks, and their own `Pulumi.yaml`. Given that each service is a separate Pulumi project, they can all use different programming languages. Let's take a look at how it might look if the `infrastructure` team prefers to write in Go, and the myApp team prefers TypeScript:
 
@@ -203,3 +275,112 @@ To be clear, each of the applications/services inside our monorepo (and the `inf
 ### Other examples
 
 See also the use of multiple projects and stacks in [Crosswalk for Kubernetes]({{< relref "/docs/guides/crosswalk/kubernetes" >}}), which contains a tutorial, reference architecture, and collection of prod-first code examples that demonstrate industry best-practices for using Kubernetes in contexts where an organization of people must ship production applications.
+
+## Organizing your project code
+
+Within your Pulumi project, there are a good practices to consider to help keep your code organized, maintainable, and understandable.
+
+{{< chooser language "typescript,go" / >}}
+
+{{% choosable language typescript %}}
+Organize your code in a way that makes it easy to understand and maintain. One way to do this in Typescript is to break out your code into separate files, and then import them into your main file. In this example, the entrypoint for our Pulumi program is `index.ts`, but we use the `utils.ts` file for supporting functions.
+
+```typescript
+// index.ts
+import * as util from "./util";
+...
+const forwarderHandle = util.forwardPrometheusService(p8sService, p8sDeployment, {
+    localPort,
+});
+```
+
+```typescript
+// utils.ts
+import * as k8s from "@pulumi/kubernetes";
+import * as pulumi from "@pulumi/pulumi";
+
+export function forwardPrometheusService(
+    service: pulumi.Input<k8s.core.v1.Service>,
+    deployment: pulumi.Input<k8s.extensions.v1beta1.Deployment>,
+    opts: PromPortForwardOpts,
+): pulumi.Output<() => void> {
+    if (pulumi.runtime.isDryRun()) {
+        return pulumi.output(() => undefined);
+    }
+
+    return pulumi.all([service, deployment]).apply(([s, d]) => pulumi.all([s.metadata, d.urn])).apply(([meta]) => {
+        return new Promise<() => void>((resolve, reject) => {
+            const forwarderHandle = spawn("kubectl", [
+                "port-forward",
+                `service/${meta.name}`,
+                `${opts.localPort}:${opts.targetPort || 80}`,
+            ]);
+
+            forwarderHandle.stdout.on("data", data => resolve(() => forwarderHandle.kill()));
+            forwarderHandle.stderr.on("data", data => reject());
+        });
+    });
+}
+
+```
+
+There are a couple of reasons that this pattern is helpful. One, in this particular case, is that the `forwardPrometheusService` function exists to forward the Prometheus service to localhost, so we can check it. If you are running in-cluster, we probably don't need it! So we could add a conditional to determine if we need to run that function - which makes our code a lot clearer.
+
+Additionally, by breaking out the function, we can easily reuse it in other places in our code. For example, if we wanted to forward the Prometheus service to a different port, we could simply change the `localPort` parameter.
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+Organize your code in a way that makes it easy to understand and maintain. One way to do this in Typescript is to break out your code into separate files, and then import them into your main file. In this example, the entrypoint for our Pulumi program is `main.go`, but we use the `utils.go` file for supporting functions.
+
+```go
+// main.go
+package main
+import (
+  "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+  pulumi.Run(func(ctx *pulumi.Context) error {
+
+        _, err := NewServiceDeployment(ctx, "redis-leader", &ServiceDeploymentArgs{
+          Image: pulumi.String("redis"),
+          Ports: pulumi.IntArray{pulumi.Int(6379)},
+    })
+    if err != nil {
+      return err
+    }
+
+  }
+}
+```
+
+```go
+// utils.go
+package main
+import (
+	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
+	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
+	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+)
+
+func forwardPrometheusService(name string, quantity int, ctx *pulumi.Context) iam.RoleArray {
+...
+
+  return nil
+}
+
+```
+
+There are a couple of reasons that this pattern is helpful. One, in this particular case, is that the `forwardPrometheusService` function exists to forward the Prometheus service to localhost, so we can check it. If you are running in-cluster, we probably don't need it! So we could add a conditional to determine if we need to run that function - which makes our code a lot clearer.
+
+Additionally, by breaking out the function, we can easily reuse it in other places in our code. For example, if we wanted to forward the Prometheus service to a different port, we could simply change the `localPort` parameter.
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+golang stuff
+{{% /choosable %}}
