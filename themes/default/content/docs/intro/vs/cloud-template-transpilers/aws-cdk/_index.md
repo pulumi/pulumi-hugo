@@ -27,7 +27,7 @@ AWS Cloud Development Kit (CDK) is an open-source software development framework
 
 ## Pulumi vs. CDK: Similarities {#similarities}
 
-Both Pulumi and CDK allow you to build and deploy infrastructure on AWS using familiar programming languages and tools, and both use a declarative infrastructure as code model built on the concept of _desired state_. In both Pulumi and CDK, desired state is expressed by declaring one or more cloud resources in code that’s evaluated by the deployment engine, which in turn decides whether to create, update or destroy the resources of a given stack by comparing the stack's last known state with the new state expressed in the code. Both have similar concepts for modularity and higher-level abstractions that encapsulate multiple resources. These are known as constructs in CDK and as Component Resources in Pulumi.
+Both Pulumi and CDK allow you to build and deploy infrastructure on AWS using familiar programming languages and tools, and both use a declarative infrastructure as code model built on the concept of _desired state_. In both Pulumi and CDK, desired state is expressed by declaring one or more cloud resources in code that’s evaluated by the deployment engine (though with CDK, that code is rendered CloudFormation text), and the deployment engine determines whether to create, update or destroy the resources of an infrastructure stack by comparing its last known state with the new state expressed by the code. Both have similar concepts for modularity and higher-level abstractions that encapsulate multiple resources. These are known as constructs in CDK and as Component Resources in Pulumi.
 
 ## Pulumi vs. CDK: Key Differences {#differences}
 
@@ -35,7 +35,7 @@ First, CDK supports only AWS, whereas Pulumi supports over 60 cloud and SaaS pro
 
 Moreover, because CDK depends on CloudFormation as the deployment engine, it shares many of the same benefits and limitations as CloudFormation (see [Pulumi vs. CloudFormation]({{< relref "/docs/intro/vs/cloud-templates/cloudformation" >}})).
 
-Finally, while both CDK and Pulumi support automated testing, the scenarios they're able to support are quite different. For example, both CDK and Pulumi support unit testing, but Pulumi offers significant advantages as a result of the deep integration between language host and runtime. With Pulumi, you can run fast, in-memory (offline) unit tests that mock external calls cloud providers, whereas with CDK, you're only able to run assertions against the rendered CloudFormation template synthesized by the CDK app, and there is no equivalent option for offline testing.
+Finally, while both CDK and Pulumi support automated testing, the scenarios they're able to support are quite different. For example, both CDK and Pulumi support unit testing, but Pulumi offers significant advantages as a result of the deep integration between language host and runtime. With Pulumi, you can run fast, in-memory (offline) unit tests that mock external calls to cloud providers, whereas with CDK, you're only able to run assertions against the rendered CloudFormation template synthesized by the CDK app, and there is no equivalent option for offline testing.
 
 The following table summarizes some additional similarities and differences between Pulumi and CDK, and the sections below the table go into more detail.
 
