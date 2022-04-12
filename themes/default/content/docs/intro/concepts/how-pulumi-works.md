@@ -255,7 +255,7 @@ public MyStack : Stack
         {
             Acl = "public-read",   // add acl
         });
-        var contentBucket = new Aws.S3.Bucket("app-bucket");
+        var appBucket = new Aws.S3.Bucket("app-bucket");
     }
 }
 ```
