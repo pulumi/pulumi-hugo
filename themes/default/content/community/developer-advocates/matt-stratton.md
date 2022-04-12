@@ -30,7 +30,7 @@ talks:
     title: The Journey From DevOps to Cloud Engineering
     url: https://devopsdays.org/events/2022-raleigh/program/matt-stratton/
     date: 2022-04-13T10:00:00.000-07:00
-    slides: 
+    slides: https://speaking.mattstratton.com/JPe46p/the-journey-from-devops-to-cloud-engineering
   - event: Trajectory 2021
     title: "Kubernetes, You Rainbow-Infused Space Unicorn: What Leslie Knope Can Teach Us About DevOps"
     url: https://devopsdays.org/events/2022-denver/program/matty-stratton/
