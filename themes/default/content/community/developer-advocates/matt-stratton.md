@@ -1,9 +1,7 @@
 ---
 title: Matty Stratton
-
 id: matt-stratton
 first_name: Matty
-
 meta_desc: Matt Stratton is a member of the Developer Advocacy team at Pulumi.
 layout: developer-advocates/single
 aliases:
