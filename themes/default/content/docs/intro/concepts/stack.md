@@ -32,17 +32,25 @@ $ pulumi stack init broomllc/staging
 
 Fully qualified stack names also include the project name, in the form `orgName/projectName/stackName`, and this fully-qualified format is required in some contexts. In most contexts, the shorthands `orgName/stackName` or `stackName` are valid and use the default organization and the current project context.
 
-{{% notes "info" %}}
+{{% notes type="info" %}}
 While stacks with applied configuration settings will often be accompanied by `Pulumi.<stack-name>.yaml` files, these files are not created by `pulumi stack init`. They are created and managed with [`pulumi config`]({{< relref "/docs/reference/cli/pulumi_config" >}}). For information on how to populate your stack configuration files, see [Configuration]({{< relref "/docs/intro/concepts/config" >}}).
+{{% /notes %}}
+
+## Plan a deployment
+
+{{% notes type="warning" %}}
+Update plans are currently in experimental preview and will only show up in `--help` if the environment variable `PULUMI_EXPERIMENTAL` is set to `true`.
+{{% /notes %}}
+
+To preview and save a plan of your project run `pulumi preview --save-plan=plan.json`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
+
+{{% notes type="info"%}}
+Your program code can distinguish between execution for `preview` and `update` operations by using [pulumi.runtime.isDryRun()]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/runtime#isDryRun" >}}).
 {{% /notes %}}
 
 ## Deploy a project
 
-To deploy your project to the currently selected stack, run `pulumi up`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
-
-{{% notes "info"%}}
-Your program code can distinguish between execution for `preview` and `update` operations by using [pulumi.runtime.isDryRun()]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/runtime#isDryRun" >}}).
-{{% /notes %}}
+To deploy your project to the currently selected stack, run `pulumi up`. If you saved a plan from a preview you can pass that in to constrain the update to only doing what was planned with `pulumi up --plan=plan.json`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
 
 ## Listing stacks
 
