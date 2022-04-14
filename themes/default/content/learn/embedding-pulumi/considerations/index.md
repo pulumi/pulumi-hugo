@@ -46,7 +46,7 @@ they need for their use case. Skipping logging levels to use one generic level
 often leads to others turning off logging to reduce noise, which goes counter to
 the actual use of logging.
 
-Add in some logs, like this:
+Add in some logs to that `learn-auto-api/{{< langfile >}}`, like this:
 
 ```python
 import json
@@ -78,19 +78,34 @@ def find_local(dirname):
 def spin_venv(dirname):
     work_dir = find_local(dirname)
     pulumi.info("Preparing a virtual environment...")
-    subprocess.run(["python3", "-m", "venv", "venv"], check=True, cwd=work_dir, capture_output=True)
-    subprocess.run([os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"], check=True,
-                    cwd=work_dir, capture_output=True)
-    subprocess.run([os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"], check=True,
-                    cwd=work_dir, capture_output=True)
+    subprocess.run(
+        ["python3", "-m", "venv", "venv"],
+        check=True,
+        cwd=work_dir,
+        capture_output=True
+    )
+    subprocess.run(
+        [os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"],
+        check=True,
+        cwd=work_dir,
+        capture_output=True
+    )
+    subprocess.run(
+        [os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"],
+        check=True,
+        cwd=work_dir,
+        capture_output=True
+    )
     pulumi.info("Virtual environment set up")
 
 
 # Init or create the stack, depending on if it's present
 def set_stack(context):
-    stack = auto.create_or_select_stack(stack_name=context['stack_name'],
-                                        project_name=context['project'],
-                                        work_dir=find_local(context['dirname']))
+    stack = auto.create_or_select_stack(
+        stack_name=context['stack_name'],
+        project_name=context['project'],
+        work_dir=find_local(context['dirname'])
+    )
     pulumi.info("Successfully initialized stack")
     return stack
 
@@ -231,8 +246,8 @@ diff.
 ## Handling Exceptions
 
 Good development practice is to handle exceptions gracefully. Any call to our
-custom API should do the same, and it should log the error. Update the code like
-this:
+custom API should do the same, and it should log the error. Update the code in
+the `learn-auto-api/{{< langfile >}}` like this:
 
 ```python
 import json
@@ -265,11 +280,24 @@ def spin_venv(dirname):
     work_dir = find_local(dirname)
     try:
         pulumi.info("Preparing a virtual environment...")
-        subprocess.run(["python3", "-m", "venv", "venv"], check=True, cwd=work_dir, capture_output=True)
-        subprocess.run([os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"], check=True,
-                       cwd=work_dir, capture_output=True)
-        subprocess.run([os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"], check=True,
-                       cwd=work_dir, capture_output=True)
+        subprocess.run(
+            ["python3", "-m", "venv", "venv"],
+            check=True,
+            cwd=work_dir,
+            capture_output=True
+        )
+        subprocess.run(
+            [os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"],
+            check=True,
+            cwd=work_dir,
+            capture_output=True
+        )
+        subprocess.run(
+            [os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"],
+            check=True,
+            cwd=work_dir,
+            capture_output=True
+        )
         pulumi.info("Virtual environment set up")
     except Exception as e:
         pulumi.error("Failure while setting up a virtual environment:")
@@ -279,9 +307,11 @@ def spin_venv(dirname):
 # Init or create the stack, depending on if it's present
 def set_stack(context):
     try:
-        stack = auto.create_or_select_stack(stack_name=context['stack_name'],
-                                            project_name=context['project'],
-                                            work_dir=find_local(context['dirname']))
+        stack = auto.create_or_select_stack(
+            stack_name=context['stack_name'],
+            project_name=context['project'],
+            work_dir=find_local(context['dirname'])
+        )
         pulumi.info("Successfully initialized stack")
         return stack
     except Exception as e:

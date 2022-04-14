@@ -29,7 +29,8 @@ interface for others to use.
 
 Let’s start out by scaffolding the code by importing the right libraries and
 doing a bit of conversion of our basic Pulumi commands (create, configure,
-refresh, destroy, and update). to code with the automation API library:
+refresh, destroy, and update) to code with the automation API library. Put this
+code in the {{< langfile >}} file:
 
 ```python
 import json
@@ -53,14 +54,31 @@ stack_name = "dev"
 work_dir = os.path.join(os.path.dirname(__file__), '..', "boba-tea-shop")
 
 # Set up the virtual environment
-subprocess.run(["python3", "-m", "venv", "venv"], check=True, cwd=work_dir, capture_output=True)
-subprocess.run([os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"], check=True, cwd=work_dir, capture_output=True)
-subprocess.run([os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"], check=True, cwd=work_dir, capture_output=True)
+subprocess.run(
+    ["python3", "-m", "venv", "venv"],
+    check=True,
+    cwd=work_dir,
+    capture_output=True
+)
+subprocess.run(
+    [os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"],
+    check=True,
+    cwd=work_dir,
+    capture_output=True
+)
+subprocess.run(
+    [os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"],
+    check=True,
+    cwd=work_dir,
+    capture_output=True
+)
 
 # Init or create the stack, depending on if it's present
-stack = auto.create_or_select_stack(stack_name=stack_name,
-                                    project_name=project_name,
-                                    work_dir=work_dir)
+stack = auto.create_or_select_stack(
+    stack_name=stack_name,
+    project_name=project_name,
+    work_dir=work_dir
+)
 
 # Configure our Pulumi project
 stack.set_config("", auto.ConfigValue(value=""))
@@ -100,7 +118,7 @@ destroy workflow.
 ## Automating Commands
 
 Now that we have that rough scaffolding, let's make it more reusable and more
-like an API:
+like an API. Modify `learn-auto-api/{{< langfile >}}` like this:
 
 ```python
 import json
@@ -133,9 +151,24 @@ def spin_venv(dirname):
     work_dir = find_local(dirname)
     try:
         pulumi.info("Preparing a virtual environment...")
-        subprocess.run(["python3", "-m", "venv", "venv"], check=True, cwd=work_dir, capture_output=True)
-        subprocess.run([os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"], check=True, cwd=work_dir, capture_output=True)
-        subprocess.run([os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"], check=True, cwd=work_dir, capture_output=True)
+        subprocess.run(
+            ["python3", "-m", "venv", "venv"],
+            check=True,
+            cwd=work_dir,
+            capture_output=True
+        )
+        subprocess.run(
+            [os.path.join("venv", "bin", "python3"), "-m", "pip", "install", "--upgrade", "pip"],
+            check=True,
+            cwd=work_dir,
+            capture_output=True
+        )
+        subprocess.run(
+            [os.path.join("venv", "bin", "pip"), "install", "-r", "requirements.txt"],
+            check=True,
+            cwd=work_dir,
+            capture_output=True
+        )
         pulumi.info("Virtual environment set up")
     except Exception as e:
         pulumi.error("Failure while setting up a virtual environment:")
@@ -145,9 +178,11 @@ def spin_venv(dirname):
 # Init or create the stack, depending on if it's present
 def set_stack(context):
     try:
-        stack = auto.create_or_select_stack(stack_name=context['stack_name'],
-                                            project_name=context['project'],
-                                            work_dir=find_local(context['dirname']))
+        stack = auto.create_or_select_stack(
+            stack_name=context['stack_name'],
+            project_name=context['project'],
+            work_dir=find_local(context['dirname'])
+        )
         pulumi.info("Successfully initialized stack")
         return stack
     except Exception as e:

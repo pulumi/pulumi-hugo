@@ -59,6 +59,24 @@ string). Then, we need to add that new context to our config for the project. We
 also need to return the output values for later use. Finally, we'll adjust the
 destroy call to return so we can use it in our API for an ephemeral random call.
 
+Here's the new file structure:
+
+```
+learn-auto-api/
+    burner-program/
+        venv/
+        .gitignore
+        __main__.py
+        Pulumi.yaml
+        requirements.txt
+    venv/
+    .gitignore
+    __main__.py
+    basic_pulumi.py
+    Pulumi.yaml
+    requirements.txt
+```
+
 Use this diff to make those changes:
 
 ```bash
@@ -89,7 +107,8 @@ $ diff __main__.py basic_pulumi.py
 
 ```
 
-Ready? Next, make a new file called `api.py`, and copy this code into it:
+Ready? Next, make a new file called `api.py`, and copy this code into it,
+replacing the org on line 13 (in the `spin_up_program` function):
 
 ```python
 import falcon
@@ -103,12 +122,13 @@ api = application = falcon.App()
 
 
 def spin_up_program(requested):
-    context = basic_pulumi.set_context(org='nimbinatus',
-                                       project='burner-program',
-                                       stack='dev',
-                                       dirname='burner-program',
-                                       req=f'{requested}'
-                                       )
+    context = basic_pulumi.set_context(
+        org='<INSERT_YOUR_ORG_HERE>',
+        project='burner-program',
+        stack='dev',
+        dirname='burner-program',
+        req=f'{requested}'
+    )
     basic_pulumi.spin_venv(context['dirname'])
     stack = basic_pulumi.set_stack(context=context)
     basic_pulumi.configure_project(stack=stack, context=context)
@@ -172,8 +192,8 @@ if __name__ == '__main__':
 This file sets up a small Falcon application that, when we reach certain
 endpoints, runs our Pulumi program using the commands we made that wrap the CLI.
 Each endpoint calls a different part of the program. Speaking of that program,
-we need to modify it a bit. Change the `__main__.py` file in the
-`burner-program` directory to match this code:
+we need to modify it a bit. Change `burner-program/{{< langfile >}}` to match
+this code:
 
 ```python
 import pulumi
@@ -185,13 +205,16 @@ request = config.require('request')
 
 def pulumi_program():
     if request == 'string':
-        fake_string = random.RandomString("fake-string",
-                                          length=24
-                                          )
+        fake_string = random.RandomString(
+            "fake-string",
+            length=24
+        )
         result_string = fake_string.result
     elif request == 'id':
-        fake_id = random.RandomId("fake-id",
-                                  byte_length=1)
+        fake_id = random.RandomId(
+            "fake-id",
+            byte_length=1
+        )
         result_string = fake_id.b64_std
     elif request == 'uuid':
         fake_uuid = random.RandomUuid("fake-uuid")
@@ -205,6 +228,27 @@ pulumi.export(f'{request}', pulumi_program())
 
 ```
 
+Here's the final file structure:
+
+```
+learn-auto-api/
+    burner-program/
+        venv/
+        .gitignore
+        __main__.py
+        Pulumi.dev.yaml
+        Pulumi.yaml
+        requirements.txt
+    venv/
+    .gitignore
+    __main__.py
+    api.py
+    basic_pulumi.py
+    Pulumi.dev.yaml
+    Pulumi.yaml
+    requirements.txt
+```
+
 Now, let's run it! From the root of the repo, run `python api.py`. You'll find
 the following output:
 
@@ -212,7 +256,7 @@ the following output:
 Serving on port 8000...
 ```
 
-Now, we'll try curling the `id` endpoint. Open a new terminal and run this
+Now, we'll try CURLing the `id` endpoint. Open a new terminal and run this
 command:
 
 ```bash
@@ -285,7 +329,8 @@ Resources:
 
 Duration: 2s
 
-The resources in the stack have been deleted, but the history and configuration associated with the stack are still maintained.
+The resources in the stack have been deleted, but the history and configuration
+associated with the stack are still maintained.
 If you want to remove the stack completely, run 'pulumi stack rm dev'.
 info: Successfully destroyed the stack
 127.0.0.1 - - [15/Dec/2021 21:54:01] "GET /id HTTP/1.1" 200 20

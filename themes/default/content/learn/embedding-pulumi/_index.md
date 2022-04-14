@@ -35,7 +35,7 @@ minutes to complete.
 You will need the following tools to complete this pathway:
 
 - A [Pulumi account and
-  token]({{< relref "/docs/intro/console/accounts#access-tokens" >}})
+  token]({{< relref "/docs/intro/pulumi-service/accounts#access-tokens" >}})
   - If you don't have an account, go to the [signup
     page](https://app.pulumi.com/signup).
 
