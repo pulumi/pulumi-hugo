@@ -26,33 +26,23 @@ block_external_search_index: false
 
 ## Time
 
-How long this tutorial will take depends on your internet connection, reading
-speed, and other factors. On average, this tutorial should take you about 30
-minutes to complete.
+How long this tutorial will take depends on your internet connection, reading speed, and other factors. On average, this tutorial should take you about 30 minutes to complete.
 
 ## Prerequisites
 
 You will need the following tools to complete this pathway:
 
-- A [Pulumi account and
-  token]({{< relref "/docs/intro/pulumi-service/accounts#access-tokens" >}})
-  - If you don't have an account, go to the [signup
-    page](https://app.pulumi.com/signup).
+- A [Pulumi account and token]({{< relref "/docs/intro/pulumi-service/accounts#access-tokens" >}})
+  - If you don't have an account, go to the [signup page](https://app.pulumi.com/signup).
 
 In addition, you should be able to
 
 - code in Python
 
-We recommend that you either have completed [Pulumi
-Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with
-Pulumi]({{< relref "/learn/building-with-pulumi" >}}) OR have experience using
-Pulumi for other projects.
+We recommend that you either have completed [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}) and [Building with Pulumi]({{< relref "/learn/building-with-pulumi" >}}) OR have experience using Pulumi for other projects.
 
 ## About this pathway
 
-In this pathway, we will explore how you could use Pulumi as an API for your
-infrastructure deployment and maintenance.
+In this pathway, we will explore how you could use Pulumi as an API for your infrastructure deployment and maintenance.
 
-Note that this pathway will not have a specific application and infrastructure
-to stand up. Rather, we're exploring the Pulumi system, so you can use either a
-code example of your own or one of ours.
+Note that this pathway will not have a specific application and infrastructure to stand up. Rather, we're exploring the Pulumi system, so you can use either a code example of your own or one of ours.

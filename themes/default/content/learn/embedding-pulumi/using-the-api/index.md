@@ -22,42 +22,21 @@ links:
 block_external_search_index: false
 ---
 
-Having a set of commands that we can invoke programmatically is a nice touch,
-but it may not seem like much of an improvement. After all, we can just run
-these commands via the CLI and get the same result. We still need to write up
-Pulumi code for each system we want to build. However, what if I told you we
-could take this code and start building it out to make a self-service web portal
-for others to provision infrastructure? Or we could define commands to spin up
-happy-path infrastructure that other engineers could call from their own
-programs (or from a chatbot)? We could even call these commands as part of a
-pipeline (if we weren't using a supported runner) or as part of a program that
-is triggered by an incident page&mdash;such as if you need to spin up more
-capacity automatically in response to a spike in traffic.
+Having a set of commands that we can invoke programmatically is a nice touch, but it may not seem like much of an improvement. After all, we can just run these commands via the CLI and get the same result. We still need to write up Pulumi code for each system we want to build. However, what if I told you we could take this code and start building it out to make a self-service web portal for others to provision infrastructure? Or we could define commands to spin up happy-path infrastructure that other engineers could call from their own programs (or from a chatbot)? We could even call these commands as part of a pipeline (if we weren't using a supported runner) or as part of a program that is triggered by an incident page&mdash;such as if you need to spin up more capacity automatically in response to a spike in traffic.
 
-This small sample we've built is to get you familiar with the idea of an
-automated Pulumi system. Let's explore some possible interesting builds for the
-API.
+This small sample we've built is to get you familiar with the idea of an automated Pulumi system. Let's explore some possible interesting builds for the API.
 
 ## Making an API
 
-Before we go explore some more complicated examples, let's take our small random
-data generator from the very beginning of this pathway and make a little API.
+Before we go explore some more complicated examples, let's take our small random data generator from the very beginning of this pathway and make a little API.
 
-We're going to use Falcon for this API. Add Falcon to your environment by adding
-`falcon` to your `requirements.txt` file in the root of your repo, then run the
-following command:
+We're going to use Falcon for this API. Add Falcon to your environment by adding `falcon` to your `requirements.txt` file in the root of your repo, then run the following command:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Next, copy the `__main__.py` file in the root of your repo to a file called
-`basic_pulumi.py`. There's a couple of changes we'll need to make. First, we
-need to be able to pass in a new variable to the `set_context` call that defines
-what we're requesting (a new random id, a new random uuid, or a new random
-string). Then, we need to add that new context to our config for the project. We
-also need to return the output values for later use. Finally, we'll adjust the
-destroy call to return so we can use it in our API for an ephemeral random call.
+Next, copy the `__main__.py` file in the root of your repo to a file called `basic_pulumi.py`. There's a couple of changes we'll need to make. First, we need to be able to pass in a new variable to the `set_context` call that defines what we're requesting (a new random id, a new random uuid, or a new random string). Then, we need to add that new context to our config for the project. We also need to return the output values for later use. Finally, we'll adjust the destroy call to return so we can use it in our API for an ephemeral random call.
 
 Here's the new file structure:
 
@@ -107,8 +86,7 @@ $ diff __main__.py basic_pulumi.py
 
 ```
 
-Ready? Next, make a new file called `api.py`, and copy this code into it,
-replacing the org on line 13 (in the `spin_up_program` function):
+Ready? Next, make a new file called `api.py`, and copy this code into it, replacing the org on line 13 (in the `spin_up_program` function):
 
 ```python
 import falcon
@@ -189,11 +167,7 @@ if __name__ == '__main__':
 
 ```
 
-This file sets up a small Falcon application that, when we reach certain
-endpoints, runs our Pulumi program using the commands we made that wrap the CLI.
-Each endpoint calls a different part of the program. Speaking of that program,
-we need to modify it a bit. Change `burner-program/{{< langfile >}}` to match
-this code:
+This file sets up a small Falcon application that, when we reach certain endpoints, runs our Pulumi program using the commands we made that wrap the CLI. Each endpoint calls a different part of the program. Speaking of that program, we need to modify it a bit. Change `burner-program/{{< langfile >}}` to match this code:
 
 ```python
 import pulumi
@@ -249,23 +223,20 @@ learn-auto-api/
     requirements.txt
 ```
 
-Now, let's run it! From the root of the repo, run `python api.py`. You'll find
-the following output:
+Now, let's run it! From the root of the repo, run `python api.py`. You'll find the following output:
 
 ```bash
 Serving on port 8000...
 ```
 
-Now, we'll try CURLing the `id` endpoint. Open a new terminal and run this
-command:
+Now, we'll try CURLing the `id` endpoint. Open a new terminal and run this command:
 
 ```bash
 $ curl localhost:8000/id
 {"response": "6w=="}%
 ```
 
-What's happening in the terminal window where we're running the API? Check it
-out:
+What's happening in the terminal window where we're running the API? Check it out:
 
 ```bash
 info: Preparing a virtual environment...
@@ -336,44 +307,19 @@ info: Successfully destroyed the stack
 127.0.0.1 - - [15/Dec/2021 21:54:01] "GET /id HTTP/1.1" 200 20
 ```
 
-There's all the logs we added! Pretty cool!
+There are all the logs we added! Pretty cool!
 
 ## Wiring a self-service platform
 
-One of the common examples is a self-service platform. To give credit where
-credit is due, a fantastic Flask-based, in-depth example can be found in the
-[self-service-platyform repo](https://github.com/komalali/self-service-platyform)
-by one of the Pulumi community members. There also is a smaller example of the
-same idea in
-[Go](https://github.com/pulumi/automation-api-examples/tree/main/go/pulumi_over_http),
-[Python](https://github.com/pulumi/automation-api-examples/tree/main/python/pulumi_over_http),
-and
-[TypeScript/Javascript](https://github.com/pulumi/automation-api-examples/tree/main/nodejs/pulumiOverHttp-ts),
-in the Pulumi Automation API examples repo.
+One of the common examples is a self-service platform. To give credit where credit is due, a fantastic Flask-based, in-depth example can be found in the [self-service-platyform repo](https://github.com/komalali/self-service-platyform) by one of the Pulumi community members. There also is a smaller example of the same idea in [Go](https://github.com/pulumi/automation-api-examples/tree/main/go/pulumi_over_http), [Python](https://github.com/pulumi/automation-api-examples/tree/main/python/pulumi_over_http), and [TypeScript/Javascript](https://github.com/pulumi/automation-api-examples/tree/main/nodejs/pulumiOverHttp-ts), in the Pulumi Automation API examples repo.
 
-In general, all of these examples create a simple web page that provides a user
-interface for your Pulumi programs. The interface has standard use cases defined
-with the actual infrastructure for those use cases abstracted away in a
-RESTful manner. So, for example, if a user wanted a static site, a request for
-that use will spin up a storage spot, a policy for that storage, and a basic
-HTML file in that storage that's delivered as a webpage.
+In general, all of these examples create a simple web page that provides a user interface for your Pulumi programs. The interface has standard use cases defined with the actual infrastructure for those use cases abstracted away in a RESTful manner. So, for example, if a user wanted a static site, a request for that use will spin up a storage spot, a policy for that storage, and a basic HTML file in that storage that's delivered as a webpage.
 
-You'll notice that these examples don't just wrap the CLI commands as callable
-functions. The Automation API is embedded as part of the various larger calls to
-the platform's API. Pretty cool!
+You'll notice that these examples don't just wrap the CLI commands as callable functions. The Automation API is embedded as part of the various larger calls to the platform's API. Pretty cool!
 
 ## Migrating databases
 
-What if you could migrate a database with Pulumi? It's possible! The examples in
-[Go](https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration),
-[Python](https://github.com/pulumi/automation-api-examples/tree/main/python/database_migration),
-[TypeScript/Javascript](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts),
-and
-[C#/.Net](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration)
-show a basic creation of a table with insertion and verification of data. If we
-combine this idea with the same type of idea of a web portal, we could make a
-plain migration tool that takes data from one table and generates a new one from
-that data, effectively migrating the table from one database to another.
+What if you could migrate a database with Pulumi? It's possible! The examples in [Go](https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration), [Python](https://github.com/pulumi/automation-api-examples/tree/main/python/database_migration), [TypeScript/Javascript](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts), and [C#/.Net](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration) show a basic creation of a table with insertion and verification of data. If we combine this idea with the same type of idea of a web portal, we could make a plain migration tool that takes data from one table and generates a new one from that data, effectively migrating the table from one database to another.
 
 <br/>
 <br/>
@@ -382,12 +328,6 @@ These examples are only a small sample of the power of the Automation API.
 
 ---
 
-Congratulations! You've now finished this pathway on embedding Pulumi in other
-programs, platforms, and systems! In this pathway, you've learned about wrapping
-the standard Pulumi commands into a program with the Automation API, considering
-where Pulumi could be run and building out logging and error handling
-accordingly, and working with the Automation API to integrate your
-infrastructure into other workflows.
+Congratulations! You've now finished this pathway on embedding Pulumi in other programs, platforms, and systems! In this pathway, you've learned about wrapping the standard Pulumi commands into a program with the Automation API, considering where Pulumi could be run and building out logging and error handling accordingly, and working with the Automation API to integrate your infrastructure into other workflows.
 
-Go build new things, and watch this space for more learning experiences with
-Pulumi!
+Go build new things, and watch this space for more learning experiences with Pulumi!

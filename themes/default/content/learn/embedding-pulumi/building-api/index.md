@@ -19,18 +19,11 @@ tags:
 block_external_search_index: false
 ---
 
-The Automation API allows us to create an API for our current infrastructure. As
-engineers, we’d love to provision our stacks via a quick call, and we’d also
-like to make it easy for others to provision the same infrastructure with a web
-interface. Let’s first build the custom API for our stack, then we’ll build the
-interface for others to use.
+The Automation API allows us to create an API for our current infrastructure. As engineers, we'd love to provision our stacks via a quick call, and we'd also like to make it easy for others to provision the same infrastructure with a web interface. Let's first build the custom API for our stack, then we'll build the interface for others to use.
 
 ## Scaffolding
 
-Let’s start out by scaffolding the code by importing the right libraries and
-doing a bit of conversion of our basic Pulumi commands (create, configure,
-refresh, destroy, and update) to code with the automation API library. Put this
-code in the {{< langfile >}} file:
+Let's start out with scaffolding the code by importing the right libraries and doing a bit of conversion of our basic Pulumi commands (create, configure, refresh, destroy, and update) to code with the automation API library. Put this code in the {{< langfile >}} file:
 
 ```python
 import json
@@ -97,28 +90,17 @@ for output in up_res.outputs:
     val_out = up_res.outputs[f'{output}'].value
 ```
 
-This scaffolding gives us a declarative workflow that takes in a directory with
-a Pulumi program in it and runs a set of commands against it.
+This scaffolding gives us a declarative workflow that takes in a directory with a Pulumi program in it and runs a set of commands against it.
 
-We haven't made an API just yet. We've made the most simple program you can make
-with the Automation API: A procedure for creating, updating, or deleting a
-specific stack.
+We haven't made an API just yet. We've made the most simple program you can make with the Automation API: a procedure for creating, updating, or deleting a specific stack.
 
 ### Considerations with Destroy
 
-The basics of such an API is taking the commands we call in the CLI and
-generalizing them to an interface that can be easily programmed. We also,
-however, would like to have the ability to destroy a stack locally as we’d like
-any future work locally to go through the API as well, but we really don’t want
-any automation to be able to destroy a stack without human approval (unless
-perhaps it’s an ephemeral stack for smoke testing). That's the part at the top
-of the code that defines a `destroy` variable, or flag, that can enable the
-destroy workflow.
+The basics of such an API is taking the commands we call in the CLI and generalizing them to an interface that can be easily programmed. We also, however, would like to have the ability to destroy a stack locally as we'd like any future work locally to go through the API as well, but we really don't want any automation to be able to destroy a stack without human approval (unless perhaps it's an ephemeral stack for smoke testing). That's the part at the top of the code that defines a `destroy` variable, or flag, that can enable the destroy workflow.
 
 ## Automating Commands
 
-Now that we have that rough scaffolding, let's make it more reusable and more
-like an API. Modify `learn-auto-api/{{< langfile >}}` like this:
+Now that we have that rough scaffolding, let's make it more reusable and more like an API. Modify `learn-auto-api/{{< langfile >}}` like this:
 
 ```python
 import json
@@ -265,5 +247,4 @@ if __name__ == "__main__":
 
 ```
 
-Now we've got some functions we can call. We've got a few considerations to take
-into account in the next module before we can start building with this code.
+Now we've got some functions we can call. We've got a few considerations to take into account in the next module before we can start building with this code.

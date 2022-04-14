@@ -19,32 +19,15 @@ tags:
 block_external_search_index: false
 ---
 
-Now that we've got a bit of code, we need to consider how we're going to use
-this code. We're not going to be running it from our local console any longer,
-so we have some things to think about.
+Now that we've got a bit of code, we need to consider how we're going to use this code. We're not going to be running it from our local console any longer, so we have some things to think about.
 
 ## Adding logging
 
-Since we’re running an API that could get called anywhere, it’s always good to
-add some logging to our stack. Why? Well, you’ll need those logs for debugging,
-and if someone were to try to access a system through, for example, your
-pipeline, the basic system logs are probably the first place they’ll try to wipe
-out. Additional logging locations that are separate from the actual system means
-you can set up a write-only connection, ensuring that any compromise to that
-system can’t affect the logs as they’re written.
+Since we're running an API that could get called anywhere, it's always good to add some logging to our stack. Why? Well, you'll need those logs for debugging, and if someone were to try to access a system through, for example, your pipeline, the basic system logs are probably the first place they'll try to wipe out. Additional logging locations that are separate from the actual system means you can set up a write-only connection, ensuring that any compromise to that system can't affect the logs as they're written.
 
-Pulumi has some built-in ability in the free tier to log with a call to
-`pulumi.<log-level>`. If you’re needing for audit logging (tracking which system
-or who triggered each action), that’s on the Enterprise tier. We’re going to use
-the built-in logs, however, to get us going.
+Pulumi has some built-in ability in the free tier to log with a call to `pulumi.<log-level>`. If you're needing audit logging (tracking which system or who triggered each action), that's on the Enterprise tier. We're going to use the built-in logs, however, to get us going.
 
-If you're not familiar with logging libraries, the call is typically to the
-logging level as you'll find with the Pulumi logging functions
-(`pulumi.debug()`, `pulumi.info()`, `pulumi.error()`, etc.). Logging levels are
-important as they help anyone reviewing the logs tune to the level of details
-they need for their use case. Skipping logging levels to use one generic level
-often leads to others turning off logging to reduce noise, which goes counter to
-the actual use of logging.
+If you're not familiar with logging libraries, the call is typically to the logging level as you'll find with the Pulumi logging functions (`pulumi.debug()`, `pulumi.info()`, `pulumi.error()`, etc.). Logging levels are important as they help anyone reviewing the logs tune to the level of details they need for their use case. Skipping logging levels to use one generic level often leads to others turning off logging to reduce noise, which goes counter to the actual use of logging.
 
 Add in some logs to that `learn-auto-api/{{< langfile >}}`, like this:
 
@@ -168,8 +151,7 @@ if __name__ == "__main__":
     update_stack(stack=stack)
 ```
 
-These logs appear in the console as you run an update. If you were to run this
-file with `python __main__.py`, you would get the following output:
+These logs appear in the console as you run an update. If you were to run this file with `python __main__.py`, you would get the following output:
 
 ```bash
 info: Preparing a virtual environment...
@@ -239,15 +221,11 @@ Process finished with exit code 0
 
 ```
 
-In this case, there were no updates to our stack, so the summary we put in the
-logs just notes that there were four resources that stayed the same with no
-diff.
+In this case, there were no updates to our stack, so the summary we put in the logs just notes that there were four resources that stayed the same with no diff.
 
 ## Handling Exceptions
 
-Good development practice is to handle exceptions gracefully. Any call to our
-custom API should do the same, and it should log the error. Update the code in
-the `learn-auto-api/{{< langfile >}}` like this:
+Good development practice is to handle exceptions gracefully. Any call to our custom API should do the same, and it should log the error. Update the code in the `learn-auto-api/{{< langfile >}}` like this:
 
 ```python
 import json
@@ -377,5 +355,4 @@ if __name__ == "__main__":
 
 ```
 
-With all of this in mind, let's try now using these functions in some more
-custom code where we actually can build with this. Onward!
+With all of this in mind, let's try now using these functions in some more custom code where we actually can build with this. Onward!
