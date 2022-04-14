@@ -36,22 +36,6 @@ Fully qualified stack names also include the project name, in the form `orgName/
 While stacks with applied configuration settings will often be accompanied by `Pulumi.<stack-name>.yaml` files, these files are not created by `pulumi stack init`. They are created and managed with [`pulumi config`]({{< relref "/docs/reference/cli/pulumi_config" >}}). For information on how to populate your stack configuration files, see [Configuration]({{< relref "/docs/intro/concepts/config" >}}).
 {{% /notes %}}
 
-## Plan a deployment
-
-{{% notes type="warning" %}}
-Update plans are currently in experimental preview and will only show up in `--help` if the environment variable `PULUMI_EXPERIMENTAL` is set to `true`.
-{{% /notes %}}
-
-To preview and save a plan of your project run `pulumi preview --save-plan=plan.json`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
-
-{{% notes type="info"%}}
-Your program code can distinguish between execution for `preview` and `update` operations by using [pulumi.runtime.isDryRun()]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/runtime#isDryRun" >}}).
-{{% /notes %}}
-
-## Deploy a project
-
-To deploy your project to the currently selected stack, run `pulumi up`. If you saved a plan from a preview you can pass that in to constrain the update to only doing what was planned with `pulumi up --plan=plan.json`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
-
 ## Listing stacks
 
 To see the list of stacks associated with the current project (the nearest `Pulumi.yaml` file), use `pulumi stack ls`.
@@ -89,6 +73,22 @@ mycompany/prod*                            4 hours ago              97
 mycompany/staging                          4 hours ago              97
 dev                                       n/a                      n/a
 ```
+
+## Generate an update plan
+
+{{% notes type="warning" %}}
+Update plans are currently in experimental preview and will only show up in `--help` if the environment variable `PULUMI_EXPERIMENTAL` is set to `true`.
+{{% /notes %}}
+
+To preview an update of the currently selected stack and save that plan run `pulumi preview --save-plan=plan.json`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
+
+{{% notes type="info"%}}
+Your program code can distinguish between execution for `preview` and `update` operations by using [pulumi.runtime.isDryRun()]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi/runtime#isDryRun" >}}).
+{{% /notes %}}
+
+## Update a stack
+
+To update the currently selected stack, run `pulumi up`. If you saved a plan from a preview you can pass that in to constrain the update to only doing what was planned with `pulumi up --plan=plan.json`. The operation uses the latest [configuration values]({{< relref "/docs/intro/concepts/config" >}}) for the active stack.
 
 ## View stack resources
 
