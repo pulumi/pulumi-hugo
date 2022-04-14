@@ -21,7 +21,7 @@ block_external_search_index: false
 
 With all of that in mind, let's imagine that the Pulumipus Boba Tea Shop has been going so well that we can expand to jump into other markets. We're now part of a cloud engineering platform team, and we need to make it easy for developers building our applications to request the infrastructure that they need through some sort of API or perhaps a website.
 
-This is exactly where Pulumi's Automation API can come in handy. The Automation API lets you embed Pulumi into applications and interfaces to empower others to get the infrastructure they need in the way you expect them to use it.
+This is exactly where Pulumi's Automation API can come in handy. The Automation API lets you embed Pulumi into applications and interfaces to empower others to get the infrastructure they need in the way you expect them to use it. You can also use it to work with CI/CD systems, chatops systems, monitoring systems, gitops systems, or anything else where you want to integrate the automation of the state of your infrastructure. For example, if you want your monitoring system to spin up additional spot instances or tear down unused spot instances based on traffic patterns without needing human interaction, you can use the Automation API to let alerts trigger infrastructure changes (perhaps with some policy as code to provide some guardrails to prevent the automation from tearing down everything or running up your bill).
 
 Let's get started!
 
