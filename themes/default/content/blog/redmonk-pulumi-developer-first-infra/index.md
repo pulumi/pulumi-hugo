@@ -2,8 +2,8 @@
 title: "Pulumi and RedMonk discuss developer-first infrastructure and why it matters"
 date: 2022-04-13T17:46:27-05:00
 meta_desc: |
-    Explore how James Governor, co-founder of Redmonk, and Joe Duffy, founder
-    and CEO of Pulumi, think about developer-first infrastructure.
+    Explore how James Governor, Redmonk, and Joe Duffy, Pulumi, think about
+    developer-first infrastructure.
 meta_image: meta.png
 authors:
     - george-huang
