@@ -10,7 +10,7 @@ date: 2022-04-14
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: We're excited to be launch partners for the new Enterprise Container Management Solutions category of the AWS Container Competency program.
+meta_desc: We're excited to be launch partners for the new Enterprise Container Management category of the AWS Container Competency program.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
