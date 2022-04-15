@@ -29,7 +29,7 @@ Let's get started!
 
 We're going to automate the use of Pulumi's CLI so we can use it in pipelines, APIs, and web interfaces. For the Pulumi program we're using to test our automation, we'll get to some sample code in a moment. If you'd like to use your own Pulumi program, however, go for it!
 
-Just like in all of our other pathways, we're going to create a new Pulumi project to hold our code. You could keep working in whatever project that you already have set up, but it will get a bit messy if you do. Create a new directory and run `pulumi new` with the python template. If you need a refresher on how to do so, head to [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}).
+Just like in all of our other pathways, we're going to create a new Pulumi project to hold our code. You could keep working in whatever project that you already have set up, but it will get a bit messy if you do. Create a new directory and run `pulumi new` with the `python` template. If you need a refresher on how to do so, head to [Pulumi Fundamentals]({{< relref "/learn/pulumi-fundamentals" >}}).
 
 Call the directory `learn-auto-api`, which we'll use as the name in the rest of this pathway. If you name it something different, don't forget to change the value in the code!
 
@@ -37,7 +37,8 @@ Call the directory `learn-auto-api`, which we'll use as the name in the rest of 
 
 For our application to test the eventual API, we're going to use the Random provider. If you want to use this sample code, make a new directory in `learn-auto-api` called `burner-program`, and initialize a new Pulumi program with the following code in {{< langfile >}}:
 
-```python
+{{< code-filename file="learn-auto-api/burner-program/__main__.py" >}}
+```python {linenos=inline,linenostart=1}
 import pulumi
 import pulumi_random as random
 
@@ -55,6 +56,7 @@ pulumi.export('string', fake_string.result)
 pulumi.export('id', fake_id.b64_std)
 pulumi.export('uuid', fake_uuid.result)
 ```
+{{< /code-filename >}}
 
 This code should give us a good testing base that doesn't rely on any cloud provider so we can rule out networking issues should something go awry.
 

@@ -25,7 +25,8 @@ The Automation API allows us to create an API for our current infrastructure. As
 
 Let's start out with scaffolding the code by importing the right libraries and doing a bit of conversion of our basic Pulumi commands (create, configure, refresh, destroy, and update) to code with the automation API library. Put this code in the {{< langfile >}} file:
 
-```python
+{{< code-filename file="learn-auto-api/__main__.py" >}}
+```python {linenos=table,linenostart=1}
 import json
 import os
 import subprocess
@@ -89,6 +90,7 @@ up_res = stack.up(on_output=print)
 for output in up_res.outputs:
     val_out = up_res.outputs[f'{output}'].value
 ```
+{{< /code-filename >}}
 
 This scaffolding gives us a declarative workflow that takes in a directory with a Pulumi program in it and runs a set of commands against it.
 
@@ -100,9 +102,10 @@ The basics of such an API is taking the commands we call in the CLI and generali
 
 ## Automating Commands
 
-Now that we have that rough scaffolding, let's make it more reusable and more like an API. Modify `learn-auto-api/{{< langfile >}}` like this:
+Now that we have that rough scaffolding, let's make it more reusable and more like an API. Modify the main {{< langfile >}} like this:
 
-```python
+{{< code-filename file="learn-auto-api/__main__.py" >}}
+```python {linenos=table,linenostart=1}
 import json
 import os
 import subprocess
@@ -246,5 +249,6 @@ if __name__ == "__main__":
     update_stack(stack=stack)
 
 ```
+{{< /code-filename >}}
 
 Now we've got some functions we can call. We've got a few considerations to take into account in the next module before we can start building with this code.

@@ -1,0 +1,3 @@
+{{ $file := .Get "file" }}
+<h6 class="nohighlight" style="border-top:2px solid lightgray; padding-top: .5em;margin-top: 5px;font-family: monospace;">{{ $file }}</h6>
+{{- .Inner | markdownify -}}

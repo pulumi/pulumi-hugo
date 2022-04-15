@@ -29,9 +29,10 @@ Pulumi has some built-in ability in the free tier to log with a call to `pulumi.
 
 If you're not familiar with logging libraries, the call is typically to the logging level as you'll find with the Pulumi logging functions (`pulumi.debug()`, `pulumi.info()`, `pulumi.error()`, etc.). Logging levels are important as they help anyone reviewing the logs tune to the level of details they need for their use case. Skipping logging levels to use one generic level often leads to others turning off logging to reduce noise, which goes counter to the actual use of logging.
 
-Add in some logs to that `learn-auto-api/{{< langfile >}}`, like this:
+Add in some logs to that main {{< langfile >}}, like this:
 
-```python
+{{< code-filename file="learn-auto-api/__main__.py" >}}
+```python {linenos=table,linenostart=1}
 import json
 import os
 import subprocess
@@ -150,6 +151,7 @@ if __name__ == "__main__":
             destroy_stack(stack=stack)
     update_stack(stack=stack)
 ```
+{{< /code-filename >}}
 
 These logs appear in the console as you run an update. If you were to run this file with `python __main__.py`, you would get the following output:
 
@@ -225,9 +227,10 @@ In this case, there were no updates to our stack, so the summary we put in the l
 
 ## Handling Exceptions
 
-Good development practice is to handle exceptions gracefully. Any call to our custom API should do the same, and it should log the error. Update the code in the `learn-auto-api/{{< langfile >}}` like this:
+Good development practice is to handle exceptions gracefully. Any call to our custom API should do the same, and it should log the error. Update the code in the main {{< langfile >}} like this:
 
-```python
+{{< code-filename file="learn-auto-api/__main__.py" >}}
+```python {linenos=table,linenostart=1}
 import json
 import os
 import subprocess
@@ -354,5 +357,6 @@ if __name__ == "__main__":
     ...
 
 ```
+{{< /code-filename >}}
 
 With all of this in mind, let's try now using these functions in some more custom code where we actually can build with this. Onward!

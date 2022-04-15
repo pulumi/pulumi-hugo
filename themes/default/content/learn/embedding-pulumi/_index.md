@@ -4,11 +4,11 @@ layout: module
 date: 2021-12-15
 draft: false
 description: |
-    Explore building a custom API for Pulumi-maintained infrastructure so you
-    can embed Pulumi in other contexts.
+    Explore building a custom infrastructure API to embed Pulumi in other
+    contexts.
 meta_desc: |
-    Explore building a custom API for Pulumi-maintained infrastructure so you
-    can embed Pulumi in other contexts.
+    Explore building a custom infrastructure API to embed Pulumi in other
+    contexts.
 index: 10
 meta_image: meta.png
 level: advanced
