@@ -32,7 +32,8 @@ If you're not familiar with logging libraries, the call is typically to the logg
 Add in some logs to that main {{< langfile >}}, like this:
 
 {{< code-filename file="learn-auto-api/__main__.py" >}}
-```python {linenos=table,linenostart=1}
+
+```python {linenos=inline,linenostart=1}
 import json
 import os
 import subprocess
@@ -230,7 +231,8 @@ In this case, there were no updates to our stack, so the summary we put in the l
 Good development practice is to handle exceptions gracefully. Any call to our custom API should do the same, and it should log the error. Update the code in the main {{< langfile >}} like this:
 
 {{< code-filename file="learn-auto-api/__main__.py" >}}
-```python {linenos=table,linenostart=1}
+
+```python {linenos=inline,linenostart=1}
 import json
 import os
 import subprocess
@@ -357,6 +359,7 @@ if __name__ == "__main__":
     ...
 
 ```
+
 {{< /code-filename >}}
 
 With all of this in mind, let's try now using these functions in some more custom code where we actually can build with this. Onward!

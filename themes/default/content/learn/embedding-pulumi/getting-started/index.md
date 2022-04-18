@@ -38,6 +38,7 @@ Call the directory `learn-auto-api`, which we'll use as the name in the rest of 
 For our application to test the eventual API, we're going to use the Random provider. If you want to use this sample code, make a new directory in `learn-auto-api` called `burner-program`, and initialize a new Pulumi program with the following code in {{< langfile >}}:
 
 {{< code-filename file="learn-auto-api/burner-program/__main__.py" >}}
+
 ```python {linenos=inline,linenostart=1}
 import pulumi
 import pulumi_random as random
@@ -56,6 +57,7 @@ pulumi.export('string', fake_string.result)
 pulumi.export('id', fake_id.b64_std)
 pulumi.export('uuid', fake_uuid.result)
 ```
+
 {{< /code-filename >}}
 
 This code should give us a good testing base that doesn't rely on any cloud provider so we can rule out networking issues should something go awry.

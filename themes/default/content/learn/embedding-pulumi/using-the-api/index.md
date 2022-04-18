@@ -89,6 +89,7 @@ $ diff __main__.py basic_pulumi.py
 Ready? Next, make a new file called `api.py`, and copy this code into it, replacing the org on line 13 (in the `spin_up_program` function):
 
 {{< code-filename file="learn-auto-api/api.py" >}}
+
 ```python {linenos=inline,linenostart=1}
 import falcon
 import pulumi
@@ -167,11 +168,13 @@ if __name__ == '__main__':
         httpd.serve_forever()
 
 ```
+
 {{< /code-filename >}}
 
 This file sets up a small Falcon application that, when we reach certain endpoints, runs our Pulumi program using the commands we made that wrap the CLI. Each endpoint calls a different part of the program. Speaking of that program, we need to modify it a bit. Change `burner-program/{{< langfile >}}` to match this code:
 
 {{< code-filename file="learn-auto-api/burner-program/__main__.py" >}}
+
 ```python {linenos=inline,linenostart=1}
 import pulumi
 import pulumi_random as random
@@ -204,6 +207,7 @@ def pulumi_program():
 pulumi.export(f'{request}', pulumi_program())
 
 ```
+
 {{< /code-filename >}}
 
 Here's the final file structure:
