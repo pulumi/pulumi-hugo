@@ -91,6 +91,7 @@ up_res = stack.up(on_output=print)
 for output in up_res.outputs:
     val_out = up_res.outputs[f'{output}'].value
 ```
+
 {{< /code-filename >}}
 
 This scaffolding gives us a declarative workflow that takes in a directory with a Pulumi program in it and runs a set of commands against it.

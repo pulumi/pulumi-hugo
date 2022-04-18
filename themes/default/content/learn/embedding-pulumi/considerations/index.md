@@ -152,6 +152,7 @@ if __name__ == "__main__":
             destroy_stack(stack=stack)
     update_stack(stack=stack)
 ```
+
 {{< /code-filename >}}
 
 These logs appear in the console as you run an update. If you were to run this file with `python __main__.py`, you would get the following output:
