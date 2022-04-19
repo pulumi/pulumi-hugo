@@ -155,6 +155,7 @@ These projects can be part of the [same monorepo as the infrastructure project](
 Our example service is made up of an API and a database (RDS, CosmosDB, etc.). Our Pulumi program for the project defines the resources for the API and the database, and it can also deploy the actual code, as well. When we add our example service, our monorepo starts to look like this:
 
 {{< chooser language "typescript,go" / >}}
+
 {{% choosable language typescript %}}
 
 ```
@@ -170,7 +171,7 @@ Our example service is made up of an API and a database (RDS, CosmosDB, etc.). O
 │   ├── Pulumi.dev.yaml
 │   ├── Pulumi.staging.yaml
 │   └── Pulumi.prod.yaml
-└── .etc
+└── ...
 ```
 
 {{% /choosable %}}
@@ -190,7 +191,7 @@ Our example service is made up of an API and a database (RDS, CosmosDB, etc.). O
 │   ├── Pulumi.dev.yaml
 │   ├── Pulumi.staging.yaml
 │   └── Pulumi.prod.yaml
-└── .etc
+└── ...
 ```
 
 {{% /choosable %}}
@@ -224,7 +225,7 @@ These component resources can be packaged up and stored alongside all of your ot
 ├── pkg
 │   └──application
 │     └── app.ts
-└── .etc
+└── ...
 ```
 
 {{% /choosable %}}
@@ -246,7 +247,7 @@ These component resources can be packaged up and stored alongside all of your ot
 ├── pkg
 │   └──application
 │     └── app.go
-└── .etc
+└── ...
 ```
 
 {{% /choosable %}}
