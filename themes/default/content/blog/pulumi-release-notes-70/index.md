@@ -32,7 +32,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-The team has been busy releasing new features and improvements in the last 3 weeks. Read on to learn about what's new in this release!
+The team has been busy releasing new features and improvements in the last month. Read on to learn about what's new in this release!
 
 - Cloud Providers and Packages
   - [Pulumi AWS Provider v5.0.0](#pulumi-aws-provider-v5.0.0)
@@ -72,12 +72,12 @@ We shipped new versions of the AWS Native provider and the [Azure Native provide
 
 ### Display richer diffs
 
-In 3.29.1 we have made a handful of improvements to how diffs are presented in the Pulumi CLI. These changes will improve the CLI experience by making it more clear what changes are being made. 
+In 3.29.1 we have made a handful of improvements to how diffs are presented in the Pulumi CLI. These changes will improve the CLI experience by making easier to see what changes are being made. 
 Specifically, we have improved the following:
 
 * [Show rich diffs for JSON/YAML objects/arrays](https://github.com/pulumi/pulumi/issues/5831)
 
-  We now render the diff between the decoded JSON and YAML values rather than the diff between the text. This will make it a lot easier to see what has changed when managing resources that produce JSON or YAML strings. 
+  We now render the diff between the decoded JSON and YAML values rather than the diff between text values. This will make it a lot easier to see what has changed when managing resources that produce JSON or YAML strings. 
 
 * [Render changes to text properties as diffs](https://github.com/pulumi/pulumi/issues/9136)
 
@@ -103,7 +103,7 @@ Learn more in the [list current orgs GitHub issue](https://github.com/pulumi/pul
 
 ### Install Pulumi using Winget
 
-You can now install Pulumi using the [Winget](https://github.com/microsoft/winget-cli/) package manager. Windows users on Windows 11 and later can now uso `winget install pulumi` to install Pulumi and `winget upgrade pulumi` to get the latest version.
+You can now install Pulumi using the [Winget](https://github.com/microsoft/winget-cli/) package manager. Windows users on Windows 11 and later can now use `winget install pulumi` to install Pulumi and `winget upgrade pulumi` to get the latest version.
 
 Learn more in the [install Winget GitHub issue](https://github.com/pulumi/pulumi/issues/4676) and in the [Pulumi installation instructions](https://www.pulumi.com/docs/get-started/install/).
 
@@ -129,6 +129,6 @@ Learn more in the [speed up show stack name GitHub issue](https://github.com/pul
 
 ### Docs search improvements
 
-We updated the search experience of our [Docs]({{< relref "/docs" >}})) to return more inuitive results as well as to be pinned on the top bar when users are scrolling through our Docs. 
+We updated the search experience of our [Docs]({{< relref "/docs" >}}) to return more intuitive results as well as pinned the search bar on the top panel when users scroll through our Docs. 
 
 ![A screenshot of the Pulumi Docs  with updated search](search-screenshot.png)
