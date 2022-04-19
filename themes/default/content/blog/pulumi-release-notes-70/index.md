@@ -32,8 +32,9 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-The team has been busy releasing new features and improvements in the last month. Read on to learn about what's new in this release!
+The team has been busy releasing new features and improvements in the last month. The latest Pulumi updates include our providers updates, install Pulumi using winget, stack unselect command, GitHub release private plugins, and more. Read on to learn about what's new in this release!
 
+ <!--more-->
 - Cloud Providers and Packages
   - [Pulumi AWS Provider v5.0.0](#pulumi-aws-provider-v5.0.0)
   - [Lambda Function URLs](#lambda-function-urls)
