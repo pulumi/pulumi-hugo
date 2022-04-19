@@ -33,7 +33,6 @@ You can install Pulumi through the [Homebrew package manager](https://brew.sh/) 
 [Pulumi Homebrew Tap](https://github.com/pulumi/homebrew-tap/)
 
 ```bash
-$ brew tap pulumi/tap
 $ brew install pulumi/tap/pulumi
 ```
 
