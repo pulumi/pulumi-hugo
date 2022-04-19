@@ -79,6 +79,11 @@ Specifically, we have improved the following:
 
   We now render the diff between the decoded JSON and YAML values rather than the diff between text values. This will make it a lot easier to see what has changed when managing resources that produce JSON or YAML strings. 
 
+  Before 3.29.1 a preview would look as follows:
+  ![A screenshot of before diff render changes](diff-before.png)
+  Now the preview shows the YAML diff:
+  ![A screenshot of after diff render changes](diff-after.png)
+
 * [Render changes to text properties as diffs](https://github.com/pulumi/pulumi/issues/9136)
 
   Instead of simply rendering the old and new values for textual properties, we now present the diff between the old and new values. 
@@ -89,15 +94,13 @@ Specifically, we have improved the following:
 
 ### Clear pending operations
 
-`pulumi refresh` will now clear pending operations, except pending CREATE operations, allowing for updates to be unblocked by a ‘pending operations’ error. Now when running `pulumi up` when there are pending operations you will not receive an error but instead a warning stating there are pending operations and information on how to resolve them.
-
-For pending CREATE operations, users still have to manually resolve them from the state by exporting, editing and then importing the stack JSON. If Pulumi did clear those, you might end up with live cloud resources that are not tracked by Pulumi (orphaned resources).
+We have made two changes to how pending operations are treated. The first change is that when there are pending operations, updates can be made but we will produce a warning to investigate the pending operations. The prevents users from ending up with live cloud resources that are not tracked by Pulumi (orphaned resources). The second change we made is now users can run `pulumi refresh` and clear pending operations. This adds an easy way to clean up pending operations that have been investigated and can be cleared.
 
 Learn more in the [clear pending operations GitHub issue](https://github.com/pulumi/pulumi/issues/4265). 
 
 ### List current users organizations
 
-Users can now see a list of their organizations using `pulumi whoami` and `pulumi about` to better inform and improve their CLI experience. Using the command `pulumi whoami –verbose’ will now return the list of organizations you are a member of. 
+Users can now see a list of their organizations using `pulumi whoami` and `pulumi about` to better inform and improve their CLI experience. Using the command `pulumi whoami –verbose` will now return the list of organizations the user is a member of. 
 
 Learn more in the [list current orgs GitHub issue](https://github.com/pulumi/pulumi/issues/9181). 
 
