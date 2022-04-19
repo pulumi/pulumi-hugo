@@ -323,7 +323,8 @@ In the above code, we’re doing a couple of things:
 
 1. Creating a role for the Lambda function to use and assigning an AWS managed policy to it
 1. Creating a Lambda function and configuring a function URL for it
-1. Using the Pulumi Command package to run a command with the AWS CLI to add invoke permissions to the Lambda function
+{{% choosable language csharp %}}3. Using the Pulumi Command package to run a command with the AWS CLI to add invoke permissions to the Lambda function{{% /choosable %}} {{% choosable language python %}}3. Using the Pulumi Command package to run a command with the AWS CLI to add invoke permissions to the Lambda function{{% /choosable %}} {{% choosable language typescript %}}3. Using the Pulumi Command package to run a command with the AWS CLI to add invoke permissions to the Lambda function{{% /choosable %}}
+
 
 Using Pulumi to do this brings your infrastructure into a format much more familiar for most developers. This approach will work for any of the modern programming languages Pulumi supports.
 
