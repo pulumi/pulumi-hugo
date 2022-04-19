@@ -10,6 +10,13 @@ export PULUMI_CONVERT_URL="${PULUMI_CONVERT_URL:-$(pulumi stack output --stack p
 printf "Running Hugo...\n\n"
 export REPO_THEME_PATH="themes/default/"
 export HUGO_BASEURL="http://$(origin_bucket_prefix)-$(build_identifier).s3-website.$(aws_region).amazonaws.com"
+
+# Temporary: Clone pulumi/theme-private@release to use the in-progress work there.
+git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+git clone --depth=1 --branch=release https://github.com/pulumi/theme-private
+rm -rf ./theme-private/.git
+export HUGO_MODULE_REPLACEMENTS="github.com/pulumi/theme -> $(pwd)/theme-private"
+
 hugo --minify --templateMetrics --buildDrafts --buildFuture -e "preview" | grep -v -e 'WARN .* REF_NOT_FOUND'
 
 printf "Done!\n\n"
