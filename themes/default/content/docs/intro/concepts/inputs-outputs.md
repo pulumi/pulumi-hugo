@@ -162,7 +162,7 @@ var connectionString2 = Output.Tuple(sqlServer.name, database.name)
 var connectionString2 = Output.Tuple(sqlServer.name, database.name).Apply(t =>
 {
     var (serverName, databaseName) = t;
-    return $"Server=tcp:{serverName}.database.windows.net;initial catalog=${databaseName}...";
+    return $"Server=tcp:{serverName}.database.windows.net;initial catalog={databaseName}...";
 });
 ```
 
