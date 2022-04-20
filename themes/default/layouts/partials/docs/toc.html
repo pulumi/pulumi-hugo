@@ -1,4 +1,4 @@
-<aside class="toc">
+<aside class="toc pl-4">
     {{ if hasPrefix .RelPermalink "/docs/aws/" }}
         <h4 class="no-anchor">
             <a data-track="toc-aws" href="{{ relref . "/docs/aws" }}">AWS</a>
@@ -54,7 +54,7 @@
                 {{ end }}
             {{ end }}
 
-            <h5 class="no-anchor" id="{{ $toc_name | urlize }}-toc-header">
+            <h5 class="no-anchor toc-header" id="{{ $toc_name | urlize }}-toc-header">
                 {{ if $toc_section_link }}
                     <a href="{{ $toc_section_link }}">{{ $toc_name }}</a>
                 {{ else }}
