@@ -22,10 +22,6 @@
                 {{ end }}
             {{ end }}
 
-            {{ if (eq $toc_name "Support") }}
-                {{ $toc_section_link = "/docs/troubleshooting/"}}
-            {{ end }}
-
             {{ if (eq $.Page.RelPermalink $toc_section_link) }}
                 {{ $sidenav_selected = "active" }}
             {{ end }}
