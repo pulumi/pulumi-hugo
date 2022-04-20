@@ -5,7 +5,7 @@ draft: false
 meta_desc: "Announcing Amazon EKS Blueprints for Pulumi: patterns and best practices for Kubernetes deployments."
 meta_image: meta.png
 authors: ["isaac-harris", "david-flanagan"]
-tags: ["aws"]
+tags: ["aws", "eks", "kubernetes"]
 ---
 
 With the launch of [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/blogs/aws/amazon-eks-now-generally-available/) in 2017, it is now [easier than ever]({{< relref "/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi" >}}) to build, secure, operate and maintain Kubernetes clusters in the cloud. Notably, EKS removed the need to manage and configure underlying compute resources and scaling for clusters. Further, [EKS Anywhere](https://aws.amazon.com/eks/eks-anywhere/) brings many benefits to hybrid and on-premises deployments.
@@ -68,7 +68,7 @@ Our multi-language SDK provides some convenience functions that allow you to add
 
 Of course, a Kubernetes cluster with nothing on it isn’t going to give you the platform your organization needs to onboard teams and provide the level of redundancy and resiliency you need. So how can you add common Kubernetes deployments to handle observability, monitoring, and other “day 1 + day 2” tasks? Addons.
 
-Our Pulumi SSP also provides a clusterAddon convenience function that allows you to deploy things with a single line.
+Our Pulumi SSP also provides a `clusterAddon` convenience function that allows you to deploy things with a single line.
 
 A must-have for all Kubernetes clusters is the metrics-server and node-problem-detector, so let's add these. We’ll stick with TypeScript for this one.
 
