@@ -62,9 +62,9 @@ schedule_overview:
     time: 8:00AM - 12:00PM PDT
     description: |
       Join your friends in the Pulumi community for the first ever Pulumi Community Summit.
-      This virtual event will include an "Open Spaces" concept where you can propose and
-      vote on topics ahead of time. Those topics with the most interest will form the agenda
-      for the day, with virtual breakout rooms centered around those themes.
+      This virtual event will include an "Open Spaces" concept where you can
+      <a href="https://pulumip.us/SuggestTopic" class="underline" target="_blank" rel="noopener noreferrer">propose topics ahead of time</a>.
+      Those topics with the most interest will form the agenda for the day, with virtual breakout rooms centered around those themes.
 
   - title: PulumiVision
     day: Thursday, May 5th
@@ -90,6 +90,16 @@ workshops:
     url: /resources/introduction-to-infrastructure-as-code/
     description: |
       In this workshop, we’re going to learn more about cloud computing and Infrastructure as Code by exploring how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker.
+
+  - title: CI/CD Pipelines for Kubernetes Apps with Pulumi & Codefresh
+    url: /resources/ci-cd-pipelines-for-kubernetes-apps-with-codefresh/
+    description: |
+      In this workshop we will cover how to set up automated CI/CD pipelines for Kubernetes applications using Pulumi and Codefresh.
+
+  - title: GitOps with GitHub Actions and the Pulumi Operator
+    url: /resources/gitops-with-github-actions-and-the-pulumi-operator/
+    description: |
+      In this workshop you will learn how to implement powerful Github Action workflows using Pulumi and the Pulumi Kubernetes Operator.
 
 
 registration:

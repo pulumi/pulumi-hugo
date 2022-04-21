@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
-title: "From Zero to Production in Kubernetes"
-meta_desc: "Join David Flanagan & Elijah Zupancic and go from zero to production on Kubernetes by using Python to build abstractions that make getting to production easier."
+title: "GitOps with GitHub Actions and the Pulumi Operator"
+meta_desc: "In this workshop you will learn how to implement powerful Github Action workflows using Pulumi and the Pulumi Kubernetes Operator."
 
 # A featured webinar will display first in the list.
 featured: false
@@ -34,49 +34,52 @@ block_external_search_index: false
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: "from-zero-to-production-in-kubernetes"
+url_slug: "gitops-with-github-actions-and-the-pulumi-operator"
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "From Zero to Production in Kubernetes"
+    title: "GitOps with GitHub Actions and the Pulumi Operator"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
+
+# Webinar pages support multiple session via the 'multiple' property.
+# multiple:
+#   - datetime: 2020-02-05T10:00:00-07:00
+#     hubspot_form_id: ""
+#     gotowebinar_key: ""
 
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "From Zero to Production in Kubernetes"
+    title: "GitOps with GitHub Actions and the Pulumi Operator"
     # URL for embedding a URL for ungated webinars.
-    #youtube_url: "https://www.youtube.com/embed/L-8uzn6AdHM"
+    youtube_url: ""
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2022-05-10T09:00:00-07:00
+    sortable_date: 2022-06-21T09:00:00-07:00
     # Duration of the webinar.
     duration: "1 hour"
     # Datetime of the webinar.
     datetime: ""
     # Description of the webinar.
     description: |
-        Setting up your production Kubernetes environment brings many benefits including scalability and portability for your applications. Before you reach production, It’s important to understand key Kubernetes concepts and architectures available to keep your clusters secure and scalable. Ingress controllers are vital parts of any Kubernetes platform and NGINX ingress controller provides the best in class traffic management solution for cloud native apps and containerized environments.
-
-        It’s important to use repeatable mechanisms to handle your ingress objects and controller deployments. Adopting infrastructure as code provides a mechanism to easily deploy production-ready applications in a repeatable manner. In this livestream, we’ll explore how to leverage the power of Python with Pulumi, an infrastructure as code platform to define and manage your Kubernetes deployments and build powerful abstractions that make getting to production easier than ever before.
-
+        The Pulumi Kubernetes Operator enables Kubernetes users to create a Pulumi Stack as a first-class Kubernetes API resource, and use the StackController to drive updates. Combining GitHub Actions with the Pulumi Kubernetes Operator helps you to implement powerful GitOps workflows and automation for both your infrastructure and workloads.
 
     # The webinar presenters
     presenters:
         - name: David Flanagan
           role: Staff Developer Advocate, Pulumi
-        - name: Elijah Zupancic
-          role: Solutions Architect, NGINX
+        - name: Rizel Scarlett
+          role: Developer Advocate, Github
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
-        - How to stand up Kubernetes including Amazon VPC, Amazon EKS and other dependencies.
-        - Setting up your ingress controller.
-        - Deploying an app to your cluster.
+        - How to stand up a Kubernetes cluster the easy way with Pulumi
+        - Configuring automation steps with GitHub Actions
+        - Deploying a workload into your cluster using the Pulumi Kubernetes Operator
 
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: 2e4343b3-5108-4b0b-9361-59674be99e91
+    hubspot_form_id: "72d36924-efc8-4e3b-a9ac-4cfe584da3a7"
 ---
