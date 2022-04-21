@@ -27,7 +27,7 @@ Pulumi converters allow you to convert ARM, CloudFormation, Kubernetes CustomRes
         <a class="" href="{{< relref "/blog/introducing-crd2pulumi" >}}">
         Kubernetes CustomResources to Pulumi:
         </a>
-        CustomResources in Kubernetes allow users to extend the API with their types. These types are defined using CustomResourceDefinitions (CRDs), which include an OpenAPI schema. 
+        CustomResources in Kubernetes allow users to extend the API with their types. These types are defined using CustomResourceDefinitions (CRDs), which include an OpenAPI schema.
         Our new crd2pulumi tool takes the pain out of managing CustomResources by generating types in the Pulumi-supported language of your choice!
     </li>
     <li class="pt-4">
@@ -43,4 +43,3 @@ Pulumi converters allow you to convert ARM, CloudFormation, Kubernetes CustomRes
         This conversion tool will do the magic of translating your HCL into modern code using Pulumi.
     </li>
 </ul>
-
