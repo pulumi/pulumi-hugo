@@ -36,7 +36,7 @@ The team has been busy releasing new features and improvements in the last month
 
  <!--more-->
 - Cloud Providers and Packages
-  - [Pulumi AWS Provider v5.0.0](#pulumi-aws-provider-v5.0.0)
+  - [Pulumi AWS Provider v5.0.0](#pulumi-aws-provider-v500)
   - [Lambda Function URLs](#lambda-function-urls)
   - [New resources in our providers](#new-resources-in-our-providers)
 - Pulumi CLI and core technologies
@@ -45,7 +45,7 @@ The team has been busy releasing new features and improvements in the last month
   - [List current users organizations](#list-current-users-organizations)
   - [Install Pulumi using Winget](#install-pulumi-using-winget)
   - [Pulumi stack unselect](#pulumi-stack-unselect)
-  - [GitHub releases private plugins](#gitHub-releases-private-plugins)
+  - [GitHub releases private plugins](#github-releases-private-plugins)
   - [Speed up `pulumi stack --show-name`](#speed-up-pulumi-stack---show-name)
 - Pulumi Service & Pulumi.com
   - [Docs search improvements](#docs-search-improvements)
@@ -95,7 +95,7 @@ Specifically, we have improved the following:
 
 ### Clear pending operations
 
-We have made two changes to how pending operations are treated. The first change is that when there are pending operations, updates can be made but we will produce a warning to investigate the pending operations. The prevents users from ending up with live cloud resources that are not tracked by Pulumi (orphaned resources). The second change we made is now users can run `pulumi refresh` and clear pending operations. This adds an easy way to clean up pending operations that have been investigated and can be cleared.
+We have made two changes to how pending operations are treated. The first change is that when there are pending operations, updates can be made but we will produce a warning to investigate the pending operations. This prevents users from ending up with live cloud resources that are not tracked by Pulumi (orphaned resources). The second change we made is now users can run `pulumi refresh` and clear pending operations. This adds an easy way to clean up pending operations that have been investigated and can be cleared.
 
 Learn more in the [clear pending operations GitHub issue](https://github.com/pulumi/pulumi/issues/4265). 
 
