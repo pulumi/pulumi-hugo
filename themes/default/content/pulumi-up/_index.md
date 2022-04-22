@@ -101,6 +101,16 @@ workshops:
     description: |
       In this workshop you will learn how to implement powerful Github Action workflows using Pulumi and the Pulumi Kubernetes Operator.
 
+  - title: KubeCrash
+    url: https://www.kubecrash.io/?utm_campaign=pulumiup-2022&utm_source=web&utm_medium=partners&utm_content=pulumi
+    description: |
+      KubeCrash is a virtual event offering a variety of free crash courses on cloud native open source technologies. Learn directly from the maintainers of CNCF and other open source projects.
+
+  - title: Getting started with Infrastructure as Code on Oracle Cloud
+    url: /resources/getting-started-with-infrastructure-as-code-on-oracle-cloud
+    description: |
+      In this workshop, you will learn the fundamentals of Infrastructure as Code through a guided exercise where you will provision infrastructure on Oracle Cloud.
+
 
 registration:
     sponsor:
