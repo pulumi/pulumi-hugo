@@ -137,33 +137,28 @@ registration:
             I'd like to be contacted by sponsors about swag and other offers.
 
 customer_logos:
-  title: Leading engineering organizations building with Pulumi
+  title: Brought to you by
   logos:
-    - name: mercedes-benz
-      link: /case-studies/mercedes-benz
-    - name: sans
-      link: /case-studies/sans-institute
-    - name: snowflake
-      link: /case-studies/snowflake
-    - name: credijusto
-      link: /case-studies/credijusto
-    - name: skai
-      link: /blog/kenshoo-migrates-to-aws-with-pulumi
-    - name: lemonade
-      link: /case-studies/lemonade
-    - name: panther-labs
-      link: /case-studies/panther-labs
-    - name: sourcegraph
-      link: /case-studies/sourcegraph
-    - name: whylabs
-      link: /case-studies/whylabs
-    - name: webflow
-    - name: cockroach-labs
-    - name: tableau
-    - name: fenergo
-    - name: bio-fire
-    - name: univision
-    - name: kavak
-    - name: blockfi
-    - name: linktree
+    - oracle.png
+    - aws-logo.svg
+    - nginx.png
+    - the-new-stack.svg
+    - cisco.svg
+    - github.png
+    - codefresh.svg
+    - microsoft.png
+    - buoyant.png
+    - virtuslab.svg
+    - cockroachlabs.jpeg
+    - fairwinds.png
+    - jetstack.png
 ---
+
+
+Codefresh	Workshop
+Microsoft	Workshop
+Bouyant	Workshop
+VirtusLab	Workshop
+Cockroach labs	Workshop
+Fairwinds	Workshop
+Jetstack	Workshop
