@@ -8,9 +8,7 @@ meta_desc: Pulumi Business Critical Edition gives you the option to self-host Pu
 ---
 
 {{% notes type="info" %}}
-Self-hosting is only available with **Pulumi Business Critical**. If you would like to evaluate the Self-Hosted Pulumi Service, sign up for the [30 day trial]({{< relref "/product/self-hosted#self-hosted-trial" >}}) or [contact us]({{< relref "/contact.md" >}}).
-
-To manage your state with a self-*managed* backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
+Self-hosting is available as part of **Pulumi Business Critical** and self-managed backends. If you would like to evaluate the Self-Hosted Pulumi Service, sign up for the [30 day trial]({{< relref "/product/self-hosted#self-hosted-trial" >}}) or [contact us]({{< relref "/contact.md" >}}). To use a self-managed backend, such as a cloud storage bucket, see [State and Backends]({{< relref "/docs/intro/concepts/state" >}}).
 {{% /notes %}}
 
 This guide presents the overall architecture for self-hosting the Pulumi Service as well as available reference architectures and related installers.
