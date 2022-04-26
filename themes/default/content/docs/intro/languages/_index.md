@@ -58,6 +58,14 @@ The following language runtimes are currently supported by Pulumi. Select one to
             <img class="h-12 mx-auto inline" src="/logos/tech/visual-basic.svg" alt="Visual Basic">
         </a>
     </div>
+    <div class="pb-4 md:w-1/2">
+        <a class="tile p-8 pb-16 text-center" href="{{< relref "./yaml" >}}">
+            <p class="mx-auto text-xl font-semibold link">
+                Pulumi YAML
+            </p>
+            <img class="h-12 mx-auto inline" src="/logos/tech/yaml.svg" alt="Pulumi YAML">
+        </a>
+    </div>
 </div>
 
 If your favorite language isn't listed, it may be on its way soon. Pulumi is
