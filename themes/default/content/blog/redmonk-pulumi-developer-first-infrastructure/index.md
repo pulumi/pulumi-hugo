@@ -1,5 +1,5 @@
 ---
-title: "Pulumi and Redmonk on developer-first infrastructure and why it matters"
+title: "Pulumi and RedMonk on developer-first infrastructure and why it matters"
 allow_long_title: true
 date: 2022-04-26
 meta_desc: Pulumi and RedMonk discuss developer-first infrastructure and how it empowers developers to build cloud applications through software engineering practices.
@@ -58,4 +58,4 @@ Finally, Joe dives into the best practices of developer-first infrastructure:
 
 ## Next steps
 
-Developer-first infrastructure means empowering developers to build and deploy modern cloud applications and infrastructure through the use of software engineering practices that tame modern cloud complexity. If you feel inspired after viewing the Pulumi/RedMonk discussion video, then consider applying developer-first principles and practices for your next greenfield project or application using an infrastructure as code tool like Pulumi. You can also [watch Joe Duffy's presentation](https://www.youtube.com/watch?v=SQRM0r5U1js) on developer-first infrastructure from the Cloud Engineering Summit.
+Developer-first infrastructure means empowering developers to build and deploy modern cloud applications and infrastructure through the use of software engineering practices that tame modern cloud complexity. If you feel inspired after viewing the Pulumi/RedMonk discussion video, then consider applying developer-first principles and practices for your next greenfield project or application using an infrastructure as code tool like [Pulumi]({{< relref "/docs/get-started" >}}). You can also [watch Joe Duffy's presentation](https://www.youtube.com/watch?v=SQRM0r5U1js) on developer-first infrastructure from the Cloud Engineering Summit to learn more about developer-first.
