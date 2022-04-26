@@ -10,7 +10,7 @@ menu:
 
 The `provider` resource option sets a provider for the resource. For more information, see [Providers]({{< relref "../providers" >}}). The default is to inherit this value from the parent resource, and to use the ambient provider specified by Pulumi configuration for resources without a parent.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -50,6 +50,21 @@ vpc, _ := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{}, pulumi.Provider(provider))
 var provider = new Aws.Provider("provider", new Aws.ProviderArgs { Region = "us-west-2" });
 var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs(),
     new CustomResourceOptions { Provider = provider });
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  provider:
+    type: pulumi:providers:aws
+    properties:
+      region: us-west-2
+  vpc:
+    type: aws:ec2:Vpc
+    options:
+      provider: ${provider}
 ```
 
 {{% /choosable %}}

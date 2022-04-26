@@ -31,7 +31,7 @@ To use the security group, the EC2 resource requires the security group's ID. Pu
 
 Finally, the server's resulting IP address and DNS name are exported as stack outputs so that their values can be accessed through either a CLI command or by another stack.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -187,6 +187,31 @@ class MyStack : Stack
     [Output]
     public Output<string> PublicDns { get; set; }
 }
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  group:
+    type: aws:ec2:SecurityGroup
+    properties:
+      description: Enable HTTP access
+      ingress:
+        - protocol: tcp
+          fromPort: 80
+          toPort: 80
+          cidrBlocks: ["0.0.0.0/0"]
+  server:
+    type: aws:ec2:Instance
+    properties:
+      ami: ami-6869aa05
+      instanceType: t2.micro
+      vpcSecurityGroupIds: ${group.name}
+outputs:
+  publicIp: ${server.publicIp}
+  publicDns: ${server.publicDns}
 ```
 
 {{% /choosable %}}

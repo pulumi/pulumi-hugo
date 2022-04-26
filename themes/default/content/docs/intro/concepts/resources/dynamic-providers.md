@@ -22,7 +22,7 @@ To continue with our WordPress example, you would probably want to create new bl
 
 Dynamic providers are defined by first implementing the `pulumi.dynamic.ResourceProvider` interface. This interface supports all CRUD operations, but only the create function is required. A minimal implementation might look like this:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -71,12 +71,19 @@ class MyProvider(ResourceProvider):
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
 This dynamic resource provider is then used to create a new kind of custom resource by inheriting from the `pulumi.dynamic.Resource` base class, which is a subclass of `pulumi.CustomResource`:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -127,6 +134,13 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -157,7 +171,7 @@ Implementing the `pulumi.dynamic.ResourceProvider` interface requires implementi
 
 Though the input properties passed to a `pulumi.dynamic.Resource` instance will usually be [Input values]({{< relref "/docs/intro/concepts/inputs-outputs" >}}), the dynamic provider’s functions are invoked with the fully resolved input values in order to compose well with Pulumi resources. Strong typing for the inputs to your provider’s functions can help clarify this. You can achieve this by creating a second interface with the same properties as your resource’s inputs, but with fully unwrapped types.
 
-{{< chooser language "typescript,python,go,csharp" >}}
+{{< chooser language "typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language typescript %}}
 
@@ -252,6 +266,14 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
+```
+
+{{% /choosable %}}
+
 {{< /chooser >}}
 
 ### check(olds, news)
@@ -299,7 +321,7 @@ The inputs to your `pulumi.dynamic.ResourceProvider`’s functions come from sub
 
 For example, `props`, in the `MyResource` class shown below, defines the inputs to the resource provider functions:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -363,6 +385,13 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -378,7 +407,7 @@ If you need to access the outputs of your custom resource outside it with strong
 
 The name of the class member must match the names of the output properties as returned by the `create` function.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -453,6 +482,13 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -464,7 +500,7 @@ This example generates a random number using a dynamic provider. It highlights u
 
 Implementing this example requires that we have a provider and resource type:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -542,6 +578,13 @@ class Random(Resource):
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -551,7 +594,7 @@ Now, with this, we can construct new `Random` resource instances, and Pulumi wil
 
 This example highlights how to make REST API calls to a backing provider to perform CRUD operations. In this case, the backing provider is the GitHub API in this case. Because the resource provider method implementations will be serialized and used in a different process, we keep all the work to initialize the REST client and to make calls to it, local to each function.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -709,6 +752,13 @@ export("label_url", label.url)
 
 ```csharp
 // Dynamic Providers are currently not supported in .NET.
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Dynamic Providers are not supported in YAML.
 ```
 
 {{% /choosable %}}

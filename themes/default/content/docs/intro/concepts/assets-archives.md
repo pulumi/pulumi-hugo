@@ -18,7 +18,7 @@ There are three types of `Asset` objects:
 - `StringAsset`: The contents of the asset are read from a string in memory.
 - `RemoteAsset`: The contents of the asset are read from an `http`, `https` or `file` URI.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -67,12 +67,25 @@ var remoteAsset = new RemoteAsset("http://worldclockapi.com/api/json/est/now");
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  fileAsset:
+    Fn::FileAsset: ./file.txt
+  stringAsset:
+    Fn::StringAsset: Hello, world!
+  remoteAsset:
+    Fn::RemoteAsset: http://worldclockapi.com/api/json/est/now
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
 Any of these assets can be passed to a resource accepting an `Asset` as input.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -129,6 +142,19 @@ var obj = new Aws.S3.BucketObject("obj", new Aws.S3.BucketObjectArgs
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  obj:
+    type: aws:s3:BucketObject
+    properties:
+      bucket: ${bucket}
+      key: ${key}
+      source: ${fileAsset}
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -140,7 +166,7 @@ There are three types of `Archive` objects:
 - `RemoteArchive`: The contents of the asset are read from an `http`, `https` or `file` URI, which must produce an archive of one of the same supported types as `FileArchive`.
 - `AssetArchive`:  The contents of the archive are read from a map of either [`Asset`](#asset) or [`Archive`](#archive) objects, one file or folder respectively per entry in the map.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -205,6 +231,23 @@ var assetArchive = new AssetArchive(new Dictionary<string, string>
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  fileArchive:
+    Fn::FileArchive: ./file.zip
+  remoteArchive:
+    Fn::RemoteArchive: http://contoso.com/file.zip
+  assetArchive:
+    Fn::AssetArchive:
+      file:
+        Fn::StringAsset: Hello, World!
+      folder:
+        Fn::FileArchive: ./folder
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -212,7 +255,7 @@ Note that a folder may be passed to `FileArchive` to construct an archive from t
 
 Any of these archives can be passed to a resource accepting an `Archive` as input.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -271,6 +314,20 @@ var fn = new Aws.Lambda.Function("fn", new Aws.Lambda.FunctionArgs
     Handler = "hello.handler",
     Code = fileArchive,
 });
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  fn:
+    type: aws:lambda:Function
+    properties:
+      role: ${role.arn}
+      runtime: python3.7
+      handler: hello.handler
+      code: ${fileArchive}
 ```
 
 {{% /choosable %}}

@@ -60,13 +60,23 @@ The following are other examples of `Pulumi.yaml` files that define project conf
     description: A precompiled .NET Pulumi program
     ```
 
+* A `Pulumi.yaml` file for a `YAML` program that includes its resources inline.
+
+    ```yaml
+    name: my-project
+    runtime: yaml
+    resources:
+      bucket:
+        type: aws:s3:Bucket
+    ```
+
 For more information on valid Pulumi project metadata, see [Pulumi Configuration Reference]({{< relref "/docs/reference/pulumi-yaml">}}).
 
 ## Paths
 
 When your Pulumi program references resources in the local filesystem, they are always relative to the working directory. The following example code references a subfolder `app` of the working directory, which would contain a `Dockerfile` and application code:
 
-{{< chooser language "javascript,typescript,python,csharp" >}}
+{{< chooser language "javascript,typescript,python,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -111,6 +121,18 @@ var myTask = new Task("myTask", new TaskArgs
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  myTask:
+    type: cloud:Task
+    properties:
+      build: ./app # subfolder of working directory
+      ...
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -118,7 +140,7 @@ var myTask = new Task("myTask", new TaskArgs
 
 The {{< pulumi-getproject >}} function returns the name of the currently deploying project. This can be useful for naming or tagging resources.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -152,6 +174,14 @@ project := ctx.Project()
 
 ```csharp
 var project = Deployment.Instance.ProjectName;
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+    project: ${pulumi.project}
 ```
 
 {{% /choosable %}}

@@ -32,7 +32,7 @@ $ pulumi config set aws:region us-west-2
 
 Then, suppose you deploy the following Pulumi program:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -88,6 +88,18 @@ var instance = new Aws.Ec2.Instance("myInstance", new Aws.Ec2.InstanceArgs
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  instance:
+    type: aws:ec2:Instance
+    properties:
+      instanceType: t2.micro
+      ami: myAMI
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -97,7 +109,7 @@ It creates a single EC2 instance in the us-west-2 region.
 
 While the default provider configuration may be appropriate for the majority of Pulumi programs, some programs may have special requirements. One example is a program that needs to deploy to multiple AWS regions simultaneously. Another example is a program that needs to deploy to a Kubernetes cluster, created earlier in the program, which requires explicitly creating, configuring, and referencing providers. This is typically done by instantiating the relevant package’s `Provider` type and passing in the options for each `Resource` that needs to use it. For example, the following configuration and program creates an ACM certificate in the `us-east-1` region and a load balancer listener in the `us-west-2` region.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -258,6 +270,35 @@ var listener = new Aws.Lb.Listener("listener", new Aws.Lb.ListenerArgs
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  useast1:
+    type: pulumi:providers:aws
+    properties:
+      region: us-east-1
+  cert:
+    type: aws:acm:Certificate
+    properties:
+      domainName: foo.com
+      validationMethod: EMAIL
+    options:
+      provider: ${useast1}
+  listener:
+    type: aws:lb:Listener
+    properties:
+      loadBalancerArn: ${loadBalancerArn}
+      port: 443
+      protocol: HTTPS
+      sslPolicy = ELBSecurityPolicy-2016-08
+      certificateArn = ${cert.arn}
+      defaultAction:
+        targetGroupArn: targetGroupArn,
+        type: forward
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -267,7 +308,7 @@ $ pulumi config set aws:region us-west-2
 
 Component resources also accept a set of providers to use with their child resources. For example, the EC2 instance parented to `myResource` in the program below is created in `us-east-1`, and the Kubernetes pod parented to myResource is created in the cluster targeted by the `test-ci` context.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -372,6 +413,13 @@ class MyStack
             new ComponentResourceOptions { Providers = { useast1, myk8s } });
     }
 }
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# YAML cannot define component resources
 ```
 
 {{% /choosable %}}

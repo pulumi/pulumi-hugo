@@ -136,7 +136,7 @@ A stack can export values as stack outputs. These outputs are shown during an up
 
 To export values from a stack, use the following definition in the top-level of the entrypoint for your project:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -183,6 +183,14 @@ public class MyStack : Stack
  ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+outputs:
+  url: ${resource.url}
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -194,7 +202,7 @@ Stack exports are effectively JSON serialized, though quotes are removed when ex
 
 For example, the following statements:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -249,6 +257,16 @@ class MyStack : Stack
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+outputs:
+  x: hello
+  o:
+    num: 42
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -283,7 +301,7 @@ Stack outputs respect secret annotations and are encrypted appropriately. If a s
 
 The {{< pulumi-getstack >}} function gives you the currently deploying stack, which can be useful in naming, tagging, or accessing resources.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -320,6 +338,14 @@ var stack = Deployment.Instance.StackName;
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  stack: ${pulumi.stack}
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -329,7 +355,7 @@ Stack references allow you to access the outputs of one stack from another stack
 
 To reference values from another stack, create an instance of the `StackReference` type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -378,6 +404,17 @@ var otherOutput = other.GetOutput("x");
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  otherOutput:
+    Fn::StackReference:
+      - acmecorp/infra/other
+      - x
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -395,7 +432,7 @@ and testing. In that case, you will have six distinct stacks that pair up in the
 The way Pulumi programs communicate information for external consumption is by using stack exports. For example,
 your infrastructure stack might export the Kubernetes configuration information needed to deploy into a cluster:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -442,6 +479,14 @@ class ClusterStack : Stack
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+outputs:
+  kubeConfig: ... # a cluster's output property
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -450,7 +495,7 @@ connect to the Kubernetes cluster provisioned in its respective environment.
 
 The Pulumi programming model offers a way to do this with its `StackReference` resource type. For example:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -528,6 +573,27 @@ class AppStack : Stack
         var service = new Service(..., ..., options);
     }
 }
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  cluster:
+    Fn::StackReference:
+      - mycompany/infra/${pulumi.stack}
+      - "KubeConfig"
+resources:
+  provider:
+    type: pulumi:providers:kubernetes
+    properties:
+      kubeConfig: kubeConfig
+  service:
+    type: some:resource:type
+    properties: ...
+    options:
+      provider: ${provider}
 ```
 
 {{% /choosable %}}

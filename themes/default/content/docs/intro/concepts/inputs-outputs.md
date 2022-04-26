@@ -35,7 +35,7 @@ To access the raw value of an output and transform that value into a new value, 
 
 For example, the following code creates an HTTPS URL from the DNS name (the raw value) of a virtual machine:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -76,6 +76,14 @@ var url = virtualmachine.DnsName.Apply(dnsName => "https://" + dnsName);
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  url: https://${virtualmachine.DnsName}
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -91,7 +99,7 @@ If you have multiple outputs and need to join them, the `all` function acts like
 
 For example, let’s use a server and a database name to create a database connection string:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -164,6 +172,14 @@ var connectionString2 = Output.Tuple(sqlServer.name, database.name).Apply(t =>
     var (serverName, databaseName) = t;
     return $"Server=tcp:{serverName}.database.windows.net;initial catalog={databaseName}...";
 });
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  connectionString: Server=tcp:${sqlServer.name}.database.windows.net;initial catalog=${database.name}...
 ```
 
 {{% /choosable %}}
@@ -285,7 +301,7 @@ var record = new Record("validation", new RecordArgs
 
 Instead, to make it easier to access simple property and array elements, an {{< pulumi-output >}} lifts the properties of the underlying value, behaving very much like an instance of it. Lift allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. If we return to the above example, we can now simplify it:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -380,6 +396,24 @@ var record = new Record("validation", new RecordArgs
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  cert:
+    type: aws:acm:Certificate
+    properties:
+      domainName: example
+      validationMethod: DNS
+  record:
+    type: aws:route53:Record
+    properties:
+      records:
+        # YAML handles inputs and outputs transparently.
+        - ${cert.domainValidationOptions[0].resourceRecordValue}
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -417,7 +451,7 @@ Outputs that contain strings cannot be used directly in operations such as strin
 
 For example, say you want to create a URL from `hostname` and `port` output values. You can do this using `apply` and `all`.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -523,6 +557,14 @@ url := pulumi.Sprintf("http://%s:%d/", hostname, port)
 ```csharp
 // Format takes a FormattableString and expands outputs correctly:
 var url = Output.Format($"http://{hostname}:{port}/");
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  url: https://${hostname}:${port}
 ```
 
 {{% /choosable %}}

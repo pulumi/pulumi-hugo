@@ -14,7 +14,7 @@ Each transformation is a callback that gets invoked by the Pulumi runtime. It re
 
 This example looks for all VPC and Subnet resources inside of a component’s child hierarchy and adds an option to ignore any changes for tags properties (perhaps because we manage all VPC and Subnet tags outside of Pulumi):
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -107,6 +107,13 @@ var vpc = new MyVpcComponent("vpc", new ComponentResourceOptions
 ```
 
 {{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Pulumi YAML does not support transformations
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -114,7 +121,7 @@ var vpc = new MyVpcComponent("vpc", new ComponentResourceOptions
 
 Transformations can also be applied in bulk to many or all resources in a stack by using Stack Transformations, which are applied to the root stack resource and as a result inherited by all other resources in the stack.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -177,6 +184,13 @@ public class MyStack : Stack
         // ...
     }
 }
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+# Pulumi YAML does not support transformations
 ```
 
 {{% /choosable %}}

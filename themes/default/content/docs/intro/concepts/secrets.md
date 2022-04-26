@@ -30,7 +30,7 @@ Inside of an `apply` or `Output.all` call, your secret is decrypted into plainte
 
 There are two ways to programmatically create secret values:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 {{% choosable language javascript %}}
 
 - Using [`getSecret(key)`]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi#Config-getSecret" >}}) or [`requireSecret(key)`]({{< relref "/docs/reference/pkg/nodejs/pulumi/pulumi#Config-requireSecret" >}}) when reading a value from config.
@@ -61,11 +61,17 @@ There are two ways to programmatically create secret values:
 - Calling `Output.CreateSecret(value)` to construct a secret from an existing value.
 
 {{% /choosable %}}
-{{< /chooser >}}
+{{{% choosable language yaml %}}
+
+- Setting `configuration.${KEY}.Secret: true` when reading a value from the config.
+- Reading a value from the config that has been marked as secret.
+
+{{% /choosable %}}
+{< /chooser >}}
 
 As an example, let’s create an AWS Parameter Store secure value. Parameter Store is an AWS service that stores strings. Those strings can either be secret or not. To create an encrypted value, we need to pass an argument to initialize the store’s `value` property. Unfortunately, the obvious thing to do —passing a raw, unencrypted value— means that the value is also stored in the Pulumi state, unencrypted so we need to ensure that the value is a secret:
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -135,6 +141,22 @@ var param = new Aws.Ssm.Parameter("a-secret-param", new Aws.Ssm.ParameterArgs
     type = pulumi.String("SecureString"),
     value = cfg.RequireSecret("my-secret-value"),
 });
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+configuration:
+  mySecretValue:
+    secret: true
+
+resources:
+  param:
+    type: aws:ssm:Parameter
+    properties:
+      type: SecureString
+      value: mySecretValue
 ```
 
 {{% /choosable %}}
