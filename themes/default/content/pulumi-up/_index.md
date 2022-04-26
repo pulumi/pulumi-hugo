@@ -174,4 +174,5 @@ customer_logos:
     - jetstack.png
     - tfir.png
     - techstrong-group.png
+    - kong.png
 ---
