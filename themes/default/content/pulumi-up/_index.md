@@ -162,13 +162,6 @@ customer_logos:
     - cockroachlabs.jpeg
     - fairwinds.png
     - jetstack.png
+    - tfir.png
+    - techstrong-group.png
 ---
-
-
-Codefresh	Workshop
-Microsoft	Workshop
-Bouyant	Workshop
-VirtusLab	Workshop
-Cockroach labs	Workshop
-Fairwinds	Workshop
-Jetstack	Workshop
