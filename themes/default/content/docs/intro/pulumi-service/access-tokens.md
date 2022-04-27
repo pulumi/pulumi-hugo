@@ -2,8 +2,9 @@
 title: "Access Tokens"
 meta_desc: Overview of Access Tokens in the Pulumi Service for both personal accounts and organizations.
 menu:
-  reference:
-    weight: 4
+  intro:
+    parent: pulumi-service
+    weight: 2
 ---
 ## Personal Access Tokens
 
