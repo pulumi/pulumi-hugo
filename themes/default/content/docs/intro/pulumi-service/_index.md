@@ -42,6 +42,7 @@ Explore the following sections to learn more about the features and benefits of 
 
 * [Accounts]({{< relref "/docs/intro/pulumi-service/accounts" >}})
 * [Organizations]({{< relref "/docs/intro/pulumi-service/organizations" >}})
+* [Access Tokens]({{< relref "/docs/intro/pulumi-service/access-tokens" >}})
 * [SAML Integrations]({{< relref "/docs/guides/saml" >}})
 
 ## Collaboration
