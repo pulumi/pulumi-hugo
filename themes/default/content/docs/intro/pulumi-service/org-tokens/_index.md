@@ -24,7 +24,7 @@ Organization Access Tokens are viewed by going to the organization’s Settings 
 ## Deleting an Organization Access Token
 
 An access token can be deleted by any organization admin at any time. Click the ellipsis icon at the end of the row, and select “Delete token”.
-<img src="./ellipsis-delete-token.svg">
+<img src="./ellipsis-delete-token.png">
 
 You will be asked to confirm. If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized.
 
