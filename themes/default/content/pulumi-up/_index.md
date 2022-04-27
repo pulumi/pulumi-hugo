@@ -13,7 +13,7 @@ aliases:
 
 sessions:
     - title: "Opening Keynote and Welcome"
-      presenters: [ "joe-duffy", "brian-goetz" ]
+      presenters: [ "joe-duffy", "brian-goetz", "luke-hoban" ]
       description: |
         Joe Duffy, CEO of Pulumi, walks us through the evolution of the cloud and the modernization of infrastructure as code to support the changing needs of development and operations organizations. He will introduce the new features of Pulumi that will further help teams tackle scalability challenges, increase developer productivity, and manage multi-cloud complexity.
 
