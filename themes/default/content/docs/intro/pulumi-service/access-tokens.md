@@ -38,8 +38,9 @@ To delete an access token:
 Organization Access Tokens provide Enterprise Growth and Business Critical customers the opportunity to manage resources and stack operations for their organization independent of a single-user account.
 
 Leveraging Organization Access Tokens for your organization's automation delivers two core benefits:
- * Prevents organizations from needing to pass around a Personal Access Token belonging to a privileged organization member or admin in their automated tooling. This eliminates risk with modifying or removing organization memberships, as members can be decoupled from such automation pipelines.
- * Promotes less privileged access, as an Organization Access Token, unlike a Personal Access Token, is granted privileges only to the organization in which it was created, rather than to all organizations a single user belongs to.
+
+* Prevents organizations from needing to pass around a Personal Access Token belonging to a privileged organization member or admin in their automated tooling. This eliminates risk with modifying or removing organization memberships, as members can be decoupled from such automation pipelines.
+* Promotes less privileged access, as an Organization Access Token, unlike a Personal Access Token, is granted privileges only to the organization in which it was created, rather than to all organizations a single user belongs to.
 
 Tokens are created, managed, and removed by organization administrators, accessible on the Organization Settings page.
 
@@ -49,12 +50,13 @@ From the organization’s homepage, follow the same steps as for a Personal Acce
 
 1. Select **Settings**.
 1. Navigate to **Access Tokens**.
-  1. To be shown this menu option, you must be on an Enterprise Growth or Business Critical subscription/trial.
+    1. To be shown this menu option, you must be on an Enterprise Growth or Business Critical subscription/trial.
 1. Select **Create token**.
 
 An Organization Access Token must have a name that is unique among all Organization Access Tokens assigned to it. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised. This name must be unique even among deleted tokens, in order to maintain the integrity of Audit Log Events which persist the token’s name (even for a deleted token) as part of the event (see below). Any other organization admin can delete this token; it is not owned by the admin which created it.
 
 Creation of any Organization Access Token, and the user who performed it, is logged as an Audit Log Event.
+
 ### Viewing Organization Access Tokens
 
 Organization Access Tokens are viewed by going to the organization’s Settings page, then selecting Access Tokens from the menu. As with Personal Access Tokens, this table displays all tokens belonging to your organization, and at what time they were last successfully used to carry out an operation. Only organization admins of an organization with an Enterprise Growth or Business Critical subscription will see access to this page.
