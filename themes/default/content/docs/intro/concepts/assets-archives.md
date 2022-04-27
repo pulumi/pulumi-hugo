@@ -115,7 +115,7 @@ let object = new aws.s3.BucketObject("obj", {
 obj = aws.s3.BucketObject("obj",
     bucket=bucket.id,
     key=key,
-    source=fileAsset)
+    source=file_asset)
 ```
 
 {{% /choosable %}}
@@ -288,7 +288,7 @@ fn = lambda_.Function("fn",
     role=role.arn,
     runtime="python3.7",
     handler="hello.handler",
-    code=fileArchive)
+    code=file_archive)
 ```
 
 {{% /choosable %}}
