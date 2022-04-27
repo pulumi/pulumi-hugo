@@ -20,7 +20,10 @@ Creation of any Organization Access Token, and the user who performed it, is log
 Organization Access Tokens are viewed by going to the organization’s Settings page, then selecting Access Tokens from the menu. As with Personal Access Tokens, this table displays all tokens belonging to your organization, and at what time they were last successfully used to carry out an operation. Only organization admins of an organization with an Enterprise Growth or Business Critical subscription will see access to this page.
 
 ## Deleting an Organization Access Token
-An access token can be deleted by any organization admin at any time. Click the ellipsis icon at the end of the row, and select “Delete token”. You will be asked to confirm. If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized.
+An access token can be deleted by any organization admin at any time. Click the ellipsis icon at the end of the row, and select “Delete token”.
+<img src="./ellipsis-delete-token.svg">
+
+You will be asked to confirm. If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized.
 
 ## Audit Logs
 Since an organization can have multiple Organization Access Tokens, it’s necessary to be able to identify them uniquely in Audit Log Events. All Audit Log Events which were triggered by an Organization Access Token will surface the token’s unique name, and in the event of Audit Log Export, the token’s UUID as well.
