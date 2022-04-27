@@ -93,7 +93,7 @@ Running `pulumi login` without any argument will log into the default Pulumi Ser
 $ pulumi login
 ```
 
-This will display a prompt that asks for an access token:
+This will display a prompt that asks for an [access token]({{< relref "/docs/intro/pulumi-service/access-tokens" >}}):
 
 ```
 Manage your Pulumi stacks by logging in.
