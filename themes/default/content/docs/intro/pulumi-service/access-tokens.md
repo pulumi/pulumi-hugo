@@ -30,7 +30,8 @@ To delete an access token:
 1. Select your profile picture.
 1. Select **Settings**.
 1. Navigate to **Access Tokens**.
-1. Use the trash can icon to delete a token.
+1. Select the ellipsis button.
+1. Choose **Delete token**. You will be prompted in a dialog to confirm your choice.
 
 ## Organization Access Tokens
 
@@ -44,22 +45,32 @@ Tokens are created, managed, and removed by organization administrators, accessi
 
 ### Creating an Organization Access Token
 
-From the organization’s homepage, visit Settings, then Access Tokens. To be shown this menu option, you must be on an Enterprise Growth or Business Critical subscription or trial. From the token landing page, you will see a “Create token” button in the top right of the page. Click this button to be prompted to create a token.
+From the organization’s homepage, follow the same steps as for a Personal Access Token:
 
-The token must have a name that is unique among all Organization Access Tokens assigned to it. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised. This name must be unique even among deleted tokens, in order to maintain the integrity of Audit Log Events which persist the token’s name (even for a deleted token) as part of the event (see below). Any other organization admin can delete this token; it is not owned by the admin which created it.
+1. Select **Settings**.
+1. Navigate to **Access Tokens**.
+  1. To be shown this menu option, you must be on an Enterprise Growth or Business Critical subscription/trial.
+1. Select **Create token**.
+
+An Organization Access Token must have a name that is unique among all Organization Access Tokens assigned to it. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised. This name must be unique even among deleted tokens, in order to maintain the integrity of Audit Log Events which persist the token’s name (even for a deleted token) as part of the event (see below). Any other organization admin can delete this token; it is not owned by the admin which created it.
 
 Creation of any Organization Access Token, and the user who performed it, is logged as an Audit Log Event.
-
 ### Viewing Organization Access Tokens
 
 Organization Access Tokens are viewed by going to the organization’s Settings page, then selecting Access Tokens from the menu. As with Personal Access Tokens, this table displays all tokens belonging to your organization, and at what time they were last successfully used to carry out an operation. Only organization admins of an organization with an Enterprise Growth or Business Critical subscription will see access to this page.
 
 ### Deleting an Organization Access Token
 
-An access token can be deleted by any organization admin at any time. Click the ellipsis icon at the end of the row, and select “Delete token”.
-<img src="./ellipsis-delete-token.png">
+An Organization Access Token can be deleted by any organization admin at any time. No other members are able to delete organization tokens.
 
-You will be asked to confirm. If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized.
+From the organization's homepage, follow the same steps as for a Personal Access Token:
+
+1. Select **Settings**.
+1. Navigate to **Access Tokens**.
+1. Select the ellipsis button.
+1. Choose **Delete token**. You will be prompted in a dialog to confirm your choice.
+
+If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized.
 
 ### Auditing Organization Token Actions
 
