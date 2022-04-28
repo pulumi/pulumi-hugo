@@ -21,7 +21,7 @@ key_features:
                 icon: code
                 icon_color: yellow
                 description: |
-                    Use TypeScript, JavaScript, Python, Go, and .NET to model cloud infrastructure
+                    Use TypeScript, JavaScript, Python, Go, .NET, Java, and YAML to model cloud infrastructure
                     by leveraging the features of each language.
 
               - title: Build on any cloud

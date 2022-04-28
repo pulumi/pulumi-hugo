@@ -20,7 +20,7 @@ carousel:
       details:
         - title: Popular programming languages.
           description: >
-            Define infrastructure in JavaScript, TypeScript, Python, Go, or
+            Define infrastructure in JavaScript, TypeScript, Python, Go, Java, YAML, or
             any .NET language, including C#, F#, and VB.
         - title: Your favorite tools.
           description: Use familiar IDEs, test frameworks, and tools.

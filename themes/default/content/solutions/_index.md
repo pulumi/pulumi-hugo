@@ -136,7 +136,7 @@ personas:
               icon_color: purple
               description: |
                 Define [infrastructure as code](/what-is/what-is-infrastructure-as-code/) using
-                familiar languages and IDEs: JavaScript, TypeScript, Python, Go, and .NET.
+                familiar languages and IDEs: JavaScript, TypeScript, Python, Go, .NET, Java, and YAML.
             - title: Cloud programming model
               icon: program
               icon_color: yellow
