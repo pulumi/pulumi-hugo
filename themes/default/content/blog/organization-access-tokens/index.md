@@ -10,7 +10,7 @@ date: 2022-04-28T9:00:00-07:00
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: Starting today, Enterprise and Business Critical Edition customers can now create Organization Access Tokens that are tied to their Pulumi Organization rather than a specific user. 
+meta_desc: Starting today, Enterprise and Business Critical Edition customers can now create Organization Access Tokens that are not tied to a specific user.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -31,7 +31,7 @@ tags:
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
 # for additional details, and please remove these comments before submitting for review.
 ---
-As the adoption of the Pulumi Service grows, with 350% growth in the number of enterprise customers using it in the last year, the size of customers using the Pulumi Service has also grown. To empower customers using the Pulumi Service at scale, today we are launching Organization Access Tokens.
+As enterprise adoption of the Pulumi Service has grown 350% over the last year, we've seen a strong customer demand for tools to manage automated Pulumi use cases such as CI/CD and Automation API at scale. Today we are launching Organization Access Tokens to empower our largest customers to manage automated workloads in a secure and collaborative manner.
 <!--more-->
 Enterprise and Business Critical customers of the Pulumi Service can now create Access Tokens tied to their Pulumi Organization. In addition to creating and managing Access Tokens tied to a user’s access (Personal Access Tokens), customers can utilize Organization Access Tokens, tokens which are not tied to a specific user. This feature is particularly useful for:
 
