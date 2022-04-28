@@ -51,7 +51,7 @@ Since an organization can have multiple Organization Access Tokens, it’s neces
 
 ## Permissions/Authorization
 
-Put simply: Organization Access Tokens behave like an organization member with [stack write permissions](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-permissions) to all of the organization’s stacks. They do not grant any privileges to view the console, or to create additional Organization or Personal Access Tokens. See below for a full list of accessible APIs:
+Organization Access Tokens behave like an organization member with [stack write permissions](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-permissions) to all of the organization’s stacks. They do not grant any privileges to view the Pulumi Service ui, or to create additional Organization or Personal Access Tokens. See below for a full list of accessible APIs:
 
 ### API Access
 
