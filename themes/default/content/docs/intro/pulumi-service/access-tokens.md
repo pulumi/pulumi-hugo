@@ -93,7 +93,7 @@ See the Pulumi [Service REST API docs](https://www.pulumi.com/docs/reference/ser
 | Get Stack | ✅ |
 | Get Stack State | ✅ |
 | Transfer Stack |  |
-| Delete Stack |  |
+| Delete Stack | ✅ |
 |--------|------|
 | Stack Tags |
 |--------|------|
@@ -114,7 +114,7 @@ See the Pulumi [Service REST API docs](https://www.pulumi.com/docs/reference/ser
 | Add User to Organization |  |
 | Remove User from Organization |  |
 | Create Team | ✅ |
-| Delete Team |  |
+| Delete Team | ✅ |
 | Update Team Membership |  |
 | Grant Stack Access to Team |  |
 | Remove Stack Access from Team |  |
