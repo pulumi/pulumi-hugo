@@ -37,12 +37,11 @@ To delete an access token:
 
 Organization Access Tokens provide Enterprise Growth and Business Critical customers the opportunity to manage resources and stack operations for their organization independent of a single-user account.
 
-Leveraging Organization Access Tokens for your organization's automation delivers two core benefits:
+Leveraging Organization Access Tokens for your organization's automation delivers many benefits over Personal Access Tokens:
 
-* Prevents organizations from needing to pass around a Personal Access Token belonging to a privileged organization member or admin in their automated tooling. This eliminates risk with modifying or removing organization memberships, as members can be decoupled from such automation pipelines.
+* Organization Tokens belong to the organization, rather than an individual member. Any admin in the organization can view, create, and delete all Organization Tokens. If a member of your organization leaves, you don't have to worry about losing access to a core CI/CD token attached to their personal account.
 * Promotes less privileged access, as an Organization Access Token, unlike a Personal Access Token, is granted privileges only to the organization in which it was created, rather than to all organizations a single user belongs to.
-
-Tokens are created, managed, and removed by organization administrators, accessible on the Organization Settings page.
+* Audit logs and update history are attributed to the organization and the name of the token, rather than an individual user.
 
 ### Creating an Organization Access Token
 
