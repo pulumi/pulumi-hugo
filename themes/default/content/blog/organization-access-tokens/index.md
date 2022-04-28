@@ -10,7 +10,7 @@ date: 2022-04-28T9:00:00-07:00
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: As the adoption of the Pulumi Service grows, with 350% growth in the number of enterprise customers using it in the last year, the size of customers using the Pulumi Service has also grown. To empower customers using the Pulumi Service at scale, today we are launching Organization Access Tokens. 
+meta_desc: Starting today, Enterprise and Business Critical Edition customers can now create Organization Access Tokens that are tied to their Pulumi Organization rather than a specific user. 
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -31,9 +31,7 @@ tags:
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
 # for additional details, and please remove these comments before submitting for review.
 ---
-
-As the adoption of the Pulumi Service grows, with 350% growth in the number of enterprise customers using it in the last year, the size of customers using the Pulumi Service has also grown. To empower customers using the Pulumi Service at scale, today we are launching Organization Access Tokens. 
-
+As the adoption of the Pulumi Service grows, with 350% growth in the number of enterprise customers using it in the last year, the size of customers using the Pulumi Service has also grown. To empower customers using the Pulumi Service at scale, today we are launching Organization Access Tokens.
 <!--more-->
 Enterprise and Business Critical customers of the Pulumi Service can now create Access Tokens tied to their Pulumi Organization. In addition to creating and managing Access Tokens tied to a user’s access (Personal Access Tokens), customers can utilize Organization Access Tokens, tokens which are not tied to a specific user. This feature is particularly useful for:
 
@@ -53,13 +51,10 @@ To determine which actions have been taken by which Organization Access Tokens, 
 See below how Organization Access Tokens will appear in Audit Logs:
 ![Gif of tokens in Audit Logs](audit-logs-org-tokens.gif)
 
-Learn more about using this feature in our [Access Token documentation](https://www.pulumi.com/docs/intro/pulumi-service/accounts/). 
+Learn more about using this feature in our [Access Token documentation](https://www.pulumi.com/docs/intro/pulumi-service/accounts/).
 
 Let's explore how one of our customers is adopting Organization Access Tokens in the Pulumi Service. [Fauna](https://fauna.com/), a Pulumi customer, is a distributed document relational database, delivered as a Cloud API. A native serverless architecture means no operations are required. Developers choose Fauna to build new applications faster and confidently scale existing ones across regions and the globe.
 
 Previously, Fauna created a user on the Pulumi Service under a shared email account and generated a Personal Access Token for that account to manage their organization wide access. This worked well as it meant the access token was not tied to a specific user. However, when they migrated to using the Pulumi Service single sign-on (SSO) for their Organization, this approach no longer worked since all Pulumi users were now attached to their SSO provider. “This will immediately solve the issues we have. This is an improvement over the process we’re using today,” said Ben Cohen, Software Engineer at Fauna.
 
-This feature is available to all Enterprise and Business Critical customers today, as well as on our 14-day trial. You can [start a trial](https://app.pulumi.com/site/trial) or [Contact Us](https://www.pulumi.com/contact/?form=sales) about the Pulumi Service Enterprise Edition and Business Critical Edition to take it for a spin! 
-
-
-
+This feature is available to all Enterprise and Business Critical customers today, as well as on our 14-day trial. You can [start a trial](https://app.pulumi.com/site/trial) or [Contact Us](https://www.pulumi.com/contact/?form=sales) about the Pulumi Service Enterprise Edition and Business Critical Edition to take it for a spin!
