@@ -39,6 +39,7 @@ providing full control over the underlying EC2 machine resources that power your
 To run a Docker container in ECS using default network and cluster settings, use the `awsx.ecs.FargateService`
 class. Since we need to access this container over port 80 using a stable address, we will use a load balancer.
 
+<!-- TODO: Re-add 'go' to all 'chooser' blocks -->
 <!-- {{< chooser language "typescript,python,go,csharp" / >}} -->
 {{< chooser language "typescript,python,csharp" / >}}
 
@@ -179,25 +180,87 @@ approach is simple and hides a lot of complexity, it's often desirable to contro
 
 ## Creating an ECS Cluster in a VPC
 
-To create an ECS cluster inside of a VPC, we will first create or use an existing VPC using any of the techniques
-described in [Pulumi Crosswalk for AWS VPC]({{< relref "vpc" >}}). Then we simply pass that
-as the `vpc` argument for our cluster's constructor:
+To create an ECS service inside of a VPC, we will first create or use an existing VPC using any of the techniques
+described in [Pulumi Crosswalk for AWS VPC]({{< relref "vpc" >}}). Then we simply pass the subnets
+from that VPC into the network configuration argument for our cluster:
+
+{{< chooser language "typescript,python,csharp" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-const vpc = new awsx.ec2.Vpc("vpc", { ... });
+const vpc = new awsx.ec2.Vpc("vpc");
+const securityGroup = new aws.ec2.SecurityGroup("sg", {
+    vpcId: vpc.vpcId,
+    // Add ingress and egress rules as required
+});
+
 const cluster = new awsx.ecs.Cluster("custom", { vpc });
 
 const nginx = new awsx.ecs.FargateService("nginx", {
+    networkConfiguration: {
+        subnets: vpc.privateSubnetIds,
+        securityGroups: [securityGroup.id],
+    },
     cluster,
     // ... as before ...
 });
 ```
 
-By default, the cluster will be given a security group permitting all egress from the cluster, on any TCP port,
-and ingress from any address on port 22 and targeting any of the exposed load balancer endpoints in your cluster.
-If you wish to override these defaults, pass the `securityGroupIds` property to the constructor.
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_aws as aws
+import pulumi_awsx as awsx
+
+vpc = awsx.ec2.Vpc("vpc")
+cluster = aws.ecs.Cluster("default-cluster")
+
+service = awsx.ecs.FargateService("my-service",
+    cluster=cluster.arn,
+    network_configuration=awsx.ecs.ServiceNetworkConfiguration(
+        subnets=vpc.private_subnet_ids,
+    ),
+    # ... as before ...
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+var vpc = new Aws.Ecs.Vpc("vpc");
+var cluster = new Aws.Ecs.Cluster("default-cluster");
+
+var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServiceArgs
+{
+    NetworkConfiguration = new Awsx.Ecs.Inputs.ServiceNetworkConfiguration
+    {
+        Subnets = vpc.PrivateSubnetIds
+    },
+    Cluster = cluster.Arn,
+    // ... as before ...
+});
+```
+
+{{% /choosable %}}
+
+When using a custom VPC, you will also need to specify your own security groups if you need to allow ingress or egress.
 
 ## Creating an Auto Scaling Group for ECS Cluster Instances
 
