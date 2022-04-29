@@ -52,7 +52,7 @@ hero:
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Getting Started with Infrastructure as Code on Digital Ocean"
+    title: "Getting Started with Infrastructure as Code on DigitalOcean"
     # URL for embedding a URL for ungated webinars.
     youtube_url: ""
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
