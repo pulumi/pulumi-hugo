@@ -64,15 +64,15 @@ This guide walks you through configuring your Azure Active Directory (Azure AD) 
 
 1. Click the **Edit** icon on the **User Attributes & Claims** panel.
 
-![User Attributes & Claims Panel](/images/docs/reference/service/saml-aad/attributes-and-claims-panel.png)
+    ![User Attributes & Claims Panel](/images/docs/reference/service/saml-aad/attributes-and-claims-panel.png)
 
 1. Then, click on the **Edit** icon next to **Name identifier value**.
 
-![User Attributes & Claims](/images/docs/reference/service/saml-aad/attributes-and-claims.png)
+    ![User Attributes & Claims](/images/docs/reference/service/saml-aad/attributes-and-claims.png)
 
 1. In the **Manage User Claims** panel, expand **Choose name identifier format** and select **Email address**.
 
-![Manage Name Identifier Format](/images/docs/reference/service/saml-aad/name-identifier-format.png)
+    ![Manage Name Identifier Format](/images/docs/reference/service/saml-aad/name-identifier-format.png)
 
 1. Finally, click **Save** at the bottom of the **Manage User Claims** panel.
 
@@ -98,7 +98,9 @@ download the SAML application's configuration data and then pass that to Pulumi.
     ![Download XML](/images/docs/reference/service/saml-aad/download-xml.png)
 
 1. Sign into the Pulumi Service and navigate to your SAML organization. Navigate to the
-  **Settings** tab and then select **SAML SSO**.
+  **Settings** tab and then select **Access Management**. 
+  
+1. Click the **Change Requirements** button and select **SAML SSO**.
 
 1. Open up the XML document you downloaded from the Azure AD portal, and paste its full contents
   into the **Identity Provider Metadata** field.
