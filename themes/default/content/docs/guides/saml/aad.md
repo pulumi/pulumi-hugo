@@ -98,7 +98,7 @@ download the SAML application's configuration data and then pass that to Pulumi.
     ![Download XML](/images/docs/reference/service/saml-aad/download-xml.png)
 
 1. Sign into the Pulumi Service and navigate to your SAML organization. Navigate to the
-  **Settings** tab and then select **Access Management**. 
+  **Settings** tab and then select **Access Management**.
   
 1. Click the **Change Requirements** button and select **SAML SSO**.
 
