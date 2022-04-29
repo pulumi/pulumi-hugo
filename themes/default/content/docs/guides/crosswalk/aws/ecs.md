@@ -37,37 +37,120 @@ providing full control over the underlying EC2 machine resources that power your
 ## Creating a Load Balanced ECS Service
 
 To run a Docker container in ECS using default network and cluster settings, use the `awsx.ecs.FargateService`
-class. Since we need to access this container over port 80 using a stable address, we will use a load balancer:
+class. Since we need to access this container over port 80 using a stable address, we will use a load balancer.
+
+{{< chooser language "typescript,python,go,csharp" / >}}
+
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-// Create a load balancer on port 80 and spin up two instances of Nginx.
-const lb = new awsx.lb.ApplicationListener("nginx", { port: 80 });
-const nginx = new awsx.ecs.FargateService("nginx", {
+const cluster = new aws.ecs.Cluster("default-cluster");
+
+// // Create a load balancer on port 80 and spin up two instances of Nginx.
+const lb = new awsx.lb.ApplicationLoadBalancer("nginx-lb");
+
+const service = new awsx.ecs.FargateService("my-service", {
+    cluster: cluster.arn,
     taskDefinitionArgs: {
-        containers: {
-            nginx: {
-                image: "nginx",
-                memory: 128,
-                portMappings: [ lb ],
-            },
+        container: {
+            image: "nginx:latest",
+            cpu: 512,
+            memory: 128,
+            essential: true,
+            portMappings: [
+                {
+                    containerPort: 80,
+                    targetGroup: lb.defaultTargetGroup,
+                },
+            ],
         },
     },
-    desiredCount: 2,
 });
 
 // Export the load balancer's address so that it's easy to access.
-export const url = lb.endpoint.hostname;
+export const url = lb.loadBalancer.dnsName;
 ```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_aws as aws
+import pulumi_awsx as awsx
+
+cluster = aws.ecs.Cluster("default-cluster")
+
+lb = awsx.lb.ApplicationLoadBalancer("nginx-lb")
+
+service = awsx.ecs.FargateService("my-service",
+    cluster=cluster.arn
+    task_definition_args=awsx.ecs.FargateServiceTaskDefinitionArgs(
+        container=awsx.ecs.TaskDefinitionContainerDefinitionArgs(
+            image="nginx:latest",
+            cpu=512,
+            memory= 128,
+            essential= true,
+            port_mappings=[awsx.ecs.TaskDefinitionPortMappingArgs(
+                target_group=lb.default_target_group
+            )],
+        )
+    )
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+// TODO
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+var cluster = new Aws.Ecs.Cluster("default-cluster");
+
+var lb = new Awsx.Lb.ApplicationLoadBalancer("nginx-lb");
+
+var service = new Awsx.Ecs.FargateService("my-service", new FargateServiceArgs
+{
+    Cluster = cluster.Arn,
+    TaskDefinition = new Awsx.Ecs.FargateServiceTaskDefinitionArgs
+    {
+        Container = new Awsx.Ecs.TaskDefinitionContainerDefinitionArgs
+        {
+            Image = "nginx:latest",
+            Cpu = 512,
+            Memory = 128,
+            Essential = true,
+            PortMappings = {new awsx.ecs.TaskDefinitionPortMappingArgs
+            {
+                TargetGroup = lb.default_target_group,
+            }},
+        }
+    }
+});
+
+this.Url = lb.AwsLoadBalancer.DnsName;
+```
+
+{{% /choosable %}}
 
 After deploying this program, we can access our two  NGINX web servers behind our load balancer via curl:
 
 ```bash
-$ curl http://$(pulumi stack output url)
+curl http://$(pulumi stack output url)
 ```
 
-`$(pulumi stack output url)` evaluates to the load balancer's URL.
+`$(pulumi stack output url)` evaluates to the load balancer's domain name.
 
 ### **Output**
 
@@ -84,7 +167,7 @@ We have chosen to create an [Elastic Load Balancer](https://docs.aws.amazon.com/
 can access our services over the Internet at a stable address, spread evenly across two instances. Any of the ELB
 options described in the [Pulumi Crosswalk for ELB documentation]({{< relref "elb" >}}) can be used with our ECS service.
 
-Behind the scenes, our program also creates an ECS cluster in the default VPC to run the compute. This is something
+Behind the scenes, our program creates the ECS cluster in the default VPC to run the compute. This is something
 [we can configure](#creating-an-ecs-cluster-in-a-vpc) if we want to use a different VPC.
 
 Because we've used [`Fargate`](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html), we don't
