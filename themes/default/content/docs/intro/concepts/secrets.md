@@ -65,13 +65,13 @@ There are two ways to programmatically create secret values:
 {{% choosable language java %}}
 
 - Using `ctx.config().getSecret(key)` or `ctx.config().requireSecret(key)` when reading a value from config.
-- Calling `Output.of(value).asSecret()` to construct a secret from an existing `value`.
+- Calling `Output.of(value).asSecret()` to construct a secret from an existing value.
 
 {{% /choosable %}}
 {{% choosable language yaml %}}
 
 - Setting `configuration.${KEY}.Secret: true` when reading a value from the config.
-- Reading a value from the config that has been marked as secret.
+- Calling `Fn::Secret` to construct a secret from an existing value.
 
 {{% /choosable %}}
 
