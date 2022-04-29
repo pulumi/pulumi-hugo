@@ -18,7 +18,7 @@ There are three types of `Asset` objects:
 - `StringAsset`: The contents of the asset are read from a string in memory.
 - `RemoteAsset`: The contents of the asset are read from an `http`, `https` or `file` URI.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -67,6 +67,22 @@ var remoteAsset = new RemoteAsset("http://worldclockapi.com/api/json/est/now");
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+In java, you'll want to import the following
+
+```java
+import com.pulumi.asset.FileAsset;
+import com.pulumi.asset.StringAsset;
+import com.pulumi.asset.RemoteAsset;
+```
+
+```java
+final var fileAsset = new com.pulumi.asset.FileAsset("./file.txt");
+final var stringAsset = new com.pulumi.asset.StringAsset("Hello, world!");
+final var remoteAsset = new com.pulumi.asset.RemoteAsset("http://worldclockapi.com/api/json/est/now");
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -85,7 +101,7 @@ variables:
 
 Any of these assets can be passed to a resource accepting an `Asset` as input.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -142,6 +158,18 @@ var obj = new Aws.S3.BucketObject("obj", new Aws.S3.BucketObjectArgs
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+var obj = new com.pulumi.aws.s3.BucketObject("obj",
+        com.pulumi.aws.s3.BucketObjectArgs.builder()
+        .bucket(bucket.getId())
+        .key(key)
+        .source(fileAsset)
+        .build());
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -166,7 +194,7 @@ There are three types of `Archive` objects:
 - `RemoteArchive`: The contents of the asset are read from an `http`, `https` or `file` URI, which must produce an archive of one of the same supported types as `FileArchive`.
 - `AssetArchive`:  The contents of the archive are read from a map of either [`Asset`](#asset) or [`Archive`](#archive) objects, one file or folder respectively per entry in the map.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -231,6 +259,26 @@ var assetArchive = new AssetArchive(new Dictionary<string, string>
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+In java, you'll want to import the following
+
+```java
+import com.pulumi.asset.FileArchive;
+import com.pulumi.asset.RemoteArchive;
+import com.pulumi.asset.AssetArchive;
+```
+
+```java
+var fileArchive = new FileArchive("./file.zip");
+var remoteArchive = new RemoteArchive("http://contoso.com/file.zip");
+var assetArchive = new AssetArchive(Map.of(
+    "file", new StringAsset("Hello, world!"),
+    "folder", new FileArchive("./folder")
+));
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -255,7 +303,7 @@ Note that a folder may be passed to `FileArchive` to construct an archive from t
 
 Any of these archives can be passed to a resource accepting an `Archive` as input.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -314,6 +362,19 @@ var fn = new Aws.Lambda.Function("fn", new Aws.Lambda.FunctionArgs
     Handler = "hello.handler",
     Code = fileArchive,
 });
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+var fn = new com.pulumi.aws.lambda.Function("fn",
+    com.pulumi.aws.lambda.FunctionArgs.builder()
+        .role(role.arn())
+        .runtime("python3.7")
+        .handler("hello.handler")
+        .code(fileArchive)
+        .build());
 ```
 
 {{% /choosable %}}

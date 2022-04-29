@@ -14,7 +14,7 @@ To import a resource, first specify the `import` option with the resource’s ID
 
 This example imports an existing EC2 security group with ID `sg-04aeda9a214730248` and an EC2 instance with ID `i-06a1073de86f4adef`:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -140,6 +140,36 @@ var server = new Instance("web-server",
         ImportId = "i-06a1073de86f4adef"
     }
 );
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+var group = new SecurityGroup("web-sg",
+        SecurityGroupArgs.builder()
+                .name("web-sg-62a569b")
+                .description("Enable HTTP access")
+                .ingress(
+                    SecurityGroupIngressArgs.builder()
+                        .protocol("tcp")
+                        .fromPort(80)
+                        .toPort(80)
+                        .cidrBlocks("0.0.0.0/0")
+                        .build())
+                .build(),
+        CustomResourceOptions.builder()
+                .importId("sg-04aeda9a214730248")
+                .build());
+var server = new Instance("web-server",
+        InstanceArgs.builder()
+                .ami("ami-6869aa05")
+                .instanceType("t2.micro")
+                .securityGroups(group.name().applyValue(List::of))
+                .build(),
+        CustomResourceOptions.builder()
+                .importId("i-06a1073de86f4adef")
+                .build());
 ```
 
 {{% /choosable %}}

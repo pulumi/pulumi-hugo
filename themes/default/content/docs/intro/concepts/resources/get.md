@@ -11,7 +11,7 @@ You can use the static `get` function, which is available on all resource types,
 
 You can use the `get` function to consume properties from a resource that was provisioned elsewhere. For example, this program reads an existing EC2 Security Group whose ID is `sg-0dfd33cdac25b1ec9` and uses the result as input to create an EC2 Instance that Pulumi will manage:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -104,6 +104,23 @@ class MyStack : Stack
             SecurityGroups = { group.Name }
         });
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+public static Exports stack(Context ctx) {
+    var group = SecurityGroup.get("group", Output.of("sg-0dfd33cdac25b1ec9"), null, null);
+
+    var server = new Instance("web-server", InstanceArgs.builder()
+        .ami("ami-6869aa05")
+        .instanceType("t2.micro")
+        .securityGroups(
+            group.name().applyValue(v -> List.of(v)))
+        .build());
+    return ctx.exports();
 }
 ```
 

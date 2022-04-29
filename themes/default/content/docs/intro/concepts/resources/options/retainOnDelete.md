@@ -20,7 +20,7 @@ Once the resource is no longer marked retained, it can be fully deleted as part 
 
 The default is to inherit this value from the parent resource, and `false` for resources without a parent.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -55,6 +55,13 @@ db, _ := NewDatabase(ctx, "db", &DatabaseArgs{}, pulumi.RetainOnDelete(true));
 ```csharp
 var db = new Database("db", new DatabaseArgs(),
     new CustomResourceOptions { RetainOnDelete = true });
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+// retainOnDelete is not currently supported in Java.
 ```
 
 {{% /choosable %}}

@@ -31,7 +31,7 @@ To use the security group, the EC2 resource requires the security group's ID. Pu
 
 Finally, the server's resulting IP address and DNS name are exported as stack outputs so that their values can be accessed through either a CLI command or by another stack.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -186,6 +186,54 @@ class MyStack : Stack
 
     [Output]
     public Output<string> PublicDns { get; set; }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+package myproject;
+
+import com.pulumi.Context;
+import com.pulumi.Exports;
+import com.pulumi.Pulumi;
+import com.pulumi.aws.ec2.Instance;
+import com.pulumi.aws.ec2.InstanceArgs;
+import com.pulumi.aws.ec2.SecurityGroup;
+import com.pulumi.aws.ec2.SecurityGroupArgs;
+import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+
+import java.util.List;
+
+
+public class App {
+    public static void main(String[] args) {
+        int exitCode = Pulumi.run(App::stack);
+        System.exit(exitCode);
+    }
+
+    public static Exports stack(Context ctx) {
+        final var group = new SecurityGroup("web-sg",
+            SecurityGroupArgs.builder()
+            .description("Enable HTTP access")
+            .ingress(SecurityGroupIngressArgs.builder()
+                .protocol("tcp")
+                .fromPort(80)
+                .toPort(80)
+                .cidrBlocks("0.0.0.0/0")
+                .build())
+            .build());
+        final var server = new Instance("web-server",
+            InstanceArgs.builder()
+                .ami("ami-6869aa05")
+                .instanceType("t2.micro")
+                .vpcSecurityGroupIds(group.name().applyValue(List::of))
+                .build());
+        ctx.export("publicIp", server.publicIp());
+        ctx.export("publicDns", server.publicDns());
+        return ctx.exports();
+    }
 }
 ```
 

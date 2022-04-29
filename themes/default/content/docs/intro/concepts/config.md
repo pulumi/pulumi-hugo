@@ -70,7 +70,7 @@ Configuration values can be retrieved using either {{< pulumi-config-get >}} or 
 
 The following example uses an empty constructor. If you are writing code that will be imported into a broader project, such as your own library of components, you should pass your library's name to the constructor. This string is used as a namespace for all configuration keys. Similarly, if you want to access the config of another library, such as the config for a standard library like `aws`, you should also pass the library's name to the constructor. The default constructor automatically uses the current project for that namespace.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -136,6 +136,19 @@ Console.WriteLine($"Hello, {name} -- I see your lucky number is {lucky}!");
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+    public static Exports stack(Context ctx) {
+        var config = ctx.config();
+        var name = config.require("name");
+        var lucky = config.getInteger("lucky").isPresent() ? config.getInteger("lucky").get() : 42;
+        ctx.log().info(String.format("Hello, %s -- I see your lucky number is %s!", name, lucky));
+        return ctx.exports();
+    }
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -181,7 +194,7 @@ For structured config, `true` and `false` values are persisted as boolean values
 
 The `data` config can be accessed in your Pulumi program using:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -248,6 +261,18 @@ func main() {
 var config = new Pulumi.Config();
 var data = config.RequireObject<JsonElement>("data");
 Console.WriteLine($"Active: {data.GetProperty("active")}");
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+public static Exports stack(Context ctx) {
+    var config = ctx.config();
+    var data = config.requireObject("data", Map.class);
+    ctx.log().info(String.format("Active: %s", data.get("active")));
+    return ctx.exports();
+}
 ```
 
 {{% /choosable %}}

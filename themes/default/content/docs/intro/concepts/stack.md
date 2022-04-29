@@ -136,7 +136,7 @@ A stack can export values as stack outputs. These outputs are shown during an up
 
 To export values from a stack, use the following definition in the top-level of the entrypoint for your project:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -183,6 +183,23 @@ public class MyStack : Stack
  ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+public class App {
+    public static void main(String[] args) {
+        int exitCode = Pulumi.run(App::stack);
+        System.exit(exitCode);
+    }
+
+    public static Exports stack(Context ctx) {
+        ctx.export("url", resource.url());
+        return ctx.exports();
+    }
+}
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -202,7 +219,7 @@ Stack exports are effectively JSON serialized, though quotes are removed when ex
 
 For example, the following statements:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -257,6 +274,19 @@ class MyStack : Stack
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+public static Exports stack(Context ctx) {
+    ctx.export("x", Output.of("hello"));
+    ctx.export("o", Output.of(Map.of(
+            "num", "42"
+    )));
+    return ctx.exports();
+}
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -301,7 +331,7 @@ Stack outputs respect secret annotations and are encrypted appropriately. If a s
 
 The {{< pulumi-getstack >}} function gives you the currently deploying stack, which can be useful in naming, tagging, or accessing resources.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -338,6 +368,13 @@ var stack = Deployment.Instance.StackName;
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+var stack = ctx.stackName();
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -355,7 +392,7 @@ Stack references allow you to access the outputs of one stack from another stack
 
 To reference values from another stack, create an instance of the `StackReference` type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -404,6 +441,14 @@ var otherOutput = other.GetOutput("x");
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+var other = new StackReference("acmecorp/infra/other");
+var otherOutput = other.getOutput(Output.of("x"));
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -432,7 +477,7 @@ and testing. In that case, you will have six distinct stacks that pair up in the
 The way Pulumi programs communicate information for external consumption is by using stack exports. For example,
 your infrastructure stack might export the Kubernetes configuration information needed to deploy into a cluster:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -479,6 +524,13 @@ class ClusterStack : Stack
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+ctx.export("kubeConfig", /*...a cluster's output property...*/);
+```
+
+{{% /choosable %}}
 {{% choosable language yaml %}}
 
 ```yaml
@@ -495,7 +547,7 @@ connect to the Kubernetes cluster provisioned in its respective environment.
 
 The Pulumi programming model offers a way to do this with its `StackReference` resource type. For example:
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -571,6 +623,47 @@ class AppStack : Stack
         var provider = new Provider("k8s", new ProviderArgs { KubeConfig = kubeConfig });
         var options = new ComponentResourceOptions { Provider = provider };
         var service = new Service(..., ..., options);
+    }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+package myproject;
+
+import com.pulumi.Context;
+import com.pulumi.Exports;
+import com.pulumi.Pulumi;
+
+import com.pulumi.core.Output;
+import com.pulumi.kubernetes.Provider;
+import com.pulumi.kubernetes.ProviderArgs;
+import com.pulumi.kubernetes.core_v1.Service;
+import com.pulumi.kubernetes.core_v1.ServiceArgs;
+import com.pulumi.resources.ComponentResourceOptions;
+import com.pulumi.resources.StackReference;
+
+
+public class App {
+    public static void main(String[] args) {
+        int exitCode = Pulumi.run(App::stack);
+        System.exit(exitCode);
+    }
+
+    public static Exports stack(Context ctx) {
+        var cluster = new StackReference(String.format("mycompany/infra/%s", ctx.stackName()));
+        var kubeconfig = cluster.requireOutput(Output.of("KubeConfig")).applyValue(String::valueOf);
+        var provider = new Provider("k8s", ProviderArgs.builder().kubeconfig(kubeconfig).build());
+        var options = ComponentResourceOptions.builder()
+            .provider(provider)
+            .build();
+        var service = new Service("app-service", ServiceArgs.builder()
+            ...
+            .build(), options);
+
+        return ctx.exports();
     }
 }
 ```
