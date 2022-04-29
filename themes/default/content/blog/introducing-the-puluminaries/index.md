@@ -42,7 +42,6 @@ The Puluminaries program was created to recognize members of the Pulumi communit
 
 While the Puluminaries have been active in the community for quite some time, we have officially launched the program at [PulumiUP](https://pulumi.com/pulumi-up) in 2022, and it is our pleasure to introduce the first cohort of members to the program!
 
-
 ## Meet The Puluminaries!
 
 ### Engin Diri
@@ -65,7 +64,6 @@ Twitter surfing overrated e-commerce series A. SPAC leading Testflight user. Y-c
 <a data-track="twitter" href="https://twitter.com/usrbinkat"><i class="fab fa-twitter"></i></a>&nbsp;<a data-track="github" href="https://github.com/usrbinkat"><i class="fab fa-github"></i></a>&nbsp;<a data-track="linkedin" href="https://linkedin.com/in/usrbinkat"><i class="fab fa-linkedin"></i></a>
 
 Twitter surfing overrated e-commerce series A. SPAC leading Testflight user. Y-combinator funded, self driving car startup. Techstars windsurfing toast burner.
-https://twitter.com/usrbinkat
 
 ### Komal Ali
 
