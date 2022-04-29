@@ -262,30 +262,6 @@ var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServ
 
 When using a custom VPC, you will also need to specify your own security groups if you need to allow ingress or egress.
 
-## Creating an Auto Scaling Group for ECS Cluster Instances
-
-Using Fargate is easy, because we don't have to worry about the EC2 instances powering our cluster. In the case
-of wanting more control over the instances and their configuration, we can create an
-[Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) explicitly, and
-the cluster will then use that to run all compute scheduled inside our cluster. This is required to use `EC2Service`.
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-const cluster = new awsx.ecs.Cluster("custom");
-
-const asg = cluster.createAutoScalingGroup("custom", {
-    templateParameters: { minSize: 5 },
-    launchConfigurationArgs: { instanceType: "t2.medium" },
-});
-```
-
-Because we're manually managing our cluster's compute, we are also responsible for ensuring our cluster has enough
-capacity to meet our workload's demands. It is typically not desirable to use a fixed quantity of servers. Instead,
-refer to [Automatic Scaling with Amazon ECS](
-https://aws.amazon.com/blogs/compute/automatic-scaling-with-amazon-ecs/) for best practices on setting up auto-scaling
-for your ECS workloads. Remember, Fargate handles all of this for you behind the scenes, but with less control.
-
 ## Using an Existing ECS Cluster
 
 If you already have an ECS cluster that you'd like to use, and would like to define Tasks and Services to run there, you can supply the `cluster` argument to the constructor:
