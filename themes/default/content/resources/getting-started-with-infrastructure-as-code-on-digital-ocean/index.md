@@ -75,7 +75,7 @@ main:
     # A bullet point list containing what the user will learn during the webinar.
     learn:
         - How to use Pulumi to provision cloud resources
-        - How to use IaC on Digital Ocean
+        - How to use IaC on DigitalOcean
 
 # The right hand side form section.
 form:
