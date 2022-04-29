@@ -262,28 +262,6 @@ var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServ
 
 When using a custom VPC, you will also need to specify your own security groups if you need to allow ingress or egress.
 
-## Using an Existing ECS Cluster
-
-If you already have an ECS cluster that you'd like to use, and would like to define Tasks and Services to run there, you can supply the `cluster` argument to the constructor:
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Fetch an existing cluster.
-const cluster = new awsx.ecs.Cluster("custom", {
-    cluster: aws.ecs.Cluster.get("existing_cluster_id"),
-});
-
-// Deploy a Service into the existing cluster.
-const nginx = new awsx.ecs.FargateService("nginx", {
-    cluster,
-    // ... as before ...
-});
-```
-
-Notice that we are using a method from a different package, [`aws.ecs.Cluster.get`]({{< relref "/registry/packages/aws/api-docs/ecs/cluster#look-up" >}}), to look up our existing cluster by its ID and then creating an `awsx.ecs.Cluster` out of it. The former is the raw resource description, while the latter is the object type required to work with the Pulumi Crosswalk for AWS ECS APIs.
-
 ## ECS Tasks, Containers, and Services
 
 We saw example uses above but didn't describe the details of how ECS core concepts work, or are authored in your
