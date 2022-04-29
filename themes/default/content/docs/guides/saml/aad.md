@@ -100,7 +100,7 @@ download the SAML application's configuration data and then pass that to Pulumi.
 1. Sign into the Pulumi Service and navigate to your SAML organization. Navigate to the
   **Settings** tab and then select **Access Management**.
   
-1. Click the **Change Requirements** button and select **SAML SSO**.
+1. Select the **Change Requirements** button and then **SAML SSO**.
 
 1. Open up the XML document you downloaded from the Azure AD portal, and paste its full contents
   into the **Identity Provider Metadata** field.
