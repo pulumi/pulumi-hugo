@@ -62,7 +62,6 @@ The following language runtimes are currently supported by Pulumi. Select one to
         <a class="tile p-8 pb-16 text-center" href="{{< relref "./java" >}}">
             <p class="mx-auto text-xl font-semibold link">
                 Java
-                <span class="text-xs font-light">(Preview)</span>
             </p>
             <img class="h-12 mx-auto inline" src="/logos/brand/avatar-on-black.png" alt="Java">
         </a>
