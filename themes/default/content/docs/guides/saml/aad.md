@@ -66,7 +66,7 @@ This guide walks you through configuring your Azure Active Directory (Azure AD) 
 
     ![User Attributes & Claims Panel](/images/docs/reference/service/saml-aad/attributes-and-claims-panel.png)
 
-1. Then, select on the **Edit** icon next to **Name identifier value**.
+1. Then, select the **Edit** icon next to **Name identifier value**.
 
     ![User Attributes & Claims](/images/docs/reference/service/saml-aad/attributes-and-claims.png)
 
