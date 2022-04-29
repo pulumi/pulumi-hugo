@@ -39,7 +39,8 @@ providing full control over the underlying EC2 machine resources that power your
 To run a Docker container in ECS using default network and cluster settings, use the `awsx.ecs.FargateService`
 class. Since we need to access this container over port 80 using a stable address, we will use a load balancer.
 
-{{< chooser language "typescript,python,go,csharp" / >}}
+<!-- {{< chooser language "typescript,python,go,csharp" / >}} -->
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -49,11 +50,11 @@ import * as awsx from "@pulumi/awsx";
 
 const cluster = new aws.ecs.Cluster("default-cluster");
 
-// // Create a load balancer on port 80 and spin up two instances of Nginx.
 const lb = new awsx.lb.ApplicationLoadBalancer("nginx-lb");
 
 const service = new awsx.ecs.FargateService("my-service", {
     cluster: cluster.arn,
+    desiredCount: 2,
     taskDefinitionArgs: {
         container: {
             image: "nginx:latest",
@@ -70,7 +71,6 @@ const service = new awsx.ecs.FargateService("my-service", {
     },
 });
 
-// Export the load balancer's address so that it's easy to access.
 export const url = lb.loadBalancer.dnsName;
 ```
 
@@ -88,13 +88,14 @@ cluster = aws.ecs.Cluster("default-cluster")
 lb = awsx.lb.ApplicationLoadBalancer("nginx-lb")
 
 service = awsx.ecs.FargateService("my-service",
-    cluster=cluster.arn
+    cluster=cluster.arn,
+    desired_count=2,
     task_definition_args=awsx.ecs.FargateServiceTaskDefinitionArgs(
         container=awsx.ecs.TaskDefinitionContainerDefinitionArgs(
             image="nginx:latest",
             cpu=512,
-            memory= 128,
-            essential= true,
+            memory=128,
+            essential=True,
             port_mappings=[awsx.ecs.TaskDefinitionPortMappingArgs(
                 target_group=lb.default_target_group
             )],
@@ -105,13 +106,13 @@ service = awsx.ecs.FargateService("my-service",
 
 {{% /choosable %}}
 
-{{% choosable language go %}}
+<!-- {{% choosable language go %}}
 
 ```go
 // TODO
 ```
 
-{{% /choosable %}}
+{{% /choosable %}} -->
 
 {{% choosable language csharp %}}
 
@@ -120,41 +121,40 @@ var cluster = new Aws.Ecs.Cluster("default-cluster");
 
 var lb = new Awsx.Lb.ApplicationLoadBalancer("nginx-lb");
 
-var service = new Awsx.Ecs.FargateService("my-service", new FargateServiceArgs
+var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServiceArgs
 {
     Cluster = cluster.Arn,
-    TaskDefinition = new Awsx.Ecs.FargateServiceTaskDefinitionArgs
+    DesiredCount = 2,
+    TaskDefinitionArgs = new Awsx.Ecs.Inputs.FargateServiceTaskDefinitionArgs
     {
-        Container = new Awsx.Ecs.TaskDefinitionContainerDefinitionArgs
+        Container = new Awsx.Ecs.Inputs.TaskDefinitionContainerDefinitionArgs
         {
             Image = "nginx:latest",
             Cpu = 512,
             Memory = 128,
             Essential = true,
-            PortMappings = {new awsx.ecs.TaskDefinitionPortMappingArgs
+            PortMappings = {new Awsx.Ecs.Inputs.TaskDefinitionPortMappingArgs
             {
-                TargetGroup = lb.default_target_group,
+                TargetGroup = lb.DefaultTargetGroup,
             }},
         }
     }
 });
 
-this.Url = lb.AwsLoadBalancer.DnsName;
+this.Url = lb.LoadBalancer.Apply(lb => lb.DnsName);
 ```
 
 {{% /choosable %}}
 
-After deploying this program, we can access our two  NGINX web servers behind our load balancer via curl:
+After deploying this program, `pulumi stack output url` can be used to access the Url output property. We can then access our  NGINX web server behind our load balancer via curl:
 
 ```bash
 curl http://$(pulumi stack output url)
 ```
 
-`$(pulumi stack output url)` evaluates to the load balancer's domain name.
+Giving the following output:
 
-### **Output**
-
-```
+```bash
 <!DOCTYPE html>
 <html>
 <body>
