@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Getting Started with Infrastructure as Code on Digital Ocean"
+title: "Getting Started with Infrastructure as Code on DigitalOcean"
 meta_desc: "In this hands-on workshop, you will learn how to stand up basic services using Infrastructure as Code through a series of hands-on labs."
 
 # A featured webinar will display first in the list.
