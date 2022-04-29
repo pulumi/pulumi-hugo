@@ -262,6 +262,28 @@ var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServ
 
 When using a custom VPC, you will also need to specify your own security groups if you need to allow ingress or egress.
 
+## Container Definitions Without Services
+
+A Task Definition can be created independently of an ECS Service. An example use-case would be for running one-off,
+fire and forget, or batch tasks.
+
+For example, this example creates a standalone task definition as in the full load-balanced example, but without the service:
+
+```typescript
+import * as awsx from "@pulumi/awsx";
+
+const listener = new awsx.lb.NetworkListener("listener", { port: 80 });
+const task = new awsx.ecs.FargateTaskDefinition("task", {
+    containers: {
+        nginx: {
+            image: "nginx",
+            memory: 128,
+            portMappings: [ listener ],
+        },
+    },
+});
+```
+
 ## ECS Tasks, Containers, and Services
 
 We saw example uses above but didn't describe the details of how ECS core concepts work, or are authored in your
@@ -279,99 +301,7 @@ After that, ECS containers may be run as one-off [Tasks](
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html), or long-lived [Services](
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 
-### ECS Task Definitions
-
-A task definition is required to run Docker containers in Amazon ECS. We saw above that each Service takes a
-`taskDefinitionArgs` object. Some of the parameters you can specify this task definition include:
-
-* `image`: The Docker image to use with each container in your task.
-* `cpu` and `memory`: How much CPU and memory to use with each task or each container within a task.
-* `networkMode`: The Docker networking mode to use for the containers (`none`, `bridge`, `awsvpc`, or `host`).
-* `logGroup`: The logging configuration to use for your tasks (by default, a new group with 1 day retention).
-* `volumes`: Any data volumes that should be used with the containers in the task.
-* `executionRole`: The IAM role that your tasks should assume while running.
-
-Of course, the most important part of a task definition is the `containers` map, which specifies one or many
-containers to run as part of your task.
-
-### ECS Container Definitions
-
-A TaskDefinition's [`containers` property](
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definitions)
-specifies the Docker configuration for one or more container instances that are launched by the task.
-
-The simplest way to specify a container to run is to provide a string to the `image` parameter of the container
-definition. This string is either the name of an image on [Docker Hub](https://hub.docker.com/), an [ECR Repository](
-https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html), or any valid Docker repository URL.
-
-For example, this example simply uses the `nginx` image from the Docker Hub:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-const listener = new awsx.lb.NetworkListener("listener", { port: 80 });
-const task = new awsx.ecs.FargateTaskDefinition("task", {
-    containers: {
-        nginx: {
-            image: "nginx",
-            memory: 128,
-            portMappings: [ listener ],
-        },
-    },
-});
-```
-
-This has the effect of running a single container within our task that runs the Nginx web server.
-
-### Services
-
-ECS allows you to run and maintain a specified number of instances of a task definition simultaneously in a cluster.
-This is called a Service. If any of your tasks should fail or stop for any reason, ECS launches another instance of
-your task definition to replace it and maintain the desired count of tasks using your chosen scheduling strategy.
-
-Although we have seen simple examples of Service definitions above, there are many additional capabilities.
-
-This includes control of the scheduling of your service:
-
-* `desiredCount`: The number of instances of the task definition to place and keep running. Defaults to 1. Do
-  not specify if using the `DAEMON` scheduling strategy.
-
-* `orderedPlacementStrategies`: Service level strategy rules that are taken into consideration during task placement.
-  List from top to bottom in order of precedence. The maximum number of strategies is 5.
-
-* `placementConstraints`: Rules that are taken into consideration during task placement. Maximum number of 10.
-
-* `schedulingStrategy`: The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`.
-  Defaults to `REPLICA`. Note that Fargate tasks do not support the `DAEMON` scheduling strategy.
-
-* `waitForSteadyState`: Wait for the service to reach a steady state (like [`aws ecs wait services-stable`](
-  https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before considering a deployment
-  complete. Defaults to `true`.
-
-In addition to control of the health checking of your service:
-
-* `deploymentMaximumPercent`: The upper limit (as a percentage of the service's `desiredCount`) of the number of running
-  tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-
-* `deploymentMinimumHealthyPercent`: The lower limit (as a percentage of the service's `desiredCount`) of the number of
-  running tasks that must remain running and healthy in a service during a deployment.
-
-* `healthCheckGracePeriodSecond`: Seconds to ignore failing load balancer health checks on newly instantiated tasks to
-  prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
-
-In addition to security and networking configuration:
-
-* `iamRole`: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This
-  parameter is required if you are using a load balancer with your service, but only if your task definition does not
-  use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already
-  created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role
-
-* `networkConfiguration`: The network configuration for the service. This parameter is required for task definitions
-  that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other
-  network modes.
-
-For additional information about each of these settings, refer to the [AWS documentation](
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_definition_parameters.html).
+For full details of the available component arguments, please refer to the registry API documentation.
 
 ## Building and Publishing Docker Images Automatically
 
