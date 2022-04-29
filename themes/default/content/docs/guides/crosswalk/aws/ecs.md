@@ -177,38 +177,6 @@ the optional `memory` and `cpu` values we request for our containers.
 For many scenarios, this is exactly what we want: a simple way of just running containerized applications. While this
 approach is simple and hides a lot of complexity, it's often desirable to control more of what is going on.
 
-## Explicitly Creating ECS Clusters for EC2 or Fargate
-
-The `awsx.ecs.Cluster` class creates a new ECS cluster for Tasks and Services to run within. If you don't specify
-a cluster explicitly, then a default one will be created that is configured to use your region's default VPC.
-
-There are a few reasons to want to create a cluster explicitly: The first is to isolate the compute running in
-different clusters from one another. Another is to place your cluster in a VPC so that it is isolated at the
-networking level. If you want to schedule non-Fargate Tasks and Services, you will need to create a
-cluster explicitly, since you will need to define an Auto Scaling Group that controls the EC2 instances powering it.
-
-To use an explicit cluster, create an instance and pass it as the `cluster` property for the
-`awsx.ecs.FargateService` or `awsx.ecs.EC2Service` constructors:
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Create an ECS cluster explicitly, and give it a name tag.
-const cluster = new awsx.ecs.Cluster("custom", {
-    tags: {
-        "Name": "my-custom-ecs-cluster",
-    },
-});
-
-// Deploy a Service into this new cluster.
-const nginx = new awsx.ecs.FargateService("nginx", {
-    cluster,
-    // ... as before ...
-});
-```
-
-In this example, we simply specified the tags for our cluster. We will see other possibilities in the following examples.
-
 ## Creating an ECS Cluster in a VPC
 
 To create an ECS cluster inside of a VPC, we will first create or use an existing VPC using any of the techniques
