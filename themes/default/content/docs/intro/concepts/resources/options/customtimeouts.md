@@ -62,13 +62,13 @@ var db = new Database("db", new DatabaseArgs(),
 
 ```java
 var db = new Database("db",
-        DatabaseArgs.Empty,
-        CustomResourceOptions.builder()
-                .customTimeouts(
-                        new CustomTimeouts(Duration.ofMinutes(30),
-                        null,
-                        null))
-                .build());
+    DatabaseArgs.Empty,
+    CustomResourceOptions.builder()
+        .customTimeouts(
+            CustomTimeouts.builder()
+                .create(Duration.ofMinutes(30))
+                .build())
+        .build());
 ```
 
 {{% /choosable %}}

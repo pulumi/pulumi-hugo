@@ -61,12 +61,12 @@ var res = new MyResource("res",
 
 ```java
 var res = new MyResource("res",
-        MyResourceArgs.builder()
-                .prop("new-value")
-                .build(),
-        CustomResourceOptions.builder()
-                .ignoreChanges("prop")
-                .build());
+    MyResourceArgs.builder()
+        .prop("new-value")
+        .build(),
+    CustomResourceOptions.builder()
+        .ignoreChanges("prop")
+        .build());
 ```
 
 {{% /choosable %}}

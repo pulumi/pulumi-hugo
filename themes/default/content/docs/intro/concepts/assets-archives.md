@@ -68,13 +68,6 @@ var remoteAsset = new RemoteAsset("http://worldclockapi.com/api/json/est/now");
 
 {{% /choosable %}}
 {{% choosable language java %}}
-In java, you'll want to import the following
-
-```java
-import com.pulumi.asset.FileAsset;
-import com.pulumi.asset.StringAsset;
-import com.pulumi.asset.RemoteAsset;
-```
 
 ```java
 final var fileAsset = new com.pulumi.asset.FileAsset("./file.txt");
@@ -162,7 +155,7 @@ var obj = new Aws.S3.BucketObject("obj", new Aws.S3.BucketObjectArgs
 
 ```java
 var obj = new com.pulumi.aws.s3.BucketObject("obj",
-        com.pulumi.aws.s3.BucketObjectArgs.builder()
+    com.pulumi.aws.s3.BucketObjectArgs.builder()
         .bucket(bucket.getId())
         .key(key)
         .source(fileAsset)
@@ -261,21 +254,13 @@ var assetArchive = new AssetArchive(new Dictionary<string, string>
 {{% /choosable %}}
 {{% choosable language java %}}
 
-In java, you'll want to import the following
-
 ```java
-import com.pulumi.asset.FileArchive;
-import com.pulumi.asset.RemoteArchive;
-import com.pulumi.asset.AssetArchive;
-```
-
-```java
-var fileArchive = new FileArchive("./file.zip");
-var remoteArchive = new RemoteArchive("http://contoso.com/file.zip");
-var assetArchive = new AssetArchive(Map.of(
-    "file", new StringAsset("Hello, world!"),
-    "folder", new FileArchive("./folder")
-));
+var fileArchive = new com.pulumi.asset.FileArchive("./file.zip");
+var remoteArchive = new com.pulumi.asset.RemoteArchive("http://contoso.com/file.zip");
+var assetArchive = new com.pulumi.asset.AssetArchive(
+    Map.of(
+        "file", new com.pulumi.asset.StringAsset("Hello, world!"),
+        "folder", new com.pulumi.asset.FileArchive("./folder")));
 ```
 
 {{% /choosable %}}

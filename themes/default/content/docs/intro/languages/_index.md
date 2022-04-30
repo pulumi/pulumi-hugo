@@ -63,7 +63,7 @@ The following language runtimes are currently supported by Pulumi. Select one to
             <p class="mx-auto text-xl font-semibold link">
                 Java
             </p>
-            <img class="h-12 mx-auto inline" src="/logos/brand/avatar-on-black.png" alt="Java">
+            <img class="h-12 mx-auto inline" src="/logos/tech/java.svg" alt="Java">
         </a>
     </div>
     <div class="pb-4 md:w-1/2">

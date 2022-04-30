@@ -188,8 +188,7 @@ public class MyStack : Stack
 ```java
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(App::stack);
-        System.exit(exitCode);
+        Pulumi.run(App::stack);
     }
 
     public static Exports stack(Context ctx) {
@@ -648,8 +647,7 @@ import com.pulumi.resources.StackReference;
 
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(App::stack);
-        System.exit(exitCode);
+        Pulumi.run(App::stack);
     }
 
     public static Exports stack(Context ctx) {

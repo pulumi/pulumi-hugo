@@ -151,9 +151,9 @@ var role = new Aws.Iam.Role("my-role", new Aws.Iam.RoleArgs
 
 ```java
 var role = new com.pulumi.aws.iam.Role("my-role",
-        com.pulumi.aws.iam.RoleArgs.builder()
-            .name("my-role-001")
-            .build());
+    com.pulumi.aws.iam.RoleArgs.builder()
+        .name("my-role-001")
+        .build());
 ```
 
 {{% /choosable %}}

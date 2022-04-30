@@ -173,12 +173,12 @@ var bucket = new Aws.S3.Bucket($"{name}-bucket",
 
 ```java
 var bucket = new Bucket(String.format("%s-bucket", name),
-        BucketArgs.builder()
-        ...
-        .build(),
-        CustomResourceOptions.builder()
-        .parent(this)
-        .build());
+    BucketArgs.builder()
+    ...
+    .build(),
+    CustomResourceOptions.builder()
+    .parent(this)
+    .build());
 ```
 
 {{% /choosable %}}
@@ -326,7 +326,7 @@ var component = new MyResource("...", new ComponentResourceOptions {
 ```java
 var component = new MyResource("...",
     ComponentResourceOptions.builder()
-        .provider(List.of(awsUsEast1, myk8s))
+        .providers(awsUsEast1, myk8s)
         .build());
 ```
 

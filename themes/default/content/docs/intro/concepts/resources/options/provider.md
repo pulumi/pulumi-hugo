@@ -57,15 +57,15 @@ var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs(),
 
 ```java
 var provider = new Provider("provider",
-        ProviderArgs.builder()
-            .region("us-west-2")
-            .build();
+    ProviderArgs.builder()
+        .region("us-west-2")
+        .build();
 
 var vpc = new Vpc("vpc",
-        VpcArgs.Empty,
-        CustomResourceOptions.builder()
-            .provider(provider)
-            .build());
+    VpcArgs.Empty,
+    CustomResourceOptions.builder()
+        .provider(provider)
+        .build());
 ```
 
 {{% /choosable %}}

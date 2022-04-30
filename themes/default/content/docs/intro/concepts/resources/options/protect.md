@@ -61,10 +61,10 @@ var db = new Database("db", new DatabaseArgs(),
 
 ```java
 var db = new Database("db",
-        DatabaseArgs.Empty,
-        CustomResourceOptions.builder()
-                .protect(true)
-                .build());
+    DatabaseArgs.Empty,
+    CustomResourceOptions.builder()
+        .protect(true)
+        .build());
 ```
 
 {{% /choosable %}}

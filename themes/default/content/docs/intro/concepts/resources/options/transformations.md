@@ -110,18 +110,20 @@ var vpc = new MyVpcComponent("vpc", new ComponentResourceOptions
 {{% choosable language java %}}
 
 ```java
-var vpc = new MyVpcComponent("vpc", ComponentResourceOptions.builder()
+var vpc = new MyVpcComponent("vpc",
+    ComponentResourceOptions.builder()
         .resourceTransformations(resourceTransformation -> {
             var resource = resourceTransformation.getResource();
             var args = resourceTransformation.getArgs();
             var options = resourceTransformation.getOptions();
             if (resource.getResourceType() == "aws:ec2/vpc:Vpc" ||
-                    resource.getResourceType() == "aws:ec2/subnet:Subnet") {
+                resource.getResourceType() == "aws:ec2/subnet:Subnet") {
+
                 var mergedOptions = CustomResourceOptions.merge(
-                        (CustomResourceOptions) options,
-                        CustomResourceOptions.builder()
-                                .ignoreChanges("tags")
-                                .build());
+                    (CustomResourceOptions) options,
+                    CustomResourceOptions.builder()
+                        .ignoreChanges("tags")
+                        .build());
                 return Optional.of(new ResourceTransformation.Result(args, mergedOptions));
             }
             return Optional.of(new ResourceTransformation.Result(args, options));

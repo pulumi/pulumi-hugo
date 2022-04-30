@@ -61,7 +61,11 @@ var db = new Database("db", new DatabaseArgs(),
 {{% choosable language java %}}
 
 ```java
-// retainOnDelete is not currently supported in Java.
+var db = new Database("db",
+    DatabaseArgs.Empty,
+    CustomResourceOptions.builder()
+        .retainOnDelete(true)
+        .build());
 ```
 
 {{% /choosable %}}

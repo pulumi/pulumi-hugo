@@ -8,7 +8,7 @@ menu:
     weight: 4
 ---
 
-<img src="/logos/brand/avatar-on-black.png" align="right" width="150" style="padding:8px; margin-top: -64px">
+<img src="/logos/tech/java.svg" align="right" width="150" style="padding:8px; margin-top: -64px">
 
 Pulumi supports writing your infrastructure as code using the Java language. Java 11 or later is required. We support running Maven Pulumi programs, Gradle Pulumi programs, and Pulumi programs packaged as JAR files.
 
@@ -51,7 +51,7 @@ The fastest way to get up and running is to choose from one of the following Get
 
 ## Templates
 
-The fastest way to get started is to use a template. The template will initialize a Pulumi project. The getting started guides shown above will help do this on your cloud of choice, but this section describes doing so independently.
+The getting started guides shown above will help you write a Pulumi Java program via tutorial, but this section describes starting a basic project that you can start to explore with.
 
 From an empty directory, create a new project:
 
@@ -74,7 +74,9 @@ For details around using JAR, please check our docs on [Pulumi.yaml]({{< relref 
 
 This will create a maven project with a `pom.xml` and a `Pulumi.yaml` [project file]({{< relref "../concepts/project" >}}) containing some minimal metadata about your project (including a name and description which you may wish to change) and an `App.java` file in the `src/main/java/myproject` directory containing your program.
 
-To deploy your infrastructure, run `pulumi up` and Pulumi will build your app using maven(gradle is also supported) and perform the operations needed to deploy the infrastructure you have declared.
+To deploy your infrastructure, run `pulumi up` and Pulumi will build your app using maven (gradle is also supported) and perform the operations needed to deploy the infrastructure you have declared.
+
+To destroy your infrastructure, run `pulumi destroy` and Pulumi will terminate the resources that you've declared.
 
 This `java` template is cloud agnostic, and you will need to install additional Java modules for the cloud provider of your choice. Additional templates are available that do this for you:
 

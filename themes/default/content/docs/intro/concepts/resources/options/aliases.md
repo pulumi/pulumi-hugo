@@ -61,12 +61,13 @@ var db = new Database("new-name-for-db", new DatabaseArgs(),
 {{% choosable language java %}}
 
 ```java
-var db = new Database("new-name-for-db", DatabaseArgs.Empty,
-        CustomResourceOptions.builder()
-                .aliases(Output.of(Alias.builder()
-                        .name("old-name-for-db")
-                        .build()))
-                .build());
+var db = new Database("new-name-for-db",
+    DatabaseArgs.Empty,
+    CustomResourceOptions.builder()
+        .aliases(Alias.builder()
+            .name("old-name-for-db")
+            .build())
+        .build());
 ```
 
 {{% /choosable %}}
@@ -135,9 +136,9 @@ var db = new Database("new-name-for-db", new DatabaseArgs(),
 
 ```java
 var db = new Database("new-name-for-db", DatabaseArgs.Empty,
-        CustomResourceOptions.builder()
-                .aliases(Output.of(Alias.withUrn("urn:pulumi:stackname::projectname::aws:rds/database:Database::old-name-for-db")))
-                .build());
+    CustomResourceOptions.builder()
+        .aliases(Alias.withUrn("urn:pulumi:stackname::projectname::aws:rds/database:Database::old-name-for-db"))
+        .build());
 ```
 
 {{% /choosable %}}

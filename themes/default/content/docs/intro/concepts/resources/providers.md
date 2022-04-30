@@ -423,17 +423,17 @@ class MyStack
 
 ```java
 final var usEast1 = new com.pulumi.aws.Provider("aws",
-        com.pulumi.aws.ProviderArgs.builder()
-                .region("us-east-1")
-                .build());
+    com.pulumi.aws.ProviderArgs.builder()
+        .region("us-east-1")
+        .build());
 final var myk8s = new com.pulumi.kubernetes.Provider("kubernetes",
-        com.pulumi.kubernetes.ProviderArgs.builder()
-                .kubeconfig(kubeconfig)
-                .build());
+    com.pulumi.kubernetes.ProviderArgs.builder()
+        .kubeconfig(kubeconfig)
+        .build());
 final var myresource = new MyResource("myResource",
-        ComponentResourceOptions.builder()
-                .provider(List.of(usEast1, myk8s))
-                .build());
+    ComponentResourceOptions.builder()
+        .providers(usEast1, myk8s)
+        .build());
 ```
 
 {{% /choosable %}}

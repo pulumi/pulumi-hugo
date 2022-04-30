@@ -63,10 +63,9 @@ var db = new Database("db", new DatabaseArgs(),
 // The resource will be deleted before it's replacement is created
 var db = new Database("db",
     DatabaseArgs.Empty,
-    CustomResourceOptions
-            .builder()
-            .deleteBeforeReplace(true)
-            .build());
+    CustomResourceOptions.builder()
+        .deleteBeforeReplace(true)
+        .build());
 ```
 
 {{% /choosable %}}

@@ -57,10 +57,11 @@ var db = new Database("new-name-for-db", new DatabaseArgs(),
 {{% choosable language java %}}
 
 ```java
-var db = new Database("new-name-for-db", DatabaseArgs.Empty,
-        CustomResourceOptions.builder()
-                .additionalSecretOutputs(List.of("password"))
-                .build());
+var db = new Database("new-name-for-db",
+    DatabaseArgs.Empty,
+    CustomResourceOptions.builder()
+        .additionalSecretOutputs("password")
+        .build());
 ```
 
 {{% /choosable %}}

@@ -139,13 +139,13 @@ Console.WriteLine($"Hello, {name} -- I see your lucky number is {lucky}!");
 {{% choosable language java %}}
 
 ```java
-    public static Exports stack(Context ctx) {
-        var config = ctx.config();
-        var name = config.require("name");
-        var lucky = config.getInteger("lucky").isPresent() ? config.getInteger("lucky").get() : 42;
-        ctx.log().info(String.format("Hello, %s -- I see your lucky number is %s!", name, lucky));
-        return ctx.exports();
-    }
+public static Exports stack(Context ctx) {
+    var config = ctx.config();
+    var name = config.require("name");
+    var lucky = config.getInteger("lucky").orElse(42);
+    ctx.log().info(String.format("Hello, %s -- I see your lucky number is %s!", name, lucky));
+    return ctx.exports();
+}
 ```
 
 {{% /choosable %}}

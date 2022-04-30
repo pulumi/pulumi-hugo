@@ -86,14 +86,14 @@ var widget = new Pulumi.Kubernetes.ApiExtensions.CustomResource("widget", new Wi
 
 ```java
 var widget = new com.pulumi.kubernetes.apiextensions.CustomResource("widget",
-        WidgetArgs.builder()
-                .spec(WidgetSpecArgs.builder()
-                        .input("something")
-                        .build())
-                .build(),
-        CustomResourceOptions.builder()
-                .replaceOnChanges("spec.input")
-                .build());
+    WidgetArgs.builder()
+        .spec(WidgetSpecArgs.builder()
+            .input("something")
+            .build())
+        .build(),
+    CustomResourceOptions.builder()
+        .replaceOnChanges("spec.input")
+        .build());
 ```
 
 {{% /choosable %}}

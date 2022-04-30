@@ -114,8 +114,7 @@ import com.pulumi.aws.s3.Bucket;
 
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(App::stack);
-        System.exit(exitCode);
+        Pulumi.run(App::stack);
     }
 
     public static Exports stack(Context ctx) {
@@ -237,8 +236,7 @@ import com.pulumi.aws.s3.Bucket;
 
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(App::stack);
-        System.exit(exitCode);
+        Pulumi.run(App::stack);
     }
 
     public static Exports stack(Context ctx) {
@@ -351,8 +349,7 @@ import com.pulumi.aws.s3.Bucket;
 
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(App::stack);
-        System.exit(exitCode);
+        Pulumi.run(App::stack);
     }
 
     public static Exports stack(Context ctx) {
