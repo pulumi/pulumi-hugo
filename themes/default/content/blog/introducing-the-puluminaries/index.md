@@ -5,7 +5,7 @@ title: "Introducing the Puluminaries"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-04-29T08:04:47-05:00
+date: 2022-05-02T08:04:47-05:00
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -56,14 +56,14 @@ Engin's excitement for Pulumi is not possible to be measured using current scien
 <img src="joshua-studt.png" width="200" height="200" alt="Joshua Studt"/>
 <a data-track="github" href="https://github.com/orionstudt"><i class="fab fa-github"></i></a>
 
-Twitter surfing overrated e-commerce series A. SPAC leading Testflight user. Y-combinator funded, self driving car startup. Techstars windsurfing toast burner.
+Joshua is a longtime member of the Pulumi community, and he contributed to the implementation of Automation API for C#.
 
 ### Kat Morgan
 
 <img src="kat-morgan.png" width="200" height="200" alt="Kat Morgan"/>
 <a data-track="twitter" href="https://twitter.com/usrbinkat"><i class="fab fa-twitter"></i></a>&nbsp;<a data-track="github" href="https://github.com/usrbinkat"><i class="fab fa-github"></i></a>&nbsp;<a data-track="linkedin" href="https://linkedin.com/in/usrbinkat"><i class="fab fa-linkedin"></i></a>
 
-Twitter surfing overrated e-commerce series A. SPAC leading Testflight user. Y-combinator funded, self driving car startup. Techstars windsurfing toast burner.
+Kat has been a helpful member of the Pulumi community - not only providing feedback on real-world use of Pulumi, but also sharing her knowledge with [workshops and webinars](https://konghq.com/webinars/devmyops-deploy-kong-with-pulumi?utm_souce=pulumi&utm_medium=pulumi)
 
 ### Komal Ali
 
@@ -77,7 +77,7 @@ In addition to being a Puluminary, Komal is also a Pulumni, having spent time wo
 <img src="paul-hicks.png" width="200" height="200" alt="Paul Hicks"/>
 <a data-track="github" href="https://github.com/tenwit"><i class="fab fa-github"></i></a>
 
-Twitter surfing overrated e-commerce series A. SPAC leading Testflight user. Y-combinator funded, self driving car startup. Techstars windsurfing toast burner.
+Paul is one of the most prolific helpers in Pulumi Community Slack! Chances are, if you see a great answer to a question in Slack, it came from Paul.
 
 ### Ringo De Smet
 
@@ -98,6 +98,6 @@ Rizel brings her remarkable talent for guidance and teaching to the Pulumi commu
 <img src="simen-olsen.png" width="200" height="200" alt="Simen W Olsen"/>
 <a data-track="github" href="https://github.com/cobraz"><i class="fab fa-github"></i></a>
 
-Twitter surfing overrated e-commerce series A. SPAC leading Testflight user. Y-combinator funded, self driving car startup. Techstars windsurfing toast burner.
+Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community.
 
 _Do you know someone who would make a great Puluminary? Let us know! You can email us at da@pulumi.com with your nominations!_
