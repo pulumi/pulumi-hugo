@@ -21,7 +21,7 @@ This guide walks you through configuring your Google Workspace (formerly known a
 
 ## Creating the SAML Application
 
-1. In the [administrator console](https://admin.google.com/) for your G Suite domain, open the flyout menu
+1. In the [administrator console](https://admin.google.com/) for your Google Workspace domain, open the flyout menu
 in the upper-left corner and choose **Apps &gt; Web and mobile apps**.
 
     ![The Google Workspace console](/images/docs/reference/service/saml-gsuite/gsuite-console.png)
@@ -74,7 +74,7 @@ domain users by selecting the down arrow in the **User access** panel:
 
     ![Enable the SAML application part 2](/images/docs/reference/service/saml-gsuite/gsuite-app-enable-2.png)
 
-   At this point, you're done configuring G Suite, and can move on to completing SAML SSO setup in
+   At this point, you're done configuring Google Workspace, and can move on to completing SAML SSO setup in
    the Pulumi Service.
 
 ## Configuring Your Pulumi Organization
