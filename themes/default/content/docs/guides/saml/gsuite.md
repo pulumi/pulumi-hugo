@@ -57,12 +57,11 @@ URLs of the `acs` and `metadata` and `sso` endpoints of the Pulumi API, adjusted
     Set `Name ID format` to *EMAIL* or *PERSISTENT*. Leave the other fields as their default values, then select **Continue**.
     > **Important:** Do not change the value of Name ID Format value once your users have started using Pulumi---not even switching its value between `EMAIL` or `PERSISTENT`.
 
-
 1. The final step---attribute mapping---is optional, but you may wish to specify proper
 first and last names for your Pulumi users, based on their Google account profiles. The Pulumi service
 expects to receive these fields as `firstName` and `lastName`, respectively.
 
-    Once you add them, select **Finish**. 
+    Once you add them, select **Finish**.
 
     ![Step 4: Map optional attributes](/images/docs/reference/service/saml-gsuite/gsuite-dialog-step-4.png)
 
@@ -109,6 +108,7 @@ name of your Pulumi organization.
 ![Pulumi Service](/images/docs/reference/service/saml-gsuite/pulumi-console-signin.png)
 
 ## Troubleshooting
-Google Workspace SAML troubleshooting page: [SAML app error messages](https://support.google.com/a/answer/6301076) 
+
+Google Workspace SAML troubleshooting page: [SAML app error messages](https://support.google.com/a/answer/6301076)
 
 If you need additional assistance, [contact us]({{< relref "/about#contact-us" >}}).
