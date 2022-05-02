@@ -64,6 +64,7 @@ To get the default VPC, just call the `awsx.vpc.DefaultVpc("default-vpc");` func
 {{< chooser language "typescript,python,csharp" >}}
 
 {{% choosable language typescript %}}
+
 ```typescript
 import * as awsx from "@pulumi/awsx";
 
@@ -75,6 +76,7 @@ export const vpcId = vpc.vpcId;
 export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
 export const vpcPublicSubnetIds = vpc.publicSubnetIds;
 ```
+
 {{% /choosable %}}
 
 {{% choosable language python %}}
@@ -87,9 +89,11 @@ vpc = awsx.ec2.DefaultVpc("default-vpc")
 
 pulumi.export("vpc_id", vpc.vpc_id)
 ```
+
 {{% /choosable %}}
 
 {{% choosable language csharp %}}
+
 ```csharp
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -111,6 +115,7 @@ class Program
     static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
 }
 ```
+
 {{% /choosable %}}
 
 This example reads the default VPC and exports some of its properties for easy consumption. `pulumi up` will show:
@@ -140,7 +145,7 @@ Outputs:
 Resources:
     + 2 created
 
-Duration: 9s 
+Duration: 9s
 ```
 
 In this case, the VPC is not created and managed by Pulumi. Instead `DefaultVpc` reads from your AWS account
@@ -201,12 +206,12 @@ class MyStack : Stack
     public MyStack()
     {
         var vpc = new Ec2.Vpc("custom");
-        
+
         this.VpcId = vpc.VpcId;
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;
     }
-    
+
 
     [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
     [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
@@ -220,7 +225,6 @@ class Program
 ```
 
 {{% /choosable %}}
-
 
 If we run `pulumi up`, the VPC and its supporting resources will be provisioned:
 
@@ -357,7 +361,6 @@ class MyStack : Stack
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;
     }
-    
 
     [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
     [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
@@ -449,7 +452,6 @@ class MyStack : Stack
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;
     }
-    
 
     [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
     [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
@@ -493,7 +495,7 @@ const vpc = new awsx.ec2.Vpc("custom", {
     {
       type: awsx.ec2.SubnetType.Public,
       cidrMask: 22,
-    }, 
+    },
     {
       type: awsx.ec2.SubnetType.Private,
       cidrMask: 20,
@@ -547,13 +549,13 @@ class MyStack : Stack
     {
         var vpc = new Ec2.Vpc("custom", new Ec2.VpcArgs
         {
-            SubnetSpecs = 
+            SubnetSpecs =
             {
                 new SubnetSpecArgs
                 {
                     Type = Ec2.SubnetType.Public,
                     CidrMask = 22,
-                }, 
+                },
                 new SubnetSpecArgs
                 {
                     Type = Ec2.SubnetType.Private,
@@ -566,7 +568,6 @@ class MyStack : Stack
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;
     }
-    
 
     [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
     [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
@@ -673,7 +674,6 @@ class MyStack : Stack
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;
     }
-    
 
     [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
     [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
@@ -806,12 +806,12 @@ class MyStack : Stack
     public MyStack()
     {
         var vpc = new Ec2.Vpc("custom");
-        
+
         var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new Aws.Ec2.SecurityGroupArgs
         {
             Description = "Allow TLS inbound traffic",
             VpcId = vpc.VpcId,
-            Ingress = 
+            Ingress =
             {
                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
                 {
@@ -819,7 +819,7 @@ class MyStack : Stack
                     FromPort = 22,
                     ToPort = 22,
                     Protocol = "tcp",
-                    CidrBlocks = 
+                    CidrBlocks =
                     {
                         "203.0.113.25/32"
                     },
@@ -830,32 +830,31 @@ class MyStack : Stack
                     FromPort = 443,
                     ToPort = 443,
                     Protocol = "tcp",
-                    CidrBlocks = 
+                    CidrBlocks =
                     {
                         "0.0.0.0"
                     },
                 },
             },
-            Egress = 
+            Egress =
             {
                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
                 {
                     FromPort = 0,
                     ToPort = 0,
                     Protocol = "-1",
-                    CidrBlocks = 
+                    CidrBlocks =
                     {
                         "0.0.0.0/0",
                     },
                 },
             },
         });
-        
+
         this.VpcId = vpc.VpcId;
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;
     }
-    
 
     [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
     [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
@@ -961,32 +960,32 @@ class MyStack : Stack
     public MyStack()
     {
         var vpc = new Ec2.Vpc("custom");
-        
+
         var sg = new Aws.Ec2.SecurityGroup("webserver-sg", new Aws.Ec2.SecurityGroupArgs
         {
             VpcId = vpc.VpcId,
         });
-        
+
         var ami = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
         {
-            Filters = 
+            Filters =
             {
                 new Aws.Ec2.Inputs.GetAmiFilterArgs
                 {
                     Name = "name",
-                    Values = 
+                    Values =
                     {
                         "amzn-ami-hvm-*",
                     },
                 },
             },
             MostRecent = true,
-            Owners = 
+            Owners =
             {
                 "137112412989",
             },
         }));
-        
+
         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
         {
             Ami = ami.Apply(ami => ami.Id),
@@ -997,7 +996,7 @@ class MyStack : Stack
             },
             SubnetId = vpc.PublicSubnetIds.Apply(subnet => subnet[0]),
         });
-        
+
         this.VpcId = vpc.VpcId;
         this.PublicSubnetIds = vpc.PublicSubnetIds;
         this.PrivateSubnetIds = vpc.PrivateSubnetIds;

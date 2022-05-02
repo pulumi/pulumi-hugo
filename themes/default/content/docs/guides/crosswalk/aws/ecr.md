@@ -220,7 +220,7 @@ import pulumi_awsx as awsx
 // Create a repository.
 repo = awsx.ecr.Repository("my-repo");
 
-image = awsx.ecr.Image("image", 
+image = awsx.ecr.Image("image",
                        repository_url=repo.url,
                        path="./app")
 ```
@@ -240,7 +240,7 @@ class MyStack : Stack
     public MyStack()
     {
         var repo = new Repository("my-repo");
-        
+
         var image = new Image("image", new ImageArgs
         {
             RepositoryUrl = repo.Url,
@@ -256,7 +256,6 @@ class Program
 ```
 
 {{% /choosable %}}
-
 
 As we run `pulumi up`, we will see Docker build output in the Pulumi CLI display. If there is an error, it'll
 be printed in the diagnostics section, but otherwise the resulting image name is printed:
@@ -409,7 +408,7 @@ class MyStack : Stack
     public MyStack()
     {
         var repo = new Ecr.Repository("my-repo");
-        
+
         var image = new Ecr.Image("image", new Ecr.ImageArgs
         {
             RepositoryUrl = repo.Url,
@@ -449,8 +448,6 @@ class Program
 ```
 
 {{% /choosable %}}
-
-
 
 For information about ECS, refer to the [Pulumi Crosswalk for AWS ECS documentation]({{< relref "ecs" >}}). For
 information about consuming ECR images from ECS services specifically, see
@@ -599,7 +596,7 @@ class MyStack : Stack
     public MyStack()
     {
         var repo = new Ecr.Repository("my-repo");
-        
+
         var image = new Ecr.Image("image", new Ecr.ImageArgs
         {
             RepositoryUrl = repo.Url,
@@ -607,12 +604,12 @@ class MyStack : Stack
         });
 
         var cluster = new Eks.Cluster("eks-cluster")
-        
+
         var appLabels = new InputMap<string>
         {
             {"appClass", "my-app"}
         };
-        
+
         var deployment = new AppsV1.Deployment("app-dep", new DeploymentArgs
         {
             Metadata = new ObjectMetaArgs
@@ -640,7 +637,7 @@ class MyStack : Stack
                             {
                                 Name = "my-app",
                                 Image = "image.imageUri,
-                                Ports = 
+                                Ports =
                                 {
                                     new DeploymentPortArgs
                                     {
@@ -657,7 +654,7 @@ class MyStack : Stack
         {
             Provider = cluster.Provider,
         });
-        
+
         var service = new CoreV1.Service("app-service", new ServiceArgs
         {
             Metadata = new ObjectMetaArgs
