@@ -38,9 +38,9 @@ Pulumi is more than a way to build, deploy, and manage your infrastructure and c
 <!--more-->
 <img src="puluminaries.png" width="500" height="500" alt="Engin Diri"/>
 
-The Puluminaries program was created to recognize members of the Pulumi community who are experts and leaders in the field of programming and infrastructure. The program is open to all members of the community, and we welcome anyone to join the program.
+The Puluminaries program was created to recognize members of the Pulumi community who are experts and leaders in the field of programming and infrastructure, but also who give back to the community to make it grow! They help others get started, give feedback to make Pulumi's roadmap even better, and educate people through content or public speaking. The program is open to all members of the community, and we welcome anyone to join the program.
 
-While the Puluminaries have been active in the community for quite some time, we have officially launched the program at [PulumiUP](https://pulumi.com/pulumi-up) in 2022, and it is our pleasure to introduce the first cohort of members to the program!
+While the Puluminaries themselves have been active in the community for quite some time, we officially launched the program at [PulumiUP](https://pulumi.com/pulumi-up) in 2022, and it is our pleasure to introduce the first cohort of members to the program!
 
 ## Meet The Puluminaries!
 
@@ -84,7 +84,7 @@ Paul is one of the most prolific helpers in [Pulumi Community Slack](https://sla
 <img src="ringo-smet.png" width="200" height="200" alt="Ringo De Smet"/>
 <a data-track="twitter" href="https://twitter.com/ringods"><i class="fab fa-twitter"></i></a>&nbsp;<a data-track="github" href="https://github.com/ringods"><i class="fab fa-github"></i></a>
 
-Ringo is one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/) - a place to interact and collaborate on Pulumi-based libraries, projects, and educational materials. Ringo (along with fellow Puluminary Simen A. W. Olsen) have brought their vision for expanding the Pulumi community to life with the creating of this community-operated place for anyone to communicate, contribute, and collaborate with other members of the Pulumi community and build abstractions and SDKs that can be shared and used by anyone.
+Ringo is one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/) - a place to interact and collaborate on Pulumi-based libraries, projects, and educational materials. Ringo (along with fellow Puluminary Simen A. W. Olsen) have brought their vision for expanding the Pulumi community to life with the creating of this community-operated place for anyone to communicate, contribute, and collaborate with other members of the Pulumi community and build abstractions and SDKs that can be shared and used by anyone. Ringo also created the [Pulumi Resource Type for Concourse](https://github.com/ringods/pulumi-resource).
 
 ### Rizel Scarlett
 
@@ -98,6 +98,6 @@ Rizel brings her remarkable talent for guidance and teaching to the Pulumi commu
 <img src="simen-olsen.png" width="200" height="200" alt="Simen W Olsen"/>
 <a data-track="github" href="https://github.com/cobraz"><i class="fab fa-github"></i></a>
 
-Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community.
+Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community. Simen has also contributed code to the [Pulumi GitHub Action](https://github.com/pulumi/actions)!
 
 _Do you know someone who would make a great Puluminary? Let us know! You can email us at da@pulumi.com with your nominations!_
