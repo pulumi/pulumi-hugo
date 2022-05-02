@@ -11,7 +11,7 @@ tags:
 
 Creating a place for the Pulumi community to gather, ask questions, get help in real time and share successes has been an important part of the explosive growth we've seen in both users and customers. The Pulumi community slack has grown to over 7000 members and well over 200,000 messages.
 
-Within those 200,000 messages is years of information is kept behind a "walled garden" that is undiscoverable outside Slack's search capabilities.
+Within those 200,000 messages are years of information kept behind a "walled garden" that is undiscoverable outside Slack's search capabilities.
 
 Today we're announcing that our community slack is now pubicly available via [https://archive.pulumi.com](https://archive.pulumi.com) thanks to [linen](https://linen.dev)
 
