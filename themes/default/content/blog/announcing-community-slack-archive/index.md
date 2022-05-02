@@ -13,7 +13,7 @@ Creating a place for the Pulumi community to gather, ask questions, get help in 
 
 Within those 200,000 messages are years of information kept behind a "walled garden" that is undiscoverable outside Slack's search capabilities.
 
-Today we're announcing that our community slack is now pubicly available via [https://archive.pulumi.com](https://archive.pulumi.com) thanks to [linen](https://linen.dev)
+Today we're announcing that our community slack is now pubicly available via [https://archive.pulumi.com](https://archive.pulumi.com) thanks to [Linen](https://linen.dev)
 
 <!--more-->
 
