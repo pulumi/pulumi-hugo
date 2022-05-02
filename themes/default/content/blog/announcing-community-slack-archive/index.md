@@ -17,7 +17,7 @@ Today we're announcing that our community slack is now pubicly available via [ht
 
 <!--more-->
 
-For many, Slack has become to de-facto collaboration tool. Adding Slack workspaces is relatively straightforward and means you can communicate with various different communities and your colleagues in real time.
+For many, Slack has become the de-facto collaboration tool. Adding Slack workspaces is relatively straightforward and means you can communicate with various different communities and your colleagues in real-time.
 
 This ability to use the tools you're using in your every day work to also quickly get help with Pulumi has proven to be extremely successful. New users tell us they join the Pulumi community Slack because they don't need to add new applications (for example, an IRC client) and because its easy to switch workspaces to engage with our active community.
 
