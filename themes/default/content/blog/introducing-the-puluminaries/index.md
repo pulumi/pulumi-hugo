@@ -77,7 +77,7 @@ In addition to being a Puluminary, Komal is also a Pulumni, having spent time wo
 <img src="paul-hicks.png" width="200" height="200" alt="Paul Hicks"/>
 <a data-track="github" href="https://github.com/tenwit"><i class="fab fa-github"></i></a>
 
-Paul is one of the most prolific helpers in Pulumi Community Slack! Chances are, if you see a great answer to a question in Slack, it came from Paul.
+Paul is one of the most prolific helpers in [Pulumi Community Slack](https://slack.pulumi.com/)! Chances are, if you see a great answer to a question in Slack, it came from Paul.
 
 ### Ringo De Smet
 
