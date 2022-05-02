@@ -1,5 +1,5 @@
 ---
-title: "Announcing Community Slack Archive"
+title: "Announcing Pulumi Community Slack Archive"
 date: 2022-05-01T15:00:49-07:00
 meta_desc: Pulumi's community slack is now publicly archived at archive.pulumi.com
 meta_image: meta.png
