@@ -8,7 +8,7 @@ menu:
     weight: 4
 ---
 
-<img src="/logos/tech/java.svg" align="right" width="150" style="padding:8px; margin-top: -64px">
+<img src="/logos/tech/java.svg" align="right" width="90" style="padding:8px; margin-top: -64px">
 
 Pulumi supports writing your infrastructure as code using the Java language. Java 11 or later is required. We support running Maven Pulumi programs, Gradle Pulumi programs, and Pulumi programs packaged as JAR files.
 
