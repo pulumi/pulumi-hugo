@@ -283,7 +283,6 @@ Within your Pulumi project, there are good practices to consider to help keep yo
 
 {{< chooser language "typescript,go" / >}}
 
-
 {{% choosable language typescript %}}
 Organize your code in a way that makes it easy to understand and maintain. One way to do this in Typescript is to break out your code into separate files, and then import them into your main file. In this example, the entrypoint for our Pulumi program is `index.ts`, but we use the `utils.ts` file for supporting functions.
 
