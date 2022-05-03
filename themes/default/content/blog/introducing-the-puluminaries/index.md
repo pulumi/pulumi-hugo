@@ -36,7 +36,7 @@ aliases:
 Pulumi is more than a way to build, deploy, and manage your infrastructure and cloud applications. Pulumi is also a strong and vibrant community. We are very excited to announce and showcase our new program of community champions, the Puluminaries!
 
 <!--more-->
-<img src="puluminaries.png" width="500" height="500" alt="Engin Diri"/>
+<img src="puluminaries.png" width="500" height="500" alt="Puluminaries logo"/>
 
 The Puluminaries program was created to recognize members of the Pulumi community who are experts and leaders in the field of programming and infrastructure, but also who give back to the community to make it grow! They help others get started, give feedback to make Pulumi's roadmap even better, and educate people through content or public speaking. The program is open to all members of the community, and we welcome anyone to join the program.
 
@@ -98,6 +98,6 @@ Rizel brings her remarkable talent for guidance and teaching to the Pulumi commu
 <img src="simen-olsen.png" width="200" height="200" alt="Simen W Olsen"/>
 <a data-track="github" href="https://github.com/cobraz"><i class="fab fa-github"></i></a>
 
-Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community. Simen has also contributed code to the [Pulumi GitHub Action](https://github.com/pulumi/actions)!
+Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community. Simen was instrumental on the [Pulumi GitHub Action](https://github.com/pulumi/actions) rewrite - designing and architecing it in his free time.
 
 _Do you know someone who would make a great Puluminary? Let us know! You can email us at da@pulumi.com with your nominations!_
