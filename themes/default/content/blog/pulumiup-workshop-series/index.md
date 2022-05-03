@@ -16,29 +16,39 @@ tags:
 At Pulumi, we’re incredibly fortunate to have over 70 integration partners in our ecosystem – helping shared end-users to build, deploy and manage practically any cloud service they can imagine. Our most popular content often includes workshops that show end-users how to use these powerful integrations. This year for PulumiUP, we’re excited to announce that we’ve teamed up with a number of partners to deliver a workshop track that provides hands-on labs and demonstrations for a variety of platforms and scenarios.
 
 <!--more-->
-### [Introduction to Infrastructure as Code](https://www.pulumi.com/resources/introduction-to-infrastructure-as-code)
+### Introduction to Infrastructure as Code
 
-[Thursday, May 5th at 2:30 PM PDT]
+Thursday, May 5th at 2:30 PM PDT 
+[Register](https://www.pulumi.com/resources/introduction-to-infrastructure-as-code)
+
 We’ll explain the basics of IaC by exploring how to use Pulumi to build, configure and deploy a real-life, modern application using Docker.
 
-### [From Zero to Production in Kubernetes](https://www.pulumi.com/resources/from-zero-to-production-in-kubernetes)
+### From Zero to Production in Kubernetes
 
-[Tuesday, May 10th at 9:00 AM PDT]
+Tuesday, May 10th at 9:00 AM PDT 
+[Register](https://www.pulumi.com/resources/from-zero-to-production-in-kubernetes)
+
 Our friends from NGINX will show you how to leverage the power of Python with Pulumi to define and manage your Kubernetes deployments and build powerful abstractions that make getting to production easier than ever before. You’ll learn about the new open-source Modern Application Reference Architecture (MARA) that helps you quickly deploy an app platform that includes Amazon EKS, NGINX Kubernetes ingress controller, logstore, logagent, cert-manager, Prometheus, Grafana, and more.
 
-### [Kubecrash](https://www.kubecrash.io/?utm_campaign=pulumiup-2022&utm_source=web&utm_medium=partners&utm_content=pulumi)
+### Kubecrash
 
-[Tuesday, May 17th at 9:00 AM PDT]
+Tuesday, May 17th at 9:00 AM PDT 
+[Register](https://www.kubecrash.io/?utm_campaign=pulumiup-2022&utm_source=web&utm_medium=partners&utm_content=pulumi)
+
 Join Pulumi and the maintainers of Linkerd, cert-manager, and other projects for a series of crash courses about Kubernetes and cloud-native, open source technologies.
 
-### [Getting Started with Azure and Infrastructure as Code](https://www.pulumi.com/resources/getting-started-with-azure-native)
+### Getting Started with Azure and Infrastructure as Code
 
-[Wednesday, June 1st at 9:00 AM PDT]
+Wednesday, June 1st at 9:00 AM PDT
+[Register](https://www.pulumi.com/resources/getting-started-with-azure-native)
+
 In this workshop, you will use Pulumi's Azure Native Provider, built directly from the Azure API, to provision infrastructure with Pulumi's Typescript SDK. Join Microsoft Sr. Cloud Advocate, April Edwards, and Pulumi Developer Advocate Matty Stratton for this introduction to IaC.
 
-### [End-To-End Infrastructure, Apps, and Auth with Auth0](https://www.pulumi.com/resources/end-to-end-infrastructure-apps-and-auth-with-pulumi-and-auth0)
+### End-To-End Infrastructure, Apps, and Auth with Auth0
 
-[Tuesday, June 7th at 4:00 PM PDT]
+Tuesday, June 7th at 4:00 PM PDT
+[Register](https://www.pulumi.com/resources/end-to-end-infrastructure-apps-and-auth-with-pulumi-and-auth0)
+
 In this live-coding session, Pulumi and Auth0 will walk through the process of building a three-tier web app: a single-page app built with React, a back end consisting of a REST API managed with Express and MongoDB. Finally, we'll show you how to enable authentication to restrict access to your app.
 
 ### [AWS Immersion Day: Hands-On Infrastructure as Code](https://www.pulumi.com/resources/aws-immersion-day-hands-on-infrastructure-as-code)
