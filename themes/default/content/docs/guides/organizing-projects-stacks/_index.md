@@ -341,7 +341,6 @@ import (
 
 func main() {
   pulumi.Run(func(ctx *pulumi.Context) error {
-
         _, err := forwardPrometheusService(ctx)
     if err != nil {
       return err
