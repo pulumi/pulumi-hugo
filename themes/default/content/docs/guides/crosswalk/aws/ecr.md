@@ -191,7 +191,7 @@ entirely from code. This lets you version and deploy container changes easily al
 
 The ECR repository class has a `buildAndPushImage` function that does this in one go:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -206,7 +206,7 @@ const repo = new awsx.ecr.Repository("my-repo");
 const image = new awsx.ecr.Image("image", {
     repositoryUrl: repo.url,
     path: "./app",
-})
+});
 ```
 
 {{% /choosable %}}
@@ -227,7 +227,7 @@ image = awsx.ecr.Image("image",
 
 {{% /choosable %}}
 
-{{% choosable language python %}}
+{{% choosable language csharp %}}
 
 ```csharp
 using System.Collections.Generic;
@@ -304,7 +304,7 @@ defaults to `latest`). The container instances require IAM permissions which are
 
 To use your private repository from an ECS task definition, reference it like so:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -391,7 +391,7 @@ pulumi.export("url", lb.load_balancer.dns_name)
 
 {{% /choosable %}}
 
-{{% choosable language python %}}
+{{% choosable language csharp %}}
 
 ```csharp
 using System.Collections.Generic;
@@ -457,7 +457,7 @@ information about consuming ECR images from ECS services specifically, see
 
 To use your private repository from a Kubernetes service, such as one using EKS, reference it like so:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -642,7 +642,7 @@ class MyStack : Stack
                                     new DeploymentPortArgs
                                     {
                                         Name = "http",
-                                    ContainerPort = 80,
+                                        ContainerPort = 80,
                                     },
                                 },
                             }

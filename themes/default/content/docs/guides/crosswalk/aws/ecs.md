@@ -4,15 +4,15 @@ meta_desc: Pulumi Crosswalk for AWS ECS simplifies deploying containerized appli
             associated resources.
 linktitle: Elastic Container Service (ECS)
 menu:
-userguides:
-parent: crosswalk-aws
-weight: 5
+  userguides:
+    parent: crosswalk-aws
+    weight: 5
 
 aliases: ["/docs/reference/crosswalk/aws/ecs/"]
 ---
 
 <a href="{{< relref "./" >}}">
-<img src="/images/docs/reference/crosswalk/aws/logo.svg" align="right" width="280" style="margin: 0 0 32px 16px;">
+    <img src="/images/docs/reference/crosswalk/aws/logo.svg" align="right" width="280" style="margin: 0 0 32px 16px;">
 </a>
 
 [Amazon Elastic Container Service (Amazon ECS)](https://aws.amazon.com/ecs) is a scalable, high-performance container
@@ -315,10 +315,10 @@ Containers with Pulumi Crosswalk for AWS ECS are far more flexible than just acc
 and can even refer to a `Dockerfile` on disk so you do not need to build and publish
 it separately ahead of time. This makes it very easy to use private registrations for your ECS workloads.
 
-For example, `using a path` will run a `docker build` in that path, push the result up to the ECR repository that specified in the first argument, and then pass
+For example, specifying a `path` will run a `docker build` in that path, push the result up to the ECR repository that specified in the first argument, and then pass
 the private ECR repostory path to the container:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -405,7 +405,7 @@ pulumi.export("url", lb.load_balancer.dns_name)
 
 {{% /choosable %}}
 
-{{% choosable language python %}}
+{{% choosable language csharp %}}
 
 ```csharp
 using System.Collections.Generic;
@@ -557,7 +557,7 @@ pulumi.export("url", lb.load_balancer.dns_name)
 
 {{% /choosable %}}
 
-{{% choosable language python %}}
+{{% choosable language csharp %}}
 
 ```csharp
 using System.Collections.Generic;
