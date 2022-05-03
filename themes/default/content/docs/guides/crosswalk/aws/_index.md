@@ -118,7 +118,7 @@ pulumi.export("url", lb.load_balancer.dns_name)
 
 {{% /choosable %}}
 
-{{% choosable language python %}}
+{{% choosable language csharp %}}
 
 ```csharp
 using System.Collections.Generic;
