@@ -1,5 +1,5 @@
 ---
-title: Modern Infrastructure as Code for AWS
+title: Universal Infrastructure as Code for AWS
 layout: aws
 url: /aws
 
