@@ -33,7 +33,7 @@ For example, this program builds and publishes a Dockerized application to a pri
 {{< relref "ecr" >}}), spins up an ECS Fargate cluster, and runs a scalable, load balanced service, all in
 response to a single `pulumi up` command line invocation:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
