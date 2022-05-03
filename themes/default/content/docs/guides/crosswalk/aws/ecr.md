@@ -66,7 +66,7 @@ pulumi.export("url", repo.url)
 
 {{% /choosable %}}
 
-{{% choosable language python %}}
+{{% choosable language csharp %}}
 
 ```csharp
 using System.Collections.Generic;
