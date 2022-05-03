@@ -33,7 +33,7 @@ tags:
 
 Unbelievably, we just celebrated Pulumi's 5th birthday. To commemorate, we are publishing multi-part series on all things infrastructure as code, starting with why we’re so excited about it:
 
-- [Why Infrastructure as Code?](/blog/five-years-of-infrastructure-as-code-part-one/)
+- [All Roads Lead Back to Infrastructure as Code](/blog/five-years-of-infrastructure-as-code-part-one/)
 - Standing on the Shoulders of Giants
 - Infrastructure as Code Internals
 - Bringing Applications and Infrastructure Closer Together

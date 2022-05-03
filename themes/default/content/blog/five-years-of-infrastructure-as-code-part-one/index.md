@@ -1,5 +1,5 @@
 ---
-title: "Why Infrastructure as Code?"
+title: "All Roads Lead Back to Infrastructure as Code"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
