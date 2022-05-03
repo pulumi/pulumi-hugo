@@ -161,7 +161,6 @@ var param = new com.pulumi.aws.ssm.Parameter("a-secret-param",
     .type("SecureString")
     .value(config.requireSecret("my-secret-value"))
     .build());
-return ctx.exports();
 ```
 
 {{% /choosable %}}
@@ -402,12 +401,11 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         var config = ctx.config();
 
         var name = config.require("name");
         var dbPassword = config.requireSecret("dbPassword");
-        return ctx.exports();
     }
 }
 ```

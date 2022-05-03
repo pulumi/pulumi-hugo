@@ -139,12 +139,11 @@ Console.WriteLine($"Hello, {name} -- I see your lucky number is {lucky}!");
 {{% choosable language java %}}
 
 ```java
-public static Exports stack(Context ctx) {
+public static void stack(Context ctx) {
     var config = ctx.config();
     var name = config.require("name");
     var lucky = config.getInteger("lucky").orElse(42);
     ctx.log().info(String.format("Hello, %s -- I see your lucky number is %s!", name, lucky));
-    return ctx.exports();
 }
 ```
 
@@ -267,11 +266,10 @@ Console.WriteLine($"Active: {data.GetProperty("active")}");
 {{% choosable language java %}}
 
 ```java
-public static Exports stack(Context ctx) {
+public static void stack(Context ctx) {
     var config = ctx.config();
     var data = config.requireObject("data", Map.class);
     ctx.log().info(String.format("Active: %s", data.get("active")));
-    return ctx.exports();
 }
 ```
 

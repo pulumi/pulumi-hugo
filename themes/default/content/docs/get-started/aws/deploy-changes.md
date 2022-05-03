@@ -314,7 +314,7 @@ Next, extend the `Bucket` declaration to include a `website` property containing
 // ...
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(ctx -> {
+        Pulumi.run(ctx -> {
 
             // Create an AWS resource (S3 Bucket)
             var bucket = new Bucket("my-bucket", BucketArgs.builder()
@@ -332,7 +332,7 @@ Now add two properties to the `BucketObject`: an ACL of `public-read` so that it
 // ...
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(ctx -> {
+        Pulumi.run(ctx -> {
             // var bucket = ...
 
             // Create an S3 Bucket object
@@ -358,11 +358,10 @@ And adding a line to read the endpoint from the `Bucket` instance:
 // ...
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(ctx -> {
+        Pulumi.run(ctx -> {
 
             // ...
             ctx.export("bucketEndpoint", Output.format("http://%s", bucket.websiteEndpoint()));
-            return ctx.exports();
         });
 ```
 

@@ -146,7 +146,7 @@ import com.pulumi.aws.s3.BucketObjectArgs;
 
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(ctx -> {
+        Pulumi.run(ctx -> {
             // var bucket = ...
 
             // Create an S3 Bucket object

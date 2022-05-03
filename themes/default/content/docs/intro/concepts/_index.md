@@ -212,7 +212,7 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         final var group = new SecurityGroup("web-sg",
             SecurityGroupArgs.builder()
             .description("Enable HTTP access")
@@ -231,7 +231,6 @@ public class App {
                 .build());
         ctx.export("publicIp", server.publicIp());
         ctx.export("publicDns", server.publicDns());
-        return ctx.exports();
     }
 }
 ```

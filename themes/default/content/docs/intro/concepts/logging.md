@@ -76,13 +76,12 @@ Pulumi.Log.Error("fatal error");
 {{% choosable language java %}}
 
 ```java
-public static Exports stack(Context ctx) {
+public static void stack(Context ctx) {
     ctx.log.info("message");
     ctx.log.info("message", resource);
     ctx.log.debug("hidden by default");
     ctx.log.warn("warning");
     ctx.log.error("fatal error");
-    return ctx.exports();
 }
 ```
 

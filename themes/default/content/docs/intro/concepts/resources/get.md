@@ -111,7 +111,7 @@ class MyStack : Stack
 {{% choosable language java %}}
 
 ```java
-public static Exports stack(Context ctx) {
+public static void stack(Context ctx) {
     var group = SecurityGroup.get("group", Output.of("sg-0dfd33cdac25b1ec9"), null, null);
 
     var server = new Instance("web-server", InstanceArgs.builder()
@@ -120,7 +120,6 @@ public static Exports stack(Context ctx) {
         .securityGroups(
             group.name().applyValue(v -> List.of(v)))
         .build());
-    return ctx.exports();
 }
 ```
 

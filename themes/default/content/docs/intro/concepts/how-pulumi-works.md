@@ -117,10 +117,9 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         var mediaBucket = new Bucket("media-bucket");
         var contentBucket = new Bucket("content-bucket");
-        return ctx.exports();
     }
 }
 ```
@@ -239,13 +238,12 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         var mediaBucket = new Bucket("media-bucket",
             BucketArgs.builder()
                 .acl("public-read")   // add acl
                 .build());
         var contentBucket = new Bucket("content-bucket");
-        return ctx.exports();
     }
 }
 ```
@@ -352,12 +350,11 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         var mediaBucket = new Bucket("media-bucket", BucketArgs.builder()
             .acl("public-read")   // add acl
             .build());
         var contentBucket = new Bucket("app-bucket");
-        return ctx.exports();
     }
 }
 ```

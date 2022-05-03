@@ -191,9 +191,8 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         ctx.export("url", resource.url());
-        return ctx.exports();
     }
 }
 ```
@@ -276,12 +275,11 @@ class MyStack : Stack
 {{% choosable language java %}}
 
 ```java
-public static Exports stack(Context ctx) {
+public static void stack(Context ctx) {
     ctx.export("x", Output.of("hello"));
     ctx.export("o", Output.of(Map.of(
             "num", "42"
     )));
-    return ctx.exports();
 }
 ```
 
@@ -650,7 +648,7 @@ public class App {
         Pulumi.run(App::stack);
     }
 
-    public static Exports stack(Context ctx) {
+    public static void stack(Context ctx) {
         var cluster = new StackReference(String.format("mycompany/infra/%s", ctx.stackName()));
         var kubeconfig = cluster.requireOutput(Output.of("KubeConfig")).applyValue(String::valueOf);
         var provider = new Provider("k8s", ProviderArgs.builder().kubeconfig(kubeconfig).build());
@@ -660,8 +658,6 @@ public class App {
         var service = new Service("app-service", ServiceArgs.builder()
             ...
             .build(), options);
-
-        return ctx.exports();
     }
 }
 ```

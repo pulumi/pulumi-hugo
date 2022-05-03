@@ -160,17 +160,14 @@ import com.pulumi.aws.s3.Bucket;
 
 public class App {
     public static void main(String[] args) {
-        int exitCode = Pulumi.run(ctx -> {
+        Pulumi.run(ctx -> {
 
             // Create an AWS resource (S3 Bucket)
             var bucket = new Bucket("my-bucket");
 
             // Export the name of the bucket
             ctx.export("bucketName", bucket.getId());
-            return ctx.exports();
         });
-
-        System.exit(exitCode);
     }
 }
 ```
@@ -240,7 +237,6 @@ public Output<string> BucketName { get; set; }
 
 ```java
 ctx.export("bucketName", bucket.getId());
-return ctx.exports();
 ```
 
 {{% /choosable %}}
