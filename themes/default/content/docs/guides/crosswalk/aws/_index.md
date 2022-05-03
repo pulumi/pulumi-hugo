@@ -54,7 +54,7 @@ const image = new awsx.ecr.Image("image", {
 // Create an ECS Cluster
 const cluster = new aws.ecs.Cluster("default-cluster");
 
-// // Create a load balancer on port 80 and spin up two instances of Nginx.
+// Create a load balancer on port 80 and spin up two instances of Nginx.
 const lb = new awsx.lb.ApplicationLoadBalancer("nginx-lb");
 
 const service = new awsx.ecs.FargateService("my-service", {
