@@ -74,12 +74,16 @@ The Codefresh team will help you to learn the basics of CI/CD and how to declare
 
 ### Deploying Microservices with AWS Lambda and Pulumi
 
-[Tuesday, June 28, 12:00 PM PDT]
+Tuesday, June 28, 12:00 PM PDT
+[Register](https://webinars.devops.com/pulumi-aws-workshop?utm_campaign=%242022.06.28%24_Pulumi_Workshop_DO&utm_source=Pulumi)
+
 In this workshop, we’ll examine how Pulumi can rapidly accelerate provisioning of cloud infrastructure. We’ll focus on AWS Lambda and build an example set of microservices utilizing AWS’s newest Lambda features. Matty Stratton (Pulumi) and Marina Novikova (AWS) will guide you through the process of provisioning a set of example Lambda resources in AWS.
 
-### [Getting Started with Infrastructure as Code on Oracle Cloud](https://www.pulumi.com/resources/getting-started-with-infrastructure-as-code-on-oracle-cloud)
+### Getting Started with Infrastructure as Code on Oracle Cloud
 
-[Thursday, July 14th at 9:00 AM PDT]
+Thursday, July 14th at 9:00 AM PDT]
+[Register](https://www.pulumi.com/resources/getting-started-with-infrastructure-as-code-on-oracle-cloud)
+
 Now that we have a brand new integration with [Oracle Cloud Infrastructure (OCI)](https://www.pulumi.com/registry/packages/oci) the team is preparing a new workshop to help you to get the most out of the new provider. Laura Santamaria (Pulumi) and Gaurav Jain (Oracle) will show you how to define, deploy and manage OCI resources using your favorite programming languages.  
 
 ### [Getting started with Infrastructure as Code on DigitalOcean](https://www.pulumi.com/resources/getting-started-with-infrastructure-as-code-on-digital-ocean)
