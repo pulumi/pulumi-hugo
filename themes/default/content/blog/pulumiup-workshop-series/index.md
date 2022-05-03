@@ -60,7 +60,7 @@ Pulumi and friends from VirtusLab and AWS have planned an interactive session to
 
 ### GitOps with GitHub Actions and the Pulumi Operator
 
-Tuesday, June 21st at 9:00 AM PDT]
+Tuesday, June 21st at 9:00 AM PDT
 [Register](https://www.pulumi.com/resources/gitops-with-github-actions-and-the-pulumi-operator)
 
 Combining GitHub Actions with the Pulumi Kubernetes Operator helps you to implement powerful GitOps workflows and automation for both your infrastructure and workloads. We’ve partnered with the GitHub team to deliver step-by-step labs to help you to get started with GitOps.
