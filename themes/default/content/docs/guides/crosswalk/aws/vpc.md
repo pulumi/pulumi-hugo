@@ -61,7 +61,7 @@ you may be required to pass it explicitly, in which case you'll need to get it p
 
 To get the default VPC, just call the `awsx.vpc.DefaultVpc("default-vpc");` function:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -162,7 +162,7 @@ simple defaults that many will want to start with, to complete control over ever
 
 The following code creates a new VPC using all default settings:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -229,7 +229,7 @@ class Program
 If we run `pulumi up`, the VPC and its supporting resources will be provisioned:
 
 ```bash
-$ pulumi up TODO
+$ pulumi up
 Updating (dev):
 
      Type                                          Name                Status
@@ -375,7 +375,6 @@ class Program
 
 {{% /choosable %}}
 
-TO-CHECK
 This decreases the number of available IP addresses in our VPC from the default of 65,536 addresses (`/16` netmask) to
 256 addresses (`/24` netmask), in addition to changing the IP address prefix from `10.0.0.0` to `172.16.8.0`.
 
@@ -482,7 +481,7 @@ the behavior using its constructor's `subnets` argument.
 
 For example, this program replicates the default behavior but with an explicit specification:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -612,7 +611,7 @@ in a public subnet, NAT gateways will only be created if there is at least one p
 
 Fewer NAT gateways can be requested (e.g., to save on costs) using the `natGateways` property:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -712,7 +711,7 @@ traffic. This will be used by default, however you may allocate and assign resou
 
 Here is a program that allocates a new group with a few rules:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -876,7 +875,7 @@ For additional details about configuring security group rules, See the
 
 This example shows how to deploy an EC2 instance using a VPC and Security Group provisioned with the Crosswalk AWS component:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
