@@ -94,7 +94,6 @@ image = awsx.ecr.Image("image",
                        repository_url=repo.url,
                        path="./app")
 
-
 cluster = aws.ecs.Cluster("default-cluster")
 
 lb = awsx.lb.ApplicationLoadBalancer("nginx-lb")
