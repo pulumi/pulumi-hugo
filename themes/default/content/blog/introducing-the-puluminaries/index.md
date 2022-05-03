@@ -70,7 +70,7 @@ Kat has been a helpful member of the Pulumi community - not only providing feedb
 <img src="komal-ali.png" width="200" height="200" alt="Komal Ali"/>
 <a data-track="twitter" href="https://twitter.com/zwitkali"><i class="fab fa-twitter"></i></a>&nbsp;<a data-track="github" href="https://github.com/komalali"><i class="fab fa-github"></i></a>&nbsp;<a data-track="linkedin" href="https://linkedin.com/in/komal-ali"><i class="fab fa-linkedin"></i></a>
 
-In addition to being a Puluminary, Komal is also a Pulumni, having spent time working to make Pulumi a better tool for developers - especially bringing to life Pulumi's Automation API!
+In addition to being a Puluminary, Komal is also a Pulumni, having spent time working to make Pulumi a better tool for developers -  they were ever-present in making our Python SDK better and championing [Automation API](https://www.pulumi.com/docs/guides/automation-api/)!
 
 ### Paul Hicks
 
@@ -84,7 +84,7 @@ Paul is one of the most prolific helpers in [Pulumi Community Slack](https://sla
 <img src="ringo-smet.png" width="200" height="200" alt="Ringo De Smet"/>
 <a data-track="twitter" href="https://twitter.com/ringods"><i class="fab fa-twitter"></i></a>&nbsp;<a data-track="github" href="https://github.com/ringods"><i class="fab fa-github"></i></a>
 
-Ringo is one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/) - a place to interact and collaborate on Pulumi-based libraries, projects, and educational materials. Ringo (along with fellow Puluminary Simen A. W. Olsen) have brought their vision for expanding the Pulumi community to life with the creating of this community-operated place for anyone to communicate, contribute, and collaborate with other members of the Pulumi community and build abstractions and SDKs that can be shared and used by anyone. Ringo also created the [Pulumi Resource Type for Concourse](https://github.com/ringods/pulumi-resource).
+Ringo is one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/) - a place to interact and collaborate on Pulumi-based libraries, projects, and educational materials. Ringo (along with fellow Puluminary Simen A. W. Olsen) have brought their vision for expanding the Pulumi community to life with the creating of this community-operated space! Ringo also created the [Pulumi Resource Type for Concourse](https://github.com/ringods/pulumi-resource), and is ever-present in every community he is a part of, not just Pulumi's!
 
 ### Rizel Scarlett
 
