@@ -114,7 +114,6 @@ service = awsx.ecs.FargateService("service",
                                   ))
 
 pulumi.export("url", lb.load_balancer.dns_name)
-
 ```
 
 {{% /choosable %}}
