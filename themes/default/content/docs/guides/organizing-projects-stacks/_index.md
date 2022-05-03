@@ -289,9 +289,9 @@ Organize your code in a way that makes it easy to understand and maintain. One w
 
 ```typescript
 // index.ts
-import * as util from "./util";
+import * as utils from "./utils";
 ...
-const forwarderHandle = util.forwardPrometheusService(p8sService, p8sDeployment, {
+const forwarderHandle = utils.forwardPrometheusService(p8sService, p8sDeployment, {
     localPort,
 });
 ```
