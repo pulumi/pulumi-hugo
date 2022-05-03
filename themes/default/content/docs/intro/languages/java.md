@@ -20,7 +20,7 @@ Please post any Bug Reports or Feature Requests in [GitHub Issues](https://githu
 
 ## Prerequisites
 
-1. Install Java 11+
+{{< install-java >}}
 
 ## Getting Started
 
@@ -84,12 +84,75 @@ This `java` template is cloud agnostic, and you will need to install additional 
 * `pulumi new azure-java`: creates a starter Azure Java project
 * `pulumi new gcp-java`: creates a starter Google Cloud Java project
 
+## Entrypoint
+
+In your `main` method, you will want to call `Pulumi.run` and pass it a method to run that will construct the resources that you'd like to deploy.
+
+```java
+package main;
+
+import com.pulumi.Pulumi;
+
+public class Main {
+    public static void main(String[] args) {
+        Pulumi.run(Main::stack);
+    }
+    public static void stack(Context ctx) {
+        // construct your resources here
+    }
+}
+```
+
+You can also use lambda expressions like such:
+
+```java
+public static void main(String[] args) {
+    Pulumi.run(ctx -> {
+        // construct your resources here
+    });
+}
+```
+
+## Pulumi Java implementation details
+
+{{% notes "info" %}}
+Java is currently in preview. These implementation details around how Pulumi integrates with the Java ecosystem are subject to change based on community feedback which is greatly appreciated!
+
+Please post any Bug Reports or Feature Requests in [GitHub Issues](https://github.com/pulumi/pulumi-java/issues/new/choose).
+{{% /notes %}}
+The Java Pulumi SDK is available to Go/Java developers in source form on [GitHub](https://github.com/pulumi/pulumi-java).
+
+### Plugin Acquisition
+
+Pulumi will try to auto-detect which [plugins]({{< relref "/docs/reference/cli/pulumi_plugin" >}}?language=java) your program is using by analyzing your Java project dependencies and then auto-install them. For example, if a program references `com.pulumi.aws` it will automatically issue the equivalent of `$ pulumi plugin install resource aws`.
+
+### Running Pulumi with Maven and Gradle
+
+To support running a Pulumi program with Maven, we use the `exec:java` target. This requires adding the `mainClass` property to `pom.xml`
+
+```xml
+<properties>
+    <mainClass>myproject.App</mainClass>
+</properties>
+```
+
+To support running a Pulumi program with Gradle, we use the `run` target. To support plugin resolution and running a
+Pulumi program in Gradle we check if the `mainClass` property is set. If it's set, we're in plugin resolution. Otherwise, we interpret it as we're running a Pulumi program.
+
+```groovy
+application {
+    mainClass = project.hasProperty("mainClass")
+            ? project.getProperty("mainClass")
+            : 'myproject.App'
+}
+```
+
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as code programs using
 Pulumi. [Architecture & Concepts]({{< relref "/docs/intro/concepts" >}}?language=java) describes these concepts
 with examples available in Java. These concepts are made available to you in the Pulumi SDK.
 
-The Java Pulumi SDK is available to Go/Java developers in source form on [GitHub](https://github.com/pulumi/pulumi-java).
+The Pulumi programming model includes a core concept of `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource to resolve dependencies. This concept is important to understand when getting started with Pulumi, and the [Inputs and Outputs]({{< relref "/docs/intro/concepts/inputs-outputs" >}}?language=java) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
 
-The Pulumi programming model includes a core concept of `Input` and `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource.  This concept is important to understand when getting started with Java and Pulumi, and the [Inputs and Outputs]({{< relref "/docs/intro/concepts/inputs-outputs" >}}?language=java) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
+Unlike other Pulumi languages, Pulumi Java does not have a dedicated `Input<T> = T | Output<T>` type. Instead, when constructing resource arguments, builders have overloads that accept both a `T` and an `Output<T>` value.
