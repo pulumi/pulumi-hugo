@@ -23,7 +23,7 @@ Auto Scaling, your applications always have the right resources at the right tim
 resources needed to run your applications and any associated Amazon CloudWatch monitoring fees.
 
 {{% notes type="info" %}}
-This functionality is currently only available in TypeScript only and as part of our AWSx Classic Namespace.
+This functionality is currently only available in TypeScript and as part of the AWSx Classic namespace.
 {{% /notes %}}
 
 ## Overview

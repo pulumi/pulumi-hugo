@@ -252,14 +252,14 @@ Edition, or paid Team or Enterprise Edition, you can continue to do so now with 
 
 ### Upgrading from an old version of Pulumi Crosswalk for AWS?
 
-Previous versions of @pulumi/awsx were TypeScript only. The functionality has changed from these TypeScript only versions.
-We have taken the opportunity to move the existing TypeScript only functionality into a `classic` namespace. To create a
+Previous versions of `@pulumi/awsx` were TypeScript-only. The functionality has changed from these TypeScript-only versions.
+We have taken the opportunity to move the existing TypeScript-only functionality into a `classic` namespace. To create a
 VPC using the old TypeScript version of Crosswalk for AWS, the following code would work:
 
 ```typescript
 import * as awsx from "@pulumi/awsx/classic";
 
-const vpc = new awsx.ec2.Vpc("classic-vpc", {})
+const vpc = new awsx.ec2.Vpc("classic-vpc", {});
 ```
 
 Any resource that you use from the existing library can continue to be used from that `classic` namespace. All of the classic

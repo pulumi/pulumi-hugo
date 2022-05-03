@@ -35,7 +35,7 @@ https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) to act
 
 To create a new ECR repository, simply allocate an instance of the `awsx.ecr.Repository` class:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
@@ -102,7 +102,7 @@ Updating (dev):
  +   pulumi:pulumi:Stack            crosswalk-aws-dev  created
  +   ├─ awsx:ecr:Repository         my-repo            created
  +   │  └─ aws:ecr:Repository       my-repo            created
- +   └─ aws:ecr:LifecyclePolicy     my-repi            created
+ +   └─ aws:ecr:LifecyclePolicy     my-repo            created
 
 Outputs:
     url: "012345678901.dkr.ecr.us-west-2.amazonaws.com/my-repo-e2fe830"

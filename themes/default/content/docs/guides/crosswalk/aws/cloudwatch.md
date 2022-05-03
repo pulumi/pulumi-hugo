@@ -21,7 +21,7 @@ get a unified view of operational health. AWS CloudWatch uses logs, metrics, and
 unified view of AWS resources, applications and services.
 
 {{% notes type="info" %}}
-This functionality is currently only available in TypeScript only and as part of our AWSx Classic Namespace.
+This functionality is currently only available in TypeScript and as part of the AWSx Classic namespace.
 {{% /notes %}}
 
 ## Overview
