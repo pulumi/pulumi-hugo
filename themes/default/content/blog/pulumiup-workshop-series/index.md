@@ -81,7 +81,7 @@ In this workshop, we’ll examine how Pulumi can rapidly accelerate provisioning
 
 ### Getting Started with Infrastructure as Code on Oracle Cloud
 
-Thursday, July 14th at 9:00 AM PDT]
+Thursday, July 14th at 9:00 AM PDT
 [Register](https://www.pulumi.com/resources/getting-started-with-infrastructure-as-code-on-oracle-cloud)
 
 Now that we have a brand new integration with [Oracle Cloud Infrastructure (OCI)](https://www.pulumi.com/registry/packages/oci) the team is preparing a new workshop to help you to get the most out of the new provider. Laura Santamaria (Pulumi) and Gaurav Jain (Oracle) will show you how to define, deploy and manage OCI resources using your favorite programming languages.  
