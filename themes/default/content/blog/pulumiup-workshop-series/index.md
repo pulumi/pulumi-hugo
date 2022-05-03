@@ -1,5 +1,5 @@
 ---
-title: "Pulumiup Workshop Series"
+title: "PulumiUP Workshop Series"
 date: 2022-05-02T16:46:08-05:00
 meta_desc: This year for PulumiUP, we’re excited to announce that we’ve teamed up with a number of partners to deliver a workshop track!
 meta_image: meta.png
