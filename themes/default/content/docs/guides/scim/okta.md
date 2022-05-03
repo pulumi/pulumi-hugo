@@ -102,7 +102,7 @@ Now that the SCIM connector knows how to connect to Pulumi, you need to adjust t
 
 ## Adjusting the Okta to Pulumi Username Mappings
 
-It is important that usernames are not changed after a user is associated with a Pulumi application. To disable Okta from pushing username updates to Pulumi, perform the following steps:
+Pulumi usernames are immutable and should not be changed after a user is associated with a Pulumi application. To disable Okta from pushing username updates to Pulumi, perform the following steps:
 
 1. Under **Sign On** in the **Settings** module, select **Edit**.
 2. Under **Credentials Details**, change **Update application username on** from **Create and update** to **Create only**.
