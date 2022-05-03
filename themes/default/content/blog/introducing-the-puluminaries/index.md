@@ -77,7 +77,7 @@ In addition to being a Puluminary, Komal is also a Pulumni, having spent time wo
 <img src="paul-hicks.png" width="200" height="200" alt="Paul Hicks"/>
 <a data-track="github" href="https://github.com/tenwit"><i class="fab fa-github"></i></a>
 
-Paul is one of the most prolific helpers in [Pulumi Community Slack](https://slack.pulumi.com/)! Chances are, if you see a great answer to a question in Slack, it came from Paul.
+Paul seems to have an answer to everything. He is ever-present in the Pulumi Community, sharing his knowledge to folks who are just getting started, but also bringing to bear his real-world expertise in complex Pulumi implementations. Chances are, if you see a great answer to a question in [Pulumi Community Slack](https://slack.pulumi.com/), it came from Paul.
 
 ### Ringo De Smet
 
@@ -98,6 +98,6 @@ Rizel brings her remarkable talent for guidance and teaching to the Pulumi commu
 <img src="simen-olsen.png" width="200" height="200" alt="Simen W Olsen"/>
 <a data-track="github" href="https://github.com/cobraz"><i class="fab fa-github"></i></a>
 
-Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community. Simen was instrumental on the [Pulumi GitHub Action](https://github.com/pulumi/actions) rewrite - designing and architecing it in his free time.
+Another one of the founding board members of [the Pulumiverse](https://www.pulumi.com/blog/2022-03-30-introducing-pulumiverse/), Simen has a great passion for technology communities, but especially for the Pulumi community. Simen was instrumental on the [Pulumi GitHub Action](https://github.com/pulumi/actions) rewrite - designing and rearchitecting it in his free time.
 
 _Do you know someone who would make a great Puluminary? Let us know! You can email us at da@pulumi.com with your nominations!_
