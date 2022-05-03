@@ -8,7 +8,7 @@ on:
 jobs:
   sync_latest_from_upstream:
     # Only run this job for events that originate on downstream repos.
-    if: github.event.repo.name == 'pulumi/pulumi-hugo'
+    if: github.event.repo.name == 'pulumi/pulumi-hugo-private'
     runs-on: ubuntu-latest
     name: Sync latest commits from upstream repo
 
