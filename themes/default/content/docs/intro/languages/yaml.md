@@ -97,3 +97,19 @@ describes these concepts with examples available in all supported languages, inc
 
 To learn how the Pulumi Programming Model is implemented for Pulumi YAML, refer
 to the [Pulumi YAML Reference Guide](https://github.com/pulumi/pulumi-yaml#spec).
+
+## Compiler support
+
+Pulumi YAML includes native support for languages that compile to YAML/JSON via
+the `compiler` runtime option.
+
+```yaml
+name: generated-from-cue
+runtime:
+  name: yaml
+  options:
+    compiler: cue export
+```
+
+Pulumi will run whatever program and arguments are specified in `compiler` and
+interpret the output as a Pulumi YAML program.
