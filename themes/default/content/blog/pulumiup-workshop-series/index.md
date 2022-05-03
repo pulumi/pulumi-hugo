@@ -18,21 +18,21 @@ At Pulumi, we’re incredibly fortunate to have over 70 integration partners in 
 <!--more-->
 ### Introduction to Infrastructure as Code
 
-Thursday, May 5th at 2:30 PM PDT 
+Thursday, May 5th at 2:30 PM PDT
 [Register](https://www.pulumi.com/resources/introduction-to-infrastructure-as-code)
 
 We’ll explain the basics of IaC by exploring how to use Pulumi to build, configure and deploy a real-life, modern application using Docker.
 
 ### From Zero to Production in Kubernetes
 
-Tuesday, May 10th at 9:00 AM PDT 
+Tuesday, May 10th at 9:00 AM PDT
 [Register](https://www.pulumi.com/resources/from-zero-to-production-in-kubernetes)
 
 Our friends from NGINX will show you how to leverage the power of Python with Pulumi to define and manage your Kubernetes deployments and build powerful abstractions that make getting to production easier than ever before. You’ll learn about the new open-source Modern Application Reference Architecture (MARA) that helps you quickly deploy an app platform that includes Amazon EKS, NGINX Kubernetes ingress controller, logstore, logagent, cert-manager, Prometheus, Grafana, and more.
 
 ### Kubecrash
 
-Tuesday, May 17th at 9:00 AM PDT 
+Tuesday, May 17th at 9:00 AM PDT
 [Register](https://www.kubecrash.io/?utm_campaign=pulumiup-2022&utm_source=web&utm_medium=partners&utm_content=pulumi)
 
 Join Pulumi and the maintainers of Linkerd, cert-manager, and other projects for a series of crash courses about Kubernetes and cloud-native, open source technologies.
