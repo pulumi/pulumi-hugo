@@ -51,22 +51,28 @@ Tuesday, June 7th at 4:00 PM PDT
 
 In this live-coding session, Pulumi and Auth0 will walk through the process of building a three-tier web app: a single-page app built with React, a back end consisting of a REST API managed with Express and MongoDB. Finally, we'll show you how to enable authentication to restrict access to your app.
 
-### [AWS Immersion Day: Hands-On Infrastructure as Code](https://www.pulumi.com/resources/aws-immersion-day-hands-on-infrastructure-as-code)
+### AWS Immersion Day: Hands-On Infrastructure as Code
 
-[Tuesday, June 14th at 9:00 AM PDT]
+Tuesday, June 14th at 9:00 AM PDT
+[Register](https://www.pulumi.com/resources/aws-immersion-day-hands-on-infrastructure-as-code)
+
 Pulumi and friends from VirtusLab and AWS have planned an interactive session to introduce IaC concepts using familiar programming languages to provision modern cloud infrastructure. This session will focus on new Pulumi capabilities.
 
-### [GitOps with GitHub Actions and the Pulumi Operator](https://www.pulumi.com/resources/gitops-with-github-actions-and-the-pulumi-operator)
+### GitOps with GitHub Actions and the Pulumi Operator
 
-[Tuesday, June 21st at 9:00 AM PDT]
+Tuesday, June 21st at 9:00 AM PDT]
+[Register](https://www.pulumi.com/resources/gitops-with-github-actions-and-the-pulumi-operator)
+
 Combining GitHub Actions with the Pulumi Kubernetes Operator helps you to implement powerful GitOps workflows and automation for both your infrastructure and workloads. We’ve partnered with the GitHub team to deliver step-by-step labs to help you to get started with GitOps.
 
-### [CI/CD Pipelines for Kubernetes Apps with Pulumi & Codefresh](https://www.pulumi.com/resources/ci-cd-pipelines-for-kubernetes-apps-with-codefresh)
+### CI/CD Pipelines for Kubernetes Apps with Pulumi & Codefresh
 
-[Wednesday, June 22nd at 9:30 AM PDT]
+Wednesday, June 22nd at 9:30 AM PDT
+[Register](https://www.pulumi.com/resources/ci-cd-pipelines-for-kubernetes-apps-with-codefresh)
+
 The Codefresh team will help you to learn the basics of CI/CD and how to declare cloud resources and set up a simple pipeline for Kubernetes deployments using your favorite programming languages with Pulumi and Codefresh.
 
-### [Deploying Microservices with AWS Lambda and Pulumi](https://webinars.devops.com/pulumi-aws-workshop?utm_campaign=%242022.06.28%24_Pulumi_Workshop_DO&utm_source=Pulumi)
+### Deploying Microservices with AWS Lambda and Pulumi
 
 [Tuesday, June 28, 12:00 PM PDT]
 In this workshop, we’ll examine how Pulumi can rapidly accelerate provisioning of cloud infrastructure. We’ll focus on AWS Lambda and build an example set of microservices utilizing AWS’s newest Lambda features. Matty Stratton (Pulumi) and Marina Novikova (AWS) will guide you through the process of provisioning a set of example Lambda resources in AWS.
