@@ -16,7 +16,8 @@ Leveraging Organization Access Tokens for your organization's automation deliver
 * Audit logs and update history are attributed to the organization and the name of the token, rather than an individual user.
 
 ## Creating an Organization Access Token
-Organization tokens are available on trials, and Enterprise and Buisness Critical subscriptions.
+
+Organization tokens are available on trials, and Enterprise and Business Critical subscriptions.
 
 Navigate to your organization and then:
 
