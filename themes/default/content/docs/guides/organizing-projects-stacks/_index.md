@@ -156,6 +156,7 @@ Our example service is made up of an API and a database (RDS, CosmosDB, etc.). O
 
 {{< chooser language "typescript,go" / >}}
 
+
 {{% choosable language typescript %}}
 
 ```
