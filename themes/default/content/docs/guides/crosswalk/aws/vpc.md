@@ -398,7 +398,7 @@ two zones at a reasonable cost.
 All regions support at least 3 availability zones, but many of them support more. If you'd like to improve the
 fault tolerance of your configuration, simply override this with the `numberOfAvailabilityZones` argument:
 
-{{< chooser language "typescript,python,csharp" >}}
+{{< chooser language "typescript,python,csharp" / >}}
 
 {{% choosable language typescript %}}
 
