@@ -58,30 +58,36 @@ Organization Access Tokens behave like an organization member with [stack write 
 
 See the Pulumi [Service REST API docs](https://www.pulumi.com/docs/reference/service-rest-api/) for more information about each API endpoint.
 
+#### Stacks
+
 | Action | Org Token Access |
-|--------|------|
-| Stacks |
 |--------|------|
 | List Stacks | ✅ |
 | Get Stack | ✅ |
 | Get Stack State | ✅ |
 | Transfer Stack |  |
 | Delete Stack | ✅ |
-|--------|------|
-| Stack Tags |
+
+#### Stack Tags
+
+| Action | Org Token Access |
 |--------|------|
 | Get Stack Tags | ✅ |
 | Set Stack Tag | ✅ |
 | Delete Stack Tag | ✅ |
-|--------|------|
-| Stack Updates |
+
+#### Stack Updates
+
+| Action | Org Token Access |
 |--------|------|
 | List Stack Updates | ✅ |
 | Get Update Status | ✅ |
 | List Update Events | ✅ |
 | List Previews | ✅ |
-|--------|------|
-| Organizations |
+
+#### Organizations
+
+| Action | Org Token Access |
 |--------|------|
 | List Users | ✅ |
 | Add User to Organization |  |
@@ -100,8 +106,10 @@ See the Pulumi [Service REST API docs](https://www.pulumi.com/docs/reference/ser
 | Get Webhook | ✅ |
 | Ping Webhook | ✅ |
 | List Webhooks Deliveries | ✅ |
-|--------|------|
-| Audit Logs |
+
+#### Audit Logs
+
+| Action | Org Token Access |
 |--------|------|
 | Get Audit Log Events (JSON) | ✅ |
 | Export Audit Log Events (CSV or CEF) | ✅ |
