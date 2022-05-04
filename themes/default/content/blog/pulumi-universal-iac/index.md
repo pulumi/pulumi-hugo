@@ -41,9 +41,9 @@ Java is one of the most used programming languages in the world, with heavy usag
 
 Pulumi now supports Java (in addition to existing support for TypeScript, Python, Go and .NET) and other languages targeting the JVM. All the existing Pulumi CLI workflows can now be used with Java, and all packages in the Pulumi Registry are now available as Java libraries in Maven Central.
 
-![IntelliJ IDEA with Pulumi Java Program](intellij.png)
+![IntelliJ IDE with Pulumi and Java Program](intellij.png)
 
-You can get started with Pulumi using Java today in the [Pulumi Getting Started guide]({{< relref "/docs/get-started" >}}) and the [Pulumi Java language docs]({{< relref "/docs/intro/languages/java" >}}).
+You can get started with Pulumi using Java today in the [Pulumi Getting Started guide]({{< relref "/docs/get-started" >}}) and the [Pulumi and Java language docs]({{< relref "/docs/intro/languages/java" >}}).
 
 👉 Read more in the [Pulumi and Java]({{< relref "./announcing-infrastructure-as-code-with-java-and-pulumi" >}}) blog post.
 
