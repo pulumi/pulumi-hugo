@@ -271,7 +271,7 @@ The following topics provide more details on the core concepts of Pulumi and how
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/how-pulumi-works" >}}"><i class="fas fa-upload pr-2"></i>How Pulumi Works</a></h3>
-        <p>Learn about the internal Pulumi components used to performs deployments.</p>
+        <p>Learn about how Pulumi performs deployments under the hood.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/project" >}}"><i class="fas fa-folder-open pr-2"></i>Projects</a></h3>
