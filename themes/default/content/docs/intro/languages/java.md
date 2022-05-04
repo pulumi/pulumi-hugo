@@ -113,6 +113,10 @@ public static void main(String[] args) {
 }
 ```
 
+## Datasource Methods
+
+In order to get information from cloud providers, there are classes that allow you to query cloud services for data. They are named using the convention `com.pulumi.providername.servicename.[Servicename]Functions` and return a `java.util.concurrent.CompletableFuture<T>`.
+
 ## Pulumi Java implementation details
 
 {{% notes "info" %}}
