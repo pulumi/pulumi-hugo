@@ -431,7 +431,7 @@ With support for more than 80 cloud and SaaS providers, Pulumi can be used acros
 
 To learn more about each of the new features - check out these blog posts with more details:
 
-* [Pulumi Java]({{< relref "./announcing-infrastructure-as-code-with-java-and-pulumi" >}})
+* [Pulumi and Java]({{< relref "./announcing-infrastructure-as-code-with-java-and-pulumi" >}})
 * [Pulumi YAML]({{< relref "./pulumi-yaml" >}})
 * [Pulumi Crosswalk for AWS support for all Pulumi Languages]({{< relref "./crosswalk-for-aws-all-languages" >}})
 * [AWS CDK on Pulumi]({{< relref "./aws-cdk-on-pulumi" >}})
