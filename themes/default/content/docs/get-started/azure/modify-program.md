@@ -259,6 +259,7 @@ resources:
         Fn::FileAsset: ./index.html
       contentType: text/html
       blobName: index.html
+      type: block
 ```
 
 {{% /choosable %}}
