@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "EMA Product to Watch"
+title: "Analyst Report: EMA Product to Watch, Infrastructure as Code"
 meta_desc: "Pulumi has been named an EMA Product to Watch in 2022/23 for the Infrastructure as Code category."
 
 meta_image: /images/resources/ema-meta-image.png
