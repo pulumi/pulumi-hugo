@@ -66,7 +66,7 @@ mongo_port = config.require_int("mongoPort")
 
 {{% choosable language java %}}
 
-These configuration declarations go in the `void stack()` private static method:
+These configuration declarations go in the static `stack()` method:
 
 ```java
 var config = ctx.config();
@@ -328,7 +328,7 @@ import com.pulumi.docker.inputs.ContainerPortArgs;
 import com.pulumi.resources.CustomResourceOptions;
 ```
 
-Add this code at the bottom
+Add this code at the bottom:
 
 ```java
 // Set up a Docker Network
