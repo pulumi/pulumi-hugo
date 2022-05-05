@@ -42,7 +42,7 @@ The fastest way to get up and running is to choose from one of the following Get
             <img class="h-8 mx-auto" src="/logos/tech/gcp.svg" alt="Google Cloud">
         </a>
     </div>
-    <div class="flex-1 pb-4>
+    <div class="flex-1 pb-4">
         <a class="tile p-4" href="{{< relref "/docs/get-started/kubernetes" >}}?language=yaml">
             <img class="h-8 mx-auto" src="/logos/tech/k8s.svg" alt="Kubernetes">
         </a>
