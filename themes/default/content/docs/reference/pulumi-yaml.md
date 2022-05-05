@@ -26,6 +26,7 @@ It contains the following required and optional attributes:
             - **.NET**: A string that specifies the path of a pre-built .NET assembly. If not specified, a .NET project in $CWD will be invoked via `dotnet run`.
             - **Java**: A string that specifies the path of a pre-built jar file.
         - `virtualenv`: applies to Python projects only. A string that specifies the path to a virtual environment to use when running the program. New Python projects created with `pulumi new` have this option set by default. If not specified, Pulumi will invoke the `python3` command it finds on $PATH (falling back to `python`) to run the Python program. If you'd like to use a virtual environment without the `virtualenv` option, you'll need to run any `pulumi` commands (such as `pulumi up`) from an activated virtual environment shell (or, if using a tool like [Pipenv](https://github.com/pypa/pipenv), prefix any `pulumi` commands with `pipenv run pulumi ...`).
+        - `compiler`: applies to Pulumi YAML projects only. A executable and arguments that will emit to standard out a Pulumi YAML program to run.
 
 - `description`: (optional) a friendly description about your project.
 
