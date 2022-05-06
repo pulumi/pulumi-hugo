@@ -247,8 +247,8 @@ var index_html = new Blob("index.html", BlobArgs.builder()
 
 ```yaml
 resources:
-# ...
-# Upload the file
+  # ...
+  # Upload the file
   index-html:
     type: azure-native:storage:Blob
     properties:
@@ -332,7 +332,7 @@ Finally, at the end of `Pulumi.yaml` in the `outputs`, export the resulting stor
 ```yaml
 outputs:
   # ...
-  staticEndpoint: ${storageAccount.primaryEndpoints.web}
+  staticEndpoint: ${sa.primaryEndpoints.web}
 ```
 
 {{% /choosable %}}
