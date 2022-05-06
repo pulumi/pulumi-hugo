@@ -131,6 +131,8 @@ import com.pulumi.azurenative.storage.StorageAccountStaticWebsite;
 import com.pulumi.azurenative.storage.StorageAccountStaticWebsiteArgs;
 import com.pulumi.azurenative.storage.Blob;
 import com.pulumi.azurenative.storage.BlobArgs;
+import com.pulumi.azurenative.storage.outputs.EndpointsResponse;
+import com.pulumi.asset.FileAsset;
 ```
 
 Next, add the following right after the storage account creation:
