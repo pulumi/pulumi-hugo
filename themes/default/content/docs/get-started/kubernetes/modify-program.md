@@ -440,11 +440,13 @@ public class App {
 
 ```yaml
 name: quickstart
-description: A minimal Kubernetes Pulumi YAML program
 runtime: yaml
+description: A minimal Kubernetes Pulumi YAML program
+
 variables:
   appLabels:
     app: nginx
+
 resources:
   deployment:
     type: kubernetes:apps/v1:Deployment
@@ -472,8 +474,9 @@ resources:
           - port: 80
             targetPort: 80
             protocol: TCP
+
 outputs:
-  name: ${service.spec.clusterIP}
+  ip: ${service.spec.clusterIP}
 ```
 
 {{% /choosable %}}
