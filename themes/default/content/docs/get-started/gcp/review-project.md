@@ -179,16 +179,20 @@ public class App {
 {{% choosable language yaml %}}
 
 ```yaml
-name: yaml
+name: quickstart
 runtime: yaml
 description: A minimal Google Cloud Pulumi YAML program
+
 resources:
-  bucket:
+  # Create a GCP resource (Storage Bucket)
+  my-bucket:
     type: gcp:storage:Bucket
     properties:
       location: US
+
 outputs:
-  bucketName: ${bucket.url}
+  # Export the DNS name of the bucket
+  bucketName: ${my-bucket.url}
 ```
 
 {{% /choosable %}}

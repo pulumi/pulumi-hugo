@@ -480,7 +480,7 @@ resources:
   my-bucket-binding:
     type: gcp:storage:BucketIAMBinding
     properties:
-      bucket: ${bucket.name}
+      bucket: ${my-bucket.name}
       role: "roles/storage.objectViewer"
       members: ["allUsers"]
 ```
