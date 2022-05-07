@@ -155,7 +155,7 @@ public class App {
                 .bucket(bucket.name())
                 .source(new FileAsset("index.html"))
                 .build()
-            )
+            );
 
             // ctx.export(...
         });

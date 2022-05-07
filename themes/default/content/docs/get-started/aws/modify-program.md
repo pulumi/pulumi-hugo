@@ -169,7 +169,7 @@ resources:
   index.html:
     type: aws:s3:BucketObject
     properties:
-      bucket: ${bucket}
+      bucket: ${my-bucket}
       source:
         Fn::FileAsset: ./index.html
 ```

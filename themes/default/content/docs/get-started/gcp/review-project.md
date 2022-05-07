@@ -168,7 +168,6 @@ public class App {
                                     .location("US")
                                     .build());
             ctx.export("bucketName", bucket.url());
-            return ctx.exports();
         });
     }
 }
@@ -244,7 +243,6 @@ public Output<string> BucketName { get; set; }
 
 ```java
 ctx.export("bucketName", bucket.url());
-return ctx.exports();
 ```
 
 {{% /choosable %}}
@@ -253,7 +251,7 @@ return ctx.exports();
 
 ```yaml
 outputs:
-  bucketName: ${bucket.url}
+  bucketName: ${my-bucket.url}
 ```
 
 {{% /choosable %}}
