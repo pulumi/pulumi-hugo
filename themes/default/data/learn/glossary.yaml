@@ -95,8 +95,15 @@ entries:
 
     - term: Elastic Container Service
       description: |
-          A managed container orchestration tool on AWS.
+          A managed container orchestration tool on AWS, allowing for the deployment and 
+          automated management of containerized applications.
       link: aws-ecs
+
+    - term: Elastic Kubernetes Service
+      description: |
+          A managed Kubernetes service on AWS, allowing you to run your containerized 
+          workloads on Kubernetes without the overhead of managing it yourself.
+      link: aws-eks
 
     - term: Fargate
       description: |

@@ -1,6 +1,6 @@
 ---
 title: Elastic Container Service
-meta_desc: A managed container orchestration tool on AWS.
+meta_desc: A managed container orchestration tool on AWS, allowing for the deployment and automated management of containerized applications.
 layout: glossary/single
 ---
 

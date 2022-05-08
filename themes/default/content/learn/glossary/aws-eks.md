@@ -1,6 +1,6 @@
 ---
 title: Elastic Kubernetes Service
-meta_desc: A managed Kubernetes service on AWS.
+meta_desc: A managed Kubernetes service on AWS, allowing you to run your containerized workloads on Kubernetes without the overhead of managing it yourself.
 layout: glossary/single
 ---
 
