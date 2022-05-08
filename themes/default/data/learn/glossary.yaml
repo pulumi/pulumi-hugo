@@ -93,6 +93,16 @@ entries:
           A virtualization tool that allows you to deliver your software in a particular
           type of package called a container, which includes an operating system.
 
+    - term: Elastic Container Service
+      description: |
+          A managed container orchestration tool on AWS.
+      link: aws-ecs
+
+    - term: Fargate
+      description: |
+          A serverless compute product from AWS, designed for use with containerized workloads.
+      link: aws-fargate
+
     - term: Helm
       description: |
           A package manager for Kubernetes. Written in YAML, a Helm chart allows you to
