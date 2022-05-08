@@ -140,6 +140,12 @@ entries:
           containerized applications easier. Think of it like the thing that helps you
           define which shipping containers go where on a barge.
 
+    - term: Lambda
+      description: |
+          A serverless platform on AWS, allowing for the execution of code or containers 
+          without the need to provision infrastructure yourself.
+      link: aws-lambda
+
     - term: Microservice
       description: |
           A software development architecture that breaks your application up into
