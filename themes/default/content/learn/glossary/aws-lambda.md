@@ -8,7 +8,7 @@ layout: glossary/single
 
 [AWS Lambda](https://aws.amazon.com/lambda/) is a serverless platform, allowing you to execute code without the need to provision the infrastructure yourself. Code is only running when a suitable trigger is invoked, such as a hit to an API gateway, an update in DyanmoDB, or a change in an IOT device's sensors. The code to be run is uploaded as either a .ZIP file or a container image. A variety of runtimes are available for popular languages.
 
-Since Lambda resources are billed only when code is actively running, it can be extremely cost-effective, if a little difficult to predict. 
+Since Lambda resources are billed only when code is actively running, it can be extremely cost-effective, if a little difficult to predict.
 
 ### Use Cases
 
