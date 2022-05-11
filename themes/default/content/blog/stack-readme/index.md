@@ -43,9 +43,10 @@ Whatever your team uses frequently for that Stack that you want to collect all i
 README templates can reference Stack outputs and resource properties, such as `("${vpc.arn}")` `${outputs.foo}` `${vpc.subnets[0].CIDR}`. To walk you through a tangible example, a user can deploy an RDS instance and then use a variable in their README template to link to their CloudWatch dashboard to keep an eye on operational metrics.
 
 The new experience lives in the Stack page, which can be navigated to through Projects and clicking on the specific Stack you want to view the README for. Let's take a look at this new feature!
+
 ![Stack READMEs in the Pulumi Console](stack-readme.png)
 
-To illustrate, let's look at the new Stack README for the Pulumi Service dev stack. 
+To illustrate, let's look at the new Stack README for the Pulumi Service dev stack.
 
 ```markdown
 # Pulumi Service README
