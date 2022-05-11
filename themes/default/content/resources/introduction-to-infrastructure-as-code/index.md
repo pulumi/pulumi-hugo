@@ -67,7 +67,7 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Kat Cosgrove
+        - name: Matty Stratton
           role: Staff Developer Advocate
 
     # A bullet point list containing what the user will learn during the webinar.

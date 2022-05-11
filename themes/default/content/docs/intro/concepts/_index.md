@@ -9,7 +9,7 @@ menu:
 aliases: ["/docs/reference/concepts/"]
 ---
 
-Pulumi is a modern [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) platform. It leverages existing programming languages---TypeScript, JavaScript, Python, Go, and .NET---and their native ecosystem to interact with cloud resources through the Pulumi SDK. A downloadable CLI, runtime, libraries, and a hosted service work together to deliver a robust way of provisioning, updating, and managing cloud infrastructure.
+Pulumi is a modern [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) platform. It leverages existing programming languages---TypeScript, JavaScript, Python, Go, .NET, Java, and markup languages like YAML---and their native ecosystem to interact with cloud resources through the Pulumi SDK. A downloadable CLI, runtime, libraries, and a hosted service work together to deliver a robust way of provisioning, updating, and managing cloud infrastructure.
 
 > If this is your first time using Pulumi, you likely want to begin with [the Getting Started guide]({{< relref "/docs/get-started" >}}) for your cloud of choice. It will walk you through an [AWS]({{< relref "/docs/get-started/aws" >}}), [Azure]({{< relref "/docs/get-started/azure" >}}), [GCP]({{< relref "/docs/get-started/gcp" >}}), or [Kubernetes]({{< relref "/docs/get-started/kubernetes" >}}) deployment from start to finish.
 
@@ -31,7 +31,7 @@ To use the security group, the EC2 resource requires the security group's ID. Pu
 
 Finally, the server's resulting IP address and DNS name are exported as stack outputs so that their values can be accessed through either a CLI command or by another stack.
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -190,6 +190,77 @@ class MyStack : Stack
 ```
 
 {{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+package myproject;
+
+import com.pulumi.Context;
+import com.pulumi.Exports;
+import com.pulumi.Pulumi;
+import com.pulumi.aws.ec2.Instance;
+import com.pulumi.aws.ec2.InstanceArgs;
+import com.pulumi.aws.ec2.SecurityGroup;
+import com.pulumi.aws.ec2.SecurityGroupArgs;
+import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+
+import java.util.List;
+
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        final var group = new SecurityGroup("web-sg",
+            SecurityGroupArgs.builder()
+            .description("Enable HTTP access")
+            .ingress(SecurityGroupIngressArgs.builder()
+                .protocol("tcp")
+                .fromPort(80)
+                .toPort(80)
+                .cidrBlocks("0.0.0.0/0")
+                .build())
+            .build());
+        final var server = new Instance("web-server",
+            InstanceArgs.builder()
+                .ami("ami-6869aa05")
+                .instanceType("t2.micro")
+                .vpcSecurityGroupIds(group.name().applyValue(List::of))
+                .build());
+        ctx.export("publicIp", server.publicIp());
+        ctx.export("publicDns", server.publicDns());
+    }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  group:
+    type: aws:ec2:SecurityGroup
+    properties:
+      description: Enable HTTP access
+      ingress:
+        - protocol: tcp
+          fromPort: 80
+          toPort: 80
+          cidrBlocks: ["0.0.0.0/0"]
+  server:
+    type: aws:ec2:Instance
+    properties:
+      ami: ami-6869aa05
+      instanceType: t2.micro
+      vpcSecurityGroupIds: ${group.name}
+outputs:
+  publicIp: ${server.publicIp}
+  publicDns: ${server.publicDns}
+```
+
+{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -198,58 +269,58 @@ class MyStack : Stack
 The following topics provide more details on the core concepts of Pulumi and how to use it:
 
 <div class="md:flex flex-row mt-6 mb-6">
+    <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
+        <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/how-pulumi-works" >}}"><i class="fas fa-upload pr-2"></i>How Pulumi Works</a></h3>
+        <p>Learn about how Pulumi performs deployments under the hood.</p>
+    </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/project" >}}"><i class="fas fa-folder-open pr-2"></i>Projects</a></h3>
         <p>Learn how Pulumi projects are organized and configured.</p>
     </div>
+</div>
+<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/stack" >}}"><i class="fas fa-cloud pr-2"></i>Stacks</a></h3>
         <p>Learn how to create and deploy stacks.</p>
     </div>
-</div>
-<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/state" >}}"><i class="fas fa-file-alt pr-2"></i>State and Backends</a></h3>
         <p>Learn how Pulumi stores state and manages concurrency.</p>
     </div>
+</div>
+<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/resources" >}}"><i class="fas fa-server pr-2"></i>Resources</a></h3>
         <p>Learn more about how to use and manage resources in your program.</p>
     </div>
-</div>
-<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/inputs-outputs" >}}"><i class="fas fa-hdd pr-2"></i>Inputs and Outputs</a></h3>
         <p>Learn how to use resource properties to handle dependencies between resources.</p>
     </div>
+</div>
+<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/config" >}}"><i class="fas fa-check-square pr-2"></i>Configuration</a></h3>
         <p>Learn how to configure stacks for different deployment scenarios.</p>
     </div>
-</div>
-<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/secrets" >}}"><i class="fas fa-key pr-2"></i>Secrets</a></h3>
         <p>Learn how to handle sensitive data and how to store secret encrypted settings in Pulumi.</p>
     </div>
+</div>
+<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/assets-archives" >}}"><i class="fas fa-stream pr-2"></i>Assets and Archives</a></h3>
         <p>Learn how to use local or remote files with your Pulumi program.</p>
     </div>
-</div>
-<div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/function-serialization" >}}"><i class="fas fa-terminal pr-2"></i>Function Serialization</a></h3>
         <p>Learn how to serialize JavaScript functions into an artifact that can be used at runtime in the cloud.</p>
     </div>
+</div>
+<div>
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
         <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/logging" >}}"><i class="fas fa-clipboard-list pr-2"></i>Logging</a></h3>
         <p>Learn about how to access log information for diagnostics and debugging.</p>
-    </div>
-</div>
-<div>
-    <div class="md:w-full border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="{{< relref "/docs/intro/concepts/how-pulumi-works" >}}"><i class="fas fa-upload pr-2"></i>Pulumi Architecture</a></h3>
-        <p>Learn about the internal Pulumi components used to performs deployments.</p>
     </div>
 </div>

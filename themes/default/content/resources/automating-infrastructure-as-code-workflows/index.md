@@ -78,5 +78,5 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "5be001fb-39c4-4f92-af59-11c256190fbe"
+    hubspot_form_id: "b3add33f-a625-4dbd-ace9-8d8d66c244ea"
 ---

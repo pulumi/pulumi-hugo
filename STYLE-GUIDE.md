@@ -2,17 +2,19 @@
 
 This document defines some general styles we adhere to in the docs.
 
-## Use Inclusive Language
+## Language
 
-Words are important.  Pulumi strives to use language that is clear, harmonious, and friendly to all readers.  With these goals in mind, we use the following guidelines:
+Words are important. Pulumi strives to use language that is clear, harmonious, and friendly to all readers.  With these goals in mind, we use the following guidelines:
 
 * Avoid ableist language:
   * Instead of _crazy_ try _wild_.
   * Instead of _click_ use _select_.
   * Instead of _dummy_ use _placeholder_.
 * Avoid unnecessarily gendered language: Instead of _guys_ try _folks_, _yall_, or _everyone_.
-* Avoid using violent language (e.g., _kill_)
+* Avoid using violent language (e.g., _kill_).
 * Avoid pop-culture references as such references may not be familiar to all readers.
+* Instead of "go to," use "navigate".
+* Avoid directional words. Instead, link directly to the section you are referencing.
 
 ## Headings
 
@@ -48,9 +50,8 @@ This bit of info is serious. If you missed it, bad things could happen.
 
 ## Paragraphs and Line Breaks
 
-When writing paragraphs, keep the entire paragraph on a single line and use "soft wrapping" in your IDE/editor to avoid a horizontal scroll. By keeping all content on a single line, PR reviewers will be able to use GitHub's suggestion feature, which allows the reviewer to directly suggest a change to the content and allows authors to directly incorporate the suggestion into their PR if desired.
-
-For details on GitHub's suggestion feature, see [Incorporating feedback in your pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
+* Keep paragraphs short, rarely use 4 or more sentences in a single paragraph.
+* When writing paragraphs, keep the entire paragraph on a single line and use "soft wrapping" in your IDE/editor to avoid a horizontal scroll. By keeping all content on a single line, PR reviewers will be able to use GitHub's suggestion feature, which allows the reviewer to directly suggest a change to the content and allows authors to directly incorporate the suggestion into their PR if desired. For details on GitHub's suggestion feature, see [Incorporating feedback in your pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
 
 ## Blockquotes
 
@@ -59,6 +60,18 @@ For details on GitHub's suggestion feature, see [Incorporating feedback in your 
 ### Example
 
 > This is something a person said.
+
+## Lists
+
+* Present instructional steps in lists.
+
+## Content Design
+
+* Lead with content that excites and engages, end with exactly one call-to-action.
+* Try and save links for the last 75% of the content.
+* Use headings and lists to make content scannable and consumable.
+* Use visauls: code, graphs, videos, architecture diagrams, etc.
+* Highlight important points.
 
 ## Additional Resources
 

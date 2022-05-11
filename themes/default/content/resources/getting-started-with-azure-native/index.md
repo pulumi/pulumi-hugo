@@ -7,7 +7,7 @@ meta_desc: "In this workshop, you’ll use the Azure native provider to build in
 featured: false
 
 # If the video is pre-recorded or live.
-pre_recorded: true
+pre_recorded: false
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
 pulumi_tv: false
@@ -20,7 +20,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: false
+gated: true
 
 # The layout of the landing page.
 type: webinars
@@ -37,9 +37,9 @@ block_external_search_index: false
 url_slug: "getting-started-with-azure-native"
 
 # Webinar pages support multiple session via the 'multiple' property.
-multiple:
-    - datetime: 2021-10-21T09:00:00-07:00
-      hubspot_form_id: 7de43dee-4699-46e9-9ce3-9a6fffd56aa5
+# multiple:
+#     - datetime: 2021-10-21T09:00:00-07:00
+#       hubspot_form_id: 7de43dee-4699-46e9-9ce3-9a6fffd56aa5
 
 # The content of the hero section.
 hero:
@@ -53,11 +53,11 @@ main:
     # Webinar title.
     title: "Getting Started with Azure and Infrastructure as Code"
     # URL for embedding a URL for ungated webinars.
-    youtube_url: "https://www.youtube.com/embed/yzTSUDp2KXU"
+    #youtube_url: "https://www.youtube.com/embed/yzTSUDp2KXU"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2021-10-21T09:00:00-07:00
+    sortable_date: 2022-06-01T09:00:00-07:00
     # Duration of the webinar.
-    duration: "1 hour"
+    duration: "90 minutes"
     # Datetime of the webinar.
     datetime: "OCTOBER 21st, 2021"
     # Description of the webinar.
@@ -70,9 +70,16 @@ main:
     presenters:
         - name: Matt Stratton
           role: Staff Developer Advocate, Pulumi
+        - name: April Edwards
+          role: Senior Cloud Advocate, Microsoft
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
         - The basics of the Pulumi Programming Model.
         - How to provision, update, and destroy Azure resources.
+
+# The right hand side form section.
+form:
+    # HubSpot form id.
+    hubspot_form_id: "a6e6eab6-add6-4182-81fd-9bff4e61dace"
 ---

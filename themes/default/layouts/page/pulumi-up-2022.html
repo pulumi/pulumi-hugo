@@ -55,13 +55,7 @@
         </div>
 
         <div class="mt-8 h-24">
-            <event-session-registration-modal
-                modal-title="Register Now"
-                button-text="Register"
-                button-class="btn-primary"
-                event-sessions="{{ .Params.registration.main | jsonify }}"
-            >
-            </event-session-registration-modal>
+                <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
         </div>
 
         <div class="date-countdown-container">
@@ -84,54 +78,65 @@
         <div class="container mx-auto py-24">
             <h2 class="text-black px-6">Innovation & Future-Forward Thoughts on Cloud</h2>
 
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-center items-stretch">
                 {{ $registrationData := .Params.registration.main }}
                 {{ $people := .Site.Data.team.team }}
                 {{ range .Params.sessions }}
                     <div class="w-full lg:w-1/2 p-3">
-                        <div class="card bg-white overflow-hidden">
-                            <div class="flex flex-col">
-                                <div class="bg-black lg:h-64 w-full p-2">
-                                    <div class="flex flex-wrap items-center justify-center h-full">
-                                        <div class="w-full lg:w-2/3 lg:h-full flex justify-center lg:justify-start items-center pl-2">
-                                            <div class="flex justify-center items-center">
-                                                {{ range $presenter := .presenters }}
-                                                    {{ $presenterData := index $people $presenter }}
-                                                    <div class="w-1/3 pr-2">
-                                                        <img class="rounded-md" src="/images/team/{{ $presenter }}.jpg" alt="{{ $presenterData.name }}" title="{{ $presenterData.name }}">
-                                                        <div class="text-white text-sm text-center mt-2">
-                                                            {{ $presenterData.name }}
-                                                        </div>
+                        <div class="card h-full bg-white overflow-hidden">
+                            <div class="flex flex-col h-full pb-3">
+                                <div class="bg-black w-full p-6 pb-3">
+                                    <div class="w-full lg:h-full">
+                                        <div class="flex justify-center items-start">
+                                            {{ range $presenter := .presenters }}
+                                                {{ $presenterData := index $people $presenter }}
+                                                <div class="w-1/4 pr-2">
+                                                    <img class="rounded-md" src="/images/team/{{ $presenter }}.jpg" alt="{{ $presenterData.name }}" title="{{ $presenterData.name }}">
+                                                    <div class="text-white text-sm text-center mt-2">
+                                                        {{ $presenterData.name }}
                                                     </div>
-                                                {{ end }}
-                                            </div>
-                                        </div>
-
-                                        <div class="w-full lg:w-1/3 lg:h-full flex flex-col items-center lg:items-end justify-start pt-8 lg:py-8">
-                                            <event-session-registration-modal
-                                                modal-title="Register Now"
-                                                button-text="Register now"
-                                                button-class="btn-pulumiup-card"
-                                                event-sessions="{{ $registrationData | jsonify }}"
-                                            >
-                                            </event-session-registration-modal>
+                                                </div>
+                                            {{ end }}
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="lg:h-64 p-6">
+                                <div class="flex flex-col h-full p-6">
                                     <h5 class="mt-0 mt-4">
                                         {{ .title }}
                                     </h5>
                                     <p>
                                         {{ .description }}
                                     </p>
+                                    <div class="flex-grow text-center mt-8 flex justify-center items-end">
+                                        <a class="btn-secondary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 {{ end }}
             </div>
+        </div>
+    </section>
+
+    <section id="workshops" class="container mx-auto py-16">
+        <h2>Workshops</h2>
+
+        <div class="flex flex-wrap justify-center items-stretch">
+            {{ range .Params.workshops }}
+                <div class="w-full lg:w-1/2 p-3">
+                    <div class="card bg-gray-800 p-6 text-black h-full">
+                        <h3>{{ .title }}</h3>
+                        <p>{{ .description }}</p>
+                        <div class="my-8">
+                            <a href="{{ .url }}" class="btn-secondary">
+                                <span class="text-violet-600">Register Now &#8594</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{ end }}
         </div>
     </section>
 
@@ -172,13 +177,7 @@
         </div>
 
         <div class="mt-16 text-center">
-            <event-session-registration-modal
-                modal-title="Register Now"
-                button-text="Register"
-                button-class="btn-primary"
-                event-sessions="{{ .Params.registration.main | jsonify }}"
-            >
-            </event-session-registration-modal>
+            <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
         </div>
 
         <div class="py-16">
@@ -207,21 +206,12 @@
             <div class="flex flex-wrap items-center justify-center">
                 {{ range $logo := .Params.customer_logos.logos }}
                     <div class="w-3/4 lg:w-1/6 p-10">
-                        {{ if $logo.link }}
-                            <a href="{{ relref $pageContext $logo.link }}">
-                                {{ partial "customer-logo.html" (dict "logo" $logo.name "hoverable" true) }}
-                            </a>
-                        {{ else }}
-                            {{ partial "customer-logo.html" (dict "logo" $logo.name "hoverable" true) }}
+                        {{ $imgClass := "w-full" }}
+                        {{ if eq $logo "aws-logo.svg" }}
+                            {{ $imgClass = "w-2/3 mx-auto" }}
                         {{ end }}
-                    </div>
-                {{ end }}
-            </div>
 
-            <div class="flex flex-wrap items-center justify-center">
-                {{ range $logo := .Params.customer_logos.small_logos }}
-                    <div class="w-3/4 lg:w-1/6 p-10">
-                        {{ partial "customer-logo.html" (dict "logo" $logo "hoverable" true) }}
+                        <img class="{{ $imgClass }}" src="/images/pulumiup/sponsors/{{ $logo }}" />
                     </div>
                 {{ end }}
             </div>
@@ -258,20 +248,14 @@
                 Pulumi's cloud engineering platform brings infrastructure, developer, and security teams together through a
                 unified software engineering process that tames cloud complexity and accelerates innovation. Using the
                 Pulumi platform, teams can build, deploy, and manage modern cloud applications faster and with more
-                confidence, using any language, any architecture and any cloud. Pulumi lets teams build Modern Infrastructure
-                as Code using popular programming languages (Python, JavaScript, TypeScript, Go, .NET/C#). It enables
-                deploying infrastructure and applications together through a unified delivery process. Finally, teams
-                can manage cloud applications with Policy as Code, better visibility, and controls.
+                confidence, using any language, any architecture and any cloud. Pulumi lets teams build Universal Infrastructure
+                as Code using popular programming languages (Python, JavaScript, TypeScript, Go, .NET/C#, Java) and markup
+                languages (YAML, JSON, CUE). It enables deploying infrastructure and applications together through a unified delivery
+                process. Finally, teams can manage cloud applications with Policy as Code, better visibility, and controls.
             </p>
 
             <div class="mt-8">
-                <event-session-registration-modal
-                    modal-title="Register Now"
-                    button-text="Register"
-                    button-class="btn-primary"
-                    event-sessions="{{ .Params.registration.main | jsonify }}"
-                >
-                </event-session-registration-modal>
+                <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
             </div>
         </div>
     </section>

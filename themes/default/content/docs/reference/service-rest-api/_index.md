@@ -1776,7 +1776,7 @@ POST /api/orgs/{organization}/hooks
 | `displayName` | string | body | name of webhook |
 | `organizationName` | string | body | organization name |
 | `payloadUrl` | string | body | URL to send request to |
-| `secretName` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs]({{< relref "/docs/intro/pulumi-service/webhooks#headers" >}}) for more information  |
+| `secret` | string | body | **Optional.** secret used as the HMAC key. See [webhook docs]({{< relref "/docs/intro/pulumi-service/webhooks#headers" >}}) for more information  |
 
 #### Example
 
@@ -1886,40 +1886,6 @@ Status: 200 OK
   "payloadUrl":"http://example.com",
   "active":true
 }
-```
-
-### Delete Stack
-
-```
-DELETE /api/stacks/{organization}/{project}/{stack}
-```
-
-#### Parameters
-
-| Parameter | Type | In | Description |
-| --------- | ---------- | ---------- | ---------- |
-| `organization` | string | path | organization name |
-| `webhookname` | string | path | webhook name |
-
-#### Example
-
-```bash
-curl \
-  -H "Accept: application/vnd.pulumi+8" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
-  --request DELETE \
-  https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}
-```
-
-#### Default response
-
-```
-Status: 204 OK
-```
-
-```
-EMPTY RESPONSE BODY
 ```
 
 ### Ping Webhook

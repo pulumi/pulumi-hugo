@@ -19,13 +19,13 @@ The [Pulumi Service](https://app.pulumi.com) can be configured to work with any 
 
 ## Single Sign-On (SSO)
 
-If you're a member of a SAML-based Pulumi organization, you can sign in to [your account]({{< relref "/docs/intro/pulumi-service/accounts" >}}) via Single Sign-On. To learn about the important aspects of configuring SSO for your IdP, refer to the [SSO page]({{< relref "sso" >}}).
+If you're a member of a SAML-based Pulumi organization, you can sign in to [your account]({{< ref "/docs/intro/pulumi-service/accounts" >}}) via Single Sign-On. To learn about the important aspects of configuring SSO for your IdP, refer to the [SSO page]({{< relref "sso" >}}).
 
 ## Integration Guides
 
 If you're looking to integrate Pulumi with your SAML 2.0 identity provider, refer to one of our example guides:
 
 - [Azure Active Directory]({{< relref "aad" >}})
-- [G Suite (Google)]({{< relref "gsuite" >}})
+- [Google Workspace (formerly G Suite)]({{< relref "gsuite" >}})
 - [Okta]({{< relref "okta" >}})
 - [OneLogin]({{< relref "onelogin" >}})

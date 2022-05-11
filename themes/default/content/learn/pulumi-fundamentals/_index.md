@@ -36,17 +36,24 @@ minutes to complete.
 
 You will need the following tools to complete this tutorial:
 
-- A [Pulumi account and token]({{< relref "/docs/intro/pulumi-service/accounts#access-tokens" >}})
+- A [Pulumi account and token]({{< ref "/docs/intro/pulumi-service/accounts#access-tokens" >}})
   - If you don't have an account, go to the
     [signup page](https://app.pulumi.com/signup).
 - [Docker](https://docs.docker.com/get-docker/)
-- For the TypeScript version, Node.js 14 or later
-- For the Python version, Python 3.8 or later
+- One of the following languages:
+    - For the TypeScript/JavaScript version, Node.js 14 or later
+    - For the Python version, Python 3.8 or later
+    - For the Java version, Java 11 or later and Gradle 7.4 or later
+    - For the YAML version, nothing specific!
 
 As to skills, you should be able to  <!-- Grammar note: No colon on lists when the list completes the sentence like this :) -->
 
 - use your local terminal.
-- read and understand basic TypeScript or Python code.
+- read and understand basic files from one of these languages:
+    - TypeScript/JavaScript
+    - Python
+    - Java
+    - YAML
 - read and understand Dockerfiles or understand basic Docker concepts.
 
 ## Sample app
