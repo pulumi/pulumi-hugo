@@ -62,7 +62,7 @@ I am...
 ​
 -----
 ​
-<a name="oncall"></a> 
+<a name="oncall"></a>
 ## On Call Operations
 ​
 ### Monitor
