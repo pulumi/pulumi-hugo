@@ -49,7 +49,7 @@ Stop by the [Civo](https://www.civo.com/) booth for live sessions on how to get 
 
 ### Jetstack — the creator of cert-manager
 
-Get more out of cert-manager and find out how  [Jetstack](https://www.jetstack.io/) Secure can eliminate workload misconfigurations and provide full visibility of each certificate across every production cluster. Chat directly to one of the project maintainers and learn to use cert-manager to secure Ingress endpoints and internal workloads using mTLS. [Check out the Jetstack booth today](https://jetstack.io/kubecon)!
+Get more out of [cert-manager](https://cert-manager.io/) and find out how  [Jetstack](https://www.jetstack.io/) Secure can eliminate workload misconfigurations and provide full visibility of each certificate across every production cluster. Chat directly to one of the project maintainers and learn to use cert-manager to secure Ingress endpoints and internal workloads using mTLS. [Check out the Jetstack booth today](https://jetstack.io/kubecon)!
 
 ## Lots of great reasons to visit our booths
 
