@@ -34,13 +34,13 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com). Stacks now have a customizable README where users can add links to dashboards, metrics, architecture diagrams, notes, links to runbooks, and so on- whatever your team uses frequently for that Stack that you want to collect all in one spot.
+Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com) that are dynamically updated based on Stack Outputs. Stacks can now have a customizable README where users can add links to dashboards, metrics, architecture diagrams, notes, links to runbooks, and so on- whatever your team uses frequently for that Stack that you want to collect all in one spot.
 
 <!--more-->
 
-There are a lot of operational activities that happen around [Pulumi Stacks](https://www.pulumi.com/docs/intro/concepts/stack), however, the information for these activities aren't surfaced in one centralized place. Our [User Experience team](https://www.pulumi.com/blog/get-to-know-pulumis-ux-team) recently conducted user experience interviews with our customers and we learned users are moving across many web apps and local apps to manage their deployments- from their cloud Console, to the Pulumi Service User Interface (UI), to the CLI, and so on. By collecting resource outputs in the Pulumi Service UI, we are aiming to ease this friction and collect relevant Stack information in one place.
+There are a lot of operational activities that happen around [Pulumi Stacks](https://www.pulumi.com/docs/intro/concepts/stack), however, the information for these activities live across many places. Our [User Experience team](https://www.pulumi.com/blog/get-to-know-pulumis-ux-team) recently conducted user experience interviews with our customers and we learned users are moving across many web apps and local apps to manage their deployments- from their cloud Console, to the Pulumi Service User Interface (UI), to the CLI, and so on. By collecting resource outputs in the Pulumi Service UI, we are aiming to ease this friction and collect relevant Stack information in one place.
 
-README templates can reference Stack outputs and resource properties, such as `${outputs.foo}` `${vpc.subnets[0].CIDR}`. To walk you through a tangible example, a user can deploy an RDS instance and then use a variable in their README template to link to their CloudWatch dashboard to keep an eye on operational metrics.
+README templates can reference Stack outputs and resource properties, such as `${outputs.foo}`. To walk you through a tangible example, a user can deploy an RDS instance and then use a variable in their README template to link to their CloudWatch dashboard to keep an eye on operational metrics. This CloudWatch dashboard link will dynamically update when deployments happen. You can use the same README template across dev, testing and production and have the correct dashboard links for each Stack.
 
 The new experience lives in the Stack page, which can be navigated to through Projects and clicking on the specific Stack you want to view the README for. Let's take a look at this new feature!
 
