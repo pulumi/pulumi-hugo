@@ -29,6 +29,10 @@ Participating is easy. If you registered for KubeCon, just click on the booth li
 
 Of course, there are many more reasons to visit our booths. You'll find lots of great cloud native resources including demos, tutorials, ebooks, and more. Here are some of the highlights you can expect at each booth.
 
+### Pulumi — Universal Infrastructure as Code
+
+At [Pulumi](https://www.pulumi.com/)’s booth, you'll learn about their cloud engineering platform that brings infrastructure, developer, and security teams together through a unified software engineering process that tames cloud complexity and accelerates innovation. Don't miss Pulumi's Ask an Expert live sessions to hear directly from the engineering team. Whether you want to know more about how to build with Universal Infrastructure as Code in general-purpose programming and markup languages or just learn more about what's on the roadmap, this is your chance to ask anything. [Visit Pulumi today](https://bit.ly/3M5b6Qj)!
+
 ### Buoyant — the creator of Linkerd
 
 [Buoyant](https://buoyant.io/) is announcing something really exciting: the introduction of *fully managed Linkerd*. You can be one of the first to check out the demo, and you'll also find a ton of service mesh content including a service mesh 101 in English and Spanish , our engineer's guide to mTLS, and details on Buoyant's Service Mesh Academy. For this and more, visit [the Buoyant booth](https://kubecon-cloudnativecon-europe.com/virtual-exhibitor/?v4b4342b0f72f3260e37d74de68eab433fee0c641d933e76d52be7eb34b211371656f07b5a54b2e522db3ac7b27c7d555=908815D44FE61A2E80915ACEC6E64FC9A625809715300E330E9CA19100987FDC5540D5D12FFF991541BCDBA641CF8FDC)!
@@ -45,9 +49,6 @@ Stop by the [Civo](https://www.civo.com/) booth for live sessions on how to get 
 
 [Fairwinds](http://www.fairwinds.com), a leader in Kubernetes governance providing a unified view between dev, sec, and ops, offers lots of great resources at their virtual booth this KubeCon. You can get a quick tour of Fairwinds Insights, learn about Kubernetes cost savings, how to make Kubernetes service ownership possible, typical Kubernetes security mistakes and much more. Come chat with a friendly Fairwinds engineer to talk about the many great open source solutions including Polaris, Goldilocks, Nova, and Pluto.  [Visit the Fairwinds booth today](https://fairwinds.com/kubecon)!
 
-### Pulumi — Universal Infrastructure as Code
-
-At [Pulumi](https://www.pulumi.com/)’s booth, you'll learn about their cloud engineering platform that brings infrastructure, developer, and security teams together through a unified software engineering process that tames cloud complexity and accelerates innovation. Don't miss Pulumi's Ask an Expert live sessions to hear directly from the engineering team. Whether you want to know more about how to build with Universal Infrastructure as Code in general-purpose programming and markup languages or just learn more about what's on the roadmap, this is your chance to ask anything. [Visit Pulumi today](https://bit.ly/3M5b6Qj)!
 
 ### Jetstack — the creator of cert-manager
 
