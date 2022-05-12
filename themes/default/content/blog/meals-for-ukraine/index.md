@@ -53,4 +53,4 @@ Get more out of cert-manager and find out how  [Jetstack](https://www.jetstack.i
 
 ## Lots of great reasons to visit our booths
 
-Those are plenty of good reasons to check out the great content of these amazing companies while supporting a wonderful charity that is doing an incredible job at helping the people of Ukraine.
+There are plenty of good reasons to check out the great content of these amazing companies while supporting a wonderful charity that is doing an incredible job at helping the people of Ukraine.
