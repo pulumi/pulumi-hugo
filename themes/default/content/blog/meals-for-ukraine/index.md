@@ -33,7 +33,7 @@ At [Pulumi](https://www.pulumi.com/)’s booth, you'll learn about their cloud e
 
 ### Buoyant — the creator of Linkerd
 
-[Buoyant](https://buoyant.io/) is announcing something really exciting: the introduction of *fully managed Linkerd*. You can be one of the first to check out the demo, and you'll also find a ton of service mesh content including a service mesh 101 in English and Spanish , our engineer's guide to mTLS, and details on Buoyant's Service Mesh Academy. For this and more, visit [the Buoyant booth](https://kubecon-cloudnativecon-europe.com/virtual-exhibitor/?v4b4342b0f72f3260e37d74de68eab433fee0c641d933e76d52be7eb34b211371656f07b5a54b2e522db3ac7b27c7d555=908815D44FE61A2E80915ACEC6E64FC9A625809715300E330E9CA19100987FDC5540D5D12FFF991541BCDBA641CF8FDC)!
+[Buoyant](https://buoyant.io/) is announcing something really exciting: the introduction of *fully managed Linkerd*. You can be one of the first to check out the demo, and you'll also find a ton of service mesh content including a service mesh 101 in English and Spanish, their Engineer's Guide to mTLS, and details on Buoyant's Service Mesh Academy. For this and more, visit [the Buoyant booth](https://kubecon-cloudnativecon-europe.com/virtual-exhibitor/?v4b4342b0f72f3260e37d74de68eab433fee0c641d933e76d52be7eb34b211371656f07b5a54b2e522db3ac7b27c7d555=908815D44FE61A2E80915ACEC6E64FC9A625809715300E330E9CA19100987FDC5540D5D12FFF991541BCDBA641CF8FDC)!
 
 ### Civo — Fast Simple, Managed Kubernetes
 
