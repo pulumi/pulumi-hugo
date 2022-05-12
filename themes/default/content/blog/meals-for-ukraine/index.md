@@ -49,7 +49,6 @@ Stop by the [Civo](https://www.civo.com/) booth for live sessions on how to get 
 
 [Fairwinds](http://www.fairwinds.com), a leader in Kubernetes governance providing a unified view between dev, sec, and ops, offers lots of great resources at their virtual booth this KubeCon. You can get a quick tour of Fairwinds Insights, learn about Kubernetes cost savings, how to make Kubernetes service ownership possible, typical Kubernetes security mistakes and much more. Come chat with a friendly Fairwinds engineer to talk about the many great open source solutions including Polaris, Goldilocks, Nova, and Pluto.  [Visit the Fairwinds booth today](https://fairwinds.com/kubecon)!
 
-
 ### Jetstack — the creator of cert-manager
 
 Get more out of cert-manager and find out how  [Jetstack](https://www.jetstack.io/) Secure can eliminate workload misconfigurations and provide full visibility of each certificate across every production cluster. Chat directly to one of the project maintainers and learn to use cert-manager to secure Ingress endpoints and internal workloads using mTLS. [Check out the Jetstack booth today](https://jetstack.io/kubecon)!
