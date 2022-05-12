@@ -34,13 +34,13 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com). Stacks now have a customizable README where users can add links to dashboards, metrics, architecture diagrams, notes, links to runbooks, and so on!
+Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com). Stacks now have a customizable README where users can add links to dashboards, metrics, architecture diagrams, notes, links to runbooks, and so on- whatever your team uses frequently for that Stack that you want to collect all in one spot.
 
 <!--more-->
 
-Whatever your team uses frequently for that Stack that you want to collect all in one spot. There are a lot of operational activities that happen around [Pulumi Stacks](https://www.pulumi.com/docs/intro/concepts/stack), however, the information for these activities aren't surfaced in one centralized place. Our [User Experience team](https://www.pulumi.com/blog/get-to-know-pulumis-ux-team) recently conducted user experience interviews with our customers and we learned users are moving across many web apps and local apps to manage their deployments. From their cloud Console, to the Pulumi Service User Interface (UI), to the CLI, and so on. By collecting resource outputs in the Pulumi Service UI, we are aiming to ease this friction and collect relevant Stack information in one place.
+There are a lot of operational activities that happen around [Pulumi Stacks](https://www.pulumi.com/docs/intro/concepts/stack), however, the information for these activities aren't surfaced in one centralized place. Our [User Experience team](https://www.pulumi.com/blog/get-to-know-pulumis-ux-team) recently conducted user experience interviews with our customers and we learned users are moving across many web apps and local apps to manage their deployments- from their cloud Console, to the Pulumi Service User Interface (UI), to the CLI, and so on. By collecting resource outputs in the Pulumi Service UI, we are aiming to ease this friction and collect relevant Stack information in one place.
 
-README templates can reference Stack outputs and resource properties, such as `("${vpc.arn}")` `${outputs.foo}` `${vpc.subnets[0].CIDR}`. To walk you through a tangible example, a user can deploy an RDS instance and then use a variable in their README template to link to their CloudWatch dashboard to keep an eye on operational metrics.
+README templates can reference Stack outputs and resource properties, such as `${outputs.foo}` `${vpc.subnets[0].CIDR}`. To walk you through a tangible example, a user can deploy an RDS instance and then use a variable in their README template to link to their CloudWatch dashboard to keep an eye on operational metrics.
 
 The new experience lives in the Stack page, which can be navigated to through Projects and clicking on the specific Stack you want to view the README for. Let's take a look at this new feature!
 
@@ -67,10 +67,9 @@ I am...
 ​
 ### Monitor
 ​
-1. [Cloudwatch Metrics](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#dashboards:name=$(DASHBOARD_NAME)): Monitor holistic metrics tracking overall service health
-2. [RDS Performance Metrics](https://us-west-2.console.aws.amazon.com/rds/home?region=us-west-2#performance-insights): Monitor RDS performance (wait times, top queries)
-3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2): Search across service logs
-4. [Alarms](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2) & [Runbooks](https://github.com/pulumi/runbooks)
+1. [Cloudwatch Metrics](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#dashboards:name=${outputs.dashboardName}): Monitor holistic metrics tracking overall service health
+2. [RDS Performance Metrics](https://us-west-2.console.aws.amazon.com/rds/home?region=us-west-2#performance-insights-v20206:/resourceId/${database.databaseCluster.id}/resourceName/${outputs.rdsClusterWriterInstance}): Monitor RDS performance (wait times, top queries)
+3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup}): Search across service logs
 ```
 
 We have links to our AWS authentication tool, our CloudWatch metrics, to our production deployment documentation, and so on. The common places that we navigate to and from when managing this Stack.
