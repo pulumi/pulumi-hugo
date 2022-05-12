@@ -39,7 +39,7 @@ At [Pulumi](https://www.pulumi.com/)’s booth, you'll learn about their cloud e
 
 Stop by the [Civo](https://www.civo.com/) booth for live sessions on how to get the most out of your Kubernetes environment - including demos, Civo marketplace walkthroughs and an inside look at how they live-provision a private region. You'll find lots of resources and friendly team members to answer any questions on Civo’s easy-to-use managed Kubernetes service. It is fully CNCF certified and 100% Kubernetes upstream compatible. [Check out the Civo booth today](http://civo.io/kubecon)!
 
-## Cockroach Labs — Build What you Dream
+### Cockroach Labs — Build What you Dream
 
 [CockroachDB](https://www.cockroachlabs.com/)'s presence this year at KubeCon (both physical and virtual) is primarily a charitable one (if you attend in person, visit booth P16, where for each badge scanned they'll donate $3 to either Black Girls Code, Women Who Code, the Cancer Research Institute, or UNICEF for Ukrainian relief). Visit their booth ([or book a meeting here](https://www.cockroachlabs.com/guides/kubecon-emea-2022/)) to see demos and architecture overviews that relate what they’ve learned from building a multi-region, managed distributed SQL database offering on Kubernetes. [Check it out now](http://cockroachlabs.com/kubecon).
 
