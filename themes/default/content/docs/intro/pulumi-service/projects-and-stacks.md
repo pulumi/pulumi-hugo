@@ -68,7 +68,12 @@ To view an organization's stacks:
 
 To add a README to a stack:
 
-- Set Stack Output named `readme` to the value of your templated Stack README file. In the example below, we've called the file `Pulumi.README.md`.
+1. Set Stack Output named `readme` to the value of your templated Stack README file. In the example below, we've called the file `Pulumi.README.md`.
+2. Create a README template for the Stack.
+3. Run `pulumi up` on that Stack.
+4. Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
+
+Here is an example. First we add the Stack Output called `readme` to our Pulumi program.
 
 {{< chooser language "typescript" >}}
 {{% choosable language typescript %}}
@@ -83,10 +88,26 @@ export const readme = readFileSync("./Pulumi.README.md");
 
 {{% /choosable %}}
 
-- Create a README template for the Stack. The `Pulumi.README.md` file we added to the Pulumi program above looks as follows:
+{{% /chooser %}}
+
+Now, we create a file, `Pulumi.README.md`, the templated Stack README file.
 
 ```markdown
 # Pulumi Service README
+​
+[Sign in to AWS to view stack resources!](https://top-secret-url.com)
+​
+I am...
+​
+* [an on call engineer](#oncall)
+* [monitoring a deployment](#cicd)
+* [a new hire looking to onboard](#onboard)
+* [interested in querying for business insights](#insights)
+​
+-----
+​
+<a name="oncall"></a>
+## On Call Operations
 ​
 ### Monitor
 ​
@@ -95,8 +116,7 @@ export const readme = readFileSync("./Pulumi.README.md");
 3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup}): Search across service logs
 ```
 
-- Run `pulumi up` on that Stack
-- Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
+Here is how it looks rendered in the Pulumi Service UI:
 
 ![Stack READMEs](/images/docs/reference/service/stack-readme.png)
 
