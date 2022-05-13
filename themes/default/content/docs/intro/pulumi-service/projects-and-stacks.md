@@ -64,6 +64,42 @@ To view an organization's stacks:
 1. To view a stacks details select the name of the stack.
 1. To view a specific stack update, navigate to **Activity** and select it from the list.
 
+### Stack README
+
+To add a README to a stack:
+
+1. Set Stack Output named `readme` to the value of your templated Stack README file. In the example below, we've called the file `Pulumi.README.md`.
+
+{{< chooser language "typescript" >}}
+{{% choosable language typescript %}}
+
+```typescript
+import { readFileSync } from "fs";
+export const strVar = "foo";
+export const arrVar = ["fizz", "buzz"];
+// add readme to stack outputs. must be named "readme".
+export const readme = readFileSync("./Pulumi.README.md");
+```
+
+{{% /choosable %}}
+
+1. Create a README template for the Stack. The `Pulumi.README.md` file we added to the Pulumi program above looks as follows:
+
+```markdown
+# Pulumi Service README
+​
+### Monitor
+​
+1. [Cloudwatch Metrics](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#dashboards:name=${outputs.dashboardName}): Monitor holistic metrics tracking overall service health
+2. [RDS Performance Metrics](https://us-west-2.console.aws.amazon.com/rds/home?region=us-west-2#performance-insights-v20206:/resourceId/${database.databaseCluster.id}/resourceName/${outputs.rdsClusterWriterInstance}): Monitor RDS performance (wait times, top queries)
+3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup}): Search across service logs
+```
+
+3. Run `pulumi up` on that Stack
+4. Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
+
+![Stack READMEs](/images/docs/reference/service/stack-readme.png)
+
 ### Stack Detailed View
 
 To view a stack's details:
