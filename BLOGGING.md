@@ -197,7 +197,7 @@ When you're ready to submit your post for review, issue a Pull Request against t
 
 ## A Note on Dates and Scheduling for Future Publishing
 
-Since the website deployment process is triggered by (and so requires) a commit to pulumi/docs `master`, it isn't possible to schedule a post to be released automatically at a precise date and time. (The `date` frontmatter property has no bearing on whether or when a post will be published; it's used only for sorting and display purposes.) You can, however, influence the timing of the publishing process manually. See the [Merging and Releasing section of the README](README.md#merging-and-releasing) for details.
+Because the website is deployed in response to a commit to pulumi/docs `master`, it isn't possible to schedule a post to be released automatically at a precise date and time. (The `date` frontmatter property is used only for sorting and display purposes.) You can, however, influence the timing of the publishing process manually. See the [Merging and Releasing section of the README](README.md#merging-and-releasing) for details.
 
 ## Publishing Check List
 
