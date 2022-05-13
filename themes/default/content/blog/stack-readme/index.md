@@ -34,7 +34,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com/) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs). Stack READMEs interpolate output variables on the stack (${outputs.instances[0].ARN}) so that each stack can construct links to dashboards, shell commands, and other pieces of documentation. All of this content stays up to date as you stand up new stacks, rename resources, and refactor your infrastructure.
+Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs). Stack READMEs interpolate output variables on the stack (${outputs.instances[0].ARN}) so that each stack can construct links to dashboards, shell commands, and other pieces of documentation. All of this content stays up to date as you stand up new stacks, rename resources, and refactor your infrastructure.
 
 <!--more-->
 
