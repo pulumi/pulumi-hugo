@@ -68,7 +68,7 @@ To view an organization's stacks:
 
 To add a README to a stack:
 
-1. Set Stack Output named `readme` to the value of your templated Stack README file. In the example below, we've called the file `Pulumi.README.md`.
+- Set Stack Output named `readme` to the value of your templated Stack README file. In the example below, we've called the file `Pulumi.README.md`.
 
 {{< chooser language "typescript" >}}
 {{% choosable language typescript %}}
@@ -83,7 +83,7 @@ export const readme = readFileSync("./Pulumi.README.md");
 
 {{% /choosable %}}
 
-1. Create a README template for the Stack. The `Pulumi.README.md` file we added to the Pulumi program above looks as follows:
+- Create a README template for the Stack. The `Pulumi.README.md` file we added to the Pulumi program above looks as follows:
 
 ```markdown
 # Pulumi Service README
@@ -95,8 +95,8 @@ export const readme = readFileSync("./Pulumi.README.md");
 3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup}): Search across service logs
 ```
 
-3. Run `pulumi up` on that Stack
-4. Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
+- Run `pulumi up` on that Stack
+- Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
 
 ![Stack READMEs](/images/docs/reference/service/stack-readme.png)
 

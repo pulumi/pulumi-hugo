@@ -74,6 +74,11 @@ I am...
 
 We have links to our AWS authentication tool, our CloudWatch metrics, to our production deployment documentation, and so on. The common places that we navigate to and from when managing this Stack.
 
-In order to add a README to your Pulumi Stack, you will need to add a resource output to the Stack called either README or readme, we accept both. Then add the markdown or text file with the title 'README.md' or 'README.txt'. Then when you navigate to the Pulumi Service you will see the rendered markdown documentation on the Stack README page.
+In order to add a README to your Pulumi Stack, you will need to do the following:
+
+- Set Stack Output named `readme` to the value of your templated Stack README file, i.e.`Pulumi.README.md`.
+- Create a README template for the Stack. The `Pulumi.README.md` file we added to the Pulumi program above looks as follows:
+- Run `pulumi up` on that Stack
+- Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
 
 We love hearing feedback from users about ways we can improve your productivity when using Pulumi. As always, please feel free to submit feature requests and bug reports to the [Pulumi Service GitHub Repo](https://github.com/pulumi/service-requests). We look forward to seeing how you make Stack READMEs fit your needs!
