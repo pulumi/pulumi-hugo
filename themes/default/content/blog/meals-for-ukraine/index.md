@@ -29,7 +29,7 @@ Of course, there are many more reasons to visit our booths. You'll find lots of 
 
 ### Pulumi — Universal Infrastructure as Code
 
-At [Pulumi](https://www.pulumi.com/)’s booth, you'll learn about their cloud engineering platform that brings infrastructure, developer, and security teams together through a unified software engineering process that tames cloud complexity and accelerates innovation. Don't miss Pulumi's Ask an Expert live sessions to hear directly from the engineering team. Whether you want to know more about how to build with Universal Infrastructure as Code in general-purpose programming and markup languages or just learn more about what's on the roadmap, this is your chance to ask anything. [Visit Pulumi today](https://bit.ly/3M5b6Qj)!
+At the [Pulumi](https://www.pulumi.com/) booth, you'll learn about our cloud engineering platform, which brings infrastructure, developer, and security teams together through a unified software engineering process that tames cloud complexity and accelerates innovation. Don't miss our Ask an Expert live sessions to hear directly from the engineering team. Whether you want to know more about how to build with Universal Infrastructure as Code in general-purpose programming and markup languages or just learn more about what's on the roadmap, this is your chance to ask us anything. [Visit the Pulumi booth today](https://bit.ly/3M5b6Qj)!
 
 ### Buoyant — the creator of Linkerd
 
