@@ -35,9 +35,11 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Starting today, users can create [Stack READMEs](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-readme) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs). Stack READMEs interpolate output variables on the stack (`${outputs.instances[0].ARN}`) so that each stack can construct links to dashboards, shell commands, and other pieces of documentation. All of this content stays up to date as you stand up new stacks, rename resources, and refactor your infrastructure.
+Starting today, users can create [Stack READMEs](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-readme) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs). A README is a text file that introduces and explains a project. A Pulumi Service Stack README can contain documentation and common links for the Stack.
 
 <!--more-->
+
+The key difference between a source control README, such as a GitHub README, and a Pulumi Service Stack README, is that it is dynamically populated with details from your stack outputs. It does this by interpolating output variables on the stack (`${outputs.instances[0].ARN}`) so that each stack can construct links to dashboards, shell commands, and other pieces of documentation. All of this content stays up to date as you stand up new stacks, rename resources, and refactor your infrastructure.
 
 There are a lot of operational activities that happen around [Pulumi Stacks](https://www.pulumi.com/docs/intro/concepts/stack), but critical information is spread across many tools. We have heard from our users that it can be time consuming switching from different tools and web apps to manage their deployments- from their cloud Console, to the Pulumi Service User Interface (UI), to the CLI, and so on. By collecting resource outputs in the Pulumi Service UI, we are aiming to ease this friction and keep relevant Stack information in one place that is kept up to date automatically.
 
