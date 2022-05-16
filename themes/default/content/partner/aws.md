@@ -3,16 +3,17 @@ title: Universal Infrastructure as Code for AWS
 layout: aws
 url: /aws
 
-meta_desc: Build, deploy & manage AWS Infrastructure with TypeScript, Python, Go, C#, Java & YAML. Use existing software engineering tools & practices with infrastructure.
+meta_desc: Build, deploy & manage infrastructure as code on AWS with TypeScript, Python, Go, C#, Java & YAML. Use existing software engineering tools & practices.
 
 hero:
     title: Cloud Engineering for AWS
     description: |
-        Pulumi's [infrastructure as code](/what-is/what-is-infrastructure-as-code/)
+        Pulumi’s [infrastructure as code](/what-is/what-is-infrastructure-as-code/)
         SDK enables you to build, deploy, and manage your AWS infrastructure faster
         and with more confidence, using modern programming languages and software engineering
-        practices. Leverage the full expressivity of languages like [TypeScript/JavaScript](/docs/intro/languages/javascript/),
-        [Python](/docs/intro/languages/python/), [Go](/docs/intro/languages/go/), and [C#](/docs/intro/languages/dotnet/) to build any cloud architecture including containers, serverless, and server-based.
+        practices. Leverage the full expressivity of general-purpose languages ([TypeScript/JavaScript](/docs/intro/languages/javascript/),
+        [Python](/docs/intro/languages/python/), [Go](/docs/intro/languages/go/), [C#](/docs/intro/languages/dotnet/), [Java](/docs/intro/languages/java/))
+        or use markup languages (e.g., [YAML](/docs/intro/languages/yaml/), CUE) to build any cloud architecture including containers, serverless, and server-based.
 
 awsx:
     yaml: |
