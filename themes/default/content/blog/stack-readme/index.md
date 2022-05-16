@@ -34,7 +34,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs). Stack READMEs interpolate output variables on the stack (${outputs.instances[0].ARN}) so that each stack can construct links to dashboards, shell commands, and other pieces of documentation. All of this content stays up to date as you stand up new stacks, rename resources, and refactor your infrastructure.
+Starting today, users can create Stack READMEs in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs). Stack READMEs interpolate output variables on the stack (`${outputs.instances[0].ARN}`) so that each stack can construct links to dashboards, shell commands, and other pieces of documentation. All of this content stays up to date as you stand up new stacks, rename resources, and refactor your infrastructure.
 
 <!--more-->
 
@@ -44,9 +44,120 @@ README templates can reference Stack outputs and resource properties, such as `$
 
 The new experience lives in the Stack page, which can be navigated to through Projects and clicking on the specific Stack you want to view the README for. Let's take a look at this new feature!
 
-![Stack READMEs in the Pulumi Console](stack-readme.png)
+![Stack READMEs in the Pulumi Console](stack-readme.gif)
 
-To illustrate, let's look at the new Stack README for the Pulumi Service dev stack.
+## How to add a Stack README
+
+In order to add a README to your Pulumi Stack, you will need to do the following:
+
+### Step 1
+
+Set Stack Output named `readme` to the value of your templated Stack README file, i.e.`Pulumi.README.md`.
+
+{{< chooser language "typescript,python,go,csharp,java" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import { readFileSync } from "fs";
+export const strVar = "foo";
+export const arrVar = ["fizz", "buzz"];
+// add readme to stack outputs. must be named "readme".
+export const readme = readFileSync("./Pulumi.README.md");
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+pulumi.export('strVar', 'foo')
+pulumi.export('arrVar', ['fizz', 'buzz'])
+# open template readme and read contents into stack output
+with open('./Pulumi.README.md') as f:
+    pulumi.export('readme', f.read())
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+func main() {
+  pulumi.Run(func(ctx *pulumi.Context) error {
+    strVar := "foo"
+    arrVar := []string{"fizz", "buzz"}
+    readmeBytes, err := ioutil.ReadFile("./Pulumi.README.md")
+    if err != nil {
+      return fmt.Errorf("failed to read readme: %w", err)
+    }
+    ctx.Export("strVar", pulumi.String(strVar))
+    ctx.Export("arrVar", pulumi.ToStringArray(arrVar))
+    ctx.Export("readme", pulumi.String(string(readmeBytes)))
+    return nil
+  })
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+class MyStack : Stack
+{
+    public MyStack()
+    {
+        this.StrVar = "foo";
+        this.ArrVar = new string[] { "fizz", "buzz" };
+        this.Readme = System.IO.File.ReadAllText("./Pulumi.README.md");
+    }
+    [Output]
+    public Output<string> StrVar { get; set; }
+    [Output]
+    public Output<string[]> ArrVar { get; set; }
+    [Output]
+    public Output<string> Readme { get; set; }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package stackreadme;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(ctx -> {
+            var strVar = "foo";
+            var arrVar = new String[]{ "fizz", "buzz" };
+            try {
+                var readme = Files.readString(Paths.get("./Pulumi.README.md"));
+                ctx.export("strVar", Output.of(strVar));
+                ctx.export("arrVar", Output.of(arrVar));
+                ctx.export("readme", Output.of(readme));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+}
+```
+
+{{% /choosable %}}
+
+### Step 2
+Create a README template for the Stack.
+
+In this example, the `Pulumi.README.md` file we added to the Pulumi program above is a template README for our Pulumi Service. In it we have links to our AWS authentication tool, our CloudWatch metrics, to our production deployment documentation, and so on. The common places that we navigate to and from when managing this Stack.
 
 ```markdown
 # Pulumi Service README
@@ -72,13 +183,18 @@ I am...
 3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup}): Search across service logs
 ```
 
-We have links to our AWS authentication tool, our CloudWatch metrics, to our production deployment documentation, and so on. The common places that we navigate to and from when managing this Stack.
+### Step 3
 
-In order to add a README to your Pulumi Stack, you will need to do the following:
+Run `pulumi up` on that Stack
 
-- Set Stack Output named `readme` to the value of your templated Stack README file, i.e.`Pulumi.README.md`.
-- Create a README template for the Stack. The `Pulumi.README.md` file we added to the Pulumi program above looks as follows:
-- Run `pulumi up` on that Stack
-- Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
+### Step 4
 
-We love hearing feedback from users about ways we can improve your productivity when using Pulumi. As always, please feel free to submit feature requests and bug reports to the [Pulumi Service GitHub Repo](https://github.com/pulumi/service-requests). We look forward to seeing how you make Stack READMEs fit your needs!
+Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
+
+![Stack READMEs](/images/docs/reference/service/stack-readme.png)
+
+Ta da!
+
+We now have a README on the Stack for the Pulumi Service.
+
+As always, please feel free to submit feature requests and bug reports to the [Pulumi Service GitHub Repo](https://github.com/pulumi/service-requests). We love hearing feedback from users about ways we can improve your productivity when using Pulumi. We look forward to seeing how you make Stack READMEs fit your needs!
