@@ -73,9 +73,10 @@ To add a README to a stack:
 3. Run `pulumi up` on that Stack.
 4. Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
 
-Here is an example. First we add the Stack Output called `readme` to our Pulumi program.
+Examples for adding the Stack Output `readme` to a Pulumi program:
 
-{{< chooser language "typescript" >}}
+{{< chooser language "typescript,python,go,csharp,java" / >}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -88,9 +89,93 @@ export const readme = readFileSync("./Pulumi.README.md");
 
 {{% /choosable %}}
 
-{{% /chooser %}}
+{{% choosable language python %}}
 
-Now, we create a file, `Pulumi.README.md`, the templated Stack README file.
+```python
+import pulumi
+pulumi.export('strVar', 'foo')
+pulumi.export('arrVar', ['fizz', 'buzz'])
+# open template readme and read contents into stack output
+with open('./Pulumi.README.md') as f:
+    pulumi.export('readme', f.read())
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+func main() {
+  pulumi.Run(func(ctx *pulumi.Context) error {
+    strVar := "foo"
+    arrVar := []string{"fizz", "buzz"}
+    readmeBytes, err := ioutil.ReadFile("./Pulumi.README.md")
+    if err != nil {
+      return fmt.Errorf("failed to read readme: %w", err)
+    }
+    ctx.Export("strVar", pulumi.String(strVar))
+    ctx.Export("arrVar", pulumi.ToStringArray(arrVar))
+    ctx.Export("readme", pulumi.String(string(readmeBytes)))
+    return nil
+  })
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+class MyStack : Stack
+{
+    public MyStack()
+    {
+        this.StrVar = "foo";
+        this.ArrVar = new string[] { "fizz", "buzz" };
+        this.Readme = System.IO.File.ReadAllText("./Pulumi.README.md");
+    }
+    [Output]
+    public Output<string> StrVar { get; set; }
+    [Output]
+    public Output<string[]> ArrVar { get; set; }
+    [Output]
+    public Output<string> Readme { get; set; }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package stackreadme;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(ctx -> {
+            var strVar = "foo";
+            var arrVar = new String[]{ "fizz", "buzz" };
+            try {
+                var readme = Files.readString(Paths.get("./Pulumi.README.md"));
+                ctx.export("strVar", Output.of(strVar));
+                ctx.export("arrVar", Output.of(arrVar));
+                ctx.export("readme", Output.of(readme));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+}
+```
+
+{{% /choosable %}}
+
+An example of a README file, `Pulumi.README.md`, the template Stack README file for the Pulumi Service.
 
 ```markdown
 # Pulumi Service README
