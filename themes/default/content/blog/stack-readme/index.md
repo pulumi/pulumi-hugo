@@ -170,9 +170,17 @@ In this example, the `Pulumi.README.md` file we added to the Pulumi program abov
 ​
 ### Monitor
 ​
-1. [Cloudwatch Metrics](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#dashboards:name=${outputs.dashboardName}): Monitor holistic metrics tracking overall service health
-2. [RDS Performance Metrics](https://us-west-2.console.aws.amazon.com/rds/home?region=us-west-2#performance-insights-v20206:/resourceId/${database.databaseCluster.id}/resourceName/${outputs.rdsClusterWriterInstance}): Monitor RDS performance (wait times, top queries)
-3. [Cloudwatch Logs](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup}): Search across service logs
+**Cloudwatch Metrics**
+Monitor holistic metrics tracking overall service health
+[Link](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#dashboards:name=${outputs.dashboardName})
+
+**RDS Performance Metrics**
+Monitor RDS performance (wait times, top queries)
+[Link](https://us-west-2.console.aws.amazon.com/rds/home?region=us-west-2#performance-insights-v20206:/resourceId/${database.databaseCluster.id}/resourceName/${outputs.rdsClusterWriterInstance})
+
+**Cloudwatch Logs**
+Search across service logs
+[Link](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#logStream:group=${outputs.cloudwatchLogGroup})
 ```
 
 ### Step 3
@@ -185,7 +193,7 @@ Open the Pulumi Service UI, navigate to Projects and then the Stack you have upd
 
 ![Stack READMEs](/images/docs/reference/service/stack-readme.png)
 
-Ta da!
+Ta da! 🎉
 
 We now have a README on the Stack for the Pulumi Service.
 
