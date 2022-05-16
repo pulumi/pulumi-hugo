@@ -68,7 +68,7 @@ To view an organization's stacks:
 
 To add a README to a stack:
 
-1. Set Stack Output named `readme` to the value of your templated Stack README file. In the example below, we've called the file `Pulumi.README.md`.
+1. Export a Stack output named `readme` that contains your templated Stack README markdown, commonly by reading a file, i.e. `Pulumi.README.md`.
 2. Create a README template for the Stack.
 3. Run `pulumi up` on that Stack.
 4. Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
@@ -182,16 +182,6 @@ An example of a README file, `Pulumi.README.md`, the template Stack README file 
 ​
 [Sign in to AWS to view stack resources!](https://top-secret-url.com)
 ​
-I am...
-​
-* [an on call engineer](#oncall)
-* [monitoring a deployment](#cicd)
-* [a new hire looking to onboard](#onboard)
-* [interested in querying for business insights](#insights)
-​
------
-​
-<a name="oncall"></a>
 ## On Call Operations
 ​
 ### Monitor
