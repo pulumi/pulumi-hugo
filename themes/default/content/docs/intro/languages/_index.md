@@ -1,7 +1,6 @@
 ---
 title: Languages
-meta_desc: An overview of how to use Node.js, Python, Go, .NET Core, Java, and YAML when writing cloud
-           applications for any Cloud Provider (AWS, Azure, Google Cloud, Kubernetes, etc.).
+meta_desc: An overview of how to use Node.js, Python, Go, .NET Core, Java, and YAML when writing cloud applications for AWS, Azure, Google Cloud, Kubernetes, etc.
 menu:
   intro:
     identifier: languages
