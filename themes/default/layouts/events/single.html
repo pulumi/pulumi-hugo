@@ -55,9 +55,9 @@
                         {{ else if .Params.event.eventbrite_url }}
 
                             <!-- Noscript content for added SEO -->
-                            <noscript><a href="{{ .Params.event.eventbrite_url }}" rel="noopener noreferrer" target="_blank"></noscript>
-                            <button id="eventbrite-widget-modal-trigger-{{ .Params.event.eventbrite_id }}" type="button" class="btn bg-orange-500 border-2 border-orange-600 hover:bg-orange-600 hover:border-orange-600">Buy Tickets</button>
-                            <noscript></a>Buy Tickets on Eventbrite</noscript>
+                                <noscript><a href="{{ .Params.event.eventbrite_url }}" rel="noopener noreferrer" target="_blank">
+                                <button id="eventbrite-widget-modal-trigger-{{ .Params.event.eventbrite_id }}" type="button" class="btn bg-orange-500 border-2 border-orange-600 hover:bg-orange-600 hover:border-orange-600">Buy Tickets</button>
+                                </a>Buy Tickets on Eventbrite</noscript>
                             <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
                             <script>
                                 if (window && window.EBWidgets && (typeof window.EBWidgets.createWidget === "function")) {

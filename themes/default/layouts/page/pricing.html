@@ -8,11 +8,13 @@
         Fully managed cloud engineering platform
     </h2>
     <p class="max-w-3xl mx-auto mt-6">
+        {{/* prettier-ignore-start */}}
         The <a class="underline" href="{{ relref . " /product/pulumi-service" }}">Pulumi Service</a> is the easiest way to adopt
         Pulumi <a class="underline" href="https://github.com/pulumi/pulumi">open source</a>.
         <p>Prefer to manage your own
         <a class="text-blue-600 underline" href="{{ relref . "/docs/intro/concepts/state#logging-into-a-self-managed-backend" }}"> state storage backend</a>?
         </p>
+        {{/* prettier-ignore-end */}}
     </p>
 </section>
 
@@ -356,7 +358,7 @@
             <div class="dialog-body bg-white m-auto max-w-s lg:min-w-4xl lg:max-w-4xl px-6 lg:px-14 py-8 lg:rounded-xl overflow-hidden">
                 <div class="flex justify-end top-0 right-0"><i id="closePricingTrialOptionsDialog" class="cursor-pointer fas fa-times"></i></div>
                 <div class="md:p-5 pt-0 flex flex-col items-center">
-                    <h4 class="mb-0 text-center">Use SaaS or Self-Hosted?</h3>
+                    <h4 class="mb-0 text-center">Use SaaS or Self-Hosted?</h4>
                     <p class="text-base text-center">Choose how you'd like to use Pulumi Service.</p>
                     <div class="flex flex-col md:flex-row mt-4 md:mt-12">
                         <div class="flex flex-col items-center md:border-r md:border-gray-500 md:border-solid md:w-96">
@@ -456,7 +458,7 @@
                     credits) * $0.00075.
                 </p>
 
-                <img class="mt-16" src="/images/pricing/team-edition-cost.png"></img>
+                <img class="mt-16" src="/images/pricing/team-edition-cost.png"/>
             </div>
         </li>
 
@@ -486,7 +488,7 @@
                     usually maps to the size and complexity of your project or application. On the
                     Team Edition, you receive 150k credits for free every month. Below are a few examples with estimated costs.
                 </p>
-                <p>
+                <div>
                     <b><a class="underline" href="https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-http-api">Serverless API with Amazon API Gateway and AWS Lambda</a></b>
                     <ul>
                         <li>Estimated resources: 9</li>
@@ -494,8 +496,8 @@
                         <li>This scenario is a stack with an Amazon API Gateway, an AWS Lambda event handler, and associated IAM roles. View the
                         <a class="underline" href="https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-http-api">code</a> for this scenario here.</li>
                     </ul>
-                </p>
-                <p>
+                </div>
+                <div>
                     <a class="underline" href="https://github.com/pulumi/examples/tree/master/aws-py-eks"><b>Amazon EKS running in a VPC</b></a>
                     <ul>
                         <li>Estimated resources: 20</li>
@@ -503,8 +505,8 @@
                         <li>This scenario is a stack with an Amazon VPC (including subnets, internet gateway, security groups, and route table),
                         Amazon EKS cluster and node group, and associated IAM roles. View the <a class="underline" href="https://github.com/pulumi/examples/tree/master/aws-py-eks">code</a> for this scenario here.</li>
                     </ul>
-                </p>
-                <p>
+                </div>
+                <div>
                     <b><a class="underline" href="https://github.com/pulumi/examples/tree/master/aws-py-wordpress-fargate-rds">Amazon ECS cluster and RDS backend running in a VPC</a></b>
                     <ul>
                         <li>Estimated resources: 24</li>
@@ -514,7 +516,7 @@
                         and subnet group). Each group of resources (VPC, ECS, RDS) is represented by a component resource. View the <a class="underline" href="https://github.com/pulumi/examples/tree/master/aws-py-wordpress-fargate-rds">code</a> for
                         this scenario here.</li>
                     </ul>
-                </p>
+                </div>
             </div>
         </li>
 

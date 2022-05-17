@@ -120,7 +120,7 @@
             {{ end }}
         {{ end }}
         <section class="developer-advocate-talks max-w-6xl container mx-auto my-16 px-4">
-            <h3 class="mb-4 text-gray-700">Speaking</h2>
+            <h3 class="mb-4 text-gray-700">Speaking</h3>
                 <div class="text-right text-xl mb-6">
                     <button id="upcoming-talks-select" class="is-selected">Upcoming</button>
                     <span>|</span>
@@ -246,7 +246,7 @@
     {{ $hasPosts := gt (len $authorPosts) 0 }}
     {{ if $hasPosts }}
         <section class="developer-advocate-blog-posts max-w-6xl container mx-auto mt-16 mb-12 px-4 text-lg">
-            <h3 class="mb-4 text-gray-700">Recent Blog Posts</h2>
+            <h3 class="mb-4 text-gray-700">Recent Blog Posts</h3>
             <ol class="p-0 flex flex-col lg:flex-row lg:flex-wrap list-none">
                 {{ range first 6 $authorPosts }}
                     <li class="lg:w-1/2 my-8">
