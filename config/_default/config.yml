@@ -4,52 +4,52 @@ title: Pulumi - Universal Infrastructure as Code
 refLinksErrorLevel: WARNING
 
 module:
-  imports:
-    - path: github.com/pulumi/theme
-      mounts:
-        - source: assets
-          target: assets
-        - source: static
-          target: static
-        - source: layouts
-          target: layouts
-    - path: github.com/pulumi/registry/themes/default
-      mounts:
-        - source: content
-          target: content
-        - source: static
-          target: static
-        - source: layouts
-          target: layouts
-        - source: data
-          target: data
-        - source: assets
-          target: assets
-    - path: github.com/pulumi/pulumi-hugo/themes/default
-      mounts:
-        - source: content
-          target: content
-        - source: static
-          target: static
-        - source: layouts
-          target: layouts
-        - source: data
-          target: data
-        - source: assets
-          target: assets
-        - source: archetypes
-          target: archetypes
+    imports:
+        - path: github.com/pulumi/theme
+          mounts:
+              - source: assets
+                target: assets
+              - source: static
+                target: static
+              - source: layouts
+                target: layouts
+        - path: github.com/pulumi/registry/themes/default
+          mounts:
+              - source: content
+                target: content
+              - source: static
+                target: static
+              - source: layouts
+                target: layouts
+              - source: data
+                target: data
+              - source: assets
+                target: assets
+        - path: github.com/pulumi/pulumi-hugo/themes/default
+          mounts:
+              - source: content
+                target: content
+              - source: static
+                target: static
+              - source: layouts
+                target: layouts
+              - source: data
+                target: data
+              - source: assets
+                target: assets
+              - source: archetypes
+                target: archetypes
 
 security:
-  funcs:
-    getenv:
-      - ASSET_BUNDLE_ID
-      - REPO_THEME_PATH
-      - PULUMI_CONVERT_URL
+    funcs:
+        getenv:
+            - ASSET_BUNDLE_ID
+            - REPO_THEME_PATH
+            - PULUMI_CONVERT_URL
 
 disableKinds:
-  - category
-  - taxonomyTerm
+    - category
+    - taxonomyTerm
 
 sectionPagesMenu: main
 pygmentsCodeFences: true
@@ -69,8 +69,8 @@ enableGitInfo: true
 timeout: 300000
 
 outputFormats:
-  rss:
-    baseName: rss
+    rss:
+        baseName: rss
 
 # We set the outputs explicitly to just "HTML" as otherwise they default to both
 # "HTML" and "RSS", and we only want to generate RSS for the blog section -- not
@@ -78,39 +78,39 @@ outputFormats:
 # in the front matter of content/blog/_index.md and have a custom RSS template
 # in layouts/blog/rss.xml.
 outputs:
-  home:
-    - HTML
-  section:
-    - HTML
+    home:
+        - HTML
+    section:
+        - HTML
 
 taxonomies:
-  author: authors
-  tag: tags
+    author: authors
+    tag: tags
 
 permalinks:
-  authors: /blog/author/:slug/
-  tags: /blog/tag/:slug/
+    authors: /blog/author/:slug/
+    tags: /blog/tag/:slug/
 
 markup:
-  goldmark:
-    extensions:
-      definitionList: true
-      footnote: true
-      linkify: false
-      strikethrough: true
-      table: true
-      taskList: true
-      typographer: true
-    parser:
-      autoHeadingID: true
-      autoHeadingIDType: "github"
-      attribute:
-        block: false
-        title: true
-    renderer:
-      hardWraps: false
-      unsafe: true
-      xhtml: false
+    goldmark:
+        extensions:
+            definitionList: true
+            footnote: true
+            linkify: false
+            strikethrough: true
+            table: true
+            taskList: true
+            typographer: true
+        parser:
+            autoHeadingID: true
+            autoHeadingIDType: "github"
+            attribute:
+                block: false
+                title: true
+        renderer:
+            hardWraps: false
+            unsafe: true
+            xhtml: false
 
 params:
     canonicalURL: https://www.pulumi.com
