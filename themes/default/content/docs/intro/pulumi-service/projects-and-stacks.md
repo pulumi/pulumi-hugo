@@ -68,7 +68,7 @@ To view an organization's stacks:
 
 To add a README to a stack:
 
-1. Export a Stack output named `readme` that contains your templated Stack README markdown, commonly by reading a file, i.e. `Pulumi.README.md`.
+1. Export a [Stack output](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs) named `readme` that contains your templated Stack README markdown, commonly by reading a file, i.e. `Pulumi.README.md`.
 2. Create a README template for the Stack.
 3. Run `pulumi up` on that Stack.
 4. Open the Pulumi Service UI, navigate to Projects and then the Stack you have updated. Once on the Stack page you will see the README tab with your README file.
