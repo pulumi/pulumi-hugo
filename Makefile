@@ -13,6 +13,10 @@ ensure:
 lint:
 	./scripts/lint.sh
 
+.PHONY: format
+format:
+	yarn prettier --check .
+
 .PHONY: build
 build:
 	./scripts/build.sh
