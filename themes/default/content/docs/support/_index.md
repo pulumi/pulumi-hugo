@@ -2,9 +2,12 @@
 title: Support
 meta_desc: A collection of common troubleshooting techniques and FAQs when using Pulumi.
 menu:
-  troubleshooting:
+  support:
     name: Overview
     weight: 1
+
+aliases:
+  - /docs/troubleshooting/overview/
 ---
 
 Pulumi is here to help! Try reviewing our troubleshooting or FAQ docs, or reach out to support.
