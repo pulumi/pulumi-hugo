@@ -55,13 +55,7 @@
         </div>
 
         <div class="mt-8 h-24">
-            <event-session-registration-modal
-                modal-title="Register Now"
-                button-text="Register"
-                button-class="btn-primary"
-                event-sessions="{{ .Params.registration.main | jsonify }}"
-            >
-            </event-session-registration-modal>
+                <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
         </div>
 
         <div class="date-countdown-container">
@@ -90,10 +84,10 @@
                 {{ range .Params.sessions }}
                     <div class="w-full lg:w-1/2 p-3">
                         <div class="card h-full bg-white overflow-hidden">
-                            <div class="flex flex-col">
-                                <div class="bg-black w-full p-6">
+                            <div class="flex flex-col h-full pb-3">
+                                <div class="bg-black w-full p-6 pb-3">
                                     <div class="w-full lg:h-full">
-                                        <div class="flex justify-center items-center">
+                                        <div class="flex justify-center items-start">
                                             {{ range $presenter := .presenters }}
                                                 {{ $presenterData := index $people $presenter }}
                                                 <div class="w-1/4 pr-2">
@@ -107,21 +101,15 @@
                                     </div>
                                 </div>
 
-                                <div class="p-6">
+                                <div class="flex flex-col h-full p-6">
                                     <h5 class="mt-0 mt-4">
                                         {{ .title }}
                                     </h5>
                                     <p>
                                         {{ .description }}
                                     </p>
-                                    <div class="text-center mt-8">
-                                        <event-session-registration-modal
-                                            modal-title="Register Now"
-                                            button-text="Register now"
-                                            button-class="btn-pulumiup-card"
-                                            event-sessions="{{ $registrationData | jsonify }}"
-                                        >
-                                        </event-session-registration-modal>
+                                    <div class="flex-grow text-center mt-8 flex justify-center items-end">
+                                        <a class="btn-secondary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
                                     </div>
                                 </div>
                             </div>
@@ -189,13 +177,7 @@
         </div>
 
         <div class="mt-16 text-center">
-            <event-session-registration-modal
-                modal-title="Register Now"
-                button-text="Register"
-                button-class="btn-primary"
-                event-sessions="{{ .Params.registration.main | jsonify }}"
-            >
-            </event-session-registration-modal>
+            <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
         </div>
 
         <div class="py-16">
@@ -266,20 +248,14 @@
                 Pulumi's cloud engineering platform brings infrastructure, developer, and security teams together through a
                 unified software engineering process that tames cloud complexity and accelerates innovation. Using the
                 Pulumi platform, teams can build, deploy, and manage modern cloud applications faster and with more
-                confidence, using any language, any architecture and any cloud. Pulumi lets teams build Modern Infrastructure
-                as Code using popular programming languages (Python, JavaScript, TypeScript, Go, .NET/C#). It enables
-                deploying infrastructure and applications together through a unified delivery process. Finally, teams
-                can manage cloud applications with Policy as Code, better visibility, and controls.
+                confidence, using any language, any architecture and any cloud. Pulumi lets teams build Universal Infrastructure
+                as Code using popular programming languages (Python, JavaScript, TypeScript, Go, .NET/C#, Java) and markup
+                languages (YAML, JSON, CUE). It enables deploying infrastructure and applications together through a unified delivery
+                process. Finally, teams can manage cloud applications with Policy as Code, better visibility, and controls.
             </p>
 
             <div class="mt-8">
-                <event-session-registration-modal
-                    modal-title="Register Now"
-                    button-text="Register"
-                    button-class="btn-primary"
-                    event-sessions="{{ .Params.registration.main | jsonify }}"
-                >
-                </event-session-registration-modal>
+                <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer">Watch now</a>
             </div>
         </div>
     </section>

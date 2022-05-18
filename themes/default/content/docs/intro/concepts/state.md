@@ -8,7 +8,7 @@ keywords:
 menu:
   intro:
     parent: concepts
-    weight: 3
+    weight: 4
 
 aliases: ["/docs/reference/state/"]
 ---
@@ -93,7 +93,7 @@ Running `pulumi login` without any argument will log into the default Pulumi Ser
 $ pulumi login
 ```
 
-This will display a prompt that asks for an access token:
+This will display a prompt that asks for an [access token]({{< ref "/docs/intro/pulumi-service/accounts#access-tokens" >}}):
 
 ```
 Manage your Pulumi stacks by logging in.
@@ -223,7 +223,7 @@ $ pulumi stack import --file my-app-production.checkpoint.json
 
 After performing these steps, your stack will now be under the management of the Pulumi Service. All subsequent operations should be performed using this new backend.
 
-> **Note:**: After migration, your stack's state will be managed by the the Pulumi Service backend, but the stack will continue using the same secrets provider. You can separately [change the secrets provider]({{< relref "docs/intro/concepts/config#changing-the-secrets-provider-for-a-stack" >}}) for your stack if needed.
+> **Note:**: After migration, your stack's state will be managed by the the Pulumi Service backend, but the stack will continue using the same secrets provider. You can separately [change the secrets provider]({{< relref "docs/intro/concepts/secrets#changing-the-secrets-provider-for-a-stack" >}}) for your stack if needed.
 
 ### Pulumi Service Architecture
 

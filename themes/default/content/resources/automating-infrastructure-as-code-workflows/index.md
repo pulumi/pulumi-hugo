@@ -16,7 +16,7 @@ pulumi_tv: false
 preview_image: ""
 
 # Webinars with unlisted as true will not be shown on the webinar list
-unlisted: false
+unlisted: true
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
@@ -78,5 +78,5 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "5be001fb-39c4-4f92-af59-11c256190fbe"
+    hubspot_form_id: "b3add33f-a625-4dbd-ace9-8d8d66c244ea"
 ---

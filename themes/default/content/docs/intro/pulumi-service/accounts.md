@@ -26,7 +26,7 @@ following:
 
 * Manage your profile settings, including your account password, access tokens, and subscriptions
 * [Add an organization]({{< relref "/docs/intro/pulumi-service/organizations" >}}) backed by Atlassian, GitHub, GitLab, or a SAML
-  2.0-compatible identity provider, such as Active Directory, Okta, or G Suite
+  2.0-compatible identity provider, such as Active Directory, Okta, or Google Workspace.
 * [Manage your projects and stacks]({{< relref "/docs/intro/pulumi-service/projects-and-stacks" >}})
 
 ## Profile
@@ -68,6 +68,8 @@ This tab lets you change your password. Note that your password must be at least
 This tab lets you manage the [access tokens](https://en.wikipedia.org/wiki/Access_token) used for logging into the Pulumi service. It provides a list of all the access tokens associated with your account, including a description and last used information for each token.
 
 When you run [`pulumi login`]({{< relref "/docs/reference/cli/pulumi_login" >}}) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Service and lets you interact with the Pulumi service and manage your stacks.
+
+Please read the [Organization Access Tokens documentation]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) for information about organization-managed tokens.
 
 ![Access tokens](/images/docs/reference/service/access-tokens.png)
 

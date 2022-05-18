@@ -16,7 +16,7 @@ pulumi_tv: false
 preview_image: ""
 
 # Webinars with unlisted as true will not be shown on the webinar list
-unlisted: false
+unlisted: true
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
@@ -34,7 +34,7 @@ block_external_search_index: true
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: https://www.youtube.com/channel/UC0NErq0RhP51iXx64ZmyVfg
+url_slug: https://www.youtube.com/watch?v=bV3JizzaMZk
 
 # The content of the hero section.
 hero:

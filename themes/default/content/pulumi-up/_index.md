@@ -6,19 +6,19 @@ meta_image: /images/pulumiup/2022-save-the-date.png
 meta_desc: |
     PulumiUP is a virtual conference with industry-recognized leaders, demos, and panel discussions about the future of IaC, Cloud Engineering & DevOps and Cloud.
 
-event_date: 2022-05-04T09:00:00-07:00
+event_date: 2022-05-04T08:00:00-07:00
 
 aliases:
     - /pulumiup
 
 sessions:
     - title: "Opening Keynote and Welcome"
-      presenters: [ "joe-duffy" ]
+      presenters: [ "joe-duffy", "brian-goetz", "luke-hoban" ]
       description: |
         Joe Duffy, CEO of Pulumi, walks us through the evolution of the cloud and the modernization of infrastructure as code to support the changing needs of development and operations organizations. He will introduce the new features of Pulumi that will further help teams tackle scalability challenges, increase developer productivity, and manage multi-cloud complexity.
 
     - title: "Pulumi Infrastructure as Code "
-      presenters: [ "kat-cosgrove", "aaron-friel", "mikhail-shilkov" ]
+      presenters: [ "kat-cosgrove", "aaron-friel", "kyle-dixler" ]
       description: |
         Demos will be shared including new Pulumi features in this hands-on, coding-heavy session. You will learn how to build, deploy, and manage cloud applications with infrastructure as code, powered by popular programming languages. You can expect to pick up new best practices for taming cloud complexity and supercharging your productivity when building with modern cloud architectures.
 
@@ -38,7 +38,7 @@ sessions:
         Pulumi customer, Elkjøp Nordic shows us how to use Pulumi Automation API to build a self-service application that can create infrastructure on demand. This application can create environments with automated access control that provisions resources like resource groups, GitHub repositories, or Kubernetes namespaces.
 
     - title: Infrastructure as Code Panel
-      presenters: [ "kellyann-fitzpatrick" ]
+      presenters: [ "kellyann-fitzpatrick", "kris-nova", "kat-morgan", "elad-ben-isreal", "paul-sandoz" ]
       description: |
         Senior Industry Analyst at RedMonk, Kelly Ann Fitzpatrick, will moderate this panel discussing the technical demands of building modern cloud applications.
 
@@ -46,6 +46,12 @@ sessions:
       presenters: [ "eric-rudder", "justin-fitzhugh", "grace-francisco", "dan-gerrity" ]
       description: |
         In this panel, moderated by Pulumi Co-Founder, Eric Rudder, we will discuss accelerating innovation through cloud engineering.
+
+    - title: Closing, Future Roadmap, and Q&A
+      presenters: [ "joe-duffy", "luke-hoban" ]
+      description: |
+        Joe Duffy and Luke Hoban will close out the day with a recap of all the new features and capabilities introduced, provided
+        a look at our future plans, and finally answer any questions you might have about our announcements or Pulumi in general.
 
 schedule_overview:
   - title: PulumiUP
@@ -56,6 +62,14 @@ schedule_overview:
       software development, modern applications, or Pulumi. Whether you're a seasoned cloud
       engineer or just curious to learn what cloud engineering is all about, PulumiUP will
       teach you something new about the future and fundamentals of building on the cloud.
+
+  - title: PulumiUP Recap
+    day: Wednesday, May 4th
+    time: 12:30PM PDT
+    description: |
+      A lot of fun and cool stuff will be discussed and announced as part of PulumiUP! Staff Developer Advocate Matty Stratton will be joined by Luke Hoban and Joe Duffy (and others!) to talk about all the cool stuff. Join in the fun on Twitter!
+
+      <a href="https://pulumip.us/PulumiUPRecap" class="underline" target="_blank" rel="noopener noreferrer">Join the conversation</a>
 
   - title: Community Summit
     day: Thursday, May 5th
@@ -107,10 +121,39 @@ workshops:
       KubeCrash is a virtual event offering a variety of free crash courses on cloud native open source technologies. Learn directly from the maintainers of CNCF and other open source projects.
 
   - title: Getting started with Infrastructure as Code on Oracle Cloud
-    url: /resources/getting-started-with-infrastructure-as-code-on-oracle-cloud
+    url: /resources/getting-started-with-infrastructure-as-code-on-oracle-cloud/
     description: |
       In this workshop, you will learn the fundamentals of Infrastructure as Code through a guided exercise where you will provision infrastructure on Oracle Cloud.
 
+  - title: End-To-End Infrastructure, Apps, and Auth with Auth0
+    url: /resources/end-to-end-infrastructure-apps-and-auth-with-pulumi-and-auth0/
+    description: |
+      In this session, we’ll walk you through the process of building and deploying a web app with React, Express, MongoDB, Auth0, and Pulumi.
+
+  - title: Getting Started with Azure and Infrastructure as Code
+    url: /resources/getting-started-with-azure-native/
+    description: |
+      In this workshop, you’ll use the Azure native provider to build infrastructure using TypeScript SDK and examine some of the features not previously possible.
+
+  - title: AWS Immersion Day - Hands-on Infrastructure as Code
+    url: /resources/aws-immersion-day-hands-on-infrastructure-as-code/
+    description: |
+      In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using Pulumi’s Cloud Engineering platform.
+
+  - title: Microsoft JDConf 2022 - Infrastructure as Code with Pulumi
+    url: https://docs.microsoft.com/en-us/events/learntv/jdconf-2022/
+    description: |
+      Join Pulumi engineer, Kyle Dixler and Microsoft cloud advocate, Brian Benz for a fun talk about the history of infrastructure tooling and an end-to-end example for deploying infrastructure and applications on Azure using modern programming languages.
+
+  - title: Deploying Microservices With Pulumi & AWS Lambda
+    url: https://webinars.devops.com/pulumi-aws-workshop?utm_campaign=%242022.06.28%24_Pulumi_Workshop_DO&utm_source=Pulumi
+    description: |
+      In this workshop, we’ll examine how Pulumi can rapidly accelerate provisioning of cloud infrastructure. We’ll focus on AWS Lambda and build an example set of microservices utilizing AWS’s newest Lambda features.
+
+  - title: Getting Started with Infrastructure as Code on DigitalOcean
+    url: /resources/getting-started-with-infrastructure-as-code-on-digital-ocean/
+    description: |
+      In this hands-on workshop, you will learn how to stand up basic services using Infrastructure as Code through a series of hands-on labs.
 
 registration:
     sponsor:
@@ -162,13 +205,8 @@ customer_logos:
     - cockroachlabs.jpeg
     - fairwinds.png
     - jetstack.png
+    - tfir.png
+    - techstrong-group.png
+    - kong.png
+    - auth0.png
 ---
-
-
-Codefresh	Workshop
-Microsoft	Workshop
-Bouyant	Workshop
-VirtusLab	Workshop
-Cockroach labs	Workshop
-Fairwinds	Workshop
-Jetstack	Workshop

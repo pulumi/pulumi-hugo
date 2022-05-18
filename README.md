@@ -87,21 +87,33 @@ You'll find all of these files in `themes/default`.
 
 ## Merging and releasing
 
-When a pull request is merged into the default branch of this repository, a follow-up PR is triggered on [pulumi/docs](https://github.com/pulumi/docs) that produces an integration build. Once that build completes and is approved and merged into pulumi/docs, the changes are deployed to pulumi.com.
+When a pull request is merged into the `master` branch of this repository, the content of the pull request isn't published immediately. Instead, it's published at some point later, typically as a result of an [hourly GitHub Actions job in pulumi/docs](https://github.com/pulumi/docs/actions/workflows/update-theme.yml) that checks this repository and others for new content. When that hourly job finds new content to be published, it creates a new pull request (or updates an existing one) on pulumi/docs, builds and tests a full site preview, and merges that pull request automatically after the tests pass, triggering the website to be republished.
+
+The typical timeline looks something like this:
+
+* 8:45 AM: A PR is merged into pulumi-hugo `master`.
+* 9:00 AM: The [`Scheduled Jobs: Update Hugo modules`](https://github.com/pulumi/docs/actions/workflows/update-theme.yml) workflow runs in pulumi/docs.
+* 9:05 AM: The workflow detects the newly merged pulumi-hugo content and generates a new PR on pulumi/docs.
+* 9:30 AM: The pulumi/docs PR is automatically merged into `master`, triggering a redeployment of pulumi.com.
+* 10:00 AM: The new content is live.
+
+In other words, once the pulumi/docs PR is generated, it usually takes about an hour (half-hour for the PR build, another for the website deployment) for new content to appear on pulumi.com.
+
+Note, however, that despite that we schedule the module-update job to run at the top of the hour, it often doesn't; delays of 20 minutes or more are unfortunately fairly common.
+
+If having more direct control over release timing is important, you can opt to trigger the module-update job manually. To do that, [navigate to the workflow](https://github.com/pulumi/docs/actions/workflows/update-theme.yml) and choose **Run Workflow** to kick it off immediately:
+
+![image](https://user-images.githubusercontent.com/274700/168188720-e4b2ee56-4b84-4c4f-ad3a-68e145d69124.png)
+
+The behavior in this case is no different than if you'd allowed the job to run on its own, and once it completes, the remaining steps will complete in the usual way.
 
 ## Blogging
 
 Interested in writing a blog post? See the [blogging README](BLOGGING.md) for details.
 
-## Writing Docs
+## Style Guide
 
-The following are guidelines to follow when authoring docs:
-
-* When directing the user to interact with a button on a page, use "select" instead of "click" so that is not
-  pointer-specific (for ex: for mobile phones, screen readers etc.)
-* Try to use "navigate" instead of "go to"
-* Avoid directional words, as folks that use screen readers do not have the same information about where things are
-  placed on the page directionally.
+We try and align Pulumi documentation to the [Pulumi Docs Style Guide](STYLE-GUIDE.md).
 
 ## Shortcodes and web components
 
@@ -113,24 +125,24 @@ Swiftype is how we manage our search experience for docs and Registry.  The [Swi
 
 ### Swiftype console
 
-Visit [the Swiftype console](https://app.swiftype.com/) for information specific to our search implementation: the date and time of the most recent crawl, any customizations we have done of result rankings for specific search terms, synonyms we have set for specific search terms, or weighting of custom meta tags.
+Visit the [Swiftype console](https://app.swiftype.com/) for information specific to our search implementation: the date and time of the most recent crawl, any customizations we have done of result rankings for specific search terms, synonyms we have set for specific search terms, or weighting of custom meta tags.
 
 ### Result rankings
 
-[Rankings](https://swiftype.com/documentation/site-search/guides/result-rankings) let us manually customize how results appear for any query.  Using the console, you can enter a query, and pin certain results to the top or delete results.
+[Swiftype rankings](https://swiftype.com/documentation/site-search/guides/result-rankings) let us manually customize how results appear for any query.  Using the console, you can enter a query, and pin certain results to the top or delete results.
 
 
 ### Fields, meta tags, and weights
 
 Fields are the set of places where the crawler extracts content from our pages.   There are a set of default fields (title, body, etc).  We can add fields by [adding custom meta tags](https://swiftype.com/documentation/site-search/crawler-configuration/meta-tags), either in the head or the body of a document.  It's worth noting that these are different than SEO meta tags, and the crawler does not capture those meta tags. Once a custom field is added and has been re-crawled (about a day after code has been merged), we can use the field to adjust results using weights.
 
-[Weights](https://swiftype.com/documentation/site-search/guides/weights) are a way for us to impact search result relevance, by telling the engine that matches in a certain field of the document matter more than matches elsewhere.  In the Swiftype console, we can adjust the weights of any field.  By giving a certain field more weight, we can affect the ranking of search results.
+[Swiftype weights](https://swiftype.com/documentation/site-search/guides/weights) are a way for us to impact search result relevance, by telling the engine that matches in a certain field of the document matter more than matches elsewhere.  In the Swiftype console, we can adjust the weights of any field.  By giving a certain field more weight, we can affect the ranking of search results.
 
 ### Synonyms
 
-[Synonyms](https://swiftype.com/documentation/site-search/guides/synonyms) allow us to connect common search terms to each other.  If we know some users refer to a provider as “ReallyAwesome,” but our docs use the name “RA”, we can set those as synonyms in our Swiftype console.  This will ensure that users get the same set of results using either term, and that those results are relevant regardless of which name we use in our docs.
+[Swiftype synonyms](https://swiftype.com/documentation/site-search/guides/synonyms) allow us to connect common search terms to each other.  If we know some users refer to a provider as “ReallyAwesome,” but our docs use the name “RA”, we can set those as synonyms in our Swiftype console.  This will ensure that users get the same set of results using either term, and that those results are relevant regardless of which name we use in our docs.
 
 
 ### UI and Layout
 
-Swiftype is opinionated about the layout of search results, search behavior, and the UI styling of the search box.  Within the Swiftype console, [we can customize elements](https://swiftype.com/documentation/site-search/guides/design-and-customization) such as the style of search results, the result count per page, or text colors.  In order to override the search input styles (text color, border styles, etc) we need to directly update our styles for the `st-default-search-input` class.
+Swiftype is opinionated about the layout of search results, search behavior, and the UI styling of the search box.  Within the Swiftype console, we can [customize elements](https://swiftype.com/documentation/site-search/guides/design-and-customization) such as the style of search results, the result count per page, or text colors.  In order to override the search input styles (text color, border styles, etc) we need to directly update our styles for the `st-default-search-input` class.
