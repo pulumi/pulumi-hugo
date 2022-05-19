@@ -15,8 +15,37 @@
                 id="search-query"
                 type="text"
                 class="st-default-search-input py-2 px-4 pl-8 text-sm border border-gray-400 focus:border-blue-500 focus:outline-none rounded transition"
-                placeholder="Search the docs" />
+                placeholder="Search the blog" />
         </form>
     </div>
     <div id="search-results" class="relative"></div>
 </div>
+
+<script>
+        // We want to restrict the results to just the ones from the blog.
+        // Create a MutationObserver and attach it to the #search-results container above.
+        // The `subtree` modifications property will allow our callback to be called
+        // whenever search result nodes (the `<a>` tag elements) will be added to the
+        // container.
+        // This mirrors our approach for limiting results in the Registry.
+        const observer = new MutationObserver((mutations, observer) => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(n => {
+                    // Remove the result if its URL does not contain `blog`.
+                    if (n.classList.contains("st-ui-result") && !n.href.includes("blog")) {
+                        n.remove();
+                    }
+                });
+            });
+        });
+
+        // Start listening for DOM mutation events for the search results.
+        observer.observe(
+            document.querySelector("#search-container #search-results"),
+            {
+                attributes: false,
+                childList: true,
+                subtree: true,
+            },
+        );
+    </script>
