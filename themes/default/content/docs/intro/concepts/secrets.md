@@ -483,7 +483,7 @@ $ pulumi stack init my-stack \
 If you have previously configured the AWS CLI, the same credentials will be used. These can also be overridden using the standard `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. For more options, refer to the [AWS Go SDK documentation](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/).
 
 {{% notes "info" %}}
-As of Pulumi CLI vX.X.X, instead of specifying the AWS Profile using the `AWS_PROFILE` environment variable, you can append the profile as a querystring to the above KMS identifiers:
+As of Pulumi CLI v3.33.1, instead of specifying the AWS Profile using the `AWS_PROFILE` environment variable, you can append the profile as a querystring to the above KMS identifiers:
 
 1. By ID: `awskms://1234abcd-12ab-34cd-56ef-1234567890ab?region=us-east-1&profile=dev`.
 1. By alias: `awskms://alias/ExampleAlias?region=us-east-1&profile=qa`.
