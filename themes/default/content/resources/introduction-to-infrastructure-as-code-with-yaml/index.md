@@ -3,6 +3,8 @@
 title: "Introduction to Infrastructure as Code with Pulumi YAML"
 meta_desc: "In this workshop, you’re going to explore how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker and YAML."
 
+meta_image: /images/resources/infrastructure-as-code-yaml-06-22-2022-social-card.png
+
 # A featured webinar will display first in the list.
 featured: false
 
