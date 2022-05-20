@@ -49,7 +49,7 @@ To check your code and your Markdown files for issues before submitting, run:
 make lint
 ```
 
-This repo uses Prettier for code formatting, to keep styling + formatting issues aligned without the need to be reviewed in PRs.  We currently do not automatically run the formatter as a build check, but may opt to do so in the future as needed.  To see what files have formatting diffs, you can run `make format` from the project root, which will list all the files with diffs.  To fix these diffs in bulk, you can run `yarn prettier --write .` also from the root.
+This repo uses Prettier for code formatting, to keep styling + formatting issues aligned without the need to be reviewed in PRs.  To see what files have formatting diffs, you can run `make format` from the project root, which will update all files to conform to our formatting standards.  To check the diffs without fixing them, a check runs as part of `make lint`.
 
 Prettier is easiest to use when you run it automatically on save in your editor - see the docs here: https://prettier.io/docs/en/editors.html.  If you set your editor to format on save, you should be staying aligned with formatting without needing to run any of the above commands.
 

@@ -15,7 +15,7 @@ lint:
 
 .PHONY: format
 format:
-	yarn prettier --check .
+	yarn prettier --write .
 
 .PHONY: build
 build:
