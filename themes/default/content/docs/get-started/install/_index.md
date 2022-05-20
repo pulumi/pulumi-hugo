@@ -50,7 +50,7 @@ A Pulumi formula is available on the Community Homebrew. If you do not have the 
 still install Pulumi from homebrew using the command:
 
 ```bash
-$ brew install pulumi
+$ brew install pulumi/tap/pulumi
 ```
 
 ### MacPorts
