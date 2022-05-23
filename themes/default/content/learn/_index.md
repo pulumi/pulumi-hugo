@@ -27,14 +27,12 @@ tutorials:
 overview: |
     <h2>Welcome to Learn Pulumi!</h2>
 
-    These learning pathways will help you learn all of the concepts of Pulumi,  
-    along with best practices and architectural patterns, through real-life  
-    examples.  
+    Learn all the concepts of Pulumi, along with best practices and  
+    architectural patterns.
 
-    In each tutorial, you'll complete a series of steps while exploring Pulumi  
-    to complete a project or build a system. Start with Pulumi Fundamentals to  
-    get comfortable with the vocabulary, and then head to another pathway to  
-    explore further.  
+    Each tutorial will step you through exploring Pulumi and completing a  
+    project. Start with Pulumi Fundamentals to get comfortable with  
+    vocabulary, then try another pathway to explore more!
 ---
 
 Ipsum lorem
