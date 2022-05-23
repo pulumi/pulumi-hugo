@@ -25,7 +25,7 @@ tutorials:
 # There are 2 trailing spaces appended to each line in the paragraphs below
 # in order to force a new line to limit the line length to 75 characters.
 overview: |
-    <h2>Welcome to Learn Pulumi!</h2>
+    <h2 class="learn-h2">Welcome to Learn Pulumi!</h2>
 
     Learn all the concepts of Pulumi, along with best practices and  
     architectural patterns.
