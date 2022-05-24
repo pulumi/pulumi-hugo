@@ -114,7 +114,7 @@ resources:
 
 {{< /chooser >}}
 
-All resources have a required [`name`]({{< relref "names" >}}) argument, which must be unique across resources of the same kind in a [`stack`]({{< relref "/docs/intro/concepts/stack" >}}). This *logical name* influences the *physical name* assigned by your infrastructure’s cloud provider. Pulumi [auto-names]({{< relref "#autonaming" >}}) physical resources by default, so the physical name and the logical name may differ. This auto-naming behavior can be overridden, if required.
+All resources have a required [`name`]({{< relref "names" >}}) argument, which must be unique across resources of the same kind in a [`stack`]({{< relref "/docs/intro/concepts/stack" >}}). This *logical name* influences the *physical name* assigned by your infrastructure’s cloud provider. Pulumi [auto-names]({{< relref "names#autonaming" >}}) physical resources by default, so the physical name and the logical name may differ. This auto-naming behavior can be overridden, if required.
 
 The `args` argument is an object with a set of named property input values that are used to initialize the resource. These can be normal raw values—such as strings, integers, lists, and maps—or [outputs]({{< relref "docs/intro/concepts/inputs-outputs" >}}) from other resources. Each resource has a number of named input properties that control the behavior of the resulting infrastructure. To determine what arguments a resource supports, refer to that resource’s API documentation in the [Registry]({{< relref "/registry" >}}).
 
