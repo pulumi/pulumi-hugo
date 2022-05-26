@@ -104,7 +104,7 @@ Resources:
 Duration: 24s
 
 info: Successfully updated stack
-info: Summary: 
+info: Summary:
 {
     "create": 5
 }
