@@ -210,7 +210,7 @@ These extra resources make it slower to perform deployments from developers' mac
 
 So, with that in mind, we split the API project application’s cloud infrastructure into two stacks - the `dev` and `prod`. And, as you might’ve already guessed, only the `prod` variant will deploy absolutely all necessary cloud infrastructure resources.
 
-What is even more interesting is the fact that this can be achieved with a simple if statement, which we placed in the [`index.ts`](https://github.com/webiny/webiny-js/blob/ea2ea7f956c9f847e0e5e9c48d6b439100991b24/packages/cwp-template-aws/template/ddb-es/api/pulumi/index.ts#L19-L25) entrypoint file:
+What is even more interesting is the fact that this can be achieved with a simple if statement, which we placed in the [`index.ts`](https://github.com/webiny/webiny-js/blob/next/packages/cwp-template-aws/template/ddb-es/api/pulumi/index.ts#L19-L25) entrypoint file:
 
 ```typescript
 // (...)
