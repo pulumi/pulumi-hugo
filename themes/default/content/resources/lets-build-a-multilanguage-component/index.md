@@ -33,19 +33,11 @@ hero:
 
 # Content for the left hand side section of the page.
 main:
-<<<<<<<< HEAD:themes/default/content/resources/lets-build-a-multilanguage-component/index.md
     # Livestream title.
     title: "Let’s Build A Multi-Language Pulumi Component"
     # the ID of the YouTube Live video. For example, "Tbl8XHR-1-o" (not the full url)
     youtube_id: "4psf6WVLxtY"
     image: "lee-briggs.png"
-========
-    # Webinar title.
-    title: "Matty Test Stream"
-    image: "kat-and-matty.png"
-    # URL for embedding a URL for ungated webinars.
-    youtube_id: "Tbl8XHR-1-o"
->>>>>>>> e277a46c (Update livestream resource type):themes/default/content/resources/matty-test-stream/index.md
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2020-04-08T09:00:00-07:00
     # Duration of the stream.
