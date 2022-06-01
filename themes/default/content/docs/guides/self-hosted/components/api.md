@@ -162,9 +162,9 @@ Azure Storage account key using the `AZURE_STORAGE_KEY` env var.
 
 | Variable Name | Description |
 | ------------- | ----------- |
-| GITLAB_OAUTH_ID | GitLab OAuth app client ID. Used for GitLab OAuth signins. [Create a new GitLab OAuth app](https://gitlab.com/profile/applications). |
-| GITLAB_OAUTH_SECRET | GitLab OAuth app client secret. See above. |
-| GITLAB_OAUTH_ENDPOINT | The domain for your GitLab instance. Defaults to `https://gitlab.com`, which should be used unless you are running GitLab on a custom domain. |
+| GITLAB_OAUTH_ID | GitLab OAuth app client ID. It is used for GitLab OAuth sign in. [Create a new GitLab OAuth app](https://gitlab.com/profile/applications). |
+| GITLAB_OAUTH_SECRET | GitLab OAuth app client secret. See above to create a new GitLab OAuth app. |
+| GITLAB_OAUTH_ENDPOINT | The domain for your GitLab instance. It defaults to `https://gitlab.com`, which should be used unless you are running GitLab on a custom domain. |
 
 ## Other Environment Variables {#other-env-vars}
 
