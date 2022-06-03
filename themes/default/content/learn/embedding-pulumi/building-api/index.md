@@ -1,5 +1,5 @@
 ---
-title: "Building a Pulumi API"
+title: "Building a Custom API"
 layout: topic
 date: 2021-12-15
 draft: false
