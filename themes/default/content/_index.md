@@ -154,7 +154,6 @@ customer_logos:
     - name: cockroach-labs
     - name: tableau
     - name: fenergo
-    - name: bio-fire
     - name: univision
     - name: kavak
     - name: blockfi
