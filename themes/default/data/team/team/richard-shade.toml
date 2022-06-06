@@ -1,0 +1,10 @@
+id = "richard-shade"
+name = "Richard Shade"
+title = "Customer Experience Architect"
+weight = 1
+
+status = "active"
+
+[social]
+github = "rshade"
+linkedin = "richardshade"
