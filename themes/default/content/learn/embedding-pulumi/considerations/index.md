@@ -1,5 +1,5 @@
 ---
-title: "Understanding Extra Considerations"
+title: "Understanding Logging and Error Handling"
 layout: topic
 date: 2021-12-15
 draft: false
