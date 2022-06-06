@@ -47,7 +47,7 @@ Now, let's run it! From the root of the repo in a terminal, run `python infra_ap
 Serving on port 8000...
 ```
 
-Now, we'll try CURLing the `location` endpoint. Open a new terminal window and run `curl localhost:8000/location`:
+Now, we'll try `curl`ing the `location` endpoint. Open a new terminal window and run `curl localhost:8000/location`:
 
 ```bash
 $ curl localhost:8000/location
@@ -158,7 +158,7 @@ You'll notice that these examples don't just wrap the CLI commands as callable f
 
 ### Migrating databases
 
-What if you could migrate a database with Pulumi? It's possible! The examples in [Go](https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration), [Python](https://github.com/pulumi/automation-api-examples/tree/main/python/database_migration), [TypeScript/Javascript](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts), and [C#/.Net](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration) show a basic creation of a table with insertion and verification of data. If we combine this idea with the same type of idea of a web portal, we could make a plain migration tool that takes data from one table and generates a new one from that data, effectively migrating the table from one database to another.
+What if you could migrate a database with Pulumi? It's possible! The examples in [Go](https://github.com/pulumi/automation-api-examples/blob/main/go/database_migration), [Python](https://github.com/pulumi/automation-api-examples/tree/main/python/database_migration), [TypeScript/Javascript](https://github.com/pulumi/automation-api-examples/blob/main/nodejs/databaseMigration-ts), and [C#/.NET](https://github.com/pulumi/automation-api-examples/blob/main/dotnet/DatabaseMigration) show a basic creation of a table with insertion and verification of data. If we combine this idea with the same type of idea of a web portal, we could make a plain migration tool that takes data from one table and generates a new one from that data, effectively migrating the table from one database to another.
 
 <br/>
 <br/>
