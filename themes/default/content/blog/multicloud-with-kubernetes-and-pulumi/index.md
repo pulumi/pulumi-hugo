@@ -314,7 +314,7 @@ infrastructure.
 
 The purpose of this demo is not focused on the details of deploying a web app on Kubernetes with Pulumi, so we won't
 go into too much detail here.
-We created a `shinyapp/` folder to hold a Pulumi program (written in yaml!) [that you can find here.](https://github.com/pulumi/demo-kubecrash-2022/tree/main/shinyapp)
+We created a [shinyapp folder](https://github.com/pulumi/demo-kubecrash-2022/tree/main/shinyapp) to hold a Pulumi program (written in yaml!)
 We could now follow the [Kubernetes provider configuration steps](https://www.pulumi.com/registry/packages/kubernetes/installation-configuration/#configuration)
 to set up and deploy our `shinyapp` to each of our clusters.
 
