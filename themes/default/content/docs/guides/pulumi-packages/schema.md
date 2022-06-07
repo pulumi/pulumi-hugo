@@ -281,6 +281,7 @@ For `nodejs`:
 | `compatibility`           | `string`      | No       | Toggle compatibility mode for a specified target.             |
 | `disableUnionOutputTypes` | `boolean`     | No       | Disable support for unions in output types.                   |
 | `containsEnums`           | `boolean`     | No       | An indicator for whether the package contains enums.          |
+| `respectSchemaVersion`    | `boolean`     | No       | Override the default version (0.0.0)                          |
 
 For `python`:
 
@@ -291,6 +292,7 @@ For `python`:
 | `readme`              | `string`      | No       | Readme contains the text for the package's README.md files.              |
 | `moduleNameOverrides` | `map[string]` | No       | Optional overrides for Pulumi module names.                              |
 | `compatibility`       | `string`      | No       | Toggle compatibility mode for a specified target.                        |
+| `respectSchemaVersion`| `boolean`     | No       | Override the default version (0.0.0)                                     |
 
 For `go`:
 
@@ -301,6 +303,7 @@ For `go`:
 | `moduleToPackage`                | `map[string]` | Map from module -> package name.                                                                                                               |
 | `packageImportAliases`           | `map[string]` | Map from package name -> package alias.                                                                                                        |
 | `generateResourceContainerTypes` | `boolean`     | Generate container types (arrays, maps, pointer output types etc.) for each resource. These are typically used to support external references. |
+| `respectSchemaVersion`    | `boolean`     | No       | Override the default version (0.0.0)                          |
 
 For `csharp`:
 
@@ -311,7 +314,7 @@ For `csharp`:
 | `compatibility`          | `string`      | No       |                                                                                                     |
 | `dictionaryConstructors` | `boolean`     | No       |                                                                                                     |
 | `rootNamespace`          | `string`      | No       | The root namespace that the generated package should live under. This setting defaults to "Pulumi". |
-
+| `respectSchemaVersion`    | `boolean`     | No       | Override the default version (0.0.0)                          |
 ### PropertyLanguage
 
 Language-specific info for a property.
