@@ -303,7 +303,7 @@ For `go`:
 | `moduleToPackage`                | `map[string]` | Map from module -> package name.                                                                                                               |
 | `packageImportAliases`           | `map[string]` | Map from package name -> package alias.                                                                                                        |
 | `generateResourceContainerTypes` | `boolean`     | Generate container types (arrays, maps, pointer output types etc.) for each resource. These are typically used to support external references. |
-| `respectSchemaVersion`    | `boolean`     | No       | Override the default version (0.0.0)                          |
+| `respectSchemaVersion`    | `boolean`   |  Override the default version (0.0.0)                          |
 
 For `csharp`:
 
