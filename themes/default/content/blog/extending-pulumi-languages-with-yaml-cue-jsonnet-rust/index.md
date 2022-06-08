@@ -46,7 +46,7 @@ It's no surprised to anybody that I'm a rather large supporter of the CUE projec
 
 I believe that CUE could open up a whole world of possibilities for Pulumi and I'm excited to see what myself and others can come up with in this space in 2022.
 
-To use CUE as a compiler for Pulumi YAMl, you need to update the `Pulumi.yaml` file with the following compiler options:
+To use CUE as a compiler for Pulumi YAML, you need to update the `Pulumi.yaml` file with the following compiler options:
 
 ```yaml
 runtime:
@@ -89,7 +89,7 @@ runtime:
     compiler: jsonnet index.jsonnet
 ```
 
-Then we can provide th `index.jsonnet` file. Here's the same example as above, but in JSONNET.
+Then we can provide the `index.jsonnet` file. Here's the same example as above, but in JSONNET.
 
 ```jsonnet
 {
@@ -169,7 +169,7 @@ pub struct Record {
 }
 ```
 
-Rust has great meta programming capabilities, meaning our types can all be enriched by Serde to handle serialization through simple derive macros.
+Rust has great meta programming capabilities, meaning our types can all be enriched by [Serde](https://serde.rs/) to handle serialization through simple [derive macros](https://serde.rs/derive.html).
 
 Next, we spec out some skeleton Pulumi types too:
 
@@ -195,7 +195,7 @@ pub enum Resource {
 
 We represent all the "available" resources via the `Resource` enum, which has a special annotation to indicate the "type" for Pulumi. We also represent the top level YAML that Pulumi expects as the `Pulumi` type.
 
-Lastly, we implement our `fn main` and create our resources - finishing by printing the YAML to `stdout`.
+Lastly, we implement our `fn main` and create our resources, finishing by printing the YAML to `stdout`.
 
 ```rust
 use serde_yaml;
