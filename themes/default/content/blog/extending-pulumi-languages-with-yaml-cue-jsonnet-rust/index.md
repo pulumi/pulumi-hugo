@@ -11,7 +11,7 @@ date: 2022-06-06T10:56:34-05:00
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
 # Max length is 160 characters.
-meta_desc:
+meta_desc: Learn how to use Pulumi YAML as a bridge for CUE, JSONNET, and Rust. This open interface provides support to many other programming languages for Pulumi.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
