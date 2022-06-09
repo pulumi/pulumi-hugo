@@ -1,7 +1,9 @@
 ---
 title: "Multicloud with Kubernetes and Pulumi"
 date: 2022-06-03T13:40:47-07:00
-meta_desc: "Customizing the multi-cloud developer experience with Kubernetes and Pulumi"
+meta_desc: "Learn how to customize the multi-cloud developer experience with Kubernetes and Pulumi, using TypeScript"
+
+
 meta_image: meta.png
 authors:
     - guinevere-saenger
