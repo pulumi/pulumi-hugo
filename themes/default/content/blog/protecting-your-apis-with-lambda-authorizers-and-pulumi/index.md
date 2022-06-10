@@ -290,4 +290,4 @@ Get going with these resources:
 - [Getting Started]({{< relref "/docs/get-started" >}})
 - [Serverless REST API on AWS](https://github.com/pulumi/examples/tree/master/aws-ts-apigateway)
 
-[Pulumi and Lambda authorizers](https://github.com/pulumi/pulumi-awsx/tree/master/awsx-classic/apigateway#lambda-authorizers).
+To learn more, see [Pulumi and Lambda authorizers](https://github.com/pulumi/pulumi-awsx/tree/master/awsx-classic/apigateway#lambda-authorizers).
