@@ -14,37 +14,38 @@ menu:
 aliases: ["/docs/quickstart/aws/next-steps/"]
 ---
 
-You've seen how to quickly get started using AWS with Pulumi.
+Congrats! You have deployed your first project on AWS with Pulumi. Here are the next steps:
 
-From here, you can dive deeper with additional AWS tutorials:
+## Learn Pulumi
 
-* [Containers on ECS "Fargate"]({{< relref "/registry/packages/aws/how-to-guides/ecs-fargate" >}}): Deploy containers to Amazon
-* [EC2 Linux WebServer VM]({{< relref "/registry/packages/aws/how-to-guides/ec2-webserver" >}}): Create an EC2 Linux Web Server virtual machine
-* [Serverless REST API Gateways using Lambda]({{< relref "/registry/packages/aws/how-to-guides/rest-api" >}}): Create simple RESTful web server using AWS Lambdas
-* [Serve a Static Website from S3]({{< relref "/registry/packages/aws/how-to-guides/s3-website" >}}): Serve a static website out of content in an S3 bucket
-* [Serverless + Containers + Infrastructure]({{< relref "/registry/packages/aws/how-to-guides/video-thumbnailer" >}}): Deploy a complete  application using a combination of buckets, serverless functions and containers.
+You can go through our Learn tutorials to have a comprehensive walkthrough of the key Pulumi concepts taught through the context of a real-life application.
 
-In addition to the tutorials, several interesting examples are available complete with instructions:
+<div class="flex justify-left py-6">
+    <a class="btn btn-lg mx-1 my-1" href="{{< relref "/learn/pulumi-fundamentals/" >}}">Learn Pulumi Fundamentals</a>
+</div>
 
-* [Ruby on Rails in EC2](https://github.com/pulumi/examples/tree/master/aws-ts-ruby-on-rails): Run a Ruby on Rails
-    WebServer using EC2 instances
-* [SQS-Triggered Lambdas](https://github.com/pulumi/examples/tree/master/aws-js-sqs-slack): Post to Slack using a Lambda
-    anytime a SQS message arrives
-* [Static Website in CloudFront and S3](https://github.com/pulumi/examples/tree/master/aws-ts-static-website): Create a
-    static website serving content out of S3, fronted by a CloudFront CDN
-* [Provision an Elastic Kubernetes Service Cluster](https://github.com/pulumi/examples/tree/master/aws-ts-eks): Stand up
-    a managed EKS cluster
+## How-to Guides
 
-## Introducing Pulumi Crosswalk for AWS
+You can go through our How-To Guides if there is a specific application stack or architecture that you want to deploy. These guides come in all the Pulumi languages and cover many common architectures such as [static websites]({{< relref "/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder" >}}), [EC2 virtual machines]({{< relref "/registry/packages/aws/how-to-guides/ec2-webserver" >}}), [EKS clusters]({{< relref "/registry/packages/aws/how-to-guides/aws-ts-eks" >}}), [Fargate containers]({{< relref "/registry/packages/aws/how-to-guides/ecs-fargate" >}}), and [serverless applications]({{< relref "/registry/packages/aws/how-to-guides/rest-api" >}}).
 
-<a href="{{< relref "/docs/guides/crosswalk/aws" >}}">
-    <img src="/images/docs/reference/crosswalk/aws/logo.svg" width="150" align="right" style="margin-left: 16px">
-</a>
+<div class="flex justify-left py-6">
+    <a class="btn btn-lg mx-1 my-1" href="{{< relref "/registry/packages/aws/how-to-guides" >}}">Explore How-to Guides</a>
+</div>
 
-Use Pulumi Crosswalk for AWS to easily use the best of what AWS has to offer, with
-well-architected best practices, for the entire AWS cloud. Go to production
-with containers, Kubernetes, and serverless applications.
+## How Pulumi Works
 
-<a href="{{< relref "/docs/guides/crosswalk/aws" >}}">Get Started with Crosswalk for AWS Now</a>
+You can read through our documentation that explains how Pulumi works from its architecture to key concepts, including [stacks]({{< relref "/docs/intro/concepts/stack" >}}), [state]({{< relref "/docs/intro/concepts/state" >}}), and [secrets]({{< relref "/docs/intro/concepts/secrets" >}}).
+
+<div class="flex justify-left py-6">
+    <a class="btn btn-lg mx-1 my-1" href="{{< relref "/docs/intro/concepts/" >}}">Read Documentation</a>
+</div>
+
+## Blog Posts
+
+You can read through the latest blog posts about AWS that discuss everything from new AWS features and products supported by Pulumi to technical AWS architecture best practices.
+
+<div class="flex justify-left py-6">
+    <a class="btn btn-lg mx-1 my-1" href="{{< relref "/blog/tag/aws" >}}">Read the Pulumi Blog</a>
+</div>
 
 {{< get-started-stepper >}}
