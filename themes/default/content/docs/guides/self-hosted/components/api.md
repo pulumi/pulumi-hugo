@@ -238,3 +238,39 @@ The database migrations container is configurable to enable connections to the d
 | PULUMI_DATABASE_ENDPOINT      | The database server endpoint in the format `host:port`. This should be a MySQL 5.6 server. |
 | PULUMI_DATABASE_PING_ENDPOINT | The database server endpoint to ping for availability before login. |
 | RUN_MIGRATIONS_EXTERNALLY     | Request for migrations to be run against an external database. |
+
+
+## Audit Logs
+
+Audit Logs are persisted in MySQL by default. Alternative backends can be configured to support a higher volume of writes without scaling out MySQL. 
+
+### DynamoDB
+
+To use [AWS DynamoDB](https://aws.amazon.com/dynamodb) to persist Audit Logs, specify the name of the table in the environment variable `PULUMI_AUDIT_LOGS_DYNAMO_TABLE`. The table provided must be configured with following attributes:
+
+```
+  hashKey: "org_id",
+  rangeKey: "timestamp_id",
+  globalSecondaryIndexes: [
+      {
+          hashKey: "org_user_id",
+          projectionType: "ALL",
+          name: "org_user",
+          rangeKey: "timestamp_id",
+      },
+  ],
+  attributes: [
+      {
+          name: "org_id",
+          type: "S",
+      },
+      {
+          name: "org_user_id",
+          type: "S",
+      },
+      {
+          name: "timestamp_id",
+          type: "S",
+      },
+  ],
+```
