@@ -94,6 +94,7 @@ any valid AWS region name. For example, `us-west-2`.
 | ------------- | ----------- |
 | PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `s3://<bucket-name>`. The `s3://` scheme also supports query-params. See the GoCloud docs for an [example](https://gocloud.dev/howto/blob/#s3-compatible) of the query-params. |
 | PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `s3://<bucket-name>`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
+| PULUMI_ENGINE_EVENTS_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting large engine events. We recommend configuring this value to improve performance and reduce the size of the MySQL database. The value takes the format: `s3://<bucket-name>`. Similar to `PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT`, this also supports query-params. |
 
 ### Azure Storage
 
@@ -101,6 +102,7 @@ any valid AWS region name. For example, `us-west-2`.
 | ------------- | ----------- |
 | PULUMI_CHECKPOINT_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting stack state/checkpoint. The value takes the format: `azblob://<blob-container>`. |
 | PULUMI_POLICY_PACK_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting published policy packs. The value takes the format: `azblob://<blob-container>`. |
+| PULUMI_ENGINE_EVENTS_BLOB_STORAGE_ENDPOINT | The storage endpoint for persisting large engine events. We recommend configuring this value to improve performance and reduce the size of the MySQL database. The value takes the format: `azblob://<blob-container>`. |
 | AZURE_STORAGE_ACCOUNT | The name of the Azure storage account where the blob containers for checkpoint and policy pack have been created. See [Cloud Provider Authentication](#azure) for additional configuration options for Azure. |
 | AZURE_STORAGE_KEY | (Optional) The primary or secondary storage key for the storage account. You only need to specify this if you are _not_ using Azure MSI. |
 
