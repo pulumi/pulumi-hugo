@@ -242,7 +242,7 @@ The database migrations container is configurable to enable connections to the d
 
 ## Audit Logs
 
-Audit Logs are persisted in MySQL by default. Alternative backends can be configured to support a higher volume of writes without scaling out MySQL. 
+Audit Logs are persisted in MySQL by default. Alternative backends can be configured to support a higher volume of writes without scaling out MySQL.
 
 ### DynamoDB
 
