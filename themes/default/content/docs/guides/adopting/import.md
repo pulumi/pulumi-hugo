@@ -613,6 +613,7 @@ The bulk import JSON file follows this schema:
 A `Resource` has the following schema:
 
 | Property     | Type            | Required | Description                                                                                                                                                    |
+|--------------|-----------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`       | `string`        | Yes      | The name of the resource.                                                                                                                                      |
 | `type`       | `Type Token`    | Yes      | The type of the corresponding Pulumi resource.                                                                                                                 |
 | `id`         | `string`        | Yes      | The provider determined ID for this resource type.                                                                                                             |
