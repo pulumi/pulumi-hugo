@@ -74,7 +74,7 @@ We released v0.5.1 of Pulumi YAML which included bug fixes, new functions, diagn
 - Add `Fn::FromBase64`
   [#218](https://github.com/pulumi/pulumi-yaml/pull/218)
 
-- Add support for Fn::ReadFile, enabling Pulumi Service [Stack README](https://www.pulumi.com/blog/stack-readme/) support.
+- Add support for Fn::ReadFile, enabling Pulumi Service [Stack README]({{< relref "/blog/stack-readme" >}}) support.
   [#217](https://github.com/pulumi/pulumi-yaml/pull/217)
 
 - Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
