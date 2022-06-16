@@ -38,7 +38,7 @@ Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi
 - Cloud Providers and Packages
   - [New resources in our providers](#new-resources-in-our-providers)
 - Pulumi CLI and core technologies
-  - [Pulumi YAML v0.5.1](#pulumi-yaml-v0.5.1)
+  - [Pulumi YAML v0.5.1](#pulumi-yaml-v051)
   - [Add --stack to `pulumi about`](#add---stack-to-pulumi-about)
   - [Add logout message](#add-logout-message)
   - [Warn about missing AdditionalSecretOutputs](#warn-about-missing-additionalsecretoutputs)
@@ -46,7 +46,7 @@ Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi
   - [Add `CompositeInvoke`](#add-compositeinvoke)
 - Pulumi Service & Pulumi.com
   - [Stack READMEs](#stack-readmes)
-  - [SAML/SCIM improvements](#saml-scim-improvements)
+  - [SAML/SCIM improvements](#samlscim-improvements)
 
 ## Cloud Providers and Packages
 
