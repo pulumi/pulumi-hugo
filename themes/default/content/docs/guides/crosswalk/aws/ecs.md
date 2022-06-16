@@ -233,7 +233,7 @@ cluster = aws.ecs.Cluster("default-cluster")
 
 service = awsx.ecs.FargateService("my-service",
     cluster=cluster.arn,
-    network_configuration=awsx.ecs.ServiceNetworkConfiguration(
+    network_configuration=aws.ecs.ServiceNetworkConfigurationArgs(
         subnets=vpc.private_subnet_ids,
         security_groups=[securityGroup.id]
     ),
@@ -256,7 +256,7 @@ class MyStack : Stack
 {
     public MyStack()
     {
-        var vpc = new Aws.Ecs.Vpc("vpc");
+        var vpc = new Awsx.Ec2.Vpc("vpc");
         var cluster = new Aws.Ecs.Cluster("default-cluster");
 
         var securityGroup = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
@@ -266,7 +266,7 @@ class MyStack : Stack
 
         var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServiceArgs
         {
-            NetworkConfiguration = new Awsx.Ecs.Inputs.ServiceNetworkConfiguration
+            NetworkConfiguration = new Aws.Ecs.Inputs.ServiceNetworkConfigurationArgs
             {
                 Subnets = vpc.PrivateSubnetIds,
                 SecurityGroups =
