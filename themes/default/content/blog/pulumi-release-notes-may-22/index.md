@@ -118,8 +118,12 @@ Learn more in the [add gzip flag to filestate backend GitHub pull request](https
 
 ## Pulumi Service & Pulumi.com
 
-### Docs search improvements
+### Stack READMEs
 
-We updated the search experience of our [Docs]({{< relref "/docs" >}}) to return more intuitive results as well as pinned the search bar on the top panel when users scroll through our Docs. 
+Users can create [Stack READMEs](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-readme) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs).
 
-![A screenshot of the Pulumi Docs  with updated search](search-screenshot.png)
+A Pulumi Service Stack README is dynamically populated with details from your stack outputs. It does this by interpolating output variables on the stack, such as `${outputs.instances[0].ARN}` so that each stack can construct links to dashboards, shell commands, and other pieces of documentation.
+
+### SAML/SCIM improvements
+
+We spent some time in the last month improving the SAML/SCIM experience for our customers. The key improvements made were around deprovisioning and provisioning users and how we handle username updates with special characters.
