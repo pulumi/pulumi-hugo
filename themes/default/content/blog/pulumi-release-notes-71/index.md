@@ -1,16 +1,16 @@
 ---
-title: "Pulumi Release Notes: "
+title: "Pulumi Release Notes: Pulumi YAML v0.5.1, Stack READMEs, and much more!"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-06-08T19:28:39-07:00
+date: 2022-06-016T19:28:39-07:00
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: The latest Pulumi updates also include our providers updates, install Pulumi using winget, stack unselect command, GitHub release private plugins, and more.
+meta_desc: The latest Pulumi updates also include our providers updates, adding --stack to `pulumi about`, warn about missing AdditionalSecretsOutputs, compression of filestate backends, and more.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -31,22 +31,27 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi-universal-iac)! Learn what we have been building the past month, including..
+Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi-universal-iac)! Learn what we have been building in the past month.
 
  <!--more-->
 - Cloud Providers and Packages
-
+  - [New resources in our providers](#new-resources-in-our-providers)
 - Pulumi CLI and core technologies
   - [Pulumi YAML v0.5.1](#pulumi-yaml-v0.5.1)
   - [Add --stack to `pulumi about`](#add---stack-to-pulumi-about)
   - [Add logout message](#add-logout-message)
   - [Warn about missing AdditionalSecretOutputs](#warn-about-missing-additionalsecretoutputs)
-  - [Compression of remote state backends](#compression-of-remote-state-backends)
+  - [Compression of filestate backends](#compression-of-filestate-backends)
+  - [Add `CompositeInvoke`](#add-compositeinvoke)
 - Pulumi Service & Pulumi.com
-
-<!--more-->
+  - [Stack READMEs](#stack-readmes)
+  - [SAML/SCIM improvements](#saml-scim-improvements)
 
 ## Cloud Providers and Packages
+
+### New resources in our providers
+
+We shipped new versions of the AWS Native provider and the Azure Native provider that added support for X new resources in the last month.
 
 ## Pulumi CLI and core technologies
 
@@ -74,7 +79,7 @@ We released v0.5.1 of Pulumi YAML which included bug fixes, new functions, diagn
 - Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
   [#241](https://github.com/pulumi/pulumi-yaml/pull/241)
 
-As always, please feel free to submit feature requests and bug reports to the Pulumi YAML GitHub Repo. We love hearing feedback from users!
+As always, please feel free to submit feature requests and bug reports to the [Pulumi YAML GitHub Repo](https://github.com/pulumi/pulumi-yaml). We love hearing feedback from users!
 
 ### Add --stack to `pulumi about`
 
@@ -115,6 +120,26 @@ Learn more in the [warm about missing AdditionalSecretsOutputs Github issue](htt
 User with self-managed state backends can now enable compression via `PULUMI_SELF_MANAGED_STATE_GZIP=true`. A huge shoutout to community contributor, [@awoimbee](https://github.com/awoimbee), for the initial pull request.
 
 Learn more in the [add gzip flag to filestate backend GitHub pull request](https://github.com/pulumi/pulumi/pull/9610).
+
+### Add `CompositeInvoke`
+
+We have added a `CompositeInvoke` function to the Go SDK that makes it easier to work with invoke bundles.
+
+Previous behavior:
+
+```go
+opts := []pulumi.InvokeOption{pulumi.Parent(parent), pulumi.Provider(provider)}
+pkg.SomeInvoke(nil, append(opts, , pulumi.Version("1.2.3"))...)
+```
+
+Current behavior:
+
+```go
+opts := pulumi.CompositeInvoke(pulumi.Parent(parent), pulumi.Provider(provider))
+pkg.SomeInvoke(nil, opts, pulumi.Version("1.2.3"))
+```
+
+Learn more in [Add CompositeInvoke Github pull request](https://github.com/pulumi/pulumi/pull/9752).
 
 ## Pulumi Service & Pulumi.com
 
