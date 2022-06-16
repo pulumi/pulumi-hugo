@@ -35,39 +35,58 @@ Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi
 
  <!--more-->
 - Cloud Providers and Packages
-  <!-- - [Pulumi AWS Provider v5.0.0](#pulumi-aws-provider-v500)
-  - [Lambda Function URLs](#lambda-function-urls)
-  - [New resources in our providers](#new-resources-in-our-providers) -->
+
 - Pulumi CLI and core technologies
+  - [Pulumi YAML v0.5.1](#pulumi-yaml-v0.5.1)
   - [Add --stack to `pulumi about`](#add---stack-to-pulumi-about)
   - [Add logout message](#add-logout-message)
   - [Warn about missing AdditionalSecretOutputs](#warn-about-missing-additionalsecretoutputs)
-  - [Pulumi stack unselect](#pulumi-stack-unselect)
-  - [GitHub releases private plugins](#github-releases-private-plugins)
-  - [Speed up `pulumi stack --show-name`](#speed-up-pulumi-stack---show-name)
+  - [Compression of remote state backends](#compression-of-remote-state-backends)
 - Pulumi Service & Pulumi.com
-  - [Docs search improvements](#docs-search-improvements)
+
 <!--more-->
 
 ## Cloud Providers and Packages
 
 ## Pulumi CLI and core technologies
 
+### Pulumi YAML v0.5.1
 
+We released v0.5.1 of Pulumi YAML which included bug fixes, new functions, diagnostics and validation. Some specific improvements we made were:
+
+- Update pulumi/pulumi to v3.32.1
+
+- Add errors when hanging invalid fields off of resources.
+  [#203](https://github.com/pulumi/pulumi-yaml/pull/203)
+
+- Add errors when hanging invalid fields off of resource options.
+  [#211](https://github.com/pulumi/pulumi-yaml/pull/211)
+
+- Add a type checker.
+  [#228](https://github.com/pulumi/pulumi-yaml/pull/228)
+
+- Add `Fn::FromBase64`
+  [#218](https://github.com/pulumi/pulumi-yaml/pull/218)
+
+- Add support for Fn::ReadFile, enabling Pulumi Service [Stack README](https://www.pulumi.com/blog/stack-readme/) support.
+  [#217](https://github.com/pulumi/pulumi-yaml/pull/217)
+
+- Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
+  [#241](https://github.com/pulumi/pulumi-yaml/pull/241)
+
+As always, please feel free to submit feature requests and bug reports to the Pulumi YAML GitHub Repo. We love hearing feedback from users!
 
 ### Add --stack to `pulumi about`
 
-You can now use `pulumi about --stack` to get information on your stacks. It defaults to the current stack but you can also specify the stack you want information on. See it in action below:
-
+You can now use `pulumi about --stack` to get information on your stacks. It defaults to the current stack but you can specify the stack you want information on, for example `pulumi about --stack eks/staging`.
 
 Learn more in the [add --stack to pulumi about GitHub pull request](https://github.com/pulumi/pulumi/pull/9518).
 
 ### Add logout message
 
-Based on a great community suggestion, we have added a confirmation message to `pulumi logout` to make the state after the command exits more clear.
+Based on [a great community suggestion](https://github.com/pulumi/pulumi/issues/9450), we have added a confirmation message to `pulumi logout` to add clarity to the state after the command exits.
 
-
-Previous behavior: 
+Previous behavior:
 
 ```
 me@MacBook-Pro ~/r/m/myfolder> pulumi logout
@@ -86,40 +105,16 @@ Learn more in the [added confirmation string to pulumi logout GitHub issue](http
 
 ### Warn about missing AdditionalSecretOutputs
 
-Currently if a user specifies a key in additional secret outputs that does not match any of the resources property keys, we ignore it. This can cause some confusion, especially given the mismatches between snakeCase and camel_case property keys.
+We now emit a warning diagnostic if a given additional secret key doesn't match any of the resources property keys.
+Previously, if a user specified a key in additional secret outputs that does not match any of the resources property keys, it would have been ignored. This can cause some confusion, especially given the mismatches between snakeCase and camel_case property keys.
 
-We now warm about missing A the engine to emit a warning diagnostic if a given additional secret key doesn't match any of the resources property keys.
-Learn more in the [clear pending operations GitHub issue](https://github.com/pulumi/pulumi/issues/4265). 
+Learn more in the [warm about missing AdditionalSecretsOutputs Github issue](https://github.com/pulumi/pulumi/issues/4265).
 
-### List current users organizations
+### Compression of remote state backends
 
-Users can now see a list of their organizations using `pulumi whoami` and `pulumi about` to better inform and improve their CLI experience. Using the command `pulumi whoami –verbose` will now return the list of organizations the user is a member of. 
+User with self-managed state backends can now enable compression via `PULUMI_SELF_MANAGED_STATE_GZIP=true`. A huge shoutout to community contributor, [@awoimbee](https://github.com/awoimbee), for the initial pull request.
 
-Learn more in the [list current orgs GitHub issue](https://github.com/pulumi/pulumi/issues/9181). 
-
-### Install Pulumi using Winget
-
-You can now install Pulumi using the [Winget](https://github.com/microsoft/winget-cli/) package manager. Windows users on Windows 11 and later can now use `winget install pulumi` to install Pulumi and `winget upgrade pulumi` to get the latest version.
-
-Learn more in the [install Winget GitHub issue](https://github.com/pulumi/pulumi/issues/4676) and in the [Pulumi installation instructions](https://www.pulumi.com/docs/get-started/install/).
-
-### Pulumi stack unselect
-
-We have introduced the `pulumi stack unselect` command to remove a stack from the current workspace.  Users select stacks with `pulumi stack select [<stack>] [flags]` and can now easily deselect them if they need to. 
-
-Learn more in the [stack unselect GitHub issue](https://github.com/pulumi/pulumi/issues/9070). 
-
-### GitHub Releases private plugins
-
-We now support downloading a plugin from private Pulumi GitHub releases. We only look at the GITHUB_TOKEN environment variable now and GITHUB_ACTOR and GITHUB_PERSONAL_ACCESS_TOKEN are no longer used. The token is sent via the Authorization header instead of Authentication (see documentation). 
-
-Learn more in the [GitHub Releases private plugins pull request](https://github.com/pulumi/pulumi/pull/9185). 
-
-### Speed up `pulumi stack --show-name`
-
-Now when running `pulumi stack --show-name` we will skip loading the snapshot and instead just provide the stack name and then exit. This results in less latency to see the stack name.
-
-Learn more in the [speed up show stack name GitHub issue](https://github.com/pulumi/pulumi/issues/9182). 
+Learn more in the [add gzip flag to filestate backend GitHub pull request](https://github.com/pulumi/pulumi/pull/9610).
 
 ## Pulumi Service & Pulumi.com
 
