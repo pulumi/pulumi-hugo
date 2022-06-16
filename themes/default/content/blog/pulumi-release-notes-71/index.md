@@ -146,7 +146,7 @@ Learn more in [Add CompositeInvoke Github pull request](https://github.com/pulum
 
 ### Stack READMEs
 
-Users can create [Stack READMEs](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-readme) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs).
+Users can create [Stack READMEs]({{< relref "/docs/intro/pulumi-service/projects-and-stacks#stack-readme" >}}) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs]({{< relref "/learn/building-with-pulumi/stack-outputs" >}}).
 
 A Pulumi Service Stack README is dynamically populated with details from your stack outputs. It does this by interpolating output variables on the stack, such as `${outputs.instances[0].ARN}` so that each stack can construct links to dashboards, shell commands, and other pieces of documentation.
 
