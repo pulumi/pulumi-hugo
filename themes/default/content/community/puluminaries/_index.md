@@ -1,6 +1,6 @@
 ---
 title: Puluminaries
-meta_desc: The Developer Advocate Team at Pulumi is here to help you understand cloud engineering to build, deploy, and manage your whole stack. Use this page to reach us.
+meta_desc: The Puluminaries are members of the community who are experts & leaders in the field of programming & infrastructure & give back to the growing community!
 layout: puluminaries/list
 aliases:
     - /puluminaries/
