@@ -40,6 +40,11 @@
                             {{ end }}
                         </div>
 
+                        {{ if .Params.deploy_with_pulumi }}
+                            {{ partial "deploy-with-pulumi" (dict "repo" .Params.deploy_button.repo "branch" .Params.deploy_button.branch "path" .Params.deploy_button.path) }}
+                        {{ end }}
+
+
                         <section class="py-8">
                             <div class="container mx-auto">
                                 <div class="text-center">
