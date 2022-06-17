@@ -86,7 +86,7 @@ In order to add a README to your Pulumi Stack, you will need to do the following
 
 Export a [Stack output](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs) named `readme` that contains your templated Stack README markdown, commonly by reading a file, i.e. `Pulumi.README.md`.
 
-{{< chooser language "typescript,python,go,csharp,java" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language typescript %}}
 
@@ -182,6 +182,25 @@ public class App {
         });
     }
 }
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+name: stack-readme-yaml
+runtime: yaml
+description: A minimal Pulumi YAML program demonstrating stack readme feature
+variables:
+  readme:
+    Fn::ReadFile: ./Pulumi.README.md
+outputs:
+  strVar: foo
+  arrVar:
+    - fizz
+    - buzz
+  readme: ${readme}
 ```
 
 {{% /choosable %}}
