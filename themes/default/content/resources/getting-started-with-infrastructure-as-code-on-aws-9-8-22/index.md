@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: "Getting Started with Infrastructure as Code on AWS"
-meta_desc: "In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using Pulumi’s Cloud Engineering platform. You will be introduced to Pulumi, an infrastructure as code platform, where you can use familiar programming languages to provision modern cloud infrastructure."
+meta_desc: "In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using the Pulumi Cloud Engineering platform."
 
 # A featured webinar will display first in the list.
 featured: false
