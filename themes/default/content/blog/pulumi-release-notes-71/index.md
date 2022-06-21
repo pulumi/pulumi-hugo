@@ -52,7 +52,7 @@ Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi
 
 ### New resources in our providers
 
-We shipped new versions of the AWS Native provider and the Azure Native provider that added support for X new resources in the last month.
+We shipped new versions of the AWS Native provider, Google Native provider and the Azure Native provider that added support for 412 new resources in the last month. 385 of those resources were Azure Native, 7 AWS Native and 20 were added to Google Native.
 
 ## Pulumi CLI and core technologies
 
