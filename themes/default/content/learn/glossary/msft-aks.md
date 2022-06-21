@@ -10,4 +10,4 @@ layout: glossary/single
 
 ### Use Cases
 
-If you are already embedded in the Microsoft ecosystem, AKS is a strong choice. In addition to the inclusion of Active Directory, you also benefit from a great developer experience through the Kubernetes extension for Visual Code, allowing engineers to debug your application from a development machine as if it were part of the cluster. AKS also includes the control plane for free.
+If you are already embedded in the Microsoft ecosystem, AKS is a strong choice. In addition to the inclusion of Active Directory, you also benefit from a great developer experience through the Kubernetes extension for Visual Studio Code, allowing engineers to debug your application from a development machine as if it were part of the cluster. AKS also includes the control plane for free.
