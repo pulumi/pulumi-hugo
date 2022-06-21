@@ -1,0 +1,13 @@
+﻿id = "kevin-mei"
+name = "Kevin Mei"
+title = "Sales Development Representative"
+company = "Pulumi"
+weight = 1
+
+
+status = "active"
+
+
+[social]
+github = "Kevjinx"
+linkedin = "kevinjmei"
