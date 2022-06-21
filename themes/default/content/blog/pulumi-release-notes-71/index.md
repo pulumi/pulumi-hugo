@@ -74,7 +74,7 @@ We released v0.5.1 of Pulumi YAML which included bug fixes, new functions, diagn
 - Add `Fn::FromBase64`
   [#218](https://github.com/pulumi/pulumi-yaml/pull/218)
 
-- Add support for Fn::ReadFile, enabling Pulumi Service [Stack README](https://www.pulumi.com/blog/stack-readme/) support.
+- Add support for Fn::ReadFile, enabling Pulumi Service [Stack README]({{< relref "/blog/stack-readme" >}}) support.
   [#217](https://github.com/pulumi/pulumi-yaml/pull/217)
 
 - Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
@@ -146,7 +146,7 @@ Learn more in [Add CompositeInvoke Github pull request](https://github.com/pulum
 
 ### Stack READMEs
 
-Users can create [Stack READMEs](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-readme) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs](https://www.pulumi.com/learn/building-with-pulumi/stack-outputs).
+Users can create [Stack READMEs]({{< relref "/docs/intro/pulumi-service/projects-and-stacks#stack-readme" >}}) in the [Pulumi Service](https://app.pulumi.com) that dynamically update based on [Stack Outputs]({{< relref "/learn/building-with-pulumi/stack-outputs" >}}).
 
 A Pulumi Service Stack README is dynamically populated with details from your stack outputs. It does this by interpolating output variables on the stack, such as `${outputs.instances[0].ARN}` so that each stack can construct links to dashboards, shell commands, and other pieces of documentation.
 
