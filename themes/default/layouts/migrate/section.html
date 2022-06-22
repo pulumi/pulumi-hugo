@@ -3,12 +3,12 @@
 {{ end }}
 
 {{ define "main" }}
-    <div class="container mx-auto text-center my-12">
-        <h5 class="mx-auto max-w-3xl mb-0 px-4">
+    <div class="container mx-auto text-center my-12 px-4 text-xl text-gray-900">
+        <div class="max-w-2xl mx-auto">
             {{ .Content }}
-        </h5>
+        </div>
     </div>
-    <div class="container mx-auto max-w-2xl px-4 md:px-8">
+    <div class="container mx-auto max-w-2xl px-4 md:px-8 mb-24">
         <ul class="list-none p-0 text-lg md:text-xl">
             <li class="my-8">
                 <p>
@@ -33,5 +33,5 @@
         </ul>
     </div>
 
-    {{ partial "learnmore-contactus.html" . }}
+    {{ partial "hand-raise-section" . }}
 {{ end }}
