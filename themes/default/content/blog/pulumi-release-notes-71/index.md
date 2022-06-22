@@ -109,13 +109,6 @@ me@MacBook-Pro ~/r/m/myfolder>
 
 Learn more in the [added confirmation string to pulumi logout GitHub issue](https://github.com/pulumi/pulumi/pull/9641).
 
-### Warn about missing AdditionalSecretOutputs
-
-We now emit a warning diagnostic if a given additional secret key doesn't match any of the resources property keys.
-Previously, if a user specified a key in additional secret outputs that does not match any of the resources property keys, it would have been ignored. This can cause some confusion, especially given the mismatches between snakeCase and camel_case property keys.
-
-Learn more in the [warm about missing AdditionalSecretsOutputs Github issue](https://github.com/pulumi/pulumi/issues/4265).
-
 ### Compression of remote state backends
 
 User with self-managed state backends can now enable compression via `PULUMI_SELF_MANAGED_STATE_GZIP=true`. A huge shoutout to community contributor, [@awoimbee](https://github.com/awoimbee), for the initial pull request.
