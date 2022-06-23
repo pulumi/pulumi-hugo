@@ -83,5 +83,5 @@ resources:
 Only top-level resource properties can be designated secret. If sensitive data is nested inside of a property, you must mark the entire top-level output property as secret.
 
 {{% notes "warning" %}}
-The `additionalSecretOutputs` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
+The `additionalSecretOutputs` resource option does not apply to component resources, and will not have the intended effect.
 {{% /notes %}}

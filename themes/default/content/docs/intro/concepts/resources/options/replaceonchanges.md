@@ -124,5 +124,5 @@ If there are initialization errors on a resource (because the resource was creat
 The `replaceOnChanges` resource option can be combined with the [`deleteBeforeReplace`]({{< relref "deletebeforereplace" >}}) resource option to trigger a resource to be deleted before it is replaced whenever a given input has changes.
 
 {{% notes "warning" %}}
-The `replaceOnChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
+The `replaceOnChanges` resource option does not apply to component resources, and will not have the intended effect.
 {{% /notes %}}

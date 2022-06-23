@@ -84,5 +84,5 @@ resources:
 {{< /chooser >}}
 
 {{% notes "warning" %}}
-The `retainOnDelete` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
+The `retainOnDelete` resource option does not apply to component resources, and will not have the intended effect.
 {{% /notes %}}

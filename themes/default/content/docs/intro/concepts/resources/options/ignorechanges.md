@@ -139,5 +139,5 @@ For example, a property named `NestedResource` would turn into `nestedResource`.
 - `["root key with a ."][100]`
 
 {{% notes "warning" %}}
-The `ignoreChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
+The `ignoreChanges` resource option does not apply to component resources, and will not have the intended effect.
 {{% /notes %}}
