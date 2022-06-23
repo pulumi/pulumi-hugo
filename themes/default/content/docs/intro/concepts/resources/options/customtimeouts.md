@@ -87,6 +87,6 @@ resources:
 
 {{< /chooser >}}
 
-{{% notes "warning" %}}
+{{% notes type="warning" %}}
 The `customTimeouts` resource option does not apply to component resources, and will not have the intended effect.
 {{% /notes %}}
