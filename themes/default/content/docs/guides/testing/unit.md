@@ -683,7 +683,7 @@ That's it&mdash;now let's run the tests.
 The command line to run your Mocha tests would therefore be:
 
 ```bash
-$ PULUMI_TEST_MODE=true mocha -r ts-node/register ec2tests.ts
+$ mocha -r ts-node/register ec2tests.ts
 ```
 
 {{% /choosable %}}
@@ -691,7 +691,7 @@ $ PULUMI_TEST_MODE=true mocha -r ts-node/register ec2tests.ts
 Run the following command to execute your Python tests:
 
 ```bash
-$ PULUMI_TEST_MODE=true python -m unittest
+$ python -m unittest
 ```
 
 {{% /choosable %}}
@@ -699,7 +699,7 @@ $ PULUMI_TEST_MODE=true python -m unittest
 Run the following command to execute your Go tests:
 
 ```bash
-$ PULUMI_TEST_MODE=true go test
+$ go test
 ```
 
 {{% /choosable %}}
@@ -707,7 +707,7 @@ $ PULUMI_TEST_MODE=true go test
 Run the following command to execute your Python tests:
 
 ```bash
-$ PULUMI_TEST_MODE=true dotnet test
+$ dotnet test
 ```
 
 {{% /choosable %}}
