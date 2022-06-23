@@ -111,7 +111,7 @@ Learn more in the [added confirmation string to pulumi logout GitHub issue](http
 
 ### Compression of remote state backends
 
-User with self-managed state backends can now enable compression via `PULUMI_SELF_MANAGED_STATE_GZIP=true`. A huge shoutout to community contributor, [@awoimbee](https://github.com/awoimbee), for the initial pull request.
+Users of the self-managed state backends can now enable compression via `PULUMI_SELF_MANAGED_STATE_GZIP=true`. A huge shoutout to community contributor [@awoimbee](https://github.com/awoimbee) for the pull request.
 
 Learn more in the [add gzip flag to filestate backend GitHub pull request](https://github.com/pulumi/pulumi/pull/9610).
 
