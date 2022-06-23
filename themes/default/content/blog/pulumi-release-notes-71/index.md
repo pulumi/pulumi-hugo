@@ -11,7 +11,7 @@ date: 2022-06-16T16:28:39-07:00
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: The latest Pulumi updates also include our providers updates, warn about missing AdditionalSecretsOutputs, compression of filestate backends, and more.
+meta_desc: The latest Pulumi updates also include our providers updates, compression of filestate backends, and more.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
