@@ -9,7 +9,7 @@ menu:
 ---
 
 {{% notes "warning" %}}
-The `retainOnDelete` resource options has no effect on component resources. If applied to a component resource, it will be ignored. 
+The `retainOnDelete` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
 {{% /notes %}}
 
 The `retainOnDelete` resource option marks a resource to be retained. If this option is set then Pulumi will not call through to the resource provider's `Delete` method when deleting or replacing the resource during `pulumi up` or `pulumi destroy`. As a result, the resource will not be deleted from the backing cloud provider, but will be removed from the Pulumi state.

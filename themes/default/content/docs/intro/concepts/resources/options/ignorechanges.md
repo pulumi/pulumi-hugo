@@ -9,7 +9,7 @@ menu:
 ---
 
 {{% notes "warning" %}}
-The `ignoreChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored. 
+The `ignoreChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
 {{% /notes %}}
 
 The `ignoreChanges` resource option specifies a list of properties that Pulumi will ignore when it updates existing resources. Any properties specified in this list that are also specified in the resource’s arguments will only be used when creating the resource.

@@ -9,7 +9,7 @@ menu:
 ---
 
 {{% notes "warning" %}}
-The `additionalSecretOutputs` resource options has no effect on component resources. If applied to a component resource, it will be ignored. 
+The `additionalSecretOutputs` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
 {{% /notes %}}
 
 The `additionalSecretOutputs` resource option specifies a list of named output properties that should be treated as [secrets]({{< relref "/docs/intro/concepts/secrets" >}}), which means they will be encrypted. It augments the list of values that Pulumi detects, based on secret inputs to the resource.

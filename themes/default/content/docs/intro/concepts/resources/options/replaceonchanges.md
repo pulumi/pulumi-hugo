@@ -9,7 +9,7 @@ menu:
 ---
 
 {{% notes "warning" %}}
-The `replaceOnChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored. 
+The `replaceOnChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
 {{% /notes %}}
 
 The `replaceOnChanges` resource option can be used to indicate that changes to certain properties on a resource should force a replacement of the resource instead of an in-place update.  Typically users rely on the resource provider to make this decision based on whether the input property is one that the provider knows how to update in place, or if not, requires a replacement to modify.  However, there are cases where users want to replace a resource on a change to an input property even if the resource provider itself doesn't believe it has to replace the resource.
