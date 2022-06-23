@@ -8,6 +8,10 @@ menu:
     weight: 12
 ---
 
+{{% notes "warning" %}}
+The `replaceOnChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored. 
+{{% /notes %}}
+
 The `replaceOnChanges` resource option can be used to indicate that changes to certain properties on a resource should force a replacement of the resource instead of an in-place update.  Typically users rely on the resource provider to make this decision based on whether the input property is one that the provider knows how to update in place, or if not, requires a replacement to modify.  However, there are cases where users want to replace a resource on a change to an input property even if the resource provider itself doesn't believe it has to replace the resource.
 
 For example, with Kubernetes `CustomResource` resources, the Kubernetes resource model doesn't know whether or not a specific input property on a specific kind of `CustomResource` requires a replacement, and so assumes that *any* change can be made without replacement.  However, in practice, many specific kinds of `CustomResource` in the Kubernetes ecosystem *do* require replacement when certain input properties are changed.  The Kubernetes provider itself can't know this, but users can use `replaceOnChanges` to ensure that these changes can be made correctly via Pulumi.
