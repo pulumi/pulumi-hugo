@@ -8,10 +8,6 @@ menu:
     weight: 6
 ---
 
-{{% notes "warning" %}}
-The `ignoreChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
-{{% /notes %}}
-
 The `ignoreChanges` resource option specifies a list of properties that Pulumi will ignore when it updates existing resources. Any properties specified in this list that are also specified in the resource’s arguments will only be used when creating the resource.
 
 For instance, in this example, the resource’s prop property "new-value" will be set when Pulumi initially creates the resource, but from then on, any updates will ignore it:
@@ -141,3 +137,7 @@ For example, a property named `NestedResource` would turn into `nestedResource`.
 - `root["key with a ."]`
 - `["root key with \"escaped\" quotes"].nested`
 - `["root key with a ."][100]`
+
+{{% notes "warning" %}}
+The `ignoreChanges` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
+{{% /notes %}}

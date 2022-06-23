@@ -8,10 +8,6 @@ menu:
     weight: 1
 ---
 
-{{% notes "warning" %}}
-The `additionalSecretOutputs` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
-{{% /notes %}}
-
 The `additionalSecretOutputs` resource option specifies a list of named output properties that should be treated as [secrets]({{< relref "/docs/intro/concepts/secrets" >}}), which means they will be encrypted. It augments the list of values that Pulumi detects, based on secret inputs to the resource.
 
 This example ensures that the password generated for a database resource is an encrypted secret:
@@ -85,3 +81,7 @@ resources:
 {{< /chooser >}}
 
 Only top-level resource properties can be designated secret. If sensitive data is nested inside of a property, you must mark the entire top-level output property as secret.
+
+{{% notes "warning" %}}
+The `additionalSecretOutputs` resource options has no effect on component resources. If applied to a component resource, it will be ignored.
+{{% /notes %}}
