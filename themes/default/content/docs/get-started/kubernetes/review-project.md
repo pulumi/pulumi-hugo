@@ -173,63 +173,61 @@ func main() {
 
 ```csharp
 using Pulumi;
-using Pulumi.Kubernetes.Apps.V1;
 using Pulumi.Kubernetes.Types.Inputs.Core.V1;
 using Pulumi.Kubernetes.Types.Inputs.Apps.V1;
 using Pulumi.Kubernetes.Types.Inputs.Meta.V1;
+using System.Collections.Generic;
 
-class MyStack : Stack
+await Deployment.RunAsync(() =>
 {
-    public MyStack()
-    {
-        var appLabels = new InputMap<string>
-        {
-            { "app", "nginx" }
-        };
+    var appLabels = new InputMap<string> 
+    { 
+        { "app", "nginx" }
+    };
 
-        var deployment = new Pulumi.Kubernetes.Apps.V1.Deployment("nginx", new DeploymentArgs
-        {
-            Spec = new DeploymentSpecArgs
+    var deployment = new Pulumi.Kubernetes.Apps.V1.Deployment("nginx", new DeploymentArgs
+    {
+        Spec = new DeploymentSpecArgs
+        { 
+            Selector = new LabelSelectorArgs
             {
-                Selector = new LabelSelectorArgs
-                {
-                    MatchLabels = appLabels
+                MatchLabels = appLabels
+            },
+            Replicas = 1,
+            Template = new PodTemplateSpecArgs
+            { 
+                Metadata = new ObjectMetaArgs 
+                { 
+                    Labels = appLabels
                 },
-                Replicas = 1,
-                Template = new PodTemplateSpecArgs
+                Spec = new PodSpecArgs
                 {
-                    Metadata = new ObjectMetaArgs
+                    Containers =
                     {
-                        Labels = appLabels
-                    },
-                    Spec = new PodSpecArgs
-                    {
-                        Containers =
+                        new ContainerArgs
                         {
-                            new ContainerArgs
+                            Name = "nginx",
+                            Image = "nginx",
+                            Ports =
                             {
-                                Name = "nginx",
-                                Image = "nginx",
-                                Ports =
+                                new ContainerPortArgs
                                 {
-                                    new ContainerPortArgs
-                                    {
-                                        ContainerPortValue = 80
-                                    }
+                                    ContainerPortValue = 80
                                 }
                             }
                         }
                     }
-                }
+                }       
             }
-        });
+        }
+    });
 
-        this.Name = deployment.Metadata.Apply(m => m.Name);
-    }
-
-    [Output]
-    public Output<string> Name { get; set; }
-}
+    // export the deployment name
+    return new Dictionary<string, object?>
+    { 
+        ["name"] =  deployment.Metadata.Apply(m => m.Name)
+    };
+});
 ```
 
 {{% /choosable %}}

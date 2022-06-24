@@ -98,7 +98,7 @@ $ gsutil ls $(pulumi stack output bucketName)
 {{% choosable language csharp %}}
 
 ```bash
-$ gsutil ls $(pulumi stack output BucketName)
+$ gsutil ls $(pulumi stack output bucketName)
 ```
 
 {{% /choosable %}}
@@ -317,7 +317,7 @@ Now that `index.html` is in your bucket, modify the program file to have the buc
 First, set the `website` property on your bucket. And, to align with Google Cloud Storage recommendations, set uniform bucket-level access on the bucket to `true`.
 
 ```csharp
-// Add this import
+// Add this using statement
 using Pulumi.Gcp.Storage.Inputs;
 ```
 
@@ -350,19 +350,18 @@ var bucketObject = new BucketObject("index.html", new BucketObjectArgs
 {
     Bucket = bucket.Name,
     ContentType = "text/html",
-    Source = new FileAsset("index.html")
+    Source = new FileAsset("./index.html")
 });
 ```
 
 Finally, at the end of the program file, export the resulting bucket’s endpoint URL so you can easily access it:
 
 ```csharp
-this.BucketEndpoint = Output.Format($"http://storage.googleapis.com/{bucket.Name}/{bucketObject.Name}");
-```
-
-```csharp
-[Output]
-public Output<string> BucketEndpoint { get; set; }
+return new Dictionary<string, object?>
+{
+    ["bucketName"] = bucket.Url,
+    ["bucketEndpoint"] = Output.Format($"http://storage.googleapis.com/{bucket.Name}/{bucketObject.Name}")
+};
 ```
 
 {{% /choosable %}}
@@ -601,7 +600,7 @@ $ curl $(pulumi stack output bucketEndpoint)
 {{% choosable language csharp %}}
 
 ```bash
-$ curl $(pulumi stack output BucketEndpoint)
+$ curl $(pulumi stack output bucketEndpoint)
 ```
 
 {{% /choosable %}}
