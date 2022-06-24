@@ -1,0 +1,9 @@
+id = "harry-liuson"
+name = "Harry Liuson"
+title = "Software Engineer Intern"
+weight = 1
+
+status = "active"
+
+[social]
+github = "harribo11"
