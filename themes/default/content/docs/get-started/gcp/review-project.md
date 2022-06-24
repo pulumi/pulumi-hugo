@@ -134,7 +134,7 @@ await Deployment.RunAsync(() =>
     {
         Location = "US"
     });
-    
+
     // Export the DNS name of the bucket
     return new Dictionary<string, object?>
     {

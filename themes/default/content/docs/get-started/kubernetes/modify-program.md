@@ -344,7 +344,7 @@ await Pulumi.Deployment.RunAsync(() =>
         });
 
     return new Dictionary<string, object?>
-    { 
+    {
         ["ip"] = ip
     };
 });
