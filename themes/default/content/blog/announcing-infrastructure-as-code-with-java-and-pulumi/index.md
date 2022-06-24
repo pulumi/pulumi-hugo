@@ -46,7 +46,7 @@ Pulumi's free open source SDK, which includes a CLI and an assortment of librari
 
 ## Example: Provision a GKE cluster with a Kubernetes namespace
 
-The following Java snippet demonstrates the power of Pulumi for Java ([full source code](https://github.com/pulumi/examples/tree/master/gcp-java-gke-hello-world)). The program defines a Google Kubernetes Engine cluster, calculates its `kubeconfig` and exports it for user's needs, and deploys a Kubernetes namespace into the newly provisioned cluster.
+The following Java snippet demonstrates the power of Pulumi for Java ([full source code](https://github.com/pulumi/examples/tree/master/gcp-java-gke-hello-world/)). The program defines a Google Kubernetes Engine cluster, calculates its `kubeconfig` and exports it for user's needs, and deploys a Kubernetes namespace into the newly provisioned cluster.
 
 ```java
 package gke_sample;
