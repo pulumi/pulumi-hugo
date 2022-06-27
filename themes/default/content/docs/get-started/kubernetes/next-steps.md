@@ -19,22 +19,22 @@ Congrats! You've deployed your first project to Kubernetes with Pulumi. Here are
 
 Dive into Learn Pulumi for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 
-{{< get-started-next-step path="/learn/pulumi-fundamentals" label="Learn Pulumi Fundamentals" >}}
+{{< get-started-next-step path="/learn/pulumi-fundamentals" label="Learn Pulumi Fundamentals" ref="gs-k8s-learn" >}}
 
 ## How-to Guides
 
 Explore our how-to guides if you're looking for examples of specific architectures or application stacks. These guides are available in all Pulumi languages and cover creating managed Kubernetes clusters across major cloud providere ([AWS]({{< relref "/registry/packages/kubernetes/how-to-guides/eks" >}}), [Azure]({{< relref "/registry/packages/kubernetes/how-to-guides/aks" >}}), [Google Cloud]({{< relref "/registry/packages/kubernetes/how-to-guides/gke" >}})) and deploying app workloads to running Kubernetes clusters ([WordPress Helm Chart]({{< relref "/registry/packages/kubernetes/how-to-guides/wordpress-chart" >}}), [Stateless App Deployment]({{< relref "/registry/packages/kubernetes/how-to-guides/stateless-app" >}})).
 
-{{< get-started-next-step path="/registry/packages/kubernetes/how-to-guides" label="Explore How-to Guides" >}}
+{{< get-started-next-step path="/registry/packages/kubernetes/how-to-guides" label="Explore How-to Guides" ref="gs-k8s-guides" >}}
 
 ## How Pulumi Works
 
 Learn how Pulumi works from its architecture to key concepts, including [stacks]({{< relref "/docs/intro/concepts/stack" >}}), [state]({{< relref "/docs/intro/concepts/state" >}}), [configuration]({{< relref "/docs/intro/concepts/config" >}}), and [secrets]({{< relref "/docs/intro/concepts/secrets" >}}).
 
-{{< get-started-next-step path="/docs/intro/concepts" label="Read Documentation" >}}
+{{< get-started-next-step path="/docs/intro/concepts" label="Read Documentation" ref="gs-k8s-docs" >}}
 
 ## Blog Posts
 
 Read through the latest blog posts about using Pulumi with Kubernetes.
 
-{{< get-started-next-step path="/blog/tag/kubernetes" label="Read the Pulumi Blog" >}}
+{{< get-started-next-step path="/blog/tag/kubernetes" label="Read the Pulumi Blog" ref="gs-k8s-blog" >}}
