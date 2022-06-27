@@ -250,7 +250,7 @@ pulumi.runtime.setMocks({
 },
   "project",
   "stack",
-  false, // Sets the flag `dryRun`, which is true at runtime during a preview.
+  false, // Sets the flag `dryRun`, which indicates if pulumi is running in preview mode.
 );
 ```
 
