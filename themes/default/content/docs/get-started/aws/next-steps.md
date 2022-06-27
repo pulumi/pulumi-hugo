@@ -38,6 +38,4 @@ Learn how Pulumi works from its architecture to key concepts, including [stacks]
 
 Read through the latest blog posts about using Pulumi with AWS, including everything from new AWS features and products supported by Pulumi to technical architectures and best practices.
 
-{{< relref "/blog/tag/aws" >}}
-
 {{< get-started-next-step path="/blog/tag/aws" label="Read the Pulumi Blog" ref="gs-aws-blog" >}}
