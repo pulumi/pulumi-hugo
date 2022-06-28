@@ -1,7 +1,7 @@
 ---
 title: Pulumi YAML Reference
 linktitle: Pulumi YAML
-meta_desc: Specification for Pulumi YAML documents
+meta_desc: Specification for the Pulumi YAML format and built-in functions
 menu:
   reference:
     name: Pulumi YAML
@@ -83,6 +83,7 @@ The value of `outputs` is an object whose keys are the logical names of the outp
 ### Expressions
 
 Expressions can be used in several contexts:
+
 * the properties of `properties` of `resources`
 * the properties of `options` of `resources` that take references to other resources: `parent`, `dependsOn`, `provider`, and `providers`
 * the values of `variables` and `outputs`
@@ -182,7 +183,7 @@ Converts a UTF-8 string into a Base64 encoded string using the [standard encodin
 
 ```yaml
 variables:
-  greeting: 
+  greeting:
     Fn::ToBase64: "Hello, world!"
 ```
 
@@ -245,7 +246,6 @@ The expression `${banana}` will have the value `"BaNaNa"`.
 
 Selects one of several options given an index. Arguments are passed as a list, with the first item being the index, 0-based, and the second item a list of expressions to select from.
 
-
 ```yaml
 variables:
     policyVersion:
@@ -262,7 +262,6 @@ The expression `${policyVersion}` will have the value `v1.1`.
 
 [Assets and Archives](https://www.pulumi.com/docs/intro/concepts/assets-archives/) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
 
-
 | Built-In      | Argument Type | Description |
 | ------------- |---|------|
 | `Fn::FileAsset` | string | The contents of the asset are read from a file on disk. |
@@ -271,7 +270,6 @@ The expression `${policyVersion}` will have the value `v1.1`.
 | `Fn::FileArchive` | string | The contents of the archive are read from either a folder on disk or a file on disk in one of the supported formats: .tar, .tgz, .tar.gz, .zip or .jar. |
 | `Fn::RemoteArchive` | string | The contents of the asset are read from an http, https or file URI, which must produce an archive of one of the same supported types as FileArchive. |
 | `Fn::AssetArchive` | map | The contents of the archive are read from a map of either Asset or Archive objects, one file or folder respectively per entry in the map.
-
 
 ```yaml
 variables:
@@ -334,19 +332,19 @@ variables:
 Any subpath of the Pulumi project directory is allowed, whether it is absolute, relative, constant,
 or an expression:
 
- * `Fn::ReadFile: ./README.md`, a relative subpath
- * `Fn::ReadFile: ${pulumi.cwd}/example.txt`, an absolute subpath
- * `Fn::ReadFile: /opt/project-dir/example.json`, an absolute subpath if the program is in /opt/project-dir
+* `Fn::ReadFile: ./README.md`, a relative subpath
+* `Fn::ReadFile: ${pulumi.cwd}/example.txt`, an absolute subpath
+* `Fn::ReadFile: /opt/project-dir/example.json`, an absolute subpath if the program is in /opt/project-dir
 
 Absolute paths to any location are allowed if they are constants:
 
- * `Fn::ReadFile: /etc/lsb-release`
- * `Fn::ReadFile: /usr/share/nginx/html`
- * `Fn::ReadFile: /var/run/secrets/kubernetes.io/serviceaccount/token`
+* `Fn::ReadFile: /etc/lsb-release`
+* `Fn::ReadFile: /usr/share/nginx/html`
+* `Fn::ReadFile: /var/run/secrets/kubernetes.io/serviceaccount/token`
 
 Relative paths that escape the project directory and absolute paths that are non-constant are
 forbidden to prevent path traversals.
 
- * `Fn::ReadFile: ../../etc/shadow`, a relative path that escapes the project
- * `Fn::ReadFile: ${pulumi.cwd}/../../.ssh/id_rsa.pub`, an expression that returns an absolute path
+* `Fn::ReadFile: ../../etc/shadow`, a relative path that escapes the project
+* `Fn::ReadFile: ${pulumi.cwd}/../../.ssh/id_rsa.pub`, an expression that returns an absolute path
    that escapes the project
