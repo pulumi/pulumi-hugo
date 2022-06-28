@@ -431,7 +431,6 @@ variables:
 
 {{% /choosable %}}
 
-
 Next up, you will start declaring the AWS infrastructure building blocks needed to run your WordPress server.
 
 ## Provisioning the AWS Network
@@ -669,7 +668,7 @@ var prodIgw = new Aws.Ec2.InternetGateway("prod-igw", new Aws.Ec2.InternetGatewa
 var prodPublicCrt = new Aws.Ec2.RouteTable("prod-public-crt", new Aws.Ec2.RouteTableArgs
 {
     VpcId = prodVpc.Id,
-    Routes = 
+    Routes =
     {
         new Aws.Ec2.Inputs.RouteTableRouteArgs
         {
@@ -986,7 +985,7 @@ var ec2AllowRule = new Aws.Ec2.SecurityGroup("ec2-allow-rule", new Aws.Ec2.Secur
             FromPort = 443,
             ToPort = 443,
             Protocol = "tcp",
-            CidrBlocks = 
+            CidrBlocks =
             {
                 "0.0.0.0/0",
             },
@@ -997,7 +996,7 @@ var ec2AllowRule = new Aws.Ec2.SecurityGroup("ec2-allow-rule", new Aws.Ec2.Secur
             FromPort = 80,
             ToPort = 80,
             Protocol = "tcp",
-            CidrBlocks = 
+            CidrBlocks =
             {
                 "0.0.0.0/0",
             },
@@ -1008,7 +1007,7 @@ var ec2AllowRule = new Aws.Ec2.SecurityGroup("ec2-allow-rule", new Aws.Ec2.Secur
             FromPort = 22,
             ToPort = 22,
             Protocol = "tcp",
-            CidrBlocks = 
+            CidrBlocks =
             {
                 "0.0.0.0/0",
             },
@@ -1021,7 +1020,7 @@ var ec2AllowRule = new Aws.Ec2.SecurityGroup("ec2-allow-rule", new Aws.Ec2.Secur
             FromPort = 0,
             ToPort = 0,
             Protocol = "-1",
-            CidrBlocks = 
+            CidrBlocks =
             {
                 "0.0.0.0/0",
             },
@@ -1045,7 +1044,7 @@ var rdsAllowRule = new Aws.Ec2.SecurityGroup("rds-allow-rule", new Aws.Ec2.Secur
             FromPort = 3306,
             ToPort = 3306,
             Protocol = "tcp",
-            SecurityGroups = 
+            SecurityGroups =
             {
                 ec2AllowRule.Id,
             },
@@ -1059,7 +1058,7 @@ var rdsAllowRule = new Aws.Ec2.SecurityGroup("rds-allow-rule", new Aws.Ec2.Secur
             FromPort = 0,
             ToPort = 0,
             Protocol = "-1",
-            CidrBlocks = 
+            CidrBlocks =
             {
                 "0.0.0.0/0",
             },
@@ -2048,6 +2047,7 @@ And there you go, cattle and pets, provisioning and configuration infrastructure
 In this article, you saw that provisioning and configuration don't need to be an either-or. Indeed, they can be used together quite naturally. This is helpful for many configuration scenarios because infrastructure needs to be created before it can be configured, which is exactly what provisioning does. This can also be a great way to bridge between heritage workloads running on-prem or in hybrid VM environments, as you incrementally modernize your cloud architecture. Patching isn't generally needed with containers because you just build and publish a new version, and roll out upgrades to it, and there's a lot to like about that. But there's no doubt, stateful servers are a reality that will be with us for the foreseeable future, and hopefully this article has given you some ideas how to incrementally modernize one step at a time.
 
 > The full code for this post is available on GitHub in all languages:
+>
 > * [YAML](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/)
 > * [Python](https://github.com/pulumi/examples/blob/master/aws-py-ansible-wordpress/)
 > * [TypeScript]((https://github.com/pulumi/examples/blob/master/aws-ts-ansible-wordpress/))
