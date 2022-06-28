@@ -1,93 +1,103 @@
-{{ define "hero" }}
-    {{ partial "hero.html" (dict "title" "Community") }}
-{{ end }}
-
+{{ define "hero" }}{{ partial "hero.html" (dict "title" "Community") }}{{ end }}
 {{ define "main" }}
     <section class="max-w-4xl container mx-auto py-8 px-4 text-center text-lg">
         <p>
-            No matter how you like to participate in developer communities, Pulumi wants to meet you there. If you want to meet other Pulumi users to share use-cases and best practices, contribute code or documentation, see us at an event, or just tell a story about something cool you did with Pulumi, you're part of our community!
+            No matter how you like to participate in developer communities, Pulumi wants to meet you there. If you want to meet other Pulumi users to share use-cases and best
+            practices, contribute code or documentation, see us at an event, or just tell a story about something cool you did with Pulumi, you're part of our community!
         </p>
     </section>
 
     <section id="communities" class="w-full relative overflow-visible">
-            <ul class="flex flex-wrap list-none">
-                <li class="w-1/2">
-                    <div>
-                        <div class="w-full p-4 my-2">
-                            <div class="card text-center py-16 px-8 relative bg-white">
-                                <h4>Meet the Community</h4>
-                                <p class="mt-6 mb-16">Want to talk to other Pulumi users and staff for help or ideas? Find us on Slack and GitHub Discussions, and join our monthly community meetup for the Pulumiverse. </p>
-                                <div class="w-full flex flex-wrap justify-center items-center">
-                                    <div class="w-1/3">
-                                        <a href="https://slack.pulumi.com/" class="btn-primary">Slack</a>
-                                    </div>
-                                    <div class="w-1/3">
-                                            <a href="" class="btn-primary">GitHub</a>
-                                    </div>
-                                    <div class="w-1/3">
-                                            <a href="https://github.com/pulumiverse" class="btn-primary">Pulumiverse</a>
-                                    </div>
+        <ul class="flex flex-wrap list-none">
+            <li class="w-1/2">
+                <div>
+                    <div class="w-full p-4 my-2">
+                        <div class="card text-center py-16 px-8 relative bg-white">
+                            <h4>Meet the Community</h4>
+                            <p class="mt-6 mb-16">
+                                Want to talk to other Pulumi users and staff for help or ideas? Find us on Slack and GitHub Discussions, and join our monthly community meetup for
+                                the Pulumiverse.
+                            </p>
+                            <div class="w-full flex flex-wrap justify-center items-center">
+                                <div class="w-1/3">
+                                    <a href="https://slack.pulumi.com/" class="btn-primary">Slack</a>
+                                </div>
+                                <div class="w-1/3">
+                                    <a href="" class="btn-primary">GitHub</a>
+                                </div>
+                                <div class="w-1/3">
+                                    <a href="https://github.com/pulumiverse" class="btn-primary">Pulumiverse</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="w-1/2">
-                    <div>
-                        <div class="w-full p-4 my-2">
-                            <div class="card text-center py-16 px-8 relative bg-white">
-                                <h4>Contributing</h4>
-                                <p class="mt-6 mb-16">Built a cool provider? Want to add support for your favorite language? Got a component you want to share? Find us on GitHub. If you're not sure where to start, check out our contributor education series on YouTube!</p>
-                                <div class="w-full flex flex-wrap justify-center items-center">
-                                    <div class="w-1/3">
-                                            <a href="" class="btn-primary">GitHub</a>
-                                    </div>
-                                    <div class="w-1/3">
-                                            <a href="https://www.youtube.com/c/PulumiTV" class="btn-primary">YouTube</a>
-                                    </div>
+                </div>
+            </li>
+            <li class="w-1/2">
+                <div>
+                    <div class="w-full p-4 my-2">
+                        <div class="card text-center py-16 px-8 relative bg-white">
+                            <h4>Contributing</h4>
+                            <p class="mt-6 mb-16">
+                                Built a cool provider? Want to add support for your favorite language? Got a component you want to share? Find us on GitHub. If you're not sure
+                                where to start, check out our contributor education series on YouTube!
+                            </p>
+                            <div class="w-full flex flex-wrap justify-center items-center">
+                                <div class="w-1/3">
+                                    <a href="" class="btn-primary">GitHub</a>
+                                </div>
+                                <div class="w-1/3">
+                                    <a href="https://www.youtube.com/c/PulumiTV" class="btn-primary">YouTube</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="w-1/2">
-                    <div>
-                        <div class="w-full p-4 my-2">
-                            <div class="card text-center py-16 px-8 relative bg-white">
-                                <h4>Meet us IRL</h4>
-                                <p class="mt-6 mb-16">We love to be where our community is, so we do a lot of traveling! See what our awesome team of Developer Advocates and incredible Puluminaries are doing lately, and where you can see them speak!</p>
-                                <div class="w-full flex flex-wrap justify-center items-center">
-                                    <div class="w-1/3">
-                                        <a href="/developer-advocates" class="btn-primary">Advocates</a>
-                                    </div>
-                                    <div class="w-1/3">
-                                            <a href="/puluminaries" class="btn-primary">Puluminaries</a>
-                                    </div>
+                </div>
+            </li>
+            <li class="w-1/2">
+                <div>
+                    <div class="w-full p-4 my-2">
+                        <div class="card text-center py-16 px-8 relative bg-white">
+                            <h4>Meet us IRL</h4>
+                            <p class="mt-6 mb-16">
+                                We love to be where our community is, so we do a lot of traveling! See what our awesome team of Developer Advocates and incredible Puluminaries are
+                                doing lately, and where you can see them speak!
+                            </p>
+                            <div class="w-full flex flex-wrap justify-center items-center">
+                                <div class="w-1/3">
+                                    <a href="/developer-advocates" class="btn-primary">Advocates</a>
+                                </div>
+                                <div class="w-1/3">
+                                    <a href="/puluminaries" class="btn-primary">Puluminaries</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="w-1/2">
-                    <div>
-                        <div class="w-full p-4 my-2">
-                            <div class="card text-center py-16 px-8 relative bg-white">
-                                <h4>Brag about it</h4>
-                                <p class="mt-6 mb-16">Use Pulumi to do something cool and want to brag about it? We want to hear about it, and so does everyone else! Tweet at us about it, or you can even submit it as a blog. We want to highlight your accomplishments!</p>
-                                <div class="w-full flex flex-wrap justify-center items-center">
-                                    <div class="w-1/3">
-                                        <a href="https://twitter.com/pulumicorp" class="btn-primary">Twitter</a>
-                                    </div>
-                                    <div class="w-1/3">
-                                        <a href="https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md" class="btn-primary">Blog</a>
-                                    </div>
+                </div>
+            </li>
+            <li class="w-1/2">
+                <div>
+                    <div class="w-full p-4 my-2">
+                        <div class="card text-center py-16 px-8 relative bg-white">
+                            <h4>Brag about it</h4>
+                            <p class="mt-6 mb-16">
+                                Use Pulumi to do something cool and want to brag about it? We want to hear about it, and so does everyone else! Tweet at us about it, or you can
+                                even submit it as a blog. We want to highlight your accomplishments!
+                            </p>
+                            <div class="w-full flex flex-wrap justify-center items-center">
+                                <div class="w-1/3">
+                                    <a href="https://twitter.com/pulumicorp" class="btn-primary">Twitter</a>
+                                </div>
+                                <div class="w-1/3">
+                                    <a href="https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md" class="btn-primary">Blog</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-            </ul>
-        </section>
+                </div>
+            </li>
+        </ul>
+    </section>
 
     {{ partial "hand-raise-section" . }}
 {{ end }}
