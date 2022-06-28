@@ -1947,7 +1947,7 @@ Diagnostics:
 ...
 
 Outputs:
-    url: "34.159.58.193"
+    url: "35.83.214.168"
 
 Resources:
     + 18 created
