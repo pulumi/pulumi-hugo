@@ -19,7 +19,7 @@ tags:
     
 ---
 
-At PulumiUP 2022, Tomas Jansson, software architect at Elkjøp Nordic, gave a presentation on how to enable developers to self-service infrastructure by using Pulumi’s Automation API.
+At PulumiUP 2022, Tomas Jansson, software architect at Elkjøp Nordic, gave a presentation on how to enable developers to self-service infrastructure by using Pulumi’s [Automation API]({{< relref "/automation" >}}).
 
 Elkjøp Nordic is the leading consumer electronics retailer in the Nordics. The company sells consumer electronics, mobile phones, computers, white goods, domestic appliances, and services linked to these products both directly to consumers and to businesses. It is an omnichannel retailer and serves customers both online and through more than 400 stores. Elkjøp has retail outlets in Norway, Sweden, Finland and Denmark, and franchise operations in Greenland and Faroe Islands.
 
