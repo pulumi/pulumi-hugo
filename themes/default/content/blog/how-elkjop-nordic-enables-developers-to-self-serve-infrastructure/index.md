@@ -2,7 +2,7 @@
 title: How Elkjøp Nordic enables self-service infrastructure for developers
 allow_long_title: true
 date: 2022-06-23
-meta_desc: How Elkjøp Nordic enables developers to self-serve infrastructure
+meta_desc: Learn how Elkjøp Nordic enables its developers to self-service Azure infrastructure with compliance guardrails using Pulumi infrastructure as code.
 meta_image: meta.png
 authors:
     - george-huang
