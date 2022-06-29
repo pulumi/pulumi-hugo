@@ -43,7 +43,7 @@ Here is an example that shows how a developer can create a repository simply by 
 
 ![Creating a new repository](./create-repo.png)
 
-Tomas determined that the best way to implement self-service infrastructure was with Pulumi and its [Automation API]({{< relref "/automation" >}}). By using Pulumi, he could use standard programming languages to define infrastructure while using familiar software tools like IDEs and test frameworks. It also natively supports Azure and Kubernetes with 100% coverage of each provider’s APIs and same-day access to new features and updates. Finally, the Pulumi Automation API would enable him to program infrastructure automation directly into his application.
+Tomas determined that the best way to implement self-service infrastructure was with Pulumi and its [Automation API]({{< relref "/automation" >}}). By using Pulumi, he could use standard programming languages to define infrastructure while using familiar software tools like IDEs and test frameworks. Pulumi also natively supports Azure and Kubernetes with 100% coverage of each provider’s APIs and same-day access to new features and updates. Finally, the Pulumi Automation API would enable him to program infrastructure automation directly into his application.
 
 ![Deploying with the Pulumi CLI and Automation API](./automation-api-diagram.png)
 
