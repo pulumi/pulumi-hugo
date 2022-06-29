@@ -1533,7 +1533,7 @@ The `playbook.yml` contains everything necessary to get Wordpress up and running
 ...
 ```
 
-> Note: The playbook file has been truncated for brevity. The full `playbook.yml` is available [here](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/playbook.yaml).
+> Note: The playbook file has been truncated for brevity. The full `playbook.yml` is available [here](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/playbook.yml).
 
 To render the playbook, you'll just use the `command:local:Command` resource to execute the standard `envsubst` UNIX command:
 
@@ -2048,8 +2048,8 @@ In this article, you saw that provisioning and configuration don't need to be an
 
 > The full code for this post is available on GitHub in all languages:
 >
-> * [YAML](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/)
+> * [C#](https://github.com/pulumi/examples/blob/master/aws-cs-ansible-wordpress/
+> * [Go](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/)
 > * [Python](https://github.com/pulumi/examples/blob/master/aws-py-ansible-wordpress/)
-> * [TypeScript]((https://github.com/pulumi/examples/blob/master/aws-ts-ansible-wordpress/))
-> * [Go](https://github.com/pulumi/examples/blob/master/aws-yaml-go-wordpress/))
-> * [C#](https://github.com/pulumi/examples/blob/master/aws-cs-ansible-wordpress/)
+> * [TypeScript]((https://github.com/pulumi/examples/blob/master/aws-ts-ansible-wordpress/)
+> * [YAML](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/)
