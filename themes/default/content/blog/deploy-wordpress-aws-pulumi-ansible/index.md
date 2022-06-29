@@ -2048,8 +2048,8 @@ In this article, you saw that provisioning and configuration don't need to be an
 
 > The full code for this post is available on GitHub in all languages:
 >
-> * [C#](https://github.com/pulumi/examples/blob/master/aws-cs-ansible-wordpress/
+> * [C#](https://github.com/pulumi/examples/blob/master/aws-cs-ansible-wordpress/)
 > * [Go](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/)
 > * [Python](https://github.com/pulumi/examples/blob/master/aws-py-ansible-wordpress/)
-> * [TypeScript]((https://github.com/pulumi/examples/blob/master/aws-ts-ansible-wordpress/)
+> * [TypeScript](https://github.com/pulumi/examples/blob/master/aws-ts-ansible-wordpress/)
 > * [YAML](https://github.com/pulumi/examples/blob/master/aws-yaml-ansible-wordpress/)
