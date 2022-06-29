@@ -43,7 +43,7 @@ Here's a quick sketch of the approach:
 
 * Declare configuration commands, still all within Pulumi's programming model, to perform two tasks:
     1. Update packages over SSH, using `yum` to ensure prerequisites like Python are present.
-    2. Run the Ansible Playbook on the machine running Pulumi as the Ansible control node. This installs and confiugres WordPress on the new infrastructure.
+    2. Run the Ansible Playbook on the machine running Pulumi as the Ansible control node. This installs and configures WordPress on the new infrastructure.
 
 * Run a single command, `pulumi up`, to orchestrate everything, including provisioning or updating the AWS infrastructure and running commands and Ansible playbooks to perform the on-VM configuration.
 
@@ -105,7 +105,7 @@ $ pulumi new aws-yaml
 
 {{% /choosable %}}
 
-Next, to make our infrastructure setup easy to vary between environments, the code leverages [Pulumi's "configuration" system]({{< relref "/docs/intro/concepts/config/" >}}) --- not to be confused with configuration management tools --- which just allows you to vary provisioning settings for each stack in case your environments have different needs. For instance, perhaps you have different SSH keys, or want larger instance sizes, in development versus production:
+Next, to make our infrastructure setup easy to vary between environments, the code leverages [Pulumi's "configuration" system]({{< relref "/docs/intro/concepts/config" >}}) --- not to be confused with configuration management tools --- which just allows you to vary provisioning settings for each stack in case your environments have different needs. For instance, perhaps you have different SSH keys, or want larger instance sizes, in development versus production:
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -1348,7 +1348,7 @@ var wordpressKeypair = new Aws.Ec2.KeyPair("wordpress-keypair", new Aws.Ec2.KeyP
 
 {{% /choosable %}}
 
-> Note: Enabling operators to manually SSH into machines is a common practice with pets and configuration. Most of us are generally trying to move away from it these days, however. SSH'ing into a machine and manually running commands just leads to headaches: configuration drift, unrepeatable automation, and deployment outages, to name a few. All of these are antithetical to the modern way of doing cloud engineering -- but no doubt, it's unfortunately still relatively commonplace.
+> Note: Enabling operators to manually SSH into machines is a common practice. Most of us are generally trying to move away from it these days, however. SSH'ing into a machine and manually running commands just leads to headaches: configuration drift, unrepeatable automation, and deployment outages, to name a few. All of these are antithetical to the modern way of doing cloud engineering -- but no doubt, it's unfortunately still relatively commonplace.
 
 Now create the EC2 instance and give it an elastic IP (EIP) address so that it's stable even if you need to upgrade or even entirely replace the server:
 
@@ -1502,7 +1502,7 @@ Here's where things deviate from the normal Pulumi way of doing things: we'll no
 
 Pulumi's [Command package]({{< relref "/registry/packages/command/" >}}) lets you run local or remote commands sequenced amongst other ordinary infrastructure as code actions. For instance, you can copy a local file to a remote server using SCP, run a local command, or run a remote command over SSH, before or after creating or destroying other infrastructure. This is precisely the building block that will allow Pulumi to orchestrate configuration management tasks.
 
-The first thing to do is render the [Ansible playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html). Why "render"? The `playbook.yml` needs information only known at deployment time within your Pulumi program, including the server's address, the database URL, name, username, password, and so on, all of which are configurable or only known after spinning up the server and database.
+The first thing to do is render the [Ansible playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html). Why "render"? The `playbook.yml` needs information only known at deployment time within your Pulumi program, including the server's address, the database URL, name, username, password, and so on, all of which are configurable and only known after spinning up the server and database.
 
 The `playbook.yml` contains everything necessary to get Wordpress up and running. Notice the templated variables like `$DB_RDS` that need to be substituted with real values:
 
