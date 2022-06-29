@@ -1,5 +1,5 @@
 ---
-title: Introducing the AWS Static Website Component
+title: Deploy a React App to AWS using 11 lines of YAML
 date: 2022-06-27
 meta_desc: Learn how to easily deploy your static website using the AWS Static Website Component. 
 meta_image: "" 
@@ -13,12 +13,7 @@ tags:
     - website
 ---
 
-
-## Introducing the AWS Static Website Component
-
 The [AWS Static Website](https://www.pulumi.com/registry/packages/aws-static-website/) component drastically reduces the complexity it takesmakes it easy to deploy a static website to Amazon S3 and, optionally, add a CloudFront content distribution network (CDN). While you can use any of the programming languages Pulumi supports (TypeScript, JavaScript, Python, Go, .NET, Java, and YAML), the component is particularly useful if you use YAML or JSON. With the component, you only need to write a few simple lines of code. Without the component, you would have to write and debug many lines of code to get the same functionality. With the AWS Static Website component, you’ll have a complete, functioning site in a few minutes. Without it, you can spend hours or even days to get the same result.
-
-## The Audience
 
 The component is designed to be simple to use and accessible to a broad range of developers. The only prerequisites are a basic knowledge of YAML or JSON, an AWS account, and an understanding of what a static website is. Even if you’re not used to thinking about infrastructure as code (IaC), you can use the component and let it handle the complexities that make setting up a website so time consuming.
 
@@ -42,19 +37,19 @@ Let’s look at two examples of how to use the component. You’ll find both exa
 This YAML code creates a basic static website.
 
 ```yaml
-name: hugo-static-website
+name: react-static-website
 runtime: yaml
-description: Example of deploying Hugo with Pulumi
+description: Example of deploying React with Pulumi
 resources:
   web:
     type: "aws-static-website:index:Website"
     properties:
-      sitePath: "../my-website/public"
+      sitePath: "../build"
 outputs:
   websiteURL: ${web.websiteURL}
 ```
 
-This example code deploys a static Hugo website but you can use the component with any other static website framework, such as React. The only parameter that would change is the output directory specified in the** sitePath** property.
+This example code deploys a static React website but you can use the component with any other static website framework, such as React. The only parameter that would change is the output directory specified in the** sitePath** property.
 
 The first two lines of this example give the project a name and tell Pulumi that the code is YAML. The next line is simply a description of the project.
 
@@ -84,7 +79,7 @@ pulumi new aws-yaml
 Here’s an example of what the final directory structure looks like.
 
 ```
-| hugo-website
+| react-website
 ├── public
 │   ├── index.html
 │   ├── main.css
@@ -145,9 +140,9 @@ To add a CloudFront CDN, you only need to add one more line of code.
 ```
 # Example using a CloudFront CDN
 # YAML
-name: hugo-static-website
+name: react-static-website
 runtime: yaml
-description: Example of deploying Hugo with Pulumi
+description: Example of deploying React with Pulumi
 resources:
   web:
     type: "aws-static-website:index:Website"
@@ -183,7 +178,7 @@ If you want to take down a site, run `pulumi destroy`. Pulumi marks all the reso
 If you’re curious and want to learn more about Pulumi and the AWS Static Website component, here are a few links you might find interesting:
 
 * You can examine the [GitHub repository](https://github.com/pulumi/pulumi-aws-static-website) that contains the code for the component.
-* If you want to quickly try out the component, this GitHub repo houses a complete Hugo example project that you can clone.
+* If you want to quickly try out the component, this GitHub repo houses a complete React example project that you can clone.
 * If you want to learn about other Pulumi components, take a look at the [registry page](https://pulumi.com/registry), which catalogs them all.
 * If you want to delve deeper into Pulumi, the [Getting Started](https://www.pulumi.com/docs/get-started/) guide is a good first step.
 * If you’re interested in learning more about Pulumi concepts, try the [Architecture & Concepts](https://www.pulumi.com/docs/intro/concepts/) page.
