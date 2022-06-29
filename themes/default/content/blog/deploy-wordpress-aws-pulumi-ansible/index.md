@@ -1882,13 +1882,11 @@ That's it! The entirety of your infrastructure --- from the underlying AWS infra
 
 ## Seeing Everything in Action
 
-To deploy this, you just need to do a few things. After creating a Pulumi stack:
+To deploy this, you just need to do a few things.
 
-```bash
-$ pulumi stack init
-```
+You already created a project with `pulumi new` earlier, but can always create additional stacks using `pulumi stack init`.
 
-You need to generate the key pair that will be used to access the EC2 instance over SSH:
+Next, generate the key pair that will be used to access the EC2 instance over SSH:
 
 ```bash
 $ ssh-keygen -f wordpress-keypair
