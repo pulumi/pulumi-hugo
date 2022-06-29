@@ -7,7 +7,16 @@ meta_image: meta.png
 authors:
     - george-huang
 tags:
-    - change-me
+    - automation-api
+    - aks
+    - azure
+    - infrastructure-as-code
+    - kubernetes
+    - typescript
+    - pulumi-enterprise
+    - cloud-engineering
+    - GitHub-actions
+    
 ---
 
 At PulumiUP 2022, Tomas Jansson, software architect at Elkjøp Nordic, gave a presentation on how to enable developers to self-service infrastructure by using Pulumi’s Automation API.
