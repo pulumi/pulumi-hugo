@@ -49,7 +49,7 @@ outputs:
   websiteURL: ${web.websiteURL}
 ```
 
-This example code deploys a static React website but you can use the component with any other static website framework, such as React. The only parameter that would change is the output directory specified in the** sitePath** property.
+This example code deploys a static React website but you can use the component with any other static website framework, such as Hugo. The only parameter that would change is the output directory specified in the** sitePath** property.
 
 The first two lines of this example give the project a name and tell Pulumi that the code is YAML. The next line is simply a description of the project.
 
@@ -109,15 +109,15 @@ To deploy the website, type `pulumi up`. You’ll first see a preview of all the
 
 The entire example has 10 lines of YAML code. With this, you will get an S3 bucket provisioned with all of your website’s contents. If you looked at the preview screen when you ran `pulumi up`, you saw the many resources that actually had to be deployed to create the site. You never see any of that complexity. Here’s an example of what’s happening under the hood.
 
-![hugo-example-simple](hugo-simple-preview.png)
+![hugo-example-simple](react-example-simple.png)
 
 If you click **View Live**, you will go to the Pulumi Console, where you can see all of the information available about a deployment and explore the resources that were deployed. For example, you can see a resource graph and a list of resources. Here’s an example of a resource graph.
 
-![graph-view](graph-view-simple.png)
+![graph-view](graph-view-simple-react.png)
 
 After Pulumi deploys the website, it will display any outputs you specified which, in our example, is the URL of the site.  as well as the number of resources created.
 
-![pulumi-output-simple](hugo-simple-output.png)
+![pulumi-output-simple](react-simple-output.png)
 
 ## Input Properties
 
@@ -155,23 +155,23 @@ outputs:
 
 All you have to do is add the line: **withCDN: true** and the component sets up the CDN instance for you. Again, run `pulumi up`, confirm that you want to proceed, and Pulumi deploys the website. Here’s an example of what you’ll see.
 
-![hugo-example-complex](hugo-more-complex-preview.png)
+![hugo-example-complex](react-more-complex-preview.png)
 
 And here’s the output.
 
-![hugo-output-complex](hugo-more-complex-outputs.png)
+![hugo-output-complex](react-more-complex-output.png)
 
 ## More Pulumi Advantages
 
 We’ve already seen how much Pulumi simplifies creating a website. Pulumi also keeps track of any changes you make to any of the website files. It makes those changes the next time you run `pulumi up`. Here’s an example screenshot. The changes are marked in the Plan column.
 
-![pulumi-destroy](hugo-simple-destroy.png)
+![pulumi-destroy](react-more-complex-destroy.png)
 
 If you simply want to take an inventory of what’s changed, you can run `pulumi up` and not proceed with the confirmation. Alternatively, you can run `pulumi preview`.
 
 If you want to take down a site, run `pulumi destroy`. Pulumi marks all the resources for deletion. It first previews the changes and, if you confirm, removes them from your AWS account. You don’t have to worry that you’ll forget to remove some resource and continue to pay for it. Here’s an example of what you’d see if you ran `pulumi destroy` on a basic static website.
 
-![pulumi-destroy](hugo-simple-destroy.png)
+![pulumi-destroy](react-simple-destroy.png)
 
 ## Learn More
 
