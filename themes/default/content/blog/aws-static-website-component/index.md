@@ -80,7 +80,7 @@ Here’s an example of what the final directory structure looks like.
 
 ```
 | react-website
-├── public
+├── build
 │   ├── index.html
 │   ├── main.css
 ├── infrastructure
@@ -178,7 +178,7 @@ If you want to take down a site, run `pulumi destroy`. Pulumi marks all the reso
 If you’re curious and want to learn more about Pulumi and the AWS Static Website component, here are a few links you might find interesting:
 
 * You can examine the [GitHub repository](https://github.com/pulumi/pulumi-aws-static-website) that contains the code for the component.
-* If you want to quickly try out the component, this GitHub repo houses a complete React example project that you can clone.
+* If you want to quickly try out the component, this [GitHub repo](https://github.com/sean1588/create-react-app-pulumi) houses a complete React example project that you can clone.
 * If you want to learn about other Pulumi components, take a look at the [registry page](https://pulumi.com/registry), which catalogs them all.
 * If you want to delve deeper into Pulumi, the [Getting Started](https://www.pulumi.com/docs/get-started/) guide is a good first step.
 * If you’re interested in learning more about Pulumi concepts, try the [Architecture & Concepts](https://www.pulumi.com/docs/intro/concepts/) page.
