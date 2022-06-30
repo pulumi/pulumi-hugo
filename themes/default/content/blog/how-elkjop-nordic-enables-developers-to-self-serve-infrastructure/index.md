@@ -1,7 +1,7 @@
 ---
 title: How Elkjøp Nordic enables self-service infrastructure for developers
 allow_long_title: true
-date: 2022-06-23
+date: 2022-07-01
 meta_desc: Learn how Elkjøp Nordic enables its developers to self-service Azure infrastructure with compliance guardrails using Pulumi infrastructure as code.
 meta_image: meta.png
 authors:
@@ -16,7 +16,7 @@ tags:
     - pulumi-enterprise
     - cloud-engineering
     - GitHub-actions
-    
+
 ---
 
 At PulumiUP 2022, Tomas Jansson, software architect at Elkjøp Nordic, gave a presentation on how to enable developers to self-service infrastructure by using Pulumi’s [Automation API]({{< relref "/automation" >}}).
@@ -27,7 +27,7 @@ To support the company’s modernization strategy, Tomas developed a self-servic
 
 Watch the full presentation below or read on to learn the highlights of his presentation:
 
-{{< youtube "TBD" >}}
+{{< youtube "https://youtu.be/aoa_O-rh5KE" >}}
 
 ## The Problem: Balancing Agility and Governance
 
@@ -45,9 +45,9 @@ Here is an example that shows how a developer can create a repository simply by 
 
 Tomas determined that the best way to implement self-service infrastructure was with Pulumi and its [Automation API]({{< relref "/automation" >}}). By using Pulumi, he could use standard programming languages to define infrastructure while using familiar software tools like IDEs and test frameworks. Pulumi also natively supports Azure and Kubernetes with 100% coverage of each provider’s APIs and same-day access to new features and updates. Finally, the Pulumi Automation API would enable him to program infrastructure automation directly into his application.
 
-![Deploying with the Pulumi CLI and Automation API](./automation-api-diagram.png)
-
 The Pulumi Automation API is a programmatic interface for running Pulumi programs without the Pulumi CLI. Automation API encapsulates the functionality of the CLI (`pulumi up`, `pulumi preview`, `pulumi destroy`, `pulumi stack init`, etc.) but with more flexibility since infrastructure operations can be controlled programmatically.
+
+![Deploying with the Pulumi CLI and Automation API](./automation-api-diagram.png)
 
 ## How the self-service infrastructure platform was built
 
@@ -69,7 +69,7 @@ The demo is a TypeScript application that includes an API that provisions Azure 
 
 Ready to dive into how this works in detail? Watch the demo here:
 
-{{< youtube "aoa_O-rh5KE?t=620" >}}
+{{< youtube "aoa_O-rh5KE" >}}
 
 ## Next steps
 
