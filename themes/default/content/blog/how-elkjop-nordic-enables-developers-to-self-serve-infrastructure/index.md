@@ -27,7 +27,7 @@ To support the company’s modernization strategy, Tomas developed a self-servic
 
 Watch the full presentation below or read on to learn the highlights of his presentation:
 
-{{< youtube "https://youtu.be/aoa_O-rh5KE" >}}
+{{< youtube "aoa_O-rh5KE" >}}
 
 ## The Problem: Balancing Agility and Governance
 
