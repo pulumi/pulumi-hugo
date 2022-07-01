@@ -2,9 +2,9 @@
 title: Deploy Static Websites to AWS using 10 lines of YAML
 date: 2022-06-27
 meta_desc: Learn how to easily deploy your static website using the AWS Static Website Component. 
-meta_image: "" 
+meta_image: "react_app_yaml.png" 
 authors:
-    - sean-holung
+    - roberta-leibovitz
 tags:
     - aws
     - yaml
@@ -17,7 +17,7 @@ The [AWS Static Website]({{< relref "/registry/packages/aws-static-website" >}})
 
 The component is designed to be simple to use and accessible to a broad range of developers. The only prerequisites are a basic knowledge of YAML or JSON, an AWS account, and an understanding of what a static website is. Even if you’re not used to thinking about infrastructure as code (IaC), you can use the component and let it handle the complexities that make setting up a website so time consuming.
 
-You will need to have Pulumi on your machine to use the component because you run the `pulumi up` command to deploy the website. There’s a link to the [installation instructions](#Install) at the end of this article. You’ll also need an AWS account.
+You will need to have Pulumi on your machine to use the component because you run the `pulumi up` command to deploy the website. There’s a link to the [installation instructions](#install) at the end of this article. You’ll also need an AWS account.
 
 ## What the Component Does
 
@@ -61,14 +61,14 @@ Finally, you’ll probably want to know the URL of your new site once it’s dep
 
 To get started, go to the folder that contains your static website project. Then, follow these steps.
 
-1. Create a directory named **infrastructure** alongside your website project directory with this command:
+* Create a directory named **infrastructure** alongside your website project directory with this command:
 
 ```bash
 mkdir infrastructure && cd infrastructure
 
 ```
 
-1. You’re now in the infrastructure directory. Generate a `Pulumi.yaml` file with this command:
+* You’re now in the infrastructure directory. Generate a `Pulumi.yaml` file with this command:
 
 ```bash
 pulumi new aws-yaml
@@ -88,7 +88,7 @@ Here’s an example of what the final directory structure looks like.
 
 **Note:** Pulumi will also add some other files to the **infrastructure** directory, such as a file that contains information specific to your Pulumi [stack]({{< relref "/docs/intro/concepts/stack" >}}).
 
-1. Copy the resources section and the outputs section from the example and add it to the end of the **Pulumi.yaml** file.
+* Copy the resources section and the outputs section from the example and add it to the end of the **Pulumi.yaml** file.
 
 ```yaml
 resources:
@@ -179,10 +179,10 @@ If you’re curious and want to learn more about Pulumi and the AWS Static Websi
 * You can examine the [GitHub repository](https://github.com/pulumi/pulumi-aws-static-website) that contains the code for the component.
 * If you want to quickly try out the component, this [GitHub repo](https://github.com/sean1588/create-react-app-pulumi) houses a complete React example project that you can clone.
 * If you want to learn about other Pulumi components, take a look at the [registry page]({{< relref "/registry" >}}), which catalogs them all.
-* If you want to view more examples of how to use Pulumi, take a look at the Pulumi [examples repo](https://github.com/pulumi/examples).
+* If you want to view more examples of how to use Pulumi, take a look at the Pulumi [examples](https://github.com/pulumi/examples) repo.
 * If you want to delve deeper into Pulumi, the [Getting Started]({{< relref "/docs/get-started"  >}}) guide is a good first step.
 * If you’re interested in learning more about Pulumi concepts, try the [Architecture & Concepts]({{< relref "/docs/intro/concepts" >}}) page.
 
-## Install Pulumi
+## <a name="install"></a> Install Pulumi
 
 To install Pulumi for AWS, go to [Before You Begin]({{< relref "/docs/get-started/aws/begin" >}}). There are instructions for macOS, Windows and Linux. You need to have an AWS account.
