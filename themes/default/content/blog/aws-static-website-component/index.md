@@ -10,10 +10,10 @@ tags:
     - yaml
     - configuration
     - components
-    - website
+    - static-websites
 ---
 
-The [AWS Static Website](https://www.pulumi.com/registry/packages/aws-static-website/) component drastically reduces the complexity it takesmakes it easy to deploy a static website to Amazon S3 and, optionally, add a CloudFront content distribution network (CDN). While you can use any of the programming languages Pulumi supports (TypeScript, JavaScript, Python, Go, .NET, Java, and YAML), the component is particularly useful if you use YAML or JSON. With the component, you only need to write a few simple lines of code. Without the component, you would have to write and debug many lines of code to get the same functionality. With the AWS Static Website component, you’ll have a complete, functioning site in a few minutes. Without it, you can spend hours or even days to get the same result.
+The [AWS Static Website]({{< relref "/registry/packages/aws-static-website" >}}) component makes it easy to deploy a static website to Amazon S3 and, optionally, add a CloudFront content distribution network (CDN). While you can use any of the programming languages Pulumi supports (TypeScript, JavaScript, Python, Go, .NET, Java, and YAML), the component is particularly useful if you use YAML or JSON. With the AWS Static Website component, you’ll have a complete, functioning site in a few minutes. Without it, you can spend hours or even days to get the same result.
 
 The component is designed to be simple to use and accessible to a broad range of developers. The only prerequisites are a basic knowledge of YAML or JSON, an AWS account, and an understanding of what a static website is. Even if you’re not used to thinking about infrastructure as code (IaC), you can use the component and let it handle the complexities that make setting up a website so time consuming.
 
@@ -21,7 +21,7 @@ You will need to have Pulumi on your machine to use the component because you ru
 
 ## What the Component Does
 
-As we said, the component deploys a static website to AWS and, optionally, a CloudFront CDN. You simply add a few lines of code, set a few configuration parameters, run `pulumi up` and let the component do the rest. The component sets up:
+The component deploys a static website to AWS and, optionally, a CloudFront CDN. You simply add a few lines of code, set a few configuration parameters, run `pulumi up` and let the component do the rest. The component sets up:
 
 * An Amazon S3 bucket
 * An Amazon CloudFront CDN (optional)
@@ -44,33 +44,33 @@ resources:
   web:
     type: "aws-static-website:index:Website"
     properties:
-      sitePath: "../build"
+      sitePath: "../my-website/build"
 outputs:
   websiteURL: ${web.websiteURL}
 ```
 
-This example code deploys a static React website but you can use the component with any other static website framework, such as Hugo. The only parameter that would change is the output directory specified in the** sitePath** property.
+This example code deploys a static React website but you can use the component with any other static website framework, such as Hugo. The only parameter that would change is the output directory specified in the `sitePath` property.
 
 The first two lines of this example give the project a name and tell Pulumi that the code is YAML. The next line is simply a description of the project.
 
-Next you allocate a _resource_. This is a Pulumi term. Resources are the fundamental units that make up your cloud infrastructure and Pulumi provides many resources that are ready for you to use. Here, you only need one: **aws-static-website:Website**, which is the AWS Static Website component. The resource has an input property, **sitePath**, which is the root directory that contains the website's contents. Of course, you can use any path you want.
+Next you allocate a _resource_. This is a Pulumi term. Resources are the fundamental units that make up your cloud infrastructure and Pulumi provides many resources that are ready for you to use. Here, you only need one: `aws-static-website:Website`, which is the AWS Static Website component. The resource has an input property, `sitePath`, which is the root directory that contains the website's contents. Of course, you can use any path you want.
 
-Finally, you’ll probably want to know the URL of your new site once it’s deployed. That’s what the **outputs** line does. If you’ll remember, **websiteURL** is one of the outputs that the component provides.
+Finally, you’ll probably want to know the URL of your new site once it’s deployed. That’s what the `outputs` line does. `websiteURL` is one of the outputs that the component provides.
 
 Remember, even though there are a few terms in the code you might be unfamiliar with, you can simply cut and paste the code in the gist.
 
 ### Get Started
 
-To get started, go to the folder that contains your static website files. Then, follow these steps.
+To get started, go to the folder that contains your static website project. Then, follow these steps.
 
-1. Create a directory named **infrastructure** with this command:
+1. Create a directory named **infrastructure** alongside your website project directory with this command:
 
 ```bash
 mkdir infrastructure && cd infrastructure
 
 ```
 
-1. You’re now in the **infrastructure** directory. Generate a **Pulumi.yaml** file with this command:
+1. You’re now in the infrastructure directory. Generate a `Pulumi.yaml` file with this command:
 
 ```bash
 pulumi new aws-yaml
@@ -93,12 +93,12 @@ Here’s an example of what the final directory structure looks like.
 
 ```yaml
 resources:
-web:
+  web:
     type: "aws-static-website:index:Website"
     properties:
-    sitePath: "../my-website/public"
+      sitePath: "../my-website/build"
 outputs:
-websiteURL: ${web.websiteURL}
+  websiteURL: ${web.websiteURL}
 ```
 
 ### Deploy the Website
@@ -111,7 +111,7 @@ The entire example has 10 lines of YAML code. With this, you will get an S3 buck
 
 ![hugo-example-simple](react-example-simple.png)
 
-If you click **View Live**, you will go to the Pulumi Console, where you can see all of the information available about a deployment and explore the resources that were deployed. For example, you can see a resource graph and a list of resources. Here’s an example of a resource graph.
+If you follow the View Live link, you will go to the Pulumi Service, where you can see all of the information available about a deployment and explore the resources that were deployed. For example, you can see a resource graph and a list of resources. Here’s an example of a resource graph.
 
 ![graph-view](graph-view-simple-react.png)
 
@@ -121,17 +121,17 @@ After Pulumi deploys the website, it will display any outputs you specified whic
 
 ## Input Properties
 
-The AWS Static Website has several input properties. Here are three of the most commonly used.
+The AWS Static Website component has several input properties. Here are three of the most commonly used.
 
-* **sitePath** - the root directory that contains the website’s contents (required).
-* **withCDN** - sets a flag to provision a CloudFront CDN.
-* **targetDomain** - the domain that serves the content. A Route53 hosted zone must exist for this domain if you specify this option.
+* `sitePath` - the root directory that contains the website’s contents (required).
+* `withCDN` - sets a flag to provision a CloudFront CDN.
+* `targetDomain` - the domain that serves the content. A Route53 hosted zone must exist for this domain if you specify this option.
 
-See the component’s [reference page](https://www.pulumi.com/registry/packages/aws-static-website/) for the others.
+See the component’s [reference page]({{< relref "/registry/packages/aws-static-website" >}}) for the others.
 
 ## Output Properties
 
-The AWS Static Website has several output properties. The one you’ll probably use the most is **websiteURL**, which is the URL to access the website. See the component’s [reference page](https://www.pulumi.com/registry/packages/aws-static-website/) for the others.
+The AWS Static Website component has several output properties. The one you’ll probably use the most is `websiteURL`, which is the URL to access the website. See the component’s [reference page]({{< relref "/registry/packages/aws-static-website" >}}) for the others.
 
 ## Add a CloudFront CDN
 
@@ -147,13 +147,13 @@ resources:
   web:
     type: "aws-static-website:index:Website"
     properties:
-      sitePath: "./public"
+      sitePath: "./my-website/build"
       withCDN: true
 outputs:
   websiteURL: ${web.websiteURL}
 ```
 
-All you have to do is add the line: **withCDN: true** and the component sets up the CDN instance for you. Again, run `pulumi up`, confirm that you want to proceed, and Pulumi deploys the website. Here’s an example of what you’ll see.
+All you have to do is add the line `withCDN: true` and the component sets up the CDN instance for you. Again, run `pulumi up`, confirm that you want to proceed, and Pulumi deploys the website. Here’s an example of what you’ll see.
 
 ![hugo-example-complex](react-more-complex-preview.png)
 
@@ -180,9 +180,9 @@ If you’re curious and want to learn more about Pulumi and the AWS Static Websi
 * You can examine the [GitHub repository](https://github.com/pulumi/pulumi-aws-static-website) that contains the code for the component.
 * If you want to quickly try out the component, this [GitHub repo](https://github.com/sean1588/create-react-app-pulumi) houses a complete React example project that you can clone.
 * If you want to learn about other Pulumi components, take a look at the [registry page](https://pulumi.com/registry), which catalogs them all.
-* If you want to delve deeper into Pulumi, the [Getting Started](https://www.pulumi.com/docs/get-started/) guide is a good first step.
-* If you’re interested in learning more about Pulumi concepts, try the [Architecture & Concepts](https://www.pulumi.com/docs/intro/concepts/) page.
+* If you want to delve deeper into Pulumi, the [Getting Started]({{< relref "/docs/get-started"  >}}) guide is a good first step.
+* If you’re interested in learning more about Pulumi concepts, try the [Architecture & Concepts]({{< relref "/docs/intro/concepts" >}}) page.
 
 ## Install Pulumi
 
-To install Pulumi for AWS, go to [Before You Begin](https://www.pulumi.com/docs/get-started/aws/begin/). There are instructions for macOS, Windows and Linux. You need to have an AWS account.
+To install Pulumi for AWS, go to [Before You Begin]({{< relref "/docs/get-started/aws/begin" >}}). There are instructions for macOS, Windows and Linux. You need to have an AWS account.
