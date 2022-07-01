@@ -82,14 +82,14 @@ Finally, you’ll probably want to know the URL of your new site once it’s dep
 
 To get started, go to the folder that contains your static website project. Then, follow these steps.
 
-* Create a directory named **infrastructure** alongside your website project directory with this command:
+1. Create a directory named **infrastructure** alongside your website project directory with this command:
 
 ```bash
 mkdir infrastructure && cd infrastructure
 
 ```
 
-* You’re now in the infrastructure directory. Generate a `Pulumi.yaml` file with this command:
+1. You’re now in the infrastructure directory. Generate a `Pulumi.yaml` file with this command:
 
 ```bash
 pulumi new aws-yaml
@@ -109,7 +109,7 @@ Here’s an example of what the final directory structure looks like.
 
 **Note:** Pulumi will also add some other files to the **infrastructure** directory, such as a file that contains information specific to your Pulumi [stack]({{< relref "/docs/intro/concepts/stack" >}}).
 
-* Copy the resources section and the outputs section from the example and add it to the end of the **Pulumi.yaml** file.
+1. Copy the resources section and the outputs section from the example and add it to the end of the **Pulumi.yaml** file.
 
 ```yaml
 resources:
@@ -157,9 +157,7 @@ The AWS Static Website component has several output properties. The one you’ll
 
 To add a CloudFront CDN, you only need to add one more line of code.
 
-```
-# Example using a CloudFront CDN
-# YAML
+```yaml
 name: react-static-website
 runtime: yaml
 description: Example of deploying React with Pulumi
@@ -183,13 +181,13 @@ And here’s the output.
 
 ## More Pulumi Advantages
 
-We’ve already seen how much Pulumi simplifies creating a website. Pulumi also keeps track of any changes you make to any of the website files. It makes those changes the next time you run `pulumi up`. Here’s an example screenshot. The changes are marked in the Plan column.
+We’ve already seen how much Pulumi simplifies creating a website. Pulumi also keeps track of any changes you make to any of the website files. It makes those changes the next time you run `pulumi up`. Here’s an example screenshot. The changes are marked in the **Plan** column.
 
 ![Preview of resource changes](preview-resource-changes.png)
 
 If you simply want to take an inventory of what’s changed, you can run `pulumi up` and not proceed with the confirmation. Alternatively, you can run `pulumi preview`.
 
-If you want to take down a site, run `pulumi destroy`. Pulumi marks all the resources for deletion. It first previews the changes and, if you confirm, removes them from your AWS account. You don’t have to worry that you’ll forget to remove some resource and continue to pay for it. Here’s an example of what you’d see if you ran `pulumi destroy` on your AWS S3 static website.
+If you want to take down the site, run `pulumi destroy`. Pulumi marks all the resources for deletion. It first previews the changes and, if you confirm, removes them from your AWS account. You don’t have to worry that you’ll forget to remove some resource and continue to pay for it. Here’s an example of what you’d see if you ran `pulumi destroy` on your AWS S3 static website.
 
 ![Preview of resources to destroy](react-simple-destroy.png)
 
