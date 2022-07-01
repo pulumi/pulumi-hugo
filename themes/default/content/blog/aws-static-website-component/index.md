@@ -1,6 +1,6 @@
 ---
 title: Deploy Static Websites to AWS using 10 lines of YAML
-date: 2022-06-27
+date: 2022-07-01
 meta_desc: Learn how to easily deploy your static website using the AWS Static Website Component. 
 meta_image: "react_app_yaml.png" 
 authors:
