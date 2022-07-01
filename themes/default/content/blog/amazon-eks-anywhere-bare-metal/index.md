@@ -1,14 +1,16 @@
 ---
 title: Deploying Amazon EKS Anywhere on Bare Metal
 date: 2022-07-01T13:03:41-07:00
-meta_desc: "AWS has now announced the latest innovation for EKS: Amazon EKS Anywhere Bare Metal."
+meta_desc: "Bring EKS to Your Datacenter with Amazon EKS Anywhere Bare Metal."
 meta_image: meta.png
 authors:
     - david-flanagan
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
+    - kubernetes
+    - eks
+    - aws
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
 # for additional details, and please remove these comments before submitting for review.
