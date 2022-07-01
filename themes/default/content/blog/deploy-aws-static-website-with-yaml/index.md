@@ -70,7 +70,6 @@ This is the JSON equivalent of the code shown above.
 }
 ```
 
-
 This example code deploys a static React website but you can use the component with any other static website framework, such as Hugo. The only parameter that would change is the output directory specified in the `sitePath` property.
 
 The first two lines of this example give the project a name and tell Pulumi that the code is YAML. The next line is simply a description of the project.
