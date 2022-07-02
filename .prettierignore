@@ -9,3 +9,4 @@ public
 yarn-error.log
 .hugo_build.lock
 *.md
+*.html
