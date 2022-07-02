@@ -1,5 +1,5 @@
 ---
-title: Migrate to Pulumi from Terraform
+title: Pulumi for Terraform Users
 layout: terraform
 url: /terraform
 
