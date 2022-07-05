@@ -6,7 +6,7 @@ allow_long_title: true
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-06-16T16:28:39-07:00
+date: 2022-07-06T08:28:39-07:00
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -32,18 +32,22 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi-universal-iac)! Learn what we have been building in the past month.
+Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi-universal-iac)! Learn about what we have been up to in the rest of May and in June!
 
  <!--more-->
 - Cloud Providers and Packages
   - [New resources in our providers](#new-resources-in-our-providers)
 - Pulumi CLI and core technologies
   - [Pulumi YAML v0.5.1](#pulumi-yaml-v051)
+  - [Add `PreviewDigest` for third party tools](#add-previewdigest-for-third-party-tools)
+  - [Add local Policy Packs to Automation API](#add-local-policy-packs-to-automation-api)
   - [Add --stack to `pulumi about`](#add---stack-to-pulumi-about)
   - [Add logout message](#add-logout-message)
   - [Warn about missing AdditionalSecretOutputs](#warn-about-missing-additionalsecretoutputs)
   - [Compression of filestate backends](#compression-of-filestate-backends)
   - [Add `CompositeInvoke`](#add-compositeinvoke)
+  - [Support Java in `pulumi convert`](#support-java-in-pulumi-convert)
+  - [Destroy Pulumi stacks outside project directory](#destroy-pulumi-stacks-outside-project-directory)
 - Pulumi Service & Pulumi.com
   - [Stack READMEs](#stack-readmes)
   - [SAML/SCIM improvements](#samlscim-improvements)
@@ -56,11 +60,9 @@ We shipped new versions of the AWS Native provider, Google Native provider and t
 
 ## Pulumi CLI and core technologies
 
-### Pulumi YAML v0.5.1
+### Pulumi YAML v0.5.2
 
-We released v0.5.1 of Pulumi YAML which included bug fixes, new functions, diagnostics and validation. Some specific improvements we made were:
-
-- Update pulumi/pulumi to v3.32.1
+We released v0.5.2 of Pulumi YAML which included bug fixes, new functions, diagnostics and validation. Some specific improvements we made were:
 
 - Add errors when hanging invalid fields off of resources.
   [#203](https://github.com/pulumi/pulumi-yaml/pull/203)
@@ -80,11 +82,23 @@ We released v0.5.1 of Pulumi YAML which included bug fixes, new functions, diagn
 - Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
   [#241](https://github.com/pulumi/pulumi-yaml/pull/241)
 
+- Fix `pulumi convert` panicking on programs containing `Fn::ToJSON`,`Fn::Secret` and `Fn::Invoke` (with an empty arguments property). [#250](https://github.com/pulumi/pulumi-yaml/pull/250), [#260](https://github.com/pulumi/pulumi-yaml/pull/260), and [#262](https://github.com/pulumi/pulumi-yaml/pull/262) respectively.
+
 As always, please feel free to submit feature requests and bug reports to the [Pulumi YAML GitHub Repo](https://github.com/pulumi/pulumi-yaml). We love hearing feedback from users!
+
+### Add `PreviewDigest` for third party tools
+
+Third party tools can now use `PreviewDigest` to be able to ingest the preview JSON. The `PreviewDigest` type can now be references directly from other programs instead of having to copy and paste it.
+
+Learn more in the [make previewDigest into exported type PreviewDigest GitHub issue](https://github.com/pulumi/pulumi/issues/9851).
+
+### Add local Policy Packs to Automation API
+
+The Pulumi [Automation API]({{< relref "/docs/guides/automation-api" >}}) is a programmatic interface for running Pulumi programs without the Pulumi CLI. Conceptually, this can be thought of as encapsulating the functionality of the CLI (`pulumi up`, `pulumi preview`, `pulumi destroy`, `pulumi stack init`, and so on.) but with more flexibility. We have now added support for Pulumi [Policy Packs]({{< relref "docs/guides/crossguard/get-started/#creating-a-policy-pack" >}}) can now be run with Automation API by specifying `--policy-pack`.
 
 ### Add --stack to `pulumi about`
 
-You can now use `pulumi about --stack` to get information on your stacks. It defaults to the current stack but you can specify the stack you want information on, for example `pulumi about --stack eks/staging`.
+The `pulumi about` command lets you prints out information that can be helpful for debugging while using the Pulumi CLI. This includes information about, the CLI and how it was built, which OS Pulumi was run from, the current project, the current stack and the current backend. We added the ability to specify which stack to provide details about without having to select it first using pulumi about --stack, for example `pulumi about --stack eks/staging`.
 
 Learn more in the [add --stack to pulumi about GitHub pull request](https://github.com/pulumi/pulumi/pull/9518).
 
@@ -135,6 +149,10 @@ pkg.SomeInvoke(nil, opts, pulumi.Version("1.2.3"))
 
 Learn more in [Add CompositeInvoke Github pull request](https://github.com/pulumi/pulumi/pull/9752).
 
+### Support Java in `pulumi convert`
+
+You can now use `pulumi convert --language java` to generate programs for Java from any Pulumi supported language.
+
 ## Pulumi Service & Pulumi.com
 
 ### Stack READMEs
@@ -143,6 +161,10 @@ Users can create [Stack READMEs]({{< relref "/docs/intro/pulumi-service/projects
 
 A Pulumi Service Stack README is dynamically populated with details from your stack outputs. It does this by interpolating output variables on the stack, such as `${outputs.instances[0].ARN}` so that each stack can construct links to dashboards, shell commands, and other pieces of documentation.
 
+Learn more in the [Stack READMEs blog]({{< relref "/blog/stack-readme" >}})!
+
 ### SAML/SCIM improvements
 
-We spent some time in the last month improving the SAML/SCIM experience for our customers. The key improvements made were around deprovisioning and provisioning users and how we handle username updates with special characters.
+We spent some time in the last month improving the SAML/SCIM experience for our customers. The key improvements made were around deprovisioning and provisioning users and how we handle username updates with special characters. Organization Administrators can now remove a user from their identity provider which will deprovision the user in Pulumi, and then re-add them through the identity provider and they will be re-added to the Pulumi organization. Our customers requested this functionality for supporting organization re-orgs and team permission changes. This makes the process of managing Pulumi access with a SCIM provisioner more seamless.
+
+![Gif of identity provider deprovision and re-provisioning flow](scim.gif)
