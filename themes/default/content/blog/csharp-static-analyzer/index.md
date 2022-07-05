@@ -62,12 +62,14 @@ What do we do? Static-code analysis to the rescue! If the compiler can't do it, 
 Enter [PulumiCSharpAnalyzer](https://github.com/Zaid-Ajaj/pulumi-csharp-analyzer): a roslyn-based code analyzer that adds compile-time checks to your Pulumi code and reports it as part of the build.
 
 Available today as a nuget package, you can install the analyzer into your project as follows:
+
 ```
 dotnet add package PulumiCSharpAnalyzer
 ```
+
 Now your IDE, whether that is Rider, Visual Studio or VS Code with OmniSharp should report the error inside the IDE like any compile error or warning. Here is for example how it looks like inside Rider:
 
-![image showing missing property Kind when initializing resource arguments](./missing-kind-property.png)
+![missing property Kind when initializing resource arguments](./missing-kind-property.png)
 
 Not just your IDE, it integrates into your build pipeline too. When you `dotnet build` your project. The detected errors will show up there:
 
@@ -86,11 +88,11 @@ Build succeeded.
 
 Besides detecting missing properties when creating resources, the analyzer also detects missing properties for function invokes which follow a similar pattern:
 
-![image showing missing required parameter when invoking a SDK function](./error-missing-required-properties-function-invokes.png)
+![missing required parameter when invoking a SDK function](./error-missing-required-properties-function-invokes.png)
 
 Finally, an anti-pattern that the analyzer can detect is creating resources within an `.Apply(...)` call:
 
-![image showing a warning being reported when creating a resource inside apply call](./resource-inside-apply.png)
+![a warning being reported when creating a resource inside apply call](./resource-inside-apply.png)
 
 We always recommend developers to avoid creating resources inside `.Apply(...)` calls because the execution plan of Pulumi will be different during the `pulumi preview` and `pulumi up` phase.
 
