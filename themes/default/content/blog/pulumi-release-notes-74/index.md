@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Release Notes: Pulumi YAML v0.5.1, Stack READMEs, and much more!"
+title: "Pulumi Release Notes: Pulumi YAML updates, Stack READMEs, and much more!"
 allow_long_title: true
 
 # The date represents the post's publish date, and by default corresponds with
@@ -11,7 +11,7 @@ date: 2022-07-06T08:28:39-07:00
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: The latest Pulumi updates also include our providers updates, compression of filestate backends, and more.
+meta_desc: The latest Pulumi updates also include our providers updates, compression of filestate backends, adding --stack to `pulumi about`, adding local policy packs to Automation API and much more!
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -32,7 +32,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi-universal-iac)! Learn about what we have been up to in the rest of May and in June!
+Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi-universal-iac)! The latest Pulumi updates also include our providers updates, compression of filestate backends, adding --stack to `pulumi about`, adding local policy packs to Automation API and much more! Learn about what's new.
 
  <!--more-->
 - Cloud Providers and Packages
@@ -43,7 +43,6 @@ Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi
   - [Add local Policy Packs to Automation API](#add-local-policy-packs-to-automation-api)
   - [Add --stack to `pulumi about`](#add---stack-to-pulumi-about)
   - [Add logout message](#add-logout-message)
-  - [Warn about missing AdditionalSecretOutputs](#warn-about-missing-additionalsecretoutputs)
   - [Compression of filestate backends](#compression-of-filestate-backends)
   - [Add `CompositeInvoke`](#add-compositeinvoke)
   - [Support Java in `pulumi convert`](#support-java-in-pulumi-convert)
