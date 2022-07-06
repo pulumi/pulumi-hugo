@@ -81,15 +81,7 @@ We released v0.5.2 of Pulumi YAML which included bug fixes, new functions, diagn
 - Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
   [#241](https://github.com/pulumi/pulumi-yaml/pull/241)
 
-- Fix `pulumi convert` panicking on programs containing `Fn::ToJSON`,`Fn::Secret` and `Fn::Invoke` (with an empty arguments property). [#250](https://github.com/pulumi/pulumi-yaml/pull/250), [#260](https://github.com/pulumi/pulumi-yaml/pull/260), and [#262](https://github.com/pulumi/pulumi-yaml/pull/262) respectively.
-
 As always, please feel free to submit feature requests and bug reports to the [Pulumi YAML GitHub Repo](https://github.com/pulumi/pulumi-yaml). We love hearing feedback from users!
-
-### Add `PreviewDigest` for third party tools
-
-Third party tools can now use `PreviewDigest` to be able to ingest the preview JSON. The `PreviewDigest` type can now be references directly from other programs instead of having to copy and paste it.
-
-Learn more in the [make previewDigest into exported type PreviewDigest GitHub issue](https://github.com/pulumi/pulumi/issues/9851).
 
 ### Add local Policy Packs to Automation API
 
@@ -150,7 +142,7 @@ Learn more in [Add CompositeInvoke Github pull request](https://github.com/pulum
 
 ### Support Java in `pulumi convert`
 
-You can now use `pulumi convert --language java` to generate programs for Java from any Pulumi supported language.
+You can now use `pulumi convert --language java` to generate programs for Java from YAML.
 
 ## Pulumi Service & Pulumi.com
 
