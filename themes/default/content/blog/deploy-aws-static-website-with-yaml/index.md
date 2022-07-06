@@ -26,7 +26,7 @@ The component deploys a static website to AWS and, optionally, a CloudFront CDN.
 * An Amazon S3 bucket
 * An Amazon CloudFront CDN (optional)
     * An Amazon Route 53 DNS record
-    * An Amazon Certificate Manager
+    * An Amazon Certificate Manager SSL/TLS certificate
 
 ## Some Examples
 
