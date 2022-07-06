@@ -4,7 +4,7 @@ date: 2022-07-01
 meta_desc: Learn how to easily deploy your AWS S3 static website using the AWS Static Website Component and 10 lines of YAML. JSON is also supported.
 meta_image: "react_app_yaml.png" 
 authors:
-    - roberta-leibovitz
+    - sean-holung
 tags:
     - aws
     - yaml
