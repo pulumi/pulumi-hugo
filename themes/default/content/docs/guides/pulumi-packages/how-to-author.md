@@ -116,9 +116,9 @@ managers (npm, NuGet, Pip, GitHub) host the SDKs, but we need to know where the 
 `pulumi plugin install ${NAME} ${VERSION} --server ${pluginDownloadURL}`. If `pluginDownloadURL` is not supplied, then the Pulumi
 CLI assumes the plugin is hosted at `get.pulumi.com`.
 
-### GitHub
+### Support for GitHub releases
 
-Since [release 3.36.0](https://github.com/pulumi/pulumi/releases/tag/v3.36.0), Pulumi understands a special form of `pluginDownloadURL` to download plugins via GitHub releases
+Since [release 3.35.3](https://github.com/pulumi/pulumi/releases/tag/v3.35.3), Pulumi understands a special form of `pluginDownloadURL` to download plugins via GitHub releases
 
 ```
 github://${github api host}/{organization}[/{repository}]
