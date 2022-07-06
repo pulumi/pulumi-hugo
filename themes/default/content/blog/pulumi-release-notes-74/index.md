@@ -78,7 +78,7 @@ We released v0.5.2 of Pulumi YAML which included bug fixes, new functions, diagn
 - Add support for `Fn::ReadFile`, enabling Pulumi Service [Stack README]({{< relref "/blog/stack-readme" >}}) support.
   [#217](https://github.com/pulumi/pulumi-yaml/pull/217)
 
-- Allow Fn::Join to take expressions as inputs, previously the second argument had to be a syntactical list.
+- Allow `Fn::Join` to take expressions as inputs, previously the second argument had to be a syntactical list.
   [#241](https://github.com/pulumi/pulumi-yaml/pull/241)
 
 - Fix `pulumi convert` panicking on programs containing `Fn::ToJSON`,`Fn::Secret` and `Fn::Invoke` (with an empty arguments property). [#250](https://github.com/pulumi/pulumi-yaml/pull/250), [#260](https://github.com/pulumi/pulumi-yaml/pull/260), and [#262](https://github.com/pulumi/pulumi-yaml/pull/262) respectively.
