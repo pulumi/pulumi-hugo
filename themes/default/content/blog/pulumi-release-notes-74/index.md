@@ -93,7 +93,7 @@ Learn more in the [make previewDigest into exported type PreviewDigest GitHub is
 
 ### Add local Policy Packs to Automation API
 
-The Pulumi [Automation API]({{< relref "/docs/guides/automation-api" >}}) is a programmatic interface for running Pulumi programs without the Pulumi CLI. Conceptually, this can be thought of as encapsulating the functionality of the CLI (`pulumi up`, `pulumi preview`, `pulumi destroy`, `pulumi stack init`, and so on.) but with more flexibility. We have now added support for Pulumi [Policy Packs]({{< relref "docs/guides/crossguard/get-started/#creating-a-policy-pack" >}}) can now be run with Automation API by specifying `--policy-pack`.
+The Pulumi [Automation API]({{< relref "/docs/guides/automation-api" >}}) is a programmatic interface for running Pulumi programs without the Pulumi CLI. Conceptually, this can be thought of as encapsulating the functionality of the CLI (`pulumi up`, `pulumi preview`, `pulumi destroy`, `pulumi stack init`, and so on.) but with more flexibility. We have now added support for Pulumi [Policy Packs]({{< relref "/docs/guides/crossguard/get-started#creating-a-policy-pack" >}}) can now be run with Automation API by specifying `--policy-pack`.
 
 ### Add --stack to `pulumi about`
 
