@@ -2,7 +2,7 @@
 title: Deploy Static Websites to AWS using 10 lines of YAML
 date: 2022-07-06
 meta_desc: Learn how to easily deploy your AWS S3 static website using the AWS Static Website Component and 10 lines of YAML. JSON is also supported.
-meta_image: "react_app_yaml.png" 
+meta_image: "react_app_yaml.png"
 authors:
     - sean-holung
 tags:
@@ -84,42 +84,41 @@ To get started, go to the folder that contains your static website project. Then
 
 1. Create a directory named **infrastructure** alongside your website project directory with this command:
 
-```bash
-mkdir infrastructure && cd infrastructure
-
-```
+    ```bash
+    mkdir infrastructure && cd infrastructure
+    ```
 
 1. You’re now in the infrastructure directory. Generate a `Pulumi.yaml` file with this command:
 
-```bash
-pulumi new aws-yaml
-```
+    ```bash
+    pulumi new aws-yaml
+    ```
 
-Here’s an example of what the final directory structure looks like.
+    Here’s an example of what the final directory structure looks like.
 
-```
-| react-project-dir
-├── my-website
-|   ├── build
-│       ├── index.html
-│       ├── main.css
-├── infrastructure
-│   ├── Pulumi.yaml
-```
+    ```
+    | react-project-dir
+    ├── my-website
+    |   ├── build
+    │       ├── index.html
+    │       ├── main.css
+    ├── infrastructure
+    │   ├── Pulumi.yaml
+    ```
 
-**Note:** Pulumi will also add some other files to the **infrastructure** directory, such as a file that contains information specific to your Pulumi [stack]({{< relref "/docs/intro/concepts/stack" >}}).
+    **Note:** Pulumi will also add some other files to the **infrastructure** directory, such as a file that contains information specific to your Pulumi [stack]({{< relref "/docs/intro/concepts/stack" >}}).
 
 1. Copy the resources section and the outputs section from the example and add it to the end of the **Pulumi.yaml** file.
 
-```yaml
-resources:
-  web:
-    type: "aws-static-website:index:Website"
-    properties:
-      sitePath: "../my-website/build"
-outputs:
-  websiteURL: ${web.websiteURL}
-```
+    ```yaml
+    resources:
+      web:
+        type: "aws-static-website:index:Website"
+        properties:
+          sitePath: "../my-website/build"
+    outputs:
+      websiteURL: ${web.websiteURL}
+    ```
 
 ### Deploy the Website
 
