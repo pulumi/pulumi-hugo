@@ -38,7 +38,7 @@ Our first release notes since the frenzy of [releases for PulumiUP](/blog/pulumi
 - Cloud Providers and Packages
   - [New resources in our providers](#new-resources-in-our-providers)
 - Pulumi CLI and core technologies
-  - [Pulumi YAML v0.5.1](#pulumi-yaml-v051)
+  - [Pulumi YAML v0.5.2](#pulumi-yaml-v052)
   - [Add `PreviewDigest` for third party tools](#add-previewdigest-for-third-party-tools)
   - [Add local Policy Packs to Automation API](#add-local-policy-packs-to-automation-api)
   - [Add --stack to `pulumi about`](#add---stack-to-pulumi-about)
