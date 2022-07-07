@@ -14,10 +14,10 @@ The Pulumi YAML provider supports programs written in YAML or JSON.  In both cas
 
 | Property        | Type | Required           | Expression  | Description |
 | ------------- |---|-------------| -----|---|
-| `configuration`      | map[string]Configuration | No | No | Configuration specifies the [Pulumi config](https://www.pulumi.com/docs/intro/concepts/config/) inputs to the deployment. |
-| `resources`      | map[string]Resource | No | No | Resources declares the [Pulumi resources](https://www.pulumi.com/docs/intro/concepts/resources/) that will be deployed and managed by the program |
+| `configuration`      | map[string]Configuration | No | No | Configuration specifies the [Pulumi config]({{< relref "/docs/intro/concepts/config" >}}) inputs to the deployment. |
+| `resources`      | map[string]Resource | No | No | Resources declares the [Pulumi resources]({{< relref "/docs/intro/concepts/resources/" >}}) that will be deployed and managed by the program |
 | `variables`      | map[string]Expression | No | Yes | Variables specifies intermediate values of the program, the values of variables are expressions that can be re-used. |
-| `outputs`      | map[string]Expression | No | Yes | Outputs specifies the [Pulumi stack outputs](https://www.pulumi.com/docs/intro/concepts/stack/#outputs) of the program and how they are computed from the `resources` is a value of the appropriate type for the template to use if no value is specified. |
+| `outputs`      | map[string]Expression | No | Yes | Outputs specifies the [Pulumi stack outputs]({{< relref "/docs/intro/concepts/stack#outputs" >}}) of the program and how they are computed from the `resources` is a value of the appropriate type for the template to use if no value is specified. |
 
 In many locations within this schema, values may be expressions which computed a value based on the `configuration`, `variables`, or outputs of `resources`.  These expressions can be provided in two ways:
 
@@ -47,7 +47,7 @@ The value of `resources` is an object whose keys are logical resource names by w
 
 #### Resource Options
 
-The value of the `options` property of a Resource is an object whose keys are [resource option names](https://www.pulumi.com/docs/intro/concepts/resources/options/) and whose values are elements of the schema below.
+The value of the `options` property of a Resource is an object whose keys are [resource option names]({{< relref "/docs/intro/concepts/resources/options/" >}}) and whose values are elements of the schema below.
 
 To specify resources in `dependsOn`, `parent`, `provider`, and `providers`, use
 
@@ -260,7 +260,7 @@ The expression `${policyVersion}` will have the value `v1.1`.
 
 ##### `Fn::*Asset` and `Fn::*Archive`
 
-[Assets and Archives](https://www.pulumi.com/docs/intro/concepts/assets-archives/) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
+[Assets and Archives]({{< relref "/docs/intro/concepts/assets-archives" >}}) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
 
 | Built-In      | Argument Type | Description |
 | ------------- |---|------|
@@ -294,7 +294,7 @@ variables:
 
 ##### `Fn::StackReference`
 
-[Stack References](https://www.pulumi.com/docs/intro/concepts/stack/#stackreferences) allow accessing the outputs of a stack from a YAML program. Arguments are passed as a list, with the first item being the stack name and the second argument the name of an output to reference:
+[Stack References]({{< relref "/docs/intro/concepts/stack#stackreferences" >}}) allow accessing the outputs of a stack from a YAML program. Arguments are passed as a list, with the first item being the stack name and the second argument the name of an output to reference:
 
 ```yaml
 variables:
@@ -308,7 +308,7 @@ The expression `${reference}` will have the value of the `outputName` output fro
 
 ##### `Fn::Secret`
 
-Constructs a [Secret](https://www.pulumi.com/docs/intro/concepts/secrets/) from an existing value.
+Constructs a [Secret]({{< relref "/docs/intro/concepts/secrets" >}}) from an existing value.
 
 ``` yaml
 variables:
