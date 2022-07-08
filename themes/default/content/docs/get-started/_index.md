@@ -17,7 +17,11 @@ aliases:
 
 Pulumi is a modern [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) platform that allows you to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
 
-Select one of the following options to deploy a simple application in your cloud using Pulumi:
+## Deploy a static website to your cloud with Pulumi
+
+### Do it yourself
+
+Select one of the following options:
 
 <div class="tiles flex-wrap mt-4">
     <div class="pb-4 md:pr-4 md:w-1/2">
@@ -42,7 +46,9 @@ Select one of the following options to deploy a simple application in your cloud
     </div>
 </div>
 
-Or, watch how to do it in this video walkthrough:
+### Do it later
+
+Watch Joe deploy a static website to AWS in this 5 minute video walkthrough!
 
 <div class="rounded-md shadow border border-gray-300 w-3/4" style="position: relative; padding-bottom: 40.25%; height: 0; overflow: hidden;">
     <iframe
