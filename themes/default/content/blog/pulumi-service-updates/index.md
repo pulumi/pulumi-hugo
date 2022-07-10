@@ -35,7 +35,7 @@ tags:
 
 Earlier this year, Pulumi's user experience (UX) team sat down with users to understand how we can better serve the community. It's important not only to the UX team, but across the company, that we listen to the real wants, needs, pains, and excitements of the people who use our product.
 
-The [Pulumi Service]({{< relref "/product/pulumi-service/" >}}) was at the center of many conversations we had with users. The Pulumi Service is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. The team is always exploring how we can deliver the best SaaS experience we can. But having input from the community gave us a meaningful point of entry.
+The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) was at the center of many conversations we had with users. The Pulumi Service is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. The team is always exploring how we can deliver the best SaaS experience we can. But having input from the community gave us a meaningful point of entry.
 
 <!--more-->
 
