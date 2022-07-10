@@ -64,6 +64,15 @@ To view an organization's stacks:
 1. To view a stacks details select the name of the stack.
 1. To view a specific stack update, navigate to **Activity** and select it from the list.
 
+## Stack Favorites
+
+Stack favorites allow you to label specific stacks for quick and easy access. Stack favorites will be dispalyed in the navigation and on your dashboard. 
+
+### Favortie a Stack
+
+1. Navigate to the stack.
+1. Select the star icon next to the stack name.
+
 ### Stack README
 
 To add a README to a stack:
