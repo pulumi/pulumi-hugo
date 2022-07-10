@@ -29,113 +29,183 @@
         </div>
     </section>
 
-    {{ partial "benefits.html" .Params }}
-
-
-    <section id="code" class="py-16 px-4">
-        <div class="container mx-auto">
-            <div class="md:flex my-8">
-                <div class="md:w-1/2 md:mr-4 md:pr-24">
-                    <h3>Take advantage of real coding features with Pulumi</h3>
-                    <p>Pulumi provides a more expressive and efficient way to define cloud resources:</p>
-                    <ul>
-                        <li>Use variable loops, not copy/paste</li>
-                        <li>Use any Node libaries (or Python/Go)</li>
-                        <li>On-the-fly error checking</li>
-                        <li>Freeform code instead of complex interpolations</li>
-                    </ul>
-                    <p class="my-8"><a class="link" href="https://github.com/pulumi/examples">Find many other examples here</a>.</p>
-                </div>
-                <div class="md:w-1/2 md:ml:4">
-                    {{ partial "code" (dict "code" .Params.examples.one.ts "lang" "js" "mode" "dark") }}
-                    {{ partial "code" (dict "code" .Params.examples.one.tf "lang" "plain" "mode" "dark") }}
-                </div>
+    <div class="bg-gray-100 py-24">
+        <section class="container mx-auto px-8 lg:px-4">
+            <h2 class="text-center">The benefits of using Pulumi</h2>
+            <div class="my-24">
+                <h3 class="text-center my-8">Scalability</h3>
+                <p class="text-lg max-w-4xl mx-auto text-center my-12">
+                    Pulumi can tame the complexity and scale of infrastructure with thousands of resources through the composability and modularity of programming languages. Pulumi
+                    empowers you to test and deliver your infrastructure with all the standard best practices for shipping software.
+                </p>
+                <pulumi-tabs class="my-8">
+                    <pulumi-tab label="Classes">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.scalability.classes.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.scalability.classes.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.scalability.classes.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                    <pulumi-tab label="Components">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.scalability.components.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.scalability.components.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.scalability.components.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                    <pulumi-tab label="Testing">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.scalability.testing.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.scalability.testing.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.scalability.testing.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                </pulumi-tabs>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="code" class="bg-gray-100 py-16">
-        <div class="container mx-auto">
-            <div class="md:flex my-8">
-                <div class="md:w-1/2 md:mr-4 md:pr-24">
-                    <h3>Productive cloud native programming</h3>
-                    <p>
-                        Pulumi is designed with cloud native computing in mind - from containers to serverless, providing a productive model for quickly building and deploying
-                        apps:
-                    </p>
-                    <ul>
-                        <li>Rich, built in support for event handlers</li>
-                        <li>Easy-to-use in-line Lambdas for simple functions</li>
-                        <li>Use JavaScript for both infrastructure and Lambda callbacks</li>
-                        <li>Avoid the need for significant boiler plate code</li>
-                    </ul>
-                    <p class="my-8"><a class="link" href="https://github.com/pulumi/examples">Find many other examples here</a>.</p>
-                </div>
-                <div class="md:w-1/2 md:ml:4">
-                    {{ partial "code" (dict "code" .Params.examples.two.ts "lang" "js" "mode" "dark") }}
-                    {{ partial "code" (dict "code" .Params.examples.two.tf "lang" "plain" "mode" "dark") }}
-                </div>
+        <section class="container mx-auto px-8 lg:px-4">
+            <div>
+                <h3 class="text-center my-8">Productivity</h3>
+                <p class="text-lg max-w-4xl mx-auto text-center my-12">
+                    Pulumi can tame the complexity and scale of infrastructure with thousands of resources through the composability and modularity of programming languages. Pulumi
+                    empowers you to test and deliver your infrastructure with all the standard best practices for shipping software.
+                </p>
+                <pulumi-tabs class="my-8">
+                    <pulumi-tab label="Loops">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.productivity.loops.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.loops.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.loops.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                    <pulumi-tab label="Conditionals">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.productivity.conditionals.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.conditionals.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.conditionals.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                    <pulumi-tab label="Event Handlers">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.productivity.eventHandlers.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.eventHandlers.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.eventHandlers.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                    <pulumi-tab label="Statement Completion">
+                        <p class="my-8 text-center max-w-3xl mx-auto">
+                            {{ .Params.benefits.productivity.statementCompletion.blurb }}
+                        </p>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.statementCompletion.ts "lang" "ts" "statusbar" "Pulumi TypeScript" "height" "32rem" ) }}
+                            </div>
+                            <div class="md:w-1/2 my-2 md:my-0 md:mx-2">
+                                {{ partial "code-scrollable" (dict "code" .Params.benefits.productivity.statementCompletion.hcl "lang" "json" "statusbar" "Terraform HCL" "height" "32rem" ) }}
+                            </div>
+                        </div>
+                    </pulumi-tab>
+                </pulumi-tabs>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section class="container mx-auto w-full relative overflow-visible py-20">
-        <h2 class="text-center">Next steps</h2>
-        <p class="container mx-auto max-w-3xl text-lg text-center my-8">
-            As a Terraform user, there are many ways that you can adopt Pulumi. You can convert existing HCL to Pulumi programs, adopt existing Terraform resource state, and
-            coexist by referencing Terraform stacks from within Pulumi programs.
-        </p>
-        <ul class="flex flex-col lg:flex-row list-none">
-            <li class="lg:w-1/3">
-                <div>
-                    <div class="w-full p-4 my-2">
-                        <div class="card text-center py-16 px-8 relative bg-white">
-                            <h5>Convert HCL to Pulumi code</h5>
-                            <div class="flex flex-col lg:flex-row justify-center items-center mt-4">
-                                <div class="my-2 mx-2 w-full lg:w-auto">
-                                    <a href="{{ relref . "/blog/from-terraform-to-infrastructure-as-software" }}" class="w-full block md:w-auto md:inline-block btn-secondary"
-                                        >Learn more</a
-                                    >
+    <div class="bg-white py-32">
+        <section class="container mx-auto w-full relative overflow-visible">
+            <h2 class="text-center">Next steps</h2>
+            <p class="container mx-auto max-w-3xl text-lg text-center my-8">
+                As a Terraform user, there are many ways that you can adopt Pulumi. You can convert existing HCL to Pulumi programs, adopt existing Terraform resource state, and
+                coexist and reference Terraform stacks from within Pulumi programs.
+            </p>
+            <ul class="flex flex-col lg:flex-row list-none">
+                <li class="lg:w-1/3">
+                    <div>
+                        <div class="w-full p-4 my-2">
+                            <div class="card text-center py-16 px-8 relative bg-white">
+                                <h5>Convert HCL to Pulumi code</h5>
+                                <div class="flex flex-col lg:flex-row justify-center items-center mt-4">
+                                    <div class="my-2 mx-2 w-full lg:w-auto">
+                                        <a href="{{ relref . "/blog/from-terraform-to-infrastructure-as-software" }}" class="w-full block md:w-auto md:inline-block btn-secondary"
+                                            >Learn more</a
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="lg:w-1/3">
-                <div>
-                    <div class="w-full p-4 my-2">
-                        <div class="card text-center py-16 px-8 relative bg-white">
-                            <h5>Adopt existing resource state</h5>
-                            <div class="flex flex-col lg:flex-row justify-center items-center mt-4">
-                                <div class="my-2 mx-2 w-full lg:w-auto">
-                                    <a href="{{ relref . "/blog/adopting-existing-cloud-resources-into-pulumi" }}" class="w-full block md:w-auto md:inline-block btn-secondary"
-                                        >Learn more</a
-                                    >
+                </li>
+                <li class="lg:w-1/3">
+                    <div>
+                        <div class="w-full p-4 my-2">
+                            <div class="card text-center py-16 px-8 relative bg-white">
+                                <h5>Adopt existing resource state</h5>
+                                <div class="flex flex-col lg:flex-row justify-center items-center mt-4">
+                                    <div class="my-2 mx-2 w-full lg:w-auto">
+                                        <a href="{{ relref . "/blog/adopting-existing-cloud-resources-into-pulumi" }}" class="w-full block md:w-auto md:inline-block btn-secondary"
+                                            >Learn more</a
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="lg:w-1/3">
-                <div>
-                    <div class="w-full p-4 my-2">
-                        <div class="card text-center py-16 px-8 relative bg-white">
-                            <h5>Coexist with Terraform state</h5>
-                            <div class="flex flex-col lg:flex-row justify-center items-center mt-4">
-                                <div class="my-2 mx-2 w-full lg:w-auto">
-                                    <a href="{{ relref . "/blog/using-terraform-remote-state-with-pulumi" }}" class="w-full block md:w-auto md:inline-block btn-secondary"
-                                        >Learn more</a
-                                    >
+                </li>
+                <li class="lg:w-1/3">
+                    <div>
+                        <div class="w-full p-4 my-2">
+                            <div class="card text-center py-16 px-8 relative bg-white">
+                                <h5>Coexist with Terraform state</h5>
+                                <div class="flex flex-col lg:flex-row justify-center items-center mt-4">
+                                    <div class="my-2 mx-2 w-full lg:w-auto">
+                                        <a href="{{ relref . "/blog/using-terraform-remote-state-with-pulumi" }}" class="w-full block md:w-auto md:inline-block btn-secondary"
+                                            >Learn more</a
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </section>
+                </li>
+            </ul>
+        </section>
+    </div>
 
     {{ partial "hand-raise-section" . }}
 {{ end }}
