@@ -53,7 +53,7 @@ For a quick example of how Pulumi deploys infrastructure on Kubernetes, this tut
 1. Creating a service to access the NGINX deployment.
 1. Cleaning up your deployment by destroying the resources you've provisioned.
 
-# Before You Begin
+## Before You Begin
 
 Before we get started using Pulumi, let's run through a few quick steps to ensure our environment is setup correctly.
 
@@ -105,7 +105,8 @@ Next, we'll configure Kubernetes.
 
 Next, we'll create a new Pulumi project.
 
-# Create a New Project
+## Create a New Project
+
 Now that you have set up your environment let's create your first Pulumi program.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
@@ -219,7 +220,7 @@ After the command completes, the project and stack will be ready.
 
 Next, we'll review the generated project files.
 
-# Review the New Project
+## Review the New Project
 
 Let's review some of the generated project files:
 
@@ -539,7 +540,7 @@ This Pulumi program creates an NGINX deployment and exports the name of the depl
 
 Next, we'll deploy the stack.
 
-# Deploy the Stack
+## Deploy the Stack
 
 Let's go ahead and deploy the stack:
 
@@ -590,7 +591,7 @@ The name of the deployment that we exported is shown as a [stack output]({{< rel
 
 Next, we'll make some modifications to the program.
 
-# Modify the Program
+## Modify the Program
 
 Now that we have an instance of our Pulumi program deployed, let's update it to do something a little more interesting.
 
@@ -1071,7 +1072,7 @@ $ pulumi config set isMinikube false
 
 Next, we'll deploy the changes.
 
-# Deploy the Changes
+## Deploy the Changes
 
 Now let's deploy our changes.
 
@@ -1172,7 +1173,7 @@ Commercial support is available at
 
 Next, we'll destroy the stack.
 
-# Destroy the Stack
+## Destroy the Stack
 
 Now that we've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of our stack.
 
@@ -1221,29 +1222,29 @@ entirely from the Pulumi Service, along with all of its update history.
 
 Next, we'll look at some next steps.
 
-# Next Steps
+## Next Steps
 
 Congrats! You've deployed your first project to Kubernetes with Pulumi. Here are some next steps, depending on your learning style.
 
-## Learn Pulumi
+### Learn Pulumi
 
 Dive into Learn Pulumi for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 
 {{< get-started-next-step path="/learn/pulumi-fundamentals" label="Learn Pulumi Fundamentals" ref="gs-k8s-learn" >}}
 
-## How-to Guides
+### How-to Guides
 
 Explore our how-to guides if you're looking for examples of specific architectures or application stacks. These guides are available in all Pulumi languages and cover creating managed Kubernetes clusters across all major cloud providers ([AWS]({{< relref "/registry/packages/kubernetes/how-to-guides/eks" >}}), [Azure]({{< relref "/registry/packages/kubernetes/how-to-guides/aks" >}}), [Google Cloud]({{< relref "/registry/packages/kubernetes/how-to-guides/gke" >}})) as well as deploying app workloads on running Kubernetes clusters ([WordPress Helm Chart]({{< relref "/registry/packages/kubernetes/how-to-guides/wordpress-chart" >}}), [Stateless App Deployment]({{< relref "/registry/packages/kubernetes/how-to-guides/stateless-app" >}})).
 
 {{< get-started-next-step path="/registry/packages/kubernetes/how-to-guides" label="Explore How-to Guides" ref="gs-k8s-guides" >}}
 
-## How Pulumi Works
+### How Pulumi Works
 
 Learn how Pulumi works from its architecture to key concepts, including [stacks]({{< relref "/docs/intro/concepts/stack" >}}), [state]({{< relref "/docs/intro/concepts/state" >}}), [configuration]({{< relref "/docs/intro/concepts/config" >}}), and [secrets]({{< relref "/docs/intro/concepts/secrets" >}}).
 
 {{< get-started-next-step path="/docs/intro/concepts" label="Read Documentation" ref="gs-k8s-docs" >}}
 
-## Blog Posts
+### Blog Posts
 
 Read through the latest blog posts about using Pulumi with Kubernetes.
 
