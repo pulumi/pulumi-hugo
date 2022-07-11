@@ -11,7 +11,7 @@ date: 2022-07-14
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test. 
 # Max length is 160 characters.
-meta_desc: New user experience for Pulumi Service blah blah blah.
+meta_desc: Pulumi Service, the easiest way to use Pulumi’s open-source universal infrastructure as code, just got better with a new and improved user experience.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
