@@ -66,7 +66,7 @@ To view an organization's stacks:
 
 ## Stack Favorites
 
-Stack favorites allow you to label specific stacks for quick and easy access. Stack favorites will be dispalyed in the navigation and on your dashboard. 
+Stack favorites allow you to label specific stacks for quick and easy access. Stack favorites will be dispalyed in the navigation and on your dashboard.
 
 ### Favortie a Stack
 
