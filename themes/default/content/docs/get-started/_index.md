@@ -46,7 +46,7 @@ Select one of the following options:
     </div>
 </div>
 
-### Do it later
+### Watch a video walkthrough
 
 Watch Joe deploy a static website to AWS in this 5 minute video walkthrough!
 

@@ -13,7 +13,7 @@ aliases: ["/docs/quickstart/aws/"]
 
 {{< cloud-intro "AWS" >}}
 
-## Before You Begin | AWS
+## Before You Begin
 
 Before you get started using Pulumi, let's run through a few quick steps to ensure your environment is set up correctly.
 
@@ -98,7 +98,7 @@ For additional information on setting and using AWS credentials, see [AWS Setup]
 
 Next, you'll create a new Pulumi project.
 
-## Create a New Project | AWS
+## Create a New Project
 
 Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,
 and configuring your AWS credentials, let's create your first Pulumi program.
@@ -195,7 +195,7 @@ After the command completes, the project and stack will be ready.
 
 Next, we'll review the generated project files.
 
-## Review the New Project | AWS
+## Review the New Project
 
 Let's review some of the generated project files:
 
@@ -440,7 +440,7 @@ outputs:
 
 Next, you'll deploy your stack, which will provision your S3 bucket.
 
-## Deploy the Stack | AWS
+## Deploy the Stack
 
 Let's go ahead and deploy your stack:
 
@@ -549,7 +549,7 @@ Running that command will print out the name of your bucket.
 
 Now that your bucket has been provisioned, let's modify the bucket to host a static website.
 
-## Modify the Program | AWS
+## Modify the Program
 
 Now that your S3 bucket is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.
 
@@ -719,7 +719,7 @@ Notice how you provide the bucket you created earlier as an input to your new `B
 
 Next, you'll deploy your changes.
 
-## Deploy the Changes | AWS
+## Deploy the Changes
 
 Now let's deploy your changes.
 
@@ -1236,7 +1236,7 @@ And you should see:
 
 Next you will destroy the resources.
 
-## Destroy the Stack | AWS
+## Destroy the Stack
 
 Now that you've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of your stack.
 
@@ -1295,7 +1295,7 @@ Congratulations! You've successfully provisioned some cloud resources using Pulu
 
 On the next page, we have a collection of examples and tutorials that you can deploy as they are or use them as a foundation for your own applications and infrastructure projects.
 
-## Next Steps | AWS
+## Next Steps
 
 Congrats! You've deployed your first project on AWS with Pulumi. Here are some next steps, depending on your learning style.
 
