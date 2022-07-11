@@ -74,7 +74,7 @@ Your favorites list is your own—even if you're part of an organization, your f
 
 You can access the favorites list from two key locations in the Service: the primary navigation pane and the dashboard. All your favorites will appear in the navigation pane under the “Stacks” heading. You'll also have your list of favorites in a new dashboard card.
 
-![""](stacks-navigation-favorties-card.png)
+![""](stacks-navigation-favorites-card.png)
 
 ## Pulumi Service dashboard redesign
 
