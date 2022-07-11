@@ -8,7 +8,31 @@ menu:
     identifier: gcp
     weight: 2
 
-aliases: ["/docs/quickstart/gcp/"]
+aliases: [
+  "/docs/quickstart/gcp/",
+  "/docs/quickstart/gcp/begin/",
+  "/docs/quickstart/gcp/install-pulumi/",
+  "/docs/quickstart/gcp/install-language-runtime/",
+  "/docs/quickstart/gcp/configure/",
+  "/docs/get-started/gcp/install-pulumi/",
+  "/docs/get-started/gcp/install-language-runtime/",
+  "/docs/get-started/gcp/configure/",
+  "/docs/quickstart/gcp/create-project/",
+  "/docs/quickstart/gcp/review-project/",
+  "/docs/quickstart/gcp/deploy-stack/",
+  "/docs/quickstart/gcp/modify-program/",
+  "/docs/quickstart/gcp/deploy-changes/",
+  "/docs/quickstart/gcp/destroy-stack/",
+  "/docs/quickstart/gcp/next-steps/",
+  "/docs/get-started/gcp/begin",
+  "/docs/get-started/gcp/create-project",
+  "/docs/get-started/gcp/deploy-changes",
+  "/docs/get-started/gcp/deploy-stack",
+  "/docs/get-started/gcp/destroy-stack",
+  "/docs/get-started/gcp/modify-program",
+  "/docs/get-started/gcp/next-steps",
+  "/docs/get-started/gcp/review-project"
+]
 ---
 
 {{< cloud-intro "Google Cloud" >}}

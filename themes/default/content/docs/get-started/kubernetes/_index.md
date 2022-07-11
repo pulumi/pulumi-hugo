@@ -9,7 +9,31 @@ menu:
     identifier: kubernetes
     weight: 2
 
-aliases: ["/docs/quickstart/kubernetes/"]
+aliases: [
+  "/docs/quickstart/kubernetes/",
+  "/docs/quickstart/kubernetes/begin/",
+  "/docs/quickstart/kubernetes/install-pulumi/",
+  "/docs/quickstart/kubernetes/install-language-runtime/",
+  "/docs/quickstart/kubernetes/configure/",
+  "/docs/get-started/kubernetes/install-pulumi/",
+  "/docs/get-started/kubernetes/install-language-runtime/",
+  "/docs/get-started/kubernetes/configure/",
+  "/docs/quickstart/kubernetes/create-project/",
+  "/docs/quickstart/kubernetes/review-project/",
+  "/docs/quickstart/kubernetes/deploy-stack/",
+  "/docs/quickstart/kubernetes/modify-program/",
+  "/docs/quickstart/kubernetes/deploy-changes/",
+  "/docs/quickstart/kubernetes/destroy-stack/",
+  "/docs/quickstart/kubernetes/next-steps/",
+  "/docs/get-started/kubernetes/begin",
+  "/docs/get-started/kubernetes/create-project",
+  "/docs/get-started/kubernetes/deploy-changes",
+  "/docs/get-started/kubernetes/deploy-stack",
+  "/docs/get-started/kubernetes/destroy-stack",
+  "/docs/get-started/kubernetes/modify-program",
+  "/docs/get-started/kubernetes/next-steps",
+  "/docs/get-started/kubernetes/review-project"
+]
 ---
 
 Pulumi's Cloud Native SDK makes it easy to target any Kubernetes environment to

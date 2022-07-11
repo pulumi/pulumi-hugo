@@ -8,7 +8,31 @@ menu:
     identifier: aws
     weight: 2
 
-aliases: ["/docs/quickstart/aws/"]
+aliases: [
+  "/docs/quickstart/aws/",
+  "/docs/quickstart/aws/begin/",
+  "/docs/quickstart/aws/install-pulumi/",
+  "/docs/quickstart/aws/install-language-runtime/",
+  "/docs/quickstart/aws/configure/",
+  "/docs/get-started/aws/install-pulumi/",
+  "/docs/get-started/aws/install-language-runtime/",
+  "/docs/get-started/aws/configure/",
+  "/docs/get-started/aws/begin",
+  "/docs/get-started/aws/create-project",
+  "/docs/get-started/aws/deploy-changes",
+  "/docs/get-started/aws/deploy-stack",
+  "/docs/get-started/aws/destroy-stack",
+  "/docs/get-started/aws/modify-program",
+  "/docs/get-started/aws/next-steps",
+  "/docs/get-started/aws/review-project",
+  "/docs/quickstart/aws/create-project/",
+  "/docs/quickstart/aws/review-project/",
+  "/docs/quickstart/aws/deploy-stack/",
+  "/docs/quickstart/aws/modify-program/",
+  "/docs/quickstart/aws/deploy-changes/",
+  "/docs/quickstart/aws/destroy-stack/",
+  "/docs/quickstart/aws/next-steps/"
+]
 ---
 
 {{< cloud-intro "AWS" >}}

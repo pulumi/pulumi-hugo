@@ -8,7 +8,31 @@ menu:
     identifier: azure
     weight: 2
 
-aliases: ["/docs/quickstart/azure/"]
+aliases: [
+  "/docs/quickstart/azure/",
+  "/docs/quickstart/azure/begin/",
+  "/docs/quickstart/azure/install-pulumi/",
+  "/docs/quickstart/azure/install-language-runtime/",
+  "/docs/quickstart/azure/configure/",
+  "/docs/get-started/azure/install-pulumi/",
+  "/docs/get-started/azure/install-language-runtime/",
+  "/docs/get-started/azure/configure/",
+  "/docs/get-started/azure/begin",
+  "/docs/get-started/azure/create-project",
+  "/docs/get-started/azure/deploy-changes",
+  "/docs/get-started/azure/deploy-stack",
+  "/docs/get-started/azure/destroy-stack",
+  "/docs/get-started/azure/modify-program",
+  "/docs/get-started/azure/next-steps",
+  "/docs/get-started/azure/review-project",
+  "/docs/quickstart/azure/create-project/",
+  "/docs/quickstart/azure/review-project/",
+  "/docs/quickstart/azure/deploy-stack/",
+  "/docs/quickstart/azure/modify-program/",
+  "/docs/quickstart/azure/deploy-changes/",
+  "/docs/quickstart/azure/destroy-stack/",
+  "/docs/quickstart/azure/next-steps/"
+]
 ---
 
 {{< cloud-intro "Microsoft Azure" >}}
