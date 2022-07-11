@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Service Updates"
+title: "Improving the Pulumi Service Experience"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
@@ -41,7 +41,7 @@ The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) was at the center
 
 Here are the two problems our users faced that we wanted to improve:
 
-1. Users were losing time trying to get where they needed to go. Important content needs to be quick and easy to find.
+1. Users were losing time trying to get where they needed to go. Important content should be quick and easy to find.
 2. Some users didn't feel like they understood the "big picture" of their operations. We wanted to offer the proper sight lines into an organization's IaC.
 
 We knew we could do better. Now, we're excited to share the changes we've made so far!
@@ -63,6 +63,8 @@ The navigation pane consolidates actions and information so you don't have to lo
 ![""](dashboard-nav-collapsed.png)
 
 We made these changes to help users to move through the Pulumi Service without losing their place and ensure constant access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
+
+If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
 ## Stack Favorites
 
@@ -97,7 +99,7 @@ All users can now see more of their operation updates in the “Latest Stack Act
 
 ![""](members-stack-activity-cards.png)
 
-## Heading? idk
+## Thank you!
 
 These changes wouldn’t be possible without the users who generously gave their time to have a conversation with us. We're excited to translate their feedback into a better Pulumi experience. Know that this is the start to even more improvements across the Service and the Pulumi platform. We're always striving to deliver the best product we can.
 
