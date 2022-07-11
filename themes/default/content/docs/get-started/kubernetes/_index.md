@@ -1220,8 +1220,6 @@ To delete the stack itself, run [`pulumi stack rm`]({{< relref
 "/docs/reference/cli/pulumi_stack_rm" >}}). Note that this removes the stack
 entirely from the Pulumi Service, along with all of its update history.
 
-Next, we'll look at some next steps.
-
 ## Next Steps
 
 Congrats! You've deployed your first project to Kubernetes with Pulumi. Here are some next steps, depending on your learning style.
