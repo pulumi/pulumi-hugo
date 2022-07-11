@@ -50,7 +50,7 @@ We knew we could do better. Now, we're excited to share the changes we've made s
 
 Next time you sign in to the Pulumi Service, look for the navigation pane on the left hand side of the page. All primary navigation items like your Dashboard, Stacks, and Settings are accessible in the new pane from anywhere in the Service.
 
-linter fun _image will be added here_
+![](dashboard-nav-expanded.png)
 
 The navigation pane consolidates actions and information so you don't have to look so hard to find where things are. You'll find options in the pane to:
 
@@ -60,7 +60,7 @@ The navigation pane consolidates actions and information so you don't have to lo
 - directly access sub-pages like Billing or Access Tokens
 - send us your feedback!
 
-linter fun _image will be added here_
+![](dashboard-nav-collapsed.png)
 
 We made these changes to help users to move through the Pulumi Service without losing their place and ensure constant access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
 
@@ -68,13 +68,13 @@ We made these changes to help users to move through the Pulumi Service without l
 
 The Pulumi Service now supports stack favorites. We want to reduce the time practitioners spend combing through projects. Stack favorites offer quick access to the stacks you need most. Look for the star icon next to any stack name and select it to start building out your favorites list.
 
-linter fun _image will be added here_
+![](stack-navigation.png)
 
 Your favorites list is your own—even if you're part of an organization, your favorites won't be shared with anyone other than you. And you can have as many favorites as you like!
 
 You can access the favorites list from two key locations in the Service: the primary navigation pane and the dashboard. All your favorites will appear in the navigation pane under the “Stacks” heading. You'll also have your list of favorites in a new dashboard card.
 
-linter fun _image will be added here_
+![](stacks-navigation-favorties-card.png)
 
 ## Pulumi Service dashboard redesign
 
@@ -95,7 +95,7 @@ Users in organizations will also see a “Members” card that tracks recently j
 
 All users can now see more of their operation updates in the “Latest Stack Activity” card. You can expose up to ten updates and favorite stacks directly from the dashboard.
 
-linter fun _image will be added here_
+![](members-dashboard-card.png)
 
 ## Heading? idk
 
