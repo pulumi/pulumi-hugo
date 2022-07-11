@@ -33,7 +33,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Earlier this year, Pulumi's user experience (UX) team sat down with users to understand how we can better serve the community. It's important not only to the UX team, but across the company, that we listen to the real wants, needs, pains, and excitements of the people who use our product.
+Earlier this year, Pulumi's user experience (UX) team sat down with users to understand how we can improve the Pulumi experience. It's important not only to the UX team, but across the company, that we listen to the real wants, needs, pains, and excitements of the people who use our product.
 
 The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) was at the center of many conversations we had with users. The Pulumi Service is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. The team is always exploring how we can deliver the best SaaS experience we can. But having input from the community gave us a meaningful point of entry.
 
@@ -41,8 +41,8 @@ The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) was at the center
 
 Here are the two problems our users faced that we wanted to improve:
 
-1. Users were losing time trying to get where they needed to go. Important content should be quick and easy to find.
-2. Some users didn't feel like they understood the "big picture" of their operations. We wanted to offer the proper sight lines into an organization's IaC.
+1. Users were losing time trying to get where they needed to go. Users need to find important content faster and more easily.
+2. Users didn't feel like they understood the "big picture" of their Pulumi usage. We wanted to offer improved sight lines into organizations' day-to-day operations.
 
 We knew we could do better. Now, we're excited to share the changes we've made so far!
 
@@ -62,17 +62,17 @@ The navigation pane consolidates actions and information so you don't have to lo
 
 ![""](dashboard-nav-collapsed.png)
 
-We made these changes to help users to move through the Pulumi Service without losing their place and ensure constant access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
+We made these changes to help you move through the Pulumi Service without losing your place and ensure constant access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
 
 If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
 ## Stack Favorites
 
-The Pulumi Service now supports stack favorites. We want to reduce the time practitioners spend combing through projects. Stack favorites offer quick access to the stacks you need most. Look for the star icon next to any stack name and select it to start building out your favorites list.
+You can now pin your favorite stacks, so you can quickly access the stacks you need most. This reduces your time spent combing through projects. Look for the star icon next to any stack name and select it to start building out your favorites list.
 
 ![""](stack-navigation.png)
 
-Your favorites list is your own—even if you're part of an organization, your favorites won't be shared with anyone other than you. And you can have as many favorites as you like!
+Your favorites list is your own. Even if you're part of an organization, your favorites won't be shared with anyone other than you. And you can have as many favorites as you like!
 
 You can access the favorites list from two key locations in the Service: the primary navigation pane and the dashboard. All your favorites will appear in the navigation pane under the “Stacks” heading. You'll also have your list of favorites in a new dashboard card.
 
@@ -93,14 +93,14 @@ Organizations can access some quick usage statistics at the top of their dashboa
 
 ![""](dashboard-quick-stats.png)
 
-Users in organizations will also see a “Members” card that tracks recently joined members. Admins can manage any pending invites from this card.
+If you're part of an organization, you'll also see a “Members” card that tracks recently joined members. If you're an admin, you can manage any pending invites from this card.
 
-All users can now see more of their operation updates in the “Latest Stack Activity” card. You can expose up to ten updates and favorite stacks directly from the dashboard.
+We've also exposed more operation updates in the “Latest Stack Activity” card. You can see up to ten most recent updates and favorite those stacks directly from the dashboard card.
 
 ![""](members-stack-activity-cards.png)
 
-## Thank you!
+## Try out the Pulumi Service today
 
-These changes wouldn’t be possible without the users who generously gave their time to have a conversation with us. We're excited to translate their feedback into a better Pulumi experience. Know that this is the start to even more improvements across the Service and the Pulumi platform. We're always striving to deliver the best product we can.
+We'd love for you to take this and improved Pulumi Service for a ride! If you haven't already, you can create an account and experience these changes for yourself. Don't hesitate to send us feedback about any thoughts and feelings you have about these changes or any and all things Pulumi! We're more than happy to learn from our community.
 
-If you have any thoughts or feelings you'd like us to hear about, don't hesitate to send us feedback! We're more than happy to learn from our community.
+These changes wouldn’t be possible without the users who generously gave their time to have a conversation with us. We'll continue to translate user feedback into a better Pulumi experience. Know that this is just the start to even more improvements across the Service and the Pulumi platform!
