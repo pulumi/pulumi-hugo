@@ -89,13 +89,13 @@ Organizations can access some quick usage statistics at the top of their dashboa
 - total resource count and percent change in the past week
 - number of successful updates in the past day, week, month, and year
 
-linter fun _image will be added here_
+![""](dashboard-quick-stats.png)
 
 Users in organizations will also see a “Members” card that tracks recently joined members. Admins can manage any pending invites from this card.
 
 All users can now see more of their operation updates in the “Latest Stack Activity” card. You can expose up to ten updates and favorite stacks directly from the dashboard.
 
-![""](members-dashboard-card.png)
+![""](members-stack-activity-cards.png)
 
 ## Heading? idk
 
