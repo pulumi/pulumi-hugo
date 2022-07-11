@@ -52,8 +52,6 @@ To create a webhook:
 1. Select **Create webhook**.
 1. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
 
-![Stack webhooks](/images/docs/reference/service/webhooks/stack-webhooks.png)
-
 If a secret is provided, webhook deliveries will contain a signature
 in the HTTP request header that can be used to authenticate messages as coming from
 the Pulumi Service.
