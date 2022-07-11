@@ -46,9 +46,16 @@ The Webhooks management page is on the Stack or Organization Settings tab.
 
 ### Create a Webhook
 
-To create a webhook:
+To create an organization webhook:
 
 1. Navigate to **Settings** > **Integrations**.
+1. Select **Create webhook**.
+1. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
+
+To create a stack webhook:
+
+1. Navigate to the stack.
+1. Then navigate to **Settings** > **Integrations**
 1. Select **Create webhook**.
 1. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
 
