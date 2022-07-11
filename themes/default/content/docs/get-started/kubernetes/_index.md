@@ -29,8 +29,7 @@ For a quick example of how Pulumi deploys infrastructure on Kubernetes, this tut
 1. Creating a service to access the NGINX deployment.
 1. Cleaning up your deployment by destroying the resources you've provisioned.
 
-{{< get-started-stepper >}}
-# Before You Begin | Kubernetes
+# Before You Begin
 
 Before we get started using Pulumi, let's run through a few quick steps to ensure our environment is setup correctly.
 
@@ -82,8 +81,7 @@ Next, we'll configure Kubernetes.
 
 Next, we'll create a new Pulumi project.
 
-{{< get-started-stepper >}}
-# Create a New Project | Kubernetes
+# Create a New Project
 Now that you have set up your environment let's create your first Pulumi program.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
@@ -197,8 +195,7 @@ After the command completes, the project and stack will be ready.
 
 Next, we'll review the generated project files.
 
-{{< get-started-stepper >}}
-# Review the New Project | Kubernetes
+# Review the New Project
 
 Let's review some of the generated project files:
 
@@ -518,8 +515,7 @@ This Pulumi program creates an NGINX deployment and exports the name of the depl
 
 Next, we'll deploy the stack.
 
-{{< get-started-stepper >}}
-# Deploy the Stack | Kubernetes
+# Deploy the Stack
 
 Let's go ahead and deploy the stack:
 
@@ -570,8 +566,7 @@ The name of the deployment that we exported is shown as a [stack output]({{< rel
 
 Next, we'll make some modifications to the program.
 
-{{< get-started-stepper >}}
-# Modify the Program | Kubernetes
+# Modify the Program
 
 Now that we have an instance of our Pulumi program deployed, let's update it to do something a little more interesting.
 
@@ -1052,8 +1047,7 @@ $ pulumi config set isMinikube false
 
 Next, we'll deploy the changes.
 
-{{< get-started-stepper >}}
-# Deploy the Changes | Kubernetes
+# Deploy the Changes
 
 Now let's deploy our changes.
 
@@ -1154,8 +1148,7 @@ Commercial support is available at
 
 Next, we'll destroy the stack.
 
-{{< get-started-stepper >}}
-# Destroy the Stack | Kubernetes
+# Destroy the Stack
 
 Now that we've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of our stack.
 
@@ -1204,8 +1197,7 @@ entirely from the Pulumi Service, along with all of its update history.
 
 Next, we'll look at some next steps.
 
-{{< get-started-stepper >}}
-# Next Steps | Kubernetes
+# Next Steps
 
 Congrats! You've deployed your first project to Kubernetes with Pulumi. Here are some next steps, depending on your learning style.
 

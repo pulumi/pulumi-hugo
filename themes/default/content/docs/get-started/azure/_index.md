@@ -13,8 +13,7 @@ aliases: ["/docs/quickstart/azure/"]
 
 {{< cloud-intro "Microsoft Azure" >}}
 
-{{< get-started-stepper >}}
-# Before You Begin | Azure
+# Before You Begin
 
 Before you get started using Pulumi, let's run through a few quick steps to ensure your environment is set up correctly.
 
@@ -86,8 +85,7 @@ For additional information on authenticating with Azure, or to login with a serv
 
 Next, you'll create a new Pulumi project.
 
-{{< get-started-stepper >}}
-# Create a New Project | Azure
+# Create a New Project
 
 Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,
 and configuring your Azure credentials, let's create your first Pulumi program.
@@ -198,8 +196,7 @@ After the command completes, the project and stack will be ready.
 
 Next, we'll review the generated project files.
 
-{{< get-started-stepper >}}
-# Review the New Project | Azure
+# Review the New Project
 
 Let's review some of the generated project files:
 
@@ -491,8 +488,7 @@ In this program, the location of the resource group is set in the configuration 
 
 Next, you'll deploy your stack, which will provision a resource group and your storage account.
 
-{{< get-started-stepper >}}
-# Deploy the Stack | Azure
+# Deploy the Stack
 
 Let's go ahead and deploy your stack:
 
@@ -595,8 +591,7 @@ Running that command will print out the storage account's primary key.
 
 Now that your storage account has been provisioned, let's modify it to host a static website.
 
-{{< get-started-stepper >}}
-# Modify the Program | Azure
+# Modify the Program
 
 Now that your storage account is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.
 
@@ -926,8 +921,7 @@ outputs:
 
 Now that you have declared how you want your resources to be provisioned, it is time to deploy these remaining changes.
 
-{{< get-started-stepper >}}
-# Deploy the Changes | Azure
+# Deploy the Changes
 
 Deploy your changes by using `pulumi up` again.
 
@@ -1042,8 +1036,7 @@ And you should see:
 
 Now that you have deployed your site, you will destroy the resources.
 
-{{< get-started-stepper >}}
-# Destroy the Stack | Azure
+# Destroy the Stack
 
 Now that you've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of your stack.
 
@@ -1106,8 +1099,7 @@ Congratulations! You've successfully provisioned some cloud resources using Pulu
 
 On the next page, we have a collection of examples and tutorials that you can deploy as they are or use them as a foundation for your own applications and infrastructure projects.
 
-{{< get-started-stepper >}}
-# Next Steps | Azure
+# Next Steps
 
 Congrats! You've deployed your first project on Azure with Pulumi. Here are some next steps, depending on your learning style.
 
