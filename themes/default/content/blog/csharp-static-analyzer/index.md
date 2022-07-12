@@ -125,7 +125,7 @@ new StorageAccountArgs
 };
 ```
 
-This is something I will be working on in the near future and the fix is relatively doable but it is just a heads-up that the analyzer is not perfect at the moment.
+This is something I will be working on in the near future and the fix is relatively doable, but it is just a heads-up that the analyzer is not perfect at the moment.
 
 ## Conclusion
 
