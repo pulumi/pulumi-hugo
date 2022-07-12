@@ -52,7 +52,7 @@ Next time you sign in to the Pulumi Service, look for the navigation pane on the
 
 ![""](dashboard-nav-expanded.png)
 
-The navigation pane consolidates actions and information so you don't have to look so hard to find where things are. You'll find options in the pane to:
+The navigation pane consolidates actions and information so it's easy for you to find common items. You'll find options in the pane to:
 
 - switch between your individual account and any other organizations you're part of
 - create new organizations
