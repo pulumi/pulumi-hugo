@@ -111,7 +111,7 @@ storageAccountArgs.Kind = Kind.StorageV2;
 storageAccountArgs.Sku = new SkuArgs { Name = SkuName.Standard_LRS };
 ```
 
-Even though it is logically equivalent to
+...even though it is logically equivalent to
 
 ```cs
 new StorageAccountArgs
