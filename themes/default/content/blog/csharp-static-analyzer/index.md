@@ -7,7 +7,7 @@ meta_image: enhanced-static-code-analysis.png
 date: "2022-07-12"
 ---
 
-When I started using Pulumi for the first time, I used C# as my language of choice for defining infrastructure. I start by creating resources and provide their parameters through argument objects. My code would look something like the following:
+When I started using Pulumi for the first time, I used C# as my language of choice for defining infrastructure. I start by creating resources and providing their parameters through argument objects. My code would look something like the following:
 
 ```cs
 var resourceGroup = new ResourceGroup("resourceGroup");
