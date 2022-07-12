@@ -53,7 +53,7 @@ What can we do to fix the problem?
 
 First solution that comes to mind is to fix the generated .NET API for each cloud provider available with Pulumi: adding the required parameters as part of the contructor of arguments type and removing the _parameterless_ contructor.
 
-This however means breaking each and every existing C# program running with Pulumi since the removal of the empty constructor. Here at Pulumi, we want to ensure that changes to our APIs are backward-compatible so this is a no-go.
+This however means introducing a breaking change for each and every existing C# program running with Pulumi using the empty constructor. Here at Pulumi, we want to ensure that changes to our APIs are backward-compatible, so this is a no-go.
 
 The problem above looks like the compiler _could_ have detected if it somehow knew which properties were required or and which were optional. In the case of the generated APIs, this requiredness information is only encoded on properties with a special attribute `[Input("propertyName", required: true)]` which unfortunately is Pulumi-specific and the compiler has no way of detecting it and reporting an error or a warning to the developer at compile-time.
 
