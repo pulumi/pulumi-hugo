@@ -129,4 +129,4 @@ This is something I will be working on in the near future and the fix is relativ
 
 ## Conclusion
 
-Install the [analyzer](https://github.com/Zaid-Ajaj/pulumi-csharp-analyzer) today in your C# Pulumi projects and get better static-code analysis for your code. Keep in the mind the limitations outlined above and let us know if you encounter issues that we didn't take into account before.
+Install the [analyzer](https://github.com/Zaid-Ajaj/pulumi-csharp-analyzer) today in your C# Pulumi projects and get better static-code analysis in your Pulumi projects. Keep in the mind the limitations outlined above and let us know if you encounter issues that we didn't take into account before.
