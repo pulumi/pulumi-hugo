@@ -2,7 +2,7 @@
 title: "Enhanced static-code analysis for C# projects"
 authors: ["zaid-ajaj"]
 tags: ["csharp"]
-meta_desc: "Introducing a static-code analyzer for C# which detects programmer errors at compile-time"
+meta_desc: "Introducing a static-code analyzer for C# which provides instant feedback on common mistakes defining Pulumi resources"
 meta_image: enhanced-static-code-analysis.png
 date: "2022-07-02"
 ---
@@ -47,6 +47,8 @@ var storageAccount = new StorageAccount("storageAccount", new StorageAccountArgs
 
 There is a bigger problem in the API of the resource creation which is that it doesn't tell you that you missed a required property at compile-time. The underlying cause is because we are using property initializers for `StorageAccountArgs` with a _parameterless_ contructor. This is the case when creating _any_ resource across the cloud providers available in the Pulumi ecosystem.
 
+> See [Pulumi #3808](https://github.com/pulumi/pulumi/issues/3808) for more details and discussion on this issue.
+
 What can we do to fix the problem?
 
 First solution that comes to mind is to fix the generated .NET API for each cloud provider available with Pulumi: adding the required parameters as part of the contructor of arguments type and removing the _parameterless_ contructor.
@@ -57,11 +59,11 @@ The problem above looks like the compiler _could_ have detected if it somehow kn
 
 ## Solution
 
-What do we do? Static-code analysis to the rescue! If the compiler can't do it, we can build an extension and have detect these types of errors for the developers.
+What do we do? Static code analysis to the rescue! If the compiler can't do it, we can build an extension and have detect these types of errors for the developers.
 
-Enter [PulumiCSharpAnalyzer](https://github.com/Zaid-Ajaj/pulumi-csharp-analyzer): a roslyn-based code analyzer that adds compile-time checks to your Pulumi code and reports it as part of the build.
+Enter [PulumiCSharpAnalyzer](https://github.com/Zaid-Ajaj/pulumi-csharp-analyzer): a Roslyn-based code analyzer that adds compile-time checks to your Pulumi code and reports it as part of the build.
 
-Available today as a nuget package, you can install the analyzer into your project as follows:
+Available today as a NuGet package, you can install the analyzer into your project as follows:
 
 ```
 dotnet add package PulumiCSharpAnalyzer
@@ -71,7 +73,7 @@ Now your IDE, whether that is Rider, Visual Studio or VS Code with OmniSharp sho
 
 ![missing property Kind when initializing resource arguments](./missing-kind-property.png)
 
-Not just your IDE, it integrates into your build pipeline too. When you `dotnet build` your project. The detected errors will show up there:
+Not just your IDE, it integrates into your build pipeline too. When you `dotnet build` your project, the detected errors will show up there:
 
 ```bash
 > dotnet build
