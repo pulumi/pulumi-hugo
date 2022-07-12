@@ -33,7 +33,7 @@ What happened? It turns out I didn't provide a required property `Kind` when ins
 
 This is an unfortunate result because I had expected that when my  program compiled, that it was valid and ready to deploy.
 
-Even though the fix for this case is simple:
+In this case, the fix is simple:
 
 ```cs
 var storageAccount = new StorageAccount("storageAccount", new StorageAccountArgs
