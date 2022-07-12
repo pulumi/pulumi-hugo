@@ -18,7 +18,7 @@ var storageAccount = new StorageAccount("storageAccount", new StorageAccountArgs
 });
 ```
 
-Here, I am creating a resource group in Azure, then creating a storage account that belongs to that resource group. Pretty simple stuff. The IDE tells me that the code is good and doesn't report any error but just to be sure everything is as it should be, I build the project and the code compiles successfully. Now I am confident and ready to deploy the infrastructure.
+In this snippet, I create a resource group in Azure, then create a storage account that belongs to that resource group. Pretty simple stuff! The IDE tells me that the code is good and doesn't report any errors but just to be sure everything is as it should be, I build the project and the code compiles successfully. Now I am confident and ready to deploy the infrastructure.
 
 I run `pulumi preview` and to my surprise, it fails. The C# program throws an exception at runtime:
 
