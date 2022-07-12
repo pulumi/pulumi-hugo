@@ -45,7 +45,7 @@ var storageAccount = new StorageAccount("storageAccount", new StorageAccountArgs
 });
 ```
 
-There is a bigger problem in the API of the resource creation which is that it doesn't tell you that you missed a required property at compile-time. The underlying cause is because we are using property initializers for `StorageAccountArgs` with a _parameterless_ contructor. This is the case when creating _any_ resource across the cloud providers available in the Pulumi ecosystem.
+There is a bigger problem in the API of the resource creation. The compiler should tell you at compile-time that you missed a required property. The underlying cause is because we are using property initializers for `StorageAccountArgs` with a _parameterless_ contructor. This is the case when creating _any_ resource across the cloud providers available in the Pulumi ecosystem.
 
 > See [Pulumi #3808](https://github.com/pulumi/pulumi/issues/3808) for more details and discussion on this issue.
 
