@@ -102,7 +102,7 @@ The reason is that when we have an instance of `Output<T>` from which we call `A
 
 ## Limitations
 
-With the current features of the analyzer, it is already usable across all cloud provider SDKs. That said, there are limitations to the way the analyzer works. At the moment, when determining the missing properties, the logic only detects initialized properties when creating the object and diffs those against the required properties from the schema. This means that if you happened to use property _setters_ instead of property initializers, they are considered "not provided" and will report a warning for the following piece of code:
+With the current features of the analyzer, it is already usable across all cloud provider SDKs. That said, there are limitations to the way the analyzer works. At the moment, when determining the missing properties, the logic only detects initialized properties when creating the object and diffs those against the required properties from the schema. This means that if you happened to use property _setters_ instead of property initializers, they are considered "not provided" and will report a warning. For example, the following piece of code will produce a false-positive warning...
 
 ```cs
 var storageAccountArgs = new StorageAccountArgs();
