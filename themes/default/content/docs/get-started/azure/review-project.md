@@ -28,12 +28,6 @@ Let's review some of the generated project files:
 
 - `Pulumi.dev.yaml` contains [configuration]({{< relref "/docs/intro/concepts/config" >}}) values for the [stack]({{< relref "/docs/intro/concepts/stack" >}}) you initialized.
 
-{{% choosable language csharp %}}
-
-- `Program.cs` is the Pulumi program that defines your stack resources.
-
-{{% /choosable %}}
-
 {{% choosable language java %}}
 
 - `src/main/java/myproject` defines the project's Java package root.

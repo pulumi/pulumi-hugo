@@ -108,7 +108,7 @@ if err != nil {
 {{% /choosable %}}
 {{% choosable language csharp %}}
 
-To start, open `MyStack.cs` and add the following right after the storage account creation:
+To start, open `Program.cs` and add the following right after the storage account creation:
 
 ```csharp
 // Enable static website support

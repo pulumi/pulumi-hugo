@@ -525,7 +525,7 @@ Previewing update (dev):
  +-  └─ gcp:storage:BucketObject      index.html             replace    [diff: ~contentType]
 
 Outputs:
-  + BucketEndpoint: "http://storage.googleapis.com/my-bucket-0167228/index.html-50b2ce9"
+  + bucketEndpoint: "http://storage.googleapis.com/my-bucket-0167228/index.html-50b2ce9"
 
 Resources:
     + 1 to create
@@ -551,8 +551,8 @@ Updating (dev):
  +   └─ gcp:storage:BucketIAMBinding  my-bucket-IAMBinding   created
  +-  └─ gcp:storage:BucketObject      index.html             replaced    [diff: ~contentType];
 Outputs:
-  + BucketEndpoint: "http://storage.googleapis.com/my-bucket-0167228/index.html-50b2ce9"
-    BucketName    : "gs://my-bucket-0167228"
+  + bucketEndpoint: "http://storage.googleapis.com/my-bucket-0167228/index.html-50b2ce9"
+    bucketName    : "gs://my-bucket-0167228"
 
 Resources:
     + 1 created
