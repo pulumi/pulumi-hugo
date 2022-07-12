@@ -42,7 +42,7 @@ The [Pulumi Service](https://www.pulumi.com/docs/intro/pulumi-service/) was at t
 Here are the two problems our users faced that we wanted to improve:
 
 1. Users were losing time trying to get where they needed to go. Users need to find important content faster and more easily.
-2. Users didn't feel like they understood the "big picture" of their Pulumi usage. We wanted to offer improved sight lines into organizations' day-to-day operations.
+2. Users didn't feel like they understood the "big picture" of their Pulumi usage. We wanted to offer improved line of sight into organizations' day-to-day operations.
 
 We knew we could do better. Now, we're excited to share the changes we've made so far!
 
@@ -62,7 +62,7 @@ The navigation pane consolidates actions and information so you don't have to lo
 
 ![""](dashboard-nav-collapsed.png)
 
-We made these changes to help you move through the Pulumi Service without losing your place and ensure constant access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
+We made these changes to help you move through the Pulumi Service without losing your place and ensure convenient access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
 
 If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
@@ -101,6 +101,6 @@ We've also exposed more operation updates in the “Latest Stack Activity” car
 
 ## Try out the Pulumi Service today
 
-We'd love for you to take this and improved Pulumi Service for a ride! If you haven't already, you can [create an account](https://app.pulumi.com/signup) and experience these changes for yourself. Don't hesitate to [send us feedback](https://www.pulumi.com/contact/) about any thoughts and feelings you have about these changes or any and all things Pulumi! We're more than happy to learn from our community.
+We'd love for you to take this new and improved Pulumi Service for a ride! If you haven't already, you can [create a free account](https://app.pulumi.com/signup) and experience these changes for yourself. Don't hesitate to reach out on the [Pulumi Community Slack](https://slack.pulumi.com/?_gl=1*abbv2y*_ga*MTgxNzE0MTI3LjE2NDM3MzcwNTU.*_ga_FQHG5CVY2D*MTY1NzY0ODc4NC4xMzMuMC4xNjU3NjQ4Nzg0LjYw) about any thoughts and feelings you have about these changes or any and all things Pulumi! We also have a [public GitHub repo](https://github.com/pulumi/service-requests/issues) to track any requests related to the Service. We're more than happy to learn from our community.
 
 These changes wouldn’t be possible without the users who generously gave their time to have a conversation with us. We'll continue to translate user feedback into a better Pulumi experience. Know that this is just the start to even more improvements across the Service and the Pulumi platform!
