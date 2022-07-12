@@ -35,7 +35,7 @@ tags:
 
 Earlier this year, Pulumi's user experience (UX) team sat down with users to understand how we can improve the Pulumi experience. It's important not only to the UX team, but across the company, that we listen to the real wants, needs, pains, and excitements of the people who use our product.
 
-The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) was at the center of many conversations we had with users. The Pulumi Service is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. The team is always exploring how we can deliver the best SaaS experience we can. But having input from the community gave us a meaningful point of entry.
+The [Pulumi Service](https://www.pulumi.com/docs/intro/pulumi-service/) was at the center of many conversations we had with users. The Pulumi Service is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. The team is always exploring how we can deliver the best SaaS experience we can. But having input from the community gave us a meaningful point of entry.
 
 <!--more-->
 
@@ -101,6 +101,6 @@ We've also exposed more operation updates in the “Latest Stack Activity” car
 
 ## Try out the Pulumi Service today
 
-We'd love for you to take this and improved Pulumi Service for a ride! If you haven't already, you can create an account and experience these changes for yourself. Don't hesitate to send us feedback about any thoughts and feelings you have about these changes or any and all things Pulumi! We're more than happy to learn from our community.
+We'd love for you to take this and improved Pulumi Service for a ride! If you haven't already, you can [create an account](https://app.pulumi.com/signup) and experience these changes for yourself. Don't hesitate to [send us feedback](https://www.pulumi.com/contact/) about any thoughts and feelings you have about these changes or any and all things Pulumi! We're more than happy to learn from our community.
 
 These changes wouldn’t be possible without the users who generously gave their time to have a conversation with us. We'll continue to translate user feedback into a better Pulumi experience. Know that this is just the start to even more improvements across the Service and the Pulumi platform!
