@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Introduction to Infrastructure as Code with Pulumi YAML"
+title: "Workshop: Introduction to Infrastructure as Code with Pulumi YAML"
 meta_desc: "In this workshop, you’re going to explore how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker and YAML."
 
 # A featured webinar will display first in the list.
@@ -52,7 +52,7 @@ hero:
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Introduction to Infrastructure as Code with Pulumi YAML"
+    title: "Workshop: Introduction to Infrastructure as Code with Pulumi YAML"
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/7Z8hElGMdPU"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
