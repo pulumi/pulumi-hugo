@@ -54,7 +54,7 @@ main:
     # Webinar title.
     title: "Introduction to Infrastructure as Code with Pulumi YAML"
     # URL for embedding a URL for ungated webinars.
-    youtube_url: "https://www.youtube.com/embed/QFCkubMhY3U"
+    youtube_url: "https://www.youtube.com/embed/7Z8hElGMdPU"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2022-06-16T10:00:00-07:00
     # Duration of the webinar.
