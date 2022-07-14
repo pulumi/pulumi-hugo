@@ -161,3 +161,17 @@ retry() {
     }
     done
 }
+
+postPullRequestPageLinks() {
+    event="$(cat "$GITHUB_EVENT_PATH")"
+    pr_number="$(echo $event | jq -r ".number")"
+    pr_comment_api_url="$(echo $event | jq -r ".pull_request._links.comments.href")"
+
+    filediff="$(curl \
+        -s \
+        -H "Authorization: token ${GITHUB_TOKEN}" \
+        -H "application/vnd.github+json" \
+        "https://api.github.com/repos/pulumi/pulumi-hugo/pulls/${pr_number}/files" | jq -r ".[].filename")"
+
+    post_github_pr_comment filediff pr_comment_api_url
+}

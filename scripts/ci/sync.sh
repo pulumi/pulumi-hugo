@@ -91,3 +91,5 @@ post_github_pr_comment \
     $pr_comment_api_url
 
 echo "Done! The bucket website is now built and available at ${s3_website_url}."
+
+postPullRequestPageLinks

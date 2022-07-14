@@ -13,7 +13,7 @@ tags:
     - static-websites
 ---
 
-The [AWS Static Website]({{< relref "/registry/packages/aws-static-website" >}}) component makes it easy to deploy an AWS S3 static website and, optionally, add a CloudFront content distribution network (CDN). While you can use any of the programming languages Pulumi supports (TypeScript, JavaScript, Python, Go, .NET, Java, and YAML), the component is particularly useful if you use YAML or JSON. With the AWS Static Website component, you’ll have a complete, functioning site in a few minutes. Without it, you can spend hours or even days to get the same result.
+The [AWS Static Website]({{< relref "/registry/packages/aws-static-website" >}}) component makes it easy to deploy an AWS S3 static website and, optionally, add a CloudFront content distribution network (CDN). While you can use any of the programming languages Pulumi supports (TypeScript, JavaScript, Python, Go, .NET, Java, and YAML), the component is particularly useful if you use YAML or JSON. With the AWS Static Website component, you’ll have a complete, functioning site in a few minutes. Without it, you can spend hours or even days to get the same result. test change.
 
 The component is designed to be simple to use and accessible to a broad range of developers. The only prerequisites are a basic knowledge of YAML or JSON, an AWS account, and an understanding of what a static website is. Even if you’re not used to thinking about infrastructure as code (IaC), you can use the component and let it handle the complexities that make setting up a website so time consuming.
 
