@@ -62,7 +62,7 @@ The navigation pane consolidates actions and information so it's easy for you to
 
 ![""](dashboard-nav-collapsed.png)
 
-We made these changes to help you move through the Pulumi Service without losing your place and ensure convenient access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
+We made these changes to help you move through the Pulumi Service without losing your place and to ensure convenient access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
 
 If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
