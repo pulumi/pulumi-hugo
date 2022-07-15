@@ -33,22 +33,23 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Earlier this year, Pulumi's user experience (UX) team sat down with users to understand how we can improve the Pulumi experience. It's important not only to the UX team, but across the company, that we listen to the real wants, needs, pains, and excitements of the people who use our product.
 
-The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) was at the center of many conversations we had with users. The Pulumi Service is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. The team is always exploring how we can deliver the best SaaS experience we can. But having input from the community gave us a meaningful point of entry.
+It’s been nearly four years since the Pulumi Service console launched back in 2018. The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. It handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
+
+In these last four years, the Service’s features and capabilities have grown quickly. We’ve added features like x, y, and z. But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
 
 <!--more-->
 
-Here are the two problems our users faced that we wanted to improve:
+Today we’re excited to launch a set of improvements to the overall user experience of the Pulumi Service. These updates include:
+- Easier navigation around the Service 
+- Quick access to the stacks you care about most with a new Favoriting feature
+- Increased organizational insights on the Service Dashboard
 
-1. Users were losing time trying to get where they needed to go. Users need to find important content faster and more easily.
-2. Users didn't feel like they understood the "big picture" of their Pulumi usage. We wanted to offer improved line of sight into organizations' day-to-day operations.
+Want to try these features out for yourself? Next time you sign in to your Pulumi Service account, select the toggle in the black utility toolbar at the top of the page to “Try the new Pulumi Service!” You can take these new changes for a ride, or return to the old experience at any time.
 
-We knew we could do better. Now, we're excited to share the changes we've made so far!
+## Easily navigate across the Pulumi Service with the new left navigation pane
 
-## New primary navigation pane
-
-Next time you sign in to the Pulumi Service, look for the navigation pane on the left hand side of the page. All primary navigation items like your Dashboard, Stacks, and Settings are accessible in the new pane from anywhere in the Service.
+Among the biggest changes to the feel of the Service is our new left navigation pane. Navigation items like your Dashboard, Stacks, and Settings are accessible in the new pane from anywhere in the Service.
 
 ![""](dashboard-nav-expanded.png)
 
@@ -62,7 +63,7 @@ The navigation pane consolidates actions and information so it's easy for you to
 
 ![""](dashboard-nav-collapsed.png)
 
-We made these changes to help you move through the Pulumi Service without losing your place and to ensure convenient access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
+These changes will help you move through the Pulumi Service without losing your place and to ensure convenient access to key pages. You can even collapse the navigation pane for more screen real estate and still access any page you need.
 
 If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
@@ -72,11 +73,11 @@ Many Pulumi users have access to dozens of hundreds of stacks. But only a few of
 
 Your favorites list is your own. Even if you're part of an organization, your favorites won't be shared with anyone other than you. And you can have as many favorites as you like!
 
-Look for the star icon next to any stack name and select it to start building out your favorites list.
+Look for the star icon next to any stack name and select it to start building your favorites list.
 
 ![""](stack-navigation.png)
 
-You can access the favorites list from two key locations in the Service: the primary navigation pane and the dashboard. All your favorites will appear in the navigation pane under the “Stacks” heading. You'll also have your list of favorites in a new dashboard card.
+You can access the favorites list from two key locations in the Service: the left navigation pane and the dashboard. All your favorites will appear in the navigation pane under the “Stacks” heading. You'll also have your list of favorites in a new dashboard card.
 
 ![""](stacks-navigation-favorites-card.png)
 
@@ -84,7 +85,7 @@ You can access the favorites list from two key locations in the Service: the pri
 
 linter fun _image will be added here_
 
-Lastly, we’ve also made significant changes to the Pulumi Service dashboard. Now you can access more information to help survey your operations at a glance.
+Lastly, we’ve made significant changes to the Pulumi Service dashboard. Now you can access more information to help survey your operations at a glance.
 
 Organizations can access some quick usage statistics at the top of their dashboards:
 
@@ -103,6 +104,6 @@ We've also exposed more operation updates in the “Latest Stack Activity” car
 
 ## Try out the Pulumi Service today
 
-We'd love for you to take this new and improved Pulumi Service for a ride! If you haven't already, you can [create a free account](https://app.pulumi.com/signup) and experience these changes for yourself. Don't hesitate to reach out on the [Pulumi Community Slack](https://slack.pulumi.com/?_gl=1*abbv2y*_ga*MTgxNzE0MTI3LjE2NDM3MzcwNTU.*_ga_FQHG5CVY2D*MTY1NzY0ODc4NC4xMzMuMC4xNjU3NjQ4Nzg0LjYw) about any thoughts and feelings you have about these changes or any and all things Pulumi! We also have a [public GitHub repo](https://github.com/pulumi/service-requests/issues) to track any requests related to the Service. We're more than happy to learn from our community.
+We'd love for you to take this new and improved Pulumi Service for a ride! If you haven't already, you can [create a free account](https://app.pulumi.com/signup) and experience these changes for yourself when you toggle on the new experience at the top of the page. Don't hesitate to reach out on the [Pulumi Community Slack](https://slack.pulumi.com/?_gl=1*abbv2y*_ga*MTgxNzE0MTI3LjE2NDM3MzcwNTU.*_ga_FQHG5CVY2D*MTY1NzY0ODc4NC4xMzMuMC4xNjU3NjQ4Nzg0LjYw) about any thoughts and feelings you have about these changes or any and all things Pulumi! We also have a [public GitHub repo](https://github.com/pulumi/service-requests/issues) to track any requests related to the Service. We're more than happy to learn from our community.
 
 These changes wouldn’t be possible without the users who generously gave their time to have a conversation with us. We'll continue to translate user feedback into a better Pulumi experience. Know that this is just the start to even more improvements across the Service and the Pulumi platform!
