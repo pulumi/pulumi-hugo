@@ -1,5 +1,5 @@
 ---
-title: "Improving the Pulumi Service Experience"
+title: "A New and Improved User Experience For the Pulumi Service"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
@@ -64,15 +64,17 @@ The navigation pane consolidates actions and information so it's easy for you to
 
 We made these changes to help you move through the Pulumi Service without losing your place and to ensure convenient access to key pages. Even if you collapse the navigation pane for more screen real estate, you can still get where you need to go!
 
-If you're looking for your user account details, they have moved into the black utility toolbar at the top of the screen. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
+If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
 ## Stack Favorites
 
-You can now pin your favorite stacks, so you can quickly access the stacks you need most. This reduces your time spent combing through projects. Look for the star icon next to any stack name and select it to start building out your favorites list.
-
-![""](stack-navigation.png)
+Many Pulumi users have access to dozens of hundreds of stacks. But only a few of those stacks may require regular interaction. We've introduced a new Stack Favorites feature to let you flag the stacks that are most important. This way you can access those stacks from anywhere in the Service.
 
 Your favorites list is your own. Even if you're part of an organization, your favorites won't be shared with anyone other than you. And you can have as many favorites as you like!
+
+Look for the star icon next to any stack name and select it to start building out your favorites list.
+
+![""](stack-navigation.png)
 
 You can access the favorites list from two key locations in the Service: the primary navigation pane and the dashboard. All your favorites will appear in the navigation pane under the “Stacks” heading. You'll also have your list of favorites in a new dashboard card.
 
