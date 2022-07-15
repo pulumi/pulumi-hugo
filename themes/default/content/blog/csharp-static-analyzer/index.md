@@ -4,10 +4,14 @@ authors: ["zaid-ajaj"]
 tags: ["csharp"]
 meta_desc: "Introducing a static-code analyzer for C# which provides instant feedback on common mistakes defining Pulumi resources"
 meta_image: enhanced-static-code-analysis.png
-date: "2022-07-12"
+date: "2022-07-15"
 ---
 
-When I started using Pulumi for the first time, I used C# as my language of choice for defining infrastructure. I start by creating resources and providing their parameters through argument objects. My code would look something like the following:
+When I started using Pulumi for the first time, I used C# as my language of choice for defining infrastructure. I start by creating resources and providing their parameters through argument objects. The IDE helps me out with auto-completions and type errors as I go but the compiler didn't always detect some of the errors I eventually came across.
+
+<!--more-->
+
+Consider the following piece of code:
 
 ```cs
 var resourceGroup = new ResourceGroup("resourceGroup");
