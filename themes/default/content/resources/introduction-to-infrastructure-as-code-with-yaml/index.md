@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Workshop: Introduction to Infrastructure as Code with Pulumi YAML"
+title: "Workshop: Introduction to Infrastructure as Code with YAML"
 meta_desc: "In this workshop, you’re going to explore how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker and YAML."
 
 # A featured webinar will display first in the list.
