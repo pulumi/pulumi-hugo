@@ -78,7 +78,7 @@ You can access the favorites list from two key locations in the Service: the pri
 
 ![""](stacks-navigation-favorites-card.png)
 
-## Pulumi Service dashboard redesign
+## Richer Insights in the New Pulumi Service Dashboard
 
 linter fun _image will be added here_
 
