@@ -22,7 +22,7 @@ meta_image: meta.png
 # properties of the team member files at /data/team/team. Create a file for yourself
 # if you don't already have one.
 authors:
-    - anita-trimbur
+    - susan-evans
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -41,7 +41,8 @@ In these last four years, the Service’s features and capabilities have grown q
 <!--more-->
 
 Today we’re excited to launch a set of improvements to the overall user experience of the Pulumi Service. These updates include:
-- Easier navigation around the Service 
+
+- Easier navigation around the Service
 - Quick access to the stacks you care about most with a new Favoriting feature
 - Increased organizational insights on the Service Dashboard
 
@@ -83,7 +84,7 @@ You can access the favorites list from two key locations in the Service: the lef
 
 ## Richer Insights in the New Pulumi Service Dashboard
 
-linter fun _image will be added here_
+![""](dashboard.png)
 
 Lastly, we’ve made significant changes to the Pulumi Service dashboard. Now you can access more information to help survey your operations at a glance.
 
