@@ -454,6 +454,9 @@ resources:
     type: pulumi:pulumi:StackReference
     properties:
       name: acmecorp/infra/other
+
+variables:
+  stack_output: ${my-stack-reference.outputs["x"]}
 ```
 
 {{% /choosable %}}
