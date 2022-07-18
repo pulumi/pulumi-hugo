@@ -48,7 +48,6 @@ or below, Pulumi will avoid intentionally exposing any *known* credentials. At l
 intentionally expose some known credentials to aid with debugging, so these log levels should be used only
 when absolutely needed.
 
-
 ```
 $ pulumi up --logtostderr --logflow -v=9 2> out.txt
 ```
