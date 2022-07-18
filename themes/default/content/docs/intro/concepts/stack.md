@@ -449,11 +449,11 @@ var otherOutput = other.getOutput(Output.of("x"));
 {{% choosable language yaml %}}
 
 ```yaml
-variables:
-  otherOutput:
-    Fn::StackReference:
-      - acmecorp/infra/other
-      - x
+resources:
+  my-stack-reference:
+    type: pulumi:pulumi:StackReference
+    properties:
+      name: acmecorp/infra/other
 ```
 
 {{% /choosable %}}
