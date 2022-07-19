@@ -670,11 +670,12 @@ public class App {
 
 ```yaml
 variables:
-  cluster:
-    Fn::StackReference:
-      - mycompany/infra/${pulumi.stack}
-      - "KubeConfig"
+  kubeConfig: ${my-stack-reference.outputs["KubeConfig"]}
 resources:
+  my-stack-reference:
+    type: pulumi:pulumi:StackReference
+    properties:
+      name: mycompany/infra/${pulumi.stack}
   provider:
     type: pulumi:providers:kubernetes
     properties:
