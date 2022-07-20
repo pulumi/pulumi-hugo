@@ -90,7 +90,7 @@ await Deployment.RunAsync(async () =>
 
 ### Backward-compatibility
 
-It is worth mentioning that although the new templates and the accompanying getting-started guides are updating to .NET 6, the main `Pulumi` SDK NuGet  package and cloud provider packages are still targeting `netcoreapp3.1`. This mean that if users are still using .NET SDK 3.1 to build and run your projects, everything will continue to work as always. 
+It is worth mentioning that although the new templates and the accompanying getting-started guides are updating to .NET 6, the main `Pulumi` SDK NuGet  package and cloud provider packages are still targeting `netcoreapp3.1`. This mean that if users are still using .NET SDK 3.1 to build and run your projects, everything will continue to work as always.
 
 ### Code generation
 
