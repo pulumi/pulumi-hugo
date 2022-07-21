@@ -26,19 +26,19 @@ Navigate to your organization, then:
 1. Select the team you would like to attach the token to.
 1. Scroll to **Access Tokens**.
 
-Team Access Token, like with Organization Access Tokens must have a name that is unique among all Organization Access Tokens assigned to it. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised.
+Team Access Tokens, like Organization Access Tokens, must have a name that is unique among all Organization Access Tokens assigned to it. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised.
 
-This name must be unique even among deleted tokens, in order to maintain the integrity of Audit Log Events which persist the token’s name as part of the event (see below). Any other Organization Admin, or a Team Admin for the associated team, can delete the token, since they are managed by the team and not by a user.
+Once you name a token, the name is taken forever, even after you delete it. This is in order to maintain the integrity of Audit Log Events which persist the token's name as part of the event (see below). Any other Organization Admin, or a Team Admin for the associated team, can delete the token since they are managed by the team and not by a user.
 
-Creation of any Team Access Token, and the user who performed it, is logged as an Audit Log Event.
+The creation of any Team Access Token, and the user who performed it, is logged as an Audit Log Event.
 
 ## Viewing Team Access Tokens
 
-Team Access Tokens are viewed by going to the associated team's page within your respective organization, and scrolling to the Team Access Tokens card. Only Organization Admins and Team Admins for this team will see this card.
+To view Team Access Tokens, go to your team's page within your respective organization and scroll to the Team Access Tokens card. Only Organization Admins and Team Admins for this team will see this card.
 
 ## Deleting a Team Access Token
 
-A Team Access Token can be deleted by any Team Admin of this team, or any Organization Admin at any time. No other member types of the organization are able to delete a Team Access Token.
+A Team Access Token can be deleted by any Admin of this Team or any Organization Admin. No other member types of the organization can delete a Team Access Token.
 
 From the organization's homepage, follow the same steps as for all other Access Token types:
 
@@ -48,7 +48,7 @@ From the organization's homepage, follow the same steps as for all other Access 
 1. Select the ellipsis button.
 1. Choose **Delete token**. You will be prompted in a dialog to confirm your choice.
 
-If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized. It's name will remain reserved for your organization to preserve its uniqueness in Audit Log Events for any operations that it carried out.
+If you choose to delete a token, its access will immediately be revoked and all further operations using it will fail as unauthorized. Its name will remain reserved for your organization to preserve its uniqueness in Audit Log Events for any operations that it carried out.
 
 ## Auditing Team Token Actions
 
