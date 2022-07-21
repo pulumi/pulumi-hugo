@@ -327,7 +327,6 @@ For `java`:
 | `buildFiles`   | `string`      | No       | Generates build files for the chosen build tool. Supported values: "gradle".           |
 | `dependencies` | `map[string]` | No       | Java dependencies to use with the `buildFiles`. Example: "com.pulumi.gcp" -> "6.23.0".           |
 
-
 ### PropertyLanguage
 
 Language-specific info for a property.
