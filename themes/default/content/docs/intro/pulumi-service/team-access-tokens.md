@@ -41,7 +41,7 @@ To view Team Access Tokens, go to your Pulumi Team page within your respective o
 
 ## Deleting a Team Access Token
 
-A Team Access Token can be deleted by any Admin of this Team or any Organization Admin. No other member types of the organization can delete a Team Access Token.
+A Team Access Token can be deleted by any Team Admin, for the specific Team that it belongs to, or any Organization Admin. No other member types of the organization can delete a Team Access Token.
 
 From the organization's homepage, follow the same steps as for all other Access Token types:
 
