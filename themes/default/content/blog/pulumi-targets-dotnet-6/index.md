@@ -1,19 +1,19 @@
 ---
-title: "Pulumi now targets .NET 6"
+title: "Pulumi improved experience with .NET 6"
 authors: ["zaid-ajaj"]
 tags: ["dotnet", "csharp", "fsharp", "vb.net"]
-meta_desc: "Introducing a static-code analyzer for C# which provides instant feedback on common mistakes defining Pulumi resources"
-# meta_image: enhanced-static-code-analysis.png
-date: "2022-07-20"
+meta_desc: "Talking about the improved experience with Pulumi projects running on .NET 6, how it simplifies program structure and upgrades generated C# code."
+meta_image: thumbnail.png
+date: "2022-07-21"
 ---
 
-In this blog post, we will talk about how Pulumi is now using [.NET 6](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6) as our default across the ecosystem. We will discuss the changes applied to templates, program structure and code generation. We also explain how Pulumi C# projects can benefit from latest features in .NET 6 and how it simplifies your programs overall. Let's dive in, shall we?
+In this blog post, we will talk about how Pulumi is now using [.NET 6](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6), the latest Long-Term Support version of .NET as our default across the ecosystem. We will discuss the changes applied to templates, program structure and code generation. We also explain how Pulumi C# projects can benefit from latest features in .NET 6 and how it simplifies your programs overall. Let's dive in, shall we?
 
 <!--more-->
 
 ### Templates
 
-All of our .NET templates have been updated which now use `net6.0` as the target framework. This means that projects created with `pulumi new` require at least the [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to build and run the projects. The templates also simplified the program structure quite a bit and not longer use `MyStack` classes to define resources in case of C# and VB.NET templates. F# templates didn't change that much since these didn't use the class approach to define infrastructure. 
+All of our .NET templates have been updated which now use `net6.0` as the target framework. This means that projects created with `pulumi new` require at least the [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to build and run the projects. The templates also simplified the program structure quite a bit and not longer use `MyStack` classes to define resources in case of C# and VB.NET templates. F# templates didn't change that much because these already didn't use the class approach to define infrastructure.
 
 ### Simplified program structure
 
@@ -24,11 +24,11 @@ using Pulumi;
 using Pulumi.Aws.S3;
 using System.Collections.Generic;
 
-await Deployment.RunAsync(() =>
+return await Deployment.RunAsync(() =>
 {
    // Create an AWS resource (S3 Bucket)
    var bucket = new Bucket("my-bucket");
-   
+
    // Export the name of the bucket
    return new Dictionary<string, object?>
    {
@@ -37,70 +37,70 @@ await Deployment.RunAsync(() =>
 });
 ```
 
-This is how a stack looks like now with resource definitions and outputs. The [Get Started guide](https://www.pulumi.com/docs/get-started/) has been updated to follow this pattern as well.
+This is how a stack with resource definitions and outputs now looks. The [Get Started guide](https://www.pulumi.com/docs/get-started/) has been updated to follow this pattern as well.
 
 Targeting .NET 6 means that we can use features from C# 10 and here we see them in action: using [top-level statements](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/top-level-statements) that greatly simplify the entry point of the project and reduce it down to a single function call to `Deployment.RunAsync`. Inside this function is where we define our resources and return outputs for the stack. Top-level statements also allow us to `await` asynchronous functions without having an explicit `Main(string[] args)` function or a `Program` class.
 
-The equivalent of the snippet above would have been this piece of code:
+Notice how you no longer have to define the types of your stack outputs upfront. Instead, you simply return a dictionary of key-valued outputs. In fact, the function `Deployment.RunAsync` is very flexible. When you don't want to return outputs, simply don't:
 
 ```cs
-class MyStack : Stack
-{
-   public MyStack()
-   {
-      // Create an AWS resource (S3 Bucket)
-      var bucket = new Bucket("my-bucket");
-      // Export the name of the bucket
-      this.BucketName = bucket.Id;
-   }
-
-   [Output("bucketName")]
-   public Output<string> BucketName { get; internal set; }
-}
-
-class Program
-{
-   public static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
-```
-
-Which is a lot more verbose and contains unnecessary ceremony. 
-
-Notice how you no longer have to define the types of your stack outsputs upfront. Instead, you simply return a dictionary of key-valued outputs. In fact, the function `Deployment.RunAsync` is very flexible. When you don't want to return outputs, simply don't:
-
-```cs
-await Deployment.RunAsync(() =>
+return await Deployment.RunAsync(() =>
 {
    var bucket = new Bucket("my-bucket");
 });
 ```
 
-Moreover, when you want to `await` asynchronous functions alongside your resource definitions, just mark the lambda as `async`:
+Moreover, when you want to `await` asynchronous functions alongside your resource definitions, just mark the lambda as `async`. Here is an example where we await function invokes and work with their results:
 
 ```cs
-await Deployment.RunAsync(async () =>
+using Pulumi;
+using Pulumi.Aws;
+using Pulumi.Aws.Ec2;
+using System.Linq;
+
+return await Deployment.RunAsync(async() =>
 {
-    // create resources
-    var bucket = new Bucket("my-bucket");
-    // perform async tasks
-    await Task.Delay(1000);
-    // do more work...    
+    var vpc = await GetVpc.InvokeAsync(new()
+    {
+        Default = true  
+    });
+
+    var zones = await GetAvailabilityZones.InvokeAsync();
+
+    foreach (var range in zones.Names.Select((zone, index) => new { Value = zone, Key = index }))
+    {
+        var subent = new Subnet($"vpcSubnet-{range.Key}", new()
+        {
+            AssignIpv6AddressOnCreation = false,
+            VpcId = vpc.Id,
+            MapPublicIpOnLaunch = true,
+            CidrBlock = $"10.100.{range.Key}.0/24",
+            AvailabilityZone = range.Value,
+            Tags =
+            {
+               ["Name"] = $"pulumi-sn-{range.Value}",
+            },
+        });
+    }
 });
 ```
 
+The cherry on top is that you can use [target-typed `new` expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new) when instantiating resource or function invoke argument types. Basically instead of writing `new Bucket("my-bucket", new BucketArgs { ... })`, you can write `new Bucket("my-bucket", new () { ... })`.
+
 ### Backward-compatibility
 
-It is worth mentioning that although the new templates and the accompanying getting-started guides are updating to .NET 6, the main `Pulumi` SDK NuGet  package and cloud provider packages are still targeting `netcoreapp3.1`. This mean that if users are still using .NET SDK 3.1 to build and run your projects, everything will continue to work as always.
+It is worth mentioning that although the new templates and the accompanying getting-started guides are updating to .NET 6, the main `Pulumi` SDK NuGet package and cloud provider packages are still targeting `netcoreapp3.1`. This mean that if users are still using .NET SDK v3.1 or v5.0 to build and run your projects, everything will continue to work as always.
 
 ### Code generation
 
 Pulumi provides tools to translate from several IaC languages and generates Pulumi programs in any of our supported languages. This includes:
- - Translating [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates using [arm2pulumi](https://www.pulumi.com/arm2pulumi/)
- - Translating Terrafrom code using [tf2pulumi](https://www.pulumi.com/tf2pulumi/)
- - Translating Kubernetes YAML using [kube2pulumi](https://www.pulumi.com/kube2pulumi/)
- - Translating [Pulumi YAML](https://www.pulumi.com/docs/intro/languages/yaml/) with the Pulumi CLI using `pulumi convert`
 
-All of these tools take their input language, convert it into the Pulumi intermediate language, then translate it into one of our supported languages. In case of C#, the code generation has been updated to generate code that uses latest features from .NET 6. It also fixed isuse as well as fix small issues that were present in the logic.
+- Translating [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates using[arm2pulumi](https://www.pulumi.com/arm2pulumi/)
+- Translating Terrafrom code using [tf2pulumi](https://www.pulumi.com/tf2pulumi/)
+- Translating Kubernetes YAML using [kube2pulumi](https://www.pulumi.com/kube2pulumi/)
+- Translating [Pulumi YAML](https://www.pulumi.com/docs/intro/languages/yaml/) with the Pulumi CLI using `pulumi convert`
+
+All of these tools take their input language, convert it into the Pulumi intermediate language, then translate it into one of our supported languages. In case of C#, the code generation has been updated to generate code that uses latest features from .NET 6. It also fixed small issues that were present in the translation logic.
 
 Let us take an example from Pulumi YAML and convert it to C#.
 
@@ -150,7 +150,7 @@ using System.Collections.Generic;
 using Pulumi;
 using AzureNative = Pulumi.AzureNative;
 
-await Deployment.RunAsync(() => 
+return await Deployment.RunAsync(() =>
 {
     var resourceGroup = new AzureNative.Resources.ResourceGroup("resourceGroup");
 
@@ -176,3 +176,7 @@ await Deployment.RunAsync(() =>
     };
 });
 ```
+
+## Summary
+
+In conclusion, Microsoft has published .NET 6 as the latest Long-Term Support version. Using it with Pulumi makes for simpler and easier to write programs. You can give it a try by [installing .NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) and using one of templates with `pulumi new`, then follow our updated [Get Started guide](https://www.pulumi.com/docs/get-started/) to get up and running quickly. Our code generation tools have been upgraded to emit code that target latest features of C# and fixes small correctness issues in the translation logic.
