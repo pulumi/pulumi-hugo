@@ -66,7 +66,7 @@ See the Pulumi [Service REST API docs](https://www.pulumi.com/docs/reference/ser
 
 These are dependent on the stack permissions granted to the team associated with the Team Access Token. A stack can only be deleted if the team has Admin stack permissions. Webhooks can only be managed if the team has Write stack permissions.
 
-| Action | Team Token Access |
+| Action |  |
 |--------|------|
 | List Stacks | ✅ |
 | Get Stack | ✅ |
@@ -83,7 +83,7 @@ These are dependent on the stack permissions granted to the team associated with
 
 These are dependent on the stack permissions granted to the team associated with the Team Access Token. A stack tag can only be set or deleted if the team has Write stack permissions.
 
-| Action | Team Token Access |
+| Action |  |
 |--------|------|
 | Get Stack Tags | ✅ |
 | Set Stack Tag | ✅ |
@@ -91,7 +91,7 @@ These are dependent on the stack permissions granted to the team associated with
 
 #### Stack Updates
 
-| Action | Team Token Access |
+| Action |  |
 |--------|------|
 | List Stack Updates | ✅ |
 | Get Update Status | ✅ |
@@ -100,7 +100,7 @@ These are dependent on the stack permissions granted to the team associated with
 
 #### Organizations
 
-| Action | Team Token Access |
+| Action |  |
 |--------|------|
 | List Users | ✅ |
 | Add User to Organization |  |
