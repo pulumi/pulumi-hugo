@@ -1,6 +1,6 @@
 ---
 title: "Organization Access Tokens"
-meta_desc: Overview of Access Tokens in the Pulumi Service for both personal accounts and organizations.
+meta_desc: Overview of Organization Access Tokens in the Pulumi Service.
 menu:
   intro:
     parent: pulumi-service
