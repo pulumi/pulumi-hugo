@@ -10,10 +10,11 @@ menu:
 Team Access Tokens, like [Organization Access Tokens]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}), provide Enterprise and Business Critical customers the opportunity to manage resources and stack operations for their organization independent of a single-user account. However, Team Access Tokens enable this access to be scoped to the stack access of a [Pulumi Team]({{< relref "/docs/intro/pulumi-service/teams" >}}), rather than to the entire organization's stacks.
 
 Collectively Organization Access Tokens and Team Access Tokens are referred to as "machine tokens", which are not owned by a real user in your organization. This distinguishes them from Personal Access Tokens.
- 
+
 Team Access Tokens are available on Enterprise and Business Critical subscriptions, as well as trials.
 
 Team Access Tokens provide several benefits over Organization and Personal Access Tokens:
+
 * They can be managed by Team Admins in addition to Organization Admins, allowing more users in your organization to leverage machine tokens.
 * They support user-independent usage in your CI integrations while having less privileged scope to other stacks in your organization.
 
@@ -79,6 +80,7 @@ These are dependent on the stack permissions granted to the team associated with
 | List Webhooks Deliveries | ✅ |
 
 #### Stack Tags
+
 These are dependent on the stack permissions granted to the team associated with the Team Access Token. A stack tag can only be set or deleted if the team has Write stack permissions.
 
 | Action | Team Token Access |
