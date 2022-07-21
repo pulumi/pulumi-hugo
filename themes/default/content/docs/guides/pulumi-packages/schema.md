@@ -324,7 +324,7 @@ For `java`:
 |----------------|---------------|----------|--------------------------------------------------------------------------------------------------|
 | `packages`     | `map[string]` | No       | Overrides for module names to Java package names. Example: "autoscaling/v1" -> "autoscaling.v1". |
 | `basePackage`  | `string`      | No       | Prefixes the generated Java package. This setting defaults to "com.pulumi".                      |
-| `buildFiles`   | `string`      | No       | Generates build files for the chosen build tool. Supported values: "gradle".           |
+| `buildFiles`   | `string`      | No       | Generates build files for the chosen build tool. Supported values: "gradle".                     |
 | `dependencies` | `map[string]` | No       | Java dependencies to use with the `buildFiles`. Example: "com.pulumi.gcp" -> "6.23.0".           |
 
 ### PropertyLanguage
