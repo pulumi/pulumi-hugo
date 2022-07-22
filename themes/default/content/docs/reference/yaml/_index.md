@@ -86,8 +86,8 @@ The optional `customTimeouts` property of a resource is an object of the followi
 
 There are at least two reasons to explicitly define providers in YAML, or explicitly set their versions while creating resources.
 
-* First, using explicit versions (aka provider pinning) avoids the problem that a deployment can suddenly fail because the provider's behavior has changed with a newer version.
-* Second, using default providers in Pulumi can be problematic, as described very well in the blog article [Unlock Programmatic Control by Disabling Default Providers]({{< relref "/blog/disable-default-providers/index" >}}).
+1. Using explicit versions enables pinning the dependencies used, a technique used to improve build reliability.
+1. Using explicit providers enables controlling the options for providers used by each resource, as described in [Unlock Programmatic Control by Disabling Default Providers]({{< relref "/blog/disable-default-providers/index" >}}).
 
 #### Resource version
 
