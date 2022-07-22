@@ -1,19 +1,19 @@
 ---
-title: "Pulumi improved experience with .NET 6"
+title: "Improved Pulumi experience with .NET 6"
 authors: ["zaid-ajaj"]
 tags: ["dotnet", "csharp", "fsharp", "vb.net"]
-meta_desc: "Talking about the improved experience with Pulumi projects running on .NET 6, how it simplifies program structure and upgrades generated C# code."
+meta_desc: "Pulumi projects default to .NET 6 with simplified program structure and leaner generated C# code"
 meta_image: thumbnail.png
-date: "2022-07-21"
+date: "2022-07-22"
 ---
 
-In this blog post, we will talk about how Pulumi is now using [.NET 6](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6), the latest Long-Term Support version of .NET as our default across the ecosystem. We will discuss the changes applied to templates, program structure and code generation. We also explain how Pulumi C# projects can benefit from latest features in .NET 6 and how it simplifies your programs overall. Let's dive in, shall we?
+In this blog post, we will talk about how Pulumi is now using [.NET 6](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6), the latest Long-Term Support version of .NET, as our default across the ecosystem. We will discuss the changes applied to templates, program structure and code generation. We also explain how Pulumi C# projects can benefit from the latest features in .NET 6 and how it simplifies your programs overall. Let's dive in, shall we?
 
 <!--more-->
 
 ### Templates
 
-All of our .NET templates have been updated which now use `net6.0` as the target framework. This means that projects created with `pulumi new` require at least the [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to build and run the projects. The templates also simplified the program structure quite a bit and not longer use `MyStack` classes to define resources in case of C# and VB.NET templates. F# templates didn't change that much because these already didn't use the class approach to define infrastructure.
+We updated all of our .NET templates to use `net6.0` as the target framework. This means that projects created with `pulumi new` require at least the [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to build and run the projects. The templates also simplified the program structure quite a bit and not longer use `MyStack` classes to define resources in case of C# and VB.NET templates. F# templates didn't change that much because these already didn't use the class approach to define infrastructure.
 
 ### Simplified program structure
 
@@ -95,12 +95,14 @@ It is worth mentioning that although the new templates and the accompanying gett
 
 Pulumi provides tools to translate from several IaC languages. These tools will generate Pulumi programs in any of our supported languages. This includes:
 
-- Translating [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates using [arm2pulumi](https://www.pulumi.com/arm2pulumi/)
-- Translating Terrafrom code using [tf2pulumi](https://www.pulumi.com/tf2pulumi/)
-- Translating Kubernetes YAML using [kube2pulumi](https://www.pulumi.com/kube2pulumi/)
 - Translating [Pulumi YAML](https://www.pulumi.com/docs/intro/languages/yaml/) with the Pulumi CLI using `pulumi convert`
+- Translating [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates using [arm2pulumi](https://www.pulumi.com/arm2pulumi/)
+- Translating Terraform code using [tf2pulumi](https://www.pulumi.com/tf2pulumi/)
+- Translating Kubernetes YAML using [kube2pulumi](https://www.pulumi.com/kube2pulumi/)
 
-These tools take their source language as input, convert it into the Pulumi intermediate language, then translate it into one of our supported languages. In the case of C#, the code generation has been updated to generate code that uses the latest features from .NET 6. It also fixed minor issues that were present in the translation logic.
+These tools take their source language as input, convert it into the Pulumi intermediate language, then translate it into one of our supported languages. In the case of C#, the code generation has been updated to produce code that uses the latest features from .NET 6. We've also fixed minor issues that were present in the translation logic.
+
+> The code generation update has landed in the Pulumi CLI and `pulumi convert`, the other tools however will pick up these updates soon.
 
 Let us take an example from Pulumi YAML and convert it to C#.
 
@@ -143,7 +145,7 @@ Now you can take this program and convert it to C# using
 pulumi convert --language csharp --out csharp-from-yaml
 ```
 
-This command generates a full C# project from the YAML program into the directory `./csharp-from-yaml`, then it restores the dependencies and builds the project. Now if you examine `Program.cs`, it contains the converted program and follows the succinct C# 10 syntax that targets .NET 6:
+This command generates a full C# project from the YAML program into the directory `./csharp-from-yaml`, then restores the dependencies and builds the project. Now if you examine `Program.cs`, it contains the converted program and follows the succinct C# 10 syntax that targets .NET 6:
 
 ```csharp
 using System.Collections.Generic;
@@ -179,4 +181,4 @@ return await Deployment.RunAsync(() =>
 
 ## Summary
 
-.NET 6 is the latest Long-Term Support version in the Microsoft ecosystem. Our new .NET 6 support makes for simpler and easier to write Pulumi programs. You can give it a try by [installing .NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) and using one of the templates with `pulumi new`, then follow our updated [Get Started guide](https://www.pulumi.com/docs/get-started/) to get up and running quickly. Our code generation tools have been upgraded to emit code that targets the latest features of C# and fixes small correctness issues in the translation logic.
+.NET 6 is the latest Long-Term Support version in the Microsoft ecosystem. Our new .NET 6 support makes for simpler and easier to write Pulumi programs. You can give it a try by [installing .NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) and using one of the templates with `pulumi new`, then follow our updated [Get Started guide](https://www.pulumi.com/docs/get-started/) to get up and running quickly. Our code generation tools have been upgraded to emit code that targets the latest features of C# and fixes minor correctness issues in the translation logic.
