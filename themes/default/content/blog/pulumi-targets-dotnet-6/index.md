@@ -41,7 +41,7 @@ This is how a stack with resource definitions and outputs now looks. The [Get St
 
 Targeting .NET 6 means that we can use features from C# 10 and here we see them in action: using [top-level statements](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/top-level-statements) that greatly simplify the entry point of the project and reduce it down to a single function call to `Deployment.RunAsync`. Inside this function is where we define our resources and return outputs for the stack. Top-level statements also allow us to `await` asynchronous functions without having an explicit `Main(string[] args)` function or a `Program` class.
 
-Notice how you no longer have to define the types of your stack outputs upfront. Instead, you simply return a dictionary of key-valued outputs. In fact, the function `Deployment.RunAsync` is very flexible. When you don't want to return outputs, simply don't:
+Notice how you no longer have to define the types of your stack outputs upfront. Instead, you simply return a dictionary of key-valued outputs. In fact, the function `Deployment.RunAsync` is very flexible. When you don't want to return outputs, don't!
 
 ```cs
 return await Deployment.RunAsync(() =>
@@ -50,7 +50,7 @@ return await Deployment.RunAsync(() =>
 });
 ```
 
-Moreover, when you want to `await` asynchronous functions alongside your resource definitions, just mark the lambda as `async`. Here is an example where we await function invokes and work with their results:
+Moreover, when you want to `await` asynchronous functions alongside your resource definitions, just mark the lambda as `async`. Here is an example where we await function invokes and work with their results.
 
 ```cs
 using Pulumi;
@@ -93,14 +93,14 @@ It is worth mentioning that although the new templates and the accompanying gett
 
 ### Code generation
 
-Pulumi provides tools to translate from several IaC languages and generates Pulumi programs in any of our supported languages. This includes:
+Pulumi provides tools to translate from several IaC languages. These tools will generate Pulumi programs in any of our supported languages. This includes:
 
-- Translating [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates using[arm2pulumi](https://www.pulumi.com/arm2pulumi/)
+- Translating [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates using [arm2pulumi](https://www.pulumi.com/arm2pulumi/)
 - Translating Terrafrom code using [tf2pulumi](https://www.pulumi.com/tf2pulumi/)
 - Translating Kubernetes YAML using [kube2pulumi](https://www.pulumi.com/kube2pulumi/)
 - Translating [Pulumi YAML](https://www.pulumi.com/docs/intro/languages/yaml/) with the Pulumi CLI using `pulumi convert`
 
-All of these tools take their input language, convert it into the Pulumi intermediate language, then translate it into one of our supported languages. In case of C#, the code generation has been updated to generate code that uses latest features from .NET 6. It also fixed small issues that were present in the translation logic.
+These tools take their source language as input, convert it into the Pulumi intermediate language, then translate it into one of our supported languages. In the case of C#, the code generation has been updated to generate code that uses the latest features from .NET 6. It also fixed minor issues that were present in the translation logic.
 
 Let us take an example from Pulumi YAML and convert it to C#.
 
@@ -179,4 +179,4 @@ return await Deployment.RunAsync(() =>
 
 ## Summary
 
-In conclusion, Microsoft has published .NET 6 as the latest Long-Term Support version. Using it with Pulumi makes for simpler and easier to write programs. You can give it a try by [installing .NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) and using one of templates with `pulumi new`, then follow our updated [Get Started guide](https://www.pulumi.com/docs/get-started/) to get up and running quickly. Our code generation tools have been upgraded to emit code that target latest features of C# and fixes small correctness issues in the translation logic.
+.NET 6 is the latest Long-Term Support version in the Microsoft ecosystem. Our new .NET 6 support makes for simpler and easier to write Pulumi programs. You can give it a try by [installing .NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) and using one of the templates with `pulumi new`, then follow our updated [Get Started guide](https://www.pulumi.com/docs/get-started/) to get up and running quickly. Our code generation tools have been upgraded to emit code that targets the latest features of C# and fixes small correctness issues in the translation logic.
