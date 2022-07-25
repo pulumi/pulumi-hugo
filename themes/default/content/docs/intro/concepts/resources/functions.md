@@ -7,7 +7,7 @@ menu:
     weight: 7
 ---
 
-A provider may make **functions** available in its SDK as well as resource types. For example, the AWS provider includes the function [`aws.apigateway.getDomainName`](https://www.pulumi.com/registry/packages/aws/api-docs/apigateway/getdomainname/), among many others.
+A provider may make **functions** available in its SDK as well as resource types. These "provider functions" are often for calling a platform API to get a value that is not part of a resource. For example, the AWS provider includes the function [`aws.apigateway.getDomainName`](https://www.pulumi.com/registry/packages/aws/api-docs/apigateway/getdomainname/):
 
 <div><pulumi-examples>
 <div><pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml"></pulumi-chooser></div>
@@ -133,10 +133,9 @@ Provider functions are exposed in each language as regular functions, in two var
 
 The documentation for a provider function will tell you the name and signature for each of the variations.
 
-### Invoke options
+#### Invoke options
 
-Each function also accepts "invoke options", either as an object or as varargs depending on the host
-language. The options are as follows:
+Each function and method also accepts "invoke options", either as an object or as varargs depending on the host language. The options are as follows:
 
 | Option | Explanation                                                  |
 |--------|--------------------------------------------------------------|
@@ -153,3 +152,66 @@ The `provider` option gives an explicit provider to use when running the invoked
 The `version` option specifies an exact version for the provider plugin. This can be used when you need to pin to a specific version to avoid a backward-incompatible change.
 
 The `pluginDownloadURL` option gives a URL for fetching the provider plugin. It may be necessary to supply this for third-party packages (those not hosted at [https://get.pulumi.com](https://get.pulumi.com)).
+
+### Provider methods
+
+Provider SDKs may also include methods attached to a resource type. For example, in the [EKS](https://www.pulumi.com/registry/packages/eks/api-docs/) SDK, the `Cluster` resource has a method [.GetKubeconfig](https://www.pulumi.com/registry/packages/eks/api-docs/cluster/#method_GetKubeconfig):
+
+<div><pulumi-examples>
+<div><pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml"></pulumi-chooser></div>
+<div>
+<pulumi-choosable type="language" values="typescript">
+
+```typescript
+getKubeconfig(args?: Cluster.GetKubeconfigArgs): Output<Cluster.GetKubeconfigResult>
+```
+
+</pulumi-choosable>
+</div>
+<div>
+<pulumi-choosable type="language" values="csharp">
+
+```csharp
+public Output<string> GetKubeconfig(Cluster.GetKubeconfigArgs? args)
+```
+
+</pulumi-choosable>
+</div>
+<div>
+<pulumi-choosable type="language" values="go">
+
+```go
+func (r *Cluster) GetKubeconfig(ctx *Context, args *ClusterGetKubeconfigArgs) (pulumi.StringOutput, error)
+```
+
+</pulumi-choosable>
+</div>
+<div>
+<pulumi-choosable type="language" values="python">
+
+```python
+def get_kubeconfig(self,
+                   profile_name: Optional[pulumi.Input[str]] = None,
+                   role_arn: Optional[pulumi.Input[str]] = None) -> Output[str]
+```
+
+</pulumi-choosable>
+</div>
+<div>
+<pulumi-choosable type="language" values="java">
+
+(no example available for Java)
+
+</pulumi-choosable>
+</div>
+<div>
+<pulumi-choosable type="language" values="yaml">
+
+(no example available for YAML)
+
+</pulumi-choosable>
+</div>
+
+</pulumi-examples></div>
+
+Unlike provider functions, methods always take `Input` arguments, and return an `Output`. Methods do not have invoke options.
