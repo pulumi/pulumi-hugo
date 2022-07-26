@@ -682,7 +682,7 @@ resources:
 
 {{< /chooser >}}
 
-Here is what this looks like updating an existing `ConfigMap` with this program.
+Here is what it looks like to update an existing `ConfigMap` with this program.
 
 ```
 $ kubectl get configmap app-settings -o yaml
@@ -734,5 +734,5 @@ Use the [retainOnDelete option]({{< relref "docs/intro/concepts/resources/option
 
 ## Give it a try!
 
-To get started with these improvements, check out our [how-to guide for Server-Side Apply]({{< relref "/registry/packages/kubernetes/how-to-guides/managing-resources-with-server-side-apply/">}})
+To get started with these improvements, check out our [how-to guide for Server-Side Apply]({{< relref "/registry/packages/kubernetes/how-to-guides/managing-resources-with-server-side-apply/">}}).
 If you run into any issues, you can reach out to us on [Community Slack](https://slack.pulumi.com) with your questions on the #kubernetes channel, or file an issue on the [pulumi-kubernetes repo](https://github.com/pulumi/pulumi-kubernetes/issues).
