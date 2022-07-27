@@ -97,7 +97,7 @@ const vm = new azure.compute.LinuxVirtualMachine("server-vm", {
 
 Azure Active Directory now has its [own Pulumi provider](https://github.com/pulumi/pulumi-azuread/), so all the AD resources were removed from the `AD` namespace of the Azure Provider 2.0.
 
-A number of other resources, invokes, and fields were removed too, following the changes in the upstream provider. 
+A number of other resources, invokes, and fields were removed too, following the changes in the upstream provider.
 
 ## Default Versions in Callback Functions
 
