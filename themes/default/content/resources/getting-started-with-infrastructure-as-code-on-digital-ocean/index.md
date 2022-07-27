@@ -16,7 +16,7 @@ pulumi_tv: false
 preview_image: ""
 
 # Webinars with unlisted as true will not be shown on the webinar list
-unlisted: true
+unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
@@ -56,7 +56,7 @@ main:
     # URL for embedding a URL for ungated webinars.
     youtube_url: ""
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2022-07-28T08:00:00-07:00
+    sortable_date: 2022-09-29T08:00:00-07:00
     # Duration of the webinar.
     duration: "90 minutes"
     # Datetime of the webinar.
