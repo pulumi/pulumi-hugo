@@ -1,7 +1,7 @@
 ---
 title: "Manage Shared Kubernetes Resources Safely with Pulumi"
 
-date: 2022-07-19T17:13:34-06:00
+date: 2022-07-27T00:00:00-00:00
 
 meta_desc: Manage shared Kubernetes resources safely with our new Server-Side Apply support
 meta_image: meta.png
@@ -16,6 +16,16 @@ With the [v3.20.1 release](https://github.com/pulumi/pulumi-kubernetes/releases/
 how Pulumi can help you work with shared resources safely and effectively.
 
 <!--more-->
+
+Our Server-Side Apply support adds several new capabilities:
+
+1. New Patch resource types corresponding to every Kubernetes resource kind. (e.g., `NamespacePatch`, `DeploymentPatch`)
+2. "Upsert" support; create a resource if it does not exist, or update the existing resource with specified changes.
+3. Diffs no longer depend on the `last-applied-configuration` annotation, which fixes a number of open issues in the provider.
+
+For additional details on each of these changes, see the [how-to guide for Server-Side Apply]({{< relref "/registry/packages/kubernetes/how-to-guides/managing-resources-with-server-side-apply/">}}).
+
+Now, let's take a look at some practical examples that take advantage of these improvements.
 
 ## Adding labels to an existing Namespace
 
