@@ -9,7 +9,11 @@ tags:
     - Azure
 ---
 
-We are happy to announce the release of a new major version of the Pulumi Azure provider. Pulumi Azure 2.0 is based on the [2.0 release](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html) of the upstream provider and brings several improvements and breaking changes.
+{{% notes type="warning" %}}
+This blog post is outdated and no longer accurate. Go to our [Azure Classic package page](https://www.pulumi.com/registry/packages/azure) for up to date details.
+{{% /notes %}}
+
+We are happy to announce the release of a new major version of the Pulumi Azure provider. Pulumi Azure 2.0 is based on the 2.0 release of the upstream provider and brings several improvements and breaking changes.
 
 <!--more-->
 
