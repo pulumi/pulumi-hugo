@@ -1,5 +1,6 @@
 ---
 title: "Introducing Billing Managers: A new role in the Pulumi Service"
+allow_long_title: true
 
 date: 2022-07-27T09:00:22-07:00
 
