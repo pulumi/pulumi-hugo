@@ -69,6 +69,13 @@ resources:
     type: aws:iam:Role
 ```
 
+{{% notes type="info" %}}
+
+Pulumi YAML does not distinguish between logical and lexical
+names. The logical name of the above resource is `my-role`.
+
+{{% /notes %}}
+
 {{% /choosable %}}
 
 {{< /chooser >}}
