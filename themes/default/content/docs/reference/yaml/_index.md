@@ -40,7 +40,7 @@ The value of `resources` is an object whose keys are logical resource names by w
 | `type`       | string                                | Yes      | No          | Type is the Pulumi type token for this resource.                                                    |
 | `properties` | map[string]Expression                 | No       | Yes         | Properties contains the primary resource-specific keys and values to initialize the resource state. |
 | `options`    | [Resource Options](#resource-options) | No       | No          | Options contains all resource options supported by Pulumi.                                          |
-| `get`        | [Resource Getter](#resource-getter)   | No       | Yes         | A getter function for the resource. Supplying `get` is mutually exclusive to `preoperties`.         |
+| `get`        | [Resource Getter](#resource-getter)   | No       | Yes         | A getter function for the resource. Supplying `get` is mutually exclusive to `properties`.          |
 
 #### Resource Options
 
