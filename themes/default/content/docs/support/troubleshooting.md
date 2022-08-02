@@ -209,10 +209,10 @@ Resources:
 $
 ```
 
-You probably have a system-wide proxy server running on your machine. The [Pulumi architecture ](https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/)
-has 3 different components, running as separate processes which talk to each other using a bidirectional gRPC protocol
+If you have a system-wide proxy server running on your machine, it may be misconfigured. The [Pulumi architecture ](https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/)
+has three different components, running as separate processes which talk to each other using a bidirectional gRPC protocol
 on IP address `127.0.0.1`. Your proxy server should be configured **NOT** to proxy
-these local network connections. Check if you can add both `127.0.0.1` and `localhost` to the exclusion list of your proxy server.
+these local network connections. Add both `127.0.0.1` and `localhost` to the exclusion list of your proxy server.
 
 ## Recovering from an Interrupted Update {#interrupted-update-recovery}
 
