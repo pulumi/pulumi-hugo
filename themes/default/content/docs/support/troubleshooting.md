@@ -196,7 +196,7 @@ You may encounter an error when you downgrade provider versions _after_ your sta
 If you must downgrade the version of a provider your `pulumi` program depends on, you will need to [manually edit your deployment](#editing-your-deployment)
 and change the version of the provider your stack depends on and then import that as the latest state of your stack.
 
-### Nothing happens when running Pulumi
+### Nothing happens running Pulumi due to network proxy
 
 You run Pulumi and nothing happens, with output resembling like this:
 
