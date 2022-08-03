@@ -7,7 +7,7 @@ authors: ["joe-duffy"]
 tags: ["aws", "regions", "rds"]
 ---
 
-Pulumi makes it easy to flexibly deploy your cloud infrastructure using code. Usually deployments encomass a single slack and a single region in your cloud of choice. If you need to go multi-region, that usually simply means creating a stack per-region, which Pulumi's configuration system makes easy. A stack per region isn't required, though! Sometimes we want a single stack to span regions for performance, scalability, resilience, or just hard requirements. In these cases, Pulumi can seamlessly orchestrate deployments to, or even across, multiple regions,  accounts, or clusters. In this article, we'll see this in action by provisioning an AWS RDS primary database into one region and a read replica in an entirely different region -- all from a single Pulumi program, stack, and `pulumi up` incantation.
+Pulumi makes it easy to flexibly deploy your cloud infrastructure using code. Usually deployments encompass a single slack and a single region in your cloud of choice. If you need to go multi-region, that usually means creating a stack per-region, which Pulumi's configuration system makes easy. A stack per region isn't required, though! Sometimes we want a single stack to span regions for performance, scalability, resilience, or just hard requirements. In these cases, Pulumi can seamlessly orchestrate deployments to, or even across, multiple regions,  accounts, or clusters. In this article, we'll see this in action by provisioning an AWS RDS primary database into one region and a read replica in an entirely different region -- all from a single Pulumi program, stack, and `pulumi up` incantation.
 
 <!--more-->
 
@@ -34,7 +34,7 @@ In all of these cases, thankfully Pulumi has an answer: [explicit provider confi
 
 ## How Explicit Provider Configuration Works
 
-Before diving into our example, let's take a quick look at how explicit provider configuration works. Unlike ordinary configuration, which is set at the CLI, provider configuration is set programmatically inside your Pulumi program. Every Pulumi package exports a `Provider` resource class which can be instantiated like any other resource, with the sole difference that these resources exist simply to pass around to configure _other_ resources, and don't represent infrastructure that is to be provisioned in a cloud of any kind.
+Before diving into our example, let's take a quick look at how explicit provider configuration works. Unlike ordinary configuration, which is set at the CLI, provider configuration is set programmatically inside your Pulumi program. Every Pulumi package exports a `Provider` resource class which can be instantiated like any other resource, with the sole difference that these resources exist to pass around to configure _other_ resources, and don't represent infrastructure that is to be provisioned in a cloud of any kind.
 
 For instance, if we wanted to programmatically create an AWS provider that targets a different region than `us-east-1`, as shown earlier, we can do so as follows:
 
@@ -165,7 +165,7 @@ resources:
 
 {{% /choosable %}}
 
-This overrides the default of using whatever was set at the CLI, and will instead use the programmatically configured settings. Note also that anything you can set at the CLI is available, not just the region. You can see the full settings available in the package's registry documentation for its `Provider` class (for instance, [AWS's]({{< relref "/registry/packages/aws/api-docs/provider" >}}).
+This overrides the default of using whatever was set at the CLI, and will instead use the programmatically configured settings. Note also that anything you can set at the CLI is available, not just the region. You can see the full settings available in the package's registry documentation for its `Provider` class (for instance, the [AWS Provider]({{< relref "/registry/packages/aws/api-docs/provider" >}}).
 
 ## Multi-Region Deployment In Action!
 
@@ -253,7 +253,7 @@ description: A multi-region example creating an RDS primary and read-replica in 
 
 {{% /choosable %}}
 
-Next, we'll make the retention period configurable, but default it to 30 days. Note how we can still use standard configuration features _as well_ as explicit providers alongside one another:
+Next, we'll make the retention period configurable, by default it is 30 days. Note how we can still use standard configuration features _as well_ as explicit providers alongside one another:
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -725,7 +725,7 @@ If we forget to pass an explicit provider, we now get an error:
 error: Default provider for 'aws' disabled. 'urn:pulumi:dev::aws-multireg-rds::aws:rds/instance:Instance::primary' must use an explicit provider.
 ```
 
-Now that we've got everything set up, we just run `pulumi up` which orchestrates everything end-to-end:
+Now that we've got everything set up, we run `pulumi up` which orchestrates everything end-to-end:
 
 ```bash
 $ pulumi up
@@ -754,6 +754,6 @@ Duration: 27m0s
 
 In this article, you saw some reasons why deploying your infrastructure across multiple regions, accounts, or clusters may be necessary. You saw that Pulumi supports two forms of configuration -- implicit configuration set at the CLI with `pulumi config` as well as explicit provider configuration which is constructed and passed programmatically -- and how and when to use them, often in tandem with one another.
 
-The specific example shown to demonstrate multi-region in action deployed an AWS RDS primary database to a US region and a secondary read replica to Europe, which is a common architecture to improve resilience and performance. The power of full programming languages gives you a ton of flexibility in how you orchestrate such complex architctures.
+The specific example shown to demonstrate multi-region in action deployed an AWS RDS primary database to a US region and a secondary read replica to Europe, which is a common architecture to improve resilience and performance. The power of full programming languages gives you a ton of flexibility in how you orchestrate such complex architectures.
 
 Hopefully this post put a new tool in your infrastructure as code toolbelt! Happy cloud spelunking.
