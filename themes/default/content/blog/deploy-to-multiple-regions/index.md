@@ -4,7 +4,7 @@ date: 2022-08-03T08:00:00-07:00
 meta_desc: "Use infrastructure as code to deploy to multiple regions, accounts, or clusters at the same time, using Pulumi explicit provider configuration."
 meta_image: deployinfra.png
 authors: ["joe-duffy"]
-tags: ["aws", "regions", "rds"]
+tags: ["aws", "regions", "rds", "multi-cloud", "multi-region", "architecture"]
 ---
 
 Pulumi makes it easy to flexibly deploy your cloud infrastructure using code. Usually deployments encompass a single slack and a single region in your cloud of choice. If you need to go multi-region, that usually means creating a stack per-region, which Pulumi's configuration system makes easy. A stack per region isn't required, though! Sometimes we want a single stack to span regions for performance, scalability, resilience, or just hard requirements. In these cases, Pulumi can seamlessly orchestrate deployments to, or even across, multiple regions,  accounts, or clusters. In this article, we'll see this in action by provisioning an AWS RDS primary database into one region and a read replica in an entirely different region -- all from a single Pulumi program, stack, and `pulumi up` incantation.
@@ -169,7 +169,7 @@ This overrides the default of using whatever was set at the CLI, and will instea
 
 ## Multi-Region Deployment In Action!
 
-The architecture for our multi-region setup is going to be very simple so we can focus on the essentials. We will provision a single RDS primary database in one region (us-east-1) and backup to a read replica in an entirely different region -- in fact, on an entirely different continent (eu-west-2)!
+The architecture for our multi-region setup is going to be relatively straightforward so we can focus on the essentials. We will provision a single RDS primary database in one region (us-east-1) and backup to a read replica in an entirely different region -- in fact, on an entirely different continent (eu-west-2)! This is relatively straightforward because many scenarios demand that we deploy to a dynamic number of regions, perhaps across dozens or hundreds of resources. By keeping it to just two resources across two regions, we can see the fundamentals in action which can scale easily to more sophisticated use cases.
 
 This is [described in AWS's docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.XRgn) and is depicted in this diagram:
 
@@ -272,7 +272,7 @@ const retentionPeriod = config.getNumber("retentionPeriod") || 30;
 ```python
 # Enable backup retention to be configured, but default to 30 days.
 config = pulumi.Config()
-retention_period = config.get_float('retentionPeriod')
+retention_period = config.get_float('retentionPeriod') or 30
 ```
 
 {{% /choosable %}}
@@ -447,7 +447,7 @@ resources:
 
 {{% /choosable %}}
 
-This is very straightforward in that we've hard-coded the regions into the program. Let's pause for a moment to consider the possibilities. We could have made those configurable too, much like our retention period. Even more powerfully, we could use our programming language's expressiveness to create them more dynamically. For instance, we could have looped over something so that the number is entirely dynamic. We've opted to keep the example simple but you're likely to appreciate these advanced capabilities in real-world scenarios.
+To keep things straightforward, we've hard-coded the regions into the program. There are more sophisticated possibilities, however. For example, we could have made the regions themselves configurable too, much like the retention period. Even more powerfully, we could use our programming language's expressiveness to create them dynamically. For instance, we could have looped over a list of them so that the number of regions isn't even known in advance. These advanced capabilities are helpful for many real-world scenarios.
 
 Next up, we'll create the primary database instance in us-east-1:
 
