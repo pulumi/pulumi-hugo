@@ -62,6 +62,7 @@ That brings us to today, and we are happy to deliver an open source Pulumi Packa
 In the below sections we will look at example configurations of the Metabase resource, all the way from a bare bones configuration to a more complex configuration with a custom VPC, subnets, and domain.
 
 ### Default
+
 By default, the Package accepts zero arguments and will deploy your resources into your default VPC, on public subnets, and without a custom domain name.
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
