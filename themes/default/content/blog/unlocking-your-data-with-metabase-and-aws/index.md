@@ -45,7 +45,7 @@ As an early stage start-up at the time, we needed a low-cost solution (free) whi
 
 ### What is Metabase?
 
-Metabase is a Business Intelligence Tool that enables you to visualize and collaborate using data from a variety of databases. As a user, you do not need to understand the underlying database’s query language, SQL for example, because Metabase provides a UI to interact with your data. You can however drop into a query editor at any moment to perform more advanced queries.
+Metabase is a Business Intelligence Tool that enables you to visualize and collaborate using data from a variety of databases. You do not need to understand the underlying database’s query language, SQL for example, because Metabase provides a UI to interact with your data. You can however drop into a query editor at any moment to perform more advanced queries.
 
 Metabase provides you with two options to run <a href="https://www.metabase.com/blog/how-to-run-metabase-in-production/" target="_blank" rel="noopener noreferrer">Metabase in production <i class="text-xs fas fa-external-link-alt"></i></a>, Open Source (self-managed) and Enterprise (managed). The main difference between the two is that with Open Source you have to manage the infrastructure yourself, whereas with Enterprise, Metabase will manage the infrastructure for you for a fee.
 
@@ -53,7 +53,7 @@ Metabase provides you with two options to run <a href="https://www.metabase.com/
 
 Once we settled on our business intelligence tool it was time to wire it up and start living that sweet data-driven lifestyle. To run the service yourself, Metabase provides you with two options: a Docker Image or a .JAR. We were already running our SaaS service on ECS, so naturally, we opted to go with the Docker approach. In addition to running the Docker Image, we also needed to provision a database so that Metabase could store the relevant data it needs to run the service.
 
-To accomplish the task of provisioning all the required resources, the team wrote a [Component]({{< relref "/docs/intro/concepts/resources/components" >}}) to encapsulate all the complexity and provide a simple interface for provisioning and updating the service. Unfortunately, this was before we had developed [Pulumi Packages]({{< relref "/docs/guides/pulumi-packages" >}}) and the Component was only available within the program itself.
+To accomplish the task of provisioning all the required resources, the team wrote a [Pulumi Component]({{< relref "/docs/intro/concepts/resources/components" >}}) to encapsulate all the complexity and provide a simple interface for provisioning and updating the service. Unfortunately, this was before we had developed [Pulumi Packages]({{< relref "/docs/guides/pulumi-packages" >}}) and the Component was only available within the program itself.
 
 ## The Metabase Package
 
@@ -729,6 +729,6 @@ outputs:
 
 ## Delivery in 30 minutes or less
 
-To get started unlocking your data with Metabase, head on over to the Metabase Package’s [Overview Page]({{< relref "/registry/packages/metabase" >}}). Follow the quick walkthrough and have your Metabase service running in 30 minutes or less (in most cases). Once your service is up and running, we recommend popping over the Metabase Documentation to learn <a href="https://www.metabase.com/docs/latest/setting-up-metabase.html" target="_blank" rel="noopener noreferrer">How to Set Up Metabase <i class="text-xs fas fa-external-link-alt"></i></a>.
+To get started unlocking your data with Metabase, head on over to the [Metabase Package]({{< relref "/registry/packages/metabase" >}}). Follow the quick walkthrough and have your Metabase service running in 30 minutes or less (in most cases). Once your service is up and running, we recommend popping over the Metabase Documentation to learn <a href="https://www.metabase.com/docs/latest/setting-up-metabase.html" target="_blank" rel="noopener noreferrer">How to Set Up Metabase <i class="text-xs fas fa-external-link-alt"></i></a>.
 
 If you encounter an issue or have a feature request, please file an issue in the Package’s <a href="https://github.com/pulumi/pulumi-metabase" target="_blank" rel="noopener noreferrer">Github Repo <i class="text-xs fas fa-external-link-alt"></i></a>.
