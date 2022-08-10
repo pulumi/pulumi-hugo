@@ -1,4 +1,4 @@
-# pulumi-hugo
+# pulumi-hugo test
 
 A [Hugo](https://gohugo.io) module containing content and layouts used on pulumi.com, including hand-authored docs, the Pulumi blog, and Learn Pulumi.
 
