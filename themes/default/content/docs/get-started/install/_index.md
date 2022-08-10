@@ -19,8 +19,8 @@ NOTE: To update this page with a new binary release, do the following:
 
 {{% choosable os macos %}}
 
-<div class="md:flex flex-row mt-6 mb-6">
-<div class="w-1/2 border-solid border-b-2 border-gray-200">
+<div class="mb-6 border-solid border-b-2 border-gray-200">
+<div class="w-full md:w-3/4">
 <h3 class="no-anchor pt-4"><i class="fas fa-box pr-2"></i>Package Manager</h3>
 
 ```bash
@@ -28,11 +28,11 @@ $ brew install pulumi/tap/pulumi
 ```
 
 </div>
-<div class="w-1/2 border-solid ml-4 border-b-2 border-gray-200">
+<div class="w-full">
 <h3 class="no-anchor pt-4"><i class="fas fa-download pr-2"></i>macOS Binary Download</h3>
-<p class="text-center">
-<a href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-darwin-x64.tar.gz">amd64</a>
-<a href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-darwin-arm64.tar.gz">arm64</a></p>
+<p>
+<a class="btn btn-secondary mx-2" href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-darwin-x64.tar.gz">amd64</a>
+<a class="btn btn-secondary mx-2" href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-darwin-arm64.tar.gz">arm64</a></p>
 </div>
 </div>
 
@@ -169,19 +169,18 @@ If you do not wish to use the previous options, you can install Pulumi manually.
 
 {{% choosable os linux %}}
 
-<div class="md:flex flex-row mt-6 mb-6">
-<div class="w-1/2 border-solid border-b-2 border-gray-200">
+<div class="mb-6 border-solid border-b-2 border-gray-200">
+<div class="w-full md:w-3/4">
 <h3 class="no-anchor pt-4"><i class="fas fa-box pr-2"></i>Install Script</h3>
 
 ```bash
-$ curl -fsSL \
-    https://get.pulumi.com | sh
+$ curl -fsSL https://get.pulumi.com | sh
 ```
 
 </div>
-<div class="w-1/2 border-solid ml-4 border-b-2 border-gray-200 text-center">
+<div class="w-full">
 <h3 class="no-anchor pt-4"><i class="fas fa-download pr-2"></i>Linux Binary Download</h3>
-<p><a href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-linux-x64.tar.gz">amd64</a></p>
+<p><a class="btn btn-secondary mx-2" href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-linux-x64.tar.gz">amd64</a></p>
 </div>
 </div>
 
@@ -239,17 +238,17 @@ Alternatively, you can install Pulumi manually. We provide a prebuilt binary for
 
 {{% choosable os windows %}}
 
-<div class="md:flex flex-row mt-6 mb-6">
-<div class="w-1/2 border-solid border-b-2 border-gray-200">
+<div class="mb-6 border-solid border-b-2 border-gray-200">
+<div class="w-full md:w-3/4">
 <h3 class="no-anchor pt-4"><i class="fas fa-box pr-2"></i>Installer (MSI)</h3>
-<p class="text-center">
-<a href="https://github.com/pulumi/pulumi-winget/releases/download/{{< latest-version >}}/pulumi-{{< latest-version >}}-windows-x64.msi">amd64</a>
+<p>
+<a class="btn btn-secondary mx-2" href="https://github.com/pulumi/pulumi-winget/releases/download/{{< latest-version >}}/pulumi-{{< latest-version >}}-windows-x64.msi">amd64</a>
 </p>
 </div>
-<div class="w-1/2 border-solid ml-4 border-b-2 border-gray-200">
+<div class="w-full">
 <h3 class="no-anchor pt-4"><i class="fas fa-download pr-2"></i>Windows Binary Download</h3>
-<p class="text-center">
-<a href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-darwin-x64.tar.gz">amd64</a>
+<p>
+<a class="btn btn-secondary mx-2" href="https://get.pulumi.com/releases/sdk/pulumi-v{{< latest-version >}}-darwin-x64.tar.gz">amd64</a>
 </p>
 </div>
 </div>
