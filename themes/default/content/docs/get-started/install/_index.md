@@ -44,7 +44,7 @@ The latest version of Pulumi is {{< latest-version >}}. For older versions, see 
 
 ## Other Installation Methods
 
-In addition to the above, there are many ways to install Pulumi described below:
+In addition, there are many ways to install Pulumi:
 
 <div class="accordion-item text-2xl py-3 border-t-2">
 <input type="checkbox" class="absolute hidden" id="macos-official-homebrew-tap" />
@@ -191,7 +191,7 @@ The latest version of Pulumi is {{< latest-version >}}. For older versions, see 
 
 ## Other Installation Methods
 
-In addition to the above, there are many ways to install Pulumi described below:
+In addition, there are many ways to install Pulumi:
 
 <div class="accordion-item text-2xl py-3 border-t-2">
 <input type="checkbox" class="absolute hidden" id="linux-installation-script" />
@@ -262,7 +262,7 @@ The latest version of Pulumi is {{< latest-version >}}. For older versions, see 
 
 ## Other Installation Methods
 
-In addition to the above, there are many ways to install Pulumi described below:
+In addition, there are many ways to install Pulumi:
 
 <div class="accordion-item text-2xl py-3 border-t-2">
 <input type="checkbox" class="absolute hidden" id="windows-chocolatey" />
@@ -326,7 +326,7 @@ To update Pulumi to a more recent version:
 </div>
 </label>
 <div class="accordion-item-body-no-animation text-base">
-You can download the latest [Pulumi Installer for Windows x64](https://github.com/pulumi/pulumi-winget/releases/download/{{< latest-version >}}/pulumi-{{< latest-version >}}-windows-x64.msi) and run it like any other installer. It will automatically add Pulumi to the path and make it available machine-wide.
+Download the latest [Pulumi Installer for Windows x64](https://github.com/pulumi/pulumi-winget/releases/download/{{< latest-version >}}/pulumi-{{< latest-version >}}-windows-x64.msi) and run it like any other installer. It will automatically add Pulumi to the path and make it available machine-wide.
 </div>
 </div>
 
