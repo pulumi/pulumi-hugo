@@ -2,7 +2,7 @@
 title: "Introducing Billing Managers: A new role in the Pulumi Service"
 allow_long_title: true
 
-date: 2022-07-27T09:00:22-07:00
+date: 2022-08-11T15:00:22-07:00
 
 meta_desc: Starting today all Pulumi Organizations can have a Billing Manager, a role designed for your finance function.
 
