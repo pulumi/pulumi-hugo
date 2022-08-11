@@ -96,7 +96,7 @@ New Python projects created with `pulumi new` have this option set by default. I
 
 ### `plugins` options
 
-Use this option to link to local plugin binaries.
+Use this option to link to local plugin binaries. This option is intended for use in developing pulumi plugins.
 
 | Name | Required | Description |
 | `providers` | optional | something |
