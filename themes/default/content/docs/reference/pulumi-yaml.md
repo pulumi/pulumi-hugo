@@ -96,11 +96,19 @@ New Python projects created with `pulumi new` have this option set by default. I
 
 ### `plugins` options
 
-- `plugins`: (optional) allows the overriding of plugin selection to make use of plugins not installed into the global plugin cache.
-  - `providers`/`analyzers`/`languages`: (optional) each entry has a list of plugins underneath it.
-    - `name`: (required) the name of the plugin.
-    - `path`: (required) the path to the folder containing the plugin.
-    - `version`: (optional) the version of the plugin, if not set this plugin will match for any version the engine requests.
+Use this option to link to local plugin binaries.
+
+| Name | Required | Description |
+| `providers` | optional | something |
+| `analyzers` | optional | something |
+| `languages` | optional | something |
+
+#### Options for `providers`, `analyzers`, and `languages`
+| Name | Required | Description |
+| - | - | - |
+| `name` | required | Name of the plugin. |
+| `path` | optional | Path to the plugin folder. |
+| `version` | optional | Version of the plugin, if not set this will match for any version the engine requests. |
 
 ### Deprecated attributes
 
