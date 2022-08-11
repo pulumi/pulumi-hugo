@@ -24,7 +24,6 @@ options:
   refresh: true
 template:
   description: An example template
-  important: true
   config:
     aws:region:
       description: The AWS region to deploy into
