@@ -42,7 +42,7 @@ plugins:
 ## Attributes
 
 | Name | Required | Description |
-| - | - | - | - |
+| - | - | - |
 | `name` | required | The name of the project containing alphanumberic characters, hyphens, underscores, and period. |
 | `runtime` | required | The installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml` to use. |
 | `description` | optional | The description of the project. |
