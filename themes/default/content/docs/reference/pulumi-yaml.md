@@ -24,10 +24,12 @@ options:
   refresh: true
 template:
   description: An example template
+  important: true
   config:
-    description: An example template config
-    default: An example default
-    secret: true
+    aws:region:
+      description: The AWS region to deploy into
+      default: us-east-1
+      secret: true
 plugins:
   providers:
     name: aws
@@ -46,7 +48,7 @@ plugins:
 | `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml` |
 | `backend` | optional | The [backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. |
 | `options` | optional | Additional project options. |
-| `template` | optional | Config to be used when creatinig new stacks in the project. |
+| `template` | optional | Config to be used when creating new stacks in the project. |
 | `plugins` | optional | Override the plugin selection. |
 
 ### `runtime` options
@@ -77,12 +79,17 @@ New Python projects created with `pulumi new` have this option set by default. I
 
 ### `template` options
 
-- `template`: (optional) provides configuration settings that will be used when initializing a new stack from a project file using `pulumi new`. Currently these values are *only- used by `pulumi new`, and not by `pulumi stack init` or as default configuration for existing stacks.
-    - `description`: (optional) a description for the template itself.
-    - `config`: (required) the map of configuration values keyed by the name of the config setting - such as `aws:region`.  The value of each key includes:
-        - `description`: (optional) a description for the config setting.
-        - `default`: (optional) the default value of the config setting - which will be presented to the user as a default.
-        - `secret`: (optional) if `true` indicates that this configration value should be marked as secret.
+| Name | Required | Description |
+| - | - | - |
+| `description` | optional | Description of the template. |
+| `config` | required | Config to apply to each stack in the project. |
+
+#### `config` options
+
+| Name | Required | Description |
+| `description` | optional | Description of the config. |
+| `default` | optional | Default value of the config. |
+| `secret` | optional | Boolean value indicating if the configuration is labeled as a secret. |
 
 ### `plugins` options
 
