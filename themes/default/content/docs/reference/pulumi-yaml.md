@@ -51,7 +51,7 @@ plugins:
 | `backend` | optional | The [backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. |
 | `options` | optional | Additional project options. |
 | `template` | optional | Config to be used when creating new stacks in the project. |
-| `plugins` | optional | Override the plugin selection. |
+| `plugins` | optional | Override the plugin selection. Intended for use in developing pulumi plugins.  |
 
 ### `runtime` options
 
