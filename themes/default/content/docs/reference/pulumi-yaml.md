@@ -47,7 +47,7 @@ plugins:
 | `runtime` | required | The installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml` to use. |
 | `description` | optional | The description of the project. |
 | `main` | optional | Overide of the working directity default of the location of the Pulumi program. |
-| `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml` |
+| `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml`. |
 | `backend` | optional | The [backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. |
 | `options` | optional | Additional project options. |
 | `template` | optional | Config to be used when creating new stacks in the project. |
@@ -77,7 +77,7 @@ New Python projects created with `pulumi new` have this option set by default. I
 
 | Name | Required | Description | Default |
 | - | - | - |
-| `refresh` | optional | Boolean indicating whether to refresh the state before performing a Pulumi operation | `true` |
+| `refresh` | optional | Boolean indicating whether to refresh the state before performing a Pulumi operation. | `true` |
 
 ### `template` options
 
@@ -115,4 +115,4 @@ Use this option to link to local plugin binaries. This option is intended for us
 
 | Name | Required | Description |
 | - | - | - |
-| `config` | optional | Config directory location relative to the location of `Pulumi.yaml` |
+| `config` | optional | Config directory location relative to the location of `Pulumi.yaml`. |
