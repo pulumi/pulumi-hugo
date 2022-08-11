@@ -32,8 +32,11 @@ template:
 plugins:
   providers:
     name: aws
-    path: path-to-aws-provider/
-    version: 5.10.0
+    path: ../.../bin
+  languages:
+    name: yaml
+    path: ../../../pulumi-yaml/bin
+    version: 1.2.3
 ```
 
 ## Attributes
