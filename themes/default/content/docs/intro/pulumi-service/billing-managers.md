@@ -44,12 +44,13 @@ Billing Managers can be removed by any organization admin at any time. The steps
 1. Choose **Remove Billing Manager**. You will be prompted in a dialog to confirm your choice.
 
 ## Billing Manager Permissions
-A Billing Manager has the ability to access and update billing information, and to view organization metrics, such as resource count and member count (but not member names). [NOTE: this is re. the new UI which shows member count; just go ahead as is?]
+
+A Billing Manager has the ability to access and update billing information, and to view organization metrics, such as resource count and member count (but not member names).
 
 | Resource | Permissions |
 | --- | --- |
-| Organization Members | List Members (backend only) [NOTE: not sure how to word this] <br> View member count |
-| Teams | List Teams (backend only) [NOTE: not sure how to word this] |
+| Organization Members | List Members (API only) <br> View member count |
+| Teams | List Teams (API only) |
 | Tokens | None |
 | Policy groups | None |
 | Policy packs | None |
