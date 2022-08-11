@@ -88,7 +88,7 @@ New Python projects created with `pulumi new` have this option set by default. I
 | Name | Required | Description |
 | `description` | optional | Description of the config. |
 | `default` | optional | Default value of the config. |
-| `secret` | optional | Boolean value indicating if the configuration is labeled as a secret. |
+| `secret` | optional | Boolean indicating if the configuration is labeled as a secret. |
 
 ### `plugins` options
 
