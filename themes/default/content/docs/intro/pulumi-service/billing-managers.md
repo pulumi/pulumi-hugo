@@ -7,7 +7,7 @@ menu:
     weight: 11
 ---
 
-The Billing Manager role provides customers the ability to have someone in your organization manage billing operations without granting them any additional permissions to view or modify your stacks, policies, or other organizational settings.
+The Billing Manager role gives customers the ability to have someone in their Pulumi Organization manage billing operations without granting them any additional permissions to view or modify your stacks, policies, or other organizational settings.
 
 Any organization admin can view, invite, and remove Billing Managers from their organization.
 
