@@ -18,7 +18,7 @@ runtime: python
 description: An example project
 main: example-project/
 stackConfigDir: config/
-backend: 
+backend:
   url: https://pulumi.example.com
 options:
   refresh: true
@@ -37,13 +37,13 @@ plugins:
 
 ## Attributes
 
-| Name | Required | Description | 
+| Name | Required | Description |
 | - | - | - | - |
 | `name` | required | The name of the project containing alphanumberic characters, hyphens, underscores, and period. |
-| `runtime` | required | The installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml` to use. | 
+| `runtime` | required | The installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml` to use. |
 | `description` | optional | The description of the project. |
 | `main` | optional | Overide of the working directity default of the location of the Pulumi program. |
-| `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml` | 
+| `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml` |
 | `backend` | optional | The [backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. |
 | `options` | optional | Additional project options. |
 | `template` | optional | Config to be used when creatinig new stacks in the project. |
@@ -55,15 +55,15 @@ The runtime attribute has an additional optional `options` option where you can 
 
 | Name | Use case | Description |
 | - | - | - |
-| `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. | 
+| `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. |
 | `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
-| `virtualenv` | Ony applicable fo rthe python runtime | Virtual environment path. | 
+| `virtualenv` | Ony applicable fo rthe python runtime | Virtual environment path. |
 | `compiler` | Only applicable to YAML projects | Executable and arguments that emit to standard out. |
 
 #### About `binary`
 
- - For Go, if not specified, go sources in $CWD will be invoked via `go run`.
- - For .NET, f not specified, a .NET project in $CWD will be invoked via `dotnet run`.
+- For Go, if not specified, go sources in $CWD will be invoked via `go run`.
+- For .NET, f not specified, a .NET project in $CWD will be invoked via `dotnet run`.
 
 #### About `virtualenv`
 
