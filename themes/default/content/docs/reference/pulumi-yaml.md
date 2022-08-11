@@ -54,7 +54,7 @@ plugins:
 The runtime attribute has an additional optional `options` option where you can specify additional runtime configuration.
 
 | Name | Use case | Description |
-| - | - |
+| - | - | - |
 | `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. | 
 | `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
 | `virtualenv` | Ony applicable fo rthe python runtime | Virtual environment path. | 
@@ -72,6 +72,7 @@ New Python projects created with `pulumi new` have this option set by default. I
 ### `options` options
 
 | Name | Description | Default |
+| - | - | - |
 | `refresh` | Boolean indicating whether to refresh the state before performing a Pulumi operation | `true` |
 
 ### `template` options
@@ -93,6 +94,6 @@ New Python projects created with `pulumi new` have this option set by default. I
 
 ### Deprecated attributes
 
-| Name | Required | Description | Values |
-| - | - | - | - |
-| `config` | optional | Config directory location relative to the location of `Pulumi.yaml` | String |
+| Name | Required | Description |
+| - | - | - |
+| `config` | optional | Config directory location relative to the location of `Pulumi.yaml` |
