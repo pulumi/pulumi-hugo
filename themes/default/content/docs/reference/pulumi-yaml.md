@@ -104,6 +104,7 @@ Use this option to link to local plugin binaries.
 | `languages` | optional | something |
 
 #### Options for `providers`, `analyzers`, and `languages`
+
 | Name | Required | Description |
 | - | - | - |
 | `name` | required | Name of the plugin. |
