@@ -43,7 +43,7 @@ plugins:
 
 | Name | Required | Description |
 | - | - | - |
-| `name` | required | Name of the project containing alphanumberic characters, hyphens, underscores, and period. |
+| `name` | required | Name of the project containing alphanumeric characters, hyphens, underscores, and periods. |
 | `runtime` | required | Installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml`. |
 | `description` | optional | Description of the project. |
 | `main` | optional | Path to the Pulumi program. The default is the working directory. |
@@ -61,8 +61,8 @@ The runtime attribute has an additional optional `options` option where you can 
 | - | - | - |
 | `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. |
 | `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
-| `virtualenv` | Ony applicable fo the python runtime | Virtual environment path. |
-| `compiler` | Only applicable to YAML projects | Executable and arguments that emit to standard out. |
+| `virtualenv` | Ony applicable for the python runtime | Virtual environment path. |
+| `compiler` | Only applicable for YAML projects | Executable and arguments that emit to standard out. |
 
 #### About `binary`
 
@@ -109,7 +109,7 @@ Use this option to link to local plugin binaries. This option is intended for us
 | - | - | - |
 | `name` | required | Name of the plugin. |
 | `path` | optional | Path to the plugin folder. |
-| `version` | optional | Version of the plugin, if not set this will match for any version the engine requests. |
+| `version` | optional | Version of the plugin, if not set, will match any version the engine requests. |
 
 ### Deprecated attributes
 
