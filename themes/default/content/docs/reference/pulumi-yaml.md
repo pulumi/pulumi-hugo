@@ -61,7 +61,7 @@ The runtime attribute has an additional optional `options` option where you can 
 | - | - | - |
 | `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. |
 | `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
-| `virtualenv` | Ony applicable fo rthe python runtime | Virtual environment path. |
+| `virtualenv` | Ony applicable fo the python runtime | Virtual environment path. |
 | `compiler` | Only applicable to YAML projects | Executable and arguments that emit to standard out. |
 
 #### About `binary`
