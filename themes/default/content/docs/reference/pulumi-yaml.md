@@ -10,10 +10,19 @@ menu:
 
 The `Pulumi.yaml` project file specifies metadata about your project, such as the project name and language runtime for your project.
 
-## Example project file
+## Example project files
+
+### Example project file with only required attributes
 
 ```
-name: Example Pulumi project file
+name: Example Pulumi project file with only requires attributes
+runtime: nodejs
+```
+
+### Example project file with all possible attributes
+
+```
+name: Example Pulumi project file will all possible attributes
 runtime: python
 description: An example project
 main: example-project/
