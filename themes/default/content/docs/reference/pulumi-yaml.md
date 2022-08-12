@@ -43,15 +43,15 @@ plugins:
 
 | Name | Required | Description |
 | - | - | - |
-| `name` | required | The name of the project containing alphanumberic characters, hyphens, underscores, and period. |
-| `runtime` | required | The installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml` to use. |
-| `description` | optional | The description of the project. |
-| `main` | optional | Overide of the working directity default of the location of the Pulumi program. |
+| `name` | required | Name of the project containing alphanumberic characters, hyphens, underscores, and period. |
+| `runtime` | required | Installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml`. |
+| `description` | optional | Description of the project. |
+| `main` | optional | Path to the Pulumi program. The default is the working directory. |
 | `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml`. |
-| `backend` | optional | The [backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. |
+| `backend` | optional | [Backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. |
 | `options` | optional | Additional project options. |
 | `template` | optional | Config to be used when creating new stacks in the project. |
-| `plugins` | optional | Override the plugin selection. Intended for use in developing pulumi plugins.  |
+| `plugins` | optional | Override for the plugin selection. Intended for use in developing pulumi plugins.  |
 
 ### `runtime` options
 
