@@ -99,6 +99,7 @@ New Python projects created with `pulumi new` have this option set by default. I
 Use this option to link to local plugin binaries. This option is intended for use in developing pulumi plugins.
 
 | Name | Required | Description |
+| - | - | - |
 | `providers` | optional | something |
 | `analyzers` | optional | something |
 | `languages` | optional | something |
