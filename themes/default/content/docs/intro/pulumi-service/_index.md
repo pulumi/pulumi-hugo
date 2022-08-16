@@ -12,7 +12,7 @@ aliases:
 - /docs/intro/console/
 ---
 
-The [Pulumi Service](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses it unless you [explicitly opt out]({{< relref "/docs/intro/concepts/state" >}}).
+The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) is a free, managed service that handles infrastructure state and secrets and provides visibility into your cloud resources and their history. The Pulumi CLI automatically uses it unless you [explicitly opt out]({{< relref "/docs/intro/concepts/state" >}}). 
 
 ## Getting Started
 
@@ -20,7 +20,7 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 
 <a class="btn btn-secondary" href="https://app.pulumi.com/signup" target="_blank">Create an Account</a>
 
-When you sign in to the Pulumi Service, an personal account is automatically
+When you sign in to the Pulumi Service, a personal account is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
 You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO]({{< relref "/docs/guides/saml" >}}), you'll need to create a Pulumi [organization]({{< relref "organizations" >}}).
