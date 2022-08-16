@@ -28,7 +28,7 @@ As a result of Pulumi Teams only being available on these editions, Team Access 
 
 ## Hear from our customers
 
-[Snowflake](https://www.snowflake.com), a Pulumi customer, is a fully managed data warehousing service that’s simple to use but can power a near-unlimited number of concurrent workloads. “Scoping down access tokens will help our Platform team manage Pulumi stacks at scale across multiple departments within Snowflake. When Organization Access Tokens came out we were quick to adopt them internally and intend to adopt Team Access Tokens now as well. Using Pulumi Teams and Team Access Tokens enables us to follow the principle of least privilege.” said Jonas-Taha El Sesiy, Senior Software Engineer at Snowflake.
+[Snowflake](https://www.snowflake.com), a Pulumi customer, delivers the Data Cloud, a global network where thousands of organizations mobilize data with near-unlimited scale, concurrency, and performance. “Scoping down access tokens will help our Platform team manage Pulumi stacks at scale across multiple departments within Snowflake. When Organization Access Tokens came out we were quick to adopt them internally and intend to adopt Team Access Tokens now as well. Using Pulumi Teams and Team Access Tokens enables us to follow the principle of least privilege.” said Jonas-Taha El Sesiy, Senior Software Engineer at Snowflake.
 
 ## Feature overview
 
