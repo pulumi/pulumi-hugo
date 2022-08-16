@@ -20,7 +20,7 @@ A few months ago we launched [Organization Access Tokens]({{< relref "/blog/orga
 
 <!--more-->
 
-Since Pulumi Teams are only available on these editions, Team Access Tokens are also only available to customers on the Enterprise and Business Critical editions of the Pulumi Service.
+Since Pulumi Teams are only available on these editions, Team Access Tokens are also only available to customers on the Enterprise and Business Critical editions of the Pulumi Service. See the [Team Access Tokens]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}) documentation for more information on how to use the feature.
 
 ## See it in action!
 
@@ -38,8 +38,6 @@ This feature is particularly useful for:
 2. Enterprise customers using SSO/SAML/SCIM, as it enables them to set fine-grained stack permissions to the Pulumi Teams provisioned through their identity provider
 
 Team Access Tokens scope token access down to the stacks a Pulumi Team has access to. Customers can use Team Access Tokens when they need more fine grained access than a Personal Access Token. Personal Access Tokens have full permissions the user has across Organizations, Teams and Stacks. Team Access Tokens have less privilege than Organization Access Tokens, which have access across the Pulumi Organization and across multiple Teams.
-
-Learn more about using this feature in our [Access Token documentation]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}})
 
 With the launch of Team Access Tokens, Pulumi users can now create the following access token types:
 
