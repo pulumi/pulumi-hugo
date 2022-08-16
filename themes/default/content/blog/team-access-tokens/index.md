@@ -1,7 +1,7 @@
 ---
 title: "Announcing Team Access Tokens for the Pulumi Service"
 
-date: 2022-08-216T14:00:00-07:00
+date: 2022-08-16T14:00:00-07:00
 
 meta_desc: We are launching Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team.
 
@@ -16,7 +16,7 @@ tags:
     - pulumi-service
 ---
 
-A few months ago we launched [Organization Access Tokens]({{< relref "/blog/organization-access-tokens" >}}) for the [Pulumi Service](https://app.pulumi.com) and saw overwhelmingly fast adoption from our customer base. Based on this customer demand, and existing customer feedback, we prioritized improvements in the scoping of access tokens. Today, we are launching Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a [Pulumi Team]({{< relref "/docs/intro/pulumi-service/teams" >}}). Pulumi Service customers on the Enterprise and Business Critical editions can use Pulumi Teams to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users.
+A few months ago we launched [Organization Access Tokens]({{< relref "/blog/organization-access-tokens" >}}) for the [Pulumi Service]({{< relref "/product/pulumi-service" >}}) and saw overwhelmingly fast adoption from our customer base. Based on this customer demand, and existing customer feedback, we prioritized improvements in the scoping of access tokens. Today, we are launching Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a [Pulumi Team]({{< relref "/docs/intro/pulumi-service/teams" >}}). Pulumi Service customers on the Enterprise and Business Critical editions can use Pulumi Teams to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users.
 
 <!--more-->
 
@@ -28,7 +28,7 @@ As a result of Pulumi Teams only being available on these editions, Team Access 
 
 ## Hear from our customers
 
-[Snowflake](https://www.snowflake.com), a Pulumi customer, delivers the Data Cloud, a global network where thousands of organizations mobilize data with near-unlimited scale, concurrency, and performance. “Scoping down access tokens will help our Platform team manage Pulumi stacks at scale across multiple departments within Snowflake. When Organization Access Tokens came out we were quick to adopt them internally and intend to adopt Team Access Tokens now as well. Using Pulumi Teams and Team Access Tokens enables us to follow the principle of least privilege.” said Jonas-Taha El Sesiy, Senior Software Engineer at Snowflake.
+[Snowflake]({{< relref "/case-studies/snowflake" >}}), a Pulumi customer, delivers the Data Cloud, a global network where thousands of organizations mobilize data with near-unlimited scale, concurrency, and performance. “Scoping down access tokens will help our Platform team manage Pulumi stacks at scale across multiple departments within Snowflake. When Organization Access Tokens came out we were quick to adopt them internally and intend to adopt Team Access Tokens now as well. Using Pulumi Teams and Team Access Tokens enables us to follow the principle of least privilege.” said Jonas-Taha El Sesiy, Senior Software Engineer at Snowflake.
 
 ## Feature overview
 
@@ -37,7 +37,7 @@ This feature is particularly useful for:
 1. Scoping programmatic access for continuous integration and continuous delivery (CI/CD) tools and other automated processes to the Pulumi Team instead of the entire Organization
 2. Enterprise customers using SSO/SAML/SCIM, as it enables them to fine grain stack permissions to the Pulumi Service Teams provisioned through their identity provider
 
-Customers can use Team Access Tokens when they need more fine grained access than a Personal Access Token, which has full permissions the user has across Organizations, Teams and Stacks. Team Access Tokens have less privilege than Organization Access Tokens, which have access across the Pulumi Organization and across multiple Teams.
+Team Access Tokens scope token access down to the stacks a Pulumi Team has access to. Customers can use Team Access Tokens when they need more fine grained access than a Personal Access Token. Personal Access Tokens have full permissions the user has across Organizations, Teams and Stacks. Team Access Tokens have less privilege than Organization Access Tokens, which have access across the Pulumi Organization and across multiple Teams.
 
 Learn more about using this feature in our [Access Token documentation]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}})
 
