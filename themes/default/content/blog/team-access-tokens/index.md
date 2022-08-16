@@ -1,7 +1,7 @@
 ---
 title: "Announcing Team Access Tokens for the Pulumi Service"
 
-date: 2022-07-25T09:53:22-07:00
+date: 2022-08-216T14:00:00-07:00
 
 meta_desc: We are launching Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team.
 
