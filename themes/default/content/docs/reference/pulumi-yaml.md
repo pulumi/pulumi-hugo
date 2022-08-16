@@ -14,7 +14,7 @@ The `Pulumi.yaml` project file specifies metadata about your project, such as th
 
 ### Example project file with only required attributes
 
-```
+```yaml
 name: Example Pulumi project file with only requires attributes
 runtime: nodejs
 ```
@@ -23,7 +23,7 @@ runtime: nodejs
 
 ```yaml
 name: Example Pulumi project file will all possible attributes
-runtime: python
+runtime: yaml
 description: An example project
 main: example-project/
 stackConfigDir: config/
@@ -49,6 +49,8 @@ plugins:
 ```
 
 ## Attributes
+
+### All attributes
 
 | Name | Required | Description | Options |
 | - | - | - | - |
@@ -109,9 +111,9 @@ Use this option to link to local plugin binaries. This option is intended for us
 
 | Name | Required | Description |
 | - | - | - |
-| `providers` | optional | something |
-| `analyzers` | optional | something |
-| `languages` | optional | something |
+| `providers` | optional | Plugin for the provider. |
+| `analyzers` | optional | Plugin for the policy. |
+| `languages` | optional | Plugin in for the language. |
 
 #### Options for `providers`, `analyzers`, and `languages`
 
@@ -125,4 +127,4 @@ Use this option to link to local plugin binaries. This option is intended for us
 
 | Name | Required | Description |
 | - | - | - |
-| `config` | optional | Config directory location relative to the location of `Pulumi.yaml`. |
+| `config` | optional | Config directory relative to the location of `Pulumi.yaml`. |
