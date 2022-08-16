@@ -21,7 +21,7 @@ runtime: nodejs
 
 ### Example project file with all possible attributes
 
-```
+```yaml
 name: Example Pulumi project file will all possible attributes
 runtime: python
 description: An example project
@@ -64,7 +64,7 @@ plugins:
 
 ### `runtime` options
 
-The runtime attribute has an additional optional `options` option where you can specify additional runtime configuration.
+The runtime attribute has an additional property called options where you can further specify runtime configuration.
 
 | Name | Use case | Description |
 | - | - | - |
@@ -75,12 +75,12 @@ The runtime attribute has an additional optional `options` option where you can 
 
 #### About `binary`
 
-- For Go, if not specified, go sources in $CWD will be invoked via `go run`.
-- For .NET, f not specified, a .NET project in $CWD will be invoked via `dotnet run`.
+- For Go, if not specified, go sources in `$CWD` will be invoked via `go run`.
+- For .NET, if not specified, a .NET project in `$CWD` will be invoked via `dotnet run`.
 
 #### About `virtualenv`
 
-New Python projects created with `pulumi new` have this option set by default. If not specified, Pulumi will invoke the `python3` command it finds on $PATH (falling back to `python`) to run the Python program. To use a virtual environment without the `virtualenv` option, run `pulumi` commands (such as `pulumi up`) from an activated virtual environment shell. Or, if using a tool like [Pipenv](https://github.com/pypa/pipenv), prefix `pulumi` commands with `pipenv run pulumi ...`.
+New Python projects created with `pulumi new` have this option set by default. If not specified, Pulumi will invoke the `python3` command it finds on `$PATH` (falling back to `python`) to run the Python program. To use a virtual environment without the `virtualenv` option, run `pulumi` commands (such as `pulumi up`) from an activated virtual environment shell. Or, if using a tool like [Pipenv](https://github.com/pypa/pipenv), prefix `pulumi` commands with `pipenv run pulumi ...`.
 
 ### `options` options
 
