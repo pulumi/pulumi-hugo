@@ -50,16 +50,13 @@ intentionally expose some known credentials to aid with debugging, so these log 
 when absolutely needed.
 {{% /notes %}}
 
-```
+```bash
 $ pulumi up --logtostderr --logflow -v=9 2> out.txt
 ```
 
-Individual resource providers may also have flags and environment entries to customize their
-diagnostic logging.  For example, for any Pulumi resource providers that expose a Terraform resource
-provider into Pulumi, you can use [`TF_LOG`](https://www.terraform.io/docs/internals/debugging.html)
-set to `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR`.
+Resource providers may also have their own flags or environment variables that control diagnostic logging.  For example, for any Pulumi providers that use a bridged Terraform provider can make use of the [`TF_LOG`](https://www.terraform.io/docs/internals/debugging.html) environment variable (set to `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR`) in order to provider additional diagnostic information.
 
-```
+```bash
 $ TF_LOG=TRACE pulumi up --logtostderr --logflow -v=9 2> out.txt
 ```
 
