@@ -38,9 +38,9 @@ If you’re interested in learning more about the component, read [Deploy Static
 
 All the Angular components you need to build the website are available in the GitHub [repository](https://github.com/sean1588/angular-static-site-pulumi). The repository contains:
 
-* A component for the [left navigation bar](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/shared/navbar).
-* A component for the [top navigation bar](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/shared/toolbar).
-* A component for the [About](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/home) page.
+* A component for the [left navigation bar](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/shared/leftnav).
+* A component for the [top navigation bar](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/shared/topnav).
+* A component for the [Home](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/home) page.
 * A component for the [Menu](https://github.com/sean1588/angular-static-site-pulumi/tree/main/src/app/components/menu) page.
 
 We also use some components that come with the Angular framework.
@@ -93,7 +93,7 @@ The AWS Static Website component is the reason you only need a few lines of code
 
 To deploy the website, type `pulumi up`. You’ll first see a preview of all the resources that will be created. Confirm that you want to proceed and Pulumi deploys the website to AWS.
 
-It’s that simple. With just a few lines of code and one command you deployed your site. Navigate to the site and you’ll see the About page for the café.
+It’s that simple. With just a few lines of code and one command you deployed your site. Navigate to the site and you’ll see the Home page for the café.
 
 You can see the navigation components on the left-hand side. Click **Menu** to see the Menu page.
 
