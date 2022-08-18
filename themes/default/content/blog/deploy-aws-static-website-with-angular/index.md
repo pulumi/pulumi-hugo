@@ -1,8 +1,8 @@
 ---
 title: Create an AWS Static Website Fast with Angular and Pulumi
 date: 2022-08-20
-meta_desc: "Learn how to deploy your angular static website to AWS using the static website component."
-meta_image: "react_app_yaml.png"
+meta_desc: "Learn how to create and deploy an Angular static website to AWS using the static website component."
+meta_image: "meta_image.png"
 authors:
     - sean-holung
 tags:
