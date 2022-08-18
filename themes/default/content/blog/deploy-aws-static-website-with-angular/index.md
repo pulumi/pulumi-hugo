@@ -103,7 +103,7 @@ You can see the navigation components on the left-hand side. Click **Menu** to s
 
 Along with making it simple to deploy your site, Pulumi also makes it easy to perform some management tasks. For example, If you want to take down the site, run `pulumi destroy`. You never have to worry that you’ll forget to remove some resource and continue to pay for it. Pulumi also keeps track of changes to website files, can generate resource graphs and give you complete information about the resources you’re using.
 
-![pulumi cafe menu page](pulumi-cafe-menu.png)
+![pulumi cli output](pulumi-cli.png)
 
 ## Learn More
 
