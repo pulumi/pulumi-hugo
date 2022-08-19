@@ -2,7 +2,7 @@
 title: Cloud Engineering Days
 meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitioners about cloud infrastructure, modern applications, and everything in between. Oct 20-21.
 
-meta_image: /images/cloud-eng-summit-2021-meta.jpg
+meta_image: /images/cloud-engineering-days/ced-website-banner.png
 
 type: page
 layout: cloud-engineering-days
