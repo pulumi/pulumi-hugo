@@ -54,6 +54,24 @@ featured:
       - name: Laura Santamaria
         photo: /images/team/laura-santamaria.jpg
 
+media:
+  items:
+    - name: Twitter
+      image: /logos/tech/twitter.svg
+      link: https://twitter.com/PulumiCorp/
+    - name: Linkedin
+      image: /logos/tech/linkedin.svg
+      link: https://www.linkedin.com/company/pulumi
+    - name: Slack
+      image: /logos/tech/slack.svg
+      link: https://slack.pulumi.com/
+
+hackathon:
+  title: Pulumi Worldwide Community Pulumipus Hackathon
+  image: /images/cloud-engineering-days/pulumi-community-hackathon-logo.png
+  description: |
+    We’re pleased to announce the first worldwide Pulumi Community Hackathon. This month-long event kicks off at Cloud Engineering Day and brings together developers of all skill levels who are passionate about open source. Stay tuned for more information in the coming weeks.
+
 workshops:
   title: Cloud Engineering Workshops
   items:
@@ -83,4 +101,7 @@ schedule:
         - title: Cloud Engineering Workshop Day
           description: Level up your cloud engineering skills by joining us for a series of guided workshops.
           datetime: Wednesday, November 2nd at 12:00 PM PDT
+
+form:
+    hubspot_form_id: ed92e322-b149-46c7-8c1c-6f29de9f8fb8
 ---

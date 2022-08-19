@@ -40,6 +40,25 @@
     <section id="social-media" class="min-w-full my-0 bg-salmon-600">
         <div class="container mx-auto py-8">
             <h4 class="text-center text-white">Join the Conversation</h4>
+            <div class="text-center">
+                    <div class="text-center flex flex-row justify-center">
+                        {{ range $item := .Params.media.items }}
+                            <a href="{{ $item.link }}" class="mx-2">
+                                <img src="{{ $item.image }}" alt="{{ $item.name }}" />
+                            </a>
+                        {{ end }}
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hackathon" class="min-w-full my-8 bg-white">
+        <div class="container mx-auto flex flex-col items-center text-center">
+            <h3 class="text-center text-black mb-8">{{ .Params.hackathon.title }}</h3>
+            <img src="{{ .Params.hackathon.image }}" />
+            <div class="lg:w-2/3">
+                <p>{{ .Params.hackathon.description }}</p>
+            </div>
         </div>
     </section>
 
@@ -70,7 +89,7 @@
         </div>
     </section>
 
-    <section id="schedule" class="min-w-full my-0 py-16 mb-32 bg-black">
+    <section id="schedule" class="min-w-full my-0 py-16 mb-8 bg-black">
         <div class="container mx-auto">
             <h3 class="text-center text-white">{{ .Params.schedule.title }}</h3>
             <p class="text-center text-white">{{ .Params.schedule.subtitle }}</p>
@@ -92,5 +111,9 @@
                 {{ end }}
             </div>
         </div>
+    </section>
+
+    <section id="registration" class="min-w-full mt-16 mb-16 flex justify-center">
+        <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}" go-to-webinar-key="{{ .Params.form.gotowebinar_key }}"></pulumi-hubspot-form>
     </section>
 {{ end }}
