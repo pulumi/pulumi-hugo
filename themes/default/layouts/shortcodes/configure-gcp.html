@@ -1,7 +1,6 @@
 When developing locally, we recommend that you install the [Google Cloud SDK](https://cloud.google.com/sdk/install) and then [authorize access with a user
-account](https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_user_account). 
-
-Next, Pulumi requires default application credentials to interact with your Google Cloud resources, so run `auth application-default login` command to obtain those credentials:
+account](https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_user_account). Next, Pulumi requires default application credentials to interact with your Google Cloud
+resources, so run `auth application-default login` command to obtain those credentials:
 
 <div class="highlight">
     <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="no-select">$ </span>gcloud auth application-default login</code></pre>
@@ -27,12 +26,7 @@ To configure Pulumi to interact with your Google Cloud project, set it with the 
     </div>
 </div>
 
-You may also set your GCP Project via environment variable (listed in order of precedence):
-
-- `GOOGLE_PROJECT`
-- `GOOGLE_CLOUD_PROJECT`
-- `GCLOUD_PROJECT`
-- `CLOUDSDK_CORE_PROJECT`
+You may also set your GCP Project via environment variable (listed in order of precedence): - `GOOGLE_PROJECT` - `GOOGLE_CLOUD_PROJECT` - `GCLOUD_PROJECT` - `CLOUDSDK_CORE_PROJECT`
 
 <div class="highlight">
     <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="no-select">$ </span>$ export GOOGLE_PROJECT=your-gcp-project-id</code></pre>
