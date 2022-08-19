@@ -22,6 +22,8 @@ To follow this example, you need to have both Angular and Pulumi installed. (Her
 
 Angular is an open-source UI framework for building single-page client applications with HTML and TypeScript. Angular itself is written in TypeScript and its architecture follows the Model-View-Controller (MVC) design pattern.
 
+## What are Components in Angular?
+
 In Angular, the basic building blocks of a website are called _components_. These are reusable structures that contain their own logic and functionality. For example, you could create a button as an Angular component and program it to have a particular look and a particular behavior. Then, you would reuse the button component wherever you need it in the website. The button could also be configurable meaning that, based on different properties, you could change its look and behavior.
 
 A simple website, like the one we’ll be building in this post, is mainly created from a group of Angular components.
@@ -53,20 +55,20 @@ Here are the instructions to build the website.
 
 1. Clone the GitHub repository located [here](https://github.com/sean1588/angular-static-site-pulumi).
 1. Run `npm install` to install the website’s node dependencies.
-1. Run `npm build` to generate the static website files and place them in a directory called **dist**. We will reference this directory when we configure Pulumi to deploy the site.
+1. Run `npm run build` to generate the static website files and place them in a directory called `dist`. We will reference this directory when we configure Pulumi to deploy the site.
 
 ## Deploy the Site with Pulumi
 
 You’re now ready to set up Pulumi to deploy the site to AWS.
 
-1. Create a directory named **pulumi** in the root of the project directory and then navigate to it with this command:
+1. Create a directory named `pulumi` in the root of the project directory and then navigate to it with this command:
 
     ```bash
     mkdir pulumi && cd pulumi
 
     ```
 
-1. You’re now in the **pulumi** directory. Generate a Pulumi project file and create a Pulumi.yaml file with this command:
+1. You’re now in the `pulumi` directory. Generate a Pulumi project file and create a Pulumi.yaml file with this command:
 
     ```bash
     pulumi new aws-yaml
@@ -74,7 +76,7 @@ You’re now ready to set up Pulumi to deploy the site to AWS.
 
 ## Modify the .yaml File
 
-We need to add a few lines of code to the Pulumi.yaml file. In the `resources` section, the code references the AWS Static Website component and sets the **sitePath** property to the location of the **dist** build directory. We also want to know the URL of the site once it’s deployed. That’s what the `outputs` section  does. The **websiteURL** parameter is one of the outputs that the AWS Static Website component provides. Here is an example screenshot of the .yaml file.
+We need to add a few lines of code to the Pulumi.yaml file. In the `resources` section, the code references the AWS Static Website component and sets the `sitePath` property to the location of the `dist` build directory. We also want to know the URL of the site once it’s deployed. That’s what the `outputs` section  does. The `websiteURL` parameter is one of the outputs that the AWS Static Website component provides. Replace the contents of `Pulumi.yaml` with the following code:
 
 ```yaml
 name: angular-static-website
@@ -95,7 +97,7 @@ To deploy the website, type `pulumi up`. You’ll first see a preview of all the
 
 It’s that simple. With just a few lines of code and one command you deployed your site. Navigate to the site and you’ll see the Home page for the café.
 
-You can see the navigation components on the left-hand side. Click **Menu** to see the Menu page.
+You can see the navigation components on the left-hand side. Click `Menu` to see the Menu page.
 
 ![pulumi cafe home page](pulumi-cafe-home.png)
 
@@ -114,3 +116,4 @@ If you want to learn more about Pulumi and the AWS Static Website component, her
 * If you want to view more examples of how to use Pulumi, go to the Pulumi [examples](https://github.com/pulumi/examples) repo.
 * If you want to delve deeper into Pulumi, the [Getting Started]({{< relref "/docs/get-started" >}}) guide is a good first step.
 * If you’re interested in learning more about Pulumi concepts, try the [Architecture & Concepts]({{< relref "/docs/intro/concepts" >}}) page.
+* If you want to learn more about Angular, see their [Getting Started](https://angular.io/start) docs.
