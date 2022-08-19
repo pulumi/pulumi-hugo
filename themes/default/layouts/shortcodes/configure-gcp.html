@@ -14,10 +14,28 @@ Next, Pulumi requires default application credentials to interact with your Goog
     </div>
 </div>
 
-To configure Pulumi to interact with your Google Cloud project, set it with the `config` command using the project's ID:
+To configure Pulumi to interact with your Google Cloud project, set it with the `pulumi config` command using the project's ID:
 
 <div class="highlight">
     <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="no-select">$ </span>pulumi config set gcp:project your-gcp-project-id</code></pre>
+    <div class="copy-button-container">
+        <pulumi-tooltip
+            ><span class="tooltip-target"
+                ><button class="copy-button"><i class="far fa-copy copy text-xl"></i></button></span
+            ><span class="tooltip-content" role="tooltip"><span slot="content">Copy</span></span></pulumi-tooltip
+        >
+    </div>
+</div>
+
+You may also set your GCP Project via environment variable (listed in order of precedence):
+
+- `GOOGLE_PROJECT`
+- `GOOGLE_CLOUD_PROJECT`
+- `GCLOUD_PROJECT`
+- `CLOUDSDK_CORE_PROJECT`
+
+<div class="highlight">
+    <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="no-select">$ </span>$ export GOOGLE_PROJECT=your-gcp-project-id</code></pre>
     <div class="copy-button-container">
         <pulumi-tooltip
             ><span class="tooltip-target"
