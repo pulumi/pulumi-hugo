@@ -5,6 +5,12 @@
 {{ end }}
 
 {{ define "main" }}
+    <section id="description" class="container mx-auto my-16 text-center">
+        <h5>
+            <b>{{ .Params.title }}</b>&nbsp;{{ .Params.description }}
+        </h5>
+    </section>
+
     <section id="featured" class="container mx-auto my-0">
         <div class="benefits-section relative">
             <div class="flex flex-wrap items-stretch justify-center">

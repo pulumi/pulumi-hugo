@@ -1,11 +1,14 @@
 ---
 title: Cloud Engineering Days
-meta_desc: The Cloud Engineering Summit is a day of learning for cloud practitioners about cloud infrastructure, modern applications, and everything in between. Oct 20-21.
+meta_desc: Cloud Engineering Days are free, hands-on learning events for developers and engineers to level up their cloud skills and master the modern cloud.
 
 meta_image: /images/cloud-engineering-days/ced-website-banner.png
 
 type: page
 layout: cloud-engineering-days
+
+description: |
+  are free, hands-on learning events for developers and engineers to level up their cloud skills and master the modern cloud. Join our experts for workshops and talks that will teach you the latest software development and infrastructure as code practices that can increase your productivity and level up your output, whether you’re using VMs, serverless, Kubernetes, or even multi-cloud.
 
 featured:
   items:
