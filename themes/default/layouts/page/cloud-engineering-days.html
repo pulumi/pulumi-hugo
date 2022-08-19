@@ -41,13 +41,13 @@
         <div class="container mx-auto py-8">
             <h4 class="text-center text-white">Join the Conversation</h4>
             <div class="text-center">
-                    <div class="text-center flex flex-row justify-center">
-                        {{ range $item := .Params.media.items }}
-                            <a href="{{ $item.link }}" class="mx-2">
-                                <img src="{{ $item.image }}" alt="{{ $item.name }}" />
-                            </a>
-                        {{ end }}
-                    </div>
+                <div class="text-center flex flex-row justify-center">
+                    {{ range $item := .Params.media.items }}
+                        <a href="{{ $item.link }}" class="mx-2">
+                            <img src="{{ $item.image }}" alt="{{ $item.name }}" />
+                        </a>
+                    {{ end }}
+                </div>
             </div>
         </div>
     </section>
@@ -114,6 +114,9 @@
     </section>
 
     <section id="registration" class="min-w-full mt-16 mb-16 flex justify-center">
-        <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}" go-to-webinar-key="{{ .Params.form.gotowebinar_key }}"></pulumi-hubspot-form>
+        <div class="lg:w-1/2">
+            <h4>Register</h4>
+            <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}" go-to-webinar-key="{{ .Params.form.gotowebinar_key }}"></pulumi-hubspot-form>
+        </div>
     </section>
 {{ end }}

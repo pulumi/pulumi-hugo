@@ -7,15 +7,12 @@ meta_image: /images/cloud-eng-summit-2021-meta.jpg
 type: page
 layout: cloud-engineering-days
 
-hubspot_form_id: 15b92d63-158e-4fc0-8b2c-c4bf3fbfee27
-sessionize_id: wbl7wd7l
-
 featured:
   items:
     - title: Opening Keynote and Welcome
       description: |
         Join Pulumi Co-Founder and CEO, Joe Duffy as he discusses the newest innovations in infrastructure as code and modern applications, and how pioneering engineering organizations are using these techniques to ship faster, more reliably, and at greater scale. Joe will cover new Pulumi features and how you can get started.
-      link:
+      link: /cloud-engineering-days/#registration
       link_text: Register
       presenters:
       - name: Joe Duffy
@@ -24,7 +21,7 @@ featured:
     - title: Cloud Engineering and Demos
       description: |
         New and exciting hands-on, coding-heavy demo sessions. Using Pulumi, you will see how to build, deploy, and manage cloud applications with infrastructure as code, powered by popular programming languages. Pick up new best practices and how software engineering can be applied to tame the complexities of the modern cloud infrastructure.
-      link:
+      link: /cloud-engineering-days/#registration
       link_text: Register
       presenters:
       - name: Meagan Cojocar
@@ -103,5 +100,5 @@ schedule:
           datetime: Wednesday, November 2nd at 12:00 PM PDT
 
 form:
-    hubspot_form_id: ed92e322-b149-46c7-8c1c-6f29de9f8fb8
+    hubspot_form_id: 15b92d63-158e-4fc0-8b2c-c4bf3fbfee27
 ---
