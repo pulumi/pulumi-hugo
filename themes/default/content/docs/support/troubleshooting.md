@@ -521,11 +521,11 @@ There are two ways to fix this, one way if you have access to an Intel based com
 1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
 1. Run a Pulumi preview to check everything is ok: `pulumi pre`
 
-* `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
+`arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
 
 ### I can't connect to the Pulumi Service
 
 If your network blocks external traffic and you're using the Pulumi Service to manage your state, your security team may need the following details to allow the Pulumi CLI to connect to the Service:
 
-* The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console, you'll need enable that as well.)
-* All access goes over HTTPS via port 443.
+- The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console, you'll need enable that as well.)
+- All access goes over HTTPS via port 443.
