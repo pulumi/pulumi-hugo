@@ -96,33 +96,6 @@ To view a trace locally navigate to the [Jaeger UI](http://localhost:16686/searc
 
 ## Common Problems
 
-### 409 Conflict: Another update is currently in progress. {#conflict}
-
-Run `pulumi cancel` to cancel the update.
-
-{{% notes type="warning" %}}
-Warning! If you cancel another person's update, their update will fail immediately.
-{{% /notes %}}
-
-One of the services that `pulumi.com` provides is *concurrency control*. The service will allow
-at most one user to update a particular stack at a time. This is accomplished by using "leases"; whenever a user
-requests an update, they request a "lease" on the stack that gives them the right to update the requested stack.
-The service makes sure that only one person has a lease active at a time.
-
-If you get this error message, this means that the service believes that somebody else has requested and was granted
-a lease to the stack that you are attempting to update. There are two reasons why this could be:
-
-1. Somebody else is currently updating the stack. If you are working on a stack with more than one collaborator, it could
-be that your collaborators have initiated an update without your knowledge. You can confirm this by visiting the Pulumi
-web console and seeing who initiated the most recent update.
-
-2. You were updating the stack, but the Pulumi CLI crashed in the middle of the update.
-
-If you are working on a stack with no other collaborators, it is common to encounter situation number 2 if you
-run into a bug in Pulumi. If this update was not triggered by someone else, you can use the
-`pulumi cancel` command to cancel the current update. This operation revokes the "lease" that the service has given
-to the person who initiated the stack update.
-
 ### 403 error fetching plugin
 
 You're more than likely seeing this error message as you're using an arm64 based processor (probably one of the new M1 MacBook Pros) and are using an older version of one of our providers that doesn't support this processor.
@@ -152,6 +125,33 @@ There are two ways to fix this, one way if you have access to an Intel based com
 1. Run a Pulumi preview to check everything is ok: `pulumi pre`
 
 `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
+
+### 409 Conflict: Another update is currently in progress. {#conflict}
+
+Run `pulumi cancel` to cancel the update.
+
+{{% notes type="warning" %}}
+Warning! If you cancel another person's update, their update will fail immediately.
+{{% /notes %}}
+
+One of the services that `pulumi.com` provides is *concurrency control*. The service will allow
+at most one user to update a particular stack at a time. This is accomplished by using "leases"; whenever a user
+requests an update, they request a "lease" on the stack that gives them the right to update the requested stack.
+The service makes sure that only one person has a lease active at a time.
+
+If you get this error message, this means that the service believes that somebody else has requested and was granted
+a lease to the stack that you are attempting to update. There are two reasons why this could be:
+
+1. Somebody else is currently updating the stack. If you are working on a stack with more than one collaborator, it could
+be that your collaborators have initiated an update without your knowledge. You can confirm this by visiting the Pulumi
+web console and seeing who initiated the most recent update.
+
+2. You were updating the stack, but the Pulumi CLI crashed in the middle of the update.
+
+If you are working on a stack with no other collaborators, it is common to encounter situation number 2 if you
+run into a bug in Pulumi. If this update was not triggered by someone else, you can use the
+`pulumi cancel` command to cancel the current update. This operation revokes the "lease" that the service has given
+to the person who initiated the stack update.
 
 ### 500 Internal Server Error {#internal-server-error}
 
