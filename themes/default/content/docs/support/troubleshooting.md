@@ -213,7 +213,7 @@ Full error example:
 error: could not load plugin for aws provider 'urn:pulumi:<stack_name>::pulumi-service::pulumi:providers:aws::default': no resource plugin 'aws-v0.16.2' found in the workspace or on your $PATH, install the plugin using \`pulumi plugin install resource aws v0.16.2\`
 ```
 
-### Nothing happens running Pulumi due to network proxy
+### Nothing happens due to network proxy
 
 You run Pulumi and nothing happens, with output resembling this:
 
@@ -230,7 +230,7 @@ If you have a system-wide proxy server running on your machine, it may be miscon
 on IP address `127.0.0.1`. Your proxy server should be configured **NOT** to proxy
 these local network connections. Add both `127.0.0.1` and `localhost` to the exclusion list of your proxy server.
 
-#### Ingress .status.loadBalancer field was not updated with a hostname/IP address {#ingress-status-loadbalancer}
+### Ingress .status.loadBalancer field was not updated with a hostname/IP address {#ingress-status-loadbalancer}
 
 This error is often caused by a misconfigured ingress-controller not updating the `status.loadBalancer`
 field once the Ingress resource is ready to route traffic.
@@ -245,7 +245,7 @@ introduced in Traefik 1.7.0.
 
 ### Synchronous call made to "X" with an unregistered provider {#synchronous-call}
 
-> Note: asynchronous calls are the default in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
+Asynchronous calls are the default in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
 
 The warning occurs when invoking a resource function synchronously while also using
 [an explicit provider object]({{< relref "/docs/intro/concepts/resources#providers" >}}) that isn't yet ready to use.
@@ -328,7 +328,7 @@ some code due to the need to potentially use `async`/`await` code in areas of a 
 
 ### StackReference.getOutputSync/requireOutputSync called on a StackReference whose name is a Promise/Output {#stackreference-sync}
 
-> Note: `getOutputSync` and `requireOutputSync` are not available in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
+`getOutputSync` and `requireOutputSync` are not available in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
 
 The warning occurs when calling `getOutputSync` or `requireOutputSync` on a `StackReference` whose name is not a simple string.
 For example:
@@ -460,14 +460,14 @@ that made it impossible for you to recover your stack in any other way.
 
 The Pulumi engine uses both your program and your stack's existing state to make decisions about what
 resources to create, read, update, or delete. The most common problem that makes it impossible to
-make changes to your stack is that the stack's existing state has gotten corrupted in some way. There
+make changes to your stack is that the stack's existing state has been corrupted in some way. There
 are a variety of ways that a stack's state could be corrupted, but in almost all cases it is possible
 to manually edit the stack's existing state to fix the corruption.
 
 Note that this is an advanced operation and should be an absolute last resort.
 
 If you intend to unprotect or delete a resource, consider using the [`pulumi state`]({{< relref "/docs/reference/cli/pulumi_state" >}}) command to
-do so instead of editing your state directly. `pulumi state` also makes surgical fixes to your state but without
+do so instead of editing your state directly. `pulumi state` also makes fixes to your state but without
 requiring you to edit the JSON representation of your stack's current state.
 
 To get a JSON representation of your stack's current state, you can export your current stack
@@ -479,18 +479,18 @@ $ pulumi stack export --file state.json
 
 This file contains a lot of information. At the top-level, this JSON object has two fields:
 
-1. A `version`, indicating the version of the file format you're currently looking at. Don't
-change this.
-1. A `deployment`, which represents the state of the last deployment that this stack completed.
+| Field | Description |
+| - | - |
+| `version` | Ehe version of the file format you're currently looking at. This should not be changed. |
+| `deployment` | Represents the state of the last deployment that the stack completed. |
 
 The `deployment` object itself has three fields:
 
-1. A `manifest`, which contains some metadata about the previous deployment. You should not ever
-need to edit this.
-1. A list of `pending_operations`, which is a record of the operations that the Pulumi engine
-started but hasn't seen finish yet.
-1. A list of `resources`, which is a record of all resource that Pulumi knows about. When you create
-a resource, that resource's information is stored here.
+| Field | Description |
+| - | - |
+| `manifest` | Metadata about the previous deployment. This should not be changed. |
+| `pending_operations` | List of the operations that the Pulumi engine started but has not finished. |
+| `resources` | List of resources that Pulumi knows about. |
 
 The possible fields of a resource are:
 
@@ -521,5 +521,5 @@ $ pulumi stack import --file state.json
 ```
 
 Depending on the class of error that you are experiencing, you may need to edit one or more of these resource fields,
-as well as potentially change the location of particular resources in the list. Since this is an advanced operation,
+as well as change the location of particular resources in the list. Since this is an advanced operation,
 we recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
