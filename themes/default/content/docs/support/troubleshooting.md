@@ -56,7 +56,7 @@ set to `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR`.
 $ TF_LOG=TRACE pulumi up --logtostderr --logflow -v=9 2> out.txt
 ```
 
-### Performance
+## Performance
 
 If you are seeing unexpectedly slow performance, you can gather a trace to understand what
 operations are being performed throughout the deployment and what the long poles are for your
@@ -266,86 +266,6 @@ Performing changes:
 
 At this point your stack should be valid, up-to-date, and ready to accept future updates.
 
-## Manually Editing Your Deployment {#editing-your-deployment}
-
-Sometimes the only recourse for fixing a stack that is unable to do deployments is to edit the
-deployment directly. It is possible to do this, though it is a tactic of last resort. It is a goal of Pulumi
-to never require users to edit their state directly. We would love to hear about the issues you are experiencing
-that you can't resolve, both so we can assist you in fixing your stack and also to fix the issues in Pulumi
-that made it impossible for you to recover your stack in any other way.
-
-The Pulumi engine uses both your program and your stack's existing state to make decisions about what
-resources to create, read, update, or delete. The most common problem that makes it impossible to
-make changes to your stack is that the stack's existing state has gotten corrupted in some way. There
-are a variety of ways that a stack's state could be corrupted, but in almost all cases it is possible
-to manually edit the stack's existing state to fix the corruption.
-
-Note that this is an advanced operation and should be an absolute last resort.
-
-If you intend to unprotect or delete a resource, consider using the [`pulumi state`]({{< relref "/docs/reference/cli/pulumi_state" >}}) command to
-do so instead of editing your state directly. `pulumi state` also makes surgical fixes to your state but without
-requiring you to edit the JSON representation of your stack's current state.
-
-To get a JSON representation of your stack's current state, you can export your current stack
-to a file:
-
-```bash
-$ pulumi stack export --file state.json
-```
-
-This file contains a lot of information. At the top-level, this JSON object has two fields:
-
-1. A `version`, indicating the version of the file format you're currently looking at. Don't
-change this.
-1. A `deployment`, which represents the state of the last deployment that this stack completed.
-
-The `deployment` object itself has three fields:
-
-1. A `manifest`, which contains some metadata about the previous deployment. You should not ever
-need to edit this.
-1. A list of `pending_operations`, which is a record of the operations that the Pulumi engine
-started but hasn't seen finish yet.
-1. A list of `resources`, which is a record of all resource that Pulumi knows about. When you create
-a resource, that resource's information is stored here.
-
-The possible fields of a resource are:
-
-| Field |  Description |
-| - | - |
-| `urn` | This resource's URN, or "universal resource name", which is a Pulumi-specific universal resource identifier. |
-| `custom` | A boolean indicating whether or not this resource is a "custom" resource, which means that it uses a resource provider to operate. Component resources are not `custom`. |
-| `delete` | A boolean indicating whether or not this resource is pending deletion. |
-| `id` | This resource's ID, which is a provider-specific resource identifier. This often corresponds to a cloud provider's identifier for a resource. |
-| `type` | The Pulumi type of this resource. |
-| `inputs` | A map of "inputs" for this resource. Inputs are the set of key-value pairs used as an input to a resource provider that created or updated the given resource. |
-| `outputs` | A map of "outputs" for this resource. Outputs are the set of key-value pairs that were given to Pulumi by a resource provider after a resource has been provisioned. |
-| `parent` | A URN for this resource's parent resource. |
-| `protect` |  A boolean indicating whether or not this resource is protected. If a resource is protected, it can't be deleted. |
-| `external` | A boolean indicating whether or not this resource is "external" to Pulumi. If a resource is External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources that are "read" using the `get` function are External. |
-| `dependencies` | A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies between resources and so it is important that this list be the full list of resources upon which this resource depends. |
-| `initErrors` | A list of errors that occured that prevented this particular resource from initializing. Some resource providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize. |
-| `provider` | A provider reference to the provider that is responsible for this particular resource. |
-
-The `resources` field is a list, not a set; the order of resources in the list is important and is enforced by
-the Pulumi engine. Resources in a deployment must be in *dependency order* - if a resource A depends on a resource B,
-resource A *must* appear after resource B in the list.
-
-Once you have completed any edits to your stack's state, you can import your changes by running:
-
-```bash
-$ pulumi stack import --file state.json
-```
-
-Depending on the class of error that you are experiencing, you may need to edit one or more of these resource fields,
-as well as potentially change the location of particular resources in the list. Since this is an advanced operation,
-we recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
-
-## Kubernetes Problems {#provider-kubernetes}
-
-This section includes detailed troubleshooting information for the [Kubernetes provider](https://github.com/pulumi/pulumi-kubernetes)
-
-### Ingress Errors {#provider-kubernetes-ingress}
-
 #### Ingress .status.loadBalancer field was not updated with a hostname/IP address {#ingress-status-loadbalancer}
 
 This error is often caused by a misconfigured ingress-controller not updating the `status.loadBalancer`
@@ -529,3 +449,77 @@ If your network blocks external traffic and you're using the Pulumi Service to m
 
 - The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console, you'll need enable that as well.)
 - All access goes over HTTPS via port 443.
+
+## Manually Editing Your Deployment {#editing-your-deployment}
+
+Sometimes the only recourse for fixing a stack that is unable to do deployments is to edit the
+deployment directly. It is possible to do this, though it is a tactic of last resort. It is a goal of Pulumi
+to never require users to edit their state directly. We would love to hear about the issues you are experiencing
+that you can't resolve, both so we can assist you in fixing your stack and also to fix the issues in Pulumi
+that made it impossible for you to recover your stack in any other way.
+
+The Pulumi engine uses both your program and your stack's existing state to make decisions about what
+resources to create, read, update, or delete. The most common problem that makes it impossible to
+make changes to your stack is that the stack's existing state has gotten corrupted in some way. There
+are a variety of ways that a stack's state could be corrupted, but in almost all cases it is possible
+to manually edit the stack's existing state to fix the corruption.
+
+Note that this is an advanced operation and should be an absolute last resort.
+
+If you intend to unprotect or delete a resource, consider using the [`pulumi state`]({{< relref "/docs/reference/cli/pulumi_state" >}}) command to
+do so instead of editing your state directly. `pulumi state` also makes surgical fixes to your state but without
+requiring you to edit the JSON representation of your stack's current state.
+
+To get a JSON representation of your stack's current state, you can export your current stack
+to a file:
+
+```bash
+$ pulumi stack export --file state.json
+```
+
+This file contains a lot of information. At the top-level, this JSON object has two fields:
+
+1. A `version`, indicating the version of the file format you're currently looking at. Don't
+change this.
+1. A `deployment`, which represents the state of the last deployment that this stack completed.
+
+The `deployment` object itself has three fields:
+
+1. A `manifest`, which contains some metadata about the previous deployment. You should not ever
+need to edit this.
+1. A list of `pending_operations`, which is a record of the operations that the Pulumi engine
+started but hasn't seen finish yet.
+1. A list of `resources`, which is a record of all resource that Pulumi knows about. When you create
+a resource, that resource's information is stored here.
+
+The possible fields of a resource are:
+
+| Field |  Description |
+| - | - |
+| `urn` | This resource's URN, or "universal resource name", which is a Pulumi-specific universal resource identifier. |
+| `custom` | A boolean indicating whether or not this resource is a "custom" resource, which means that it uses a resource provider to operate. Component resources are not `custom`. |
+| `delete` | A boolean indicating whether or not this resource is pending deletion. |
+| `id` | This resource's ID, which is a provider-specific resource identifier. This often corresponds to a cloud provider's identifier for a resource. |
+| `type` | The Pulumi type of this resource. |
+| `inputs` | A map of "inputs" for this resource. Inputs are the set of key-value pairs used as an input to a resource provider that created or updated the given resource. |
+| `outputs` | A map of "outputs" for this resource. Outputs are the set of key-value pairs that were given to Pulumi by a resource provider after a resource has been provisioned. |
+| `parent` | A URN for this resource's parent resource. |
+| `protect` |  A boolean indicating whether or not this resource is protected. If a resource is protected, it can't be deleted. |
+| `external` | A boolean indicating whether or not this resource is "external" to Pulumi. If a resource is External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources that are "read" using the `get` function are External. |
+| `dependencies` | A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies between resources and so it is important that this list be the full list of resources upon which this resource depends. |
+| `initErrors` | A list of errors that occured that prevented this particular resource from initializing. Some resource providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize. |
+| `provider` | A provider reference to the provider that is responsible for this particular resource. |
+
+The `resources` field is a list, not a set; the order of resources in the list is important and is enforced by
+the Pulumi engine. Resources in a deployment must be in *dependency order* - if a resource A depends on a resource B,
+resource A *must* appear after resource B in the list.
+
+Once you have completed any edits to your stack's state, you can import your changes by running:
+
+```bash
+$ pulumi stack import --file state.json
+```
+
+Depending on the class of error that you are experiencing, you may need to edit one or more of these resource fields,
+as well as potentially change the location of particular resources in the list. Since this is an advanced operation,
+we recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
