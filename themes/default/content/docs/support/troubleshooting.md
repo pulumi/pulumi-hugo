@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting
-meta_desc: A collection of common troubleshooting techniques when using the Pulumi CLI
-           and Cloud Services.
+meta_desc: Common troubleshooting techniques when using Pulumi.
 menu:
   support:
     weight: 1
@@ -11,39 +10,33 @@ aliases:
   - /docs/troubleshooting/
 ---
 
-Pulumi tries very hard to ensure that your infrastructure is always in a known and predictable state.
-However, sometimes things go wrong. If you can't update your stack, or there's some other problem that is
-preventing you from being productive with a Pulumi stack, you've come to the right place.
+Sometimes things go wrong. If you can't update your stack, or there's another problem that is
+preventing you from being productive, you've come to the right place.
 
 ## Contact Us
 
-First thing's first, we are always happy to hear from you and will try to help. Please
-[join our Community Slack](https://slack.pulumi.com), where our whole team, in addition to a passionate
-community of users, are there to help out. Any and all questions are welcome!
+[Join Community Slack](https://slack.pulumi.com), where our whole team, in addition to a passionate
+community of users, are there to help. Any and all questions are welcome!
 
 We also encourage everyone to contribute to the [Pulumi open source
 projects](https://github.com/pulumi) by [opening new
-issues](https://github.com/pulumi/pulumi/issues/new) and upvoting existing issues they care about.
+issues](https://github.com/pulumi/pulumi/issues/new) and upvoting existing issues.
 
-## Diagnosing Issues
+Or email our support team: [support@pulumi.com](mailto:support@pulumi.com).
 
-There are a few tools available to get additional diagnostics on how your Pulumi program is
-behaving.  These can be useful for self-diagnosing issues, and for sharing details as part
-of issue reports.
-
-### Verbose Logging
+## Verbose Logging
 
 Verbose logging of the internals of the Pulumi engine and resource providers can be enabled by
 passing the `-v` flag to any `pulumi` CLI command. Pulumi emits logs at log levels between `1` and
 `11`, with `11` being the most verbose.
 
 By default, logs are written to the top-level temp directory (usually `/tmp` or the value of
-`$TMPDIR`). The `--logtostderr` flag can be added to write logs to `stderr` instead, for easier
-access.  Use the flag `--logflow` to apply the same log level to resource providers.
+`$TMPDIR`). The `--logtostderr` flag can be used to write logs to `stderr` instead.
+Use the flag `--logflow` to apply the same log level to resource providers.
 
 {{% notes type="warning" %}}
 Enabling verbose logging may reveal sensitive information (tokens, credentials...) that is provided from
-your execution environment to your cloud provider and which Pulumi may not even itself be aware of. It is
+your execution environment to your cloud provider and which Pulumi may not be aware of. It is
 recommended that you audit the saved logs and redact any information before sharing the logs. At log level 10
 or below, Pulumi will avoid intentionally exposing any *known* credentials. At log level 11, Pulumi will
 intentionally expose some known credentials to aid with debugging, so these log levels should be used only
@@ -55,7 +48,7 @@ $ pulumi up --logtostderr --logflow -v=9 2> out.txt
 ```
 
 Individual resource providers may also have flags and environment entries to customize their
-diagnostic logging.  For example, for any Pulumi resource providers that expose a Terraform resource
+diagnostic logging. For example, for any Pulumi resource providers that expose a Terraform resource
 provider into Pulumi, you can use [`TF_LOG`](https://www.terraform.io/docs/internals/debugging.html)
 set to `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR`.
 
@@ -67,11 +60,13 @@ $ TF_LOG=TRACE pulumi up --logtostderr --logflow -v=9 2> out.txt
 
 If you are seeing unexpectedly slow performance, you can gather a trace to understand what
 operations are being performed throughout the deployment and what the long poles are for your
-deployment.  In most cases, the most time consuming operations will be the provisioning of one or more resources in your cloud
+deployment. In most cases, the most time consuming operations will be the provisioning of one or more resources in your cloud
 provider, however, there may be cases where Pulumi itself is doing work that is limiting the performance
 of your deployments, and this may indicate an opportunity to further improve the Pulumi deployment
 orchestration engine to get the maximal parallelism and performance possible for your cloud
 deployment.
+
+### Tracing
 
 To collect a trace:
 
@@ -105,9 +100,13 @@ To view a trace locally navigate to the [Jaeger UI](http://localhost:16686/searc
 
 ## Common Problems
 
-This section covers a few problems that can arise when working with Pulumi.
-
 ### [409] Conflict: Another update is currently in progress. {#conflict}
+
+Run `pulumi cancel` to cancel the update.
+
+{{% notes type="warning" %}}
+Warning! If you cancel another person's update, their update will fail immediately.
+{{% /notes %}}
 
 One of the services that `pulumi.com` provides is *concurrency control*. The service will allow
 at most one user to update a particular stack at a time. This is accomplished by using "leases"; whenever a user
@@ -120,29 +119,27 @@ a lease to the stack that you are attempting to update. There are two reasons wh
 1. Somebody else is currently updating the stack. If you are working on a stack with more than one collaborator, it could
 be that your collaborators have initiated an update without your knowledge. You can confirm this by visiting the Pulumi
 web console and seeing who initiated the most recent update.
-2. You were just updating the stack, but the Pulumi command-line tool crashed in the middle of the update.
+
+2. You were updating the stack, but the Pulumi CLI crashed in the middle of the update.
 
 If you are working on a stack with no other collaborators, it is common to encounter situation number 2 if you
-run into a bug in Pulumi. If you are *absolutely sure* that this update was not triggered by someone else, you can use the
+run into a bug in Pulumi. If this update was not triggered by someone else, you can use the
 `pulumi cancel` command to cancel the current update. This operation revokes the "lease" that the service has given
 to the person who initiated the stack update.
-
-#### Quick Summary
-
-Run `pulumi cancel` to cancel the update.
-
-> Warning! If you cancel another person's update, their update will fail immediately.
 
 ### [500] Internal Server Error {#internal-server-error}
 
 The Pulumi command-line tool interacts with the Pulumi web service throughout the course of an update. If the
-service is unable to process an update, it is possible that users of the command-line tool may see this error message
+service is unable to process an update, it is possible that users of the CLI may see this error message
 throughout the course of an update.
 
-We take great pride in service uptime and work rapidly to fix service interruption and use our [status page](https://status.pulumi.com) to
-communicate information about service incidents.
+We take great pride in service uptime and work rapidly to fix service interruption. The [Pulumi status page](https://status.pulumi.com) communicates information about service incidents.
 
 ### post-step event returned an error {#post-step-event}
+
+If an I/O error occurs after "post-step event returned an error", you can safely re-start your
+update. If you see "after mutation of snapshot", you have hit a bug in Pulumi. You will possibly
+need to do some [manual intervention to repair your stack](#editing-your-deployment).
 
 The Pulumi engine runs a small amount of code after every "step" that it performs. If this code fails for any reason,
 it will fail the entire update. One of the things that the Pulumi engine does before and after every step is
@@ -155,50 +152,40 @@ There are two reasons why this error could occur:
 2. The Pulumi engine failed its data structure self-check.
 
 In each case, some more specific information is printed in addition to "post-step returned an error". In the first
-case, it is common for you to see an additional error indicating that some I/O operation has failed. This can be
-safely disregarded and it is safe to re-start the update. You may need to
+case, it is common for you to see an additional error indicating that some I/O operation has failed. This can be disregarded and it is safe to re-start the update. You may need to
 [recover from the interrupted update](#interrupted-update-recovery).
 
 In the second case, you may see an additional error message "after mutation of snapshot". This error
-message is **always a bug in Pulumi**. If you see this error message, we would greatly appreciate a
-bug report on our [official bug tracker](https://github.com/pulumi/pulumi/issues). We also
+message is **always a bug in Pulumi**. If you see this error message, please open a [GitHub issue](https://github.com/pulumi/pulumi/issues). We also
 recommend joining our [Pulumi Community Slack](https://slack.pulumi.com/) and sharing your problem
 if you experience this error message.
 
-#### Quick Summary
+### Error during pulumi preview/up - error: could not load plugin for provider
 
-If you see an I/O error after "post-step event returned an error", you can safely re-start your
-update. If you see "after mutation of snapshot", you have hit a bug in Pulumi. You will possibly
-need to do some [manual intervention to repair your stack](#editing-your-deployment).
-
-### Error during pulumi preview/up - error: could not load plugin for `aws|azure` (etc.) provider
+You may encounter an error when you downgrade provider versions _after_ your stack is already updated with a newer version.
+If you must downgrade the version of a provider your `pulumi` program depends on, you will need to [manually edit your deployment](#editing-your-deployment)
+and change the version of the provider your stack depends on and then import that as the latest state of your stack.
 
 The `pulumi` program that you author for your infrastructure may contain one or more dependencies to `providers`.
 The version information for these providers is stored in the deployment for each of your stacks (since each pulumi program belongs to a stack).
 This error can occur when the deployment state for a stack already contains a newer version of a specific provider, but you are trying
 to run a `pulumi up` (or `preview`) command after downgrading the provider dependency in your pulumi program.
 
-To be more specific, the error occurs because the `pulumi` [plugin cache]({{< relref "/docs/reference/cli/pulumi_plugin_ls" >}}) does not have the required version installed.
-This is especially more likely to occur if you are running `pulumi` in a CI/CD environment, since your plugin cache is likely not saved across builds.
+This error occurs because the `pulumi` [plugin cache]({{< relref "/docs/reference/cli/pulumi_plugin_ls" >}}) does not have the required version installed.
+This is more likely to occur if you are running `pulumi` in a CI/CD environment, since your plugin cache is likely not saved across builds.
 
-Please note that, it is fine to have multiple versions of a provider installed and have stacks depend on different provider version. It is only a problem when you
-downgrade the version of a particular stack that already has been deployed using a newer version.
+It is okay to have multiple versions of a provider installed and have stacks depend on different provider version. It is only a problem when you
+downgrade the version of a particular stack that was already deployed using a newer version.
 
-Here's an example of the full error:
+Full error example:
 
 ```
 error: could not load plugin for aws provider 'urn:pulumi:<stack_name>::pulumi-service::pulumi:providers:aws::default': no resource plugin 'aws-v0.16.2' found in the workspace or on your $PATH, install the plugin using \`pulumi plugin install resource aws v0.16.2\`
 ```
 
-#### Quick Summary
-
-You may encounter an error when you downgrade provider versions _after_ your stack is already updated with a newer version.
-If you must downgrade the version of a provider your `pulumi` program depends on, you will need to [manually edit your deployment](#editing-your-deployment)
-and change the version of the provider your stack depends on and then import that as the latest state of your stack.
-
 ### Nothing happens running Pulumi due to network proxy
 
-You run Pulumi and nothing happens, with output resembling like this:
+You run Pulumi and nothing happens, with output resembling this:
 
 ```
 $ pulumi up
@@ -213,7 +200,7 @@ If you have a system-wide proxy server running on your machine, it may be miscon
 on IP address `127.0.0.1`. Your proxy server should be configured **NOT** to proxy
 these local network connections. Add both `127.0.0.1` and `localhost` to the exclusion list of your proxy server.
 
-## Recovering from an Interrupted Update {#interrupted-update-recovery}
+### Recovering from an Interrupted Update {#interrupted-update-recovery}
 
 If the Pulumi CLI is interrupted when performing a deployment, you may see an error message
 that looks something like this on your next update:
@@ -229,19 +216,18 @@ error: refusing to proceed
 ```
 
 This occurs when the Pulumi CLI fails to complete cleanly. There are a number of ways this
-can happen, such as:
+can happen:
 
-1. The CLI experiences a network partition when attempting to save your stack's state
-1. The CLI process is killed by your operating system while performing an update
-1. The CLI crashes when performing an update
+- The CLI experiences a network partition when attempting to save your stack's state.
+- The CLI process is killed by your operating system while performing an update.
+- The CLI crashes when performing an update.
 
-In any case, this error means that the Pulumi engine initiated an operation but was not able to
+This error means that the Pulumi engine initiated an operation but was not able to
 see if this operation was successful. Because of this, the Pulumi engine has no way of knowing
-whether or not the operations it initated completed successfully or failed. This means that resources
+whether or not the operations it initated completed successfully. This means that resources
 may have been created that Pulumi does not know about.
 
-To fix this situation, you should first cancel the last update. If the CLI was not able to save your
-stack's state, it was also likely unable to tell the Service that an update has completed.
+To fix this situation, you should first cancel the last update..
 
 ```bash
 $ pulumi cancel
@@ -249,8 +235,8 @@ $ pulumi cancel
 The currently running update for 'interruptedstack' has been canceled!
 ```
 
-> If `pulumi cancel` fails with `error: [400] Bad Request: the update has already completed`, you can safely ignore
-> that error and continue with the next step.
+If `pulumi cancel` fails with `error: [400] Bad Request: the update has already completed`, you can safely ignore
+that error and continue with the next step.
 
 You should then export and import your stack. This will clear your state's stack of all pending operations.
 
@@ -324,30 +310,21 @@ a resource, that resource's information is stored here.
 
 The possible fields of a resource are:
 
-1. `urn` - This resource's URN, or "universal resource name", which is a Pulumi-specific universal
-resource identifier.
-1. `custom` - A boolean indicating whether or not this resource is a "custom" resource, which means that
-it uses a resource provider to operate. Component resources are not `custom`.
-1. `delete` - A boolean indicating whether or not this resource is pending deletion.
-1. `id` - This resource's ID, which is a provider-specific resource identifier. This often corresponds to
-a cloud provider's identifier for a resource.
-1. `type` - The Pulumi type of this resource.
-1. `inputs` - A map of "inputs" for this resource. Inputs are the set of key-value pairs used as an input
-to a resource provider that created or updated the given resource.
-1. `outputs` - A map of "outputs" for this resource. Outputs are the set of key-value pairs that were given
-to Pulumi by a resource provider after a resource has been provisioned.
-1. `parent` - A URN for this resource's parent resource.
-1. `protect` - A boolean indicating whether or not this resource is protected. If a resource is protected,
-it can't be deleted.
-1. `external` - A boolean indicating whether or not this resource is "external" to Pulumi. If a resource is
-External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources
-that are "read" using the `get` function are External.
-1. `dependencies` - A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies
-between resources and so it is important that this list be the full list of resources upon which this resource
-depends.
-1. `initErrors` - A list of errors that occured that prevented this particular resource from initializing. Some resource
-providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize.
-1. `provider` - A provider reference to the provider that is responsible for this particular resource.
+| Field |  Description |
+| - | - |
+| `urn` | This resource's URN, or "universal resource name", which is a Pulumi-specific universal resource identifier. |
+| `custom` | A boolean indicating whether or not this resource is a "custom" resource, which means that it uses a resource provider to operate. Component resources are not `custom`. |
+| `delete` | A boolean indicating whether or not this resource is pending deletion. |
+| `id` | This resource's ID, which is a provider-specific resource identifier. This often corresponds to a cloud provider's identifier for a resource. |
+| `type` | The Pulumi type of this resource. |
+| `inputs` | A map of "inputs" for this resource. Inputs are the set of key-value pairs used as an input to a resource provider that created or updated the given resource. |
+| `outputs` | A map of "outputs" for this resource. Outputs are the set of key-value pairs that were given to Pulumi by a resource provider after a resource has been provisioned. |
+| `parent` | A URN for this resource's parent resource. |
+| `protect` |  A boolean indicating whether or not this resource is protected. If a resource is protected, it can't be deleted. |
+| `external` | A boolean indicating whether or not this resource is "external" to Pulumi. If a resource is External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources that are "read" using the `get` function are External. |
+| `dependencies` | A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies between resources and so it is important that this list be the full list of resources upon which this resource depends. |
+| `initErrors` | A list of errors that occured that prevented this particular resource from initializing. Some resource providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize. |
+| `provider` | A provider reference to the provider that is responsible for this particular resource. |
 
 The `resources` field is a list, not a set; the order of resources in the list is important and is enforced by
 the Pulumi engine. Resources in a deployment must be in *dependency order* - if a resource A depends on a resource B,
@@ -363,30 +340,26 @@ Depending on the class of error that you are experiencing, you may need to edit 
 as well as potentially change the location of particular resources in the list. Since this is an advanced operation,
 we recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
 
-## Provider-specific problems {#provider-problems}
-
-This section includes troubleshooting information specific to Pulumi providers.
-
-### Kubernetes {#provider-kubernetes}
+## Kubernetes Problems {#provider-kubernetes}
 
 This section includes detailed troubleshooting information for the [Kubernetes provider](https://github.com/pulumi/pulumi-kubernetes)
 
-#### Ingress Errors {#provider-kubernetes-ingress}
+### Ingress Errors {#provider-kubernetes-ingress}
 
-##### Ingress .status.loadBalancer field was not updated with a hostname/IP address {#ingress-status-loadbalancer}
+#### Ingress .status.loadBalancer field was not updated with a hostname/IP address {#ingress-status-loadbalancer}
 
 This error is often caused by a misconfigured ingress-controller not updating the `status.loadBalancer`
 field once the Ingress resource is ready to route traffic.
 
 In some cases this may be fixed by running `pulumi refresh`.
 
-###### *Traefik*
+#### *Traefik*
 
 For the Traefik controller, verify that the `kubernetes.ingressEndpoint` config
 is [set properly](https://docs.traefik.io/providers/kubernetes-ingress/). This option was
 introduced in Traefik 1.7.0.
 
-## Synchronous call made to "X" with an unregistered provider {#synchronous-call}
+### Synchronous call made to "X" with an unregistered provider {#synchronous-call}
 
 > Note: asynchronous calls are the default in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
 
@@ -416,7 +389,7 @@ It is recommended that Pulumi apps be updated to prevent breakage.
 
 To address the issue update your app to use one of the following forms:
 
-### Globally opt out of synchronous calls
+#### Globally opt out of synchronous calls
 
 Set the following config variable for your application:
 
@@ -436,7 +409,7 @@ passed as a resource input and to make it [simple to access properties]({{< relr
 If you do not want to change all calls to be `async` (perhaps because only one is encountering a problem), you can alternatively
 update only specific problematic calls to be asynchronous like so:
 
-### Invoke the resource function asynchronously
+#### Invoke the resource function asynchronously
 
 ```ts
 const ids = pulumi.output(aws.ec2.getSubnetIds(..., { provider, async: true })); // or
@@ -450,7 +423,7 @@ of the call is then wrapped into an `Output` so it can easily be passed as a res
 Sometimes, however, this approach is not possible because the call to the resource function happens a layer deeper (possibly in a
 component not under your control).  In that case, we recommend the solution in the next section:
 
-### Register the provider first
+#### Register the provider first
 
 ```ts
 const provider = new aws.Provider(...);
@@ -469,7 +442,7 @@ results can be used immediately, without needing to operate on them as promises 
 This approach makes it possible to safely perform these resource function calls synchronously.  However, it may require refactoring
 some code due to the need to potentially use `async`/`await` code in areas of a program that are currently synchronous.
 
-## StackReference.getOutputSync/requireOutputSync called on a StackReference whose name is a Promise/Output {#stackreference-sync}
+### StackReference.getOutputSync/requireOutputSync called on a StackReference whose name is a Promise/Output {#stackreference-sync}
 
 > Note: `getOutputSync` and `requireOutputSync` are not available in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
 
@@ -491,7 +464,7 @@ It is recommended that Pulumi apps be updated to prevent breakage.
 
 There are only two ways supported to avoid this issue:
 
-### Use getOutput/requireOutput instead {#use-getoutput}
+#### Use getOutput/requireOutput instead {#use-getoutput}
 
 ```ts
 const stackReference = new StackReference("...", { name: otherResource.outputValue });
@@ -505,7 +478,7 @@ However, because the value is not known synchronously, it is not possible to hav
 For example if the output value is an array, there is no way to know the length of the array in order to make specific resources
 corresponding to it.  If the exact value is needed for this purpose the only way to get it is like so:
 
-### Pass the stack reference name in as a string
+#### Pass the stack reference name in as a string
 
 ```ts
 const stackReference = new StackReference("...", { name: "explicitly-provided-name" });
@@ -520,7 +493,7 @@ value defined elsewhere in your application. If the value is known, it can be co
 If the stack-reference-name truly is dynamic and cannot be known ahead of time to supply directly into the app, then this
 approach will not work, and the only way to workaround the issue is to follow the steps in [Use getOutput/requireOutput](#use-getoutput).
 
-## 403 HTTP error fetching plugin
+### 403 HTTP error fetching plugin
 
 You're more than likely seeing this error message as you're using an arm64 based processor (probably one of the new M1 MacBook Pros) and are using an older version of one of our providers that doesn't support this processor.
 
@@ -528,13 +501,13 @@ It's not possible just to upgrade the packages as your state will still be locke
 
 There are two ways to fix this, one way if you have access to an Intel based computer and one if you don't
 
-### I have access to an Intel based computer
+#### I have access to an Intel based computer
 
 1. Open your Pulumi program on a non-arm64 based computer
 1. Update your packages (pip / nuget / npm / go) and run `pulumi up`
 1. Once the update is complete, you can open the new, updated Pulumi program on your arm64-based system
 
-### I don't have access to an Intel based computer
+#### I don't have access to an Intel based computer
 
 1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or `rm -rf ~/.pulumi`
 1. Download latest version of Pulumi: `https://www.pulumi.com/docs/get-started/install/versions/` (current version is [https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz](https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz)) and extract to ~/.pulumi/bin
@@ -550,11 +523,7 @@ There are two ways to fix this, one way if you have access to an Intel based com
 
 * `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
 
-### I'm seeing other errors, please help
-
-Get in touch with us, either through the [Community Slack](https://slack.pulumi.com) or by emailing our support team: [support@pulumi.com](mailto:support@pulumi.com).
-
-## I can't connect to the Pulumi Service
+### I can't connect to the Pulumi Service
 
 If your network blocks external traffic and you're using the Pulumi Service to manage your state, your security team may need the following details to allow the Pulumi CLI to connect to the Service:
 
