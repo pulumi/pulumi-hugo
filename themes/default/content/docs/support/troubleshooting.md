@@ -28,7 +28,7 @@ Or email our support team: [support@pulumi.com](mailto:support@pulumi.com).
 
 Verbose logging of the internals of the Pulumi engine and resource providers can be enabled by
 passing the `-v` flag to any `pulumi` CLI command. Pulumi emits logs at log levels between `1` and
-`11`, with `11` being the most verbose.
+`11`, with `11` being the most verbose. At log level 10 or below, Pulumi will avoid intentionally exposing any *known* credentials. At log level 11, Pulumi will intentionally expose some known credentials to aid with debugging, so these log levels should be used only when absolutely needed.
 
 By default, logs are written to the top-level temp directory (usually `/tmp` or the value of
 `$TMPDIR`). The `--logtostderr` flag can be used to write logs to `stderr` instead.
@@ -36,11 +36,7 @@ Use the flag `--logflow` to apply the same log level to resource providers.
 
 {{% notes type="warning" %}}
 Enabling verbose logging may reveal sensitive information (tokens, credentials...) that is provided from
-your execution environment to your cloud provider and which Pulumi may not be aware of. It is
-recommended that you audit the saved logs and redact any information before sharing the logs. At log level 10
-or below, Pulumi will avoid intentionally exposing any *known* credentials. At log level 11, Pulumi will
-intentionally expose some known credentials to aid with debugging, so these log levels should be used only
-when absolutely needed.
+your execution environment to your cloud provider and which Pulumi may not be aware of. Before sharing the logs, audit and redact the sensitive information.
 {{% /notes %}}
 
 ```
@@ -266,7 +262,7 @@ const ids = aws.ec2.getSubnetIds(..., { parent });
 This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and
 above) and you see this warning, then it is likely that this is the source.
 
-Currently, a warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
+A warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
 pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such,
 we recommend updating your code In a future version, Pulumi *may* be updated to throw instead of producing a warning when this happens.
 It is recommended that Pulumi apps be updated to prevent breakage.
