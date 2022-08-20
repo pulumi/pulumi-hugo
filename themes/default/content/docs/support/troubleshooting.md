@@ -100,7 +100,7 @@ To view a trace locally navigate to the [Jaeger UI](http://localhost:16686/searc
 
 ## Common Problems
 
-### [409] Conflict: Another update is currently in progress. {#conflict}
+### 409 Conflict: Another update is currently in progress. {#conflict}
 
 Run `pulumi cancel` to cancel the update.
 
@@ -127,9 +127,39 @@ run into a bug in Pulumi. If this update was not triggered by someone else, you 
 `pulumi cancel` command to cancel the current update. This operation revokes the "lease" that the service has given
 to the person who initiated the stack update.
 
-### [500] Internal Server Error {#internal-server-error}
+### 403 error fetching plugin
 
-The Pulumi command-line tool interacts with the Pulumi web service throughout the course of an update. If the
+You're more than likely seeing this error message as you're using an arm64 based processor (probably one of the new M1 MacBook Pros) and are using an older version of one of our providers that doesn't support this processor.
+
+It's not possible just to upgrade the packages as your state will still be locked to the old version of the provider.
+
+There are two ways to fix this, one way if you have access to an Intel based computer and one if you don't
+
+#### I have access to an Intel based computer
+
+1. Open your Pulumi program on a non-arm64 based computer
+1. Update your packages (pip / nuget / npm / go) and run `pulumi up`
+1. Once the update is complete, you can open the new, updated Pulumi program on your arm64-based system
+
+#### I don't have access to an Intel based computer
+
+1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or `rm -rf ~/.pulumi`
+1. Download latest version of Pulumi: `https://www.pulumi.com/docs/get-started/install/versions/` (current version is [https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz](https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz)) and extract to ~/.pulumi/bin
+1. Add Pulumi to path: `export PATH=$PATH:~/.pulumi/bin`
+1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)
+1. Install Pulumi provider: `arch -x86_64 pulumi plugin install resource {provider_name} v{version}` (where  {provider_name} is the name of the provider, i.e. aws and {version} is the same version number that your package has updated to) *
+1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
+1. Run a Pulumi preview: `arch -x86_64 pulumi pre`
+1. Remove Pulumi again `rm -rf ~/.pulumi`
+1. Re-install Pulumi ([see docs](https://www.pulumi.com/docs/get-started/install/) for details)
+1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
+1. Run a Pulumi preview to check everything is ok: `pulumi pre`
+
+`arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
+
+### 500 Internal Server Error {#internal-server-error}
+
+The Pulumi CLI interacts with the Pulumi web service throughout the course of an update. If the
 service is unable to process an update, it is possible that users of the CLI may see this error message
 throughout the course of an update.
 
@@ -160,7 +190,7 @@ message is **always a bug in Pulumi**. If you see this error message, please ope
 recommend joining our [Pulumi Community Slack](https://slack.pulumi.com/) and sharing your problem
 if you experience this error message.
 
-### Error during pulumi preview/up - error: could not load plugin for provider
+### Error: could not load plugin for provider
 
 You may encounter an error when you downgrade provider versions _after_ your stack is already updated with a newer version.
 If you must downgrade the version of a provider your `pulumi` program depends on, you will need to [manually edit your deployment](#editing-your-deployment)
@@ -199,72 +229,6 @@ $
 If you have a system-wide proxy server running on your machine, it may be misconfigured. The [Pulumi architecture](https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/) has three different components, running as separate processes which talk to each other using a bidirectional gRPC protocol
 on IP address `127.0.0.1`. Your proxy server should be configured **NOT** to proxy
 these local network connections. Add both `127.0.0.1` and `localhost` to the exclusion list of your proxy server.
-
-### Recovering from an Interrupted Update {#interrupted-update-recovery}
-
-If the Pulumi CLI is interrupted when performing a deployment, you may see an error message
-that looks something like this on your next update:
-
-```
-$ pulumi up
-Previewing update of stack 'interruptedstack'
-error: the current deployment has 1 resource(s) with pending operations:
-  * ...
-
-...
-error: refusing to proceed
-```
-
-This occurs when the Pulumi CLI fails to complete cleanly. There are a number of ways this
-can happen:
-
-- The CLI experiences a network partition when attempting to save your stack's state.
-- The CLI process is killed by your operating system while performing an update.
-- The CLI crashes when performing an update.
-
-This error means that the Pulumi engine initiated an operation but was not able to
-see if this operation was successful. Because of this, the Pulumi engine has no way of knowing
-whether or not the operations it initated completed successfully. This means that resources
-may have been created that Pulumi does not know about.
-
-To fix this situation, you should first cancel the last update..
-
-```bash
-$ pulumi cancel
-...
-The currently running update for 'interruptedstack' has been canceled!
-```
-
-If `pulumi cancel` fails with `error: [400] Bad Request: the update has already completed`, you can safely ignore
-that error and continue with the next step.
-
-You should then export and import your stack. This will clear your state's stack of all pending operations.
-
-```bash
-$ pulumi stack export | pulumi stack import
-warning: removing pending operation 'creating' on '...' from snapshot
-Import successful.
-```
-
-For every warning that this command prints out, you should verify with your cloud provider whether or not this
-operation was successful. If the operation was successful, and a resource was created, you should delete that
-resource using your cloud provider's console, CLI, or SDK.
-
-Finally, you should run `pulumi refresh` to synchronize your stack's state with the true state of your cloud
-resources:
-
-```bash
-$ pulumi refresh
-Refreshing stack 'interruptedstack'
-Performing changes:
-
-   Type  Name  Status     Info
-
-   info: no changes required:
-         12 resources unchanged
-```
-
-At this point your stack should be valid, up-to-date, and ready to accept future updates.
 
 #### Ingress .status.loadBalancer field was not updated with a hostname/IP address {#ingress-status-loadbalancer}
 
@@ -413,42 +377,78 @@ value defined elsewhere in your application. If the value is known, it can be co
 If the stack-reference-name truly is dynamic and cannot be known ahead of time to supply directly into the app, then this
 approach will not work, and the only way to workaround the issue is to follow the steps in [Use getOutput/requireOutput](#use-getoutput).
 
-### 403 HTTP error fetching plugin
-
-You're more than likely seeing this error message as you're using an arm64 based processor (probably one of the new M1 MacBook Pros) and are using an older version of one of our providers that doesn't support this processor.
-
-It's not possible just to upgrade the packages as your state will still be locked to the old version of the provider.
-
-There are two ways to fix this, one way if you have access to an Intel based computer and one if you don't
-
-#### I have access to an Intel based computer
-
-1. Open your Pulumi program on a non-arm64 based computer
-1. Update your packages (pip / nuget / npm / go) and run `pulumi up`
-1. Once the update is complete, you can open the new, updated Pulumi program on your arm64-based system
-
-#### I don't have access to an Intel based computer
-
-1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or `rm -rf ~/.pulumi`
-1. Download latest version of Pulumi: `https://www.pulumi.com/docs/get-started/install/versions/` (current version is [https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz](https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz)) and extract to ~/.pulumi/bin
-1. Add Pulumi to path: `export PATH=$PATH:~/.pulumi/bin`
-1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)
-1. Install Pulumi provider: `arch -x86_64 pulumi plugin install resource {provider_name} v{version}` (where  {provider_name} is the name of the provider, i.e. aws and {version} is the same version number that your package has updated to) *
-1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
-1. Run a Pulumi preview: `arch -x86_64 pulumi pre`
-1. Remove Pulumi again `rm -rf ~/.pulumi`
-1. Re-install Pulumi ([see docs](https://www.pulumi.com/docs/get-started/install/) for details)
-1. Login to Pulumi using the appropriate backend (see [our docs](https://www.pulumi.com/docs/intro/concepts/state/#logging-in) for information)
-1. Run a Pulumi preview to check everything is ok: `pulumi pre`
-
-`arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
-
-### I can't connect to the Pulumi Service
+### Cannot connect to the Pulumi Service
 
 If your network blocks external traffic and you're using the Pulumi Service to manage your state, your security team may need the following details to allow the Pulumi CLI to connect to the Service:
 
 - The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console, you'll need enable that as well.)
 - All access goes over HTTPS via port 443.
+
+## Recovering from an Interrupted Update {#interrupted-update-recovery}
+
+If the Pulumi CLI is interrupted when performing a deployment, you may see an error message
+that looks something like this on your next update:
+
+```
+$ pulumi up
+Previewing update of stack 'interruptedstack'
+error: the current deployment has 1 resource(s) with pending operations:
+  * ...
+
+...
+error: refusing to proceed
+```
+
+This occurs when the Pulumi CLI fails to complete cleanly. There are a number of ways this
+can happen:
+
+- The CLI experiences a network partition when attempting to save your stack's state.
+- The CLI process is killed by your operating system while performing an update.
+- The CLI crashes when performing an update.
+
+This error means that the Pulumi engine initiated an operation but was not able to
+see if this operation was successful. Because of this, the Pulumi engine has no way of knowing
+whether or not the operations it initated completed successfully. This means that resources
+may have been created that Pulumi does not know about.
+
+To fix this situation, you should first cancel the last update..
+
+```bash
+$ pulumi cancel
+...
+The currently running update for 'interruptedstack' has been canceled!
+```
+
+If `pulumi cancel` fails with `error: [400] Bad Request: the update has already completed`, you can safely ignore
+that error and continue with the next step.
+
+You should then export and import your stack. This will clear your state's stack of all pending operations.
+
+```bash
+$ pulumi stack export | pulumi stack import
+warning: removing pending operation 'creating' on '...' from snapshot
+Import successful.
+```
+
+For every warning that this command prints out, you should verify with your cloud provider whether or not this
+operation was successful. If the operation was successful, and a resource was created, you should delete that
+resource using your cloud provider's console, CLI, or SDK.
+
+Finally, you should run `pulumi refresh` to synchronize your stack's state with the true state of your cloud
+resources:
+
+```bash
+$ pulumi refresh
+Refreshing stack 'interruptedstack'
+Performing changes:
+
+   Type  Name  Status     Info
+
+   info: no changes required:
+         12 resources unchanged
+```
+
+At this point your stack should be valid, up-to-date, and ready to accept future updates.
 
 ## Manually Editing Your Deployment {#editing-your-deployment}
 
