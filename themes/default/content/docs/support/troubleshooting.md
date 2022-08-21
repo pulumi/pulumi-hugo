@@ -243,8 +243,9 @@ introduced in Traefik 1.7.0.
 
 Asynchronous calls are the default in `@pulumi/pulumi>=2.0.0` and the below only applies to programs using the `1.x` SDK.
 
-The warning occurs when invoking a resource function synchronously while also using
-[an explicit provider object]({{< relref "/docs/intro/concepts/resources#providers" >}}) that isn't yet ready to use.
+The warning occurs when invoking a resource function synchronously while also using an
+[explicit provider object]({{< relref "/docs/intro/concepts/resources#providers" >}}) that isn't yet ready to use.
+
 For example:
 
 ```ts
@@ -259,12 +260,9 @@ const parent = new SomeResource("name", { provider });
 const ids = aws.ec2.getSubnetIds(..., { parent });
 ```
 
-This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and
-above) and you see this warning, then it is likely that this is the source.
+This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and above) and you see this warning, then it is likely that this is the source.
 
-A warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
-pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such,
-we recommend updating your code In a future version, Pulumi *may* be updated to throw instead of producing a warning when this happens.
+The root cause of this problem pertains to undefined behavior in the Node.js runtime,
 It is recommended that Pulumi apps be updated to prevent breakage.
 
 To address the issue update your app to use one of the following forms:
@@ -283,13 +281,12 @@ const ids = pulumi.output(aws.ec2.getSubnetIds(..., { parent }));
 ```
 
 This is the preferred way to solve this issue. In this form all resource function calls will always execute asynchronously,
-returning their result through a `Promise<...>`.  The result of the call is then wrapped into an `Output` so it can easily be
+returning their result through a `Promise<...>`. The result of the call is then wrapped into an `Output` so it can easily be
 passed as a resource input and to make it [simple to access properties]({{< relref "/docs/intro/concepts/inputs-outputs#lifting" >}}) off of it.
 
-If you do not want to change all calls to be `async` (perhaps because only one is encountering a problem), you can alternatively
-update only specific problematic calls to be asynchronous like so:
-
 #### Invoke the resource function asynchronously
+
+Use this method to update only specific problematic calls to be asynchronous.
 
 ```ts
 const ids = pulumi.output(aws.ec2.getSubnetIds(..., { provider, async: true })); // or
@@ -300,10 +297,9 @@ In this form, the `async: true` flag is passed in which forces `getSubnetIds` to
 of the call is then wrapped into an `Output` so it can easily be passed as a resource input and to make it
 [simple to access properties]({{< relref "/docs/intro/concepts/inputs-outputs#lifting" >}}) off of it.
 
-Sometimes, however, this approach is not possible because the call to the resource function happens a layer deeper (possibly in a
-component not under your control).  In that case, we recommend the solution in the next section:
-
 #### Register the provider first
+
+If the problem exists in a layer deeper (e.e.g, a component not under your control), use this solution.
 
 ```ts
 const provider = new aws.Provider(...);
@@ -334,13 +330,10 @@ const stackReference = new StackReference("...", { name: otherResource.outputVal
 const val = stackReference.getOutputSync("outputName");
 ```
 
-This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and
-above) and you see this warning, then it is likely that this is the source.
+This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and above) and you see this warning, then it is likely that this is the source.
 
-Currently, a warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
-pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such,
-we recommend updating your code. In a future version, Pulumi *may* be updated to throw instead of producing a warning when this happens.
-It is recommended that Pulumi apps be updated to prevent breakage.
+A warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
+pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such, we recommend updating your code. It is recommended that Pulumi apps be updated to prevent breakage.
 
 There are only two ways supported to avoid this issue:
 
@@ -402,10 +395,7 @@ can happen:
 - The CLI process is killed by your operating system while performing an update.
 - The CLI crashes when performing an update.
 
-This error means that the Pulumi engine initiated an operation but was not able to
-see if this operation was successful. Because of this, the Pulumi engine has no way of knowing
-whether or not the operations it initated completed successfully. This means that resources
-may have been created that Pulumi does not know about.
+This error means that the Pulumi engine initiated an operation and was not able to determine if the operation completed successfully. This means that resources may have been created that Pulumi does not know about.
 
 To fix this situation, you should first cancel the last update..
 
@@ -418,7 +408,7 @@ The currently running update for 'interruptedstack' has been canceled!
 If `pulumi cancel` fails with `error: [400] Bad Request: the update has already completed`, you can safely ignore
 that error and continue with the next step.
 
-You should then export and import your stack. This will clear your state's stack of all pending operations.
+You should then export and import your stack. This will clear the stacks's pending operations.
 
 ```bash
 $ pulumi stack export | pulumi stack import
@@ -449,8 +439,7 @@ At this point your stack should be valid, up-to-date, and ready to accept future
 ## Manually Editing Your Deployment {#editing-your-deployment}
 
 Sometimes the only recourse for fixing a stack that is unable to do deployments is to edit the
-deployment directly. It is possible to do this, though it is a tactic of last resort. It is a goal of Pulumi
-to never require users to edit their state directly. We would love to hear about the issues you are experiencing
+deployment directly. We would love to hear about the issues you are experiencing
 that you can't resolve, both so we can assist you in fixing your stack and also to fix the issues in Pulumi
 that made it impossible for you to recover your stack in any other way.
 
@@ -460,13 +449,12 @@ make changes to your stack is that the stack's existing state has been corrupted
 are a variety of ways that a stack's state could be corrupted, but in almost all cases it is possible
 to manually edit the stack's existing state to fix the corruption.
 
-Note that this is an advanced operation and should be an absolute last resort.
+This is an advanced operation and should be an absolute last resort. We recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
 
-If you intend to unprotect or delete a resource, consider using the [`pulumi state`]({{< relref "/docs/reference/cli/pulumi_state" >}}) command to
-do so instead of editing your state directly. `pulumi state` also makes fixes to your state but without
+If you intend to unprotect or delete a resource, consider using the [`pulumi state`]({{< relref "/docs/reference/cli/pulumi_state" >}}) command instead of editing your state directly. `pulumi state` makes fixes to your state without
 requiring you to edit the JSON representation of your stack's current state.
 
-To get a JSON representation of your stack's current state, you can export your current stack
+To get a JSON representation of your stack's current state, export your current stack
 to a file:
 
 ```bash
@@ -477,8 +465,8 @@ This file contains a lot of information. At the top-level, this JSON object has 
 
 | Field | Description |
 | - | - |
-| `version` | Ehe version of the file format you're currently looking at. This should not be changed. |
-| `deployment` | Represents the state of the last deployment that the stack completed. |
+| `version` | The version of the file format. This should not be changed. |
+| `deployment` | The last deployment state of the stack. |
 
 The `deployment` object itself has three fields:
 
@@ -492,30 +480,26 @@ The possible fields of a resource are:
 
 | Field |  Description |
 | - | - |
-| `urn` | This resource's URN, or "universal resource name", which is a Pulumi-specific universal resource identifier. |
-| `custom` | A boolean indicating whether or not this resource is a "custom" resource, which means that it uses a resource provider to operate. Component resources are not `custom`. |
+| `urn` | The resource URN, which is a Pulumi-specific universal resource identifier. |
+| `custom` | A boolean indicating whether or not this resource is a `custom` resource, which means that it uses a resource provider to operate. Component resources are not `custom`. |
 | `delete` | A boolean indicating whether or not this resource is pending deletion. |
 | `id` | This resource's ID, which is a provider-specific resource identifier. This often corresponds to a cloud provider's identifier for a resource. |
 | `type` | The Pulumi type of this resource. |
-| `inputs` | A map of "inputs" for this resource. Inputs are the set of key-value pairs used as an input to a resource provider that created or updated the given resource. |
-| `outputs` | A map of "outputs" for this resource. Outputs are the set of key-value pairs that were given to Pulumi by a resource provider after a resource has been provisioned. |
+| `inputs` | A map of inputs for this resource. Inputs are the set of key-value pairs used as an input to a resource provider. |
+| `outputs` | A map of outputs for this resource. Outputs are the set of key-value pairs that were given to Pulumi by a resource provider after a resource has been provisioned. |
 | `parent` | A URN for this resource's parent resource. |
-| `protect` |  A boolean indicating whether or not this resource is protected. If a resource is protected, it can't be deleted. |
-| `external` | A boolean indicating whether or not this resource is "external" to Pulumi. If a resource is External, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources that are "read" using the `get` function are External. |
-| `dependencies` | A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies between resources and so it is important that this list be the full list of resources upon which this resource depends. |
-| `initErrors` | A list of errors that occured that prevented this particular resource from initializing. Some resource providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize. |
-| `provider` | A provider reference to the provider that is responsible for this particular resource. |
+| `protect` |  A boolean indicating whether or not this resource is protected. Protected resources can not be deleted. |
+| `external` | A boolean indicating whether or not this resource is external to Pulumi. If a resource is external, Pulumi does not own its life cycle and it will not ever delete or update the resource. Resources that are read using the `get` function are external. |
+| `dependencies` | A list of URNs indicating the resources that this resource depends on. Pulumi tracks dependencies between resources. It is important that this list be the full list of resources upon which this resource depends. |
+| `initErrors` | A list of errors that occured that prevented the resource from initializing. Some resource providers (most notably Kubernetes) populate this field to indicate that a resource was created but failed to initialize. |
+| `provider` | Reference to the provider esponsible for the resource. |
 
-The `resources` field is a list, not a set; the order of resources in the list is important and is enforced by
-the Pulumi engine. Resources in a deployment must be in *dependency order* - if a resource A depends on a resource B,
+The `resources` field is a list, not a set. The order of resources in the list is important and is enforced by
+the Pulumi engine. Resources in a deployment must be in *dependency order* - if resource A depends on resource B,
 resource A *must* appear after resource B in the list.
 
-Once you have completed any edits to your stack's state, you can import your changes by running:
+Import your changes by running:
 
 ```bash
 $ pulumi stack import --file state.json
 ```
-
-Depending on the class of error that you are experiencing, you may need to edit one or more of these resource fields,
-as well as change the location of particular resources in the list. Since this is an advanced operation,
-we recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
