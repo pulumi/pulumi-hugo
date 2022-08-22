@@ -31,12 +31,12 @@ passing the `-v` flag to any `pulumi` CLI command. Pulumi emits logs at log leve
 `11`, with `11` being the most verbose. At log level 10 or below, Pulumi will avoid intentionally exposing any *known* credentials. At log level 11, Pulumi will intentionally expose some known credentials to aid with debugging, so these log levels should be used only when absolutely needed.
 
 By default, logs are written to the top-level temp directory (usually `/tmp` or the value of
-`$TMPDIR`). The `--logtostderr` flag can be used to write logs to `stderr` instead.
+`$TMPDIR`). The `--logtostderr` flag can be used to write logs to stderr instead.
 Use the flag `--logflow` to apply the same log level to resource providers.
 
 {{% notes type="warning" %}}
 Enabling verbose logging may reveal sensitive information (tokens, credentials...) that is provided from
-your execution environment to your cloud provider and which Pulumi may not be aware of. Before sharing the logs, audit and redact the sensitive information.
+your execution environment directly to your cloud provider, and which Pulumi may not be aware of. Before sharing the logs, be careful to audit and redact any sensitive information.
 {{% /notes %}}
 
 ```
@@ -98,17 +98,17 @@ To view a trace locally navigate to the [Jaeger UI](http://localhost:16686/searc
 
 ### 403 error fetching plugin
 
-This error commonly occurs when using an arm64 based processor while using an older version of a provider that does not support arm64. It's not possible to upgrade the packages as your state will still be locked to the old version of the provider.
+This error commonly occurs when using an ARM64-based processor while using an older version of a provider that does not support ARM64. It is not possible to upgrade the providers as your state file requires the version of the provider used at the time the resources were created.
 
-The method for fiing this depends on whether you are using an Intel based computer.
+The method for fixing this issue depends on whether you are using an Intel based processor:
 
-#### Intel based computer
+#### Intel based processor
 
 1. Open your Pulumi program on a non-arm64 based computer.
 1. Update your packages (pip / nuget / npm / go) and run `pulumi up`.
 1. Once the update is complete, open the new, updated Pulumi program on your arm64-based system.
 
-#### Non-Intel based computer
+#### Non-Intel based processor
 
 1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or `rm -rf ~/.pulumi`
 1. Download [latest version of Pulumi]({{< relref "/docs/get-started/install/versions" >}}).
@@ -295,7 +295,7 @@ of the call is then wrapped into an `Output` so it can easily be passed as a res
 
 #### Register the provider first
 
-If the problem exists in a layer deeper (e.e.g, a component not under your control), use this solution.
+If the problem exists in a layer deeper (e.g, a component not under your control), use this solution.
 
 ```ts
 const provider = new aws.Provider(...);
@@ -329,7 +329,7 @@ const val = stackReference.getOutputSync("outputName");
 This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and above) and you see this warning, then it is likely that this is the source.
 
 A warning is issued so as to not break existing code that is functionality properly. However, the root cause of this problem
-pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging tomorrow. As such, we recommend updating your code. It is recommended that Pulumi apps be updated to prevent breakage.
+pertains to undefined behavior in the Node.js runtime, so apparently-working code today may begin crashing or hanging in the future. We recommend updating your code to ensure your Pulumi program works reliably.
 
 There are only two ways supported to avoid this issue:
 
@@ -366,7 +366,7 @@ approach will not work, and the only way to workaround the issue is to follow th
 
 If your network blocks external traffic and you're using the Pulumi Service to manage your state, your security team may need the following details to allow the Pulumi CLI to connect to the Service:
 
-- The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console, you'll need enable that as well.)
+- The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console from a web browser, you'll need enable that as well.)
 - All access goes over HTTPS via port 443.
 
 ## Recovering from an Interrupted Update {#interrupted-update-recovery}
@@ -374,7 +374,7 @@ If your network blocks external traffic and you're using the Pulumi Service to m
 If the Pulumi CLI is interrupted when performing a deployment, you may see an error message
 that looks something like this on your next update:
 
-```
+```bash
 $ pulumi up
 Previewing update of stack 'interruptedstack'
 error: the current deployment has 1 resource(s) with pending operations:
@@ -391,9 +391,9 @@ can happen:
 - The CLI process is killed by your operating system while performing an update.
 - The CLI crashes when performing an update.
 
-This error means that the Pulumi engine initiated an operation and was not able to determine if the operation completed successfully. This means that resources may have been created that Pulumi does not know about.
+This error means that the Pulumi engine initiated an operation but was not able to determine if the operation completed successfully. As a result, resources may have been created that Pulumi does not know about.
 
-To fix this situation, you should first cancel the last update..
+To fix this condition, you should first cancel the update:
 
 ```bash
 $ pulumi cancel
@@ -412,8 +412,8 @@ warning: removing pending operation 'creating' on '...' from snapshot
 Import successful.
 ```
 
-For every warning that this command prints out, you should verify with your cloud provider whether or not this
-operation was successful. If the operation was successful, and a resource was created, you should delete that
+For every warning the command prints out, you should verify with your cloud provider whether or not the
+operation was successful. If the operation was successful, and a resource was created, you should delete the
 resource using your cloud provider's console, CLI, or SDK.
 
 Finally, you should run `pulumi refresh` to synchronize your stack's state with the true state of your cloud
@@ -434,16 +434,16 @@ At this point your stack should be valid, up-to-date, and ready to accept future
 
 ## Manually Editing Your Deployment {#editing-your-deployment}
 
-Sometimes the only recourse for fixing a stack that is unable to do deployments is to edit the
+Sometimes the only recourse for fixing a stack that is unable to complete deployments is to edit the
 deployment directly. We would love to hear about the issues you are experiencing
 that you can't resolve, both so we can assist you in fixing your stack and also to fix the issues in Pulumi
 that made it impossible for you to recover your stack in any other way.
 
 The Pulumi engine uses both your program and your stack's existing state to make decisions about what
 resources to create, read, update, or delete. The most common problem that makes it impossible to
-make changes to your stack is that the stack's existing state has been corrupted in some way. There
+make changes to your stack is that the stack's state has been corrupted in some way. There
 are a variety of ways that a stack's state could be corrupted, but in almost all cases it is possible
-to manually edit the stack's existing state to fix the corruption.
+to manually edit the stack's state to fix the issue.
 
 This is an advanced operation and should be an absolute last resort. We recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
 
