@@ -130,8 +130,8 @@ Run `pulumi cancel` to cancel the update.
 Warning! If you cancel another person's update, their update will fail immediately.
 {{% /notes %}}
 
-One of the services that `pulumi.com` provides is *concurrency control*. The service will allow
-at most one user to update a particular stack at a time. This is accomplished by using "leases"; whenever a user
+One of the services that the [Pulumi Service]({{< relref "/docs/intro/pulumi-service/" >}}) provides is *concurrency control*.
+The service will allow at most one user to update a particular stack at a time. This is accomplished by using "leases"; whenever a user
 requests an update, they request a "lease" on the stack that gives them the right to update the requested stack.
 The service makes sure that only one person has a lease active at a time.
 
@@ -204,6 +204,13 @@ Full error example:
 ```
 error: could not load plugin for aws provider 'urn:pulumi:<stack_name>::pulumi-service::pulumi:providers:aws::default': no resource plugin 'aws-v0.16.2' found in the workspace or on your $PATH, install the plugin using \`pulumi plugin install resource aws v0.16.2\`
 ```
+
+### Cannot connect to the Pulumi Service
+
+If your network blocks external traffic and you're using the Pulumi Service to manage your state, your security team may need the following details to allow the Pulumi CLI to connect to the Service:
+
+- The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console from a web browser, you'll need enable that as well.)
+- All access goes over HTTPS via port 443.
 
 ### Nothing happens due to network proxy
 
@@ -361,13 +368,6 @@ value defined elsewhere in your application. If the value is known, it can be co
 
 If the stack-reference-name truly is dynamic and cannot be known ahead of time to supply directly into the app, then this
 approach will not work, and the only way to workaround the issue is to follow the steps in [Use getOutput/requireOutput](#use-getoutput).
-
-### Cannot connect to the Pulumi Service
-
-If your network blocks external traffic and you're using the Pulumi Service to manage your state, your security team may need the following details to allow the Pulumi CLI to connect to the Service:
-
-- The URL that the Pulumi CLI uses to connect to the Service is `https://api.pulumi.com`. (It does not use `https://app.pulumi.com`, so if you want to view the console from a web browser, you'll need enable that as well.)
-- All access goes over HTTPS via port 443.
 
 ## Recovering from an Interrupted Update {#interrupted-update-recovery}
 
