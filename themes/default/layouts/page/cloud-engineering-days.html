@@ -103,7 +103,7 @@
                 {{ range $item := .Params.schedule.items }}
                     <div class="w-full flex flex-row p-4 my-2">
                         <div class="h-full flex flex-row-reverse w-1/2">
-                            <div class="px-8 py-8 w-2/3">
+                            <div class="px-8 py-8 lg:w-2/3">
                                 <p class="text-white">{{ $item.datetime }}</p>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
             s.parentNode.insertBefore(zi, s);
         })();
     </script>
-    <section id="registration" class="min-w-full mt-16 mb-16 flex justify-center">
+    <section id="registration" class="min-w-full mt-16 mb-16 px-8 flex justify-center">
         <div class="lg:w-1/2">
             <h4>Register</h4>
             <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}" go-to-webinar-key="{{ .Params.form.gotowebinar_key }}"></pulumi-hubspot-form>
