@@ -1,6 +1,6 @@
 ---
 title: Create an AWS Static Website Fast with Angular and Pulumi
-date: 2022-08-20
+date: 2022-08-24
 meta_desc: "Learn how to create and deploy an Angular static website to AWS using the static website component."
 meta_image: "meta_image.png"
 authors:
@@ -55,7 +55,6 @@ Here are the instructions to build the website.
 
 1. Clone the GitHub repository located [here](https://github.com/sean1588/angular-static-site-pulumi).
 1. Run `npm install` to install the website’s node dependencies.
-1. Run `npm run build` to generate the static website files and place them in a directory called `dist`. We will reference this directory when we configure Pulumi to deploy the site.
 
 ## Deploy the Site with Pulumi
 
