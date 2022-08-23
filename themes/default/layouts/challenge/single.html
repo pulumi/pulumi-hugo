@@ -1,0 +1,32 @@
+{{ define "hero" }}
+    <header class="header-hero header-hero-glow-bottom">
+        <div class="container mx-auto">
+            <div class="mx-auto text-center">
+                <h1>Pulumi Challenge</h1>
+                {{ if .Params.title }}
+                    <p class="text-2xl">{{ .Params.title }}</p>
+                {{ else }}
+                    <p class="text-2xl">Pulumi Challenge</p>
+                {{ end }}
+            </div>
+        </div>
+    </header>
+{{ end }}
+
+{{ define "main" }}
+    <div class="container mx-auto flex items-start px-4 md:px-0">
+        <div class="md:w-3/12 my-8 sticky-sidebar md:pr-8">
+            <nav></nav>
+        </div>
+        <div class="md:w-7/12 my-8">
+            <section class="container mx-auto my-8">
+                {{ .Content }}
+            </section>
+            <p>
+                <a href="{{ relref . "/challenge" }}">&larr; View Other Challenges</a>
+            </p>
+        </div>
+
+        <div class="md:w-2/12 md:ml-8 m8-8 "></div>
+    </div>
+{{ end }}
