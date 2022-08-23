@@ -68,7 +68,7 @@ You’re now ready to set up Pulumi to deploy the site to AWS.
 
     ```
 
-1. You’re now in the `pulumi` directory. Generate a Pulumi project file and create a Pulumi.yaml file with this command:
+1. You’re now in the `pulumi` directory. Generate a Pulumi project file and create a Pulumi.yaml file with the following command. You will be asked a few questions from the prompt. Use `angular-static-website` for the project name and accept the suggested defaults for the remaining questions:
 
     ```bash
     pulumi new aws-yaml
