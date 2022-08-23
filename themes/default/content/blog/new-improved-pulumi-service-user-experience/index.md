@@ -36,7 +36,7 @@ tags:
 
 It’s been nearly four years since the Pulumi Service console launched back in 2018. The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. It handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
 
-In these last four years, the Service’s features and capabilities have grown quickly. We’ve added features like x, y, and z. But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
+In these last four years, the Service’s features and capabilities have grown quickly. We’ve added features like stack tags, stack changes view, and resource visualizations. But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
 
 <!--more-->
 
@@ -62,9 +62,9 @@ The navigation pane consolidates actions and information so it's easy for you to
 - directly access sub-pages like Billing or Access Tokens
 - send us your feedback!
 
-![""](dashboard-nav-collapsed.png)
-
 These changes will help you move through the Pulumi Service without losing your place and to ensure convenient access to key pages. You can even collapse the navigation pane for more screen real estate and still access any page you need.
+
+![""](dashboard-nav-collapsed.png)
 
 If you're looking for your account details, they have moved into the black utility toolbar. To access your account settings or logout of the Pulumi Service, select your profile image at the top right of your browser window.
 
