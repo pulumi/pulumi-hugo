@@ -8,12 +8,26 @@ meta_desc: |
 <!-- meta_image: challenge_logo.png -->
 ---
 
-<!-- Description of the challenge, swag, promotional rules, etc -->
+Welcome to the Pulumi Challenge!
+
+Build something cool with Pulumi and get cool swag in return! Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront, all using Pulumi. When you're done, we'll send you a super limited piece of swag unique to this challenge! 
 
 ### Prerequisites
 
-<!-- Prereqs here -->
+In order to complete this challenge, you'll need a couple things set up in advance.
+
+* Pulumi account
+
+* AWS account
 
 ### Tutorial
 
-<!-- Tutorial here -->
+Tutorial Here
+
+At end of tutorial:
+
+Congratulations! You completed the first Pulumi Challenge. To claim your prize, email da@pulumi.com with a screenshot of your startup!
+
+<!-- TODO: Include Tweet button below -->
+
+Wanna yell it from the rooftops? Write a blog or record a post a quick video about it? Let us know and we'll send you an extra, super secret piece of swag!
