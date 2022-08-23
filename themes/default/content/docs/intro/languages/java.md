@@ -10,7 +10,7 @@ menu:
 
 <img src="/logos/tech/java.svg" align="right" width="90" style="padding:8px; margin-top: -64px">
 
-Pulumi supports writing your infrastructure as code using the Java language running on any [Supported version](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) after Java 11.
+Pulumi supports writing your infrastructure as code using the Java language running on any [supported version](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) after Java 11.
 
 We support running Maven Pulumi programs, Gradle Pulumi programs, and Pulumi programs packaged as JAR files.
 
