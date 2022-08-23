@@ -262,7 +262,7 @@ const parent = new SomeResource("name", { provider });
 const ids = aws.ec2.getSubnetIds(..., { parent });
 ```
 
-This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and above) and you see this warning, then it is likely that this is the source.
+This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and above) and you see this warning, then it is likely that the older version of Pulumi is the issue.
 
 The root cause of this problem pertains to undefined behavior in the Node.js runtime,
 It is recommended that Pulumi apps be updated to prevent breakage.
