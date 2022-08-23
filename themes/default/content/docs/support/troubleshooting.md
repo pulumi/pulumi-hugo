@@ -110,7 +110,7 @@ The method for fixing this issue depends on whether you are using an Intel based
 
 #### Non-Intel based processor
 
-1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or `rm -rf ~/.pulumi`
+1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` to remove Pulumi and `rm -rf ~/.pulumi` to remove plugins and templates.
 1. Download [latest version of Pulumi]({{< relref "/docs/get-started/install/versions" >}}).
 1. Add Pulumi to path: `export PATH=$PATH:~/.pulumi/bin`
 1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)
