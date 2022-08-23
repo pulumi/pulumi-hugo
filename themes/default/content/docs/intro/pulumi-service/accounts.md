@@ -69,7 +69,7 @@ For users who signed up with email, you may change your password by:
 
 ## Access Tokens
 
-Use access tokens to sign into the Pulumi Service. On this page there is a list of all the access tokens associated with your account, including a description and last used information for each token.
+Use access tokens to sign into the Pulumi Service via the CLI. On this page there is a list of all the access tokens associated with your account, including a description and last used information for each token.
 
 When you run [`pulumi login`]({{< relref "/docs/reference/cli/pulumi_login" >}}) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Service and lets you interact with the Pulumi service and manage your stacks.
 
