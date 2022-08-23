@@ -267,21 +267,23 @@ Language-specific information for a package.
 
 For `nodejs`:
 
-| Property                  | Type          | Required | Description                                                       |
-|---------------------------|---------------|----------|-------------------------------------------------------------------|
-| `packageName`             | `string`      | No       | Custom name for the NPM package.                                  |
-| `packageDescription`      | `string`      | No       | Description for the NPM package.                                  |
-| `readme`                  | `string`      | No       | Readme contains the text for the package's README.md files.       |
-| `dependencies`            | `map[string]` | No       | NPM dependencies to add to package.json.                          |
-| `devDependencies`         | `map[string]` | No       | NPM dev-dependencies to add to package.json.                      |
-| `peerDependencies`        | `map[string]` | No       | NPM peer-dependencies to add to package.json.                     |
-| `resolutions`             | `map[string]` | No       | NPM resolutions to add to package.json                            |
-| `typescriptVersion`       | `string`      | No       | A specific version of TypeScript to include in package.json.      |
-| `moduleToPackage`         | `map[string]` | No       | A map containing overrides for module names to package names.     |
-| `compatibility`           | `string`      | No       | Toggle compatibility mode for a specified target.                 |
-| `disableUnionOutputTypes` | `boolean`     | No       | Disable support for unions in output types.                       |
-| `containsEnums`           | `boolean`     | No       | An indicator for whether the package contains enums.              |
-| `respectSchemaVersion`    | `boolean`     | No       | Use the [`package.version`](#package) field in the generated SDK. |
+| Property                  | Type          | Required | Description                                                                          |
+|---------------------------|---------------|----------|--------------------------------------------------------------------------------------|
+| `packageName`             | `string`      | No       | Custom name for the NPM package.                                                     |
+| `packageDescription`      | `string`      | No       | Description for the NPM package.                                                     |
+| `readme`                  | `string`      | No       | Readme contains the text for the package's README.md files.                          |
+| `dependencies`            | `map[string]` | No       | NPM dependencies to add to package.json.                                             |
+| `devDependencies`         | `map[string]` | No       | NPM dev-dependencies to add to package.json.                                         |
+| `peerDependencies`        | `map[string]` | No       | NPM peer-dependencies to add to package.json.                                        |
+| `resolutions`             | `map[string]` | No       | NPM resolutions to add to package.json                                               |
+| `typescriptVersion`       | `string`      | No       | A specific version of TypeScript to include in package.json.                         |
+| `moduleToPackage`         | `map[string]` | No       | A map containing overrides for module names to package names.                        |
+| `compatibility`           | `string`      | No       | Toggle compatibility mode for a specified target.                                    |
+| `disableUnionOutputTypes` | `boolean`     | No       | Disable support for unions in output types.                                          |
+| `containsEnums`           | `boolean`     | No       | An indicator for whether the package contains enums.                                 |
+| `respectSchemaVersion`    | `boolean`     | No       | Use the [`package.version`](#package) field in the generated SDK                     |
+| `pluginName`              | `string`      | No       | The name of the plugin, which might be different from the package name.              |
+| `pluginVersion`           | `string`      | No       | The version of the plugin, which might be different from the version of the package. |
 
 For `python`:
 
@@ -315,6 +317,15 @@ For `csharp`:
 | `dictionaryConstructors` | `boolean`     | No       |                                                                                                     |
 | `rootNamespace`          | `string`      | No       | The root namespace that the generated package should live under. This setting defaults to "Pulumi". |
 | `respectSchemaVersion`   | `boolean`     | No       | Use the [`package.version`](#package) field in the generated SDK.                                   |
+
+For `java`:
+
+| Property       | Type          | Required | Description                                                                                      |
+|----------------|---------------|----------|--------------------------------------------------------------------------------------------------|
+| `packages`     | `map[string]` | No       | Overrides for module names to Java package names. Example: "autoscaling/v1" -> "autoscaling.v1". |
+| `basePackage`  | `string`      | No       | Prefixes the generated Java package. This setting defaults to "com.pulumi".                      |
+| `buildFiles`   | `string`      | No       | Generates build files for the chosen build tool. Supported values: "gradle".                     |
+| `dependencies` | `map[string]` | No       | Java dependencies to use with the `buildFiles`. Example: "com.pulumi.gcp" -> "6.23.0".           |
 
 ### PropertyLanguage
 

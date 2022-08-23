@@ -35,15 +35,20 @@ of issue reports.
 
 Verbose logging of the internals of the Pulumi engine and resource providers can be enabled by
 passing the `-v` flag to any `pulumi` CLI command. Pulumi emits logs at log levels between `1` and
-`9`, with `9` being the most verbose.
+`11`, with `11` being the most verbose.
 
 By default, logs are written to the top-level temp directory (usually `/tmp` or the value of
 `$TMPDIR`). The `--logtostderr` flag can be added to write logs to `stderr` instead, for easier
 access.  Use the flag `--logflow` to apply the same log level to resource providers.
 
-> These logs may include sensitive information that is provided from your execution environment to
-your cloud provider (and which Pulumi may not even itself be aware of) so be careful to audit before
-sharing.
+{{% notes type="warning" %}}
+Enabling verbose logging may reveal sensitive information (tokens, credentials...) that is provided from
+your execution environment to your cloud provider and which Pulumi may not even itself be aware of. It is
+recommended that you audit the saved logs and redact any information before sharing the logs. At log level 10
+or below, Pulumi will avoid intentionally exposing any *known* credentials. At log level 11, Pulumi will
+intentionally expose some known credentials to aid with debugging, so these log levels should be used only
+when absolutely needed.
+{{% /notes %}}
 
 ```
 $ pulumi up --logtostderr --logflow -v=9 2> out.txt
@@ -190,6 +195,23 @@ error: could not load plugin for aws provider 'urn:pulumi:<stack_name>::pulumi-s
 You may encounter an error when you downgrade provider versions _after_ your stack is already updated with a newer version.
 If you must downgrade the version of a provider your `pulumi` program depends on, you will need to [manually edit your deployment](#editing-your-deployment)
 and change the version of the provider your stack depends on and then import that as the latest state of your stack.
+
+### Nothing happens running Pulumi due to network proxy
+
+You run Pulumi and nothing happens, with output resembling like this:
+
+```
+$ pulumi up
+Previewing update (<stack name>):
+
+Resources:
+
+$
+```
+
+If you have a system-wide proxy server running on your machine, it may be misconfigured. The [Pulumi architecture](https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/) has three different components, running as separate processes which talk to each other using a bidirectional gRPC protocol
+on IP address `127.0.0.1`. Your proxy server should be configured **NOT** to proxy
+these local network connections. Add both `127.0.0.1` and `localhost` to the exclusion list of your proxy server.
 
 ## Recovering from an Interrupted Update {#interrupted-update-recovery}
 
@@ -514,7 +536,7 @@ There are two ways to fix this, one way if you have access to an Intel based com
 
 ### I don't have access to an Intel based computer
 
-1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or simply `rm -rf ~/.pulumi`
+1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` or `rm -rf ~/.pulumi`
 1. Download latest version of Pulumi: `https://www.pulumi.com/docs/get-started/install/versions/` (current version is [https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz](https://get.pulumi.com/releases/sdk/pulumi-v2.24.0-darwin-x64.tar.gz)) and extract to ~/.pulumi/bin
 1. Add Pulumi to path: `export PATH=$PATH:~/.pulumi/bin`
 1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)

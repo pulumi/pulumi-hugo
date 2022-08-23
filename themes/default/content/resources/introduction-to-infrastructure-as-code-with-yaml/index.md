@@ -1,9 +1,7 @@
 ---
 # Name of the webinar.
 title: "Introduction to Infrastructure as Code with Pulumi YAML"
-meta_desc: "In this workshop, you’re going to explore how to use Pulumi to build, configure, and deploy a real-life, modern application using Docker and YAML."
-
-meta_image: /images/resources/infrastructure-as-code-yaml-06-22-2022-social-card.png
+meta_desc: "Learn how to use Infrastructure as Code (IaC) with Pulumi, using Docker, and YAML. This is an on-demand workshop. Source code available."
 
 # A featured webinar will display first in the list.
 featured: false
@@ -18,7 +16,7 @@ pulumi_tv: false
 preview_image: ""
 
 # Webinars with unlisted as true will not be shown on the webinar list
-unlisted: true
+unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
@@ -58,7 +56,7 @@ main:
     # URL for embedding a URL for ungated webinars.
     youtube_url: ""
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2022-06-16T10:00:00-07:00
+    sortable_date: 2022-08-10T10:00:00-07:00
     # Duration of the webinar.
     duration: "1 hour"
     # Datetime of the webinar.
@@ -69,7 +67,7 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Matty Stratton
+        - name: David Flanagan
           role: Staff Developer Advocate, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
@@ -80,5 +78,5 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "ed454406-c3a1-465e-b74b-7e2e0eabdc38"
+    hubspot_form_id: "4e328ce5-4ecd-4cb8-82b7-5aa6b86405bf"
 ---

@@ -1,11 +1,7 @@
 ---
 title: Pulumi YAML Reference
-linktitle: Pulumi YAML
+linktitle: Pulumi YAML Reference
 meta_desc: Specification for the Pulumi YAML format and built-in functions
-menu:
-  reference:
-    name: Pulumi YAML
-    weight: 5
 ---
 
 Pulumi programs can be defined in many languages, and the Pulumi YAML dialect offers an additional language for authoring Pulumi programs.
@@ -39,11 +35,12 @@ The value of `configuration` is an object whose keys are logical names by which 
 
 The value of `resources` is an object whose keys are logical resource names by which the resource will be referenced in expressions within the program, and whose values which are elements of the schema below.  Each item in this object represents a resource which will be managed by the Pulumi program.
 
-| Property        | Type | Required           | Expressions  | Description |
-| ------------- |---|-------------| -----|---|
-| `type`      | string | Yes | No | Type is the Pulumi type token for this resource. |
-| `properties`      | map[string]Expression | No | Yes | Properties contains the primary resource-specific keys and values to initialize the resource state. |
-| `options`         | [Resource Options](#resource-options) | No | No | Options contains all resource options supported by Pulumi. |
+| Property     | Type                                  | Required | Expressions | Description                                                                                         |
+|--------------|---------------------------------------|----------|-------------|-----------------------------------------------------------------------------------------------------|
+| `type`       | string                                | Yes      | No          | Type is the Pulumi type token for this resource.                                                    |
+| `properties` | map[string]Expression                 | No       | Yes         | Properties contains the primary resource-specific keys and values to initialize the resource state. |
+| `options`    | [Resource Options](#resource-options) | No       | No          | Options contains all resource options supported by Pulumi.                                          |
+| `get`        | [Resource Getter](#resource-getter)   | No       | Yes         | A getter function for the resource. Supplying `get` is mutually exclusive to `properties`.          |
 
 #### Resource Options
 
@@ -76,15 +73,72 @@ The `dependsOn`, `parent`, `provider`, and `providers` values permit expressions
 | `providers`               | map[string]Expression | No | Yes | Map of providers for a resource and its children. |
 | `version`                 | string       | Version specifies a provider plugin version that should be used when operating on a resource |
 
+#### Resource Getter
+
+Supplying a `get` key turns the resource declaration into a [Getter Function]({{< relref "/docs/intro/concepts/resources/get.md" >}}).
+
+| Property | Type                  | Required | Description                                                                                                        |
+|----------|-----------------------|----------|--------------------------------------------------------------------------------------------------------------------|
+| `id`     | string                | Yes      | The ID of the resource to import                                                                                   |
+| `state`  | map[string]Expression | No       | Known properties (input & output) of the resource. This assists the provider in figuring out the correct resource. |
+
 #### Custom Timeout
 
 The optional `customTimeouts` property of a resource is an object of the following schema:
 
-| Property        | Type | Required           | Expression  | Description |
-| ------------- |---|-------------| -----|---|
-| `create`      | string | No | No | Create is the custom timeout for create operations. |
-| `delete`      | string | No | No | Delete is the custom timeout for delete operations. |
-| `update`      | string | No | No | Update is the custom timeout for update operations. |
+| Property | Type   | Required | Expression | Description                                         |
+|----------|--------|----------|------------|-----------------------------------------------------|
+| `create` | string | No       | No         | Create is the custom timeout for create operations. |
+| `delete` | string | No       | No         | Delete is the custom timeout for delete operations. |
+| `update` | string | No       | No         | Update is the custom timeout for update operations. |
+
+### Providers and provider versions
+
+There are at least two reasons to explicitly define providers in YAML, or explicitly set their versions while creating resources.
+
+1. Using explicit versions enables pinning the dependencies used, a technique used to improve build reliability.
+1. Using explicit providers enables controlling the options for providers used by each resource, as described in [Unlock Programmatic Control by Disabling Default Providers]({{< relref "/blog/disable-default-providers/index" >}}).
+
+#### Resource version
+
+To create a resource with a specific provider version use the `version` option as described in [Resource Options](#resource-options):
+
+```yaml
+resources:
+  something:
+    type: aws:s3:Bucket
+    properties:
+      ...
+    options:
+      version: 5.6.0
+```
+
+#### Explicit provider
+
+To create an explicit provider instance, preferably with a specific version, use the [`resources`](#resources) section and prefix the name of the provider with `pulumi:providers` which will the value of the `type` property.
+
+```yaml
+provider:
+    type: pulumi:providers:azure
+    options:
+      version: 5.1.0
+```
+
+The provider instance can than be used as described in section [Resource Options](#resource-options) by setting the `provider` option:
+
+```yaml
+resources:
+  provider:
+    type: pulumi:providers:azure
+    options:
+      version: 5.1.0
+  rg:
+    type: azure:core:ResourceGroup
+    properties:
+      location: WestEurope
+    options:
+      provider: ${provider}
+```
 
 ### Outputs
 
@@ -314,18 +368,6 @@ variables:
         Fn::StringAsset: Hello, world!
       folder:
         Fn::FileArchive: ./folder
-```
-
-##### `Fn::StackReference`
-
-[Stack References]({{< relref "/docs/intro/concepts/stack#stackreferences" >}}) allow accessing the outputs of a stack from a YAML program. Arguments are passed as a list, with the first item being the stack name and the second argument the name of an output to reference:
-
-```yaml
-variables:
-  reference:
-    Fn::StackReference:
-      - org/project/stack
-      - outputName
 ```
 
 The expression `${reference}` will have the value of the `outputName` output from the stack `org/project/stack`.

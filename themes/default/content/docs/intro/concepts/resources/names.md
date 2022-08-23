@@ -69,6 +69,13 @@ resources:
     type: aws:iam:Role
 ```
 
+{{% notes type="info" %}}
+
+In Pulumi YAML, you always use the logical name of a resource (e.g., my-role in the above)
+to refer to it. There are no distinct variable names, as there are in other languages.
+
+{{% /notes %}}
+
 {{% /choosable %}}
 
 {{< /chooser >}}
@@ -201,7 +208,7 @@ let role = new aws.iam.Role("my-role", {
 
 ```python
 role = iam.Role('my-role', {
-    name='my-role-{}-{}'.format(pulumi.get_project(), pulumi.get_stack())
+    name=f'my-role-{ pulumi.get_project() }-{ pulumi.get_stack() }')
 }, opts=ResourceOptions(delete_before_replace=True))
 ```
 

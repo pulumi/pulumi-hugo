@@ -15,12 +15,14 @@ Words are important. Pulumi strives to use language that is clear, harmonious, a
 * Avoid pop-culture references as such references may not be familiar to all readers.
 * Instead of "go to," use "navigate".
 * Avoid directional words. Instead, link directly to the section you are referencing.
+* Avoid using "easy", "simple" or their adjectives, as they make a judgment about the difficulty of a concept explained, or the level of a reader's subject matter expertise. Often, you can omit these words entirely.
 
 ## Headings
 
 * Ensure that readers are able to scan the headings of a page and get an effective overview of the page's content.
 * Every page should have exactly one `h1`.
 * Headings levels should only increment one level at a time.  E.g., if your previous heading level was an `h2`, the next heading must be an `h2` or an `h3`, but not, e.g., an `h4` or `h5`.
+* Docs and registry headings should use sentence case (i.e., first letter of the first word of is capitalized).
 
 ## Links
 
