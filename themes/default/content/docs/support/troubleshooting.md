@@ -116,7 +116,6 @@ The method for fixing this issue depends on whether you are using an Intel based
 1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)
 1. Install Pulumi provider: `arch -x86_64 pulumi plugin install resource {provider_name} v{version}` (where  {provider_name} is the name of the provider, i.e. aws and {version} is the same version number that your package has updated to). `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
 1. [Login to Pulumi]({{< relref "/docs/intro/concepts/state#logging-in" >}}).
-docs/intro/concepts/state/#logging-in
 1. Run a Pulumi preview: `arch -x86_64 pulumi pre`.
 1. Remove Pulumi again `rm -rf ~/.pulumi`.
 1. [Re-install Pulumi]({{< relref "/docs/get-started/install" >}})
