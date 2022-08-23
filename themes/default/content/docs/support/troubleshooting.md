@@ -141,8 +141,7 @@ a lease to the stack that you are attempting to update. There are two reasons wh
 1. Somebody else is currently updating the stack. If you are working on a stack with more than one collaborator, it could
 be that your collaborators have initiated an update without your knowledge. You can confirm this by visiting the Pulumi
 web console and seeing who initiated the most recent update.
-
-2. You were updating the stack, but the Pulumi CLI crashed in the middle of the update.
+1. You were updating the stack, but the Pulumi CLI crashed in the middle of the update.
 
 If you are working on a stack with no other collaborators, it is common to encounter situation number 2 if you
 run into a bug in Pulumi. If this update was not triggered by someone else, you can use the
