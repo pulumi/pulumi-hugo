@@ -322,7 +322,7 @@ The expression `${banana}` will have the value `"BaNaNa"`.
 
 ##### `Fn::Split`
 
-Splits a string on a delimiter. Arguments are passed as a list, with the first item being the delimiter, and the second item the string to split. 
+Splits a string on a delimiter. Arguments are passed as a list, with the first item being the delimiter, and the second item the string to split.
 
 ```yaml
 variables:
