@@ -36,7 +36,7 @@ tags:
 
 It’s been nearly four years since the Pulumi Service console launched back in 2018. The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. It handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
 
-In these last four years, the Service’s features and capabilities have grown quickly. We’ve added features like stack tags, stack changes view, and resource visualizations. But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
+In these last four years, our customer base has grown significantly Service’s features and capabilities have grown quickly. We’ve added features like audit logs, SAML SSO and SCIM, stack tags, resource visualizations, and much more! But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
 
 <!--more-->
 
@@ -70,9 +70,9 @@ If you're looking for your account details, they have moved into the black utili
 
 ## Stack Favorites
 
-Many Pulumi users have access to dozens of hundreds of stacks. But only a few of those stacks may require regular interaction. We've introduced a new Stack Favorites feature to let you flag the stacks that are most important. This way you can access those stacks from anywhere in the Service.
+Many Pulumi users have access to dozens or hundreds of stacks. But only a few of those stacks may require regular interaction. We've introduced a new Stack Favorites feature to let you flag the stacks that are most important. This lets you access those stacks from anywhere in the Service.
 
-Your favorites list is your own. Even if you're part of an organization, your favorites won't be shared with anyone other than you. And you can have as many favorites as you like!
+Your favorites list is your own. Even if you're part of an organization, your favorites won't be shared with anyone else. And you can have as many favorites as you like!
 
 Look for the star icon next to any stack name and select it to start building your favorites list.
 
