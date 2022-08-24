@@ -332,7 +332,7 @@ variables:
             - "apple, orange, banana"
 ```
 
-The expression `${banana}` will be a list containing the values `["apple", "orange", "banana"]`.
+The expression `${fruits}` will be a list containing the values `["apple", "orange", "banana"]`.
 
 ##### `Fn::Select`
 
