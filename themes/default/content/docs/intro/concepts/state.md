@@ -172,6 +172,7 @@ As of Pulumi CLI v3.33.1, instead of specifying the AWS Profile using the `AWS_P
 ```sh
 pulumi login 's3://<bucket-name>?region=us-east-1&awssdk=v2&profile=<profile-name>'
 ```
+
 {{% /notes %}}
 
 {{% notes type="info"%}}
