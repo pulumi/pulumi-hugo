@@ -167,7 +167,11 @@ $ pulumi login s3://<bucket-name>
 ```
 
 {{% notes type="info"%}}
-As of Pulumi CLI v3.33.1, it's possible to specify AWS profile from the shared config file `~/.aws/config` in the URL query parameter, i.e. `s3://<bucket-name>?profile=main`
+As of Pulumi CLI v3.33.1, instead of specifying the AWS Profile using the `AWS_PROFILE` environment variable, add `region=us-east-1` (or any other region), `awssdk=v2` and `profile=` followed by the profile name to the query string. On Linux and macOS, this will need to be quoted to escape the '&' operators in the shell as below:
+
+```sh
+pulumi login 's3://<bucket-name>?region=us-east-1&awssdk=v2&profile=<profile-name>'
+```
 {{% /notes %}}
 
 {{% notes type="info"%}}
