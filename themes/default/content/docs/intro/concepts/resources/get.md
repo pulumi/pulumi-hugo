@@ -11,7 +11,7 @@ You can use the static `get` function, which is available on all resource types,
 
 Two values are passed to the `get` function:
 
-1. The logical name Pulumi will use to refer to the resource
+1. The logical name Pulumi will use to refer to the resource.
 1. The physical ID that the resource has in the target cloud.
 
 You can use the `get` function to consume properties from a resource that was provisioned elsewhere. For example, this program reads an existing EC2 Security Group whose ID is `sg-0dfd33cdac25b1ec9` and uses the result as input to create an EC2 Instance that Pulumi will manage:
