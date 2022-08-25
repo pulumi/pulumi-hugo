@@ -167,7 +167,7 @@ $ pulumi login s3://<bucket-name>
 ```
 
 {{% notes type="info"%}}
-As of Pulumi CLI v3.33.1, instead of specifying the AWS Profile using the `AWS_PROFILE` environment variable, add `region=us-east-1` (or any other region), `awssdk=v2` and `profile=` followed by the profile name to the query string. On Linux and macOS, this will need to be quoted to escape the '&' operators in the shell as below:
+As of Pulumi CLI v3.33.1, instead of specifying the AWS Profile, add `awssdk=v2` along with the region and profile to the query string. The URL should be quoted to escape the shell operator `&`, and used as follows:
 
 ```sh
 pulumi login 's3://<bucket-name>?region=us-east-1&awssdk=v2&profile=<profile-name>'
