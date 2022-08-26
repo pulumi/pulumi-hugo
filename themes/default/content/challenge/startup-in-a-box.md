@@ -81,6 +81,124 @@ fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
 });
 ```
 
+We need our actual website too, though. Create a directory called `website` at `pulumi-challenge/website`, and inside it, add `index.html`, `styles.css`, and `normalize.css`.
+
+For `index.html`, we have the structure of a simple website, with places to put links to your project's GitHub and Twitter, as well as your LinkedIn.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hello world!</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><i class="fas fa-feather"></i></div>
+    <ul class="social">
+                <li><a href="http://github.com/" target="_blank"><i class="fab fa-github-alt"></i></a></li>
+                <li><a href="http://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="http://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+  </header>
+<div class="banner">
+    <h1>Company Name</h1>
+    <h3>Tagline</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tristique arcu, sed commodo ligula. Ut ullamcorper velit non luctus mollis. Sed placerat quam sed tellus aliquam, ac eleifend quam lacinia. Praesent bibendum velit at metus auctor, vitae feugiat quam luctus. Morbi eu imperdiet metus, et tincidunt tellus. Aliquam non ullamcorper justo. Cras ornare nulla vel pellentesque vulputate. Mauris in elit neque. Aliquam tempor aliquam libero, elementum luctus nisl imperdiet sit amet. Praesent urna ante, scelerisque non tellus mollis, laoreet sodales felis.</p>
+</div>
+</body>
+<script src="https://kit.fontawesome.com/b4747495ea.js" crossorigin="anonymous"></script>
+</html>
+```
+
+In `style.css`, we're making it pretty with some bright colors and a CSS background:
+
+```css
+@import url('https://fonts.googleapis.com/css?family=News+Cycle|Teko&display=swap');
+
+body {
+    background-color: #f7f7fa;
+    opacity: 0.8;
+    background-image: radial-gradient(#f79645 0.5px, #f7f7fa 0.5px);
+    background-size: 10px 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+}
+
+a {
+    color: white;
+    -webkit-transition: color .5s ease-out;
+    transition: color .5s ease-out;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: rgb(55, 188, 250);
+}
+
+header {
+    background-color: rgba(214, 73, 73, .6);
+    height: 80px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+header li {
+    color: white;
+}
+
+.active a {
+    color: rgb(255, 157, 112);
+}
+
+.social {
+    position: absolute;
+    right: 50px;
+    top: -5px;
+    font-size: 30px;
+}
+
+.social li {
+    margin: 0 5px 0 5px;
+}
+
+.logo {
+    position: absolute;
+    left: 10px;
+    margin-left: 20px;
+    font-size: 60px;
+    color: white;
+}
+
+.banner {
+    width: 60vw;
+    font-family: Teko;
+    font-size: 2vw;
+    text-align: center;
+    margin-top: 15vw;
+    margin-left: 20vw;
+}
+
+.banner h1 {
+    color: rgb(214, 73, 73);
+}
+
+.banner p, .about p {
+    font-family: News Cycle;
+}
+```
+
+To make sure our styles display consistently across browsers, we also need to normalize some styles. [Copy normalize.css from GitHub](https://github.com/necolas/normalize.css/blob/master/normalize.css).
+
 #### Step 4. Creating a CDN
 
 Next, we want to front our S3 bucket with Cloudfront. This is a pretty big object, but most of it can be copy and pasted without further thought.
