@@ -93,7 +93,7 @@ Here are a few, non-exhaustive, examples, of how one might go about splitting up
 
 Even with this alternative breakdown, it's likely your stack structure will mirror a monolithic structure. For
 each project, you are apt to have multiple environments such as production, staging, testing, etc. And, indeed,
-you may have inter-dependencies between your stacks -- something that Pulumi supports in a first-class manner with stack references({{< relref "/docs/intro/concepts/stack#stackreferences" >}}).
+you may have inter-dependencies between your stacks -- something that Pulumi supports in a first-class manner with [stack references]({{< relref "/docs/intro/concepts/stack#stackreferences" >}}).
 
 ## Aligning to Git Repos
 
