@@ -5,12 +5,13 @@ description: |
     Build and deploy your very own startup landing site to the cloud, complete with everything you need to get started!
 meta_desc: |
     Build and deploy your very own startup landing site to the cloud, complete with everything you need to get started!
-<!-- meta_image: challenge_logo.png -->
 ---
 
-Welcome to the Pulumi Challenge!
+### Welcome to the Pulumi Challenge!
 
-Build something cool with Pulumi and get cool swag in return! Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront and Checkly, all using Pulumi. When you're done, we'll send you a super limited piece of swag unique to this challenge!
+### Startup in a Box
+
+Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront and Checkly, all using Pulumi. When you're done, we'll send you a super limited piece of swag unique to this challenge!
 
 ### Prerequisites
 

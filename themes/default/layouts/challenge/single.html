@@ -1,16 +1,7 @@
 {{ define "hero" }}
-    <header class="header-hero header-hero-glow-bottom">
-        <div class="container mx-auto">
-            <div class="mx-auto text-center">
-                <h1>Pulumi Challenge</h1>
-                {{ if .Params.title }}
-                    <p class="text-2xl">{{ .Params.title }}</p>
-                {{ else }}
-                    <p class="text-2xl">Pulumi Challenge</p>
-                {{ end }}
-            </div>
-        </div>
-    </header>
+    <div class="container mx-auto">
+        <img src="/images/challenge/challenge_banner.png" alt="Pulumi Challenge banner image." />
+    </div>
 {{ end }}
 
 {{ define "main" }}
