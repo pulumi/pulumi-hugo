@@ -21,7 +21,7 @@ In order to complete this challenge, you'll need a couple things set up in advan
 
 * AWS account
 
-* Checkly account
+* [Checkly](https://www.checklyhq.com/) account
 
 ### Challenge
 
@@ -392,7 +392,7 @@ Now we can consume this! Awesome. Back in `pulumi-challenge/src/index.ts`, we no
 // Also shows the challenger how to build a ComponentResource
 import { CdnWebsite } from "./cdn-website";
 
-const website = new CdnWebsite("not-rawkode", {});
+const website = new CdnWebsite("your-startup", {});
 ```
 
 #### Step 6. Adding Another Provider
@@ -436,7 +436,7 @@ Our `pulumi-challenge/src/index.ts` should now look like this:
 ```typescript
 import { CdnWebsite } from "./cdn-website";
 
-const website = new CdnWebsite("rawkode", {});
+const website = new CdnWebsite("your-startup", {});
 
 export const websiteUrl = website.url;
 
@@ -541,7 +541,7 @@ Now, add this final block to `pulumi-challenge/src/index.ts` and run `pulumi up`
 ```typescript
 import { Swag } from "./swag-provider";
 
-const swag = new Swag("not-rawkode", {
+const swag = new Swag("your-startup", {
   name: "YOUR NAME",
   email: "YOUR EMAIL",
   address: "YOUR ADDRESS",
