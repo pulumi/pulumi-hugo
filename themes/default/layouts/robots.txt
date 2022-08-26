@@ -3,6 +3,10 @@ User-agent: *
 Disallow: *
 {{ end }}
 
+# allow Googlebot for events
+User-agent: Googlebot
+Disallow:
+
 # Disallow certain pages that are preceived as soft-404s.
 Disallow: /docs/search/$
 
