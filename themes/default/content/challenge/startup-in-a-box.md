@@ -10,7 +10,7 @@ meta_desc: |
 
 Welcome to the Pulumi Challenge!
 
-Build something cool with Pulumi and get cool swag in return! Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront, all using Pulumi. When you're done, we'll send you a super limited piece of swag unique to this challenge!
+Build something cool with Pulumi and get cool swag in return! Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront and Checkly, all using Pulumi. When you're done, we'll send you a super limited piece of swag unique to this challenge!
 
 ### Prerequisites
 
@@ -20,11 +20,13 @@ In order to complete this challenge, you'll need a couple things set up in advan
 
 * AWS account
 
+* Checkly account
+
 ### Challenge
 
 #### Step 1. Your First Pulumi Program
 
-You will learn how to create a new Pulumi program using our Pulumi templates, specifically for AWS with TypeScript.
+You will learn how to create a new Pulumi program using our Pulumi templates, specifically for AWS with TypeScript. Create a new directory called `pulumi-challenge` and run the following inside of it:
 
 ```shell
 pulumi new aws-typescript
@@ -137,17 +139,22 @@ cloudfrontDistribution = new aws.cloudfront.Distribution(
 
 #### Step 5. Introducing ComponentResources
 
-Now ... we can continue to add resource after resource; but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a CdnWebsite component.
+Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a CdnWebsite component, at `pulumi-challenge/src/cdn-website/index.ts`:
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+import * as fs from "fs";
+import * as mime from "mime";
 
+// This is a simpler verison of:
+// https://github.com/pulumi/pulumi-aws-static-website
 export class CdnWebsite extends pulumi.ComponentResource {
   private bucket: aws.s3.BucketV2;
   private bucketAcl: aws.s3.BucketAclV2;
   private cloudfrontDistribution: aws.cloudfront.Distribution;
   private s3OriginId: string = "myS3Origin";
+  private staticWebsiteDirectory: string = "../website";
 
   constructor(name: string, args: any, opts?: pulumi.ComponentResourceOptions) {
     super("pulumi:challenge:CdnWebsite", name, args, opts);
@@ -164,10 +171,16 @@ export class CdnWebsite extends pulumi.ComponentResource {
       }
     );
 
-    this.bucketAcl = new aws.s3.BucketAclV2("bAcl", {
-      bucket: this.bucket.id,
-      acl: "private",
-    });
+    this.bucketAcl = new aws.s3.BucketAclV2(
+      "bAcl",
+      {
+        bucket: this.bucket.id,
+        acl: aws.s3.PublicReadAcl,
+      },
+      {
+        parent: this,
+      }
+    );
 
     this.cloudfrontDistribution = new aws.cloudfront.Distribution(
       "s3Distribution",
@@ -215,19 +228,45 @@ export class CdnWebsite extends pulumi.ComponentResource {
         viewerCertificate: {
           cloudfrontDefaultCertificate: true,
         },
+      },
+      {
+        parent: this,
       }
     );
+
+    fs.readdirSync(this.staticWebsiteDirectory).forEach((file) => {
+      const filePath = `${this.staticWebsiteDirectory}/${file}`;
+      const fileContent = fs.readFileSync(filePath).toString();
+
+      new aws.s3.BucketObject(
+        file,
+        {
+          bucket: this.bucket.id,
+          source: new pulumi.asset.FileAsset(filePath),
+          contentType: mime.getType(filePath) || undefined,
+          acl: aws.s3.PublicReadAcl,
+        },
+        {
+          parent: this.bucket,
+        }
+      );
+    });
 
     // We also need to register all the expected outputs for this
     // component resource that will get returned by default.
     this.registerOutputs({
       bucketName: this.bucket.id,
+      cdnUrl: this.cloudfrontDistribution.domainName,
     });
+  }
+
+  get url(): pulumi.Output<string> {
+    return this.cloudfrontDistribution.domainName;
   }
 }
 ```
 
-Now we can consume this! Awesome
+Now we can consume this! Awesome. Back in `pulumi-challenge/src/index.ts`, we now have this:
 
 ```typescript
 // Deploy Website to S3 with CloudFront
@@ -263,13 +302,45 @@ new checkly.Check("index-page", {
   activated: true,
   frequency: 10,
   type: "BROWSER",
-  script: fs.readFileSync("checkly-embed.js").toString("utf8"),
+  locations: ["eu-west-2"],
+  script: websiteUrl.apply((url) =>
+    fs
+      .readFileSync("checkly-embed.js")
+      .toString("utf8")
+      .replace("{{websiteUrl}}", url)
+  ),
 });
 ```
 
-You'll notice we use `fs.readFileSync` from `fs` again. That's because we're keeping our Checkly code, which is also Node based, inside its own file where it can get good auto-completion and syntax highlightying, rather than storing as a string object within our existing code. Neat, huh?
+Our `pulumi-challenge/src/index.ts` should now look like this:
 
-##### TODO: We actually need to template in with website URL with `apply`. Needs done
+```typescript
+import { CdnWebsite } from "./cdn-website";
+
+const website = new CdnWebsite("rawkode", {});
+
+export const websiteUrl = website.url;
+
+// Monitoring with Checkly
+// Demonstrates Standard Package usage
+import * as checkly from "@checkly/pulumi";
+import * as fs from "fs";
+
+new checkly.Check("index-page", {
+  activated: true,
+  frequency: 10,
+  type: "BROWSER",
+  locations: ["eu-west-2"],
+  script: websiteUrl.apply((url) =>
+    fs
+      .readFileSync("checkly-embed.js")
+      .toString("utf8")
+      .replace("{{websiteUrl}}", url)
+  ),
+});
+```
+
+You'll notice we use `fs.readFileSync` from `fs` again. That's because we're keeping our Checkly code, which is also Node based, inside its own file where it can get good auto-completion and syntax highlightying, rather than storing as a string object within our existing code. Neat, huh? Add the following to `pulumi-challenge/src/checkly-embed.js`:
 
 ```javascript
 const playwright = require("playwright");
@@ -278,16 +349,16 @@ const expect = require("expect");
 const browser = await playwright.chromium.launch();
 const page = await browser.newPage();
 
-await page.goto("${website.url}");
-const name = await page.$eval(".tag", (el) => el.textContent.trim());
-expect(name).toEqual("PULUMI");
+await page.goto("https://{{websiteUrl}}");
+const name = await page.innerText(".checkName");
+expect(name).toEqual("Pulumi");
 
 await browser.close();
 ```
 
 #### Step 7. Introducing the Dynamic Swag Provider
 
-Everyone likes SWAG and we want to give you some for completing this challenge. To do so, we're going to handle this via Pulumi with a Dynamic Provider.
+Everyone likes SWAG and we want to give you some for completing this challenge. To do so, we're going to handle this via Pulumi with a Dynamic Provider. Create a new directory and file at `pulumi-challenge/src/swag-provider/index.ts`:
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -346,7 +417,7 @@ export class Swag extends pulumi.dynamic.Resource {
 }
 ```
 
-Now, add this final block and run `pulumi up`. Enjoy your SWAG.
+Now, add this final block to `pulumi-challenge/src/index.ts` and run `pulumi up`. Enjoy your SWAG!
 
 ```typescript
 import { Swag } from "./swag-provider";
@@ -359,8 +430,8 @@ const swag = new Swag("not-rawkode", {
 });
 ```
 
-Congratulations! You completed the first Pulumi Challenge. To claim your prize, email da@pulumi.com with a screenshot of your startup!
+Congratulations! You completed the first Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy`. Otherwise, enjoy the new website! Change it around and make it your own. Your swag will be in the mail shortly!
 
 <!-- TODO: Include Tweet button below, prepopulated to use the #PulumiChallenge hashtag -->
 
-Wanna yell it from the rooftops? Write a blog or record a post a quick video about it? Let us know and we'll send you an extra, super secret piece of swag!
+Wanna yell it from the rooftops? Write a blog or record a post a quick video about it? Let us know and we'll send you an extra, super secret piece of swag! Tag us on social media, or email us at da@pulumi.com.
