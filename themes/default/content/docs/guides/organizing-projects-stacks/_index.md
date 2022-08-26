@@ -76,7 +76,7 @@ If using the micro-stacks approach you will need a way to share information betw
 
 To reference values from another stack, create an instance of the StackReference type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name.
 
-### Moving from a Monolithic Project Structure to Micro-Stacks
+## Moving from a Monolithic Project Structure to Micro-Stacks
 
 Here are a few, non-exhaustive, examples, of how one might go about splitting up a monolithic project structure:
 
