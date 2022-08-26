@@ -78,7 +78,7 @@ To reference values from another stack, create an instance of the StackReference
 
 ## Moving from a Monolithic Project Structure to Micro-Stacks
 
-Here are a few, non-exhaustive, examples, of how one might go about splitting up a monolithic project structure:
+Here are a few (non-exhaustive) examples of how one might go about splitting up a monolithic project structure:
 
 * Each micro-service in your architecture might get its own project.
 
