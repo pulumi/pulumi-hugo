@@ -83,7 +83,7 @@ fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
 
 We need our actual website too, though. Create a directory called `website` at `pulumi-challenge/website`, and inside it, add `index.html`, `styles.css`, and `normalize.css`.
 
-For `index.html`, we have the structure of a simple website, with places to put links to your project's GitHub and Twitter, as well as your LinkedIn.
+For `index.html`, we have the structure of a simple website, with places to put links to your project's GitHub and Twitter, as well as your LinkedIn:
 
 ```html
 <!DOCTYPE html>
