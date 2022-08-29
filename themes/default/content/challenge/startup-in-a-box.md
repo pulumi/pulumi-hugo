@@ -36,7 +36,7 @@ pulumi new aws-typescript
 This template requires a little bit of configuration, as AWS needs to know your default region:
 
 ```shell
-pulumi config set aws:region eu-west-2
+pulumi config set aws:region us-west-2
 ```
 
 #### Step 2. Creating Your First Resource
@@ -96,17 +96,25 @@ For `index.html`, we have the structure of a simple website, with places to put 
 </head>
 <body>
   <header>
-    <div class="logo"><i class="fas fa-feather"></i></div>
+    <!-- The logo here is pulled from FontAwesome. Replace it with your own if you like! -->
+    <div class="logo">
+      <ul>
+      <li><i class="fas fa-feather"></i></li>
+      <li><p>Company Name</p></li>
+      </ul>
+    </div>
     <ul class="social">
+      <!-- Add your GitHub and social links here! -->
                 <li><a href="http://github.com/" target="_blank"><i class="fab fa-github-alt"></i></a></li>
                 <li><a href="http://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="http://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
   </header>
 <div class="banner">
-    <h1>Company Name</h1>
-    <h3>Tagline</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tristique arcu, sed commodo ligula. Ut ullamcorper velit non luctus mollis. Sed placerat quam sed tellus aliquam, ac eleifend quam lacinia. Praesent bibendum velit at metus auctor, vitae feugiat quam luctus. Morbi eu imperdiet metus, et tincidunt tellus. Aliquam non ullamcorper justo. Cras ornare nulla vel pellentesque vulputate. Mauris in elit neque. Aliquam tempor aliquam libero, elementum luctus nisl imperdiet sit amet. Praesent urna ante, scelerisque non tellus mollis, laoreet sodales felis.</p>
+  <!-- Fill in the blanks for your startup's pitch! -->
+    <h1>Your Startup Name Here</h1>
+    <h3>Your Tagline</h3>
+    <p>We're $CompanyName, and we're changing what it means to $Task. Our innovative use of $Technology makes life easier for $JobTitles, so they can focus on what they're really good at instead of wasting time and effort on $MenialOrDifficultTask. Streamline your $TaskProcess with $Product and take to the skies!</p>
 </div>
 </body>
 <script src="https://kit.fontawesome.com/b4747495ea.js" crossorigin="anonymous"></script>
@@ -172,11 +180,11 @@ header li {
 }
 
 .logo {
+    font-family: Teko;
     position: absolute;
-    left: 10px;
-    margin-left: 20px;
-    font-size: 60px;
-    color: white;
+    left: 5px;
+    top: -60px;
+    font-size: 40px;
 }
 
 .banner {
@@ -258,7 +266,7 @@ cloudfrontDistribution = new aws.cloudfront.Distribution(
 
 #### Step 5. Introducing ComponentResources
 
-Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a CdnWebsite component, at `pulumi-challenge/src/cdn-website/index.ts`:
+Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a CdnWebsite component, at `pulumi-challenge/cdn-website/index.ts`. We'll have a new dependency, so make sure to also run `npm install @types/mime`.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -273,7 +281,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
   private bucketAcl: aws.s3.BucketAclV2;
   private cloudfrontDistribution: aws.cloudfront.Distribution;
   private s3OriginId: string = "myS3Origin";
-  private staticWebsiteDirectory: string = "../website";
+  private staticWebsiteDirectory: string = "./website";
 
   constructor(name: string, args: any, opts?: pulumi.ComponentResourceOptions) {
     super("pulumi:challenge:CdnWebsite", name, args, opts);
@@ -385,7 +393,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
 }
 ```
 
-Now we can consume this! Awesome. Back in `pulumi-challenge/src/index.ts`, we now have this:
+Now we can consume this! Awesome. Back in `pulumi-challenge/index.ts`, we now have this:
 
 ```typescript
 // Deploy Website to S3 with CloudFront
@@ -408,7 +416,7 @@ npm install @checkly/pulumi
 pulumi config set checkly:apiKey --secret
 
 # AccountID: https://app.checklyhq.com/settings/account/general
-pulumi config set checklly:accountId
+pulumi config set checkly:accountId
 ```
 
 Next, we can use this in our code.
@@ -431,7 +439,7 @@ new checkly.Check("index-page", {
 });
 ```
 
-Our `pulumi-challenge/src/index.ts` should now look like this:
+Our `pulumi-challenge/index.ts` should now look like this:
 
 ```typescript
 import { CdnWebsite } from "./cdn-website";
@@ -459,7 +467,7 @@ new checkly.Check("index-page", {
 });
 ```
 
-You'll notice we use `fs.readFileSync` from `fs` again. That's because we're keeping our Checkly code, which is also Node based, inside its own file where it can get good auto-completion and syntax highlightying, rather than storing as a string object within our existing code. Neat, huh? Add the following to `pulumi-challenge/src/checkly-embed.js`:
+You'll notice we use `fs.readFileSync` from `fs` again. That's because we're keeping our Checkly code, which is also Node based, inside its own file where it can get good auto-completion and syntax highlightying, rather than storing as a string object within our existing code. Neat, huh? Add the following to `pulumi-challenge/checkly-embed.js`:
 
 ```javascript
 const playwright = require("playwright");
@@ -477,7 +485,7 @@ await browser.close();
 
 #### Step 7. Introducing the Dynamic Swag Provider
 
-Everyone likes SWAG and we want to give you some for completing this challenge. To do so, we're going to handle this via Pulumi with a Dynamic Provider. Create a new directory and file at `pulumi-challenge/src/swag-provider/index.ts`:
+Everyone likes SWAG and we want to give you some for completing this challenge. To do so, we're going to handle this via Pulumi with a Dynamic Provider. Create a new directory and file at `pulumi-challenge/swag-provider/index.ts`:
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -536,7 +544,7 @@ export class Swag extends pulumi.dynamic.Resource {
 }
 ```
 
-Now, add this final block to `pulumi-challenge/src/index.ts` and run `pulumi up`. Enjoy your SWAG!
+Now, add this final block to `pulumi-challenge/index.ts` and run `pulumi up`. Enjoy your SWAG!
 
 ```typescript
 import { Swag } from "./swag-provider";
