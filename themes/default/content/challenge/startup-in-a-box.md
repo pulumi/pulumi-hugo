@@ -17,7 +17,9 @@ Thinking about turning that side project into a little something more? Follow al
 
 In order to complete this challenge, you'll need a couple things set up in advance.
 
-* Pulumi account
+* A [Pulumi account](https://app.pulumi.com/signup)
+
+* The [Pulumi CLI]({{< relref "/docs/get-started/install/" >}})
 
 * AWS account
 
