@@ -35,7 +35,7 @@ tags:
 
 The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) is the easiest way to use Pulumi’s open source, universal infrastructure as code SDK at scale and provides a fully managed experience. It handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
 
-It’s been nearly four years since the Pulumi Service launched back in 2018. In these last four years, our customer base has grown significantly and as a result, the Service’s features and capabilities have grown with it. 
+It’s been nearly four years since the Pulumi Service launched back in 2018. In these last four years, our customer base has grown significantly and as a result, the Service’s features and capabilities have grown with it.
 
 <!--more-->
 We’ve added features like [audit logs]({{< relref "/docs/intro/pulumi-service/audit-logs" >}}), [SAML SSO]({{< relref "/docs/guides/saml" >}}) and [SCIM]({{< relref "/docs/guides/scim" >}}), [Teams]({{< relref "/docs/intro/pulumi-service/teams" >}}), [Organization]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) and [Team Access Tokens]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}), and much more! But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
@@ -45,6 +45,17 @@ Today we’re excited to launch a set of improvements to the overall user experi
 - Increased organizational insights on the Service Dashboard
 - Quick access to stacks with a new Stack Favorites feature
 - Easier navigation around the Service with a new left navigation bar
+
+<div class="rounded shadow-md" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe
+        src="https://www.youtube.com/embed/S_i6etgwKR4"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+        title="Introducing the New and Improved Pulumi Service Console"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        ?rel=0 allowfullscreen
+
+    ></iframe>
+</div>
 
 These changes came directly from consultation with our users and we've spent time with customers in the past few weeks refining it. One of these customers was [dutchie](https://dutchie.com), an all-in-one technology platform powering the cannabis industry with Point of Sale, Ecommerce, Payments, and more. "The new Pulumi Service UI is a change we are really excited to see, literally. It has better use of white space and an improved balance of information on the Dashboard at the same time and that shows a real and welcome focus on user experience. It is a genuine quality of life improvement in a portion of the product that we use daily." said Jordan Rinke, Infrastructure Architect at dutchie.
 
