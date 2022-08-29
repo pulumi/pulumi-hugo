@@ -30,7 +30,7 @@ Work through the Challenge tutorial to build a real-world application, personali
 
 Once a Challenge is complete, our swag provider will kick off and send you the unique item for that Challenge. Every challenge offers something different, so complete them all as we release them!
 
-There's another way to get more swag, though -- write a 500-word blog article or post a 3-minute video about your Pulumi Challenge project and we'll send you something even nicer.
+There's another way to get more swag, though: Write a 500-word blog article or post a 3-minute video about your Pulumi Challenge project, and we'll send you something even nicer.
 
 ## August Challenge
 
