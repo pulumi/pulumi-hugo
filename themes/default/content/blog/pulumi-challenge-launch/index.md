@@ -34,6 +34,6 @@ There's another way to get more swag, though -- write a 500-word blog article or
 
 ## August Challenge
 
-Our inaugural Pulumi Challenge is [Startup in a Box](https://pulumi.com/challenge/startup-in-a-box). We'll walk you through building a customizable landing page for your startup, side-project, current hyperfixation, or pet, all deployed to AWS S3 with Cloudfront for a CDN and Checkly for monitoring! You'll learn about interacting with AWS services through Pulumi, deploying to S3, building reusable components, using Providers with Checkly, and building Dyanmic Providers.
+Our inaugural Pulumi Challenge is [Startup in a Box]({{< relref "/challenge/startup-in-a-box" >}}). We'll walk you through building a customizable landing page for your startup, side-project, current hyperfixation, or pet, all deployed to AWS S3 with Cloudfront for a CDN and Checkly for monitoring! You'll learn about interacting with AWS services through Pulumi, deploying to S3, building reusable components, using Providers with Checkly, and building Dynamic Providers.
 
 [Try it for yourself](https://pulumi.com/challenge/startup-in-a-box), and [follow us on Twitter](https://twitter.com/pulumicorp) to get a heads up when a new one launches!
