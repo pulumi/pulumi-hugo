@@ -408,7 +408,7 @@ const website = new CdnWebsite("your-startup", {});
 
 #### Step 6. Adding Another Provider
 
-Now that we have our website being delivered as fast as can we via our CdnWebsite component and S3 with Cloudfront, how do we know that what we've deployed actually works? We could leverage a fantastic service, such as Checkly, to ensure our website passes some sanity checks.
+Now that we have our website being delivered as fast as can we via our `CdnWebsite` component and S3 with Cloudfront, how do we know that what we've deployed actually works? We could leverage a fantastic service, such as Checkly, to ensure our website passes some sanity checks.
 
 First, we need to add a new provider:
 
