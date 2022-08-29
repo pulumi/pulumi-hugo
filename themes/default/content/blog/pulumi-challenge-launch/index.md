@@ -22,7 +22,7 @@ Introducing the Pulumi Challenge, launching today! We think Pulumi is an amazing
 
 <!--more-->
 
-The [Pulumi Challenge](https://pulumi.com/challenge) is a series of specialized tutorials, released monthly. Each challenge will guide you through building a real-world application, some of them useful and some of them silly, showcasing the varied ways Pulumi can be a lifesaver for your team at work or your side-projects at home. At the end, you'll have something you can use, and we'll send you swag unique to each challenge too!
+The [Pulumi Challenge]({{< relref "/challenge" >}}) is a series of specialized tutorials, released monthly. Each challenge will guide you through building a real-world application, some of them useful and some of them silly, showcasing the varied ways Pulumi can be a lifesaver for your team at work or your side-projects at home. At the end, you'll have something you can use, and we'll send you swag unique to each challenge too!
 
 ## How it Works
 
