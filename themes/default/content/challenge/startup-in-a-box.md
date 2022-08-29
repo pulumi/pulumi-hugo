@@ -269,7 +269,7 @@ cloudfrontDistribution = new aws.cloudfront.Distribution(
 
 #### Step 5. Introducing ComponentResources
 
-Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a CdnWebsite component, at `pulumi-challenge/cdn-website/index.ts`. We'll have a new dependency, so make sure to also run `npm install @types/mime`.
+Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a `CdnWebsite` component at `pulumi-challenge/cdn-website/index.ts`. We'll have a new dependency, so make sure to also run `npm install @types/mime`.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
