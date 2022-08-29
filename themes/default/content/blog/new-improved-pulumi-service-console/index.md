@@ -47,18 +47,17 @@ Today we’re excited to launch a set of improvements to the overall user experi
 - Quick access to stacks with a new Stack Favorites feature
 - Easier navigation around the Service with a new left navigation bar
 
+These changes came directly from consultation with our users and we've spent time with customers in the past few weeks refining it. One of these customers was [dutchie](https://dutchie.com), an all-in-one technology platform powering the cannabis industry with Point of Sale, Ecommerce, Payments, and more. "The new Pulumi Service console is a change we are really excited to see, literally. It has better use of white space and an improved balance of information on the Dashboard at the same time and that shows a real and welcome focus on user experience. It is a genuine quality of life improvement in a portion of the product that we use daily." said Jordan Rinke, Infrastructure Architect at dutchie.
+
 <div class="rounded shadow-md" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
     <iframe
-        src="https://www.youtube.com/embed/S_i6etgwKR4"
+        src="https://www.youtube.com/embed/S_i6etgwKR4?rel=0"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
         title="Introducing the New and Improved Pulumi Service Console"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        ?rel=0 allowfullscreen
-
+        allowfullscreen
     ></iframe>
 </div>
-
-These changes came directly from consultation with our users and we've spent time with customers in the past few weeks refining it. One of these customers was [dutchie](https://dutchie.com), an all-in-one technology platform powering the cannabis industry with Point of Sale, Ecommerce, Payments, and more. "The new Pulumi Service UI is a change we are really excited to see, literally. It has better use of white space and an improved balance of information on the Dashboard at the same time and that shows a real and welcome focus on user experience. It is a genuine quality of life improvement in a portion of the product that we use daily." said Jordan Rinke, Infrastructure Architect at dutchie.
 
 Want to try these features out for yourself? Next time you sign in to your Pulumi Service account, select the toggle in the black utility toolbar at the top of the page to “Try the new Pulumi Service!” You can take these new changes for a ride, or return to the old experience at any time.
 
@@ -70,10 +69,10 @@ Lastly, we’ve made significant changes to the Pulumi Service dashboard. Now yo
 
 Organizations can access some quick usage statistics at the top of their dashboards:
 
-- member count and +/- change in the past week
-- total stack count and percent change in the past week
-- total resource count and percent change in the past week
-- number of successful updates in the past day, week, month, and year
+- Member count and +/- change in the past week
+- Total stack count and percent change in the past week
+- Total resource count and percent change in the past week
+- Number of successful updates in the past day, week, month, and year
 
 !["Screenshot of the new quick stats bar on the Dashboard"](dashboard-quick-stats.png)
 
@@ -105,11 +104,11 @@ Among the biggest changes to the feel of the Service is our new left navigation 
 
 The navigation pane consolidates actions and information so it's easy for you to find common items. You'll find options in the pane to:
 
-- switch between your individual account and any other organizations you're part of
-- create new organizations
-- access your favorite stacks (read on to find out more!)
-- directly access sub-pages like Billing or Access Tokens
-- send us your feedback!
+- Switch between your individual account and any other organizations you're part of
+- Create new organizations
+- Access your favorite stacks (read on to find out more!)
+- Directly access sub-pages like Billing or Access Tokens
+- Send us your feedback!
 
 These changes will help you move through the Pulumi Service without losing your place and to ensure convenient access to key pages. You can even collapse the navigation pane for more screen real estate and still access any page you need.
 
