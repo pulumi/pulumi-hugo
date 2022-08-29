@@ -86,7 +86,6 @@ And a complete example showing how to pass in the AWS region:
 $ pulumi new aws-typescript --config="aws:region=us-west-2"
 ```
 
-
 ## Accessing Configuration from Code {#code}
 
 Configuration values can be retrieved using either {{< pulumi-config-get >}} or {{< pulumi-config-require >}}. Using {{< pulumi-config-get >}} will return {{< language-null >}} if the configuration value was not provided, and {{< pulumi-config-require >}} will raise an exception with a helpful error message to prevent the deployment from continuing until the variable has been set using the CLI.
