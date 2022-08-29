@@ -158,6 +158,9 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
+    box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.75);
 }
 
 header li {
