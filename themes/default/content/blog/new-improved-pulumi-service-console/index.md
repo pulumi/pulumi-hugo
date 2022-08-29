@@ -5,7 +5,7 @@ title: "The New and Improved Pulumi Service console"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-08-26
+date: 2022-08-29
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -38,6 +38,7 @@ The [Pulumi Service]({{< relref "/product/pulumi-service" >}}) is the easiest wa
 It’s been nearly four years since the Pulumi Service launched back in 2018. In these last four years, our customer base has grown significantly and as a result, the Service’s features and capabilities have grown with it.
 
 <!--more-->
+
 We’ve added features like [audit logs]({{< relref "/docs/intro/pulumi-service/audit-logs" >}}), [SAML SSO]({{< relref "/docs/guides/saml" >}}) and [SCIM]({{< relref "/docs/guides/scim" >}}), [Teams]({{< relref "/docs/intro/pulumi-service/teams" >}}), [Organization]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) and [Team Access Tokens]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}), and much more! But throughout all these changes, the look and feel of the Service has largely stayed the same—until now!
 
 Today we’re excited to launch a set of improvements to the overall user experience of the Pulumi Service. These updates include:
