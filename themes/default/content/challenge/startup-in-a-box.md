@@ -61,7 +61,7 @@ const bucketAcl = new aws.s3.BucketAclV2("bAcl", {
 
 #### Step 3. Working with Local Files
 
-Pulumi let's you use your favourite programming language to define your infrastructure. Today, we're using TypeScript; which means we have access to the Node API. This includes discovering directories and files.
+Pulumi lets you use your favourite programming language to define your infrastructure. Today, we're using TypeScript, which means we have access to the Node API. This includes discovering directories and files.
 
 Using these APIs, we can sync our local files, with the Pulumi resource model, to the S3 bucket.
 
