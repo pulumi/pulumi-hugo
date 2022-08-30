@@ -9,7 +9,6 @@ meta_desc: |
 
 ## Welcome to the Pulumi Challenge!
 
-
 <div class="flex flex-wrap md:mt-12">
   <div class="w-full md:w-1/2">
     <h3>Startup in a Box</h3>
