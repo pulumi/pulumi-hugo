@@ -35,12 +35,6 @@ You will learn how to create a new Pulumi program using our Pulumi templates, sp
 pulumi new aws-typescript
 ```
 
-This template requires a little bit of configuration, as AWS needs to know your default region:
-
-```shell
-pulumi config set aws:region us-west-2
-```
-
 #### Step 2. Creating Your First Resource
 
 Now that we have a base AWS project configured, we need to create our first resource. In this instance, we'll create a new S3 bucket which will allow us to store our static website. We'll also ensure that this bucket is private, as we want to expose it only via our CDN - which we'll configure next.
@@ -57,7 +51,7 @@ const bucket = new aws.s3.BucketV2(
 
 const bucketAcl = new aws.s3.BucketAclV2("bAcl", {
   bucket: bucket.id,
-  acl: "private",
+  acl: aws.s3.PublicReadAcl,
 });
 ```
 
@@ -67,8 +61,15 @@ Pulumi lets you use your favourite programming language to define your infrastru
 
 Using these APIs, we can sync our local files, with the Pulumi resource model, to the S3 bucket.
 
+We need to add the `mime` package from npm, as it is useful for passing the mime type of the file to S3 without hardcoding it.
+
+```shell
+npm install mime @types/mime
+```
+
 ```typescript
 import * as fs from "fs";
+import * as mime from "mime";
 const staticWebsiteDirectory = "website";
 
 fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
@@ -79,6 +80,7 @@ fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
     bucket: bucket.id,
     source: new pulumi.asset.FileAsset(filePath),
     contentType: mime.getType(filePath) || undefined,
+    acl: aws.s3.PublicReadAcl,
   });
 });
 ```
@@ -92,7 +94,7 @@ For `index.html`, we have the structure of a simple website, with places to put 
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello world!</title>
+  <title>Pulumi Challenge</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="normalize.css">
 </head>
@@ -219,7 +221,7 @@ Next, we want to front our S3 bucket with Cloudfront. This is a pretty big objec
 ```typescript
 const s3OriginId = "myS3Origin";
 
-cloudfrontDistribution = new aws.cloudfront.Distribution(
+const cloudfrontDistribution = new aws.cloudfront.Distribution(
   "s3Distribution",
   {
     origins: [
@@ -482,8 +484,7 @@ const browser = await playwright.chromium.launch();
 const page = await browser.newPage();
 
 await page.goto("https://{{websiteUrl}}");
-const name = await page.innerText(".checkName");
-expect(name).toEqual("Pulumi");
+expect(await page.title()).toBe("Pulumi Challenge");
 
 await browser.close();
 ```
@@ -491,6 +492,12 @@ await browser.close();
 #### Step 7. Introducing the Dynamic Swag Provider
 
 Everyone likes SWAG and we want to give you some for completing this challenge. To do so, we're going to handle this via Pulumi with a Dynamic Provider. Create a new directory and file at `pulumi-challenge/swag-provider/index.ts`:
+
+For this dynamic provider, we can only use CommonJS modules. For making an HTTP request, we can use `got` version `11.8.0`:
+
+```shell
+npm install got@11.8.0
+```
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
