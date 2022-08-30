@@ -11,7 +11,7 @@ meta_desc: |
 
 ### Startup in a Box
 
-Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront and Checkly, all using Pulumi. When you're done, we'll send you a super limited piece of swag unique to this challenge!
+Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront and Checkly, all using Pulumi. When you're done, we'll send you a fancy drink tumbler with a special Pulumipus on it, just for this Challenge!
 
 ### Prerequisites
 
@@ -273,7 +273,7 @@ const cloudfrontDistribution = new aws.cloudfront.Distribution(
 
 #### Step 5. Introducing ComponentResources
 
-Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a `CdnWebsite` component at `pulumi-challenge/cdn-website/index.ts`. We'll have a new dependency, so make sure to also run `npm install @types/mime`.
+Now... we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a `CdnWebsite` component at `pulumi-challenge/cdn-website/index.ts`.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
