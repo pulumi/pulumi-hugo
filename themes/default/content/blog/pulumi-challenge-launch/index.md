@@ -18,7 +18,7 @@ tags:
 
 ![Pulumi Challenge banner image](challenge_banner.png)
 
-Introducing the Pulumi Challenge, launching today! We think Pulumi is an amazing IaC tool that increases developer velocity and handles the scale of the cloud with ease. Try it out for yourself by taking a Pulumi Challenge, and tell us if you think we're wrong! You'll build something cool, and we'll send you some super secret swag in return. We promise it's better than a t-shirt.
+Introducing the Pulumi Challenge, launching today! We think Pulumi is an amazing IaC tool that increases developer velocity and handles the scale of the cloud with ease. Try it out for yourself by taking a Pulumi Challenge! You'll build something cool, and we'll send you some super secret swag in return. We promise it's better than a t-shirt.
 
 <!--more-->
 
