@@ -64,7 +64,7 @@ If `[value]` is not specified when setting a configuration key, the CLI will pro
 $ cat my_key.pub | pulumi config set publicKey
 ```
 
-## Using the Config Flag with Pulumi New
+## Using the Config Flag with `pulumi new`
 
 Configuration keys and values can be passed when using `pulumi new`.
 
