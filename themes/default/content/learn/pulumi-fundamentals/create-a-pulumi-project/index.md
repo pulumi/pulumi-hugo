@@ -228,14 +228,14 @@ public class App {
 {{% choosable language yaml %}}
 
 ```yaml
-description: ${DESCRIPTION}
+name: my_first_app
 runtime: yaml
-template:
-    description: A minimal Pulumi YAML program
+description: A minimal Pulumi YAML program
+
 configuration: {}
-variables: {}
-resources: {}
-outputs: {}
+variables:     {}
+resources:     {}
+outputs:       {}
 ```
 
 {{% /choosable %}}
