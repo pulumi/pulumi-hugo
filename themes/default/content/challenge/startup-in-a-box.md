@@ -40,6 +40,9 @@ meta_desc: |
 </div>
 
 ### Challenge
+Follow along with the steps below or watch the video to complete the challenge. 
+
+{{< youtube "NU7uOy273jQ?rel=0" >}}
 
 #### Step 1. Your First Pulumi Program
 
