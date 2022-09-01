@@ -24,21 +24,18 @@ Under the hood, Pulumi is a desired state engine. This means that you tell Pulum
 
 ## The Problem
 
-There are scenarios where Pulumi’s understanding of the world differs from what actually exists. For Pulumi to work correctly, it needs to reconcile its known state with the actual state. Before we explore how Pulumi solves this problem, we should explore how the Pulumi state gets out of sync with the actual state of the world. There are two main ways for Pulumi to get out of sync:
+There are scenarios where Pulumi’s understanding of the world differs from what actually exists. For Pulumi to work correctly, it needs to reconcile its known state with the actual state. Before we explore how Pulumi solves this problem, we should explore how the Pulumi state gets out of sync with the actual state of the world. There are two main ways for Pulumi to get out of sync: out of bound changes and terminating Pulumi mid-operation. I will explain each in turn.
 
-1. Unmanaged changes to the underlying provider.
-2. Terminating Pulumi while it is performing an update.
+### Out of bound changes
 
-(1) is easy to understand. Imagine creating an S3 bucket with Pulumi:
+Pulumi expects to be the sole controller for the resources it provisions. An out of bound change happens when this principle is violated. This is best illustrated with an example. Imagine creating an S3 bucket with Pulumi:
 
 ```typescript
 const bucket = new aws_native.s3.Bucket("my-bucket", {
-    tags: [
-        {
+    tags: [{
             key: "pulumi-bucket",
             value: "not important",
-        },
-    ],
+        }],
 });
 ```
 
@@ -46,16 +43,16 @@ Then someone goes into the aws console and deletes the bucket. What happens if y
 
 ```typescript
 const bucket = new aws_native.s3.Bucket("my-bucket", {
-    tags: [
-        {
+    tags: [{
             key: "pulumi-bucket",
             value: "don’t delete me",
-        },
-    ],
+        }],
 });
 ```
 
 Pulumi has recorded creating a bucket, but it does not know that the bucket was deleted. It will try to update the bucket and fail, since the bucket does not exist anymore.
+
+### Terminating Pulumi Mid-Operation
 
 Pulumi also gets confused if the CLI or Pulumi Provider process is terminated while an update is taking place. The Pulumi CLI checks in its state before and after each operation it performs. Creating the bucket from above goes something like:
 
@@ -67,7 +64,7 @@ d. Finished “pulumi up”.
 If the Pulumi CLI process is terminated between steps (b) and (c), then Pulumi does not know if
 “my-bucket” exists or not. Unlike (1), Pulumi is aware that it does not know if the resource was created. This will be displayed as a pending CREATE operation. Depending on what type of operation was interrupted, you can see pending CREATE, UPDATE, DELETE, READ and IMPORT operations.
 
-TODO: Insert image of a pending create operation warning.
+![Pending Operations Warning](pending-ops-warning.png)
 
 ## The Solution
 
@@ -75,7 +72,7 @@ As of [#10394](https://github.com/pulumi/pulumi/pull/10394), the solution to bot
 
 This works for all resources that Pulumi knows about. This set includes Pulumi managed resources that were changed manually, or for pending UPDATE, DELETE, READ and IMPORT operations. Pulumi does not know the resource ID for pending CREATE operations (it might not exist), so it can&rsquo;t resolve everything for you. It needs a little bit of help. For each pending CREATE, Pulumi will ask you what to do:
 
-TODO: Insert image of a pending CREATE asking what to do
+![Pulumi refresh asking for input](refresh-ask.png)
 
 If the resource was created successfully, you can select import, give Pulumi the ID of the
 created resource, and Pulumi will bring that resource under management.
@@ -94,6 +91,8 @@ There are some new flags you can pass to modify the new behavior:
 
 These flags can be combined:
 
+```sh
     pulumi refresh --import-pending-creates="aws_native:s3:Bucket::my-bucket my-bucket-6e3d099" --clear-pending-creates
+```
 
 The above command will run the pending CREATE resolution for our example S3 bucket, and will clear all other pending CREATEs.
