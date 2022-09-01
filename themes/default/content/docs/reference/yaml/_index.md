@@ -322,8 +322,8 @@ The  `parent` and `provider` values permit expressions which must use interpolat
 
 | Property                  | Type         | Description |
 | ------------------------- |--------------|-------------|
-| `parent`                  | Expression   | No | Yes | Parent specifies a parent for the resource |
-| `provider`                | Expression   | No | Yes | Provider specifies an explicitly configured provider, instead of using the default global provider |
+| `parent`                  | Expression   | Parent specifies a parent for the resource |
+| `provider`                | Expression   | Provider specifies an explicitly configured provider, instead of using the default global provider |
 | `version`                 | string       | Version specifies a provider plugin version that should be used when operating on a resource |
 | `pluginDownloadURL`       | string       | Version specifies a URL that should be used when to download the provider plugin |
 
