@@ -156,16 +156,17 @@ This command creates all the files we need, initializes a new stack named `dev`
 The basic project created by `pulumi new` is comprised of multiple files:
 
 - `Pulumi.yaml`: your project's metadata, containing its name and language
-- {{< langfile >}}: your program's main entrypoint file
 
 {{% choosable language typescript %}}
 
+- {{< langfile >}}: your program's main entrypoint file
 - `package.json`: your project's Node.js dependency information
 
 {{% /choosable %}}
 
 {{% choosable language python %}}
 
+- {{< langfile >}}: your program's main entrypoint file
 - `requirements.txt`: your project's Python dependency information
 - `venv`: a [virtualenv](https://pypi.org/project/virtualenv/) for your project
 
@@ -173,6 +174,7 @@ The basic project created by `pulumi new` is comprised of multiple files:
 
 {{% choosable language java %}}
 
+- {{< langfile >}}: your program's main entrypoint file
 - `settings.gradle`: your project's Gradle settings
 - `app/`: the app directory generated for Java, which includes the following files:
     - `build.gradle`: your project's build information for Gradle
@@ -181,6 +183,9 @@ The basic project created by `pulumi new` is comprised of multiple files:
 {{% /choosable %}}
 
 {{% choosable language yaml %}}
+
+For YAML, your {{< langfile >}} is also your program's main entrypoint file.
+
 {{% /choosable %}}
 
 Use the command <code>cat</code>{{< langfile >}} to explore the contents of your
