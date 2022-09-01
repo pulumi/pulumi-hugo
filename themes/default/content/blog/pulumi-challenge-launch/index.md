@@ -26,7 +26,7 @@ The [Pulumi Challenge]({{< relref "/challenge" >}}) is a series of specialized t
 
 ## How it Works
 
-Work through the Challenge tutorial to build a real-world application, personalizing it as you go. You'll learn how Pulumi works to ease integration and infrastructure deployment through providers for major cloud providers, Kubernetes, obervability tools, CI/CD systems, dynamic providers, reusable component resources, and more.
+Work through the Challenge tutorial to build a real-world application, personalizing it as you go. You'll learn how Pulumi works to ease integration and infrastructure deployment through providers for major cloud providers, Kubernetes, observability tools, CI/CD systems, dynamic providers, reusable component resources, and more.
 
 Once a Challenge is complete, our swag provider will kick off and send you the unique item for that Challenge. Every challenge offers something different, so complete them all as we release them!
 
@@ -35,5 +35,7 @@ There's another way to get more swag, though: Write a 500-word blog article or p
 ## August Challenge
 
 Our inaugural Pulumi Challenge is [Startup in a Box]({{< relref "/challenge/startup-in-a-box" >}}). We'll walk you through building a customizable landing page for your startup, side-project, current hyperfixation, or pet, all deployed to AWS S3 with Cloudfront for a CDN and Checkly for monitoring! You'll learn about interacting with AWS services through Pulumi, deploying to S3, building reusable components, using Providers with Checkly, and building Dynamic Providers.
+
+{{< youtube "NU7uOy273jQ?rel=0" >}}
 
 [Try it for yourself]({{< relref "/challenge/startup-in-a-box" >}}), and [follow us on Twitter](https://twitter.com/pulumicorp) to get a heads up when a new one launches!

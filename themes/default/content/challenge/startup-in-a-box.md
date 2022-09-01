@@ -5,7 +5,8 @@ description: |
     Build and deploy your very own startup landing site to the cloud, complete with everything you need to get started!
 meta_desc: |
     Build and deploy your very own startup landing site to the cloud, complete with everything you need to get started!
-meta_image: meta.png
+meta_image: challenge_cta.png
+
 ---
 
 ## Welcome to the Pulumi Challenge!
