@@ -312,7 +312,7 @@ The expression `${AmazonLinuxAmi}` will return the AMI ID returned from the [`aw
 
 The value of the `options` property of an Fn::Invoke is an object with the following properties.
 
-The  `parent` and`provider` values permit expressions which must use interpolation syntax to reference resources by name. For example:
+The  `parent` and `provider` values permit expressions which must use interpolation syntax to reference resources by name. For example:
 
 ```yaml
     options:
