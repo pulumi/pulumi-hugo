@@ -147,6 +147,8 @@ Learn more in the [Add options to configure logging and tracing merge request](h
 
 ### Flag to install dependencies on `pulumi convert`
 
+(need to populate)
+
 ### Use `pulumi destroy -s <stack>` outside a Pulumi project dir
 
 You can now specify a stack when using [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy">}}) while outside of the project directory. 
@@ -157,9 +159,7 @@ Learn more in the [``pulumi destroy -s <stack>` GitHub issue](https://github.com
 
 ### Team Access Tokens
 
-We launching Team Access Token, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team. Pulumi Service customers on the Enterprise and Business Critical editions can use [Pulumi Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams) to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users.
-
-Since Pulumi Teams are only available on these editions, Team Access Tokens are also only available to customers on the Enterprise and Business Critical editions of the Pulumi Service. See the Team Access Tokens documentation for more information on how to use the feature.
+We launched Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team. Pulumi Service customers on the Enterprise and Business Critical editions can use [Pulumi Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams) to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users. Once you have Teams created you can use Team Access Tokens to generate a token scoped to that Team.
 
 ### Billing Managers
 ### New Pulumi Service console
