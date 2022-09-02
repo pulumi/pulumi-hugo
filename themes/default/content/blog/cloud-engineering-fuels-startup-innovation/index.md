@@ -33,7 +33,7 @@ tags:
     - cloud-engineering
     - case-studies
 
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
+# See the blogging docs at https://github.com/pulumi/docs/blob/master/docs/blogging.md.
 # for additional details, and please remove these comments before submitting for review.
 ---
 The story of how the cloud fuels startup innovation seems never ending. In the beginning, AWS birthed cloud computing with its first service, SQS, in 2004 and quickly released several additional services (like S3, EC2, and SimpleDB). From this innovation, startups flourished because they were able to build, experiment, and grow faster than before at much lower cost. Airbnb, Netflix, Zynga, and many more were born, and the rest is history.

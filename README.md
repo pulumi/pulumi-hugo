@@ -113,11 +113,11 @@ The behavior in this case is no different than if you'd allowed the job to run o
 
 ## Blogging
 
-Interested in writing a blog post? See the [blogging README](BLOGGING.md) for details.
+Interested in writing a blog post? See the [blogging README](docs/blogging.md) for details.
 
 ## Style Guide
 
-We try and align Pulumi documentation to the [Pulumi Docs Style Guide](STYLE-GUIDE.md).
+We try and align Pulumi documentation to the [Pulumi Docs Style Guide](docs/style-guide.md).
 
 ## Shortcodes and web components
 

@@ -29,7 +29,7 @@ authors:
 tags:
     - features
 
-# See the blogging docs at https://github.com/pulumi/docs/blob/master/BLOGGING.md.
+# See the blogging docs at https://github.com/pulumi/docs/blob/master/docs/blogging.md.
 # for additional details, and please remove these comments before submitting for review.
 ---
 In the last 12 months, we have experienced 350% year-over-year growth of our enterprise customers, including Mercedes-Benz, Snowflake, Atlassian and SANS Institute. Given the growth in our enterprise customer base, we are excited to launch today a new Business Critical Edition for the Pulumi Service, a 30 day Self-Hosted Pulumi Service trial, and the option to purchase Pulumi Enterprise and Business Critical through the AWS Marketplace!

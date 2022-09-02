@@ -83,4 +83,4 @@ If a tutorial has more following tutorials, use a **Next steps** section at the 
 
 ## Blog Post Authoring
 
-For instructions on contributing to the [Pulumi blog](https://www.pulumi.com/blog/), [see BLOGGING.md](BLOGGING.md).
+For instructions on contributing to the [Pulumi blog](https://www.pulumi.com/blog/), [see docs/blogging.md](docs/blogging.md).

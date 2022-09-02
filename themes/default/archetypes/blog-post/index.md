@@ -28,7 +28,7 @@ authors:
 tags:
     - change-me
 
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
+# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/docs/blogging.md.
 # for additional details, and please remove these comments before submitting for review.
 ---
 
@@ -42,7 +42,7 @@ Either way, avoid using images or code samples [in the first 70 words](https://g
 
 ## Writing the Post
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+For help assembling the content of your post, see [docs/blogging.md](https://github.com/pulumi/pulumi-hugo/blob/master/docs/blogging.md). For general formatting guidelines, see the [Style Guide](https://https://github.com/pulumi/pulumi-hugo/blob/master/docs/style-guide.md).
 
 ## Code Samples
 
