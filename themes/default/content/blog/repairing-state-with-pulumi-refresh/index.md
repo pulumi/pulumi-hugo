@@ -20,11 +20,11 @@ Under the hood, Pulumi is a desired state engine. This means that you tell Pulum
 
 ## The Problem
 
-There are scenarios where Pulumi’s understanding of the world differs from what actually exists. For Pulumi to work correctly, it needs to reconcile its known state with the actual state. Before we explore how Pulumi solves this problem, we should explore how the Pulumi state gets out of sync with the actual state of the world. There are two main ways for Pulumi to get out of sync: out of bound changes and terminating Pulumi mid-operation. I will explain each in turn.
+There are scenarios where Pulumi’s understanding of the world differs from what actually exists. For Pulumi to work correctly, it needs to reconcile its known state with the actual state. Before we explore how Pulumi solves this problem, we should explore how the Pulumi state gets out of sync with the actual state of the world. There are two main ways for Pulumi to get out of sync: out of band changes and terminating Pulumi mid-operation. I will explain each in turn.
 
-### Out of bound changes
+### Out of Band Changes
 
-Pulumi expects to be the sole controller for the resources it provisions. An out of bound change happens when this principle is violated. This is best illustrated with an example. Imagine creating an S3 bucket with Pulumi:
+Pulumi expects to be the sole controller for the resources it provisions. An out of band change happens when this principle is violated. This is best illustrated with an example. Imagine creating an S3 bucket with Pulumi:
 
 ```typescript
 const bucket = new aws_native.s3.Bucket("my-bucket", {
