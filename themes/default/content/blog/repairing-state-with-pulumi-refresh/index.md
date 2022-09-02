@@ -3,11 +3,7 @@ title: "Repairing State With Pulumi Refresh"
 
 date: 2022-09-01T10:19:47+02:00
 
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
-# Max length is 160 characters.
-meta_desc: Walk through of how Pulumi's state can diverge from provider reality, and how `pulumi refresh` can correct Pulumi's state.
+meta_desc: A walkthrough of how Pulumi's state can diverge from provider reality, and how `pulumi refresh` can correct Pulumi's state.
 
 meta_image: meta.png
 
@@ -33,20 +29,20 @@ Pulumi expects to be the sole controller for the resources it provisions. An out
 ```typescript
 const bucket = new aws_native.s3.Bucket("my-bucket", {
     tags: [{
-            key: "pulumi-bucket",
-            value: "not important",
-        }],
+        key: "pulumi-bucket",
+        value: "not important",
+    }],
 });
 ```
 
-Then someone goes into the aws console and deletes the bucket. What happens if you then go change a tag on the bucket:
+Then someone goes into the AWS console and deletes the bucket. What happens if you then go change a tag on the bucket:
 
 ```typescript
 const bucket = new aws_native.s3.Bucket("my-bucket", {
     tags: [{
-            key: "pulumi-bucket",
-            value: "don’t delete me",
-        }],
+        key: "pulumi-bucket",
+        value: "don’t delete me",
+    }],
 });
 ```
 
@@ -56,28 +52,28 @@ Pulumi has recorded creating a bucket, but it does not know that the bucket was 
 
 Pulumi also gets confused if the CLI or Pulumi Provider process is terminated while an update is taking place. The Pulumi CLI checks in its state before and after each operation it performs. Creating the bucket from above goes something like:
 
-a. Started “pulumi up”.
-b. About to create `aws_native:s3:Bucket::my-bucket`.
-c. Created `aws_native:s3:Bucket::my-bucket` with ID `my-bucket-6e3d099`.
-d. Finished “pulumi up”.
+1. Started `pulumi up`.
+2. About to create `aws_native:s3:Bucket::my-bucket`.
+3. Created `aws_native:s3:Bucket::my-bucket` with ID `my-bucket-6e3d099`.
+4. Finished `pulumi up`.
 
-If the Pulumi CLI process is terminated between steps (b) and (c), then Pulumi does not know if
-“my-bucket” exists or not. Unlike (1), Pulumi is aware that it does not know if the resource was created. This will be displayed as a pending CREATE operation. Depending on what type of operation was interrupted, you can see pending CREATE, UPDATE, DELETE, READ and IMPORT operations.
+If the Pulumi CLI process is terminated between steps 2 and 3, then Pulumi does not know if
+“my-bucket” exists or not. Unlike the first example, Pulumi is aware that it does not know if the resource was created. This will be displayed as a pending CREATE operation. Depending on what type of operation was interrupted, you can see pending CREATE, UPDATE, DELETE, READ and IMPORT operations.
 
 ![Pending Operations Warning](pending-ops-warning.png)
 
 ## The Solution
 
-As of [#10394](https://github.com/pulumi/pulumi/pull/10394), the solution to both problems is [pulumi refresh](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/). The `pulumi refresh` command modifies Pulumi&rsquo;s state so it matches the state of the underlying providers. Most discrepancies can be resolved automatically by checking Pulumi&rsquo;s state against the underlying resource provider. For our aws bucket example, Pulumi would ask the aws-native provider if bucket `my-bucket-6e3d099` and what tags it has.
+As of [#10394](https://github.com/pulumi/pulumi/pull/10394), the solution to both problems is [pulumi refresh](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/). The `pulumi refresh` command modifies Pulumi's state so it matches the state of the underlying providers. Most discrepancies can be resolved automatically by checking Pulumi's state against the underlying resource provider. For our AWS bucket example, Pulumi would ask the aws-native provider if bucket `my-bucket-6e3d099` and what tags it has.
 
-This works for all resources that Pulumi knows about. This set includes Pulumi managed resources that were changed manually, or for pending UPDATE, DELETE, READ and IMPORT operations. Pulumi does not know the resource ID for pending CREATE operations (it might not exist), so it can&rsquo;t resolve everything for you. It needs a little bit of help. For each pending CREATE, Pulumi will ask you what to do:
+This works for all resources that Pulumi knows about. This set includes Pulumi managed resources that were changed manually, or for pending UPDATE, DELETE, READ and IMPORT operations. Pulumi does not know the resource ID for pending CREATE operations (it might not exist), so it can not resolve everything for you. It needs a little bit of help. For each pending CREATE, Pulumi will ask you what to do:
 
 ![Pulumi refresh asking for input](refresh-ask.png)
 
-If the resource was created successfully, you can select import, give Pulumi the ID of the
+If the resource was created successfully, you can select `import`, give Pulumi the ID of the
 created resource, and Pulumi will bring that resource under management.
 
-If no resource was created, you can tell Pulumi to clear the pending CREATE. It will recreate the resource for you the next time you run `pulumi up`.
+If no resource was created, you can select `clear` to tell Pulumi to clear the pending CREATE. It will recreate the resource for you the next time you run `pulumi up`.
 
 You can learn more by going to the [`pulumi refresh` documentation](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/) or by running `pulumi refresh --help`.
 
@@ -92,7 +88,9 @@ There are some new flags you can pass to modify the new behavior:
 These flags can be combined:
 
 ```sh
-    pulumi refresh --import-pending-creates="aws_native:s3:Bucket::my-bucket my-bucket-6e3d099" --clear-pending-creates
+    pulumi refresh \
+        --import-pending-creates="aws_native:s3:Bucket::my-bucket my-bucket-6e3d099"\
+        --clear-pending-creates
 ```
 
 The above command will run the pending CREATE resolution for our example S3 bucket, and will clear all other pending CREATEs.
