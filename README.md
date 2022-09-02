@@ -119,6 +119,10 @@ Interested in writing a blog post? See the [blogging README](docs/blogging.md) f
 
 We try and align Pulumi documentation to the [Pulumi Docs Style Guide](docs/style-guide.md).
 
+## User Experience Standards
+
+We try and align to the [Pulumi User Experience Standards](docs/ux-standards.md).
+
 ## Shortcodes and web components
 
 We use number of Hugo shortcodes and web components in our pages. You can read more about many of them in the [components README](https://github.com/pulumi/theme/tree/master/stencil).
