@@ -47,7 +47,6 @@ If you are curious to see all new functionality, learn more about CLI improvemen
   - [Automation API Python parallel inline programs](#automation-api-python-parallel-inline-programs)
   - [getOrganizations supported in Python and NodeJS](#getorganizations-supported-in-python-and-nodejs)
   - [Control logging and tracing within Automation API](#control-logging-and-tracing-within-automation-api)
-  - [Pulumi Java improvements](#pulumi-java-improvements)
   - [Flag to install dependencies on `pulumi convert`](#destroy-pulumi-stacks-outside-project-directory)
   - [Use `pulumi destroy -s <stack>` outside a Pulumi project dir](#destroy-pulumi-stacks-outside-project-directory)
 - Pulumi Service & Pulumi.com
@@ -146,19 +145,22 @@ Enables Automation API to run with the equivalent of CLI arguments:
 
 Learn more in the [Add options to configure logging and tracing merge request](https://github.com/pulumi/pulumi/pull/10338).
 
-### Pulumi Java improvements
-
-
 ### Flag to install dependencies on `pulumi convert`
-
 
 ### Use `pulumi destroy -s <stack>` outside a Pulumi project dir
 
-https://www.pulumi.com/docs/reference/cli/pulumi_destroy/
+You can now specify a stack when using [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy">}}) while outside of the project directory. 
+
+Learn more in the [``pulumi destroy -s <stack>` GitHub issue](https://github.com/pulumi/pulumi/issues/2440).
 
 ## Pulumi Service & Pulumi.com
 
 ### Team Access Tokens
+
+We launching Team Access Token, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team. Pulumi Service customers on the Enterprise and Business Critical editions can use [Pulumi Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams) to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users.
+
+Since Pulumi Teams are only available on these editions, Team Access Tokens are also only available to customers on the Enterprise and Business Critical editions of the Pulumi Service. See the Team Access Tokens documentation for more information on how to use the feature.
+
 ### Billing Managers
 ### New Pulumi Service console
 ### Stack Favorites
