@@ -17,13 +17,13 @@ to [Organizations]({{< relref "/docs/intro/pulumi-service/organizations" >}}), n
 
 <!--more-->
 
-A version control system (VCS) provides team collaboration capabilities and ensures that the source code for your Pulumi project is not on a single developer's machine. Using a CI/CD system makes your team more productive, by automatically deploying your Pulumi stacks. The assistant contains a guided experience to help teams configure a VCS as well as automate it with a
-CI/CD pipeline.
+A version control system (VCS) provides team collaboration capabilities and ensures that the source code for your Pulumi project
+is not on a single developer's machine.
+Using a CI/CD system makes your team more productive, by automatically deploying your Pulumi stacks.
+The assistant contains a guided experience to help teams configure a VCS as well as automate it with a CI/CD pipeline.
 
-The assistant has two options to help you to get started with integrations:
-
-* Use a single service that provides both a version control system and CI/CD pipelines
-* Or, get the starter workflow for a CI/CD service of your choice customized for your stack
+The assistant supports using the same service for both version control and CI/CD,
+as well as using different services for version control and CI/CD.
 
 ![Start Workflow Assistant](/images/docs/reference/console/start-workflow-wizard.png)
 
