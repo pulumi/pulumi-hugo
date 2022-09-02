@@ -58,13 +58,13 @@ Pulumi also gets confused if the CLI or Pulumi Provider process is terminated wh
 4. Finished `pulumi up`.
 
 If the Pulumi CLI process is terminated between steps 2 and 3, then Pulumi does not know if
-“my-bucket” exists or not. Unlike the first example, Pulumi is aware that it does not know if the resource was created. This will be displayed as a pending CREATE operation. Depending on what type of operation was interrupted, you can see pending CREATE, UPDATE, DELETE, READ and IMPORT operations.
+“my-bucket” exists or not. Unlike the first example, Pulumi is aware that it does not know if the resource was created. This will be displayed as a pending CREATE operation. Depending on what type of operation was interrupted, it is possible to have pending CREATE, UPDATE, DELETE, READ and IMPORT operations.
 
 ![Pending Operations Warning](pending-ops-warning.png)
 
 ## The Solution
 
-As of [#10394](https://github.com/pulumi/pulumi/pull/10394), the solution to both problems is [pulumi refresh](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/). The `pulumi refresh` command modifies Pulumi's state so it matches the state of the underlying providers. Most discrepancies can be resolved automatically by checking Pulumi's state against the underlying resource provider. For our AWS bucket example, Pulumi would ask the aws-native provider if bucket `my-bucket-6e3d099` and what tags it has.
+As of [#10394](https://github.com/pulumi/pulumi/pull/10394), the solution to both problems is [pulumi refresh](https://www.pulumi.com/docs/reference/cli/pulumi_refresh/). The `pulumi refresh` command modifies Pulumi's state so it matches the state of the underlying providers. Most discrepancies can be resolved automatically by checking Pulumi's state against the underlying resource provider. For our AWS bucket example, Pulumi would ask the aws-native provider if bucket `my-bucket-6e3d099` exists and what tags it has.
 
 This works for all resources that Pulumi knows about. This set includes Pulumi managed resources that were changed manually, or for pending UPDATE, DELETE, READ and IMPORT operations. Pulumi does not know the resource ID for pending CREATE operations (it might not exist), so it can not resolve everything for you. It needs a little bit of help. For each pending CREATE, Pulumi will ask you what to do:
 
@@ -79,11 +79,11 @@ You can learn more by going to the [`pulumi refresh` documentation](https://www.
 
 ### Command Details
 
-There are some new flags you can pass to modify the new behavior:
+There are some flags you can pass to modify the new behavior:
 
+- `--import-pending-creates` gives Pulumi a list of URN ID pairs. This is equivalent to selecting the `import` option when running in interactive mode, but only for the URNs listed.
 - `--clear-pending-creates` will remove any pending CREATEs from the state.
 - `--skip-pending-creates` will skip all pending CREATEs. This is the default behavior when running the CLI outside of interactive more.
-- `--import-pending-creates` gives Pulumi a list of URN ID pairs. This is equivalent to selecting the `import` option when running in interactive mode, but only for the URNs listed.
 
 These flags can be combined:
 
@@ -93,4 +93,4 @@ These flags can be combined:
         --clear-pending-creates
 ```
 
-The above command will run the pending CREATE resolution for our example S3 bucket, and will clear all other pending CREATEs.
+The above command will run the pending CREATE resolution for our example S3 bucket, and will clear all other pending CREATE operations.
