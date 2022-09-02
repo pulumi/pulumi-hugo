@@ -5,7 +5,7 @@
         </div>
         <div class="dot-overlay"></div>
         <div class="container mx-auto lg:flex mt-8">
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-1/2 lg:pr-12 xl:pr-0">
                 <div class="home-page-hero-content">
                     <h1 class="relative text-left">
                         <span class="rainbow-text" data-text="{{ index (.Params.hero.title) 0 }}">{{ index (.Params.hero.title) 0 }}</span><br />
@@ -15,12 +15,12 @@
                     <p class="text-center lg:text-left leading-7">{{ .Params.hero.description | markdownify }}</p>
                     <div class="overlay-middle mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
                         <a class="home-hero-btn-primary mr-0 md:mr-4 mb-3 md:mb-0" href="{{ relref . "/docs/get-started" }}">{{ .Params.hero.cta_text }}</a>
-                        <a class="home-hero-btn-secondary btn-secondary px-12 py-4" href="{{ relref . "/docs/get-started/install" }}">Download Open Source</a>
+                        <a class="home-hero-btn-secondary btn-secondary px-12 py-4" href="{{ relref . "/docs/get-started/install" }}">Download CLI</a>
                     </div>
                 </div>
             </div>
-            <div class="w-full lg:w-1/2 block p-6">
-                <div class="mx-auto">
+            <div class="w-full lg:w-1/2 block lg:flex lg:justify-center p-6">
+                <div>
                     <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
                         <pulumi-choosable type="language" class="highlight" value="typescript">
                             <img class="mx-auto" src="/images/home/typescript.svg" alt="" />

@@ -9,9 +9,9 @@ hero:
   cta_text: Start Free
 
 overview:
-  title: [ "Your cloud.", "Your language.", "Your way." ]
+  title: [ "Universal", "Infrastructure as Code" ]
   description: |
-    Build, deploy, and manage modern cloud applications and infrastructure using familiar languages, tools, and engineering practices.
+    Every cloud, every language, every architecture, every builder.
   logos:
     languages:
       - /logos/tech/typescript.svg
