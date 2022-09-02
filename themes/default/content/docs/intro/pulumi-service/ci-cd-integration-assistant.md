@@ -34,7 +34,6 @@ The assistant has two options to help you to get started with integrations:
 3. Select **Integrations** in the left navigation.
 4. Notice the CI/CD assistance at the top of the page. Note: If you do not see the assistant on this page, it means CI/CD is already setup for the stack.
 
-
 ## VCS Identity Options
 
 {{% notes "info" %}}
@@ -79,7 +78,7 @@ without needing to leave the page.
 In the following example the assistant is being used to configure a GitHub Actions workflow.
 So the assistant provides a direct link to configure secrets for your workflow.
 
-> See the [Registry]({{< relref "/registry" >}}) page to find the setup page for your cloud provider.
+See the [Registry]({{< relref "/registry" >}}) page to find the setup page for your cloud provider.
 
 ## Add the workflow
 
