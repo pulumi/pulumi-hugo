@@ -1,17 +1,17 @@
 ---
-title: "Pulumi Release Notes: Pulumi YAML updates, Stack READMEs, and much more!"
+title: "Pulumi Release Notes: Pulumi Refresh updates, re-implementing Pulumi Watch, and much more!"
 allow_long_title: true
  
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-09-01
+date: 2022-09-03
  
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: The latest Pulumi updates also include our providers updates, compression of filestate backends, adding --stack to `pulumi about`, adding local policy packs to Automation API and much more!
+meta_desc: The latest Pulumi updates also include our providers updates, a new look and feel to the Pulumi Service, logging improvements to Automation API and more!
  
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -38,8 +38,6 @@ It has been an action packed July and August here at Pulumi! Below you will find
 
 If you are curious to see all new functionality, learn more about CLI improvements in the [pulumi/pulumi repo changelog](https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md) and Pulumi Service features in the [new features blogs]({{< relref "/blog/tag/features">}}).
 
-- Cloud Providers and Packages
-  - [New resources in our providers](#new-resources-in-our-providers)
 - Pulumi CLI and core technologies
   - [Pulumi YAML improvements](#pulumi-yaml-improvements)
   - [Allow `pulumi refresh` to resolve pending creates](#allow-pulumi-refresh-to-resolve-pending-creates)
@@ -55,13 +53,7 @@ If you are curious to see all new functionality, learn more about CLI improvemen
   - [New Pulumi Service console](#new-pulumi-service-console)
   - [Stack Favorites](#stack-favorites)
   - [Pulumi Service Provider improvements](#pulumi-service-provider-improvements)
- 
-## Cloud Providers and Packages
- 
-### New resources in our providers
- 
-We shipped new versions of the AWS Native provider, Google Native provider and the Azure Native provider that added support for X new resources in the last month. A of those resources were Azure Native, B AWS Native and C were added to Google Native.
- 
+
 ## Pulumi CLI and core technologies
 
 ### Pulumi YAML improvements
@@ -117,6 +109,9 @@ The `pulumi watch` command watches the working directory or specified paths for 
 
 We have recently re-implemented `pulumi watch` to have cross platform compatibility (it works on Apple Silicon now!) and improved performance.
 
+**See it in action**
+{{< youtube "dCp2Nfa2S2Q?rel=0" >}}
+
 Try it out today! See more information in the `pulumi watch` documentation, the [original launch blog post]({{< relref "/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure">}}) and the [merge request for the latest updates](https://github.com/pulumi/pulumi/pull/10213).
 
 ### Automation API Python parallel inline programs
@@ -145,15 +140,11 @@ Enables Automation API to run with the equivalent of CLI arguments:
 
 Learn more in the [Add options to configure logging and tracing merge request](https://github.com/pulumi/pulumi/pull/10338).
 
-### Flag to install dependencies on `pulumi convert`
-
-(need to populate)
-
 ### Use `pulumi destroy -s <stack>` outside a Pulumi project dir
 
-You can now specify a stack when using [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy">}}) while outside of the project directory. 
+You can now specify a stack when using [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy">}}) while outside of the project directory.
 
-Learn more in the [``pulumi destroy -s <stack>` GitHub issue](https://github.com/pulumi/pulumi/issues/2440).
+Learn more in the [`pulumi destroy -s <stack>` GitHub issue](https://github.com/pulumi/pulumi/issues/2440).
 
 ## Pulumi Service & Pulumi.com
 
@@ -161,8 +152,40 @@ Learn more in the [``pulumi destroy -s <stack>` GitHub issue](https://github.com
 
 We launched Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team. Pulumi Service customers on the Enterprise and Business Critical editions can use [Pulumi Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams) to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users. Once you have Teams created you can use Team Access Tokens to generate a token scoped to that Team.
 
+Learn more in the [Team Access Tokens blog post]({{< relref "/blog/team-access-tokens">}}) and the [Team Access Tokens documentation]({{< relref "/docs/intro/pulumi-service/team-access-tokens">}}).
+
 ### Billing Managers
+
+The new Billing Manager role gives the user permissions to access and edit only billing information, with no read or write permissions for stacks. This role is for when you need someone in your Organization to manage billing operations but you do not want them to have any permissions beyond that. Billing Managers can only be invited or added to the Organization by Organization Admins. Once added, the only information a Billing Manager will see is metrics about the Organization and the Billing and Usage page.
+
+Learn more about the permissions in the [Billing Manager blog post]({{< relref "/blog/billing-managers">}}) and the [Billing Manager documentation]({{< relref "/docs/intro/pulumi-service/billing-managers">}}).
+
 ### New Pulumi Service console
+
+It’s been nearly four years since the Pulumi Service launched back in 2018. In these last four years, our customer base has grown significantly and as a result, the Service’s features and capabilities have grown with it. Over this time the look and feel of the Service has largely stayed the same, its time for a refresh!
+
+We’re excited to launch a set of improvements to the overall user experience of the Pulumi Service. These updates include an update to the Dashboard as well as a new left navigation pane:
+
+**Increased organizational insights on the Service Dashboard**
+!["Screenshot of an Organization's Dashboard in the Pulumi Service console"](dashboard.png)
+
+**Easier navigation around the Service with a new left navigation pane**
+!["Screenshot of Dashboard with left nav bar expanded"](dashboard-nav-expanded.png)
+
 ### Stack Favorites
+
+Many Pulumi users have access to dozens of hundreds of stacks. But only a few of those stacks may require regular interaction. We’ve introduced a new Stack Favorites feature to let you flag the stacks that are most important. This way you can access those stacks from anywhere in the Service.
+
+Your favorites list is your own. Even if you’re part of an organization, your favorites won’t be shared with anyone other than you. And you can have as many favorites as you like!
+
+Look for the star icon next to any stack name and select it to start building your favorites list.
+
+!["Stack Favorites card on Dashboard and the left navigation"](stacks-navigation-favorites-card.png)
+
 ### Pulumi Service Provider improvements
 
+The Pulumi Service Provider builds on top of the Pulumi Service REST API which is another feature available to our customers to programmatically configuring the Pulumi Service. At launch, the Pulumi Service Provider had resource support for Teams, Webhooks, StackTags and AccessTokens. We have recently also added support for [TeamStackPermissions]({{< relref "/docs/reference/cli/pulumi_destroy">}}), enabling users to add stacks to Teams and [Provider]({{< relref "/docs/reference/cli/pulumi_destroy">}}) to control Provider resources.
+
+As always, please feel free to submit feature requests and bug reports to [Pulumi Service Provider GitHub Repo](https://github.com/pulumi/pulumi-pulumiservice/issues). We look forward to seeing what you build with the Pulumi Service Provider!
+
+Until next time, happy building!
