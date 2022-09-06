@@ -66,7 +66,7 @@ We shipped new versions of the AWS Native provider, Google Native provider and t
 
 ### New functionality in Google Native v0.25.0
 
-Google Native v0.25.0 is out an includes a series of improvements beyond expanded resource support, including retrieving Kubeconfig and server config from Kubernetes clusters.
+Google Native v0.25.0 is out and includes a series of improvements beyond expanded resource support, including retrieving Kubeconfig and server config from Kubernetes clusters.
 
 Learn more in the [Google Native v0.25.0 release notes](https://github.com/pulumi/pulumi-google-native/releases/tag/v0.25.0).
 
