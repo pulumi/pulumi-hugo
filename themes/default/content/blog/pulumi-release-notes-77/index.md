@@ -117,7 +117,7 @@ We also made a handful of improvements to `pulumi convert`. See the [v0.5.5 rele
 
 ### Allow `pulumi refresh` to resolve pending creates
 
-[`pulumi refresh`]({{< relref "/docs/reference/cli/pulumi_refresh">}}) can be used to bring Pulumi state back inline with external state. If something is changed in the actual state and Pulumi is not made aware of it or if Pulumi is terminated mid-operation you could end up with pending operations. Now, when running `pulumi refresh` interactively, it will provide you with new options to deal with the pending operations. These new interactive options are as follows:
+[`pulumi refresh`]({{< relref "/docs/reference/cli/pulumi_refresh">}}) can be used to bring Pulumi state back inline with external state. If something is changed in the actual state and Pulumi is not made aware of it or if Pulumi is terminated mid-operation you could end up with pending operations. Now when running `pulumi refresh` interactively, it will provide you with new options to deal with the pending operations. These new interactive options are as follows:
 
 - **import**: the flag `--import-pending-creates` has been added to allow scripting to resolve pending creates via `pulumi refresh`. It takes a list of URN IDs to be imported.
 - **clear**: to assist with the use case of removing all pending creates, the flag `--clear-pending-creates` has been added.
