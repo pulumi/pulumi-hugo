@@ -6,7 +6,7 @@ hero:
   title: [ "Ship", "Infrastructure", "Faster" ]
   description: |
     Deliver infrastructure with high velocity and scale through software engineering.
-  cta_text: Start Free
+  cta_text: Get Started
 
 overview:
   title: [ "Universal", "Infrastructure as Code" ]
@@ -262,5 +262,5 @@ get_started:
 
   title: Get started today
   description: Pulumi is open source and free to get started. Deploy your first stack today.
-  cta_text: Start Free
+  cta_text: Get Started
 ---
