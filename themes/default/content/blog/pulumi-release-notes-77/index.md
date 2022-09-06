@@ -47,7 +47,7 @@ If you are curious to see all new functionality, learn more about CLI improvemen
   - [Allow `pulumi refresh` to resolve pending creates](#allow-pulumi-refresh-to-resolve-pending-creates)
   - [Re-implementing `pulumi `watch](#reimplementing-pulumi-watch)
   - [Automation API Python parallel inline programs](#automation-api-python-parallel-inline-programs)
-  - [getOrganizations supported in Python and NodeJS](#getorganizations-supported-in-python-and-nodejs)
+  - [getOrganizations from inside a stack](#getorganizations-from-inside-a-stack)
   - [Control logging and tracing within Automation API](#control-logging-and-tracing-within-automation-api)
   - [Flag to install dependencies on `pulumi convert`](#destroy-pulumi-stacks-outside-project-directory)
   - [Use `pulumi destroy -s <stack>` outside a Pulumi project dir](#destroy-pulumi-stacks-outside-project-directory)
@@ -142,9 +142,9 @@ Automation API now supports parallel execution of Python inline programs. Now us
 
 Learn more in the [SETTINGS attributes merge request](https://github.com/pulumi/pulumi/pull/10402) and [ContextVars merge request](https://github.com/pulumi/pulumi/pull/10472).
 
-### getOrganizations supported in Python and NodeJS
+### getOrganizations from inside a stack
 
-Users of the Pulumi Python and NodeJS SDKs can now get the current Pulumi Organization name from inside a stack. `getStack`, in both the Python and NodeJS SDKs returns the stack name itself. Now using `getOrganization` users can get both the stack and the Organization it is in.
+Users can now get the current Pulumi Organization name from inside a stack. `getStack`, in both the Python and NodeJS SDKs returns the stack name itself. Now using `getOrganization` users can get both the stack and the Organization it is in. The other Pulumi languages will add `getOrganization` support shortly.
 
 Learn more in the [Add getOrganization merge request](https://github.com/pulumi/pulumi/pull/10504).
 
