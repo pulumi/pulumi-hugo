@@ -38,6 +38,10 @@ It has been an action packed July and August here at Pulumi! Below you will find
 
 If you are curious to see all new functionality, learn more about CLI improvements in the [pulumi/pulumi repo changelog](https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md) and Pulumi Service features in the [new features blogs]({{< relref "/blog/tag/features">}}).
 
+- Cloud Providers and Packages
+  - [New resources in our providers](#new-resources-in-our-providers)
+  - [New functionality in Google Native v0.25.0](#new-functionality-in-google-native)
+  - [Kubernetes Operator v1.8.0](#kubernetes-operator-v180)
 - Pulumi CLI and core technologies
   - [Pulumi YAML improvements](#pulumi-yaml-improvements)
   - [Allow `pulumi refresh` to resolve pending creates](#allow-pulumi-refresh-to-resolve-pending-creates)
@@ -53,6 +57,24 @@ If you are curious to see all new functionality, learn more about CLI improvemen
   - [New Pulumi Service console](#new-pulumi-service-console)
   - [Stack Favorites](#stack-favorites)
   - [Pulumi Service Provider improvements](#pulumi-service-provider-improvements)
+
+## Cloud Providers and Packages
+
+### New resources in our providers
+
+We shipped new versions of the AWS Native provider, Google Native provider and the Azure Native provider that added support for 145 new resources in the last month. 83 of the new resources were for AWS Native, 42 for Azure Native, and 20 were added to Google Native.
+
+### New functionality in Google Native v0.25.0
+
+Google Native v0.25.0 is out an includes a series of improvements beyond expanded resource support, including retrieving Kubeconfig and server config from Kubernetes clusters.
+
+Learn more in the [Google Native v0.25.0 release notes](https://github.com/pulumi/pulumi-google-native/releases/tag/v0.25.0).
+
+### Kubernetes Operator v1.8.0
+
+In the latest release of the [Pulumi Kubernetes Operator]({{< relref "/docs/guides/continuous-delivery/pulumi-kubernetes-operator">}}) we have added improvements to metrics collection and better branch detection in branch specifications.
+
+Learn more in the [Kubernetes Operator v1.8.0 release notes](https://github.com/pulumi/pulumi-kubernetes-operator/releases/tag/v1.8.0).
 
 ## Pulumi CLI and core technologies
 
@@ -95,7 +117,7 @@ We also made a handful of improvements to `pulumi convert`. See the [v0.5.5 rele
 
 ### Allow `pulumi refresh` to resolve pending creates
 
-[`pulumi refresh`](https://www.pulumi.com/docs/reference/cli/pulumi_refresh) can be used to bring Pulumi state back inline with external state. If something is changed in the actual state and Pulumi is not made aware of it or if Pulumi is terminated mid-operation you could end up with pending operations. Now, when running `pulumi refresh` interactively, it will provide you with new options to deal with the pending operations. These new interactive options are as follows:
+[`pulumi refresh`]({{< relref "/docs/reference/cli/pulumi_refresh">}}) can be used to bring Pulumi state back inline with external state. If something is changed in the actual state and Pulumi is not made aware of it or if Pulumi is terminated mid-operation you could end up with pending operations. Now, when running `pulumi refresh` interactively, it will provide you with new options to deal with the pending operations. These new interactive options are as follows:
 
 - **import**: the flag `--import-pending-creates` has been added to allow scripting to resolve pending creates via `pulumi refresh`. It takes a list of URN IDs to be imported.
 - **clear**: to assist with the use case of removing all pending creates, the flag `--clear-pending-creates` has been added.
@@ -128,7 +150,7 @@ Learn more in the [Add getOrganization merge request](https://github.com/pulumi/
 
 ### Control logging and tracing within Automation API
 
-We have improved [Pulumi Automation API]({{< relref "/docs/guides/automation-api/">}}) functionality to permit finer control over logging by adding five additional options to the preview, up, refresh, and destroy operations in Automation API.
+We have improved [Pulumi Automation API]({{< relref "/docs/guides/automation-api">}}) functionality to permit finer control over logging by adding five additional options to the preview, up, refresh, and destroy operations in Automation API.
 
 Enables Automation API to run with the equivalent of CLI arguments:
 
