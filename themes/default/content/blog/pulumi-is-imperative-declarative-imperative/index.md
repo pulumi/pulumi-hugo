@@ -74,17 +74,73 @@ If you don't know the Pulumi architecture, here is the diagram from our [How Pul
 
 ![Pulumi Architecture](/images/docs/reference/engine-block-diagram.png)
 
+You code your infrastructure in your preferred programming language. When you are done coding, you run `pulumi up` and the Pulumi CLI starts
+the language host for your selected programming language, as well as the required providers. The interaction between these 3 parts of
+the architecture results in the actual creation or modification of your infrastructure.
+
 ### Language Host
 
-TL;DR Imperative, no doubt!
+**TL;DR** Imperative, no doubt!
+
+Under the hood, our Pulumi CLI does a lot of things, but one of the first actions is starting the language runtime which is configured in
+the `Pulumi.yaml` project file. Here is a small Python example:
+
+```python
+from pulumi_aws import s3
+
+bucket = s3.Bucket('bucket')
+
+for i in range(10):
+    s3.BucketObject(
+        f'object-{i}',
+        s3.BucketObjectArgs(
+            bucket=bucket.id,
+            key=str(i),
+        )
+    )
+```
+
+A Pulumi program models the to-be state of your infrastructure. If you read the program above, you can see that
+we define 11 resources as our to be infrastructure:
+
+* 1 AWS S3 bucket
+* 10 Objects in the bucket created in the previous step
+
+While this is definitely an imperative program, there is one important thing to understand: instantiating an
+`s3.Bucket`, `s3.BucketObject` or any other Pulumi resource should not be interpreted as an imperative creation
+of the resource in the language host. Behind the scenes, any resource instantiation in the language host triggers a
+`Register Resource` request to the Pulumi engine.
+
+When the program has been executed, no resources have been created (or updated) yet. Where is the magic happening then?
 
 ### CLI and Engine
 
-TL;DR Imperative, non-negotiable!
+**TL;DR** Declarative, non-negotiable!
+
+In the previous step, you found out that the language host sends requests to the engine to fullfil your to be
+infrastructure.
+
+It is now that our Pulumi engine gets to work. The engine combines the intended model of the infrastructure
+received from the language host, the current state recorded in the state backend and the actual resource state
+to compute which actions need to be executed to bring the actual state in line with the intended model.
+
+The engine creates a directed acyclic graph (DAG) of all the resources, in a way to find out about
+any dependencies between the modeled resources. Our little example contains dependencies:
+every `s3.BucketObject` uses the `bucket.id` as way to define in which bucket these objects should be stored.
+The property `id` is an `Output`, a type we introduced for a single need:
+
+On a first run of `pulumi up`, the comparison between the intended model and an empty state makes the engine
+
+TODO: first run / second run, no change / third run, change to nr of objects
+
+Although you create the intended model of your infrastructure with an imperative language, our engine definitely
+processes this in a declarative way.
 
 ### Providers
 
-TL;DR Imperative, no doubt!
+**TL;DR** Imperative, no doubt!
+
+More text here.
 
 <!--
 And then everything _after_ that comment will appear on the post page itself.
