@@ -5,7 +5,7 @@ title: "I'll Just Update My Bucket Object. What Could Go Wrong?"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-09-06T14:33:30-07:00
+date: 2022-09-08T14:33:30-07:00
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -255,6 +255,10 @@ return await Deployment.RunAsync(() =>
 
 {{% /choosable %}}
 
+With atomic deployments enabled a new bucket will be provisioned, your content is added via a sync command, and finally once your new bucket is built the old bucket is deleted.
+
+![Gif of creating and updating a atomically deployed website](atomic-deployment.gif)
+
 #### Rollback
 
 The AWS Static Website Package currently does not support rollbacks but if you export name of the your bucket on your stack then the Package will keep the previous bucket provision until the next update. This allows manual rollbacks to previous bucket versions if you encounter a post-deployment error. See the example code below for how to enable this feature exactly.
@@ -370,7 +374,19 @@ return await Deployment.RunAsync(() =>
 
 Now that your website has atomic deployments enabled and you have solved the issue where your assets and dependencies might be available, you still have to tackle the beast that is your CDN cache. You will need a way to tell the CDN that there is new content and to stop serving the old content.
 
-You could just rely on the cached content expiring but as stated earlier that can still lead in some cases to missing assets. The AWS Static Website Package handles communicating to the CDN that there is new content by provisioning a [Cloudfront Function]({{< relref "/registry/packages/aws/api-docs/cloudfront/function" >}}) that adds a unique build identifier to the CDN’s cache key. To enable this behavior you simply need to set the cache control header argument to `true`.
+You could just rely on the cached content expiring but as stated earlier that can still lead in some cases to missing assets. The AWS Static Website Package handles communicating to the CDN that there is new content by provisioning a [Cloudfront Function]({{< relref "/registry/packages/aws/api-docs/cloudfront/function" >}}) that adds a unique build identifier to the CDN’s cache key.
+
+```js
+function handler(event){
+    var request = event.request;
+    request.headers["website-version"] = {
+        value: "${buildIdentifier}",
+    };
+    return request;
+}
+```
+
+To enable this behavior you simply need to set the cache control header argument to `true`.
 
 {{% chooser language "yaml,typescript,python,go,csharp" / %}}
 
@@ -385,9 +401,11 @@ resources:
     type: "aws-static-website:index:Website"
     properties:
       sitePath: "./build"
+      withCDN: true
       addWebsiteVersionHeader: true
 outputs:
   websiteURL: ${web.websiteURL}
+
 ```
 
 {{% /choosable %}}
@@ -400,6 +418,7 @@ import * as aws_static_website from "@pulumi/aws-static-website";
 
 const web = new aws_static_website.Website("web", {
     sitePath: "./build",
+    withCDN: true,
     addWebsiteVersionHeader: true,
 });
 
@@ -416,6 +435,7 @@ import pulumi_aws_static_website as aws_static_website
 
 web = aws_static_website.Website("web",
     site_path="./build",
+    with_cdn=True,
     add_website_version_header=True)
 
 pulumi.export("websiteURL", web.website_url)
@@ -437,6 +457,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		web, err := website.NewWebsite(ctx, "web", &website.WebsiteArgs{
 			SitePath:                pulumi.String("./build"),
+            WithCDN:                 pulumi.Bool(true),
 			AddWebsiteVersionHeader: pulumi.Bool(true),
 		})
 		if err != nil {
@@ -462,6 +483,7 @@ return await Deployment.RunAsync(() =>
     var web = new AwsStaticWebsite.Website("web", new()
     {
         SitePath = "./build",
+        WithCDN = true,
         AddWebsiteVersionHeader = true,
     });
 
@@ -491,6 +513,7 @@ resources:
     type: "aws-static-website:index:Website"
     properties:
       sitePath: "./build"
+      withCDN: true
       atomicDeployments: true
       addWebsiteVersionHeader: true
 outputs:
@@ -508,6 +531,7 @@ import * as aws_static_website from "@pulumi/aws-static-website";
 
 const web = new aws_static_website.Website("web", {
     sitePath: "./build",
+    withCDN: true,
     atomicDeployments: true,
     addWebsiteVersionHeader: true,
 });
@@ -526,6 +550,7 @@ import pulumi_aws_static_website as aws_static_website
 
 web = aws_static_website.Website("web",
     site_path="./build",
+    with_cdn=True,
     atomic_deployments=True,
     add_website_version_header=True)
 
@@ -549,6 +574,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		web, err := website.NewWebsite(ctx, "web", &website.WebsiteArgs{
 			SitePath:                pulumi.String("./build"),
+            WithCDN:                 pulumi.bool(true),
 			AtomicDeployments:       pulumi.Bool(true),
 			AddWebsiteVersionHeader: pulumi.Bool(true),
 		})
@@ -576,6 +602,7 @@ return await Deployment.RunAsync(() =>
     var web = new AwsStaticWebsite.Website("web", new()
     {
         SitePath = "./build",
+        WithCDN = true,
         AtomicDeployments = true,
         AddWebsiteVersionHeader = true,
     });
@@ -589,5 +616,7 @@ return await Deployment.RunAsync(() =>
 ```
 
 {{% /choosable %}}
+
+Now when you run a `pulumi up` you will provision a new bucket, sync your content, associate the bucket to your CDN, update the Cloudfront Function so the CDN knows to fetch new content, and lastly keep your previous bucket around in case you need to rollback.
 
 Deploying and managing a static website should be easy and the AWS Static Website makes it so you can focus more time on generating great content and less time on the internals on your website. For more information on the AWS Static Website Package you can visit the [documentation]{{< relref "/registry/packages/aws-static-website" >}}) or via the code directly on [Github](https://github.com/pulumi/pulumi-aws-static-website).
