@@ -78,7 +78,7 @@ resources:
   res2:
     type: MyResource
     options:
-      dependsOn: 
+      dependsOn:
         - ${res1}
 ```
 
