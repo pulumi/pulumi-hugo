@@ -377,14 +377,15 @@ Diagnostics:
   pulumi:pulumi:Stack (proj):
     warning: Attempting to deploy or update resources with 1 pending operations from previous deployment.
       * urn:pulumi:dev::proj::aws:s3/bucketV2:BucketV2::bucket, interrupted while creating
-    These resources are in an unknown state because the Pulumi CLI was interrupted while waiting for changes to these resources to complete. You should confirm whether or not the operations listed completed successfully by checking the state of the appropriate provider. For example, if you are using AWS, you can confirm using the AWS Console.
-    
+    These resources are in an unknown state because the Pulumi CLI was interrupted while waiting for changes to these resources
+    to complete. You should confirm whether or not the operations listed completed successfully by checking the state of the
+    appropriate provider. For example, if you are using AWS, you can confirm using the AWS Console.
+
     Once you have confirmed the status of the interrupted operations, you can repair your stack using `pulumi refresh` which will refresh the state from the provider you are using and clear the pending operations if there are any.
-    
+
     Note that `pulumi refresh` will need to be run interactively to clear pending CREATE operations.
 ...
 ```
-
 
 This occurs when the Pulumi CLI fails to complete cleanly. There are a number of ways this
 can happen:
@@ -407,7 +408,7 @@ If `pulumi cancel` fails with `error: [400] Bad Request: the update has already 
 that error and continue with the next step.
 
 You should then run `pulumi refresh`. This will remove any pending operations cleanly,
-walking you through resolving any pending ops that Pulumi cannot fix on its own.
+walking you through resolving any pending operations that Pulumi cannot fix on its own.
 
 At this point your stack should be valid, up-to-date, and ready to accept future updates.
 
