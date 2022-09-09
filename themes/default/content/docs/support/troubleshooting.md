@@ -407,8 +407,8 @@ The currently running update for 'interruptedstack' has been canceled!
 If `pulumi cancel` fails with `error: [400] Bad Request: the update has already completed`, you can safely ignore
 that error and continue with the next step.
 
-You should then run `pulumi refresh`. This will remove any pending operations cleanly,
-walking you through resolving any pending operations that Pulumi cannot fix on its own.
+Then run `pulumi refresh` to remove any pending operations cleanly, allowing you to
+resolve any pending operations that Pulumi could not fix unaided.
 
 At this point your stack should be valid, up-to-date, and ready to accept future updates.
 
