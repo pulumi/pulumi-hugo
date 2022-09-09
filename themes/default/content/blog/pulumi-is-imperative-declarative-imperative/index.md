@@ -50,7 +50,7 @@ Summary:
 Sketch the setup of the article as the description of the PR for reviewers
 -->
 
-On a weekly basis, articles and tweets pass by discussing whether or not some specific tool is imperative or declarative.
+On a regular basis, articles and tweets pass by discussing whether or not some specific tool is imperative or declarative.
 It's no surprise that Pulumi is often the tool being debated. What if I tell you that Pulumi is imperative, declarative and imperative?
 
 <!--more-->
@@ -79,8 +79,6 @@ the language host for your selected programming language, as well as the require
 the architecture results in the actual creation or modification of your infrastructure.
 
 ### Language Host
-
-**TL;DR** Imperative, no doubt!
 
 Under the hood, our Pulumi CLI does a lot of things, but one of the first actions is starting the language runtime which is configured in
 the `Pulumi.yaml` project file. Here is a small Python example:
@@ -111,11 +109,24 @@ While this is definitely an imperative program, there is one important thing to 
 of the resource in the language host. Behind the scenes, any resource instantiation in the language host triggers a
 `Register Resource` request to the Pulumi engine.
 
-When the program has been executed, no resources have been created (or updated) yet. Where is the magic happening then?
+No matter what the actual state of your infrastructure is, running your program will always send to intended
+resource model to the engine.
+
+Our previous example was shown in Python, but recently we also delivered [support for YAML](https://www.pulumi.com/docs/intro/languages/yaml/).
+The creation of our S3 bucket could be converted to this snippet:
+
+```yaml
+resources:
+  bucket:
+    type: aws:s3:Bucket
+```
+
+The separation of language support from the engine allows us to offer both imperative & declarative solutions.
+But remember that none of the supported languages do any of the provisioning directly in the language host.
+
+If the resource provisioning is not taking place in the language host, where is the magic happening then?
 
 ### CLI and Engine
-
-**TL;DR** Declarative, non-negotiable!
 
 In the previous step, you found out that the language host sends requests to the engine to fullfil your to be
 infrastructure.
@@ -124,52 +135,71 @@ It is now that our Pulumi engine gets to work. The engine combines the intended 
 received from the language host, the current state recorded in the state backend and the actual resource state
 to compute which actions need to be executed to bring the actual state in line with the intended model.
 
-The engine creates a directed acyclic graph (DAG) of all the resources, in a way to find out about
-any dependencies between the modeled resources. Our little example contains dependencies:
+Our little example contains dependencies:
 every `s3.BucketObject` uses the `bucket.id` as way to define in which bucket these objects should be stored.
-The property `id` is an `Output`, a type we introduced for a single need:
+The property `id` from the `s3.Bucket` is an `Output`. Outputs are Pulumi's way of tracking which property of one resource
+is required by another, hereby creating a dependency between the resources. Our engine uses all these outputs
+passed from one resource to another as the vertices in a directed acyclic graph (DAG). The engine determines
+the order of actions based on this graph.
 
-On a first run of `pulumi up`, the comparison between the intended model and an empty state makes the engine
+On a first run of `pulumi up` of our example program, our engine will first create the bucket, wait for
+the provisioning to be complete, after which the actual bucket id is passed to the creation of
+all the bucket objects. Since none of the bucket objects depend on other resources, these bucket
+objects can all be provisioned concurrently. The engine will
 
-TODO: first run / second run, no change / third run, change to nr of objects
+On a second run, assuming no modifications to our example program, the Pulumi engine will compare the to be model
+with the actual state and conclude that nothing needs to be done.
+
+Let's crank up the nr of bucket objects to 11.
+
+```python
+from pulumi_aws import s3
+
+bucket = s3.Bucket('bucket')
+
+for i in range(11): # <- nr of objects increased by 1
+    s3.BucketObject(
+        f'object-{i}',
+        s3.BucketObjectArgs(
+            bucket=bucket.id,
+            key=str(i),
+        )
+    )
+```
+
+The third Pulumi run will find the bucket and the first 10 objects in the state. The only action taken
+now is the creation of the 11th bucket object. This brings the actual state back in sync with your
+intended model.
 
 Although you create the intended model of your infrastructure with an imperative language, our engine definitely
 processes this in a declarative way.
 
 ### Providers
 
-**TL;DR** Imperative, no doubt!
+The above examples hopefully made clear that the Pulumi engine calculates a set of actions to declaratively bring
+the actual state in sync with your intended model. But our engine is not the component which knows how to
+talk to all the different APIs of cloud and tool vendors. That's the role of the providers.
 
-More text here.
+The engine and the provider processes are connected with a gRPC connection. This is similar to the connection
+between the language host and the engine, with the only difference of which requests are sent. The API
+that providers expose are of a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) nature:
 
-<!--
-And then everything _after_ that comment will appear on the post page itself.
+* Create: create a new resource
+* Check: read information of an existing resource
+* Update: update an existing resource with modified information
+* Delete: delete an existing resource when no longer needed
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+The providers receive requests from the engine dependent on the set of actions the engine calculated.
+A provider doesn't know anything about the state, the correlation between resource and so forth.
 
-## Writing the Post
+The nature of the provider API is clearly imperative.
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+If the question ever pops up again whether Pulumi is declarative or imperative, the answer is clearly we are both.
+It is only based on which component of our architecture you are talking about:
 
-## Code Samples
+* Language host: imperative & declarative
+* Pulumi engine: declarative
+* Providers: imperative
 
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
-```
-
-## Images
-
-![Placeholder Image](meta.png)
-
-## Videos
-
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
-
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
-
-## Tweets
-
-{{< tweet id="1202020186234048512" user="pulumipus" >}}
-
--->
+To us, it mainly matters if we can solve your infrastructure automation problem. If you still miss something
+in our offering, we want to [hear from you](https://www.pulumi.com/contact/)!
