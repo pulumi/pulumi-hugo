@@ -15,9 +15,7 @@ tags:
 meta_image: "meta.png"
 ---
 
-# Node.js Native Binary Compilation Using vercel/pkg
-
-Everyone knows that you can write Pulumi programs in loads of languages, but what about the providers behind the scenes which handle communication with various cloud services?
+It's well known that you can write Pulumi programs in loads of languages, but what about the providers behind the scenes which handle communication with various cloud services?
 
 Providers are downloaded and run in many different platforms (e.g. Linux, macOS, Windows) and environments – where we can’t assume an end-user is going to have specific runtimes installed – including Node.js. Most of our providers are authored in Go – which makes it simple to produce native, static binaries for all modern operating systems. However, in this post we’re going to look at how we can write a component provider in Typescript and package it using vercel/pkg to achieve the same portability.
 
