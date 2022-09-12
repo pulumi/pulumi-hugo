@@ -11,7 +11,7 @@ cloud:
   slug: aws
 ---
 
-The AWS Static Website template deploys an HTML-based website on AWS with Pulumi. It uses an [Amazon S3 bucket]({{< relref "/registry/packages/aws/api-docs/s3/bucket" >}}) for file storage, configures the bucket to host a website, and deploys an [Amazon CloudFront Distribution]({{< relref "/registry/packages/aws/api-docs/cloudfront/distribution" >}}) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you working project out of the box that you can customize easily and extend to suit your needs.
+The AWS Static Website template deploys an HTML-based website on AWS with Pulumi. It uses an [Amazon S3 bucket]({{< relref "/registry/packages/aws/api-docs/s3/bucket" >}}) for file storage, configures the bucket to host a website, and deploys an [Amazon CloudFront Distribution]({{< relref "/registry/packages/aws/api-docs/cloudfront/distribution" >}}) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Static Website template](./architecture.png)
 
@@ -66,11 +66,11 @@ $ pulumi new static-website-aws-yaml
 
 {{% /choosable %}}
 
-Follow the prompts to complete the new-project wizard. When it's done, you'll have a complete Pulumi project configured with the most common settings, ready to deploy. Feel free to inspect the code in {{< langfile >}} for a closer look.
+Follow the prompts to complete the new-project wizard. When it's done, you'll have a complete Pulumi project that's ready to deploy and configured with the most common settings. Feel free to inspect the code in {{< langfile >}} for a closer look.
 
 ## Deploying the project
 
-The template requires no additional configuration, so once the new project is created, you can deploy it immediately with [`pulumi up`]({{< relref "/docs/reference/cli/pulumi_up" >}}):
+The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`]({{< relref "/docs/reference/cli/pulumi_up" >}}):
 
 ```bash
 $ pulumi up
