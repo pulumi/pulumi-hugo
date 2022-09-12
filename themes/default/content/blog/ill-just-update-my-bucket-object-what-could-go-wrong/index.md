@@ -5,13 +5,13 @@ title: "I'll Just Update My Bucket Object. What Could Go Wrong?"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-09-08T14:33:30-07:00
+date: 2022-09-12T08:33:30-07:00
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
 # Max length is 160 characters.
-meta_desc: The AWS Static Website Package makes it easier for you to update the content on your website.
+meta_desc: The AWS Static Website Package makes it easy for you to update the content on your website by enabling atomic deployments and cache key customizations.
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
