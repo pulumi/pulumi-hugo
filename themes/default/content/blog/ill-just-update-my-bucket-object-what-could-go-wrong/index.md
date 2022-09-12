@@ -1,5 +1,5 @@
 ---
-title: "I'll Just Update My Bucket Object. What Could Go Wrong?"
+title: "I'll just update the bucket object. What could go wrong?"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
