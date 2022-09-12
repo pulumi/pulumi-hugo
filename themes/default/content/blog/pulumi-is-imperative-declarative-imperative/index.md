@@ -60,6 +60,10 @@ When we look at our [Frequently Asked Questions](/docs/support/faq/#is-pulumi-im
 > Pulumi is a declarative tool that uses imperative languages to define your end state. The language is used for authoring your program.
 > It’s not used for talking to the cloud provider API.
 
+It is good to know to refresh what `declarative` and `imperative` mean:
+
+> Both terms refer to how the user provides direction to the automation platform. With an imperative tool, you define the steps to execute in order to reach the desired solution. With a declarative tool, you define the desired state of the final solution, and the automation platform determines how to achieve that state. ([Source](https://www.linode.com/blog/devops/declarative-vs-imperative-in-iac/))
+
 The title of the article mentions `imperative` and `declarative` both. Pulumi leverages the best of both worlds
 into our product.
 
@@ -70,7 +74,7 @@ Let me use the Pulumi architecture to highlight why I mention *imperative* twice
 
 ## Pulumi Architecture
 
-If you don't know the Pulumi architecture, here is the diagram from our [How Pulumi Works](/docs/intro/concepts/how-pulumi-works/) page:
+Here is the diagram from our [How Pulumi Works](/docs/intro/concepts/how-pulumi-works/) page:
 
 ![Pulumi Architecture](/images/docs/reference/engine-block-diagram.png)
 
@@ -104,13 +108,39 @@ we define 11 resources as our to be infrastructure:
 * 1 AWS S3 bucket
 * 10 Objects in the bucket created in the previous step
 
+```sh
+$ pulumi up
+
+Updating (<masked>/dev)
+
+View Live: https://app.pulumi.com/<masked>/blog_code/dev/updates/1
+
+     Type                    Name           Status
+ +   pulumi:pulumi:Stack     blog_code-dev  created
+ +   ├─ aws:s3:Bucket        bucket         created
+ +   ├─ aws:s3:BucketObject  object-0       created
+ +   ├─ aws:s3:BucketObject  object-1       created
+ +   ├─ aws:s3:BucketObject  object-3       created
+ +   ├─ aws:s3:BucketObject  object-2       created
+ +   ├─ aws:s3:BucketObject  object-6       created
+ +   ├─ aws:s3:BucketObject  object-4       created
+ +   ├─ aws:s3:BucketObject  object-5       created
+ +   ├─ aws:s3:BucketObject  object-7       created
+ +   ├─ aws:s3:BucketObject  object-9       created
+ +   └─ aws:s3:BucketObject  object-8       created
+
+Resources:
+    + 12 created
+
+Duration: 13s
+```
+
 While this is definitely an imperative program, there is one important thing to understand: instantiating an
 `s3.Bucket`, `s3.BucketObject` or any other Pulumi resource should not be interpreted as an imperative creation
 of the resource in the language host. Behind the scenes, any resource instantiation in the language host triggers a
 `Register Resource` request to the Pulumi engine.
 
-No matter what the actual state of your infrastructure is, running your program will always send to intended
-resource model to the engine.
+Running your program always sends the resource model to the Pulumi Engine regardless of what state your infrastructure is in.
 
 Our previous example was shown in Python, but recently we also delivered [support for YAML](https://www.pulumi.com/docs/intro/languages/yaml/).
 The creation of our S3 bucket could be converted to this snippet:
@@ -150,7 +180,7 @@ objects can all be provisioned concurrently. The engine will
 On a second run, assuming no modifications to our example program, the Pulumi engine will compare the to be model
 with the actual state and conclude that nothing needs to be done.
 
-Let's crank up the nr of bucket objects to 11.
+Let's crank up the number of bucket objects to 11.
 
 ```python
 from pulumi_aws import s3
@@ -170,6 +200,25 @@ for i in range(11): # <- nr of objects increased by 1
 The third Pulumi run will find the bucket and the first 10 objects in the state. The only action taken
 now is the creation of the 11th bucket object. This brings the actual state back in sync with your
 intended model.
+
+```sh
+$ pulumi up
+
+Updating (<masked>/dev)
+
+View Live: https://app.pulumi.com/<masked>/blog_code/dev/updates/2
+
+     Type                    Name           Status
+     pulumi:pulumi:Stack     blog_code-dev
+ +   └─ aws:s3:BucketObject  object-10      created
+
+Resources:
+    + 1 created
+    12 unchanged
+
+Duration: 5s
+
+```
 
 Although you create the intended model of your infrastructure with an imperative language, our engine definitely
 processes this in a declarative way.
@@ -193,6 +242,8 @@ The providers receive requests from the engine dependent on the set of actions t
 A provider doesn't know anything about the state, the correlation between resource and so forth.
 
 The nature of the provider API is clearly imperative.
+
+### Summary
 
 If the question ever pops up again whether Pulumi is declarative or imperative, the answer is clearly we are both.
 It is only based on which component of our architecture you are talking about:
