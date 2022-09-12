@@ -261,7 +261,7 @@ With atomic deployments enabled a new bucket will be provisioned, your content i
 
 #### Rollback
 
-The AWS Static Website Package currently does not support rollbacks but if you export name of the your bucket on your stack then the Package will keep the previous bucket provision until the next update. This allows manual rollbacks to previous bucket versions if you encounter a post-deployment error. See the example code below for how to enable this feature exactly.
+The AWS Static Website Package currently does not support rollbacks but if you export the name of the bucket on your stack then the Package will keep the previous bucket provision until the next update. This allows manual rollbacks to previous bucket versions if you encounter a post-deployment error. See the example code below for how to enable this feature exactly.
 
 {{% chooser language "yaml,typescript,python,go,csharp" / %}}
 
@@ -372,7 +372,7 @@ return await Deployment.RunAsync(() =>
 
 ### Cache Control
 
-Now that your website has atomic deployments enabled and you have solved the issue where your assets and dependencies might be available, you still have to tackle the beast that is your CDN cache. You will need a way to tell the CDN that there is new content and to stop serving the old content.
+Now that your website has atomic deployments enabled and you have solved the issue where your assets and dependencies might not be available, you still have to tackle the beast that is your CDN cache. You will need a way to tell the CDN that there is new content and to stop serving the old content.
 
 You could just rely on the cached content expiring but as stated earlier that can still lead in some cases to missing assets. The AWS Static Website Package handles communicating to the CDN that there is new content by provisioning a [Cloudfront Function]({{< relref "/registry/packages/aws/api-docs/cloudfront/function" >}}) that adds a unique build identifier to the CDN’s cache key.
 
@@ -619,4 +619,4 @@ return await Deployment.RunAsync(() =>
 
 Now when you run a `pulumi up` you will provision a new bucket, sync your content, associate the bucket to your CDN, update the Cloudfront Function so the CDN knows to fetch new content, and lastly keep your previous bucket around in case you need to rollback.
 
-Deploying and managing a static website should be easy and the AWS Static Website makes it so you can focus more time on generating great content and less time on the internals on your website. For more information on the AWS Static Website Package you can visit the [documentation]{{< relref "/registry/packages/aws-static-website" >}}) or via the code directly on [Github](https://github.com/pulumi/pulumi-aws-static-website).
+Deploying and managing a static website should be easy and the AWS Static Website Package makes it so you can focus more time on generating great content and less time on the internals on your website. For more information on the AWS Static Website Package you can visit the [documentation]{{< relref "/registry/packages/aws-static-website" >}}) or via the code directly on [Github](https://github.com/pulumi/pulumi-aws-static-website).
