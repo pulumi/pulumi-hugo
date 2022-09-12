@@ -213,7 +213,7 @@ Templated projects are meant to be customized, and every web project comes with 
 
 ### Adding a custom domain
 
-Once your website is deployed on AWS, there's a good chance you'll want to give it a domain of its own. For this, you have many options, and they generally fall into one of two categories: using [Amazon Route 53](https://aws.amazon.com/route53/), which a good choice if your domain is already being managed on AWS, or using a third-party service like [DNSimple](https://dnsimple.com) or [Google Cloud DNS](https://cloud.google.com/dns/). Both options are easily managed with Pulumi.
+Once your website is deployed on AWS, there's a good chance you'll want to give it a domain of its own. For this, you have many options, and they generally fall into one of two categories: using [Amazon Route 53](https://aws.amazon.com/route53/), which is a good choice if your domain is already being managed on AWS, or using a third-party service like [DNSimple](https://dnsimple.com) or [Google Cloud DNS](https://cloud.google.com/dns/). Both options are easily managed with Pulumi.
 
 #### Using a Route 53 managed domain
 
@@ -245,7 +245,7 @@ const domainName = `${subdomain}.${domain}`;
 ```python
 domain = config.require("domain");
 subdomain = config.require("subdomain");
-domain_name = subdomain + "." + domain;
+domain_name = f"{subdomain}.{domain}";
 ```
 
 {{% /choosable %}}
@@ -357,15 +357,6 @@ certificate_validation = aws.route53.Record(
 {{% choosable language go %}}
 
 ```go
-// For ACM and Route 53 support:
-import (
-	// ...
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-)
-```
-
-```go
 // Look up your existing Route 53 hosted zone.
 zone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
 	Name: pulumi.StringRef(domain),
@@ -399,6 +390,16 @@ _, err = route53.NewRecord(ctx, "certificate-validation", &route53.RecordArgs{
 if err != nil {
 	return err
 }
+```
+
+You'll need these imports as well, for ACM and Route 53 support:
+
+```go
+import (
+	// ...
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+)
 ```
 
 {{% /choosable %}}
@@ -458,6 +459,13 @@ variables:
 
 resources:
   # ...
+
+  # ACM certificates must be provisioned in the us-east-1 region, so
+  # we configure an explicit provider for this resource.
+  us-east-provider:
+    type: pulumi:providers:aws
+    properties:
+      region: us-east-1
 
   # Provision a new ACM certificate.
   certificate:
@@ -568,6 +576,7 @@ var cdn = new Aws.CloudFront.Distribution("cdn", new()
 ```yaml
 cdn:
   type: aws:cloudfront:Distribution
+  properties:
     # ...
     aliases:
       - ${domainName}
@@ -714,7 +723,7 @@ export const domainURL = `https://${domainName}`;
 {{% choosable language python %}}
 
 ```python
-pulumi.export("domainName", f"https://{domain_name}")
+pulumi.export("domainURL", f"https://{domain_name}")
 ```
 
 {{% /choosable %}}
@@ -730,7 +739,7 @@ ctx.Export("domainURL", pulumi.Sprintf("https://%s", domainName))
 {{% choosable language csharp %}}
 
 ```csharp
-["domainName"] = $"https://{subdomain}.{domain}",
+["domainURL"] = $"https://{subdomain}.{domain}",
 ```
 
 {{% /choosable %}}
@@ -740,12 +749,18 @@ ctx.Export("domainURL", pulumi.Sprintf("https://%s", domainName))
 ```yaml
 outputs:
   # ...
-  domainName: https://${domainName}
+  domainURL: https://${domainName}
 ```
 
 {{% /choosable %}}
 
-Save your changes, then preview and deploy with another `pulumi up`. In a few moments, you should be able to browse to your website using the custom domain:
+Save your changes, then preview and deploy with another `pulumi up`:
+
+```bash
+$ pulumi up
+```
+
+In a few moments, you should be able to browse to your website using the custom domain:
 
 ```bash
 $ open $(pulumi stack output domainURL)
