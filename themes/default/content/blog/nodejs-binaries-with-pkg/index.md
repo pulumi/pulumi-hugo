@@ -1,9 +1,8 @@
 ---
 title: "Node.js Native Binary Compilation Using vercel/pkg"
 date: 2022-09-13
-meta_desc: "Using Vercel pkg to create native binaries for nodejs providers"
+meta_desc: "Building standalone native binaries for Node.js programs using vercel/pkg"
 
-#meta_image: infra-observability.png
 authors:
 - daniel-bradley
 tags:
@@ -15,21 +14,21 @@ tags:
 meta_image: "meta.png"
 ---
 
-In Pulumi's engineering department we build and distribute our tools as native binaries as there's no local dependencies needed. Go provides a great story for building self-contained binaries that target modern operating systems.
+In Pulumi's engineering department, we often build and distribute tools as native binaries to avoid the need for additional dependencies on user machines. Most of these tools are written in Go, which has good support for building self-contained binaries that target modern operating systems.
 
-However, it's possible to also author component providers using other languages & runtimes including: Node.js, Python and .NET. However, when it comes to distributing your provider plugin, we'd still like to be able to avoid the user needing to install the required runtime in order to use the provider plugin. In this article we're looking at how we can package a Node.js program into a standalone distributable.
+While other Pulumi-supported languages like Node.js, Python, and .NET require additional runtime dependencies, it's possible to bundle dependencies with the program. In this article, we'll show you how to do that for a Node.js program.
 
-This is a problem that can be solved using [Vercel/pkg](https://github.com/vercel/pkg) command line tool. Here's the summary from their readme.
+This is a problem that can be solved using [vercel/pkg](https://github.com/vercel/pkg) command line tool. Here's the summary from their readme.
 
 > This command line interface enables you to package your Node.js project into an executable that can be run even on devices without Node.js installed.
 
-Let's take a look at how to use pkg and some issues we encountered on the way.
+Let's take a look at how to use `pkg` and some issues we encountered on the way.
 
-## Setting up pkg
+## Setting up `pkg`
 
 ### 1 - Install
 
-Pkg is distributed as an npm package which can be installed into your “devDependencies” using:
+`pkg` is distributed as an npm package which can be installed into your “devDependencies” using:
 
 ```bash
 npm install -D pkg
@@ -49,7 +48,7 @@ npx pkg [args]
 
 ### 2 - Set `bin` in `package.json`
 
-Pkg will use [the bin field from your package.json](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#bin) to find the entry point so you just have to specify a path to the directory containing your `package.json`.
+`pkg` will use [the bin field from your package.json](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#bin) to find the entry point so you just have to specify a path to the directory containing your `package.json`.
 
 ```json
 {
@@ -59,11 +58,11 @@ Pkg will use [the bin field from your package.json](https://docs.npmjs.com/cli/v
 }
 ```
 
-If no target is specified, then a set of defaults will be chosen for you. If the output path is not specified, pkg will infer the name from the package.json “name” field and write to the current working directory.
+If no target is specified, then a set of defaults will be chosen for you. If the output path is not specified, `pkg` will infer the name from the package.json “name” field and write to the current working directory.
 
 ### 3 - Execute
 
-The main inputs that pkg needs is:
+The main inputs that `pkg` needs is:
 
 * The entry point to your program for packaging
 * The target machine to build for
@@ -78,15 +77,15 @@ Here’s an example of building the project in the current directory using node 
 pkg -t node18-macos-arm64 -o bin/my-program .
 ```
 
-It's possible to specify multiple targets in a comma-separated list to build them all at the same time, but it does come with the limitation where the output file names follow a fixed pattern. Instead, we chose to just run the pkg command multiple times with different arguments from our makefile in parallel as this fits with our existing workflows well.
+It's possible to specify multiple targets in a comma-separated list to build them all at the same time, but it does come with the limitation where the output file names follow a fixed pattern. Instead, we chose to just run the `pkg` command multiple times with different arguments from our makefile in parallel as this fits with our existing workflows well.
 
 ## Issues encountered
 
 ### “Inspector Not Available”
 
-As soon as we started executing the provider we started seeing some interesting warnings printed to the console stating “Inspector is not available” (here’s our [tracking issue](https://github.com/pulumi/pulumi-awsx/issues/848) and some [Pkg discussion](https://github.com/vercel/pkg/issues/93)). This is because we use the Node.js Inspector API as part of our automatic closure serialization, however this is not available by default when packaging with pkg.
+As soon as we started executing the provider we started seeing some interesting warnings printed to the console stating “Inspector is not available” (here’s our [tracking issue](https://github.com/pulumi/pulumi-awsx/issues/848) and some [`pkg` discussion](https://github.com/vercel/pkg/issues/93)). This is because we use the Node.js Inspector API as part of our automatic closure serialization, however this is not available by default when packaging with `pkg`.
 
-Pkg provides an option to fix this by building your own base image with custom Node.js flags set to enable debugging. However, on investigation, these issues were caused by the Pulumi Typescript SDK creating and caching an inspector instance at the point of being imported even though we never actually call this code in our plugin. Therefore, we opted to make this eager singleton creation to be lazy – only created on first use, as we’re not using in our providers at this time.
+`pkg` provides an option to fix this by building your own base image with custom Node.js flags set to enable debugging. However, on investigation, these issues were caused by the Pulumi Typescript SDK creating and caching an inspector instance at the point of being imported even though we never actually call this code in our plugin. Therefore, we opted to make this eager singleton creation to be lazy – only created on first use, as we’re not using in our providers at this time.
 
 ### Unrunnable MacOS ARM binaries
 
@@ -136,15 +135,15 @@ bins: bin/windows-amd64/my-program.exe
 In summary the above code does the following:
 
 1. Define each output file we need
-    * Set the correct pkg `TARGET` for each output
+    * Set the correct `pkg` `TARGET` for each output
 2. Define a rule for building any binary output:
     * Ensure module_modules are up-to-date (this is another make target not shown here).
-    * Run pkg with the `TARGET` set in (1) and the name of the current output (`$@`).
+    * Run `pkg` with the `$TARGET` set in (1) and the name of the current output (`$@`).
 3. Define `bins` "phony target" which builds all listed bins.
 
 ## Recap
 
-I hope this gives you a good overview of the Vercel/pkg tool and how you can use it to create standalone programs using Node.js.
+I hope this gives you a good overview of the vercel/pkg tool and how you can use it to create standalone programs using Node.js.
 
 ### Historical Note
 
