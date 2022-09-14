@@ -1,6 +1,6 @@
 ---
 title: Request a demo
-meta_desc: Request a demo with a cloud engineering expert to see how Pulumi can help you ship infrastructure faster.
+meta_desc: Request a demo with an infrastructure as code expert to see how Pulumi can help you ship infrastructure faster.
 
 type: page
 layout: demo
@@ -8,9 +8,9 @@ layout: demo
 overview:
     title: See how Pulumi can help you ship infrastructure faster.
     details:
-        - Learn how Pulumi can help you solve the challenges you are facing today.
-        - See how you can develop friendlier cloud tooling with Pulumi's multi-language technology.
-        - Discover areas where software engineering practices can help increase shipping velocity without reducing quality and security.
+        - Learn how Pulumi tames the complexity of managing thousands of cloud resources.
+        - See how you can employ software engineering to test and ship infrastructure faster.
+        - Discover how to build automated workflows for infrastructure as code.
 
 customer_logos:
   title: Leading engineering organizations are building with Pulumi
