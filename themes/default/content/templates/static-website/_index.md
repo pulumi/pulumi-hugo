@@ -10,7 +10,7 @@ weight: 1
 
 ### What are static websites?
 
-Static websites are an efficient and scalable way of building and serving websites created with HTML, CSS, or JavaScript. Popular frameworks for static websites include Next.js, Hugo, Gatsby, Jekyll, and more.
+Static websites are an efficient and scalable way of building and serving websites created with HTML, CSS, and JavaScript. Popular frameworks for static websites include Next.js, Hugo, Gatsby, Jekyll, and more.
 
 **On AWS,** you can host a static website by configuring Amazon S3 for hosting and Amazon CloudFront as the CDN. You could also use AWS Amplify, which is designed for deploying static websites more easily.
 
