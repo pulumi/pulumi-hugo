@@ -1,0 +1,132 @@
+---
+title: Container Service on AWS
+meta_desc: The Containers template makes it easy to deploy a containerized application on AWS with Pulumi and Amazon ECS.
+meta_image: meta.png
+card_desc: Deploy a container service on AWS with Pulumi and Amazon ECS.
+layout: template
+template:
+    prefix: container-aws
+cloud:
+  name: Amazon Web Services
+  slug: aws
+---
+
+The Container template for AWS deploys a containerized application with Pulumi. It uses [Amazon ECS]({{< relref "/registry/packages/aws/api-docs/ecs/cluster" >}}) for cluster management, [AWS Fargate]({{< relref "/registry/packages/awsx/api-docs/ecs/fargateservice" >}}) to run the cluster on serverless compute, and an [Application Load Balancer]({{< relref "/registry/packages/awsx/api-docs/lb" >}}) that serves the container endpoint to the internet. It also creates an [Amazon ECR repository]({{< relref "/registry/packages/awsx/api-docs/ecr/repository" >}}) that stores the container image. The template generates a complete Pulumi program that provisions the cloud resources and installs Nginx on the container, providing you with a working project out of the box that you can customize easily and extend to suit your needs.
+
+![An architecture diagram of the Pulumi AWS Container Service template](./architecture.png)
+
+## Using this template
+
+To use this template to deploy a website of your own, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
+
+{{% chooser language "typescript,python,go,csharp,yaml" / %}}
+
+{{% choosable language typescript %}}
+
+```bash
+$ mkdir my-container-service && cd my-container-service
+$ pulumi new container-aws-typescript
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```bash
+$ mkdir my-container-service && cd my-container-service
+$ pulumi new container-aws-python
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```bash
+$ mkdir my-container-service && cd my-container-service
+$ pulumi new container-aws-go
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```bash
+$ mkdir my-container-service && cd my-container-service
+$ pulumi new container-aws-csharp
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```bash
+$ mkdir my-container-service && cd my-container-service
+$ pulumi new container-aws-yaml
+```
+
+{{% /choosable %}}
+
+Follow the prompts to complete the new-project wizard. When it's done, you'll have a complete Pulumi project that's ready to deploy and configured with the most common settings. Feel free to inspect the code in {{< langfile >}} for a closer look.
+
+## Deploying the project
+
+The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`]({{< relref "/docs/reference/cli/pulumi_up" >}}):
+
+```bash
+$ pulumi up
+```
+
+When the deployment completes, Pulumi exports the following [stack output]({{< relref "/docs/intro/concepts/stack#outputs" >}}) values:
+
+url
+: The HTTP URL for the container's endpoint.
+
+Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `url`, for example, can be used from the command line to open the newly deployed container service in your favorite web browser:
+
+```bash
+$ open $(pulumi stack output url)
+```
+
+## Customizing the project
+
+Projects created with the Container template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
+
+container_port
+: Specifies the port mapping for the container. Defaults to port 80.
+
+cpu
+: Specifies the amount of CPU to use with each task or each container within a task. Defaults to 512.
+
+memory
+: Specifies the amount of memory to use with each task or each container within a task. Defaults to 128.
+
+image
+: The container image that is used to build the application. Defaults to the dockerfile in the `app` folder.
+
+All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`]({{< relref "/docs/reference/cli/pulumi_config_set" >}}) as shown below.
+
+### Using your own container image
+
+If you already have a container image you'd like to build your application with, you can do so either by replacing placeholder content in the `app` folder or by configuring the stack to point to another folder on your computer with the `image` setting:
+
+```bash
+$ pulumi config set path ../my-existing-image/build
+$ pulumi up
+```
+
+### Cleaning up
+
+You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy" >}}):
+
+```bash
+$ pulumi destroy
+```
+
+## Learn more
+
+Congratulations! You're now well on your way to managing a production-grade containerzed application on AWS with Pulumi --- and there's lots more you can do from here:
+
+* Discover more architecture templates as they're available in [Templates &rarr;]({{< relref "/templates" >}})
+* Dive into the AWS package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/aws" >}})
+* Expand your understanding of how Pulumi works in [Architecture &amp; Concepts &rarr;]({{< relref "/docs/intro/concepts" >}})
+* Read up on the latest new features [in the Pulumi Blog &rarr;]({{< relref "/blog" >}})
