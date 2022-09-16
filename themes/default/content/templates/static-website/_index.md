@@ -1,12 +1,11 @@
 ---
 title: Static Website Templates
 layout: overview
-description: Pulumi program templates are the fastest way to deploy static websites on AWS, Azure, or Google Cloud Platform. Templates come with predefined [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) so you can get started instantly.
-meta_desc: Pulumi program templates that make it easy to deploy static websites on [AWS]({{< relref "/aws" >}}), [Azure]({{< relref "/azure" >}}), or [Google Cloud Platform]({{< relref "/gcp" >}}).
+description: Pulumi program templates are the fastest way to deploy static websites on [AWS]({{< relref "/aws" >}}), [Azure]({{< relref "/azure" >}}), or [Google Cloud Platform]({{< relref "/gcp" >}}). Templates come with predefined [infrastructure as code]({{< relref "/what-is/what-is-infrastructure-as-code" >}}) so you can get started instantly.
+meta_desc: Pulumi program templates that make it easy to deploy static websites on AWS, Azure, or Google Cloud Platform.
 meta_image: meta.png
 weight: 1
 ---
-
 
 
 ### What are static websites?
