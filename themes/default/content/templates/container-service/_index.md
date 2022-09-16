@@ -1,7 +1,7 @@
 ---
 title: Container Templates
 layout: overview
-description: Pulumi program templates are the fastest way to deploy containerized applications on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
+description: Pulumi program templates are the fastest way to deploy containerized applications on [AWS](/aws), [Azure](/azure), or [Google Cloud Platform](/gcp). Templates come with predefined infrastructure as code so you can get started instantly.
 meta_desc: Pulumi program templates that make it easy to deploy containerized applications on AWS, Azure, or Google Cloud Platform.
 meta_image: meta.png
 weight: 1
@@ -25,10 +25,10 @@ Infrastructure as code is an efficient and repeatable way of building a containe
 
 Pulumi’s open source, infrastructure as code SDK that lets you build and deploy static websites with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
 
-**Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
+* **Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
 
-**Container Ecosystem Support:** Orchestrate every component (container registries, images, clusters, tasks, etc.) with code.
+* **Container Ecosystem Support:** Orchestrate every component (container registries, images, clusters, tasks, etc.) with code.
 
-**Fast, Easy Deployment:** Quickly deploy your containerized application with a CLI or from a CI/CD workflow.
+* **Fast, Easy Deployment:** Quickly deploy your containerized application with a CLI or from a CI/CD workflow.
 
-**Rapid Development:** Author, version, test, and release infrastructure changes just like software.
+* **Rapid Development:** Author, version, test, and release infrastructure changes just like software.
