@@ -1,7 +1,7 @@
 ---
 title: Container Templates
 layout: overview
-description: Pulumi program templates are the fastest way to deploy containerized applications on [AWS](/aws), [Azure](/azure), or [Google Cloud Platform](/gcp). Templates come with predefined infrastructure as code so you can get started instantly.
+description: Pulumi program templates are the fastest way to deploy [containerized applications](/containers) on [AWS](/aws), [Azure](/azure), or [Google Cloud Platform](/gcp). Templates come with predefined [infrastructure as code](/what-is/what-is-infrastructure-as-code) so you can get started instantly.
 meta_desc: Pulumi program templates that make it easy to deploy containerized applications on AWS, Azure, or Google Cloud Platform.
 meta_image: meta.png
 weight: 1
