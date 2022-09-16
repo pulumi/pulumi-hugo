@@ -24,10 +24,10 @@ Infrastructure as code is an efficient and repeatable way of building a static w
 
 Pulumi’s open source, infrastructure as code SDK lets you build and deploy static websites with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
 
-**Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
+* **Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
 
-**Easier Integration:** Integrate every cloud service needed to run your static website into a single program.
+* **Easier Integration:** Integrate every cloud service needed to run your static website into a single program.
 
-**Fast, Easy Deployment:** Quickly deploy your static website with a CLI or from a CI/CD workflow.
+* **Fast, Easy Deployment:** Quickly deploy your static website with a CLI or from a CI/CD workflow.
 
-**Rapid Development:** Author, version, test, and release infrastructure changes just like software.
+* **Rapid Development:** Author, version, test, and release infrastructure changes just like software.
