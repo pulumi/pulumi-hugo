@@ -22,7 +22,7 @@ Static websites are an efficient and scalable way of building and serving websit
 
 Infrastructure as code is an efficient and repeatable way of building a static website with programming languages and deploying the website to your preferred cloud.
 
-Pulumi’s open source, infrastructure as code SDK that lets you build and deploy static websites with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
+Pulumi’s open source, infrastructure as code SDK lets you build and deploy static websites with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
 
 **Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
 
