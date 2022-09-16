@@ -53,3 +53,11 @@ new-learn-module:
 .PHONY: new-learn-topic
 new-learn-topic:
 	./scripts/content/new-learn-topic.sh
+
+.PHONY: new-template-type
+new-template-type:
+	./scripts/content/new-template-type.sh
+
+.PHONY: new-template
+new-template:
+	./scripts/content/new-template.sh
