@@ -1,8 +1,8 @@
 ---
-title: Container Service on AWS
-meta_desc: The Containers template makes it easy to deploy a containerized application on AWS with Pulumi and Amazon ECS.
+title: Deploy an ECS Container Service on AWS
+meta_desc: The Containers template makes it easy to deploy an ECS containerized application on AWS with Pulumi and Amazon ECS.
 meta_image: meta.png
-card_desc: Deploy a container service on AWS with Pulumi and Amazon ECS.
+card_desc: Deploy an ECS container service on AWS with Pulumi and Amazon ECS.
 layout: template
 template:
     prefix: container-aws
@@ -11,13 +11,13 @@ cloud:
   slug: aws
 ---
 
-The Container template for AWS deploys a containerized application with Pulumi. It uses [Amazon ECS]({{< relref "/registry/packages/aws/api-docs/ecs/cluster" >}}) for cluster management, [AWS Fargate]({{< relref "/registry/packages/awsx/api-docs/ecs/fargateservice" >}}) to run the cluster on serverless compute, and an [Application Load Balancer]({{< relref "/registry/packages/awsx/api-docs/lb" >}}) that serves the container endpoint to the internet. It also creates an [Amazon ECR repository]({{< relref "/registry/packages/awsx/api-docs/ecr/repository" >}}) that stores the container image. The template generates a complete Pulumi program that provisions the cloud resources and installs Nginx on the container, providing you with a working project out of the box that you can customize easily and extend to suit your needs.
+The Container template for AWS deploys ECS and a containerized application with Pulumi. It uses [Amazon ECS]({{< relref "/registry/packages/aws/api-docs/ecs/cluster" >}}) for cluster management, [AWS Fargate]({{< relref "/registry/packages/awsx/api-docs/ecs/fargateservice" >}}) to run the cluster on serverless compute, and an [Application Load Balancer]({{< relref "/registry/packages/awsx/api-docs/lb" >}}) that serves the container endpoint to the internet. It also creates an [Amazon ECR repository]({{< relref "/registry/packages/awsx/api-docs/ecr/repository" >}}) that stores the container image. The template generates a complete Pulumi program that provisions the cloud resources and installs Nginx on the container, providing you with a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Container Service template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy a website of your own, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
+To use this template to deploy ECS and your own containerized application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
