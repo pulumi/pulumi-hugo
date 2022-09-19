@@ -56,6 +56,7 @@ languages:
   python: Expert
     version: 3.7
   typescript: Expert
+  go: Expert
   csharp: Expert
   java: Expert
   yaml: Expert
