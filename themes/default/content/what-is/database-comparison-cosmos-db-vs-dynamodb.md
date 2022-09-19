@@ -33,7 +33,7 @@ customer_logos:
 
 Both Cosmos DB and DynamoDB are NoSQL, or non-relational, databases. This means their data is stored in some format other than two-dimensional tables. Some commonly-used formats are documents, key-value pairs, graphs, and columns, each with different strengths and tradeoffs.
 
-Cosmos DB and DynamoDB are both highly-available, scalable, globally distributed and fully-managed serverless NoSQL databases. Both function as document based or key-value based databases. Additionally, Cosmos DB supports wide column and graph stores.
+Cosmos DB and DynamoDB are both highly-available, scalable, globally distributed and fully-managed serverless NoSQL databases. Both function as document based or key-value based databases.
 
 ## Cosmos DB vs DynamoDB: What Are The Differences?
 
@@ -41,7 +41,7 @@ The most significant difference between Cosmos DB and DynamoDB is that Cosmos DB
 
 ### Pros and Cons of Cosmos DB
 
-Cosmos DB offers a high degree of flexibility, thanks to its variety of available data models and the ability to use SQL-like queries in addition to Gremlin, Azure Tables, and MongoDB APIs when interacting with your data. Its five consistency models (eventually consistent, consistent prefix, session, bounded staleness, and strong consistency) allow you to fine-tune your latency, and it scales quite well. It is priced according to storage and throughput
+Cosmos DB offers a high degree of flexibility, thanks to its variety of available data models and the ability to use SQL-like queries in addition to Gremlin, Azure Tables, and MongoDB APIs when interacting with your data. While DynamoDB functions only as a document or a key-value database, Cosmos DB can function as document, key-value, wide column, and graph-based database. Its five consistency models (eventually consistent, consistent prefix, session, bounded staleness, and strong consistency) allow you to fine-tune your latency, and it scales quite well. It is priced according to storage and throughput
 
 However, this flexibility can make Cosmos DB somewhat more difficult to use at first. Understanding the various data models available to you and the intended use case of each one is key to ensuring that you are getting the most optimum performance for the price, according to your application's specific needs.
 
