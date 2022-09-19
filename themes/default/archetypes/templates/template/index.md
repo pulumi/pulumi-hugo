@@ -1,23 +1,36 @@
 ---
 title: "{{ replace .Name "-" " " | title }} Template"
-meta_desc: The {{ replace .Name "-" " " | title }} template makes it easy to deploy a static website on $CLOUD with Pulumi, some service, and some other cloud service.
-meta_image: meta.png
-card_desc: Deploy a $THING on $CLOUD with Pulumi, some cloud service, and some other cloud service.
 layout: template
+
+# Make sure this is description accurate for this template.
+meta_desc: The {{ replace .Name "-" " " | title }} template makes it easy to deploy a static website on $CLOUD with Pulumi, some service, and some other cloud service.
+
+# Appears on the cards on template-overview pages.
+card_desc: Deploy a $THING on $CLOUD with Pulumi, some cloud service, and some other cloud service.
+
+# Used for generating language-specific links to templates on GitHub. (Example: `static-website-aws`)
 template:
     prefix: architecture-cloud
+
+# Used for generating links to sibling templates in the right-hand nav. Slug is this template's parent directory.
 cloud:
   name: Amazon Web Services
   slug: aws
+
+# Be sure to replace this image. Figma source file:
+# https://www.figma.com/file/lGrSpwbGGmbixEuewMbtkh/Template-Architecture-Diagrams?node-id=15%3A196
+meta_image: meta.png
+
+# The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The $CLOUD $ARCHITECTURE template deploys a $THING on $CLOUD with Pulumi. It uses this resource, this other resource, and maybe this other awesome resource to accomplish this particular desirable outcome. The template generates a complete Pulumi program, including $STUFF, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The $CLOUD $ARCHITECTURE template deploys a $THING on $CLOUD with Pulumi. It uses this resource, this other resource, and probably some other awesome resource to accomplish some particular desirable outcome. The template generates a complete Pulumi program, including $INCLUDED_STUFF, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi $CLOUD $ARCHITECTURE template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy a $THING of your own, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your $CLOUD credentials]({{< relref "/registry/packages/$CLOUD/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
+To use this template to deploy your own $THING, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your $CLOUD credentials]({{< relref "/registry/packages/$CLOUD/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -189,6 +202,7 @@ A description of the next step.
 ### Some other next step
 
 A description of the other next step.
+
 ## Cleaning up
 
 You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy" >}}):

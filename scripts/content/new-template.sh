@@ -55,4 +55,4 @@ echo "Now give your new template a URL-friendly name. For example, to
 create a new template under ${type} that'll live at
 https://pulumi.com/templates/${type}/azure, type 'azure'."
 echo
-prompt_for_template_name && echo "Done! You can now run 'make serve' to get started."
+prompt_for_template_name && echo && echo "Done! You can now run 'make serve' to get started."
