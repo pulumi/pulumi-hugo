@@ -29,7 +29,7 @@ customer_logos:
       - ro
 ---
 
-YAML is a data serialization language most commonly used for configuration files. Its easy readability and rich feature set have made it an increasingly popular choice over the years, for everything from configuration files to object serialization. Originally named "Yet Another Markup Language," the creaters changed the name to "YAML Ain't a Markup Language" in order to better reflect its strength as a data-oriented language rather than simply markup.
+YAML is a data serialization language most commonly used for configuration files. Its easy readability and rich feature set have made it an increasingly popular choice over the years, for everything from configuration files to object serialization. Originally named "Yet Another Markup Language," the creators changed the name to "YAML Ain't a Markup Language" in order to better reflect its strength as a data-oriented language rather than simply markup.
 
 ## How To Get Started With YAML
 
@@ -128,4 +128,4 @@ Defining infrastructure doesn't get much simpler than that! [Try it yourself](({
 
 ## Pulumi Corporation
 
-Pulumi's Cloud Engineering Platform unites infrastructure teams, application developers, and compliance teams around a unified software engineering process for delivering modern cloud applications faster and speeding innovation. Pulumi’s open-source tools help infrastructure teams tame the cloud’s complexity with Universal Infrastructure-as-Code using the world’s most popular programming languages and communities, including Python, YAML, Node.js (JavaScript, TypeScript), Go, and .NET (C#, F#, VB). [Get started for free today]({{< relref "/docs/get-started" >}}) or check out our on-demand workshops and tutorials for getting started with [IaC and Python]({{< relref "/resources/getting-started-with-automation-api" >}}).
+Pulumi's Cloud Engineering Platform unites infrastructure teams, application developers, and compliance teams around a unified software engineering process for delivering modern cloud applications faster and speeding innovation. Pulumi’s open-source tools help infrastructure teams tame the cloud’s complexity with Universal Infrastructure-as-Code using the world’s most popular programming languages and communities, including Python, YAML, Node.js (JavaScript, TypeScript), Go, and .NET (C#, F#, VB). [Get started for free today!]({{< relref "/docs/get-started" >}})
