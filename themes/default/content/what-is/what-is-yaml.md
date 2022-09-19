@@ -62,7 +62,7 @@ languages:
   yaml: Expert
 ```
 
-The beginning of a YAML file is always three dashes (`---`) on the first line. From there, your file is built out of key-value pairs.
+The beginning of a YAML file is usually three dashes (`---`) on the first line. From there, your file is built out of key-value pairs.
 
 ```yaml
 name: Pulumipus

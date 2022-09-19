@@ -31,9 +31,9 @@ customer_logos:
 
 ## Cosmos DB vs DynamoDB: What Are The Similarities?
 
-Both Cosmos DB and DynamoDB are NoSQL, or non-relational, databases. This concept means their data is stored in some format other than two-dimensional tables. Some commonly-used formats for NoSQL databases in general are documents, key-value pairs, graphs, and columns, each with different strengths and tradeoffs.
+Both Cosmos DB and DynamoDB are [NoSQL]({{< relref "/learn/glossary/nosql" >}}), or non-relational, databases. This concept means their data is stored in some format other than two-dimensional tables. Some commonly-used formats for NoSQL databases in general are documents, key-value pairs, graphs, and columns, each with different strengths and tradeoffs.
 
-Cosmos DB and DynamoDB are both highly-available, scalable, globally distributed and fully-managed serverless NoSQL databases. Both function as document&ndash; or key-value&ndashbased databases.
+Cosmos DB and DynamoDB are both highly-available, scalable, globally distributed and fully-managed serverless NoSQL databases. Both function as document&ndash; or key-value&ndash;based databases.
 
 ## Cosmos DB vs DynamoDB: What Are The Differences?
 
