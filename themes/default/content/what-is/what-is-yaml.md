@@ -29,11 +29,13 @@ customer_logos:
       - ro
 ---
 
-YAML is a data serialization language most commonly used for configuration files. Its easy readability and rich feature set have made it an increasingly popular choice over the years, for everything from configuration files to object serialization. Originally named "Yet Another Markup Language," the creaters changed the name to "YAML Ain't a Markup Language" in order to better reflect its focus as a data-oriented language rather than simply markup.
+YAML is a data serialization language most commonly used for configuration files. Its easy readability and rich feature set have made it an increasingly popular choice over the years, for everything from configuration files to object serialization. Originally named "Yet Another Markup Language," the creaters changed the name to "YAML Ain't a Markup Language" in order to better reflect its strength as a data-oriented language rather than simply markup.
 
-## YAML Syntax and Features
+## How To Get Started With YAML
 
-Many of YAML's strongest features were inspired by other programming languages. Like Python, YAML uses whitespace indentation for defining the structure of your file. Strings, integers, floats, lists, and dictionaries are all natively supported, and it does also allow you to define custom data types. JSON files are valid YAML. Dig far enough into the history of YAML and you'll find pieces of the PERL, C, and HTML specs.
+Many of YAML's strongest features were inspired by other programming languages. Like Python, YAML uses whitespace indentation for defining the structure of your file. Strings, integers, floats, lists, and dictionaries are all natively supported, and it does also allow you to define custom data types. Dig far enough into the history of YAML and you'll find pieces of the PERL, C, and HTML specs.
+
+While YAML is frequently compared to JSON, it's important to note that the two are very closely related. YAML is actually a superset of JSON, and so it is capable of parsing JSON directly.
 
 The following is an example of YAML:
 
@@ -96,7 +98,7 @@ languages:
   yaml: Expert
 ```
 
-## YAML with Pulumi
+## The Benefits of YAML With Pulumi
 
 If a high degree of readability is your concern and you do not need the expressivity of a full-fledged programming language like Python or Typescript, YAML is a great option for defining and deploying your infrastructure with Pulumi. Take the following example, which creates an AWS S3 bucket and deploys a simple "hello world" website before returning the URL of your bucket:
 
