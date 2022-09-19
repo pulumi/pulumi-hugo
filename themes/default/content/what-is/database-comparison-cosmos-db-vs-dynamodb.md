@@ -55,7 +55,7 @@ While it can be cheaper than Cosmos DB, predicting the costs accurately can be d
 
 Cosmos DB is best if you need the wider flexibility of more data models, as well as the ability to leverage traditional SQL queries against non-relational data. If your existing infrastructure is already on Azure, it's a clear choice.
 
-DynamoDB is best if the rest of your infrastructure is already on AWS, or your priority is high performance for low cost over flexibility.
+DynamoDB is best if the rest of your infrastructure is already on AWS or your priority is high performance for low cost over flexibility.
 
 ## Pulumi Corporation
 
