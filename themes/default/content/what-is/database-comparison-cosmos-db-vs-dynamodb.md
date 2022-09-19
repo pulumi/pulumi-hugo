@@ -37,7 +37,7 @@ Cosmos DB and DynamoDB are both highly-available, scalable, globally distributed
 
 ## Cosmos DB vs DynamoDB: What Are The Differences?
 
-The most significant difference between Cosmos DB and DynamoDB is that Cosmos DB was designed as a drop-in replacement for an enterprise-scale relational database, and thus supports queries that look very similar to traditional SQL. DynamoDB does not support SQL-style queries, although its own filters do allow you to get the similar information with a different syntax.
+The most significant difference between Cosmos DB and DynamoDB is that Cosmos DB was designed as a drop-in replacement for an enterprise-scale relational database, and thus supports queries that look very similar to traditional SQL. DynamoDB does not support SQL-style queries, although its own filters do allow you to get similar information with a different syntax.
 
 ### Pros and Cons of Cosmos DB
 
