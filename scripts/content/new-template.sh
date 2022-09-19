@@ -6,16 +6,27 @@ type=""
 template=""
 content_dir="themes/default/content"
 
-prompt_for_type_name() {
+prompt_for_template_type() {
     read -p "Template type (e.g., static-website): " type
 
     if [[ ! -z "$type" && -d "${content_dir}/templates/${type}" ]]; then
         return
     fi
 
-    echo "Couldn't find a template type with that name. Make sure you're using the path as listed under content/templates."
+    create_template_type
+}
+
+create_template_type() {
     echo
-    prompt_for_type_name
+    read -e -p "Template type '${type}' doesn't exist in '${content_dir}/templates'. Create it [y/n]? " choice
+
+    if [[ "$choice" == [Yy]* ]]; then
+        hugo new --kind templates/type --contentDir "${content_dir}" "templates/${type}"
+        return
+    fi
+
+    echo "Ok, exiting."
+    exit 0
 }
 
 prompt_for_template_name() {
@@ -34,9 +45,9 @@ prompt_for_template_name() {
 echo "So, you want to make a new Pulumi template? Great! 🙌"
 echo
 echo "Step 1:"
-echo "What is the path name of the template type you want to write for?"
+echo "What type of template would you like to create?"
 echo
-prompt_for_type_name
+prompt_for_template_type
 
 echo
 echo "Step 2:"
@@ -44,4 +55,4 @@ echo "Now give your new template a URL-friendly name. For example, to
 create a new template under ${type} that'll live at
 https://pulumi.com/templates/${type}/azure, type 'azure'."
 echo
-prompt_for_template_name
+prompt_for_template_name && echo "Done! You can now run 'make serve' to get started."
