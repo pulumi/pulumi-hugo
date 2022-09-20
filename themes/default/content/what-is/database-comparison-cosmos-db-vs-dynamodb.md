@@ -57,6 +57,8 @@ Cosmos DB is best if you need the wider flexibility of more data models, as well
 
 DynamoDB is best if the rest of your infrastructure is already on AWS or your priority is high performance for low cost over flexibility.
 
+Both Cosmos DB and DynamoDB are quick to stand up when using Pulumi. Try [Cosmos DB]({{< relref "/blog/how-to-build-globally-distributed-applications-with-azure-cosmos-db-and-pulumi/" >}}) and [DynamoDB]({{< relref "/docs/aws/dynamodb" >}}) for yourself!
+
 ## Pulumi Corporation
 
 Pulumi's Cloud Engineering Platform unites infrastructure teams, application developers, and compliance teams around a unified software engineering process for delivering modern cloud applications faster and speeding innovation. Pulumi’s open-source tools help infrastructure teams tame the cloud’s complexity with Universal Infrastructure-as-Code using the world’s most popular programming languages and communities, including Python, YAML, Node.js (JavaScript, TypeScript), Go, and .NET (C#, F#, VB). [Get started for free today!]({{< relref "/docs/get-started" >}})
