@@ -107,7 +107,7 @@ $ pulumi up
 
 You can customize the AWS serverless application's functionality by editing the Lambda function to perform another action, such as displaying a countdown until a specific time in the future. You could also add new functionality by creating a new Lambda function, adding a new path to the REST API, and updating the HTML script to call the new path.
 
-## Cleaning up
+## Tidying up
 
 You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy" >}}):
 
