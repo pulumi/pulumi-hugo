@@ -1,6 +1,6 @@
 ---
-title: Deploy an ECS Container Service on AWS
-meta_desc: The Container Service template makes it easy to deploy a containerized application on AWS with Pulumi and Amazon ECS.
+title: Container Service on AWS | Pulumi Template
+meta_desc: The Container Service template makes it easy to deploy a container serivce on AWS with Pulumi and Amazon Elastic Container Service (ECS).
 meta_image: meta.png
 card_desc: Deploy a container service on AWS with Pulumi and Amazon ECS.
 layout: template
@@ -11,13 +11,13 @@ cloud:
   slug: aws
 ---
 
-The Container Service template deploys a containerized application to AWS with Pulumi. It uses [Amazon Elastic Container Service (ECS)]({{< relref "/registry/packages/aws/api-docs/ecs/cluster" >}}) for cluster management, [AWS Fargate]({{< relref "/registry/packages/awsx/api-docs/ecs/fargateservice" >}}) to run the cluster on serverless compute, and an [Application Load Balancer]({{< relref "/registry/packages/awsx/api-docs/lb" >}}) that serves the container endpoint to the internet. It also creates an [Amazon Elastic Container Repository (ECR)]({{< relref "/registry/packages/awsx/api-docs/ecr/repository" >}}) that stores the container image. The template generates a complete Pulumi program that provisions the cloud resources and installs Nginx in a container, providing you with a working project out of the box that you can customize easily and extend to suit your needs.
+The Container Service template deploys a container service to AWS with Pulumi. You can then use the container service to build your own containerized application. The template deploys [Amazon Elastic Container Service (ECS)]({{< relref "/registry/packages/aws/api-docs/ecs/cluster" >}}) for cluster management, [AWS Fargate]({{< relref "/registry/packages/awsx/api-docs/ecs/fargateservice" >}}) to run the cluster on serverless compute, and an [Application Load Balancer]({{< relref "/registry/packages/awsx/api-docs/lb" >}}) that serves the container endpoint to the internet. It also creates an [Amazon Elastic Container Repository (ECR)]({{< relref "/registry/packages/awsx/api-docs/ecr/repository" >}}) that stores the container image. The template generates a complete Pulumi program that provisions the cloud resources and installs Nginx in a container, providing you with a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Container Service template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy an ECS cluster that's running your own containerized application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
+To use this template to deploy an ECS cluster that's running your container service, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -89,7 +89,7 @@ $ open $(pulumi stack output url)
 
 ## Customizing the project
 
-Projects created with the Container template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
+Projects created with the Container Service template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
 
 container_port
 : Specifies the port mapping for the container. Defaults to port 80.
@@ -107,7 +107,7 @@ All of these settings are optional and may be adjusted either by editing the sta
 
 ### Using your own container image
 
-If you already have a container image you'd like to build your application with, you can do so either by replacing placeholder content in the `app` folder or by configuring the stack to point to another folder on your computer with the `image` setting:
+If you already have a container image you'd like to build your container service with, you can do so either by replacing placeholder content in the `app` folder or by configuring the stack to point to another folder on your computer with the `image` setting:
 
 ```bash
 $ pulumi config set path ../my-existing-image/build
@@ -124,9 +124,10 @@ $ pulumi destroy
 
 ## Learn more
 
-Congratulations! You're now well on your way to managing a production-grade containerzed application on AWS with Pulumi --- and there's lots more you can do from here:
+Congratulations! You're now well on your way to managing a production-grade container service on AWS with Pulumi --- and there's lots more you can do from here:
 
 * Discover more architecture templates as they're available in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the AWS package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/aws" >}})
+* Dive into the AWSx (Crosswalk) package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/awsx" >}})
 * Expand your understanding of how Pulumi works in [Architecture &amp; Concepts &rarr;]({{< relref "/docs/intro/concepts" >}})
-* Read up on the latest new features [in the Pulumi Blog &rarr;]({{< relref "/blog" >}})
+* Read up on the latest new features [in the Pulumi Blog &rarr;]({{< relref "/blog/tag/containers" >}})
