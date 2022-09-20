@@ -115,7 +115,7 @@ Templated projects are meant to be customized, and every web project comes with 
 
 (...) -->
 
-### Cleaning up
+## Cleaning up
 
 You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy" >}}):
 
