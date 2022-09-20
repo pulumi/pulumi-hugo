@@ -105,8 +105,10 @@ for i in range(10):
 A Pulumi program models the to-be state of your infrastructure. If you read the program above, you can see that
 we define 11 resources as our to be infrastructure:
 
-* 1 AWS S3 bucket
-* 10 Objects in the bucket created in the previous step
+* 1 [AWS S3](https://www.pulumi.com/registry/packages/aws/api-docs/s3/bucket/) bucket
+* 10 [Objects](https://www.pulumi.com/registry/packages/aws/api-docs/s3/bucketobject/) in the bucket created in the previous step
+
+The stack itself is also modelled as a resource and it is the parent to all other resources.
 
 ```sh
 $ pulumi up
@@ -138,9 +140,11 @@ Duration: 13s
 While this is definitely an imperative program, there is one important thing to understand: instantiating an
 `s3.Bucket`, `s3.BucketObject` or any other Pulumi resource should not be interpreted as an imperative creation
 of the resource in the language host. Behind the scenes, any resource instantiation in the language host triggers a
-`Register Resource` request to the Pulumi engine.
+`Register Resource` request to the Pulumi engine. All these `Register Resource` requests together form the
+resource model you as an infrastructure developer want to get in the end.
 
-Running your program always sends the resource model to the Pulumi Engine regardless of what state your infrastructure is in.
+Running your program always sends the full resource model to the Pulumi Engine regardless of what state your
+current infrastructure is in.
 
 Our previous example was shown in Python, but recently we also delivered [support for YAML](https://www.pulumi.com/docs/intro/languages/yaml/).
 The creation of our S3 bucket could be converted to this snippet:
