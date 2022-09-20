@@ -27,6 +27,6 @@ Pulumi’s open source, infrastructure as code SDK that lets you build and deplo
 
 * **Unified Function and Infrastructure Code:** Manage cloud function code and infrastructure code together in a single program.
 
-* **Fast, Easy Deployment:** Quickly deploy your static website with a CLI or from a CI/CD workflow.
+* **Fast, Easy Deployment:** Quickly deploy your serverless application with a CLI or from a CI/CD workflow.
 
 * **Rapid Development:** Author, version, test, and release infrastructure changes just like software.
