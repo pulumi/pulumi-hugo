@@ -6,6 +6,8 @@ layout: template
 cloud:
   name: Amazon Web Services (AWS)
   slug: aws
+template:
+    prefix: serverless-aws
 ---
 
 The AWS Serverless Application template deploys a serverless website to AWS that displays the current time. It uses an [Amazon S3 bucket]({{< relref "/registry/packages/aws/api-docs/s3/bucket" >}}) for hosting a static website, deploys an [AWS Lambda function]({{< relref "/registry/packages/aws/api-docs/lambda/function" >}}) that calculates the current time, and an [Amazon API Gateway REST API]({{< relref "/registry/packages/aws/api-docs/apigateway/restapi" >}}) that routes requests to HTML content and the Lambda function. The template also ships with placeholder web content to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
