@@ -7,8 +7,6 @@ meta_image: meta.png
 weight: 1
 ---
 
-
-
 ### What are serverless applications?
 
 Serverless applications are scalable, highly available web backends and APIs that use managed services like Function as a Service (FaaS). Serverless computing enables you to build and run applications and services without having to provision, scale, and manage any servers yourself.
