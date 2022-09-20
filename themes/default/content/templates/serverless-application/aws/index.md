@@ -1,6 +1,6 @@
 ---
-title: AWS Serverless Application
-meta_desc: The AWS Serverless Application template makes it easy to deploy a serverless application on AWS with Pulumi, AWS Lambda functions, and Amazon API Gateway.
+title: AWS Serverless
+meta_desc: The AWS Serverless template makes it easy to deploy serverless infrastructure on AWS with Pulumi, AWS Lambda functions, and Amazon API Gateway.
 meta_image: meta.png
 layout: template
 cloud:
@@ -10,13 +10,13 @@ template:
     prefix: serverless-aws
 ---
 
-The AWS Serverless Application template deploys a serverless website to AWS that displays the current time. It uses an [Amazon S3 bucket]({{< relref "/registry/packages/aws/api-docs/s3/bucket" >}}) for hosting a static website, deploys an [AWS Lambda function]({{< relref "/registry/packages/aws/api-docs/lambda/function" >}}) that calculates the current time, and an [Amazon API Gateway REST API]({{< relref "/registry/packages/aws/api-docs/apigateway/restapi" >}}) that routes requests to HTML content and the Lambda function. The template also ships with placeholder web content to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
+The AWS Serverless template deploys serverless infrastructure needed to build an application on AWS. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs. It uses an [Amazon S3 bucket]({{< relref "/registry/packages/aws/api-docs/s3/bucket" >}}) for hosting a static website, deploys an [AWS Lambda function]({{< relref "/registry/packages/aws/api-docs/lambda/function" >}}) that runs business logic, and an [Amazon API Gateway REST API]({{< relref "/registry/packages/aws/api-docs/apigateway/restapi" >}}) that routes requests to HTML content and the Lambda function.
 
 ![An architecture diagram of the Pulumi AWS Serverless Website template](./architecture.png)
 
 ## Creating a new AWS serverless application project
 
-To use this template to deploy your own AWS serverless application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice.
+To use this template to deploy your own AWS serverless infrastructure, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice.
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -84,7 +84,7 @@ Stack outputs are useful in a number of ways, most commonly as inputs to other s
 
 ## Customizing the project
 
-Projects created with the AWS Serverless Application template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
+Projects created with the AWS Serverless template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
 
 path
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template. The /date path is a GET method that retrieves the current time from the Lambda function.
@@ -92,7 +92,7 @@ path
 code
 : References the folder containing the Lambda function code, which is in a file called `handler`
 
-None of these settings is required; by default, the AWS Serverless Application template is set up to deploy the website using the files contained in the `www` and `function` folders that are bundled with the template.
+None of these settings is required; by default, the AWS Serverless template is set up to deploy the website using the files contained in the `www` and `function` folders that are bundled with the template.
 
 ### Using your own web content
 
@@ -107,7 +107,7 @@ $ pulumi up
 
 ### Customizing the application's functionality
 
-You can customize the AWS serverless application's functionality by editing the Lambda function to perform another action, such as displaying a countdown until a specific time in the future. You could also add new functionality by creating a new Lambda function, adding a new path to the REST API, and updating the HTML script to call the new path.
+You can customize the placeholder website's functionality by editing the Lambda function to perform another action, such as displaying a countdown until a specific time in the future. You could also add new functionality by creating a new Lambda function, adding a new path to the REST API, and updating the HTML script to call the new path.
 
 ## Tidying up
 
@@ -119,7 +119,7 @@ $ pulumi destroy
 
 ## Learn more
 
-Congratulations! You're now well on your way to managing a production-grade AWS serverless application with Pulumi --- and there's lots more you can do from here:
+Congratulations! You're now well on your way to managing  production-grade AWS serverless infrastructure with Pulumi --- and there's lots more you can do from here:
 
 * Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the AWS package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/aws" >}})

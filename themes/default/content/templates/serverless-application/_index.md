@@ -1,15 +1,15 @@
 ---
 title: Serverless Templates
 layout: overview
-description: Pulumi program templates are the fastest way to deploy serverless applications and serverless functions on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
-meta_desc: Pulumi program templates that make it easy to deploy serverless applications on AWS, Azure, or Google Cloud Platform.
+description: Pulumi program templates are the fastest way to deploy serverless infrastructure and functions on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
+meta_desc: Pulumi program templates that make it easy to deploy serverless infrastructure and functions on AWS, Azure, or Google Cloud Platform.
 meta_image: meta.png
 weight: 1
 ---
 
 ### What are serverless applications?
 
-[Serverless](/serverless) applications are scalable, highly available web backends and APIs that use managed services like Function as a Service (FaaS). Serverless computing enables you to build and run applications and services without having to provision, scale, and manage any servers yourself.
+[Serverless](/serverless) applications are scalable, highly available web backends and APIs that run on serverless and fully managed infrastructure like Function as a Service (FaaS). Serverless computing enables you to build and run applications and services without having to provision, scale, and manage any servers yourself.
 
 **On [AWS](/aws),** you can build serverless applications using services like AWS Lambda, Amazon API Gateway, and Amazon S3.
 
@@ -17,7 +17,7 @@ weight: 1
 
 **On [Google Cloud Platform](/gcp),** you can build serverless applications using services like Google Cloud Functions.
 
-### Building and deploying serverless applications on AWS, Azure, and Google Cloud
+### Building and deploying serverless infrastructure on AWS, Azure, and Google Cloud
 
 [Infrastructure as code](/what-is/what-is-infrastructure-as-code) is an efficient and repeatable way of building a serverless application with programming languages and deploying the website to your preferred cloud.
 
