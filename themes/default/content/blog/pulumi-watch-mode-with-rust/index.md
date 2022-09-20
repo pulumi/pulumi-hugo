@@ -1,10 +1,10 @@
 ---
-title: "Bringing Rapid Infrastructure Prototyping to All with Rust"
-
-date: 2022-09-19T00:00:00-00:00
+title: "Enabling Rapid Pulumi Prototyping with Rust"
+date: 2022-09-20T00:00:00-00:00
 
 meta_desc: >
     Enabling Pulumi watch mode on Apple Silicon and solving Go cross-compilation by building on Rust
+meta_image: meta.png
 authors:
     - aaron-friel
 tags:
