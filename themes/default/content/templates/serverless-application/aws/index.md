@@ -106,14 +106,6 @@ $ pulumi up
 ### Customizing the application's functionality
 
 You can customize the AWS serverless application's functionality by editing the Lambda function to perform another action, such as displaying a countdown until a specific time in the future. You could also add new functionality by creating a new Lambda function, adding a new path to the REST API, and updating the HTML script to call the new path.
-<!--
-## Next steps
-
-Templated projects are meant to be customized, and every web project comes with its own unique set of needs. This section includes a few examples aimed at helping you to adapt your new project to address some of the more common ones.
-
-### Adding a database
-
-(...) -->
 
 ## Cleaning up
 
