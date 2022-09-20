@@ -1,6 +1,6 @@
 ---
 title: Deploy an ECS Container Service on AWS
-meta_desc: The Containers template makes it easy to deploy an ECS containerized application on AWS with Pulumi and Amazon ECS.
+meta_desc: The Container Service template makes it easy to deploy a containerized application on AWS with Pulumi and Amazon ECS.
 meta_image: meta.png
 card_desc: Deploy a container service on AWS with Pulumi and Amazon ECS.
 layout: template
