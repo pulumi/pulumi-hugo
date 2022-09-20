@@ -17,7 +17,7 @@ The Container Service template deploys a containerized application to AWS with P
 
 ## Using this template
 
-To use this template to deploy ECS and your own containerized application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
+To use this template to deploy an ECS cluster that's running your own containerized application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
