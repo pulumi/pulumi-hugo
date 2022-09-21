@@ -21,9 +21,9 @@ weight: 1
 | AWS Fargate                             | Serverless compute engine for containers that you use with ECS and EKS. Deploys and manages EC2 instances for you when you’re running containers.     |
 | AWS AppRunner                           | Fully managed container service that runs your container images without you needing to know how to deploy and manage the underlying infrastructure.   |
 
-### Building and deploying containers on AWS, Azure, and Google Cloud
+### Building and deploying container services on AWS, Azure, and Google Cloud
 
-[Infrastructure as code](/what-is/what-is-infrastructure-as-code) is an efficient and repeatable way of building services that run on containers with programming languages and deploying them to your preferred cloud.
+[Infrastructure as code](/what-is/what-is-infrastructure-as-code) is an efficient and repeatable way of building container services with programming languages and deploying them to your preferred cloud.
 
 Pulumi’s open source, infrastructure as code SDK lets you build and deploy container services with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
 
