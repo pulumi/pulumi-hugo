@@ -126,7 +126,7 @@ building a one-off binary using the previous utilities but ruled them out. The t
 facto maintainers of a fork of a complex library, in addition to needing to solve the deficiencies
 identified above. That wasn't an innovation token I could spend.
 
-I evaluated the complexity of building on [watchman](https://github.com/facebook/watchman), an
+I evaluated the complexity of building on the [watchman service](https://github.com/facebook/watchman), an
 excellent file-watching CLI open-sourced by Facebook. Unfortunately, it would be costly to maintain
 a wrapper with watchman as a dependency. While C++ isn't inaccessible, it does impose a complex
 build system and a higher barrier to entry for engineers to contribute to it. And as both a client
