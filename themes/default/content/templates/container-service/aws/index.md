@@ -114,7 +114,7 @@ $ pulumi config set path ../my-existing-image/build
 $ pulumi up
 ```
 
-### Cleaning up
+## Tidying up
 
 You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`]({{< relref "/docs/reference/cli/pulumi_destroy" >}}):
 
