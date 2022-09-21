@@ -27,7 +27,7 @@ development a breeze. In languages with an interactive shell, it's natural to us
 with new APIs. In each of these cases, engineers find value in being able to focus on writing code,
 not typing console commands.
 
-That's why [watch mode exists]({{< relref "/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure" >}})
+That's why [pulumi watch mode]({{< relref "/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure" >}}) exists
 and is one of my favorite features, and it's why I was disappointed to learn this feature [was not
 available to users on Apple Silicon Macs](https://github.com/pulumi/pulumi/pull/6497). As a Windows
 and Linux user, I discovered this while root causing a failing build on one of our providers to the
