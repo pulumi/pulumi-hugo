@@ -1,6 +1,6 @@
 ---
 title: "Enabling Rapid Pulumi Prototyping with Rust"
-date: 2022-09-20T00:00:00-00:00
+date: 2022-09-21
 
 meta_desc: >
     Enabling Pulumi watch mode on Apple Silicon and solving Go cross-compilation by building on Rust
