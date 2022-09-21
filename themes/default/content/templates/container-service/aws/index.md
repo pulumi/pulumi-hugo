@@ -101,7 +101,7 @@ memory
 : Specifies the amount of memory to use with each task or each container within a task. Defaults to 128.
 
 image
-: The container image that is used to build the application. Defaults to the dockerfile in the `app` folder.
+: Specifies the location of the dockerfile used to build the container image that is run. Defaults to the dockerfile in the `app` folder.
 
 All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`]({{< relref "/docs/reference/cli/pulumi_config_set" >}}) as shown below.
 
