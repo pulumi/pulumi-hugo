@@ -1,5 +1,5 @@
 ---
-title: Container Service on AWS | Pulumi Template
+title: Container Service on AWS
 meta_desc: The Container Service template makes it easy to deploy a container serivce on AWS with Pulumi and Amazon Elastic Container Service (ECS).
 meta_image: meta.png
 card_desc: Deploy a container service on AWS with Pulumi and Amazon ECS.
