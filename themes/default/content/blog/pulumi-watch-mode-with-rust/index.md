@@ -103,7 +103,7 @@ maintainer archived the repository and stepped down from maintenance. Though con
 to take over ownership of the repo, it left the state of the project in doubt. Without features like
 recursive file watching, the team would have to maintain a fork. The search continued.
 
-The last candidate looked at was the [watcher package](https://github.com/radovskyb/watcher/), which supported
+The last candidate looked at was the [watcher library](https://github.com/radovskyb/watcher/), which supported
 recursive file watching across all platforms without cgo. Was this a panacea? Unfortunately, no. It
 did this by falling back to the simplest method of file-watching: polling. This method works well
 enough that the library has not changed in four years. The downside to polling is substantially
