@@ -137,8 +137,8 @@ Finally, I spiked on a library written in Rust, using the library underpinning t
 [watchexec](https://github.com/watchexec/watchexec) CLI. All-in, this worked out to just over 100
 lines of code to maintain on top of the actively maintained watchexec libraries, with a similarly
 small patch to the Pulumi CLI. And importantly, building the binary is a simple “cargo build” that
-the team can run on any platform. That implementation lives at
-[github.com/pulumi/watchutil-rs](https://github.com/pulumi/watchutil-rs) and is packaged as
+the team can run on any platform. The
+[watchutil-rs implementation](https://github.com/pulumi/watchutil-rs) lives in GitHub and is packaged as
 pulumi-watch, a single-purpose binary that logs on stdout when files change.
 
 Pulumi's mission is to enable everyone to apply the best programming languages and tools to
