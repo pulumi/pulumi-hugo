@@ -96,7 +96,7 @@ remains unmaintained and would require us to maintain a fork to address these de
 recent contributions to the library to address this or a path to removing the cgo dependency, I had
 to find another library.
 
-The strongest candidate was [fsnotify](https://github.com/fsnotify/fsnotify). This library supported
+The strongest candidate was the [fsnotify library](https://github.com/fsnotify/fsnotify). This library supported
 the platforms required, did not require cgo, and supported cross-compilation. It did lack recursive
 directory watching, though the repository listed it as a planned feature. However, in August the
 maintainer archived the repository and stepped down from maintenance. Though contributors stepped up
