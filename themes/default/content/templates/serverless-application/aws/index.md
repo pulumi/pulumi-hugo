@@ -23,7 +23,7 @@ To use this template to deploy your own AWS serverless application, make sure yo
 {{% choosable language typescript %}}
 
 ```bash
-$ mkdir aws-serverless-website && cd aws-serverless-website
+$ mkdir my-serverless-app && cd my-serverless-app
 $ pulumi new serverless-aws-typescript
 ```
 
@@ -32,7 +32,7 @@ $ pulumi new serverless-aws-typescript
 {{% choosable language python %}}
 
 ```bash
-$ mkdir aws-serverless-website && cd aws-serverless-website
+$ mkdir my-serverless-app && cd my-serverless-app
 $ pulumi new serverless-aws-python
 ```
 
@@ -41,7 +41,7 @@ $ pulumi new serverless-aws-python
 {{% choosable language go %}}
 
 ```bash
-$ mkdir aws-serverless-website && cd aws-serverless-website
+$ mkdir my-serverless-app && cd my-serverless-app
 $ pulumi new serverless-aws-go
 ```
 
@@ -50,7 +50,7 @@ $ pulumi new serverless-aws-go
 {{% choosable language csharp %}}
 
 ```bash
-$ mkdir aws-serverless-website && cd aws-serverless-website
+$ mkdir my-serverless-app && cd my-serverless-app
 $ pulumi new serverless-aws-csharp
 ```
 
@@ -59,7 +59,7 @@ $ pulumi new serverless-aws-csharp
 {{% choosable language yaml %}}
 
 ```bash
-$ mkdir aws-serverless-website && cd aws-serverless-website
+$ mkdir my-serverless-app && cd my-serverless-app
 $ pulumi new serverless-aws-yaml
 ```
 
