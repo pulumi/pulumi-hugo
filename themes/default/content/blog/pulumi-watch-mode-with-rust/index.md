@@ -134,7 +134,7 @@ and server application, it wouldn't be as simple as packaging a single binary an
 it.
 
 Finally, I spiked on a library written in Rust, using the library underpinning the
-[watchexec](https://github.com/watchexec/watchexec) CLI. All-in, this worked out to just over 100
+[watchexec CLI](https://github.com/watchexec/watchexec). All-in, this worked out to just over 100
 lines of code to maintain on top of the actively maintained watchexec libraries, with a similarly
 small patch to the Pulumi CLI. And importantly, building the binary is a simple “cargo build” that
 the team can run on any platform. The
