@@ -35,7 +35,7 @@ began a deep dive into cgo, file-watching libraries in Go, operating system even
 a solution for our build issues and missing feature.
 
 To close this feature gap for one of our most important platforms, Pulumi v3.39.0 includes a binary
-built with Rust to implement file-watching. “pulumi watch” works as it
+built with Rust to implement file-watching. `pulumi watch` works as it
 always has. And as the first component to use the Rust language, it validated Pulumi's approach to
 engineering of using the best languages and tools available.
 
@@ -45,7 +45,7 @@ Watch mode monitors a project folder and automatically runs an equivalent to `pu
 appropriate flags to skip prompts and displays simplified output. To see how quickly this can work,
 I wrote a Pulumi TypeScript program to deploy an S3 bucket and bucket object "test.txt" before
 writing a timestamp to the same file. That allows me to measure the inner loop with `pulumi watch`
-or using an external program to run “pulumi up”. On each deployment, the program changes one of the
+or using an external program to run `pulumi up`. On each deployment, the program changes one of the
 files in the directory kicking off the next deployment:
 
 ```typescript
@@ -136,7 +136,7 @@ it.
 Finally, I spiked on a library written in Rust, using the library underpinning the
 [watchexec CLI](https://github.com/watchexec/watchexec). All-in, this worked out to just over 100
 lines of code to maintain on top of the actively maintained watchexec libraries, with a similarly
-small patch to the Pulumi CLI. And importantly, building the binary is a simple “cargo build” that
+small patch to the Pulumi CLI. And importantly, building the binary is a simple `cargo build` command that
 the team can run on any platform. The
 [watchutil-rs implementation](https://github.com/pulumi/watchutil-rs) lives in GitHub and is packaged as
 pulumi-watch, a single-purpose binary that logs on stdout when files change.
