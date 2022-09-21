@@ -24,7 +24,7 @@ meta_image: meta.png
 # The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The AWS Kubernetes template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to AWS. It deploys an [Amazon EKS cluster]({{< relref "/registry/packages/eks/api-docs/cluster" >}}) that provides a managed Kubernetes control plane and nodes. The nodes run on an [Amazon EC2 instance]({{< relref "/registry/packages/awsx/api-docs/ec2" >}}) connected to a private subnet in a [VPC]({{< relref "/registry/packages/awsx/api-docs/ec2/vpc" >}}). The template also deploys Internet-facing load balancers connected to public subnets. The template generates a complete infrastructure as code program to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The AWS Kubernetes template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to AWS. The architecture includes a VPC with public and private subnets and deploys an [Amazon EKS cluster]({{< relref "/registry/packages/eks/api-docs/cluster" >}}) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed on private subnets for improved security. Load balancers created by workloads deployed on the EKS cluster will be automatically created in the public subnets. The template generates a complete infrastructure as code program to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Kubernetes template](./architecture.png)
 
@@ -32,7 +32,7 @@ The AWS Kubernetes template creates an infrastructure as code project in your fa
 
 To use this template to deploy your own managed Kubernetes cluster, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp,yaml" / %}}
+{{% chooser language "typescript,python,go,yaml" / %}}
 
 {{% choosable language typescript %}}
 
@@ -59,14 +59,14 @@ $ mkdir my-k8s-cluster && my-k8s-cluster
 $ pulumi new kubernetes-aws-go
 ```
 
-{{% /choosable %}}
+<!-- {{% /choosable %}}
 
 {{% choosable language csharp %}}
 
 ```bash
 $ mkdir my-k8s-cluster && cd my-k8s-cluster
 $ pulumi new kubernetes-aws-csharp
-```
+``` -->
 
 {{% /choosable %}}
 
@@ -108,19 +108,19 @@ $ open $(pulumi stack output cdnURL)
 
 Projects created with the Kubernetes template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
 
-min_cluster_size
+minClusterSize
 : The minimum number of nodes allowed in your cluster. Defaults to `3`.
 
-max_cluster_size
+maxClusterSize
 : The maximum number of nodes allowed in your cluster. Defaults to `6`.
 
-desired_cluster_size
+desiredClusterSize
 : The desired number of nodes in your cluster. Defaults to `3`.
 
-eks_node_instance_type
+eksNodeInstanceType
 : The EC2 instance type used to run your nodes. Defaults to `t2.medium`.
 
-vpc_network_cidr
+vpcNetworkCidr
 : The IPv4 address for your VPC in a CIDR block. Defaults to `10.0.0.0/16`.
 
 All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`).
