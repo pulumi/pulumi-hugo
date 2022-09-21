@@ -107,7 +107,7 @@ All of these settings are optional and may be adjusted either by editing the sta
 
 ### Using your own container image
 
-If you already have a container image you'd like to build your container service with, you can do so either by replacing placeholder content in the `app` folder or by configuring the stack to point to another folder on your computer with the `image` setting:
+If you already have a container image you'd like to build your container service with, you can do so either by replacing the Dockerfile in the `app` folder or by configuring the stack to point to another folder on your computer with the `image` setting:
 
 ```bash
 $ pulumi config set path ../my-existing-image/build
