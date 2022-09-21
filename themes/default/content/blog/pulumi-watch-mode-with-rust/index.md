@@ -89,7 +89,7 @@ support lifecycle. Second, continuous integration tools that support macOS runne
 typically much higher cost. It was unacceptable to allow unintentional changes in a provider or the
 Pulumi repository to impose those requirements on providers.
 
-Why did the [notify](https://github.com/rjeczalik/notify) library have these constraints? This
+Why did the [notify library](https://github.com/rjeczalik/notify) have these constraints? This
 library depended on C library support for a macOS API called FSEvents, and its Go source files
 required a complex set of build tags. While this didn't seem impossible to work around, the library
 remains unmaintained and would require us to maintain a fork to address these deficiencies. With no
