@@ -1,7 +1,7 @@
 ---
 title: Container Service Templates
 layout: overview
-description: Pulumi program templates are the fastest way to deploy [container services](/containers) on [AWS](/aws), [Azure](/azure), or [Google Cloud Platform](/gcp). Templates come with predefined [infrastructure as code](/what-is/what-is-infrastructure-as-code) so you can get started instantly.
+description: Pulumi program templates are the fastest way to deploy container services on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
 meta_desc: Pulumi program templates that make it easy to deploy container services on AWS, Azure, or Google Cloud Platform.
 meta_image: meta.png
 template:
@@ -9,11 +9,11 @@ template:
 weight: 1
 ---
 
-### What are container services?
+### What are containers?
 
-Container services use isolated runtime environments called containers, which enable developers to package an application and its dependencies into a lightweight environment. Docker is most commonly used to create container images. Container services are great for scenarios such as microservices, batch jobs, and migrating a legacy application. The benefits of using containers to build services include better scalability, portability, and fault isolation.
+[Containers](/containers) are lightweight virtualized operating system environments in which developers can package and run an application and its dependencies as isolated runtime environments. The benefits of containers include better scalability, portability, and fault isolation. Docker is most commonly used to create container images. Containers are great for scenarios such as microservices, batch jobs, and migrating a legacy application. In the cloud, containers are typically run using container services that manage the container orchestration, cluster management, and compute for you.
 
-**On AWS,** these are the main ways to build container services:
+**On AWS,** these are the main ways to run containers:
 |                                         |                                                                                                                                                       |
 |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Amazon Elastic Container Service (ECS)  | Fully managed container orchestration service created by AWS. Deploy containers to EC2 instances you manage or serverless instances from AWS Fargate. |
@@ -21,16 +21,16 @@ Container services use isolated runtime environments called containers, which en
 | AWS Fargate                             | Serverless compute engine for containers that you use with ECS and EKS. Deploys and manages EC2 instances for you when you’re running containers.     |
 | AWS AppRunner                           | Fully managed container service that runs your container images without you needing to know how to deploy and manage the underlying infrastructure.   |
 
-### Building and deploying container services on AWS, Azure, and Google Cloud
+### Building and deploying containers on AWS, Azure, and Google Cloud
 
-Infrastructure as code is an efficient and repeatable way of building a container service with programming languages and deploying the service to your preferred cloud.
+[Infrastructure as code](/what-is/what-is-infrastructure-as-code) is an efficient and repeatable way of building services that run on containers with programming languages and deploying them to your preferred cloud.
 
-Pulumi’s open source, infrastructure as code SDK that lets you build and deploy a container service with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
+Pulumi’s open source, infrastructure as code SDK lets you build and deploy container services with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
 
 * **Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
 
 * **Container Ecosystem Support:** Orchestrate every component (container registries, images, clusters, tasks, etc.) with code.
 
-* **Fast, Easy Deployment:** Quickly deploy your container service with a CLI or from a CI/CD workflow.
+* **Fast, Easy Deployment:** Quickly deploy a container service with a CLI or from a CI/CD workflow.
 
 * **Rapid Development:** Author, version, test, and release infrastructure changes just like software.
