@@ -24,7 +24,7 @@ meta_image: meta.png
 # The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The AWS Kubernetes template deploys a managed Kubernetes cluster on AWS with Pulumi infrastructure as code. It deploys an [Amazon EKS cluster]({{< relref "/registry/packages/eks/api-docs/cluster" >}}) that provides a managed Kubernetes control plane and nodes. The nodes run on an [Amazon EC2 instance]({{< relref "/registry/packages/awsx/api-docs/ec2" >}}) connected to a private subnet in a [VPC]({{< relref "/registry/packages/awsx/api-docs/ec2/vpc" >}}). The template also deploys Internet-facing load balancers connected to public subnets. The template generates a complete infrastructure as code program to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The AWS Kubernetes template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to AWS. It deploys an [Amazon EKS cluster]({{< relref "/registry/packages/eks/api-docs/cluster" >}}) that provides a managed Kubernetes control plane and nodes. The nodes run on an [Amazon EC2 instance]({{< relref "/registry/packages/awsx/api-docs/ec2" >}}) connected to a private subnet in a [VPC]({{< relref "/registry/packages/awsx/api-docs/ec2/vpc" >}}). The template also deploys Internet-facing load balancers connected to public subnets. The template generates a complete infrastructure as code program to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Kubernetes template](./architecture.png)
 
