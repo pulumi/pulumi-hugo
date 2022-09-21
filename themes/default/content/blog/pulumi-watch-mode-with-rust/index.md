@@ -35,7 +35,7 @@ library used to implement watch mode. Thus began a deep dive into cgo, file-watc
 Go, operating system event APIs, and finding a solution for our build issues and missing feature.
 
 To close this feature gap for one of our most important platforms, Pulumi v3.39.0 includes a binary
-built with Rust to implement file-watching. From a user perspective, “pulumi watch” works as it
+built with Rust to implement file-watching. “pulumi watch” works as it
 always has. And as the first component to use the Rust language, it validated Pulumi's approach to
 engineering of using the best languages and tools available.
 
