@@ -27,12 +27,12 @@ development a breeze. In languages with an interactive shell, it's natural to us
 with new APIs. In each of these cases, engineers find value in being able to focus on writing code,
 not typing console commands.
 
-That's why [pulumi watch mode]({{< relref "/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure" >}}) exists
-and is one of my favorite features, and it's why I was disappointed to learn this feature [was not
-available to users on Apple Silicon Macs](https://github.com/pulumi/pulumi/pull/6497). As a Windows
-and Linux user, I discovered this while root causing a failing build on one of our providers to the
-library used to implement watch mode. Thus began a deep dive into cgo, file-watching libraries in
-Go, operating system event APIs, and finding a solution for our build issues and missing feature.
+That's why [pulumi watch mode]({{< relref "/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure" >}})
+exists and is one of my favorite features, and it's why I was disappointed to learn this feature was
+not available to users on Apple Silicon Macs. As a Windows and Linux user, I discovered this while
+root causing a Pulumi provider's failing build to the library used to implement watch mode. Thus
+began a deep dive into cgo, file-watching libraries in Go, operating system event APIs, and finding
+a solution for our build issues and missing feature.
 
 To close this feature gap for one of our most important platforms, Pulumi v3.39.0 includes a binary
 built with Rust to implement file-watching. “pulumi watch” works as it
@@ -77,7 +77,7 @@ without needing to install and learn third-party tools for file-watching.
 
 ## The sad state of Go file-watching
 
-Returning to the cross-compilation issue, the team found a provider's builds failed after updating
+Returning to the cross-compilation issue, the team found builds failed after updating
 the Pulumi library dependency. Root causing this, I found that through a chain of Go package
 dependencies, the file-watching library became a compilation unit in provider binaries. That library
 had several reported issues with cross-compilation, with users reporting that it required enabling
