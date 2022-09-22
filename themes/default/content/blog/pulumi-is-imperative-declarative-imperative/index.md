@@ -43,7 +43,16 @@ You code your infrastructure in your preferred programming language. When you ar
 ### Language Host
 
 Under the hood, the Pulumi CLI does a lot of things, but one of the first actions is starting the language runtime, which is configured in
-the `Pulumi.yaml` project file. Here is a small Python example:
+the `Pulumi.yaml` project file:
+
+```yaml
+name: blog_code
+description: Example for declarative blog post
+runtime: python
+main: blog_code/
+```
+
+Once the language runtime is up, it turns to the program file. Here is a small Python example:
 
 ```python
 from pulumi_aws import s3
