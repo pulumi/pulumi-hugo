@@ -40,7 +40,7 @@ Here is the diagram from our [How Pulumi Works]({{< relref "/docs/intro/concepts
 
 You code your infrastructure in your preferred programming language. When you are done coding, you run `pulumi up` and the Pulumi CLI starts the language host for your selected programming language, as well as the required providers. The interaction between these 3 parts of the architecture results in the actual creation or modification of your infrastructure.
 
-### Language Host
+### An Imperative Part: The Language Host
 
 Under the hood, the Pulumi CLI does a lot of things, but one of the first actions is starting the language runtime, which is configured in
 the `Pulumi.yaml` project file:
@@ -121,7 +121,7 @@ The separation of language support from the engine allows us to offer both imper
 
 If the resource provisioning is not taking place in the language host, where is the magic happening then?
 
-### CLI and Engine
+### The Declarative Part: The CLI and Engine
 
 In the previous step, you found out that the language host sends requests to the engine to fullfil your to-be infrastructure.
 
@@ -173,7 +173,7 @@ Duration: 5s
 
 Although you create the intended model of your infrastructure with an imperative language, the engine definitely processes this in a declarative way.
 
-### Providers
+### Another Imperative Part: The Providers
 
 These examples hopefully made clear that the Pulumi deployment engine calculates a set of actions to declaratively bring the actual state in sync with your intended model. But the engine is not the component which knows how to talk to all the different APIs of cloud and tool vendors. That's the role of the provider.
 
