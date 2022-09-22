@@ -1,54 +1,15 @@
 ---
 title: "Pulumi Is Imperative, Declarative and Imperative"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
 date: 2022-09-30T12:28:19+02:00
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
-# Max length is 160 characters.
 meta_desc: Pulumi is often debated to be imperative or declarative.
   What if I tell you that Pulumi is imperative, declarative and imperative?
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - ringo-de-smet
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - cloud-engineering
     - infrastructure-as-code
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
 ---
-
-<!--
-Summary:
-- show single binary setup of Terraform: HCL processing & Engine
-- show double binary setup of Pulumi: Language Host & Engine
-- indicate that the chosen language (imperative or not) doesn't have any implications of the engine remaining declarative
-- we chose a gRPC protocol, rather than an in-process call to request creation of resources to the engine
-- the provisioning magic happens in the engine & the providers
-- now comes the nifty part
-- with this separation, Pulumi brings cloud engineering closer to developers
-- we allow for components (Pulumi Packages) to be written in any language given a component is a resource by itself.
-- we allow for policies to be written with the same ease as abstractions.
-- we mix it all in a single setup
-
-Sketch the setup of the article as the description of the PR for reviewers
--->
 
 On a regular basis, articles and tweets pass by discussing whether or not some specific tool is imperative or declarative.
 It's no surprise that Pulumi is often the tool being debated. What if I tell you that Pulumi is imperative, declarative and imperative?
