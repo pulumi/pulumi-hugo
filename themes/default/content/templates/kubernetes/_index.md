@@ -30,8 +30,8 @@ Pulumi’s open source, infrastructure as code SDK lets you build and deploy Kub
 
 * **Programming Languages:** Define infrastructure as code in your favorite language instead of domain-specific languages or clicking through cloud consoles.
 
-* **Cloud Native Ecosystem Support:** Orchestrate every component (clusters, app workloads, Helm charts, infrastructure, etc.) with code.
+* **Cloud Native Ecosystem Support:** Use Helm charts and native Kubernetes API objects, including integrated Kustomize support, to deploy workloads to your Kubernetes cluster.
 
-* **Fast, Easy Deployment:** Quickly deploy your Kubernetes cluster and infrastructure with a CLI or from a CI/CD workflow.
+* **Fast, Easy Deployment:** Quickly deploy your Kubernetes cluster and associated infrastructure with the CLI, with a [GitOps workflow](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/), or from a CI/CD workflow.
 
 * **Rapid Development:** Author, version, test, and release cluster and infrastructure changes just like software.
