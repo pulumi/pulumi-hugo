@@ -140,7 +140,7 @@ the order of actions based on this graph.
 On a first run of `pulumi up` of our example program, the engine will first create the bucket, wait for
 the provisioning to be complete, after which the actual bucket id is passed to the creation of
 all the bucket objects. Since none of the bucket objects depend on other resources, these bucket
-objects can all be provisioned concurrently. The engine will
+objects can all be provisioned concurrently.
 
 On a second run, assuming no modifications to our example program, the Pulumi engine will compare the to-be model
 with the actual state and conclude that nothing needs to be done.
