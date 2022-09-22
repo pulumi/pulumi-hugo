@@ -1,6 +1,6 @@
 ---
-title: "Pulumi Is Imperative, Declarative and Imperative"
-date: 2022-09-30T12:28:19+02:00
+title: "Pulumi Is Imperative, Declarative, and Imperative"
+date: 2022-09-23
 meta_desc: Pulumi is often debated to be imperative or declarative.
   What if I tell you that Pulumi is imperative, declarative and imperative?
 meta_image: meta.png
@@ -11,12 +11,13 @@ tags:
     - infrastructure-as-code
 ---
 
-On a regular basis, articles and tweets pass by discussing whether or not some specific tool is imperative or declarative.
+On a regular basis, articles and tweets pass by discussing whether some specific tool is imperative or declarative.
+
 It's no surprise that Pulumi is often the tool being debated. What if I tell you that Pulumi is imperative, declarative and imperative?
 
 <!--more-->
 
-When we look at our [Frequently Asked Questions](/docs/support/faq/#is-pulumi-imperative-or-declarative), we read the following on the declarative versus imperative topic:
+When we look at our [Frequently Asked Questions]({{< relref "/docs/support/faq#is-pulumi-imperative-or-declarative" >}}), we read the following on the declarative versus imperative topic:
 
 > Pulumi is a declarative tool that uses imperative languages to define your end state. The language is used for authoring your program.
 > It’s not used for talking to the cloud provider API.
@@ -25,27 +26,23 @@ It is good to know to refresh what `declarative` and `imperative` mean:
 
 > Both terms refer to how the user provides direction to the automation platform. With an imperative tool, you define the steps to execute in order to reach the desired solution. With a declarative tool, you define the desired state of the final solution, and the automation platform determines how to achieve that state. ([Source](https://www.linode.com/blog/devops/declarative-vs-imperative-in-iac/))
 
-The title of the article mentions `imperative` and `declarative` both. Pulumi leverages the best of both worlds
-into our product.
+The title of the article mentions `imperative` and `declarative` both. Pulumi leverages the best of both worlds into our product.
 
 {{< tweet id="1553431913691430912" user="adamhjk" >}}
 
-Pulumi tries to offer a solution where our customers are only limited by their imagination rather than the tool at hand.
-Let me use the Pulumi architecture to highlight why I mention *imperative* twice.
+Pulumi tries to offer a solution where our customers are only limited by their imagination rather than the tool at hand. Let me use the Pulumi architecture to highlight why I mention *imperative* twice.
 
 ## Pulumi Architecture
 
-Here is the diagram from our [How Pulumi Works](/docs/intro/concepts/how-pulumi-works/) page:
+Here is the diagram from our [How Pulumi Works]({{< relref "/docs/intro/concepts/how-pulumi-works" >}}) page:
 
 ![Pulumi Architecture](/images/docs/reference/engine-block-diagram.png)
 
-You code your infrastructure in your preferred programming language. When you are done coding, you run `pulumi up` and the Pulumi CLI starts
-the language host for your selected programming language, as well as the required providers. The interaction between these 3 parts of
-the architecture results in the actual creation or modification of your infrastructure.
+You code your infrastructure in your preferred programming language. When you are done coding, you run `pulumi up` and the Pulumi CLI starts the language host for your selected programming language, as well as the required providers. The interaction between these 3 parts of the architecture results in the actual creation or modification of your infrastructure.
 
 ### Language Host
 
-Under the hood, the Pulumi CLI does a lot of things, but one of the first actions is starting the language runtime which is configured in
+Under the hood, the Pulumi CLI does a lot of things, but one of the first actions is starting the language runtime, which is configured in
 the `Pulumi.yaml` project file. Here is a small Python example:
 
 ```python
@@ -63,13 +60,13 @@ for i in range(10):
     )
 ```
 
-A Pulumi program models the to-be state of your infrastructure. If you read the program above, you can see that
+A Pulumi program models the to-be state of your infrastructure. If you read this program, you can find that
 we define 11 resources as our to-be infrastructure:
 
-* 1 [AWS S3](https://www.pulumi.com/registry/packages/aws/api-docs/s3/bucket/) bucket
-* 10 [Objects](https://www.pulumi.com/registry/packages/aws/api-docs/s3/bucketobject/) in the bucket created in the previous step
+* 1 [AWS S3]({{< relref "/registry/packages/aws/api-docs/s3/bucket" >}}) bucket
+* 10 [Objects]({{< relref "/registry/packages/aws/api-docs/s3/bucketobject" >}}) in the bucket created in the previous step
 
-The stack itself is also modelled as a resource and it is the parent to all other resources.
+The stack itself is also modelled as a resource, and it is the parent to all other resources.
 
 ```sh
 $ pulumi up
@@ -98,16 +95,11 @@ Resources:
 Duration: 13s
 ```
 
-While this is definitely an imperative program, there is one important thing to understand: instantiating an
-`s3.Bucket`, `s3.BucketObject` or any other Pulumi resource should not be interpreted as an imperative creation
-of the resource in the language host. Behind the scenes, any resource instantiation in the language host triggers a
-`Register Resource` request to the Pulumi engine. All these `Register Resource` requests together form the
-resource model you as an infrastructure developer want to get in the end.
+While this is definitely an imperative program, there is one important thing to understand: Instantiating an `s3.Bucket`, `s3.BucketObject`, or any other Pulumi resource should not be interpreted as an imperative creation of the resource in the language host. Behind the scenes, any resource instantiation in the language host triggers a `Register Resource` request to the Pulumi deployment engine. All these `Register Resource` requests together form the resource model you as an infrastructure developer want to get in the end.
 
-Running your program always sends the full resource model to the Pulumi Engine regardless of what state your
-current infrastructure is in.
+Running your program always sends the full resource model to the Pulumi deployment engine regardless of what state your current infrastructure is in.
 
-Our previous example was shown in Python, but recently we also delivered [support for YAML](https://www.pulumi.com/docs/intro/languages/yaml/).
+Our previous example was shown in Python, but recently we also delivered [support for YAML]({{< relref "/docs/intro/languages/yaml" >}}).
 The creation of our S3 bucket could be converted to this snippet:
 
 ```yaml
@@ -131,7 +123,7 @@ received from the language host, the current state recorded in the state backend
 to compute which actions need to be executed to bring the actual state in line with the intended model.
 
 Our little example contains dependencies:
-every `s3.BucketObject` uses the `bucket.id` as way to define in which bucket these objects should be stored.
+every `s3.BucketObject` uses the `bucket.id` as a way to define in which bucket these objects should be stored.
 The property `id` from the `s3.Bucket` is an `Output`. Outputs are Pulumi's way of tracking which property of one resource
 is required by another, hereby creating a dependency between the resources. The engine uses all these outputs
 passed from one resource to another as the vertices in a directed acyclic graph (DAG). The engine determines
