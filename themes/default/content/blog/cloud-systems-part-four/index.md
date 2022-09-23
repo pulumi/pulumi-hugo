@@ -150,3 +150,22 @@ service = k8s.core.v1.Service(f'{app_name}-svc',
     )
 )
 ```
+
+Quite a lot is happening here. For an application to exist on Kubernetes, we need two things: a deployment, and a service. In our `deployment` variable, we're telling Kubernetes how to behave with respect to the number of replicas of our website that should exist, and the image that should be running in each. If you ever think your website is going to take on considerably more traffic and want to scale up, that `replicas` value is what you want to increase. We also need to give it some metadata, like a name. In our `service` variable, we're telling Kubernetes how to behave with respect to the outside world -- services manage network access. Here, we're saying that we want our service to be a load balancer, managing access to our application on port 80.
+
+One more thing has to be added here. We need the address of that load balancer so we can see our website! Add this last line to your `__main__.py` and Pulumi will return the address of your service:
+
+```python
+pulumi.export('ingress_ip', service.status.load_balancer.ingress[0].ip)
+```
+
+Now run `pulumi up` in your terminal, and things will begin to deploy. You'll see quite a bit changing between the Pulumi Preview stage and the actual deployment, including the building of your containerized application and it being pushed to ECR.
+
+```bash
+     Type                           Name           Plan        Info
+     pulumi:pulumi:Stack            part-four-dev  running..   dockerBuild: {"context":"./website"}
+ ~   ├─ kubernetes:core/v1:Service  my-app-svc     update
+     └─ awsx:ecr:Image              image                      Building image './website'...
+```
+
+Once it's done, you'll have a wildly over-engineered personal website deployed with Kubernetes on AWS, in just 45 lines of Python. Incredible, huh?
