@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes Templates"
 layout: overview
-desc: Pulumi program templates are the fastest way to deploy Kubernetes on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
+description: Pulumi program templates are the fastest way to deploy Kubernetes clusters and their associated infrastructure on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
 meta_desc: Pulumi program templates that make it easy to deploy Kubernetes on AWS, Azure, or Google Cloud Platform.
 
 # Be sure to replace this image. Figma source file:
