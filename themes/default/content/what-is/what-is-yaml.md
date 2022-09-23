@@ -126,6 +126,41 @@ outputs:
   bucketEndpoint: http://${my-bucket.websiteEndpoint}
 ```
 
+There are a few Pulumi-specific things happening in this YAML. Let's take a closer look.
+
+```yaml
+name: simple-yaml
+runtime: yaml
+```
+
+To begin with, we're naming our program `simple-yaml`, and defining the runtime for Pulumi as `yaml`.
+
+```yaml
+resources:
+  my-bucket:
+    type: aws:s3:Bucket
+    properties:
+      website:
+        indexDocument: index.html
+  index.html:
+    type: aws:s3:BucketObject
+    properties:
+      bucket: ${my-bucket}
+      source:
+        Fn::StringAsset: <h1>Hello, world!</h1>
+      acl: public-read
+      contentType: text/html
+```
+
+Next, we're defining the resources Pulumi should create for you. In this case, with the name `my-bucket`, an AWS S3 bucket that we want to act like a website. Its should expect to serve an index document called `index.html`, to be publicly readable and contain a simple "Hello, world!" message.
+
+```yaml
+outputs:
+  bucketEndpoint: http://${my-bucket.websiteEndpoint}
+```
+
+Finally, we have an output. This is a value handed to you by Pulumi, after the completion of any work required on behalf of relevant resources. If you're familar with Javascript, you can think of it sort of like a promise. In this case, we're asking for the URL our document will be visible at.
+
 Defining infrastructure doesn't get much simpler than that! [Try it yourself](({{< relref "/docs/intro/languages/yaml/" >}})) and get started with any major cloud provider in a snap.
 
 ## Pulumi Corporation
