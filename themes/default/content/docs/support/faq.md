@@ -38,7 +38,7 @@ Navigate to the project containing the stack you wish to migrate, and then selec
 
 From there, select the "Settings" tab, and you'll see a "Transfer Stack" button. You can select the organization you wish to transfer to from there.
 
-
+You can find more information about this process [here](({{< relref "/docs/intro/pulumi-service/projects-and-stacks/#transferring-stacks" >}}))
 
 ## Pulumi Service
 
