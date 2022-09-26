@@ -111,7 +111,7 @@ Let's get you some swag, though.
 
 #### Step 3. Working with Policy Packs
 
-When you're using Python or Typescript, Pulumi allows you to enforce gated deployments with Policy Packs. These are a set of rules, expressed programmatically, that are executed against the resources being deployed. Any violation of those rules will block the deployment. Usually, Policy Packs are used to enforce security or cost optimization rules, but in this case we're going to use one to interact with our swag provider.
+When you're using Python or Typescript, Pulumi allows you to enforce gated deployments with [Policy Packs]({{< relref "/docs/guides/crossguard/configuration" >}}), which can be used locally with the free tier. These are a set of rules, expressed programmatically, that are executed against the resources being deployed. Any violation of those rules will block the deployment. Usually, Policy Packs are used to enforce security or cost optimization rules, but in this case we're going to use one to interact with our swag provider.
 
 Within your existing Pulumi program, create a new directory for your Policy Pack and navigate into it:
 
@@ -235,7 +235,7 @@ Navigate one directory up, back into your main Pulumi Challenge directory. Creat
 }
 ```
 
-We also have new dependencies to add to `requirements.txt`. It should now look like this:
+We also have new dependencies to add to `requirements.txt` at the root of your repo. It should now look like this:
 
 ```text
 pulumi>=3.0.0,<4.0.0
@@ -246,12 +246,12 @@ pulumi-policy>=1.3.0,<2.0.0
 requests
 ```
 
-Execute your policy pack against your Pulumi Program with the following to submit for your swag:
+Execute your policy pack against your Pulumi Program with the following command at the root of your repo to submit for your swag:
 
 ```shell
 pulumi preview --policy-pack policy --policy-pack-config swag.json
 ```
 
-Congratulations! You completed the first Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your new serverless application! Add whatever you like, or try one of the many other Pulumi Blueprints. Your swag will be in the mail shortly!
+Congratulations! You completed the first Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your new serverless application! Add whatever you like, or try one of the many other Pulumi Blueprints. Your swag will be in the mail shortly! Note that you'll only get one piece no matter how many times you submit :)
 
 Wanna yell it from the rooftops? Write a blog or post a quick video about it? Let us know and we'll send you an extra, super secret piece of swag! Tag us on social media, or email us at [da@pulumi.com](mailto:da@pulumi.com).
