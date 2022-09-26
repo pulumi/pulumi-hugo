@@ -26,7 +26,7 @@ meta_image: /images/challenge/challenge_cta.png
         The <a href="{{< relref "/docs/get-started/install/" >}}" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
       </li>
       <li>
-          [Python 3.9 or higher](https://www.python.org/downloads/)
+          <a href="https://www.python.org/downloads/">Python 3.9 or higher</a>
       </li>
       <li>
         AWS account
