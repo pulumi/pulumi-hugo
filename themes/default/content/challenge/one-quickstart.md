@@ -47,7 +47,7 @@ meta_image: /images/challenge/challenge_cta.png
 
 #### Step 1. Pulumi Blueprints
 
-In this Challenge, you will learn how to create a new Pulumi program using our Pulumi blueprints, specifically for serverless blueprints for AWS with the language of your choice.
+In this Challenge, you will learn how to create a new Pulumi program using [our new Pulumi blueprints]({{< relref "/templates" >}}), specifically for serverless blueprints for AWS with the language of your choice.
 
 Pulumi can create a serverless app with AWS API Gateway and Lambda in many common programming languages. Today, we'll be working with Python. Create a new directory called `quickstart-challenge` and `cd` into it, then run the following:
 
