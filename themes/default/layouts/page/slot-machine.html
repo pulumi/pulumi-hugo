@@ -4,11 +4,6 @@
 
 {{ define "main" }}
     <section class="container mx-auto">
-        <slot-machine-result
-            image-class="h-16 mx-auto"
-            left-items="{{ delimit .Params.logos.clouds "," }}"
-            center-items="{{ delimit .Params.logos.languages "," }}"
-            right-items="{{ delimit .Params.logos.identity "," }}"
-        ></slot-machine-result>
+        <slot-machine-result image-class="h-16 mx-auto"></slot-machine-result>
     </section>
 {{ end }}
