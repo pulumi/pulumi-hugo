@@ -32,7 +32,7 @@ $ pulumi stack init acme-corp/widget-server
 
 ### How do I migrate stacks from an individual account to an organization account?
 
-The [Pulumi Service](https://app.pulumi.com/) allows you to transfer stacks from your individual account to any organization account you belong to as an administrator. 
+The [Pulumi Service](https://app.pulumi.com/) allows you to transfer stacks from your individual account to any organization account you belong to as an administrator.
 
 To transfer a stack from your individual account to an organization, navigate to the project containing the stack you wish to migrate, then select the stack in question.
 
