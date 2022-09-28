@@ -392,29 +392,6 @@
                     <ul class="mobile-menu">
                         <ul id="mobile-dropdown">
                             <div>
-                                <input id="cloudeng-mobile-menu" name="nav-menu-checkbox" class="invisible-checkbox" type="checkbox" />
-                                <label for="cloudeng-mobile-menu" class="mobile-menu-heading">Cloud Engineering<span class="dropdown-menu-caret"></span></label>
-                                <hr />
-                                <div class="mobile-menu-subitems-cloudeng">
-                                    <li>
-                                        <a href="{{ relref . "/cloud-engineering" }}"> <i class="fas fa-book-open fa-fw"></i> Overview </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ relref . "/cloud-engineering-days" }}"> <i class="fas fa-mountain fa-fw"></i> Cloud Engineering Days 2022 </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ relref . "/solutions" }}"> <i class="fas fa-lightbulb fa-fw"></i> Solutions </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ relref . "/enterprise" }}"> <i class="fas fa-building fa-fw"></i> Enterprises </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ relref . "/case-studies" }}"> <i class="fas fa-file fa-fw"></i> Case Studies </a>
-                                    </li>
-                                    <hr />
-                                </div>
-                            </div>
-                            <div>
                                 <input id="product-mobile-menu" name="nav-menu-checkbox" class="invisible-checkbox" type="checkbox" />
                                 <label id="product-menu-label" for="product-mobile-menu" class="mobile-menu-heading">Product<span class="dropdown-menu-caret"></span></label>
                                 <hr />
@@ -443,6 +420,28 @@
                                     <hr />
                                 </div>
                             </div>
+                            <div>
+                                <input id="why-pulumi-mobile-menu" name="nav-menu-checkbox" class="invisible-checkbox" type="checkbox" />
+                                <label id="why-pulumi-menu-label" for="why-pulumi-mobile-menu" class="mobile-menu-heading"
+                                    >Why Pulumi?<span class="dropdown-menu-caret"></span
+                                ></label>
+                                <hr />
+                                <div class="mobile-menu-subitems-why-pulumi">
+                                    <li>
+                                        <a href="{{ relref . "/cloud-engineering" }}"> <i class="fas fa-book-open fa-fw"></i> Cloud Engineering </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/solutions" }}"> <i class="fas fa-lightbulb fa-fw"></i> Solutions </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/enterprise" }}"> <i class="fas fa-building fa-fw"></i> Enterprises </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ relref . "/case-studies" }}"> <i class="fas fa-file fa-fw"></i> Case Studies </a>
+                                    </li>
+                                    <hr />
+                                </div>
+                            </div>
 
                             <li class="mobile-menu-item"><a href="{{ relref . "/pricing" }}">Pricing</a></li>
                             <hr />
@@ -455,6 +454,9 @@
                                 <hr />
                                 <div class="mobile-menu-subitems-learn">
                                     <li>
+                                        <a href="{{ relref . "/cloud-engineering-days" }}"> <i class="fas fa-mountain fa-fw"></i> Cloud Engineering Days 2022 </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ relref . "/blog" }}"> <i class="fas fa-blog fa-fw"></i> Blog </a>
                                     </li>
                                     <li>
@@ -464,13 +466,17 @@
                                         <a href="{{ relref . "/resources#upcoming" }}"> <i class="fas fa-users fa-fw"></i> Workshops </a>
                                     </li>
                                     <li>
+                                        <a href="{{ relref . "/templates" }}">
+                                            <span class="px-1 mr-1">
+                                                <img src="/icons/ruler-triangle.svg" class="inline h-5" /> </span
+                                            >Templates
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ relref . "/learn/glossary" }}"> <i class="fas fa-cloud fa-fw"></i> Cloud Engineering Glossary </a>
                                     </li>
                                     <li>
                                         <a href="{{ relref . "/learn" }}"> <i class="fas fa-chalkboard-teacher fa-fw"></i> Learn Pulumi </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ relref . "/templates" }}"> <i class="fas fa-users fa-fw"></i> Templates </a>
                                     </li>
                                     <li>
                                         <a href="{{ relref . "/resources" }}"> <i class="fas fa-cogs fa-fw"></i> Resources </a>
