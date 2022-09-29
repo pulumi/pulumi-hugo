@@ -265,6 +265,50 @@ const opts = {
         // Allow indentation in unordered lists.
         MD007: false,
     },
+    customRules: [
+        {
+            names: ["relref-anchor-trailing-slash"],
+            description: "Hugo relref to anchor has trailing slash.",
+            information: new URL("https://gohugo.io/functions/relref/"),
+            tags: ["hugo-relref"],
+            function: (params, onError) => {
+                params.tokens
+                    .filter(token => {
+                        return token.type === "inline";
+                    })
+                    .forEach(inline => {
+                        const line = inline.content;
+                        if (line.match(/{{<[ ]?relref ".+\/"[ ]?>}}/)) {
+                            onError({
+                                lineNumber: inline.lineNumber,
+                                detail: `"/some/path/#anchor" should be "/some/path#anchor"`,
+                            });
+                        }
+                    })
+            }
+        },
+        {
+            names: ["relref-trailing-slash"],
+            description: "Hugo relref has trailing slash.",
+            information: new URL("https://gohugo.io/functions/relref/"),
+            tags: ["hugo-relref"],
+            function: (params, onError) => {
+                params.tokens
+                    .filter(token => {
+                        return token.type === "inline";
+                    })
+                    .forEach(inline => {
+                        const line = inline.content;
+                        if (line.match(/{{<[ ]?relref ".+\/"[ ]?>}}/)) {
+                            onError({
+                                lineNumber: inline.lineNumber,
+                                detail: `"/some/path/" should be "/some/path"`,
+                            });
+                        }
+                    })
+            }
+        },
+    ],
 };
 
 // Lint the markdown files.
