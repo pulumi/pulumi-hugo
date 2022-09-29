@@ -23,7 +23,7 @@ meta_image: /images/challenge/challenge_cta.png
         A <a href="https://app.pulumi.com/signup" target="_blank" rel="noopener noreferrer">Pulumi account</a>
       </li>
       <li>
-        The <a href="{{< relref "/docs/get-started/install/" >}}" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
+        The <a href="/docs/get-started/install/" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
       </li>
       <li>
           <a href="https://www.python.org/downloads/">Python 3.9 or higher</a>
@@ -42,7 +42,7 @@ meta_image: /images/challenge/challenge_cta.png
 
 #### Step 1. Pulumi Architecture Templates
 
-In this Challenge, you will learn how to create a new Pulumi program using [our new Pulumi Architecture Templates]({{< relref "/templates" >}}), specifically for serverless blueprints for AWS with the language of your choice.
+In this Challenge, you will learn how to create a new Pulumi program using [our new Pulumi Architecture Templates](/templates), specifically for serverless blueprints for AWS with the language of your choice.
 
 Pulumi can create a serverless app with AWS API Gateway and Lambda in many common programming languages. Today, we'll be working with Python. Create a new directory called `quickstart-challenge` and `cd` into it, then run the following:
 
@@ -106,7 +106,7 @@ Let's get you some swag, though.
 
 #### Step 3. Working with Policy Packs
 
-When you're using Python or Typescript, Pulumi allows you to enforce gated deployments with [Policy Packs]({{< relref "/docs/guides/crossguard/configuration" >}}), which can be used locally with the free tier. These are a set of rules, expressed programmatically, that are executed against the resources being deployed. Any violation of those rules will block the deployment. Usually, Policy Packs are used to enforce security or cost optimization rules, but in this case we're going to use one to interact with our swag provider.
+When you're using Python or Typescript, Pulumi allows you to enforce gated deployments with [Policy Packs](/docs/guides/crossguard/configuration), which can be used locally with the free tier. These are a set of rules, expressed programmatically, that are executed against the resources being deployed. Any violation of those rules will block the deployment. Usually, Policy Packs are used to enforce security or cost optimization rules, but in this case we're going to use one to interact with our swag provider.
 
 Within your existing Pulumi program, create a new directory for your Policy Pack and navigate into it:
 

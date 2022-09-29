@@ -15,11 +15,11 @@ programmatic and dynamic control of how a resource deploys into a cloud. A Pulum
 use an explicit provider by setting the [provider resource option][prov-res-opts] or by inheriting the provider from the
 resource's [parent resource][par-res].
 
-[prov-res]:{{< relref "/docs/intro/concepts/resources/providers" >}}
-[def-prov]:{{< relref "/docs/intro/concepts/resources/providers#default-provider-configuration" >}}
-[res]:{{< relref "/docs/intro/concepts/resources" >}}
-[prov-res-opts]:{{< relref "/docs/intro/concepts/resources/options/provider" >}}
-[par-res]:{{< relref "/docs/intro/concepts/resources/options/parent" >}}
+[prov-res]:/docs/intro/concepts/resources/providers" >}}
+[def-prov]:/docs/intro/concepts/resources/providers#default-provider-configuration" >}}
+[res]:/docs/intro/concepts/resources" >}}
+[prov-res-opts]:/docs/intro/concepts/resources/options/provider" >}}
+[par-res]:/docs/intro/concepts/resources/options/parent" >}}
 
 <!-- more -->
 
@@ -143,8 +143,8 @@ requires explicit providers since [Kubernetes providers][k8s-prov] describe thei
 explicit providers are mandatory for a correct deployment. When it is important that only explicitly configured
 providers are used, default providers can lead to unpredictable deployments.
 
-[aws-prov]:{{< relref "/registry/packages/aws/api-docs/provider/" >}}
-[k8s-prov]:{{< relref "/registry/packages/kubernetes/api-docs/provider/" >}}
+[aws-prov]:/registry/packages/aws/api-docs/provider/" >}}
+[k8s-prov]:/registry/packages/kubernetes/api-docs/provider/" >}}
 
 Imagine you are trying to create a bucket in each AWS region you have access to. I might write the following code:
 
@@ -277,7 +277,7 @@ ran the same code on a computer logged in to another account, Pulumi could creat
 buckets were provisioned by an explicit provider. This behavior is because we forgot to specify the provider for the
 call to `aws.getRegions`. You might not notice that something unexpected happened because there would be no error
 message, just inconsistent deployments. To prevent this category of problem, Pulumi now offers the ability to
-disable default providers on a per-stack basis.  
+disable default providers on a per-stack basis.
 
 By disabling the default `aws` provider, we would get the following error:
 
@@ -299,7 +299,7 @@ Disabling a default provider involves adding the relevant package name to the co
 `pulumi:disable-default-providers`. For example, disabling the default provider for Kubernetes and AWS would look like
 this snippet in the [configuration file][config]:
 
-[config]:{{< relref "/docs/intro/concepts/project#stack-settings-file" >}}
+[config]:/docs/intro/concepts/project#stack-settings-file" >}}
 
 ```yaml
 pulumi:disable-default-providers:
@@ -319,5 +319,5 @@ accidentally relying on your system configuration. We can’t wait to find out w
 an impact on our roadmap, you can go to our [public roadmap][roadmap] and vote on issues with the rest of the community.
 Let us know what you think!
 
-[dis-def-prov]:{{< relref "/docs/intro/concepts/resources/providers#disabling-default-providers" >}}
+[dis-def-prov]:/docs/intro/concepts/resources/providers#disabling-default-providers" >}}
 [roadmap]:<https://github.com/orgs/pulumi/projects/44>
