@@ -3,7 +3,7 @@ title: "Cloud Systems 101: Part Four"
 
 date: 2022-09-23T15:29:57-05:00
 
-meta_desc: In this series, learn modern cloud engineering practices and tooling, continuing with deploying our containerized website to Amazon's Elastic Kubernetes Service!
+meta_desc: In this series, learn modern cloud engineering practices and tooling, continuing with deploying a containerized website to Amazon's Elastic Kubernetes Service!
 
 meta_image: meta.png
 
