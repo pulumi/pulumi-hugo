@@ -2,9 +2,9 @@
 title: "One Quickstart to Rule them All"
 layout: challenge/single
 description: |
-    Build and deploy a serverless app on AWS using Pulumi Blueprints and a single command!
+    Build and deploy a serverless app on AWS using Pulumi Architecture Templates and a single command!
 meta_desc: |
-    Build and deploy a serverless app on AWS using Pulumi Blueprints and a single command!
+    Build and deploy a serverless app on AWS using Pulumi Architecture Templates and a single command!
 meta_image: /images/challenge/challenge_cta.png
 ---
 
@@ -14,7 +14,7 @@ meta_image: /images/challenge/challenge_cta.png
   <div class="w-full md:w-1/2">
     <h3>One Quickstart to Rule them All</h3>
     <p class="pr-12">
-      Pulumi Blueprints make it quick and easy to get started with a wide variety of clouds, tools, and technologies when you want to try something new but don't want to write boilerplate yourself. It's a great way to get started with Pulumi quickly, no matter what you need to build. Try it for yourself with serverless AWS templates and win some swag in the process!
+      Pulumi Architecture Templates make it quick and easy to get started with a wide variety of clouds, tools, and technologies when you want to try something new but don't want to write boilerplate yourself. It's a great way to get started with Pulumi quickly, no matter what you need to build. Try it for yourself with serverless AWS templates and win some swag in the process!
     </p>
     <h3>Prerequisites</h3>
     <p>In order to complete this challenge, you'll need a couple things set up in advance.</p>
@@ -45,9 +45,9 @@ meta_image: /images/challenge/challenge_cta.png
 
 ### Challenge
 
-#### Step 1. Pulumi Blueprints
+#### Step 1. Pulumi Architecture Templates
 
-In this Challenge, you will learn how to create a new Pulumi program using [our new Pulumi blueprints]({{< relref "/templates" >}}), specifically for serverless blueprints for AWS with the language of your choice.
+In this Challenge, you will learn how to create a new Pulumi program using [our new Pulumi Architecture Templates]({{< relref "/templates" >}}), specifically for serverless blueprints for AWS with the language of your choice.
 
 Pulumi can create a serverless app with AWS API Gateway and Lambda in many common programming languages. Today, we'll be working with Python. Create a new directory called `quickstart-challenge` and `cd` into it, then run the following:
 
@@ -252,6 +252,6 @@ Execute your policy pack against your Pulumi Program with the following command 
 pulumi preview --policy-pack policy --policy-pack-config swag.json
 ```
 
-Congratulations! You completed the first Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your new serverless application! Add whatever you like, or try one of the many other Pulumi Blueprints. Your swag will be in the mail shortly! Note that you'll only get one piece no matter how many times you submit :)
+Congratulations! You completed the first Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your new serverless application! Add whatever you like, or try one of the many other Pulumi Architecture Templates. Your swag will be in the mail shortly! Note that you'll only get one piece no matter how many times you submit :)
 
 Wanna yell it from the rooftops? Write a blog or post a quick video about it? Let us know and we'll send you an extra, super secret piece of swag! Tag us on social media, or email us at [da@pulumi.com](mailto:da@pulumi.com).
