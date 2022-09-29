@@ -84,7 +84,7 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "51ed8f59-4897-4e7e-91b5-649e46fe6733 "
+    hubspot_form_id: "51ed8f59-4897-4e7e-91b5-649e46fe6733"
 
 aws_only: true
 ---
