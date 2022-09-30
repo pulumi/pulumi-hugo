@@ -16,7 +16,7 @@ tags:
 
 ---
 
-Cloud’s greatest strength and weakness is the proliferation of a massive number of services globally. In order to adequately assess and mitigate the inherent risks for your company, your customers, and your employees, Cloud Architects are typically responsible for a massive surface area of potential endpoints and vectors of attack. 
+Cloud’s greatest strength and weakness is the proliferation of a massive number of services globally. In order to adequately assess and mitigate the inherent risks for your company, your customers, and your employees, Cloud Architects are typically responsible for a massive surface area of potential endpoints and vectors of attack.
 
 <!--more-->
 
@@ -87,6 +87,7 @@ Scoped to [individual users](https://www.pulumi.com/docs/intro/pulumi-service/ac
 Add Pulumi to your list of tokens to rotate on a regular basis.
 
 ## Assessing and Implementing
+
 Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your Cloud Security Posture as it relates to your Infrastructure as Code.
 
 1. Confirm your Users, Teams, and Organization Access are inline with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
