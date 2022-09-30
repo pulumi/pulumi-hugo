@@ -11,9 +11,8 @@ authors:
     - tushar-shah    
 
 tags:
-    - cloud-engineering
-    - infrastructure-as-code
     - security
+    - pulumi-enterprise
 
 ---
 
