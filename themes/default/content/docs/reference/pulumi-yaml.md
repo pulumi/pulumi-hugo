@@ -72,8 +72,8 @@ The runtime attribute has an additional property called options where you can fu
 | - | - | - |
 | `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. |
 | `nodeargs` | Only applicable for the nodejs runtime | Arguments to pass to `node`. |
-| `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
 | `buildTarget` | Only applicable for the go runtime | Path to save the compiled go binary to. |
+| `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
 | `virtualenv` | Ony applicable for the python runtime | Virtual environment path. |
 | `compiler` | Only applicable for YAML projects | Executable and arguments that emit to standard out. |
 
