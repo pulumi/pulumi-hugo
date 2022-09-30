@@ -3,12 +3,12 @@ title: "Pulumi Security Posture"
 
 date: 2022-10-25
 
-meta_desc: Pulumi Security Posture
+meta_desc: Pulumi Security Posture.  Organization Access Token, Team Access Token, Teams, and Managed Federated Identity
 
 meta_image: meta.png
 
 authors:
-    - tushar-shah    
+    - tushar-shah
 
 tags:
     - security
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-Cloud’s greatest strength and weakness is the proliferation of a massive number of services globally.  In order to adequately assess and mitigate the inherent risks for your company, your customers, and your employees, Cloud Architects are typically responsible for a massive surface area of potential endpoints and vectors of attack. 
+Cloud’s greatest strength and weakness is the proliferation of a massive number of services globally. In order to adequately assess and mitigate the inherent risks for your company, your customers, and your employees, Cloud Architects are typically responsible for a massive surface area of potential endpoints and vectors of attack. 
 
 <!--more-->
 
@@ -26,7 +26,8 @@ AWS likes to talk about a [Shared Responsibility Model](https://aws.amazon.com/c
 
 Risks associated with maintaining a good Cloud Security Posture extend to your Infrastructure as Code with Pulumi and it’s important to leverage the features and capabilities of the Pulumi Platform along with good industry practices to secure your code, configuration and secrets.
 
-## Pulumi’s Hierarchy 
+## Pulumi’s Hierarchy
+
 Pulumi has three levels to consider access for: Users, Teams and Organizations.
 
 [Users](https://www.pulumi.com/docs/intro/pulumi-service/accounts/#profile) are tied to personal identities often with an Identity Provider and should be used wherever a human is using Pulumi.  They should not be used for any systems, tools or pipeline based provisioning.
@@ -36,46 +37,54 @@ Pulumi has three levels to consider access for: Users, Teams and Organizations.
 [Organizations](https://www.pulumi.com/docs/intro/pulumi-service/organizations/) are a space for you to collaborate on shared projects and stacks.  You may have multiple Cloud Accounts from a single cloud provider or multiple cloud provider Accounts tied to an Organization in any combination.  It’s recommended that you segment Organizations and Cloud Accounts to limit access and the “blast radius” of security or financial events that may occur within them.
 
 ## Security Best Practices with Pulumi
+
 The following recommendations should help you get started and prepare you to scale your company, application and cloud engineering team long term.
 
 ## Manage Federated Identity
+
 Connect your user and Pulumi Orgs with an [Identity Provider](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#organization-identity-providers) such as [Github](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#github-identity-provider), [Gitlab](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#gitlab-identity-provider) or [BitBucket](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#bitbucket-identity-provider), your [Single Sign On (SSO)](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#saml-single-sign-on-sso) system and/or another System for Cross-Domain Identity Management (SCIM).  Your code repositories hold your Infrastructure as Code crown jewels, and most organizations are motivated to keep access tightly controlled.  SSO improves this process across tools and puts more control into your organization’s hands.  [SCIM](https://www.pulumi.com/docs/guides/scim/) enables you to manage your users and groups centrally in your Identity Provider (IdP) and then synchronize those users and groups to the Pulumi Service.  Leveraging your existing onboarding and offboarding process will help limit the risk of bad actors in Pulumi itself.
 
 ## Build Pulumi Teams
+
 [Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams/#creating-a-team) improve on basic Role Based Access Control for Administrators and Users by allowing you to group users and their access to specific Stacks in your Organization.  For example, a team called ProductionReadOnly could be created and scoped so that all Members have only limited access to read the Production Stacks, while another team, ProductionAdmins, would retain full privileges to those stacks.
 
 ## Write the Code
+
 Manual process is error prone and difficult to audit, iterate and improve on.  If you’ve created manual resources, consider [importing](https://www.pulumi.com/blog/changes-to-import/) them to Pulumi programs.
 
 ## Tags your Stacks
+
 We have previously covered [Tag Policies](https://www.pulumi.com/blog/automatically-enforcing-aws-resource-tagging-policies/) as a best practice for the Cloud Resources themselves, but you can also tag your Pulumi Stacks to help organize and visualize your application resources in logical groupings that will help you assess, respond and automate incident remediation. Here are two examples of using Pulumi’s own Pulumi Provider to tag your Stacks automatically: in [python](https://github.com/pulumi/examples/blob/master/aws-py-stackreference/team/__main__.py#L8-L13) and in [typescript](https://github.com/pulumi/examples/blob/master/aws-ts-stackreference/team/index.ts#L17-L22).
 
 ## Deploy from Pipelines
+
 Automate every step of your typical deployment process for anything beyond basic local development from a CI/CD pipeline or triggered by web services. If a human is in the loop, consider their involvement to be limited to the approvals process if needed. Better still is to proactively launch approved resources with Pulumi Multi Language Components and CrossGuard.
 
 Leveraging [Automation API](https://www.pulumi.com/docs/guides/automation-api/) as the programmatic interface for running Pulumi programs without the Pulumi CLI is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. For example, [Elkjop Nordic uses Automation API to provide a Self Service Portal](https://www.pulumi.com/blog/how-elkjop-nordic-enables-developers-to-self-serve-infrastructure/) to build a secure IT Vending Machine full of their application and infrastructure building blocks.
 
 ## Log Everything
+
 Track key system events such user and pipeline activity, attempted and restricted activity, and changes to identity and access controls. Use Pulumi Audit logs to simplify this process out of the box.  If applicable, we would suggest [automatically exporting Pulumi Audit Logs](https://www.pulumi.com/docs/intro/pulumi-service/audit-logs/#automated-export) to your systems.
 
 ## Use Tokens
+
 Organization Access Tokens, Team Access Tokens and Personal Access Tokens securely connect your automation pipelines and development environments with Pulumi without the risks of association user/password combinations.  Machines talk to Pulumi with Tokens of various types and it is always advisable to use Tokens over Users where possible. More on the types of tokens is below.
 
 ## Organizational Access Tokens
+
 Scoped to the entire Pulumi Organization.  Use these for tooling with broad access across stacks and resources deployed in that Organization.  For example, if your Production Environment runs in an isolated Cloud Account and Organization, then an [Organization Access Token](https://www.pulumi.com/docs/intro/pulumi-service/organization-access-tokens/) is likely appropriate for your CI/CD pipeline that deploys Production.
 
 ## Team Access Tokens
+
 Scoped to the [stack access](https://www.pulumi.com/docs/intro/pulumi-service/team-access-tokens/#stacks) of a Pulumi Team.  Use these when resources associated with different Environment or services are commingled within a single Cloud Account or Organization.  In general, it is often recommended to create a [Team Access Token](https://www.pulumi.com/docs/intro/pulumi-service/team-access-tokens/) for each CI/CD pipeline, for example, Dev vs Production.
 
 ## Personal Access Tokens
-Scoped to individual Users. Used whenever a developer deploys from their local machine.  Be sure your Users are part of a Pulumi Team to simplify their Role Based Access within the Platform.
+
+Scoped to [individual users](https://www.pulumi.com/docs/intro/pulumi-service/accounts/#access-tokens). Used whenever a developer deploys from their local machine.  Be sure your Users are part of a Pulumi Team to simplify their Role Based Access within the Platform.
 
 ## Rotate the Tokens
+
 Add Pulumi to your list of tokens to rotate on a regular basis.
-
-## Writing the Post
-
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
 
 ## Assessing and Implementing
 Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your Cloud Security Posture as it relates to your Infrastructure as Code.
