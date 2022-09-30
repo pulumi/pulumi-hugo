@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: "Pulumi 101: Fundamentals with Python and Docker"
-meta_desc: "Learn the basics of Pulumi from projects to components. We’ll use Python and Docker to build, configure, and deploy a real-life, modern application with related infrastructure."
+meta_desc: "Learn the basics of Pulumi from projects to components. We’ll use Python and Docker to build, configure, and deploy a real-life, modern application."
 
 # A featured webinar will display first in the list.
 featured: false
