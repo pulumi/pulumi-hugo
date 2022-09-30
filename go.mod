@@ -3,9 +3,9 @@ module github.com/pulumi/pulumi-hugo
 go 1.16
 
 require (
-	github.com/pulumi/pulumi-hugo/themes/default v0.0.0-20220708163956-c280f8233e1c // indirect
-	github.com/pulumi/registry/themes/default v0.0.0-20220708214552-e7da6c59900e // indirect
-	github.com/pulumi/theme v0.0.0-20220710025324-6d1855c4756e
+	github.com/pulumi/pulumi-hugo/themes/default v0.0.0-20220504042409-82f5a4588c0e // indirect
+	github.com/pulumi/registry/themes/default v0.0.0-20220929194834-37f09d1610a4 // indirect
+	github.com/pulumi/theme v0.0.0-20220927175514-a6ba92bc1ad5 // indirect
 )
 
 replace github.com/pulumi/pulumi-hugo/themes/default => ./themes/default
