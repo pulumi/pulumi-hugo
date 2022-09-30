@@ -31,6 +31,21 @@ the steps outlined in the sample YAML file below to the Visual Designer as well.
 - A git repo with your Azure DevOps project set as the remote URL.
     - To learn more about how to [create a git repo in your DevOps project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=vsts&tabs=new-nav).
 
+## Command Summary
+
+| Parameter Name | Required? | Parameter Description |
+|----|---|------|
+| azureSubscription | No | Optionally reference a service connection. If not used, environment variables can be configured with the credentials needed for the applicable Pulumi providers. |
+| command | No | The applicable [Pulumi CLI]({{< ref "/docs/reference/cli" >}}) command. |
+| loginArgs | No | Args to be passed to the [pulumi login command]({{< ref "/docs/reference/cli/pulumi_login" >}}). |
+| args | No | Option flags (e.g. "--yes") that can be passed to the given `pulumi` command. Use space to separate multiple args. For a list of CLI command and supported options, see [Pulumi CLI]({{< ref "/docs/reference/cli" >}}). |
+| cwd | No | The working directory to run the Pulumi commands. Use this if your Pulumi App is in a different directory. |
+| stack | Yes | Name of stack being managed. Can be of the form `ORG/STACK` or `ORG/PROJECT/STACK`. |
+| versionSpec | No | The Pulumi version that should be used. Defaults to the latest version. If you require a specific version then the format is `1.5.0` or if you just need the latest version then `latest` can be used. |
+| createStack | No | Set to `true` if the stack should be created if it does not already exist. Defaults to `false`. |
+| createPrComment | No | Set to `true` to add a comment to your Pull Request (PR). Can only be used in pipelines driven by PRs. Defaults to `false`. See [PR Comments by Task Extension]({{< relref "pr_comments" >}}).
+| useThreadedPrComments | No | Defaults to `true` to always add a comment to the previously-created comments thread. Set to `false` to have each comment added separately.
+
 ## Stack and Branch Mappings
 
 > The names used above are purely for demonstration purposes only. You may choose a naming convention that best suits your organization.
@@ -96,6 +111,20 @@ Ubuntu agent, and some on a Windows agent. `pulumi` can be installed on these ag
 
 For the YAML-driven DevOps pipeline, the repository must contain the `azure-pipelines.yml` in the root of the repo for Azure DevOps to use it automatically.
 The following are samples only. You may choose to structure your configuration any way you like.
+
+### Log Pulumi Output as PR Comments
+
+The Pulumi task supports adding PR comments containing the log output from the Pulumi command that was executed in your build pipeline.
+Your project's build service user will need additional permissions to perform that action. Follow these steps to grant the build service user the `Contribute to pull requests` permission:
+
+- Navigate to the **Project Settings** page and click on **Repositories** under the **Repos** heading.
+- Select the repository where you will be using this feature and then click on the **Security** tab.
+- Now under the **Users** section find the build service user. If you are using the default build service user,
+the naming convention is `<Project name> Build Service` where `<Project name>` is your project's name.
+- Change the value of `Contribute to pull requests` to `Allow`.
+
+**Note**: This feature is only supported for builds triggered by pull requests created in git repositories hosted by Azure DevOps.
+Repositories hosted by external VCS such as Bitbucket, GitHub, GitLab are not supported at this time.
 
 ### Pulumi Task Extension for Azure Pipelines
 
