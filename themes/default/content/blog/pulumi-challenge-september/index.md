@@ -30,11 +30,11 @@ Work through the Challenge tutorial to build a real-world application, personali
 
 Once a Challenge is complete, our swag provider will kick off and send you the unique item for that Challenge. Every challenge offers something different, so complete them all as we release them!
 
-There's another way to get more swag, though: Write a 500-word blog article or post a 3-minute video about your Pulumi Challenge project, and we'll send you something even nicer.
+There's another way to get more swag, though: Write a 500-word or more blog article or post a video at least 3 minutes in length about your Pulumi Challenge project, and we'll send you something even nicer.
 
 ## September Challenge
 
-Our second Pulumi Challenge is [One Quickstart to Rule Them All]({{< relref "/challenge/one-quickstart" >}}). We'll walk you through building a serverless application with AWS API Gateway and Lambda. Thanks to the use of Pulumi Architecture Templates, you don't even have to write the code yourself! You'll also learn about Policy Packs with Pulumi, allowing you to gate deployments with security or business logic policies. As a reward for completion, we'll send you a limited edition prize!
+Our second Pulumi Challenge is [One Quickstart to Rule Them All]({{< relref "/challenge/one-quickstart" >}}). We'll walk you through building a serverless application with AWS API Gateway and Lambda. Thanks to the use of [Pulumi Architecture Templates]({{< relref "/templates" >}}), you don't even have to write the code yourself! You'll also learn about Policy Packs with Pulumi, allowing you to gate deployments with security or business logic policies. As a reward for completion, we'll send you a limited edition prize!
 
 {{< youtube "_mzJncJPbKE?rel=0" >}}
 
