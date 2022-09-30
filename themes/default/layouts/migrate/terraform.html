@@ -3,7 +3,10 @@
 {{ end }}
 
 {{ define "main" }}
-    <section id="overview" class="container mx-auto px-2 my-16">
+    <section id="overview" class="container mx-auto px-2 my-4">
+        <div class="flex justify-center rounded-md bg-violet-100">
+            <p class="text-center font-bold">&#x2728; <a href="#migrate">[NEW] Contact us and we'll migrate your Terraform to a modern language</a> &#x2728;</p>
+        </div>
         <div class="flex flex-wrap">
             <div class="w-full lg:w-1/2 p-6">
                 <div>
@@ -136,7 +139,7 @@
             </li>
         </ul>
     </section>
-    <section class="container mx-auto w-full relative overflow-visible py-20">
+    <section id="migrate" class="container mx-auto w-full relative overflow-visible py-20">
         <div class="flex justify-center mt-24">
             <div class="card ready-cta w-full rounded-xl p-1 gradient">
                 <div class="flex justify-center rounded-xl bg-purple-100">
