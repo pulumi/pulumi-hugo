@@ -36,6 +36,6 @@ There's another way to get more swag, though: Write a 500-word blog article or p
 
 Our second Pulumi Challenge is [One Quickstart to Rule Them All]({{< relref "/challenge/one-quickstart" >}}). We'll walk you through building a serverless application with AWS API Gateway and Lambda. Thanks to the use of Pulumi Architecture Templates, you don't even have to write the code yourself! You'll also learn about Policy Packs with Pulumi, allowing you to gate deployments with security or business logic policies. As a reward for completion, we'll send you a limited edition prize!
 
-<!-- TODO: Add video -->
+{{< youtube "_mzJncJPbKE?rel=0" >}}
 
 [Try it for yourself]({{< relref "/challenge/one-quickstart" >}}), and [follow us on Twitter](https://twitter.com/pulumicorp) to get a heads up when a new one launches!
