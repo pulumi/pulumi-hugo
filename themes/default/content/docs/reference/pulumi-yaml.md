@@ -84,12 +84,13 @@ Arguments specified here are passed to `node` when running the Pulumi program. F
 #### About `buildTarget`
 
 - For Go
-  - if specified, go sources in `$CWD` will be compiled via `go build` to the specified path before being run.
-  - if unspecified, go sources in `$CWD` will be compiled via `go build` to a temporary executable that is deleted after running.
+  - If specified, go sources in `$CWD` will be compiled via `go build` to the specified path before being run.
+  - If unspecified, go sources in `$CWD` will be compiled via `go build` to a temporary executable that is deleted after running.
+  - Cannot be specified with the `binary` runtime option.
 
 #### About `binary`
 
-- For Go, cannot be specified with the `buildTarget` `runtime` option.
+- For Go, cannot be specified with the `buildTarget` runtime option.
 - For .NET, if not specified, a .NET project in `$CWD` will be invoked via `dotnet run`.
 
 #### About `virtualenv`
