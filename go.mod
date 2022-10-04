@@ -8,4 +8,4 @@ require (
 	github.com/pulumi/theme v0.0.0-20220927175514-a6ba92bc1ad5 // indirect
 )
 
-replace github.com/pulumi/pulumi-hugo/themes/default => ./themes/default
+
