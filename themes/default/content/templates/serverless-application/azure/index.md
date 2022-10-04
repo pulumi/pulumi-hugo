@@ -24,7 +24,7 @@ meta_image: meta.png
 # The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The Azure Serverless Application template deploys a serverless application on Azure with Pulumi. It deploys an [Azure Storage Blob account]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccount" >}}) that's configured with a [container for static website hosting]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccountstaticwebsite" >}}) and an [Azure function]({{< relref "/registry/packages/azure-native/api-docs/web/webappfunction" >}}) that runs the business logic. The application uses an [App Service plan]({{< relref "/registry/packages/azure-native/api-docs/web/appserviceplan" >}}) by default. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
+The Azure Serverless Application template deploys a serverless application on Azure with Pulumi. It deploys an [Azure Storage Blob account]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccount" >}}) that's configured with a [container for static website hosting]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccountstaticwebsite" >}}) and an [Azure function]({{< relref "/registry/packages/azure-native/api-docs/web/webappfunction" >}}) that runs the business logic, which is written in the same language as the template. The application uses an [App Service plan]({{< relref "/registry/packages/azure-native/api-docs/web/appserviceplan" >}}) by default. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi $CLOUD $ARCHITECTURE template](./architecture.png)
 
@@ -32,7 +32,7 @@ The Azure Serverless Application template deploys a serverless application on Az
 
 To use this template to deploy your own serverless application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your Azure credentials]({{< relref "/registry/packages/azure/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp,yaml" / %}}
+{{% chooser language "typescript,python,go,csharp" / %}}
 
 {{% choosable language typescript %}}
 
@@ -66,15 +66,6 @@ $ pulumi new serverless-azure-go
 ```bash
 $ mkdir my-serverless-app && cd my-serverless-app
 $ pulumi new serverless-azure-csharp
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```bash
-$ mkdir my-serverless-app && cd my-serverless-app
-$ pulumi new serverless-azure-yaml
 ```
 
 {{% /choosable %}}
