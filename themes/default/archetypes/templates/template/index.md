@@ -24,7 +24,7 @@ meta_image: meta.png
 # The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The $CLOUD $ARCHITECTURE template deploys a $THING on $CLOUD with Pulumi. It uses this resource, this other resource, and probably some other awesome resource to accomplish some particular desirable outcome. The template generates a complete Pulumi program, including $INCLUDED_STUFF, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The $CLOUD $ARCHITECTURE template creates an infrastructure as code project that deploys a $THING to $CLOUD with Pulumi. It uses this resource, this other resource, and probably some other awesome resource to accomplish some particular desirable outcome. The template generates a complete Pulumi program, including $INCLUDED_STUFF, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi $CLOUD $ARCHITECTURE template](./architecture.png)
 
