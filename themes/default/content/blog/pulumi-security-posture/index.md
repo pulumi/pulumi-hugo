@@ -54,7 +54,7 @@ Manually created cloud resources are error prone, difficult to audit, iterate an
 
 ## Tag your Stacks
 
-We have previously covered [Tag Policies](https://www.pulumi.com/blog/automatically-enforcing-aws-resource-tagging-policies/) as a best practice for the Cloud Resources themselves, but you can also tag your Pulumi Stacks to help organize and visualize your application resources in logical groupings that will help you assess, respond and automate incident remediation. Here are two examples of using Pulumi’s own Pulumi Provider to tag your Stacks automatically: in [python](https://github.com/pulumi/examples/blob/master/aws-py-stackreference/team/__main__.py#L8-L13) and in [typescript](https://github.com/pulumi/examples/blob/master/aws-ts-stackreference/team/index.ts#L17-L22).
+We have previously covered [Tag Policies](https://www.pulumi.com/blog/automatically-enforcing-aws-resource-tagging-policies/) as a best practice for the Cloud Resources themselves, but you can also tag your Pulumi Stacks to help organize and visualize your application resources in logical groupings that will help you assess, respond and automate incident remediation. Here are two examples of using Pulumi’s own Pulumi Provider to tag your Stacks automatically: in [python](https://github.com/pulumi/examples/blob/master/aws-py-stackreference/team/__main__.py#L8-L13) and in [TypeScript](https://github.com/pulumi/examples/blob/master/aws-ts-stackreference/team/index.ts#L17-L22).
 
 ## Deploy from Pipelines
 
