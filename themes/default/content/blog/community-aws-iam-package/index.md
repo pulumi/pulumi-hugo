@@ -414,7 +414,7 @@ A few of the other use cases support by the Community AWS IAM package are:
 - [Create individual IAM users]({{< relref "/registry/packages/aws-iam/api-docs/user" >}})
 - [Use Groups to Assign Permissions to IAM Users]({{< relref "/registry/packages/aws-iam/api-docs/groupwithpolicies" >}})
 - [Create IAM Policies]({{< relref "/registry/packages/aws-iam/api-docs/policy" >}})
-- [And more]({{< relref "/registry/packages/aws-iam/api-docs" >}})
+- [View all supported resources]({{< relref "/registry/packages/aws-iam/api-docs" >}})
 
 ## Learn More
 
