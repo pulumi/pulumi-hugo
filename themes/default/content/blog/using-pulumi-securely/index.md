@@ -30,11 +30,11 @@ Risks associated with maintaining a good cloud security posture extend to your i
 
 Pulumi has three levels to consider access for: Users, Teams and Organizations.
 
-[Users](https://www.pulumi.com/docs/intro/pulumi-service/accounts/) are tied to personal identities often with an Identity Provider and should be used wherever a human is using Pulumi.  They should not be used for any systems, tools or pipeline based provisioning.
+[Users](https://www.pulumi.com/docs/intro/pulumi-service/accounts/) are tied to personal identities often with an identity provider and should be used wherever a human is using Pulumi.  They should not be used for any systems, tools or pipeline based provisioning.
 
-[Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams/) are groups of Users within an Organization with specific permissions to Stacks.  Consider using these to break up access to environments such as Dev, Staging and Production.  You should look to mirror your code repository or IAM teams/groups as much as possible.
+[Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams/) are groups of users within an organization with specific permissions to stacks.  Consider using these to break up access to environments such as dev, staging and production.  You should look to mirror your code repository or IAM teams/groups as much as possible.
 
-[Organizations](https://www.pulumi.com/docs/intro/pulumi-service/organizations/) are a space for you to collaborate on shared projects and stacks.  You may have multiple Cloud Accounts from a single cloud provider or multiple cloud provider Accounts tied to an Organization in any combination.  It’s recommended that you segment Organizations and Cloud Accounts to limit access and the “blast radius” of security or financial events that may occur within them.
+[Organizations](https://www.pulumi.com/docs/intro/pulumi-service/organizations/) are a space for you to collaborate on shared projects and stacks.  You may have multiple Cloud Accounts from a single cloud provider or multiple cloud provider accounts tied to an organization in any combination.  It’s recommended that you segment organizations and cloud accounts to limit access and the “blast radius” of security or financial events that may occur within them.
 
 ## Security Best Practices with Pulumi
 
@@ -72,15 +72,15 @@ Organization Access Tokens, Team Access Tokens and Personal Access Tokens secure
 
 ### Organizational Access Tokens
 
-Scoped to the entire Pulumi Organization.  Use these for tooling with broad access across stacks and resources deployed in that Organization.  For example, if your Production Environment runs in an isolated Cloud Account and Organization, then an [Organization Access Token](https://www.pulumi.com/docs/intro/pulumi-service/organization-access-tokens/) is likely appropriate for your CI/CD pipeline that deploys Production.
+Scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token](https://www.pulumi.com/docs/intro/pulumi-service/organization-access-tokens/) is likely appropriate for your ci/cd pipeline that deploys production.
 
 ### Team Access Tokens
 
-Scoped to the [stack access](https://www.pulumi.com/docs/intro/pulumi-service/team-access-tokens/#stacks) of a Pulumi Team.  Use these when resources associated with different Environment or services are commingled within a single Cloud Account or Organization.  In general, it is often recommended to create a [Team Access Token](https://www.pulumi.com/docs/intro/pulumi-service/team-access-tokens/) for each CI/CD pipeline, for example, Dev vs Production.
+Scoped to the [stack access](https://www.pulumi.com/docs/intro/pulumi-service/team-access-tokens/#stacks) of a Pulumi Team.  Use these when resources associated with different Environment or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token](https://www.pulumi.com/docs/intro/pulumi-service/team-access-tokens/) for each ci/cd pipeline, for example, dev vs production.
 
 ### Personal Access Tokens
 
-Scoped to [individual users](https://www.pulumi.com/docs/intro/pulumi-service/accounts/#access-tokens). Used whenever a developer deploys from their local machine.  Be sure your Users are part of a Pulumi Team to simplify their Role Based Access within the Platform.
+Scoped to [individual users](https://www.pulumi.com/docs/intro/pulumi-service/accounts/#access-tokens). Used whenever a developer deploys from their local machine.  Be sure your users are part of a Pulumi team to simplify their role based access within the Platform.
 
 ### Rotate the Tokens
 
@@ -90,8 +90,8 @@ Add Pulumi to your list of tokens to rotate on a regular basis.
 
 Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your Cloud Security Posture as it relates to your Infrastructure as Code.
 
-1. Confirm your Users, Teams, and Organization Access are inline with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
+1. Confirm your users, teams, and organization access are inline with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
 1. Audit any pipeline that uses Pulumi and ensure that they’re using fresh, rotated Tokens.
 1. Review your Audit Logs regularly, noting any anomalous or unexpected activity.  Exporting these Audit Logs and processing them with a security event management system is advisable at any type of scale.
 
-Some of the features mentioned, such as Teams, SSO/SCIM and Audit Logs are only available to Enterprise and/or Business Critical Edition users, as well as those on our 14-day trial. If you would like to implement and/or test any of these features please [start a trial](https://app.pulumi.com/site/trial) or [Contact Us](https://www.pulumi.com/contact) for access.
+Some of the features mentioned, such as teams, sso/scim and audit logs are only available to Enterprise and/or Business Critical Edition users, as well as those on our 14-day trial. If you would like to implement and/or test any of these features please [start a trial](https://app.pulumi.com/site/trial) or [Contact Us](https://www.pulumi.com/contact) for access.
