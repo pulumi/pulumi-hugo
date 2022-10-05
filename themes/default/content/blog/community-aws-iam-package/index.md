@@ -5,7 +5,7 @@ title: "Introducing the Community AWS IAM Package"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-10-04T10:54:26-07:00
+date: 2022-10-05T09:24:26-07:00
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -33,7 +33,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-Building on top of the cloud can be frustrating. You might run into a resource that is complicated to configure or just very tedious to get wired up correctly. Or even worse the resource is tediously complicated to configure. As cloud engineers ourselves, we feel the same pain as our users and strive to build abstractions that make cloud engineering a more productive and pleasant experience.
+Building on top of the cloud can be frustrating at times. You will likely run into resources that complicated to create, others that are very tedious to create, and worst of all resources that are complicated and tedious to create. As cloud engineers ourselves, we feel the same pain as our users and strive to build abstractions that make cloud engineering a more productive and pleasant experience.
 
 Recently we released our [Community AWS IAM Package]({{< relref "/registry/packages/aws-iam" >}}) to help deliver on the promise of making the cloud easier to use for every operator, engineer, and user. This package is based on the Terraform AWS IAM Module, so it allows our users to take advantage of battle-tested abstractions. The package also helps transitioning Terraform users by maintaining similar resource names and inputs so they can focus on taking advantage of features of their programming language of choice (TypeScript, JavaScript, Python, Go, .NET, and YAML).
 
@@ -43,7 +43,7 @@ In the following sections, we will show a few examples of common use cases when 
 
 ### Assumable Role with SAML
 
-The example code below shows how you can create an Assumable Role with SAML.
+The example code below shows how you can create an Assumable Role with SAML, which will create a single IAM role which can be assumed by users with a SAML Identity Provider.
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -143,7 +143,7 @@ resources:
 
 ### EKS Assumable Role
 
-The example code below shows how you can create an EKS Assumable Role.
+The example code below shows how you can create an EKS Assumable Role, which will create an IAM Role that can be assumed by multiple EKS Service Accounts.
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
@@ -259,7 +259,7 @@ resources:
 
 ### IAM Role for an EKS Service Account
 
-The example code below shows how you can create an IAM Role for an EKS Service Account.
+The example code below shows how you can create an IAM Role for an EKS Service Account, which will create an IAM Role with various Policies attached that can be assumed by multiple EKS Service Accounts.
 
 {{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
