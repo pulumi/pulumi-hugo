@@ -1,7 +1,7 @@
 ---
 title: "Pulumi Security Posture"
 
-date: 2022-10-25
+date: 2022-10-06
 
 meta_desc: Pulumi Security Posture.  Organization Access Token, Team Access Token, Teams, and Managed Federated Identity
 
