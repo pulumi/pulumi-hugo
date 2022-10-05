@@ -48,7 +48,7 @@ Connect your user and Pulumi Orgs with an [Identity Provider](https://www.pulumi
 
 [Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams/#creating-a-team) improve on basic Role Based Access Control for Administrators and Users by allowing you to group users and their access to specific Stacks in your Organization.  For example, a team called ProductionReadOnly could be created and scoped so that all Members have only limited access to read the Production Stacks, while another team, ProductionAdmins, would retain full privileges to those stacks.
 
-## Write the Code
+## Import Manually Created Resources
 
 Manual process is error prone and difficult to audit, iterate and improve on.  If you’ve created manual resources, consider [importing](https://www.pulumi.com/blog/changes-to-import/) them to Pulumi programs.
 
