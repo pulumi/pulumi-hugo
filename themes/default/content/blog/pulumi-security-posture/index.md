@@ -50,7 +50,7 @@ Connect your user and Pulumi Orgs with an [Identity Provider](https://www.pulumi
 
 ## Import Manually Created Resources
 
-Manual process is error prone and difficult to audit, iterate and improve on.  If you’ve created manual resources, consider [importing](https://www.pulumi.com/blog/changes-to-import/) them to Pulumi programs.
+Manually created cloud resources are error prone, difficult to audit, iterate and improve on.  If you’ve created manual resources, consider [importing](https://www.pulumi.com/blog/changes-to-import/) them to Pulumi programs.
 
 ## Tag your Stacks
 
