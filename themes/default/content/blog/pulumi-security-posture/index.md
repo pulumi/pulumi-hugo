@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Security Posture"
+title: "Using Pulumi Securely"
 
 date: 2022-10-06
 
@@ -42,7 +42,7 @@ The following recommendations should help you get started and prepare you to sca
 
 ## Manage Federated Identity
 
-Connect your user and Pulumi Orgs with an [Identity Provider](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#organization-identity-providers) such as [Github](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#github-identity-provider), [Gitlab](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#gitlab-identity-provider) or [BitBucket](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#bitbucket-identity-provider), your [Single Sign On (SSO)](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#saml-single-sign-on-sso) system and/or another [System for Cross-Domain Identity Management](https://www.pulumi.com/docs/guides/scim/) (SCIM).  Your code repositories hold your Infrastructure as Code crown jewels, and most organizations are motivated to keep access tightly controlled.  SSO improves this process across tools and puts more control into your organization’s hands.  SCIM enables you to manage your users and groups centrally in your Identity Provider (IdP) and then synchronize those users and groups to the Pulumi Service.  Leveraging your existing onboarding and offboarding process will help limit the risk of bad actors in Pulumi itself.
+Connect your user and Pulumi Orgs with an [Identity Provider](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#organization-identity-providers) such as [Github](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#github-identity-provider), [Gitlab](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#gitlab-identity-provider) or [BitBucket](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#bitbucket-identity-provider), your [Single Sign On (SSO)](https://www.pulumi.com/docs/intro/pulumi-service/organizations/#saml-single-sign-on-sso) system and/or another [System for Cross-Domain Identity Management](https://www.pulumi.com/docs/guides/scim/) (SCIM).  Your code repositories hold your Infrastructure as Code, and most organizations are motivated to keep access tightly controlled.  SSO improves this process across tools and puts more control into your organization’s hands.  SCIM enables you to manage your users and groups centrally in your Identity Provider (IdP) and then synchronize those users and groups to the Pulumi Service.  Leveraging your existing onboarding and offboarding process will help limit the risk of bad actors in Pulumi itself.
 
 ## Build Pulumi Teams
 
