@@ -16,7 +16,7 @@ tags:
 
 ---
 
-Cloud’s greatest strength and weakness is the proliferation of a massive number of services globally. In order to adequately assess and mitigate the inherent risks for your company, your customers, and your employees, Cloud Architects are typically responsible for a massive surface area of potential endpoints and vectors of attack.
+Cloud computing’s greatest strength and weakness is the proliferation of a massive number of services globally. In order to adequately assess and mitigate the inherent risks for your company, your customers, and your employees, Cloud Architects are typically responsible for a massive surface area of potential endpoints and vectors of attack.
 
 <!--more-->
 
