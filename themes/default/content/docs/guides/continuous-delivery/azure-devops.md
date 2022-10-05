@@ -20,7 +20,7 @@ Pulumi doesn't require any particular arrangement of stacks or workflow to work 
 continuous integration / continuous deployment system. So the steps described here can be
 altered to fit into any existing type of deployment setup.
 
-This page shows you how to use the YAML method to configure your DevOps pipeline, but you can easily adapt
+This page shows you how to use the Pulumi Azure DevOps task extension and the YAML method to configure your DevOps pipeline, but you can easily adapt
 the steps outlined in the sample YAML file below to the Visual Designer as well.
 
 ## Prerequisites
