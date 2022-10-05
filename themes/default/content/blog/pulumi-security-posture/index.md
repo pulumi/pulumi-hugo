@@ -46,7 +46,7 @@ Connect your user and Pulumi Orgs with an [Identity Provider](https://www.pulumi
 
 ## Build Pulumi Teams
 
-[Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams/#creating-a-team) improve on basic Role Based Access Control for Administrators and Users by allowing you to group users and their access to specific Stacks in your Organization.  For example, a team called ProductionReadOnly could be created and scoped so that all Members have only limited access to read the Production Stacks, while another team, ProductionAdmins, would retain full privileges to those stacks.
+[Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams/#creating-a-team) improve on basic role-based access control (RBAC) for administrators and users by allowing you to group users and their access to specific stacks in your organization.  For example, a team called ProductionReadOnly could be created and scoped so that all members have only limited access to read the production stacks, while another team, ProductionAdmins, would retain full privileges to those stacks.
 
 ## Import Manually Created Resources
 
