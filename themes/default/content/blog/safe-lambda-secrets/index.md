@@ -10,16 +10,16 @@ tags:
     - serverless
 ---
 
-The subject of how to make use of secrets in Lambda Functions comes up a fair bit and although there seems to be a lot of discussion on where you _should_ store them, the one thing that comes up is that **you should never store the plain text values of secrets in the Lambda Functinon's environment variables**. One such discussion I was having with a customer, made me think about how it should be possible to take the secrets that you've got on your [stack config file](https://www.pulumi.com/docs/intro/concepts/config/) and then use them to configure your Lambda Function, with the plain text values going into the Function's environment variables and the encrypted secret values going into AWS' Secrets Manager.
+The subject of how to make use of secrets in Lambda Functions comes up a fair bit, and although there seems to be a lot of discussion on where you _should_ store them, the one thing that comes up is that **you should never store the plain text values of secrets in the Lambda Functinon's environment variables**. One such discussion I was having with a customer made me think about how it should be possible to take the secrets that you've got on your [stack config file](https://www.pulumi.com/docs/intro/concepts/config/) and then use them to configure your Lambda Function, with the plain text values going into the Function's environment variables and the encrypted secret values going into AWS' Secrets Manager.
 
 <!--more-->
 
 ## Getting started
 
-I'm going to assume you've already got Pulumi and AWS set up, you're logged into your backend and you've already created a project and stack. I'm also using the Pulumi Service as my [secrets provider]({{< relref "/docs/intro/concepts/secrets/#configuring-secrets-encryption" >}}).
+I'm going to assume you've already got Pulumi and AWS set up, you're logged into your backend, and you've already created a project and stack. I'm also using the Pulumi Service as my [secrets provider]({{< relref "/docs/intro/concepts/secrets/#configuring-secrets-encryption" >}}).
 
 {{% notes type="info" %}}
-Although Lambda Functions are free to deploy and you get a generous allowance as part of AWS' free tier, storing and accessing secrets is not. You can view the cost on the [AWS Secrets Manager Pricing page](https://aws.amazon.com/secrets-manager/pricing/).
+Although Lambda Functions are free to deploy, and you get a generous allowance as part of AWS' free tier, storing and accessing secrets is not. You can view the cost on the [AWS Secrets Manager Pricing page](https://aws.amazon.com/secrets-manager/pricing/).
 {{% /notes %}}
 
 ## Structured configuration
@@ -77,7 +77,7 @@ import * as aws from "@pulumi/aws";
 Before we continue, it's worth pointing out the following:
 
 {{% notes type="warning" %}}
-On `pulumi up`, secret values are decrypted and made available in plaintext at runtime. These may be read through any of the standard `pulumi.Config` getters. While it is possible to read a secret using the ordinary non-secret getters, this is almost certainly not what you want. Use the secret variants of the configuration APIs instead, since this ensures that all transitive uses of that secret are themselves also marked as secrets.
+On `pulumi up`, secret values are decrypted and made available in plaintext at runtime. These may be read through any of the standard `pulumi.Config` getters. While it is possible to read a secret using ordinary non-secret getters, this is almost certainly not what you want. Use the secret variants of the configuration APIs instead since this ensures that all transitive uses of that secret are themselves also marked as secrets.
 {{% /notes %}}
 
 Now that's out the way, let's continue.
@@ -93,7 +93,7 @@ interface LambdaConfig {
 }
 ```
 
-You'll notice that the property names match the dictionary names in the stack config and that the secrets property is of type `pulumi.Output<string>[]` instead of `string[]`. This is because they're Pulumi secrets and we want to handle them in the correct way.
+You'll notice that the property names match the dictionary names in the stack config and that the secrets property is of type `pulumi.Output<string>[]` instead of `string[]`. This is because they're Pulumi secrets, and we want to handle them in the correct way.
 
 Next we'll access the config and store the values in a variable:
 
@@ -104,7 +104,7 @@ const lambdaconfig = config.requireObject<LambdaConfig>("lambdawithsecrets");
 
 ### Storing the secret values
 
-As I said in the beginning, we're going to store the secrets from the stack config in AWS Secrets Manager and then the ARN of each of the secrets will be stored in the Lambda Function's environment variables.
+As I said in the beginning, we're going to store the secrets from the stack config in AWS Secrets Manager, and then the ARN of each of the secrets will be stored in the Lambda Function's environment variables.
 
 We're going to create a couple of arrays to store (non-sensitive) information about the Secret resources that we're going to create to use later on. One to hold the `Secret` resources and one to hold te ARNs of the secrets. Due to the fact that it's the `SecretVersion` where we store the secret value, it's pretty safe to store the `Secret`.
 
@@ -241,7 +241,7 @@ const lambda = new aws.lambda.Function("lambdaWithSecrets", {
 export const lambdaName = lambda.name;
 ```
 
-There's nothing complicated about the function. We're using the role from earlier, setting the environment variables to be the object we created just above and pointed the `code` input at a local folder called `app` which we'll look at next. The lambda name being exported at the end is so that we can use the Pulumi CLI to get this value and invoke the function using the AWS CLI.
+There's nothing complicated about the function. We're using the role from earlier, setting the environment variables to be the object we created just above and pointed the `code` input at a local folder called `app`, which we'll look at next. The lambda name being exported at the end is so that we can use the Pulumi CLI to get this value and invoke the function using the AWS CLI.
 
 #### The Code
 
@@ -278,7 +278,7 @@ We're also going to update the `type` setting in the `package.json` file to be `
 }
 ```
 
-The `index.js` file for the lambda isn't exciting. We're going to make the function more efficient by making the calls to the secrets manager API outside of the main handler code so it doesn't get run for all invocations (just the ones during a cold start):
+The `index.js` file for the lambda isn't exciting. We're going to make the function more efficient by making the calls to the secrets manager API outside of the main handler code, so it doesn't get run for all invocations (just the ones during a cold start):
 
 ```javascript
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
@@ -366,7 +366,7 @@ Resources:
 Duration: 24s
 ```
 
-Let's see what this has done. If we go to look at the Lambda Function in the console, click on the `Configuration` tab and select `Environment variables` you'll see the two plaintext environment variables and their values along with the two secret environment variables containing the ARNs to the relative secret in the Secrets Manager. Since we know what the environment variable key is (it's the uppercase version of what's in the stack config), it means we can reliably use that same name in the function code (the two lines where we call the `getSecretForLambda` function).
+Let's see what this has done. If we go to look at the Lambda Function in the console, click on the `Configuration` tab and select `Environment variables` you'll see the two plaintext environment variables and their values along with the two secret environment variables containing the ARNs to the relative secret in the Secrets Manager. Since we know the environment variable key (the uppercase version of what's in the stack config), we can reliably use that same name in the function code (the two lines where we call the `getSecretForLambda` function).
 
 For me, it looks something like this:
 
