@@ -489,8 +489,6 @@ new aws.iam.RolePolicyAttachment("rpa-basic", {
     policyArn: aws.iam.ManagedPolicy.AWSLambdaBasicExecutionRole
 });
 
-
-
 const secretManagerPolicyDoc = aws.iam.getPolicyDocumentOutput({
     statements: [
         {
