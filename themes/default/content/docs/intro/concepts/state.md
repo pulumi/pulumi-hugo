@@ -80,7 +80,7 @@ For details on the various backend URL formats and options, please see the follo
 - [Pulumi Self-Hosted Service](#logging-into-a-self-hosted-pulumi-service-backend)
 - [Local Filesystem](#logging-into-the-local-filesystem-backend)
 - [AWS S3 (or compatible server)](#logging-into-the-aws-s3-backend)
-- [Azure Blob Storage](#logging-into-the-azure-blob-storage-backend)
+- [Azure Blob Storage](#logging-into-the-azure-blob-storage-backend-using-the-env-vars)
 - [Google Cloud Storage](#logging-into-the-google-cloud-storage-backend)
 
 If you forget to log in, you will be automatically prompted to do so before you do anything that requires stacks or state.
@@ -187,7 +187,7 @@ This backend also supports [alternative object storage servers with AWS S3 compa
 $ pulumi login s3://<bucket-name>?endpoint=my.minio.local:8080&disableSSL=true&s3ForcePathStyle=true
 ```
 
-##### Logging Into the Azure Blob Storage Backend
+##### Logging Into the Azure Blob Storage Backend using the env vars
 
 To use the [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) backend, pass the `azblob://<container-path>` as your `<backend-url>`:
 
@@ -196,6 +196,18 @@ $ pulumi login azblob://<container-path>
 ```
 
 To tell Pulumi what Azure storage account to use, set the `AZURE_STORAGE_ACCOUNT` environment variable. Also, set either `AZURE_STORAGE_KEY` or `AZURE_STORAGE_SAS_TOKEN` to authorize access. For additional configuration options, see [Azure Setup]({{< relref "/registry/packages/azure/installation-configuration" >}}). If you're new to Azure Blob Storage, see [the Azure documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli).
+
+##### Logging Into the Azure Blob Storage Backend using az cli authentication (as of Pulumi 3.41.1)
+
+Similarly, one can implicitly use az cli authentication by defining the storage account in the URL like so:
+
+```sh
+$ pulumi login azblob://<container-path>?storage_account=account_name
+```
+
+{{% notes type="info"%}}
+Make sure you have "Storage Blob Data Contributor" role assigned to you in IAM. Just having "Owner" is not enough, as that is a "management"-type of role.
+{{% /notes %}}
 
 ##### Logging Into the Google Cloud Storage Backend
 
