@@ -36,8 +36,8 @@ pulumi config set --path 'lambdawithsecrets.envvars["envvar2"]' envvar2value
 and then we add the secret settings:
 
 ```bash
-pulumi config set --path 'lambdawithsecrets.secrets["secret1"]' secretvalue1
-pulumi config set --path 'lambdawithsecrets.secrets["secret2"]' secretvalue2
+pulumi config set --path 'lambdawithsecrets.secrets["secret1"]' secretvalue1 --secret
+pulumi config set --path 'lambdawithsecrets.secrets["secret2"]' secretvalue2 --secret
 ```
 
 If we take a look at the stack config (in my stack named `dev` it's the `Pulumi.dev.yaml` file):
