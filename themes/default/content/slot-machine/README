@@ -1,0 +1,12 @@
+# Slot machine page generation
+
+This page is generated with the Go program in the `generate` subdirectory based
+on the code examples in the nested `examples` subdirectory. The name of each file
+must be of the form `{language}-{cloud}-{app}.{extension}`, and the contents will
+be added to the page.
+
+To regenerate the `_index.md` file, run the following command from this directory:
+
+```bash
+go run generate/main.go
+```
