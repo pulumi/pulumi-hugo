@@ -16,7 +16,7 @@ Deploying a static website often involves provisioning a number of pieces of inf
 
 ## Azure Static Website Component
 
-Pulumi components enable us to create re-usable abstractions that can perform complex tasks all behind a simple interface the user can programmatically interact with. The Azure Static Website component (will add link) looks to take all of the complexity of getting a static website deployed to Azure and simplify it down to just consuming a simple component and passing it a few input arguments. This component relieves the complexities of this process by allowing you to simply tell the component where your files are located and it will take care of all the rest.
+Pulumi components enable us to create re-usable abstractions that can perform complex tasks all behind a simple interface the user can programmatically interact with. The [Azure Static Website component]({{< relref "/registry/packages/azure-static-website/" >}}) looks to take all of the complexity of getting a static website deployed to Azure and simplify it down to just consuming a simple component and passing it a few input arguments. This component relieves the complexities of this process by allowing you to simply tell the component where your files are located and it will take care of all the rest.
 
 **This component does the following:**
 
@@ -34,7 +34,7 @@ In order to follow along with this example you will need to have the following:
 * Access to an Azure account to provision the infrastructure
 * Static site to upload
 
-You can learn more about configuring this using our Getting Started guide. (will add link)
+You can learn more about configuring this using our [getting started]({{< relref "/docs/get-started"  >}}) guide.
 
 We will provision a number of pieces of infrastructure in Azure to enable serving our static website. The main ones are a Storage Account to contain all of our website files and a CDN. Let’s start by creating a new Pulumi project. First, create a new directory on your machine where the Pulumi project will live. A common pattern is to include the infrastructure configuration in a directory alongside the website you will be deploying. You can create a directory called `infrastructure` to house the Pulumi program or you can use another name if you prefer. This allows us to easily reference the location of the contents of your site as well as keeps your infrastructure code along-side your application. Pulumi supports multiple programming languages such as TypeScript, Python, Go, .NET, and even markup languages like YAML. Once you have created the directory, run the following command for your language of choice inside the directory:
 
@@ -195,7 +195,7 @@ You can now run `pulumi up` to deploy the site to Azure. This will first show a 
 
 In a few minutes your site will be provisioned and ready to access. Use the `cdnURL` that was output at the end of the provisioning to access the site!
 
-As you can see, the Azure static website component made this task very easy with just a few lines of code we were able to provision our site.
+As you can see, the Azure static website component made this task very easy. With just a few lines of code we were able to provision our site.
 
 If you would like to learn more about Pulumi, here are some links you may find interesting:
 
