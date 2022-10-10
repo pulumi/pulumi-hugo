@@ -47,10 +47,10 @@ configure it to only be used by certain repositories.
 
 ![Configuration Page](/images/docs/github-app/org-configuration.png)
 
-The GitHub app will report Stack operations on GitHub commits and pull requests
-against repositories it has access to. You can also uninstall the GitHub
-application at any time without impacting your stacks or other Pulumi-managed
-resources.
+The Pulumi GitHub app will report Stack operations on GitHub commits and pull
+requests against repositories it has access to. You can also uninstall the
+GitHub application at any time without impacting your stacks or other
+Pulumi-managed resources.
 
 ## CI Integration
 
