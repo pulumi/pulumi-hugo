@@ -80,7 +80,7 @@ For details on the various backend URL formats and options, please see the follo
 - [Pulumi Self-Hosted Service](#logging-into-a-self-hosted-pulumi-service-backend)
 - [Local Filesystem](#logging-into-the-local-filesystem-backend)
 - [AWS S3 (or compatible server)](#logging-into-the-aws-s3-backend)
-- [Azure Blob Storage](#logging-into-the-azure-blob-storage-backend-using-the-env-vars)
+- [Azure Blob Storage](#logging-into-the-azure-blob-storage-backend)
 - [Google Cloud Storage](#logging-into-the-google-cloud-storage-backend)
 
 If you forget to log in, you will be automatically prompted to do so before you do anything that requires stacks or state.
