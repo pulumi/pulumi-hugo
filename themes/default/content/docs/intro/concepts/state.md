@@ -197,13 +197,14 @@ $ pulumi login azblob://<container-path>
 
 To tell Pulumi what Azure storage account to use, set the `AZURE_STORAGE_ACCOUNT` environment variable. Also, set either `AZURE_STORAGE_KEY` or `AZURE_STORAGE_SAS_TOKEN` to authorize access. For additional configuration options, see [Azure Setup]({{< relref "/registry/packages/azure/installation-configuration" >}}). If you're new to Azure Blob Storage, see [the Azure documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli).
 
-##### Logging Into the Azure Blob Storage Backend using az cli authentication (as of Pulumi 3.41.1)
-
-Similarly, one can implicitly use az cli authentication by defining the storage account in the URL like so:
+{{% notes type="info"%}}
+As of Pulumi CLI v3.41.1, instead of the environment variables above, Azure CLI authentication may be used by specifying the storage account in the URL like so after using `az login`:
 
 ```sh
 $ pulumi login azblob://<container-path>?storage_account=account_name
 ```
+
+{{% /notes %}}
 
 {{% notes type="info"%}}
 The Azure account must have the [Storage Blob Data Contributor role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) or an equivalent role with permissions to read, write, and delete blobs.
