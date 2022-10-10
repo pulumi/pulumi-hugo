@@ -187,7 +187,7 @@ This backend also supports [alternative object storage servers with AWS S3 compa
 $ pulumi login s3://<bucket-name>?endpoint=my.minio.local:8080&disableSSL=true&s3ForcePathStyle=true
 ```
 
-##### Logging Into the Azure Blob Storage Backend using the env vars
+##### Logging Into the Azure Blob Storage Backend
 
 To use the [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) backend, pass the `azblob://<container-path>` as your `<backend-url>`:
 
