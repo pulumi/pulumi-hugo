@@ -26,7 +26,7 @@ Pulumi components enable us to create re-usable abstractions that can perform co
 
 ## Using the component to deploy a static website
 
-Let’s walk through a simple example of using this component to deploy a static website. Today, we are going to provision a storage account, upload the website contents, and wire it up to an Azure CDN. Pulumi supports multiple programming languages such as TypeScript, Python, Go, .NET, and even markup languages like YAML. We will use TypeScript for our example.
+Let’s walk through a simple example of using this component to deploy a static website. Today, we are going to provision a storage account, upload the website contents, and wire it up to an Azure CDN.
 
 In order to follow along with this example you will need to have the following:
 
@@ -36,11 +36,53 @@ In order to follow along with this example you will need to have the following:
 
 You can learn more about configuring this using our Getting Started guide. (will add link)
 
-We will provision a number of pieces of infrastructure in Azure to enable serving our static website. The main ones are a Storage Account to contain all of our website files and a CDN. Let’s start by creating a new Pulumi project. First, create a new directory on your machine where the Pulumi project will live. A common pattern is to include the infrastructure configuration in a directory alongside the website you will be deploying. You can create a directory called `infrastructure` to house the Pulumi program or you can use another name if you prefer. This allows us to easily reference the location of the contents of your site as well as keeps your infrastructure code along-side your application. Once you have created the directory, run the following command inside the directory:
+We will provision a number of pieces of infrastructure in Azure to enable serving our static website. The main ones are a Storage Account to contain all of our website files and a CDN. Let’s start by creating a new Pulumi project. First, create a new directory on your machine where the Pulumi project will live. A common pattern is to include the infrastructure configuration in a directory alongside the website you will be deploying. You can create a directory called `infrastructure` to house the Pulumi program or you can use another name if you prefer. This allows us to easily reference the location of the contents of your site as well as keeps your infrastructure code along-side your application. Pulumi supports multiple programming languages such as TypeScript, Python, Go, .NET, and even markup languages like YAML. Once you have created the directory, run the following command for your language of choice inside the directory:
 
-`pulumi new azure-typescript`
+{{< chooser language "typescript,python,csharp,go,yaml" >}}
 
-There will be some prompts that appear asking you a few questions. Feel free to accept the defaults or change them to your desired preference. This command generated a new project and created a few files for you. Let’s go to the index.ts file. Copy the following code below into the index.ts file to provision the website.
+{{% choosable language typescript %}}
+
+```bash
+pulumi new azure-typescript
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```bash
+pulumi new azure-python
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```bash
+pulumi new azure-csharp
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```bash
+pulumi new azure-go
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```bash
+pulumi new azure-yaml
+```
+
+{{% /choosable %}}
+
+{{% /chooser %}}
+
+There will be some prompts that appear asking you a few questions. Feel free to accept the defaults or change them to your desired preference. This command generated a new project and created a few files for you. You can copy the code examples below for the language you chose to use.
 
 {{< chooser language "typescript,python,csharp,go,yaml" >}}
 
@@ -67,7 +109,7 @@ import pulumi
 import pulumi_azure_static_website as azure_static_website
 
 site = azure_static_website.Website("site",
-    site_path="../website/build",
+    site_path="../site", # replace with path containing website contents
     with_cdn=True)
 pulumi.export("cdnURL", site.cdn_url)
 ```
@@ -86,7 +128,7 @@ return await Deployment.RunAsync(() =>
     var web = new AzureStaticWebsite.Website("web", new()
     {
         WithCDN = true,
-        SitePath = "../website/build",
+        SitePath = "../site", // replace with path containing website contents
     });
 
     return new Dictionary<string, object?>
@@ -112,7 +154,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		web, err := azure - static - website.NewWebsite(ctx, "web", &azure-static-website.WebsiteArgs{
 			WithCDN:  pulumi.Bool(true),
-			SitePath: pulumi.String("../website/build"),
+			SitePath: pulumi.String("../site"), // replace with path containing website contents
 		})
 		if err != nil {
 			return err
@@ -136,7 +178,7 @@ resources:
     type: "azure-static-website:index:Website"
     properties:
       withCDN: true
-      sitePath: "../website/build"
+      sitePath: "../site"
 outputs:
   websiteURL: ${web.cdnURL}
 ```
@@ -158,5 +200,6 @@ As you can see, the Azure static website component made this task very easy with
 If you would like to learn more about Pulumi, here are some links you may find interesting:
 
 * Visit our [Getting Started]({{< relref "/docs/get-started"  >}}) to quickly get up and running with Pulumi.
-* GitHub repo for the [Azure static website component](https://github.com/pulumi/pulumi-aws-static-website).
-* Check out our [registry page]({{< relref "/registry" >}}). Here you can view more components we have available for you to consume.
+* View the GitHub repo for the [Azure static website component](https://github.com/pulumi/pulumi-aws-static-website).
+* Visit our [registry page]({{< relref "/registry" >}}) to more components we have available for you to consume.
+* Check out our new [templates]({{< relref "/templates" >}}) that make it quick and easy to deploy common cloud architectures.
