@@ -206,7 +206,7 @@ $ pulumi login azblob://<container-path>?storage_account=account_name
 ```
 
 {{% notes type="info"%}}
-Make sure you have "Storage Blob Data Contributor" role assigned to you in IAM. Just having "Owner" is not enough, as that is a "management"-type of role.
+The Azure account must have the [Storage Blob Data Contributor role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) or an equivalent role with permissions to read, write, and delete blobs.
 {{% /notes %}}
 
 ##### Logging Into the Google Cloud Storage Backend
