@@ -34,7 +34,7 @@ In order to follow along with this example you will need to have the following:
 * Access to an Azure account to provision the infrastructure
 * Static site to upload
 
-You can learn more about configuring this using our [getting started]({{< relref "/docs/get-started"  >}}) guide.
+See our [getting started]({{< relref "/docs/get-started/azure/begin"  >}}) guide for information on how to configure Pulumi and Azure.
 
 We will provision a number of pieces of infrastructure in Azure to enable serving our static website. The main ones are a Storage Account to contain all of our website files and a CDN. Let’s start by creating a new Pulumi project. First, create a new directory on your machine where the Pulumi project will live. A common pattern is to include the infrastructure configuration in a directory alongside the website you will be deploying. You can create a directory called `infrastructure` to house the Pulumi program or you can use another name if you prefer. This allows us to easily reference the location of the contents of your site as well as keeps your infrastructure code along-side your application. Pulumi supports multiple programming languages such as TypeScript, Python, Go, .NET, and even markup languages like YAML. Once you have created the directory, run the following command for your language of choice inside the directory:
 
@@ -187,7 +187,7 @@ outputs:
 
 {{% /chooser %}}
 
-This code creates a new instance of the Website component and sets a couple of properties. `sitePath` is the location where your website contents live and `withCDN` is set to true to let the component know that you would like to provision a CDN. It also exports the `cdnURL` property so you can see where the site can be accessed. That’s all that is needed and now we are ready to deploy!
+This code creates a new instance of the Website component and sets a couple of properties. `sitePath` is the location where your website contents live. The `sitePath` specified should be the output location of your website's build not the overall directory where your application lives. For example, if using a framework like React, the build output is usually placed in a directory called `build`. In addition, we set `withCDN` to true to let the component know that you would like to provision a CDN as well. It also exports the `cdnURL` property, which is the URL where the site can be accessed. That’s all that is needed and now we are ready to deploy!
 
 You can now run `pulumi up` to deploy the site to Azure. This will first show a preview of the resources that will be provisioned. You can go ahead and accept by selecting `yes`.
 
