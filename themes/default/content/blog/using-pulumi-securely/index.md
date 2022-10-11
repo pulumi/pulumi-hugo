@@ -48,7 +48,7 @@ Connect your user and Pulumi organization with an [Identity Provider]({{< relref
 
 [Teams]({{< relref "/docs/intro/pulumi-service/teams/#creating-a-team" >}}) improve on basic role-based access control (RBAC) for administrators and users by allowing you to group users and their access to specific stacks in your organization.  For example, a team called `productionreadonly` could be created and scoped so that all members have only limited access to read the production stacks, while another team, `productionadmins`, would retain full privileges to those stacks.
 
-## Import Manually Created Resources
+### Import Manually Created Resources
 
 Manually created cloud resources are error prone, difficult to audit, iterate and improve on.  If you’ve created manual resources, consider [importing]({{< relref "/blog/changes-to-import" >}}) them to Pulumi programs.
 
