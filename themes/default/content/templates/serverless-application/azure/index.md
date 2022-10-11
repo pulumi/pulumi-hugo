@@ -127,5 +127,5 @@ Congratulations! You're now well on your way to managing a production-grade serv
 
 * Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the Azure Native package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/azure-native" >}})
-* Expand your understanding of how Pulumi works in [Pulumi Learn &rarr;]({{< relref "/learn" >}})
+* Expand your understanding of how Pulumi works in [Learn Pulumi &rarr;]({{< relref "/learn" >}})
 * Read up on the latest new Azure features [in the Pulumi Blog &rarr;](/blog/tag/azure)
