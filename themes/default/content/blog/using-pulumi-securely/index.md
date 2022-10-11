@@ -80,7 +80,7 @@ Scoped to the [stack access]({{< relref "/docs/intro/pulumi-service/team-access-
 
 ### Personal Access Tokens
 
-Scoped to [individual users]({{< relref "/docs/intro/pulumi-service/accounts/#access-tokens" >}}). Used whenever a developer deploys from their local machine.  Be sure your users are part of a Pulumi team to simplify their role based access within the platform.
+Scoped to [individual users]({{< relref "/docs/intro/pulumi-service/accounts/#access-tokens" >}}). Used whenever a developer deploys from their local machine.  Be sure your users are part of a Pulumi team to simplify their role-based access within the platform.
 
 ### Rotate the Tokens
 
