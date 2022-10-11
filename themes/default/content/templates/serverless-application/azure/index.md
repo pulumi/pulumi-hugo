@@ -21,7 +21,6 @@ cloud:
 # https://www.figma.com/file/lGrSpwbGGmbixEuewMbtkh/Template-Architecture-Diagrams?node-id=15%3A196
 meta_image: meta.png
 
-# The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
 The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Azure. It deploys an [Azure Storage Blob account]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccount" >}}) that's configured with a [container for static website hosting]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccountstaticwebsite" >}}) and an [Azure function]({{< relref "/registry/packages/azure-native/api-docs/web/webappfunction" >}}) that runs the business logic, which is written in the same language as the template. The application uses an [App Service plan]({{< relref "/registry/packages/azure-native/api-docs/web/appserviceplan" >}}) by default. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
