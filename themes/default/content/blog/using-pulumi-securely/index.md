@@ -92,6 +92,6 @@ Even if you’ve been using Pulumi for a while, we recommend you regularly take 
 
 1. Confirm your users, teams, and organization access are inline with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
 1. Audit any pipeline that uses Pulumi and ensure that they’re using fresh, rotated tokens.
-1. Review your audit logs regularly, noting any anomalous or unexpected activity.  Exporting these audit logs and processing them with a security event management system is advisable at any type of scale.
+1. Review your audit logs regularly, noting any abnormal or unexpected activity. It is advisable to export these audit logs and process them with a security event management system.
 
 Some of the features mentioned, such as teams, SSO/SCIM and audit logs, are only available to Enterprise and/or Business Critical Edition users and those on our 14-day trial. If you would like to implement and/or test any of these features please [start a trial](https://app.pulumi.com/site/trial) or [Contact Us]({{< relref "/contact" >}}) for access.
