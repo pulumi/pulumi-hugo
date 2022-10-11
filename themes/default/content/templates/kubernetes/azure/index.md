@@ -17,22 +17,19 @@ cloud:
   name: Azure
   slug: azure
 
-# Be sure to replace this image. Figma source file:
-# https://www.figma.com/file/lGrSpwbGGmbixEuewMbtkh/Template-Architecture-Diagrams?node-id=15%3A196
 meta_image: meta.png
 
-# The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The Azure Kubernetes Cluster template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to Azure. The architecture includes an [Azure Virtual Network]({{< relref "registry/packages/azure-native/api-docs/network/virtualnetwork">}}) with three subnets (set to private by default) and deploys an [Azure Kubernetes Service (AKS) cluster]({{< relref "/registry/packages/azure-native/api-docs/containerservice/managedcluster" >}}) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed on private subnets for improved security. The template generates a complete infrastructure as code program to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Kubernetes Cluster template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to Azure with Pulumi. The architecture includes an [Azure Virtual Network]({{< relref "registry/packages/azure-native/api-docs/network/virtualnetwork">}}) with three subnets (for future scalability) and deploys an [Azure Kubernetes Service (AKS) cluster]({{< relref "/registry/packages/azure-native/api-docs/containerservice/managedcluster" >}}) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed with private IP addresses for improved security and across multiple availability zones for improved resilience. The template gives you a working project out of the box that you can customize easily and extend to suit your needs.
 
-![An architecture diagram of the Pulumi $CLOUD $ARCHITECTURE template](./architecture.png)
+![An architecture diagram of the Pulumi Azure Kubernetes Cluster template](./architecture.png)
 
 ## Using this template
 
 To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your Azure credentials]({{< relref "/registry/packages/azure/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp,yaml" / %}}
+{{% chooser language "typescript,python,go,yaml" / %}}
 
 {{% choosable language typescript %}}
 
@@ -61,15 +58,6 @@ $ pulumi new kubernetes-azure-go
 
 {{% /choosable %}}
 
-{{% choosable language csharp %}}
-
-```bash
-$ mkdir my-k8s-cluster && cd my-k8s-cluster
-$ pulumi new kubernetes-azure-csharp
-```
-
-{{% /choosable %}}
-
 {{% choosable language yaml %}}
 
 ```bash
@@ -83,7 +71,7 @@ Follow the prompts to complete the new-project wizard. When it's done, you'll ha
 
 ## Deploying the project
 
-You must first supply two values before deploying the template. No additional configuration is required.
+You must supply two values in order to deploy the cluster. You can input the values through the new-project wizard. No additional configuration is required. The required values are below:
 
 mgmtGroupId
 : The object ID of your existing Azure AD group which will serve as cluster administrator.
@@ -150,5 +138,5 @@ Congratulations! You're now well on your way to managing a production-grade Kube
 
 * Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the API docs to explore the [Azure Native package &rarr;]({{< relref "/registry/packages/azure-native" >}})
-* Expand your understanding of how Pulumi works in [Pulumi Learn &rarr;]({{< relref "/learn" >}})
+* Expand your understanding of how Pulumi works in [Learn Pulumi &rarr;]({{< relref "/learn" >}})
 * Read up on the latest new features [in the Pulumi Blog &rarr;](/blog/tag/kubernetes)
