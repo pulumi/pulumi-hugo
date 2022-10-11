@@ -66,7 +66,7 @@ Leveraging [Automation API]({{< relref "/docs/guides/automation-api" >}}) as the
 
 Track key system events such user and pipeline activity, attempted and restricted activity, and changes to identity and access controls. Use Pulumi audit logs to simplify this process out of the box.  If applicable, we would suggest automatically exporting [Pulumi Audit Logs]({{< relref "/intro/pulumi-service/audit-logs/#automated-export" >}}) to your systems.
 
-## Use Tokens
+### Use Tokens
 
 Organization Access Tokens, Team Access Tokens and Personal Access Tokens securely connect your automation pipelines and development environments with Pulumi without the risks of association user/password combinations.  Machines talk to Pulumi with tokens of various types and it is always advisable to use Tokens over Users where possible. More on the types of tokens is below.
 
