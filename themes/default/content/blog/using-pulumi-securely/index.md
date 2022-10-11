@@ -70,7 +70,7 @@ Track key system events such user and pipeline activity, attempted and restricte
 
 Organization Access Tokens, Team Access Tokens and Personal Access Tokens securely connect your automation pipelines and development environments with Pulumi without the risks of association user/password combinations.  Machines talk to Pulumi with tokens of various types and it is always advisable to use Tokens over Users where possible. More on the types of tokens is below.
 
-### Organizational Access Tokens
+#### Organizational Access Tokens
 
 Scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) is likely appropriate for your ci/cd pipeline that deploys production.
 
