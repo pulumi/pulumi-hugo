@@ -107,16 +107,11 @@ indexDocument
 errorDocument
 : The file to use for error pages. Defaults to `error.html`.
 
-All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`]({{< relref "/docs/reference/cli/pulumi_config_set" >}}) as shown below.
-
-### Using your own web content
-
-If you already have a serverless application you'd like to deploy on Azure with Pulumi, you can do so either by replacing placeholder content in the `www` folder or by configuring the stack to point to another folder on your computer with the `www_path` setting:
+All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`]({{< relref "/docs/reference/cli/pulumi_config_set" >}}).
 
 ```bash
-$ pulumi config set www_path ../my-existing-website/build
+$ pulumi config set sitePath ../my-existing-website/build
 $ pulumi up
-```
 
 ## Tidying up
 
