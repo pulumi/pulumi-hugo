@@ -74,7 +74,7 @@ Organization Access Tokens, Team Access Tokens and Personal Access Tokens secure
 
 Scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) is likely appropriate for your ci/cd pipeline that deploys production.
 
-### Team Access Tokens
+#### Team Access Tokens
 
 Scoped to the [stack access]({{< relref "/docs/intro/pulumi-service/team-access-tokens/#stacks" >}}) of a Pulumi team.  Use these when resources associated with different Environment or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}) for each ci/cd pipeline, for example, dev vs production.
 
