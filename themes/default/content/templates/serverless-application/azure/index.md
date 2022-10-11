@@ -88,7 +88,7 @@ siteURL
 apiURL
 : The HTTP URL of the serverless function endpoint.
 
-Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `originURL`, for example, can be used from the command line to open the newly deployed website in your favorite web browser:
+Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `siteURL`, for example, can be used from the command line to open the newly deployed website in your favorite web browser:
 
 ```bash
 $ open $(pulumi stack output originURL)
