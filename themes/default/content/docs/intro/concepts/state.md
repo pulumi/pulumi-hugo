@@ -46,7 +46,7 @@ The Pulumi Service backend requires no additional configuration after [installin
 
 > To learn more about the Pulumi Service backend's design, including why it doesn't need your cloud credentials, see [Pulumi Service Architecture](#pulumi-service-architecture). If you are interested in the hosting your own instance, see the [Self-Hosting User Guide]({{< relref "/docs/guides/self-hosted" >}}).
 
-Pulumi also lets you manage state yourself using a self-managed backend. Your state is stored as simple JSON files in AWS S3, Azure Blob Store, Google Cloud Storage, an alternative AWS S3 API compatible server such as Minio or Ceph, or on your local filesystem. These self-managed backends are all open source and free to use in any setting. Using a self-managed backend trades off some amount of reliability for additional control over where metadata is stored. For instance, you will need to manually configure secure access, encryption, and history, and devise your own concurrency control and recovery capabilities. To choose a self-managed backend, use the `pulumi login` command [as documented below](#logging-into-a-self-managed-backend).
+Pulumi also lets you manage state yourself using a self-managed backend. Your state is stored as simple JSON files in AWS S3, Azure Blob Store, Google Cloud Storage, an alternative AWS S3 API compatible server such as Minio or Ceph, or on your local filesystem. These self-managed backends are all open source and free to use in any setting. Using a self-managed backend trades off some amount of reliability for additional control over where metadata is stored. For instance, you will need to manually configure secure access, encryption, and history, and devise your own concurrency control and recovery capabilities. To choose a self-managed backend, use the `pulumi login` command [as documented below](#using-a-self-managed-backend).
 
 ### Logging In
 
@@ -74,14 +74,7 @@ backend:
 ....
 ```
 
-For details on the various backend URL formats and options, please see the following sections:
-
-- [Pulumi Service (default)](#logging-into-the-pulumi-service-backend)
-- [Pulumi Self-Hosted Service](#logging-into-a-self-hosted-pulumi-service-backend)
-- [Local Filesystem](#logging-into-the-local-filesystem-backend)
-- [AWS S3 (or compatible server)](#logging-into-the-aws-s3-backend)
-- [Azure Blob Storage](#logging-into-the-azure-blob-storage-backend)
-- [Google Cloud Storage](#logging-into-the-google-cloud-storage-backend)
+For details on the various backend URL formats and options, please see the sections on using the Pulumi Service and self-managed backends.
 
 If you forget to log in, you will be automatically prompted to do so before you do anything that requires stacks or state.
 
@@ -95,7 +88,7 @@ User: <your-username>
 Backend URL: https://app.pulumi.com/<your-username>
 ```
 
-#### Logging Into the Pulumi Service Backend
+### Using the Pulumi Service Backend
 
 Running `pulumi login` without any argument will log into the default Pulumi Service backend:
 
@@ -118,7 +111,7 @@ To view your access tokens, or create a new one manually, view the <a href="http
 
 <img src="/images/docs/reference/state_tokens.png" alt="Pulumi.com Tokens Page" class="img-bordered">
 
-##### Logging Into a Self-Hosted Pulumi Service Backend
+#### Self-Hosted Pulumi Service
 
 To log into a self-hosted instance of the Pulumi Service, pass its API URL to the `login` command:
 
@@ -128,7 +121,7 @@ $ pulumi login https://pulumi.acmecorp.com
 
 Everything works the same as with the standard Pulumi Service, except that Pulumi will target your private instance instead of the shared one hosted at `app.pulumi.com`.
 
-#### Logging Into a Self-Managed Backend
+### Using a Self-Managed Backend
 
 The filesystem and cloud storage backends allow you to store state locally on your machine or remotely within a cloud object store. For self-managed backends, state management including backup, sharing, and team access synchronization is custom and implemented manually.
 
@@ -138,7 +131,7 @@ To use a self-managed backend, specify a storage endpoint URL as `pulumi login`'
 
 The detailed format of the `<backend-url>` differs by backend and each has different options such as how to authenticate, as described below.
 
-##### Logging Into the Local Filesystem Backend
+#### Local Filesystem
 
 To use the filesystem backend to store your checkpoint files locally on your machine, pass the `--local` flag when logging in:
 
@@ -158,7 +151,7 @@ $ pulumi login file:///app/data
 
 Notice that `pulumi login --local` is syntactic sugar for `pulumi login file://~`.
 
-##### Logging Into the AWS S3 Backend
+#### AWS S3
 
 To use the [AWS S3](https://aws.amazon.com/s3/) backend, pass the `s3://<bucket-name>` as your `<backend-url>`:
 
@@ -187,7 +180,7 @@ This backend also supports [alternative object storage servers with AWS S3 compa
 $ pulumi login s3://<bucket-name>?endpoint=my.minio.local:8080&disableSSL=true&s3ForcePathStyle=true
 ```
 
-##### Logging Into the Azure Blob Storage Backend
+#### Azure Blob Storage
 
 To use the [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) backend, pass the `azblob://<container-path>` as your `<backend-url>`:
 
@@ -210,7 +203,7 @@ $ pulumi login azblob://<container-path>?storage_account=account_name
 The Azure account must have the [Storage Blob Data Contributor role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) or an equivalent role with permissions to read, write, and delete blobs.
 {{% /notes %}}
 
-##### Logging Into the Google Cloud Storage Backend
+#### Google Cloud Storage
 
 To use the [Google Cloud Storage](https://cloud.google.com/storage/) backend pass the `gs://<bucket-path>` as your `<backend-url>`:
 
