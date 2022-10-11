@@ -121,6 +121,22 @@ $ pulumi login https://pulumi.acmecorp.com
 
 Everything works the same as with the standard Pulumi Service, except that Pulumi will target your private instance instead of the shared one hosted at `app.pulumi.com`.
 
+### Pulumi Service Architecture
+
+The Pulumi Service is comprised of two Internet-accessible endpoints&mdash;a web application at `app.pulumi.com` and a REST API at `api.pulumi.com`&mdash;with an assortment of cloud infrastructure to support its features. A simplified diagram of its architecture looks like this:
+
+<img src="/images/docs/reference/state_saas.png" alt="Pulumi Service Architecture" class="img-bordered">
+
+The Pulumi Service doesn't ever acquire your cloud credentials, and does not communicate with your cloud provider directly. Instead, the CLI itself coordinates with both the Pulumi Service's API and your cloud provider's API directly. This ensures your IAM and key management does not need to change while adopting Pulumi. In particular, if you are running Pulumi deployments from [within a CI/CD environment]({{< relref "/docs/guides/continuous-delivery" >}}), you can rely on existing mechanisms and security practices that your organization has already put in place.
+
+The Pulumi Service is reliable, secure, and has undergone multiple audits, including SOC2 and professional pen-testing. Because of the client/server division of responsibilities &mdash; notably that the server doesn't have direct access to your cloud credentials, runtime data, or PII &mdash; the Pulumi Service has been used in organizations with advanced compliance needs, including PCI, ISO 27001, HIPAA, and more. If you'd like to discuss any of these topics, please [contact us](/contact).
+
+It is possible to host your own version of the Pulumi Service in your private cloud environment. Pulumi offers versions that run natively on AWS, Azure, GCP, Kubernetes, or simple virtual machine-based private and hybrid cloud environments. The architecture is very similar to the online version, but is privately hosted and does not depend on public access over the Internet:
+
+<img src="/images/docs/reference/state_enterprise.png" alt="Pulumi Enterprise Architecture" class="img-bordered">
+
+To learn more about self-host options, see [Self-Hosted Pulumi Service]({{< relref "/docs/guides/self-hosted" >}}) or [Contact Us]({{< relref "/pricing#contact" >}}).
+
 ### Using a Self-Managed Backend
 
 The filesystem and cloud storage backends allow you to store state locally on your machine or remotely within a cloud object store. For self-managed backends, state management including backup, sharing, and team access synchronization is custom and implemented manually.
@@ -249,22 +265,6 @@ $ pulumi stack import --file my-app-production.checkpoint.json
 After performing these steps, your stack will now be under the management of the Pulumi Service. All subsequent operations should be performed using this new backend.
 
 > **Note:**: After migration, your stack's state will be managed by the the Pulumi Service backend, but the stack will continue using the same secrets provider. You can separately [change the secrets provider]({{< relref "docs/intro/concepts/secrets#changing-the-secrets-provider-for-a-stack" >}}) for your stack if needed.
-
-### Pulumi Service Architecture
-
-The Pulumi Service is comprised of two Internet-accessible endpoints&mdash;a web application at `app.pulumi.com` and a REST API at `api.pulumi.com`&mdash;with an assortment of cloud infrastructure to support its features. A simplified diagram of its architecture looks like this:
-
-<img src="/images/docs/reference/state_saas.png" alt="Pulumi Service Architecture" class="img-bordered">
-
-The Pulumi Service doesn't ever acquire your cloud credentials, and does not communicate with your cloud provider directly. Instead, the CLI itself coordinates with both the Pulumi Service's API and your cloud provider's API directly. This ensures your IAM and key management does not need to change while adopting Pulumi. In particular, if you are running Pulumi deployments from [within a CI/CD environment]({{< relref "/docs/guides/continuous-delivery" >}}), you can rely on existing mechanisms and security practices that your organization has already put in place.
-
-The Pulumi Service is reliable, secure, and has undergone multiple audits, including SOC2 and professional pen-testing. Because of the client/server division of responsibilities &mdash; notably that the server doesn't have direct access to your cloud credentials, runtime data, or PII &mdash; the Pulumi Service has been used in organizations with advanced compliance needs, including PCI, ISO 27001, HIPAA, and more. If you'd like to discuss any of these topics, please [contact us](/contact).
-
-It is possible to host your own version of the Pulumi Service in your private cloud environment. Pulumi offers versions that run natively on AWS, Azure, GCP, Kubernetes, or simple virtual machine-based private and hybrid cloud environments. The architecture is very similar to the online version, but is privately hosted and does not depend on public access over the Internet:
-
-<img src="/images/docs/reference/state_enterprise.png" alt="Pulumi Enterprise Architecture" class="img-bordered">
-
-To learn more about self-host options, see [Self-Hosted Pulumi Service]({{< relref "/docs/guides/self-hosted" >}}) or [Contact Us]({{< relref "/pricing#contact" >}}).
 
 ## Advanced State
 
