@@ -68,7 +68,7 @@ Track key system events such user and pipeline activity, attempted and restricte
 
 ### Use Tokens
 
-Organization Access Tokens, Team Access Tokens and Personal Access Tokens securely connect your automation pipelines and development environments with Pulumi without the risks of association user/password combinations.  Machines talk to Pulumi with tokens of various types and it is always advisable to use Tokens over Users where possible. More on the types of tokens is below.
+Organization Access Tokens, Team Access Tokens and Personal Access Tokens securely connect your automation pipelines and development environments with Pulumi without the risks of association user/password combinations.  Machines talk to Pulumi with tokens of various types, and it is always advisable to use Tokens over Users where possible. More on the types of tokens is below.
 
 #### Organizational Access Tokens
 
