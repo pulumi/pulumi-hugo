@@ -31,7 +31,7 @@ The Serverless Application template creates an infrastructure as code project in
 
 To use this template to deploy your own serverless application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your Azure credentials]({{< relref "/registry/packages/azure/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp" / %}}
+{{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
 {{% choosable language typescript %}}
 
