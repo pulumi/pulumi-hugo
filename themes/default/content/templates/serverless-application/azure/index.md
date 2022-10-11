@@ -101,7 +101,7 @@ sitePath
 appPath
 : The path to the folder containing the serverless functions to be deployed. Defaults to `app`, which is also included with the template.
 
-index_document
+indexDocument
 : The file to use for top-level pages. Defaults to `index.html`.
 
 error_document
