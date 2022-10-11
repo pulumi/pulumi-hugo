@@ -95,7 +95,7 @@ $ open $(pulumi stack output siteURL)
 
 Projects created with the Serverless Application template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
 
-www_path
+sitePath
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.
 
 api_path
