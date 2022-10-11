@@ -17,8 +17,6 @@ cloud:
   name: Azure
   slug: azure
 
-# Be sure to replace this image. Figma source file:
-# https://www.figma.com/file/lGrSpwbGGmbixEuewMbtkh/Template-Architecture-Diagrams?node-id=15%3A196
 meta_image: meta.png
 
 ---
