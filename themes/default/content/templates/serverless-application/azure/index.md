@@ -26,7 +26,7 @@ meta_image: meta.png
 
 The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Azure. It deploys an [Azure Storage Blob account]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccount" >}}) that's configured with a [container for static website hosting]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccountstaticwebsite" >}}) and an [Azure function]({{< relref "/registry/packages/azure-native/api-docs/web/webappfunction" >}}) that runs the business logic, which is written in the same language as the template. The application uses an [App Service plan]({{< relref "/registry/packages/azure-native/api-docs/web/appserviceplan" >}}) by default. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
 
-![An architecture diagram of the Pulumi $CLOUD $ARCHITECTURE template](./architecture.png)
+![An architecture diagram of the Pulumi Azure Serverless Application template](./architecture.png)
 
 ## Using this template
 
