@@ -56,7 +56,7 @@ Manually created cloud resources are error prone, difficult to audit, iterate an
 
 We have previously covered [Tag Policies]({{< relref "/blog/automatically-enforcing-aws-resource-tagging-policies" >}}) as a best practice for the cloud resources themselves, but you can also tag your Pulumi stacks to help organize and visualize your application resources in logical groupings that will help you assess, respond and automate incident remediation. Here are two examples of using tagging your stacks automatically: in [Python](https://github.com/pulumi/examples/blob/master/aws-py-stackreference/team/__main__.py#L8-L13) and in [TypeScript](https://github.com/pulumi/examples/blob/master/aws-ts-stackreference/team/index.ts#L17-L22).
 
-## Deploy from Pipelines
+### Deploy from Pipelines
 
 Automate every step of your deployment process for anything beyond local development by creating ci/cd pipelines. Manual approval steps in your pipeline should be avoided. Consider creating automated checks to ensure your infrastructure is created only with approved [Pulumi Packages]({{< relref "/docs/guides/pulumi-packages" >}}) and automatically ensure your infrastructure is in compliance by using [CrossGuard]({{< relref "/docs/guides/crossguard" >}}).
 
