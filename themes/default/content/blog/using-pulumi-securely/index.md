@@ -3,7 +3,7 @@ title: "Using Pulumi Securely"
 
 date: 2022-10-12
 
-meta_desc: Using Pulumi Securely.  Organization Access Token, Team Access Token, Teams, and Managed Federated Identity
+meta_desc: See how to use organization access tokens, team access tokens, teams and managed federated identities to make your Pulumi usage more secure.
 
 meta_image: meta.png
 
