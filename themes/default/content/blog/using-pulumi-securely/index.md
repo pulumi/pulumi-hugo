@@ -90,7 +90,7 @@ Add Pulumi to your list of tokens to rotate on a regular basis.
 
 Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your cloud security posture as it relates to your infrastructure as code.
 
-1. Confirm your users, teams, and organization access are inline with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
+1. Confirm your users', teams', and organization access are in line with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
 1. Audit any pipeline that uses Pulumi and ensure that they’re using fresh, rotated tokens.
 1. Review your audit logs regularly, noting any abnormal or unexpected activity. It is advisable to export these audit logs and process them with a security event management system.
 
