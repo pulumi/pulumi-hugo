@@ -30,7 +30,7 @@ Risks associated with maintaining a good cloud security posture extend to your i
 
 Pulumi has three levels to consider access for: users, teams and organizations.
 
-[Users]({{< relref "/docs/intro/pulumi-service/accounts" >}}) are tied to personal identities often with an identity provider and should be used wherever a human is using Pulumi.  They should not be used for any systems, tools or pipeline based provisioning.
+[Users]({{< relref "/docs/intro/pulumi-service/accounts" >}}) are tied to personal identities, often with an identity provider and should be used wherever a human is using Pulumi.  These identities should not be used for any systems, tools or pipeline-based provisioning.
 
 [Teams]({{< relref "/docs/intro/pulumi-service/teams" >}}) are groups of users within an organization with specific permissions to stacks.  Consider using these to break up access to environments such as dev, staging and production.  You should look to mirror your code repository or IAM teams/groups as much as possible.
 
