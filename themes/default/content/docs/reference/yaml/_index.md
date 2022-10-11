@@ -281,14 +281,14 @@ The expression `${item}` will return a JSON value `{ "key1": "value1", "key2": 1
 
 ##### `fn::invoke`
 
-Calls a function from a package and returns either the whole object or a single key if given the "Return" property. The schema is:
+Calls a function from a package and returns either the whole object or a single field if given the `return` property. The schema is:
 
-| Property        | Type | Required           | Expression  | Description |
-| ------------- |---|-------------| -----|---|
-| `function`    | string | Yes | No | Name of a function to call. |
-| `arguments`   | map[string]Expression | Yes | Yes | Arguments to pass to the expression, each key is a named argument. |
-| `options`   	| [Invoke Options](#invoke-options) | No | No | Options for the provider calling the function. |
-| `return`      | string | No | No | If the function returns an object, a single key may be selected and returned instead with its name. |
+| Property    | Type                              | Required | Expression | Description                                                        |
+|-------------|-----------------------------------|----------|------------|--------------------------------------------------------------------|
+| `function`  | string                            | Yes      | No         | Name of a function to call.                                        |
+| `arguments` | map[string]Expression             | Yes      | Yes        | Arguments to pass to the expression, each key is a named argument. |
+| `options`   | [Invoke Options](#invoke-options) | No       | No         | Options for the provider calling the function.                     |
+| `return`    | string                            | No       | No         | Return the value of the field with this name.                      |
 
 ```yaml
 variables:
@@ -303,7 +303,7 @@ variables:
         mostRecent: true
       options:
         version: 5.9.0
-      Return: id
+      return: id
 ```
 
 The expression `${AmazonLinuxAmi}` will return the AMI ID returned from the [`aws:getAmi`](https://www.pulumi.com/registry/packages/aws/api-docs/getami/) function.
