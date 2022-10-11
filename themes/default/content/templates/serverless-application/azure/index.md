@@ -82,7 +82,7 @@ $ pulumi up
 
 When the deployment completes, Pulumi exports the following [stack output]({{< relref "/docs/intro/concepts/stack#outputs" >}}) values:
 
-originURL
+siteURL
 : The HTTP URL of the static website.
 
 apiURL
