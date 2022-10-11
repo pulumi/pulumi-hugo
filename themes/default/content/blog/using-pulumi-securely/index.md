@@ -62,7 +62,7 @@ Automate every step of your deployment process for anything beyond local develop
 
 Leveraging [Automation API]({{< relref "/docs/guides/automation-api" >}}) as the programmatic interface for running Pulumi programs without the Pulumi cli is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. For example, [Elkjop Nordic uses Automation API to provide a Self Service Portal]({{< relref "/blog/how-elkjop-nordic-enables-developers-to-self-serve-infrastructure" >}}) to build a secure IT Vending Machine full of their application and infrastructure building blocks.
 
-## Log Everything
+### Log Everything
 
 Track key system events such user and pipeline activity, attempted and restricted activity, and changes to identity and access controls. Use Pulumi audit logs to simplify this process out of the box.  If applicable, we would suggest automatically exporting [Pulumi Audit Logs]({{< relref "/intro/pulumi-service/audit-logs/#automated-export" >}}) to your systems.
 
