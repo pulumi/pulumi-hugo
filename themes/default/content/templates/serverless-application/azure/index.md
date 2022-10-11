@@ -98,7 +98,7 @@ Projects created with the Serverless Application template expose the following [
 sitePath
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.
 
-api_path
+appPath
 : The path to the folder containing the files of the serverless function. Defaults to `api`, which is the name (and relative path) of the folder included with the template.
 
 index_document
