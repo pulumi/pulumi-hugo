@@ -29,6 +29,14 @@ ci-build-full-site:
 serve:
 	./scripts/serve.sh
 
+.PHONY: serve-assets
+serve-assets:
+	yarn --cwd ./themes/default/theme run start
+
+.PHONY: build-assets
+build-assets:
+	yarn --cwd ./themes/default/theme run build
+
 .PHONY: ci-pull-request
 ci-pull-request: ensure lint
 	./scripts/ci/pull-request.sh
