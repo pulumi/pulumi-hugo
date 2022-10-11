@@ -86,7 +86,7 @@ Scoped to [individual users]({{< relref "/docs/intro/pulumi-service/accounts/#ac
 
 Add Pulumi to your list of tokens to rotate on a regular basis.
 
-## Assessing and Implementing
+### Assessing and Implementing
 
 Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your cloud security posture as it relates to your infrastructure as code.
 
