@@ -6,7 +6,7 @@ layout: template
 meta_desc: The Google Cloud Serverless Template makes it easy to deploy a serverless application on GCP with Pulumi, Google Cloud Functions, and Google Cloud Storage.
 
 # Appears on the cards on template-overview pages.
-card_desc: Deploy a serverless application on GCP with Pulumi, Google Cloud Functions, and Google Cloud Storage.
+card_desc: Deploy a serverless application on Google Cloud with Pulumi, Google Cloud Functions, and Google Cloud Storage.
 
 # Used for generating language-specific links to templates on GitHub. (Example: `static-website-aws`)
 template:
@@ -17,22 +17,19 @@ cloud:
   name: Google Cloud Platform
   slug: gcp
 
-# Be sure to replace this image. Figma source file:
-# https://www.figma.com/file/lGrSpwbGGmbixEuewMbtkh/Template-Architecture-Diagrams?node-id=15%3A196
 meta_image: meta.png
 
-# The content below is meant help you get started and to serve as a guide to work by. Feel free to adjust it needed for your template.
 ---
 
-The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Google Cloud Platform (GCP). It deploys a [Google Cloud Storage bucket]({{< relref "/registry/packages/gcp/api-docs/storage/bucket" >}}) that's configured for static website hosting and a separate bucket to host the source code for the application's business logic. It also deploys a [Cloud Function]({{< relref "/registry/packages/gcp/api-docs/cloudfunctions/function" >}}) that runs the business logic, which is written in the same language as the template. It uses a [synced folder]({{< relref "/registry/packages/synced-folder/api-docs/googlecloudfolder" >}}) to manage website files. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
+The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Google Cloud Platform with Pulumi. It deploys a [Google Cloud Storage bucket]({{< relref "/registry/packages/gcp/api-docs/storage/bucket" >}}) configured for static website hosting and another bucket to host the source code for a [Cloud Function]({{< relref "/registry/packages/gcp/api-docs/cloudfunctions/function" >}}) written in the same language as the template. It uses a [synced folder]({{< relref "/registry/packages/synced-folder/api-docs/googlecloudfolder" >}}) to manage website files. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
-![An architecture diagram of the Pulumi $CLOUD $ARCHITECTURE template](./architecture.png)
+![An architecture diagram of the Pulumi Google Cloud Serverless Application template](./architecture.png)
 
 ## Using this template
 
 To use this template to deploy your own serverless application, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your Google Cloud credentials]({{< relref "/registry/packages/gcp/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp" / %}}
+{{% chooser language "typescript,python,go,csharp,yaml" / %}}
 
 {{% choosable language typescript %}}
 
@@ -70,6 +67,15 @@ $ pulumi new serverless-gcp-csharp
 
 {{% /choosable %}}
 
+{{% choosable language yaml %}}
+
+```bash
+$ mkdir my-serverless-app && cd my-serverless-app
+$ pulumi new serverless-gcp-yaml
+```
+
+{{% /choosable %}}
+
 Follow the prompts to complete the new-project wizard. When it's done, you'll have a complete Pulumi project that's ready to deploy and configured with the most common settings. Feel free to inspect the code in {{< langfile >}} for a closer look.
 
 ## Deploying the project
@@ -82,16 +88,16 @@ $ pulumi up
 
 When the deployment completes, Pulumi exports the following [stack output]({{< relref "/docs/intro/concepts/stack#outputs" >}}) values:
 
-originURL
+siteURL
 : The HTTP URL of the static website.
 
 apiURL
 : The HTTP URL of the serverless function endpoint.
 
-Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `originURL`, for example, can be used from the command line to open the newly deployed website in your favorite web browser:
+Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `siteURL`, for example, can be used from the command line to open the newly deployed website in your favorite web browser:
 
 ```bash
-$ open $(pulumi stack output originURL)
+$ open $(pulumi stack output siteURL)
 ```
 
 ## Customizing the project
@@ -102,7 +108,7 @@ sitePath
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.
 
 appPath
-: The path to the folder containing the files of the serverless function. Defaults to `api`, which is the name (and relative path) of the folder included with the template.
+: The path to the folder containing the serverless functions to be deployed. Defaults to `app`, which is the name (and relative path) of the folder included with the template.
 
 indexDocument
 : The file to use for top-level pages. Defaults to `index.html`.
@@ -111,10 +117,6 @@ errorDocument
 : The file to use for error pages. Defaults to `error.html`.
 
 All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`]({{< relref "/docs/reference/cli/pulumi_config_set" >}}) as shown below.
-
-### Using your own web content
-
-If you already have a serverless application you'd like to deploy on Google Cloud with Pulumi, you can do so either by replacing placeholder content in the `www` folder or by configuring the stack to point to another folder on your computer with the `www_path` setting:
 
 ```bash
 $ pulumi config set www_path ../my-existing-website/build
@@ -135,5 +137,5 @@ Congratulations! You're now well on your way to managing a production-grade serv
 
 * Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the Google Cloud Classic package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/gcp" >}})
-* Expand your understanding of how Pulumi works in [Pulumi Learn &rarr;]({{< relref "/learn" >}})
-* Read up on the latest new features [in the Pulumi Blog &rarr;](/blog/tag/serverless)
+* Expand your understanding of how Pulumi works in [Learn Pulumi &rarr;]({{< relref "/learn" >}})
+* Read up on the latest new features [in the Pulumi Blog &rarr;](/blog/tag/google-cloud)
