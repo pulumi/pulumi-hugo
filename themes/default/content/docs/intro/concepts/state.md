@@ -86,7 +86,7 @@ User: <your-username>
 Backend URL: https://app.pulumi.com/<your-username>
 ```
 
-## Using the Pulumi Service Backend
+## Pulumi Service Backend
 
 Running `pulumi login` without any argument will log into the default Pulumi Service backend:
 
