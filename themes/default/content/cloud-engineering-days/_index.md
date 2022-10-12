@@ -59,10 +59,6 @@ featured:
       link: /cloud-engineering-days/#workshops
       link_text: Join a Workshop
       presenters:
-      - name: Kat Cosgrove
-        photo: /images/team/kat-cosgrove.jpg
-      - name: David Flanagan
-        photo: /images/team/david-flanagan.jpg
       - name: Laura Santamaria
         photo: /images/team/laura-santamaria.jpg
       - name: Josh Kodroff
