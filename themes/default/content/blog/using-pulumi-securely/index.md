@@ -1,7 +1,7 @@
 ---
 title: "Using Pulumi Securely"
 
-date: 2022-10-12
+date: 2022-10-13
 
 meta_desc: See how to use organization access tokens, team access tokens, teams and managed federated identities to make your Pulumi usage more secure.
 
@@ -42,11 +42,11 @@ The following recommendations should help you get started and prepare you to sca
 
 ### Manage Federated Identity
 
-Connect your user and Pulumi organization with an [Identity Provider]({{< relref "/docs/intro/pulumi-service/organizations/#organization-identity-providers" >}}) such as [Github]({{< relref "/docs/intro/pulumi-service/organizations/#github-identity-provider" >}}), [Gitlab]({{< relref "/docs/intro/pulumi-service/organizations/#gitlab-identity-provider" >}}) or [BitBucket]({{< relref "/docs/intro/pulumi-service/organizations/#bitbucket-identity-provider" >}}), your [Single Sign On (SSO)]({{< relref "/docs/intro/pulumi-service/organizations/#saml-single-sign-on-sso" >}}) system and/or another [System for Cross-Domain Identity Management]({{< relref "/docs/guides/scim" >}}) (SCIM).  Your code repositories hold your Infrastructure as Code, and most organizations are motivated to keep access tightly controlled.  SSO improves this process across tools and puts more control into your organization’s hands.  SCIM enables you to manage your users and groups centrally in your Identity Provider (IdP) and then synchronize those users and groups to the Pulumi Service.  Leveraging your existing onboarding and offboarding process will help limit the risk of bad actors in Pulumi itself.
+Connect your user and Pulumi organization with an [Identity Provider]({{< relref "/docs/intro/pulumi-service/organizations#organization-identity-providers" >}}) such as [Github]({{< relref "/docs/intro/pulumi-service/organizations#github-identity-provider" >}}), [Gitlab]({{< relref "/docs/intro/pulumi-service/organizations#gitlab-identity-provider" >}}) or [BitBucket]({{< relref "/docs/intro/pulumi-service/organizations#bitbucket-identity-provider" >}}), your [Single Sign On (SSO)]({{< relref "/docs/intro/pulumi-service/organizations#saml-single-sign-on-sso" >}}) system and/or another [System for Cross-Domain Identity Management]({{< relref "/docs/guides/scim" >}}) (SCIM).  Your code repositories hold your Infrastructure as Code, and most organizations are motivated to keep access tightly controlled.  SSO improves this process across tools and puts more control into your organization’s hands.  SCIM enables you to manage your users and groups centrally in your Identity Provider (IdP) and then synchronize those users and groups to the Pulumi Service.  Leveraging your existing onboarding and offboarding process will help limit the risk of bad actors in Pulumi itself.
 
 ### Build Pulumi Teams
 
-[Teams]({{< relref "/docs/intro/pulumi-service/teams/#creating-a-team" >}}) improve on basic role-based access control (RBAC) for administrators and users by allowing you to group users and their access to specific stacks in your organization.  For example, a team called `productionreadonly` could be created and scoped so that all members have only limited access to read the production stacks, while another team, `productionadmins`, would retain full privileges to those stacks.
+[Teams]({{< relref "/docs/intro/pulumi-service/teams#creating-a-team" >}}) improve on basic role-based access control (RBAC) for administrators and users by allowing you to group users and their access to specific stacks in your organization.  For example, a team called `productionreadonly` could be created and scoped so that all members have only limited access to read the production stacks, while another team, `productionadmins`, would retain full privileges to those stacks.
 
 ### Import Manually Created Resources
 
@@ -64,7 +64,7 @@ Leveraging [Automation API]({{< relref "/docs/guides/automation-api" >}}) as the
 
 ### Log Everything
 
-Track key system events such as user and pipeline activity, attempted and restricted activity, and identity and access control changes. Use Pulumi audit logs to simplify this process out of the box. If applicable, we would suggest automatically exporting [Pulumi Audit Logs]({{< relref "/intro/pulumi-service/audit-logs/#automated-export" >}}) to your systems.
+Track key system events such as user and pipeline activity, attempted and restricted activity, and identity and access control changes. Use Pulumi audit logs to simplify this process out of the box. If applicable, we would suggest automatically exporting [Pulumi Audit Logs]({{< relref "/intro/pulumi-service/audit-logs#automated-export" >}}) to your systems.
 
 ### Use Tokens
 
@@ -76,11 +76,11 @@ These are scoped to the entire Pulumi organization.  Use these for tooling with 
 
 #### Team Access Tokens
 
-Scoped to the [stack access]({{< relref "/docs/intro/pulumi-service/team-access-tokens/#stacks" >}}) of a Pulumi team.  Use these when resources associated with different Environments or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}) for each ci/cd pipeline, for example, dev vs production.
+Scoped to the [stack access]({{< relref "/docs/intro/pulumi-service/team-access-tokens#stacks" >}}) of a Pulumi team.  Use these when resources associated with different Environments or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}) for each ci/cd pipeline, for example, dev vs production.
 
 #### Personal Access Tokens
 
-Scoped to [individual users]({{< relref "/docs/intro/pulumi-service/accounts/#access-tokens" >}}). Used whenever a developer deploys from their local machine.  Be sure your users are part of a Pulumi team to simplify their role-based access within the platform.
+Scoped to [individual users]({{< relref "/docs/intro/pulumi-service/accounts#access-tokens" >}}). Used whenever a developer deploys from their local machine.  Be sure your users are part of a Pulumi team to simplify their role-based access within the platform.
 
 ### Rotate the Tokens
 
