@@ -1,7 +1,7 @@
 ---
 title: "Accessing Secrets Safely in Lambda Functions"
 date: 2022-10-06T17:19:53+01:00
-meta_desc: Follow along and see how you can use Pulumi to securly store secrets and access them in your Lambda Functions.
+meta_desc: Follow along and see how you can use Pulumi to securely store secrets and access them in your Lambda Functions.
 meta_image: meta.png
 authors:
     - piers-karsenbarg
