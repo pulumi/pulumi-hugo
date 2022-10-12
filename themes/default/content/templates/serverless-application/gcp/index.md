@@ -21,7 +21,7 @@ meta_image: meta.png
 
 ---
 
-The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Google Cloud Platform with Pulumi. It deploys a [Google Cloud Storage bucket]({{< relref "/registry/packages/gcp/api-docs/storage/bucket" >}}) configured for static website hosting and another bucket to host the source code for a [Cloud Function]({{< relref "/registry/packages/gcp/api-docs/cloudfunctions/function" >}}) written in the same language as the template. It uses a [synced folder]({{< relref "/registry/packages/synced-folder/api-docs/googlecloudfolder" >}}) to manage website files. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Google Cloud Platform with Pulumi. It deploys a [Google Cloud Storage bucket]({{< relref "/registry/packages/gcp/api-docs/storage/bucket" >}}) configured for static website hosting and another bucket to host the source code for a [Cloud Function]({{< relref "/registry/packages/gcp/api-docs/cloudfunctions/function" >}}) written in the same language as the template. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Google Cloud Serverless Application template](./architecture.png)
 
