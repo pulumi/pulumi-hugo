@@ -23,7 +23,7 @@ The default experience is to use the hosted Pulumi Service, which takes care of 
 
 ## Deciding On a State Backend
 
-Pulumi supports two classes of  _backends_ for storing your infrastructure state:
+Pulumi supports two classes of state backends for storing your infrastructure state:
 
 - **Service**: a managed cloud experience using the online or self-hosted Pulumi Service application
 - **Self-Managed**: a manually managed object store, including AWS S3, Azure Blob Storage, Google Cloud Storage, any AWS S3 compatible server such as Minio or Ceph, or your local filesystem
