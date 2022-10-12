@@ -21,12 +21,12 @@
                         <div class="card h-full relative bg-white">
                             <div class="text-center flex flex-row justify-center pt-8 rounded-t-xl relative bg-fuchsia-600">
                                 {{ range $presenter := $item.presenters }}
-                                    <div class="text-center mx-4">
+                                    <div class="w-1/4 mx-4 text-center">
                                         {{ if .name }}
-                                            <img class="h-36" src="{{ $presenter.photo }}" alt="{{ $presenter.name }}" />
+                                            <img src="{{ $presenter.photo }}" alt="{{ $presenter.name }}" />
                                             <p class="text-white">{{ .name }}</p>
                                         {{ else }}
-                                            <img class="h-36 mb-14" src="{{ $presenter.photo }}" />
+                                            <img class="mb-14" src="{{ $presenter.photo }}" />
                                         {{ end }}
                                     </div>
                                 {{ end }}
