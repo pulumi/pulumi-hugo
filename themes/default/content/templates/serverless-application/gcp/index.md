@@ -108,7 +108,7 @@ sitePath
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.
 
 appPath
-: The path to the folder containing the serverless functions to be deployed. Defaults to `app`, which is the name (and relative path) of the folder included with the template.
+: The path to the folder containing the serverless functions to be deployed. Defaults to `app`, which is also included with the template.
 
 indexDocument
 : The file to use for top-level pages. Defaults to `index.html`.
