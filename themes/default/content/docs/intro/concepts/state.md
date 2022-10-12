@@ -233,7 +233,7 @@ To log out from your currently chosen backend, run the [`pulumi logout` CLI comm
 
 To change backends, run `pulumi logout` followed by `pulumi login` with the desired backend (or just leave it blank for the default).
 
-## Migrating Between Backends
+## Migrating Between State Backends
 
 It is possible to start with one backend and then later migrate to another. This is common if you have began your project with Pulumi using a self-managed backend but later decided to adopt the Pulumi Service for easier use within your team. This section describes how to perform this operation, however, if you would like our assistance with a migration, [please get in touch](/contact).
 
