@@ -49,10 +49,11 @@
         </div>
     </section>
 
-    <section id="partner-logos" class="min-w-full my-0 bg-white">
-        <div class="container mx-auto h-92 my-8 flex flex-col align-center justify-center">
+    <section id="partner-logos" class="min-w-full mt-8 bg-white">
+        <h3 class="text-center">Our Partners</h3>
+        <div class="container mx-auto my-12 flex align-center justify-evenly">
             {{ range $item := .Params.partners.items }}
-                <img class="object-contain h-32 mb-4" src="{{ $item.logo }}" alt="{{ $item.name }}" />
+                <img class="object-contain h-16 mb-4" src="{{ $item.logo }}" alt="{{ $item.name }}" />
             {{ end }}
         </div>
     </section>

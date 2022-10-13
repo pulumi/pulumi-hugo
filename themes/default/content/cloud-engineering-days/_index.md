@@ -85,6 +85,8 @@ partners:
       logo: /images/cloud-engineering-days/logos/google-cloud.png
     - name: AWS
       logo: /images/cloud-engineering-days/logos/aws-partner.png
+    - name: Microsoft
+      logo: /images/cloud-engineering-days/logos/microsoft.png
 
 media:
   items:
