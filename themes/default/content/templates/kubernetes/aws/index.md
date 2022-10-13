@@ -140,5 +140,5 @@ Congratulations! You're now well on your way to managing a production-grade Kube
 
 * Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the API docs to explore the [Amazon EKS package]({{< relref "/registry/packages/eks" >}}) or [AWSx (Crosswalk) package]({{< relref "/registry/packages/awsx" >}})
-* Expand your understanding of how Pulumi works in [Pulumi Learn &rarr;]({{< relref "/learn" >}})
+* Expand your understanding of how Pulumi works in [Learn Pulumi &rarr;]({{< relref "/learn" >}})
 * Read up on the latest new features [in the Pulumi Blog &rarr;](/blog/tag/kubernetes)
