@@ -11,7 +11,7 @@ cloud:
     slug: azure
 ---
 
-The Azure Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Microsoft Azure with Pulumi. It uses an [Azure Blob Storage account]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccount" >}}) for file storage, configures the storage account to host a website, and deploys an [Azure CDN Endpoint]({{< relref "/registry/packages/azure-native/api-docs/cdn/endpoint" >}}) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Microsoft Azure with Pulumi. It uses an [Azure Blob Storage account]({{< relref "/registry/packages/azure-native/api-docs/storage/storageaccount" >}}) for file storage, configures the storage account to host a website, and deploys an [Azure CDN Endpoint]({{< relref "/registry/packages/azure-native/api-docs/cdn/endpoint" >}}) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Azure Static Website template](./architecture.png)
 
