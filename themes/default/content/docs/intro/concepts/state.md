@@ -46,13 +46,23 @@ The Pulumi Service backend requires no additional configuration after [installin
 
 Pulumi also lets you manage state yourself using a self-managed backend. Your state is stored as simple JSON files in AWS S3, Azure Blob Store, Google Cloud Storage, an alternative AWS S3 API compatible server such as Minio or Ceph, or on your local filesystem. These self-managed backends are all open source and free to use in any setting. Using a self-managed backend trades off some amount of reliability for additional control over where metadata is stored. For instance, you will need to manually configure secure access, encryption, and history, and devise your own concurrency control and recovery capabilities. To choose a self-managed backend, use the `pulumi login` command [as documented below](#using-a-self-managed-backend).
 
-## Logging In
+## Logging into and out of State Backends
 
 The [`login` command]({{< relref "/docs/reference/cli/pulumi_login" >}}) logs you into a backend:
 
 ```sh
 $ pulumi login
 ```
+
+The [`logout` command]({{< relref "/docs/reference/cli/pulumi_logout" >}}) logs you out of the current backend.
+
+```sh
+$ pulumi logout
+```
+
+This will remove all credentials information from `~/.pulumi/credentials.json` and you will need to log in again before performing any subsequent stack or state operations.
+
+To change backends, run `pulumi logout` followed by `pulumi login`.
 
 The basic form of `login` will use the Pulumi Service by default. If you wish to log in to a specific backend, pass the backend-specific URL as the sole argument:
 
@@ -63,12 +73,12 @@ $ pulumi login <backend-url>
 Alternatively, there are 2 other options that help to avoid the need to type it every time:
 
 1. Set the `PULUMI_BACKEND_URL` environment variable.
-1. Set `backend` property in the project `Pulumi.yaml` config file as below:
+2. Set `backend` property in the project `Pulumi.yaml` config file as below:
 
 ```yaml
 ....
 backend:
-    url: <backend-url>
+  url: <backend-url>
 ....
 ```
 
@@ -78,7 +88,7 @@ If you forget to log in, you will be automatically prompted to do so before you 
 
 After logging in, your credentials are recorded in the `~/.pulumi/credentials.json` file, and all subsequent operations will use the chosen backend. From time to time, you will see a helpful URL to your update or stack pages. For example, after an update completes, you will see a link to that update's details. You can always go there to see a full history of updates.
 
-If you ever want to check what user is logged in, use the [`whoami` CLI command]({{< relref "/docs/reference/cli/pulumi_whoami" >}}). To additionally see what  backend is currently being used, pass the `--verbose` (or `-v`) flag:
+If you ever want to check what user is logged in, use the [`whoami` command]({{< relref "/docs/reference/cli/pulumi_whoami" >}}). To additionally see what  backend is currently being used, pass the `--verbose` (or `-v`) flag:
 
 ```bash
 $ pulumi whoami -v
@@ -108,8 +118,6 @@ To automatically generate and use a new access token, hit `<ENTER>`. This will o
 To view your access tokens, or create a new one manually, view the <a href="https://app.pulumi.com/account/tokens" target="_blank">Access Tokens</a> page.  You will see a list of past tokens, when they were last used, as well as the ability to revoke them.
 
 <img src="/images/docs/reference/state_tokens.png" alt="Pulumi.com Tokens Page" class="img-bordered">
-
-### Self-Hosted Pulumi Service
 
 To log into a self-hosted instance of the Pulumi Service, pass its API URL to the `login` command:
 
@@ -227,12 +235,6 @@ $ pulumi login gs://<my-pulumi-state-bucket>
 
 To configure credentials for this backend, see [Application Default Credentials](https://cloud.google.com/docs/authentication/production). For additional configuration options, see [GCP Setup]({{< relref "/registry/packages/gcp/installation-configuration" >}}). If you're new to Google Cloud Storage, see [the Google Cloud documentation](https://cloud.google.com/storage/docs/quickstarts).
 
-## Logging Out
-
-To log out from your currently chosen backend, run the [`pulumi logout` CLI command]({{< relref "/docs/reference/cli/pulumi_logout" >}}). This will remove all credentials information from `~/.pulumi/credentials.json` and you will need to log in again before performing any subsequent stack or state operations.
-
-To change backends, run `pulumi logout` followed by `pulumi login` with the desired backend (or just leave it blank for the default).
-
 ## Migrating Between State Backends
 
 It is possible to start with one backend and then later migrate to another. This is common if you have began your project with Pulumi using a self-managed backend but later decided to adopt the Pulumi Service for easier use within your team. This section describes how to perform this operation, however, if you would like our assistance with a migration, [please get in touch](/contact).
@@ -300,4 +302,4 @@ The `pulumi stack export` and `pulumi stack import` commands can be used to expo
 
 Although Pulumi was designed to shield you from manually needing to manage state, there are some circumstances where you will want or need to. This includes certain catastrophic failure scenarios, adding, deleting, renaming resources, and other advanced scenarios.
 
-The Pulumi state file uses a relatively easy to understand JSON format. The precise JSON format these state files use is not documented, but is defined in the [APIType source code](https://github.com/pulumi/pulumi/tree/master/sdk/go/common/apitype/). The [`pulumi state` CLI command]({{< relref "/docs/reference/cli/pulumi_state" >}}) also includes some helpful commands to edit your state.
+The Pulumi state file uses a relatively easy to understand JSON format. The precise JSON format these state files use is not documented, but is defined in the [APIType source code](https://github.com/pulumi/pulumi/tree/master/sdk/go/common/apitype/). The [`state` command]({{< relref "/docs/reference/cli/pulumi_state" >}}) also includes some helpful commands to edit your state.
