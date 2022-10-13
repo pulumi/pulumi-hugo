@@ -58,9 +58,9 @@ We have previously covered [Tag Policies]({{< relref "/blog/automatically-enforc
 
 ### Deploy from Pipelines
 
-Automate every step of your deployment process for anything beyond local development by creating ci/cd pipelines. Manual approval steps in your pipeline should be avoided. Consider creating automated checks to ensure your infrastructure is created only with approved [Pulumi Packages]({{< relref "/docs/guides/pulumi-packages" >}}) and automatically ensure your infrastructure is in compliance by using [CrossGuard]({{< relref "/docs/guides/crossguard" >}}).
+Automate every step of your deployment process for anything beyond local development by creating CI/CD pipelines. Manual approval steps in your pipeline should be avoided. Consider creating automated checks to ensure your infrastructure is created only with approved [Pulumi Packages]({{< relref "/docs/guides/pulumi-packages" >}}) and automatically ensure your infrastructure is in compliance by using [CrossGuard]({{< relref "/docs/guides/crossguard" >}}).
 
-Leveraging [Automation API]({{< relref "/docs/guides/automation-api" >}}) as the programmatic interface for running Pulumi programs without the Pulumi CLI is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. For example, [Elkjop Nordic uses Automation API to provide a Self Service Portal]({{< relref "/blog/how-elkjop-nordic-enables-developers-to-self-serve-infrastructure" >}}) to build a secure IT Vending Machine full of their application and infrastructure building blocks.
+Leveraging [Automation API]({{< relref "/docs/guides/automation-api" >}}) as the programmatic interface for running Pulumi programs without the Pulumi CLI is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. For example, [Elkjop Nordic uses Automation API to provide a self-service portal]({{< relref "/blog/how-elkjop-nordic-enables-developers-to-self-serve-infrastructure" >}}) that serves as a secure IT vending machine full of their application and infrastructure building blocks.
 
 ### Log Everything
 
@@ -72,11 +72,11 @@ Organization Access Tokens, Team Access Tokens and Personal Access Tokens secure
 
 #### Organizational Access Tokens
 
-These are scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) is likely appropriate for your ci/cd pipeline that deploys production.
+These are scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token]({{< relref "/docs/intro/pulumi-service/organization-access-tokens" >}}) is likely appropriate for your CI/CD pipeline that deploys production.
 
 #### Team Access Tokens
 
-Scoped to the [stack access]({{< relref "/docs/intro/pulumi-service/team-access-tokens#stacks" >}}) of a Pulumi team.  Use these when resources associated with different Environments or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}) for each ci/cd pipeline, for example, dev vs production.
+Scoped to the [stack access]({{< relref "/docs/intro/pulumi-service/team-access-tokens#stacks" >}}) of a Pulumi team.  Use these when resources associated with different environments or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token]({{< relref "/docs/intro/pulumi-service/team-access-tokens" >}}) for each CI/CD pipeline, for example, `dev` vs `production`.
 
 #### Personal Access Tokens
 
@@ -88,10 +88,10 @@ Add Pulumi to your list of tokens to rotate on a regular basis.
 
 ### Assessing and Implementing
 
-Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your cloud security posture as it relates to your infrastructure as code.
+Even if you’ve been using Pulumi for a while, we recommend you regularly take these three steps to continuously audit and improve your cloud security posture as it relates to your infrastructure as code:
 
 1. Confirm your users', teams', and organization access are in line with either or both your code access or cloud access policies; make any necessary updates to access, permissions or scope of privilege.
 1. Audit any pipeline that uses Pulumi and ensure that they use fresh, rotated tokens.
 1. Review your audit logs regularly, noting any abnormal or unexpected activity. It is advisable to export these audit logs and process them with a security event management system.
 
-Some of the features mentioned, such as teams, SSO/SCIM and audit logs, are only available to Enterprise and/or Business Critical Edition users and those on our 14-day trial. If you would like to implement and/or test any of these features please [start a trial](https://app.pulumi.com/site/trial) or [Contact Us]({{< relref "/contact" >}}) for access.
+Some of the features mentioned, such as teams, SSO/SCIM and audit logs, are only available to Enterprise and/or Business Critical Edition users and those on our 14-day trial. If you would like to implement and/or test any of these features please [start a trial](https://app.pulumi.com/site/trial) or [contact us]({{< relref "/contact" >}}) for access.
