@@ -106,7 +106,7 @@ workshops:
       description: |
         Learn the basics of Pulumi from projects to components. Use TypeScript and templates to stand up a static site on AWS using S3.
 
-    - title: "Pulumi 101: Serverless containers on GCP"
+    - title: "Pulumi 101: Serverless containers on Google Cloud"
       link: /resources/pulumi-101-serverless-containers-gcp
       description: |
         Learn the basics of Pulumi from projects to components. Use Python and templates to stand up serverless containers on Cloud Run from Google Cloud.
