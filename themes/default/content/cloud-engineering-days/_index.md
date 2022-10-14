@@ -42,40 +42,51 @@ featured:
       presenters:
       - name: Meagan Cojocar
         photo: /images/team/meagan-cojocar.jpg
-      # - name: Luke Hoban
-      #   photo: /images/team/luke-hoban.jpg
       - name: Levi Blackstone
         photo: /images/team/levi-blackstone.jpg
       - name: Casey Huang
         photo: /images/team/casey-huang.jpg
       - name: Mitch Gerdisch
         photo: /images/team/mitch-gerdisch.jpg
-      # - name: Bryce Lampe
-      #   photo: /images/team/bryce-lampe.jpg
+      - name: Bryce Lampe
+        photo: /images/team/bryce-lampe.jpg
     
-    
-    - title: Hackathon
+    - title: Case Studies
       description: |
-        We are excited to support the open-source community by hosting a World Wide Community Pulumipus Hackathon. This month-long event will bring together developers of all skill levels who are passionate about open source and willing to donate their time and energy into this community.
-      link: /cloud-engineering-days/#hackathon
-      link_text: Learn More
+        Learn from Pulumi customers on how they scaled up their infrastructure velocity and reliability with Pulumi. Infrastructure experts from companies like Fauna, Panther Labs, and Altana AI will present best practices for using Pulumi and infrastructure as code to increase velocity and even build their product platforms.
+      link: /cloud-engineering-days/#registration
+      link_text: Register
       presenters:
-        - photo: /images/mascot/pulumipus.svg
-    
+      - name:
+        photo: /images/cloud-engineering-days/logos/altana.svg
+      - name:
+        photo: /images/cloud-engineering-days/logos/panther.svg
+      - name:
+        photo: /images/cloud-engineering-days/logos/fauna.svg
+
     - title: Workshops
       description: |
         Join us for one of our upcoming cloud engineering workshops. Whether you're a seasoned cloud engineer exploring advanced concepts or want to learn the fundamentals of infrastructure as code, we've got workshops for all levels.
       link: /cloud-engineering-days/#workshops
       link_text: Join a Workshop
       presenters:
-      - name: Kat Cosgrove
-        photo: /images/team/kat-cosgrove.jpg
-      - name: David Flanagan
-        photo: /images/team/david-flanagan.jpg
       - name: Laura Santamaria
         photo: /images/team/laura-santamaria.jpg
       - name: Josh Kodroff
         photo: /images/team/josh-kodroff.jpg
+      - name: Ringo De Smet
+        photo: /images/team/ringo-de-smet.jpg
+      - name: Tushar Shah
+        photo: /images/team/tushar-shah.jpg
+
+partners:
+  items:
+    - name: Google Cloud
+      logo: /images/cloud-engineering-days/logos/google-cloud.png
+    - name: AWS
+      logo: /images/cloud-engineering-days/logos/aws-partner.png
+    - name: Microsoft
+      logo: /images/cloud-engineering-days/logos/microsoft.png
 
 media:
   items:
@@ -89,12 +100,6 @@ media:
       image: /logos/tech/slack.svg
       link: https://slack.pulumi.com/
 
-hackathon:
-  title: Pulumi Worldwide Community Pulumipus Hackathon
-  image: /images/cloud-engineering-days/pulumi-community-hackathon-logo.png
-  description: |
-    We’re pleased to announce the first worldwide Pulumi Community Hackathon. This month-long event kicks off at Cloud Engineering Day and brings together developers of all skill levels who are passionate about open source. Stay tuned for more information in the coming weeks.
-
 workshops:
   title: Cloud Engineering Workshops
   items:
@@ -103,7 +108,7 @@ workshops:
       description: |
         Learn the basics of Pulumi from projects to components. Use TypeScript and templates to stand up a static site on AWS using S3.
 
-    - title: "Pulumi 101: Serverless containers on GCP"
+    - title: "Pulumi 101: Serverless containers on Google Cloud"
       link: /resources/pulumi-101-serverless-containers-gcp
       description: |
         Learn the basics of Pulumi from projects to components. Use Python and templates to stand up serverless containers on Cloud Run from Google Cloud.
@@ -152,10 +157,8 @@ schedule:
             datetime: 11:20 - 11:50 AM PDT
           - title: Closing Comments
             datetime: 11:50 AM - 12:00 PM PDT
-          - title: Hackathon Launch
-            datetime: 12:00 PM PDT
           - title: Workshop Day
-            datetime: 1:00 PM PDT
+            datetime: 12:00 PM PDT
       - date: Thursday, November 3rd
         items:
           - title: Workshop Day
