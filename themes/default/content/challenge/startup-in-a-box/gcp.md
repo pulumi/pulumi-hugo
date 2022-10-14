@@ -26,7 +26,7 @@ meta_image: /images/challenge/challenge_cta.png
         The <a href="{{< relref "/docs/get-started/install/" >}}" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
       </li>
       <li>
-        GCP account & Project
+        GCP <a href="https://console.cloud.google.com/" target="_blank" rel="noopener noreferrer">Account</a> & <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects/" target="_blank" rel="noopener noreferrer">Project</a>
       </li>
       <li>
         <a href="https://www.checklyhq.com/" target="_blank" rel="noopener noreferrer">Checkly</a> account
@@ -53,7 +53,7 @@ You will learn how to create a new Pulumi program using our Pulumi templates, sp
   pulumi new gcp-typescript
 
   # Set up your project id and possibly the region
-  pulumi config set gcp:project <GCP_PROJECT>
+  pulumi config set gcp:project <GCP_PROJECT_ID>
 
   # or whatever your porjectid is
   pulumi config set gcp:region europe-west1
@@ -61,7 +61,7 @@ You will learn how to create a new Pulumi program using our Pulumi templates, sp
 
 #### Step 2. Creating Your First Resource
 
-Now that we have a base GCP project configured, we need to create our first resource. In this instance, we’ll create a new GCS bucket which will allow us to store our static website.
+Now that we have a base GCP project configured, we need to create our first resource. In this instance, we’ll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow us to store our static website.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -237,7 +237,7 @@ To make sure our styles display consistently across browsers, we also need to no
 
 #### Step 4. Creating a CDN
 
-Next, we want to front our Cloud Storage Bucket with a Load Balancer and enable its CDN capabilities.
+Next, we want to front our Cloud Storage Bucket with a [Load Balancer](https://cloud.google.com/load-balancing/docs/https) and enable its [CDN capabilities](https://cloud.google.com/cdn/docs/overview).
 
 ```typescript
 const backendBucket = new gcp.compute.BackendBucket("backend-bucket", {
