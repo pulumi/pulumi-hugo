@@ -26,12 +26,14 @@ meta_image: /images/challenge/challenge_cta.png
         The <a href="{{< relref "/docs/get-started/install/" >}}" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
       </li>
       <li>
-        GCP <a href="https://console.cloud.google.com/" target="_blank" rel="noopener noreferrer">Account</a> & <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects/" target="_blank" rel="noopener noreferrer">Project</a>
+        GCP <a href="https://cloud.google.com/gcp" target="_blank" rel="noopener noreferrer">Account</a> & <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects/" target="_blank" rel="noopener noreferrer">Project</a>
       </li>
       <li>
         <a href="https://www.checklyhq.com/" target="_blank" rel="noopener noreferrer">Checkly</a> account
       </li>
     </ul>
+     <p><b>Note:</b> New to Google Cloud? You can get $300 in free credits to run, test, and deploy workloads. <a href="https://cloud.google.com/gcp" target="_blank" rel="noopener noreferrer">Open a free GCP account</a> and use it for this Pulumi Challenge</p>
+
   </div>
 
   <div class="w-full order-first md:order-last md:w-1/2">
