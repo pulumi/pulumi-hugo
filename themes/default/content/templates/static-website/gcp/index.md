@@ -5,13 +5,20 @@ meta_image: meta.png
 card_desc: Deploy a static website on Google Cloud with Pulumi, Google Cloud Storage, and Google Cloud CDN.
 layout: template
 template:
-    prefix: static-website-gcp
+  prefix: static-website-gcp
+  dirname: my-site
+  languages:
+    - typescript
+    - python
+    - go
+    - csharp
+    - yaml
 cloud:
     name: Google Cloud Platform
     slug: gcp
 ---
 
-The Google Cloud Static Website template deploys an HTML website on Google Cloud Platform. It uses a [Cloud Storage bucket]({{< relref "/registry/packages/gcp/api-docs/storage/bucket" >}}) for file storage, configures the storage account to host a website, and provisions a [Global Address]({{< relref "/registry/packages/gcp/api-docs/compute/globaladdress" >}}) to route traffic to the CDN for lower latency and caching. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Google Cloud Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Google Cloud Platform with Pulumi. It uses a [Cloud Storage bucket]({{< relref "/registry/packages/gcp/api-docs/storage/bucket" >}}) for file storage, configures the storage account to host a website, and provisions a [Global Address]({{< relref "/registry/packages/gcp/api-docs/compute/globaladdress" >}}) to route traffic to the CDN for lower latency and caching. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Google Cloud Static Website template](./architecture.png)
 
@@ -19,52 +26,7 @@ The Google Cloud Static Website template deploys an HTML website on Google Cloud
 
 To use this template to deploy a website of your own, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your Google Cloud credentials]({{< relref "/registry/packages/gcp/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp,yaml" / %}}
-
-{{% choosable language typescript %}}
-
-```bash
-$ mkdir my-site && cd my-site
-$ pulumi new static-website-gcp-typescript
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```bash
-$ mkdir my-site && cd my-site
-$ pulumi new static-website-gcp-python
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```bash
-$ mkdir my-site && cd my-site
-$ pulumi new static-website-gcp-go
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```bash
-$ mkdir my-site && cd my-site
-$ pulumi new static-website-gcp-csharp
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```bash
-$ mkdir my-site && cd my-site
-$ pulumi new static-website-gcp-yaml
-```
-
-{{% /choosable %}}
+{{< templates/pulumi-new >}}
 
 Follow the prompts to complete the new-project wizard. When it's done, you'll have a finished project that's ready to deploy and configured with the most common settings. Feel free to inspect the code in {{< langfile >}} for a closer look.
 
@@ -132,7 +94,7 @@ $ pulumi destroy
 
 Congratulations! You're now well on your way to managing a production-grade static website on Google Cloud with Pulumi --- and there's lots more you can do from here:
 
-* Discover more architecture templates as they're available in [Templates &rarr;]({{< relref "/templates" >}})
-* Dive into the Google Cloud package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/gcp" >}})
-* Expand your understanding of how Pulumi works in [Architecture &amp; Concepts &rarr;]({{< relref "/docs/intro/concepts" >}})
+* Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
+* Dive into the Google Cloud Classic package by exploring the [API docs in the Registry &rarr;]({{< relref "/registry/packages/gcp" >}})
+* Expand your understanding of how Pulumi works in [Learn Pulumi &rarr;]({{< relref "/learn" >}})
 * Read up on the latest new features [in the Pulumi Blog &rarr;]({{< relref "/blog" >}})

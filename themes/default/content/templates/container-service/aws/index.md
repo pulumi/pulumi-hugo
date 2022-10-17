@@ -1,11 +1,18 @@
 ---
 title: Container Service on AWS
+layout: template
 meta_desc: The Container Service template makes it easy to deploy a container service on AWS with Pulumi and Amazon Elastic Container Service (ECS).
 meta_image: meta.png
 card_desc: Deploy a container service on AWS with Pulumi and Amazon ECS.
-layout: template
 template:
-    prefix: container-aws
+  prefix: container-aws
+  dirname: my-container-service
+  languages:
+    - typescript
+    - python
+    - go
+    - csharp
+    - yaml
 cloud:
   name: Amazon Web Services
   slug: aws
@@ -19,52 +26,7 @@ The Container Service template creates an infrastructure as code project in your
 
 To use this template to deploy an ECS cluster that's running your container service, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your AWS credentials]({{< relref "/registry/packages/aws/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,csharp,yaml" / %}}
-
-{{% choosable language typescript %}}
-
-```bash
-$ mkdir my-container-service && cd my-container-service
-$ pulumi new container-aws-typescript
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```bash
-$ mkdir my-container-service && cd my-container-service
-$ pulumi new container-aws-python
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```bash
-$ mkdir my-container-service && cd my-container-service
-$ pulumi new container-aws-go
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```bash
-$ mkdir my-container-service && cd my-container-service
-$ pulumi new container-aws-csharp
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```bash
-$ mkdir my-container-service && cd my-container-service
-$ pulumi new container-aws-yaml
-```
-
-{{% /choosable %}}
+{{< templates/pulumi-new >}}
 
 Follow the prompts to complete the new-project wizard. When it's done, you'll have a complete Pulumi project that's ready to deploy and configured with the most common settings. Feel free to inspect the code in {{< langfile >}} for a closer look.
 
@@ -128,5 +90,5 @@ Congratulations! You're now well on your way to managing a production-grade cont
 
 * Discover more architecture templates in [Templates &rarr;]({{< relref "/templates" >}})
 * Dive into the API docs for the [AWS]({{< relref "/registry/packages/aws" >}}) and [AWSx (Crosswalk)]({{< relref "/registry/packages/awsx" >}}) packages
-* Expand your understanding of how Pulumi works in [Pulumi Learn &rarr;]({{< relref "/learn" >}})
+* Expand your understanding of how Pulumi works in [Learn Pulumi &rarr;]({{< relref "/learn" >}})
 * Read up on the latest new features [in the Pulumi Blog &rarr;](/blog/tag/containers)
