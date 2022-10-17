@@ -4,20 +4,25 @@ layout: template
 
 # Make sure this is description accurate for this template.
 meta_desc: The Kubernetes Cluster template makes it easy to deploy a Kubernetes cluster on Azure with Pulumi and Azure Kubernetes Service (AKS).
+meta_image: meta.png
 
 # Appears on the cards on template-overview pages.
 card_desc: Deploy a Kubernetes cluster on Azure with Pulumi and Azure Kubernetes Service (AKS).
 
-# Used for generating language-specific links to templates on GitHub. (Example: `static-website-aws`)
+# Used for generating language-specific CLI commands and links to the templates repo on GitHub.
 template:
-    prefix: kubernetes-azure
+  prefix: kubernetes-azure
+  dirname: my-k8s-cluster
+  languages:
+    - typescript
+    - python
+    - go
+    - yaml
 
 # Used for generating links to sibling templates in the right-hand nav. Slug is this template's parent directory.
 cloud:
   name: Microsoft Azure
   slug: azure
-
-meta_image: meta.png
 
 ---
 
@@ -29,43 +34,7 @@ The Kubernetes Cluster template creates an infrastructure as code project in you
 
 To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi]({{< relref "/docs/get-started/install" >}}) and [configured your Azure credentials]({{< relref "/registry/packages/azure/installation-configuration#credentials" >}}), then create a new [project]({{< relref "/docs/intro/concepts/project" >}}) using the template in your language of choice:
 
-{{% chooser language "typescript,python,go,yaml" / %}}
-
-{{% choosable language typescript %}}
-
-```bash
-$ mkdir my-k8s-cluster && cd my-k8s-cluster
-$ pulumi new kubernetes-azure-typescript
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```bash
-$ mkdir my-k8s-cluster && cd my-k8s-cluster
-$ pulumi new kubernetes-azure-python
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```bash
-$ mkdir my-k8s-cluster && cd my-k8s-cluster
-$ pulumi new kubernetes-azure-go
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```bash
-$ mkdir my-k8s-cluster && cd my-k8s-cluster
-$ pulumi new kubernetes-azure-yaml
-```
-
-{{% /choosable %}}
+{{< templates/pulumi-new >}}
 
 Follow the prompts to complete the new-project wizard. When it's done, you'll have a complete Pulumi project that's ready to deploy and configured with the most common settings. Feel free to inspect the code in {{< langfile >}} for a closer look.
 
