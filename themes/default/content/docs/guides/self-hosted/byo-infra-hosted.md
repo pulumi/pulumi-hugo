@@ -26,7 +26,7 @@ This installer uses Pulumi to deploy the Pulumi Service. In this case, one uses 
 To this end, you need to set up the following:
 
 * [Download and install the Pulumi CLI]({{<relref "docs/get-started/install">}}) on your workstation
-* [Login to self-managed storage backend]({{<relref "docs/intro/concepts/state/#deciding-on-a-backend">}})
+* [Login to self-managed storage backend]({{<relref "docs/intro/concepts/state/#logging-into-a-self-managed-backend">}})
 
 ### Deployment Steps
 
