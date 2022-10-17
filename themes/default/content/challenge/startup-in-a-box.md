@@ -14,7 +14,7 @@ meta_image: /images/challenge/challenge_cta.png
   <div class="w-full md:w-1/2">
     <h3>Startup in a Box</h3>
     <p class="pr-12">
-      Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on Amazon S3 with Cloudfront and Checkly, all using Pulumi. When you're done, we'll send you a fancy drink tumbler with a special Pulumipus on it, just for this Challenge!
+      Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on your favourite cloud provider (AWS or Google Cloud) and Checkly, all using Pulumi. When you're done, we'll send you a fancy drink tumbler with a special Pulumipus on it, just for this Challenge!
     </p>
   </div>
   <div class="w-full order-first md:order-last md:w-1/2">
@@ -565,9 +565,28 @@ Now that we have a base GCP project configured, we need to create our first reso
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
+// List of GCP API's That Need to be enabled on the GCP Project
+var apiDependencies: Array<pulumi.Resource> = []
+var gcpServiceAPIs: Array<string> = [
+    "compute.googleapis.com",
+]
+
+// Enable required API services for a Google Cloud Platform project
+for (var idx in gcpServiceAPIs) {
+    apiDependencies.push(
+        // Enable GCP Service API
+        new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
+            disableDependentServices: true,
+            service: gcpServiceAPIs[idx],
+        }, {})
+    )
+}
+
 // Create a GCP resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("mybucket", {
     location: "US"
+},{
+    dependsOn: apiDependencies,
 });
 
 // Create an IAM binding to allow public read access to the bucket.
