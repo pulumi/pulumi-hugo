@@ -29,7 +29,7 @@ Select one of the following options to get started:
     <div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
-            <p>Create a static website with an S3 bucket.</p>
+            <p>If you are new to Pulumi, this guide helps you install Pulumi, configure AWS, and run your first update.</p>
             <div class="flex flex-grow items-end">
                 <a data-track="aws-get-started" href="{{< relref "/docs/get-started/aws" >}}" class="btn btn-primary">Get Started</a>
             </div>
@@ -81,7 +81,7 @@ Select one of the following options to get started:
     <div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
-            <p>Create a static website with a Blob Storage Account.</p>
+            <p>If you are new to Pulumi, this guide helps you install Pulumi, configure Azure, and run your first update.</p>
             <div class="flex flex-grow items-end">
                 <a data-track="azure-get-started" href="{{< relref "/docs/get-started/azure" >}}" class="btn btn-primary">Get Started</a>
             </div>
@@ -105,7 +105,7 @@ Select one of the following options to get started:
             </div>
         </div>
     </div>
-    <div class="pb-4 md:pr-4 md:w-1/2">
+    <!--<div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Azure</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Azure examples.</p>
@@ -122,7 +122,7 @@ Select one of the following options to get started:
                 <a data-track="azure-container-examples" href="https://github.com/pulumi/examples#azure" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 {{< /choosable >}}
@@ -133,7 +133,7 @@ Select one of the following options to get started:
     <div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
-            <p>Create a static website with a Cloud Storage bucket.</p>
+            <p>If you are new to Pulumi, this guide helps you install Pulumi, configure Google Cloud, and run your first update.</p>
             <div class="flex flex-grow items-end">
                 <a data-track="google-get-started" href="{{< relref "/docs/get-started/gcp" >}}" class="btn btn-primary">Get Started</a>
             </div>
@@ -157,7 +157,7 @@ Select one of the following options to get started:
             </div>
         </div>
     </div>
-    <div class="pb-4 md:pr-4 md:w-1/2">
+    <!--<div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Google Cloud</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Google Cloud examples.</p>
@@ -174,7 +174,7 @@ Select one of the following options to get started:
                 <a data-track="google-container-examples" href="https://github.com/pulumi/examples#gcp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 {{< /choosable >}}
@@ -185,7 +185,7 @@ Select one of the following options to get started:
     <div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
-            <p>Deploy NGINX and create a service to access your NGINX deployment.</p>
+            <p>If you are new to Pulumi, this guide helps you install Pulumi, configure the Kubernetes Provider, and run your first update.</p>
             <div class="flex flex-grow items-end">
                 <a data-track="kubernetes-get-started" href="{{< relref "/docs/get-started/kubernetes" >}}" class="btn btn-primary">Get Started</a>
             </div>
@@ -200,7 +200,7 @@ Select one of the following options to get started:
             </div>
         </div>
     </div>
-    <div class="pb-4 md:pr-4 md:w-1/2">
+    <!--<div class="pb-4 md:pr-4 md:w-1/2">
         <div class="block rounded shadow border border-gray-300 p-3 h-full flex flex-col">
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Azure</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Kubernetes examples.</p>
@@ -217,7 +217,7 @@ Select one of the following options to get started:
                 <a data-track="kubernetes-google-examples" href="https://github.com/pulumi/examples#kubernetes" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 {{< /choosable >}}
