@@ -1,7 +1,8 @@
 ---
 # Name of the webinar.
-title: "Production-Ready Networking on AWS with Python"
-meta_desc: "In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC."
+title: "Securing Deployments with Policy as Code"
+meta_desc: "The Pulumi team will show you how to enforce best practices by creating policies that scale from a single infrastructure stack to your entire organization."
+meta_image: "aws-immersion-day.png"
 
 # A featured webinar will display first in the list.
 featured: false
@@ -34,23 +35,22 @@ block_external_search_index: false
 
 # data for Google Events
 event_data:
-  name: "Production-Ready Networking on AWS with Python"
-  start_date: 2022-12-13T05:00:00-08:00
-  end_date: 2022-12-13T06:30:00-08:00
-  url: "https://www.pulumi.com/resources/production-ready-networking-aws-with-python"
+  name: "Securing Deployments with Policy as Code"
+  start_date: 2022-11-15T09:00:00-08:00
+  end_date: 2022-11-15T10:30:00-08:00
+  url: "https://www.pulumi.com/resources/securing-deployments-policy-as-code"
   description: |
-      In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC. This pattern is incredibly useful for standing up separate environments for development, testing and production, providing workload isolation for multiple customers and standing up shared services.
+      Poorly configured cloud infrastructure can be an unwelcome source of security, reliability, and cost issues. In this session, the Pulumi team will show you how to enforce best practices by creating policies that scale from a single infrastructure stack to your entire organization. From properly secured S3 buckets to mandatory resource labels, Pulumi’s CrossGuard capability helps you to prevent defective configurations from reaching production.
 
-      This 200-level course will be taught in the Python language but the concepts apply to any modern programming language. The content builds upon Pulumi concepts from learn.pulumi.com and our Getting Started workshop series.
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: "production-ready-networking-aws-with-python"
+url_slug: "securing-deployments-policy-as-code"
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "Production-Ready Networking on AWS with Python"
+    title: "Securing Deployments with Policy as Code"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
@@ -63,38 +63,33 @@ hero:
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Production-Ready Networking on AWS with Python"
+    title: "AWS Immersion Day: Securing Deployments with Policy as Code"
     # URL for embedding a URL for ungated webinars.
     youtube_url: ""
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2022-12-13T04:00:00-08:00
+    sortable_date: 2022-11-15T09:00:00-08:00
     # Duration of the webinar.
     duration: "90 minutes"
     # Datetime of the webinar.
     datetime: ""
     # Description of the webinar.
     description: |
-        In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC. This pattern is incredibly useful for standing up separate environments for development, testing and production, providing workload isolation for multiple customers and standing up shared services.
-
-        This 200-level course will be taught in the Python language but the concepts apply to any modern programming language. The content builds upon Pulumi concepts from [learn.pulumi.com](/learn) and our Getting Started workshop series.
+        Poorly configured cloud infrastructure can be an unwelcome source of security, reliability, and cost issues. In this session, the Pulumi team will show you how to enforce best practices by creating policies that scale from a single infrastructure stack to your entire organization. From properly secured S3 buckets to mandatory resource labels, Pulumi’s CrossGuard capability helps you to prevent defective configurations from reaching production.
 
     # The webinar presenters
     presenters:
-        - name: Andy Taylor
-          role: Networking Specialist Solutions Architect, AWS
-        - name: Jose Juhala
-          role: Solutions Architect, AWS
+        - name: Marina Novikova
+          role: Senior Partner Solutions Architect, AWS
         - name: Josh Kodroff
           role: Senior Solutions Architect, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
-        - AWS networking concepts using Python
-        - How to implement a hub and spoke topology on AWS
-        - Configuring an inspection VPC
-
+        - How to write policies using the Python programming language
+        - Best practices for implementing and enforcing policies
+        - How to use policy packs from AWS to implement best practices for your infrastructure
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "f8d6ec38-079b-4544-8ced-42bf76de1ca3"
+    hubspot_form_id: "ee71f071-222f-4d68-a474-81ba9e801cdf"
 ---

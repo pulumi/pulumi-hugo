@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
-title: "Production-Ready Networking on AWS with Python"
-meta_desc: "In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC."
+title: "Get Started with Infrastructure as Code on Azure with Java"
+meta_desc: "Learn the basics of Azure and Pulumi with a hands-on lab that will take you from deploying a simple static website to deploying a Spring Boot application."
 
 # A featured webinar will display first in the list.
 featured: false
@@ -34,23 +34,22 @@ block_external_search_index: false
 
 # data for Google Events
 event_data:
-  name: "Production-Ready Networking on AWS with Python"
-  start_date: 2022-12-13T05:00:00-08:00
-  end_date: 2022-12-13T06:30:00-08:00
-  url: "https://www.pulumi.com/resources/production-ready-networking-aws-with-python"
+  name: "Get Started with Infrastructure as Code on Azure with Java"
+  start_date: 2022-11-22T09:00:00-08:00
+  end_date: 2022-11-22T10:30:00-08:00
+  url: "https://www.pulumi.com/resources/getting-started-infrascructure-as-code-java"
   description: |
-      In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC. This pattern is incredibly useful for standing up separate environments for development, testing and production, providing workload isolation for multiple customers and standing up shared services.
+      It’s now easier than ever for Java developers to deploy their apps to Microsoft Azure using Pulumi and Java. In this session, we’ll teach you the basics of Azure and Pulumi with hands-on labs that will take you from deploying a simple static website to deploying a Spring Boot application to the Azure App Service.
 
-      This 200-level course will be taught in the Python language but the concepts apply to any modern programming language. The content builds upon Pulumi concepts from learn.pulumi.com and our Getting Started workshop series.
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: "production-ready-networking-aws-with-python"
+url_slug: "getting-started-infrascructure-as-code-java"
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "Production-Ready Networking on AWS with Python"
+    title: "Get Started with Infrastructure as Code on Azure with Java"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
@@ -63,38 +62,33 @@ hero:
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Production-Ready Networking on AWS with Python"
+    title: "Getting Started with Infrastructure as Code on Azure with Java"
     # URL for embedding a URL for ungated webinars.
     youtube_url: ""
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2022-12-13T04:00:00-08:00
+    sortable_date: 2022-11-22T09:00:00-08:00
     # Duration of the webinar.
     duration: "90 minutes"
     # Datetime of the webinar.
     datetime: ""
     # Description of the webinar.
     description: |
-        In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC. This pattern is incredibly useful for standing up separate environments for development, testing and production, providing workload isolation for multiple customers and standing up shared services.
-
-        This 200-level course will be taught in the Python language but the concepts apply to any modern programming language. The content builds upon Pulumi concepts from [learn.pulumi.com](/learn) and our Getting Started workshop series.
+        It’s now easier than ever for Java developers to deploy their apps to Microsoft Azure using Pulumi and Java. In this session, we’ll teach you the basics of Azure and Pulumi with hands-on labs that will take you from deploying a simple static website to deploying a Spring Boot application to the Azure App Service.
 
     # The webinar presenters
     presenters:
-        - name: Andy Taylor
-          role: Networking Specialist Solutions Architect, AWS
-        - name: Jose Juhala
-          role: Solutions Architect, AWS
         - name: Josh Kodroff
           role: Senior Solutions Architect, Pulumi
-
+        - name: Brian Benz
+          role: Senior Cloud Advocate, Microsoft
+          
     # A bullet point list containing what the user will learn during the webinar.
     learn:
-        - AWS networking concepts using Python
-        - How to implement a hub and spoke topology on AWS
-        - Configuring an inspection VPC
-
+        - Infrastructure as Code concepts for Java developers
+        - Managing Azure resources with Pulumi
+        - Deploying Spring Boot apps to the Azure App Service
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "f8d6ec38-079b-4544-8ced-42bf76de1ca3"
+    hubspot_form_id: "1331a411-ef77-43bd-8eae-4a1f9d5698fe"
 ---
