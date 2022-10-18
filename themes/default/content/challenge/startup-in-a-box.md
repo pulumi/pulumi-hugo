@@ -28,7 +28,7 @@ meta_image: /images/challenge/challenge_cta.png
 {{% choosable cloud aws %}}
 <div class="w-full md:w-1/2">
   <h3>Prerequisites</h3>
-  <p>In order to complete this challenge, you'll need a couple things set up in advance.</p>
+  <p>In order to complete this challenge, you'll need a couple of things set up in advance.</p>
   <ul>
     <li>
       A <a href="https://app.pulumi.com/signup" target="_blank" rel="noopener noreferrer">Pulumi account</a>
@@ -519,7 +519,7 @@ await browser.close();
 
 <div class="w-full md:w-1/2">
   <h3>Prerequisites</h3>
-  <p>In order to complete this challenge, you'll need a couple things set up in advance.</p>
+  <p>In order to complete this challenge, you'll need a couple of things set up in advance.</p>
   <ul>
     <li>
       A <a href="https://app.pulumi.com/signup" target="_blank" rel="noopener noreferrer">Pulumi account</a>
@@ -544,7 +544,7 @@ Follow along with the steps outlined on this page to complete the challenge.
 
 #### Step 1. Your First Pulumi Program
 
-You will learn how to create a new Pulumi program using our Pulumi templates, specifically for GCP with TypeScript. Create a new directory called `pulumi-challenge` and run the following inside of it:
+You will learn how to create a new Pulumi program using our Pulumi templates, specifically for GCP with TypeScript. Create a new directory called `pulumi-challenge` and run the following inside of it, following the prompts if requested:
 
 ```shell
   # set up environment
@@ -559,35 +559,19 @@ You will learn how to create a new Pulumi program using our Pulumi templates, sp
 
 #### Step 2. Creating Your First Resource
 
-Now that we have a base GCP project configured, we need to create our first resource. In this instance, we’ll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow us to store our static website.
+Now that we have a base GCP project configured, we need to create our first resource. In this instance, we’ll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow us to store our static website. The command ```pulumi new gcp-typescript``` produced a a file ```pulumi-challenge/index.ts```. Clear the contents of the ```index.ts``` file and add the following script to create your first resources.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
-// List of GCP API's That Need to be enabled on the GCP Project
-var apiDependencies: Array<pulumi.Resource> = []
-var gcpServiceAPIs: Array<string> = [
-    "compute.googleapis.com",
-]
-
-// Enable required API services for a Google Cloud Platform project
-for (var idx in gcpServiceAPIs) {
-    apiDependencies.push(
-        // Enable GCP Service API
-        new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
-            disableDependentServices: true,
-            service: gcpServiceAPIs[idx],
-        }, {})
-    )
-}
-
 // Create a GCP resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("mybucket", {
-    location: "US"
-},{
-    dependsOn: apiDependencies,
-});
+    location: "EU",
+     website: {
+        mainPageSuffix: "index.html",
+    },
+},{});
 
 // Create an IAM binding to allow public read access to the bucket.
 const bucketIamBinding = new gcp.storage.BucketIAMBinding("bucket-iam-binding", {
@@ -601,7 +585,7 @@ const bucketIamBinding = new gcp.storage.BucketIAMBinding("bucket-iam-binding", 
 
 Pulumi lets you use your favourite programming language to define your infrastructure. Today, we’re using TypeScript, which means we have access to the Node API. This includes discovering directories and files.
 
-From GCP we can use a synced folder to manage the files of the website.
+We can use a synced folder to manage the files of the website.
 
 We need to add the synced-folder package from npm, to easiyl upload files to the Cloud Storage Bucket.
 
@@ -609,7 +593,7 @@ We need to add the synced-folder package from npm, to easiyl upload files to the
 npm install @pulumi/synced-folder
 ```
 
-Now with the synced-folder package installed we need to update our pulumi code.
+Now with the synced-folder package installed we need to update our pulumi code. Add the following to ```index.ts```
 
 ```typescript
 import * as synced_folder from "@pulumi/synced-folder";
@@ -754,7 +738,7 @@ To make sure our styles display consistently across browsers, we also need to no
 
 #### Step 4. Creating a CDN
 
-Next, we want to front our Cloud Storage Bucket with a [Load Balancer](https://cloud.google.com/load-balancing/docs/https) and enable its [CDN capabilities](https://cloud.google.com/cdn/docs/overview).
+Next, we want to front our Cloud Storage Bucket with a [Load Balancer](https://cloud.google.com/load-balancing/docs/https) and enable its [CDN capabilities](https://cloud.google.com/cdn/docs/overview). Add the following additional code to your ```index.ts``` file in order to create a GCP Load Balancer, Public IP address and URL Map to your GCP storage bucket.
 
 ```typescript
 const backendBucket = new gcp.compute.BackendBucket("backend-bucket", {
@@ -782,7 +766,9 @@ const httpForwardingRule = new gcp.compute.GlobalForwardingRule("http-forwarding
 
 #### Step 5. Introducing ComponentResources
 
-Now… we can continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let’s refactor what we have above into a CdnWebsite component at ```pulumi-challenge/cdn-website.ts```
+Now... we can continue to add resource after resource, but Pulumi is more than that.
+
+We can build our own reusable components. Let’s refactor what we have above into a CdnWebsite component. Create a new file at ```pulumi-challenge/cdn-website.ts``` as show here and to leave the API:
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -799,8 +785,11 @@ export class CdnWebsite extends pulumi.ComponentResource {
         super("pulumi:challenge:CdnWebsite", name, args, opts);
 
         this.bucket = new gcp.storage.Bucket("mybucket", {
-            location: "US"
-        });
+            location: "EU",
+            website: {
+                mainPageSuffix: "index.html",
+            }
+        }, opts);
 
         const bucketIamBinding = new gcp.storage.BucketIAMBinding("bucket-iam-binding", {
             bucket: this.bucket.name,
@@ -823,8 +812,8 @@ export class CdnWebsite extends pulumi.ComponentResource {
         });
 
         // CDN Configuration
-        this.ip = new gcp.compute.GlobalAddress("ip", {});
-        const urlMap = new gcp.compute.URLMap("url-map", { defaultService: this.backendBucket.selfLink });
+        this.ip = new gcp.compute.GlobalAddress("ip", {}, opts);
+        const urlMap = new gcp.compute.URLMap("url-map", { defaultService: this.backendBucket.selfLink }, opts);
         const httpProxy = new gcp.compute.TargetHttpProxy("http-proxy", { urlMap: urlMap.selfLink });
 
         this.httpForwardingRule = new gcp.compute.GlobalForwardingRule("http-forwarding-rule", {
@@ -848,14 +837,34 @@ export class CdnWebsite extends pulumi.ComponentResource {
 }
 ```
 
-Now we can consume this! Awesome. Back in `pulumi-challenge/index.ts`, we now have this:
+Now we can return to our ```index.ts``` and consume the ```CdnWebsite``` components! Back in `pulumi-challenge/index.ts`, we we will re-write the code in the file to consume the ```CdnWebsite``` component. In addition we will add a loop to enable GCP Service API's that are required to run certain GCP Services:
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as gcp from "@pulumi/gcp";
+
 // Deploy Website to Google Cloud Storage with CDN
 // Also shows the challenger how to build a ComponentResource.
 import { CdnWebsite } from "./cdn-website";
 
-const website = new CdnWebsite("your-startup", {});
+// List of GCP API's That Need to be enabled on the GCP Project
+var apiDependencies: Array<pulumi.Resource> = []
+var gcpServiceAPIs: Array<string> = [
+    "compute.googleapis.com",
+]
+
+// Enable required API services for a Google Cloud Platform project
+for (var idx in gcpServiceAPIs) {
+    apiDependencies.push(
+        // Enable GCP Service API
+        new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
+            disableDependentServices: true,
+            service: gcpServiceAPIs[idx],
+        }, {})
+    )
+}
+
+const website = new CdnWebsite("your-startup", {}, {dependsOn: apiDependencies});
 export const cdnUrl = website.url;
 ```
 
@@ -886,7 +895,7 @@ new checkly.Check("index-page", {
   frequency: 10,
   type: "BROWSER",
   locations: ["eu-west-2"],
-  script: websiteUrl.apply((url) =>
+  script: cdnUrl.apply((url) =>
     fs
       .readFileSync("checkly-embed.js")
       .toString("utf8")
@@ -981,7 +990,7 @@ export class Swag extends pulumi.dynamic.Resource {
 }
 ```
 
-Now, add this final block to `pulumi-challenge/index.ts` and run `pulumi up`. Enjoy your SWAG!
+Now, add this final block to `pulumi-challenge/index.ts`. Modify the code to use YOUR NAME, EMAIL, POSTAL ADDRESS & SIZE and run `pulumi up`. Enjoy your SWAG!
 
 ```typescript
 import { Swag } from "./swag-provider";
@@ -990,7 +999,7 @@ const swag = new Swag("your-startup", {
   name: "YOUR NAME",
   email: "YOUR EMAIL",
   address: "YOUR ADDRESS",
-  size: SIZE,
+  size: "SIZE",
 });
 ```
 
