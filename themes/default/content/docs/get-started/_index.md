@@ -31,7 +31,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
             <p>Create a static website with an S3 bucket.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/docs/get-started/aws" >}}" class="btn btn-primary">Get Started</a>
+                <a data-track="aws-get-started" href="{{< relref "/docs/get-started/aws" >}}" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes with EKS</h4>
             <p>Create an EKS cluster that provides a managed Kubernetes control plane.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/kubernetes/aws" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="aws-kubernetes" href="{{< relref "/templates/kubernetes/aws" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cloud text-blue-400 pr-2"></i>S3 and Cloudfront Website</h4>
             <p>Create a static website hosted in S3 with a CloudFront Distribution to serve the website with caching and HTTPs.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/static-website/aws" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="aws-static-website" href="{{< relref "/templates/static-website/aws" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-sitemap text-blue-400 pr-2"></i>Full Stack Serverless App</h4>
             <p>Create an API Gateway REST API and a static website that consumes that API.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/serverless-application/aws" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="aws-serverless" href="{{< relref "/templates/serverless-application/aws" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-tasks text-blue-400 pr-2"></i>Containers with Fargate</h4>
             <p>Run your container on AWS using ECS and Fargate.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/container-service/aws" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="aws-container-service" href="{{< relref "/templates/container-service/aws" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
             <p>Create a static website with a Blob Storage Account.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/docs/get-started/azure" >}}" class="btn btn-primary">Get Started</a>
+                <a data-track="azure-get-started" href="{{< relref "/docs/get-started/azure" >}}" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cloud text-blue-400 pr-2"></i>Static Website with a CDN</h4>
             <p>Create a static website with a Blob storage and a CDN to serve the website with caching and HTTPs.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/static-website/azure" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="azure-static-website" href="{{< relref "/templates/static-website/azure" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-sitemap text-blue-400 pr-2"></i>Full Stack Serverless App</h4>
             <p>Create a Function App and a static website that consumes that Function.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/serverless-application/aws" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="azure-serverless" href="{{< relref "/templates/serverless-application/azure" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Azure</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Azure examples.</p>
             <div class="flex flex-grow items-end">
-                <a href="https://github.com/pulumi/examples#azure" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
+                <a data-track="azure-kubernetes-examples" href="https://github.com/pulumi/examples#azure" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
     </div>
@@ -119,7 +119,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-tasks text-blue-400 pr-2"></i>Containers on Azure</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Azure examples.</p>
             <div class="flex flex-grow items-end">
-                <a href="https://github.com/pulumi/examples#azure" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
+                <a data-track="azure-container-examples" href="https://github.com/pulumi/examples#azure" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
     </div>
@@ -135,7 +135,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
             <p>Create a static website with a Cloud Storage bucket.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/docs/get-started/azure" >}}" class="btn btn-primary">Get Started</a>
+                <a data-track="google-get-started" href="{{< relref "/docs/get-started/gcp" >}}" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </div>
@@ -144,7 +144,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cloud text-blue-400 pr-2"></i>Static Website with a CDN</h4>
             <p>Create a static website with a Cloud Storage bucket and a CDN to serve the website with caching and HTTPs.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/static-website/gcp" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="google-static-website" href="{{< relref "/templates/static-website/gcp" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -153,7 +153,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-sitemap text-blue-400 pr-2"></i>Full Stack Serverless App</h4>
             <p>Create a Cloud Function and a static website that consumes that function.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/serverless-application/gcp" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="google-serverless" href="{{< relref "/templates/serverless-application/gcp" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Google Cloud</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Google Cloud examples.</p>
             <div class="flex flex-grow items-end">
-                <a href="https://github.com/pulumi/examples#gcp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
+                <a data-track="google-kubernetes-examples" href="https://github.com/pulumi/examples#gcp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
     </div>
@@ -171,7 +171,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-tasks text-blue-400 pr-2"></i>Containers on Google Cloud</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Google Cloud examples.</p>
             <div class="flex flex-grow items-end">
-                <a href="https://github.com/pulumi/examples#gcp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
+                <a data-track="google-container-examples" href="https://github.com/pulumi/examples#gcp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
     </div>
@@ -187,7 +187,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
             <p>Deploy NGINX and create a service to access your NGINX deployment.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/docs/get-started/aws" >}}" class="btn btn-primary">Get Started</a>
+                <a data-track="kubernetes-get-started" href="{{< relref "/docs/get-started/kubernetes" >}}" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </div>
@@ -196,7 +196,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes with EKS</h4>
             <p>Create an EKS cluster that provides a managed Kubernetes control plane.</p>
             <div class="flex flex-grow items-end">
-                <a href="{{< relref "/templates/kubernetes/aws" >}}" class="btn btn-secondary">Get Started</a>
+                <a data-track="kubernetes-aws" href="{{< relref "/templates/kubernetes/aws" >}}" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </div>
@@ -205,7 +205,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Azure</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Kubernetes examples.</p>
             <div class="flex flex-grow items-end">
-                <a href="https://github.com/pulumi/examples#kubernetes" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
+                <a data-track="kubernetes-azure-examples" href="https://github.com/pulumi/examples#kubernetes" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
     </div>
@@ -214,7 +214,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-cubes text-blue-400 pr-2"></i>Kubernetes on Google Cloud</h4>
             <p>Coming soon! In the meantime you can select the link below to view a full list of Kubernetes examples.</p>
             <div class="flex flex-grow items-end">
-                <a href="https://github.com/pulumi/examples#kubernetes" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
+                <a data-track="kubernetes-google-examples" href="https://github.com/pulumi/examples#kubernetes" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View examples</a>
             </div>
         </div>
     </div>
