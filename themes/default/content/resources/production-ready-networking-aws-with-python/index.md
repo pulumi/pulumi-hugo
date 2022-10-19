@@ -97,4 +97,6 @@ main:
 form:
     # HubSpot form id.
     hubspot_form_id: "f8d6ec38-079b-4544-8ced-42bf76de1ca3"
+
+aws_only: true
 ---
