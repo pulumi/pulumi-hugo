@@ -37,14 +37,14 @@ event_data:
   name: "Get Started with Infrastructure as Code on Azure with Java"
   start_date: 2022-11-22T09:00:00-08:00
   end_date: 2022-11-22T10:30:00-08:00
-  url: "https://www.pulumi.com/resources/getting-started-infrascructure-as-code-java"
+  url: "https://www.pulumi.com/resources/getting-started-infrascructure-as-code-azure-java"
   description: |
       It’s now easier than ever for Java developers to deploy their apps to Microsoft Azure using Pulumi and Java. In this session, we’ll teach you the basics of Azure and Pulumi with hands-on labs that will take you from deploying a simple static website to deploying a Spring Boot application to the Azure App Service.
 
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: "getting-started-infrascructure-as-code-java"
+url_slug: "getting-started-infrascructure-as-code-azure-java"
 
 # The content of the hero section.
 hero:
