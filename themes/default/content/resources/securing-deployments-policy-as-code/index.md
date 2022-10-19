@@ -2,7 +2,7 @@
 # Name of the webinar.
 title: "Securing Deployments with Policy as Code"
 meta_desc: "The Pulumi team will show you how to enforce best practices by creating policies that scale from a single infrastructure stack to your entire organization."
-meta_image: "aws-immersion-day.png"
+meta_image: "/images/aws-immersion-day.png"
 
 # A featured webinar will display first in the list.
 featured: false
@@ -14,7 +14,7 @@ pre_recorded: false
 pulumi_tv: false
 
 # The preview image will be shown on the list page.
-preview_image: "aws-immersion-day.png"
+preview_image: ""
 
 # Webinars with unlisted as true will not be shown on the webinar list
 unlisted: false
