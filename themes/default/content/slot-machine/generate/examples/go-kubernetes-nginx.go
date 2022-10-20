@@ -1,39 +1,44 @@
 package main
 
 import (
-	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v2/go/kubernetes/core/v1"
-	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v2/go/kubernetes/meta/v1"
-	"github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v2"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
+	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
+	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-
-		// Create a K8s namespace.
-		ns, err := corev1.NewNamespace(ctx, "devNamespace", &corev1.NamespaceArgs{
-			Metadata: &metav1.ObjectMetaArgs{
-				Name: pulumi.String("dev"),
+		appLabels := map[string]interface{}{
+			"app": "nginx",
+		}
+		deployment, err := appsv1.NewDeployment(ctx, "deployment", &appsv1.DeploymentArgs{
+			Spec: &appsv1.DeploymentSpecArgs{
+				Selector: &metav1.LabelSelectorArgs{
+					MatchLabels: pulumi.StringMap(appLabels),
+				},
+				Replicas: pulumi.Int(1),
+				Template: &corev1.PodTemplateSpecArgs{
+					Metadata: &metav1.ObjectMetaArgs{
+						Labels: pulumi.StringMap(appLabels),
+					},
+					Spec: &corev1.PodSpecArgs{
+						Containers: corev1.ContainerArray{
+							&corev1.ContainerArgs{
+								Name:  pulumi.String("nginx"),
+								Image: pulumi.String("nginx"),
+							},
+						},
+					},
+				},
 			},
 		})
 		if err != nil {
 			return err
 		}
-
-		// Deploy the K8s nginx-ingress Helm chart into the created namespace.
-		_, err = helm.NewChart(ctx, "nginx-ingress", helm.ChartArgs{
-			Chart: pulumi.String("nginx-ingress"),
-			Namespace: ns.Metadata.ApplyT(func(metadata interface{}) string {
-				return *metadata.(*metav1.ObjectMeta).Name
-			}).(pulumi.StringOutput),
-			FetchArgs: helm.FetchArgs{
-				Repo: pulumi.String("https://charts.helm.sh/stable/"),
-			},
-		})
-		if err != nil {
-			return err
-		}
-
+		ctx.Export("name", deployment.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (string, error) {
+			return metadata.Name, nil
+		}).(pulumi.StringOutput))
 		return nil
 	})
 }

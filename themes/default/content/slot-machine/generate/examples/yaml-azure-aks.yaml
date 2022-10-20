@@ -1,0 +1,14 @@
+name: azure-aks
+description: An AKS cluster
+runtime: yaml
+resources:
+  managedCluster:
+    type: aks:Cluster
+    properties:
+      nodesPerZone: 3
+      location: WestUS
+      version: 1.24.3
+
+outputs:
+  clusterName: ${managedCluster.name}
+  kubeconfig: ${managedCluster.kubeconfig}

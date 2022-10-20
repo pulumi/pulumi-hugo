@@ -1,0 +1,14 @@
+name: gcp-gke
+description: A GKE cluster
+runtime: yaml
+resources:
+  gke-cluster:
+    type: gke:Cluster
+    properties:
+      nodesPerZone: 3
+      location: us-west1
+      version: 1.24.3
+
+outputs:
+  clusterName: ${gke-cluster.name}
+  kubeconfig: ${gke-cluster.kubeconfig}

@@ -1,0 +1,12 @@
+name: convert
+runtime: yaml
+description: A Wordpress Helm Chart on Kubernetes
+
+resources:
+  wordpress:
+    type: kubernetes:helm.sh/v3:Release
+    properties:
+      version: 15.0.5
+      chart: wordpress
+      repositoryOpts:
+        repo: https://charts.bitnami.com/bitnami

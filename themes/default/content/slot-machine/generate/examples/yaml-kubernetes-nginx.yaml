@@ -1,0 +1,26 @@
+name: convert
+runtime: yaml
+description: An nginx Deployment on Kubernetes
+
+variables:
+  appLabels:
+    app: nginx
+
+resources:
+  deployment:
+    type: kubernetes:apps/v1:Deployment
+    properties:
+      spec:
+        selector:
+          matchLabels: ${appLabels}
+        replicas: 1
+        template:
+          metadata:
+            labels: ${appLabels}
+          spec:
+            containers:
+              - name: nginx
+                image: nginx
+
+outputs:
+  name: ${deployment.metadata.name}
