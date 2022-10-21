@@ -38,7 +38,7 @@ To transfer a stack from your individual account to an organization, navigate to
 
 From there, select the Settings tab, and you'll see a Transfer Stack button. You can select the organization you wish to transfer to from there.
 
-To learn more about this process, see [Transferring Stacks]((/docs/intro/pulumi-service/projects-and-stacks#transferring-stacks)).
+To learn more about this process, see [Transferring Stacks](/docs/intro/pulumi-service/projects-and-stacks#transferring-stacks).
 
 ## Pulumi Service
 

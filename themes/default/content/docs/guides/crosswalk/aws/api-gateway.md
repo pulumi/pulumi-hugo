@@ -76,7 +76,7 @@ The path can be parameterized to match specific patterns:
 - A parameterized pattern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
 - A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
 
-For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation](lambda).
+For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation](/docs/guides/crosswalk/aws/lambda).
 
 {{< chooser language "typescript,python,go" / >}}
 

@@ -8,9 +8,9 @@ meta_desc: "Use Pulumi AWS, Azure, and GCP libraries to provision and manage inf
 ---
 
 If you've been following the blog, you know that Pulumi is great for
-building [serverless applications](code-deploy-and-manage-a-serverless-rest-api-on-aws-with-pulumi),
-[container-based applications](deploying-production-ready-containers-with-pulumi),
-and a [combination of the two](build-a-video-thumbnailer-with-pulumi-using-lambdas-containers-and-infrastructure-on-aws).
+building [serverless applications](/blog/code-deploy-and-manage-a-serverless-rest-api-on-aws-with-pulumi),
+[container-based applications](/blog/deploying-production-ready-containers-with-pulumi),
+and a [combination of the two](/blog/build-a-video-thumbnailer-with-pulumi-using-lambdas-containers-and-infrastructure-on-aws).
 But, did you know that you can manage any cloud resource in AWS, Azure, or Google Cloud Platform?
 <!--more-->
 

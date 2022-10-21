@@ -9,9 +9,9 @@ tags: ["Kubernetes"]
 ---
 
 *This post is part 3 in a series on the Kubernetes API. Earlier,
-[Part 1](kubespy-and-the-lifecycle-of-a-kubernetes-pod-in-four-images)
+[Part 1](/blog/kubespy-and-the-lifecycle-of-a-kubernetes-pod-in-four-images)
 focused on the lifecycle of a `Pod` and
-[Part 2](kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service)
+[Part 2](/blog/kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service)
 focused on the lifecycle of a `Service`.*
 
 What is happening when a `Deployment` rolls out a change to your app?

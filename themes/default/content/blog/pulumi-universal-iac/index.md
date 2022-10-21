@@ -41,7 +41,7 @@ Pulumi now supports Java (in addition to existing support for TypeScript, Python
 
 You can get started with Pulumi using Java today in the [Pulumi Getting Started guide](/docs/get-started) and the [Pulumi and Java language docs](/docs/intro/languages/java).
 
-👉 Read more in the [Pulumi and Java](./announcing-infrastructure-as-code-with-java-and-pulumi) blog post.
+👉 Read more in the [Pulumi and Java](/blog/announcing-infrastructure-as-code-with-java-and-pulumi) blog post.
 
 ## Pulumi YAML
 
@@ -85,7 +85,7 @@ Access to Pulumi packages authored in other Pulumi languages means complexity ca
 
 You can get started with Pulumi YAML today in the [Pulumi Getting Started](/docs/get-started) guide and the [Pulumi YAML language docs](/docs/intro/languages/yaml).
 
-👉 Read more in the [Pulumi YAML blog post](./pulumi-yaml).
+👉 Read more in the [Pulumi YAML blog post](/blog/pulumi-yaml).
 
 ## Crosswalk for AWS in All Pulumi Languages
 
@@ -276,7 +276,7 @@ outputs:
 
 You can get started with Crosswalk for AWS in the [Pulumi Crosswalk for AWS Guides](/docs/guides/crosswalk/aws), now available with examples in all languages.
 
-👉 Read more in the [Pulumi Crosswalk for AWS support for all Pulumi Languages](./crosswalk-for-aws-all-languages)  blog post.
+👉 Read more in the [Pulumi Crosswalk for AWS support for all Pulumi Languages](/blog/crosswalk-for-aws-all-languages)  blog post.
 
 ## AWS CDK on Pulumi
 
@@ -361,7 +361,7 @@ Duration: 48s
 
 [AWS CDK on Pulumi](https://github.com/pulumi/pulumi-cdk) is available for TypeScript today in public preview.
 
-👉 Read more in the [AWS CDK on Pulumi](./aws-cdk-on-pulumi) blog post.
+👉 Read more in the [AWS CDK on Pulumi](/blog/aws-cdk-on-pulumi) blog post.
 
 ## New Cloud and SaaS Providers
 
@@ -403,7 +403,7 @@ const webhook = new pulumiservice.Webhook("webhook", {
 
 ![Webhooks in the Pulumi Service](webhooks.png)
 
-👉 Read more in the [Pulumi Provider for the Pulumi Service](./announcing-pulumi-service-provider) blog post.
+👉 Read more in the [Pulumi Provider for the Pulumi Service](/blog/announcing-pulumi-service-provider) blog post.
 
 ## Pulumi CrossCode
 
@@ -427,10 +427,10 @@ With support for more than 80 cloud and SaaS providers, Pulumi can be used acros
 
 To learn more about each of the new features - check out these blog posts with more details:
 
-* [Pulumi and Java](./announcing-infrastructure-as-code-with-java-and-pulumi)
-* [Pulumi YAML](./pulumi-yaml)
-* [Pulumi Crosswalk for AWS support for all Pulumi Languages](./crosswalk-for-aws-all-languages)
-* [AWS CDK on Pulumi](./aws-cdk-on-pulumi)
-* [Pulumi Provider for the Pulumi Service](./announcing-pulumi-service-provider)
+* [Pulumi and Java](/blog/announcing-infrastructure-as-code-with-java-and-pulumi)
+* [Pulumi YAML](/blog/pulumi-yaml)
+* [Pulumi Crosswalk for AWS support for all Pulumi Languages](/blog/crosswalk-for-aws-all-languages)
+* [AWS CDK on Pulumi](/blog/aws-cdk-on-pulumi)
+* [Pulumi Provider for the Pulumi Service](/blog/announcing-pulumi-service-provider)
 
 We’re incredibly excited about today’s launches, but also see an amazing opportunity ahead to continue to drive new innovation in Infrastructure as Code and the future of Cloud Engineering. Can’t wait to see what you build!

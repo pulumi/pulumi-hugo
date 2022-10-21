@@ -11,9 +11,9 @@ We have been hard at work the past few months providing our users with
 more ways to connect to Pulumi. Here are some our past announcements
 related to identities:
 
-- [Support for Atlassian identity](pulumi-now-supports-atlassian-identity)
-- [Connecting multiple identities to an existing Pulumi account](connecting-multiple-identities-to-pulumi)
-- [Support for GitLab identity](welcoming-gitlab-users-to-pulumi)
+- [Support for Atlassian identity](/blog/pulumi-now-supports-atlassian-identity)
+- [Connecting multiple identities to an existing Pulumi account](/blog/connecting-multiple-identities-to-pulumi)
+- [Support for GitLab identity](/blog/welcoming-gitlab-users-to-pulumi)
 
 **Today**, we are pleased to announce that we are launching support for
 email-based identities. You no longer need to use a social identity to

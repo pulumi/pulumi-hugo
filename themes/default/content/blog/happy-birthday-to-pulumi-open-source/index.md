@@ -37,7 +37,7 @@ since launching:
 - [CI/CD integrations with GitHub, GitLab, Codefresh, CircleCI, major clouds, and more.](/docs/guides/continuous-delivery)
 - [Pluggable secrets management and transitive state encryption.](/blog/managing-secrets-with-pulumi)
 - [Pluggable state backends for AWS S3, Azure Blob Store, and Google Cloud Store.](/docs/intro/concepts/state)
-- [Tools for managing complex, multi-stack environments, including Terraform integration.](using-terraform-remote-state-with-pulumi)
+- [Tools for managing complex, multi-stack environments, including Terraform integration.](/blog/using-terraform-remote-state-with-pulumi)
 - Numerous engine reliability and performance improvements, including parallelism.
 - [75 blogs, increasingly focused on end to end solutions we see working with customers.](/blog)
 

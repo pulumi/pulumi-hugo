@@ -13,9 +13,9 @@ Atlassian identity. This also means you can connect your Atlassian
 identity with an existing Pulumi account.
 
 This work follows on from the support for
-[GitLab identity](welcoming-gitlab-users-to-pulumi)
+[GitLab identity](/blog/welcoming-gitlab-users-to-pulumi)
 and also the ability to
-[connect identities](connecting-multiple-identities-to-pulumi),
+[connect identities](/blog/connecting-multiple-identities-to-pulumi),
 eliminating the need for users to create multiple accounts on Pulumi.
 
 This helps users with repos across the major version control systems to

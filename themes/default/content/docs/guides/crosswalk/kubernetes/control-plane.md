@@ -180,8 +180,7 @@ By authenticating with the ServiceAccount using `gcloud`, as outlined in [Identi
 #### Worker Node Groups
 
 We configure the worker identities using `instanceRoles` in the cluster.
-Later on, when we [define the node groups](/docs/guides/crosswalk/kubernetes/worker-nodes), we'll use an [instance
-profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) of each group's role to allow them to join the
+Later on, when we [define the node groups](/docs/guides/crosswalk/kubernetes/worker-nodes), we'll use an [instance profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) of each group's role to allow them to join the
 cluster per the configuration below.
 
 ```typescript
@@ -754,8 +753,7 @@ general best-practices and recommendations to configure in the cluster.
   plane's actions, and for use in debugging and auditing.
 * (Optional) Configure private accessibility of the control plane /
   API Server endpoint to prevent it from being publicly exposed on the
-  Internet. To enable this feature, [additional
-  networking](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters) is required,
+  Internet. To enable this feature, [additional networking](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters) is required,
   and a [bastion host](https://cloud.google.com/nat/docs/gke-example) would be needed to access the control
   plane.
 

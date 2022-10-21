@@ -55,7 +55,7 @@ tbody tr td:first-child {
 |---------|-------------|------------|----------|
 | [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) | Manage TLS/SSL certificates | | [acm](/registry/packages/aws/api-docs/acm) |
 | [AWS Certificate Manager Private Certificate Authority](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) | Managed private CA service | | [acmpca](/registry/packages/aws/api-docs/acmpca) |
-| [Amazon API Gateway](https://aws.amazon.com/api-gateway/) | Secure, scalable APIs | [User Guide](api-gateway) | [apigateway](/registry/packages/aws/api-docs/apigateway) |
+| [Amazon API Gateway](https://aws.amazon.com/api-gateway/) | Secure, scalable APIs | [User Guide](/docs/guides/crosswalk/aws/api-gateway) | [apigateway](/registry/packages/aws/api-docs/apigateway) |
 | [AWS App Mesh](https://aws.amazon.com/app-mesh/) | App-level service networking | | [appmesh](/registry/packages/aws/api-docs/appmesh) |
 | [AWS AppSync](https://aws.amazon.com/app-mesh/) | Data-driven apps and APIs | | [appsync](/registry/packages/aws/api-docs/appsync) |
 | [Amazon Athena](https://aws.amazon.com/athena/) | Serverless queries over S3 | | [athena](/registry/packages/aws/api-docs/athena) |

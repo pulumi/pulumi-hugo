@@ -64,7 +64,7 @@ The following are the core environment variables that are required at a minimum.
 | Variable Name | Description |
 | ------------- | ----------- |
 | RECAPTCHA_SITE_KEY | Used for password reset requests by users. [Create a new reCaptcha v2](https://www.google.com/recaptcha/admin). |
-| SAML_SSO_ENABLED | Default is `false`. Set to `true` to enable the SAML SSO signin/signup option. Before enabling, make sure you have completed the steps in the [Enabling SAML SSO](saml-sso) guide. |
+| SAML_SSO_ENABLED | Default is `false`. Set to `true` to enable the SAML SSO signin/signup option. Before enabling, make sure you have completed the steps in the [Enabling SAML SSO](/docs/guides/self-hosted/saml-sso) guide. |
 
 ### GitHub OAuth
 

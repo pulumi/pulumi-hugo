@@ -170,6 +170,6 @@ The goal of this article is to provide an overview of the Kubernetes Networking 
 Each article in this series is intended to be independent of each other. However, we build upon concepts introduced in previous articles. If some concepts or terminology are unfamiliar, I encourage reading the earlier articles:
 
 - [Building a Kubernetes cluster on cloud providers](/blog/getting-started-with-k8s-part1)
-- [Basic application deployment](blog/getting-started-with-k8s-part2)
+- [Basic application deployment](/blog/getting-started-with-k8s-part2)
 - [Advance application deployment and Helm charts](/blog/getting-started-with-k8s-part3)
 - [Stateful applications](/blog/getting-started-with-k8s-part4)

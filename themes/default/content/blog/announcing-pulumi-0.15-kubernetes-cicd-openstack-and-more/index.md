@@ -262,8 +262,7 @@ infrastructure changes.
 
 The Pulumi GitHub App is still in preview as we work to support more CI
 systems and extend its capabilities. For information on how to install
-it and configure it with your CI system, please [read the
-documentation](/docs/guides/continuous-delivery/github-app).
+it and configure it with your CI system, please [read the documentation](/docs/guides/continuous-delivery/github-app).
 
 ## Summary
 

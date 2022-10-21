@@ -25,8 +25,7 @@ however, Pulumi also supports encrypting specific values as "secrets" for extra
 protection. Encryption ensures that these values never appear as plain-text in
 your state file. By default, the encryption method uses automatic, per-stack
 encryption keys provided by the Pulumi Service or you can use a
-[provider of your own
-choosing](/docs/intro/concepts/secrets#configuring-secrets-encryption)
+[provider of your own choosing](/docs/intro/concepts/secrets#configuring-secrets-encryption)
 instead.
 
 To encrypt a configuration setting before runtime, you can use the CLI command

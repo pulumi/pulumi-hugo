@@ -43,8 +43,7 @@ pricing made it difficult to plan and budget for future growth, and that
 it unintentionally penalized certain architectural decisions. The new
 per user model should be more affordable and predictable.
 
-Here is a summary of the resulting options. For full details, [view our
-pricing page](/pricing).
+Here is a summary of the resulting options. For full details, [view our pricing page](/pricing).
 
 <style>
 /* Just use CSS rather than whatever customization the Markdown processor exposes. */

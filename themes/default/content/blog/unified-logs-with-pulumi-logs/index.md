@@ -8,7 +8,7 @@ meta_image: "terminal-logs.png"
 ---
 
 Pulumi makes developing and deploying
-[rich serverless and container-based applications](easy-serverless-apps-and-infrastructure-real-events-real-code)
+[rich serverless and container-based applications](/docs/easy-serverless-apps-and-infrastructure-real-events-real-code)
 a breeze. But how do you monitor and observe those applications while
 they are being developed and once they are deployed? There are many
 great answers: from the built-in capabilities of the underlying cloud

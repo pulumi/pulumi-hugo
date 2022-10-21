@@ -77,8 +77,7 @@ Identities and role definitions for organizations and CI/CD are required before 
 anything. This is a requirement for every production Kubernetes deployment.
 
 By isolating resources into loosely-coupled stacks, we
-can grant minimal permissions based on the [principle of least
-privilege][least-privileged].
+can grant minimal permissions based on the [principle of least privilege][least-privileged].
 
 The identity stack typically contains:
 

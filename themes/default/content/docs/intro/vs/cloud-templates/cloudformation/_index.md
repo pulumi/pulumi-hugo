@@ -113,7 +113,7 @@ To learn more about Pulumi's support for the cloud native ecosystem, see our whi
 
 Occasionally you may want to manage a third-party cloud or SaaS resource that isn't yet supported by Pulumi directly, and isn't covered by a community-supported package in the Pulumi Registry or elsewhere. With Dynamic Providers, you can write custom logic into your Pulumi program to extend the Pulumi resource model to include any local or remote resource that can be managed by way of standard `create`, `read`, `update`, and `delete` operations. Comparable functionality is possible with CloudFormation custom resources, but these require you to create and manage publicly accessible HTTP endpoints to handle deploy-time requests from the CloudFormation service.
 
-To learn more about Dynamic Providers and how to use them, see [Dynamic Providers](docs/intro/concepts/resources/dynamic-providers).
+To learn more about Dynamic Providers and how to use them, see [Dynamic Providers](/docs/intro/concepts/resources/dynamic-providers).
 
 ### OSS License {#license}
 

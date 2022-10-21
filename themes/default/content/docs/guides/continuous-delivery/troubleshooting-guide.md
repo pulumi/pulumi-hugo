@@ -71,8 +71,8 @@ beforehand using the `pulumi stack init` command and in the **appropriate organi
 Depending on the CI service, there may be a few ways to install the Pulumi CLI. The following CI systems have native extensions that provide
 an easy-to-use mechanism for installing and running the various `pulumi` commands.
 
-* [Azure Pipelines Task Extension](https://marketplace.visualstudio.com/items?itemName=pulumi.build-and-release-task) - [Azure Guide](azure-devops)
-* GitHub Actions - [JavaScript Action](https://github.com/pulumi/action-install-pulumi-cli), [Docker Action](https://github.com/pulumi/actions) - [GitHub Actions Guide](github-actions)
+* [Azure Pipelines Task Extension](https://marketplace.visualstudio.com/items?itemName=pulumi.build-and-release-task) - [Azure Guide](/docs/guides/continuous-delivery/azure-devops)
+* GitHub Actions - [JavaScript Action](https://github.com/pulumi/action-install-pulumi-cli), [Docker Action](https://github.com/pulumi/actions) - [GitHub Actions Guide](/docs/guides/continuous-delivery/github-actions)
 
 > Pulumi CLI is now pre-installed on GitHub Actions runners. However, if you need to install a specific version, you can always use one of the aforementioned actions.
 

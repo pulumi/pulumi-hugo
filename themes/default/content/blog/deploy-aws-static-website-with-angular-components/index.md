@@ -110,7 +110,7 @@ Along with making it simple to deploy your site, Pulumi also makes it easy to pe
 
 If you want to learn more about Pulumi and the AWS Static Website component, here are a few links you might find interesting:
 
-* Along with the [Deploy Static Websites to AWS using 10 lines of YAML](/blog/deploy-aws-static-website-with-yaml) blog post, take a look at the [AWS Static Website reference page](registry/packages/aws-static-website).
+* Along with the [Deploy Static Websites to AWS using 10 lines of YAML](/blog/deploy-aws-static-website-with-yaml) blog post, take a look at the [AWS Static Website reference page](/registry/packages/aws-static-website).
 * If you want to learn about other Pulumi components, the [registry](/registry) page catalogs them all.
 * If you want to view more examples of how to use Pulumi, go to the Pulumi [examples](https://github.com/pulumi/examples) repo.
 * If you want to delve deeper into Pulumi, the [Getting Started](/docs/get-started) guide is a good first step.

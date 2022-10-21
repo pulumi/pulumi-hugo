@@ -187,7 +187,7 @@ Let's say you want to migrate from ARM to Pulumi and that simply co-existing sid
 
 Let's see how to actually migrate your ARM-managed resources fully to Pulumi. This requires rewriting the ARM template JSON as your favorite programming language code, either entirely, or one resource at a time. Because you can query deployment outputs and provide parameters in code, you can more easily intermingle ARM-managed resources alongside Pulumi ones. Cyclic dependencies, of course, cannot be expressed, since the entire ARM deployment is seen as one opaque resource to Pulumi.
 
-Our example below will result in a Pulumi program that creates a Storage Account equivalent to the above ARM template example. The example will also use [import](import) to adopt resources on-the-fly from ARM deployments to Pulumi rather than recreating them.
+Our example below will result in a Pulumi program that creates a Storage Account equivalent to the above ARM template example. The example will also use [import](/docs/guides/adopting/import) to adopt resources on-the-fly from ARM deployments to Pulumi rather than recreating them.
 
 ### Generate Code with Arm2Pulumi
 

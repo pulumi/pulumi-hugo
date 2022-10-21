@@ -99,8 +99,8 @@ Child resources inherit default values for many other resource options from thei
 
 * [`provider`](provider):  The provider instance used to construct a resource is inherited from it's parent, unless explicitly overridden by the child resource. The parent itself may have inherited the global [default provider](../providers/#default-provider-configuration) if no resource in the parent chain specified a provider instance for the corresponding provider type.
 
-* [`aliases`](aliases):  Aliases applied to a parent are applied to all child resources, so that changing the type of a parent resource correctly changes the qualified type of a child resource, and changing the name of a parent resource correctly changes the name prefix of child resources.
+* [`aliases`](/docs/intro/concepts/resources/options/aliases):  Aliases applied to a parent are applied to all child resources, so that changing the type of a parent resource correctly changes the qualified type of a child resource, and changing the name of a parent resource correctly changes the name prefix of child resources.
 
-* [`protect`](protect):  A protected parent will protect all children.  This ensures that if a parent is marked as protected, none of it's children will be deleted ahead of the attempt to delete the parent failing.
+* [`protect`](/docs/intro/concepts/resources/options/protect):  A protected parent will protect all children.  This ensures that if a parent is marked as protected, none of it's children will be deleted ahead of the attempt to delete the parent failing.
 
 * [`transformations`](transformations):  Transformations applied to a parent will run on the parent and on all child resources. This allows a transformation to be applied to a component to intercept and modify any resources created by it's children. As a special case, [Stack transformations](transformations#stack-transformations) will be applied to *all* resources (since all resources ultimately are parented directly or indirectly by the root stack resource).

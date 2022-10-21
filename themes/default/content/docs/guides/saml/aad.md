@@ -17,7 +17,7 @@ This guide walks you through configuring your Azure Active Directory (Azure AD) 
 
 ## Prerequisites
 
-- [Single Sign-On](sso)
+- [Single Sign-On](/docs/guides/saml/sso)
 
 ## Configuring Azure AD
 

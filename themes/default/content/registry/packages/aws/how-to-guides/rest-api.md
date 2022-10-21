@@ -124,6 +124,6 @@ In this tutorial, we showed you the following:
 
 ## Next Steps
 
-- [EC2 Linux WebServer](ec2-webserver)
-- [Containers on ECS Fargate](ecs-fargate)
-- [Serve a Static Website from S3](s3-website)
+- [EC2 Linux WebServer](/registry/packages/aws/how-to-guides/ec2-webserver)
+- [Containers on ECS Fargate](/registry/packages/aws/how-to-guides/ecs-fargate)
+- [Serve a Static Website from S3](/registry/packages/aws/how-to-guides/s3-website)

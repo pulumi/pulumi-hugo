@@ -19,9 +19,9 @@ For AWS-specific use cases, see also the [awsx](/docs/reference/pkg/nodejs/pulum
 
 The easiest way to start with the Cloud Framework is to follow one of the tutorials:
 
-* [A simple serverless REST API](rest-api): Deploy cloud-agnostic managed REST API
-* [A simple containerized app](service): Deploy cloud-agnostic containerized services
-* [Serverless + Containers + Infrastructure](thumbnailer): Deploy a complete cloud-agnostic application using a combination of buckets, serverless functions and containers.
+* [A simple serverless REST API](/docs/tutorials/cloudfx/rest-api): Deploy cloud-agnostic managed REST API
+* [A simple containerized app](/docs/tutorials/cloudfx/service): Deploy cloud-agnostic containerized services
+* [Serverless + Containers + Infrastructure](/docs/tutorials/cloudfx/thumbnailer): Deploy a complete cloud-agnostic application using a combination of buckets, serverless functions and containers.
 
 In addition to the tutorials, several interesting examples are available with instructions:
 

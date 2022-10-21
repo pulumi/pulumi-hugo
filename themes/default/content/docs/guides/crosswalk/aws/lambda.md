@@ -33,7 +33,7 @@ configuration of the associated AWS resources. This lets you focus on your appli
 worry about boilerplate, and with confidence that the resulting infrastructure automatically uses AWS best practices.
 
 With Pulumi Crosswalk for AWS, event sources are available on all native resource types, including AWS S3, SQS,
-DynamoDB, CloudWatch, Kinesis, and more, in addition to full support for [API Gateway](api-gateway).
+DynamoDB, CloudWatch, Kinesis, and more, in addition to full support for [API Gateway](/docs/guides/crosswalk/aws/api-gateway).
 This improves discoverability of event sources in addition to adding strong typing to the event handler
 inputs and outputs that AWS Lambda will deliver to your code.
 

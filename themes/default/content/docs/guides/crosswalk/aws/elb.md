@@ -23,8 +23,8 @@ Availability Zones.
 ## Overview
 
 Pulumi Crosswalk for AWS ELB provides easy APIs for provisioning Application and Network Load Balancers, and
-integrates with functionality for other services, including [API Gateway](api-gateway),
-[Elastic Container Service (ECS)](ecs), [Lambda](lambda), and [VPC](vpc), to provide
+integrates with functionality for other services, including [API Gateway](/docs/guides/crosswalk/aws/api-gateway),
+[Elastic Container Service (ECS)](/docs/guides/crosswalk/aws/ecs), [Lambda](/docs/guides/crosswalk/aws/lambda), and [VPC](/docs/guides/crosswalk/aws/vpc), to provide
 configurable network accessibility to the different kinds of compute you will run inside of AWS.
 
 Elastic Load Balancing offers multiple types of load balancers that all feature the high availability, automatic

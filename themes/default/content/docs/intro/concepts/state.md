@@ -13,7 +13,7 @@ menu:
 aliases: ["/docs/reference/state/"]
 ---
 
-Pulumi stores metadata about your infrastructure so that it can manage your cloud resources. This metadata is called _state_. Each [stack](stack) has its own state, and state is how Pulumi knows when and how to create, read, delete, or update cloud resources.
+Pulumi stores metadata about your infrastructure so that it can manage your cloud resources. This metadata is called _state_. Each [stack](/docs/intro/concepts/stack) has its own state, and state is how Pulumi knows when and how to create, read, delete, or update cloud resources.
 
 Pulumi stores state in a _backend_ of your choosing. A backend is an API and storage endpoint used by the CLI to coordinate updates, and read and write stack state whenever appropriate. Backend options include the Pulumi Service, an easy-to-use, secure, and reliable hosted application with policies and safeguards to facilitate team collaboration, in addition to simple object storage in AWS S3, Microsoft Azure Blob Storage, Google Cloud Storage, any AWS S3 compatible server such as Minio or Ceph, or a local filesystem.
 

@@ -27,12 +27,12 @@ languages and your favorite tools. It's simply
 
 Pulumi can seamlessly manage multiple layers of your stack, from the raw
 infrastructure to Kubernetes resources, and all the way up to
-[serverless app](simple-serverless-programming-with-google-cloud-functions-and-pulumi)
+[serverless app](/blog/simple-serverless-programming-with-google-cloud-functions-and-pulumi)
 code. Rather than gluing together yet another set of tools, you can
-[create managed Kubernetes clusters](program-kubernetes-with-11-cloud-native-pulumi-pearls)
+[create managed Kubernetes clusters](/blog/program-kubernetes-with-11-cloud-native-pulumi-pearls)
 with [GKE](https://github.com/pulumi/examples/tree/master/gcp-ts-gke),
-[EKS](easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi) or
-[AKS](create-aks-clusters-with-monitoring-and-logging-with-pulumi-azure-open-source-sdks)
+[EKS](/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi) or
+[AKS](/blog/create-aks-clusters-with-monitoring-and-logging-with-pulumi-azure-open-source-sdks)
 and then reference them directly in your Pulumi code!
 
 ![Create an EKS cluster](./creating-an-eks-cluster.png)

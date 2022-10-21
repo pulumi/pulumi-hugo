@@ -131,8 +131,7 @@ those users will lose access to Pulumi organization.
 
 To add a Bitbucket-backed organization to Pulumi, an admin of the Atlassian
 Bitbucket workspace
-must first grant the Pulumi Oauth app [read
-access](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html#OAuthonBitbucketCloud-Scopes)
+must first grant the Pulumi Oauth app [read access](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html#OAuthonBitbucketCloud-Scopes)
 to their Bitbucket account and workspace membership information.
 
 Once the Pulumi organization has been created, the admin can see a list of Bitbucket workspace

@@ -19,8 +19,7 @@ preventing you from being productive, you've come to the right place.
 community of users, are there to help. Any and all questions are welcome!
 
 We also encourage everyone to contribute to the [Pulumi open source
-projects](https://github.com/pulumi) by [opening new
-issues](https://github.com/pulumi/pulumi/issues/new) and upvoting existing issues.
+projects](https://github.com/pulumi) by [opening new issues](https://github.com/pulumi/pulumi/issues/new) and upvoting existing issues.
 
 Or email our support team: [support@pulumi.com](mailto:support@pulumi.com).
 

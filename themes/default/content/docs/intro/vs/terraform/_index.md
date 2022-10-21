@@ -164,7 +164,7 @@ Pulumi supports the cloud native ecosystem. This includes a native Kubernetes pr
 
 ### Dynamic Provider Support {#dynamic-providers}
 
-Pulumi provides dynamic providers that allow you to extend your system by creating new kinds of custom resources by directly coding CRUD operations for the new resource in your Pulumi program. This can be used to support new resource types in addition to performing complex integrations like database migrations, configuration management for virtual machines, and more, all orchestrated alongside your IaC workflows. Terraform does not have a direct equivalent to Dynamic Providers and would require writing complex and proprietary modules in order to build custom resources with CRUD operations. To learn more, see [Dynamic Providers](docs/intro/concepts/resources/dynamic-providers).
+Pulumi provides dynamic providers that allow you to extend your system by creating new kinds of custom resources by directly coding CRUD operations for the new resource in your Pulumi program. This can be used to support new resource types in addition to performing complex integrations like database migrations, configuration management for virtual machines, and more, all orchestrated alongside your IaC workflows. Terraform does not have a direct equivalent to Dynamic Providers and would require writing complex and proprietary modules in order to build custom resources with CRUD operations. To learn more, see [Dynamic Providers](/docs/intro/concepts/resources/dynamic-providers).
 
 ### OSS License {#license}
 

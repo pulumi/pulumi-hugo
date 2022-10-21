@@ -29,8 +29,8 @@ This functionality is currently only available in TypeScript and as part of the 
 ## Overview
 
 Pulumi Crosswalk for AWS enables easy definition of Auto Scaling Groups (ASGs) to configure scaling of EC2
-instances, for either VM or container workloads using ECS. Using this, combined with [Pulumi Crosswalk for AWS's
-support for Amazon CloudWatch](cloudwatch), you can create powerful scaling policies that
+instances, for either VM or container workloads using ECS. Using this, combined with [Pulumi Crosswalk for AWS's support for Amazon CloudWatch](/docs/guides/crosswalk/aws/cloudwatch),
+you can create powerful scaling policies that
 meet your performance and scaling needs, while also maximizing cost effectiveness.
 
 ## Creating and Configuring Auto Scaling Groups

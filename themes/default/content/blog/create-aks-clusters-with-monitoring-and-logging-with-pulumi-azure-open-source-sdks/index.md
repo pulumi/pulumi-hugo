@@ -190,4 +190,4 @@ For more examples visit our [GitHub examples](https://github.com/pulumi/examples
 
 If you want to additionally look at how to integrate Azure DevOps with
 Pulumi, check out our other post
-[CI/CD made easy with Pulumi and Azure Pipelines](cd-made-easy-with-pulumi-and-azure-pipelines).
+[CI/CD made easy with Pulumi and Azure Pipelines](/blog/cd-made-easy-with-pulumi-and-azure-pipelines).

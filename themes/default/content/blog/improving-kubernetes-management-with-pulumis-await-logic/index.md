@@ -25,10 +25,10 @@ deployed or created.
 <!--more-->
 
 We've
-[**previously talked about**](kubespy-and-the-lifecycle-of-a-kubernetes-pod-in-four-images)
-how Pulumi [**tracks the status**](kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service)
+[**previously talked about**](/blog/kubespy-and-the-lifecycle-of-a-kubernetes-pod-in-four-images)
+how Pulumi [**tracks the status**](/blog/kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service)
 of Kubernetes resources to provide fine-grained status messages for both
-your [**infrastructure and applications**](how-do-kubernetes-deployments-work-an-adversarial-perspective).
+your [**infrastructure and applications**](/blog/how-do-kubernetes-deployments-work-an-adversarial-perspective).
 Pulumi [**uses a resource graph**](/docs/intro/concepts/how-pulumi-works)
 for orchestration, dependency management, differential updates, and
 cascading rollouts.

@@ -23,7 +23,7 @@ only JavaScript', we're not kidding:
 Pulumi also supports containers (including Kubernetes), managed
 services, infrastructure and everything else in between that you might
 need for building cloud applications. Better than that, you can even
-[combine them all in the same program](build-a-video-thumbnailer-with-pulumi-using-lambdas-containers-and-infrastructure-on-aws).
+[combine them all in the same program](/blog/build-a-video-thumbnailer-with-pulumi-using-lambdas-containers-and-infrastructure-on-aws).
 <!--more-->
 
 ## Our first serverless app in 5 lines of JavaScript

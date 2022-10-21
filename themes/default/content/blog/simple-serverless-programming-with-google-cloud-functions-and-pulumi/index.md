@@ -166,8 +166,7 @@ takes care of that you would normally be responsible for. This includes:
 7. Including the right information in the function so you can interact
     with your other cloud resources in the Pulumi App. Without this, you
     would need to find a way to include that data in each Cloud
-    Function's [environment
-    variables](https://cloud.google.com/functions/docs/env-var) (or just
+    Function's [environment variables](https://cloud.google.com/functions/docs/env-var) (or just
     hardcode them in '1') so that your program can access the rest of
     your cloud infrastructure. In the above example, you can see how you
     can just reference your resources directly (like the PubSub Topic)
@@ -234,6 +233,6 @@ PS: If you're interested in how Pulumi manages to take a
 JavaScript/TypeScript `=>` function and somehow analyze and transform it
 into a form that Cloud Functions can use, please see our deep dive on
 this topic in:
-[**Lambdas as Lambdas: The magic of simple serverless Functions**](lambdas-as-lambdas-the-magic-of-simple-serverless-functions).
+[**Lambdas as Lambdas: The magic of simple serverless Functions**](/blog/lambdas-as-lambdas-the-magic-of-simple-serverless-functions).
 We're leveraging the same great programming language and analysis
 framework to power our GCP solution here.

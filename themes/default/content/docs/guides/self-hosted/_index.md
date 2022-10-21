@@ -38,11 +38,11 @@ Here are some examples of deployment topologies:
 
 ## Deployment Options
 
-The Pulumi Service [Docker container images](components) can be run using any OCI-compatible container orchestrator.
+The Pulumi Service [Docker container images](/docs/guides/self-hosted/components) can be run using any OCI-compatible container orchestrator.
 
 However, Pulumi provides [installers](https://github.com/pulumi/pulumi-self-hosted-installers) to support common deployment environments:
 
-* [Quickstart Docker Compose Install](quickstart-docker-compose): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local Docker environment.
+* [Quickstart Docker Compose Install](/docs/guides/self-hosted/quickstart-docker-compose): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local Docker environment.
 * [ECS-Hosted Install](ecs-hosted): Using a Pulumi-provided set of Pulumi programs written in TypeScript or Go, one can automate the deployment and maintenance of a production-grade self-hosted solution.
 * [EKS-Hosted Install](eks-hosted): Using a Pulumi-provided set of Pulumi programs written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution running on Amazon Elastic Kubernetes Sevice (EKS). This solution most closely matches the managed service deployment model.
 * [AKS-Hosted Install](aks-hosted): Using a Pulumi-provided set of Pulumi programs written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution on Azure Kubernetes Service (AKS).

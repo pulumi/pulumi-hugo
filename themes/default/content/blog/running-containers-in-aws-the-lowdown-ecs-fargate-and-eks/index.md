@@ -226,4 +226,4 @@ on specific topics:
 - [Getting Started with ECR](/docs/guides/crosswalk/aws/ecr)
     - [Using ECR from ECS Fargate or EC2](/docs/guides/crosswalk/aws/ecs#building-and-publishing-docker-images-automatically)
     - [Using ECR from EKS](/docs/guides/crosswalk/aws/eks#using-an-ecr-container-image-from-an-eks-kubernetes-deployment)
-    - [Building and Publishing Docker Images to a Private Amazon ECR Repository](building-and-publishing-docker-images-to-a-private-amazon-ecr-repository)
+    - [Building and Publishing Docker Images to a Private Amazon ECR Repository](/blog/building-and-publishing-docker-images-to-a-private-amazon-ecr-repository)

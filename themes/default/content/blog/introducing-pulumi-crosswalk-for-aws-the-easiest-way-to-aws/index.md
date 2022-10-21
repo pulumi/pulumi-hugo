@@ -304,8 +304,8 @@ Crosswalk for AWS is free and open source, and you can [get started today](/cros
 For more on Crosswalk for AWS see:
 
 - [Pulumi Crosswalk for AWS documentation](/crosswalk/aws)
-- [Get Started with Docker on AWS Fargate using Pulumi](get-started-with-docker-on-aws-fargate-using-pulumi)
-- [Easy Serverless Apps and Infrastructure -- Real Events, Real Code](easy-serverless-apps-and-infrastructure-real-events-real-code)
-- [Easily Create and Manage AWS EKS Kubernetes Clusters with Pulumi](easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi)
-- [Serving a Static Website on AWS with Pulumi](serving-a-static-website-on-aws-with-pulumi)
-- [IoT as Code with MapBox and Pulumi](mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
+- [Get Started with Docker on AWS Fargate using Pulumi](/blog/get-started-with-docker-on-aws-fargate-using-pulumi)
+- [Easy Serverless Apps and Infrastructure -- Real Events, Real Code](/blog/easy-serverless-apps-and-infrastructure-real-events-real-code)
+- [Easily Create and Manage AWS EKS Kubernetes Clusters with Pulumi](/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi)
+- [Serving a Static Website on AWS with Pulumi](/blog/serving-a-static-website-on-aws-with-pulumi)
+- [IoT as Code with MapBox and Pulumi](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)

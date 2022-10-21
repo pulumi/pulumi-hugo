@@ -23,7 +23,7 @@ about scaling the underlying infrastructure, while hosting your images in a high
 ## Overview
 
 Pulumi Crosswalk for AWS ECR makes the provisioning of new ECR repositories as simple as one line of code,
-integrates with Pulumi Crosswalk for AWS [ECS](ecs) and [EKS](eks) to ease
+integrates with Pulumi Crosswalk for AWS [ECS](/docs/guides/crosswalk/aws/ecs) and [EKS](/docs/guides/crosswalk/aws/eks) to ease
 deployment of new application containers to your ECS, "Fargate", and/or Kubernetes clusters, and even supports
 building and deploying Docker images from your developer desktop or CI/CD workflows.
 

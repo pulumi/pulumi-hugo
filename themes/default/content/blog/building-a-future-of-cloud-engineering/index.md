@@ -29,11 +29,9 @@ marrying it with all the amazing innovation in cloud containers,
 orchestrators, managed data and AI services, and serverless
 capabilities.
 
-The best part of this journey has been hearing from our [passionate
-community](https://slack.pulumi.com/). Thousands of engineers, and
+The best part of this journey has been hearing from our [passionate community](https://slack.pulumi.com/). Thousands of engineers, and
 hundreds of companies, have created and deployed cloud applications and
-infrastructure using Pulumi. We are proud to be [an open source
-company](https://github.com/pulumi/pulumi), and thrive on the daily
+infrastructure using Pulumi. We are proud to be [an open source company](https://github.com/pulumi/pulumi), and thrive on the daily
 collaboration and evolution of the platform.
 
 And we're just getting started! Today we are thrilled to announce that

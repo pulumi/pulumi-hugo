@@ -63,7 +63,7 @@ Pulumi Crosswalk for AWS supports configuring CloudWatch logging in the followin
 
 * _Forwarding to Log Groups_: From any of the supported services, a CloudWatch log group may be supplied to configure
   said service to forward logs to that log group. Many services support doing so. For example,
-  [ECS tasks and services](ecs) offer a `logGroup` property that, when set, forwards all logs
+  [ECS tasks and services](/docs/guides/crosswalk/aws/ecs) offer a `logGroup` property that, when set, forwards all logs
   from your container instances.
 
 * _Automatic Smart Defaults_: In many cases, using Pulumi Crosswalk for AWS uses smart defaults for whatever service

@@ -61,7 +61,7 @@ As part of creating or updating infrastructure, it is often necessary to run scr
 This new package is supported in all Pulumi languages.
 
 The Command package supports quite a few common patterns involving local and remote scripts execution, such as:
-- [A simple local resource (random)](registry/packages/command#a-simple-local-resource-random)
+- [A simple local resource (random)](/registry/packages/command#a-simple-local-resource-random)
 - [Remote provisioning of an EC2 instance](/registry/packages/command#remote-provisioning-of-an-ec2-instance)
 - [Invoking a Lambda during a Pulumi deployment](/registry/packages/command#invoking-a-lambda-during-pulumi-deployment)
 - [Using local.Command with curl to manage an external REST API](/registry/packages/command#using-localcommand-with-curl-to-manage-external-rest-api)

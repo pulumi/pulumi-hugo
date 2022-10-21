@@ -159,9 +159,9 @@ outputs:
   bucketEndpoint: http://${my-bucket.websiteEndpoint}
 ```
 
-Finally, we have an output. This is a value handed to you by Pulumi, after the completion of any work required on behalf of relevant resources. If you're familar with Javascript, you can think of it sort of like a promise. In this case, we're asking for the URL our document will be visible at.
+Finally, we have an output. This is a value handed to you by Pulumi, after the completion of any work required on behalf of relevant resources. If you're familiar with Javascript, you can think of it sort of like a promise. In this case, we're asking for the URL our document will be visible at.
 
-Defining infrastructure doesn't get much simpler than that! [Try it yourself]((/docs/intro/languages/yaml)) and get started with any major cloud provider in a snap.
+Defining infrastructure doesn't get much simpler than that! [Try it yourself](/docs/intro/languages/yaml) and get started with any major cloud provider in a snap.
 
 ## Pulumi Corporation
 

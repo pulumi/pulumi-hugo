@@ -9,7 +9,7 @@ tags: ["Serverless", "Azure"]
 ---
 
 Pulumi is excellent at connecting multiple cloud components into a
-cohesive application. In my [previous post](serverless-as-simple-callbacks-with-pulumi-and-azure-functions),
+cohesive application. In my [previous post](/blog/serverless-as-simple-callbacks-with-pulumi-and-azure-functions),
 I introduced the way to mix JavaScript or TypeScript serverless
 functions directly into the cloud infrastructure programs.
 

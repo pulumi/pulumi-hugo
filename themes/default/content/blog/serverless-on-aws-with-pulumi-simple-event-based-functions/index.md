@@ -15,7 +15,7 @@ these languages, like flow control, inheritance, composition, and so on,
 provide the right abstractions to effectively build up infrastructure in
 a simple and familiar way.
 
-In a [previous post](lambdas-as-lambdas-the-magic-of-simple-serverless-functions)
+In a [previous post](/blog/lambdas-as-lambdas-the-magic-of-simple-serverless-functions)
 we focused on how Pulumi could allow you to simply create an AWS Lambda
 out of your own JavaScript function. While this was much easier than
 having to manually create a [Lambda Deployment Package](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html)

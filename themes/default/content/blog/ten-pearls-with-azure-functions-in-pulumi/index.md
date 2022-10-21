@@ -134,7 +134,7 @@ While mixing infrastructure and application code in the same file may seem count
 - Eliminate the need for boilerplate configuration like `host.json` and `function.json` files
 - Robust typing out-of-the-box: For instance, you can flawlessly "dot into" the `content` and `req` object above.
 
-You can read more about the motivation in [Serverless as Simple Callbacks with Pulumi and Azure Functions](serverless-as-simple-callbacks-with-pulumi-and-azure-functions).
+You can read more about the motivation in [Serverless as Simple Callbacks with Pulumi and Azure Functions](/blog/serverless-as-simple-callbacks-with-pulumi-and-azure-functions).
 
 The previous example deployed a Function App with a single Function. However, Azure supports applications with multiple Functions bundled together.
 

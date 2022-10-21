@@ -16,7 +16,7 @@ This guide walks you through configuring OneLogin as a SAML SSO identity provide
 
 ## Prerequisites
 
-- [Single Sign-On](sso)
+- [Single Sign-On](/docs/guides/saml/sso)
 
 ## Creating the OneLogin Application
 

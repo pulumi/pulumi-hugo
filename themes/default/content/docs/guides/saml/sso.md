@@ -17,10 +17,10 @@ with the [Pulumi Service](/docs/intro/pulumi-service).
 
 > For a specific example, refer to one of our integration guides:
 >
-> - [Azure Active Directory](aad)
-> - [Google Workspace](gsuite)
-> - [Okta](okta)
-> - [OneLogin](onelogin)
+> - [Azure Active Directory](/docs/guides/saml/aad)
+> - [Google Workspace](/docs/guides/saml/gsuite)
+> - [Okta](/docs/guides/saml/okta)
+> - [OneLogin](/docs/guides/saml/onelogin)
 
 ## Terminology
 

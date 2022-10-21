@@ -600,6 +600,6 @@ When you're ready, you can tear everything down with a `pulumi destroy`.
 
 Beyond just having a nifty (and admittedly rather silly) new way to tell time, you should have a much better sense at this point of how you can use Pulumi with Jest to write better, safer infrastructure code.
 
-From here, there's a bunch more you might think about next: writing more tests to cover the code we just added, [exploring some additional flavors of testing](docs/guides/testing/) in the docs, or [having a look at a few examples](https://github.com/pulumi/examples). You'll find the [full source for this walkthrough up on GitHub](https://github.com/cnunciato/pulumi-jest-unit-testing-example) as well.
+From here, there's a bunch more you might think about next: writing more tests to cover the code we just added, [exploring some additional flavors of testing](/docs/guides/testing/) in the docs, or [having a look at a few examples](https://github.com/pulumi/examples). You'll find the [full source for this walkthrough up on GitHub](https://github.com/cnunciato/pulumi-jest-unit-testing-example) as well.
 
 Happy testing!

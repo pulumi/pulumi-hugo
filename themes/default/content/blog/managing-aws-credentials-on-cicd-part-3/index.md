@@ -154,7 +154,7 @@ see [this blog post from BishopFox](https://know.bishopfox.com/blog/privilege-es
 
 The following is a hypothetical IAM policy that restricts the operations performed to just those for the
 AWS CloudFront and S3 products. (Which might be sufficient for
-[updating a CDN-based website hosted on AWS](serving-a-static-website-on-aws-with-pulumi), but
+[updating a CDN-based website hosted on AWS](/blog/serving-a-static-website-on-aws-with-pulumi), but
 likely not much else.)
 
 ```typescript

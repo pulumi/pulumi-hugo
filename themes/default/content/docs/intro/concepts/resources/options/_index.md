@@ -10,18 +10,18 @@ menu:
 
 All resource constructors accept an options argument that provide the following resource options:
 
-- [additionalSecretOutputs](additionalsecretoutputs): specify properties that must be encrypted as secrets.
-- [aliases](aliases): specify aliases for this resource, so that renaming or refactoring doesn’t replace it.
-- [customTimeouts](customtimeouts): override the default retry/timeout behavior for resource provisioning. The default value varies by resource.
-- [deleteBeforeReplace](deletebeforereplace): override the default create-before-delete behavior when replacing a resource.
-- [dependsOn](dependson): specify additional explicit dependencies in addition to the ones in the dependency graph.
-- [ignoreChanges](ignorechanges): declare that changes to certain properties should be ignored during a diff.
-- [import](import): bring an existing cloud resource into Pulumi.
-- [parent](parent): establish a parent/child relationship between resources.
-- [protect](protect): prevent accidental deletion of a resource by marking it as protected.
-- [provider](provider): pass an [explicitly configured provider](../providers/#explicit-provider-configuration), instead of using the default global provider.
-- [providers](providers): pass a set of [explicitly configured providers](../providers/#explicit-provider-configuration). These are used if provider is not given, and are passed to child resources.
-- [replaceOnChanges](replaceonchanges): declare that changes to certain properties should be treated as forcing a replacement.
-- [retainOnDelete](retainOnDelete): if true the resource will be retained in the backing cloud provider during a Pulumi delete operation.
-- [transformations](transformations): dynamically transform a resource’s properties on the fly.
-- [version](version): pass a provider plugin version that should be used when operating on a resource.
+- [additionalSecretOutputs](/docs/intro/concepts/resources/options/additionalsecretoutputs): specify properties that must be encrypted as secrets.
+- [aliases](/docs/intro/concepts/resources/options/aliases): specify aliases for this resource, so that renaming or refactoring doesn’t replace it.
+- [customTimeouts](/docs/intro/concepts/resources/options/customtimeouts): override the default retry/timeout behavior for resource provisioning. The default value varies by resource.
+- [deleteBeforeReplace](/docs/intro/concepts/resources/options/deletebeforereplace): override the default create-before-delete behavior when replacing a resource.
+- [dependsOn](/docs/intro/concepts/resources/options/dependson): specify additional explicit dependencies in addition to the ones in the dependency graph.
+- [ignoreChanges](/docs/intro/concepts/resources/options/ignorechanges): declare that changes to certain properties should be ignored during a diff.
+- [import](/docs/intro/concepts/resources/options/import): bring an existing cloud resource into Pulumi.
+- [parent](/docs/intro/concepts/resources/options/parent): establish a parent/child relationship between resources.
+- [protect](/docs/intro/concepts/resources/options/protect): prevent accidental deletion of a resource by marking it as protected.
+- [provider](/docs/intro/concepts/resources/options/provider): pass an [explicitly configured provider](../providers/#explicit-provider-configuration), instead of using the default global provider.
+- [providers](/docs/intro/concepts/resources/options/providers): pass a set of [explicitly configured providers](../providers/#explicit-provider-configuration). These are used if provider is not given, and are passed to child resources.
+- [replaceOnChanges](/docs/intro/concepts/resources/options/replaceonchanges): declare that changes to certain properties should be treated as forcing a replacement.
+- [retainOnDelete](/docs/intro/concepts/resources/options/retainOnDelete): if true the resource will be retained in the backing cloud provider during a Pulumi delete operation.
+- [transformations](/docs/intro/concepts/resources/options/transformations): dynamically transform a resource’s properties on the fly.
+- [version](/docs/intro/concepts/resources/options/version): pass a provider plugin version that should be used when operating on a resource.

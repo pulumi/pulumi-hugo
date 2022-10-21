@@ -9,8 +9,7 @@ tags: [ features ]
 
 As of 3.23.0, users can disable the default provider with Pulumi. So what does this mean for you? If you’ve been using
 Pulumi for a bit, you’ll have encountered [provider resources][prov-res], which are how we abstract the global state of
-a cloud provider. All resources have an associated provider. If no provider is supplied in the user’s code, a [default
-provider][def-prov] is created to serve the resource. Explicit providers, which are  defined by the user in code, allow
+a cloud provider. All resources have an associated provider. If no provider is supplied in the user’s code, a [default provider][def-prov] is created to serve the resource. Explicit providers, which are  defined by the user in code, allow
 programmatic and dynamic control of how a resource deploys into a cloud. A Pulumi [resource][res] can be instructed to
 use an explicit provider by setting the [provider resource option][prov-res-opts] or by inheriting the provider from the
 resource's [parent resource][par-res].

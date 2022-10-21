@@ -56,8 +56,7 @@ Universe keynote today:
 {{< youtube 59SxB2uY9E0 >}}
 
 In this short video, we see a Ruby on Rails application that is
-continuously deployed to our Kubernetes cluster ([full code available
-here](https://github.com/pulumi/actions-example-gke-rails)). It's just a
+continuously deployed to our Kubernetes cluster ([full code available here](https://github.com/pulumi/actions-example-gke-rails)). It's just a
 standard Rails application, with a
 [Dockerfile](https://github.com/pulumi/actions-example-gke-rails/blob/master/app/Dockerfile),
 and a
@@ -154,8 +153,7 @@ links in case you want to learn more about GitHub Actions and Pulumi:
 
 - To learn more, [install Pulumi](/docs/get-started/install) and then
   check out our [Getting Started guide](/docs/get-started).
-- In addition to [the keynote
-  video](https://www.youtube.com/watch?v=59SxB2uY9E0), we have two
+- In addition to [the keynote video](https://www.youtube.com/watch?v=59SxB2uY9E0), we have two
   other videos that you might enjoy watching to learn more:
     - In [this video](https://www.youtube.com/watch?v=MKbDVDBuKUA), we
     see the GitOps workflow for promoting from staging to

@@ -109,7 +109,7 @@ Example: google-us-central1
 $ pulumi config set aiven_project <Aiven project> Example: sa-demo
 ```
 
-- Supported regions/clouds for each service are listed on the [pricing page]( https://aiven.io/pricing).
+- Supported regions/clouds for each service are listed on the [pricing page](https://aiven.io/pricing).
 - Project names are on the top left corner of the Aiven console.
 
 ![Aiven console](./aiven_console.png)

@@ -14,7 +14,7 @@ Self-hosting is only available with **Pulumi Business Critical**. If you would l
 To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends](/docs/intro/concepts/state).
 {{% /notes %}}
 
-The Pulumi API is one of the components required for self-hosting the Pulumi Service in your organization's environment. It provides the necessary APIs for both the CLI and the [Console](console).
+The Pulumi API is one of the components required for self-hosting the Pulumi Service in your organization's environment. It provides the necessary APIs for both the CLI and the [Console](/docs/guides/self-hosted/console).
 
 ## Prerequisites
 

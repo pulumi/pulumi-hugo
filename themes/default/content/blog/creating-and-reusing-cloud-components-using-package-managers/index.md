@@ -10,7 +10,7 @@ meta_image: "pulumi-resource-visualization.png"
 
 
 Hello! A few weeks back I wrote
-a post on [serving static websites on AWS with Pulumi](serving-a-static-website-on-aws-with-pulumi)
+a post on [serving static websites on AWS with Pulumi](/blog/serving-a-static-website-on-aws-with-pulumi)
 detailing how to host a static website on AWS. Pulumi allowed me to wire four
 different AWS products together in only 200 lines of code. It would be a
 shame, however if I needed to copy and paste that code every time I

@@ -18,7 +18,7 @@ cloud:
   slug: azure
 ---
 
-The Kubernetes Cluster template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to Azure with Pulumi. The architecture includes an [Azure Virtual Network](registry/packages/azure-native/api-docs/network/virtualnetwork) with three subnets (for future scalability) and deploys an [Azure Kubernetes Service (AKS) cluster](/registry/packages/azure-native/api-docs/containerservice/managedcluster) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed with private IP addresses for improved security and across multiple availability zones for improved resilience. The template gives you a working project out of the box that you can customize easily and extend to suit your needs.
+The Kubernetes Cluster template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to Azure with Pulumi. The architecture includes an [Azure Virtual Network](/registry/packages/azure-native/api-docs/network/virtualnetwork) with three subnets (for future scalability) and deploys an [Azure Kubernetes Service (AKS) cluster](/registry/packages/azure-native/api-docs/containerservice/managedcluster) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed with private IP addresses for improved security and across multiple availability zones for improved resilience. The template gives you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Azure Kubernetes Cluster template](./architecture.png)
 

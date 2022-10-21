@@ -432,4 +432,4 @@ the IAM stack, so the deployment flows naturally through the pipeline!
 This brings us to the end of our CD solution with Pulumi and GitLab on
 Amazon EKS. For more examples, refer to the [Pulumi examples](https://github.com/pulumi/examples)
 repository. Refer to my previous post on
-[Amazon EKS and k8s RBAC in Pulumi](simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages).
+[Amazon EKS and k8s RBAC in Pulumi](/blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages).

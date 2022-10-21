@@ -31,11 +31,11 @@ offering a single programming model and deployment workflow that works for your 
 in addition to infrastructure. This support ensures your EKS resources are fully integrated properly with the
 related AWS services. This includes
 
-* [ECR](ecr) for private container images
-* [ELB](elb) for load balancing
-* [IAM](iam) for security
-* [VPC](vpc) for network isolation
-* [CloudWatch](cloudwatch) for monitoring
+* [ECR](/docs/guides/crosswalk/aws/ecr) for private container images
+* [ELB](/docs/guides/crosswalk/aws/elb) for load balancing
+* [IAM](/docs/guides/crosswalk/aws/iam) for security
+* [VPC](/docs/guides/crosswalk/aws/vpc) for network isolation
+* [CloudWatch](/docs/guides/crosswalk/aws/cloudwatch) for monitoring
 
 Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use all the existing plugins and
 tooling from the Kubernetes community, including Pulumi's support for deploying Helm charts. Applications running on

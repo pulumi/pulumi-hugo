@@ -32,7 +32,7 @@ providing full control over the underlying EC2 machine resources that power your
 > containerized applications in a cluster. EKS tends to be more complex to provision and manage, but has
 > the added advantage of using the industry standard container orchestrator, Kubernetes, and therefore can help
 > with portability between clouds and self-hosted configurations. See
-> [Pulumi Crosswalk for AWS EKS](eks) for more information about using EKS.
+> [Pulumi Crosswalk for AWS EKS](/docs/guides/crosswalk/aws/eks) for more information about using EKS.
 
 ## Creating a Load Balanced ECS Service
 

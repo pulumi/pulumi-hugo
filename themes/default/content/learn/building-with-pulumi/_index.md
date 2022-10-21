@@ -27,8 +27,7 @@ minutes to complete.
 
 ## Prerequisites
 
-You should have completed the [Pulumi Fundamentals
-pathway](learn/pulumi-fundamentals) already.
+You should have completed the [Pulumi Fundamentals pathway](/learn/pulumi-fundamentals) already.
 
 You will need the following tools to complete this module:
 

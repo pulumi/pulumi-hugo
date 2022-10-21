@@ -328,7 +328,7 @@ Duration: 4m51s
 
 Currently AWS CDK on Pulumi is supported only for TypeScript users, due to how the AWS CDK synthesis process (implemented in TypeScript) must be invoked from within the Pulumi program. We are exploring ways to bring this support into other Pulumi (and CDK) languages as part of future updates to the library.
 
-In the meantime, AWS CDK on Pulumi can be used within Component Packages implemented in TypeScript, and exposed to any Pulumi language (including newly supported [Java](./announcing-infrastructure-as-code-with-java-and-pulumi) and [YAML](./pulumi-yaml)).
+In the meantime, AWS CDK on Pulumi can be used within Component Packages implemented in TypeScript, and exposed to any Pulumi language (including newly supported [Java](/blog/announcing-infrastructure-as-code-with-java-and-pulumi) and [YAML](/blog/pulumi-yaml)).
 
 ## Summary
 

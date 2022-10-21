@@ -166,7 +166,7 @@ Learn more about using Pulumi with Kubernetes and GKE in this
 
 Serverless has never been simpler than it is with Pulumi + Google Cloud
 Functions. Thanks to Pulumi's
-["magic functions"](lambdas-as-lambdas-the-magic-of-simple-serverless-functions),
+["magic functions"](/blog/lambdas-as-lambdas-the-magic-of-simple-serverless-functions),
 we can write callbacks in our language of choice, using a natural
 event-driven style, and Pulumi will handle the rest.
 

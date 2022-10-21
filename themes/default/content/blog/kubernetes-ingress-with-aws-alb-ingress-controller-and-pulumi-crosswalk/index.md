@@ -395,6 +395,6 @@ be to access your newly deployed 2048 game -- have fun!
 Pulumi is open source and free to use. For more information on our
 product platform, check out the following resources:
 
-- [Pulumi Crosswalk for AWS Announcement](introducing-pulumi-crosswalk-for-aws-the-easiest-way-to-aws)
-- [Mapbox IOT-as-Code with Pulumi Crosswalk for AWS](mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
+- [Pulumi Crosswalk for AWS Announcement](/blog/introducing-pulumi-crosswalk-for-aws-the-easiest-way-to-aws)
+- [Mapbox IOT-as-Code with Pulumi Crosswalk for AWS](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
 - [Pulumi Crosswalk for AWS Documentation for ECS, EKS, ELB, and more](/docs/guides/crosswalk/aws)

@@ -739,7 +739,7 @@ $ pulumi stack output cdnHostname
 Pulumi supports many third-party DNS providers, all of which are available in the [Pulumi Registry](/registry) and accompanied by examples, including:
 
 * [DNSimple](/registry/packages/dnsimple)
-* [Cloudflare](registry/packages/cloudflare)
+* [Cloudflare](/registry/packages/cloudflare)
 * [Google Cloud DNS](/registry/packages/gcp)
 * [Akamai](/registry/packages/akamai)
 * [NS1](/registry/packages/ns1)

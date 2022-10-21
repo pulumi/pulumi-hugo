@@ -10,9 +10,9 @@ tags: ["Kubernetes"]
 <p><!-- spacer --></p>
 
 > This post is the first part in a series on the Kubernetes API. Future installments include
-> [Part 2](kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service)
+> [Part 2](/blog/kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service)
 > focused on the lifecycle of a `Service` and
-> [Part 3](how-do-kubernetes-deployments-work-an-adversarial-perspective)
+> [Part 3](/blog/how-do-kubernetes-deployments-work-an-adversarial-perspective)
 > details how Kubernetes deployments work.
 
 One of the most popular features of the recent
