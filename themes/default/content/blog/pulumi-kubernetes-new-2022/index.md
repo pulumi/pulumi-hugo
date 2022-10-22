@@ -46,16 +46,116 @@ Using Flux offers a variety of important new features to Pulumi Kubernetes Opera
 4. Sources and Stacks can be defined by different teams, since they are separate resources which can have independent RBAC rules applied.
 5. Many advanced Git features including: following semver ranges, excluding files from source, recursively cloning submodules, verifying revision signatures, and more.
 
-To use the Pulumi Kubernetes Operator with Flux, install each of the necessary controllers, and then deploy the Flux `Source` and Pulumi `Stack` resource that define your infrastructure delivery:
+To use the Pulumi Kubernetes Operator with Flux, install each of the necessary controllers for Flux and the Pulumi Kubernetes Operator, and then the necessary `Role` and `RoleBindings` to allow the Pulumi Kubernetes Operator to read from Flux sources.
 
-```
-TODO
+```yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: flux-source-access
+rules:
+- apiGroups:
+  - source.toolkit.fluxcd.io
+  resources:
+  - "*"
+  verbs:
+  - get
+  - list
+  - watch
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pulumi-flux-source-access
+subjects:
+- kind: ServiceAccount
+  name: pulumi-kubernetes-operator
+roleRef:
+  kind: Role
+  name: flux-source-access
+  apiGroup: rbac.authorization.k8s.io
 ```
 
-We can go further and add in the Flux Notification Controller as well:
+Once those pre-requisites have been met, simply deploy the Flux Source (in this case a `GitRepository`) and Pulumi `Stack` resource that define your infrastructure delivery:
 
+```yaml
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: pkodev
+spec:
+  interval: 30s
+  ref:
+    branch: main
+  url: https://github.com/lukehoban/pko-dev
+---
+apiVersion: pulumi.com/v1
+kind: Stack
+metadata:
+  name: pkodev
+spec:
+  stack: lukehoban/pkodev/test
+  fluxSource:
+    sourceRef:
+      apiVersion: source.toolkit.fluxcd.io/v1beta2
+      kind: GitRepository
+      name: pkodev
+    dir: basic/
+  destroyOnFinalize: true
 ```
-TODO
+
+Note that by using the new `fluxSource` property on a `pulumi.com/v1/Stack` resource, you can configure it to use the corresponding source instead of an inline definition of the target Git repo and branch.  The `GitRepository` could be replaced with any other Flux Source.  For example, to pull our source code from an S3 bucket, use this instead:
+
+```yaml
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: Bucket
+metadata:
+  name: pkodev
+spec:
+  interval: 5m0s
+  provider: aws
+  bucketName: podinfo
+  endpoint: s3.amazonaws.com
+  region: us-east-1
+  timeout: 30s
+---
+apiVersion: pulumi.com/v1
+kind: Stack
+metadata:
+  name: pkodev
+spec:
+  stack: lukehoban/pkodev/test
+  fluxSource:
+    sourceRef:
+      apiVersion: source.toolkit.fluxcd.io/v1beta2
+      kind: Bucket
+      name: pkodev
+    dir: basic/
+  destroyOnFinalize: true
+```
+
+If we are using the `GitRepository` source along with GitHub, we can use Flux features like [WebHook Recievers] to expose a webhook that GitHub can trigger on pushes so that updates will be pushed into Flux and the Pulumi Kubernetes Operator directly (insead of waiting to pull them):
+
+```yaml
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: webapp
+  namespace: flux-system
+spec:
+  type: github
+  events:
+    - "ping"
+    - "push"
+  secretRef:
+    name: webhook-token
+  resources:
+    - kind: GitRepository
+      name: pkodev
 ```
 
 For users who need any of these additional GitOps capabilities, you can now use the best of Pulumi and the best of Flux together with ease.
@@ -108,12 +208,6 @@ spec:
   stack: lukehoban/staticwebsite/test
   programRef:
     name: staticwebsite
-  envRefs:
-    PULUMI_ACCESS_TOKEN:
-      type: Secret
-      secret:
-        name: pulumi-api-secret
-        key: accessToken
   destroyOnFinalize: true
   config:
     aws:region: us-east-1
@@ -133,7 +227,7 @@ Updating the `Program` resource will immediately drive an update to the associat
 
 ## New Pulumi Provider for Flux
 
-In addition to Flux integration with the Pulumi Kubernetes Operator, we’ve also added support for managing Flux directly via Pulumi Infrastructure as Code - using the new Flux provider in the Pulumi Registry.
+In addition to Flux integration with the Pulumi Kubernetes Operator, we've also added a new [Flux Provider](https://www.pulumi.com/registry/packages/flux/) to the Pulumi Registry.  This provider, built by Pulumi community member [@oun](https://github.com/oun),  enables managing Flux directly via Pulumi Infrastructure as Code.
 
 The Flux provider can be used along with the Kubernetes provider and GitHub provider to stand up and manage a complete E2E GitOps solution from within a single deployment - no need for manual bash, Helm, or runbooks - just simple reliable Infrastructure as Code.
 
