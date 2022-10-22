@@ -137,8 +137,23 @@ In addition to Flux integration with the Pulumi Kubernetes Operator, we’ve als
 
 The Flux provider can be used along with the Kubernetes provider and GitHub provider to stand up and manage a complete E2E GitOps solution from within a single deployment - no need for manual bash, Helm, or runbooks - just simple reliable Infrastructure as Code.
 
-```
-TODO
+```ts
+import * as kubernetes from "@pulumi/kubernetes";
+import * as flux from "@worawat/flux";
+
+// Get the manifests needed to install Flux with the given components and policies
+const fluxManifests = flux.getFluxInstallOutput({
+    targetPath: "local",
+    components: ['source-controller'],
+    networkPolicy: true,
+});
+
+// Deploy the manifests into our cluster
+const fluxGroup = fluxManifests.content.apply(fluxYaml => {
+  new kubernetes.yaml.ConfigGroup("flux-install", {
+    yaml: fluxYaml,
+  });
+});
 ```
 
 ## Pulumi Kubernetes Provider v3.22: Server Side Apply and Resource Patch
