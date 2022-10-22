@@ -15,7 +15,7 @@ Kubernetes is one of the most used platforms in Pulumi, second only to AWS, with
 
 Today we are announcing a set of major updates which deepen and extend Pulumi’s support for Kubernetes and the Kubernetes ecosystem. In this post, we’ll highlight a few of these exciting enhancements:
 
-* [Pulumi Kubernetes Operator v1.10](https://github.com/pulumi/pulumi-kubernetes-operator/#readme): New integration with Flux for richer GitOps support and ability to deploy Pulumi stacks from directly within the Kubernetes resource model
+* [Pulumi Kubernetes Operator v1.10](https://github.com/pulumi/pulumi-kubernetes-operator/#readme): New integration with Flux for richer GitOps support, and ability to deploy Pulumi stacks from directly within the Kubernetes resource model
 * [New Pulumi Provider for Flux](https://www.pulumi.com/registry/packages/flux/): Manage Flux with Infrastructure as Code
 * [Pulumi Kubernetes Provider v3.22](https://www.pulumi.com/registry/packages/kubernetes/): Server Side Apply and Resource Patch
 
@@ -36,7 +36,7 @@ Together, these open up a wide variety of new ways to apply the Kubernetes Opera
 
 <img align="right" width="120" src="flux-icon.png">
 
-We’re excited to partner with the [Flux](https://fluxcd.io/) project in the CNCF to bring even richer GitOps support to the Pulumi Kubernetes Operator.  While the Pulumi Kubernetes Operator offers basic GitOps and branch tracking support, it supports only a fraction of the features that the Flux’s SourceController providers. Instead of rebuilding all of these features, we chose to provide rich integration with Flux Sources, enabling Pulumi programs to be provided via Flux, and then handed off to drive infrastructure deployments using the Pulumi Kubernetes Operator `Stack` resource.
+We’re excited to work with [Flux](https://fluxcd.io/), a CNCF project, to bring even richer GitOps support to the Pulumi Kubernetes Operator.  While the Pulumi Kubernetes Operator offers basic GitOps and branch tracking support, it supports only a fraction of the features that the Flux’s SourceController providers. Instead of rebuilding all of these features, we chose to provide rich integration with Flux Sources, enabling Pulumi programs to be provided via Flux, and then handed off to drive infrastructure deployments using the Pulumi Kubernetes Operator `Stack` resource.
 
 Using Flux offers a variety of important new features to Pulumi Kubernetes Operator users:
 
@@ -119,9 +119,9 @@ spec:
     aws:region: us-east-1
 ```
 
-The result will be to deploy an S3 Bucket and BucketObject exposing a static website into AWS. The `Program` resource defines a Pulumi program written in Pulumi YAML using any cloud provider resources Pulumi supports, ready to be deployed into as many Pulumi stacks as needed.  The program declares an S3 Bucket with website configured, and an `index.html` file in a BucketObject which will be served from that website.  The `Stack` resource deploys an instance of this program, using the configuration (`us-east-1` region) specified.
+The result will be to deploy an S3 Bucket and BucketObject exposing a static website into AWS. The `Program` resource defines a Pulumi program written in Pulumi YAML using [any cloud provider resources Pulumi supports](https://www.pulumi.com/registry/index.html), ready to be deployed into as many Pulumi stacks as needed.  The program declares an S3 Bucket with website configured, and an `index.html` file in a BucketObject which will be served from that website.  The `Stack` resource deploys an instance of this program, using the configuration (`us-east-1` region) specified.
 
-You can acces the URL of the deployed website defined as a program output `url` via:
+You can access the URL of the deployed website defined as a program output `url` via:
 
 ```shell
 $ kubectl get stack staticwebsite -o jsonpath={.status.outputs}
@@ -172,7 +172,7 @@ This makes several important new features available across the breadth of the Ku
 
 * New Patch resource types corresponding to every Kubernetes resource kind. (e.g., NamespacePatch, DeploymentPatch)
 * “Upsert” support; create a resource if it does not exist, or update the existing resource with specified changes.
-* Diffs no longer depend on the last-applied-configuration annotation, which fixes a number of subtle  issues that users of the provider previously could run into.
+* Diffs no longer depend on the last-applied-configuration annotation, which fixes a number of subtle issues that users of the provider previously could run into.
 
 These features bring Pulumi and Kubernetes even closer together, enabling Pulumi’s rich Infrastructure as Code to fit even more naturally into the Kubernetes desired state and shared ownership model.
 
@@ -182,6 +182,6 @@ Check out the [Managing Resources with Server Side Apply](https://www.pulumi.com
 
 At Pulumi, we are passionate about pushing the state of the art of Infrastructure as Code forward, and applying modern Infrastructure as Code to support Kubernetes projects and teams is a critical component of that vision.  All of these new features around Pulumi and Kubernetes help to further empower teams to build scalable and robust solutions around Kubernetes and Pulumi IaC.
 
-We’re so happy to be able to partner with the Flux project to bring all of the benefits of its composable GitOps toolkit to Pulumi users. We’re excited about the new use cases that Inline Infrastructure support in the Pulumi Kubernetes Operator enables. And we’re thrilled to bring Server Side Apply and Patch support to the Pulumi Kubernetes Provider.
+We’re so happy to be able to work with the Flux project to bring all of the benefits of its composable GitOps toolkit to Pulumi users. We’re excited about the new use cases that Inline Infrastructure support in the Pulumi Kubernetes Operator enables. And we’re thrilled to bring Server Side Apply and Patch support to the Pulumi Kubernetes Provider.
 
 You can [learn more about Pulumi and Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/) or jump in and [get started](https://www.pulumi.com/docs/get-started/kubernetes/) right away.
