@@ -28,7 +28,7 @@ The Pulumi Kubernetes Operator provides a cloud-native way to manage and deploy 
 Pulumi Kubernetes Operator v1.10 expands the ways that Pulumi infrastructure can be defined.  In addition to the existing Git-based source that has been supported to date, this release adds two new ways to define your infrastructure:
 
 * Integration with Flux Sources - enabling any Flux Source to provide the Pulumi program that defines your cloud infrastructure.
-* Support for Inline Infrastructure sources - a new `pulumi.com/v1/Source` Custom Resource that can be used to describe cloud infrastructure directly within the Kubernetes resource model.
+* Support for Inline Infrastructure sources - a new `pulumi.com/v1/Program` Custom Resource that can be used to describe cloud infrastructure directly within the Kubernetes resource model.
 
 Together, these open up a wide variety of new ways to apply the Kubernetes Operator as an interface for defining and delivering cloud infrastructure.
 
@@ -58,29 +58,78 @@ We can go further and add in the Flux Notification Controller as well:
 TODO
 ```
 
-This integration is made possible by the excellent “open and extensible” GitOps toolkit that Flux v2 provides.
-
 For users who need any of these additional GitOps capabilities, you can now use the best of Pulumi and the best of Flux together with ease.
+
+This integration is made possible by the excellent “open and extensible” GitOps toolkit that Flux v2 provides. We’re excited to work with the Flux community and the team at Weaveworks to help end-users accelerate their GitOps projects:
+
+> _"When we donated Flux to the CNCF we wanted to empower teams to easily build GitOps automations with the best tools. We’re excited to welcome Pulumi to the Flux and Weave GitOps ecosystem."_
+>
+> _-- **Alexis Richardson, CEO – Weaveworks**_
 
 ### Define Pulumi Cloud Infrastructure Directly in the Kubernetes Resource Model
 
 <img align="right" width="120" src="yaml.svg">
 
-One of the important benefits of the Pulumi Kubernetes Operator is that it provides the Kubernetes resource model as an interface for defining and managing cloud infrastructure expressed via Pulumi.  However, to date, the cloud infrastructure definition itself still has to be stored in Git (or, with the Flux integration above, an S3 bucket or OCI repository).  Many users have asked for a model where the Pulumi cloud infrastructure definition itself is provided directly within the Kubernetes resource model as well.  With the new `pulumi.com/v1/Source` custom resource, this is now possible!
+One of the important benefits of the Pulumi Kubernetes Operator is that it provides the Kubernetes resource model as an interface for defining and managing cloud infrastructure expressed via Pulumi.  However, to date, the cloud infrastructure definition itself still has to be stored in Git (or, with the Flux integration above, an S3 bucket or OCI repository).  Many users have asked for a model where the Pulumi cloud infrastructure definition itself is provided directly within the Kubernetes resource model as well.  With the new `pulumi.com/v1/Program` custom resource, this is now possible!
 
 This support is enabled by Pulumi’s [introduction of Pulumi YAML](https://www.pulumi.com/blog/pulumi-yaml/) - the ability to describe cloud infrastructure with access to the entire Pulumi ecosystem of cloud providers and components via simple YAML programs.  Importantly, those YAML programs can now be defined directly inside the Kubernetes cluster itself.
 
-Because Pulumi offers access to over 100 cloud providers and components, with thousands of infrastructure resources available across them, the `pulumi.com/v1/Source` resource offers access to defining rich and complex cloud infrastructure directly from within Kubernetes.  And because Pulumi YAML infrastructure definitions support all the same reliable dependency tracking and rich IaC features as any other Pulumi programs, users get all of these benefits from within Kubernetes as well.
+Because Pulumi offers access to over 100 cloud providers and components, with thousands of infrastructure resources available across them, the `pulumi.com/v1/Program` resource offers access to defining rich and complex cloud infrastructure directly from within Kubernetes.  And because Pulumi YAML infrastructure definitions support all the same reliable dependency tracking and rich IaC features as any other Pulumi programs, users get all of these benefits from within Kubernetes as well.
 
-To deploy cloud infrastructure directly from within Kubernetes, install the Pulumi Kubernetes Operator and then deploy the `Source` and `Stack` resources below:
+To deploy cloud infrastructure directly from within Kubernetes, install the Pulumi Kubernetes Operator and then deploy the `Program` and `Stack` resources below with `kubectl apply` (or via a Pulumi program!):
 
+```yaml
+apiVersion: pulumi.com/v1
+kind: Program
+metadata:
+  name: staticwebsite
+program:
+  resources:
+    bucket:
+      type: aws:s3:Bucket
+      properties:
+        website:
+          indexDocument: index.html
+    index.html:
+      type: aws:s3:BucketObject
+      properties:
+        bucket: ${bucket.id}
+        content: <h1>Hello, world!</h1>
+        contentType: text/html
+        acl: public-read
+  outputs:
+    url: http://${bucket.websiteEndpoint}
+---
+apiVersion: pulumi.com/v1
+kind: Stack
+metadata:
+  name: staticwebsite
+spec:
+  stack: lukehoban/staticwebsite/test
+  programRef:
+    name: staticwebsite
+  envRefs:
+    PULUMI_ACCESS_TOKEN:
+      type: Secret
+      secret:
+        name: pulumi-api-secret
+        key: accessToken
+  destroyOnFinalize: true
+  config:
+    aws:region: us-east-1
 ```
-TODO
+
+The result will be to deploy an S3 Bucket and BucketObject exposing a static website into AWS. The `Program` resource defines a Pulumi program written in Pulumi YAML using any cloud provider resources Pulumi supports, ready to be deployed into as many Pulumi stacks as needed.  The program declares an S3 Bucket with website configured, and an `index.html` file in a BucketObject which will be served from that website.  The `Stack` resource deploys an instance of this program, using the configuration (`us-east-1` region) specified.
+
+You can acces the URL of the deployed website defined as a program output `url` via:
+
+```shell
+$ kubectl get stack staticwebsite -o jsonpath={.status.outputs}
 ```
 
-The result will be to deploy an S3 Bucket and BucketObject exposing a static website into AWS. But of course, this could be used to define *any* cloud infrastructure - an [AWS RDS Database](https://www.pulumi.com/registry/packages/aws/api-docs/rds/instance/), an [Azure KeyVault](https://www.pulumi.com/registry/packages/azure-native/api-docs/keyvault/vault/), a [CloudFlare DNS Record](https://www.pulumi.com/registry/packages/cloudflare/api-docs/record/), a [Google Cloud Function](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudfunctions/function/), or even another Kubernetes Cluster via [EKS](https://www.pulumi.com/registry/packages/eks/api-docs/cluster/), [AKS](https://www.pulumi.com/registry/packages/azure-native/api-docs/containerservice/managedcluster/), [GKE](https://www.pulumi.com/registry/packages/gcp/api-docs/container/cluster/), [Oracle Cloud](https://www.pulumi.com/registry/packages/oci/api-docs/containerengine/cluster/), [Civo](https://www.pulumi.com/registry/packages/civo/api-docs/kubernetescluster/), [Digital Ocean](https://www.pulumi.com/registry/packages/digitalocean/api-docs/kubernetescluster/) and more.
+Of course, this could be used to define *any* cloud infrastructure - an [AWS RDS Database](https://www.pulumi.com/registry/packages/aws/api-docs/rds/instance/), an [Azure KeyVault](https://www.pulumi.com/registry/packages/azure-native/api-docs/keyvault/vault/), a [CloudFlare DNS Record](https://www.pulumi.com/registry/packages/cloudflare/api-docs/record/), a [Google Cloud Function](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudfunctions/function/), or even another Kubernetes Cluster via [EKS](https://www.pulumi.com/registry/packages/eks/api-docs/cluster/), [AKS](https://www.pulumi.com/registry/packages/azure-native/api-docs/containerservice/managedcluster/), [GKE](https://www.pulumi.com/registry/packages/gcp/api-docs/container/cluster/), [Oracle Cloud](https://www.pulumi.com/registry/packages/oci/api-docs/containerengine/cluster/), [Civo](https://www.pulumi.com/registry/packages/civo/api-docs/kubernetescluster/), [Digital Ocean](https://www.pulumi.com/registry/packages/digitalocean/api-docs/kubernetescluster/) and more.
 
-Updating the `Source` resource will immediately drive an update to the associated Pulumi `Stack`, incrementally updating the managed infrastructure and maintaining the desired cloud infrastructure state.
+Updating the `Program` resource will immediately drive an update to the associated Pulumi `Stack`, incrementally updating the managed infrastructure and maintaining the desired cloud infrastructure state.
 
 ## New Pulumi Provider for Flux
 
