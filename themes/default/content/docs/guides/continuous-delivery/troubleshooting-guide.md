@@ -76,9 +76,9 @@ an easy-to-use mechanism for installing and running the various `pulumi` command
 
 > Pulumi CLI is now pre-installed on GitHub Actions runners. However, if you need to install a specific version, you can always use one of the aforementioned actions.
 
-* [CircleCI Orb](https://circleci.com/developer/orbs/orb/compute/pulumi) - [CircleCI Guide](circleci)
-* [Octopus Deploy Step Template](https://library.octopus.com/step-templates/76296cd1-7d8c-47e8-b33f-027ecd3ff6b5/actiontemplate-run-pulumi-(linux)) - [Octopus Deploy Guide](octopus-deploy)
-* [Spinnaker Plugin](https://github.com/pulumi/spinnaker-preconfigured-job-plugin) - [Spinnaker Guide](spinnaker)
+* [CircleCI Orb](https://circleci.com/developer/orbs/orb/compute/pulumi) - [CircleCI Guide](/docs/guides/continuous-delivery/circleci)
+* [Octopus Deploy Step Template](https://library.octopus.com/step-templates/76296cd1-7d8c-47e8-b33f-027ecd3ff6b5/actiontemplate-run-pulumi-(linux)) - [Octopus Deploy Guide](/docs/guides/continuous-delivery/octopus-deploy)
+* [Spinnaker Plugin](https://github.com/pulumi/spinnaker-preconfigured-job-plugin) - [Spinnaker Guide](/docs/guides/continuous-delivery/spinnaker)
 
 If you are using a CI system that does not have a native extension for installing the CLI, you can always run an inline script step
 to [install the CLI manually](/docs/get-started/install).

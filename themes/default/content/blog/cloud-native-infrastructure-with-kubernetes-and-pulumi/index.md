@@ -135,10 +135,10 @@ These two tutorials will walk you through your first Pulumi for Kubernetes proje
 - [Tutorial: Deploy a Stateless Nginx Application](/registry/packages/kubernetes/how-to-guides/stateless-app)
 - [Tutorial: Deploy a Load-Balanced Guestbook App with Redis and Nginx](/registry/packages/kubernetes/how-to-guides/guestbook)
 
-[Program Kubernetes with 11 Pearls](program-kubernetes-with-11-cloud-native-pulumi-pearls):
+[Program Kubernetes with 11 Pearls](/blog/program-kubernetes-with-11-cloud-native-pulumi-pearls):
 a companion blog post with 11 exciting examples.
 
-[Pulumi: A Better Way to Kubernetes](pulumi-a-better-way-to-kubernetes): A walkthrough on how Pulumi can make Kubernetes more accessible, using your favorite languages and tools.
+[Pulumi: A Better Way to Kubernetes](/blog/pulumi-a-better-way-to-kubernetes): A walkthrough on how Pulumi can make Kubernetes more accessible, using your favorite languages and tools.
 
 If you have any questions or comments, we'd love to hear from you in our
 [Community Slack](https://slack.pulumi.com) or over on

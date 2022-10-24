@@ -196,7 +196,7 @@ requests.onMessagePublished("newMessage", (data) => {
 ```
 
 And for quick inner loop development, the
-[`pulumi logs`](unified-logs-with-pulumi-logs)
+[`pulumi logs`](/blog/unified-logs-with-pulumi-logs)
 command supports pulling logs for your Google Cloud Functions from
 StackDriver, aggregating all compute logs in your program into one
 unified stream:

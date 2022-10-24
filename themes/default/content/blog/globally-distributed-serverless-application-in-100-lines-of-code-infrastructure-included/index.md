@@ -86,7 +86,7 @@ const collection = new azure.cosmosdb.SqlContainer("Urls", {
 ### Function App
 
 Serverless Azure Functions are going to handle the HTTP layer in my
-application. I use the technique of [serverless functions as callbacks](serverless-as-simple-callbacks-with-pulumi-and-azure-functions)
+application. I use the technique of [serverless functions as callbacks](/blog/serverless-as-simple-callbacks-with-pulumi-and-azure-functions)
 to define Azure Functions inline inside my Pulumi program:
 
 ```typescript
