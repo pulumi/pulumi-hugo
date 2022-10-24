@@ -362,7 +362,15 @@ const mystack = new k8s.apiextensions.CustomResource("my-stack", {
 
 ### Using a Program object
 
-It is also possible to supply a Pulumi YAML program directly as a Kubernetes resource. Here is an example as a YAML file:
+It is also possible to supply a Pulumi YAML program directly as a Kubernetes resource. A Program
+resource is a Pulumi YAML program, wrapped up as a Kubernetes object. The reference for the [Program
+custom resource definition][] details the wrapping; the [reference for Pulumi YAML][] gives all the
+fields that are part of the program itself.
+
+[Program custom resource definition]: https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/programs.md
+[reference for Pulumi YAML]: https://www.pulumi.com/docs/reference/yaml/
+
+Here is an example as a YAML file:
 
 ```yaml
 ---
