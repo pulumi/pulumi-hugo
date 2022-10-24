@@ -26,7 +26,8 @@ authors:
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-   - features
+   - features 
+   - pulumi-releases
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
 # for additional details, and please remove these comments before submitting for review.
