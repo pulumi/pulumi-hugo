@@ -48,14 +48,12 @@ bother our `Pod`s.
 
 ## Following along
 
-The `kubespy` repository comes with a simple [example Kubernetes
-app](https://github.com/pulumi/kubespy/tree/master/examples/trivial-service-trace-example),
+The `kubespy` repository comes with a simple [example Kubernetes app](https://github.com/pulumi/kubespy/tree/master/examples/trivial-service-trace-example),
 which is used in each of these examples. If you want to try it out for
 yourself the README contains detailed instructions.
 
 You can use `kubectl` or `pulumi` --- `kubespy` CLI itself is powered by
-the same code that underlies the core (OSS) [Pulumi
-engine](/topics/kubernetes). If you like this, and would
+the same code that underlies the core (OSS) [Pulumi engine](/kubernetes). If you like this, and would
 like to see information like it in CI/CD, we hope you'll give it a
 shot! To get a flavor of what this looks like in practice, you might
 also check out [my tweetstorm](https://twitter.com/hausdorff_space/status/1039940379301179392)
@@ -148,5 +146,5 @@ field with the Kubernetes `Watch` API and a bit of terminal UI
 programming, you're most of your way to `kubespy trace deployment`.
 
 If you enjoyed this post, or are curious to see how this lifecycle is
-baked into the Pulumi CLI, please [give us a shot](/topics/kubernetes)!
+baked into the Pulumi CLI, please [give us a shot](/kubernetes)!
 We'd love to hear your feedback.

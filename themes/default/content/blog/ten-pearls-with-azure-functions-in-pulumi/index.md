@@ -206,7 +206,7 @@ It's easy to imagine a custom component `WarmedFunctionApp` which appends a stan
 
 ## Cloud Event Handling
 
-While HTTP is a widespread use case, Azure Functions support many other trigger types too. [The previous post](serverless-as-simple-callbacks-with-pulumi-and-azure-functions) featured Storage Queues and ServiceBus Topics. Pulumi supports Timers, Events Hubs, Event Grid, Storage Blobs, Service Bus Queues, and Cosmos DB Change Feed events, too! Let's see how that looks using Azure Event Hubs.
+While HTTP is a widespread use case, Azure Functions support many other trigger types too. [The previous post](/blog/serverless-as-simple-callbacks-with-pulumi-and-azure-functions) featured Storage Queues and ServiceBus Topics. Pulumi supports Timers, Events Hubs, Event Grid, Storage Blobs, Service Bus Queues, and Cosmos DB Change Feed events, too! Let's see how that looks using Azure Event Hubs.
 
 ### 6. Process Events from Azure Event Hubs
 

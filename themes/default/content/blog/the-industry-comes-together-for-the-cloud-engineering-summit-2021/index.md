@@ -78,7 +78,7 @@ Long-time collaborator Angel Rivera from [CircleCI](https://circleci.com/) joins
 
 ## GitHub
 
-The GitHub team participated in three sessions last year including the [Architectures and Platforms](/the-future-of-cloud-engineering-architectures-and-platforms) and [Security and Policy](/resources/the-future-of-cloud-engineering-security-and-policy) panels. This year, the team returns with Rizel Bobb-Semple delivering a plenary session showing you how to get _[From Code to Cloud](/resources/from-code-to-cloud)_ without learning new tools.
+The GitHub team participated in three sessions last year including the [Architectures and Platforms](/blog/the-future-of-cloud-engineering-architectures-and-platforms) and [Security and Policy](/resources/the-future-of-cloud-engineering-security-and-policy) panels. This year, the team returns with Rizel Bobb-Semple delivering a plenary session showing you how to get _[From Code to Cloud](/resources/from-code-to-cloud)_ without learning new tools.
 
 ## Honeycomb
 

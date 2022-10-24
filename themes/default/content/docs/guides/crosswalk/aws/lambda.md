@@ -338,7 +338,7 @@ authors and manages the serverless functions attached to them. For more informat
 
 ## Easy Lambda Log Consumption
 
-[Pulumi Crosswalk for AWS CloudWatch](cloudwatch) ensures that resources have built-in
+[Pulumi Crosswalk for AWS CloudWatch](/docs/guides/crosswalk/aws/cloudwatch) ensures that resources have built-in
 logging, with easy ways to customize associated policies. Additionally, the `pulumi logs` CLI command allows
 us to monitor logs in realtime from any CloudWatch resources in our program. For Lambda Functions, this means
 we can run `pulumi logs -f` to tail all of the logs for all of our Lambdas in a program.

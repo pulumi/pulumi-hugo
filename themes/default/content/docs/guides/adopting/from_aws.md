@@ -12,7 +12,7 @@ menu:
 If your team has already provisioned infrastructure using AWS CloudFormation, and you'd like to adopt Pulumi, you have three primary strategies you can take:
 
 * [**Coexist**](#referencing-stack-outputs) with resources provisioned by CloudFormation by referencing stack outputs.
-* [**Import**](/docs/guides/adopting/import) existing resources into Pulumi [in the usual way](import).
+* [**Import**](/docs/guides/adopting/import) existing resources into Pulumi in the usual way.
 * [**Convert**](#converting-stacks-and-resources) your deployments to use Pulumi and then incrementally migrate resources.
 
 ## Referencing Stack Outputs
@@ -457,7 +457,7 @@ Now let's see how to actually migrate your CloudFormation resources fully to Pul
 
 Note that you can always skip the intermediate step of deploying your CloudFormation stack using Pulumi and go straight to migrating your resources. For large stacks, however, doing this in multiple incremental steps can help minimize disruption and allow you to do this migration more slowly over time.
 
-Our example below will result in a Pulumi program that creates a VPC definition identical to the above CloudFormation stack example. The example will also use [import](import) in conjunction with CloudFormation's ["retain" deletion policy](https://aws.amazon.com/premiumsupport/knowledge-center/delete-cf-stack-retain-resources/) to adopt resources on-the-fly from CloudFormation to Pulumi rather than recreating them.
+Our example below will result in a Pulumi program that creates a VPC definition identical to the above CloudFormation stack example. The example will also use [import](/docs/guides/adopting/import) in conjunction with CloudFormation's ["retain" deletion policy](https://aws.amazon.com/premiumsupport/knowledge-center/delete-cf-stack-retain-resources/) to adopt resources on-the-fly from CloudFormation to Pulumi rather than recreating them.
 
 Before replacing the CloudFormation stack, we must first update the stack definition so that the VPC's set to "retain" upon deletion. Since we'll be replacing its definition with our Pulumi equivalent, we need to set this to ensure CloudFormation doesn't delete the VPC during the adoption process:
 

@@ -51,8 +51,8 @@ Resources represent the fundamental units that make up your cloud infrastructure
 
 All infrastructure resources are described by one of two subclasses of the `Resource` class. These two subclasses are:
 
-- `CustomResource`: A custom resource is a cloud resource managed by a [resource provider](/docs/intro/concepts/providers) such as AWS, Microsoft Azure, Google Cloud or Kubernetes.
-- `ComponentResource`: A [component resource](/docs/intro/concepts/components) is a logical grouping of other resources that creates a larger, higher-level abstraction that encapsulates its implementation details.
+- `CustomResource`: A custom resource is a cloud resource managed by a [resource provider](/docs/intro/concepts/respources/providers) such as AWS, Microsoft Azure, Google Cloud or Kubernetes.
+- `ComponentResource`: A [component resource](/docs/intro/concepts/resources/components) is a logical grouping of other resources that creates a larger, higher-level abstraction that encapsulates its implementation details.
 
 A resource’s desired state is declared by constructing an instance of the resource:
 

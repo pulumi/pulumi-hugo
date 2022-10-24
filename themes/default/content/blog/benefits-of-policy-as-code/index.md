@@ -23,7 +23,7 @@ But what about unused or abandoned resources? We can use a cloud provider’s re
 
 We can use cloud provider native tools and practices in combination with policy to control costs. Using AWS as an example, [Joe Duffy](https://twitter.com/funcofjoe) wrote an article on using tags for cost tracking, automation, and organization. If you are not familiar with tags, they are a simple key/value pair applied to a resource. Tags let you manage, search, and filter resources.
 
-The [article](/blog/automatically-enforcing-aws-resource-tagging-policies) showed how you could use your favorite programming language to tag a resource to enable cost tracking by project, stack, and cost center. Joe then demonstrated how to use policy as code to [enforce tagging of resources](/automatically-enforcing-aws-resource-tagging-policies#defining-our-tags-enforcer-policy) when they are created.  The article also shows how to [automatically tag resources](/blog/automatically-enforcing-aws-resource-tagging-policies#automatically-applying-tags) and enables resources to pass the tagging policy.
+The [article](/blog/automatically-enforcing-aws-resource-tagging-policies) showed how you could use your favorite programming language to tag a resource to enable cost tracking by project, stack, and cost center. Joe then demonstrated how to use policy as code to [enforce tagging of resources](/blog/automatically-enforcing-aws-resource-tagging-policies#defining-our-tags-enforcer-policy) when they are created.  The article also shows how to [automatically tag resources](/blog/automatically-enforcing-aws-resource-tagging-policies#automatically-applying-tags) and enables resources to pass the tagging policy.
 
 ## Compliance
 

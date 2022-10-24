@@ -13,7 +13,7 @@ This user guide offers a tour of tried-and-true tools and techniques that can be
 
 Below we will review some basic concepts, but feel free to jump straight to a specific guide:
 
-* [**Importing Infrastructure**](import): for any cloud, no matter how it's provisioned
+* [**Importing Infrastructure**](/docs/guides/adopting/import): for any cloud, no matter how it's provisioned
 * [**From Terraform**](/docs/guides/adopting/from_terraform): coexist with existing workspaces or convert your HCL
 * [**From AWS CloudFormation**](/docs/guides/adopting/from_aws): coexist with, deploy, or convert your templates and stacks
 * [**From Azure Resource Manager (ARM)**](/docs/guides/adopting/from_azure): coexist with, deploy, or convert your templates and deployments
@@ -59,7 +59,7 @@ In the above coexistence scenarios, Pulumi _reads_ your existing infrastructure,
 
 Furthermore, Pulumi doesn't care where the infrastructure originally came from. You could have manually provisioned it in your cloud's console UI, from the CLI, using Terraform, your cloud's built-in templating mechanism, and so on. In all cases, after the import process, you'll be left with a working Pulumi program, and all subsequent infrastructure updates can be made with Pulumi. You can then retire the old way of managing your infrastructure. This works even if you've lost the original scripts or templates that created the infrastructure.
 
-To learn more about how to import resources in this manner, refer to the [import guide](import).
+To learn more about how to import resources in this manner, refer to the [import guide](/docs/guides/adopting/import).
 
 ### Conversion
 

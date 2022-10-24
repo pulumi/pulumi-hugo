@@ -74,7 +74,7 @@ Pulumi Crosswalk for AWS supports configuring CloudWatch logging in the followin
   will aggregate and stream recent log entries to the console. The `--follow` option enables you to watch the
   logs unfold in real time, `--since` looks at log entries only within a certain time period, and `--resource` allows
   you to filter to specific log groups. Read more at
-  [Unified Logs with Pulumi Logs](unified-logs-with-pulumi-logs).
+  [Unified Logs with Pulumi Logs](/blog/unified-logs-with-pulumi-logs).
 
 As an example, this code configures a custom CloudWatch log group with a 1 week retention policy for our ECS service:
 
@@ -268,11 +268,10 @@ const alarm = funcMetric.createAlarm("alarm", {
 });
 ```
 
-Such an approach can be combined with [Pulumi Crosswalk for AWS Lambda](lambda) to define and run
+Such an approach can be combined with [Pulumi Crosswalk for AWS Lambda](/docs/guides/crosswalk/aws/lambda) to define and run
 custom code in response to metric alarms being triggered.
 
-CloudWatch metrics may also be used to trigger changes to [Autoscaling Scaling Policies](
-autoscaling#scaling-policies) in response to events indicating that more or less capacity is desired.
+CloudWatch metrics may also be used to trigger changes to [Autoscaling Scaling Policies](/docs/guides/crosswalk/aws/autoscaling#scaling-policies) in response to events indicating that more or less capacity is desired.
 
 ## Defining CloudWatch Dashboards in Code
 

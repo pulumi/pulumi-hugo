@@ -12,11 +12,11 @@ weight: 1
 
 Static websites are an efficient and scalable way of building and serving websites created with HTML, CSS, and JavaScript. Popular frameworks for static websites include Next.js, Hugo, Gatsby, Jekyll, and more.
 
-**On [AWS](/partner/aws),** you can host a static website by configuring Amazon S3 for hosting and Amazon CloudFront as the CDN. You could also use AWS Amplify, which is designed for deploying static websites more easily.
+**On [AWS](/aws),** you can host a static website by configuring Amazon S3 for hosting and Amazon CloudFront as the CDN. You could also use AWS Amplify, which is designed for deploying static websites more easily.
 
-**On [Azure](/partner/azure),** you can host a static website by configuring Azure Blob Storage for hosting and Azure CDN for content delivery. You could also use Azure Static Web Apps, which provides a CI/CD pipeline for deploying static websites.
+**On [Azure](/azure),** you can host a static website by configuring Azure Blob Storage for hosting and Azure CDN for content delivery. You could also use Azure Static Web Apps, which provides a CI/CD pipeline for deploying static websites.
 
-**On [Google Cloud Platform](/partner/gcp),** you can host a static website by configuring Cloud Storage for hosting and Cloud Load Balancing with HTTPS configured.
+**On [Google Cloud Platform](/gcp),** you can host a static website by configuring Cloud Storage for hosting and Cloud Load Balancing with HTTPS configured.
 
 ### Building and deploying static websites on AWS, Azure, and Google Cloud
 

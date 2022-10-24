@@ -133,8 +133,8 @@ gains from better tooling support. In particular:
 To learn more take a look at more tutorials and example code:
 
 - Our origin story: [Hello, Pulumi!](http://joeduffyblog.com/2018/06/18/hello-pulumi/)
-- Tutorial: [Deploying Containers with Pulumi](deploying-production-ready-containers-with-pulumi)
-- Tutorial: [Build a video thumbnailer using AWS Lambda, Fargate, and S3 in JavaScript](build-a-video-thumbnailer-with-pulumi-using-lambdas-containers-and-infrastructure-on-aws)
+- Tutorial: [Deploying Containers with Pulumi](/blog/deploying-production-ready-containers-with-pulumi)
+- Tutorial: [Build a video thumbnailer using AWS Lambda, Fargate, and S3 in JavaScript](/blog/build-a-video-thumbnailer-with-pulumi-using-lambdas-containers-and-infrastructure-on-aws)
 - [Pulumi Quickstart](/docs/get-started)
 - [Pulumi Community Slack](https://slack.pulumi.com)
 - [Pulumi Examples on GitHub](https://github.com/pulumi/examples)

@@ -319,7 +319,7 @@ whenever it needs to encrypt or decrypt some data, it will refer to the custom p
 > no way to recover the encrypted data stored on your stack.
 
 For more information on custom secret providers, see
-[Peace of Mind with Cloud Secret Providers](peace-of-mind-with-cloud-secret-providers) or
+[Peace of Mind with Cloud Secret Providers](/blog/peace-of-mind-with-cloud-secret-providers) or
 [Managing Secrets with Pulumi](/blog/managing-secrets-with-pulumi).
 
 ## Wrapping Up

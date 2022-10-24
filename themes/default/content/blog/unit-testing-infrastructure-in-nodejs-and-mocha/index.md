@@ -24,8 +24,7 @@ your infrastructure.
 
 ## Test-Driven Infrastructure
 
-We [previously explored many reasons and solutions](
-/blog/testing-your-infrastructure-as-code-with-pulumi) for
+We [previously explored many reasons and solutions](/blog/testing-your-infrastructure-as-code-with-pulumi) for
 testing your infrastructure. In this post, we'll see a very simple approach that
 leverages existing test tools and frameworks. For this blog post, we'll be using
 Node.js with TypeScript, the Mocha test framework, and the Chai assertion library.

@@ -19,7 +19,7 @@ Pulumi stores state in a _backend_ of your choosing. A backend is an API and sto
 
 The default experience is to use the hosted Pulumi Service, which takes care of the state and backend details for you. Conversely, when using cloud storage or a local filesystem as your backend, you gain control over where your state is located at the expense of having to handle security, state management, auditing, and other concerns the Pulumi Service would otherwise handle for you.
 
-> Pulumi state does not include your cloud credentials. Credentials are kept local to your client &mdash; wherever the CLI runs &mdash; even when using the managed Pulumi Service backend. Pulumi _does_ store configuration and secrets, but encrypts those secrets using your chosen encryption provider. To learn more, see [Configuration and Secrets](secrets).
+> Pulumi state does not include your cloud credentials. Credentials are kept local to your client &mdash; wherever the CLI runs &mdash; even when using the managed Pulumi Service backend. Pulumi _does_ store configuration and secrets, but encrypts those secrets using your chosen encryption provider. To learn more, see [Configuration and Secrets](/docs/intro/concepts/secrets).
 
 ## Deciding On a State Backend
 
@@ -264,7 +264,7 @@ $ pulumi stack import --file my-app-production.checkpoint.json
 
 After performing these steps, your stack will now be under the management of the Pulumi Service. All subsequent operations should be performed using this new backend.
 
-> **Note:**: After migration, your stack's state will be managed by the the Pulumi Service backend, but the stack will continue using the same secrets provider. You can separately [change the secrets provider](docs/intro/concepts/secrets#changing-the-secrets-provider-for-a-stack) for your stack if needed.
+> **Note:**: After migration, your stack's state will be managed by the the Pulumi Service backend, but the stack will continue using the same secrets provider. You can separately [change the secrets provider](/docs/intro/concepts/secrets#changing-the-secrets-provider-for-a-stack) for your stack if needed.
 
 ## Advanced State
 
@@ -292,7 +292,7 @@ A Pulumi "secret" can be used to store sensitive configuration values like datab
 
 A secret can be created one of two ways: passing `--secret` to the `pulumi config set` command, or by [creating one programmatically](/docs/intro/concepts/secrets#secrets). In both cases, the value is encrypted using your stack's chosen encryption provider. By default with the Pulumi Service, a server-side HMS key is used, but you may customize the encryption provider if you'd like more control over keys, rotation, and so on.
 
-To learn more about available encryption providers and how to customize your stack's, see [Configuring Secrets Encryption](config/#configuring-secrets-encryption).
+To learn more about available encryption providers and how to customize your stack's, see [Configuring Secrets Encryption](/docs/intro/concepts/secrets#configuring-secrets-encryption).
 
 ### Exporting and Importing State
 

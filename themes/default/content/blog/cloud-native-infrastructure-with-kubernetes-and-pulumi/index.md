@@ -22,7 +22,7 @@ that works across AWS, Azure, Google Cloud, OpenStack, and other clouds,
 now to Kubernetes and cloud native architectures. You can
 [dive right in here](/docs/get-started/kubernetes) and
 look at some
-[powerful things Pulumi enables here](program-kubernetes-with-11-cloud-native-pulumi-pearls).
+[powerful things Pulumi enables here](/blog/program-kubernetes-with-11-cloud-native-pulumi-pearls).
 <!--more-->
 
 ## Why Pulumi?

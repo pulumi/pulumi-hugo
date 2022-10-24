@@ -6,7 +6,7 @@ aliases:
   - /docs/intro/vs/cloud_template_transpilers/
 ---
 
-Because of [the challenges of writing raw YAML/JSON by hand](/docs/intro/vs/cloud-template/transpilers/cloud-templates), two notable
+Because of [the challenges of writing raw YAML/JSON by hand](/docs/intro/vs/cloud-templates), two notable
 projects exist to compile higher-level languages into AWS CloudFormation YAML/JSON templates: Troposphere, a community-led open source project created in 2013; and AWS Cloud Development Kit (CDK), an AWS Labs project created in 2018.
 
 Similar to Pulumi, these projects allow you to author infrastructure as code using general-purpose languages like TypeScript,

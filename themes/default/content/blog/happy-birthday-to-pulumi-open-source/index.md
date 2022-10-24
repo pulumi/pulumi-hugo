@@ -8,7 +8,7 @@ tags: ["pulumi-news"]
 ---
 
 One year ago today -- on June 18, 2018 --
-[we open sourced Pulumi](introducing-pulumi-a-cloud-development-platform),
+[we open sourced Pulumi](/blog/introducing-pulumi-a-cloud-development-platform),
 a new approach to multi-cloud infrastructure as code using your favorite
 languages. And what a year it has been!
 <!--more-->
@@ -19,7 +19,7 @@ since launching:
 - Over 100 [examples](https://github.com/pulumi/examples),
     [tutorials](/registry), and a brand new
     [Getting Started guide](/docs/get-started).
-- [A native Kubernetes provider with 100% Kubernetes API/version coverage.](pulumi-a-better-way-to-kubernetes)
+- [A native Kubernetes provider with 100% Kubernetes API/version coverage.](/blog/pulumi-a-better-way-to-kubernetes)
 - A steady stream of improvements across
     [AWS](/docs/get-started/aws),
     [Azure](/docs/get-started/azure), and
@@ -28,7 +28,7 @@ since launching:
 - Over 20 additional providers, including
     [CloudFlare](https://github.com/pulumi/pulumi-cloudflare),
     [Digital Ocean](https://github.com/pulumi/pulumi-digitalocean), and
-    [MySQL](managing-your-mysql-databases-with-pulumi).
+    [MySQL](/blog/managing-your-mysql-databases-with-pulumi).
 - Brought our [Python 3 SDK](/docs/reference/pkg/python)
     to parity with our
     [Node.js-based JavaScript and TypeScript SDKs](/docs/reference/pkg/nodejs).
@@ -73,7 +73,7 @@ A few notable success stories include:
     their cloud bill along the way.
     [Read more.](/whitepapers/delivering-cloud-native-infrastructure-as-code#delivering-cloud-native-infrastructure-for-learning-machine)
 - **Mapbox** built a scalable IoT tracking solution with serverless
-    Lambdas. [Read more.](mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
+    Lambdas. [Read more.](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
 - Multiple early stage startups, including **Jargon**, a TechStars
     company, have used Pulumi to get up and running quickly in the cloud
     -- doing in days what used to take weeks.

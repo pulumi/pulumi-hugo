@@ -148,6 +148,6 @@ In this tutorial, we'll use JavaScript to build and deploy a simple container us
 
 ## Next steps
 
-For an end-to-end application also includes serverless functions, see the [Serverless and Container Thumbnailer](thumbnailer) tutorial.
+For an end-to-end application also includes serverless functions, see the [Serverless and Container Thumbnailer](/docs/tutorials/cloudfx/thumbnailer) tutorial.
 
 For an example application that connects two containers, see the [Voting App](https://github.com/pulumi/examples/tree/master/cloud-ts-voting-app) TypeScript sample.

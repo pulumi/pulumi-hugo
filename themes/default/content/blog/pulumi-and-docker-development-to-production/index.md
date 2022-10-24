@@ -15,7 +15,7 @@ love it, but unfortunately it's quite a big leap from `docker run` to
 running your container in a production-ready environment.
 
 We recently wrote a blog post about
-[using AWS Fargate to run your docker containers with our open source packages](get-started-with-docker-on-aws-fargate-using-pulumi).
+[using AWS Fargate to run your docker containers with our open source packages](/blog/get-started-with-docker-on-aws-fargate-using-pulumi).
 In this blog post we're going to focus on another interesting aspect of
 Pulumi: being able to re-use your infrastructure code for both
 development and production!

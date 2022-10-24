@@ -220,7 +220,7 @@ const nginx = new awsx.ecs.FargateService("nginx-task", {
 export const endpoint = listener.endpoint.hostname;
 ```
 
-> [Pulumi Crosswalk for AWS ECS](ecs) -- those classes in the `awsx.ecs` package -- will automatically create the
+> [Pulumi Crosswalk for AWS ECS](/docs/guides/crosswalk/aws/ecs) -- those classes in the `awsx.ecs` package -- will automatically create the
 > right ingress and egress rules. If you are using raw `aws.ecs`, you will need to manually manage the security group
 > ingress and egress rules, much like the [EC2 Instance](#load-balancing-ec2-instances) example earlier.
 
@@ -295,7 +295,7 @@ const listener = alb.createListener("web-listener", { port: 80 });
 export const endpoint = listener.endpoint;
 ```
 
-For more information on creating and configuring VPCs, refer to [Pulumi Crosswalk for AWS VPC](vpc).
+For more information on creating and configuring VPCs, refer to [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc).
 
 ## Advanced Load Balancer Listener and Target Group Configuration
 

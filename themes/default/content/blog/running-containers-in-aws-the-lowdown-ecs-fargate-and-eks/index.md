@@ -193,7 +193,7 @@ You will find that the entirety of Kubernetes is more feature rich and
 offers more control over scheduling and scaling your workloads, but with
 that richness also comes added complexity that will increase training,
 and time to ramp up, in addition to ongoing maintenance costs. To learn
-more about Pulumi's support for Kubernetes, [go here](pulumi-a-better-way-to-kubernetes).
+more about Pulumi's support for Kubernetes, [go here](/blog/pulumi-a-better-way-to-kubernetes).
 
 ## Private ECR Container Registries
 

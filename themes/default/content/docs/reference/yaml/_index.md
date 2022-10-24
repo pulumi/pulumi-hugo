@@ -102,7 +102,7 @@ The optional `customTimeouts` property of a resource is an object of the followi
 There are at least two reasons to explicitly define providers in YAML, or explicitly set their versions while creating resources.
 
 1. Using explicit versions enables pinning the dependencies used, a technique used to improve build reliability.
-1. Using explicit providers enables controlling the options for providers used by each resource, as described in [Unlock Programmatic Control by Disabling Default Providers](/blog/disable-default-providers/index).
+2. Using explicit providers enables controlling the options for providers used by each resource, as described in [Unlock Programmatic Control by Disabling Default Providers](/blog/disable-default-providers).
 
 #### Resource version
 

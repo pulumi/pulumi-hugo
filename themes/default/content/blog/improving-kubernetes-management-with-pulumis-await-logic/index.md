@@ -115,7 +115,7 @@ use.
 If you'd like to go deeper on certain topics, here are some additional
 resources to check out:
 
-- [Overview of Pulumi Kubernetes Scenarios](/topics/kubernetes)
+- [Overview of Pulumi Kubernetes Scenarios](/kubernetes)
 - Tutorial: Create a Kubernetes cluster on a cloud provider
   [Amazon EKS](/registry/packages/kubernetes/how-to-guides/eks),
   [Google GKE](/registry/packages/kubernetes/how-to-guides/gke), or

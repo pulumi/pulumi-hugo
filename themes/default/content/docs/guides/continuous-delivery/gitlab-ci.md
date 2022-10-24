@@ -196,6 +196,6 @@ pulumi up --yes
 
 Pulumi now supports enhancing your merge requests with insights into changes to your infrastructure.
 Never miss another unintended change with the infrastructure change summary shown inline with the rest of your
-merge request notes. Learn how to [configure](gitlab-app) the integration with Pulumi.
+merge request notes. Learn how to [configure](/docs/guides/continuous-delivery/gitlab-app) the integration with Pulumi.
 
 ![Merge Request Note](/images/docs/guides/continuous-delivery/gitlab-app/merge_request_note.png)

@@ -418,7 +418,7 @@ Refer to the API documentation for these libraries for full details on configura
 
 ## Converting Terraform HCL to Pulumi
 
-The [`tf2pulumi`](https://github.com/pulumi/tf2pulumi) tool can convert existing Terraform source code written in the HashiCorp Configuration Language (HCL) into Pulumi source code. In addition to converting source code, this tool also offers the option to [automatically insert import IDs](import), so that you can also import state during the conversion. This ensures live resources are brought under the control of Pulumi as well as letting you deploy and manage new copies of that infrastructure.
+The [`tf2pulumi`](https://github.com/pulumi/tf2pulumi) tool can convert existing Terraform source code written in the HashiCorp Configuration Language (HCL) into Pulumi source code. In addition to converting source code, this tool also offers the option to [automatically insert import IDs](/docs/guides/adopting/import), so that you can also import state during the conversion. This ensures live resources are brought under the control of Pulumi as well as letting you deploy and manage new copies of that infrastructure.
 
 ### How to Use the Tool
 
@@ -505,7 +505,7 @@ Next, set the `importFromStatefile` config setting on your project to a valid lo
 $ pulumi config set importFromStatefile ./terraform.tfstate
 ```
 
-After doing this, the first `pulumi up` for a new stack with this configuration variable set will import instead of create all of the resources defined in the code. Once imported, the existing resources in your cloud provider can now be managed by Pulumi going forward. See the [Importing Infrastructure User Guide](import) for more details on importing existing resources.
+After doing this, the first `pulumi up` for a new stack with this configuration variable set will import instead of create all of the resources defined in the code. Once imported, the existing resources in your cloud provider can now be managed by Pulumi going forward. See the [Importing Infrastructure User Guide](/docs/guides/adopting/import) for more details on importing existing resources.
 
 ### Limitations
 

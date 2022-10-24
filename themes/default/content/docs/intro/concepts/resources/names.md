@@ -288,7 +288,7 @@ Any change to the URN of a resource causes the old and new resources to be treat
 Both of these operations will lead to a different URN, and thus require the `create` and `delete` operations instead of an `update` or `replace` operation that you would use for an existing resource. In other words, be careful when you change a resource’s name.
 
 {{% notes "info" %}}
-If you’d like to rename a resource without destroying the old one, refer to the [aliases](options/aliases) resource option.
+If you’d like to rename a resource without destroying the old one, refer to the [aliases](/docs/intro/concepts/resources/options/aliases) resource option.
 {{% /notes %}}
 
 Resources constructed as children of a component resource should ensure their names are unique across multiple instances of the component resource. In general, the name of the component resource instance itself (the `name` parameter passed into the component resource constructor) should be used as part of the name of the child resources.

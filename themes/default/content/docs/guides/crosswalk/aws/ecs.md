@@ -176,10 +176,10 @@ Giving the following output:
 
 We have chosen to create an [Elastic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing) so that we
 can access our services over the Internet at a stable address, spread evenly across two instances. Any of the ELB
-options described in the [Pulumi Crosswalk for ELB documentation](elb) can be used with our ECS service.
+options described in the [Pulumi Crosswalk for ELB documentation](/docs/guides/crosswalk/aws/elb) can be used with our ECS service.
 
 Behind the scenes, our program creates the ECS cluster in the default VPC to run the compute. This is something
-[we can configure](#creating-an-ecs-cluster-in-a-vpc) if we want to use a different VPC.
+[we can configure](/docs/guides/crosswalk/aws/eks#configuring-your-eks-clusters-networking) if we want to use a different VPC.
 
 Because we've used [`Fargate`](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html), we don't
 need to specify anything about our machine instances. Instead, Fargate will manage that for us automatically based on
@@ -191,7 +191,7 @@ approach is simple and hides a lot of complexity, it's often desirable to contro
 ## Creating an ECS Cluster in a VPC
 
 To create an ECS service inside of a VPC, we will first create or use an existing VPC using any of the techniques
-described in [Pulumi Crosswalk for AWS VPC](vpc). Then we pass the subnets
+described in [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc). Then we pass the subnets
 from that VPC into the network configuration argument for our cluster:
 
 {{< chooser language "typescript,python,csharp" / >}}
@@ -620,7 +620,7 @@ class Program
 }
 ```
 
-For more information about using ECR, refer to [Pulumi Crosswalk for AWS ECR](ecr).
+For more information about using ECR, refer to [Pulumi Crosswalk for AWS ECR](/docs/guides/crosswalk/aws/ecr).
 
 ## Additional ECS Resources
 

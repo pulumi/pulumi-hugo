@@ -22,6 +22,6 @@ All resource constructors accept an options argument that provide the following 
 - [provider](/docs/intro/concepts/resources/options/provider): pass an [explicitly configured provider](../providers/#explicit-provider-configuration), instead of using the default global provider.
 - [providers](/docs/intro/concepts/resources/options/providers): pass a set of [explicitly configured providers](../providers/#explicit-provider-configuration). These are used if provider is not given, and are passed to child resources.
 - [replaceOnChanges](/docs/intro/concepts/resources/options/replaceonchanges): declare that changes to certain properties should be treated as forcing a replacement.
-- [retainOnDelete](/docs/intro/concepts/resources/options/retainOnDelete): if true the resource will be retained in the backing cloud provider during a Pulumi delete operation.
+- [retainOnDelete](/docs/intro/concepts/resources/options/retainondelete): if true the resource will be retained in the backing cloud provider during a Pulumi delete operation.
 - [transformations](/docs/intro/concepts/resources/options/transformations): dynamically transform a resource’s properties on the fly.
 - [version](/docs/intro/concepts/resources/options/version): pass a provider plugin version that should be used when operating on a resource.

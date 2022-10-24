@@ -449,7 +449,7 @@ class Program
 
 {{% /choosable %}}
 
-For information about ECS, refer to the [Pulumi Crosswalk for AWS ECS documentation](ecs). For
+For information about ECS, refer to the [Pulumi Crosswalk for AWS ECS documentation](/docs/guides/crosswalk/aws/ecs). For
 information about consuming ECR images from ECS services specifically, see
 [Using Amazon ECR Images with Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_ECS.html).
 
@@ -689,7 +689,7 @@ class Program
 
 {{% /choosable %}}
 
-For information about EKS, refer to the [Pulumi Crosswalk for AWS EKS documentation](eks).
+For information about EKS, refer to the [Pulumi Crosswalk for AWS EKS documentation](/docs/guides/crosswalk/aws/eks).
 
 ### IAM Permissions Required to use ECR
 
@@ -714,7 +714,7 @@ policy permissions to access your Amazon ECR registry. The following example def
 }
 ```
 
-See the [Pulumi Crosswalk for AWS IAM documentation](iam) for instructions on how to manage
+See the [Pulumi Crosswalk for AWS IAM documentation](/docs/guides/crosswalk/aws/iam) for instructions on how to manage
 such policies.
 
 ## Managing Container Image Lifecycles using Policies

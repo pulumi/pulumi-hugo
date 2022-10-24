@@ -390,7 +390,7 @@ You could then use the `stdout` output, `${compileWorker.stdout}`, from our loca
 
 ## Hooking Up a Domain
 
-Cloudflare Workers allow us to connect a domain name, instead of using the generated `workers.dev` subdomain. To do so with Pulumi, we need to [create](/registry/packages/cloudflare/api-docs/zone/) or [fetch](registry/packages/cloudflare/api-docs/getzone/) a Cloudflare Zone.
+Cloudflare Workers allow us to connect a domain name, instead of using the generated `workers.dev` subdomain. To do so with Pulumi, we need to [create](/registry/packages/cloudflare/api-docs/zone/) or [fetch](/registry/packages/cloudflare/api-docs/getzone/) a Cloudflare Zone.
 
 ### Create a Zone(s)
 

@@ -31,7 +31,7 @@ Select one of the following options to get started:
             <h4><i class="fas fa-folder text-blue-400 pr-2"></i>Starter App</h4>
             <p>If you are new to Pulumi, this guide helps you install Pulumi, configure AWS, and run your first update.</p>
             <div class="flex flex-grow items-end">
-                <a data-track="aws-get-started" href="/docs/get-started/aws/nope" class="btn btn-primary">Get Started</a>
+                <a data-track="aws-get-started" href="/docs/get-started/aws" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </div>

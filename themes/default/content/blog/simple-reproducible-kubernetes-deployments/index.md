@@ -24,7 +24,7 @@ powerful, Kubernetes deployment workflows.
 
 ## Less YAML, More Robustness
 
-[Pulumi 0.15](/blog/announcing-pulumi-0.15-kubernetes-cicd-openstack-and-more/index)
+[Pulumi 0.15](/blog/announcing-pulumi-0.15-kubernetes-cicd-openstack-and-more)
 introduced Kubernetes support to Pulumi. When we started working on
 this, we already loved being able to write in our favorite languages --
 with the benefits of IDEs, classes and functions, and reuse through

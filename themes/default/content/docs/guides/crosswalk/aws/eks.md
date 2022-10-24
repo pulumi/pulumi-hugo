@@ -731,7 +731,7 @@ For a full list of options that you may set on your cluster, see the [API docume
 
 By default, your EKS cluster is put into your region's default VPC. This is a reasonable default, however this is
 configurable if you want specific network isolation or to place your cluster work nodes on private subnets. This works
-in conjunction with [Pulumi Crosswalk for AWS VPC](vpc) which makes configuring VPCs easier.
+in conjunction with [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc) which makes configuring VPCs easier.
 
 This example creates a new VPC with private subnets only and creates our EKS cluster inside of it:
 
@@ -1502,7 +1502,7 @@ placing them in the `aws-auth` ConfigMap for your cluster automatically. Pulumi 
 objects, so that can also then create the RBAC cluster role bindings in your cluster to tie everything together.
 
 For a complete example of this in action, see
-[Simplifying Kubernetes RBAC in Amazon EKS](simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages).
+[Simplifying Kubernetes RBAC in Amazon EKS](/blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages).
 
 ## Deploying Kubernetes Apps to Your EKS Cluster
 
@@ -2728,7 +2728,7 @@ var chart = new Helm.V3.Chart("empty",
 
 ## Using an ECR Container Image from an EKS Kubernetes Deployment
 
-[Pulumi Crosswalk for AWS ECR](ecr) enables you to build, publish, and consume private Docker
+[Pulumi Crosswalk for AWS ECR](/docs/guides/crosswalk/aws/ecr) enables you to build, publish, and consume private Docker
 images easily using Amazon's Elastic Container Registry (ECR). The [`aws.ecr.buildAndPushImage` function](
 /docs/reference/pkg/nodejs/pulumi/awsx/ecr#buildAndPushImage) takes a name and a relative location on disk, and will
 
@@ -3106,7 +3106,7 @@ class MyStack : Stack
 
 {{% /choosable %}}
 
-For more information about ECR, see [the Pulumi Crosswalk for AWS ECR documentation](ecr).
+For more information about ECR, see [the Pulumi Crosswalk for AWS ECR documentation](/docs/guides/crosswalk/aws/ecr).
 
 ## Additional EKS Resources
 

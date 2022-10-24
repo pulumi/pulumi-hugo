@@ -375,7 +375,7 @@ deployment on the Pulumi Service with more details:
 
 ![Action Logs](/images/docs/reference/gh-actions-logs.png)
 
-For even better Pull Request integration, make sure to also [install our GitHub App](github-app)!
+For even better Pull Request integration, make sure to also [install our GitHub App](/docs/guides/continuous-delivery/github-app)!
 
 ![Action Pull Requests](/images/docs/reference/gh-actions-prs.png)
 

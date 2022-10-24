@@ -16,7 +16,7 @@ tags: ["Kubernetes"]
 > details how Kubernetes deployments work.
 
 One of the most popular features of the recent
-[v0.15.2 release](cloud-native-infrastructure-with-kubernetes-and-pulumi)
+[v0.15.2 release](/blog/cloud-native-infrastructure-with-kubernetes-and-pulumi)
 of Pulumi is fine-grained status updates for Kubernetes resources. On
 the CLI they look like this:
 <!--more-->
@@ -113,5 +113,5 @@ practices we've accumulated, and describe how we solved the problem of
 repeatable `Pod` deployments in Pulumi.
 
 If you enjoyed this post, or are curious to see how this lifecycle is
-baked into the Pulumi CLI, [give us a shot](/topics/kubernetes)!
+baked into the Pulumi CLI, [give us a shot](/kubernetes)!
 We'd love to have your feedback.

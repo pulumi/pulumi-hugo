@@ -510,7 +510,7 @@ You can define a Lambda Authorizer for an Event Handler Route or a Static Route.
 To define an Authorizer, you provide a Lambda that recieves an
 [Authorizer Event](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html)
 and responds with a valid [Authorizer Response](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html).
-See [Pulumi Crosswalk for AWS Lambda](lambda) for other ways you can define your Lambda for the Authorizer.
+See [Pulumi Crosswalk for AWS Lambda](/docs/guides/crosswalk/aws/lambda) for other ways you can define your Lambda for the Authorizer.
 
 #### Lambda Request Authorizer
 
