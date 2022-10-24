@@ -1,6 +1,6 @@
 ---
 date: "2022-10-23"
-title: "Pulumi+Kubernetes: Flux Integration, Inline Programs and SSA"
+title: "Pulumi+Kubernetes: New Flux Integration and Inline Programs"
 authors: ["luke-hoban", "michael-bridgen"]
 tags: ["Kubernetes", "Continuous-Delivery", "operators"]
 meta_desc: "Pulumi Kubernetes Operator v1.10, New Pulumi Provider for Flux, Pulumi Kubernetes Provider v3.22"
@@ -278,4 +278,4 @@ At Pulumi, we are passionate about pushing the state of the art of Infrastructur
 
 We’re so happy to be able to work with the Flux project to bring all of the benefits of its composable GitOps toolkit to Pulumi users. We’re excited about the new use cases that Inline Infrastructure support in the Pulumi Kubernetes Operator enables. And we’re thrilled to bring Server Side Apply and Patch support to the Pulumi Kubernetes Provider.
 
-You can [learn more about Pulumi and Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/) or jump in and [get started](https://www.pulumi.com/docs/get-started/kubernetes/) right away.
+You can [learn more about Pulumi and Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/) or jump in right away by following the [getting started guide](https://www.pulumi.com/docs/get-started/kubernetes/).
