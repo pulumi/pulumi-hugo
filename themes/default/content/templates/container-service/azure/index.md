@@ -41,7 +41,7 @@ $ pulumi up
 When the deployment completes, Pulumi exports the following [stack output]({{< relref "/docs/intro/concepts/stack#outputs" >}}) values:
 
 hostname
-: The host name of the container group.
+: The hostname of the container group.
 
 ip
 : The public IP address of the container group.
