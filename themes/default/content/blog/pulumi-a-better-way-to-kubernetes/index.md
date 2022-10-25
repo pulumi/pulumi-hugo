@@ -50,7 +50,7 @@ conditionals, looping, library support,
 [packaging](/blog/creating-and-reusing-cloud-components-using-package-managers/),
 [testing](/blog/testing-your-infrastructure-as-code-with-pulumi/),
 debugging, and more! From the obvious
-([use variables to manage resource metadata](/blog/program-kubernetes-with-11-cloud-native-pulumi-pearls)/),
+([use variables to manage resource metadata](/blog/program-kubernetes-with-11-cloud-native-pulumi-pearls/),
 to the more esoteric
 ([gate a canary deployment with Prometheus](/blog/program-kubernetes-with-11-cloud-native-pulumi-pearls/),
 Pulumi keeps the simple things simple, and makes the hard things possible.

@@ -33,7 +33,7 @@ Azure Functions are ideal for specific use cases that include:
 - when you have client-heavy applications, where most of the business logic is in the client
 - if you have high latency tasks like data processing
 
-Serverless is not ideal if the application runs constantly, needs a quick response (otherwise known as the [cold start problem](/blog/aws-lambda-provisioned-concurrency-no-cold-starts)/), or is a long-running process that can exceed the [timeout period](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#timeout) for your execution plan.
+Serverless is not ideal if the application runs constantly, needs a quick response (otherwise known as the [cold start problem](/blog/aws-lambda-provisioned-concurrency-no-cold-starts/), or is a long-running process that can exceed the [timeout period](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#timeout) for your execution plan.
 
 With those caveats, let's jump into creating a serverless function using the Azure Portal to understand how to write a function and how the pieces work together.
 

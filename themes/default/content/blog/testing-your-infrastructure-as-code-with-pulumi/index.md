@@ -558,7 +558,7 @@ supported:
 - [Travis](/docs/guides/continuous-delivery/travis/)
 
 Please refer to the
-[Continuous Delivery documentation](/docs/guides/continuous-delivery)/) for a more
+[Continuous Delivery documentation](/docs/guides/continuous-delivery/) for a more
 comprehensive guide.
 
 ## Ephemeral Environments

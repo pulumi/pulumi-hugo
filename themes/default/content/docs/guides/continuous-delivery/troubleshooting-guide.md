@@ -121,7 +121,7 @@ when you run `pulumi preview` or `pulumi update --yes`.
 * For `nodejs` and `python` runtimes, add a step prior to running any `pulumi` commands to restore the dependencies.
 * For `dotnet` and `go` runtimes, the dependencies are restored for you automatically when you run `pulumi preview` or `pulumi update --yes`.
 * There is an exception to restoring dependencies automatically for `.NET` when you use a private package feed. You must ensure that the
-package(s) from the private feed are accessible or you can use a [pre-built binary](/docs/intro/concepts/project)/) with Pulumi to avoid rebuilding your `.NET` solution again.
+package(s) from the private feed are accessible or you can use a [pre-built binary](/docs/intro/concepts/project/) with Pulumi to avoid rebuilding your `.NET` solution again.
 
 > Note that if you do choose to use a pre-built binary, you will need to install the necessary Pulumi plugins manually using `pulumi plugin install`.
 
