@@ -663,6 +663,6 @@ with users and the Pulumi team.
 [pulumi-k8s-nginx]: https://github.com/metral/pulumi-nginx
 [pulumi-aws-eks]: https://github.com/metral/pulumi-aws-eks
 [p-examples]: https://github.com/pulumi/examples
-[stack]:/docs/intro/concepts/stack" >}}
-[pulumi-config]:/docs/intro/concepts/config" >}}
-[pulumi-providers]:/registry" >}}
+[stack]: /docs/intro/concepts/stack/
+[pulumi-config]: /docs/intro/concepts/config/
+[pulumi-providers]: /registry/

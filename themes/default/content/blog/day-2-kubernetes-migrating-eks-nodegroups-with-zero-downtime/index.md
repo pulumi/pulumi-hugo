@@ -170,6 +170,6 @@ migrating your existing configuration code to Pulumi, please don't hesitate to [
 [ingress-nginx]: https://github.com/kubernetes/ingress-nginx
 [echoserver]: https://github.com/kubernetes-retired/contrib/blob/master/ingress/echoheaders/echo-app.yaml
 [pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
-[eks-nodegroup-tutorial]: /registry/packages/kubernetes/how-to-guides/eks-migrate-nodegroups" >}}
-[crosswalk-aws]: /docs/guides/crosswalk/aws" >}}.
-[tutorial-ha-refs]: /registry/packages/kubernetes/how-to-guides/eks-migrate-nodegroups#kubernetes-workloads-high-availability-ha-rolling-updates" >}}
+[eks-nodegroup-tutorial]: /registry/packages/kubernetes/how-to-guides/eks-migrate-nodegroups/
+[crosswalk-aws]: /docs/guides/crosswalk/aws/
+[tutorial-ha-refs]: /registry/packages/kubernetes/how-to-guides/eks-migrate-nodegroups/

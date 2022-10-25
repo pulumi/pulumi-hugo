@@ -35,7 +35,7 @@ To work with the operator, we'll need to follow these steps.
 - [Concurrent Updates on the Same Stack](#concurrent-updates-on-the-same-stack)
 
 [k8s-ext-pattern]: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
-[stack]: /docs/intro/concepts/stack" >}}
+[stack]: /docs/intro/concepts/stack/
 
 ## Deploy the Pulumi Kubernetes Operator
 
@@ -82,8 +82,8 @@ the [default, ambient kubeconfig credentials][default-kubeconfig].
 The role permissions for the operator can be adjusted to control what in-cluster API resources are allowed.
 
 [nginx-stack]: https://github.com/metral/pulumi-nginx/blob/master/index.ts
-[k8s-provider]: /registry/packages/kubernetes/api-docs/provider" >}}
-[default-kubeconfig]: /registry/packages/kubernetes/installation-configuration#steps" >}}
+[k8s-provider]: /registry/packages/kubernetes/api-docs/provider/
+[default-kubeconfig]: /registry/packages/kubernetes/installation-configuration/#setup
 
 Choose your preferred language below, or check out [Create Pulumi Stacks using kubectl][stacks-use-kubectl].
 

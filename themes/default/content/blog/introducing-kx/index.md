@@ -86,6 +86,6 @@ join our [Community Slack](https://slack.pulumi.com/) channel if you have
 any questions, need support, or just want to say hello.
 
 <!-- markdownlint-disable url -->
-[crosswalk-announce-blog]: /blog/crosswalk-kubernetes" >}}
+[crosswalk-announce-blog]: /blog/crosswalk-kubernetes/
 [kx-repo]: https://github.com/pulumi/pulumi-kubernetesx
 <!-- markdownlint-enable url -->

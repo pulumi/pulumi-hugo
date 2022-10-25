@@ -416,10 +416,10 @@ any questions, need support, or just want to say hello.
 
 <!-- markdownlint-disable url -->
 [kube2pulumi]: https://github.com/pulumi/kube2pulumi
-[Kustomize]: /registry/packages/kubernetes/api-docs/kustomize/directory" >}}
-[Helm]: /registry/packages/kubernetes/api-docs/helm/v3/chart" >}}
-[Kubernetes to Pulumi Converter]: /kube2pulumi" >}}
-[Pulumi Kubernetes Operator]: /blog/pulumi-kubernetes-operator" >}}
-[YAML]: /registry/packages/kubernetes/api-docs/yaml/configgroup" >}}
+[Kustomize]: /registry/packages/kubernetes/api-docs/kustomize/directory/
+[Helm]: /registry/packages/kubernetes/api-docs/helm/v3/chart/
+[Kubernetes to Pulumi Converter]: /kube2pulumi/
+[Pulumi Kubernetes Operator]: /blog/pulumi-kubernetes-operator/
+[YAML]: /registry/packages/kubernetes/api-docs/yaml/configgroup/
 [130 lines of YAML]: https://github.com/pulumi/pulumi-kubernetes-operator/tree/master/deploy/yaml
 <!-- markdownlint-enable url -->

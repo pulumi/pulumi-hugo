@@ -140,18 +140,18 @@ Deploy applications and workloads into the cluster.
 [aws-rds]: https://aws.amazon.com/rds
 [cloud-sql]: https://cloud.google.com/sql/
 [cosmos-db]: https://azure.microsoft.com/en-us/services/cosmos-db/
-[k8s-get-started]: /docs/get-started/kubernetes" >}}
+[k8s-get-started]: /docs/get-started/kubernetes/
 [k8s-api-resources]: https://kubernetes.io/docs/reference/kubernetes-api/
 [aws-sqs]: https://aws.amazon.com/sqs/
-[crosswalk-control-plane]: /docs/guides/crosswalk/kubernetes/control-plane" >}}
-[crosswalk-worker-nodes]: /docs/guides/crosswalk/kubernetes/worker-nodes" >}}
-[crosswalk-try-out-the-cluster]: /docs/guides/crosswalk/kubernetes/try-out-the-cluster" >}}
-[crosswalk-configure-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults" >}}
-[crosswalk-configure-access]: /docs/guides/crosswalk/kubernetes/configure-access-control" >}}
-[crosswalk-cluster-svcs]: /docs/guides/crosswalk/kubernetes/cluster-services" >}}
-[crosswalk-app-svcs]: /docs/guides/crosswalk/kubernetes/app-services" >}}
-[crosswalk-apps]: /docs/guides/crosswalk/kubernetes/apps" >}}
-[crosswalk-update-worker-nodes]: /docs/guides/crosswalk/kubernetes/update-worker-nodes" >}}
+[crosswalk-control-plane]: /docs/guides/crosswalk/kubernetes/control-plane/
+[crosswalk-worker-nodes]: /docs/guides/crosswalk/kubernetes/worker-nodes/
+[crosswalk-try-out-the-cluster]: /docs/guides/crosswalk/kubernetes/try-out-the-cluster/
+[crosswalk-configure-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults/
+[crosswalk-configure-access]: /docs/guides/crosswalk/kubernetes/configure-access-control/
+[crosswalk-cluster-svcs]: /docs/guides/crosswalk/kubernetes/cluster-services/
+[crosswalk-app-svcs]: /docs/guides/crosswalk/kubernetes/app-services/
+[crosswalk-apps]: /docs/guides/crosswalk/kubernetes/apps/
+[crosswalk-update-worker-nodes]: /docs/guides/crosswalk/kubernetes/update-worker-nodes/
 [least-privileged]: https://en.wikipedia.org/wiki/Principle_of_least_privilege
-[cw-guides]: /docs/guides/crosswalk/kubernetes/playbooks" >}}
+[cw-guides]: /docs/guides/crosswalk/kubernetes/playbooks/
 <!-- markdownlint-enable url -->

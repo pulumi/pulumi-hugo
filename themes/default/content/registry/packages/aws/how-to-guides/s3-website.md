@@ -230,18 +230,18 @@ You also learned how to work with the Pulumi CLI. To recap:
 - [API Gateways and Lambda](/registry/packages/aws/how-to-guides/rest-api/)
 
 <!-- markdownlint-disable url -->
-[@pulumi/aws]: /registry/packages/aws/api-docs" >}}
-[aws.s3.Bucket]: /registry/packages/aws/api-docs/s3/bucket" >}}
-[aws.s3.Bucket.bucket]: /registry/packages/aws/api-docs/s3/bucket#bucket_nodejs" >}}
-[aws.s3.BucketObject]: /registry/packages/aws/api-docs/s3/bucketobject" >}}
-[pulumi.asset.FileAsset]: /docs/reference/pkg/nodejs/pulumi/pulumi/asset#FileAsset" >}}
-[aws.s3.BucketPolicy]: /registry/packages/aws/api-docs/s3/bucketpolicy" >}}
-[aws.s3.Bucket.website]: /registry/packages/aws/api-docs/s3/bucket#state_website_nodejs" >}}
-[pulumi.Output]: /docs/reference/pkg/nodejs/pulumi/pulumi#Output" >}}
-[pulumi.Output.apply]: /docs/reference/pkg/nodejs/pulumi/pulumi#Output" >}}
-[pulumi.Input]: /docs/reference/pkg/nodejs/pulumi/pulumi#Input" >}}
-[pulumi.ComponentResource]: /docs/reference/pkg/nodejs/pulumi/pulumi#ComponentResource" >}}
-[Component]: /docs/intro/concepts/programming-model#components" >}}
-[Pulumi Cloud]: /docs/tutorials/cloudfx" >}}
+[@pulumi/aws]: /registry/packages/aws/api-docs/
+[aws.s3.Bucket]: /registry/packages/aws/api-docs/s3/bucket/
+[aws.s3.Bucket.bucket]: /registry/packages/aws/api-docs/s3/bucket/#bucket_nodejs
+[aws.s3.BucketObject]: /registry/packages/aws/api-docs/s3/bucketobject/
+[pulumi.asset.FileAsset]: /docs/reference/pkg/nodejs/pulumi/pulumi/asset/#FileAsset
+[aws.s3.BucketPolicy]: /registry/packages/aws/api-docs/s3/bucketpolicy/
+[aws.s3.Bucket.website]: /registry/packages/aws/api-docs/s3/bucket/#state_website_nodejs
+[pulumi.Output]: /docs/reference/pkg/nodejs/pulumi/pulumi/#Output
+[pulumi.Output.apply]: /docs/reference/pkg/nodejs/pulumi/pulumi/#Output
+[pulumi.Input]: /docs/reference/pkg/nodejs/pulumi/pulumi/#Input
+[pulumi.ComponentResource]: /docs/reference/pkg/nodejs/pulumi/pulumi/#ComponentResource
+[Component]: /docs/intro/concepts/programming-model/#components
+[Pulumi Cloud]: /docs/tutorials/cloudfx/
 [in Python]: https://github.com/pulumi/examples/tree/master/aws-py-s3-folder
 <!-- markdownlint-enable url -->

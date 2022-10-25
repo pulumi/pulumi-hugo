@@ -89,8 +89,8 @@ out CI/CD and automation systems into your clusters, creating native support to 
 
 [k8s-operator]: https://github.com/pulumi/pulumi-kubernetes-operator
 [k8s-ext-pattern]: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
-[stack]: /docs/intro/concepts/stack" >}}
-[k8s-operator-cicd]: /docs/guides/continuous-delivery/pulumi-kubernetes-operator" >}}
+[stack]: /docs/intro/concepts/stack/
+[k8s-operator-cicd]: /docs/guides/continuous-delivery/pulumi-kubernetes-operator/
 
 ## Join the Community
 
@@ -109,10 +109,10 @@ Join the Pulumi team and thousands of practioners in our
 See the [FAQ][crosswalk-faq] for more details.
 
 <!-- markdownlint-disable url -->
-[crosswalk-faq]: /docs/guides/crosswalk/kubernetes/faq" >}}
-[cw-index]: /docs/guides/crosswalk/kubernetes" >}}
-[cw-playbooks]: /docs/guides/crosswalk/kubernetes/playbooks" >}}
-[k8s-get-started]: /docs/get-started/kubernetes" >}}
+[crosswalk-faq]: /docs/guides/crosswalk/kubernetes/faq/
+[cw-index]: /docs/guides/crosswalk/kubernetes/
+[cw-playbooks]: /docs/guides/crosswalk/kubernetes/playbooks/
+[k8s-get-started]: /docs/get-started/kubernetes/
 [eks]: https://aws.amazon.com/eks/
 [aks]: https://azure.microsoft.com/en-us/services/kubernetes-service/
 [gke]: https://cloud.google.com/kubernetes-engine/
@@ -122,8 +122,8 @@ See the [FAQ][crosswalk-faq] for more details.
 [k8s-clientgo]: https://github.com/kubernetes/client-go
 [gh-pulumi]: https://github.com/pulumi
 [pulumi-cloud-k8s]: /registry/packages/kubernetes
-[pulumi-cloud-k8s]: /registry/packages/kubernetes" >}}
-[pulumi-cd]: /docs/guides/continuous-delivery" >}}
+[pulumi-cloud-k8s]: /registry/packages/kubernetes/
+[pulumi-cd]: /docs/guides/continuous-delivery/
 [pulumi-slack]: https://slack.pulumi.com/
 [pulumi-twitter]: https://twitter.com/pulumicorp
 [pulumi-yt]: https://www.youtube.com/channel/UC2Dhyn4Ev52YSbcpfnfP0Mw

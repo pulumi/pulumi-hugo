@@ -543,8 +543,8 @@ In this tutorial, we showed you how to use Pulumi programs to create and manage 
 {{< /summary >}}
 
 <!-- Common links -->
-[EC2 Instance]: /registry/packages/aws/api-docs/ec2/instance" >}}
-[Security Group]: /registry/packages/aws/api-docs/ec2/securitygroup" >}}
+[EC2 Instance]: /registry/packages/aws/api-docs/ec2/instance/
+[Security Group]: /registry/packages/aws/api-docs/ec2/securitygroup/
 <!-- End common links -->
 
 ## Next Steps

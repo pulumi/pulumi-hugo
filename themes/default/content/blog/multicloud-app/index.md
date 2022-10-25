@@ -113,8 +113,8 @@ demo this post in an episode of the [Kubernetes Community Meeting](https://kuber
 
 <!-- markdownlint-disable url -->
 [multicloud-example]: https://github.com/pulumi/examples/tree/master/kubernetes-ts-multicloud
-[levi-blackstone]: /authors/levi-blackstone" >}}
+[levi-blackstone]: /blog/author/levi-blackstone/
 [pulumi-kubernetes]: https://github.com/pulumi/pulumi-kubernetes
 [client-go]: https://github.com/kubernetes/client-go
-[crosswalk-aws]: /docs/guides/crosswalk/aws" >}}
+[crosswalk-aws]: /docs/guides/crosswalk/aws/
 <!-- markdownlint-enable url -->

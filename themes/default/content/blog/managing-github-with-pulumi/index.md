@@ -73,8 +73,6 @@ We now have a pulumi project YAML configuration file and the beginnings of a sma
 
 According to the [provider configuration documentation](/registry/packages/github/installation-configuration/), we need to add a properly scoped token, as well as set "pulumi" as our GitHub organization owner.
 
-<!-- /registry/packages/github/installation-configuration" >}} -->
-
 ```bash
 $ export GITHUB_TOKEN=YYYYYYYYYYYYYY
 $ export GITHUB_OWNER=pulumi
