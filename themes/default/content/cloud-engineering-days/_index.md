@@ -63,6 +63,8 @@ featured:
         photo: /images/cloud-engineering-days/logos/panther.svg
       - name:
         photo: /images/cloud-engineering-days/logos/fauna.svg
+      - name:
+        photo: /images/cloud-engineering-days/logos/dutchie.svg
 
     - title: Workshops
       description: |
@@ -87,6 +89,76 @@ partners:
       logo: /images/cloud-engineering-days/logos/aws-partner.png
     - name: Microsoft
       logo: /images/cloud-engineering-days/logos/microsoft.png
+
+speakers:
+  - name: Jeff Smick
+    photo: /images/cloud-engineering-days/guests/jeff-smick.jpg
+    title: Sr. Staff Engineer
+    company: Fauna
+  - name: Meagan Cojocar
+    photo: /images/team/meagan-cojocar.jpg
+    title: Sr. Product Manager
+    company: Pulumi
+  - name: Bryce Lampe
+    photo: /images/team/bryce-lampe.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Josh Kodroff
+    photo: /images/team/josh-kodroff.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Aurelien Requiem
+    photo: /images/team/aurelien-requiem.jpg
+    title: Customer Engineer
+    company: Pulumi
+  - name: Dan Swartz
+    photo: /images/cloud-engineering-days/guests/dan-swartz.jpg
+    title: Principal Software Engineer
+    company: Altana
+  - name: Dennis Webb
+    photo: /images/cloud-engineering-days/guests/dennis-webb.jpg
+    title: Staff Software Engineer
+    company: Panther
+  - name: Casey Huang
+    photo: /images/team/casey-huang.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Piers Karsenbarg
+    photo: /images/team/piers-karsenbarg.jpg
+    title: Customer Engineer
+    company: Pulumi
+  - name: Tushar Shah
+    photo: /images/team/tushar-shah.jpg
+    title: Sr. Customer Engineer
+    company: Pulumi
+  - name: Collin James
+    photo: /images/cloud-engineering-days/guests/collin-james.jpg
+    title: Software Architect
+    company: Dutchie
+  - name: Evan Boyle
+    photo: /images/team/evan-boyle.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Mitch Gerdisch
+    photo: /images/team/mitch-gerdisch.jpg
+    title: Sr. Customer Engineer
+    company: Pulumi
+  - name: Laura Santamaria
+    photo: /images/team/laura-santamaria.jpg
+    title: Developer Advocate
+    company: Pulumi
+  - name: Ringo De Smet
+    photo: /images/team/ringo-de-smet.jpg
+    title: Customer Experience Architect
+    company: Pulumi
+  - name: Joe Duffy
+    photo: /images/team/joe-duffy.jpg
+    title: CEO
+    company: Pulumi
+  - name: Luke Hoban
+    photo: /images/team/luke-hoban.jpg
+    title: CTO
+    company: Pulumi
 
 media:
   items:
@@ -170,7 +242,11 @@ schedule:
           - title: Break
             datetime: 10:00 - 10:20 AM PDT
           - title: Achieving Results with Pulumi Customers
-            description: Building a Global Data Platform at Scale, Featuring Fauna, Inc.
+            description: |
+              • Building a Global Data Platform at Scale, Featuring Fauna, Inc.  
+              • Creating Business Logic Interfaces with Pulumi's Automation API, Altana  
+              • Migrating from Terraform to Pulumi - How we did it, Panther  
+              • Enabling Kafka Adoption with Pulumi, Dutchie
             datetime: 10:20 - 11:20 AM PDT
           - title: Under the Hood of Pulumi
             description: How Automation API is used
