@@ -49,7 +49,7 @@ ip
 url
 : The HTTP URL of the container group.
 
-Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `url`, for example, can be used from the command line to open the newly deployed container in your favorite web browser:
+Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `url`, for example, can be used from the command line to open the newly deployed application in your favorite web browser:
 
 ```bash
 $ open $(pulumi stack output url)
