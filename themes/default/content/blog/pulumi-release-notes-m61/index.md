@@ -357,13 +357,13 @@ class MyStack : Stack
 
 {{< /chooser >}}
 
-Learn more in the [announcement blog post](/blog/full-access-to-helm-features-through-new-helm-release-resource-for-kubernetes)
+Learn more in the [announcement blog post](/blog/full-access-to-helm-features-through-new-helm-release-resource-for-kubernetes/)
 
 ### New providers: MinIO and Snowflake
 
 You can now use Pulumi's modern infrastructure-as-code solution to manage new resources! Our new provider for MinIO gives you access to the full range of high-performance, S3-compatible object storage offered by [MinIO](https://min.io). Likewise, our new provider for Snowflake lets you create and manage many of the data engineering, data lake, data warehouse, and other data resources in [Snowflake's](https://snowflake.com) data cloud.
 
-Learn more in the [MinIO](/registry/packages/minio) and [Snowflake](/registry/packages/snowflake) provider docs
+Learn more in the [MinIO](/registry/packages/minio/) and [Snowflake](/registry/packages/snowflake/) provider docs
 
 ### New resources in the Azure Native provider
 
@@ -423,7 +423,7 @@ Thanks [@orionstudt](https://github.com/orionstudt) for contributing this change
 
 ### Schema checker for Pulumi Packages
 
-When authoring a Pulumi Package, it can be helpful to validate that your [schema](/docs/guides/pulumi-packages/schema) is correct. Now, you can validate your schema by running the [`pulumi schema check` command](/docs/reference/cli/pulumi_schema_check).
+When authoring a Pulumi Package, it can be helpful to validate that your [schema](/docs/guides/pulumi-packages/schema/) is correct. Now, you can validate your schema by running the [`pulumi schema check` command](/docs/reference/cli/pulumi_schema_check).
 
 [Learn more in this GitHub PR](https://github.com/pulumi/pulumi/pull/7865)
 

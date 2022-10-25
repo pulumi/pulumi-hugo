@@ -15,9 +15,9 @@ aliases:
   - /get-started/
 ---
 
-Pulumi is a [universal infrastructure as code](/what-is/what-is-infrastructure-as-code) platform that allows you to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
+Pulumi is a [universal infrastructure as code](/what-is/what-is-infrastructure-as-code/) platform that allows you to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
 
-Pulumi is free, [open source](https://github.com/pulumi/pulumi), and optionally pairs with the [Pulumi Service](/docs/intro/pulumi-service) to make managing infrastructure secure, reliable, and hassle-free.
+Pulumi is free, [open source](https://github.com/pulumi/pulumi), and optionally pairs with the [Pulumi Service](/docs/intro/pulumi-service/) to make managing infrastructure secure, reliable, and hassle-free.
 
 Select one of the following options to get started:
 
@@ -234,7 +234,7 @@ Or, watch how to do it in this video walkthrough:
     </iframe>
 </div>
 
-See [Registry](/registry) on how to use other supported clouds.
+See [Registry](/registry/) on how to use other supported clouds.
 
 ## Pulumi Service
 

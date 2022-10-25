@@ -217,7 +217,7 @@ To view a stack's details:
 
 ![Stack outputs and configuration](/images/docs/reference/service/stack-outputs-and-configuration.png)
 
-You can see other details, such as who applied the update, when, and counts of added, updated, and unchanged resources. If your stack is integrated with a CI/CD pipeline, such as [GitHub Actions](/docs/guides/continuous-delivery/github-actions), you also see useful links to data like your Git commit hash, mapped branch, and pull request ID.
+You can see other details, such as who applied the update, when, and counts of added, updated, and unchanged resources. If your stack is integrated with a CI/CD pipeline, such as [GitHub Actions](/docs/guides/continuous-delivery/github-actions/), you also see useful links to data like your Git commit hash, mapped branch, and pull request ID.
 
 #### Custom Stack Tags
 
@@ -301,4 +301,4 @@ To delete a stack:
 
 ## Related Blogs
 
-* [Building New Pulumi Projects and Stacks From Templates](/blog/building-new-pulumi-projects-and-stacks-from-templates)
+* [Building New Pulumi Projects and Stacks From Templates](/blog/building-new-pulumi-projects-and-stacks-from-templates/)

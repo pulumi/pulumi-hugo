@@ -20,8 +20,8 @@ altered to fit into any existing type of deployment setup.
 
 - A working installation of a recent version of Jenkins.
 - An account in the [Pulumi Service](https://app.pulumi.com).
-- The [latest version of Pulumi](/docs/get-started/install).
-- Setup a new project and [stack](/docs/intro/concepts/stack) using one of our [Get Started](/docs/get-started) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
+- The [latest version of Pulumi](/docs/get-started/install/).
+- Setup a new project and [stack](/docs/intro/concepts/stack/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
 and choosing one of the many templates that are available.
 - A bare repo and set the remote URL to be your GitHub project.
 
@@ -38,7 +38,7 @@ The source code for the stack is in a repository in GitHub and uses TypeScript a
 **Note**: The names used above are purely for demonstration purposes only.
 You may choose a naming convention that best suits your organization.
 
-Alternatively, you can also run `pulumi new [template]` to create a [template project](/docs/reference/cli/pulumi_new).
+Alternatively, you can also run `pulumi new [template]` to create a [template project](/docs/reference/cli/pulumi_new/).
 
 ## PULUMI_ACCESS_TOKEN
 

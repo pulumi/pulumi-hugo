@@ -16,7 +16,7 @@ a software development agency based in Oslo, Norway. He joins Paul Stack to talk
 the Pulumi Automation API.
 
 In this article, we'll take a look at how our [GitHub Action](https://github.com/pulumi/actions) has been re-architected
-to be built on top of our [Automation API](/blog/automation-api).
+to be built on top of our [Automation API](/blog/automation-api/).
 
 <!--more-->
 
@@ -204,7 +204,7 @@ let's take a look:
 The new Pulumi GitHub Action is ready for you to use. Here's how to get started:
 
 - Already use the v1 Pulumi GitHub Action? Migrate to the new one with our [migration guide](/docs/guides/continuous-delivery/github-actions#migrating-from-github-action-v1).
-- New to Pulumi and GitHub Actions? Use our [getting started guide](/docs/guides/continuous-delivery/github-actions) to set up your first Pulumi workflow.
+- New to Pulumi and GitHub Actions? Use our [getting started guide](/docs/guides/continuous-delivery/github-actions/) to set up your first Pulumi workflow.
 
 We're eager to hear your feedback on this new Action. If you haven’t already signed up for our [Community Slack](https://slack.pulumi.com/), it’s
 quick and easy! You can join in on conversations you like and get help from other community members, as well as the Pulumi Team. That’s it for now!

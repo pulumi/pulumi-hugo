@@ -25,7 +25,7 @@ links:
 Now that we've created our images, we can provision our application with a
 network and containers. First, we're going to add configuration to our Pulumi
 program. Pulumi is a tool to
-[configure](/docs/intro/concepts/config) your infrastructure,
+[configure](/docs/intro/concepts/config/) your infrastructure,
 and that includes being able to configure the different stacks with different
 values. As a result, it makes sense to include the basic configurations as
 variables at the top of your program.
@@ -1317,4 +1317,4 @@ a Pulumi project; work on your Pulumi program to build Docker images,
 containers, and networks; and deploy the infrastructure locally with your first
 resource provider. Now, head back to the main page and explore some other
 tutorials to understand more about Pulumi. The best next step to take is to
-explore the [Building with Pulumi](/learn/building-with-pulumi) pathway.
+explore the [Building with Pulumi](/learn/building-with-pulumi/) pathway.

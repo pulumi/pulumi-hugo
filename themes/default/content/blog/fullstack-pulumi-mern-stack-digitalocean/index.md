@@ -36,7 +36,7 @@ So let's build ourselves a MERN app and deploy it on DigitalOcean with Pulumi. G
 The code for this walkthrough is [available as a template repository on GitHub](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean), so if you want to follow along (and you should!), you should grab a copy of your own to work with by forking the repository or creating a new one from the template. Once you've done that, you should also:
 
 * [Clone the repository](https://github.com/cnunciato/fullstack-pulumi-mern-digitalocean) to your local machine.
-* [Install Pulumi](/docs/get-started/install) and [Node.js](https://nodejs.org/).
+* [Install Pulumi](/docs/get-started/install/) and [Node.js](https://nodejs.org/).
 * [Sign into DigitalOcean](https://cloud.digitalocean.com/) and obtain a [personal access token](https://cloud.digitalocean.com/account/api/tokens) with read-write permissions.
 * Grant DigitalOcean access to your GitHub repository by [visiting the Apps page](https://cloud.digitalocean.com/apps), choosing Create App, and following the steps to install DigitalOcean's GitHub app.
 * Optionally, if you'd like to develop the application locally as well, [install and configure MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/).
@@ -97,7 +97,7 @@ Earlier I mentioned that every cloud provider handles application deployment a l
 
 One is that because App Platform apps are comprised these high-level [_components_](https://docs.digitalocean.com/products/app-platform/concepts/)---abstractions like [static site](https://docs.digitalocean.com/products/app-platform/how-to/manage-static-sites/), [service](https://docs.digitalocean.com/products/app-platform/how-to/manage-services/), and [database](https://docs.digitalocean.com/products/app-platform/how-to/manage-databases/)---it's pretty much purpose-built for an application like this one, and DigitalOcean customizes the deployment of each component based according to its type. Static websites are distributed and cached on DigitalOcean's CDN, services are packaged and delivered as containers (with its [Kubernetes](https://www.digitalocean.com/products/kubernetes) platform), and databases are deployed as configurable managed services. All of this means you're not only able to stay focused on the application itself, but you're able to scale each one of these components up or down however you like, and even delegate your front-end and back-end build processes to DigitalOcean to be handled in response to commits on one or more external Git repositories.
 
-App Platform apps can be configured in one of two ways: manually, by configuring their components individually in the DigitalOcean web console, or programmatically, in the form of an App Platform [_spec_](https://docs.digitalocean.com/products/app-platform/reference/app-spec/), a JSON document submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/#tag/Apps). In our case, we'll indirectly go the latter route, using Pulumi with the [DigitalOcean provider package](/registry/packages/digitalocean) to define an app spec comprised of three components:
+App Platform apps can be configured in one of two ways: manually, by configuring their components individually in the DigitalOcean web console, or programmatically, in the form of an App Platform [_spec_](https://docs.digitalocean.com/products/app-platform/reference/app-spec/), a JSON document submitted over DigitalOcean's [REST API](https://docs.digitalocean.com/reference/api/api-reference/#tag/Apps). In our case, we'll indirectly go the latter route, using Pulumi with the [DigitalOcean provider package](/registry/packages/digitalocean/) to define an app spec comprised of three components:
 
 * A `staticSite` component mapped to the `frontend` folder
 * A `service` component mapped to the `backend` folder
@@ -139,7 +139,7 @@ At the prompts, use the following values:
 * For description, use `Deploying a MERN-stack app on DigitalOcean`
 * For stack name, use `dev`, the default
 
-When the command completes, you'll have a new [Pulumi stack](/docs/intro/concepts/stack), but you'll still have a few things to configure. For one, the Pulumi DigitalOcean provider needs to be [configured](/registry/packages/digitalocean/installation-configuration) to communicate with DigitalOcean on your behalf (to provision your app and its various resources). For this, you can use the access token you obtained [earlier](#setting-up) from the DigitalOcean console, and you can apply it by setting a single environment variable:
+When the command completes, you'll have a new [Pulumi stack](/docs/intro/concepts/stack/), but you'll still have a few things to configure. For one, the Pulumi DigitalOcean provider needs to be [configured](/registry/packages/digitalocean/installation-configuration/) to communicate with DigitalOcean on your behalf (to provision your app and its various resources). For this, you can use the access token you obtained [earlier](#setting-up) from the DigitalOcean console, and you can apply it by setting a single environment variable:
 
 ```bash
 $ export DIGITALOCEAN_TOKEN="your-access-token"
@@ -480,7 +480,7 @@ trusted_source = digitalocean.DatabaseFirewall("trusted-source", digitalocean.Da
 
 {{% /choosable %}}
 
-And finally, add one last line to export the app URL, to be generated by DigitalOcean, as a Pulumi [stack output](/docs/intro/concepts/inputs-outputs):
+And finally, add one last line to export the app URL, to be generated by DigitalOcean, as a Pulumi [stack output](/docs/intro/concepts/inputs-outputs/):
 
 {{% chooser language "typescript,python" /%}}
 
@@ -678,6 +678,6 @@ From here, you might think about:
 
 * Creating a second stack with [`pulumi stack init`](/docs/reference/cli/pulumi_stack_init) and adjusting the program to make the source `branch` configurable---a `production` stack, say, designed to deploy in response to commits to a `release` branch.
 
-* Using Pulumi's [GitHub Action](/docs/guides/continuous-delivery/github-actions) to run previews and updates as part of a pull-request based workflow.
+* Using Pulumi's [GitHub Action](/docs/guides/continuous-delivery/github-actions/) to run previews and updates as part of a pull-request based workflow.
 
 Happy coding!

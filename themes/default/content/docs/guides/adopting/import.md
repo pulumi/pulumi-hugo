@@ -147,7 +147,7 @@ class MyStack : Stack
 
 After successfully importing a resource and adding the generated code to your program, you can run `pulumi up` and all subsequent operations
 will behave as though Pulumi provisioned the resource from the outset. The resource is added to the Pulumi
-[state](/docs/intro/concepts/state), and marked as a [protected](/docs/intro/concepts/resources#protect)
+[state](/docs/intro/concepts/state/), and marked as a [protected](/docs/intro/concepts/resources#protect)
 resource (by default) to ensure that imported infrastructure is not accidentally deleted if the user forgets to include the code for the resource in their program before doing a deployment.
 
 ### Pulumi Import Resource Operation
@@ -617,9 +617,9 @@ A `Resource` has the following schema:
 | `name`       | `string`        | Yes      | The name of the resource.                                                                                                                                      |
 | `type`       | `Type Token`    | Yes      | The type of the corresponding Pulumi resource.                                                                                                                 |
 | `id`         | `string`        | Yes      | The provider determined ID for this resource type.                                                                                                             |
-| `parent`     | `string`        | No       | The name of the [parent](/docs/intro/concepts/resources/options/parent) resource. The mentioned name must be present in the `nameTable`.     |
-| `provider`   | `string`        | No       | The name of the [provider](/docs/intro/concepts/resources/options/provider) resource. The mentioned name must be present in the `nameTable`. |
-| `version`    | `string`        | No       | The [version](/docs/intro/concepts/resources/options/version) of the provider to use.                                                        |
+| `parent`     | `string`        | No       | The name of the [parent](/docs/intro/concepts/resources/options/parent/) resource. The mentioned name must be present in the `nameTable`.     |
+| `provider`   | `string`        | No       | The name of the [provider](/docs/intro/concepts/resources/options/provider/) resource. The mentioned name must be present in the `nameTable`. |
+| `version`    | `string`        | No       | The [version](/docs/intro/concepts/resources/options/version/) of the provider to use.                                                        |
 | `properties` | `array[string]` | No       | The list of properties to include in the generated code. If unspecified all properties will be included.                                                       |
 
 Check out the video clip below for a demo.

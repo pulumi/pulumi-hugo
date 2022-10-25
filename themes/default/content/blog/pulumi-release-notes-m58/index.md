@@ -109,7 +109,7 @@ class Program
 
 {{< /chooser >}}
 
-Get started in the [Confluent Cloud provider docs](/registry/packages/confluent).
+Get started in the [Confluent Cloud provider docs](/registry/packages/confluent/).
 
 ### GitHub Actions guide in all languages
 
@@ -243,7 +243,7 @@ jobs:
 
 {{< /chooser >}}
 
-Learn more in the [GitHub Actions User Guide](/docs/guides/continuous-delivery/github-actions)
+Learn more in the [GitHub Actions User Guide](/docs/guides/continuous-delivery/github-actions/)
 
 ### Kubernetes: new `skipAwait` option
 
@@ -310,4 +310,4 @@ We launched Pulumi Team Edition, a new way for teams to adopt and use Pulumi and
 
 ![Screenshot of new pricing tiers from https://pulumi.com/pricing](pricing-page.png)
 
-Learn more in the [pricing announcement blog post](/blog/announcing-new-usage-based-pricing-for-your-whole-team)
+Learn more in the [pricing announcement blog post](/blog/announcing-new-usage-based-pricing-for-your-whole-team/)

@@ -76,7 +76,7 @@ in addition to [the `AutoScalingGroup` API documentation](
 Another way to create an ASG is to define it on an `awsx.ecs.Cluster` when auto-scaling the EC2 instances powering
 our ECS cluster. This is not necessary when using ECS "Fargate", but by defining an ASG, you have complete control
 over the scaling of your ECS cluster. For more information about ECS specifically, see the associated
-[Pulumi Crosswalk for AWS ECS documentation](/docs/guides/crosswalk/aws/ecs).
+[Pulumi Crosswalk for AWS ECS documentation](/docs/guides/crosswalk/aws/ecs/).
 
 To make this easier, the `awsx.classic.ecs.Cluster` class offers a `createAutoScalingGroup` class that associates the newly
 created ASG with the ECS cluster, and runs all container compute on it. For example:

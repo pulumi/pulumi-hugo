@@ -10,8 +10,8 @@ In this tutorial, we'll use JavaScript to deploy a simple nginx container to Azu
 
 ## Prerequisites
 
-1. [Install Pulumi](/docs/get-started/install)
-1. [Configure Azure credentials](/registry/packages/azure/installation-configuration)
+1. [Install Pulumi](/docs/get-started/install/)
+1. [Configure Azure credentials](/registry/packages/azure/installation-configuration/)
 
 ## Create a container in Azure Container Instance {#ACI}
 
@@ -51,7 +51,7 @@ In this tutorial, we'll use JavaScript to deploy a simple nginx container to Azu
     exports.publicIP = container.ipAddress;
     ```
 
-    This example uses the [@pulumi/azure](/registry/packages/azure) package to create and manage two Azure resources including: an [azure.core.ResourceGroup](/registry/packages/azure/api-docs/core/resourcegroup) which will contain the ACI instance and [azure.containerservice.Group](/registry/packages/azure/api-docs/containerservice/group) which will run an `nginx` Docker container.
+    This example uses the [@pulumi/azure](/registry/packages/azure) package to create and manage two Azure resources including: an [azure.core.ResourceGroup](/registry/packages/azure/api-docs/core/resourcegroup/) which will contain the ACI instance and [azure.containerservice.Group](/registry/packages/azure/api-docs/containerservice/group/) which will run an `nginx` Docker container.
 
 1. To preview and deploy changes, run `pulumi up`. The command shows a preview of the resources that will be created and prompts on whether to proceed with the deployment.  Note that the stack itself is counted as a resource, though it does not correspond to an actual cloud resource.
 

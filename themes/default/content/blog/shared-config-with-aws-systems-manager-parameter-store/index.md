@@ -12,13 +12,13 @@ tags:
     - configuration
 ---
 
-One thing I love about Pulumi is how easy it is to configure a stack. As a builder mainly of web applications, I'm always thinking about how I'll configure my apps from one environment to the next, and being able to use Pulumi's built-in support for [configuration](/docs/intro/concepts/config) and [secrets](/docs/intro/concepts/secrets) to manage the API keys and database credentials for my dev, staging, and production stacks individually is incredibly convenient.
+One thing I love about Pulumi is how easy it is to configure a stack. As a builder mainly of web applications, I'm always thinking about how I'll configure my apps from one environment to the next, and being able to use Pulumi's built-in support for [configuration](/docs/intro/concepts/config/) and [secrets](/docs/intro/concepts/secrets/) to manage the API keys and database credentials for my dev, staging, and production stacks individually is incredibly convenient.
 
 For larger teams and organizations, though, where multiple applications rely on a set of common configuration settings --- dozens of apps, say, depending on the the same API service or database --- having to keep all of those config settings in sync across all of those individually can become a bit of a pain. When this happens, you may find yourself looking for ways to extract those settings into some sort of a service to allow you to manage them easily in one place, and in a way that allows any application to inherit them automatically.
 
 There are lots of ways of addressing this sort of problem. One that I like is [AWS Systems Manager (SSM)](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html) --- specifically, SSM [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html). With Systems Manager and Parameter Store, you can store plain-text and encrypted secrets and expose them easily to any other resource in your AWS infrastructure. Parameter Store is a powerful tool to have in your cloud-programming toolbox --- and combined with Pulumi, and in particular Pulumi [stack references](/docs/intro/concepts/stack#stackreferences), you can use it to build specialized stacks make managing shared configuration simple.
 
-In this post, I'll show you one way to do this. We'll start with a simple Pulumi stack that defines a few config settings with Parameter Store, then stand up a couple of other stacks to illustrate how to inherit and use those settings. We'll also use [Pulumi YAML](/blog/pulumi-yaml), one of the newest additions to the Pulumi language family, to give you an opportunity to kick the tires on that as well.
+In this post, I'll show you one way to do this. We'll start with a simple Pulumi stack that defines a few config settings with Parameter Store, then stand up a couple of other stacks to illustrate how to inherit and use those settings. We'll also use [Pulumi YAML](/blog/pulumi-yaml/), one of the newest additions to the Pulumi language family, to give you an opportunity to kick the tires on that as well.
 
 Let's get going.
 
@@ -32,7 +32,7 @@ Let's start Stack 1 --- the `shared-config` stack.
 
 ## Building the shared config stack
 
-First, make sure you've [installed](/docs/get-started/install) and [configured Pulumi for AWS](/registry/packages/aws/installation-configuration), and then, in your shell of choice, create a new folder to house our three stacks-to-be:
+First, make sure you've [installed](/docs/get-started/install/) and [configured Pulumi for AWS](/registry/packages/aws/installation-configuration/), and then, in your shell of choice, create a new folder to house our three stacks-to-be:
 
 ```bash
 $ mkdir shared-config-with-ssm && cd shared-config-with-ssm
@@ -49,7 +49,7 @@ $ tree .
 └── shared-config
 ```
 
-Change to the `shared-config` folder and generate a new [Pulumi YAML](/docs/intro/languages/yaml) project, accepting the defaults to create a new `dev` stack:
+Change to the `shared-config` folder and generate a new [Pulumi YAML](/docs/intro/languages/yaml/) project, accepting the defaults to create a new `dev` stack:
 
 ```bash
 $ cd shared-config
@@ -254,7 +254,7 @@ However, it's worth mentioning that that won't happen _immediately_, as the `my-
 
 ## Fetching configuration at runtime
 
-The easiest way to see this in action is with [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). With Lambda and Pulumi's support for [function serialization](/docs/intro/concepts/function-serialization), we can capture the parameter names with stack references, pass them into the Lambda at deploy-time (as plain-text strings, which is fine, because they're just names), and fetch their values from Systems Manager at runtime --- i.e., when the Lambda is invoked sometime later --- with the [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html). This way, any updates made by the `shared-config` team will be usable by our Lambda function _immediately_, no redeployment necessary.
+The easiest way to see this in action is with [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). With Lambda and Pulumi's support for [function serialization](/docs/intro/concepts/function-serialization/), we can capture the parameter names with stack references, pass them into the Lambda at deploy-time (as plain-text strings, which is fine, because they're just names), and fetch their values from Systems Manager at runtime --- i.e., when the Lambda is invoked sometime later --- with the [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html). This way, any updates made by the `shared-config` team will be usable by our Lambda function _immediately_, no redeployment necessary.
 
 So to finish things off, change to the `my-service` folder you created earlier and generats a third and final project, this one with TypeScript, again accepting the defaults to create a `dev` stack for it:
 

@@ -18,7 +18,7 @@ data, without sacrificing security or best practices.
 To meet this need, [Mapbox](https://www.mapbox.com/) has created an
 Asset Tracking Solution that uses [Pulumi](/)'s
 open source JavaScript libraries (AWS, AWSX) available with
-multi-language support with [Pulumi Crosswalk for AWS](/blog/introducing-pulumi-crosswalk-for-aws-the-easiest-way-to-aws).
+multi-language support with [Pulumi Crosswalk for AWS](/blog/introducing-pulumi-crosswalk-for-aws-the-easiest-way-to-aws/).
 Pulumi Crosswalk for AWS is an open source framework that streamlines
 creation, deployment and management of AWS services with built-in AWS
 Best Practices and minimal lines of code in common programming
@@ -35,9 +35,9 @@ Also refer to this blog of the [Race across America](https://blog.mapbox.com/tea
 showcased live during the webinar tomorrow.
 <!--more-->
 
-**Prerequisites:** [Install Pulumi](/docs/get-started/install);
+**Prerequisites:** [Install Pulumi](/docs/get-started/install/);
 [Install Node.js](https://nodejs.org/en/download/) and
-[Setup AWS](/docs/get-started/aws)
+[Setup AWS](/docs/get-started/aws/)
 
 The diagram represents how Mapbox's solution design on AWS services is
 built with Pulumi AWS and AWSX libraries in Javascript. Data is ingested
@@ -251,6 +251,6 @@ we paste in the endpoint from Pulumi and pick our interval.
 ### Additional Resources
 
 For more information from Mapbox check out the [Mapbox Blog](https://blog.mapbox.com/).
-For more solutions from Pulumi please visit our [Blog](/blog)
+For more solutions from Pulumi please visit our [Blog](/blog/)
 or head over to the [Pulumi Examples repository](https://github.com/pulumi/examples).
 For AWS solutions visit the AWS partner [blog site](https://aws.amazon.com/blogs/apn/).

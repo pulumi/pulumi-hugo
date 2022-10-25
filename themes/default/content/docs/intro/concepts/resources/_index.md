@@ -51,8 +51,8 @@ Resources represent the fundamental units that make up your cloud infrastructure
 
 All infrastructure resources are described by one of two subclasses of the `Resource` class. These two subclasses are:
 
-- `CustomResource`: A custom resource is a cloud resource managed by a [resource provider](/docs/intro/concepts/respources/providers) such as AWS, Microsoft Azure, Google Cloud or Kubernetes.
-- `ComponentResource`: A [component resource](/docs/intro/concepts/resources/components) is a logical grouping of other resources that creates a larger, higher-level abstraction that encapsulates its implementation details.
+- `CustomResource`: A custom resource is a cloud resource managed by a [resource provider](/docs/intro/concepts/respources/providers/) such as AWS, Microsoft Azure, Google Cloud or Kubernetes.
+- `ComponentResource`: A [component resource](/docs/intro/concepts/resources/components/) is a logical grouping of other resources that creates a larger, higher-level abstraction that encapsulates its implementation details.
 
 A resource’s desired state is declared by constructing an instance of the resource:
 
@@ -116,7 +116,7 @@ resources:
 
 All resources have a required [`name`](/docs/intro/concepts/resources/names) argument, which must be unique across resources of the same kind in a [`stack`](/docs/intro/concepts/stack). This *logical name* influences the *physical name* assigned by your infrastructure’s cloud provider. Pulumi [auto-names](/docs/intro/concepts/resources/names#autonaming) physical resources by default, so the physical name and the logical name may differ. This auto-naming behavior can be overridden, if required.
 
-The `args` argument is an object with a set of named property input values that are used to initialize the resource. These can be normal raw values—such as strings, integers, lists, and maps—or [outputs](/docs/intro/concepts/inputs-outputs) from other resources. Each resource has a number of named input properties that control the behavior of the resulting infrastructure. To determine what arguments a resource supports, refer to that resource’s API documentation in the [Registry](/registry).
+The `args` argument is an object with a set of named property input values that are used to initialize the resource. These can be normal raw values—such as strings, integers, lists, and maps—or [outputs](/docs/intro/concepts/inputs-outputs/) from other resources. Each resource has a number of named input properties that control the behavior of the resulting infrastructure. To determine what arguments a resource supports, refer to that resource’s API documentation in the [Registry](/registry/).
 
 The [`options`](/docs/intro/concepts/resources/options) argument is optional, but lets you control certain aspects of the resource. For example, you can show explicit dependencies, use a custom provider configuration, or import an existing infrastructure.
 

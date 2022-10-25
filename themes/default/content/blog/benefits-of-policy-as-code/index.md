@@ -19,11 +19,11 @@ While the benefits of writing policies as code are evident for developers and op
 
 A sizeable monthly cloud bill due to unused resources left running or using over-sized instances for small tasks is an industry cliché. One way to control costs is to set policies based on pricing. With pricing data online, we can calculate the cost of a resource ahead of time and create a policy that limits the amount spent to deploy it. In a [previous article](/blog/manage-infrastructure-with-pac#controlling-cost-on-aws)), we provided an example policy that finds all the resources in a deployment and calculates the total monthly cost. The policy sets the monthly cost permitted and sends a warning if the deployment exceeds it.
 
-But what about unused or abandoned resources? We can use a cloud provider’s resources to implement a watchdog function with a policy that cleans up unused resources. In this [article](/blog/controlling-aws-costs-with-lambda-and-pulumi), we show how to use a serverless function to find unused resources daily and shut them down. We implemented this system at Pulumi and [reduced our operating costs by 64%](/blog/controlling-aws-costs-with-lambda-and-pulumi#in-conclusion).
+But what about unused or abandoned resources? We can use a cloud provider’s resources to implement a watchdog function with a policy that cleans up unused resources. In this [article](/blog/controlling-aws-costs-with-lambda-and-pulumi/), we show how to use a serverless function to find unused resources daily and shut them down. We implemented this system at Pulumi and [reduced our operating costs by 64%](/blog/controlling-aws-costs-with-lambda-and-pulumi#in-conclusion).
 
 We can use cloud provider native tools and practices in combination with policy to control costs. Using AWS as an example, [Joe Duffy](https://twitter.com/funcofjoe) wrote an article on using tags for cost tracking, automation, and organization. If you are not familiar with tags, they are a simple key/value pair applied to a resource. Tags let you manage, search, and filter resources.
 
-The [article](/blog/automatically-enforcing-aws-resource-tagging-policies) showed how you could use your favorite programming language to tag a resource to enable cost tracking by project, stack, and cost center. Joe then demonstrated how to use policy as code to [enforce tagging of resources](/blog/automatically-enforcing-aws-resource-tagging-policies#defining-our-tags-enforcer-policy) when they are created.  The article also shows how to [automatically tag resources](/blog/automatically-enforcing-aws-resource-tagging-policies#automatically-applying-tags) and enables resources to pass the tagging policy.
+The [article](/blog/automatically-enforcing-aws-resource-tagging-policies/) showed how you could use your favorite programming language to tag a resource to enable cost tracking by project, stack, and cost center. Joe then demonstrated how to use policy as code to [enforce tagging of resources](/blog/automatically-enforcing-aws-resource-tagging-policies#defining-our-tags-enforcer-policy) when they are created.  The article also shows how to [automatically tag resources](/blog/automatically-enforcing-aws-resource-tagging-policies#automatically-applying-tags) and enables resources to pass the tagging policy.
 
 ## Compliance
 
@@ -55,7 +55,7 @@ Policy as code enables you to deploy best practices as policies. Moreover, you c
 
 Cloud providers have methods for managing access to resources such as IAM (Identity Access and Management) policies and ACL (Access Control Lists). This is one type of policy, but it doesn’t cover the full range of actions available for managing your infrastructure. Pulumi uses cloud provider APIs to build and maintain infrastructure. The Pulumi engine works with cloud provider resources in conjunction with Policy as Code.
 
-In a [previous](/blog/aws-iam-access-analyzer-and-crossguard) article, we demonstrated how to use the IAM Access Analyzer in conjunction with Policy as Code.  IAM Access Analyzer validates all resources per-region with a single analyzer. It creates a record for each problem identified and shows which policy is responsible for granting wider access to resources than would be best practice. Policy as Code applies policy packs to stacks of resources anytime infrastructure is deployed.
+In a [previous](/blog/aws-iam-access-analyzer-and-crossguard/) article, we demonstrated how to use the IAM Access Analyzer in conjunction with Policy as Code.  IAM Access Analyzer validates all resources per-region with a single analyzer. It creates a record for each problem identified and shows which policy is responsible for granting wider access to resources than would be best practice. Policy as Code applies policy packs to stacks of resources anytime infrastructure is deployed.
 
 The IAM Access Analyzer works on deployed resources, so in the example, we have to deploy the infrastructure first before running the analyzer using a Pulumi program. When the scan of a resource is complete, it returns the detailed results that we can pass to the policy for validation. In this way, we can use cloud provider native tools in conjunction with Policy as Code to manage and protect our infrastructure.
 
@@ -69,4 +69,4 @@ We often talk about Policy as Code in terms of repeatability, versioning, and te
 - encoding best practices for resource stacks,
 - and working with cloud provider native resources to provide best of breed security and granular control.
 
-Learn more about using programming languages for [Policy as Code with our docs](/docs/guides/crossguard).
+Learn more about using programming languages for [Policy as Code with our docs](/docs/guides/crossguard/).

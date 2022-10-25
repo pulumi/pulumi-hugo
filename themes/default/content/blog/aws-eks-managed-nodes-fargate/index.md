@@ -16,7 +16,7 @@ summary: |
 ---
 
 {{% notes %}}
-Looking for information on how to deploy an EKS cluster? Checkout our [AWS Elastic Kubernetes Service](/docs/guides/crosswalk/aws/eks) documentation.
+Looking for information on how to deploy an EKS cluster? Checkout our [AWS Elastic Kubernetes Service](/docs/guides/crosswalk/aws/eks/) documentation.
 {{% /notes %}}
 
 AWS Elastic Kubernetes Service (EKS) provides a range of performance and control for dynamically scaling your Kubernetes clusters, including Managed Node Groups, Fargate, and Manually-Managed Node Groups in EC2. In this post, we'll see how to use each of these compute options, and when to prefer one over the other in order to maximize productivity, flexibility, and control, based on your needs.
@@ -41,9 +41,9 @@ Let's now see how each of these work. To fully appreciate the new features, we w
 
 Running a Kubernetes cluster isn't easy, but EKS makes the task of doing so much simpler. It offers out-of-the-box integrations with essential AWS services like IAM, EBS, Route53, and CloudWatch, so that your EKS clusters fit with your existing AWS security, storage, and monitoring practices.
 
-It's great to have all of the building blocks at your fingertips, and the `@pulumi/aws` package [exposes these raw capabilities of EKS to you](/registry/packages/aws/api-docs/eks/cluster). [We also created an EKS package](/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi) to simplify common tasks, however, including creating the Kubernetes data plane, configuring VPC/CNI and subnet networking, and managing node groups. This package has been enlightened with the new features, and is what we'll use in our examples.
+It's great to have all of the building blocks at your fingertips, and the `@pulumi/aws` package [exposes these raw capabilities of EKS to you](/registry/packages/aws/api-docs/eks/cluster/). [We also created an EKS package](/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi/) to simplify common tasks, however, including creating the Kubernetes data plane, configuring VPC/CNI and subnet networking, and managing node groups. This package has been enlightened with the new features, and is what we'll use in our examples.
 
-Provisioning a new EKS cluster today is already as simple as a dozen lines of [infrastructure as code](/what-is/what-is-infrastructure-as-code):
+Provisioning a new EKS cluster today is already as simple as a dozen lines of [infrastructure as code](/what-is/what-is-infrastructure-as-code/):
 
 ```typescript
 import * as awsx from "@pulumi/awsx";
@@ -172,7 +172,7 @@ aws-ip-10-0-233-6.us-east-2.compute.internal     Ready    <none>   4m    v1.14.8
 
 ## Manually Managing EC2 Node Groups
 
-A fully functioning production cluster usually requires many other considerations. For those, we've put together [a set of playbooks as part of Pulumi Crosswalk for Kubernetes](/docs/guides/crosswalk/kubernetes) that walk through how to go to production with EKS specifically, in addition to other managed Kubernetes offerings.
+A fully functioning production cluster usually requires many other considerations. For those, we've put together [a set of playbooks as part of Pulumi Crosswalk for Kubernetes](/docs/guides/crosswalk/kubernetes/) that walk through how to go to production with EKS specifically, in addition to other managed Kubernetes offerings.
 
 Notice, for instance, that we didn't need to even provision any worker nodes. This is thanks to the `eks.Cluster` abstraction creating a default node pool for us, which has an auto-scaling policy that attempts to maintain the `desiredCapacity` while remaining within the bounds of `minSize` and `maxSize`. Often you need more explicit control over the worker nodes, however, for reasons such precise capacity, specializing compute or storage for different workload needs, and so on. This ultimately devolves into managing EC2 instances by hand, which [the `eks.NodeGroup` class supports](/docs/guides/crosswalk/kubernetes/worker-nodes).
 
@@ -302,7 +302,7 @@ Not only is it simpler, but as [Clare Liguori](https://twitter.com/clare_liguori
 
 ![EC2 vs Fargate EKS Scaling](./clare-fargate.jpeg)
 
-Now let's see how to use it. The key building block that enables Fargate support is something called a [Fargate profile](/registry/packages/aws/api-docs/eks/fargateprofile). Like `eks.NodeGroup`s above, one of these can be allocated explicitly, if you prefer to program at the level of the raw underlying building blocks.
+Now let's see how to use it. The key building block that enables Fargate support is something called a [Fargate profile](/registry/packages/aws/api-docs/eks/fargateprofile/). Like `eks.NodeGroup`s above, one of these can be allocated explicitly, if you prefer to program at the level of the raw underlying building blocks.
 
 The EKS package, however, has  been enlightened to make allocating a Fargate-powered EKS cluster as simple as saying `fargate: true`. All we need to do is change our original cluster definition to the following:
 
@@ -348,6 +348,6 @@ In this article, we've seen the full range of EKS cluster management options:
 
 We're excited to offer support for this full range of options the same week of AWS re:Invent, including not just the building block support, but the simpler interface provided by [our open source EKS package](https://github.com/pulumi/pulumi-eks).
 
-To get started with Pulumi and kick the tires with EKS today, check out our [Getting Started guide](/docs/get-started). There are both [AWS](/docs/get-started/aws) and [Kubernetes](/docs/get-started/kubernetes) versions available.
+To get started with Pulumi and kick the tires with EKS today, check out our [Getting Started guide](/docs/get-started/). There are both [AWS](/docs/get-started/aws/) and [Kubernetes](/docs/get-started/kubernetes/) versions available.
 
 Happy Fargating!

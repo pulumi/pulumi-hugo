@@ -431,7 +431,7 @@ On `pulumi up`, secret values are decrypted and made available in plaintext at r
 
 ## Configuring Secrets Encryption
 
-The Pulumi Service automatically manages per-stack encryption keys on your behalf. Anytime you encrypt a value using `--secret` or by programmatically wrapping it as a secret at runtime, a secure protocol is used between the CLI and Pulumi Service that ensures secret data is encrypted in transit, at rest, and physically anywhere it gets stored. For more details about the concept of state files and backends, refer to [State and Backends](/docs/intro/concepts/state).
+The Pulumi Service automatically manages per-stack encryption keys on your behalf. Anytime you encrypt a value using `--secret` or by programmatically wrapping it as a secret at runtime, a secure protocol is used between the CLI and Pulumi Service that ensures secret data is encrypted in transit, at rest, and physically anywhere it gets stored. For more details about the concept of state files and backends, refer to [State and Backends](/docs/intro/concepts/state/).
 
 The default encryption mechanism may be insufficient in the following scenarios:
 
@@ -536,7 +536,7 @@ $ pulumi stack change-secrets-provider "<secrets-provider>"
 ```
 
 This will change the encrypted secrets in the provider configuration and the stack's state file to use the new secrets provider.
-The [supported secrets providers](/docs/reference/cli/pulumi_stack_init) are:
+The [supported secrets providers](/docs/reference/cli/pulumi_stack_init/) are:
 
 - `default`
 - `passphrase`

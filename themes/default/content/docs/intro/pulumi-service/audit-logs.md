@@ -11,7 +11,7 @@ aliases:
 ---
 {{% notes "info" %}}
 Audit Logs are available to organizations using the Enterprise and Business Critical editions.
-To learn more about editions, visit the [pricing page](/pricing).
+To learn more about editions, visit the [pricing page](/pricing/).
 {{% /notes %}}
 
 ## Overview

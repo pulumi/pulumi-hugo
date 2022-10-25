@@ -49,7 +49,7 @@ The above snippet includes an `aws:region` config value with a default value of 
 
 ### Testing
 
-You can test your template via the [Pulumi CLI](/docs/get-started/install) or a web browser.
+You can test your template via the [Pulumi CLI](/docs/get-started/install/) or a web browser.
 
 #### CLI
 

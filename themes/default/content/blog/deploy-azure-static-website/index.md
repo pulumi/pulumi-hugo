@@ -16,7 +16,7 @@ Deploying a static website often involves provisioning a number of pieces of inf
 
 ## Azure Static Website Component
 
-Pulumi components enable us to create re-usable abstractions that can perform complex tasks all behind a simple interface the user can programmatically interact with. The [Azure Static Website component](/registry/packages/azure-static-website) looks to take all of the complexity of getting a static website deployed to Azure and simplify it down to just consuming a simple component and passing it a few input arguments. This component relieves the complexities of this process by allowing you to simply tell the component where your files are located and it will take care of all the rest.
+Pulumi components enable us to create re-usable abstractions that can perform complex tasks all behind a simple interface the user can programmatically interact with. The [Azure Static Website component](/registry/packages/azure-static-website/) looks to take all of the complexity of getting a static website deployed to Azure and simplify it down to just consuming a simple component and passing it a few input arguments. This component relieves the complexities of this process by allowing you to simply tell the component where your files are located and it will take care of all the rest.
 
 **This component does the following:**
 
@@ -201,5 +201,5 @@ If you would like to learn more about Pulumi, here are some links you may find i
 
 * Visit our [Getting Started](/docs/get-started"  >}}) to quickly get up and running with Pulumi.
 * View the GitHub repo for the [Azure static website component](https://github.com/pulumi/pulumi-aws-static-website).
-* Visit our [registry page](/registry) to more components we have available for you to consume.
-* Check out our new [templates](/templates) that make it quick and easy to deploy common cloud architectures.
+* Visit our [registry page](/registry/) to more components we have available for you to consume.
+* Check out our new [templates](/templates/) that make it quick and easy to deploy common cloud architectures.

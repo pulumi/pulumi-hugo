@@ -43,7 +43,7 @@ Let's see how we can deploy a low-latency serverless URL shortener to Cloudflare
 
 ## Setting Up
 
-You'll need a Pulumi project setup with the [Cloudflare package](/registry/packages/cloudflare) added to your Pulumi project and an [API token configured](/registry/packages/cloudflare/installation-configuration).
+You'll need a Pulumi project setup with the [Cloudflare package](/registry/packages/cloudflare/) added to your Pulumi project and an [API token configured](/registry/packages/cloudflare/installation-configuration/).
 
 {{% chooser language "typescript,python,go,yaml" / %}}
 

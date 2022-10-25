@@ -850,8 +850,8 @@ Crosswalk for AWS is free and open source, and you can [get started](https://www
 
 For more on Crosswalk for AWS see:
 
-- [Pulumi Crosswalk for AWS API Gateway documentation](/docs/guides/crosswalk/aws/api-gateway)
-- [Pulumi Crosswalk for AWS Auto Scaling documentation](/docs/guides/crosswalk/aws/autoscaling)
+- [Pulumi Crosswalk for AWS API Gateway documentation](/docs/guides/crosswalk/aws/api-gateway/)
+- [Pulumi Crosswalk for AWS Auto Scaling documentation](/docs/guides/crosswalk/aws/autoscaling/)
 - [Pulumi Crosswalk for AWS Elastic Container Registry (ECR) documentation](/docs/guides/crosswalk/aws/ecr)
 - [Pulumi Crosswalk for AWS Elastic Kubernetes Service (EKS)](/docs/guides/crosswalk/aws/eks)
 - [Pulumi Crosswalk for AWS Elastic Load Balancing (ELB)](/docs/guides/crosswalk/aws/elb)

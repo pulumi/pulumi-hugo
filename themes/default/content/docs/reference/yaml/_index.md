@@ -10,7 +10,7 @@ The Pulumi YAML provider supports programs written in YAML or JSON.  In both cas
 
 | Property        | Type | Required           | Expression  | Description |
 | ------------- |---|-------------| -----|---|
-| `configuration`      | map[string]Configuration | No | No | Configuration specifies the [Pulumi config](/docs/intro/concepts/config) inputs to the deployment. |
+| `configuration`      | map[string]Configuration | No | No | Configuration specifies the [Pulumi config](/docs/intro/concepts/config/) inputs to the deployment. |
 | `resources`      | map[string]Resource | No | No | Resources declares the [Pulumi resources](/docs/intro/concepts/resources/) that will be deployed and managed by the program |
 | `variables`      | map[string]Expression | No | Yes | Variables specifies intermediate values of the program, the values of variables are expressions that can be re-used. |
 | `outputs`      | map[string]Expression | No | Yes | Outputs specifies the [Pulumi stack outputs](/docs/intro/concepts/stack#outputs) of the program and how they are computed from the `resources` is a value of the appropriate type for the template to use if no value is specified. |
@@ -80,7 +80,7 @@ The `dependsOn`, `parent`, `provider`, and `providers` values permit expressions
 
 #### Resource Getter
 
-Supplying a `get` key turns the resource declaration into a [Getter Function](/docs/intro/concepts/resources/get).
+Supplying a `get` key turns the resource declaration into a [Getter Function](/docs/intro/concepts/resources/get/).
 
 | Property | Type                  | Required | Description                                                                                                        |
 |----------|-----------------------|----------|--------------------------------------------------------------------------------------------------------------------|
@@ -102,7 +102,7 @@ The optional `customTimeouts` property of a resource is an object of the followi
 There are at least two reasons to explicitly define providers in YAML, or explicitly set their versions while creating resources.
 
 1. Using explicit versions enables pinning the dependencies used, a technique used to improve build reliability.
-2. Using explicit providers enables controlling the options for providers used by each resource, as described in [Unlock Programmatic Control by Disabling Default Providers](/blog/disable-default-providers).
+2. Using explicit providers enables controlling the options for providers used by each resource, as described in [Unlock Programmatic Control by Disabling Default Providers](/blog/disable-default-providers/).
 
 #### Resource version
 
@@ -379,7 +379,7 @@ The expression `${policyVersion}` will have the value `v1.1`.
 
 ##### `fn::*Asset` and `fn::*Archive`
 
-[Assets and Archives](/docs/intro/concepts/assets-archives) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
+[Assets and Archives](/docs/intro/concepts/assets-archives/) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
 
 | Built-In      | Argument Type | Description |
 | ------------- |---|------|
@@ -415,7 +415,7 @@ The expression `${reference}` will have the value of the `outputName` output fro
 
 ##### `fn::secret`
 
-Constructs a [Secret](/docs/intro/concepts/secrets) from an existing value.
+Constructs a [Secret](/docs/intro/concepts/secrets/) from an existing value.
 
 ``` yaml
 variables:

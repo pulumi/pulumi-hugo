@@ -20,7 +20,7 @@ For the Managed Pulumi Service (i.e. [app.pulumi.com](https://app.pulumi.com/)),
 https://api.pulumi.com
 ```
 
-If you are using [Self-Hosted Pulumi Service](/docs/guides/self-hosted), then use the configured endpoint for the [Pulumi API component](/docs/guides/self-hosted/components/api#api-service) (e.g. `https://api.pulumi.example.com`).
+If you are using [Self-Hosted Pulumi Service](/docs/guides/self-hosted/), then use the configured endpoint for the [Pulumi API component](/docs/guides/self-hosted/components/api#api-service) (e.g. `https://api.pulumi.example.com`).
 
 ## Authentication
 
@@ -1314,7 +1314,7 @@ Status: 200 OK
 
 User must have already signed up for a Pulumi account and meet the [organization membership requirements](/docs/intro/pulumi-service/organizations#organization-types) to be added to the organization, otherwise a 4xx error will occur.
 
-If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration](/docs/guides/scim) documentation.
+If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration](/docs/guides/scim/) documentation.
 
 ```
 POST /api/orgs/{organization}/members/{username}
@@ -1537,7 +1537,7 @@ EMPTY RESPONSE BODY
 {{% notes "info" %}}
 
 - For [GitHub-backed organizations](/docs/intro/pulumi-service/teams#github-based-teams), this operation cannot be used as membership is managed on GitHub.
-- For [SCIM managed teams](/docs/guides/scim), this operation cannot be used as membership is managed via the SSO provider.
+- For [SCIM managed teams](/docs/guides/scim/), this operation cannot be used as membership is managed via the SSO provider.
 
 {{% /notes %}}
 

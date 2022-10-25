@@ -26,7 +26,7 @@ At [BigData Boutique](https://bigdataboutique.com/), we are continually challeng
 
 One of the main challenges our customers are facing with Big Data systems is deploying the right hardware at the right scale. They need to know how to correctly estimate the number of servers required to run their compute workloads and databases, so they don’t pay more than they should, while still keeping those services running without interruption and within the defined [KPI](https://en.wikipedia.org/wiki/Performance_indicator)s.
 
-To support our customers and help them succeed in their Big Data projects, we provide an array of advanced services, and our unique cost-optimization service addresses this challenge directly. This article outlines how we use long-running benchmarks to correctly identify the right configuration for our customers’ BigData clusters by using the [infrastructure as code tool Pulumi](/docs) for automating the creation of complex infrastructures with conditionals and highly tunable configurations to orchestrate those benchmarks at scale.
+To support our customers and help them succeed in their Big Data projects, we provide an array of advanced services, and our unique cost-optimization service addresses this challenge directly. This article outlines how we use long-running benchmarks to correctly identify the right configuration for our customers’ BigData clusters by using the [infrastructure as code tool Pulumi](/docs/) for automating the creation of complex infrastructures with conditionals and highly tunable configurations to orchestrate those benchmarks at scale.
 
 #### Elasticsearch Cost Optimization
 
@@ -46,7 +46,7 @@ Between benchmark iterations, our team uses its years of experience to create mo
 
 Finding the best Elasticsearch configuration requires careful benchmarking and tech expertise. Yet trade-offs will come into play. For instance, it might seem that the only way to gain another 100ms of performance improvement for a certain specific query would be to spend another $500 per month on hardware. But there may be other options. Our Sizing Service takes the guesswork out of the process. We automate the entire benchmarking procedure in order to make it an exact science.
 
-To fully automate the benchmarking process, we use [Pulumi](/product).
+To fully automate the benchmarking process, we use [Pulumi](/product/).
 
 #### Using Pulumi for State-of-the-Art Infrastructure Automation
 

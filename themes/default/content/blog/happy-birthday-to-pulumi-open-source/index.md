@@ -8,7 +8,7 @@ tags: ["pulumi-news"]
 ---
 
 One year ago today -- on June 18, 2018 --
-[we open sourced Pulumi](/blog/introducing-pulumi-a-cloud-development-platform),
+[we open sourced Pulumi](/blog/introducing-pulumi-a-cloud-development-platform/),
 a new approach to multi-cloud infrastructure as code using your favorite
 languages. And what a year it has been!
 <!--more-->
@@ -17,29 +17,29 @@ Here are some highlights we've added in partnership with the community
 since launching:
 
 - Over 100 [examples](https://github.com/pulumi/examples),
-    [tutorials](/registry), and a brand new
-    [Getting Started guide](/docs/get-started).
+    [tutorials](/registry/), and a brand new
+    [Getting Started guide](/docs/get-started/).
 - [A native Kubernetes provider with 100% Kubernetes API/version coverage.](/blog/pulumi-a-better-way-to-kubernetes)
 - A steady stream of improvements across
-    [AWS](/docs/get-started/aws),
-    [Azure](/docs/get-started/azure), and
-    [Google Cloud](/docs/get-started/gcp) providers.
-- [Pulumi Crosswalk for AWS, a framework with built-in AWS infrastructure best practices.](/crosswalk/aws)
+    [AWS](/docs/get-started/aws/),
+    [Azure](/docs/get-started/azure/), and
+    [Google Cloud](/docs/get-started/gcp/) providers.
+- [Pulumi Crosswalk for AWS, a framework with built-in AWS infrastructure best practices.](/crosswalk/aws/)
 - Over 20 additional providers, including
     [CloudFlare](https://github.com/pulumi/pulumi-cloudflare),
     [Digital Ocean](https://github.com/pulumi/pulumi-digitalocean), and
-    [MySQL](/blog/managing-your-mysql-databases-with-pulumi).
-- Brought our [Python 3 SDK](/docs/reference/pkg/python)
+    [MySQL](/blog/managing-your-mysql-databases-with-pulumi/).
+- Brought our [Python 3 SDK](/docs/reference/pkg/python/)
     to parity with our
-    [Node.js-based JavaScript and TypeScript SDKs](/docs/reference/pkg/nodejs).
-- [Team and Enterprise SaaS editions for teams managing infrastructure in production.](/pricing)
+    [Node.js-based JavaScript and TypeScript SDKs](/docs/reference/pkg/nodejs/).
+- [Team and Enterprise SaaS editions for teams managing infrastructure in production.](/pricing/)
 - [GitHub, GitLab, Atlassian, and SAML/SSO identity providers.](/docs/intro/pulumi-service/organizations)
 - [CI/CD integrations with GitHub, GitLab, Codefresh, CircleCI, major clouds, and more.](/docs/guides/continuous-delivery)
-- [Pluggable secrets management and transitive state encryption.](/blog/managing-secrets-with-pulumi)
-- [Pluggable state backends for AWS S3, Azure Blob Store, and Google Cloud Store.](/docs/intro/concepts/state)
-- [Tools for managing complex, multi-stack environments, including Terraform integration.](/blog/using-terraform-remote-state-with-pulumi)
+- [Pluggable secrets management and transitive state encryption.](/blog/managing-secrets-with-pulumi/)
+- [Pluggable state backends for AWS S3, Azure Blob Store, and Google Cloud Store.](/docs/intro/concepts/state/)
+- [Tools for managing complex, multi-stack environments, including Terraform integration.](/blog/using-terraform-remote-state-with-pulumi/)
 - Numerous engine reliability and performance improvements, including parallelism.
-- [75 blogs, increasingly focused on end to end solutions we see working with customers.](/blog)
+- [75 blogs, increasingly focused on end to end solutions we see working with customers.](/blog/)
 
 In addition to the steady stream of product improvements, the community
 has grown fast:
@@ -73,7 +73,7 @@ A few notable success stories include:
     their cloud bill along the way.
     [Read more.](/whitepapers/delivering-cloud-native-infrastructure-as-code#delivering-cloud-native-infrastructure-for-learning-machine)
 - **Mapbox** built a scalable IoT tracking solution with serverless
-    Lambdas. [Read more.](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
+    Lambdas. [Read more.](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws/)
 - Multiple early stage startups, including **Jargon**, a TechStars
     company, have used Pulumi to get up and running quickly in the cloud
     -- doing in days what used to take weeks.

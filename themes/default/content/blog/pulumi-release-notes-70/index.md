@@ -64,7 +64,7 @@ Read more in the [Pulumi AWS Provider v5.0.0 blog post](/blog/announcing-v5.0.0-
 
 AWS Lambda functions are an incredibly easy and powerful way to stand up serverless capabilities which is why they are easily one of the most popular resources deployed by Pulumi users today. As of last week, Lambda Function URLs were made accessible via the Cloud Control API and therefore can be accessed in your Pulumi programs. End-users no longer need to set up an Amazon API Gateway to provide an HTTPS endpoint for their functions - further simplifying deployments.
 
-You can learn more about Lambda Function URLs by reading the [Lambda URLs blog post](/blog/lambda-urls-launch).
+You can learn more about Lambda Function URLs by reading the [Lambda URLs blog post](/blog/lambda-urls-launch/).
 
 ### New resources in our providers
 
@@ -134,6 +134,6 @@ Learn more in the [speed up show stack name GitHub issue](https://github.com/pul
 
 ### Docs search improvements
 
-We updated the search experience of our [Docs](/docs) to return more intuitive results as well as pinned the search bar on the top panel when users scroll through our Docs.
+We updated the search experience of our [Docs](/docs/) to return more intuitive results as well as pinned the search bar on the top panel when users scroll through our Docs.
 
 ![A screenshot of the Pulumi Docs  with updated search](search-screenshot.png)

@@ -24,7 +24,7 @@ Although Lambda Functions are free to deploy, and you get a generous allowance a
 
 ## Structured configuration
 
-We're going to start by adding settings, both secret and plaintext, to our [stack configuration](/docs/intro/concepts/config), in a [structured way](/docs/intro/concepts/config#structured-configuration). We're going to add these settings as a dictionary so we can use the names as the variable names in our Lambda Function.
+We're going to start by adding settings, both secret and plaintext, to our [stack configuration](/docs/intro/concepts/config/), in a [structured way](/docs/intro/concepts/config#structured-configuration). We're going to add these settings as a dictionary so we can use the names as the variable names in our Lambda Function.
 
 First we add two settings in plaintext that are going to be used as environment variables in our lambda:
 
@@ -556,6 +556,6 @@ export const lambdaName = lambda.name;
 
 This post describes one of the ways that you can securely access secrets in your Lambda Functions by adding secrets to your stack config, uploading them to AWS Secrets Manager and then accessing them in your functions, all without exposing the plaintext values. There are other ways, but I think this is one of the neatest.
 
-Of course you can use other tools to manage your secrets, such as [Azure Key Vault](/registry/packages/azure-native/api-docs/keyvault), [Google Cloud Secret Manager](/registry/packages/gcp/api-docs/secretmanager/) or [Hashicorp Vault](/registry/packages/vault), getting the path to the key back from the resource and using it in the same way as we used the ARN from the Secret.
+Of course you can use other tools to manage your secrets, such as [Azure Key Vault](/registry/packages/azure-native/api-docs/keyvault/), [Google Cloud Secret Manager](/registry/packages/gcp/api-docs/secretmanager/) or [Hashicorp Vault](/registry/packages/vault/), getting the path to the key back from the resource and using it in the same way as we used the ARN from the Secret.
 
-If you'd like more information on how you can use Pulumi to securely and easily deploy your cloud infrastructure using modern programming languages, [get in touch and ask us how](/contact).
+If you'd like more information on how you can use Pulumi to securely and easily deploy your cloud infrastructure using modern programming languages, [get in touch and ask us how](/contact/).

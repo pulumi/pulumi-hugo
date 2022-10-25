@@ -8,13 +8,13 @@ layout: how-to-guide
 
 {{< github-buttons "aws-ts-containers" >}}
 
-In this tutorial, we'll build and publish a Docker container to a private Elastic Container Registry (ECR), and spin up a load-balanced Amazon Elastic Container Service (Amazon ECS) Fargate service, all in a handful of lines of code, using [Pulumi Crosswalk for AWS](/docs/guides/crosswalk/aws).
+In this tutorial, we'll build and publish a Docker container to a private Elastic Container Registry (ECR), and spin up a load-balanced Amazon Elastic Container Service (Amazon ECS) Fargate service, all in a handful of lines of code, using [Pulumi Crosswalk for AWS](/docs/guides/crosswalk/aws/).
 
 ## Prerequisites
 
 1. [Install Docker Engine - Community](https://docs.docker.com/install/)
-1. [Install Pulumi](/docs/get-started/install)
-1. [Configure Pulumi to use your AWS account](/registry/packages/aws/installation-configuration)
+1. [Install Pulumi](/docs/get-started/install/)
+1. [Configure Pulumi to use your AWS account](/registry/packages/aws/installation-configuration/)
 
 ## Deploy the App
 
@@ -194,7 +194,7 @@ For more information about containerized applications on AWS, please read these 
 - [Pulumi Crosswalk for AWS Elastic Kubernetes Service (EKS)](/docs/guides/crosswalk/aws/eks)
 
 For an end-to-end application also includes serverless functions, see the
-[Serverless plus Containers Thumbnailer tutorial](/registry/packages/aws/how-to-guides/video-thumbnailer).
+[Serverless plus Containers Thumbnailer tutorial](/registry/packages/aws/how-to-guides/video-thumbnailer/).
 
 For an example application that connects two containers, see the
 [Voting App](https://github.com/pulumi/examples/tree/master/aws-ts-voting-app) sample.

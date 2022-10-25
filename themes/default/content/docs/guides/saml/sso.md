@@ -13,14 +13,14 @@ aliases:
 ---
 
 This document walks through the important aspects of configuring any SAML (Security Assertion Markup Language) 2.0 identity provider to work
-with the [Pulumi Service](/docs/intro/pulumi-service).
+with the [Pulumi Service](/docs/intro/pulumi-service/).
 
 > For a specific example, refer to one of our integration guides:
 >
-> - [Azure Active Directory](/docs/guides/saml/aad)
-> - [Google Workspace](/docs/guides/saml/gsuite)
-> - [Okta](/docs/guides/saml/okta)
-> - [OneLogin](/docs/guides/saml/onelogin)
+> - [Azure Active Directory](/docs/guides/saml/aad/)
+> - [Google Workspace](/docs/guides/saml/gsuite/)
+> - [Okta](/docs/guides/saml/okta/)
+> - [OneLogin](/docs/guides/saml/onelogin/)
 
 ## Terminology
 

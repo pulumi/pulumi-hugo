@@ -18,13 +18,13 @@ cloud:
   slug: gcp
 ---
 
-The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Google Cloud Platform with Pulumi. It deploys a [Google Cloud Storage bucket](/registry/packages/gcp/api-docs/storage/bucket) configured for static website hosting and another bucket to host the source code for a [Cloud Function](/registry/packages/gcp/api-docs/cloudfunctions/function) written in the same language as the template. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Google Cloud Platform with Pulumi. It deploys a [Google Cloud Storage bucket](/registry/packages/gcp/api-docs/storage/bucket/) configured for static website hosting and another bucket to host the source code for a [Cloud Function](/registry/packages/gcp/api-docs/cloudfunctions/function/) written in the same language as the template. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Google Cloud Serverless Application template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy your own serverless application, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy your own serverless application, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -54,7 +54,7 @@ $ open $(pulumi stack output siteURL)
 
 ## Customizing the project
 
-Projects created with the serverless template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the serverless template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 sitePath
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.

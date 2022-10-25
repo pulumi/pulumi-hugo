@@ -12,7 +12,7 @@ aliases:
 
 {{% notes "info" %}}
 The CI/CD integration assistant helps you integrate Pulumi into CI/CD systems for automatically deploying stacks and is only available
-to [Organizations](/docs/intro/pulumi-service/organizations), not personal accounts.
+to [Organizations](/docs/intro/pulumi-service/organizations/), not personal accounts.
 {{% /notes %}}
 
 <!--more-->
@@ -78,7 +78,7 @@ without needing to leave the page.
 In the following example the assistant is being used to configure a GitHub Actions workflow.
 So the assistant provides a direct link to configure secrets for your workflow.
 
-See the [Registry](/registry) page to find the setup page for your cloud provider.
+See the [Registry](/registry/) page to find the setup page for your cloud provider.
 
 ## Add the workflow
 

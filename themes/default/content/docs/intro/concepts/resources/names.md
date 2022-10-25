@@ -178,7 +178,7 @@ resources:
 
 {{< /chooser >}}
 
-If the `name` property is not available on a resource, consult the [Registry](/registry) for the specific resource you are creating. Some resources use a different property to override auto-naming. For instance, the `aws.s3.Bucket` type uses the property `bucket` instead of name. Other resources, such as `aws.kms.Key`, do not have physical names and use other auto-generated IDs to uniquely identify them.
+If the `name` property is not available on a resource, consult the [Registry](/registry/) for the specific resource you are creating. Some resources use a different property to override auto-naming. For instance, the `aws.s3.Bucket` type uses the property `bucket` instead of name. Other resources, such as `aws.kms.Key`, do not have physical names and use other auto-generated IDs to uniquely identify them.
 
 Overriding auto-naming makes your project susceptible to naming collisions. As a result, for resources that may need to be replaced, you should specify `deleteBeforeReplace: true` in the resource’s options. This option ensures that old resources are deleted before new ones are created, which will prevent those collisions.
 
@@ -267,7 +267,7 @@ resources:
 
 Each resource is assigned a [Uniform Resource Name (URN)](https://en.wikipedia.org/wiki/Uniform_Resource_Name) that uniquely identifies that resource globally. Unless you are writing a tool, you will seldom need to interact with an URN directly, but it is fundamental to how Pulumi works so it’s good to have a general understanding of it.
 
-The URN is automatically constructed from the project name, stack name, resource name, resource type, and the types of all the parent resources (in the case of [component resources](/docs/intro/concepts/resources/components)).
+The URN is automatically constructed from the project name, stack name, resource name, resource type, and the types of all the parent resources (in the case of [component resources](/docs/intro/concepts/resources/components)/).
 
 The following is an example of a URN:
 
@@ -288,7 +288,7 @@ Any change to the URN of a resource causes the old and new resources to be treat
 Both of these operations will lead to a different URN, and thus require the `create` and `delete` operations instead of an `update` or `replace` operation that you would use for an existing resource. In other words, be careful when you change a resource’s name.
 
 {{% notes "info" %}}
-If you’d like to rename a resource without destroying the old one, refer to the [aliases](/docs/intro/concepts/resources/options/aliases) resource option.
+If you’d like to rename a resource without destroying the old one, refer to the [aliases](/docs/intro/concepts/resources/options/aliases/) resource option.
 {{% /notes %}}
 
 Resources constructed as children of a component resource should ensure their names are unique across multiple instances of the component resource. In general, the name of the component resource instance itself (the `name` parameter passed into the component resource constructor) should be used as part of the name of the child resources.

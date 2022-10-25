@@ -20,7 +20,7 @@ and resources securely. Using IAM, you can create and manage AWS users and group
 deny their access to AWS resources.
 
 {{% notes type="info" %}}
-This functionality is available in TypeScript only and as part of the [AWS Classic provider](/registry/packages/aws).
+This functionality is available in TypeScript only and as part of the [AWS Classic provider](/registry/packages/aws/).
 {{% /notes %}}
 
 ## Overview
@@ -163,7 +163,7 @@ var rolePolicyAttachment = new Iam.RolePolicyAttachment("rpa", new Iam.RolePolic
 {{% /choosable %}}
 
 For a full list of available managed policy ARNs, refer to the
-[API documentation](/registry/packages/aws/api-docs/iam).
+[API documentation](/registry/packages/aws/api-docs/iam/).
 
 ## Creating IAM Users, Groups, and Roles
 
@@ -760,5 +760,5 @@ For specific information about configuring roles, refer to [the API documentatio
 
 For more information about AWS IAM, see the following:
 
-* [Pulumi AWS IAM API Documentation](/registry/packages/aws/api-docs/iam)
+* [Pulumi AWS IAM API Documentation](/registry/packages/aws/api-docs/iam/)
 * [Amazon Identity and Access Management (IAM) homepage](https://aws.amazon.com/iam/)

@@ -9,7 +9,7 @@ In this tutorial, we'll launch a new Managed Kubernetes cluster in Google Kubern
 
 ## Prerequisites
 
-1. [Install Pulumi](/docs/get-started/install)
+1. [Install Pulumi](/docs/get-started/install/)
 1. [Install Node.js](https://nodejs.org/en/download/)
 1. Install a package manager for Node.js, such as [npm](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/en/docs/install).
 1. [Install Google Cloud SDK (`gcloud`)](https://cloud.google.com/sdk/docs/downloads-interactive)
@@ -25,7 +25,7 @@ In this tutorial, we'll launch a new Managed Kubernetes cluster in Google Kubern
 
     > Note: This auth mechanism is meant for inner loop developer
     > workflows. If you want to run this example in an unattended service
-    > account setting, such as in CI/CD, please [follow instructions to configure your service account](registry/packages/gcp/service-account). The
+    > account setting, such as in CI/CD, please [follow instructions to configure your service account](registry/packages/gcp/service-account/). The
     > service account must have the role `Kubernetes Engine Admin` / `container.admin`.
 
 ## Create a new GKE cluster {#new-gke-cluster}
@@ -39,11 +39,11 @@ In this tutorial, we'll launch a new Managed Kubernetes cluster in Google Kubern
 
     * Enter in a Pulumi project name, and description to detail what this
       Pulumi program does
-    * Enter in a name for the [Pulumi stack](/docs/intro/concepts/stack), which is an instance of our Pulumi program, and is used to distinguish amongst different development phases and environments of your work streams.
+    * Enter in a name for the [Pulumi stack](/docs/intro/concepts/stack/), which is an instance of our Pulumi program, and is used to distinguish amongst different development phases and environments of your work streams.
 
 1. Add the required dependencies:
 
-    This installs the dependent packages [needed](/docs/intro/concepts/how-pulumi-works) for our Pulumi program.
+    This installs the dependent packages [needed](/docs/intro/concepts/how-pulumi-works/) for our Pulumi program.
 
 	```bash
 	npm install --save @pulumi/pulumi @pulumi/gcp @pulumi/kubernetes

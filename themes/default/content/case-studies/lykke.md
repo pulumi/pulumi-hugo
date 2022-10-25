@@ -47,7 +47,7 @@ One of the biggest considerations for the team was cost management. Pulumi helpe
 
 Pulumi also helped the team to configure services like Amazon VPC using only a dozen lines of code - something that required 10x more configuration with other IaC tools. The code review process also became faster, with infrastructure changes taking hours, rather than days to deliver.
 
-Within a month of adopting Pulumi, Lykke deployed core supporting infrastructure for a new product. By improving overall productivity for their development team, Lykke was able to deliver the new product to production customers in a matter of months. Lykke is also adopting a comprehensive approach to infrastructure policy using Pulumi’s [Policy as Code](/crossguard) framework. This ensures that internal security, compliance and cost management policies are automatically enforced through policy-as-code.
+Within a month of adopting Pulumi, Lykke deployed core supporting infrastructure for a new product. By improving overall productivity for their development team, Lykke was able to deliver the new product to production customers in a matter of months. Lykke is also adopting a comprehensive approach to infrastructure policy using Pulumi’s [Policy as Code](/crossguard/) framework. This ensures that internal security, compliance and cost management policies are automatically enforced through policy-as-code.
 
 ## Next steps
 
@@ -63,7 +63,7 @@ Pulumi’s cloud engineering platform brings infrastructure, developer, and secu
 
 Check out the following articles to get started:
 
-- [AWS Identity and Access Management with Pulumi](/docs/guides/crosswalk/aws/iam)
-- [AWS Lambda with Pulumi](/docs/guides/crosswalk/aws/lambda)
-- [Get Started with Pulumi Policy as Code](/docs/guides/crossguard/get-started)
-- [Get Started with Kubernetes with Pulumi](/docs/guides/crosswalk/kubernetes)
+- [AWS Identity and Access Management with Pulumi](/docs/guides/crosswalk/aws/iam/)
+- [AWS Lambda with Pulumi](/docs/guides/crosswalk/aws/lambda/)
+- [Get Started with Pulumi Policy as Code](/docs/guides/crossguard/get-started/)
+- [Get Started with Kubernetes with Pulumi](/docs/guides/crosswalk/kubernetes/)

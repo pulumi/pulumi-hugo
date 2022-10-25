@@ -10,7 +10,7 @@ menu:
 aliases: ["/docs/reference/how/"]
 ---
 
-Pulumi uses a desired state model for managing infrastructure. A Pulumi program is executed by a _language host_ to compute a desired state for a stack's infrastructure. The _deployment engine_ compares this desired state with the stack's current state and determines what resources need to be created, updated or deleted. The engine uses a set of _resource providers_ (such as [AWS](/docs/get-started/aws), [Azure](/docs/get-started/azure), [Kubernetes](/docs/get-started/kubernetes), and so on) in order to manage the individual resources.  As it operates, the engine updates the _state_ of your infrastructure with information about all resources that have been provisioned as well as any pending operations.
+Pulumi uses a desired state model for managing infrastructure. A Pulumi program is executed by a _language host_ to compute a desired state for a stack's infrastructure. The _deployment engine_ compares this desired state with the stack's current state and determines what resources need to be created, updated or deleted. The engine uses a set of _resource providers_ (such as [AWS](/docs/get-started/aws/), [Azure](/docs/get-started/azure/), [Kubernetes](/docs/get-started/kubernetes/), and so on) in order to manage the individual resources.  As it operates, the engine updates the _state_ of your infrastructure with information about all resources that have been provisioned as well as any pending operations.
 
 The following diagram illustrates the interaction between these parts of the system:
 
@@ -380,6 +380,6 @@ This time, the engine will not need to make any changes to `media-bucket` since 
 
 ## Creation and Deletion Order
 
-Pulumi executes resource operations in parallel whenever possible, but understands that some resources may have dependencies on other resources.  If an [output](/docs/intro/concepts/inputs-outputs) of one resource is provided as an input to another, the engine records the dependency between these two resources as part of the state and uses these when scheduling operations.  This list can also be augmented by using the [dependsOn](/docs/intro/concepts/resources#dependson) resource option.
+Pulumi executes resource operations in parallel whenever possible, but understands that some resources may have dependencies on other resources.  If an [output](/docs/intro/concepts/inputs-outputs/) of one resource is provided as an input to another, the engine records the dependency between these two resources as part of the state and uses these when scheduling operations.  This list can also be augmented by using the [dependsOn](/docs/intro/concepts/resources#dependson) resource option.
 
 By default, if a resource must be replaced, Pulumi will attempt to create a new copy of the resource before destroying the old one. This is helpful because it allows updates to infrastructure to happen without downtime. This behavior can be controlled by the [deleteBeforeReplace](/docs/intro/concepts/resources#deletebeforereplace) option. If you have disabled [auto-naming](/docs/intro/concepts/resources#autonaming) by providing a specific name for a resource, it will be treated as if it was marked as `deleteBeforeReplace` automatically (otherwise the create operation for the new version would fail since the name is in use).

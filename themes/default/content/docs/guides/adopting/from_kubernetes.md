@@ -13,7 +13,7 @@ Pulumi makes it easy to author your Kubernetes configuration in your choice of l
 
 Pulumi also enables you to render the Kubernetes objects in your program into YAML which eases adoption in the opposite direction: you can use Pulumi to author your configuration, getting the benefits of general-purpose and familiar programming languages, while still being able to deploy the resulting YAML with existing toolchains like `kubectl` or your CI/CD vendor's Kubernetes support.
 
-> To learn more about Pulumi's Kubernetes support, see [the Kubernetes Overview](/registry/packages/kubernetes) or jump straight in with [the Getting Started Guide](/docs/get-started/kubernetes).
+> To learn more about Pulumi's Kubernetes support, see [the Kubernetes Overview](/registry/packages/kubernetes/) or jump straight in with [the Getting Started Guide](/docs/get-started/kubernetes/).
 
 ## Deploying Kubernetes YAML
 
@@ -367,7 +367,7 @@ We discuss and provide examples for each approach in this section.
 
 ### Emulating Helm Charts With Chart Resources
 
-With the [Helm V3](/registry/packages/kubernetes/api-docs/helm/v3/chart) chart resources, Pulumi renders the templates and applies them directly, much like with `ConfigFile` and `ConfigGroup` shown earlier, which means all provisioning happens client-side using your Kubernetes authentication setup without needing a server-side component.
+With the [Helm V3](/registry/packages/kubernetes/api-docs/helm/v3/chart/) chart resources, Pulumi renders the templates and applies them directly, much like with `ConfigFile` and `ConfigGroup` shown earlier, which means all provisioning happens client-side using your Kubernetes authentication setup without needing a server-side component.
 
 The `Release` resource type provides a number of options to control where to fetch the chart's contents from. This includes:
 
@@ -378,7 +378,7 @@ The `Release` resource type provides a number of options to control where to fet
 * `values`: (Optional) A dictionary of named key/value values for Charts with parameters.
 * `fetchOpts`: (Optional) A bag of options to control the fetch behavior.
 
-In addition to those core options, you can specify `transformations` (similar to what is shown [configurations below](#configuration-transformations)), `resourcePrefix` to control naming, or `namespace` to place all resources inside a specific Kubernetes namespace. Please refer to the [API reference](/registry/packages/kubernetes/api-docs/helm/v3/chart) documentation for more details.
+In addition to those core options, you can specify `transformations` (similar to what is shown [configurations below](#configuration-transformations)), `resourcePrefix` to control naming, or `namespace` to place all resources inside a specific Kubernetes namespace. Please refer to the [API reference](/registry/packages/kubernetes/api-docs/helm/v3/chart/) documentation for more details.
 
 #### Provisioning a Helm Chart
 
@@ -565,7 +565,7 @@ $ curl http://$(pulumi stack output frontendIp)
 
 ### Natively installing Helm Charts as Releases
 
-The [Helm Release](/registry/packages/kubernetes/api-docs/helm/v3/release)) resource (GA as of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes Provider) is another option for installing Charts. In this case, the Pulumi Kubernetes provider uses an embedded version of the Helm SDK to provide full-fidelity support for managing [`Helm Releases`](https://helm.sh/docs/glossary/#release).
+The [Helm Release](/registry/packages/kubernetes/api-docs/helm/v3/release)/) resource (GA as of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes Provider) is another option for installing Charts. In this case, the Pulumi Kubernetes provider uses an embedded version of the Helm SDK to provide full-fidelity support for managing [`Helm Releases`](https://helm.sh/docs/glossary/#release).
 
 The `Release` resource type's inputs closely mirror the options supported by the Helm CLI and deviate slightly from the API supported by the `Chart` resources. Some key options are highlighted here:
 
@@ -752,7 +752,7 @@ The Helm Release resource also supports importing existing Helm releases by usin
 ## Converting Kubernetes YAML
 
 In addition to deploying Kubernetes YAML via the methods above, you can also convert Kubernetes YAML to Pulumi program code using `kube2pulumi`. `kube2pulumi` will take your YAML manifest and
-convert it into the language of your choice. You can get started using `kube2pulumi` either by [installing the binary](https://github.com/pulumi/kube2pulumi#building-and-installation) or via the [web interface](/kube2pulumi).
+convert it into the language of your choice. You can get started using `kube2pulumi` either by [installing the binary](https://github.com/pulumi/kube2pulumi#building-and-installation) or via the [web interface](/kube2pulumi/).
 
 ## Rendering Kubernetes YAML
 
@@ -1195,4 +1195,4 @@ Although this example shows the YAML `ConfigFile` resource, the same behavior is
 
 ## Provisioning Mixed Configurations
 
-It is possible to provision a combination of native Kubernetes objects, YAML files, Helm Charts, and other cloud resources all together, with dependencies between them. For an example of doing so, see [this blog post](/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code) which demonstrates provisioning an Azure Kubernetes cluster, MongoDB-flavored CosmosDB instance, a Kubernetes secret to store the connection information, and a Helm Chart that consumes this secret and connects to the CosmosDB database.
+It is possible to provision a combination of native Kubernetes objects, YAML files, Helm Charts, and other cloud resources all together, with dependencies between them. For an example of doing so, see [this blog post](/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code/) which demonstrates provisioning an Azure Kubernetes cluster, MongoDB-flavored CosmosDB instance, a Kubernetes secret to store the connection information, and a Helm Chart that consumes this secret and connects to the CosmosDB database.

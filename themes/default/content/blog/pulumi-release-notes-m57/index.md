@@ -11,7 +11,7 @@ tags:
     - pulumi-releases
 ---
 
-We regularly ship updates across the Pulumi ecosystem, with a release of the Pulumi CLI every two weeks, frequent releases of our cloud providers in the [Registry](/registry), and regular updates to the Pulumi Service. You can read about most of those changes in the the `CHANGELOG.md` files in each open source repository. To highlight some of the most exciting releases—including, for the first time, updates to the Pulumi Service—we're trying something new: a regular release notes post for Pulumi release news, features, and updates. If you find it useful, or have ideas on how we could improve it, let us know [on Twitter](https://twitter.com/pulumicorp) or in the [Pulumi Community Slack](https://slack.pulumi.com)!
+We regularly ship updates across the Pulumi ecosystem, with a release of the Pulumi CLI every two weeks, frequent releases of our cloud providers in the [Registry](/registry/), and regular updates to the Pulumi Service. You can read about most of those changes in the the `CHANGELOG.md` files in each open source repository. To highlight some of the most exciting releases—including, for the first time, updates to the Pulumi Service—we're trying something new: a regular release notes post for Pulumi release news, features, and updates. If you find it useful, or have ideas on how we could improve it, let us know [on Twitter](https://twitter.com/pulumicorp) or in the [Pulumi Community Slack](https://slack.pulumi.com)!
 
 In this update:
 
@@ -34,7 +34,7 @@ In this update:
 
 Earlier this month, Amazon announced [ECS Anywhere](https://aws.amazon.com/blogs/containers/introducing-amazon-ecs-anywhere/), an extension of Amazon Elastic Container Service that allows you to deploy containers to almost any server, and [AWS App Runner](https://aws.amazon.com/blogs/containers/introducing-aws-app-runner/), a new fully-managed container application service. Pulumi had full same-day support for both new services.
 
-Learn how to get started with [ECS Anywhere](/blog/ecs-anywhere-launch) and [App Runner](/blog/deploy-applications-with-aws-app-runner).
+Learn how to get started with [ECS Anywhere](/blog/ecs-anywhere-launch/) and [App Runner](/blog/deploy-applications-with-aws-app-runner/).
 
 ### Pulumi supports Sumo Logic
 
@@ -127,7 +127,7 @@ class Program
 
 {{< /chooser >}}
 
-Get started in the [SumoLogic provider docs](/registry/packages/sumologic).
+Get started in the [SumoLogic provider docs](/registry/packages/sumologic/).
 
 ### 100 new resources in the Azure Native provider
 
@@ -147,7 +147,7 @@ Learn more at [pulumi/pulumi#7062](https://github.com/pulumi/pulumi/issues/7062)
 
 ### Pulumi Packages: schema documentation and enhancements
 
-[Pulumi Packages](/docs/guides/pulumi-packages/), released at [PulumiUP earlier this year](/blog/pulumiup-pulumi-packages-multi-language-components) enable cloud infrastructure resource provisioning to be defined once, in your language of choice, and made available to users in all Pulumi languages. A key part of Pulumi Packages is the Pulumi schema that defines each resource in a package.  We have now introduced new [documentation for Pulumi Package Schema](/docs/guides/pulumi-packages).
+[Pulumi Packages](/docs/guides/pulumi-packages/), released at [PulumiUP earlier this year](/blog/pulumiup-pulumi-packages-multi-language-components/) enable cloud infrastructure resource provisioning to be defined once, in your language of choice, and made available to users in all Pulumi languages. A key part of Pulumi Packages is the Pulumi schema that defines each resource in a package.  We have now introduced new [documentation for Pulumi Package Schema](/docs/guides/pulumi-packages/).
 
 We've also updated the Pulumi Package schema to make it more powerful. For more complex Pulumi Package scenarios, you may want to be able to reference the types in one Pulumi Package from another Pulumi Package. Previously, this was only possible if you authored your Pulumi Package in Go; now, it's possible in all Pulumi Languages.
 
@@ -163,9 +163,9 @@ Previously, you could accept an invitation to join an organization even if you d
 
 ### Self-Hosted Pulumi Service now supports Azure services and Minio storage
 
-The [Self-Hosted Pulumi Service](/docs/guides/self-hosted), which brings the full power of the Pulumi Service into your own environment, can now be deployed in a few new ways:
+The [Self-Hosted Pulumi Service](/docs/guides/self-hosted/), which brings the full power of the Pulumi Service into your own environment, can now be deployed in a few new ways:
 
 - In Microsoft Azure, using [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) for state storage and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) for secret storage
 - Using [Minio](https://min.io/) for state storage
 
-Learn more about how to configure these options in the [Pulumi API setup guide](/docs/guides/self-hosted/components/api).
+Learn more about how to configure these options in the [Pulumi API setup guide](/docs/guides/self-hosted/components/api/).

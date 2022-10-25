@@ -21,7 +21,7 @@ tags:
     - continuous-delivery
 ---
 
-As a reader of this blog, you've probably heard of the [Pulumi Service](/product/pulumi-service), the default state-management [backend](/docs/intro/concepts/state) of the Pulumi CLI. If that's the case, there's also a good chance you've heard of a number of the Service's key features, like helping you organize your [projects and stacks](/docs/intro/pulumi-service/projects-and-stacks), collaborate with others with the help of [organizations](/docs/intro/pulumi-service/organizations), or handle sensitive data securely with built-in support for [encrypted secrets](https://www.pulumi.com/docs/intro/concepts/secrets/).
+As a reader of this blog, you've probably heard of the [Pulumi Service](/product/pulumi-service/), the default state-management [backend](/docs/intro/concepts/state/) of the Pulumi CLI. If that's the case, there's also a good chance you've heard of a number of the Service's key features, like helping you organize your [projects and stacks](/docs/intro/pulumi-service/projects-and-stacks/), collaborate with others with the help of [organizations](/docs/intro/pulumi-service/organizations/), or handle sensitive data securely with built-in support for [encrypted secrets](https://www.pulumi.com/docs/intro/concepts/secrets/).
 
 What you might not know, though, is that we're adding new features to the Pulumi Service all the time, and that some of these features can  be fairly easy to miss. So in this post, we'll highlight a handful of the features you might _not_ be aware of, and that we think make it even easier to manage your infrastructure with Pulumi.
 
@@ -111,4 +111,4 @@ The Pulumi Service also links you to the resource’s cloud provider’s console
 Is your resource missing a link to the cloud provider console? With new services being launched from the myriad providers Pulumi supports every day, it’s hard to keep up. So if you would like us to add cloud provider links, please file an issue over in the [pulumi/console-requests](https://github.com/pulumi/console-requests/) GitHub repository so we can update our database.
 {{% /notes %}}
 
-There are plenty of other features to check out in the [Pulumi Service](/product/pulumi-service), and we have exciting improvements on the way! As always, feel free to stop by the [Pulumi Community Slack](https://slack.pulumi.com) to learn more, ask questions, or share anything cool you’re up to!
+There are plenty of other features to check out in the [Pulumi Service](/product/pulumi-service/), and we have exciting improvements on the way! As always, feel free to stop by the [Pulumi Community Slack](https://slack.pulumi.com) to learn more, ask questions, or share anything cool you’re up to!

@@ -11,8 +11,8 @@ tags:
 {{% notes type="warning" %}}
 This blog post is outdated and no longer accurate.
 We have updated our pricing structure in response to user feedback.
-Learn all about it in our new blog post: [Announcing New Usage-Based Pricing For Your Whole Team](/blog/announcing-new-usage-based-pricing-for-your-whole-team).
-Or visit our [Pricing Page](/pricing)
+Learn all about it in our new blog post: [Announcing New Usage-Based Pricing For Your Whole Team](/blog/announcing-new-usage-based-pricing-for-your-whole-team/).
+Or visit our [Pricing Page](/pricing/)
 for more details about pricing.
 {{% /notes %}}
 
@@ -43,7 +43,7 @@ pricing made it difficult to plan and budget for future growth, and that
 it unintentionally penalized certain architectural decisions. The new
 per user model should be more affordable and predictable.
 
-Here is a summary of the resulting options. For full details, [view our pricing page](/pricing).
+Here is a summary of the resulting options. For full details, [view our pricing page](/pricing/).
 
 <style>
 /* Just use CSS rather than whatever customization the Markdown processor exposes. */
@@ -82,7 +82,7 @@ structure:
 To get started, simply sign up for free using your identity provider of
 choice (ideally the same one your organization will be backed by). From
 there, create an organization that your team members will use. To use
-the free Community Edition, just [download the CLI](/docs/get-started) and
+the free Community Edition, just [download the CLI](/docs/get-started/) and
 sign into the free tier of the service when it prompts you.
 
 ### What is an organization?
@@ -136,4 +136,4 @@ your organization's Settings page.
 
 For annual subscriptions, we also offer invoicing that is payable with
 bank transfer or check. To discuss those options in more detail, please
-[contact us](/contact).
+[contact us](/contact/).

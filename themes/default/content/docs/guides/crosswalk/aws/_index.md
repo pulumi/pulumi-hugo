@@ -22,7 +22,7 @@ Pulumi Crosswalk for AWS is a collection of libraries that use automatic well-ar
 
 Pulumi Crosswalk for AWS supports "day one" tasks, such as creating your initial container-based workloads using
 [Amazon Elastic Container Service (ECS)](/docs/guides/crosswalk/aws/ecs)---including Fargate or [Kubernetes (EKS)](
-eks)---and creating serverless workloads using [Amazon API Gateway](/docs/guides/crosswalk/aws/api-gateway) and [AWS Lambda](/docs/guides/crosswalk/aws/lambda). Secure and cost-conscious defaults are chosen so that simple programs automatically use best practices for the underlying infrastructure, enabling better productivity with confidence.
+eks)---and creating serverless workloads using [Amazon API Gateway](/docs/guides/crosswalk/aws/api-gateway/) and [AWS Lambda](/docs/guides/crosswalk/aws/lambda/). Secure and cost-conscious defaults are chosen so that simple programs automatically use best practices for the underlying infrastructure, enabling better productivity with confidence.
 
 Pulumi Crosswalk for AWS also supports "day two and beyond" tasks, such as scaling your workload, securing and
 integrating it with your existing infrastructure, or going to production in multiple complex environments. This includes [Amazon Virtual Private Cloud (VPC)](/docs/guides/crosswalk/aws/vpc) for network isolation, [AWS Auto Scaling](
@@ -180,8 +180,8 @@ This example uses the default VPC and reasonable security defaults, but supports
 
 ## Getting Started
 
-To get started with Pulumi Crosswalk for AWS, [download and install Pulumi](/docs/get-started/install), and [configure it to work with your AWS account](/registry/packages/aws/installation-configuration). Afterwards,
-[try the Getting Started tutorial](/registry/packages/aws/how-to-guides/ecs-fargate) or select one of the
+To get started with Pulumi Crosswalk for AWS, [download and install Pulumi](/docs/get-started/install/), and [configure it to work with your AWS account](/registry/packages/aws/installation-configuration/). Afterwards,
+[try the Getting Started tutorial](/registry/packages/aws/how-to-guides/ecs-fargate/) or select one of the
 relevant User Guides to get started:
 
 ### Containers
@@ -192,29 +192,29 @@ relevant User Guides to get started:
 
 ### Serverless
 
-* [Lambda](lambda)
-* [API Gateway](api-gateway)
+* [Lambda](lambda/)
+* [API Gateway](api-gateway/)
 
 ### Monitoring
 
-* [CloudWatch](cloudwatch)
+* [CloudWatch](cloudwatch/)
 
 ### Core Infrastructure
 
-* [Auto Scaling](autoscaling)
+* [Auto Scaling](autoscaling/)
 * [Elastic Load Balancing (ELB)](elb)
 * [Identity and Access Management (IAM)](iam)
 * [Virtual Private Cloud (VPC)](vpc)
 
 ### Continuous Deployment
 
-* [Using Pulumi from AWS Code Services](/docs/guides/continuous-delivery/aws-code-services)
+* [Using Pulumi from AWS Code Services](/docs/guides/continuous-delivery/aws-code-services/)
 
 ### Other AWS Services
 
 Pulumi supports the entirety of the AWS platform. If your favorite service isn't listed above, check out:
 
-* [AWS Index of Services](aws-index-of-services)
+* [AWS Index of Services](aws-index-of-services/)
 
 ## Frequently Asked Questions (FAQ)
 
@@ -267,4 +267,4 @@ functionality is available in that namesoace.
 
 ### Is Support or Training Available for Pulumi Crosswalk for AWS?
 
-Yes! Please fill out [this form](/contact) and a Pulumi team member will be in touch.
+Yes! Please fill out [this form](/contact/) and a Pulumi team member will be in touch.

@@ -165,7 +165,7 @@ resources:
 
 {{% /choosable %}}
 
-This overrides the default of using whatever was set at the CLI, and will instead use the programmatically configured settings. Note also that anything you can set at the CLI is available, not just the region. You can see the full settings available in the package's registry documentation for its `Provider` class (for instance, the [AWS Provider](/registry/packages/aws/api-docs/provider).
+This overrides the default of using whatever was set at the CLI, and will instead use the programmatically configured settings. Note also that anything you can set at the CLI is available, not just the region. You can see the full settings available in the package's registry documentation for its `Provider` class (for instance, the [AWS Provider](/registry/packages/aws/api-docs/provider/).
 
 ## Multi-Region Deployment In Action!
 

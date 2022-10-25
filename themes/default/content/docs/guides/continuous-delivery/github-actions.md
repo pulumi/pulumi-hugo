@@ -41,7 +41,7 @@ for it. There are three ways to do this:
 
 1. [Clone an existing Pulumi example](https://github.com/pulumi/examples)
 2. [Use the New Project wizard](https://app.pulumi.com/site/new-project)
-3. [Download the CLI](/docs/get-started/install) and run `pulumi new` to
+3. [Download the CLI](/docs/get-started/install/) and run `pulumi new` to
    select a template
 
 ## Creating a Workflow
@@ -357,10 +357,10 @@ GitHub Action to communicate with the Pulumi service on your behalf.
 Next, add secrets for your cloud credentials, just as you did `PULUMI_ACCESS_TOKEN` above,
 based on your provider of choice. For example:
 
-* `AWS_ACCESS_KEY_ID`, `AWS_REGION` and `AWS_SECRET_ACCESS_KEY` for [AWS](/registry/packages/aws/installation-configuration)
-* `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET`, and `ARM_TENANT_ID` for [Azure](/registry/packages/azure/installation-configuration)
-* `GOOGLE_CREDENTIALS` for [GCP](/registry/packages/gcp/installation-configuration)
-* `KUBECONFIG` for [Kubernetes](/registry/packages/kubernetes/installation-configuration)
+* `AWS_ACCESS_KEY_ID`, `AWS_REGION` and `AWS_SECRET_ACCESS_KEY` for [AWS](/registry/packages/aws/installation-configuration/)
+* `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET`, and `ARM_TENANT_ID` for [Azure](/registry/packages/azure/installation-configuration/)
+* `GOOGLE_CREDENTIALS` for [GCP](/registry/packages/gcp/installation-configuration/)
+* `KUBECONFIG` for [Kubernetes](/registry/packages/kubernetes/installation-configuration/)
 
 ## Try It Out!
 
@@ -375,7 +375,7 @@ deployment on the Pulumi Service with more details:
 
 ![Action Logs](/images/docs/reference/gh-actions-logs.png)
 
-For even better Pull Request integration, make sure to also [install our GitHub App](/docs/guides/continuous-delivery/github-app)!
+For even better Pull Request integration, make sure to also [install our GitHub App](/docs/guides/continuous-delivery/github-app/)!
 
 ![Action Pull Requests](/images/docs/reference/gh-actions-prs.png)
 
@@ -390,7 +390,7 @@ the GitHub Actions container directly.
 
 ### Pulumi GitHub App
 
-The [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app) is something you install on your
+The [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app/) is something you install on your
 GitHub organization. It allows the Pulumi service to leave comments on Pull Requests but does not give it access to your source code.
 
 Once the Pulumi GitHub App is installed, when your GitHub Actions run Pulumi, a summary of

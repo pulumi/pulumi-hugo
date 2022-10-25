@@ -80,7 +80,7 @@ Pulumi can easily integrate into any continuous integration/continuous delivery 
 </div>
 
 > Pulumi can also bridge results from your CI/CD system with GitHub, surfacing the results of stack updates
-> on GitHub pull requests. See the [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app) for more information.
+> on GitHub pull requests. See the [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app/) for more information.
 
 ### Configuration and Secrets
 
@@ -90,7 +90,7 @@ The source is effectively everything that Pulumi needs to for deployment, with m
 
 Secret configuration values are encrypted on [app.pulumi.com](https://app.pulumi.com) and are safe to check into your
 source code repository. But you can use your own secrets provider, ensuring that only you have access to your
-sensitive information. See [Managing Secrets with Pulumi](/blog/managing-secrets-with-pulumi) for more information.
+sensitive information. See [Managing Secrets with Pulumi](/blog/managing-secrets-with-pulumi/) for more information.
 
 ### Managing Complex Environments
 
@@ -101,9 +101,9 @@ permit one stack to depend upon another. This facilitates continuous delivery an
 ### Using Branches for Environments
 
 Pulumi is agnostic to what sort of branching strategy you take. Most customers use Git-based flows; the most common is
-to use one branch-per-[stack](/docs/intro/concepts/stack). This allows you to control deployments to environments
+to use one branch-per-[stack](/docs/intro/concepts/stack/). This allows you to control deployments to environments
 using your usual commit, code review, and approval process, such as GitHub pull requests.
 
 If you are using GitHub pull requests to trigger updates, you will likely want to use the
-[Pulumi GitHub App](/docs/guides/continuous-delivery/github-app). This gives you interactive infrastructure change previews
+[Pulumi GitHub App](/docs/guides/continuous-delivery/github-app/). This gives you interactive infrastructure change previews
 inside of your Pull Request, making it easier to see, review, and comment on any changes before a deployment occurs.

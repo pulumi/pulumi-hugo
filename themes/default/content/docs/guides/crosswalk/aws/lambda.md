@@ -22,7 +22,7 @@ takes care of everything required to run and scale your code with high availabil
 automatically trigger from other AWS services or call it directly from any web or mobile app.
 
 {{% notes type="info" %}}
-This functionality is available in TypeScript only and as part of the [AWS Classic provider](/registry/packages/aws).
+This functionality is available in TypeScript only and as part of the [AWS Classic provider](/registry/packages/aws/).
 {{% /notes %}}
 
 ## Overview
@@ -33,7 +33,7 @@ configuration of the associated AWS resources. This lets you focus on your appli
 worry about boilerplate, and with confidence that the resulting infrastructure automatically uses AWS best practices.
 
 With Pulumi Crosswalk for AWS, event sources are available on all native resource types, including AWS S3, SQS,
-DynamoDB, CloudWatch, Kinesis, and more, in addition to full support for [API Gateway](/docs/guides/crosswalk/aws/api-gateway).
+DynamoDB, CloudWatch, Kinesis, and more, in addition to full support for [API Gateway](/docs/guides/crosswalk/aws/api-gateway/).
 This improves discoverability of event sources in addition to adding strong typing to the event handler
 inputs and outputs that AWS Lambda will deliver to your code.
 
@@ -334,11 +334,11 @@ Lastly, it's possible to use Pulumi stacks to actually break apart your cloud re
 independently deployable pieces. This allows teams to leverage features like RBAC. For instance, it's common for the
 DevOps team to manage the physical cloud resources like queues, topics, and buckets, while the development team
 authors and manages the serverless functions attached to them. For more information on this idea, see
-[Organizing Projects and Stacks](/docs/guides/organizing-projects-stacks)
+[Organizing Projects and Stacks](/docs/guides/organizing-projects-stacks/)
 
 ## Easy Lambda Log Consumption
 
-[Pulumi Crosswalk for AWS CloudWatch](/docs/guides/crosswalk/aws/cloudwatch) ensures that resources have built-in
+[Pulumi Crosswalk for AWS CloudWatch](/docs/guides/crosswalk/aws/cloudwatch/) ensures that resources have built-in
 logging, with easy ways to customize associated policies. Additionally, the `pulumi logs` CLI command allows
 us to monitor logs in realtime from any CloudWatch resources in our program. For Lambda Functions, this means
 we can run `pulumi logs -f` to tail all of the logs for all of our Lambdas in a program.

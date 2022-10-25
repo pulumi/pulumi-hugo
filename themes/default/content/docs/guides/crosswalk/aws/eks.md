@@ -31,11 +31,11 @@ offering a single programming model and deployment workflow that works for your 
 in addition to infrastructure. This support ensures your EKS resources are fully integrated properly with the
 related AWS services. This includes
 
-* [ECR](/docs/guides/crosswalk/aws/ecr) for private container images
-* [ELB](/docs/guides/crosswalk/aws/elb) for load balancing
-* [IAM](/docs/guides/crosswalk/aws/iam) for security
-* [VPC](/docs/guides/crosswalk/aws/vpc) for network isolation
-* [CloudWatch](/docs/guides/crosswalk/aws/cloudwatch) for monitoring
+* [ECR](/docs/guides/crosswalk/aws/ecr/) for private container images
+* [ELB](/docs/guides/crosswalk/aws/elb/) for load balancing
+* [IAM](/docs/guides/crosswalk/aws/iam/) for security
+* [VPC](/docs/guides/crosswalk/aws/vpc/) for network isolation
+* [CloudWatch](/docs/guides/crosswalk/aws/cloudwatch/) for monitoring
 
 Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use all the existing plugins and
 tooling from the Kubernetes community, including Pulumi's support for deploying Helm charts. Applications running on
@@ -731,7 +731,7 @@ For a full list of options that you may set on your cluster, see the [API docume
 
 By default, your EKS cluster is put into your region's default VPC. This is a reasonable default, however this is
 configurable if you want specific network isolation or to place your cluster work nodes on private subnets. This works
-in conjunction with [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc) which makes configuring VPCs easier.
+in conjunction with [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc/) which makes configuring VPCs easier.
 
 This example creates a new VPC with private subnets only and creates our EKS cluster inside of it:
 
@@ -1502,7 +1502,7 @@ placing them in the `aws-auth` ConfigMap for your cluster automatically. Pulumi 
 objects, so that can also then create the RBAC cluster role bindings in your cluster to tie everything together.
 
 For a complete example of this in action, see
-[Simplifying Kubernetes RBAC in Amazon EKS](/blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages).
+[Simplifying Kubernetes RBAC in Amazon EKS](/blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages/).
 
 ## Deploying Kubernetes Apps to Your EKS Cluster
 
@@ -2033,7 +2033,7 @@ To ease doing this against an EKS cluster just created, the cluster object itsel
 
 For more information about configuring access to multiple clusters, see [Configure Access to Multiple Clusters](
 https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) and the
-[Pulumi Kubernetes Setup documentation](/registry/packages/kubernetes/installation-configuration).
+[Pulumi Kubernetes Setup documentation](/registry/packages/kubernetes/installation-configuration/).
 
 ## Deploying Existing Kubernetes YAML Config to Your EKS Cluster
 
@@ -2728,7 +2728,7 @@ var chart = new Helm.V3.Chart("empty",
 
 ## Using an ECR Container Image from an EKS Kubernetes Deployment
 
-[Pulumi Crosswalk for AWS ECR](/docs/guides/crosswalk/aws/ecr) enables you to build, publish, and consume private Docker
+[Pulumi Crosswalk for AWS ECR](/docs/guides/crosswalk/aws/ecr/) enables you to build, publish, and consume private Docker
 images easily using Amazon's Elastic Container Registry (ECR). The [`aws.ecr.buildAndPushImage` function](
 /docs/reference/pkg/nodejs/pulumi/awsx/ecr#buildAndPushImage) takes a name and a relative location on disk, and will
 
@@ -2739,7 +2739,7 @@ images easily using Amazon's Elastic Container Registry (ECR). The [`aws.ecr.bui
 
 This makes it easy to version your container images alongside the Kubernetes specifications that consume them.
 
-> *Note:* for more complete examples of building and publishing to _any_ private container registry, including AWS, Azure, Google Cloud, and the Docker Hub, please refer to the article [Build and publish container images to any cloud with Infrastructure as Code](/blog/build-publish-containers-iac).
+> *Note:* for more complete examples of building and publishing to _any_ private container registry, including AWS, Azure, Google Cloud, and the Docker Hub, please refer to the article [Build and publish container images to any cloud with Infrastructure as Code](/blog/build-publish-containers-iac/).
 
 For example, let's say we have an `app/` directory containing a fully Dockerized application (including a
 `Dockerfile`), and would like to deploy that as a Deployment and Service running in our EKS cluster. This program
@@ -3106,13 +3106,13 @@ class MyStack : Stack
 
 {{% /choosable %}}
 
-For more information about ECR, see [the Pulumi Crosswalk for AWS ECR documentation](/docs/guides/crosswalk/aws/ecr).
+For more information about ECR, see [the Pulumi Crosswalk for AWS ECR documentation](/docs/guides/crosswalk/aws/ecr/).
 
 ## Additional EKS Resources
 
 For more information about Kubernetes and EKS, see the following:
 
-* [Pulumi Kubernetes API Documentation](/registry/packages/kubernetes/api-docs)
-* [Pulumi EKS API Documentation](/docs/reference/pkg/nodejs/pulumi/eks)
+* [Pulumi Kubernetes API Documentation](/registry/packages/kubernetes/api-docs/)
+* [Pulumi EKS API Documentation](/docs/reference/pkg/nodejs/pulumi/eks/)
 * [Amazon Elastic Kubernetes Service homepage](https://aws.amazon.com/eks/)
 * [Kubernetes Documentation](https://kubernetes.io)

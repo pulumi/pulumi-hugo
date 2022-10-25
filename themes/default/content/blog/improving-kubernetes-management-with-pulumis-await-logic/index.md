@@ -109,20 +109,20 @@ interesting edge cases!
 
 If you'd like to learn about Pulumi and how to manage your
 infrastructure and Kubernetes through code,
-[click here to get started today](/docs/get-started). Pulumi is open source and free to
+[click here to get started today](/docs/get-started/). Pulumi is open source and free to
 use.
 
 If you'd like to go deeper on certain topics, here are some additional
 resources to check out:
 
-- [Overview of Pulumi Kubernetes Scenarios](/kubernetes)
+- [Overview of Pulumi Kubernetes Scenarios](/kubernetes/)
 - Tutorial: Create a Kubernetes cluster on a cloud provider
-  [Amazon EKS](/registry/packages/kubernetes/how-to-guides/eks),
-  [Google GKE](/registry/packages/kubernetes/how-to-guides/gke), or
+  [Amazon EKS](/registry/packages/kubernetes/how-to-guides/eks/),
+  [Google GKE](/registry/packages/kubernetes/how-to-guides/gke/), or
   [Azure AKS](https://github.com/pulumi/examples/tree/master/classic-azure-ts-aks-mean)
-- Tutorial: [Operate and deploy to a Kubernetes cluster](/registry/packages/kubernetes/how-to-guides/exposed-deployment)
-- Docs: [Pulumi docs](/docs/reference), including an
-  [overview of the programming model](/docs/intro/concepts)
+- Tutorial: [Operate and deploy to a Kubernetes cluster](/registry/packages/kubernetes/how-to-guides/exposed-deployment/)
+- Docs: [Pulumi docs](/docs/reference/), including an
+  [overview of the programming model](/docs/intro/concepts/)
 - Video: [Watch Joe Beda take Pulumi for a spin in last week's TGIK](https://www.youtube.com/watch?v=ILMK65YVSKw)
 
 As always, you can check out our code
@@ -134,4 +134,4 @@ any questions, need support, or just want to say hello.
 
 If you'd like to chat with our team, or get hands-on assistance with
 migrating your existing configuration code (including ksonnet programs)
-to Pulumi, please don't hesitate [to drop us a line](/contact).
+to Pulumi, please don't hesitate [to drop us a line](/contact/).

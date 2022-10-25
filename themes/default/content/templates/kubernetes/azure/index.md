@@ -18,13 +18,13 @@ cloud:
   slug: azure
 ---
 
-The Kubernetes Cluster template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to Azure with Pulumi. The architecture includes an [Azure Virtual Network](/registry/packages/azure-native/api-docs/network/virtualnetwork) with three subnets (for future scalability) and deploys an [Azure Kubernetes Service (AKS) cluster](/registry/packages/azure-native/api-docs/containerservice/managedcluster) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed with private IP addresses for improved security and across multiple availability zones for improved resilience. The template gives you a working project out of the box that you can customize easily and extend to suit your needs.
+The Kubernetes Cluster template creates an infrastructure as code project in your favorite language and deploys a managed Kubernetes cluster to Azure with Pulumi. The architecture includes an [Azure Virtual Network](/registry/packages/azure-native/api-docs/network/virtualnetwork/) with three subnets (for future scalability) and deploys an [Azure Kubernetes Service (AKS) cluster](/registry/packages/azure-native/api-docs/containerservice/managedcluster) that provides a managed Kubernetes control plane. Kubernetes worker nodes are deployed with private IP addresses for improved security and across multiple availability zones for improved resilience. The template gives you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Azure Kubernetes Cluster template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -64,7 +64,7 @@ Output values like these are useful in many ways, most commonly as inputs for ot
 
 ## Customizing the project
 
-Projects created with the Kubernetes Cluster template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Kubernetes Cluster template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 numWorkerNodes
 : The number of nodes in your cluster. Defaults to `3`.

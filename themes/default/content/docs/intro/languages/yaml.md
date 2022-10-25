@@ -51,7 +51,7 @@ The fastest way to get up and running is to choose from one of the following Get
 
 ## Prerequisites
 
-All you need to use Pulumi YAML is the [Pulumi CLI](/docs/get-started/install).
+All you need to use Pulumi YAML is the [Pulumi CLI](/docs/get-started/install/).
 
 ## Example
 
@@ -82,7 +82,7 @@ The example is a fully valid and self-contained Pulumi project. You only need on
 
 Further examples are given in the [Pulumi YAML GitHub
 repository](https://github.com/pulumi/pulumi-yaml/tree/main/examples). The specification for Pulumi
-YAML documents is in the [Pulumi YAML reference](/docs/reference/yaml).
+YAML documents is in the [Pulumi YAML reference](/docs/reference/yaml/).
 
 ## Templates
 

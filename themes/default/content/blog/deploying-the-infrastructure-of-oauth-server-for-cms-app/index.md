@@ -8,7 +8,7 @@ authors: ["zephyr-zhou"]
 tags: ["aws","github-actions", "netlify", "oauth", "ecs", "fargate"]
 ---
 
-In our [previous post](/blog/deploying-netlify-cms-on-aws), we deployed our CMS app on AWS instead of Netlify. We couldn't use [Netlify's Identity Service](https://docs.netlify.com/visitor-access/identity/#enable-identity-in-the-ui), which manages GitHub access to Netlify CMS, because we deployed on AWS. As a result, we needed to implement an external [OAuth Server](https://www.netlifycms.org/docs/external-oauth-clients/#header).
+In our [previous post](/blog/deploying-netlify-cms-on-aws/), we deployed our CMS app on AWS instead of Netlify. We couldn't use [Netlify's Identity Service](https://docs.netlify.com/visitor-access/identity/#enable-identity-in-the-ui), which manages GitHub access to Netlify CMS, because we deployed on AWS. As a result, we needed to implement an external [OAuth Server](https://www.netlifycms.org/docs/external-oauth-clients/#header).
 
 We used Netlify's Go example to deploy on ECS Fargate and configure the domain and certificate. To deploy the application on Fargate, we used a Typescript Pulumi project. This is a polyglot application where the OAuth server is implemented in Go and the infrastructure is deployed with Typescript. We'll show how we accomplished the deployment.
 

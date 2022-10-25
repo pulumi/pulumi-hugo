@@ -174,10 +174,10 @@ environments. Resources which were provisioned by CloudFormation, ARM or
 Terraform can remain in place, while still allowing those values to be
 dynamically consumed by a Pulumi program.
 
-Pulumi is free and open-source, and you can [get started today](/docs/get-started).
+Pulumi is free and open-source, and you can [get started today](/docs/get-started/).
 To learn more about migrating
 from Terraform to Pulumi, check out
-[From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software)
-and the [Terraform comparison documentation](/docs/intro/vs/terraform), or join us in
+[From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/)
+and the [Terraform comparison documentation](/docs/intro/vs/terraform/), or join us in
 the [Pulumi Community Slack](https://slack.pulumi.com/) to discuss with
 the Pulumi community.

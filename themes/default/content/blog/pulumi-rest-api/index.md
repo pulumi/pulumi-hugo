@@ -42,11 +42,11 @@ The Pulumi REST API is available at <https://api.pulumi.com> and includes functi
 
 Authentication and authorization is governed by the Pulumi identity and RBAC systems. As we add functionality to the Pulumi SDK and Service, we are committed to shipping and supporting the underlying REST APIs. If it's used in our web console or CLI, we want it to be available to so you can add custom features and functionality.
 
-[Read complete details about the REST API here](/docs/reference/service-rest-api) or keep reading for examples and scenarios.
+[Read complete details about the REST API here](/docs/reference/service-rest-api/) or keep reading for examples and scenarios.
 
 ## The REST API for Cloud Engineering
 
-We have already seen Cloud Engineering teams using the Pulumi REST API to build all sorts of custom functionality. These new capabilities are especially powerful when used in combination with the [Automation API](/automation), which lets you use infrastructure as code as a library embedded into a larger system, and [Webhooks](/docs/intro/pulumi-service/webhooks), which lets you invoke your own REST API in response to a Pulumi event such as a stack update.
+We have already seen Cloud Engineering teams using the Pulumi REST API to build all sorts of custom functionality. These new capabilities are especially powerful when used in combination with the [Automation API](/automation/), which lets you use infrastructure as code as a library embedded into a larger system, and [Webhooks](/docs/intro/pulumi-service/webhooks/), which lets you invoke your own REST API in response to a Pulumi event such as a stack update.
 
 Examples of scenarios we've seen include:
 
@@ -139,10 +139,10 @@ for stack in $(
 done
 ```
 
-Now all we need to do is generate a token, set our `PAPI_TOKEN` environment variable to contain it, and run this script &mdash; voila, all of our vulnerable RDS databases will be revealed. Now we can go update those stacks, perhaps programmatically with the [Automation API](/automation), and then possibly even [write a Policy as Code rule](/crossguard) to prohibit new 5.6 instances from getting created in the future.
+Now all we need to do is generate a token, set our `PAPI_TOKEN` environment variable to contain it, and run this script &mdash; voila, all of our vulnerable RDS databases will be revealed. Now we can go update those stacks, perhaps programmatically with the [Automation API](/automation/), and then possibly even [write a Policy as Code rule](/crossguard/) to prohibit new 5.6 instances from getting created in the future.
 
 ## Give It a Try Today
 
-As we have seen, the Pulumi REST API gives us easy access to projects, stacks, cloud resources, teams, and more. It is now generally available to all users of the Pulumi Service, both free and paying customers. To give it a try today, [sign up for your free account now](https://app.pulumi.com/signup), give our [Getting Started guide](/docs/get-started) a try, and then check out the [Pulumi REST API documentation](/docs/reference/service-rest-api).
+As we have seen, the Pulumi REST API gives us easy access to projects, stacks, cloud resources, teams, and more. It is now generally available to all users of the Pulumi Service, both free and paying customers. To give it a try today, [sign up for your free account now](https://app.pulumi.com/signup), give our [Getting Started guide](/docs/get-started/) a try, and then check out the [Pulumi REST API documentation](/docs/reference/service-rest-api/).
 
 We can't wait to see the powerful automation you build for your team using the Pulumi REST API! Have fun spelunking in the cloud.

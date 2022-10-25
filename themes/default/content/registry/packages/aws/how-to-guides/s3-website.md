@@ -88,7 +88,7 @@ Configure the AWS region to deploy to, such as `us-west-2`.
 $ pulumi config set aws:region us-west-2
 ```
 
-Notice how a new file, `Pulumi.website-testing.yaml`, got created in the root directory for your project next to your [Pulumi.yaml project file](/docs/intro/concepts/project). See [Defining and setting stack settings](/docs/intro/concepts/config#config-stack) for more information about this file.
+Notice how a new file, `Pulumi.website-testing.yaml`, got created in the root directory for your project next to your [Pulumi.yaml project file](/docs/intro/concepts/project/). See [Defining and setting stack settings](/docs/intro/concepts/config#config-stack) for more information about this file.
 
 ### Step 6: Preview and deploy your resources
 
@@ -225,9 +225,9 @@ You also learned how to work with the Pulumi CLI. To recap:
 ## Next steps
 
 - [S3 Folder Pulumi Component](https://www.pulumi.com/docs/tutorials/aws/s3-folder-component/)
-- [EC2 Linux WebServer Instance](/registry/packages/aws/how-to-guides/ec2-webserver)
-- [Containers on ECS Fargate](/registry/packages/aws/how-to-guides/ecs-fargate)
-- [API Gateways and Lambda](/registry/packages/aws/how-to-guides/rest-api)
+- [EC2 Linux WebServer Instance](/registry/packages/aws/how-to-guides/ec2-webserver/)
+- [Containers on ECS Fargate](/registry/packages/aws/how-to-guides/ecs-fargate/)
+- [API Gateways and Lambda](/registry/packages/aws/how-to-guides/rest-api/)
 
 <!-- markdownlint-disable url -->
 [@pulumi/aws]: /registry/packages/aws/api-docs" >}}

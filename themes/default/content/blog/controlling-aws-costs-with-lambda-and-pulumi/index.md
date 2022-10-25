@@ -19,7 +19,7 @@ automated testing failures that leak cloud resources, and we can very quickly ge
 spiral out of control.
 
 There are multiple ways that Pulumi can help you deal with this situation. [Joe Duffy](https://twitter.com/funcofjoe) wrote a blog post on
-[Automatically Enforcing Tagging Policies](/blog/automatically-enforcing-aws-resource-tagging-policies)
+[Automatically Enforcing Tagging Policies](/blog/automatically-enforcing-aws-resource-tagging-policies/)
 to demonstrate how Policy as Code can ensure that tags are automatically added to any Pulumi managed infrastructure.
 If your company doesn't use Pulumi to build and manage their infrastructure, then you can still use Pulumi in collaboration
 with AWS Lambda to build and deploy an application that can monitor your cloud costs.

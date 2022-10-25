@@ -7,7 +7,7 @@ authors: ["vova-ivanov"]
 tags: ["aws", "typescript", "containers", "kubernetes", "docker"]
 ---
 
-In this blog post, we return to the PERN application we previously [migrated to Kubernetes](/blog/deploying-a-pern-stack-application-to-aws) and replace the PostgreSQL database with MongoDB. Although it might seem like a difficult task initially, the straightforward design of Pulumi and Kubernetes allows us to easily transition the application form a PERN stack to a MERN one.
+In this blog post, we return to the PERN application we previously [migrated to Kubernetes](/blog/deploying-a-pern-stack-application-to-aws/) and replace the PostgreSQL database with MongoDB. Although it might seem like a difficult task initially, the straightforward design of Pulumi and Kubernetes allows us to easily transition the application form a PERN stack to a MERN one.
 
 <!--more-->
 

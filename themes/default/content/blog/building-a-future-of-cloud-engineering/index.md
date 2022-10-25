@@ -127,7 +127,7 @@ vSphere and OpenStack. Our delivery platform works great with your
 favorite CI systems. Expect to see continued growth in all of these
 areas, in addition to new clouds, languages, and integrations.
 
-Today we launched [the Team Edition](/pricing) for our
+Today we launched [the Team Edition](/pricing/) for our
 SaaS delivery platform. This includes many features that you, the cloud engineering
 community, told us you need to better operationalize Pulumi within your
 teams. We already have many happy customers using these features
@@ -145,7 +145,7 @@ cloud engineering within their teams. We are [hiring in all areas of the
 company](/careers) as we enter this next exciting
 chapter of the company.
 
-[Download Pulumi](/docs/get-started/install) -- we
+[Download Pulumi](/docs/get-started/install/) -- we
 can't wait to see all the great things you build next with Pulumi!
 
 Joe & Eric

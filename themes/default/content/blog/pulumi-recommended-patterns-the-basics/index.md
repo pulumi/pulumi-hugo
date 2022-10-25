@@ -21,7 +21,7 @@ Let's dive in!
 
 Pulumi is an infrastructure-as-code tool, and it is at the center of many other services, platforms, and products. Pulumi can act as a unifying agent for many of these services, enabling users to combine multiple services seamlessly at once to create exciting and innovative platforms. In this way, Pulumi is the 'hub' connecting the diverse 'spokes' of your solution, allowing you to really get rolling.
 
-Pulumi is predominantly used with cloud providers like Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and Kubernetes. But many more are available and supported in the [Registry](/registry). At the time of this writing, Pulumi supports 52 providers.
+Pulumi is predominantly used with cloud providers like Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and Kubernetes. But many more are available and supported in the [Registry](/registry/). At the time of this writing, Pulumi supports 52 providers.
 
 With such an impressive ecosystem, it's quite normal to follow your vendors' best practices as they are key ingredients to your long-term success on these platforms.
 
@@ -90,7 +90,7 @@ Along with this recommendation, using a unique prefix in the name of your resour
 Here are a few links to understand physical names and auto-naming a bit better:
 
 * [Resources and auto-naming](/docs/intro/concepts/resources#autonaming)
-* [Infrastructure as Code Resource Naming](/blog/infrastructure-as-code-resource-naming)
+* [Infrastructure as Code Resource Naming](/blog/infrastructure-as-code-resource-naming/)
 * [Why do resource names have random hex character suffixes?](/docs/support/faq#why-do-resource-names-have-random-hex-character-suffixes)
 
 ### Handling secrets securely
@@ -99,9 +99,9 @@ Deploying any infrastructure or services almost always means dealing with secret
 
 If you've worked with other popular tools, you often have to resort to different means to securely your handle secrets. If you want to embed your secrets as part of your deployment, you may have to store your secrets in plain text in the deployment configuration files; even if you can avoid this, encrypted secrets may **still** leak as plain text values in the deployment state files.
 
-Pulumi goes above and beyond to ensure your secrets are secret at all times. First, the Pulumi Service always transmits and stores entire state files securely. Pulumi also supports encrypting specific values as "[secrets](/docs/intro/concepts/secrets)" for extra protection. By default, the encryption method uses automatic, per-stack data encryption keys (DEK) provided by the Pulumi Service. This ensures your secrets are secure both in-transit and at rest, including in your stack state files. Last, Pulumi makes it easy for developers to make any variables a secret, and it's as simple as flipping the light switch.
+Pulumi goes above and beyond to ensure your secrets are secret at all times. First, the Pulumi Service always transmits and stores entire state files securely. Pulumi also supports encrypting specific values as "[secrets](/docs/intro/concepts/secrets/)" for extra protection. By default, the encryption method uses automatic, per-stack data encryption keys (DEK) provided by the Pulumi Service. This ensures your secrets are secure both in-transit and at rest, including in your stack state files. Last, Pulumi makes it easy for developers to make any variables a secret, and it's as simple as flipping the light switch.
 
-Let's explore how [secrets](/docs/intro/concepts/secrets) work in Pulumi.
+Let's explore how [secrets](/docs/intro/concepts/secrets/) work in Pulumi.
 
 #### Secrets in the stack configuration file
 
@@ -166,7 +166,7 @@ For this first article, we laid down the important foundations of infrastructure
 * Follow your vendors' best practices as early as possible.
 * Choose the programming language and the IDE you're the most comfortable with.
 * Give your Pulumi resources a name in Pulumi and in your cloud environment.
-* Leverage Pulumi [secrets](/docs/intro/concepts/secrets) to protect your sensitive information during deployment.
+* Leverage Pulumi [secrets](/docs/intro/concepts/secrets/) to protect your sensitive information during deployment.
 
 In the next article, we'll discuss code reusability and code documentation to accelerate your developer experience. We show you how to have a multi-stack environment, protect critical resources, and more.
 

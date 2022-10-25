@@ -8,8 +8,8 @@ In this tutorial, we'll use JavaScript to build and deploy a simple container us
 
 ## Prerequisites
 
-1. [Install Pulumi](/docs/get-started/install)
-1. Configure [AWS](/registry/packages/aws/installation-configuration) and/or [Azure](/registry/packages/azure/installation-configuration) credentials
+1. [Install Pulumi](/docs/get-started/install/)
+1. Configure [AWS](/registry/packages/aws/installation-configuration/) and/or [Azure](/registry/packages/azure/installation-configuration/) credentials
 
 ## Serve an HTML file in an NGINX container
 
@@ -148,6 +148,6 @@ In this tutorial, we'll use JavaScript to build and deploy a simple container us
 
 ## Next steps
 
-For an end-to-end application also includes serverless functions, see the [Serverless and Container Thumbnailer](/docs/tutorials/cloudfx/thumbnailer) tutorial.
+For an end-to-end application also includes serverless functions, see the [Serverless and Container Thumbnailer](/docs/tutorials/cloudfx/thumbnailer/) tutorial.
 
 For an example application that connects two containers, see the [Voting App](https://github.com/pulumi/examples/tree/master/cloud-ts-voting-app) TypeScript sample.

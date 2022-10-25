@@ -23,13 +23,13 @@ Services like these were called [speaking clocks](https://en.wikipedia.org/wiki/
 
 By the mid-2000s, though, most of these locally run services had been shut down --- by then, we had clocks baked into our phones --- and today, only a handful of Audichrons survive. Thanks to the National Institute of Standards and Technology, however, [you can still call a phone number to get the time](https://www.theatlantic.com/technology/archive/2016/06/remember-when-you-could-call-the-time/488273/), and while the voice might not be the same, and long distance rates will apply, it's definitely there, and you can use it. So on the off chance you happen to find yourself with no idea what time it is and only an analog phone line in reach, fear not --- old-school telephone tech has your back. For now. Assuming you remember the number.
 
-Recalling all this stuff did make me wonder, though, what a more modern version of a speaking clock might look like. So in this post, we're going to build one ourselves. We won't use an actual phone number, but we will use Pulumi and AWS --- and because we want to do it _right_, we'll take a test-driven approach to developing the infrastructure with [Jest, the JavaScript testing framework](https://jestjs.io). We'll use TypeScript and Node.js for everything, focus on [unit tests](/docs/guides/testing/unit), and when we're done, we'll have a single, serverless, browser-friendly HTTPS endpoint that returns an MP3 audio stream that speaks the current time.
+Recalling all this stuff did make me wonder, though, what a more modern version of a speaking clock might look like. So in this post, we're going to build one ourselves. We won't use an actual phone number, but we will use Pulumi and AWS --- and because we want to do it _right_, we'll take a test-driven approach to developing the infrastructure with [Jest, the JavaScript testing framework](https://jestjs.io). We'll use TypeScript and Node.js for everything, focus on [unit tests](/docs/guides/testing/unit/), and when we're done, we'll have a single, serverless, browser-friendly HTTPS endpoint that returns an MP3 audio stream that speaks the current time.
 
 Let's get started.
 
 ## Sketching it out
 
-The first thing we'll need is a runtime environment --- someplace to run some server-side JavaScript that can render and deliver an audio file. Until recently, the easiest way to get an HTTP endpoint up and running on AWS has generally been with [AWS Lambda](https://aws.amazon.com/lambda/) and [API Gateway](https://aws.amazon.com/api-gateway/), using Lambda to run the requisite code and API Gateway to expose the Lambda to the internet. Pulumi Crosswalk actually makes this [really easy](/docs/guides/crosswalk/aws/api-gateway), too --- but with the [release of AWS Lambda Function URLs](/blog/lambda-urls-launch) this April, we now have another option, one that doesn't need API Gateway at all.
+The first thing we'll need is a runtime environment --- someplace to run some server-side JavaScript that can render and deliver an audio file. Until recently, the easiest way to get an HTTP endpoint up and running on AWS has generally been with [AWS Lambda](https://aws.amazon.com/lambda/) and [API Gateway](https://aws.amazon.com/api-gateway/), using Lambda to run the requisite code and API Gateway to expose the Lambda to the internet. Pulumi Crosswalk actually makes this [really easy](/docs/guides/crosswalk/aws/api-gateway/), too --- but with the [release of AWS Lambda Function URLs](/blog/lambda-urls-launch/) this April, we now have another option, one that doesn't need API Gateway at all.
 
 A [Lambda Function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) is just what it sounds like: a URL that exposes a Lambda function. Specifically, it's an AWS cloud resource that consists of a few properties that tell AWS whether to allow anonymous access to the function or to [protect it with AWS IAM](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-auth-iam), and optionally, you can also provide a few [cross-origin resource-sharing (CORS) rules](https://docs.aws.amazon.com/lambda/latest/dg/urls-configuration.html#urls-cors) to provide (or restrict) access by websites running on other domains.
 
@@ -52,7 +52,7 @@ $ mkdir audichron-2022 && cd audichron-2022
 $ pulumi new aws-typescript
 ```
 
-Step through the prompts to create a new [stack](/docs/intro/concepts/stack) (you'll only need one stack for this project), and when the new-project wizard completes, clear out the contents of `index.ts` entirely, as we'll be building this program entirely from the ground up.
+Step through the prompts to create a new [stack](/docs/intro/concepts/stack/) (you'll only need one stack for this project), and when the new-project wizard completes, clear out the contents of `index.ts` entirely, as we'll be building this program entirely from the ground up.
 
 ## Install and configure Jest
 
@@ -552,7 +552,7 @@ And that's it. We're ready to deploy.
 
 ## Deploy the service
 
-Doublecheck your AWS credentials are [configured](/registry/packages/aws/installation-configuration), then deploy the new service with a single `pulumi up`:
+Doublecheck your AWS credentials are [configured](/registry/packages/aws/installation-configuration/), then deploy the new service with a single `pulumi up`:
 
 ```bash
 $ pulumi up

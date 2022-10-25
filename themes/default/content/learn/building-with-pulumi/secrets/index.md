@@ -325,7 +325,7 @@ S3cr37
 
 For more information on how Pulumi uses secrets, including how to set them
 programmatically, review the
-[corresponding docs](/docs/intro/concepts/secrets).
+[corresponding docs](/docs/intro/concepts/secrets/).
 
 ---
 

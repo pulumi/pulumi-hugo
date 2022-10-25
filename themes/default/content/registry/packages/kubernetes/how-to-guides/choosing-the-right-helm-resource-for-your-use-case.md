@@ -5,7 +5,7 @@ aliases: ["/docs/reference/tutorials/kubernetes/chart-vs-release/"]
 layout: how-to-guide
 ---
 
-The Kubernetes provider and SDK has supported a means to deploy [Helm Charts](https://helm.sh/) since [2018](/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code) through the [`Helm V3 Chart`](/registry/packages/kubernetes/api-docs/helm/v3/chart) resource. This resource simulated Helm installation by retrieving the templates for underlying resources from the chart and installing them on the target Kubernetes environment directly.
+The Kubernetes provider and SDK has supported a means to deploy [Helm Charts](https://helm.sh/) since [2018](/blog/using-helm-and-pulumi-to-define-cloud-native-infrastructure-as-code/) through the [`Helm V3 Chart`](/registry/packages/kubernetes/api-docs/helm/v3/chart) resource. This resource simulated Helm installation by retrieving the templates for underlying resources from the chart and installing them on the target Kubernetes environment directly.
 
 In September 2021 we announced the **public preview** of a new [`Helm Release`](/registry/packages/kubernetes/api-docs/helm/v3/release) which adds an additional option to the mix for Pulumi's Kubernetes users. As of [v3.15.0](https://github.com/pulumi/pulumi-kubernetes/releases/tag/v3.15.0) of the Pulumi Kubernetes SDK and Provider, this resource is now **Generally Available**.
 
@@ -58,11 +58,11 @@ This section provides a simple framework for users to decide between the two cla
 
 | Use Case | Recommended Resource |
 | --------- | ---------- |
-| [*Fire-and-forget* Helm Chart installation?](#fire-and-forget-helm-chart-installation) | [Helm Release](/registry/packages/kubernetes/api-docs/helm/v3/release) |
-| [Interact with existing Helm-managed resources?](#interoperability-with-existing-helm-releases) | [Helm Release](/registry/packages/kubernetes/api-docs/helm/v3/release) |
-| [Need to customize/modify Helm Charts through transformations?](#fine-grained-diffs-and-transformations) | [Helm Chart](/registry/packages/kubernetes/api-docs/helm/v3/chart) |
-| [Need fine-grained diffs on Helm Chart updates?](#fine-grained-diffs-and-transformations) | [Helm Chart](/registry/packages/kubernetes/api-docs/helm/v3/chart) |
-| [Enforce CrossGuard policies on all Kubernetes resources?](#enforcing-crossguard-policies-on-kubernetes-resources) | [Helm Chart](/registry/packages/kubernetes/api-docs/helm/v3/chart) |
+| [*Fire-and-forget* Helm Chart installation?](#fire-and-forget-helm-chart-installation) | [Helm Release](/registry/packages/kubernetes/api-docs/helm/v3/release/) |
+| [Interact with existing Helm-managed resources?](#interoperability-with-existing-helm-releases) | [Helm Release](/registry/packages/kubernetes/api-docs/helm/v3/release/) |
+| [Need to customize/modify Helm Charts through transformations?](#fine-grained-diffs-and-transformations) | [Helm Chart](/registry/packages/kubernetes/api-docs/helm/v3/chart/) |
+| [Need fine-grained diffs on Helm Chart updates?](#fine-grained-diffs-and-transformations) | [Helm Chart](/registry/packages/kubernetes/api-docs/helm/v3/chart/) |
+| [Enforce CrossGuard policies on all Kubernetes resources?](#enforcing-crossguard-policies-on-kubernetes-resources) | [Helm Chart](/registry/packages/kubernetes/api-docs/helm/v3/chart/) |
 
 #### *Fire-and-forget* Helm Chart Installation
 
@@ -88,12 +88,12 @@ If these are important for your use case, then the `Helm Chart` resource is pref
 
 ### Helm Chart
 
-* [API Reference Docs with examples](/registry/packages/kubernetes/api-docs/helm/v3/chart)
+* [API Reference Docs with examples](/registry/packages/kubernetes/api-docs/helm/v3/chart/)
 * [Provisioning Helm Charts](/docs/guides/adopting/from_kubernetes#provisioning-a-helm-chart)
-* [Sample Project that installs Wordpress via Helm Chart in Typescript](/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-wordpress)
+* [Sample Project that installs Wordpress via Helm Chart in Typescript](/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-wordpress/)
 
 ### Helm Release
 
-* [API Reference Docs with examples](/registry/packages/kubernetes/api-docs/helm/v3/release)
+* [API Reference Docs with examples](/registry/packages/kubernetes/api-docs/helm/v3/release/)
 * [Installing Helm Releases](/docs/guides/adopting/from_kubernetes#installing-a-helm-release)
-* [Sample Project that installs Wordpress via Helm Release in Typescript](/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-release-wordpress)
+* [Sample Project that installs Wordpress via Helm Release in Typescript](/registry/packages/kubernetes/how-to-guides/kubernetes-ts-helm-release-wordpress/)

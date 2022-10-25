@@ -18,13 +18,13 @@ cloud:
   slug: aws
 ---
 
-The Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to AWS with Pulumi. It uses an [Amazon S3 bucket](/registry/packages/aws/api-docs/s3/bucket) for file storage, configures the bucket to host a website, and deploys an [Amazon CloudFront Distribution](/registry/packages/aws/api-docs/cloudfront/distribution) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to AWS with Pulumi. It uses an [Amazon S3 bucket](/registry/packages/aws/api-docs/s3/bucket/) for file storage, configures the bucket to host a website, and deploys an [Amazon CloudFront Distribution](/registry/packages/aws/api-docs/cloudfront/distribution/) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Static Website template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your AWS credentials](/registry/packages/aws/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -60,7 +60,7 @@ $ open $(pulumi stack output cdnURL)
 
 ## Customizing the project
 
-Projects created with the Static Website template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Static Website template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 path
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.
@@ -736,15 +736,15 @@ If the domain you'd like to use is being managed by a third-party DNS service, y
 $ pulumi stack output cdnHostname
 ```
 
-Pulumi supports many third-party DNS providers, all of which are available in the [Pulumi Registry](/registry) and accompanied by examples, including:
+Pulumi supports many third-party DNS providers, all of which are available in the [Pulumi Registry](/registry/) and accompanied by examples, including:
 
-* [DNSimple](/registry/packages/dnsimple)
-* [Cloudflare](/registry/packages/cloudflare)
-* [Google Cloud DNS](/registry/packages/gcp)
-* [Akamai](/registry/packages/akamai)
-* [NS1](/registry/packages/ns1)
+* [DNSimple](/registry/packages/dnsimple/)
+* [Cloudflare](/registry/packages/cloudflare/)
+* [Google Cloud DNS](/registry/packages/gcp/)
+* [Akamai](/registry/packages/akamai/)
+* [NS1](/registry/packages/ns1/)
 
-Integration details vary by provider, so we suggest exploring the Pulumi API documentation of your provider of choice to learn more. [See the Registry](/registry) for a complete list supported providers.
+Integration details vary by provider, so we suggest exploring the Pulumi API documentation of your provider of choice to learn more. [See the Registry](/registry/) for a complete list supported providers.
 
 ## Tidying up
 

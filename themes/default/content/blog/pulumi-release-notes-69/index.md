@@ -51,14 +51,14 @@ Last year, we introduced a new Pulumi import feature that allows you to import e
 
 You can now use the `pulumi import` command to import using all input fields instead of only the ones flagged as required, which will result in less check failures. If there are check failures, they are now treated as a warning not an error. In addition, we added an optional flag to `pulumi import` that allows users to skip the code generation step of import.
 
-Learn more in the [Improved Import blog post](/blog/changes-to-import), [import improvements GitHub issue](https://github.com/pulumi/pulumi/issues/9134) and the [disable codegen GitHub issue](https://github.com/pulumi/pulumi/issues/9134).
+Learn more in the [Improved Import blog post](/blog/changes-to-import/), [import improvements GitHub issue](https://github.com/pulumi/pulumi/issues/9134) and the [disable codegen GitHub issue](https://github.com/pulumi/pulumi/issues/9134).
 
 
 ### Add `RetainOnDelete` as a resource option
 
 Pulumi is frequently used to manage the entire lifecycle of a resource, from creation, to updates, to replacement, to deletion. However, there are some cases where it is important to ensure that a resource’s life can extend beyond the lifetime of the Pulumi program that created it. To support these use cases, Pulumi now supports a new resource option [`RetainOnDelete`](/docs/intro/concepts/resources/options/retainondelete) which allows a resource to be retained in a cloud provider even after it is deleted from the Pulumi stack it is part of.
 
-Learn more in the [RetainOnDelete blog post](/blog/retainondelete) and in the [RetainOnDelete GitHub issue](https://github.com/pulumi/pulumi/issues/7747).
+Learn more in the [RetainOnDelete blog post](/blog/retainondelete/) and in the [RetainOnDelete GitHub issue](https://github.com/pulumi/pulumi/issues/7747).
 
 
 ### New `pulumi state rename` command

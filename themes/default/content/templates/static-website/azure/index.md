@@ -18,13 +18,13 @@ cloud:
     slug: azure
 ---
 
-The Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Microsoft Azure with Pulumi. It uses an [Azure Blob Storage account](/registry/packages/azure-native/api-docs/storage/storageaccount) for file storage, configures the storage account to host a website, and deploys an [Azure CDN Endpoint](/registry/packages/azure-native/api-docs/cdn/endpoint) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Microsoft Azure with Pulumi. It uses an [Azure Blob Storage account](/registry/packages/azure-native/api-docs/storage/storageaccount/) for file storage, configures the storage account to host a website, and deploys an [Azure CDN Endpoint](/registry/packages/azure-native/api-docs/cdn/endpoint/) to serve the website with low latency, caching, and HTTPS. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Azure Static Website template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Azure credentials](/registry/packages/azure-native/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your Azure credentials](/registry/packages/azure-native/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -60,7 +60,7 @@ $ open $(pulumi stack output cdnURL)
 
 ## Customizing the project
 
-Projects created with the Static Website template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Static Website template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 path
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.

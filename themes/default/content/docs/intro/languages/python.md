@@ -50,9 +50,9 @@ Pulumi. [Architecture & Concepts](/docs/intro/concepts) describes these concepts
 with examples available in Python. These concepts are made available to you in the Pulumi SDK.
 
 The Pulumi SDK is available to Python developers as a Pip package distributed on PyPI. To learn more,
-[refer to the Pulumi SDK Reference Guide](/docs/reference/pkg/python/pulumi).
+[refer to the Pulumi SDK Reference Guide](/docs/reference/pkg/python/pulumi/).
 
-The Pulumi programming model includes a core concept of `Input` and `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource.  This concept is important to understand when getting started with Python and Pulumi, and the [Inputs and Outputs](/docs/intro/concepts/inputs-outputs) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
+The Pulumi programming model includes a core concept of `Input` and `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource.  This concept is important to understand when getting started with Python and Pulumi, and the [Inputs and Outputs](/docs/intro/concepts/inputs-outputs/) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
 
 ## Using Pulumi PyPI Packages {#pypi-packages}
 
@@ -116,7 +116,7 @@ When managing the virtual environment on your own, you'll need to run any `pulum
 
 ### Adding a new dependency {#packages}
 
-There are many [Pulumi Python packages](/docs/reference/pkg) available.
+There are many [Pulumi Python packages](/docs/reference/pkg/) available.
 
 To install a new dependency in the virtual environment, add an entry to `requirements.txt`, and run the following in your project directory:
 

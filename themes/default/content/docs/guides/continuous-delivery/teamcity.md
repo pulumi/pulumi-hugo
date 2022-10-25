@@ -14,9 +14,9 @@ This page details how to use [JetBrains TeamCity](https://www.jetbrains.com/team
 
 - A working installation of TeamCity
 - An account in the [Pulumi Service](https://app.pulumi.com).
-- [Latest version of Pulumi](/docs/get-started/install).
-- Setup a new project and [stack](/docs/intro/concepts/stack) using one of our
-[Get Started](/docs/get-started) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
+- [Latest version of Pulumi](/docs/get-started/install/).
+- Setup a new project and [stack](/docs/intro/concepts/stack/) using one of our
+[Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
 and choosing one of the many templates that are available.
 
 ## Sample Project

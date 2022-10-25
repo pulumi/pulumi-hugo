@@ -12,7 +12,7 @@ aliases: [/docs/reference/commands/]
 Pulumi is controlled primarily using the command line interface (CLI). It works in conjunction with the Pulumi service
 to deploy changes to your cloud apps and infrastructure.  It keeps a history of who updated what in your team and when.
 This CLI has been designed for great inner loop productivity, in addition to
-[continuous integration and delivery](/docs/guides/continuous-delivery) scenarios.
+[continuous integration and delivery](/docs/guides/continuous-delivery/) scenarios.
 
 ## Installation
 
@@ -33,7 +33,7 @@ The most common commands in the CLI that you'll be using are as follows:
 
 ## Environment Variables
 
-For a list of environment variables that you can use to work with the Pulumi CLI, see [Environment Variables](/docs/reference/cli/environment-variables).
+For a list of environment variables that you can use to work with the Pulumi CLI, see [Environment Variables](/docs/reference/cli/environment-variables/).
 
 ## Complete Reference
 

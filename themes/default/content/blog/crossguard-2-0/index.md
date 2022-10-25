@@ -9,7 +9,7 @@ tags:
    - "Policy as Code"
 ---
 
-In a [previous blog post](/blog/announcing-crossguard-preview), I introduced CrossGuard, Pulumi's Policy as Code solution. As part of our [2.0 release](/blog/pulumi-2-0), CrossGuard is now generally available and has some awesome new features to improve the user experience around managing Policy Packs.
+In a [previous blog post](/blog/announcing-crossguard-preview/), I introduced CrossGuard, Pulumi's Policy as Code solution. As part of our [2.0 release](/blog/pulumi-2-0/), CrossGuard is now generally available and has some awesome new features to improve the user experience around managing Policy Packs.
 
 <!--more-->
 
@@ -178,8 +178,8 @@ Configuration allows organization administrators to quickly and easily tweak Pol
 
 We've invested in improving the user experience for authoring and managing policy. Whether you're an enterprise customer or an open source user, you can get started by taking CrossGuard for a spin.
 
-* [Getting Started with Pulumi](/docs/get-started)
-* [Getting Started with CrossGuard](/docs/guides/crossguard/get-started)
+* [Getting Started with Pulumi](/docs/get-started/)
+* [Getting Started with CrossGuard](/docs/guides/crossguard/get-started/)
 * [Example Policy Packs](https://github.com/pulumi/examples/tree/master/policy-packs)
 
 The Getting Started with Policy as Code webinar recording is also a excellent resource for seeing these features in action.

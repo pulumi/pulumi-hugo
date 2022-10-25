@@ -127,7 +127,7 @@ containers across a variety of public and private cloud environments.
 Most public cloud vendors now offer an EKS-like managed offering,
 including [Azure (AKS)](/registry/packages/kubernetes/how-to-guides/aks),
 [Google Cloud (GKE)](/registry/packages/kubernetes/how-to-guides/gke),
-and [Digital Ocean](/registry/packages/digitalocean/api-docs),
+and [Digital Ocean](/registry/packages/digitalocean/api-docs/),
 and the availability of on-premises private cloud configurations enables
 hybrid cloud for large organizations. Kubernetes in inherently more
 complicated to operate than the equivalent ECS solutions mentioned
@@ -193,7 +193,7 @@ You will find that the entirety of Kubernetes is more feature rich and
 offers more control over scheduling and scaling your workloads, but with
 that richness also comes added complexity that will increase training,
 and time to ramp up, in addition to ongoing maintenance costs. To learn
-more about Pulumi's support for Kubernetes, [go here](/blog/pulumi-a-better-way-to-kubernetes).
+more about Pulumi's support for Kubernetes, [go here](/blog/pulumi-a-better-way-to-kubernetes/).
 
 ## Private ECR Container Registries
 
@@ -216,14 +216,14 @@ and CloudWatch. It's possible to use any of these services without
 Pulumi, but there are [many benefits to Pulumi's infrastructure as code](/why-pulumi).
 
 In short, to get your containers up on AWS, in an easy yet
-production-ready way, [get started for free with Pulumi for AWS today](/docs/get-started/aws)!
+production-ready way, [get started for free with Pulumi for AWS today](/docs/get-started/aws/)!
 
 After getting started, here are some additional resources to go deeper
 on specific topics:
 
-- [Getting Started with ECS](/docs/guides/crosswalk/aws/ecs)
-- [Getting Started with EKS](/docs/guides/crosswalk/aws/eks)
-- [Getting Started with ECR](/docs/guides/crosswalk/aws/ecr)
+- [Getting Started with ECS](/docs/guides/crosswalk/aws/ecs/)
+- [Getting Started with EKS](/docs/guides/crosswalk/aws/eks/)
+- [Getting Started with ECR](/docs/guides/crosswalk/aws/ecr/)
     - [Using ECR from ECS Fargate or EC2](/docs/guides/crosswalk/aws/ecs#building-and-publishing-docker-images-automatically)
     - [Using ECR from EKS](/docs/guides/crosswalk/aws/eks#using-an-ecr-container-image-from-an-eks-kubernetes-deployment)
-    - [Building and Publishing Docker Images to a Private Amazon ECR Repository](/blog/building-and-publishing-docker-images-to-a-private-amazon-ecr-repository)
+    - [Building and Publishing Docker Images to a Private Amazon ECR Repository](/blog/building-and-publishing-docker-images-to-a-private-amazon-ecr-repository/)

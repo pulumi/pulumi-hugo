@@ -10,7 +10,7 @@ tags:
     - virtual-machines
 ---
 
-This article demonstrates how to deploy and provision a virtual machine in Azure using the Pulumi [Azure-Native provider](/blog/full-coverage-of-azure-resources-with-azure-native). While there are numerous examples of using the Azure console, the Azure CLI, or ARM templates to deploy and provision virtual machines, we'll use Python to implement a repeatable deployment.
+This article demonstrates how to deploy and provision a virtual machine in Azure using the Pulumi [Azure-Native provider](/blog/full-coverage-of-azure-resources-with-azure-native/). While there are numerous examples of using the Azure console, the Azure CLI, or ARM templates to deploy and provision virtual machines, we'll use Python to implement a repeatable deployment.
 
 <!--more-->
 
@@ -193,6 +193,6 @@ You can download the [code](https://github.com/pulumi/examples/tree/master/azure
 
 See these resources to learn more about deploying infrastructure on Azure.
 
-- [Get Started with Azure](/docs/get-started/azure)
-- [Azure-Native Provider](/registry/packages/azure-native/api-docs)
-- [Dynamic Providers](/blog/dynamic-providers)
+- [Get Started with Azure](/docs/get-started/azure/)
+- [Azure-Native Provider](/registry/packages/azure-native/api-docs/)
+- [Dynamic Providers](/blog/dynamic-providers/)

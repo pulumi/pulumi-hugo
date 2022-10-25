@@ -28,7 +28,7 @@ For example, in the gif below, we can see how updating one resource (in this cas
 
 ## Prerequisites
 
-> **IMPORTANT:** This tutorial expects that you have [provisioned a Kubernetes cluster](/registry/packages/kubernetes) and have an
+> **IMPORTANT:** This tutorial expects that you have [provisioned a Kubernetes cluster](/registry/packages/kubernetes/) and have an
 > active kubeconfig file.
 
 1. Install [Node.js][nodejs].

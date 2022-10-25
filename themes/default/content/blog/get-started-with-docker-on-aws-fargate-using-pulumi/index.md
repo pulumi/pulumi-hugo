@@ -7,7 +7,7 @@ authors: ["joe-duffy"]
 tags: ["JavaScript","AWS","containers","TypeScript"]
 ---
 
-> Update: Check out the [Learning Machine Case Study](/case-studies/learning-machine) where provisioning went from 3 weeks to 1 hour with Pulumi and AWS.
+> Update: Check out the [Learning Machine Case Study](/case-studies/learning-machine/) where provisioning went from 3 weeks to 1 hour with Pulumi and AWS.
 >
 > *"The impact of serverless capabilities was also transformative for the Learning Machine business. Pulumi enabled a rapid shift to Amazon ECS, AWS Fargate and AWS Lambda — the net effect of which was a 67% reduction in AWS charges. This enabled the team to spend less time focused on maintaining existing infrastructure and more time deploying new applications on AWS and adding new customers.*
 >
@@ -89,7 +89,7 @@ export const url = web.endpoint.hostname;
 ## Step 1. Create a Cluster
 
 The opening stanza imports Pulumi's
-[open source AWSX NPM package](/docs/reference/pkg/nodejs/pulumi/awsx), `@pulumi/awsx`. It
+[open source AWSX NPM package](/docs/reference/pkg/nodejs/pulumi/awsx/), `@pulumi/awsx`. It
 contains high level AWS best practices and patterns, and leverages real
 languages to eliminate boilerplate YAML templating:
 
@@ -250,4 +250,4 @@ but also Azure and GCP cloud providers, in addition to Kubernetes!
 Want to go deeper?
 
 - [Check out this example on GitHub](https://github.com/pulumi/examples/tree/master/aws-ts-hello-fargate)
-- [Get Started with your favorite cloud and scenario now](/docs/get-started)
+- [Get Started with your favorite cloud and scenario now](/docs/get-started/)

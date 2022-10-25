@@ -549,6 +549,6 @@ In this tutorial, we showed you how to use Pulumi programs to create and manage 
 
 ## Next Steps
 
-- [Containers on ECS Fargate](/registry/packages/aws/how-to-guides/ecs-fargate)
-- [API Gateways and Lambda](/registry/packages/aws/how-to-guides/rest-api)
-- [Serve a Static Website from S3](/registry/packages/aws/how-to-guides/s3-website)
+- [Containers on ECS Fargate](/registry/packages/aws/how-to-guides/ecs-fargate/)
+- [API Gateways and Lambda](/registry/packages/aws/how-to-guides/rest-api/)
+- [Serve a Static Website from S3](/registry/packages/aws/how-to-guides/s3-website/)

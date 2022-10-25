@@ -27,8 +27,8 @@ Posts in this series:
 
 ## Recap
 
-In [part 1](/blog/managing-aws-credentials-on-cicd-part-1), we created a dedicated IAM User with
-limited privileges. Then in [part 2](/blog/managing-aws-credentials-on-cicd-part-2), we set up a simple,
+In [part 1](/blog/managing-aws-credentials-on-cicd-part-1/), we created a dedicated IAM User with
+limited privileges. Then in [part 2](/blog/managing-aws-credentials-on-cicd-part-2/), we set up a simple,
 serverless Pulumi program that periodically rotated the User's access keys and updated the CI/CD system.
 
 In this final post, we will _use_ those AWS credentials to update cloud resources as part of
@@ -75,7 +75,7 @@ And just to show a more real-world example, we'll do this using _multiple_ AWS a
 
 ### Creating the IAM Role
 
-The following snippet creates an [IAM Role](/registry/packages/aws/api-docs/iam/role) resource using Pulumi. The
+The following snippet creates an [IAM Role](/registry/packages/aws/api-docs/iam/role/) resource using Pulumi. The
 most important input property of which is the `assumeRolePolicy` document, which defines _who_ can assume this role.
 
 > This is a situation where Pulumi's ability to declare the policy document in code is super-useful, as it makes it
@@ -154,7 +154,7 @@ see [this blog post from BishopFox](https://know.bishopfox.com/blog/privilege-es
 
 The following is a hypothetical IAM policy that restricts the operations performed to just those for the
 AWS CloudFront and S3 products. (Which might be sufficient for
-[updating a CDN-based website hosted on AWS](/blog/serving-a-static-website-on-aws-with-pulumi), but
+[updating a CDN-based website hosted on AWS](/blog/serving-a-static-website-on-aws-with-pulumi/), but
 likely not much else.)
 
 ```typescript
@@ -288,7 +288,7 @@ is safe to check into your source tree, since it cannot be copied/decrypted for 
 
 ### Secrets in Checkpoint Files
 
-Pulumi keeps track of your cloud resources in a something called a [checkpoint file](/docs/intro/concepts/state),
+Pulumi keeps track of your cloud resources in a something called a [checkpoint file](/docs/intro/concepts/state/),
 and that too might contain sensitive information. For example, a Pulumi resource might have a `"password"` output property.
 
 Pulumi [has support](/docs/intro/concepts/resources#additionalsecretoutputs) to mark that resource
@@ -308,7 +308,7 @@ data stored in the Pulumi Service were available, it would be useless without yo
 If that's the case, then you can use a configurable secrets provider, and swap out the default "Pulumi Service managed" encryption
 scheme for your own. (And we won't take it personally, promise.)
 
-When you create a new stack using [pulumi stack init](/docs/reference/cli/pulumi_stack_init), you can optionally
+When you create a new stack using [pulumi stack init](/docs/reference/cli/pulumi_stack_init/), you can optionally
 specify a `--secrets-provider` flag. That will determine where and how secrets get managed on your stack.
 
 For example, to use your own KMS key for encrypting data, you can pass the secrets provider
@@ -319,8 +319,8 @@ whenever it needs to encrypt or decrypt some data, it will refer to the custom p
 > no way to recover the encrypted data stored on your stack.
 
 For more information on custom secret providers, see
-[Peace of Mind with Cloud Secret Providers](/blog/peace-of-mind-with-cloud-secret-providers) or
-[Managing Secrets with Pulumi](/blog/managing-secrets-with-pulumi).
+[Peace of Mind with Cloud Secret Providers](/blog/peace-of-mind-with-cloud-secret-providers/) or
+[Managing Secrets with Pulumi](/blog/managing-secrets-with-pulumi/).
 
 ## Wrapping Up
 

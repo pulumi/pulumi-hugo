@@ -38,7 +38,7 @@ When you're developing or using a Helm chart stored on your local machine, it ca
 
 ### New examples for the Kubernetes native provider
 
-We've added additional examples to our [native provider for Kubernetes](/registry/packages/kubernetes) to make it easier to get started with common resources. Jump into Pulumi Registry with the links below:
+We've added additional examples to our [native provider for Kubernetes](/registry/packages/kubernetes/) to make it easier to get started with common resources. Jump into Pulumi Registry with the links below:
 
 - [Deployment](/registry/packages/kubernetes/api-docs/apps/v1/deployment#example-usage)
 - [StatefulSet](/registry/packages/kubernetes/api-docs/apps/v1/statefulset#example-usage)
@@ -183,7 +183,7 @@ As a precaution, we recommend updating to the latest version of the Azure Native
 
 ### Support for Kubernetes 1.23
 
-The Pulumi [Kubernetes native provider](/registry/packages/kubernetes) now supports the latest version of Kubernetes that was released on December 7th: version 1.23. See the [Kubernetes v1.23.0 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md) to learn about the new Kubernetes features and updates you can use via our Kubernetes native provider.
+The Pulumi [Kubernetes native provider](/registry/packages/kubernetes/) now supports the latest version of Kubernetes that was released on December 7th: version 1.23. See the [Kubernetes v1.23.0 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md) to learn about the new Kubernetes features and updates you can use via our Kubernetes native provider.
 
 ## Pulumi CLI and core technologies
 
@@ -197,7 +197,7 @@ In some scenarios, you may want to retain certain resources even while destroyin
 
 ### Pulumi Package plugins can now be hosted on GitHub Releases
 
-To [publish a Pulumi Package](/docs/guides/pulumi-packages/how-to-author), you need to publish the resource provided plugin that contains the implementation of your package. Previously, you couldn't use popular release services like GitHub Releases because the `pluginDownloadUrl` format in the Pulumi Packages [schema](/docs/guides/pulumi-packages/schema) was too strict.
+To [publish a Pulumi Package](/docs/guides/pulumi-packages/how-to-author/), you need to publish the resource provided plugin that contains the implementation of your package. Previously, you couldn't use popular release services like GitHub Releases because the `pluginDownloadUrl` format in the Pulumi Packages [schema](/docs/guides/pulumi-packages/schema/) was too strict.
 
 Now, you can construct a `pluginDownloadUrl` with placeholders for `${VERSION}`, `${OS}`, and/or `${ARCH}` (case-sensitive) and these values will be interpolated whenever the Pulumi CLI attempts to download a Pulumi Package's plugin.
 

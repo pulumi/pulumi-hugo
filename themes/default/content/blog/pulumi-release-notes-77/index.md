@@ -26,7 +26,7 @@ authors:
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-   - features 
+   - features
    - pulumi-releases
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
@@ -37,7 +37,7 @@ It has been an action packed July and August here at Pulumi! Below you will find
 
 <!--more-->
 
-If you are curious to see all new functionality, learn more about CLI improvements in the [pulumi/pulumi repo changelog](https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md) and Pulumi Service features in the [new features blogs](/blog/tag/features).
+If you are curious to see all new functionality, learn more about CLI improvements in the [pulumi/pulumi repo changelog](https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md) and Pulumi Service features in the [new features blogs](/blog/tag/features/).
 
 - Cloud Providers and Packages
   - [New resources in our providers](#new-resources-in-our-providers)
@@ -71,7 +71,7 @@ Learn more in the [Google Native v0.25.0 release notes](https://github.com/pulum
 
 ### Kubernetes Operator v1.8.0
 
-In the latest release of the [Pulumi Kubernetes Operator](/docs/guides/continuous-delivery/pulumi-kubernetes-operator) we have added improvements to metrics collection and better branch detection in branch specifications.
+In the latest release of the [Pulumi Kubernetes Operator](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/) we have added improvements to metrics collection and better branch detection in branch specifications.
 
 Learn more in the [Kubernetes Operator v1.8.0 release notes](https://github.com/pulumi/pulumi-kubernetes-operator/releases/tag/v1.8.0).
 
@@ -122,7 +122,7 @@ We also made a handful of improvements to `pulumi convert`. See the [v0.5.5 rele
 - **clear**: to assist with the use case of removing all pending creates, the flag `--clear-pending-creates` has been added.
 - **skip**: the flag `--skip-pending-creates` has been added to disable this new behavior
 
-Regardless of if these flags are passed, a refresh is still run. To learn more read the [Repairing State with Pulumi Refresh](/blog/repairing-state-with-pulumi-refresh) blog post or the [merge request](https://github.com/pulumi/pulumi/pull/10394).
+Regardless of if these flags are passed, a refresh is still run. To learn more read the [Repairing State with Pulumi Refresh](/blog/repairing-state-with-pulumi-refresh/) blog post or the [merge request](https://github.com/pulumi/pulumi/pull/10394).
 
 ### Re-implementing `pulumi watch`
 
@@ -133,7 +133,7 @@ We have recently re-implemented `pulumi watch` to have cross platform compatibil
 **See it in action**
 {{< youtube "dCp2Nfa2S2Q?rel=0" >}}
 
-Try it out today! See more information in the `pulumi watch` documentation, the [original launch blog post](/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure) and the [merge request for the latest updates](https://github.com/pulumi/pulumi/pull/10213).
+Try it out today! See more information in the `pulumi watch` documentation, the [original launch blog post](/blog/pulumi-watch-mode-fast-inner-loop-development-for-cloud-infrastructure/) and the [merge request for the latest updates](https://github.com/pulumi/pulumi/pull/10213).
 
 ### Automation API Python parallel inline programs
 
@@ -149,7 +149,7 @@ Learn more in the [Add getOrganization merge request](https://github.com/pulumi/
 
 ### Control logging and tracing within Automation API
 
-We have improved [Pulumi Automation API](/docs/guides/automation-api) functionality to permit finer control over logging by adding five additional options to the preview, up, refresh, and destroy operations in Automation API.
+We have improved [Pulumi Automation API](/docs/guides/automation-api/) functionality to permit finer control over logging by adding five additional options to the preview, up, refresh, and destroy operations in Automation API.
 
 Enables Automation API to run with the equivalent of CLI arguments:
 
@@ -173,13 +173,13 @@ Learn more in the [`pulumi destroy -s <stack>` GitHub issue](https://github.com/
 
 We launched Team Access Tokens, which allow Organization and Team Admins to create access tokens scoped to a Pulumi Team. Pulumi Service customers on the Enterprise and Business Critical editions can use [Pulumi Teams](https://www.pulumi.com/docs/intro/pulumi-service/teams) to set role-based access controls (RBAC) for stacks by enabling Organization administrators to assign a set of stack permissions to a group of users. Once you have Teams created you can use Team Access Tokens to generate a token scoped to that Team.
 
-Learn more in the [Team Access Tokens blog post](/blog/team-access-tokens) and the [Team Access Tokens documentation](/docs/intro/pulumi-service/team-access-tokens).
+Learn more in the [Team Access Tokens blog post](/blog/team-access-tokens/) and the [Team Access Tokens documentation](/docs/intro/pulumi-service/team-access-tokens/).
 
 ### Billing Managers
 
 The new Billing Manager role gives the user permissions to access and edit only billing information, with no read or write permissions for stacks. This role is for when you need someone in your Organization to manage billing operations but you do not want them to have any permissions beyond that. Billing Managers can only be invited or added to the Organization by Organization Admins. Once added, the only information a Billing Manager will see is metrics about the Organization and the Billing and Usage page.
 
-Learn more about the permissions in the [Billing Manager blog post](/blog/billing-managers) and the [Billing Manager documentation](/docs/intro/pulumi-service/billing-managers).
+Learn more about the permissions in the [Billing Manager blog post](/blog/billing-managers/) and the [Billing Manager documentation](/docs/intro/pulumi-service/billing-managers/).
 
 ### New Pulumi Service console
 
@@ -205,7 +205,7 @@ Look for the star icon next to any stack name and select it to start building yo
 
 ### Pulumi Service Provider improvements
 
-The Pulumi Service Provider builds on top of the Pulumi Service REST API which is another feature available to our customers to programmatically configuring the Pulumi Service. At launch, the Pulumi Service Provider had resource support for Teams, Webhooks, StackTags and AccessTokens. We have recently also added support for [TeamStackPermissions](/docs/reference/cli/pulumi_destroy), enabling users to add stacks to Teams and [Provider](/docs/reference/cli/pulumi_destroy) to control Provider resources.
+The Pulumi Service Provider builds on top of the Pulumi Service REST API which is another feature available to our customers to programmatically configuring the Pulumi Service. At launch, the Pulumi Service Provider had resource support for Teams, Webhooks, StackTags and AccessTokens. We have recently also added support for [TeamStackPermissions](/docs/reference/cli/pulumi_destroy/), enabling users to add stacks to Teams and [Provider](/docs/reference/cli/pulumi_destroy/) to control Provider resources.
 
 As always, please feel free to submit feature requests and bug reports to [Pulumi Service Provider GitHub Repo](https://github.com/pulumi/pulumi-pulumiservice/issues). We look forward to seeing what you build with the Pulumi Service Provider!
 

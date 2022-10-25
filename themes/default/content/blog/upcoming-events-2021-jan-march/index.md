@@ -54,7 +54,7 @@ Feb 9: Intro to Pulumi, 9 AM PST
 Feb 23: Intro to Pulumi, 9 AM PST
 March 9: Intro to Pulumi, 9 AM PST
 
-[Register for a session today.](/resources/introduction-to-pulumi)
+[Register for a session today.](/resources/introduction-to-pulumi/)
 
 ## Deploying Microservices with Pulumi and AWS Lambda
 

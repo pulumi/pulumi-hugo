@@ -18,13 +18,13 @@ cloud:
   slug: aws
 ---
 
-The AWS Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to AWS with Pulumi. It deploys an [Amazon S3 bucket](/registry/packages/aws/api-docs/s3/bucket) for hosting a static website, deploys an [AWS Lambda function](/registry/packages/aws/api-docs/lambda/function) that runs the business logic, and an [Amazon API Gateway REST API](/registry/packages/aws/api-docs/apigateway/restapi) that routes requests to HTML content and the Lambda function. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
+The AWS Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to AWS with Pulumi. It deploys an [Amazon S3 bucket](/registry/packages/aws/api-docs/s3/bucket/) for hosting a static website, deploys an [AWS Lambda function](/registry/packages/aws/api-docs/lambda/function/) that runs the business logic, and an [Amazon API Gateway REST API](/registry/packages/aws/api-docs/apigateway/restapi/) that routes requests to HTML content and the Lambda function. The template ships with a placeholder website that displays the current time to give you a working Pulumi project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi AWS Serverless Website template](./architecture.png)
 
 ## Creating a new AWS serverless application project
 
-To use this template to deploy your own AWS serverless application, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your AWS credentials](/registry/packages/aws/installation-configuration), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice.
+To use this template to deploy your own AWS serverless application, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration/), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice.
 
 {{< templates/pulumi-new >}}
 
@@ -47,7 +47,7 @@ Stack outputs are useful in a number of ways, most commonly as inputs to other s
 
 ## Customizing the project
 
-Projects created with the AWS Serverless template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the AWS Serverless template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 path
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template. The /date path is a GET method that retrieves the current time from the Lambda function.
@@ -86,5 +86,5 @@ Congratulations! You're now well on your way to managing  production-grade AWS s
 
 * Discover more architecture templates in [Templates &rarr;](/templates)
 * Dive into the AWS package by exploring the [API docs in the Registry &rarr;](/registry/packages/aws)
-* Expand your understanding of how Pulumi works in [Learn Pulumi](/learn)
+* Expand your understanding of how Pulumi works in [Learn Pulumi](/learn/)
 * Read up on the latest new features [in the Pulumi Blog &rarr;](/blog/tag/serverless)

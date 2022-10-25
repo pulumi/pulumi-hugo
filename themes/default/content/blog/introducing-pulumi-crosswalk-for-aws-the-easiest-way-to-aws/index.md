@@ -19,7 +19,7 @@ of minutes or hours. And AWS building block services frequently leave
 you to re-implement (and re-discover) best-practices instead of
 providing these as smart defaults.
 
-[Pulumi Crosswalk for AWS](/crosswalk/aws) is a
+[Pulumi Crosswalk for AWS](/crosswalk/aws/) is a
 new open source library of infrastructure-as-code components that make
 it easier to get from zero to production on AWS, easier to adopt AWS
 best practices by default, and easier to evolve your AWS infrastructure
@@ -55,7 +55,7 @@ enterprise application to cloud-native infrastructure, or delivering a
 new service as part of an established cloud application, Crosswalk for
 AWS provides the easiest way to get from zero to production, and to then
 evolve with your projects' needs. You can
-[get started with Crosswalk for AWS](/docs/guides/crosswalk/aws) today!
+[get started with Crosswalk for AWS](/docs/guides/crosswalk/aws/) today!
 
 > *Note:* Crosswalk for AWS projects are authored using the Pulumi
 > infrastructure-as-code tools. Pulumi allows you to define your
@@ -97,7 +97,7 @@ pay nearly zero fixed costs, and gain the ability to iterate quickly.
 With just a few more lines of code, we can
 [wire up to our own domain](/docs/guides/crosswalk/aws/api-gateway#configuring-api-gateway-custom-domains-and-ssl-using-route53-and-acm),
 [add authorization](/docs/guides/crosswalk/aws/api-gateway#controlling-and-managing-access-to-apis),
-[provision a database](/registry/packages/aws/api-docs/dynamodb/table),
+[provision a database](/registry/packages/aws/api-docs/dynamodb/table/),
 or [chain together a more complex event-driven application](/docs/guides/crosswalk/aws/lambda#available-aws-services-with-event-sources).
 
 ### Containers (ECS, Fargate)
@@ -299,13 +299,13 @@ deploy natively in the cloud will unlock creativity and empower
 developers to take advantage of more of the rich capabilities of AWS. We
 can't wait to see what you build with Crosswalk!
 
-Crosswalk for AWS is free and open source, and you can [get started today](/crosswalk/aws).
+Crosswalk for AWS is free and open source, and you can [get started today](/crosswalk/aws/).
 
 For more on Crosswalk for AWS see:
 
-- [Pulumi Crosswalk for AWS documentation](/crosswalk/aws)
-- [Get Started with Docker on AWS Fargate using Pulumi](/blog/get-started-with-docker-on-aws-fargate-using-pulumi)
-- [Easy Serverless Apps and Infrastructure -- Real Events, Real Code](/blog/easy-serverless-apps-and-infrastructure-real-events-real-code)
-- [Easily Create and Manage AWS EKS Kubernetes Clusters with Pulumi](/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi)
-- [Serving a Static Website on AWS with Pulumi](/blog/serving-a-static-website-on-aws-with-pulumi)
-- [IoT as Code with MapBox and Pulumi](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws)
+- [Pulumi Crosswalk for AWS documentation](/crosswalk/aws/)
+- [Get Started with Docker on AWS Fargate using Pulumi](/blog/get-started-with-docker-on-aws-fargate-using-pulumi/)
+- [Easy Serverless Apps and Infrastructure -- Real Events, Real Code](/blog/easy-serverless-apps-and-infrastructure-real-events-real-code/)
+- [Easily Create and Manage AWS EKS Kubernetes Clusters with Pulumi](/blog/easily-create-and-manage-aws-eks-kubernetes-clusters-with-pulumi/)
+- [Serving a Static Website on AWS with Pulumi](/blog/serving-a-static-website-on-aws-with-pulumi/)
+- [IoT as Code with MapBox and Pulumi](/blog/mapbox-iot-as-code-with-pulumi-crosswalk-for-aws/)

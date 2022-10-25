@@ -18,13 +18,13 @@ cloud:
     slug: gcp
 ---
 
-The Google Cloud Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Google Cloud Platform with Pulumi. It uses a [Cloud Storage bucket](/registry/packages/gcp/api-docs/storage/bucket) for file storage, configures the storage account to host a website, and provisions a [Global Address](/registry/packages/gcp/api-docs/compute/globaladdress) to route traffic to the CDN for lower latency and caching. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Google Cloud Static Website template creates an infrastructure as code project in your favorite language that deploys an HTML website to Google Cloud Platform with Pulumi. It uses a [Cloud Storage bucket](/registry/packages/gcp/api-docs/storage/bucket/) for file storage, configures the storage account to host a website, and provisions a [Global Address](/registry/packages/gcp/api-docs/compute/globaladdress/) to route traffic to the CDN for lower latency and caching. The template generates a complete Pulumi program, including placeholder web content, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Google Cloud Static Website template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -60,7 +60,7 @@ $ open $(pulumi stack output cdnURL)
 
 ## Customizing the project
 
-Projects created with the Static Website template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Static Website template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 path
 : The path to the folder containing the files of the website. Defaults to `www`, which is the name (and relative path) of the folder included with the template.

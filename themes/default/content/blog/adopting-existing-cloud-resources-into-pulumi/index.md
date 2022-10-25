@@ -36,7 +36,7 @@ We'll review referencing existing resources, and then dive deeper into how you c
 For referencing existing resources, Pulumi offers several tools.
 
 * The `.get` methods available on every resource let you [get all the details for a resource](/registry/packages/aws/api-docs/ec2/vpc#look-up) from the cloud provider based just on its `id`.
-* The `StackReference` resource lets you reference outputs of another stack for use as inputs to a stack, which is very useful for [organizing projects and stacks](/docs/guides/organizing-projects-stacks).
+* The `StackReference` resource lets you reference outputs of another stack for use as inputs to a stack, which is very useful for [organizing projects and stacks](/docs/guides/organizing-projects-stacks/).
 * [`terraform.state.RemoteStateReference()`](/blog/using-terraform-remote-state-with-pulumi), [`aws.cloudformation.getStack()`](/registry/packages/aws/api-docs/cloudformation/getstack) and [`azure.core.TemplateDeployment.get()`](/registry/packages/azure/api-docs/core/templatedeployment#look-up) let you reference outputs from existing Terraform, CloudFormation and ARM deployments respectively.
 
 Together, these make it easy to reference existing infrastructure regardless of how it was provisioned.
@@ -256,4 +256,4 @@ The result is that we have migrated our existing infrastructure into Pulumi and 
 
 With Pulumi, you can easily work with existing cloud infrastructure, either referencing the existing infrastructure as inputs to new cloud infrastructure defined in Pulumi, or adopting existing infrastructure under management with Pulumi.
 
-[Get started](/docs/get-started) with Pulumi today!
+[Get started](/docs/get-started/) with Pulumi today!

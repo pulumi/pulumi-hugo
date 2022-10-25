@@ -63,7 +63,7 @@ Pulumi Crosswalk for AWS supports configuring CloudWatch logging in the followin
 
 * _Forwarding to Log Groups_: From any of the supported services, a CloudWatch log group may be supplied to configure
   said service to forward logs to that log group. Many services support doing so. For example,
-  [ECS tasks and services](/docs/guides/crosswalk/aws/ecs) offer a `logGroup` property that, when set, forwards all logs
+  [ECS tasks and services](/docs/guides/crosswalk/aws/ecs/) offer a `logGroup` property that, when set, forwards all logs
   from your container instances.
 
 * _Automatic Smart Defaults_: In many cases, using Pulumi Crosswalk for AWS uses smart defaults for whatever service
@@ -74,7 +74,7 @@ Pulumi Crosswalk for AWS supports configuring CloudWatch logging in the followin
   will aggregate and stream recent log entries to the console. The `--follow` option enables you to watch the
   logs unfold in real time, `--since` looks at log entries only within a certain time period, and `--resource` allows
   you to filter to specific log groups. Read more at
-  [Unified Logs with Pulumi Logs](/blog/unified-logs-with-pulumi-logs).
+  [Unified Logs with Pulumi Logs](/blog/unified-logs-with-pulumi-logs/).
 
 As an example, this code configures a custom CloudWatch log group with a 1 week retention policy for our ECS service:
 
@@ -100,7 +100,7 @@ const nginx = new awsx.ecs.FargateService("nginx", {
 
 For details on all the capabilities of CloudWatch log groups, refer to the [Amazon CloudWatch Logs documentation](
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html), in addition to the
-[Pulumi CloudWatch API documentation](/docs/reference/pkg/nodejs/pulumi/awsx/cloudwatch).
+[Pulumi CloudWatch API documentation](/docs/reference/pkg/nodejs/pulumi/awsx/cloudwatch/).
 
 ## Subscribing to CloudWatch Metrics
 
@@ -268,7 +268,7 @@ const alarm = funcMetric.createAlarm("alarm", {
 });
 ```
 
-Such an approach can be combined with [Pulumi Crosswalk for AWS Lambda](/docs/guides/crosswalk/aws/lambda) to define and run
+Such an approach can be combined with [Pulumi Crosswalk for AWS Lambda](/docs/guides/crosswalk/aws/lambda/) to define and run
 custom code in response to metric alarms being triggered.
 
 CloudWatch metrics may also be used to trigger changes to [Autoscaling Scaling Policies](/docs/guides/crosswalk/aws/autoscaling#scaling-policies) in response to events indicating that more or less capacity is desired.
@@ -400,7 +400,7 @@ const dashboard = new classic.cloudwatch.Dashboard("TopicData", {
 ```
 
 More complex widget customization is possible. See the individual types and arguments in the
-[Cloudwatch API](/docs/reference/pkg/nodejs/pulumi/awsx/cloudwatch) for more details.
+[Cloudwatch API](/docs/reference/pkg/nodejs/pulumi/awsx/cloudwatch/) for more details.
 
 ## Additional AWS CloudWatch Resources
 
@@ -408,4 +408,4 @@ For more information about Amazon CloudWatch, see the following:
 
 * [Amazon CloudWatch homepage](https://aws.amazon.com/cloudwatch/)
 
-Or [get started with Pulumi](/docs/get-started/aws).
+Or [get started with Pulumi](/docs/get-started/aws/).

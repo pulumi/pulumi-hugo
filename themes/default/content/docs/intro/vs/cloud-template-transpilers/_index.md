@@ -12,7 +12,7 @@ projects exist to compile higher-level languages into AWS CloudFormation YAML/JS
 Similar to Pulumi, these projects allow you to author infrastructure as code using general-purpose languages like TypeScript,
 JavaScript, and Python. Unlike Pulumi, however, whose open-source engine understands these languages, a _transpiler_
 (a.k.a., [_source-to-source compiler_](https://en.wikipedia.org/wiki/Source-to-source_compiler)), translates this code
-into [AWS CloudFormation](/docs/intro/vs/cloud-templates/cloudformation). The resulting file and related assets are then submitted to the closed-source AWS CloudFormation servers to provision infrastructure on AWS in the usual ways.
+into [AWS CloudFormation](/docs/intro/vs/cloud-templates/cloudformation/). The resulting file and related assets are then submitted to the closed-source AWS CloudFormation servers to provision infrastructure on AWS in the usual ways.
 
 To learn more about how Pulumi compares to some of these services in detail, see the following comparison docs:
 

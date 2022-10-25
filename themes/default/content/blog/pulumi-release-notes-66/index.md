@@ -57,7 +57,7 @@ Over the holidays we have been releasing new features and improvements. Read on 
 
 ### New `Command` package
 
-As part of creating or updating infrastructure, it is often necessary to run scripts and/or commands. In order to improve this experience we released a new [Pulumi Command package](/registry/packages/command) in the Pulumi Registry which enables users to run scripts locally or remotely on a target VM as part of the Pulumi resource lifecycle.
+As part of creating or updating infrastructure, it is often necessary to run scripts and/or commands. In order to improve this experience we released a new [Pulumi Command package](/registry/packages/command/) in the Pulumi Registry which enables users to run scripts locally or remotely on a target VM as part of the Pulumi resource lifecycle.
 
 This new package is supported in all Pulumi languages.
 
@@ -116,6 +116,6 @@ We [previously added](https://github.com/pulumi/pulumi/pull/2697) support for se
 
 ### Audit logging for third-party secrets managers
 
-Previously secret decryption [Audit Log](/docs/intro/pulumi-service/audit-logs) events were only logged for users using the Pulumi Service secrets provider. Now users who use the Pulumi Service for their state but a third-party secrets provider (AWS KMS, Azure KeyVault, HashiCorp Vault, etc.) will have a log of these events.
+Previously secret decryption [Audit Log](/docs/intro/pulumi-service/audit-logs/) events were only logged for users using the Pulumi Service secrets provider. Now users who use the Pulumi Service for their state but a third-party secrets provider (AWS KMS, Azure KeyVault, HashiCorp Vault, etc.) will have a log of these events.
 
 [Learn more in this GitHub issue](https://github.com/pulumi/pulumi/issues/8563).

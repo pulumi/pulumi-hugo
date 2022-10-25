@@ -119,7 +119,7 @@ If you wish to have full control over one of the custom resource’s lifecycle i
 
 A component resource must register a unique type name with the base constructor. In the example, the registration is `pkg:index:MyComponent`. To reduce the potential of other type name conflicts, this name contains the package and module name, in addition to the type: `<package>:<module>:<type>`. These names are namespaced alongside non-component resources, such as aws:lambda:Function.
 
-For more information about component resources, see the [Pulumi Components tutorial](/registry/packages/aws/how-to-guides/s3-folder-component).
+For more information about component resources, see the [Pulumi Components tutorial](/registry/packages/aws/how-to-guides/s3-folder-component/).
 
 ## Creating Child Resources
 
@@ -257,7 +257,7 @@ The call to `registerOutputs` also tells Pulumi that the resource is done regist
 
 ## Inheriting Resource Providers
 
-One option all resources have is the ability to pass an [explicit resource provider](/docs/intro/concepts/resources/providers) to supply explicit configuration settings. For instance, you may want to ensure that all AWS resources are created in a different region than the globally configured region. In the case of component resources, the challenge is that these providers must flow from parent to children.
+One option all resources have is the ability to pass an [explicit resource provider](/docs/intro/concepts/resources/providers/) to supply explicit configuration settings. For instance, you may want to ensure that all AWS resources are created in a different region than the globally configured region. In the case of component resources, the challenge is that these providers must flow from parent to children.
 
 To allow this, component resources accept a `providers` option that custom resources don’t have. This value contains a map from the provider name to the explicit provider instance to use for the component resource. The map is used by a component resource to fetch the proper `provider` object to use for any child resources. This example overrides the globally configured AWS region and sets it to us-east-1. Note that `myk8s` is the name of the Kubernetes provider.
 

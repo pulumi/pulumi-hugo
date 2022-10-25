@@ -13,7 +13,7 @@ tags:
    - "Kubernetes"
 ---
 
-In an [earlier article](/blog/getting-started-with-pac), we introduced examples of Policy as Code to prevent two of the most common causes of data breaches. Policies are the guardrails of infrastructure. They control access, set limits, and manage how infrastructure operates. In many systems, policies are created by clicking on a GUI, making it difficult to replicate or version. Pulumi implements policy by writing it in Typescript, which ensures that you can write policies using software development practices such as automated testing, deployment, and version control.
+In an [earlier article](/blog/getting-started-with-pac/), we introduced examples of Policy as Code to prevent two of the most common causes of data breaches. Policies are the guardrails of infrastructure. They control access, set limits, and manage how infrastructure operates. In many systems, policies are created by clicking on a GUI, making it difficult to replicate or version. Pulumi implements policy by writing it in Typescript, which ensures that you can write policies using software development practices such as automated testing, deployment, and version control.
 
 <!--more-->
 
@@ -227,6 +227,6 @@ new PolicyPack("k8s", {
 
 Whether you deploy your infrastructure on AWS, Azure, GCP, or Kubernetes, Pulumi’s CrossGuard can help manage your infrastructure. We’ve shown four policies for controlling cost on AWS, ensuring that Azure infrastructure is compliant by allowing only approved resources, controlled access to and from VMs in Google Cloud Platform, and enforced best practices on Kubernetes by pinning container versions by tag. These policies work across many different resources because they use a familiar programming language that provides the ability to create policies that can use external data sources to determine costs, reuse the same policy on different providers, and allow us to see any violations, advisory or mandatory, before deployment. Learn more about policy as code:
 
-- [Running AWS IAM Access Analyzer at Deployment Time](/blog/aws-iam-access-analyzer-and-crossguard)
-- [Enforcing Different Kinds of Policies for Cloud Resources](/blog/enforcing-different-kinds-of-policies-for-cloud-resources)
-- [Getting Started With PaC](/blog/getting-started-with-pac)
+- [Running AWS IAM Access Analyzer at Deployment Time](/blog/aws-iam-access-analyzer-and-crossguard/)
+- [Enforcing Different Kinds of Policies for Cloud Resources](/blog/enforcing-different-kinds-of-policies-for-cloud-resources/)
+- [Getting Started With PaC](/blog/getting-started-with-pac/)
