@@ -13,8 +13,6 @@ template:
     - python
     - go
     - csharp
-
-# Used for generating links to sibling templates in the right-hand nav. Slug is this template's parent directory.
 cloud:
   name: Microsoft Azure
   slug: Azure
