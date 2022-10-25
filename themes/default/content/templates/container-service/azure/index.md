@@ -15,7 +15,7 @@ template:
     - csharp
 cloud:
   name: Microsoft Azure
-  slug: Azure
+  slug: azure
 ---
 
 The Container Service template creates an infrastructure as code project in your favorite language that deploys a container service to Azure. You can then use the container service to build your own containerized application. The architecture includes [Azure Container Instances (ACI)]({{< relref "/registry/packages/azure-native/api-docs/containerinstance" >}}) for running containers on serverless compute and an [Azure Container Registry]({{< relref "/registry/packages/azure-native/api-docs/containerregistry" >}}) that stores the container image. The template generates a complete infrastructure project with example app content, providing you with a working project out of the box that you can customize easily and extend to suit your needs.
