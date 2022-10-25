@@ -59,23 +59,23 @@ $ open $(pulumi stack output url)
 
 Projects created with the Container Service template expose the following [configuration]({{< relref "/docs/intro/concepts/config" >}}) settings:
 
-container_port
-: Specifies the port mapping for the container. Defaults to port `80`.
+appPath
+: The path to the folder containing the application and Dockerfile. Defaults to `./app`, which contains a "Hello world" example.
+
+containerPort
+: The port to expose on the container. Defaults to `80`.
 
 cpu
-: Specifies the amount of CPU to use with each container group. Defaults to `1` CPU.
+: The number of CPU cores to allocate on the container. Defaults to `1`.
 
 memory
-: Specifies the amount of memory to use with each container group. Defaults to `2` GB.
+: The amount of memory, in GB, to allocate on the container. Defaults to `2`.
 
 imageName
-: The name of the container image deployed to your container group. Defaults to `my-app`.
+: The name of the container image to be published to Azure Container Registry. Defaults to `my-app`.
 
 imageTag
-: The tag assigneed to the container image deployed to your container group. Defaults to `latest`.
-
-appPath
-: Specifies the location of the Dockerfile used to build the container image that is run. Defaults to the `./app` folder, which contains a "Hello World" example app.
+: The tag applied to published container images. Defaults to `latest`.
 
 All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`]({{< relref "/docs/reference/cli/pulumi_config_set" >}}) as shown below:
 
