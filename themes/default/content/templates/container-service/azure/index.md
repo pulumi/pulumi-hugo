@@ -5,8 +5,6 @@ layout: template
 meta_desc: The Container Service template makes it easy to deploy a container service on Azure with Pulumi and Azure Container Instances (ACI).
 meta_image: meta.png
 card_desc: Deploy a container service on Azure with Pulumi and Azure Container Instances.
-
-# Used for generating language-specific CLI commands and links to the templates repo on GitHub.
 template:
   prefix: container-azure
   dirname: my-container-service
