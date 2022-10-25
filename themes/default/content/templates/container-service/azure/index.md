@@ -2,7 +2,6 @@
 title: Container Service on Azure
 layout: template
 
-# Make sure this is description accurate for this template.
 meta_desc: The Container Service template makes it easy to deploy a container service on Azure with Pulumi and Azure Container Instances (ACI).
 
 # Be sure to replace this image. Figma source file:
