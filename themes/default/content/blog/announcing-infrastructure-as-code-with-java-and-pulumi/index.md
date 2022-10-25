@@ -121,7 +121,7 @@ There you will find several instructions on installing and getting started with 
 
 Although Pulumi for Java is listed in "preview" status, it supports all of the most essential Pulumi programming model features (and the rest is on its way). Our goal is to gather feedback over the next few weeks, and we will be working hard to improve the Java experience across the board, including more examples and better documentation.
 
-Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and you can find the Java plugin at [pulumi/pulumi-java](https://github.com/pulumi/pulumi-java). 
-And you're welcome to [join the community in Slack](https://slack.pulumi.com/) to discuss your scenarios, ideas, and to get any needed assistance from the team and other end users. 
+Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and you can find the Java plugin at [pulumi/pulumi-java](https://github.com/pulumi/pulumi-java).
+And you're welcome to [join the community in Slack](https://slack.pulumi.com/) to discuss your scenarios, ideas, and to get any needed assistance from the team and other end users.
 
 We look forward to seeing the new and amazing cloud applications you build with Pulumi for Java!
