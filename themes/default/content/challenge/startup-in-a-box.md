@@ -93,7 +93,6 @@ const staticWebsiteDirectory = "website";
 
 fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
   const filePath = `${staticWebsiteDirectory}/${file}`;
-  const fileContent = fs.readFileSync(filePath).toString();
 
   new aws.s3.BucketObject(file, {
     bucket: bucket.id,
@@ -300,19 +299,19 @@ import * as aws from "@pulumi/aws";
 import * as fs from "fs";
 import * as mime from "mime";
 
+const s3OriginId = "myS3Origin";
+const staticWebsiteDirectory = "./website";
+
 // This is a simpler verison of:
 // https://github.com/pulumi/pulumi-aws-static-website
 export class CdnWebsite extends pulumi.ComponentResource {
-  private bucket: aws.s3.BucketV2;
-  private bucketAcl: aws.s3.BucketAclV2;
+
   private cloudfrontDistribution: aws.cloudfront.Distribution;
-  private s3OriginId: string = "myS3Origin";
-  private staticWebsiteDirectory: string = "./website";
 
   constructor(name: string, args: any, opts?: pulumi.ComponentResourceOptions) {
     super("pulumi:challenge:CdnWebsite", name, args, opts);
 
-    this.bucket = new aws.s3.BucketV2(
+    const bucket = new aws.s3.BucketV2(
       "bucketV2",
       {
         tags: {
@@ -324,10 +323,10 @@ export class CdnWebsite extends pulumi.ComponentResource {
       }
     );
 
-    this.bucketAcl = new aws.s3.BucketAclV2(
+    new aws.s3.BucketAclV2(
       "bAcl",
       {
-        bucket: this.bucket.id,
+        bucket: bucket.id,
         acl: aws.s3.PublicReadAcl,
       },
       {
@@ -340,8 +339,8 @@ export class CdnWebsite extends pulumi.ComponentResource {
       {
         origins: [
           {
-            domainName: this.bucket.bucketRegionalDomainName,
-            originId: this.s3OriginId,
+            domainName: bucket.bucketRegionalDomainName,
+            originId: s3OriginId,
           },
         ],
         enabled: true,
@@ -359,7 +358,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
             "PUT",
           ],
           cachedMethods: ["GET", "HEAD"],
-          targetOriginId: this.s3OriginId,
+          targetOriginId: s3OriginId,
           forwardedValues: {
             queryString: false,
             cookies: {
@@ -387,29 +386,21 @@ export class CdnWebsite extends pulumi.ComponentResource {
       }
     );
 
-    fs.readdirSync(this.staticWebsiteDirectory).forEach((file) => {
-      const filePath = `${this.staticWebsiteDirectory}/${file}`;
-      const fileContent = fs.readFileSync(filePath).toString();
+    fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
+      const filePath = `${staticWebsiteDirectory}/${file}`;
 
       new aws.s3.BucketObject(
         file,
         {
-          bucket: this.bucket.id,
+          bucket: bucket.id,
           source: new pulumi.asset.FileAsset(filePath),
           contentType: mime.getType(filePath) || undefined,
           acl: aws.s3.PublicReadAcl,
         },
         {
-          parent: this.bucket,
+          parent: bucket,
         }
       );
-    });
-
-    // We also need to register all the expected outputs for this
-    // component resource that will get returned by default.
-    this.registerOutputs({
-      bucketName: this.bucket.id,
-      cdnUrl: this.cloudfrontDistribution.domainName,
     });
   }
 
@@ -522,56 +513,47 @@ npm install got@11.8.0
 import * as pulumi from "@pulumi/pulumi";
 
 const submittionUrl: string =
-  "https://hooks.airtable.com/workflows/v1/genericWebhook/apptZjyaJx5J2BVri/wflmg3riOP6fPjCII/wtr3RoDcz3mTizw3C";
+    "https://hooks.airtable.com/workflows/v1/genericWebhook/apptZjyaJx5J2BVri/wflmg3riOP6fPjCII/wtr3RoDcz3mTizw3C";
 
 interface SwagInputs {
-  name: string;
-  email: string;
-  address: string;
-  size: "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
+    name: string;
+    email: string;
+    address: string;
+    size: "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
 }
 
 interface SwagCreateResponse {
-  success: boolean;
-}
-
-interface SwagOutputs extends SwagInputs {
-  id: string;
+    success: boolean;
 }
 
 class SwagProvider implements pulumi.dynamic.ResourceProvider {
-  private name: string;
 
-  constructor(name: string) {
-    this.name = name;
-  }
+    async create(props: SwagInputs): Promise<pulumi.dynamic.CreateResult> {
+        const got = (await import("got")).default;
 
-  async create(props: SwagInputs): Promise<pulumi.dynamic.CreateResult> {
-    const got = (await import("got")).default;
+        const data = await got
+            .post(submittionUrl, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                json: {
+                    ...props,
+                },
+            })
+            .json<SwagCreateResponse>();
 
-    let data = await got
-      .post(submittionUrl, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        json: {
-          ...props,
-        },
-      })
-      .json<SwagCreateResponse>();
-
-    return { id: props.email, outs: props };
-  }
+        return { id: props.email, outs: { props, data } };
+    }
 }
 
 export class Swag extends pulumi.dynamic.Resource {
-  constructor(
-    name: string,
-    props: SwagInputs,
-    opts?: pulumi.CustomResourceOptions
-  ) {
-    super(new SwagProvider(name), name, props, opts);
-  }
+    constructor(
+        name: string,
+        props: SwagInputs,
+        opts?: pulumi.CustomResourceOptions
+    ) {
+        super(new SwagProvider(), name, props, opts);
+    }
 }
 ```
 
@@ -580,7 +562,7 @@ Now, add this final block to `pulumi-challenge/index.ts` and run `pulumi up`. En
 ```typescript
 import { Swag } from "./swag-provider";
 
-const swag = new Swag("your-startup", {
+new Swag("your-startup", {
   name: "YOUR NAME",
   email: "YOUR EMAIL",
   address: "YOUR ADDRESS",
