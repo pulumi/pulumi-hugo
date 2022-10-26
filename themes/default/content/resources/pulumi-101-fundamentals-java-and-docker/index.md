@@ -51,6 +51,8 @@ event_data:
 
 form:
   hubspot_form_id: 0b552a54-946c-4bc5-83b1-910cbfff1306
+  salesforce_campaign_id: 701Du0000009P91IAE
+
 featured: false
 pre_recorded: false
 pulumi_tv: false
