@@ -20,7 +20,7 @@ The fastest way to get up and running is to choose from one of the following Get
 
 <div class="tiles mt-4">
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="/docs/get-started/aw/?language=go">
+        <a class="tile p-4" href="/docs/get-started/aws/?language=go">
             <img class="h-8 mx-auto" src="/logos/tech/aws.svg" alt="AWS">
         </a>
     </div>

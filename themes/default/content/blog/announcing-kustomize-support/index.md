@@ -345,7 +345,7 @@ any questions, need support, or just want to say hello.
 
 <!-- markdownlint-disable url -->
 [v2.4.0 release]: https://github.com/pulumi/pulumi-kubernetes/releases/tag/v2.4.0
-[Kustomize]: /registry/packages/kubernetes/api-docs/kustomize/directory" >}}
-[Helm]: /registry/packages/kubernetes/api-docs/helm/v3/chart" >}}
-[YAML]: /registry/packages/kubernetes/api-docs/yaml/configgroup" >}}
+[Kustomize]: /registry/packages/kubernetes/api-docs/kustomize/directory/
+[Helm]: /registry/packages/kubernetes/api-docs/helm/v3/chart/
+[YAML]: /registry/packages/kubernetes/api-docs/yaml/configgroup/
 <!-- markdownlint-enable url -->
