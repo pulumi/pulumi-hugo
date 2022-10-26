@@ -616,7 +616,7 @@ Notice you'll get a code snippet (or resource definition) to add to your {{< lan
 One thing to note here is the `protect` option (documented [in the TypeScript SDK] and [in the Python SDK]). Because we're importing this resource into state without it being in the code, the resource is protected from accidental deletion on a `pulumi destroy` to avoid tearing down a resource before the code for it has been completed. To delete the resource, you have to set that flag to `false` through the code.
 
 [in the TypeScript SDK]: https://www.pulumi.com/docs/reference/pkg/nodejs/pulumi/pulumi/#ResourceOptions-protect
-[in the Python SDK]: https://www.pulumi.com/docs/reference/pkg/python/pulumi/#pulumi.ResourceOptions
+[in the Python SDK]: https://www.pulumi.com/docs/reference/pkg/python/providers/pulumi.html/#pulumi.ResourceOptions
 
 {{% /notes %}}
 

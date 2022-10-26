@@ -414,7 +414,7 @@ The full list of available backends are as follows:
 * AWS S3 (`"s3"`)
 * Swift (`"swift"`)
 
-Refer to the API documentation for these libraries for full details on configuration options for each backend type: [Node.js (JavaScript or TypeScript)]({{< relref "/docs/reference/pkg/nodejs/pulumi/terraform/state#RemoteStateReference" >}}) or [Python]({{< relref "/docs/reference/pkg/python/pulumi_terraform/state" >}}).
+Refer to the API documentation for these libraries for full details on configuration options for each backend type: [Node.js (JavaScript or TypeScript)]({{< relref "/docs/reference/pkg/nodejs/pulumi/terraform/state#RemoteStateReference" >}}) or [Python]({{< relref "/docs/reference/pkg/python/providers/pulumi_terraform.html/state" >}}).
 
 ## Converting Terraform HCL to Pulumi
 

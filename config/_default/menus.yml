@@ -99,7 +99,7 @@ reference:
 
   - name: Python
     parent: Pulumi SDK
-    url: /docs/reference/pkg/python/pulumi
+    url: /docs/reference/pkg/python/providers/pulumi.html
     weight: 2
 
   - name: Go

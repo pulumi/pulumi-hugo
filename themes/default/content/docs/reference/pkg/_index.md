@@ -80,11 +80,11 @@ SDK reference documentation, organized by language.
 {{% choosable language python %}}
 <dl class="tabular">
     <dt>Pulumi SDK</dt>
-    <dd><a href="{{< relref "/docs/reference/pkg/python/pulumi" >}}">pulumi</a></dd>
+    <dd><a href="{{< relref "/docs/reference/pkg/python/providers/pulumi.html" >}}">pulumi</a></dd>
     <dt>Pulumi Policy</dt>
-    <dd><a href="{{< relref "/docs/reference/pkg/python/pulumi_policy" >}}">pulumi_policy</a></dd>
+    <dd><a href="{{< relref "/docs/reference/pkg/python/providers/pulumi_policy.html" >}}">pulumi_policy</a></dd>
     <dt>Pulumi Terraform</dt>
-    <dd><a href="{{< relref "/docs/reference/pkg/python/pulumi_terraform" >}}">pulumi_terraform</a></dd>
+    <dd><a href="{{< relref "/docs/reference/pkg/python/providers/pulumi_terraform.html" >}}">pulumi_terraform</a></dd>
 </dl>
 {{% /choosable %}}
 

@@ -11,14 +11,14 @@ All resource input and output values are recorded as [`state`]({{< relref "/docs
 
 The Pulumi Service always transmits and stores entire state files securely; however, Pulumi also supports encrypting specific values as “secrets” for extra protection. Encryption ensures that these values never appear as plaintext in your state file. By default, the encryption method uses automatic, per-stack encryption keys provided by the Pulumi Service or you can use a [provider of your own choosing]({{< relref "#configuring-secrets-encryption" >}}) instead.
 
-To encrypt a configuration setting before runtime, you can use the CLI command [`config set`]({{< relref "/docs/intro/concepts/config#configuration" >}}) command with a [`--secret`]({{< relref "#secrets" >}}) flag. You can also set a secret during runtime. Any [`Output<T>`]({{< relref "/docs/reference/pkg/python/pulumi#outputs-and-inputs" >}}) value can be marked secret. If an output is a secret, any computed values derived from it—such as those derived through an [`apply`]({{< relref "/docs/reference/pkg/python/pulumi#outputs-and-inputs" >}}) call —will also be marked secret. All these encrypted values are stored in your state file.
+To encrypt a configuration setting before runtime, you can use the CLI command [`config set`]({{< relref "/docs/intro/concepts/config#configuration" >}}) command with a [`--secret`]({{< relref "#secrets" >}}) flag. You can also set a secret during runtime. Any [`Output<T>`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#outputs-and-inputs" >}}) value can be marked secret. If an output is a secret, any computed values derived from it—such as those derived through an [`apply`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#outputs-and-inputs" >}}) call —will also be marked secret. All these encrypted values are stored in your state file.
 
-An [`Output<T>`]({{< relref "/docs/reference/pkg/python/pulumi#outputs-and-inputs" >}}) can be marked secret in a number of ways:
+An [`Output<T>`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#outputs-and-inputs" >}}) can be marked secret in a number of ways:
 
-- By reading a secret from configuration using [`Config.get_secret`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Config.get_secret" >}})  or [`Config.require_secret`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Config.require_secret" >}}).
-- By creating a new secret value with [`Output.secret`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Output.secret" >}}), such as when generating a new random password.
+- By reading a secret from configuration using [`Config.get_secret`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Config.get_secret" >}})  or [`Config.require_secret`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Config.require_secret" >}}).
+- By creating a new secret value with [`Output.secret`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Output.secret" >}}), such as when generating a new random password.
 - By marking a resource as having secret properties using [`additionalSecretOutputs`]({{< relref "/docs/intro/concepts/inputs-outputs" >}}).
-- By computing a secret value by using [`apply`]({{< relref "/docs/reference/pkg/python/pulumi#outputs-and-inputs" >}}) or [`Output.all`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Output.all" >}}) with another secret value.
+- By computing a secret value by using [`apply`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#outputs-and-inputs" >}}) or [`Output.all`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Output.all" >}}) with another secret value.
 
 As soon as an `Output<T>` is marked secret, the Pulumi engine will encrypt it wherever it is stored.
 
@@ -46,8 +46,8 @@ There are two ways to programmatically create secret values:
 {{% /choosable %}}
 {{% choosable language python %}}
 
-- Using [`get_secret`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Config.get_secret" >}}) or [`require_secret`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Config.require_secret" >}}) when reading a value from config.
-- Calling [`Output.secret`]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Output.secret" >}}) to construct a secret from an existing value.
+- Using [`get_secret`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Config.get_secret" >}}) or [`require_secret`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Config.require_secret" >}}) when reading a value from config.
+- Calling [`Output.secret`]({{< relref "/docs/reference/pkg/python/providers/pulumi.html#pulumi.Output.secret" >}}) to construct a secret from an existing value.
 
 {{% /choosable %}}
 {{% choosable language go %}}
