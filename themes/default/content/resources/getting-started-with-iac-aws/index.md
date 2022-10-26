@@ -10,7 +10,7 @@ featured: false
 pre_recorded: false
 
 # If the video is part of the PulumiTV series. Setting this value to true will list the video in the "PulumiTV" section.
-pulumi_tv: true
+pulumi_tv: false
 
 # The preview image will be shown on the list page.
 preview_image: ""
