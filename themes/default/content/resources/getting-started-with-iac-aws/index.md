@@ -35,8 +35,8 @@ block_external_search_index: false
 # data for Google Events
 event_data:
   name: Pulumi - Getting Started with Infrastructure as Code on AWS
-  start_date: 2022-09-12T10:00:00.000-07:00
-  end_date: 2022-09-12T11:00:00.000-07:00
+  start_date: 2022-10-12T09:00:00.000-07:00
+  end_date: 2022-10-12T10:00:00.000-07:00
   url: "https://www.pulumi.com/resources/getting-started-with-iac-aws/"
   description: In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using Pulumi’s Cloud Engineering platform. You will be introduced to Pulumi, an infrastructure as code platform, where you can use familiar programming languages to provision modern cloud infrastructure. This workshop is designed to help users completely new to Pulumi to become familiar with the core concepts to be effective with the Pulumi Infrastructure as Code platform. We will guide you through the Pulumi platform with diagrams and a series of hands on exercises to help you understand the building blocks available in Pulumi.
 
@@ -61,11 +61,11 @@ main:
     # URL for embedding a URL for ungated webinars.
     youtube_url: "https://www.youtube.com/embed/Ap0aLb-RQSc"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2022-09-12T10:00:00.000-07:00
+    sortable_date: 2022-10-12T09:00:00.000-07:00
     # Duration of the webinar.
     duration: "60 minutes"
     # Datetime of the webinar.
-    datetime: "9/12/2022 10:00am - 11:00am PT"
+    datetime: "9/12/2022 09:00am - 10:00am PT"
     # Description of the webinar.
     description: "In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using Pulumi’s Cloud Engineering platform. You will be introduced to Pulumi, an infrastructure as code platform, where you can use familiar programming languages to provision modern cloud infrastructure. This workshop is designed to help users completely new to Pulumi to become familiar with the core concepts to be effective with the Pulumi Infrastructure as Code platform. We will guide you through the Pulumi platform with diagrams and a series of hands on exercises to help you understand the building blocks available in Pulumi."
 
@@ -84,7 +84,7 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "99717c20-c713-452a-9ac0-26af767cbf36"
+    hubspot_form_id: "51ed8f59-4897-4e7e-91b5-649e46fe6733"
 
 aws_only: true
 ---
