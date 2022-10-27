@@ -30,7 +30,7 @@ stackConfigDir: config/
 backend:
   url: https://pulumi.example.com
 options:
-  refresh: true
+  refresh: always
 template:
   description: An example template
   config:
@@ -59,7 +59,7 @@ plugins:
 | `description` | optional | Description of the project. | None. |
 | `main` | optional | Path to the Pulumi program. The default is the working directory. | None. |
 | `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml`. | None. |
-| `backend` | optional | [Backend]({{< relref "/docs/intro/concepts/state" >}}) of the project. | [backend options](#backend-options) |
+| `backend` | optional | [Backend](/docs/intro/concepts/state/) of the project. | [backend options](#backend-options) |
 | `options` | optional | Additional project options. | [options options](#options-options) |
 | `template` | optional | Config to be used when creating new stacks in the project. | [template options](#template-options) |
 | `plugins` | optional | Override for the plugin selection. Intended for use in developing pulumi plugins.  | [plugins options](#plugins-options) |
@@ -72,6 +72,7 @@ The runtime attribute has an additional property called options where you can fu
 | - | - | - |
 | `typescript` | Only applicable for the nodejs runtime | Boolean indicating whether to use `ts-node` or not. |
 | `nodeargs` | Only applicable for the nodejs runtime | Arguments to pass to `node`. |
+| `buildTarget` | Only applicable for the go runtime | Path to save the compiled go binary to. |
 | `binary` | Applicable for the go, .net, and java runtimes | Path to pre-built executable. |
 | `virtualenv` | Ony applicable for the python runtime | Virtual environment path. |
 | `compiler` | Only applicable for YAML projects | Executable and arguments that emit to standard out. |
@@ -80,9 +81,16 @@ The runtime attribute has an additional property called options where you can fu
 
 Arguments specified here are passed to `node` when running the Pulumi program. For example, `nodeargs: "--trace-warnings"` will result in `node` being invoked as `node --trace-warnings`.
 
+#### About `buildTarget`
+
+- For Go
+  - If specified, go sources in `$CWD` will be compiled via `go build` to the specified path before being run.
+  - If unspecified, go sources in `$CWD` will be compiled via `go build` to a temporary executable that is deleted after running.
+  - Cannot be specified with the `binary` runtime option.
+
 #### About `binary`
 
-- For Go, if not specified, go sources in `$CWD` will be invoked via `go run`.
+- For Go, cannot be specified with the `buildTarget` runtime option.
 - For .NET, if not specified, a .NET project in `$CWD` will be invoked via `dotnet run`.
 
 #### About `virtualenv`
