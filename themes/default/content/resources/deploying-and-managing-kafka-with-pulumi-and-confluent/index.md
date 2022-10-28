@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: "Deploying and Managing Kafka with Pulumi and Confluent"
-meta_desc: "Want to learn the easy way to set up Apache Kafka to manage your real-time data feeds? Pulumi and Confluent will show how easy it can be."
+meta_desc: "Want to learn the easy way to set up Apache Kafka to manage your real-time data feeds? Pulumi and Confluent will show you how easy it can be."
 
 # A featured webinar will display first in the list.
 featured: false
