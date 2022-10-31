@@ -12,6 +12,7 @@ main:
   description: |-
     test
     test
+
     test
   sortable_date: 2022-10-31T20:10:00.000Z
 event_data: {}
@@ -26,8 +27,8 @@ unlisted: false
 gated: true
 type: webinars
 external: false
-block_external_search_index: false
-aws_only: true
+block_external_search_index: true
+aws_only: false
 title: test workshop
 meta_desc: this is a test
   desc.............................................................................................................
