@@ -38,7 +38,7 @@ Follow the prompts to complete the new-project wizard. When it's done, you'll ha
 
 ## Deploying the project
 
-The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`](/docs/reference/cli/pulumi_up):
+The template requires no additional configuration. By default, it will install Nginx. Once the new project is created, you can deploy it immediately with [`pulumi up`](/docs/reference/cli/pulumi_up):
 
 ```bash
 $ pulumi up
@@ -52,27 +52,17 @@ deploymentName
 serviceName
 : The name of your new Kubernetes Service.
 
-Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources. The computed `serviceName`, for example, can be used from the command line to open the newly deployed web application in your favorite web browser:
-
-```bash
-$ open $(pulumi stack output serviceName)
-```
+Output values like these are useful in many ways, most commonly as inputs for other stacks or related cloud resources.
 
 ## Customizing the project
 
-Projects created with the Kubernetes Application template expose the following [configuration](/docs/intro/concepts/config) settings:
+You can change the behavior of the Deployment by passing values to it and an example is already included in the template. Projects created with the Kubernetes Application template expose the following [configuration](/docs/intro/concepts/config) settings:
 
 namespace
 : The name of the namespace to be created in your existing cluster. Defaults to `default`.
 
 replicas
 : The number of replicated Pods to be created in your new Deployment. Defaults to `1`.
-
-webserverconfig
-: The ConfigMap that stores your application's configuration. By default, it is configured for Nginx.
-
-webserverdeployment
-: The new Deployment to your new namespace. By default, it installs Nginx.
 
 All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`](/docs/reference/cli/pulumi_config_set) as shown below.
 
