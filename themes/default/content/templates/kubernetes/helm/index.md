@@ -24,7 +24,7 @@ cloud:
 
 ---
 
-The Helm Chart template creates an infrastructure as code project in your favorite language that deploys a Helm chart to an existing cluster using Pulumi. It uses Pulumi's [Native Kubernetes Provider](/registry/packages/kubernetes) to create a new namespace in an existing Kubernetes cluster and a new [Helm chart](/registry/packages/kubernetes/api-docs/helm/v3) that deploys a web application. The template generates a complete infrastructure as code program, including sample application code, to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Helm Chart template creates an infrastructure as code project in your favorite language that deploys a Helm chart to an existing cluster using Pulumi. It uses Pulumi's [Native Kubernetes Provider](/registry/packages/kubernetes) to create a new namespace in an existing Kubernetes cluster and a new [Helm chart](/registry/packages/kubernetes/api-docs/helm/v3) that deploys an application (in this case, the Nginx ingress controller). The template generates a complete infrastructure as code program, including sample application code, to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Helm Chart template](./architecture.png)
 
@@ -53,7 +53,7 @@ Output values like these are useful in many ways, most commonly as inputs for ot
 
 ## Customizing the project
 
-You can change the behavior of the Helm chart by passing values to it and an example is already included in the template. Projects created with the Helm Chart template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Helm Chart template expose the following [configuration](/docs/intro/concepts/config) settings:
 
 k8sNamespace
 : The name of the namespace to be created in your existing cluster. Defaults to `nginx-ingress`.
@@ -64,6 +64,8 @@ All of these settings are optional and may be adjusted either by editing the sta
 $ pulumi config set someProp ../some/value
 $ pulumi up
 ```
+
+You can customize the Helm chart by passing values to it in your Pulumi code. An example of passing a few values to the Helm chart is already included in the template for easy reference.
 
 ## Tidying up
 
