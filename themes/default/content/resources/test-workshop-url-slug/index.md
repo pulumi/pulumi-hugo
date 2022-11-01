@@ -19,8 +19,8 @@ pulumi_tv: false
 unlisted: false
 gated: true
 type: webinars
-external: false
-block_external_search_index: false
+external: true
+block_external_search_index: true
 aws_only: true
 title: this is a test workeshop
 meta_desc: lsakjfalskfjsalkfjsalfkjsaflkasjfsadldkfjsaflksajflsfjsdlfjsflsjflsdfjslfkjslfjslfksjflskajfalsfjsdfsdfassdfsfd
