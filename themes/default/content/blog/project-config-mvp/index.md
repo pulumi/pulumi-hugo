@@ -17,7 +17,7 @@ Pulumi will now allow you to set configuration values in your `Pulumi.yaml` file
 
 ### Project level configuration values
 
-Pulumi has always had the concept of [configuration per stack](/docs/intro/concepts/config/), and the changes for project level configuration haven't fundamentally changed that. You can still set config for stacks via the the `pulumi config` CLI command, or by editing the `Pulumi.<stack>.yaml` file. Project level config just gives you the possibility to set default values for all stacks in your `Pulumi.yaml`.
+Pulumi has always had the concept of [configuration per stack](/docs/intro/concepts/config/), and the changes for project level configuration haven't fundamentally changed that. You can still set config for stacks via the `pulumi config` CLI command, or by editing the `Pulumi.<stack>.yaml` file. Project level config just gives you the ability to set default values for all stacks in your `Pulumi.yaml`.
 
 A common request we get for this is making sure that all stacks use the same AWS region, or don't have default providers enabled. You can now do this by setting these in your `Pulumi.yaml`.
 
@@ -38,7 +38,7 @@ config:
     vm-count: 2
 ```
 
-The only caveat to mention about this system, and it's related to the next section where we're going to discuss specifications, is that if you have object values they must be nested under a key `value`. So if you want to set the key `obj` to the object value `{ foo: "bar" }` you would need to write it as such:
+The only caveat to mention about this system is that if you have object values they must be nested under a key `value`. So if you want to set the key `obj` to the object value `{ foo: "bar" }` you would need to write it as such:
 
 ```yaml
 name: project
@@ -49,13 +49,13 @@ config:
             foo: bar
 ```
 
-This is to allow the engine to distinguish between values and schemas, which will show below.
+This allows the engine to distinguish between values and schemas, which we will show below.
 
 ### Configuration specification
 
-A related feature to defining values for config at the project level is [being able to define a schema for the config](https://github.com/pulumi/pulumi/issues/1052). This allows you to define what configuration settings you expect in your `Pulumi.yaml`, the engine can then use that information to validate configuration for every stack.
+A related feature to defining values for config at the project level is [being able to define a schema for the config](https://github.com/pulumi/pulumi/issues/1052). This allows you to define what configuration settings you expect in your `Pulumi.yaml` so that the engine can use that information to validate configuration for every stack.
 
-This is done using a very similar declaration to JSON schema, or our Pulumi JSON schema (the schemas from resource provider that drive our code generators). Below is a small example of some of the things you can declare:
+This is done using a very similar declaration to JSON schema, or our Pulumi JSON schema (the schemas from resource providers that drive our code generators). Below is a small example of some of the things you can declare:
 
 ```yaml
 config:
@@ -74,7 +74,7 @@ config:
         secret: true
 ```
 
-These are declared in the same config block as the other project level config shown through this post. You can mix the two together, to declare your project settings and set up defaults for providers:
+These are declared in the same config block as the other project level config shown through this post. You can combine the two by declaring your project settings and defining defaults for providers together:
 
 ```yaml
 config:
@@ -86,7 +86,7 @@ config:
 
 ### YAML
 
-When we released our support for simple Pulumi programs in YAML we had to add some support for configuration with it. This was done via the [`configuration` key](https://www.pulumi.com/docs/reference/yaml/#configuration) in the `Pulumi.yaml` file. We'll be deprecating support for that key now, as YAML will instead use the new standard project configuration.
+When we released our support for simple Pulumi programs in YAML we added some support for configuration with it. This was done via the [`configuration` key](https://www.pulumi.com/docs/reference/yaml/#configuration) in the `Pulumi.yaml` file. We'll be deprecating support for that key now, as YAML will instead use the new standard project configuration.
 
 ### Future plans
 
