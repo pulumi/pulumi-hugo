@@ -56,7 +56,7 @@ Output values like these are useful in many ways, most commonly as inputs for ot
 
 ## Customizing the project
 
-You can change the behavior of the Deployment by passing values to it and an example is already included in the template. Projects created with the Kubernetes Application template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Kubernetes Application template expose the following [configuration](/docs/intro/concepts/config) settings:
 
 namespace
 : The name of the namespace to be created in your existing cluster. Defaults to `default`.
