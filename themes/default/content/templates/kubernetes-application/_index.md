@@ -11,4 +11,4 @@ meta_image: meta.png
 weight: 99
 ---
 
-Pulumi program templates that make it easy to deploy kubernetes applications on AWS, Azure, or Google Cloud Platform.
+Pulumi program templates that make it easy to deploy Kubernetes applications on AWS, Azure, or Google Cloud Platform.
