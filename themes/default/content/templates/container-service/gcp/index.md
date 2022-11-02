@@ -58,7 +58,7 @@ $ open $(pulumi stack output url)
 
 Projects created with the Container Service template expose the following [configuration](/docs/intro/concepts/config) settings:
 
-container_port
+containerPort
 : Specifies the port mapping for the container service. Defaults to port `8080`.
 
 cpu
