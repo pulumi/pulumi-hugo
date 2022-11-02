@@ -1,6 +1,6 @@
 ---
 title: "Pulumi Deployments: the Fastest Way to Go from Code to Cloud"
-date: 2022-11-02
+date: 2022-11-02T06:10:00-07:00
 meta_desc: "New Deployments-as-a-Service technology lets engineers manage ten times more infrastructure, unlocking innovation and scale in the cloud"
 meta_image: pulumi-deployments.png
 authors:
