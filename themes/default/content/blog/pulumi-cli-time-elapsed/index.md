@@ -2,6 +2,7 @@
 title: "Pulumi CLI now displays time elapsed per resource"
 date: 2022-11-02T11:45:35-06:00
 draft: false
+meta_image: meta.png
 meta_desc: See deployment times across different types of cloud provider resources.
 authors:
     - kyle-dixler
