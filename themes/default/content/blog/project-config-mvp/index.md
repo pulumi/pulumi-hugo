@@ -84,7 +84,7 @@ config:
         default: false
 ```
 
-### YAML
+### Deprecation of 'configuration' in YAML
 
 When we released our support for simple Pulumi programs in YAML we added some support for configuration with it. This was done via the [`configuration` key](https://www.pulumi.com/docs/reference/yaml/#configuration) in the `Pulumi.yaml` file. We'll be deprecating support for that key now, as YAML will instead use the new standard project configuration.
 
