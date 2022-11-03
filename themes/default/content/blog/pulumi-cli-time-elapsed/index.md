@@ -34,4 +34,3 @@ For those interested, the code is located [here](https://gist.github.com/dixler/
 This is far from a perfect example. These numbers have many sources of error, including the load on the cloud provider, the chosen availability zone, quotas and throttling, whether the resource is ready for requests, inefficient resource options, and size of the images (for compute resources). Nonetheless, it provides more perspective as instead of a feeling short or long, we now see concrete numbers to help us quantify it.
 
 Thanks for reading. If you have any feedback on how we can further improve our CLI experience, let us know by commenting or upvoting open issues tracking enhancements on [GitHub](https://github.com/pulumi/pulumi). If you can’t find an existing issue, feel free to open a new one!
-
