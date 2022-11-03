@@ -7,14 +7,14 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/Masterminds/sprig/v3"
+	"github.com/Masterminds/sprig/v3" // Add template functions like "indent"
 )
 
 //go:embed examples
 var examples embed.FS
 
 const indexTemplate = `---
-title: Slot Machine
+title: Pulumi Slot Machine
 meta_desc: Spin the Pulumi slot machine to get a real world code example using a random language, cloud, and application.
 type: page
 layout: slot-machine

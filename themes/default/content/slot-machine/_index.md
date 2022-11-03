@@ -1,5 +1,5 @@
 ---
-title: Slot Machine
+title: Pulumi Slot Machine
 meta_desc: Spin the Pulumi slot machine to get a real world code example using a random language, cloud, and application.
 type: page
 layout: slot-machine
@@ -450,46 +450,53 @@ examples:
     code: |
       package demo;
       
-      import com.pulumi.Context;
       import com.pulumi.Pulumi;
-      import com.pulumi.core.Output;
-      import com.pulumi.kubernetes.apps_v1.Deployment;
-      import com.pulumi.kubernetes.apps_v1.DeploymentArgs;
-      import com.pulumi.kubernetes.apps_v1.inputs.DeploymentSpecArgs;
-      import com.pulumi.kubernetes.meta_v1.inputs.LabelSelectorArgs;
-      import com.pulumi.kubernetes.core_v1.inputs.PodTemplateSpecArgs;
-      import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-      import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
+      import com.pulumi.kubernetes.apps.v1.Deployment;
+      import com.pulumi.kubernetes.apps.v1.DeploymentArgs;
+      import com.pulumi.kubernetes.apps.v1.inputs.DeploymentSpecArgs;
+      import com.pulumi.kubernetes.core.v1.inputs.ContainerArgs;
+      import com.pulumi.kubernetes.core.v1.inputs.ContainerPortArgs;
+      import com.pulumi.kubernetes.core.v1.inputs.PodSpecArgs;
+      import com.pulumi.kubernetes.core.v1.inputs.PodTemplateSpecArgs;
+      import com.pulumi.kubernetes.meta.v1.inputs.LabelSelectorArgs;
+      import com.pulumi.kubernetes.meta.v1.inputs.ObjectMetaArgs;
+      
+      import java.util.Map;
       
       public class App {
           public static void main(String[] args) {
-              Pulumi.run(App::stack);
-          }
+              Pulumi.run(ctx -> {
+                  var labels = Map.of("app", "nginx");
       
-          public static void stack(Context ctx) {
-              final var appLabels = %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+                  var deployment = new Deployment("nginx", DeploymentArgs.builder()
+                          .spec(DeploymentSpecArgs.builder()
+                                  .selector(LabelSelectorArgs.builder()
+                                          .matchLabels(labels)
+                                          .build())
+                                  .replicas(1)
+                                  .template(PodTemplateSpecArgs.builder()
+                                          .metadata(ObjectMetaArgs.builder()
+                                                  .labels(labels)
+                                                  .build())
+                                          .spec(PodSpecArgs.builder()
+                                                  .containers(ContainerArgs.builder()
+                                                          .name("nginx")
+                                                          .image("nginx")
+                                                          .ports(ContainerPortArgs.builder()
+                                                                  .containerPort(80)
+                                                                  .build())
+                                                          .build())
+                                                  .build())
+                                          .build())
       
-              var deployment = new Deployment("deployment", DeploymentArgs.builder()
-                  .spec(DeploymentSpecArgs.builder()
-                      .selector(LabelSelectorArgs.builder()
-                          .matchLabels(appLabels)
-                          .build())
-                      .replicas(1)
-                      .template(PodTemplateSpecArgs.builder()
-                          .metadata(ObjectMetaArgs.builder()
-                              .labels(appLabels)
-                              .build())
-                          .spec(PodSpecArgs.builder()
-                              .containers(ContainerArgs.builder()
-                                  .name("nginx")
-                                  .image("nginx")
                                   .build())
-                              .build())
-                          .build())
-                      .build())
-                  .build());
+                          .build());
       
-              ctx.export("name", deployment.metadata().applyValue(metadata -> metadata.name()));
+                  var name = deployment.metadata()
+                      .applyValue(m -> m.orElseThrow().name().orElse(""));
+      
+                  ctx.export("name", name);
+              });
           }
       }
       
