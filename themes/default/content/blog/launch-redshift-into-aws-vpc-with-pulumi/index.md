@@ -1,14 +1,12 @@
 ---
-title: "Launch Amazon Redshift into your AWS VPC with Pulumi"
+title: Launch an Amazon Redshift cluster into a VPC with Pulumi
 date: 2022-11-07
-
-meta_desc: Here is a lovely meta description that will be awesome, promise.
+meta_desc: In this post, you'll learn how to deploy an Amazon Redshift cluster into an AWS VPC and manage it with Pulumi.
 meta_image: meta.png
-# authors:
-#     - christian-nunciato
 tags:
-    - redshift
     - aws
+    - vpc
+    - redshift
     - databases
 ---
 
