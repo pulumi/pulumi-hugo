@@ -181,7 +181,7 @@ $ pulumi up
 
 The output looks as follows. Note that cluster creation might take up to a few minutes, depending on the AWS region:
 
-![Third update showing the newly provisioned Redshift cluster](./update-2-redshift-cluster.png)
+![Third update showing the newly provisioned Redshift cluster](./update-3-redshift-cluster.png)
 
 We can also preview the cluster creation status under the AWS console:
 
