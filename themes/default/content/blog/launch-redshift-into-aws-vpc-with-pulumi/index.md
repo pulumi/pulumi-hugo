@@ -24,22 +24,22 @@ Here’s a list of things you need to follow this article:
 
 * [Pulumi](/docs/get-started/aws/) configured for AWS
 * [Node.js](https://nodejs.org/en/download/)
-* Code editor like Visual Studio Code.
+* Code editor like [Visual Studio Code](https://code.visualstudio.com/)
 
-You can find the project code [here](https://github.com/dawidborycki/pulumi-redshift).
+You'll find the full code for this  [here](https://github.com/dawidborycki/pulumi-redshift).
 
 ## Setting up the Project
 
-We use TypeScript to set up the project. So, start by creating the new Pulumi project using the `aws-typescript` template:
+We use TypeScript to set up the project. So, start by creating a new Pulumi project using the `aws-typescript` template:
 
 ```bash
 $ mkdir pulumi-aws-redshift && cd pulumi-aws-redshift
 $ pulumi new aws-typescript
 ```
 
-For the project name, keep `pulumi-aws-redshift`. For the project description, keep the default value, and for the stack name, keep `dev`. For the AWS region, type the name of the AWS region where you deploy your resources. Here, we use `us-east-1`.
+For the project name, keep `pulumi-aws-redshift`. For the project description, keep the default value as well, and for the stack name, keep `dev`. For the AWS region, type the name of the AWS region where you deploy your resources. Here, we'll be using use `us-east-1`.
 
-The wizard generates the project, including several files described in the [Pulumi documentation](/docs/get-started/aws/review-project/). We perform all the subsequent steps under the `index.ts` file.
+The wizard generates the project, including several other files described [in the docs](/docs/get-started/aws/review-project/). We perform all the subsequent steps under the `index.ts` file.
 
 ## Virtual Private Cloud
 
@@ -61,7 +61,7 @@ const vpc = new aws.ec2.Vpc("pulumi-vpc", {
 });
 ```
 
-The above code creates the new VPC with IP ranges configured using the classless inter-domain routing (CIDR) address of 10.1.0.0/16. Note that we also use the Name tag to change the resource name to pulumi-vpc. This shows the general approach to creating resources with Pulumi and TypeScript.
+The above code creates the new VPC with IP ranges configured using the classless inter-domain routing (CIDR) address of 10.1.0.0/16. Note that we also use the Name tag to change the resource name to `pulumi-vpc`. This shows the general approach to creating resources with Pulumi and TypeScript.
 
 To provision and configure resources, we create a TypeScript object. Usually, we would construct the latter using a function constructor accepting three parameters:
 
@@ -93,23 +93,19 @@ $ pulumi up
 
 The output of this command looks as follows:
 
-```
-
-```
+![Initial update showing the VPC and internet gateway being created](./update-1-vpc-gateway.png)
 
 Use arrows to choose yes, then press Enter. Pulumi provisions the VPC and the Internet gateway. You can see all this under the AWS console. Here’s what the VPC console looks like:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the newly provisioned VPC](./aws-console-1-vpc.png)
 
 And the Internet gateway:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the newly provisioned internet gateway](./aws-console-2-internet-gateway.png)
 
 ## Subnet and Subnet Group
 
-After creating the VPC, we add the subnet and the subnet group. We start by adding the subnet declaration.
-
-Add the following statements to the index.ts (right below the declaration of the Internet gateway):
+After creating the VPC, we add the subnet and the subnet group. We start by adding the subnet declaration. Add the following statements to `index.ts` (right below the declaration of the Internet gateway):
 
 ```typescript
 // Subnet
@@ -123,7 +119,7 @@ const subnet = new aws.ec2.Subnet("pulumi-subnet", {
 });
 ```
 
-Note that subnets can currently only be created in the following availability zones: `us-west-2a`, `us-west-2b`, `us-west-2c`, `us-west-2d`. If you cannot create a subnet in one of these zones, try removing `availabilityZone` from the code.
+Note that subnets can currently only be created in the following availability zones: `us-east-2a`, `us-east-2b`, `us-east-2c`, `us-east-2d`. If you cannot create a subnet in one of these zones, try removing `availabilityZone` from the code.
 
 To configure the subnet, we provide the Classless Inter-Domain Routing block, which represents the IP range. Then, we associate the subnet with the availability zone (`us-east-1a`) and the subnet with the VPC. Finally, we create the Name tag with the value pulumi-subnet.
 
@@ -151,20 +147,18 @@ $ pulumi up
 
 The output should look as follows:
 
-```
-
-```
+![Second update showing the subnet and subnet group being created](./update-2-subnet.png)
 
 You can preview the subnet on the AWS console:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the newly provisioned subnet](./aws-console-3-subnet.png)
 
 ## Amazon Redshift Cluster
 
-After provisioning the necessary resources, we can move forward to create the Amazon Redshift cluster. To do so, let’s supplement index.ts with the following statements:
+After provisioning the necessary resources, we can move forward to create the Amazon Redshift cluster. To do so, let’s supplement `index.ts` with the following statements:
 
 ```typescript
-// Redshift cluter
+// Redshift cluster
 const redshiftCluster = new aws.redshift.Cluster("pulumi-redshift-cluster", {
     clusterIdentifier: "pulumi-redshift-cluster",
     clusterType: "single-node",
@@ -179,7 +173,7 @@ const redshiftCluster = new aws.redshift.Cluster("pulumi-redshift-cluster", {
 
 We used the hardcoded credentials in the above declaration. In general, the best practice is to [use the Pulumi secret](/docs/intro/concepts/secrets/#secrets).
 
-The above declaration spins up the single-node Redshift cluster using the dc2.large node type (2 vCPUs and 15 GB RAM). We also configure the database by setting its name to tempdb and the master credentials (username and password) to admin and Passw0rD, respectively. To pass the name of the subnet group, we use the clusterSubnetGroupName attribute. The last parameter, skipFinalSnapshot is set to true. By doing this, we can delete the cluster without taking its snapshot. The snapshot is useful for recreating the cluster using the previous state. By default, skipFinalSnapshot is false, so we have to provide the finalSnapshotIdentifier. Otherwise, we can’t delete the cluster.
+The above declaration spins up the single-node Redshift cluster using the `dc2.large` node type (2 vCPUs and 15 GB RAM). We also configure the database by setting its name to `tempdb` and the master credentials (username and password) to `admin` and `Passw0rD`, respectively. To pass the name of the subnet group, we use the `clusterSubnetGroupName` attribute. The last parameter, `skipFinalSnapshot` is set to `true`. By doing this, we can delete the cluster without taking its snapshot. The snapshot is useful for recreating the cluster using the previous state. By default, `skipFinalSnapshot` is false, so we have to provide the `finalSnapshotIdentifier`. Otherwise, we can’t delete the cluster.
 
 Now provision the resource:
 
@@ -189,28 +183,24 @@ $ pulumi up
 
 The output looks as follows. Note that cluster creation might take up to a few minutes, depending on the AWS region:
 
-![Placeholder](./meta.png)
+![Third update showing the newly provisioned Redshift cluster](./update-2-redshift-cluster.png)
 
 We can also preview the cluster creation status under the AWS console:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the newly provisioned Redshift cluster](./aws-console-4-redshift-cluster.png)
 
 ## Amazon S3 Bucket and the AWS IAM Role
 
 Now, we move to declare the Amazon S3 bucket, which can store source data for the Amazon Redshift cluster. To enable the cluster to read objects from the Amazon S3 bucket, we also create the AWS Identity and Access Management (IAM) role. The role has the inline policy, enabling read-only access to Amazon S3.
 
-We start by adding the declaration, which provisions the Amazon S3 bucket.
-
-You must add this before the statements related to the Amazon Redshift cluster:
+We start by adding the declaration, which provisions the Amazon S3 bucket. You must add this before the statements related to the Amazon Redshift cluster:
 
 ```typescript
 // S3 bucket
 const bucket = new aws.s3.Bucket("pulumi-s3-bucket");
 ```
 
-The latter declaration provisions the new bucket.
-
-Try this out by typing
+The latter declaration provisions the new bucket. Try this out by typing:
 
 ```bash
 $ pulumi up
@@ -218,7 +208,7 @@ $ pulumi up
 
 We can see our bucket in the AWS console:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the newly provisioned S3 bucket](./aws-console-5-s3-bucket.png)
 
 Now, declare the AWS IAM role:
 
@@ -251,7 +241,7 @@ const iamRole = new aws.iam.Role("pulumi-iam-role", {
 
 Place those declarations after the statements related to the AWS S3 Bucket but before the statements declaring the Amazon Redshift cluster.
 
-We declare the AWS IAM role similar to the AWS console. We use a JSON-formatted object containing version and statement attributes. As with all other AWS services, the version is the publication date. The statement contains the action, effect, and principal. Here, we set those to sts:AssumeRole, Allow, and redshift.amazonaws.com, respectively. Then, we define the inline policy, which enables the principal to have read-only access to Amazon S3.
+We declare the AWS IAM role similar to the AWS console. We use a JSON-formatted object containing version and statement attributes. As with all other AWS services, the version is the publication date. The statement contains the action, effect, and principal. Here, we set those to `sts:AssumeRole`, `Allow`, and `redshift.amazonaws.com`, respectively. Then, we define the inline policy, which enables the principal to have read-only access to Amazon S3.
 
 Deploy those resources by typing:
 
@@ -261,11 +251,11 @@ $ pulumi up
 
 We can then see the new role under the IAM console:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the newly provisioned IAM role](./aws-console-6-iam-role.png)
 
 ## Updating the Amazon Redshift Cluster with the AWS IAM Role
 
-In the last step, we assign the AWS IAM role to the Amazon Redshift Cluster. We add the iamRoles attribute to the Amazon Redshift cluster declaration:
+In the last step, we assign the AWS IAM role to the Amazon Redshift Cluster. We add the `iamRoles` attribute to the Amazon Redshift cluster declaration:
 
 ```typescript
 // Redshift cluster
@@ -278,7 +268,7 @@ const redshiftCluster = new aws.redshift.Cluster("pulumi-redshift-cluster", {
     nodeType: "dc2.large",
     clusterSubnetGroupName: subnetGroup.name,
     skipFinalSnapshot: true,
-    iamRoles: [iamRole.arn]
+    iamRoles: [iamRole.arn] // <-- Add this property.
 });
 ```
 
@@ -290,9 +280,9 @@ We can now update the cluster to confirm that we assigned the AWS IAM role to th
 $ pulumi up
 ```
 
-To see the IAM role go to the properties of the cluster and scroll down to **Associated IAM roles**:
+To see the IAM role, go to the Properties tab of the cluster and scroll down to Associated IAM roles:
 
-![Placeholder](./meta.png)
+![Screenshot of the AWS console showing the IAM role associated with the Redshift cluster](./aws-console-7-cluster-iam-roles.png)
 
 After preparing the infrastructure, we can now use it to process data. The first step is to load data from the S3 source, [as demonstrated in the AWS documentation](https://docs.aws.amazon.com/redshift/latest/dg/tutorial-loading-data.html).
 
@@ -301,6 +291,8 @@ Now remove all deployed cloud resources using the single command:
 ```bash
 pulumi destroy
 ```
+
+![CLI output of the update showing the cluster and all resources now removded](./destroy.png)
 
 ## Summary
 
