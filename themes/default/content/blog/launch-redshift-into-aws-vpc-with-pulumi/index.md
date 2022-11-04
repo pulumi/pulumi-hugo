@@ -24,7 +24,7 @@ Here’s a list of things you need to follow this article:
 * [Node.js](https://nodejs.org/en/download/)
 * Code editor like [Visual Studio Code](https://code.visualstudio.com/)
 
-You'll find the full code for this  [here](https://github.com/dawidborycki/pulumi-redshift).
+You'll find the full code for this  [here](https://github.com/pulumi/examples/tree/master/aws-ts-redshift).
 
 ## Setting up the Project
 
