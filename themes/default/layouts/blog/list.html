@@ -11,10 +11,12 @@
                     <article class="mb-8 pb-8 border-b border-gray-200">
                         <h2 class="no-anchor"><a data-track="post-{{ .Title | urlize }}" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                         <div class="flex items-center text-sm text-gray-700">
-                            <span>
-                                {{ partial "blog/authors.html" (dict "context" . "authors" .Params.authors ) }}
-                            </span>
+                            {{ if .Params.authors }}
+                                <span>
+                                    {{ partial "blog/authors.html" (dict "context" . "authors" .Params.authors ) }}
+                                </span>
                             <span class="mr-2">∙</span>
+                            {{ end }}
                             <time>
                                 {{ .Date.Format "Monday, Jan 2, 2006" }}
                             </time>

@@ -268,9 +268,7 @@
 
     {{/* Tests to enforce required frontmatter for certain content types. */}}
     {{ if and (eq .Type "blog") .IsPage }}
-        {{ if not .Params.authors }}
-            {{ errorf "Blog posts require authors: %s" .File.Path }}
-        {{ else }}
+        {{ if .Params.authors }}
             {{ range $authorID := .Params.authors }}
                 {{ if not (index $.Site.Data.team.team $authorID) }}
                     {{ errorf "Blog posts author (%s) not found: %s" $authorID $.Page.File.Path }}
