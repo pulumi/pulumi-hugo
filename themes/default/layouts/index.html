@@ -81,28 +81,14 @@
         </div>
     </section>
 
-    <section class="container mx-auto text-center overflow-hidden px-3 mt-6 pb-24">
-        <h2 class="rainbow-text mb-12">Import <span class="font-bold">joy</span> into your cloud infrastructure</h2>
-        <div class="flex flex-col lg:flex-row justify-center items-stretch px-6 lg:px-0">
-            {{ range $item := .Params.use_cases }}
-                <div class="w-full lg:w-1/3">
-                    <div class="card p-10 mx-4 text-center bg-white z-10 h-full my-6 lg:my-0">
-                        <div>
-                            {{ partial "color-icon.html" (dict "icon" $item.icon "icon_color" $item.icon_color) }}
-                        </div>
-                        <h5>{{ $item.title }}</h5>
-                        <p>{{ $item.description | markdownify }}</p>
-                    </div>
-                </div>
-            {{ end }}
-        </div>
+    <section class="container mx-auto mt-10 mb-16 text-center">
+        <h2 class="rainbow-text font-bold">Import joy into your cloud development</h2>
     </section>
 
     <section class="mb-8 mt-12 lg:mt-0 lg:mb-24 px-6 lg:px-0 relative">
         <div class="shape-background home-build-section">
             <div class="shape-container">
                 <div class="circle-left"></div>
-                <!--<div class="circle-center"></div>-->
                 <div class="circle-right"></div>
             </div>
         </div>
@@ -110,7 +96,7 @@
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row">
                 <div class="w-full lg:w-1/2 lg:mr-32 z-10 px-8 rounded">
-                    <h2>{{ .Params.build.title }}</h2>
+                    <h3>{{ .Params.build.title }}</h3>
                     <p class="text-lg">{{ .Params.build.description | markdownify }}</p>
 
                     {{ range $item := .Params.build.items }}
@@ -124,31 +110,13 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-1/2 flex items-start justify-center mt-12 lg:mt-0">
-                    <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
-                        <pulumi-choosable type="language" class="highlight" value="typescript">
-                            <img src="/images/home/typescript.svg" alt="" />
-                        </pulumi-choosable>
-
-                        <pulumi-choosable type="language" class="highlight" value="python">
-                            <img src="/images/home/python.svg" alt="" />
-                        </pulumi-choosable>
-
-                        <pulumi-choosable type="language" class="highlight" value="go">
-                            <img src="/images/home/go.svg" alt="" />
-                        </pulumi-choosable>
-
-                        <pulumi-choosable type="language" class="highlight" value="csharp">
-                            <img src="/images/home/c-sharp.svg" alt="" />
-                        </pulumi-choosable>
-
-                        <pulumi-choosable type="language" class="highlight" value="java">
-                            <img src="/images/home/java.svg" alt="" />
-                        </pulumi-choosable>
-
-                        <pulumi-choosable type="language" class="highlight" value="yaml">
-                            <img src="/images/home/yaml.svg" alt="" />
-                        </pulumi-choosable>
+                <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
+                    <pulumi-chooser type="language" options="typescript,python,go,csharp,yaml">
+                        {{ range $item := .Params.build.code }}
+                            <pulumi-choosable type="language" class="highlight" value="{{ $item.language }}">
+                                {{ partial "code" (dict "lang" $item.language "code" $item.code "mode" "light") }}
+                            </pulumi-choosable>
+                        {{ end }}
                     </pulumi-chooser>
                 </div>
             </div>
@@ -221,7 +189,7 @@
                 <img class="rounded-xl shadow-2xl" src="/images/home/deploy-graphic.svg" alt="Pulumi Pipeline" />
             </div>
             <div class="w-full lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 bg-white px-8 rounded">
-                <h2>{{ .Params.deploy.title }}</h2>
+                <h3>{{ .Params.deploy.title }}</h3>
                 <p class="text-lg">{{ .Params.deploy.description | markdownify }}</p>
 
                 {{ range $item := .Params.deploy.items }}
@@ -251,7 +219,7 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 lg:mr-32 z-10 bg-white px-8 rounded">
-                <h2>{{ .Params.manage.title }}</h2>
+                <h3>{{ .Params.manage.title }}</h3>
                 <p class="text-lg">{{ .Params.manage.description | markdownify }}</p>
 
                 {{ range $item := .Params.manage.items }}

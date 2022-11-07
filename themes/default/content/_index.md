@@ -40,18 +40,187 @@ overview:
       - /logos/tech/ci-cd/travis-ci.svg
 
 build:
-  title: Build
+  title: Code faster
   description: |
-    Build cloud applications and infrastructure by combining the safety and reliability of [infrastructure as code](/what-is/what-is-infrastructure-as-code/) with the power of familiar programming languages and tools.
+    Pulumi gives you a faster inner dev loop for IaC by allowing you to use your existing IDE with Intellisense and unit tests working out the box. You also can tap into the power of programming languages to model your infrastructure.
   items:
-    - title: Flexible and expressive
-      description: Loops, conditionals, functions, classes, and more.
+    - title: Share and reuse
+      description: |
+        You can use Pulumi Packages to build best-practice abstractions available in all supported languages.
 
     - title: Be productive
-      description: Gets things done in seconds rather than hours.
+      description: |
+        Reduce the time spent switch between by docs in browser and code IDE with Intellisense supported
+        out of the box.
 
-    - title: Share and reuse
-      description: Define and consume patterns and practices to reduce boilerplate.
+    - title: Flexible and expressive
+      description: Loops, conditionals, functions, classes, and more.
+  code:
+    - title: index.ts
+      language: typescript
+      code: |
+        import * as pulumi from "@pulumi/pulumi";
+        import * as awsx from "@pulumi/awsx";
+        import * as eks from "@pulumi/eks";
+
+        // Create a new VPC
+        const eksVpc = new awsx.ec2.Vpc("eks-vpc", {
+            enableDnsHostnames: true,
+            cidrBlock: "10.0.0.0/16",
+        });
+
+        // Create the EKS cluster
+        const eksCluster = new eks.Cluster("eks-cluster", {
+            vpcId: eksVpc.vpcId,
+            publicSubnetIds: eksVpc.publicSubnetIds,
+            privateSubnetIds: eksVpc.privateSubnetIds,
+            instanceType: "t2.medium",
+            desiredCapacity: 3,
+            minSize: 3,
+            maxSize: 6,
+            nodeAssociatePublicIpAddress: false,
+        });
+
+        // Export some values for use elsewhere
+        export const kubeconfig = eksCluster.kubeconfig;
+        export const vpcId = eksVpc.vpcId;
+    - title: __main__.py
+      language: python
+      code: |
+        import pulumi
+        import pulumi_awsx as awsx
+        import pulumi_eks as eks
+
+        # Create a VPC for the EKS cluster
+        eks_vpc = awsx.ec2.Vpc("eks-vpc",
+            enable_dns_hostnames=True,
+            cidr_block="10.0.0.0/16")
+
+        # Create the EKS cluster
+        eks_cluster = eks.Cluster("eks-cluster",
+            vpc_id=eks_vpc.vpc_id,
+            public_subnet_ids=eks_vpc.public_subnet_ids,
+            private_subnet_ids=eks_vpc.private_subnet_ids,
+            instance_type="t2.medium",
+            desired_capacity=3,
+            min_size=3,
+            max_size=6,
+            node_associate_public_ip_address=False)
+
+        # Export values to use elsewhere
+        pulumi.export("kubeconfig", eks_cluster.kubeconfig)
+        pulumi.export("vpcId", eks_vpc.vpc_id)
+    - title: main.go
+      language: go
+      code: |
+            package main
+
+            import (
+              "github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
+              "github.com/pulumi/pulumi-eks/sdk/go/eks"
+              "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+              "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+            )
+
+            func main() {
+              pulumi.Run(func(ctx *pulumi.Context) error {
+                // Create a new VPC, subnets, and associated infrastructure
+                vpcNetworkCidr := "10.0.0.0/16"
+                eksVpc, err := ec2.NewVpc(ctx, "eks-vpc", &ec2.VpcArgs{
+                  EnableDnsHostnames: pulumi.Bool(true),
+                  CidrBlock:          &vpcNetworkCidr,
+                })
+                if err != nil {
+                  return err
+                }
+
+                // Create a new EKS cluster
+                eksCluster, err := eks.NewCluster(ctx, "eks-cluster", &eks.ClusterArgs{
+                  VpcId:                        eksVpc.VpcId,
+                  PublicSubnetIds:              eksVpc.PublicSubnetIds,
+                  PrivateSubnetIds:             eksVpc.PrivateSubnetIds,
+                  InstanceType:                 pulumi.String("t2.medium"),
+                  DesiredCapacity:              pulumi.Int(3),
+                  MinSize:                      pulumi.Int(3),
+                  MaxSize:                      pulumi.Int(6),
+                  NodeAssociatePublicIpAddress: pulumi.Bool(false),
+                })
+                if err != nil {
+                  return err
+                }
+
+                // Export some values in case they are needed elsewhere
+                ctx.Export("kubeconfig", eksCluster.Kubeconfig)
+                ctx.Export("vpcId", eksVpc.VpcId)
+                return nil
+              })
+            }
+    - title: MyStack.cs
+      language: csharp
+      code: |
+        using Pulumi;
+        using Awsx = Pulumi.Awsx;
+        using Eks = Pulumi.Eks;
+        using System.Collections.Generic;
+
+        return await Deployment.RunAsync(() =>
+        {
+            // Create a new VPC
+            var eksVpc = new Awsx.Ec2.Vpc("eks-vpc", new()
+            {
+                EnableDnsHostnames = true,
+                CidrBlock = "10.0.0.0/16",
+            });
+
+            // Create the EKS cluster
+            var eksCluster = new Eks.Cluster("eks-cluster", new()
+            {
+                VpcId = eksVpc.VpcId,
+                PublicSubnetIds = eksVpc.PublicSubnetIds,
+                PrivateSubnetIds = eksVpc.PrivateSubnetIds,
+                InstanceType = "t2.medium",
+                DesiredCapacity = 3,
+                MinSize = 3,
+                MaxSize = 6,
+                NodeAssociatePublicIpAddress = false,
+            });
+
+            // Export some values for use elsewhere
+            return new Dictionary<string, object?>
+            {
+                ["kubeconfig"] = eksCluster.Kubeconfig,
+                ["vpcId"] = eksVpc.VpcId,
+            };
+        });
+    - title: Pulumi.yaml
+      language: yaml
+      code: |
+        name: pulumi-eks
+        description: A simple EKS cluster
+        runtime: yaml
+        resources:
+          # Create a VPC for the EKS cluster
+          eks-vpc:
+            type: awsx:ec2:Vpc
+            properties:
+              enableDnsHostnames: true
+              cidrBlock: "10.0.0.0/16"
+          # Create the EKS cluster
+          eks-cluster:
+            type: eks:Cluster
+            properties:
+              vpcId: ${eks-vpc.vpcId}
+              publicSubnetIds: ${eks-vpc.publicSubnetIds}
+              privateSubnetIds: ${eks-vpc.privateSubnetIds}
+              instanceType: "t2.medium"
+              desiredCapacity: 3
+              minSize: 3
+              maxSize: 6
+              nodeAssociatePublicIpAddress: false
+        outputs:
+          # Output the Kubeconfig for the cluster
+          kubeconfig: ${eks-cluster.kubeconfig}
+          vpcId: ${eks-vpc.vpcId}
 
 use_cases:
   - title: Write your configuration quickly
@@ -73,9 +242,10 @@ use_cases:
       You can use the [Automation API](/automation/) to create tooling that help you and your engineers manage **10x the amount of resources** versus traditional tooling.
 
 deploy:
-  title: Deploy
+  title: Get to production faster
   description: |
-    Deploy cloud applications and infrastructure faster and with confidence, using one shared approach that works for day one and beyond for the entire team.
+    Pulumi gives you a faster outer dev loop by making  CI/CD for your IaC seamless and the default experience. Pulumi has integrations with all the popular CI/CD platforms and testing frameworks.
+
   items:
     - title: Infrastructure and applications together
       description: Unify shipping your entire cloud software stack.
@@ -87,9 +257,9 @@ deploy:
       description: Scale up your delivery with [advanced automation](/automation/) as you grow.
 
 manage:
-  title: Manage
+  title: Get to market first
   description: |
-    Manage cloud applications and infrastructure with a shared platform that helps teams adopt [Cloud Engineering](/cloud-engineering/) through collaboration, visibility, and policies and controls.
+    Pulumi gives you a faster dev loop across the entire organization by guaranteeing the infrastructure software supply chain. Standard software packaging allows sharing and reuse of code across the organization along with org-wide policy enforcements. Pulumi provides the industry’s only automation workflow capability that allows software engineering to be applied to solve and manage cloud infrastructure at scale.
   items:
     - title: Secure by default
       description: Automatic encryption for secrets and state.
