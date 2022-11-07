@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Release Notes: Pulumi "
+title: "Pulumi Release Notes: CED Launches, Skip Checkpoints flag, Automation API NodeJS parallel inline programs, and much more!"
 allow_long_title: true
  
 # The date represents the post's publish date, and by default corresponds with
@@ -11,7 +11,7 @@ date: 2022-11-07
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
-meta_desc: The latest Pulumi updates also include our providers updates, <> and more!
+meta_desc: The latest Pulumi updates include our providers updates, enhancements made in the CLI and any Pulumi Service features released in the last two months.
  
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
@@ -71,8 +71,6 @@ In October we announced a set of major updates which deepen and extend Pulumi’
   
 👉  Learn more in the [Pulumi+Kubernetes: New Flux Integration and Inline Programs blog](/blog/pulumi-kubernetes-new-2022).
 
-## Pulumi CLI and core technologies
-
 ## Cloud Engineering Days Launches
 
 In the Pulumi Cloud Engineering Days 2022 we are announced a set of important new advancements in the Pulumi platform designed to help organizations scale with their infrastructure as code needs. These announcements were as follows:
@@ -83,6 +81,8 @@ In the Pulumi Cloud Engineering Days 2022 we are announced a set of important ne
 - [Project Level Configuration](/blog/project-config-mvp): As cloud infrastructure projects grow in complexity, Pulumi provides many tools to manage the complexity of the software that defines these projects. But the configuration of that software also grows in complexity. New support for Project-Level Configuration across all Pulumi languages makes it easier to manage complex configuration as cloud projects scale up.
 
 👉  Learn more in the [Cloud Engineering Days Announcements blog](/blog/nov-2022-launches).
+
+## Pulumi CLI and core technologies
 
 ### Pulumi CLI now displays time elapsed per resource
 
@@ -121,16 +121,16 @@ Resources:
     - 2 to delete
 
 Do you want to perform this destroy? yes
-Destroying (meagan-gh-p2d/dev)
+Destroying (demo/dev)
 ```
 
 👉  Learn more in the [Add --remove as an option for `pulumi destroy` GitHub issue](https://github.com/pulumi/pulumi/issues/10484).
 
 ### Add Output.format to the Python SDK
 
-We added Output.format to the Python SDK. TODO: buff out somehow.
+We added Output.format to the Python SDK to match helper methods in our other SDKs. Most languages have a standard way to format a string (`String.Format` in C#, `fmt.Sprintf` in Go, etc) but you can't use those functions with our `Output` values, therefore, we have a format method that similar to the languages normal format method, but with support for outputs. We have added `Output.format` in Python which matches the [standard Python `str.format` method](https://docs.python.org/3/library/stdtypes.html#str.format). Similar to how we have `interpolate` in TypeScript, and `Output.Format` in C#.
 
-👉  Learn more in the [Add Output.format to python SDK ](https://github.com/pulumi/pulumi/pull/10919).
+👉  Learn more in the [Add Output.format to python SDK pull request](https://github.com/pulumi/pulumi/pull/10919).
 
 ### Cloning Pulumi templates from Azure DevOps
 
