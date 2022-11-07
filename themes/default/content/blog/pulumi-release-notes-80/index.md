@@ -128,7 +128,7 @@ Destroying (demo/dev)
 
 ### Add Output.format to the Python SDK
 
-We added Output.format to the Python SDK to match helper methods in our other SDKs. Most languages have a standard way to format a string (`String.Format` in C#, `fmt.Sprintf` in Go, etc) but you can't use those functions with our `Output` values, therefore, we have a format method that similar to the languages normal format method, but with support for outputs. We have added `Output.format` in Python which matches the [standard Python `str.format` method](https://docs.python.org/3/library/stdtypes.html#str.format). Similar to how we have `interpolate` in TypeScript, and `Output.Format` in C#.
+We added Output.format to the Python SDK to match helper methods in our other SDKs. Most languages have a standard way to format a string (`String.Format` in C#, `fmt.Sprintf` in Go, etc) but you can't use those functions with our `Output` values. We have added a format method that's similar to each language's normal format method, but with support for outputs. We have added `Output.format` in Python which matches the [standard Python `str.format` method](https://docs.python.org/3/library/stdtypes.html#str.format). This is similar to how we have `interpolate` in TypeScript, and `Output.Format` in C#.
 
 👉  Learn more in the [Add Output.format to python SDK pull request](https://github.com/pulumi/pulumi/pull/10919).
 
