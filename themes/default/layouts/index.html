@@ -82,7 +82,7 @@
     </section>
 
     <section class="container mx-auto mt-10 mb-16 text-center">
-        <h2 class="rainbow-text font-bold">Import joy into your cloud development</h2>
+        <h2 class="rainbow-text">Import <span class="font-bold">joy</span> into your cloud development</h2>
     </section>
 
     <section class="mb-8 mt-12 lg:mt-0 lg:mb-24 px-6 lg:px-0 relative">
@@ -239,29 +239,23 @@
         </div>
     </section>
 
-    <!-- Benefits -->
-    <section class="container mx-auto my-12 lg:my-24 relative">
-        <h2 class="text-center">{{ .Params.benefits.title }}</h2>
-        <div class="benefits-section relative">
-            <div class="shape-background home-benefits-section">
-                <div class="shape-container">
-                    <div class="circle-left"></div>
-                    <div class="circle-right"></div>
-                </div>
+    <section class="container mx-auto my-16 text-center">
+        <h2 class="rainbow-text">Accomplish more without increasing headcount</h2>
+        <p class="text-lg max-w-3xl mx-auto">
+            You can use Pulumi's Automation API to create tooling that help you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus a
+            tradational CLI-based tool.
+        </p>
+
+        <div class="flex flex-wrap text-left">
+            <div class="w-full lg:w-1/2 p-6">Visual</div>
+            <div class="w-full lg:w-1/2 p-6">
+                <p>What if IaC was a library and not just a CLI? Pulumi Automation API is the industry's first and only fully programmable infrastructure as code technology.</p>
+                <p>
+                    Automation API use IaC as a library within a program to take direct infrastructure actions (create, update, destroy). This code can execute anywhere from a CLI
+                    tool to behind a HTTP API to a custom PaaS.
+                </p>
+                <p>Automation API allows you and your company to scale 10x the amount of infrastructure managed per engineer.</p>
             </div>
-            {{ range $item := .Params.benefits.items }}
-                <div class="benefits-item card z-10 bg-white">
-                    <div class="icon-section">
-                        {{ partial "color-icon.html" (dict "icon" $item.icon "icon_color" $item.icon_color) }}
-                    </div>
-                    <div>
-                        <h5>{{ $item.title }}</h5>
-                    </div>
-                    <div class="description">
-                        <p>{{ $item.description | markdownify }}</p>
-                    </div>
-                </div>
-            {{ end }}
         </div>
 
         <div class="my-16">

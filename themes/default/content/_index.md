@@ -222,25 +222,6 @@ build:
           kubeconfig: ${eks-cluster.kubeconfig}
           vpcId: ${eks-vpc.vpcId}
 
-use_cases:
-  - title: Write your configuration quickly
-    icon: code
-    icon_color: purple
-    description: |
-      Speed up your inner dev loop with statement completion, real-time type checking, and interactive documentation directly in your IDE.
-
-  - title: Ship your applications faster
-    icon: guage
-    icon_color: yellow
-    description: |
-      Integrate Pulumi directly with your CI/CD provider to deliver your applications and infrastructure with more confidence and transparency.
-
-  - title: Doing more with less
-    icon: rocketship
-    icon_color: blue
-    description: |
-      You can use the [Automation API](/automation/) to create tooling that help you and your engineers manage **10x the amount of resources** versus traditional tooling.
-
 deploy:
   title: Get to production faster
   description: |
