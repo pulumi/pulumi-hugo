@@ -37,7 +37,7 @@ The $CLOUD $ARCHITECTURE template creates an infrastructure as code project in y
 
 ## Using this template
 
-To use this template to deploy your own $THING, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your $CLOUD credentials](/registry/packages/$CLOUD/installation-configuration#), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy your own $THING, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your $CLOUD credentials](/registry/packages/$CLOUD/installation-configuration/#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
