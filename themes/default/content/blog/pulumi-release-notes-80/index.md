@@ -6,7 +6,7 @@ allow_long_title: true
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-11-7
+date: 2022-11-7T08:00:00
  
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -159,7 +159,8 @@ We updated the vendored version of TypeScript in the NodeJS SDK and runtime from
 Outputs are now rendered last in the CLI diff comparison view. This makes it easier to view the resouce diffs, as they are shown first and then the `--outputs:--` values are rendered. Lets take a look at what this looks like:
 
 Before
-```
+
+```console
 Previewing update (dev):
 
      Type                    Name              Plan       Info
@@ -199,7 +200,8 @@ Do you want to perform this update? no
 ```
 
 After
-```
+
+```console
 Previewing update (dev):
 
      Type                    Name              Plan       Info
