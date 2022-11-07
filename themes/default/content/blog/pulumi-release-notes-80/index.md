@@ -276,6 +276,6 @@ Pulumi Deployments removes the cloud as a bottleneck and unlocks it as an accele
 
 ### Architecture Templates Support
 
-We added Architecture Templates support to the new project experience in the Pulumi Service console. Now in addition to selecting your cloud provider and language of choice you can select a template for your new project. We currently have Static Website, Serverless, Container Service and Virtual Machine templates with more to come!
+We added Architecture Templates support to the new project experience in the Pulumi Service console. Now in addition to selecting your cloud provider and language of choice you can select a template for your new project. We currently have Static Website, Serverless, Container Service, Virtual Machine, Kubernetes cluster and web application templates, with more to come!
 
 ![Arch Templates in Service](arch.png)
