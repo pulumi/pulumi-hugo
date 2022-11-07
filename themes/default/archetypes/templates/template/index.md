@@ -51,7 +51,7 @@ The template requires no additional configuration. Once the new project is creat
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack/#outputs) values:
 
 someOutput
 : The provider-assigned property of the widget resource.
