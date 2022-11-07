@@ -6,7 +6,7 @@ allow_long_title: true
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-11-5
+date: 2022-11-7
  
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -47,7 +47,10 @@ In addition to our [Cloud Engineering Days launches](/blog/nov-2022-launches), w
   - [Add Output.format to the Python SDK](#add-outputformat-to-the-python-sdk)
   - [Cloning Pulumi templates from Azure DevOps](#cloning-pulumi-templates-from-azure-devops)
   - [Skip Checkpoints Experimental Flag](#skip-checkpoints-experimental-flag)
-  - 
+  - [Token Authentication in Go Providers](#token-authentication-in-go-providers)
+  - [Bump TypeScript version from v3.7.3 to v3.8.3](#bump-typescript-version-from-v373-to-v383)
+  - [Display outputs last in diff view](#display-outputs-last-in-diff-view)
+  - [Support lazy-loading Node modules](#support-lazy-loading-node-modules)
 - Pulumi Service & Pulumi.com
   - [Pulumi Deployments](#pulumi-deployments)
   - [Architecture Templates Support](#architecture-templates-support)
@@ -135,25 +138,114 @@ We now support cloning Pulumi templates (`pulumi new`) from Azure DevOps reposit
 
 ### Skip Checkpoints Experimental Flag
 
-We have added a new experimental flag to improve performance for certain use cases. This flag makes Pulumi skip saving [state checkpoints](/docs/intro/concepts/state/#checkpoints) as it modifies resources and instead only save the final state of a deployment. This is an experimental feature that also requires PULUMI_EXPERIMENTAL=true to be set. Using the feature introduces risk that in the case of network disconnect or crash state edits will be lost and may require manual recovery. When this risk is acceptable, using the feature can speed up Pulumi deployments. As it is in experimental we may make changes to how it has been implemented down the track.
+We have added a new experimental flag to improve performance for certain use cases. This flag makes Pulumi skip saving [state checkpoints](/docs/intro/concepts/state/#checkpoints) as it modifies resources and instead only save the final state of a deployment. This is an experimental feature that also requires an PULUMI_EXPERIMENTAL=true environment variable to be set. Using the feature introduces risk that in the case of network disconnect or crash state edits will be lost and may require manual recovery. When this risk is acceptable, using the feature can speed up Pulumi deployment times. As it is in experimental we may make changes to how it has been implemented down the track.
 
 👉 Learn more by reviewing the [Skip checkpoints pull request](https://github.com/pulumi/pulumi/pull/10750).
 
 ### Token Authentication in Go Providers
 
-TODO Added support for token authentication in the go providers which use git. #[10628](https://github.com/pulumi/pulumi/pull/10628)
+Thank you to community member [@avlllo](https://github.com/avlllo) for adding support for token authentication in the Go providers that use git. You can now authenticated requests by tokens such as `https://auth:token@gitlab.example.com/group/proj.git/tree/v0.0.0/path`.
 
-### Updated the vendored version of TypeScript in the NodeJS SDK and runtime from v3.7.3 to v3.8.3
+👉 Learn more by reviewing the [Add token to git Go module pull request](https://github.com/pulumi/pulumi/pull/10628).
 
-TODO letting you use newer TS features #[10618](https://github.com/pulumi/pulumi/pull/10618)
+### Bump TypeScript version from v3.7.3 to v3.8.3
+
+We updated the vendored version of TypeScript in the NodeJS SDK and runtime from v.3.7.3 to v3.8.3. Updating TypeScript versions enables you to use newer TypeScript features, such as the `import type` ans `export type` syntax, which is required to use OpenTelemetry.
+
+👉 Learn more by reviewing the [Bump TSC version to 3.8.3 pull request](https://github.com/pulumi/pulumi/pull/10618).
 
 ### Display outputs last in diff view
 
-TODO #[10535](https://github.com/pulumi/pulumi/pull/10535)
+Outputs are now rendered last in the CLI diff comparison view. This makes it easier to view the resouce diffs, as they are shown first and then the `--outputs:--` values are rendered. Lets take a look at what this looks like:
 
-### Support lazy-loading Node modules.
+Before
+```
+Previewing update (dev):
 
-TODO #[10538](https://github.com/pulumi/pulumi/pull/10538)
+     Type                    Name              Plan       Info
+     pulumi:pulumi:Stack     iac-workshop-dev
+ ~   ├─ aws:s3:Bucket        my-bucket         update     [diff: +website]
+ ~   └─ aws:s3:BucketObject  index.html        update     [diff: ~acl,contentType]
+
+Outputs:
+  + bucketEndpoint: output<string>
+  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
+
+Resources:
+    ~ 2 to update
+    1 unchanged
+
+Do you want to perform this update? details
+  pulumi:pulumi:Stack: (same)
+    [urn=urn:pulumi:dev::iac-workshop::pulumi:pulumi:Stack::iac-workshop-dev]
+    ~ aws:s3/bucket:Bucket: (update)
+        [id=my-bucket-02d7e7a]
+        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucket:Bucket::my-bucket]
+        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
+      + website: {
+          + indexDocument: "index.html"
+        }
+    --outputs:--
+  + bucketEndpoint: output<string>
+  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
+    ~ aws:s3/bucketObject:BucketObject: (update)
+        [id=index.html]
+        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucketObject:BucketObject::index.html]
+        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
+      ~ acl        : "private" => "public-read"
+      ~ contentType: "binary/octet-stream" => "text/html"
+
+Do you want to perform this update? no
+```
+
+After
+```
+Previewing update (dev):
+
+     Type                    Name              Plan       Info
+     pulumi:pulumi:Stack     iac-workshop-dev
+ ~   ├─ aws:s3:Bucket        my-bucket         update     [diff: +website]
+ ~   └─ aws:s3:BucketObject  index.html        update     [diff: ~acl,contentType]
+
+Outputs:
+  + bucketEndpoint: output<string>
+  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
+
+Resources:
+    ~ 2 to update
+    1 unchanged
+
+Do you want to perform this update? details
+  pulumi:pulumi:Stack: (same)
+    [urn=urn:pulumi:dev::iac-workshop::pulumi:pulumi:Stack::iac-workshop-dev]
+    ~ aws:s3/bucket:Bucket: (update)
+        [id=my-bucket-02d7e7a]
+        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucket:Bucket::my-bucket]
+        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
+      + website: {
+          + indexDocument: "index.html"
+        }
+    ~ aws:s3/bucketObject:BucketObject: (update)
+        [id=index.html]
+        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucketObject:BucketObject::index.html]
+        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
+      ~ acl        : "private" => "public-read"
+      ~ contentType: "binary/octet-stream" => "text/html"
+
+    --outputs:--
+  + bucketEndpoint: output<string>
+  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
+
+Do you want to perform this update? no
+```
+
+👉 Learn more by reviewing the [Display outputs last in diff view pull request](https://github.com/pulumi/pulumi/pull/10535)
+
+### Support lazy-loading Node modules
+
+We now have opt-in support for generating lazy load code for Node modules. Modules that define functions and resources are loaded lazily when you opt-in. Generated code may use `import type ..` form when importing enums ("useTypeOnlyReferences" opt-in flag in schema).
+
+👉 Learn more by reviewing the [Implement support for lazy-loaded Node modules pull request](https://github.com/pulumi/pulumi/pull/10538).
 
 ## Pulumi Service & Pulumi.com
 
