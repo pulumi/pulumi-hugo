@@ -67,7 +67,7 @@ $ open $(pulumi stack output cdnURL)
 
 ## Customizing the project
 
-Projects created with the $ARCHITECTURE template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the $ARCHITECTURE template expose the following [configuration](/docs/intro/concepts/config/) settings:
 
 someProp
 : The description of the property. Defaults to `someValue`.
