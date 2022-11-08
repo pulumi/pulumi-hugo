@@ -5,7 +5,7 @@ title: "Managing NOAA Open Data across Multiple Clouds with Pulumi"
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-11-8T21:01:21Z
+date: 2022-11-08T21:01:21Z
 
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -85,3 +85,5 @@ This accessibility through Python also meant that learning how to create, deploy
 ## Next steps
 
 Pulumi has become an automation and collaboration tool that is accelerating our ability to provide petabyte scale data to the public in a multi-cloud environment. As we continue to scale our program, Pulumi is allowing us to leverage a small team to manage increasingly larger, more complex deployments in a dynamic environment. In addition, it is rapidly becoming a key player in a cross-cloud fabric that we are building to facilitate working across multiple platforms. By providing a similar, intuitive interface through our language of choice, Python, it is allowing us to more quickly adapt and reproducibly deploy infrastructure across AWS, Azure, and GCP.
+
+Please reach out to us with your thoughts, reactions, and comments at [NODD@NOAA.GOV](mailto:NODD@NOAA.GOV).
