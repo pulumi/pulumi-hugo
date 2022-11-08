@@ -1,7 +1,6 @@
 ---
-title: Cloud Framework (Preview)
-meta_desc: The Cloud framework for Pulumi lets you program infrastructure and application logic using high-level
-           cloud-agnostic building blocks.
+title: "Pulumi Cloud Framework Overview"
+meta_desc: "The Pulumi Cloud Framework lets you program infrastructure and application logic using high-level, cloud-agnostic building blocks.Get started here."
 aliases: ["/docs/quickstart/cloudfx/"]
 ---
 
