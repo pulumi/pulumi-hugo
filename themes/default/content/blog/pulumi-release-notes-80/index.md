@@ -6,7 +6,7 @@ allow_long_title: true
 # the date this file was generated. Posts with future dates are visible in development,
 # but excluded from production builds. Use the time and timezone-offset portions of
 # of this value to schedule posts for publishing later.
-date: 2022-11-07
+date: 2022-11-08
  
 # Use the meta_desc property to provide a brief summary (one or two sentences)
 # of the content of the post, which is useful for targeting search results or social-media
@@ -49,27 +49,10 @@ In addition to our [Cloud Engineering Days launches](/blog/nov-2022-launches), w
   - [Skip Checkpoints Experimental Flag](#skip-checkpoints-experimental-flag)
   - [Token Authentication in Go Providers](#token-authentication-in-go-providers)
   - [Bump TypeScript version from v3.7.3 to v3.8.3](#bump-typescript-version-from-v373-to-v383)
-  - [Display outputs last in diff view](#display-outputs-last-in-diff-view)
   - [Support lazy-loading Node modules](#support-lazy-loading-node-modules)
 - Pulumi Service & Pulumi.com
   - [Pulumi Deployments](#pulumi-deployments)
   - [Architecture Templates Support](#architecture-templates-support)
-
-## Cloud Providers and Packages
-
-### New resources in our providers
-
-We shipped new versions of the AWS Native provider, Google Native provider and the Azure Native provider that added support for 698 new resources in the last two months. 662 of the new resources were added in the Google Native provider, 17 new resources when excluding IAM policy binding improvements, 29 resources were added to the AWS Native provider and 7 were added to the Azure Native provider.
-
-### Pulumi+Kubernetes Improvements
-
-In October we announced a set of major updates which deepen and extend Pulumi’s support for Kubernetes and the Kubernetes ecosystem. Here are a few of these exciting enhancements:
-
-- [Pulumi Kubernetes Operator v1.10](https://github.com/pulumi/pulumi-kubernetes-operator/#readme): New integration with Flux for richer GitOps support, and ability to deploy Pulumi stacks from directly within the Kubernetes resource model
-- [New Pulumi Provider for Flux](https://www.pulumi.com/registry/packages/flux/): Manage Flux with Infrastructure as Code
-- [Pulumi Kubernetes Provider v3.22](/registry/packages/kubernetes): Server Side Apply and Resource Patch
-  
-👉  Learn more in the [Pulumi+Kubernetes: New Flux Integration and Inline Programs blog](/blog/pulumi-kubernetes-new-2022).
 
 ## Cloud Engineering Days Launches
 
@@ -81,6 +64,22 @@ In the Pulumi Cloud Engineering Days 2022 we are announced a set of important ne
 - [Project Level Configuration](/blog/project-config-mvp): As cloud infrastructure projects grow in complexity, Pulumi provides many tools to manage the complexity of the software that defines these projects. But the configuration of that software also grows in complexity. New support for Project-Level Configuration across all Pulumi languages makes it easier to manage complex configuration as cloud projects scale up.
 
 👉  Learn more in the [Cloud Engineering Days Announcements blog](/blog/nov-2022-launches).
+
+## Cloud Providers and Packages
+
+### New resources in our providers
+
+We shipped new versions of the AWS Native provider, Google Native provider and the Azure Native provider that added support for 698 new resources in the last two months. 17 new resources were added to Google Native, 662 when [including IAM binding and IAM member resources](https://github.com/pulumi/pulumi-google-native/pull/653), 29 resources were added to the AWS Native provider and 7 were added to the Azure Native provider.
+
+### Pulumi+Kubernetes Improvements
+
+In October we announced a set of major updates which deepen and extend Pulumi’s support for Kubernetes and the Kubernetes ecosystem. Here are a few of these exciting enhancements:
+
+- [Pulumi Kubernetes Operator v1.10](https://github.com/pulumi/pulumi-kubernetes-operator/#readme): New integration with Flux for richer GitOps support, and ability to deploy Pulumi stacks from directly within the Kubernetes resource model
+- [New Pulumi Provider for Flux](https://www.pulumi.com/registry/packages/flux/): Manage Flux with Infrastructure as Code
+- [Pulumi Kubernetes Provider v3.22](/registry/packages/kubernetes): Server Side Apply Option and Resource Patch
+  
+👉  Learn more in the [Pulumi+Kubernetes: New Flux Integration and Inline Programs blog](/blog/pulumi-kubernetes-new-2022).
 
 ## Pulumi CLI and core technologies
 
@@ -94,7 +93,7 @@ When you modify a resource the Pulumi CLI will display the time elapsed so you c
 
 ### Automation API NodeJS parallel inline programs
 
-Automation API now supports parallel execution of NodeJS inline programs in addition to the existing Python inline program support. Now users can run multiple NodeJS Pulumi programs in parallel when they are using Automation API. It uses NodeJS AsyncLocalContext to isolate state away from process environments and into context-specific stores owned by LocalWorkspaces.
+Automation API now supports parallel execution of NodeJS inline programs in addition to the existing Python inline program support. Now users can run multiple NodeJS Pulumi programs in parallel when they are using Automation API. It uses NodeJS AsyncLocalContext to isolate state away from process environments and into context-specific stores owned by LocalWorkspaces. This functionality is also supported in Python and .NET.
 
 👉  Learn more in the [support parallel execution of NodeJS inline programs GitHub issue](https://github.com/pulumi/pulumi/issues/5449).
 
@@ -154,98 +153,9 @@ We updated the vendored version of TypeScript in the NodeJS SDK and runtime from
 
 👉 Learn more by reviewing the [Bump TSC version to 3.8.3 pull request](https://github.com/pulumi/pulumi/pull/10618).
 
-### Display outputs last in diff view
-
-Outputs are now rendered last in the CLI diff comparison view. This makes it easier to view the resouce diffs, as they are shown first and then the `--outputs:--` values are rendered. Lets take a look at what this looks like:
-
-Before
-
-```console
-Previewing update (dev):
-
-     Type                    Name              Plan       Info
-     pulumi:pulumi:Stack     iac-workshop-dev
- ~   ├─ aws:s3:Bucket        my-bucket         update     [diff: +website]
- ~   └─ aws:s3:BucketObject  index.html        update     [diff: ~acl,contentType]
-
-Outputs:
-  + bucketEndpoint: output<string>
-  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
-
-Resources:
-    ~ 2 to update
-    1 unchanged
-
-Do you want to perform this update? details
-  pulumi:pulumi:Stack: (same)
-    [urn=urn:pulumi:dev::iac-workshop::pulumi:pulumi:Stack::iac-workshop-dev]
-    ~ aws:s3/bucket:Bucket: (update)
-        [id=my-bucket-02d7e7a]
-        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucket:Bucket::my-bucket]
-        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
-      + website: {
-          + indexDocument: "index.html"
-        }
-    --outputs:--
-  + bucketEndpoint: output<string>
-  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
-    ~ aws:s3/bucketObject:BucketObject: (update)
-        [id=index.html]
-        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucketObject:BucketObject::index.html]
-        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
-      ~ acl        : "private" => "public-read"
-      ~ contentType: "binary/octet-stream" => "text/html"
-
-Do you want to perform this update? no
-```
-
-After
-
-```console
-Previewing update (dev):
-
-     Type                    Name              Plan       Info
-     pulumi:pulumi:Stack     iac-workshop-dev
- ~   ├─ aws:s3:Bucket        my-bucket         update     [diff: +website]
- ~   └─ aws:s3:BucketObject  index.html        update     [diff: ~acl,contentType]
-
-Outputs:
-  + bucketEndpoint: output<string>
-  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
-
-Resources:
-    ~ 2 to update
-    1 unchanged
-
-Do you want to perform this update? details
-  pulumi:pulumi:Stack: (same)
-    [urn=urn:pulumi:dev::iac-workshop::pulumi:pulumi:Stack::iac-workshop-dev]
-    ~ aws:s3/bucket:Bucket: (update)
-        [id=my-bucket-02d7e7a]
-        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucket:Bucket::my-bucket]
-        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
-      + website: {
-          + indexDocument: "index.html"
-        }
-    ~ aws:s3/bucketObject:BucketObject: (update)
-        [id=index.html]
-        [urn=urn:pulumi:dev::iac-workshop::aws:s3/bucketObject:BucketObject::index.html]
-        [provider=urn:pulumi:dev::iac-workshop::pulumi:providers:aws::default_1_7_0::229428dd-3bcc-4dcf-ae56-ded0b3b0f322]
-      ~ acl        : "private" => "public-read"
-      ~ contentType: "binary/octet-stream" => "text/html"
-
-    --outputs:--
-  + bucketEndpoint: output<string>
-  ~ bucketName    : "my-bucket-02d7e7a" => output<string>
-
-Do you want to perform this update? no
-```
-
-👉 Learn more by reviewing the [Display outputs last in diff view pull request](https://github.com/pulumi/pulumi/pull/10535)
-
 ### Support lazy-loading Node modules
 
-We now have opt-in support for generating lazy load code for Node modules. Modules that define functions and resources are loaded lazily when you opt-in. Generated code may use `import type ..` form when importing enums ("useTypeOnlyReferences" opt-in flag in schema).
+We now have opt-in support for generating lazy load code for Node modules. Modules that define functions and resources are loaded lazily when you opt-in. Generated code may use `import type ..` form when importing enums ("useTypeOnlyReferences" opt-in flag in schema). We plan to lazy-load Node modules in Azure Mative and other large Pulumi Packages to improve performance when using these libraries.
 
 👉 Learn more by reviewing the [Implement support for lazy-loaded Node modules pull request](https://github.com/pulumi/pulumi/pull/10538).
 
