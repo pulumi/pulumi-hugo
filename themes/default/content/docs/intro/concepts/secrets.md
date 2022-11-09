@@ -1,6 +1,6 @@
 ---
-title: "Secrets"
-meta_desc: This page provides an overview of how Pulumi manages sensitive configuration data.
+title: "Intro to Pulumi: Secrets"
+meta_desc: This page provides an overview of how Pulumi manages sensitive configuration data using secrets.
 menu:
   intro:
     parent: concepts

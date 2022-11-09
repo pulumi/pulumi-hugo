@@ -1,5 +1,5 @@
 ---
-title: State and Backends
+title: "Intro to Pulumi: State and Backends"
 meta_desc: Learn about how Pulumi handles your infrastructure state files and supported backend options for these state files.
 keywords:
  - IaC

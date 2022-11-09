@@ -1,5 +1,5 @@
 ---
-title: "Logging"
+title: "Intro to Pulumi: Logging"
 meta_desc: An overview of the Pulumi logging functionality used for debugging and diagnostics.
 menu:
   intro:

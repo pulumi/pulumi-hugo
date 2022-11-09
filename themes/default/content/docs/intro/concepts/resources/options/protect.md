@@ -1,5 +1,5 @@
 ---
-title: "Protect"
+title: "Protect Resource Option"
 meta_desc: The protect resource option prevents accidental deletion of a resource by marking it as protected.
 menu:
   intro:

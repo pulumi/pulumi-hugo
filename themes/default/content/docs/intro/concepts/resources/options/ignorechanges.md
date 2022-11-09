@@ -1,5 +1,5 @@
 ---
-title: "IgnoreChanges"
+title: "IgnoreChanges Resource Option"
 meta_desc: The ignoreChanges resource option declares that changes to certain properties should be ignored during a diff.
 menu:
   intro:

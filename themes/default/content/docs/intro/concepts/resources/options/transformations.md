@@ -1,5 +1,5 @@
 ---
-title: "Transformations"
+title: "Transformations Resource Option"
 meta_desc: The transformations resource option provides a list of transformations to apply to a resource and all of its children.
 menu:
   intro:

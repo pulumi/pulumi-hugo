@@ -1,5 +1,5 @@
 ---
-title: "Import"
+title: "Import Resource Option"
 meta_desc: The import resource option brings an existing cloud resource into Pulumi.
 menu:
   intro:
