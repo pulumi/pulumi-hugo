@@ -1,6 +1,6 @@
 ---
-title: Organizations
-meta_desc: An overview of Organizations within the Pulumi Cloud Service.
+title: "Pulumi Service: Organizations"
+meta_desc: Organizations are a space for you to collaborate on shared projects and stacks. Learn more about how Organizations work in the Pulumi Cloud Service.
 menu:
   intro:
     parent: pulumi-service
