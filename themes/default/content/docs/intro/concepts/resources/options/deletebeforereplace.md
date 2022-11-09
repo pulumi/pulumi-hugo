@@ -1,5 +1,5 @@
 ---
-title: "DeleteBeforeReplace"
+title: "DeleteBeforeReplace Resource Option"
 meta_desc: Setting the deleteBeforeReplace option to true means that Pulumi will delete the existing resource before creating its replacement.
 menu:
   intro:

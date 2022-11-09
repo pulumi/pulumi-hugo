@@ -1,5 +1,5 @@
 ---
-title: "Parent"
+title: "Parent Resource Option"
 meta_desc: The parent resource option establishes an explicit parent/child relationship between resources.
 menu:
   intro:

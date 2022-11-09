@@ -1,6 +1,6 @@
 ---
-title: "Provider Functions"
-meta_desc: Provider SDKs export functions that can be called in a Pulumi program
+title: "Intro to Pulumi: Provider Functions"
+meta_desc: A provider may make functions ("provider functions") available in its SDK as well as resource types. Learn how these provider functions work in this guide.
 menu:
   intro:
     parent: resources
