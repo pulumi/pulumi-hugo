@@ -1,6 +1,6 @@
 ---
-title: Accounts
-meta_desc: An overview of Accounts within the Pulumi Cloud Service.
+title: "Pulumi Service: Accounts Overview"
+meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud Service in this guide.
 menu:
   intro:
     parent: pulumi-service

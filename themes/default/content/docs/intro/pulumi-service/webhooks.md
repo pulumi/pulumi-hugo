@@ -1,6 +1,6 @@
 ---
-title: Webhooks
-meta_desc: An overview of how to use Webhooks within the Pulumi Cloud Service.
+title: "Pulumi Service: Webhooks"
+meta_desc: Pulumi Webhooks allow you to notify external services of events happening within your Pulumi organization. Learn how to create and manage webhooks here.
 menu:
   intro:
     parent: pulumi-service
