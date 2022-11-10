@@ -251,35 +251,51 @@ manage:
     - title: See who changed what and when
       description: Full change visibility and auditing across your entire organization.
 
-benefits:
-  title: The benefits of using Pulumi
-  items:
-    - title: Tame modern cloud complexity
-      icon: code-window
-      icon_color: salmon
-      description: |
-        Build with over 60 cloud providers using a consistent, cloud engineering approach that
-        works for developers and infrastructure teams and eliminates accidental complexity.
+automation_api_examples:
+  - name: Provision resources over HTTP (Node.js/Express)
+    text: |
+      ```typescript
+        import * as auto from "@pulumi/pulumi/automation";
+        import * as express from "express";
 
-    - title: Bring the cloud closer to application development
-      icon: download-from-cloud
-      icon_color: violet
-      description: |
-        Leverage a rich, programmable cloud interface and [reusable packages](/product/packages/) that abstract
-        away complexity, bringing cloud concepts closer to application architectures.
+        function yourPulumiProgram() {
+          // Your pulumi program.
+        }
 
-    - title: Use engineering practices with infrastructure
-      icon: exchange
-      icon_color: blue
-      description: |
-        Do more with less. Combine Infrastructure as Code automation with tried-and-true software engineering
-        practices &mdash; including modularity, testing, and CI/CD.
-    - title: Foster collaboration and innovate faster
-      icon: lightning
-      icon_color: yellow
-      description: |
-        Unite developers, infrastructure teams, and security engineers around a common platform
-        so that everyone can speak the same language and ship quickly and reliably.
+        const app = express();
+
+        app.post("/update", async (req, res) => {
+          const projectName = req.body.projectName;
+          const stackName = req.body.stackName;
+
+          try {
+            const stack = await auto.createStack({
+              stackName,
+              projectName,
+              program: yourPulumiProgram,
+            });
+
+            await stack.up({ onOutput: console.info });
+
+            return res.send("Resources provisioned!");
+          } catch (e) {
+            return res.status(500).send(e);
+          }
+        });
+
+        app.listen(3000, () => console.log("App is live at localhost:3000"));
+      ```
+
+  - name: Create custom CLI tools (Go/Cobra)
+    text: |
+      package custom_tool
+
+  - name: Run database migrations (Python/MySQL)
+    text: |
+      import * as pulumi from "pulumi";
+
+  - name: And much more
+    text: View examples
 
 customer_logos:
   title: Leading engineering organizations are building with Pulumi
