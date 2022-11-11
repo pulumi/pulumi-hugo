@@ -114,7 +114,7 @@
                     <pulumi-chooser type="language" options="typescript,python,go,csharp,yaml">
                         {{ range $item := .Params.build.code }}
                             <pulumi-choosable type="language" class="highlight" value="{{ $item.language }}">
-                                {{ partial "code" (dict "lang" $item.language "code" $item.code "mode" "light") }}
+                                {{ partial "code" (dict "lang" $item.language "code" $item.code "mode" "dark") }}
                             </pulumi-choosable>
                         {{ end }}
                     </pulumi-chooser>
@@ -240,10 +240,10 @@
     </section>
 
     <section class="container mx-auto my-16 text-center">
-        <h2 class="rainbow-text">Accomplish more without increasing headcount</h2>
+        <h2 class="rainbow-text">Doing more with less</h2>
         <p class="text-lg max-w-3xl mx-auto">
-            You can use Pulumi's Automation API to create tooling that help you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus a
-            traditional tools.
+            You can use Pulumi's Automation API to create tooling that help you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus
+            traditional tooling.
         </p>
 
         <div class="flex flex-wrap text-left">

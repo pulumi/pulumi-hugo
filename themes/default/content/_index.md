@@ -40,21 +40,18 @@ overview:
       - /logos/tech/ci-cd/travis-ci.svg
 
 build:
-  title: Code faster
+  title: Write your configuration quickly
   description: |
-    Pulumi gives you a faster inner dev loop for IaC by allowing you to use your existing IDE with Intellisense and unit tests working out the box. You also can tap into the power of programming languages to model your infrastructure.
+    Pulumi helps you speed up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation working out the box. In addition you can leverage all the capabilities of the programming language of your choice to help you reduce the total number of lines of code you're writing.
   items:
+    - title: Flexible and expressive
+      description: |
+        Pulumi allows you to write expressive and easily legible logic into your configurations, removing the need for clever workarounds to handle simple use cases.
+
     - title: Share and reuse
       description: |
         You can use Pulumi Packages to build best-practice abstractions available in all supported languages.
 
-    - title: Be productive
-      description: |
-        Reduce the time spent switch between by docs in browser and code IDE with Intellisense supported
-        out of the box.
-
-    - title: Flexible and expressive
-      description: Loops, conditionals, functions, classes, and more.
   code:
     - title: index.ts
       language: typescript
@@ -223,9 +220,9 @@ build:
           vpcId: ${eks-vpc.vpcId}
 
 deploy:
-  title: Get to production faster
+  title: Ship your applications faster
   description: |
-    Pulumi gives you a faster outer dev loop by making  CI/CD for your IaC seamless and the default experience. Pulumi has integrations with all the popular CI/CD platforms and testing frameworks.
+    Pulumi gives you a faster outer dev loop by making  CI/CD for your IaC seamless and the default experience. Pulumi provides has integrations with all the popular CI/CD platforms and testing frameworks.
 
   items:
     - title: Infrastructure and applications together
@@ -234,19 +231,13 @@ deploy:
     - title: Deploy with confidence
       description: Validate every change with testing and built-in policies.
 
-    - title: Automate worldwide delivery
-      description: Scale up your delivery with [advanced automation](/automation/) as you grow.
-
 manage:
-  title: Get to market first
+  title: Deliver your ideas with ease
   description: |
     Pulumi gives you a faster dev loop across the entire organization by guaranteeing the infrastructure software supply chain. Standard software packaging allows sharing and reuse of code across the organization along with org-wide policy enforcements. Pulumi provides the industry’s only automation workflow capability that allows software engineering to be applied to solve and manage cloud infrastructure at scale.
   items:
     - title: Secure by default
-      description: Automatic encryption for secrets and state.
-
-    - title: Empower with guardrails
-      description: Identity and Policy as Code ensure continuous compliance.
+      description: Automatic encryption for secrets and state. Identity and Policy as Code ensure continuous compliance
 
     - title: See who changed what and when
       description: Full change visibility and auditing across your entire organization.
@@ -288,11 +279,15 @@ automation_api_examples:
 
   - name: Create custom CLI tools (Go/Cobra)
     text: |
+      ```go
       package custom_tool
+      ```
 
   - name: Run database migrations (Python/MySQL)
     text: |
-      import * as pulumi from "pulumi";
+      ```python
+      example
+      ```
 
   - name: And much more
     text: View examples
