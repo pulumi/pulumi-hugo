@@ -89,11 +89,15 @@ The executor context defines information about the executor where the Pulumi ope
 
 * **executorImage** (Optional[string]): Allows overriding the default executor image with a custom image.
 
+Image requirements:
+
+* It must be a unix-based image which includes `curl`.
+* The custom executor image that you use must include the Pulumi CLI on PATH.
+* It must include the required SDK runtime(s) for your Pulumi program.
+
 {{% notes "info" %}}
 
-The custom executor image that you use must include the Pulumi CLI.
-
-Additionally, using a custom image will result in increased execution time that can be attributed to the time required to pull the necessary image.
+Using a custom image may result in slower execution due to time spent pulling the image.
 
 {{% /notes %}}
 
