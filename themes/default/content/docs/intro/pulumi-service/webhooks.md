@@ -4,7 +4,7 @@ meta_desc: An overview of how to use Webhooks within the Pulumi Cloud Service.
 menu:
   intro:
     parent: pulumi-service
-    weight: 10
+    weight: 11
 aliases:
 - /docs/reference/service/webhooks/
 - /docs/console/extensions/webhooks/
@@ -36,7 +36,7 @@ stacks.
 
 {{% notes "info" %}}
 There are some restrictions on the number of webhooks that can be registered
-when using the Pulumi Team editions. [Contact us]({{< relref "/contact" >}})
+when using the Pulumi Team editions. [Contact us](/contact/)
 if you need the limit increased.
 {{% /notes %}}
 
@@ -281,5 +281,5 @@ the stack update or performed the action.
 
 ## Additional Resources
 
-* [Managing Github Webhooks with Pulumi]({{< ref "/blog/managing-github-webhooks-with-pulumi" >}})
-* [Pulumi Service REST API]({{< relref "/docs/reference/service-rest-api" >}})
+* [Managing Github Webhooks with Pulumi](/blog/managing-github-webhooks-with-pulumi/)
+* [Pulumi Service REST API](/docs/reference/service-rest-api/)

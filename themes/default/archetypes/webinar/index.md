@@ -77,12 +77,7 @@ main:
 transcript: |
     Here is where you would put the transcript for a recorded video.
 
-# The right hand side form section.
 form:
-    # GoToWebinar webinar key. This key allows us to register people for webinars via the
-    # HubSpot form.
-    gotowebinar_key: ""
-
-    # HubSpot form id.
+    salesforce_campaign_id: ""
     hubspot_form_id: ""
 ---

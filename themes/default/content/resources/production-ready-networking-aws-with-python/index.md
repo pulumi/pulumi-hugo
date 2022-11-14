@@ -1,7 +1,8 @@
 ---
 # Name of the webinar.
 title: "Production-Ready Networking on AWS with Python"
-meta_desc: "In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC."
+meta_desc: "Hands-on Workshop: Learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC."
+meta_image: "/images/production-ready-networking-aws-python.png"
 
 # A featured webinar will display first in the list.
 featured: false
@@ -76,7 +77,7 @@ main:
     description: |
         In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC. This pattern is incredibly useful for standing up separate environments for development, testing and production, providing workload isolation for multiple customers and standing up shared services.
 
-        This 200-level course will be taught in the Python language but the concepts apply to any modern programming language. The content builds upon Pulumi concepts from [learn.pulumi.com](/learn) and our Getting Started workshop series.
+        This 200-level course will be taught in the Python language but the concepts apply to any modern programming language. The content builds upon Pulumi concepts from [learn.pulumi.com](/learn/) and our Getting Started workshop series.
 
     # The webinar presenters
     presenters:

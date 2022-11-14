@@ -21,6 +21,10 @@ event_data:
 description: |
   are free, hands-on learning events for developers and engineers to level up their cloud skills and master the modern cloud. Join our experts for workshops and talks that will teach you the latest software development and infrastructure as code practices that can increase your productivity and level up your output, whether you’re using VMs, serverless, Kubernetes, or even multi-cloud.
 
+join:
+  link: https://tulu.la/chat/ces-00002e/lobby-0002g6
+  link_text: Join Now
+
 featured:
   items:
     - title: Opening Keynote and Welcome
@@ -33,6 +37,26 @@ featured:
         photo: /images/team/joe-duffy.jpg
       - name: Luke Hoban
         photo: /images/team/luke-hoban.jpg
+
+    - title: Customer Stories
+      description: |
+        Learn from Pulumi customers on how they scaled up their infrastructure velocity and reliability with Pulumi:
+
+        • Building a Global Data Platform at Scale, featuring Fauna, Inc.
+        • Creating Business Logic Interfaces with Pulumi’s Automation API, featuring Altana
+        • Migrating from CloudFormation to Pulumi - How we did it, featuring Panther
+        • Enabling Kafka Adoption with Pulumi and Confluent Cloud, featuring Dutchie
+      link: /cloud-engineering-days/#registration
+      link_text: Register
+      presenters:
+      - name:
+        photo: /images/cloud-engineering-days/logos/altana.svg
+      - name:
+        photo: /images/cloud-engineering-days/logos/panther.svg
+      - name:
+        photo: /images/cloud-engineering-days/logos/fauna.svg
+      - name:
+        photo: /images/cloud-engineering-days/logos/dutchie.svg
 
     - title: Pulumi Demos and Best Practices
       description: |
@@ -51,19 +75,6 @@ featured:
       - name: Bryce Lampe
         photo: /images/team/bryce-lampe.jpg
 
-    - title: Case Studies
-      description: |
-        Learn from Pulumi customers on how they scaled up their infrastructure velocity and reliability with Pulumi. Infrastructure experts from companies like Fauna, Panther Labs, and Altana AI will present best practices for using Pulumi and infrastructure as code to increase velocity and even build their product platforms.
-      link: /cloud-engineering-days/#registration
-      link_text: Register
-      presenters:
-      - name:
-        photo: /images/cloud-engineering-days/logos/altana.svg
-      - name:
-        photo: /images/cloud-engineering-days/logos/panther.svg
-      - name:
-        photo: /images/cloud-engineering-days/logos/fauna.svg
-
     - title: Workshops
       description: |
         Join us for one of our upcoming cloud engineering workshops. Whether you're a seasoned cloud engineer exploring advanced concepts or want to learn the fundamentals of infrastructure as code, we've got workshops for all levels.
@@ -78,6 +89,8 @@ featured:
         photo: /images/team/ringo-de-smet.jpg
       - name: Tushar Shah
         photo: /images/team/tushar-shah.jpg
+      - name: Jay Smith
+        photo: /images/cloud-engineering-days/guests/jay-smith.jpg
 
 partners:
   items:
@@ -87,6 +100,80 @@ partners:
       logo: /images/cloud-engineering-days/logos/aws-partner.png
     - name: Microsoft
       logo: /images/cloud-engineering-days/logos/microsoft.png
+
+speakers:
+  - name: Jeff Smick
+    photo: /images/cloud-engineering-days/guests/jeff-smick.jpg
+    title: Sr. Staff Engineer
+    company: Fauna
+  - name: Meagan Cojocar
+    photo: /images/team/meagan-cojocar.jpg
+    title: Sr. Product Manager
+    company: Pulumi
+  - name: Bryce Lampe
+    photo: /images/team/bryce-lampe.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Josh Kodroff
+    photo: /images/team/josh-kodroff.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Aurelien Requiem
+    photo: /images/team/aurelien-requiem.jpg
+    title: Customer Engineer
+    company: Pulumi
+  - name: Dan Swartz
+    photo: /images/cloud-engineering-days/guests/dan-swartz.jpg
+    title: Principal Software Engineer
+    company: Altana
+  - name: Dennis Webb
+    photo: /images/cloud-engineering-days/guests/dennis-webb.jpg
+    title: Staff Software Engineer
+    company: Panther
+  - name: Casey Huang
+    photo: /images/team/casey-huang.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Piers Karsenbarg
+    photo: /images/team/piers-karsenbarg.jpg
+    title: Customer Engineer
+    company: Pulumi
+  - name: Tushar Shah
+    photo: /images/team/tushar-shah.jpg
+    title: Sr. Customer Engineer
+    company: Pulumi
+  - name: Jay Smith
+    photo: /images/cloud-engineering-days/guests/jay-smith.jpg
+    title: Sr. Customer Engineer
+    company: Google Cloud
+  - name: Collin James
+    photo: /images/cloud-engineering-days/guests/collin-james.jpg
+    title: Software Architect
+    company: Dutchie
+  - name: Evan Boyle
+    photo: /images/team/evan-boyle.jpg
+    title: Software Engineer
+    company: Pulumi
+  - name: Mitch Gerdisch
+    photo: /images/team/mitch-gerdisch.jpg
+    title: Sr. Customer Engineer
+    company: Pulumi
+  - name: Laura Santamaria
+    photo: /images/team/laura-santamaria.jpg
+    title: Developer Advocate
+    company: Pulumi
+  - name: Ringo De Smet
+    photo: /images/team/ringo-de-smet.jpg
+    title: Customer Experience Architect
+    company: Pulumi
+  - name: Joe Duffy
+    photo: /images/team/joe-duffy.jpg
+    title: CEO
+    company: Pulumi
+  - name: Luke Hoban
+    photo: /images/team/luke-hoban.jpg
+    title: CTO
+    company: Pulumi
 
 media:
   items:
@@ -153,6 +240,16 @@ workshops:
       description: |
         In this workshop you'll learn to apply Infrastructure as Code concepts to build a hub and spoke network topology with an inspection VPC.
 
+    - title: "Building Virtual Networks with Pulumi and Tailscale"
+      link: /resources/building-virtual-networks-with-pulumi-and-tailscale
+      description: |
+        This workshop will demonstrate how to securely connect end-user devices and cloud resources using infrastructure as code written in real programming languages.
+
+    - title: "Deploying and Managing Kafka with Pulumi and Confluent"
+      link: /resources/deploying-and-managing-kafka-with-pulumi-and-confluent
+      description: |
+        In this session, we’ll introduce you to Apache Kafka—a community distributed event streaming platform capable of handling trillions of events a day.
+
 schedule:
     title: Schedule at a Glance
     subtitle: Can't make this time? Register and we'll share the on-demand version when it is available
@@ -170,7 +267,11 @@ schedule:
           - title: Break
             datetime: 10:00 - 10:20 AM PDT
           - title: Achieving Results with Pulumi Customers
-            description: Building a Global Data Platform at Scale, Featuring Fauna, Inc.
+            description: |
+              • Building a Global Data Platform at Scale, Featuring Fauna, Inc.
+              • Creating Business Logic Interfaces with Pulumi's Automation API, Altana
+              • Migrating from CloudFormation to Pulumi - How we did it, Panther
+              • Enabling Kafka Adoption with Pulumi and Confluent Cloud, Dutchie
             datetime: 10:20 - 11:20 AM PDT
           - title: Under the Hood of Pulumi
             description: How Automation API is used

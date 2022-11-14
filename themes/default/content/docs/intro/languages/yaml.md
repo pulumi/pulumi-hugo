@@ -16,34 +16,28 @@ Pulumi supports writing your infrastructure as code using Pulumi YAML. Pulumi YA
 configuration language designed to make describing infrastructure as simple as possible. It supports
 managing infrastructure on any cloud, including Azure, AWS, and Google Cloud.
 
-{{% notes "info" %}}
-Pulumi YAML is currently in preview. Feedback is greatly appreciated!
-
-Please post any Bug Reports or Feature Requests in [GitHub Issues](https://github.com/pulumi/pulumi-yaml/issues/new/choose).
-{{% /notes %}}
-
 ## Getting Started
 
 The fastest way to get up and running is to choose from one of the following Getting Started guides:
 
 <div class="tiles mt-4">
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/aws" >}}?language=yaml">
+        <a class="tile p-4" href="/docs/get-started/aws/?language=yaml">
             <img class="h-8 mx-auto" src="/logos/tech/aws.svg" alt="AWS">
         </a>
     </div>
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/azure" >}}?language=yaml">
+        <a class="tile p-4" href="/docs/get-started/azure/?language=yaml">
             <img class="h-8 mx-auto" src="/logos/tech/azure.svg" alt="Azure">
         </a>
     </div>
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/gcp" >}}?language=yaml">
+        <a class="tile p-4" href="/docs/get-started/gcp/?language=yaml">
             <img class="h-8 mx-auto" src="/logos/tech/gcp.svg" alt="Google Cloud">
         </a>
     </div>
     <div class="flex-1 pb-4">
-        <a class="tile p-4" href="{{< relref "/docs/get-started/kubernetes" >}}?language=yaml">
+        <a class="tile p-4" href="/docs/get-started/kubernetes/?language=yaml">
             <img class="h-8 mx-auto" src="/logos/tech/k8s.svg" alt="Kubernetes">
         </a>
     </div>
@@ -51,7 +45,7 @@ The fastest way to get up and running is to choose from one of the following Get
 
 ## Prerequisites
 
-All you need to use Pulumi YAML is the [Pulumi CLI]({{< relref "/docs/get-started/install" >}}).
+All you need to use Pulumi YAML is the [Pulumi CLI](/docs/get-started/install/).
 
 ## Example
 
@@ -82,7 +76,7 @@ The example is a fully valid and self-contained Pulumi project. You only need on
 
 Further examples are given in the [Pulumi YAML GitHub
 repository](https://github.com/pulumi/pulumi-yaml/tree/main/examples). The specification for Pulumi
-YAML documents is in the [Pulumi YAML reference]({{< relref "/docs/reference/yaml" >}}).
+YAML documents is in the [Pulumi YAML reference](/docs/reference/yaml/).
 
 ## Templates
 
@@ -97,11 +91,11 @@ project and set up starter resources for the chosen cloud. The `yaml` template i
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as
-code programs using Pulumi. [Architecture & Concepts]({{< relref "/docs/intro/concepts" >}})
+code programs using Pulumi. [Architecture & Concepts](/docs/intro/concepts)
 describes these concepts with examples available in all supported languages, including Pulumi YAML.
 
 To learn how the Pulumi Programming Model is implemented for Pulumi YAML, refer
-to the [Pulumi YAML Reference Guide]({{< relref "/docs/reference/yaml/" >}}).
+to the [Pulumi YAML Reference Guide](/docs/reference/yaml/).
 
 ## Compiler support
 

@@ -25,9 +25,9 @@ Pulumi automatically captures dependencies when you pass an output from one reso
 
 Because outputs are asynchronous, their actual raw values are not immediately available. If you need to access an output’s raw value—for example, to compute a derived, new value, or because you want to log it—you have these options:
 
-- [Apply]({{< relref "#apply" >}}): a callback that receives the raw value, and computes a new output
-- [Lifting]({{< relref "#lifting" >}}): directly read properties off an output value
-- [Interpolation]({{< relref "#outputs-and-strings" >}}): concatenate string outputs with other strings directly
+- [Apply](#apply): a callback that receives the raw value, and computes a new output
+- [Lifting](#lifting): directly read properties off an output value
+- [Interpolation](#outputs-and-strings): concatenate string outputs with other strings directly
 
 ## Apply
 
@@ -102,7 +102,7 @@ During some program executions, `apply` doesn’t run. For example, it won’t r
 
 ## All
 
-If you have multiple outputs and need to join them, the `all` function acts like an `apply` over many resources. This function joins over an entire list of outputs. It waits for all of them to become available and then provides them to the supplied callback. This function can be used to compute an entirely new output value, such as by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses them. Just like with `apply`, the result of [Output.all]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Output.all" >}}) is itself an Output<T>.
+If you have multiple outputs and need to join them, the `all` function acts like an `apply` over many resources. This function joins over an entire list of outputs. It waits for all of them to become available and then provides them to the supplied callback. This function can be used to compute an entirely new output value, such as by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses them. Just like with `apply`, the result of [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all) is itself an Output<T>.
 
 For example, let’s use a server and a database name to create a database connection string:
 
@@ -206,7 +206,7 @@ variables:
 
 {{< /chooser >}}
 
-Notice that [Output.all]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Output.all" >}}) works by returning an output that represents the combination of multiple outputs so that, within the callback, the raw values are available inside of a tuple.
+Notice that [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all) works by returning an output that represents the combination of multiple outputs so that, within the callback, the raw values are available inside of a tuple.
 
 ## Accessing Properties of an Output by Lifting {#lifting}
 
@@ -494,7 +494,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 
 ## Working with Outputs and Strings {#outputs-and-strings}
 
-Outputs that contain strings cannot be used directly in operations such as string concatenation. String interpolation lets you more easily build a string out of various output values, without needing {{< pulumi-apply >}} or [Output.all]({{< relref "/docs/reference/pkg/python/pulumi#pulumi.Output.all" >}}). You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.
+Outputs that contain strings cannot be used directly in operations such as string concatenation. String interpolation lets you more easily build a string out of various output values, without needing {{< pulumi-apply >}} or [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all). You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.
 
 For example, say you want to create a URL from `hostname` and `port` output values. You can do this using `apply` and `all`.
 
@@ -601,6 +601,8 @@ const url2: Output<string> = pulumi.interpolate `http://${hostname}:${port}/`;
 ```python
 # concat takes a list of args and concatenates all of them into a single output:
 url = Output.concat("http://", hostname, ":", port, "/")
+# format takes a template string and a list of args or keyword args and formats the string, expanding outputs correctly:
+url2 = Output.format("http://{0}:{1}/", hostname, port);
 ```
 
 {{% /choosable %}}

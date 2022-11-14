@@ -1,8 +1,6 @@
 {{ define "hero" }}
     <header class="page-hero">
-        <a href="#registration">
-            <img class="mx-auto mb-6 w-full" src="/images/cloud-engineering-days/cloud-eng-days-hero.png" />
-        </a>
+        <img class="mx-auto mb-6 w-full" src="/images/cloud-engineering-days/ced-hero-no-button.png" />
     </header>
 {{ end }}
 
@@ -11,6 +9,12 @@
         <h5>
             <b>{{ .Params.title }}</b>&nbsp;{{ .Params.description }}
         </h5>
+    </section>
+
+    <section id="join" class="container mx-auto my-16 text-center">
+        <div>
+            <a href="{{ .Params.join.link }}" class="btn-lg p-12 bg-black text-white">{{ .Params.join.link_text }}</a>
+        </div>
     </section>
 
     <section id="featured" class="container mx-auto my-0">
@@ -26,7 +30,7 @@
                                             <img src="{{ $presenter.photo }}" alt="{{ $presenter.name }}" />
                                             <p class="text-white">{{ .name }}</p>
                                         {{ else }}
-                                            <img class="mb-8" src="{{ $presenter.photo }}" />
+                                            <img class="mb-16 mt-8" src="{{ $presenter.photo }}" />
                                         {{ end }}
                                     </div>
                                 {{ end }}
@@ -36,61 +40,10 @@
                                     <h5>{{ $item.title }}</h5>
                                 </div>
                                 <div class="description">
-                                    <p>{{ $item.description }}</p>
+                                    <p>{{ $item.description | markdownify }}</p>
                                 </div>
                                 <div class="mt-8">
                                     <a href="{{ $item.link }}" class="btn-secondary">{{ $item.link_text }}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {{ end }}
-            </div>
-        </div>
-    </section>
-
-    <section id="partner-logos" class="min-w-full mt-8 bg-white">
-        <h3 class="text-center">Our Partners</h3>
-        <div class="container mx-auto my-12 flex align-center justify-evenly">
-            {{ range $item := .Params.partners.items }}
-                <img class="object-contain h-16 mb-4" src="{{ $item.logo }}" alt="{{ $item.name }}" />
-            {{ end }}
-        </div>
-    </section>
-
-    <section id="social-media" class="min-w-full my-0 bg-salmon-600">
-        <div class="container mx-auto py-8">
-            <h4 class="text-center text-white">Join the Conversation</h4>
-            <div class="text-center">
-                <div class="text-center flex flex-row justify-center">
-                    {{ range $item := .Params.media.items }}
-                        <a href="{{ $item.link }}" class="mx-2">
-                            <img src="{{ $item.image }}" alt="{{ $item.name }}" />
-                        </a>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="workshops" class="min-w-full my-0 pt-8 bg-black">
-        <div class="container mx-auto">
-            <h3 class="text-center text-white">{{ .Params.workshops.title }}</h3>
-            <div class="flex flex-wrap items-stretch justify-center">
-                {{ range $item := .Params.workshops.items }}
-                    <div class="w-full lg:w-1/2 p-4 my-2">
-                        <div class="card h-full p-1 bg-gradient-to-t from-fuchsia-600 to-orange-600">
-                            <div class="card h-full relative bg-white">
-                                <div class="px-8 py-8">
-                                    <div>
-                                        <h5>{{ $item.title }}</h5>
-                                    </div>
-                                    <div class="description">
-                                        <p>{{ $item.description }}</p>
-                                    </div>
-                                    <div class="mt-8">
-                                        <a href="{{ $item.link }}" target="_blank" class="btn-secondary">Register Now</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +71,7 @@
                                 <div class="px-8">
                                     <h5 class="text-white mb-0">{{ $item.title }}</h5>
                                     {{ if $item.description }}
-                                        <p class="text-white my-0">{{ $item.description }}</p>
+                                        <p class="text-white my-0">{{ $item.description | markdownify }}</p>
                                     {{ end }}
                                 </div>
                             </div>
@@ -129,21 +82,71 @@
         </div>
     </section>
 
-    <script>
-        (function () {
-            window._zi = { formId: "ed92e322-b149-46c7-8c1c-6f29de9f8fb8", formLoadTimeout: 4000 };
-            var zi = document.createElement("script");
-            zi.type = "text/javascript";
-            zi.async = true;
-            zi.src = "https://ws-assets.zoominfo.com/formcomplete.js";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(zi, s);
-        })();
-    </script>
-    <section id="registration" class="min-w-full mt-16 mb-16 px-8 flex justify-center">
-        <div class="lg:w-1/2">
-            <h4>Register</h4>
-            <pulumi-hubspot-form form-id="{{ .Params.form.hubspot_form_id }}" go-to-webinar-key="{{ .Params.form.gotowebinar_key }}"></pulumi-hubspot-form>
+    <section id="partner-logos" class="min-w-full mt-8 bg-white">
+        <h3 class="text-center">Our Partners</h3>
+        <div class="container mx-auto my-12 flex align-center justify-evenly">
+            {{ range $item := .Params.partners.items }}
+                <img class="object-contain h-16 mb-4" src="{{ $item.logo }}" alt="{{ $item.name }}" />
+            {{ end }}
+        </div>
+    </section>
+
+    <section id="social-media" class="min-w-full my-0 bg-salmon-600">
+        <div class="container mx-auto py-8">
+            <h4 class="text-center text-white">Join the Conversation</h4>
+            <div class="text-center">
+                <div class="text-center flex flex-row justify-center">
+                    {{ range $item := .Params.media.items }}
+                        <a href="{{ $item.link }}" class="mx-2">
+                            <img src="{{ $item.image }}" alt="{{ $item.name }}" />
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="speakers" class="my-8 text-center min-w-full">
+        <h3>Speakers</h3>
+        <div class="flex flex-wrap justify-center mx-16">
+            {{ range $speaker := .Params.speakers }}
+                <div class="flex flex-col md:flex-row w-full md:w-1/3 items-center text-center md:text-left md:items-start mt-4 pr-4">
+                    <div class="speaker-image lg:mr-2">
+                        <img src="{{ $speaker.photo }}" alt="{{ $speaker.name }}" title="{{ $speaker.name }}" />
+                    </div>
+                    <div class="flex flex-col justify-center h-full">
+                        <h5 class="ml-2">{{ $speaker.name }}</h5>
+                        <p class="ml-2 my-0">{{ $speaker.title }}, {{ $speaker.company }}</p>
+                    </div>
+                </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <section id="workshops" class="min-w-full mb-8 pt-8 bg-black">
+        <div class="container mx-auto">
+            <h3 class="text-center text-white">{{ .Params.workshops.title }}</h3>
+            <div class="flex flex-wrap items-stretch justify-center">
+                {{ range $item := .Params.workshops.items }}
+                    <div class="w-full lg:w-1/2 p-4 my-2">
+                        <div class="card h-full p-1 bg-gradient-to-t from-fuchsia-600 to-orange-600">
+                            <div class="card h-full relative bg-white">
+                                <div class="px-8 py-8">
+                                    <div>
+                                        <h5>{{ $item.title }}</h5>
+                                    </div>
+                                    <div class="description">
+                                        <p>{{ $item.description }}</p>
+                                    </div>
+                                    <div class="mt-8">
+                                        <a href="{{ $item.link }}" target="_blank" class="btn-secondary">Register Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
         </div>
     </section>
 {{ end }}
