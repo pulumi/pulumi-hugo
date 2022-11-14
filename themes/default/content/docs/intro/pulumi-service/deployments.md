@@ -31,9 +31,9 @@ Configure automatic infrastructure deployments in response to `git push` events 
 
 You'll need to install and configure the [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app/#installation-and-configuration) to use push-to-deploy functionality. The app requires read access to your repos so it can clone your Pulumi programs and listen to merge commits to automatically trigger deployments on `git push`.
 
-{{% notes "info" %}}
+{{% notes type="warning" %}}
 
-**Important:** While the app can be installed via GitHub, it **must be installed through the Pulumi Service** using the steps below to ensure correct setup. Installing through the Pulumi Service ensures we have a connection from Pulumi to your GitHub user or organization.
+While the app can be installed via GitHub, it **must be installed through the Pulumi Service** using the steps below to ensure correct setup. Installing through the Pulumi Service ensures we have a connection from Pulumi to your GitHub user or organization.
 
 {{% /notes %}}
 
