@@ -55,199 +55,98 @@ Select the **Provisioning** view for the application and confirm/update the foll
 | ------------------------- | --------------------------------------------------------- |
 | Enable provisioning       | box is checked
 | Require admin approval ... | *Create user*, *Delete user*, *Update user* boxes are all unchecked.
-| When users are deleted in OneLogin ... | Suspend (*DO NOT set to Delete*)
-| When user accounts  are suspended in OneLogin ... | Suspend 
+| When users are deleted in OneLogin ... | **Suspend** (*DO NOT set to Delete*)
+| When user accounts  are suspended in OneLogin ... | **Suspend** 
 
 ### Parameters Settings
 
 Select the **Parameters** view for the application and add the fields as per the following table.
 
-| Parameters Settings     | Value                                                     |
-| -------------------------- | --------------------------------------------------------- |
+| SCIM Provisioning Field Name | Value                                                     |
+| ---------------------------- | --------------------------------------------------------- |
 | firstName | `First Name`
 | lastName | `Last Name`
 | email | `Email`
 
-Optionally, you can override the default value for *scimusername* and use the `Macro` setting. For example `{firstname}{lastname}`.
+Be sure to check the *Include in SAML assertion* checkbox for each of the added fields.
 
-Select `Save` to save the application settings.
+Optionally, you can override the default value for *scimusername* and use the `Macro` setting. For example, `{firstname}{lastname}` as per [OneLogin Macros](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010609)
 
-## Configuring Your Pulumi Organization
+Select **Save** to save the application settings.
 
-The final step is to configure the Pulumi Service with details on your new OneLogin-based
-SAML application. To do this, you need to obtain the IDP metadata document from OneLogin and then provide
-it to Pulumi.
+## Configuring Communications Between Pulumi and OneLogin
 
-First, navigate to the OneLogin Application you created above and click the **More Actions** drop down menu button and select _SAML Metadata_ to download the metadata XML file.
+These next steps configure the Pulumi Service with details on your new OneLogin-based application  and configure OneLogin to be able to authenticate to the Pulumi Service.
 
-![Get Metadata](/images/docs/reference/service/saml-onelogin/onelogin-get-metadata.png)
-
-1. Open the file and copy the entire block of XML text in your clipboard
-1. Open the Pulumi Service and navigate to your SAML organization.
-1. Select the **Settings** tab, and then select **SAML SSO**.
+For the first step, you need to obtain the IDP metadata document from OneLogin and then provide it to Pulumi.
+1. Navigate to the OneLogin Application you created above and click the **More Actions** drop down menu button and select _SAML Metadata_ to download the metadata XML file.
+1. Open the file and copy the entire block of XML text in your clipboard.
+1. Open the Pulumi Service and navigate to organization for which you are enabling SAML/SCIM.
+1. Select the **Access management** view, and then select **Change requirements**.
+1. Select **SAML SSO** and then select **Next**.
 1. Paste the IDP metadata XML into the bottom card titled **SAML SSO Settings**
+1. Select **Apply changes** at the bottom of the card.
+1. Refresh the browser to see that SAML is configured.
 
-    ![Pulumi Organization Settings](/images/docs/reference/service/saml-onelogin/onelogin-pulumi-saml-metadata.png)
+At this point Pulumi is able to accept communications from OneLogin. The next step is to provide OneLogin a token to allow Pulumi to authenticaticate the communications from OneLogin.
 
-1. Select **Save** at the bottom of the card.
-
-## Configure OneLogin Application SCIM Bearer Token
-
-Navigate to the Pulumi Service *Access Management* view.
-
-1. Refresh the browser and scroll to the *SCIM* block at the bottom of the page.
+1. Navigate to the Pulumi Service *Access management* view.
+1. Scroll to the *SCIM* block at the bottom of the page.
 1. Select **Generate new token**
 1. Copy the token
-
-Navigate back to the OneLogin Application you created.
-
+1. Navigate back to the OneLogin Application you created.
 1. Select the *Configuration* view.
 1. Paste the SCIM token copied from Pulumi above into the *SCIM Bearer Token* field.
 1. Save the application.
 
-At this point, SCIM provisioning of users into the Pulumi organization will work as you add the OneLogin application to your OneLogin users.
+At this point, SCIM provisioning of users into the Pulumi organization will work as you add the OneLogin Pulumi application created above to your OneLogin users.
 
 ## Configuring Group Provisioning
 
+Beyond managing users, Pulumi's SCIM support enables you to manage Pulumi Teams and team membership. To set this up, Pulumi supports using OneLogin's Role-Group mapping to manage Pulumi teams membership. 
 
+### Set up OneLogin Application to Manage Groups in Pulumi
 
+Navigate to the SCIM application in OneLogin.
 
+1. Select the **Parameters** view for the application and select the `Groups` parameter.
+1. Check the *Include in User Provisioning* checkbox.
+1. Select the **Rules** view for the application.
+1. For each Pulumi Team you want to manage in OneLogin do the following:
+   * Select *Add Rule*
+   * Name the rule using the Pulumi Team name you are managing (e.g. `AlphaTeam` or `DevEngineers`, etc.)
+   * *Conditions*: leave blank so that the rule applies to all users.
+   * *Actions*: Set Groups ... Map from OneLogin ... For each role ... with value that matches your team name (e.g. `AlphaTeam`)
+   * Save the rule.
+    ![Application Rule](/images/docs/guides/scim/onelogin-application-rule.png)
 
+1. Save the Application updates.
 
+### Configure Roles in OneLogin to Map to Groups
 
+These next steps create the Roles that are used to map users to Groups in OneLogin and, by extension, Teams in Pulumi.
 
-------
+1. Navigate to the *Users->Roles* view in OneLogin.
+1. For each Group rule you created above for the Application, do the following:
+   1. Select **New Role**
+   1. Give it a name that matches the Group/Team name you are managing. (e.g. `AlphaTeam`)
+   1. Associate the role with the OneLogin SCIM application you created above.
+   1. Select **Save**
 
-## Enabling SCIM For Your OneLogin Org
+### Configure Users with Applicable Roles
 
-In order to configure SCIM for your OneLogin organization, you may need to email support@okta.com and request that they enable `SCIM_PROVISIONING` for the organization.
+These next steps associate users with given roles and, by extension, the Pulumi Team they should be added to.
 
-Once the feature is enabled, navigate to the Pulumi SAML app configured in your OneLogin org from the **Classic UI**. Under the **General** tab, in the **App Settings** dialog box, locate the **Provisioning** section and select **SCIM**. Click **Save** to save your changes and close the **App Settings** dialog box.
+1. Navigate to the *Users->Users* view in OneLogin.
+1. For each user, select the user and then select the **Applications** view and select the applicable Role(s).
+1. Select **Save User**.
 
-For more information on how to enable SCIM provisioning in OneLogin, see [How to Enable SCIM Provisioning in Custom App](https://support.okta.com/help/s/article/SCIM-Provisioning-Enabled-in-Custom-App) in the OneLogin documentation.
+### Removing Users from Group Provisioning
 
-## Changing the SAML SSO Settings For SCIM
+When ready to delete or suspend a user, execute the following steps to  ensure the user is removed from the applicable Pulumi Team as well as the Pulumi Organization:
 
-As part of the setup process, you need to adjust some of the parameters sent by a SAML SSO request. To make the changes, navigate to the **SAML Settings** section, click **Edit**, and make the following changes:
-
-1. Click **Next** on the first step.
-2. On Step 2, in the **General** section, set the application username to **OneLogin username prefix**.
-3. In the **Attribute Statements** section, click **Add Another** and set the **Name** of the property to `email` and the value to be source from `user.email`. The ATTRIBUTE STATEMENTS should now be as follows:
-
-    | Name | Name Format | Value |
-    | --- | --- | --- |
-    | firstName | Basic | user.firstName |
-    | lastName | Basic | user.lastName |
-    | email | Basic | user.email |
-
-4. Click **Next** then click **Finish**.
-
-## Configuring the SCIM Connector
-
-To configure the SCIM connector, click the **Provisioning** tab, and then select the **Integration** option in the left nav. Click **Edit**. Fill out the form as follows:
-
-* SCIM connector base URL: `https://api.pulumi.com/scim/v2/{orgName}`, where `{orgName}` must be replaced with your organization’s login name (not display name). If you do not know this, navigate to your SAML settings and look at the SSO URL. It will have your organization’s login name in the URL.
-* Supported provisioning actions: Check **Push New Users** and **Push Profile Updates**.
-    {{% notes "info" %}}
-If you also want to support pushing existing OneLogin groups, the steps in [Setting up Group Provisioning](#groupprovisioning) describe how to set that up.
-    {{% /notes %}}
-
-* Unique identifier field for users: Set to `userName`.
-* Authentication Mode: HTTP Header
-* For **HTTP HEADER**, you will use a token from the [Pulumi Service](https://app.pulumi.com) as the authorization bearer token. To generate a token, navigate to your org in the Pulumi Service, click on the **Settings** tab, and then click **SAML SSO**. Scroll down to the **SCIM** section and generate a new token if you have never generated one for your org, or regenerate it if you have already done so in the past.
-
-    {{% notes "info" %}}
-Once you generate the token, please save it securely. Neither the Pulumi Service nor Pulumi support can retrieve a token once it's been initially generated. If you lose the SCIM token and need it again, you'll have to generate a new token, which invalidates any previous tokens for your Pulumi organization.
-    {{% /notes %}}
-
-* Paste the token from the Pulumi Service into the OneLogin SCIM configuration for **HTTP HEADER**.
-
-The following shows how your SCIM connection info should be filled in.
-
-![OneLogin SCIM provisioning](/images/docs/guides/scim/okta-scim-provisioning.png)
-
-## Enabling SCIM Provisioning Actions
-
-To configure the actions that OneLogin will send to the Pulumi Service, you need to enable them.
-
-1. Under the **Provisioning** tab, click **Edit**.
-2. While you are in the **To App** section, check **Enable** on the following:
-
-    * Create Users
-    * Update User Attributes
-    * Deactivate Users
-3. Select **Save**.
-
-## Adjusting the OneLogin to Pulumi Attribute Mappings
-
-Now that the SCIM connector knows how to connect to Pulumi, you need to adjust the attributes that OneLogin will send to Pulumi and what it might receive back from Pulumi. To do that, perform the following steps:
-
-1. Under **Provisioning** > **To App**, click **Go to Profile Editor**.
-2. Click **Mappings** to open the Attribute Editor dialog box.
-3. Un-map all but the following attributes:
-
-    * givenName
-    * familyName
-    * displayName
-    * email
-
-4. Click on the **OneLogin User To …** tab and un-map all but the following attributes:
-
-    * givenName
-    * familyName
-    * displayName
-    * email
-
-5. Click **Save Mappings**.
-6. Click **Apply Updates**.
-
-## Adjusting the OneLogin to Pulumi Username Mappings
-
-Pulumi usernames are immutable and should not be changed after a user is associated with a Pulumi application. To disable OneLogin from pushing username updates to Pulumi, perform the following steps:
-
-1. Under **Sign On** in the **Settings** module, select **Edit**.
-2. Under **Credentials Details**, change **Update application username on** from **Create and update** to **Create only**.
-3. Select **Save**.
-
-## Setting up Group Provisioning {#groupprovisioning}
-
-The Pulumi Service supports the provisioning of teams within your organization using SCIM. This is done by mapping the groups you have created using SCIM to create teams within your organization in the Pulumi Service. Setting this up allows you to manage your teams' memberships solely in OneLogin.
-
-To set this up, you need to enable Push Groups as a supported provisioning action under the **Provisioning** settings and then specify which groups you would like to push. To do that, perform the following steps:
-
-1. Navigate to the application that you created above by clicking the on the **Applications** tab and then selecting the application.
-
-    ![OneLogin application selection.](/images/docs/guides/scim/okta-application-selection-scim.png)
-
-2. Click on **Provisioning** tab, then click on the integrations menu option located on the side navigation.
-3. Check the **Push Groups** box under **Supported provisioning actions**.
-4. Select the **Push Groups** tab.
-5. Select the **Push Groups** drop down menu. Here you will have the option to find groups either by name or rule.
-
-    ![Push Groups drop down menu in OneLogin](/images/docs/guides/scim/okta-pushgroups-menu-scim.png)
-
-6. Select **Find groups by name**. This will take you to a screen where you can search groups by the group name. Once you find the group(s) that you are looking for, click **Save**.
-
-    You will notice there is a checkbox labeled **Push group memberships immediately**. This will also add all the members that are part of your group to the Pulumi team after your selection has been saved.
-
-7. After clicking **Save**, you should see that your group was pushed and it should say **Active**.
-
-    {{% notes "info" %}}
-If there are members in a group that are not yet assigned to the Pulumi Service application in OneLogin, they will not be added to the team in the Pulumi Service. Ensure that all members in the group have been assigned to the application before pushing the group.
-    {{% /notes %}}
-
-## Verifying Group Provisioning
-
-To confirm that the groups were provisioned correctly, sign in to the Pulumi Service and select the **Teams** tab where you should see the team listed.
-
-![SCIM teams.](/images/docs/guides/scim/console.png)
-
-Click on that group and verify its membership. Note that the team’s membership cannot be altered within the Pulumi Service. If any membership changes are needed, they must be done within OneLogin. This allows the membership to be managed using OneLogin so your teams on the Pulumi side will always mirror the groups you have configured there.
-
-## Known Limitations
-
-Some SCIM features are currently not supported:
-
-* Secondary emails
-* Password sync
-* Bulk importing
+1. In OneLogin navigate to the user being deleted or suspended.
+1. Select the **Applications** view.
+1. Deselect the Role(s) that represent Pulumi Team(s) for the given user.
+1. Select **Save User**. This will remove the user from the applicable Pulumi Team(s).
+1. Now you can suspend or delete the user from OneLogin.

@@ -93,7 +93,8 @@ First, navigate to the OneLogin Application you created above and click the **Mo
 
 1. Open the file and copy the entire block of XML text in your clipboard
 1. Open the Pulumi Service and navigate to your SAML organization.
-1. Select the **Settings** tab, and then select **SAML SSO**.
+1. Select the **Access management** view, and then select **Change requirements**.
+1. Select **SAML SSO** and then select **Next**.
 1. Paste the IDP metadata XML into the bottom card titled **SAML SSO Settings**
 
     ![Pulumi Organization Settings](/images/docs/reference/service/saml-onelogin/onelogin-pulumi-saml-metadata.png)
