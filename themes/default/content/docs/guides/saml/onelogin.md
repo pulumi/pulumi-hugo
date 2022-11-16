@@ -23,7 +23,7 @@ This guide walks you through configuring OneLogin as a SAML SSO identity provide
 The first step is to create a new OneLogin Application for Pulumi SSO:
 
 1. From the OneLogin Administration portal, go to the **Applications** page and click the **Add App** button.
-1. Search for `SAML Test Connector (Advanced)` and select it.
+1. Search for `SAML Custom Connector (Advanced)` and select it.
 
     ![Finding the SAML Test Connector App](/images/docs/reference/service/saml-onelogin/onelogin-find-app.png)
 
