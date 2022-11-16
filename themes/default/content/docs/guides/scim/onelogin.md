@@ -56,7 +56,7 @@ Select the **Provisioning** view for the application and confirm/update the foll
 | Enable provisioning       | box is checked
 | Require admin approval ... | *Create user*, *Delete user*, *Update user* boxes are all unchecked.
 | When users are deleted in OneLogin ... | **Suspend** (*DO NOT set to Delete*)
-| When user accounts  are suspended in OneLogin ... | **Suspend** 
+| When user accounts  are suspended in OneLogin ... | **Suspend**
 
 ### Parameters Settings
 
@@ -79,6 +79,7 @@ Select **Save** to save the application settings.
 These next steps configure the Pulumi Service with details on your new OneLogin-based application  and configure OneLogin to be able to authenticate to the Pulumi Service.
 
 For the first step, you need to obtain the IDP metadata document from OneLogin and then provide it to Pulumi.
+
 1. Navigate to the OneLogin Application you created above and click the **More Actions** drop down menu button and select _SAML Metadata_ to download the metadata XML file.
 1. Open the file and copy the entire block of XML text in your clipboard.
 1. Open the Pulumi Service and navigate to organization for which you are enabling SAML/SCIM.
@@ -103,7 +104,7 @@ At this point, SCIM provisioning of users into the Pulumi organization will work
 
 ## Configuring Group Provisioning
 
-Beyond managing users, Pulumi's SCIM support enables you to manage Pulumi Teams and team membership. To set this up, Pulumi supports using OneLogin's Role-Group mapping to manage Pulumi teams membership. 
+Beyond managing users, Pulumi's SCIM support enables you to manage Pulumi Teams and team membership. To set this up, Pulumi supports using OneLogin's Role-Group mapping to manage Pulumi teams membership.
 
 ### Set up OneLogin Application to Manage Groups in Pulumi
 
