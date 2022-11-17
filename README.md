@@ -67,7 +67,7 @@ This repository is a [Hugo module](https://gohugo.io/hugo-modules/) that doubles
 
 Because of this, many of the links you follow when browsing around on the development server (to paths underneath `/docs/reference` for example) will fail to resolve because their content files are are checked into a different repository &mdash; most likely https://github.com/pulumi/docs. When we build the Pulumi website, we merge this module along with any others into a single build artifact, but when you're working within an individual module like this one, you may find you're unable to reach certain pages or verify the links you may want to make to them.
 
-If you want to link to a page that exists on https://pulumi.com but not in this repository, use the page's **relative path** in a Markdown or HTML link. For example, to link to the [Digital Ocean Droplet](https://www.pulumi.com/docs/reference/pkg/digitalocean/droplet/) page (a page that doesn't exist in this repository, but that would exist in an integration build), you'd use the Markdown
+If you want to link to a page that exists on https://pulumi.com but not in this repository, use the page's path **starting at the root** in a Markdown or HTML link. For example, to link to the [Digital Ocean Droplet](https://www.pulumi.com/docs/reference/pkg/digitalocean/droplet/) page (a page that doesn't exist in this repository, but that would exist in an integration build), you'd use the Markdown
 
 ```markdown
 [Digital Ocean Droplet](/docs/reference/pkg/digitalocean/droplet)
