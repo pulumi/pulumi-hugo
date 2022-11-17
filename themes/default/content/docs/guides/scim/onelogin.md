@@ -20,11 +20,11 @@ Please note that some advanced SCIM features aren't supported yet. For more info
 
 The first step is to create a new OneLogin Application for Pulumi SCIM:
 
-1. From the OneLogin Administration portal, go to the **Applications** page and click the **Add App** button.
+1. From the OneLogin Administration portal, go to the **Applications** page and select the **Add App** button.
 1. Search for `SCIM Provisioner with SAML (SCIM v2 Core)` and select it.
 
 1. Enter a _Display Name_ and optionally a logo. See [Pulumi Logos](https://www.pulumi.com/brand/#logos).
-1. Click **Save**.
+1. Select **Save**.
 
 ### Configuration Settings
 
@@ -80,7 +80,7 @@ These next steps configure the Pulumi Service with details on your new OneLogin-
 
 For the first step, you need to obtain the IDP metadata document from OneLogin and then provide it to Pulumi.
 
-1. Navigate to the OneLogin Application you created above and click the **More Actions** drop down menu button and select _SAML Metadata_ to download the metadata XML file.
+1. Navigate to the OneLogin Application you created above and select the **More Actions** drop down menu button and select _SAML Metadata_ to download the metadata XML file.
 1. Open the file and copy the entire block of XML text in your clipboard.
 1. Open the Pulumi Service and navigate to organization for which you are enabling SAML/SCIM.
 1. Select the **Settings** tab, and then select **Access Management**.
