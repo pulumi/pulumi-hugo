@@ -18,8 +18,8 @@ This guide will show you how to enable SSA support and use these features to man
 ## Prerequisites
 
 Server-Side Apply support requires `patch` permission on the Kubernetes cluster for all operations, including previews.
-Previews will not modify the state of your cluster, but use the `dry-run` mode of the `patch` operation to compute a
-preview diff. See the [upstream Kubernetes docs](https://kubernetes.io/docs/reference/using-api/api-concepts/#dry-run-authorization) for additional information about this requirement.
+Previews will use the `dry-run` mode of the `patch` operation to compute a preview diff, and not modify the 
+state of your cluster. See the [upstream Kubernetes docs](https://kubernetes.io/docs/reference/using-api/api-concepts/#dry-run-authorization) for additional information about this requirement.
 
 ## Enable Server-Side Apply
 
