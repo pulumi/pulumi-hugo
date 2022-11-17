@@ -83,7 +83,8 @@ For the first step, you need to obtain the IDP metadata document from OneLogin a
 1. Navigate to the OneLogin Application you created above and click the **More Actions** drop down menu button and select _SAML Metadata_ to download the metadata XML file.
 1. Open the file and copy the entire block of XML text in your clipboard.
 1. Open the Pulumi Service and navigate to organization for which you are enabling SAML/SCIM.
-1. Select the **Access management** view, and then select **Change requirements**.
+1. Select the **Settings** tab, and then select **Access Management**.
+1. In the **Membership Requirements** section, select the **Change requirements** button.
 1. Select **SAML SSO** and then select **Next**.
 1. Paste the IDP metadata XML into the bottom card titled **SAML SSO Settings**
 1. Select **Apply changes** at the bottom of the card.
