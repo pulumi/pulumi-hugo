@@ -14,7 +14,7 @@ meta_image: /images/challenge/challenge_cta.png
   <div class="w-full md:w-1/2">
     <h3>Startup in a Box</h3>
     <p class="pr-12">
-      Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on your favourite cloud provider (AWS or Google Cloud) and Checkly, all using Pulumi. When you're done, we'll send you a fancy drink tumbler with a special Pulumipus on it, just for this Challenge!
+      Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on an object store and CDN from your favorite cloud provider (AWS or Google Cloud) and Checkly, all using Pulumi. When you're done, we'll send you a fancy drink tumbler with a special Pulumipus on it, just for this Challenge!
     </p>
   </div>
   <div class="w-full order-first md:order-last md:w-1/2">
@@ -562,9 +562,6 @@ You will learn how to create a new Pulumi program using our Pulumi templates, sp
 Now that we have a base GCP project configured, we need to create our first resource. In this instance, we’ll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow us to store our static website. The command ```pulumi new gcp-typescript``` produced a a file ```pulumi-challenge/index.ts```. Clear the contents of the ```index.ts``` file and add the following script to create your first resources.
 
 ```typescript
-import * as pulumi from "@pulumi/pulumi";
-import * as gcp from "@pulumi/gcp";
-
 // Create a GCP resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("mybucket", {
     location: "EU",
@@ -587,23 +584,28 @@ Pulumi lets you use your favourite programming language to define your infrastru
 
 We can use a synced folder to manage the files of the website.
 
-We need to add the synced-folder package from npm, to easiyl upload files to the Cloud Storage Bucket.
+We need to add the `mime` package from npm, as it is useful for passing the mime type of the file to S3 without hardcoding it.
 
-```cli
-npm install @pulumi/synced-folder
+```shell
+npm install mime @types/mime
 ```
 
 Now with the synced-folder package installed we need to update our pulumi code. Add the following to ```index.ts```
 
 ```typescript
-import * as synced_folder from "@pulumi/synced-folder";
+import * as fs from "fs";
+import * as mime from "mime";
+const staticWebsiteDirectory = "website";
 
-const config = new pulumi.Config();
-const path = config.get("path") || "./website";
-// Use a synced folder to manage the files of the website.
-const syncedFolder = new synced_folder.GoogleCloudFolder("synced-folder", {
-    path: path,
-    bucketName: bucket.name,
+fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
+    const filePath = `${staticWebsiteDirectory}/${file}`;
+
+    new gcp.storage.BucketObject(file, {
+        name: file,
+        bucket: this.bucket.id,
+        source: new pulumi.asset.FileAsset(filePath),
+        contentType: mime.getType(filePath) || undefined,
+    });
 });
 ```
 
@@ -773,13 +775,16 @@ We can build our own reusable components. Let’s refactor what we have above in
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
-import * as synced_folder from "@pulumi/synced-folder";
+import * as fs from "fs";
+import * as mime from "mime";
 
 export class CdnWebsite extends pulumi.ComponentResource {
     private bucket: gcp.storage.Bucket;
     private backendBucket: gcp.compute.BackendBucket;
     private ip: gcp.compute.GlobalAddress;
     private httpForwardingRule: gcp.compute.GlobalForwardingRule;
+    private staticWebsiteDirectory: string = "./website";
+
 
     constructor(name: string, args: any, opts?: pulumi.ComponentResourceOptions) {
         super("pulumi:challenge:CdnWebsite", name, args, opts);
@@ -800,9 +805,15 @@ export class CdnWebsite extends pulumi.ComponentResource {
         const config = new pulumi.Config();
         const path = config.get("path") || "./website";
 
-        const syncedFolder = new synced_folder.GoogleCloudFolder("synced-folder", {
-            path: path,
-            bucketName: this.bucket.name,
+        fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
+            const filePath = `${staticWebsiteDirectory}/${file}`;
+
+            new gcp.storage.BucketObject(file, {
+                name: file,
+                bucket: this.bucket.id,
+                source: new pulumi.asset.FileAsset(filePath),
+                contentType: mime.getType(filePath) || undefined,
+            });
         });
 
         // Google Cloud Load Balancer Backend
