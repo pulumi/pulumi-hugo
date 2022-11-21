@@ -1,5 +1,5 @@
 ---
-title: Pulumi API
+title: Pulumi API | Self-Hosting Pulumi
 menu:
     userguides:
         parent: self_hosted_components

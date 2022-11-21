@@ -1,5 +1,5 @@
 ---
-title: Google Workspace
+title: Configuring Google Workspace | SAML SSO
 meta_desc: This page provides a walkthrough important aspects of configuring
            Google Workspace as a SAML SSO identity provider (IDP).
 menu:

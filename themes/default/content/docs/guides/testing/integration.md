@@ -1,5 +1,5 @@
 ---
-title: Integration Testing
+title: Integration Testing of Pulumi Programs
 meta_desc: "Guide to integration testing of Pulumi programs with ephemeral environments."
 weight: 3
 

@@ -1,5 +1,5 @@
 ---
-title: Update the Worker Nodes
+title: Updating Kubernetes Worker Nodes | Crosswalk
 meta_desc: This page provides a guide on how to update Kubernetes Worker Nodes
            with Pulumi.
 menu:

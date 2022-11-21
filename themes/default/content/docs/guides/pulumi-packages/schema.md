@@ -1,5 +1,5 @@
 ---
-title: Schema
+title: Schema Overview | Pulumi Packages
 meta_desc: This page describes the schema for a Pulumi Package, describing the resources, functions and types
            that define a Pulumi Package.
 menu:

@@ -1,5 +1,5 @@
 ---
-title: Codefresh
+title: Using Codefresh | CI/CD
 meta_desc: This page will walk you through setting up Codefresh CI/CD with a Pulumi program.
 menu:
     userguides:

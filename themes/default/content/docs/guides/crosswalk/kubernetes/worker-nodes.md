@@ -1,5 +1,5 @@
 ---
-title: Create the Worker Nodes
+title: Creating Kubernetes Worker Nodes | Crosswalk
 meta_desc: This page provides a guide on how to create Kubernetes Worker Nodes
            with Pulumi.
 no_on_this_page: true

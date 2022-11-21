@@ -1,5 +1,5 @@
 ---
-title: Okta
+title: Configuring Okta | SAML SSO
 meta_desc: This page provides a walkthrough important aspects of configuring
            Okta as a SAML SSO identity provider (IdP).
 menu:

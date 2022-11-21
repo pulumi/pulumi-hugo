@@ -1,5 +1,5 @@
 ---
-title: Configuring SCIM in Okta
+title: Configuring Okta | SCIM
 meta_desc: This page describes how to support SCIM 2.0 functionality between Pulumi and Okta.
 menu:
     userguides:

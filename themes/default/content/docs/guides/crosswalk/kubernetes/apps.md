@@ -1,5 +1,5 @@
 ---
-title: Deploy Kubernetes Apps
+title: Deploying Kubernetes Apps | Crosswalk
 meta_desc: This page gives you an overview on how to deploy Kubernetes applications to different cloud providers.
 menu:
   userguides:

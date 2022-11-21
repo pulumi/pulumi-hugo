@@ -1,5 +1,5 @@
 ---
-title: "AWS Auto Scaling"
+title: "Configuring AWS Auto Scaling | Crosswalk"
 meta_desc: Pulumi Crosswalk for AWS allows you to easily to define Auto Scaling Groups (ASGs) to configure scaling of EC2
            instances.
 linktitle: Auto Scaling

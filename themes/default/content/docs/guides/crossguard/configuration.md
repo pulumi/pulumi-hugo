@@ -1,5 +1,5 @@
 ---
-title: Configurable Policy Packs
+title: Configurable Policy Packs | CrossGuard
 meta_desc: Configuration allows you to write flexible policies that can be reused across you organization.
 linktitle: Configuration
 weight: 3

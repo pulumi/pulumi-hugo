@@ -1,5 +1,5 @@
 ---
-title: Pulumi Kubernetes Operator
+title: Using Pulumi Kubernetes Operator | CI/CD
 meta_desc: This page details how to use the Pulumi Kubernetes Operator to manage deploying
            stacks based on commits in git, Kubernetes objects, or Flux sources.
 menu:

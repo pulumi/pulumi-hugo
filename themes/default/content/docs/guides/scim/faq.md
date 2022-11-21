@@ -1,5 +1,5 @@
 ---
-title: SCIM FAQ
+title: Frequently Asked Questions (FAQ) | SCIM
 meta_desc: This page describes how to resolve issues that may occur when configuring SCIM provisioning
 menu:
     userguides:

@@ -1,5 +1,5 @@
 ---
-title: "Pulumi CLI"
+title: "Pulumi CLI Overview"
 meta_desc: An overview of the Pulumi CLI and common commands used to deploy cloud applications.
 menu:
   reference:

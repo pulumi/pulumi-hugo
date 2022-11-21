@@ -1,5 +1,5 @@
 ---
-title: "Environment Variables"
+title: "Environment Variables | Pulumi CLI"
 meta_desc: A list of different environment variables the Pulumi CLI supports.
 ---
 

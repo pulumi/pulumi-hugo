@@ -1,5 +1,5 @@
 ---
-title: "Spinnaker"
+title: "Using Spinnaker | CI/CD"
 meta_desc: "This page provides an overview of how to use Pulumi Plugin for Spinnaker to run Pulumi apps."
 
 menu:

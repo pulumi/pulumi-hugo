@@ -1,5 +1,5 @@
 ---
-title: Pulumi GitHub Actions
+title: Using Pulumi GitHub Actions | CI/CD
 meta_desc: Pulumi's Github Actions help you deploy apps and infrastructure to your cloud of
            choice, using nothing but code in your favorite language and GitHub.
 menu:

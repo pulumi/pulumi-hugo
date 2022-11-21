@@ -1,5 +1,5 @@
 ---
-title: SAML Single Sign-on (SSO)
+title: SAML Single Sign-On (SSO) Guides
 meta_desc:
   This page provides an overview of how to configure any SAML 2.0 identity provider
   with the Pulumi Service.

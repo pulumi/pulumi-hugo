@@ -1,5 +1,5 @@
 ---
-title: "AWS Elastic Container Service (ECS)"
+title: "Using AWS Elastic Container Service (ECS) | Crosswalk"
 meta_desc: Pulumi Crosswalk for AWS ECS simplifies deploying containerized applications into ECS and managing all of the
             associated resources.
 linktitle: Elastic Container Service (ECS)

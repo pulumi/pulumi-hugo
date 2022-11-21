@@ -1,5 +1,5 @@
 ---
-title: OneLogin
+title: Configuring OneLogin | SAML SSO
 meta_desc: This page provides a walkthrough important aspects of configuring
   OneLogin as a SAML SSO identity provider (IdP).
 menu:

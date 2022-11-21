@@ -1,5 +1,5 @@
 ---
-title: CrossGuard Frequently Asked Questions
+title: Frequently Asked Questions (FAQs) | CrossGuard
 meta_desc: This page contains Frequently Asked Questions about Pulumi CrossGuard and Policy Packs.
 linktitle: Frequently Asked Questions
 weight: 5

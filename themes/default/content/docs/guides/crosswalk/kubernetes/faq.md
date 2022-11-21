@@ -1,5 +1,5 @@
 ---
-title: Kubernetes FAQ
+title: Kubernetes FAQs | Crosswalk
 meta_desc: A collection of common questions about Kubernetes usage with Pulumi.
 linktitle: FAQ
 ---

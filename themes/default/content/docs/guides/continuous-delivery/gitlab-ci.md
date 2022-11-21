@@ -1,5 +1,5 @@
 ---
-title: GitLab CI
+title: Using GitLab CI | CI/CD
 meta_desc: This page details how to use GitLab CI to manage deploying staging and
            production stacks based on commits to specific Git branches.
 menu:

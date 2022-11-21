@@ -1,5 +1,5 @@
 ---
-title: "JetBrains TeamCity"
+title: "Using JetBrains TeamCity | CI/CD"
 meta_desc: "This page provides an overview of how to use Pulumi with JetBrains TeamCity."
 
 menu:
