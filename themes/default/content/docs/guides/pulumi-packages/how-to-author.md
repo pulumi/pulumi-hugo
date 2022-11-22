@@ -130,6 +130,9 @@ github://${github api host}/{organization}[/{repository}]
 
 For example the [Pulumiverse Astra](https://github.com/pulumiverse/pulumi-astra) package would specify `github://api.github.com/pulumiverse`.
 
+If you are using Github Enterprise, and your api host has hierarchical slashes that break the schema above, you can set the Github API Host via an Environment Variable.
+Pulumi will look for an environment variable named `GITHUB_HOSTNAME` and set that as the hostname. 
+
 ## Publish the documentation
 
 All package documentation on Pulumi Registry is published via the [`pulumi/registry` repository on GitHub](https://github.com/pulumi/registry). To publish your package on Pulumi Registry:
