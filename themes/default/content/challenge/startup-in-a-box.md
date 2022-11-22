@@ -584,7 +584,7 @@ Pulumi lets you use your favourite programming language to define your infrastru
 
 We can use a synced folder to manage the files of the website.
 
-We need to add the `mime` package from npm, as it is useful for passing the mime type of the file to S3 without hardcoding it.
+We need to add the `mime` package from npm, as it is useful for passing the mime type of the file to the Cloud Storage Bucket without hardcoding it.
 
 ```shell
 npm install mime @types/mime
