@@ -1,48 +1,23 @@
 ---
 title: "Amazing Performance"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
 date: 2022-12-01T07:00:00-05:00
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
-# Max length is 160 characters.
 meta_desc: "Introducing the Amazing Performance initiative, and an overview of performance tooling we've developed for Pulumi."
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
 
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - robbie-mckinstry
 
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - performance
     - platform
     - engineering
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
 ---
 
-*Amazing Performance* is an initiative we've begun to improve the throughput and latency of the Pulumi CLI, not just for power users but for as many users as possible. By the end of June 2022, we had assembled a list of high-value improvements which require a sizable investment, along with low-hanging fruit. The complete list, including the items we have yet to tackle, is contained in [a tracking issue on GitHub](https://github.com/pulumi/home/issues/1499), but this series will cover the highlights. This post describes how we've done performance tracking in the past. Toward the end, we also cover a few miscellaneous improvements.
+This is the first post in a series about performance optimizations we've made to the Pulumi CLI. Over the last six months at Pulumi, the Platform Team has been working on a project we call "Amazing Performance." Amazing Performance is a new initiative to improve the throughput and latency of the Pulumi CLI not only for power users but for everyone. By the end of June 2022, we assembled a list of issues containing both high-value improvements requiring a sizable investment and low-hanging fruit for quick wins. The full list, including the items we have yet to tackle, is contained in [a tracking issue on GitHub](https://github.com/pulumi/home/issues/1499). This blog series will cover the highlights.
 
 <!--more-->
 
-## Introduction
-
-This is the first post in a series about performance optimizations we've made to the Pulumi CI. Over the last six months at Pulumi, the Platform Team has been working on a project we call "Amazing Performance." Amazing Performance is an initiative we've begun to improve the throughput and latency of the Pulumi CLI, not just for power users but for as many users as possible. By the end of June 2022, we assembled a list of issues containing both high-value improvements requiring a sizable investment and low-hanging fruit for quick wins. The full list, including the items we have yet to tackle, is contained in [a tracking issue on GitHub](https://github.com/pulumi/home/issues/1499), but this blog series will cover the highlights.
-
-This post has two sections. First, we'll describe the tools we built previously to track performance. Secondly, we'll recap on a few small performance wins. Future posts will detail our major wins as part of the Amazing Performance initiative.
+This post has two sections. First, we'll describe the tools we built previously to track performance. Secondly, we'll recap a few small performance wins. Future posts will detail our major wins as part of the Amazing Performance initiative.
 
 ## Tools We've Already Built
 
@@ -54,15 +29,15 @@ We've built an analytics dashboard and monitoring system to let us know when per
 
 ![Performancing Monitoring Architecture](architecture.svg)
 
-**Benchmark Suite:** We've written a suite of benchmarks measuring different performance characteristics of the CLI. Each benchmark answers a simple question: "how long does the CLI take to run up when the plan has no changes?" or "how long does the CLI take to run an empty plan?" In addition to these simple questions, we also have a few benchmarks to stress test creating many resources. We've implemented these benchmarks in Go, JavaScript, TypeScript, C#, and Python. Each night, we exercise the benchmarks, capturing samples. Once execution is complete, our nightly job uploads the results to a serverless function which stores them in our data warehouse.
+**Benchmark Suite:** We've written a suite of benchmarks measuring different performance characteristics of the CLI. Each benchmark answers a simple question: "How long does the CLI take to run when the plan has no changes?" or "How long does the CLI take to run an empty plan?" In addition to these simple questions, we also have a few benchmarks to stress test creating many resources. We've implemented these benchmarks in Go, JavaScript, TypeScript, C#, and Python. Each night, we exercise the benchmarks, capturing samples. Once execution is complete, our nightly job uploads the results to a serverless function which stores them in our data warehouse.
 
 ![A snippet of our analytics dashboard](analytics-dashboard.jpg)
 
-**Warehouse Analytics:** We use Metabase query and analyze data in our data warehouse. Pulumi engineers can log into Metabase and view our performance dashboard, which charts the nightly data as a time series, where each data point is the average of that night's samples.
+**Warehouse Analytics:** We use Metabase to query and analyze data in our data warehouse. Pulumi engineers can log into Metabase and view our performance dashboard, which charts the nightly data as a time series, where each data point is the average of that night's samples.
 
 Plotting the chart as a line graph allows us to identify any performance dips visually. Sometimes the data from our nightly runs are noisy, so it can take a few nights before we can attribute a change in the runtime to a change in the code. In the absence of noise, the line graph allows us to pinpoint the day the regression was introduced so we can leaf through the pull requests merged that day. More often, there's enough noise in the data that we go through a few days of PRs to find the regression.
 
-Shortly after shipping the performance dashboard internally, we used the initial numbers we observed to establish a service-level objective (SLO). 
+Shortly after shipping the performance dashboard internally, we used the initial numbers we observed to establish a service-level objective (SLO).
 
 Each language has an SLO for each of the benchmarks implemented in that language. Our goal for the SLO is to ensure that we set a "do not breach" expectation across the Platform Core team. We want everyone on the team to know when performance slips beyond an acceptable level.
 
@@ -70,13 +45,11 @@ Each language has an SLO for each of the benchmarks implemented in that language
 
 ![Screenshot of a Slack alert from a Metabase SLO breach](metabot.jpg)
 
-Lastly, as part of Amazing Performance, we established the accuracy of these benchmarks. We compared the benchmark results we collected in the nightly job with numbers observed on our local laptops and found they were similar. Consequently, we believe our benchmarks are a good predictor of an actual developer's experience.
-
-
+Lastly, we established the accuracy of these benchmarks as part of Amazing Performance. We compared the benchmark results we collected in the nightly job with numbers observed on our local laptops and found they were similar. Consequently, we believe our benchmarks are a good predictor of an actual developer's experience.
 
 ### Tracing Support
 
-If you ever encounter a particularly sluggish Pulumi program and want to know what is taking so long, you can use [Pulumi's tracing support](https://www.pulumi.com/docs/support/troubleshooting/#tracing) to look into the details. When run with the `--tracing` flag, Pulumi will capture an [OpenTracing](https://opentracing.io/) trace of the program's execution, giving you an idea of where time is spent. We regularly trace programs large and small to see how we can shave off time. 
+If you ever encounter a particularly sluggish Pulumi program and want to know what is taking so long, you can use [Pulumi's tracing support](https://www.pulumi.com/docs/support/troubleshooting/#tracing) to look into the details. When run with the `--tracing` flag, Pulumi will capture an [OpenTracing](https://opentracing.io/) trace of the program's execution, giving you an idea of where time is spent. We regularly trace programs large and small to see how we can shave off time.
 
 Pulumi can send traces to a Zipkin server, or aggregate them to a local file and let you view them offline. If you provide an HTTP URI to the `--tracing` flag, then Pulumi assumes that URI points to a web server that accepts Zipkin-format traces, and it will send all tracing data there. If you provide a file URI instead, Pulumi spins up a local Zipkin server to which child processes send their traces. Once execution is complete, Pulumi aggregates the traces into a single local file and spins down the Zipkin server. You can run `PULUMI_DEBUG_COMMANDS=1 pulumi view-trace ./up.trace` to view the trace in an embedded web UI.
 
@@ -84,19 +57,17 @@ Pulumi can send traces to a Zipkin server, or aggregate them to a local file and
 
 Not all spans are exceptionally well-named, and there are blind spots in our traces. However, traces are typically a reliable way to subdivide the program execution, so hotspots are easily identifiable. In the future, we plan to migrate to OpenTelemetry and improve our trace coverage. (Feel free to get in touch on the [Community Slack](https://slack.pulumi.com/) if you want to help with this effort!)
 
-
-
 ## Fixing Low Hanging Fruit
 
 Some of the work we completed for Amazing Performance targeted simple, isolated changes to make the system a little snappier. The rest of this blog details two quick examples.
 
 ### Skipping a Slow Import
 
-When Pulumi executes NodeJS code, it compiles TypeScript into JavaScript using [TS-Node](https://www.npmjs.com/package/ts-node). Consequently, Pulumi bundles the TypeScript compiler into its NodeJS runtime so TS-Node can perform the compilation. 
+When Pulumi executes NodeJS code, it compiles TypeScript into JavaScript using [TS-Node](https://www.npmjs.com/package/ts-node). Consequently, Pulumi bundles the TypeScript compiler into its NodeJS runtime so TS-Node can perform the compilation.
 
-However, we noticed JavaScript programs were importing the TypeScript compiler even when unused. Users typically hit this bug in one of two ways. Some users choose to write Pulumi programs in pure JavaScript. Since they were using the NodeJS runtime, Pulumi was importing the TypeScript compiler unnecessarily. 
+However, we noticed JavaScript programs were importing the TypeScript compiler even when unused. Users typically hit this bug in one of two ways. Some users choose to write Pulumi programs in pure JavaScript. Since they were using the NodeJS runtime, Pulumi was importing the TypeScript compiler unnecessarily.
 
-Alternatively, our more experienced TypeScript users also ran up against this issue. One pattern used in CI environments or with [Automation API](https://www.pulumi.com/docs/guides/automation-api/) is to typecheck Pulumi programs in separately from execution. Some users enforce typechecking during pull requests to guarantee that all code hitting the repository's main branch is valid. Once it's typechecked, they can precompile the TypeScript into JavaScript before execution. Finally, when it comes time to execute their Pulumi program, they run the compiled JavaScript, which they know to be well-typed. The motivation for precompiling comes from using your own preprocessor. Some customers want to ditch TS-Node for compilation and prefer to use [SWC](https://swc.rs/), [ESBuild](https://esbuild.github.io/), or other options for increased performance or consistency with the rest of their codebase.
+Our more experienced TypeScript users also ran up against this issue. One pattern used in CI environments or with [Automation API](https://www.pulumi.com/docs/guides/automation-api/) is to typecheck Pulumi programs separately from execution. Some users enforce typechecking during pull requests to guarantee that all code hitting the repository's main branch is valid. Once it's typechecked, they can precompile the TypeScript into JavaScript before execution. Finally, when it comes time to execute their Pulumi program, they run the compiled JavaScript, which they know to be well-typed. The motivation for precompiling comes from using your own preprocessor. Some customers want to ditch TS-Node for compilation and prefer to use [SWC](https://swc.rs/), [ESBuild](https://esbuild.github.io/), or other options for increased performance or consistency with the rest of their codebase.
 
 In both scenarios, importing typescript when it's not used results in a 300ms slowdown. In [a small PR](https://github.com/pulumi/pulumi/pull/10214), we detect cases that don't require TypeScript and dynamically import it only when needed.
 
