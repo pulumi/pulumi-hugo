@@ -47,7 +47,9 @@ The Crosswalk for AWS libraries offer components that help address many of the m
 
 ## Crosswalk for AWS 1.0
 
-The 1.0 releases of the `awsx`, `eks` and `aws-apigateway` packages offer a stable and supported foundation, available in all Pulumi languages, for these rich infrastructure components.  They are available in the Pulumi Registry, and in all of the supported Pulumi package managers.
+The 1.0 releases of the [`awsx`](https://www.pulumi.com/registry/packages/awsx/), [`eks`](https://www.pulumi.com/registry/packages/eks/) and [`aws-apigateway`](https://www.pulumi.com/registry/packages/aws-apigateway/) packages offer a stable and supported foundation, available in all Pulumi languages, for these rich infrastructure components.  They are available in the Pulumi Registry, and in all of the supported Pulumi package managers.
+
+> **Note**: For TypeScript users, the `1.0.0` version of the `awsx` package contains some breaking changes from the `0.40.*` versions that were available only in TypeScript. The previously supported APIs are now available in the `@pulumi/awsx/classic` module inside the TypeScript `awsx` package. Users migrating from `0.40.*` to `1.0.*` can choose to either adapt their code and resources to the new APIs (which might require replacement or `import` of resources), or else to continue to use the `classic` submodule.
 
 A few of the most significant components and libraries available in Crosswalk for AWS 1.0 are highlighted in the examples below, all available as part of Pulumi's [Architecture Templates](https://www.pulumi.com/templates/).
 
@@ -93,6 +95,7 @@ const image = new awsx.ecr.Image("image", {
 // Deploy an ECS Service on Fargate to host the application container
 const service = new awsx.ecs.FargateService("service", {
     cluster: cluster.arn,
+    assignPublicIp: true,
     taskDefinitionArgs: {
         container: {
             image: image.imageUri,
@@ -144,6 +147,7 @@ image = awsx.ecr.Image(
 service = awsx.ecs.FargateService(
     "service",
     cluster=cluster.arn,
+    assign_public_ip=True,
     task_definition_args=awsx.ecs.FargateServiceTaskDefinitionArgs(
         container=awsx.ecs.TaskDefinitionContainerDefinitionArgs(
             image=image.image_uri,
@@ -224,6 +228,7 @@ func main() {
 		// Deploy an ECS Service on Fargate to host the application container
 		_, err = ecsx.NewFargateService(ctx, "service", &ecsx.FargateServiceArgs{
 			Cluster: cluster.Arn,
+            AssignPublicIp: pulumi.Bool(true),
 			TaskDefinitionArgs: &ecsx.FargateServiceTaskDefinitionArgs{
 				Container: &ecsx.TaskDefinitionContainerDefinitionArgs{
 					Image:     image.ImageUri,
@@ -281,6 +286,7 @@ return await Deployment.RunAsync(() =>
     var service = new Awsx.Ecs.FargateService("service", new()
     {
         Cluster = cluster.Arn,
+        AssignPublicIp = true,
         TaskDefinitionArgs = new Awsx.Ecs.Inputs.FargateServiceTaskDefinitionArgs
         {
             Container = new Awsx.Ecs.Inputs.TaskDefinitionContainerDefinitionArgs
@@ -317,15 +323,12 @@ name: aws-container
 description: Containers on AWS
 runtime: yaml
 
-configuration:
+config:
   containerPort:
-    type: Number
     default: 80
   cpu:
-    type: Number
     default: 512
   memory:
-    type: Number
     default: 128
 
 resources:
@@ -335,21 +338,15 @@ resources:
   # An ALB to serve the container endpoint to the internet
   loadbalancer:
     type: awsx:lb:ApplicationLoadBalancer
-    options:
-      version: 1.0.0-beta.10
   # An ECR repository to store our application's container image
   repo:
     type: awsx:ecr:Repository
-    options:
-      version: 1.0.0-beta.10
   # Build and publish our application's container image from ./app to the ECR repository
   image:
     type: awsx:ecr:Image
     properties:
       repositoryUrl: ${repo.url}
       path: ./app
-    options:
-      version: 1.0.0-beta.10
   # Deploy an ECS Service on Fargate to host the application container
   service:
     type: awsx:ecs:FargateService
@@ -364,8 +361,6 @@ resources:
           portMappings:
           - containerPort: ${containerPort}
             targetGroup: ${loadbalancer.defaultTargetGroup}
-    options:
-      version: 1.0.0-beta.10
 
 outputs:
   # The URL at which the container's HTTP endpoint will be available
@@ -630,21 +625,16 @@ return await Deployment.RunAsync(() =>
 name: aws-kubernetes-cluster
 description: Kubernetes Cluster on AWS
 runtime: yaml
-configuration:
+config:
   minClusterSize:
-    type: Number
     default: 3
   maxClusterSize:
-    type: Number
     default: 6
   desiredClusterSize:
-    type: Number
     default: 3
   eksNodeInstanceType:
-    type: String
     default: t2.medium
   vpcNetworkCidr:
-    type: String
     default: 10.0.0.0/16
 resources:
   # Create a VPC for the EKS cluster
@@ -920,12 +910,6 @@ return await Deployment.RunAsync(() =>
 name: aws-serverless
 description: Serverless on AWS
 runtime: yaml
-template:
-  description: A Pulumi YAML program to deploy a serverless application on AWS
-  config:
-    aws:region:
-      description: The AWS region to deploy into
-      default: us-west-2
 
 resources:
   # An execution role to use for the Lambda function
