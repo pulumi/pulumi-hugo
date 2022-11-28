@@ -43,7 +43,7 @@ Pulumi provides access to 100 providers (and counting!) for working with a wide 
 
 One of our guiding lights for Pulumi has always been to help organizations to scale up the complexity, capability, and richness of what they can build in the cloud, and in specific on the AWS platform.  AWS offers an enormous number of powerful building block services, and organizations can stitch those building blocks together in countless ways to accomplish their needs.  Pulumi brings a variety of software engineering tools to bear to help with this - rich programming languages, IDE productivity, testing, policy, and fast iteration.  But none is more important than Pulumi’s focus on enabling the creation of [reusable infrastructure components](https://www.pulumi.com/docs/intro/concepts/resources/components/) - higher level components that provide their own API interface built from the powerful building blocks of the underlying cloud resources.
 
-The Crosswalk for AWS libraries offer components that help address many of the most common use cases we’ve seen AWS users need to tackle - configuring the many components of their VPC network setup, running containers on Amazon ECS and Fargate, configuring a fully featured and production ready Amazon EKS Cluster, and setting up the infrastructure and functions needed as part of a Serverless architecture.  All with just a few lines of code that offers AWS best practices out of the box, while offering the ability to scale up into the full features of the AWS platform.
+The Crosswalk for AWS libraries offer components that help address many of the most common use cases we’ve seen AWS users need to tackle - configuring the many components of their VPC network setup, running containers on Amazon ECS and Fargate, configuring a fully featured and production ready Amazon EKS Cluster, and setting up the infrastructure and functions needed as part of a serverless architecture.  All with just a few lines of code that offers AWS best practices out of the box, while offering the ability to scale up into the full features of the AWS platform.
 
 ## Crosswalk for AWS 1.0
 
@@ -61,7 +61,7 @@ Amazon Elastic Container Service (ECS) provides foundational services for runnin
 
 The AWSX 1.0 package provides components that make it incredibly easy to take a container, or even just a folder with a `Dockerfile`, and run it in a production-ready environment in AWS.  And unlike some bespoke solutions for container deployment, with AWSX, configuring networking, load-balancing, secrets, managed databases, or anything else needed is just a few lines of code away.
 
-Our recently released [Container Service on AWS](https://www.pulumi.com/templates/container-service/aws/) template provides a great starting point for leveraging the AWSX 1.0 support for ECS, Fargate, ECR and ALB.,
+Our recently released [Container Service on AWS](https://www.pulumi.com/templates/container-service/aws/) template provides a great starting point for leveraging the AWSX 1.0 support for ECS, Fargate, ECR and ALB.
 
 {{< chooser language "typescript,python,go,csharp,yaml" >}}
 
@@ -377,7 +377,7 @@ outputs:
 
 Amazon Elastic Kubernetes Service (EKS) offers a managed Kubernetes service for standing up a best practices Kubernetes cluster within AWS.
 
-The EKS 1.0 package offers support for configuring the many building blocks needed to configure a complete EKS cluster, across both AWS resoruces as well as in-cluster Kubernetes resources using Pulumi's narive `kubernetes` provider.  With `eks.Cluster`, `eks.NodeGroup`, `eks.NodeGroupV2` and `eks.ManagedNodeGroup` this package makes it easy to configure a cluster using any of the compute options available in AWS in just a few lines of code.
+The EKS 1.0 package offers support for configuring the many building blocks needed to configure a complete EKS cluster, across both AWS resources as well as in-cluster Kubernetes resources using Pulumi's native `kubernetes` provider.  With `eks.Cluster`, `eks.NodeGroup`, `eks.NodeGroupV2` and `eks.ManagedNodeGroup` this package makes it easy to configure a cluster using any of the compute options available in AWS in just a few lines of code.
 
 Our recently released [Kubernetes Cluster on AWS](https://www.pulumi.com/templates/kubernetes/aws/) template provides a great starting point for leveraging the `eks` 1.0 support for EKS, taking advantage of default support for private networking and EC2-based compute.
 
@@ -677,7 +677,7 @@ outputs:
 
 <img align="right" width="440" src="serverless.png">
 
-AWS Lambda and the serverless architectures it enables provider native support for event based compute triggered off of a wide variety of events from within the AWS platform. Coupled with services like AWS API Gateway, this offers eimple ways to serve HTTP-based APIs and muc, much more.
+AWS Lambda and the serverless architectures it enables provide native support for event based compute triggered off of a wide variety of events from within the AWS platform. Coupled with services like AWS API Gateway, this offers simple ways to serve HTTP-based APIs and much, much more.
 
 Pulumi's built in support for AWS Lambda functions and the new `aws-apigateway` 1.0 package make it simple to compose these services to build serverless applications and services on AWS in just a few lines of code.
 
