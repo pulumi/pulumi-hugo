@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: "From Zero to Production in Kubernetes"
-meta_desc: "Join David Flanagan & Elijah Zupancic and go from zero to production on Kubernetes by using Python to build abstractions that make getting to production easier."
+meta_desc: "Join Pulumi & NGINX and go from zero to production on Kubernetes by using Python to build abstractions that make getting to production easier."
 
 # A featured webinar will display first in the list.
 featured: false
