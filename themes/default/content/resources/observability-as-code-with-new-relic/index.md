@@ -58,7 +58,7 @@ main:
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2023-02-14T09:00:00-08:00
     # Duration of the webinar.
-    duration: "90 minutes"
+    duration: "60 minutes"
     # Datetime of the webinar.
     datetime: ""
     # Description of the webinar.
