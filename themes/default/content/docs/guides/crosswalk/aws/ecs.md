@@ -940,6 +940,8 @@ outputs:
   url: ${lb.loadBalancer.dnsName}
 ```
 
+{{% /choosable %}}
+
 For more information about using ECR, refer to [Pulumi Crosswalk for AWS ECR](/docs/guides/crosswalk/aws/ecr/).
 
 ## Additional ECS Resources
