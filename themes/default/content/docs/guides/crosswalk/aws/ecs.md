@@ -320,29 +320,42 @@ To create an ECS service inside of a VPC, we will first create or use an existin
 described in [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc/). Then we pass the subnets
 from that VPC into the network configuration argument for our cluster:
 
-{{< chooser language "typescript,python,csharp" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-const vpc = new awsx.ec2.Vpc("vpc");
-const securityGroup = new aws.ec2.SecurityGroup("secgrp", {
+const vpc = new awsx.ec2.Vpc("vpc", {});
+const securityGroup = new aws.ec2.SecurityGroup("securityGroup", {
     vpcId: vpc.vpcId,
-    // Add ingress and egress rules as required
+    egress: [{
+        fromPort: 0,
+        toPort: 0,
+        protocol: "-1",
+        cidrBlocks: ["0.0.0.0/0"],
+        ipv6CidrBlocks: ["::/0"],
+    }],
 });
-
-const cluster = new aws.ecs.Cluster("custom", { vpc });
-
-const nginx = new awsx.ecs.FargateService("nginx", {
+const cluster = new aws.ecs.Cluster("cluster", {});
+const service = new awsx.ecs.FargateService("service", {
+    cluster: cluster.arn,
     networkConfiguration: {
         subnets: vpc.privateSubnetIds,
         securityGroups: [securityGroup.id],
     },
-    cluster,
-    // ... as before ...
+    desiredCount: 2,
+    taskDefinitionArgs: {
+        container: {
+            image: "nginx:latest",
+            cpu: 512,
+            memory: 128,
+            essential: true,
+        },
+    },
 });
 ```
 
@@ -356,17 +369,101 @@ import pulumi_aws as aws
 import pulumi_awsx as awsx
 
 vpc = awsx.ec2.Vpc("vpc")
-securityGroup = aws.ec2.SecurityGroup("secgrp", vpc_id=vpc.vpc_id)
-cluster = aws.ecs.Cluster("default-cluster")
-
-service = awsx.ecs.FargateService("my-service",
+security_group = aws.ec2.SecurityGroup("securityGroup",
+    vpc_id=vpc.vpc_id,
+    egress=[aws.ec2.SecurityGroupEgressArgs(
+        from_port=0,
+        to_port=0,
+        protocol="-1",
+        cidr_blocks=["0.0.0.0/0"],
+        ipv6_cidr_blocks=["::/0"],
+    )])
+cluster = aws.ecs.Cluster("cluster")
+service = awsx.ecs.FargateService("service",
     cluster=cluster.arn,
     network_configuration=aws.ecs.ServiceNetworkConfigurationArgs(
         subnets=vpc.private_subnet_ids,
-        security_groups=[securityGroup.id]
+        security_groups=[security_group.id]
     ),
-    # ... as before ...
+    desired_count=2,
+    task_definition_args=awsx.ecs.FargateServiceTaskDefinitionArgs(
+        container=awsx.ecs.TaskDefinitionContainerDefinitionArgs(
+            image="nginx:latest",
+            cpu=512,
+            memory=128,
+            essential=True,
+        ),
+    ))
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
+	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ecs"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		vpc, err := ec2.NewVpc(ctx, "vpc", nil)
+		if err != nil {
+			return err
+		}
+		securityGroup, err := ec2.NewSecurityGroup(ctx, "securityGroup", &ec2.SecurityGroupArgs{
+			VpcId: vpc.VpcId,
+			Egress: ec2.SecurityGroupEgressArray{
+				&ec2.SecurityGroupEgressArgs{
+					FromPort: pulumi.Int(0),
+					ToPort:   pulumi.Int(0),
+					Protocol: pulumi.String("-1"),
+					CidrBlocks: pulumi.StringArray{
+						pulumi.String("0.0.0.0/0"),
+					},
+					Ipv6CidrBlocks: pulumi.StringArray{
+						pulumi.String("::/0"),
+					},
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
+		cluster, err := ecs.NewCluster(ctx, "cluster", nil)
+		if err != nil {
+			return err
+		}
+		_, err = ecs.NewFargateService(ctx, "service", &ecs.FargateServiceArgs{
+			Cluster: cluster.Arn,
+			NetworkConfiguration: &ecs.ServiceNetworkConfigurationArgs{
+				Subnets: vpc.PrivateSubnetIds,
+				SecurityGroups: pulumi.StringArray{
+					securityGroup.ID(),
+				},
+			},
+			DesiredCount: pulumi.Int(2),
+			TaskDefinitionArgs: &ecs.FargateServiceTaskDefinitionArgs{
+				Container: &ecs.TaskDefinitionContainerDefinitionArgs{
+					Image:     pulumi.String("nginx:latest"),
+					Cpu:       pulumi.Int(512),
+					Memory:    pulumi.Int(128),
+					Essential: pulumi.Bool(true),
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}
 ```
 
 {{% /choosable %}}
@@ -375,43 +472,156 @@ service = awsx.ecs.FargateService("my-service",
 
 ```csharp
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Pulumi;
 using Aws = Pulumi.Aws;
-using Ecs = Pulumi.Awsx.Ecs;
+using Awsx = Pulumi.Awsx;
 
-class MyStack : Stack
+return await Deployment.RunAsync(() =>
 {
-    public MyStack()
+    var vpc = new Awsx.Ec2.Vpc("vpc");
+
+    var securityGroup = new Aws.Ec2.SecurityGroup("securityGroup", new()
     {
-        var vpc = new Awsx.Ec2.Vpc("vpc");
-        var cluster = new Aws.Ecs.Cluster("default-cluster");
-
-        var securityGroup = new Aws.Ec2.SecurityGroup("secgrp", new Aws.Ec2.SecurityGroupArgs
+        VpcId = vpc.VpcId,
+        Egress = new[]
         {
-            VpcId = vpc.VpcId,
-        });
-
-        var service = new Awsx.Ecs.FargateService("my-service", new Awsx.Ecs.FargateServiceArgs
-        {
-            NetworkConfiguration = new Aws.Ecs.Inputs.ServiceNetworkConfigurationArgs
+            new Aws.Ec2.Inputs.SecurityGroupEgressArgs
             {
-                Subnets = vpc.PrivateSubnetIds,
-                SecurityGroups =
+                FromPort = 0,
+                ToPort = 0,
+                Protocol = "-1",
+                CidrBlocks = new[]
                 {
-                    securityGroup.Id,
+                    "0.0.0.0/0",
+                },
+                Ipv6CidrBlocks = new[]
+                {
+                    "::/0",
                 },
             },
-            Cluster = cluster.Arn,
-            // ... as before ...
-        });
+        },
+    });
+
+    var cluster = new Aws.Ecs.Cluster("cluster");
+
+    var service = new Awsx.Ecs.FargateService("service", new()
+    {
+        Cluster = cluster.Arn,
+        NetworkConfiguration = new Aws.Ecs.Inputs.ServiceNetworkConfigurationArgs
+        {
+            Subnets = vpc.PrivateSubnetIds,
+            SecurityGroups = new[]
+            {
+                securityGroup.Id,
+            },
+        },
+        DesiredCount = 2,
+        TaskDefinitionArgs = new Awsx.Ecs.Inputs.FargateServiceTaskDefinitionArgs
+        {
+            Container = new Awsx.Ecs.Inputs.TaskDefinitionContainerDefinitionArgs
+            {
+                Image = "nginx:latest",
+                Cpu = 512,
+                Memory = 128,
+                Essential = true,
+            },
+        },
+    });
+
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.aws.ecs.Cluster;
+import com.pulumi.awsx.lb.ApplicationLoadBalancer;
+import com.pulumi.awsx.ecs.FargateService;
+import com.pulumi.awsx.ecs.FargateServiceArgs;
+import com.pulumi.awsx.ecs.inputs.FargateServiceTaskDefinitionArgs;
+import com.pulumi.awsx.ecs.inputs.TaskDefinitionContainerDefinitionArgs;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var cluster = new Cluster("cluster");
+
+        var lb = new ApplicationLoadBalancer("lb");
+
+        var service = new FargateService("service", FargateServiceArgs.builder()
+            .cluster(cluster.arn())
+            .assignPublicIp(true)
+            .desiredCount(2)
+            .taskDefinitionArgs(FargateServiceTaskDefinitionArgs.builder()
+                .container(TaskDefinitionContainerDefinitionArgs.builder()
+                    .image("nginx:latest")
+                    .cpu(512)
+                    .memory(128)
+                    .essential(true)
+                    .portMappings(TaskDefinitionPortMappingArgs.builder()
+                        .targetGroup(lb.defaultTargetGroup())
+                        .build())
+                    .build())
+                .build())
+            .build());
+
+        ctx.export("url", lb.loadBalancer().applyValue(loadBalancer -> loadBalancer.dnsName()));
     }
 }
+```
 
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  vpc:
+    type: awsx:ec2:Vpc
+  securityGroup:
+    type: aws:ec2:SecurityGroup
+    properties:
+      vpcId: ${vpc.vpcId}
+      egress:
+        - fromPort: 0
+          toPort: 0
+          protocol: -1
+          cidrBlocks:
+            - 0.0.0.0/0
+          ipv6CidrBlocks:
+            - "::/0"
+  cluster:
+    type: aws:ecs:Cluster
+  service:
+    type: awsx:ecs:FargateService
+    properties:
+      cluster: ${cluster.arn}
+      networkConfiguration:
+        subnets: ${vpc.privateSubnetIds}
+        securityGroups:
+          - ${securityGroup.id}
+      desiredCount: 2
+      taskDefinitionArgs:
+        container:
+          image: nginx:latest
+          cpu: 512
+          memory: 128
+          essential: true
 ```
 
 {{% /choosable %}}
