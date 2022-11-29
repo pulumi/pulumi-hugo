@@ -1,5 +1,5 @@
 ---
-title: Building a Data Warehouse with Pulumi and Amazon Redshift
+title: Deploying a Data Warehouse with Pulumi and Amazon Redshift
 date: 2022-11-29
 meta_desc: In this post, you'll use Pulumi to deploy an Amazon Redshift cluster into a VPC and learn how to load data into the cluster from Amazon S3.
 meta_image: meta.png
@@ -11,17 +11,17 @@ tags:
     - data-warehouse
 ---
 
-There's so much data swirling around in the global datasphere today --- [hundreds of zettabytes](https://en.wikipedia.org/wiki/Zettabyte_Era), depending on how you look at it --- that it's kind of hard to get your head around just how much data we're talking about.
+It's fun to think about how much data there is swirling around in the global datasphere these days. However you choose to measure it (and there are various ways), it's a quantity so massive --- [hundreds of zettabytes](https://en.wikipedia.org/wiki/Zettabyte_Era), by some estimates --- that it's kind of a hard thing to quite get your head around.
 
-If you could convert, for example, all the world's digital data into droplets of water, at one megabyte per drop, you'd have enough individual drops to fill two more [Lake Washingtons](https://en.wikipedia.org/wiki/Lake_Washington). If you could store all that data on [3.5" floppies](https://en.wikipedia.org/wiki/Floppy_disk#3%C2%BD-inch_disk), you'd need more than a hundred quadrillion floppies to store everything --- enough to cover this planet entirely (with plenty of overlap) or to pave a nice bridge from your front porch into interstellar space. If you could pull all that data all into a single HD movie, and you sat down to start watching that movie a couple of million years ago with your favorite saber-toothed friend, you'd both still be watching the same movie today.
+If you could convert all the world's data into droplets of water, for instance, at one megabyte per drop, you'd have enough 1MB drops to fill two more [Lake Washingtons](https://en.wikipedia.org/wiki/Lake_Washington). If you could store all that data on [3.5" floppies](https://en.wikipedia.org/wiki/Floppy_disk#3%C2%BD-inch_disk), you'd need more than a hundred quadrillion floppies to capture it all --- enough to cover the planet entirely (with much room for overlap) or to pave a nice bridge for yourself from your front porch well into interstellar space. If you could pull all that data into an HD movie, and you sat down to start watching that movie 2.5 million years ago (with your favorite saber-toothed friend, say), you'd still be watching the same movie today.
 
-That's a lot of data ... and there's more every day.
+That's a lot of data --- and there's more every day.
 
-Of course, the volume of data _you_ care about is probably more modest. But even so, there's a good chance whatever system you're building can and will produce useful data, and there's an equally good chance you'll want to learn something from it. That data will likely exist in many forms and in multiple places --- flat file here, transactional database there, the REST API of some third-party service --- so before you can really _look_ at it, you'll need to figure out how to get it all into one place. And for that, you'll probably want to consider using a [data warehouse](https://en.wikipedia.org/wiki/Data_warehouse).
+Of course, the volume of data _you_ care about is probably a lot more modest. But even so, there's a good chance whatever system you're building can and will produce useful data of its own, and there's an equally good chance you'll want to learn something from it. That data will likely exist in many forms and in multiple places --- flat file here, transactional database there, the REST API of some third-party service --- so before you can really _look_ at it, you'll need to figure out how to get it all into one place. And for that, you might want to consider a [data warehouse](https://en.wikipedia.org/wiki/Data_warehouse).
 
-A data warehouse is a specialized database that's purpose built for gathering and analyzing data. Unlike general-purpose databases like MySQL or PostgreSQL, which are designed to meet the real-time performance and transactional needs of applications, a data warehouse is designed to collect and process the data produced by those applications, collectively and over time, in order to help you gain insight from it. Examples of data-warehouse services include [Snowflake](https://www.snowflake.com/en/data-cloud/workloads/data-warehouse/), [Google BigQuery](https://cloud.google.com/bigquery/), [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics), and [Amazon Redshift](https://aws.amazon.com/redshift/) --- all of which, as it happens, you can manage with Pulumi.
+A data warehouse is a specialized database that's purpose built for gathering and analyzing data. Unlike general-purpose databases like MySQL or PostgreSQL, which are designed to meet the real-time performance and transactional needs of applications, a data warehouse is designed to collect and process the data produced by those applications, collectively and over time, to help you gain insight from it. Examples of data-warehouse products include [Snowflake](https://www.snowflake.com/en/data-cloud/workloads/data-warehouse/), [Google BigQuery](https://cloud.google.com/bigquery/), [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics), and [Amazon Redshift](https://aws.amazon.com/redshift/) --- all of which, incidentally, are easily managed with Pulumi.
 
-But today, we're going to focus on Amazon Redshift. Specifically, we're going to walk through the process of writing a Pulumi program that provisions a single-node Redshift [cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in an [Amazon VPC](https://aws.amazon.com/vpc/), then we'll load some sample data into the warehouse from Amazon S3. We'll load this data manually at first, just to get a sense of how everything works, and then later, in a follow-up post, we'll go a step further and weave in some automation to load the data on a schedule.
+Today, though, we're going to focus on Amazon Redshift. Specifically, we're going to walk through the process of writing a Pulumi program that provisions a single-node Redshift [cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in an [Amazon VPC](https://aws.amazon.com/vpc/), then we'll load some sample data into the warehouse from Amazon S3. We'll load this data manually at first, just to get a sense of how everything works when it's all wired up, and then later, in a follow-up post, we'll go a step further and weave in some automation to load the data on a schedule.
 
 Let's get going!
 
@@ -195,6 +195,8 @@ Now, on to the cluster itself.
 
 The plan, you'll recall, is to pull data from an S3 bucket into Redshift (using the Redshift service itself, for now), so you'll need to give Redshift the appropriate permissions to read from Amazon S3. You can do that with an IAM role and [AWS-managed policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-amazons3readonlyaccess) granting Redshift read-only access to the S3 service:
 
+{{< chooser language "typescript,python" />}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -251,6 +253,8 @@ redshift_role = iam.Role("redshift-role", iam.RoleArgs(
 
 That takes care of the permissions part --- but there's one last thing you'll need to do to make this work. Because the cluster will reside in a private subnet, and that subnet won't have access to the public internet, you'll need to give the cluster a way to communicate with S3 without having to leave the VPC network. You can do this by adding a [VPC gateway endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html):
 
+{{< chooser language "typescript,python" />}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -280,6 +284,8 @@ vpc_endpoint = ec2.VpcEndpoint("s3-vpc-endpoint", ec2.VpcEndpointArgs(
 {{% /choosable %}}
 
 Finally, add the cluster itself, using everything you've defined up to now --- config settings, network settings, IAM role, and the VPC's default security group, which enables traffic to and from the cluster on all ports and subnet IPs. Finish things off by exporting the name of the S3 bucket and Redshift ARN, as you'll need both in order to post and then import the S3 data (both will be [auto-named](/docs/intro/concepts/resources/names/#autonaming)):
+
+{{< chooser language "typescript,python" />}}
 
 {{% choosable language typescript %}}
 
@@ -392,7 +398,7 @@ Now let's load some data!
 
 ## Getting data into Redshift
 
-In a real-world situation, you'd probably already have some data to load --- web server logs, for example, or some other sort of raw or unstructured data residing in an S3 bucket, a DynamoDB table, an RDS database, etc. But we're starting from scratch, so we'll create that data manually.
+In a real-world situation, you'd probably already have some data to load --- web server logs, for example, or some other sort of raw or unstructured data residing in an S3 bucket, a DynamoDB table, an RDS database, etc. But we're starting from scratch, so we'll create and publish that data manually.
 
 Copy and paste the following command to generate a text file containing a few lines of JSON, each representing a fictitious event to be loaded into the data warehouse:
 
@@ -402,7 +408,7 @@ $ echo '{"id": 1, "name": "An interesting event"}
 {"id": 3, "name": "An event of monumental importance"}' > events-1.txt
 ```
 
-Notice there aren't any commas between these events, so it's not actually a valid JSON _file_ -- it's just a text file containing some individually valid JSON events, one event per line.
+Notice there aren't any commas between these events, so it's not actually a valid JSON _file_ -- it's just a text file containing some individually valid JSON events, one event per line. Adhering to this format allows Redshift to ingest and map the data to table we create next [using one of its built-in parsers](https://docs.aws.amazon.com/redshift/latest/dg/copy-parameters-data-format.html#copy-json-jsonpaths).
 
 Upload the file to S3 with the AWS CLI, using Pulumi to supply the name of the destination bucket:
 
@@ -410,7 +416,7 @@ Upload the file to S3 with the AWS CLI, using Pulumi to supply the name of the d
 $ aws s3 cp events-1.txt "s3://$(pulumi stack output dataBucketName)"
 ```
 
-At this point, you have all you need in terms of infrastructure: You've got a single-node Redshift cluster, an empty Redshift database, some unstructured S3 data, and the right set of permissions and network settings to allow the cluster to import the data. All that's left is to run a couple of SQL queries to make that happen: one to create a new table for the data, another to load it.
+At this point, you have all you need in terms of infrastructure: You've got a single-node Redshift cluster, an empty Redshift database, some unstructured S3 data, and the right set of permissions and network settings to allow the cluster to reach and import the data. All that's left is to run a couple of SQL queries to make that happen: one to create a new table to hold the data, another to load it.
 
 Back in the Redshift query editor, create the new table by choosing the `dev` database, pasting the following query into the editor, and hitting **Run**:
 
