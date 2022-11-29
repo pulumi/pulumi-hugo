@@ -245,24 +245,22 @@ Afterwards, we can then pull the image from the registry by authenticating and p
 Instead of using the Docker CLI directly, Pulumi supports building, publishing, and consuming Docker images
 entirely from code. This lets you version and deploy container changes easily alongside the supporting infrastructure.
 
-The ECR repository class has a `buildAndPushImage` function that does this in one go:
+In the following example, creating an `Image` resource will build an image from the "./app" directory (relative to our project and containing Dockerfile), and publish it to our ECR repository provisioned above.
 
-{{< chooser language "typescript,python,csharp" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
-{{% choosable language typescript %}}
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as awsx from "@pulumi/awsx";
 
-// Create a repository.
-const repo = new awsx.ecr.Repository("my-repo");
-
-// Build an image from the "./app" directory (relative to our project and containing Dockerfile),
-// and publish it to our ECR repository provisioned above.
+const repository = new awsx.ecr.Repository("repository", {});
 const image = new awsx.ecr.Image("image", {
-    repositoryUrl: repo.url,
+    repositoryUrl: repository.url,
     path: "./app",
 });
+export const url = repository.url;
 ```
 
 {{% /choosable %}}
@@ -273,12 +271,42 @@ const image = new awsx.ecr.Image("image", {
 import pulumi
 import pulumi_awsx as awsx
 
-// Create a repository.
-repo = awsx.ecr.Repository("my-repo");
-
+repository = awsx.ecr.Repository("repository")
 image = awsx.ecr.Image("image",
-                       repository_url=repo.url,
-                       path="./app")
+    repository_url=repository.url,
+    path="./app")
+pulumi.export("url", repository.url)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ecr"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		repository, err := ecr.NewRepository(ctx, "repository", nil)
+		if err != nil {
+			return err
+		}
+		_, err = ecr.NewImage(ctx, "image", &ecr.ImageArgs{
+			RepositoryUrl: repository.Url,
+			Path:          pulumi.String("./app"),
+		})
+		if err != nil {
+			return err
+		}
+		ctx.Export("url", repository.Url)
+		return nil
+	})
+}
 ```
 
 {{% /choosable %}}
@@ -287,28 +315,79 @@ image = awsx.ecr.Image("image",
 
 ```csharp
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Pulumi;
-using Ecr = Pulumi.Awsx.Ecr;
+using Awsx = Pulumi.Awsx;
 
-class MyStack : Stack
+return await Deployment.RunAsync(() =>
 {
-    public MyStack()
-    {
-        var repo = new Repository("my-repo");
+    var repository = new Awsx.Ecr.Repository("repository");
 
-        var image = new Image("image", new ImageArgs
-        {
-            RepositoryUrl = repo.Url,
-            Path = "./app",
-        });
+    var image = new Awsx.Ecr.Image("image", new()
+    {
+        RepositoryUrl = repository.Url,
+        Path = "./app",
+    });
+
+    return new Dictionary<string, object?>
+    {
+        ["url"] = repository.Url,
+    };
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.awsx.ecr.Repository;
+import com.pulumi.awsx.ecr.Image;
+import com.pulumi.awsx.ecr.ImageArgs;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var repository = new Repository("repository");
+
+        var image = new Image("image", ImageArgs.builder()
+            .repositoryUrl(repository.url())
+            .path("./app")
+            .build());
+
+        ctx.export("url", repository.url());
     }
 }
+```
 
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  repository:
+    type: awsx:ecr:Repository
+  image:
+    type: awsx:ecr:Image
+    properties:
+      repositoryUrl: ${repository.url}
+      path: "./app"
+outputs:
+  url: ${repository.url}
 ```
 
 {{% /choosable %}}
