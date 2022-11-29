@@ -202,6 +202,7 @@ return await Deployment.RunAsync(() =>
 {{% /choosable %}}
 
 {{% choosable language java %}}
+
 ```java
 package generated_program;
 
@@ -534,6 +535,7 @@ return await Deployment.RunAsync(() =>
 {{% /choosable %}}
 
 {{% choosable language java %}}
+
 ```java
 package generated_program;
 
@@ -843,6 +845,7 @@ return await Deployment.RunAsync(() =>
 {{% /choosable %}}
 
 {{% choosable language java %}}
+
 ```java
 package generated_program;
 
