@@ -35,18 +35,16 @@ https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) to act
 
 To create a new ECR repository, allocate an instance of the `awsx.ecr.Repository` class:
 
-{{< chooser language "typescript,python,csharp" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
-{{% choosable language typescript %}}
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as awsx from "@pulumi/awsx";
 
-// Create a repository.
-const repo = new awsx.ecr.Repository("my-repo");
-
-// And publish its URL, so we can push to it if we'd like.
-export const url = repo.url;
+const repository = new awsx.ecr.Repository("repository", {});
+export const url = repository.url;
 ```
 
 {{% /choosable %}}
@@ -57,11 +55,32 @@ export const url = repo.url;
 import pulumi
 import pulumi_awsx as awsx
 
-# Create a repository.
-repo = awsx.ecr.Repository("my-repo");
+repository = awsx.ecr.Repository("repository")
+pulumi.export("url", repository.url)
+```
 
-# And publish its URL, so we can push to it if we'd like.
-pulumi.export("url", repo.url)
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ecr"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		repository, err := ecr.NewRepository(ctx, "repository", nil)
+		if err != nil {
+			return err
+		}
+		ctx.Export("url", repository.Url)
+		return nil
+	})
+}
 ```
 
 {{% /choosable %}}
@@ -70,24 +89,61 @@ pulumi.export("url", repo.url)
 
 ```csharp
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Pulumi;
-using Ecr = Pulumi.Awsx.Ecr;
+using Awsx = Pulumi.Awsx;
 
-class MyStack : Stack
+return await Deployment.RunAsync(() =>
 {
-    public MyStack()
+    var repository = new Awsx.Ecr.Repository("repository");
+
+    return new Dictionary<string, object?>
     {
-        var repo = new Repository("my-repo");
-        this.Url = repo.url;
-    }
-    [Output] public Output<string> Url { get; set; }
-}
+        ["url"] = repository.Url,
+    };
+});
+```
 
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.awsx.ecr.Repository;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var repository = new Repository("repository");
+
+        ctx.export("url", repository.url());
+    }
 }
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  repository:
+    type: awsx:ecr:Repository
+outputs:
+  url: ${repository.url}
 ```
 
 {{% /choosable %}}
@@ -100,12 +156,12 @@ Updating (dev):
 
      Type                           Name               Status
  +   pulumi:pulumi:Stack            crosswalk-aws-dev  created
- +   ├─ awsx:ecr:Repository         my-repo            created
- +   │  └─ aws:ecr:Repository       my-repo            created
- +   └─ aws:ecr:LifecyclePolicy     my-repo            created
+ +   ├─ awsx:ecr:Repository         repository         created
+ +   │  └─ aws:ecr:Repository       repository         created
+ +   └─ aws:ecr:LifecyclePolicy     repository         created
 
 Outputs:
-    url: "012345678901.dkr.ecr.us-west-2.amazonaws.com/my-repo-e2fe830"
+    url: "012345678901.dkr.ecr.us-west-2.amazonaws.com/repository-e2fe830"
 
 Resources:
     + 4 created
