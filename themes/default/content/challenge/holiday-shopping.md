@@ -2,10 +2,11 @@
 title: "Holiday Shopping"
 layout: challenge/single
 description: |
-    Create a simple shopping list app using AWS Fargate and MongoDB Atlas 
+    Create a simple shopping list app using AWS Fargate and MongoDB Atlas
 meta_desc: |
     Create a simple shopping list app using AWS Fargate and MongoDB Atlas
-meta_image: /images/challenge/challenge_dec_cta.png
+meta_image: /images/challenge/challenge-dec-meta.png
+banner_image: /images/challenge/challenge-dec-banner.png
 ---
 
 ## Welcome to the Pulumi Challenge!
@@ -123,7 +124,7 @@ service = awsx.ecs.FargateService(
                     host_port=8000
                 )],
             ),
-        }  
+        }
     ),
     desired_count=1
 )
