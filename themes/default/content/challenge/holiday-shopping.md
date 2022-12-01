@@ -12,7 +12,11 @@ meta_image: /images/challenge/challenge_dec_cta.png
 
 ### Holiday Shopping List
 
-The holidays are upon us and mere anarchy has been loosed upon our psyches. More specifically how do you keep track of everything you need to buy for gifts or food?!? Surely some salvation is at hand? Lucky for you, our friend, The Pulumipus, has created a simple to-do list application to bring order to your life. In this challenge, you will build this simple to-do list application that has a React frontend, Express backend, and a MongoDB database. This frontend and backend of the app run in Fargate with an Application Load Balancer (ALB) in front and the database is running in a MongoDB Atlas cluster. If you feel so inclined to thank The Pulumipus, please write a blog post or post a quick video about it. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will send you some special swag.
+The holidays are upon us and mere anarchy has been loosed upon our psyches. More specifically how do you keep track of everything you need to buy for gifts or food?!? Surely some salvation is at hand? Lucky for you, our friend, The Pulumipus, has created a simple to-do list application to bring order to your life. In this challenge, you will build this simple to-do list application that has a React frontend, Express backend, and a MongoDB database. This frontend and backend of the app run in Fargate with an Application Load Balancer (ALB) in front and the database is running in a MongoDB Atlas cluster.
+
+![alt_text](/images/challenge/architecture_mern.png "mern arch")
+
+If you feel so inclined to thank The Pulumipus, please write a blog post or post a quick video about it. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will send you some special swag.
 
 ### Prerequisites
 
@@ -254,8 +258,10 @@ service = awsx.ecs.FargateService(
 
 Run `pulumi up` and select yes to update the stack. Go to the `app url` export to validate that the endpoints of your deployed infrastructure is working. You can now add, delete, and check off items because the application is now able to connect to your newly created Atlas database.
 
+![alt_text](/images/challenge/grocery_list.png "grocery list app")
+
 #### Congratulations
 
-Congratulations!. You've completed this Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your infrastructure stack and add whatever you like! :)
+Congratulations!. You've completed this Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your infrastructure stack and add whatever you like! 🙂
 
 If you want to receive special swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
