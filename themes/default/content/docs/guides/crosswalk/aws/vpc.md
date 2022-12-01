@@ -60,18 +60,15 @@ requirements. Most resources will use this default VPC automatically if you leav
 you may be required to pass it explicitly, in which case you'll need to get it programmatically.
 
 To get the default VPC, just call the `awsx.vpc.DefaultVpc("default-vpc");` function:
+{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
-{{< chooser language "typescript,python,csharp" / >}}
-
-{{% choosable language typescript %}}
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as awsx from "@pulumi/awsx";
 
-// Fetch the default VPC information from your AWS account:
-const vpc = new awsx.ec2.DefaultVpc("default-vpc");
-
-// Export a few interesting fields to make them easy to use:
+const vpc = new awsx.ec2.DefaultVpc("vpc");
 export const vpcId = vpc.vpcId;
 export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
 export const vpcPublicSubnetIds = vpc.publicSubnetIds;
@@ -85,9 +82,36 @@ export const vpcPublicSubnetIds = vpc.publicSubnetIds;
 import pulumi
 import pulumi_awsx as awsx
 
-vpc = awsx.ec2.DefaultVpc("default-vpc")
+vpc = awsx.ec2.DefaultVpc("vpc")
+pulumi.export("vpcId", vpc.vpc_id)
+pulumi.export("vpcPrivateSubnetIds", vpc.private_subnet_ids)
+pulumi.export("vpcPublicSubnetIds", vpc.public_subnet_ids)
+```
 
-pulumi.export("vpc_id", vpc.vpc_id)
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		vpc, err := ec2.NewDefaultVpc(ctx, "vpc", nil)
+		if err != nil {
+			return err
+		}
+		ctx.Export("vpcId", vpc.VpcId)
+		ctx.Export("vpcPrivateSubnetIds", vpc.PrivateSubnetIds)
+		ctx.Export("vpcPublicSubnetIds", vpc.PublicSubnetIds)
+		return nil
+	})
+}
 ```
 
 {{% /choosable %}}
@@ -96,24 +120,67 @@ pulumi.export("vpc_id", vpc.vpc_id)
 
 ```csharp
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Pulumi;
-using Ec2 = Pulumi.Awsx.Ec2;
+using Awsx = Pulumi.Awsx;
 
-class MyStack : Stack
+return await Deployment.RunAsync(() =>
 {
-    public MyStack()
+    var vpc = new Awsx.Ec2.DefaultVpc("vpc");
+
+    return new Dictionary<string, object?>
     {
-        var vpc = new DefaultVpc("default-vpc");
-        this.VpcId = vpc.vpcId;
-    }
-    [Output] public Output<string> VpcId { get; set; }
-}
+        ["vpcId"] = vpc.VpcId,
+        ["vpcPrivateSubnetIds"] = vpc.PrivateSubnetIds,
+        ["vpcPublicSubnetIds"] = vpc.PublicSubnetIds,
+    };
+});
+```
 
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.awsx.ec2.DefaultVpc;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var vpc = new DefaultVpc("vpc");
+
+        ctx.export("vpcId", vpc.vpcId());
+        ctx.export("vpcPrivateSubnetIds", vpc.privateSubnetIds());
+        ctx.export("vpcPublicSubnetIds", vpc.publicSubnetIds());
+    }
 }
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  vpc:
+    type: awsx:ec2:DefaultVpc
+outputs:
+  vpcId: ${vpc.vpcId}
+  vpcPrivateSubnetIds: ${vpc.privateSubnetIds}
+  vpcPublicSubnetIds: ${vpc.publicSubnetIds}
 ```
 
 {{% /choosable %}}
@@ -126,7 +193,7 @@ Updating (dev):
 
      Type                     Name                  Status
  +   pulumi:pulumi:Stack      crosswalk-aws-dev     created
- +   └─ awsx:ec2:DefaultVpc   default-vpc           created
+ +   └─ awsx:ec2:DefaultVpc   vpc                   created
 
 Outputs:
     publicSubnetIds : [
