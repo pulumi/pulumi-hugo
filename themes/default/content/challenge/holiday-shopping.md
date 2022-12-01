@@ -5,44 +5,27 @@ description: |
     Create a simple shopping list app using AWS Fargate and MongoDB Atlas 
 meta_desc: |
     Create a simple shopping list app using AWS Fargate and MongoDB Atlas
-meta_image: /images/challenge/challenge_cta.png
+meta_image: /images/challenge/challenge_dec_cta.png
 ---
 
 ## Welcome to the Pulumi Challenge!
 
-<div class="flex flex-wrap md:mt-12">
-  <div>
-    <h3>Holiday Shopping List</h3>
-    <p class="pr-12">
-      The holidays are upon us and mere anarchy has been loosed upon our psyche. More specifically how do you keep track of everything you need to buy for gifts or food?!? Surely some salvation is at hand? Lucky for you, our friend, The Pulumipus, has created a simple to-do list application to bring order to your life. In this challenge, you will build this simple to-do list application that has a React frontend, Express backend, and a MongoDB database. This frontend and backend of the app run in Fargate with an Application Load Balancer (ALB) in front and the database is running in a MongoDB Atlas cluster. When you're done, we'll send you a fancy piece of swag, just for this Challenge! If you feel so inclined to thank The Pulumipus, please write a blog post or post a quick video about it. Tag us on social media or email us at <a href=mailto:da@pulumi.com>da@pulumi.com</a>, and we will send you the special swag.
-    </p>
-    <h3>Prerequisites</h3>
-    <p>In order to complete this challenge, you'll need a couple things set up in advance.</p>
-    <ul>
-      <li>
-        A <a href="https://app.pulumi.com/signup" target="_blank" rel="noopener noreferrer">Pulumi account</a>
-      </li>
-      <li>
-        The <a href="/docs/get-started/install/" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
-      </li>
-      <li>
-          <a href="https://www.python.org/downloads/">Python 3.9 or higher</a>
-      </li>
-      <li>
-        An <a href="https://portal.aws.amazon.com/" target="_blank" rel="noopener noreferrer">AWS account</a>
-      </li>
-      <li>
-        The <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">AWS CLI</a>
-      </li>
-      <li>
-        A <a href="https://www.mongodb.com/cloud/atlas/signup" target="_blank" rel="noopener noreferrer">MongoDB Cloud account</a>
-      </li>
-      <li>
-        A <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub account</a>
-      </li>
-    </ul>
-  </div>
-</div>
+### Holiday Shopping List
+
+The holidays are upon us and mere anarchy has been loosed upon our psyches. More specifically how do you keep track of everything you need to buy for gifts or food?!? Surely some salvation is at hand? Lucky for you, our friend, The Pulumipus, has created a simple to-do list application to bring order to your life. In this challenge, you will build this simple to-do list application that has a React frontend, Express backend, and a MongoDB database. This frontend and backend of the app run in Fargate with an Application Load Balancer (ALB) in front and the database is running in a MongoDB Atlas cluster. If you feel so inclined to thank The Pulumipus, please write a blog post or post a quick video about it. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will send you some special swag.
+
+### Prerequisites
+
+In order to complete this challenge, you'll need a couple things set up in advance. The entire challenge can be run on the free tiers of AWS and MongoDB Cloud.
+
+- A [Pulumi account](https://app.pulumi.com/signup)
+- The [Pulumi CLI](/docs/get-started/install/)
+- [Python 3.9 or higher](https://www.python.org/downloads/)
+- Docker
+- An [AWS account](https://portal.aws.amazon.com/)
+- The <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">AWS CLI</a>
+- A <a href="https://www.mongodb.com/cloud/atlas/signup" target="_blank" rel="noopener noreferrer">MongoDB Cloud account</a>
+- A <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub account</a>
 
 ### Challenge
 
@@ -57,7 +40,17 @@ git clone -b challenge https://github.com/aaronkao/atlas-fargate.git
 Next, initialize the stack.
 
 ```shell
+cd atlas-fargate
 pulumi stack init dev
+```
+
+You will also need to export your AWS and MongoDB Cloud credentials. To access your MongoDB Cloud credentials, go to the __Organization Access Manager__ panel and the __API Keys__ tab.
+
+```shell
+export AWS_ACCESS_KEY_ID=<YOUR_ACCESS_KEY_ID>
+export AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_ACCESS_KEY>
+export MONGODB_ATLAS_PUBLIC_KEY=<YOUR_PUBLIC_KEY>
+export MONGODB_ATLAS_PRIVATE_KEY=<YOUR_PRIVATE_KEY>
 ```
 
 #### Step 2. Provision containers on AWS Fargate
@@ -102,6 +95,7 @@ memory = config.get_int("memory", 1024)
 service = awsx.ecs.FargateService(
     "grocery-service",
     cluster=cluster.arn,
+    assign_public_ip=True,
     task_definition_args=awsx.ecs.FargateServiceTaskDefinitionArgs(
         containers={
             "front": awsx.ecs.TaskDefinitionContainerDefinitionArgs(
@@ -137,13 +131,13 @@ Run `pulumi up` and select yes to perform the update. Pulumi will output the `ap
 
 #### Step 3. Create a MongoDB Atlas database
 
-The web app stores the grocery list items inside a MongoDB database. MongoDB Atlas is a fully managed cloud database that you will be using for this application. Add the below before the code from the previous steps in `__main__.py`. This code creates a MongoDB project, sets up the network access controls, creates a Free Tier cluster in `US_WEST_2` in AWS, and a database user that is scoped to the created cluster.
+The web app stores the grocery list items inside a MongoDB database. MongoDB Atlas is a fully managed cloud database that you will be using for this application. Add the below before the code from the previous steps (above the ECR repo declaration) in `__main__.py`. This code creates a MongoDB project, sets up the network access controls, creates a Free Tier cluster in `US_WEST_2` in AWS, and a database user that is scoped to the created cluster.
 
 ```python
 # MongoDB Atlas configs
-db_username = config.get("dbUser", "test-username")
-db_password = config.get_secret_object("dbPassword", "test-password")
-atlas_org_id = config.get("orgID")
+db_username = config.require("dbUser")
+db_password = config.require_secret("dbPassword")
+atlas_org_id = config.require("orgID")
 
 # Create MongoDB Project
 mongo_project = mongodb.Project("mongo_project", org_id=atlas_org_id)
@@ -198,7 +192,7 @@ pulumi.export("mongo connection string",
 )
 ```
 
-Next, you need to set the config values for your MongoDB Cloud org, database username, and database password.
+Next, you need to set the config values for your MongoDB Cloud org, database username, and database password. The Organization ID is under the __Organization Settings__ panel in the MongoDB Cloud console. The database username and password values are self-selected and don't require you to look up anything in the MongoDB Cloud console.
 
 ```shell
 pulumi config set orgID [value]
@@ -266,4 +260,4 @@ something about swag
 
 Congratulations!. You've completed this Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your infrastructure stack and add whatever you like! :)
 
-If you want to receive additional swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
+If you want to receive special swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
