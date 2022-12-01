@@ -23,9 +23,9 @@ In order to complete this challenge, you'll need a couple things set up in advan
 - [Python 3.9 or higher](https://www.python.org/downloads/)
 - Docker
 - An [AWS account](https://portal.aws.amazon.com/)
-- The <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">AWS CLI</a>
-- A <a href="https://www.mongodb.com/cloud/atlas/signup" target="_blank" rel="noopener noreferrer">MongoDB Cloud account</a>
-- A <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub account</a>
+- The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- A [MongoDB Cloud account](https://www.mongodb.com/cloud/atlas/signup)
+- A [GitHub account](https://github.com/signup)
 
 ### Challenge
 
@@ -44,11 +44,12 @@ cd atlas-fargate
 pulumi stack init dev
 ```
 
-You will also need to export your AWS and MongoDB Cloud credentials. To access your MongoDB Cloud credentials, go to the __Organization Access Manager__ panel and the __API Keys__ tab.
+You will also need to export your AWS and MongoDB Cloud credentials and your AWS region (e.g., us-west-2). To access your MongoDB Cloud credentials, go to the __Organization Access Manager__ panel and the __API Keys__ tab.
 
 ```shell
 export AWS_ACCESS_KEY_ID=<YOUR_ACCESS_KEY_ID>
 export AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_ACCESS_KEY>
+export AWS_REGION=<YOUR_AWS_REGION>
 export MONGODB_ATLAS_PUBLIC_KEY=<YOUR_PUBLIC_KEY>
 export MONGODB_ATLAS_PRIVATE_KEY=<YOUR_PRIVATE_KEY>
 ```
@@ -127,7 +128,7 @@ service = awsx.ecs.FargateService(
 pulumi.export("app url", Output.concat("http://", lb.load_balancer.dns_name))
 ```
 
-Run `pulumi up` and select yes to perform the update. Pulumi will output the `app url`. Go to the URL, and you will be presented with Pulumipus' Grocery List web application. You can try to add some items, but nothing will happen because there is no database connected yet. You will do that in the next step.
+Run `pulumi up` and select yes to perform the update (this can take up to 10 minutes). Pulumi will output the `app url`. Go to the URL, and you will be presented with Pulumipus' Grocery List web application. You can try to add some items, but nothing will happen because there is no database connected yet. You will do that in the next step.
 
 #### Step 3. Create a MongoDB Atlas database
 
@@ -204,10 +205,11 @@ pulumi config set dbPassword [value] --secret
 
 Before you update the stack, you need to pass the URL of the database to the backend container so it can connect to it. Add the highlighted into the FargateService code.
 
-```python {.line-numbers hl_lines=["31-36"]}
+```python {.line-numbers hl_lines=["32-37"]}
 service = awsx.ecs.FargateService(
     "grocery-service",
     cluster=cluster.arn,
+    assign_public_ip=True,
     task_definition_args=awsx.ecs.FargateServiceTaskDefinitionArgs(
         containers={
             "front": awsx.ecs.TaskDefinitionContainerDefinitionArgs(
@@ -251,10 +253,6 @@ service = awsx.ecs.FargateService(
 #### Step 5. Validate endpoints
 
 Run `pulumi up` and select yes to update the stack. Go to the `app url` export to validate that the endpoints of your deployed infrastructure is working. You can now add, delete, and check off items because the application is now able to connect to your newly created Atlas database.
-
-#### Step 6. Add Swag provider
-
-something about swag
 
 #### Congratulations
 
