@@ -133,7 +133,7 @@ service = awsx.ecs.FargateService(
 pulumi.export("app_url", Output.concat("http://", lb.load_balancer.dns_name))
 ```
 
-Run `pulumi up` and select yes to perform the update (this can take up to 10 minutes). Pulumi will output the `app_url`. Go to the URL, and you will be presented with Pulumipus' Grocery List web application. You can try to add some items, but nothing will happen because there is no database connected yet. You will do that in the next step.
+Run `pulumi up` and select yes to perform the update (this can take up to 10 minutes). Pulumi will output the `app_url`. Go to the URL, and you will be presented with the Pulumipus' Grocery List web application. You can try to add some items, but nothing will happen because there is no database connected yet. You will do that in the next step.
 
 #### Step 3. Create a MongoDB Atlas database
 
