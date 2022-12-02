@@ -130,7 +130,7 @@ service = awsx.ecs.FargateService(
 )
 
 # AWS export
-pulumi.export("app url", Output.concat("http://", lb.load_balancer.dns_name))
+pulumi.export("app_url", Output.concat("http://", lb.load_balancer.dns_name))
 ```
 
 Run `pulumi up` and select yes to perform the update (this can take up to 10 minutes). Pulumi will output the `app url`. Go to the URL, and you will be presented with Pulumipus' Grocery List web application. You can try to add some items, but nothing will happen because there is no database connected yet. You will do that in the next step.
@@ -246,11 +246,11 @@ service = awsx.ecs.FargateService(
 
 Run `pulumi up` and select yes to update the stack. Go to the `app url` export to validate that the endpoints of your deployed infrastructure is working. You can now add, delete, and check off items because the application is now able to connect to your newly created Atlas database.
 
-![alt_text](/images/challenge/grocery_list.png "grocery list app")
+![A screenshot of the grocery list app](/images/challenge/grocery_list.png)
 
 ### Congratulations
 
-Congratulations!. You've completed this Pulumi Challenge. If you want to receive special swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
+Congratulations! You've completed this Pulumi Challenge. If you want to receive special swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
 
 #### What you have learned
 
