@@ -15,9 +15,9 @@ banner_image: /images/challenge/challenge-dec-banner.png
 
 The holidays are upon us and mere anarchy has been loosed upon our psyches. More specifically how do you keep track of everything you need to buy for gifts or food?!? Surely some salvation is at hand? Lucky for you, our friend, The Pulumipus, has created a simple to-do list application to bring order to your life. In this challenge, you will build this simple to-do list application that has a React frontend, Express backend, and a MongoDB database. This frontend and backend of the app run in Fargate with an Application Load Balancer (ALB) in front and the database is running in a MongoDB Atlas cluster.
 
-![alt_text](/images/challenge/architecture_mern.png "mern arch")
+![An architecture diagram showing an AWS application load balancer, Fargate service, and MongoDB Atlas database](/images/challenge/architecture_mern.png)
 
-If you feel so inclined to thank The Pulumipus, please write a blog post or post a quick video about it. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will send you some special swag.
+After completing this challenge and if you feel so inclined to thank The Pulumipus, please write a blog post or post a quick video about it. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will send you some special swag.
 
 ### Prerequisites
 
@@ -26,7 +26,7 @@ In order to complete this challenge, you'll need a couple things set up in advan
 - A [Pulumi account](https://app.pulumi.com/signup)
 - The [Pulumi CLI](/docs/get-started/install/)
 - [Python 3.9 or higher](https://www.python.org/downloads/)
-- Docker
+- [Docker](https://docs.docker.com/get-docker/)
 - An [AWS account](https://portal.aws.amazon.com/)
 - The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - A [MongoDB Cloud account](https://www.mongodb.com/cloud/atlas/signup)
@@ -49,7 +49,7 @@ cd atlas-fargate
 pulumi stack init dev
 ```
 
-You will also need to export your AWS and MongoDB Cloud credentials and your AWS region (e.g., us-west-2). To access your MongoDB Cloud credentials, go to the __Organization Access Manager__ panel and the __API Keys__ tab.
+You will also need to export your AWS and MongoDB Cloud credentials and your AWS region (e.g., us-west-2). To access your MongoDB Cloud credentials, go to the __Organization Access Manager__ panel and the __API Keys__ tab. If you don't have any API keys, please click Create API Key and select _Organization Project Creator_ under Organization Permissions.
 
 ```shell
 export AWS_ACCESS_KEY_ID=<YOUR_ACCESS_KEY_ID>
