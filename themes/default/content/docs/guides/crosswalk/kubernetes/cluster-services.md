@@ -96,7 +96,7 @@ navigate to the logs in your region, and look for the following group.
 The cluster name can be retrieved from the [cluster stack][crosswalk-control-plane] output.
 
 ```bash
-$ pulumi stack output clusterName
+$ pulumi stack output cluster_name
 ```
 
 ### Worker Nodes and Pods
@@ -168,7 +168,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwat
 Create a ConfigMap.
 
 ```bash
-$ kubectl create configmap cluster-info --from-literal=cluster.name=`pulumi stack output clusterName` --from-literal=logs.region=`pulumi stack output region` -n amazon-cloudwatch
+$ kubectl create configmap cluster-info --from-literal=cluster.name=`pulumi stack output cluster_name` --from-literal=logs.region=`pulumi stack output region` -n amazon-cloudwatch
 ```
 
 Deploy the DaemonSet.
@@ -195,7 +195,7 @@ navigating to the logs in your region, and looking for the following groups.
 The cluster name can be retrieved from the [cluster stack][crosswalk-control-plane] output.
 
 ```bash
-$ pulumi stack output clusterName
+$ pulumi stack output cluster_name
 ```
 
 Clean Up.
@@ -489,7 +489,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwat
 Create a ConfigMap.
 
 ```bash
-$ curl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/master/k8s-yaml-templates/cwagent-kubernetes-monitoring/cwagent-configmap.yaml | sed -e "s#{{cluster_name}}#`pulumi stack output clusterName`#g" | kubectl apply -f -
+$ curl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/master/k8s-yaml-templates/cwagent-kubernetes-monitoring/cwagent-configmap.yaml | sed -e "s#{{cluster_name}}#`pulumi stack output cluster_name`#g" | kubectl apply -f -
 ```
 
 Deploy the DaemonSet.
@@ -514,7 +514,7 @@ navigating to Logs in your region, and looking for the following group.
 The cluster name can be retrieved from the [cluster stack][crosswalk-control-plane] output.
 
 ```bash
-$ pulumi stack output clusterName
+$ pulumi stack output cluster_name
 ```
 
 You can also examine the stats in the [CloudWatch console][aws-cw-console] by
