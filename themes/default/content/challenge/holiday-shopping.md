@@ -254,7 +254,7 @@ Congratulations! You've completed this Pulumi Challenge. If you want to receive 
 
 #### What you have learned
 
-In this challenge, you have learned how to deploy a containerized application on AWS Fargate that can store and retrieve data from a MongoDB Atlas database with traffic coming through an Application Load Balancer.
+In this challenge, you have learned how to build a web application as a container image and push it to Amazon Elastic Container Registry. You also learned how to deploy the containerized application on AWS Fargate with traffic load balanced through an Application Load Balancer. Lastly, you learned how to create a MongoDB Atlas cluster and database for your web application to store and retrieve data.
 
 #### Clean up
 
