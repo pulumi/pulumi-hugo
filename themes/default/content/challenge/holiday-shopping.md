@@ -9,9 +9,9 @@ meta_image: /images/challenge/challenge-dec-meta.png
 banner_image: /images/challenge/challenge-dec-banner.png
 ---
 
-## Welcome to the Pulumi Challenge!
+## Welcome to the Holiday Shopping Challenge!
 
-### Holiday Shopping List
+### What you will learn
 
 The holidays are upon us and mere anarchy has been loosed upon our psyches. More specifically how do you keep track of everything you need to buy for gifts or food?!? Surely some salvation is at hand? Lucky for you, our friend, The Pulumipus, has created a simple to-do list application to bring order to your life. In this challenge, you will build this simple to-do list application that has a React frontend, Express backend, and a MongoDB database. This frontend and backend of the app run in Fargate with an Application Load Balancer (ALB) in front and the database is running in a MongoDB Atlas cluster.
 
@@ -21,7 +21,7 @@ After completing this challenge and if you feel so inclined to thank The Pulumip
 
 ### Prerequisites
 
-In order to complete this challenge, you'll need a couple things set up in advance. The entire challenge can be run on the free tiers of AWS and MongoDB Cloud.
+In order to complete this challenge, you'll need a couple things set up in advance. The challenge utilizes the MongoDB Cloud free tier and incurs a small charge for using AWS Fargate.
 
 - A [Pulumi account](https://app.pulumi.com/signup)
 - The [Pulumi CLI](/docs/get-started/install/)
@@ -190,12 +190,6 @@ mongo_user = mongodb.DatabaseUser("db_user",
     ],
     username=db_username
 )
-
-# MongoDB Atlas export
-pulumi.export("mongo connection string",
-    Output.format("mongodb+srv://{0}:{1}@{2}", db_username, db_password,
-        Output.all(mongo_cluster.srv_address).apply(lambda v: v[0].split("//"))[1])
-)
 ```
 
 Next, you need to set the config values for your MongoDB Cloud org, database username, and database password. The Organization ID is under the __Organization Settings__ panel in the MongoDB Cloud console. The database username and password values are self-selected and don't require you to look up anything in the MongoDB Cloud console.
@@ -210,7 +204,7 @@ pulumi config set dbPassword [value] --secret
 
 Before you update the stack, you need to pass the URL of the database to the backend container so it can connect to it. Add the highlighted into the FargateService code.
 
-```python {.line-numbers hl_lines=["32-37"]}
+```python {.line-numbers hl_lines=["26-30"]}
 service = awsx.ecs.FargateService(
     "grocery-service",
     cluster=cluster.arn,
@@ -226,12 +220,6 @@ service = awsx.ecs.FargateService(
                     container_port=container_port,
                     target_group=lb.default_target_group,
                 )],
-                environment=[{
-                    # Unused unless running dev server
-                    "name":"VITE_BACKEND_URL",
-                    "value":"http://localhost:8000"
-                },
-                ],
             ),
             "back": awsx.ecs.TaskDefinitionContainerDefinitionArgs(
                 image=backend_image.image_uri,
@@ -246,8 +234,7 @@ service = awsx.ecs.FargateService(
                     "name":"DATABASE_URL",
                     "value":Output.format("mongodb+srv://{0}:{1}@{2}", db_username, db_password,
                                 Output.all(mongo_cluster.srv_address).apply(lambda v: v[0].split("//"))[1])
-                },
-                ],
+                }],
             ),
         }
     ),
@@ -261,8 +248,14 @@ Run `pulumi up` and select yes to update the stack. Go to the `app url` export t
 
 ![alt_text](/images/challenge/grocery_list.png "grocery list app")
 
-#### Congratulations
+### Congratulations
 
-Congratulations!. You've completed this Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy -y`. Otherwise, have fun playing around with your infrastructure stack and add whatever you like! 🙂
+Congratulations!. You've completed this Pulumi Challenge. If you want to receive special swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
 
-If you want to receive special swag for completing the challenge (and to thank The Pulumipus), write a blog or post a quick video about it, and then tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com).
+#### What you have learned
+
+In this challenge, you have learned how to deploy a containerized application on AWS Fargate that can store and retrieve data from a MongoDB Atlas database with traffic coming through an Application Load Balancer.
+
+#### Clean up
+
+If you'd like to tear down all of these resources and delete your stack, run `pulumi destroy -rf --remove`. Otherwise, have fun playing around with your infrastructure stack and add whatever you like! 🙂
