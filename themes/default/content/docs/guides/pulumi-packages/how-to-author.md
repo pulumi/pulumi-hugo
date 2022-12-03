@@ -48,7 +48,7 @@ See the instructions in your new repository's `README.md` file for specific inst
 
 ## Write documentation
 
-We recommend authoring documentation to help others in the Pulumi community use your package. In your repository, there should be a `docs/` folder with a few template pages you can use that correspond to the various tabs on a package page in Pulumi Registry (like the [AWS Native](/registry/packages/aws-native/) package. Use the guidance in the following sections to author content in these pages.
+We recommend authoring documentation to help others in the Pulumi community use your package. In your repository, there should be a `docs/` folder with a few template pages you can use that correspond to the various tabs on a package page in Pulumi Registry (like the [AWS Native](/registry/packages/aws-native/) package). Use the guidance in the following sections to author content in these pages.
 
 ### Overview, installation, & configuration
 
