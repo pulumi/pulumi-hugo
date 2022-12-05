@@ -2,7 +2,7 @@
 title: Kat Cosgrove
 id: kat-cosgrove
 first_name: Kat
-meta_desc: Kat Cosgrove is a member of the Developer Advocacy team at Pulumi.
+meta_desc: Kat Cosgrove was a member of the Developer Advocacy team at Pulumi.
 layout: developer-advocates/single
 aliases:
   - /kat
@@ -32,6 +32,8 @@ form:
 giveaway:
     hubspot_form_id: b447c33b-a495-4f7e-859e-d93666a691bf
 ---
+
+_Note: Kat has moved on to another company! We'll see her at various events around the world._
 
 Kat Cosgrove is a Developer Advocate, a CNCF Ambassador, and an actual cyborg. Her professional background has run the gamut from bartender, to video store clerk, to teacher, to software developer. She credits this wide-ranging experience for her success as a speaker, developer, and advocate. Her specialty is approachable 101-level content for junior developers or anyone else who considers themselves a newbie, with a particular focus on DevOps.
 

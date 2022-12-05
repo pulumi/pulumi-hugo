@@ -2,7 +2,7 @@
 title: David Flanagan
 id: david-flanagan
 first_name: David
-meta_desc: David Flanagan is a member of the Developer Advocacy team at Pulumi.
+meta_desc: David Flanagan was a member of the Developer Advocacy team at Pulumi.
 layout: developer-advocates/single
 aliases:
   - /david
@@ -22,6 +22,8 @@ form:
 giveaway:
     hubspot_form_id: 3013a1cb-0c4b-4a9c-93c9-56cfe56516ba
 ---
+
+_Note: David has moved on to another company! We'll see him at various events around the world._
 
 David is a Staff Developer Advocate at Pulumi, a CNCF Ambassador, a Kubernetes contributor and host of the official Kubernetes Office Hours, YouTuber at the Rawkode Academy, and a beloved husband and father to his wife, two amazing kids, and a plethora of animals which include a dog, five chinchillas, a degu, and a ferret called Zelda.
 

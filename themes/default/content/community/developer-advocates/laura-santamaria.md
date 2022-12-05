@@ -2,7 +2,7 @@
 title: Laura Santamaria
 id: laura-santamaria
 first_name: Laura
-meta_desc: Laura Santamaria is a member of the Developer Advocacy team at Pulumi.
+meta_desc: Laura Santamaria was a member of the Developer Advocacy team at Pulumi.
 layout: developer-advocates/single
 aliases:
   - /laura
@@ -48,6 +48,8 @@ form:
 giveaway:
     hubspot_form_id: def7a2d4-6f77-4027-8654-ce10958be85a
 ---
+
+*Note: Laura has moved on to another company! We'll see her at various events around the world.*
 
 As a Developer Advocate at Pulumi, Laura Santamaria loves to learn and explain how things work, bridging the gaps in engineering disciplines. She is the curator for [A Minute on the Mic](https://aminuteonthemic.com), a cohost for [The Hallway Track](https://thehallwaytrack.fireside.fm/) podcast, and the host of [Quick Bites of Cloud Engineering](https://pulumip.us/quick-bites) on PulumiTV. In the past, she’s worked in many roles, including as a software developer, an ops specialist building and running platforms, a CTO, a technical writer, an editor, a science educator, and a literacy and education researcher. In all of these roles, she spent time building, maintaining, and observing communities of practice. That experience with communities, coupled with both a love of science and data from her degree work in earth and atmospheric sciences and a love of education, led her to developer advocacy (someone even said that they “didn’t know they made jobs tailored to people like you”).
 
