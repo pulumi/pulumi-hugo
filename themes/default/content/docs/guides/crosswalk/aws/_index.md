@@ -9,9 +9,17 @@ menu:
 
 aliases: ["/docs/reference/crosswalk/aws/"]
 ---
-
 <a href="./">
     <img src="/images/docs/reference/crosswalk/aws/logo.svg" align="right" width="280" style="margin: 0 0 32px 16px;">
+                    <!-- <div class="rounded-xl shadow-2xl relative h-0 overflow-hidden" style="padding-bottom: 50.25%;">
+                    <iframe
+                        src="//www.youtube.com/embed/gi9ZoZwzHAM"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+                        allowfullscreen=""
+                        title="Crosswalk for AWS Overview"
+                        srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img{position:absolute;width:100%;top:0;bottom:0;margin:auto}</style><a href=https://www.youtube.com/embed/gi9ZoZwzHAM?autoplay=1><img src='/images/docs/reference/crosswalk/aws/arch.png' alt='Introduction to Pulumi Crosswalk for AWS'></a>"
+                    ></iframe>
+                </div> -->
 </a>
 
 Pulumi Crosswalk for AWS is a collection of libraries that use automatic well-architected best practices to make common infrastructure-as-code tasks in AWS easier and more secure.
@@ -177,6 +185,12 @@ class Program
 {{% /choosable %}}
 
 This example uses the default VPC and reasonable security defaults, but supports easy customization of all aspects.
+
+## Code Example Deep Dive
+
+Watch this video to dive into an Amazon ECS and Fargate code example that conceptually illustrates the benefits of using Crosswalk libraries versus authoring code from scratch with the [AWS classic provider](/registry/packages/aws/).
+
+<iframe width=100% height="543" src="https://www.youtube.com/embed/gi9ZoZwzHAM" title="Crosswalk for AWS 1.0: Modern Infrastructure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Getting Started
 
