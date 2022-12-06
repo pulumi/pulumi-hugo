@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Architecture Templates"
-date: 2022-11-17
+title: "Using Kubernetes Arch Templates with Poetry and Python"
+date: 2022-12-07
 meta_desc: Set up a Google Kubernetes Engine cluster for a web application with archtecture templates, all with Python and Poetry.
 meta_image: meta.png
 authors:
@@ -31,7 +31,9 @@ For our system that we'll build today, we're going to have a cluster running on 
 
 ## Start with templates
 
-We're going to build our entire architecture starting with two templates: Our GKE template and our Helm app template.
+We're going to build our entire architecture starting with two templates: Our GKE template and our Helm app template. [Learn more about our new architecture templates.](/blog/intro-architecture-templates)
+
+This will be a bit different than our usual workflow. Generally, we here at Pulumi prefer to stand up different stacks for each type of infrastructure (so one project with one or more stacks for the Kubernetes cluster and then one project with one or more stacks for the web application). However, in this case, let's explore together what happens if we're want to have it all go up together as one project and stack while keeping the code in different files.
 
 First, create a new directory to hold all of our project files, and add `app` and `infra` directories inside this root directory.
 
@@ -41,41 +43,49 @@ $ mkdir app
 $ mkdir infra
 ```
 
-In the `infra` directory, we'll add the GKE template:
+In the `infra` directory, we'll add [the GKE template](/templates/kubernetes/gcp) first. We're [using the `--generate-only` flag](/docs/reference/cli/pulumi_new#options) to avoid creating the default virtual environment and the various extra stack information since we're using Poetry and will be running everything from the root directory later:
 
 ```bash
 $ cd infra
-$ pulumi new kubernetes-gcp-python
+$ pulumi new kubernetes-gcp-python --generate-only
 ```
 
-In the `app` directory, we'll add the web app template:
+Accept all of the standard default values, except give your Google Cloud project name here instead of the default.
+
+In the `app` directory, we'll add the [web app template](/templates/kubernetes-application/web-application):
 
 ```bash
 $ cd ../app
-$ pulumi new webapp-kubernetes-python
+$ pulumi new webapp-kubernetes-python --generate-only
 ```
 
-When it asks you for a project name in the `app` directory, give it the name `app-mi-k8s`.
+When it asks you for a project name in the `app` directory, give it the name `app-mi-k8s`. Otherwise, accept all of the default values (using your Google Cloud details).
 
 And now, the real fun begins!
 
 ## Putting it all together
 
-We're going to use [Poetry](https://python-poetry.org/docs/) instead of the default virtual environment. In the root of the project, let's initialize a Poetry project. We'll need to define all of the dependencies from the application and infrastructure requirements:
+We're going to use [Poetry](https://python-poetry.org/docs/) instead of the default virtual environment as we're going to be working in a number of different directories that all need the same virtual environment and dependencies. In the root of the project, let's initialize a Poetry project. We'll need to define all of the dependencies from the application and infrastructure requirements:
 
 ```bash
 $ cd ../ # if you need to go back to your project root
 $ poetry init
 # In the dynamic generation of dependencies, add pulumi, pulumi-gcp, and pulumi-kubernetes.
+# Otherwise, fill in the other pieces as you would normally.
 ```
 
-Now, we can pull the metadata and config files for Pulumi in:
+Then install the dependencies:
+
+```bash
+$ poetry install
+```
+
+Now, we can pull the metadata file for Pulumi in:
 
 ```bash
 $ touch Pulumi.yaml
 $ cat infra/Pulumi.yaml > Pulumi.yaml
 $ touch Pulumi.dev.yaml
-$ cat infra/Pulumi.dev.yaml app/Pulumi.dev.yaml > Pulumi.dev.yaml
 ```
 
 And do a quick cleanup of the `Pulumi.dev.yaml` file:
@@ -100,11 +110,11 @@ We'll need to modify the `Pulumi.yaml` file to remove the virtual environment:
 
 ```yaml {.line-numbers}
 name: k8s-combo-infra
-description: A Python program to deploy a Kubernetes cluster on Google Cloud
+description: A Python program to deploy a Kubernetes cluster and application on Google Cloud
 runtime: python
 ```
 
-And now we can set up our new `__main__.py` file!
+And now we can set up our new `__main__.py` file! Create a new `__main__.py` file in the root of the repo, and add this code:
 
 {{< code-filename file="<root>/__main__.py" >}}
 
@@ -256,11 +266,12 @@ def create_app(kubeconfig_val):
 Now that all our changes have been made, let's try running it! We'll need to append `poetry run` to the commands, unless you choose to switch to the Poetry shell ahead of time:
 
 ```bash
+$ poetry run pulumi stack init dev
 $ poetry run pulumi stack select dev
 $ poetry run pulumi up
 ```
 
-And voila!
+And up they all go! Note that this takes a while, so don't panic!
 
 {{< code-filename file="output" >}}
 
@@ -360,7 +371,7 @@ $ poetry run pulumi destroy -y
 If you run into an issue where the cluster gets deleted before the various app resources (the namespace, the service, etc.) get removed, you may get an error that you can't finish destroying the stack. Because the cluster is already gone, the Kubernetes provider can't access it to update the status of the various app resources. So you'll need to remove those resources from your state file as they were removed with the deletion of the cluster:
 
 ```bash
-$ poetry run pulumi state delete urn:pulumi:dev::app-mi-k8s::kubernetes:core/v1:Namespace::webserver --target-dependents
+$ poetry run pulumi state delete urn:pulumi:dev::k8s-combo-infra::kubernetes:core/v1:Namespace::webserver --target-dependents
 ```
 
 Then, refresh and destroy the rest of the resources, including the outputs:
