@@ -45,7 +45,7 @@ Let’s review how bulk stack transfers can be used and when you would use them.
 
 ### Transferring one stack
 
-To transfer a specific stack, you can navigate to that stack and then go to Settings > Transfer Stack. To transfer a stack, you need to be either the Stack Admin or an Organization Admin. For organizations on the Pulumi Enterprise or Business Critical Editions, an audit log will be produced each time a stack is transferred and it contains which organization the stack was transferred to.
+To transfer a specific stack, you can navigate to that stack and then go to Settings > Transfer Stack. To transfer a stack, you need to be either the Stack Admin or an Organization Admin. For organizations on the Pulumi Enterprise or Business Critical Editions, an audit log will be produced each time a stack is transferred and it records which organization the stack was transferred to.
 
 ![Transfer stack](transfer_stack.png)
 
