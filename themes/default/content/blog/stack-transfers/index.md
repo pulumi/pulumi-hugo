@@ -51,7 +51,7 @@ To transfer a specific stack, you can navigate to that stack and then go to Sett
 
 ### Transferring multiple stacks
 
-To transfer multiple stacks, you can navigate to the Stacks page and then click the `...` icon beside the ‘Create a Project’ button in a collaborative organization and the `Transfer stacks` button in an Individual account. In order to transfer multiple stacks you need to be an Organization Admin. For organizations on the Pulumi Enterprise or Business Critical Editions, an audit log will be produced each time a stack is transferred and it contains which organization the stack was transferred to.
+To transfer multiple stacks, you can navigate to the Stacks page and then click the `...` icon beside the ‘Create a Project’ button in a collaborative organization and the `Transfer stacks` button in an Individual account. In order to transfer multiple stacks you need to be an Organization Admin. For organizations on the Pulumi Enterprise or Business Critical Editions, an audit log will be produced each time a stack is transferred and it records which organization the stack was transferred to.
 
 ![Bulk stack transfer](bulk_transfer.png)
 
