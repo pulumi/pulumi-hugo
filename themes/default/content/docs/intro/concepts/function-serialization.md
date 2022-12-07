@@ -1,5 +1,6 @@
 ---
-title: "Intro to Pulumi: Function Serialization"
+title_tag: "Intro to Pulumi: Function Serialization"
+title: "Function Serialization"
 meta_desc: Learn how to use Pulumi's Node.js SDK to serialize JavaScript functions into an artifact that can be used at runtime in the cloud.
 keywords:
 - javascript

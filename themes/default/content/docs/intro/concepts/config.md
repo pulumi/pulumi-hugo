@@ -1,5 +1,6 @@
 ---
-title: "Intro to Pulumi: Configuration"
+title_tag: "Intro to Pulumi: Configuration"
+title: "Configuration"
 meta_desc: This page provides an overview of how Pulumi manages cloud application configuration settings.
 menu:
   intro:
