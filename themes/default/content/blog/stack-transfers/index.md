@@ -39,7 +39,7 @@ Exactly 3 years ago we added support in the [Pulumi Service](/product/pulumi-ser
 
 Let’s review how bulk stack transfers can be used and when you would use them. Stack transfers relocate a stack between organizations and Individual accounts. Let’s highlight some use cases:
 
-- **Use case #1: Individual account to a collaborative organization:** We know that users are building projects in Individual accounts and want to easily move their stacks to an organization so they can collaboratively build infrastructure with others
+- **Use case #1: Individual account to a collaborative organization:** We know that users are building projects in Individual accounts and want to easily move their stacks to an organization so they can collaboratively build infrastructure with others.
 - **Use case #2: Organization to Individual account:** There may be instances where users want to take a stack from an organization into their Individual org. This could be due to mistakenly creating a stack in the wrong location.
 - **Use case #3: Organization to organization:** As customers scale there may be use cases where they want to add additional organizations and being able to transfer stacks in bulk will help with this.
 
