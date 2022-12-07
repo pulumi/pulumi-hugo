@@ -1,5 +1,6 @@
 ---
-title: "Provider Resource Option"
+title_tag: "Provider Resource Option"
+title: "Provider"
 meta_desc: The provider resource option passes an explicitly configured provider to be used instead of the global or ambient provider.
 menu:
   intro:

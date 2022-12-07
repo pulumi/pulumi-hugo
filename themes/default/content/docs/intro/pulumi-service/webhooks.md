@@ -1,5 +1,6 @@
 ---
-title: "Pulumi Service: Webhooks"
+title_tag: "Pulumi Service: Webhooks"
+title: "Webhooks"
 meta_desc: Pulumi Webhooks allow you to notify external services of events happening within your Pulumi organization. Learn how to create and manage webhooks here.
 menu:
   intro:

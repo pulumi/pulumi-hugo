@@ -1,5 +1,6 @@
 ---
-title: "Pulumi Service: Accounts Overview"
+title_tag: "Pulumi Service: Accounts Overview"
+title: "Accounts Overview"
 meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud Service in this guide.
 menu:
   intro:

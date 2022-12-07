@@ -1,5 +1,6 @@
 ---
-title: "Pulumi Cloud Framework Overview"
+title_tag: "Pulumi Cloud Framework Overview"
+title: "Cloud Framework (Preview)"
 meta_desc: "The Pulumi Cloud Framework lets you program infrastructure and application logic using high-level, cloud-agnostic building blocks.Get started here."
 aliases: ["/docs/quickstart/cloudfx/"]
 ---
