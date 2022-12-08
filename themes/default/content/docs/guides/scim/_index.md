@@ -1,5 +1,6 @@
 ---
-title: SCIM 2.0 Integration Guides
+title_tag: SCIM 2.0 Integration Guides
+title: SCIM 2.0 Integration
 meta_desc: This page provides an overview of how to configure any SAML 2.0 identity provider
            with the Pulumi Service.
 menu:

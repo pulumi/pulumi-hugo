@@ -1,5 +1,6 @@
 ---
-title: Writing Policy Packs | CrossGuard
+title_tag: Writing Policy Packs | CrossGuard
+title: Writing Policy Packs
 meta_desc: This page contains best practices for writing policy packs in Pulumi.
 linktitle: Best Practices
 weight: 4

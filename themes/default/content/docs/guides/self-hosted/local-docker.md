@@ -1,5 +1,6 @@
 ---
-title: Local-Docker Install | Self-Hosting Pulumi
+title_tag: Local-Docker Install | Self-Hosting Pulumi
+title: Local-Docker Install
 menu:
     userguides:
         parent: self_hosted

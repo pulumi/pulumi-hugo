@@ -1,5 +1,6 @@
 ---
-title: ECS-Hosted Install | Self-Hosting Pulumi
+title_tag: ECS-Hosted Install | Self-Hosting Pulumi
+title: ECS-Hosted Install
 menu:
     userguides:
         parent: self_hosted

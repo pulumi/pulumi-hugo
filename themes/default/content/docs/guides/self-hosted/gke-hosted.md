@@ -1,5 +1,6 @@
 ---
-title: GKE-Hosted Install | Self-Hosting Pulumi
+title_tag: GKE-Hosted Install | Self-Hosting Pulumi
+title: GKE-Hosted Install
 menu:
     userguides:
         parent: self_hosted

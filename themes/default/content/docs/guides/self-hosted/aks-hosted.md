@@ -1,5 +1,6 @@
 ---
-title: AKS-Hosted Install | Self-Hosting Pulumi
+title_tag: AKS-Hosted Install | Self-Hosting Pulumi
+title: AKS-Hosted Install
 menu:
     userguides:
         parent: self_hosted

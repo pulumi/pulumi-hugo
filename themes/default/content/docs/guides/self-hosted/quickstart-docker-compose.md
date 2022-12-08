@@ -1,5 +1,6 @@
 ---
-title: Quickstart Docker Compose Install | Self-Hosting Pulumi
+title_tag: Quickstart Docker Compose Install | Self-Hosting Pulumi
+title: Quickstart Docker Compose Install
 menu:
     userguides:
         parent: self_hosted

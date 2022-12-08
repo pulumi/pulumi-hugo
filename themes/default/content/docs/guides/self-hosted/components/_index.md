@@ -1,5 +1,6 @@
 ---
-title: Components | Self-Hosting Pulumi
+title_tag: Components | Self-Hosting Pulumi
+title: Components
 meta_desc: The Pulumi service container images page links and docker hub links.
 menu:
     userguides:

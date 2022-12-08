@@ -1,5 +1,6 @@
 ---
-title: EKS-Hosted Install | Self-Hosting Pulumi
+title_tag: EKS-Hosted Install | Self-Hosting Pulumi
+title: EKS-Hosted Install
 menu:
     userguides:
         parent: self_hosted

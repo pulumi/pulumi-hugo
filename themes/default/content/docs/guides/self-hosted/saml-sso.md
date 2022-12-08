@@ -1,5 +1,6 @@
 ---
-title: Enabling SAML SSO | Self-Hosting Pulumi
+title_tag: Enabling SAML SSO | Self-Hosting Pulumi
+title: Enabling SAML SSO
 menu:
     userguides:
         parent: self_hosted

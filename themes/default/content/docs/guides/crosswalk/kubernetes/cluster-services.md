@@ -1,5 +1,6 @@
 ---
-title: Deploying Kubernetes Cluster Services | Crosswalk
+title_tag: Deploying Kubernetes Cluster Services | Crosswalk
+title: Deploying Kubernetes Cluster Services
 meta_desc: This page will provide an overview on how to deploy Kubernetes Cluster Services.
 no_on_this_page: true
 menu:

@@ -1,5 +1,6 @@
 ---
-title: Creating a Kubernetes Control Plane | Crosswalk
+title_tag: Creating a Kubernetes Control Plane | Crosswalk
+title: Creating a Kubernetes Control Plane
 meta_desc: This page will walk you through how to create on a Kubernetes Control Pane
            on AWS, Azure, and GCP.
 menu:

@@ -1,5 +1,6 @@
 ---
-title: Property Testing of Pulumi Programs
+title_tag: Property Testing of Pulumi Programs
+title: Property Testing
 meta_desc: "Guide to property testing of Pulumi programs with Policy as Code (CrossGuard)."
 weight: 2
 

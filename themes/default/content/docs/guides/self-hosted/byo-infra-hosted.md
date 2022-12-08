@@ -1,5 +1,6 @@
 ---
-title: BYO-Infra Install | Self-Hosting Pulumi
+title_tag: BYO-Infra Install | Self-Hosting Pulumi
+title: BYO-Infra Install
 menu:
     userguides:
         parent: self_hosted
