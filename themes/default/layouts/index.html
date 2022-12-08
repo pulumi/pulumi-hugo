@@ -240,41 +240,45 @@
     </section>
 
     <section class="container mx-auto my-16 text-center">
-        <h2 class="rainbow-text">Doing more with less</h2>
-        <p class="text-lg max-w-3xl mx-auto">
-            You can use Pulumi's Automation API to create tooling that help you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus
-            traditional tooling.
-        </p>
+        <div class="card bg-violet-200 p-6 rounded-2xl">
+            <h2 class="rainbow-text">Doing more with less</h2>
+            <p class="text-lg max-w-3xl mx-auto">
+                You can use Pulumi's Automation API to create tooling that help you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus
+                traditional tooling.
+            </p>
 
-        <div class="flex flex-wrap text-left">
-            <div class="w-full lg:w-1/2 p-6">
-                <div class="card p-6 bg-white">
-                    <h4>Example Use Cases</h4>
+            <div class="flex flex-wrap text-left">
+                <div class="w-full lg:w-1/2 p-6">
+                    <div class="card p-6 bg-white">
+                        <h4>Example Use Cases</h4>
 
-                    <ul class="list-none mt-6">
-                        {{ range .Params.automation_api_examples }}
-                            <li class="accordion-item py-6 border-b-2">
-                                {{ partial "accordian-header" (dict "text" .name) }}
+                        <ul class="list-none mt-6">
+                            {{ range .Params.automation_api_examples }}
+                                <li class="accordion-item py-6 border-b-2">
+                                    {{ partial "accordian-header" (dict "text" .name) }}
 
 
-                                <div class="accordion-item-body-no-animation">
-                                    <p class="mt-6">
-                                        {{ .text | markdownify }}
-                                    </p>
-                                </div>
-                            </li>
-                        {{ end }}
-                    </ul>
+                                    <div class="accordion-item-body-no-animation">
+                                        <p class="mt-6">
+                                            {{ .text | markdownify }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="w-full lg:w-1/2 p-6">
-                <p>What if IaC was a library and not just a CLI? Pulumi Automation API is the industry's first and only fully programmable infrastructure as code technology.</p>
-                <p>
-                    Automation API use IaC as a library within a program to take direct infrastructure actions (create, update, destroy). This code can execute anywhere from a CLI
-                    tool to behind a HTTP API to a custom PaaS.
-                </p>
-                <p>Automation API allows you and your company to scale 10x the amount of infrastructure managed per engineer.</p>
+                <div class="w-full lg:w-1/2 p-6">
+                    <p>
+                        What if IaC was a library and not just a CLI? Pulumi Automation API is the industry's first and only fully programmable infrastructure as code technology.
+                    </p>
+                    <p>
+                        Automation API use IaC as a library within a program to take direct infrastructure actions (create, update, destroy). This code can execute anywhere from a
+                        CLI tool to behind a HTTP API to a custom PaaS.
+                    </p>
+                    <p>Automation API allows you and your company to scale 10x the amount of infrastructure managed per engineer.</p>
+                </div>
             </div>
         </div>
 
