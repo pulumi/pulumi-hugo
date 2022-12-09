@@ -18,17 +18,17 @@ messages:
       link: https://twitter.com/ShahidDev/status/1582965131629428736
       source: twitter
     -
-      message: 'The developer experience of Pulumi is just sublime. As a prior Terraform user, the grass is substantially greener on this side. I''m so glad I made the switch two years back. Using Terraform for my current use case would be a massive downgrade.'
+      message: "The developer experience of Pulumi is just sublime. As a prior Terraform user, the grass is substantially greener on this side. I''m so glad I made the switch two years back. Using Terraform for my current use case would be a massive downgrade."
       author: "@justedagain"
       link: https://twitter.com/justedagain/status/1583063827524251649
       source: twitter
     -
-      message: 'I just want to say that I''m amazed at what Pulumi can provide. I make twitch videos of my side projects and I was playing with Pulumi in creating my lambda function. I wanted to use my Pulumi code to...'
+      message: "I just want to say that I''m amazed at what Pulumi can provide. I make twitch videos of my side projects and I was playing with Pulumi in creating my lambda function. I wanted to use my Pulumi code to..."
       author: "u/akali1987"
       link: https://www.reddit.com/r/devops/comments/y8418w/amazed_with_pulumi/
       source: reddit
     -
-      message: From PoC in a week, to reaching production with confidence the week after, we’re super impressed by Pulumi’s focus on the developer experience and general ease of use. We have since expanded our usage of Pulumi to manage our infrastructure and have a GitHub Actions-powered workflow with automatic PR previews that is a breeze to use. (click to read blog post)
+      message: "From PoC in a week, to reaching production with confidence the week after, we’re super impressed by Pulumi’s focus on the developer experience and general ease of use. We have since expanded our usage of Pulumi to manage our infrastructure and have a GitHub Actions-powered workflow with automatic PR previews that is a breeze to use. (click to read blog post)"
       author: Tiago Sousa
       link: https://blog.amplemarket.com/using-pulumi-to-deal-with-growing-pains/
       source: blog
@@ -50,12 +50,12 @@ messages:
       source: blog
       featured: true
     -
-      message: Having used Pulumi the last 2 years after switching from Terraform I want to share some of my experience by comparing both infrastructure as code tools and explain why I prefer Pulumi in most situations. In general, I have successfully provisioned infrastructure with both tools, but from my experience Pulumi makes it easier for me. (click to read blog post)
+      message: "Having used Pulumi the last 2 years after switching from Terraform I want to share some of my experience by comparing both infrastructure as code tools and explain why I prefer Pulumi in most situations. In general, I have successfully provisioned infrastructure with both tools, but from my experience Pulumi makes it easier for me. (click to read blog post)"
       author: Matthias Müller
       link: https://www.novatec-gmbh.de/en/blog/why-you-should-consider-pulumi-over-terraform-for-your-next-project-pt-1/
       source: blog
     -
-      message: 'Pulumi is awesome. This is the 3rd company I''ve introduced to Pulumi. Eventually I''ll get the TF stuff here moved over'
+      message: "Pulumi is awesome. This is the 3rd company I''ve introduced to Pulumi. Eventually I''ll get the TF stuff here moved over"
       author: Derek Beattie, Sr Software Engineer, Jetlinx
       link: https://docs.google.com/presentation/d/1adJEZE1iY0P6ZRT7xknLq_R3M-eb6m5dubXII-AFxlc/edit#slide=id.g15d990b8a01_8_589
       source: email
@@ -106,7 +106,7 @@ messages:
       link: https://docs.google.com/presentation/d/1-5T3r9oF4V6vXMTLgufMdIx3_Ffl-zNOAsbb5Jg20gQ/edit#slide=id.g118d1455e14_2_4100
       source: email
     -
-      message: 'Let me tell you Joe. I''m ******* impressed. Been using serverless framework for 5 years. Holy ****. You''ve got something here'
+      message: "Let me tell you Joe. I''m ******* impressed. Been using serverless framework for 5 years. Holy ****. You''ve got something here"
       author: Andrew
       link: https://docs.google.com/presentation/d/1fgk8314WyfZdD4dKJkdax3FA0MLi4stE5bCAhuP-wwE/edit#slide=id.ge4534e2623_3_567
       source: email
@@ -122,7 +122,7 @@ messages:
       source: twitter
       featured: true
     -
-      message: 'Seriously, this is the first time I''ve looked at a framework that I could possibly use for DevOps and actually thought it might be worth the investment. My tiny company cannot afford to invest a lot of time learning something new that does not have an immediate benefit. Yours is the first framework I might actually invest the time in. The idea of having all the code in one place - the code for the infrastructure and the apps running on it - is very appealing.'
+      message: "Seriously, this is the first time I''ve looked at a framework that I could possibly use for DevOps and actually thought it might be worth the investment. My tiny company cannot afford to invest a lot of time learning something new that does not have an immediate benefit. Yours is the first framework I might actually invest the time in. The idea of having all the code in one place - the code for the infrastructure and the apps running on it - is very appealing."
       author: Todd, CTO
       link: https://docs.google.com/presentation/d/1kdEEM3i1Dmnolv1oMc2fYhj_OS3zJvCwnmixdsusXAM/edit#slide=id.gd4431f4c34_0_111
       source: email
@@ -133,17 +133,17 @@ messages:
       link: https://docs.google.com/presentation/d/1qckqNguxjF4J-96uREhXX6GFUdEE_2FCJMlX83Ns_Tc/edit#slide=id.ge4534e2623_3_567
       source: email
     -
-      message: 'It''s a really great product. It sucks that other companies are not doing devops the way Pulumi does it. I hope I can contribute to the noise in pushing for industry adoption. If you could provide one place for your fans that would be great. I would like to become a follower, provide a 5 star rating on platforms like Product Hunt, etc. Let me know how I could help.'
+      message: "It''s a really great product. It sucks that other companies are not doing devops the way Pulumi does it. I hope I can contribute to the noise in pushing for industry adoption. If you could provide one place for your fans that would be great. I would like to become a follower, provide a 5 star rating on platforms like Product Hunt, etc. Let me know how I could help."
       author: Jade
       link: https://docs.google.com/presentation/d/1ahXIVNcjnXYRoRLGhujo-doD8diBE4tpvVSOS4fcybk/edit#slide=id.ge4534e2623_3_567
       source: email
     -
-      message: 'So far I''m both happy and impressed with Pulumi. The capabilities of 3.0 are incredible, and the programming model is great. Great work!'
+      message: "So far I''m both happy and impressed with Pulumi. The capabilities of 3.0 are incredible, and the programming model is great. Great work!"
       author: Tom
       link: https://docs.google.com/presentation/d/1aedEYxUofCgFENrKkoTx2LftnxxMLVa7xwTpAqYUcgs/edit#slide=id.gd4431f4c34_0_111
       source: email
     -
-      message: 'All in all, I''m very happy with making the transition to Pulumi! I became way more productive managing my infrastructure. At the same time I ended up enjoying the work of doing so a lot more - which is really important too.' (click to read blog post)
+      message: "All in all, I''m very happy with making the transition to Pulumi! I became way more productive managing my infrastructure. At the same time I ended up enjoying the work of doing so a lot more - which is really important too. (click to read blog post)"
       author: Erik Näslund
       link: https://blog.ekik.org/my-experience-migrating-my-infrastructure-from-terraform-to-pulumi
       source: blog
