@@ -28,7 +28,7 @@ messages:
       link: https://www.reddit.com/r/devops/comments/y8418w/amazed_with_pulumi/
       source: reddit
     -
-      message: From PoC in a week, to reaching production with confidence the week after, we’re super impressed by Pulumi’s focus on the developer experience and general ease of use. We have since expanded our usage of Pulumi to manage our infrastructure and have a GitHub Actions-powered workflow with automatic PR previews that is a breeze to use. 
+      message: From PoC in a week, to reaching production with confidence the week after, we’re super impressed by Pulumi’s focus on the developer experience and general ease of use. We have since expanded our usage of Pulumi to manage our infrastructure and have a GitHub Actions-powered workflow with automatic PR previews that is a breeze to use. (click to read blog post)
       author: Tiago Sousa
       link: https://blog.amplemarket.com/using-pulumi-to-deal-with-growing-pains/
       source: blog
@@ -50,7 +50,7 @@ messages:
       source: blog
       featured: true
     -
-      message: Having used Pulumi the last 2 years after switching from Terraform I want to share some of my experience by comparing both infrastructure as code tools and explain why I prefer Pulumi in most situations. In general, I have successfully provisioned infrastructure with both tools, but from my experience Pulumi makes it easier for me. 
+      message: Having used Pulumi the last 2 years after switching from Terraform I want to share some of my experience by comparing both infrastructure as code tools and explain why I prefer Pulumi in most situations. In general, I have successfully provisioned infrastructure with both tools, but from my experience Pulumi makes it easier for me. (click to read blog post)
       author: Matthias Müller
       link: https://www.novatec-gmbh.de/en/blog/why-you-should-consider-pulumi-over-terraform-for-your-next-project-pt-1/
       source: blog
@@ -101,8 +101,8 @@ messages:
       link: https://docs.google.com/presentation/d/1jMinKtVH5HgvSZgXmuKGegQyLsN0782HFS3NaMyjMic/edit#slide=id.g12308ba8081_1_455
       source: email
     -
-      message: "Hi Joe,\n\nFeedback? I will be honest.\n\nI love it!\n\nI am a consulting software engineer and my primary language is C#. I enjoyed a lot while creating resources with the language I prefer and doing that without any extra knowledge!\n\nI will be your tech evangelist in the companies I am working with.\n\nThanks for this great product.\n\nKind Regards,\n\nAyberk C."
-      author: Ayberk C.
+      message: "Hi Joe,\n\nFeedback? I will be honest.\n\nI love it!\n\nI am a consulting software engineer and my primary language is C#. I enjoyed a lot while creating resources with the language I prefer and doing that without any extra knowledge!\n\nI will be your tech evangelist in the companies I am working with.\n\nThanks for this great product.\n\n"
+      author: Ayberk
       link: https://docs.google.com/presentation/d/1-5T3r9oF4V6vXMTLgufMdIx3_Ffl-zNOAsbb5Jg20gQ/edit#slide=id.g118d1455e14_2_4100
       source: email
     -
@@ -112,7 +112,7 @@ messages:
       source: email
     -
       message: "Hi Joe,\n\nI feel your product is awesome and the code examples are great and what made me like Pulumi is your constant support and documentation related emails. Keep doing what you are doing and I hope it will be the best IAC tool for the future."
-      author: Azhar Syed
+      author: Azhar
       link: https://docs.google.com/presentation/d/14Q0ul5PHBwKuqTdkm8CuczUNXWJO32kuJSJ3grxEX-o/edit#slide=id.ge4534e2623_3_567
       source: email
     -
@@ -123,7 +123,7 @@ messages:
       featured: true
     -
       message: 'Seriously, this is the first time I''ve looked at a framework that I could possibly use for DevOps and actually thought it might be worth the investment. My tiny company cannot afford to invest a lot of time learning something new that does not have an immediate benefit. Yours is the first framework I might actually invest the time in. The idea of having all the code in one place - the code for the infrastructure and the apps running on it - is very appealing.'
-      author: Todd Price, CTO, Page Vault
+      author: Todd, CTO
       link: https://docs.google.com/presentation/d/1kdEEM3i1Dmnolv1oMc2fYhj_OS3zJvCwnmixdsusXAM/edit#slide=id.gd4431f4c34_0_111
       source: email
       featured: true
@@ -134,7 +134,7 @@ messages:
       source: email
     -
       message: 'It''s a really great product. It sucks that other companies are not doing devops the way Pulumi does it. I hope I can contribute to the noise in pushing for industry adoption. If you could provide one place for your fans that would be great. I would like to become a follower, provide a 5 star rating on platforms like Product Hunt, etc. Let me know how I could help.'
-      author: Jade Cabatlao, Software Engineer, Pointwest Innovations
+      author: Jade
       link: https://docs.google.com/presentation/d/1ahXIVNcjnXYRoRLGhujo-doD8diBE4tpvVSOS4fcybk/edit#slide=id.ge4534e2623_3_567
       source: email
     -
@@ -143,7 +143,7 @@ messages:
       link: https://docs.google.com/presentation/d/1aedEYxUofCgFENrKkoTx2LftnxxMLVa7xwTpAqYUcgs/edit#slide=id.gd4431f4c34_0_111
       source: email
     -
-      message: 'All in all, I''m very happy with making the transition to Pulumi! I became way more productive managing my infrastructure. At the same time I ended up enjoying the work of doing so a lot more - which is really important too.'
+      message: 'All in all, I''m very happy with making the transition to Pulumi! I became way more productive managing my infrastructure. At the same time I ended up enjoying the work of doing so a lot more - which is really important too.' (click to read blog post)
       author: Erik Näslund
       link: https://blog.ekik.org/my-experience-migrating-my-infrastructure-from-terraform-to-pulumi
       source: blog
