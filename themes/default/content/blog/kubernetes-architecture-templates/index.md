@@ -31,7 +31,7 @@ For our system that we'll build today, we're going to have a cluster running on 
 
 ## Start with templates
 
-We're going to build our entire architecture starting with two templates: Our GKE template and our Helm app template. [Learn more about our new architecture templates.](/blog/intro-architecture-templates)
+We're going to build our entire architecture starting with two templates: Our GKE template and our Kubernetes web app template. [Learn more about our new architecture templates.](/blog/intro-architecture-templates)
 
 This will be a bit different than our usual workflow. Generally, we here at Pulumi prefer to stand up different stacks for each type of infrastructure (so one project with one or more stacks for the Kubernetes cluster and then one project with one or more stacks for the web application). However, in this case, let's explore together what happens if we're want to have it all go up together as one project and stack while keeping the code in different files.
 
@@ -263,7 +263,7 @@ def create_app(kubeconfig_val):
     return webserverservice.status.apply(lambda val: val.load_balancer.ingress[0].ip)
 ```
 
-Now that all our changes have been made, let's try running it! We'll need to append `poetry run` to the commands, unless you choose to switch to the Poetry shell ahead of time:
+Now that all our changes have been made, let's try running it! We'll need to prepend `poetry run` to the commands, unless you choose to switch to the Poetry shell ahead of time:
 
 ```bash
 $ poetry run pulumi stack init dev
