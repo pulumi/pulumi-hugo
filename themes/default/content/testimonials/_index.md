@@ -39,11 +39,6 @@ messages:
       link: https://www.linkedin.com/feed/update/urn:li:activity:6993614249331765250?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A6993614249331765250%2C6993718113632411648%29
       source: linkedin
     -
-      message: " PulumiはPythonやTypeScript、Goといった既存の主要なプログラミング言語を用いてインフラ構成を記述できる点が大きな特徴です。\n\nなるほど？ > A major feature of Pulumi is that it can describe infrastructure configurations using major existing programming languages such as Python, TypeScript, and Go. I see?"
-      author: "@IYEMON018"
-      link: https://twitter.com/IYEMON018/status/1590177752585744384
-      source: twitter
-    -
       message: "Continuing on my thread about @PulumiCorp from a while ago: holy shit I am a convert. I needed to setup a staging environment that was mostly identical to prod, and once I trued up our Pulumi stack with AWS, it took minutes to do this. How have I lived without this until now?"
       author: "@krangarajan\n"
       link: https://twitter.com/krangarajan/status/1580618068203479040
@@ -65,7 +60,7 @@ messages:
       link: https://docs.google.com/presentation/d/1adJEZE1iY0P6ZRT7xknLq_R3M-eb6m5dubXII-AFxlc/edit#slide=id.g15d990b8a01_8_589
       source: email
     -
-      message: “I want to thank you and your team for an amazing tool. I am in the starting stages of an AWS modernization effort with my current employer and part of that will be IaC with Pulumi. Great product and exciting vision for the future of infrastructure.”
+      message: "I want to thank you and your team for an amazing tool. I am in the starting stages of an AWS modernization effort with my current employer and part of that will be IaC with Pulumi. Great product and exciting vision for the future of infrastructure."
       author: Travis Hutto
       link: joe
       source: email
@@ -142,11 +137,6 @@ messages:
       author: Jade Cabatlao, Software Engineer, Pointwest Innovations
       link: https://docs.google.com/presentation/d/1ahXIVNcjnXYRoRLGhujo-doD8diBE4tpvVSOS4fcybk/edit#slide=id.ge4534e2623_3_567
       source: email
-    -
-      message: 'we''ve typically used this channel to ask questions and get support but I just wanted to give you all a shout-out for the awesome product you guys provide! We were just on a call with our newer parent company, Hyland Software, and when asked about our infrastructure-as-code tool, we expressed how much we love building infrastructure with Pulumi. 😁 So, thank you all for a great product, you''re continued improvements to both it and your documentation (super helpful) and helping us out over the past years!'
-      author: Jason, Learning Machine
-      link: https://docs.google.com/presentation/d/1Ay-Cy7b2iNm70FgEkUXJt4TIE60b4LHfk7qErlNOQek/edit#slide=id.ge800227343_10_3
-      source: slack
     -
       message: 'So far I''m both happy and impressed with Pulumi. The capabilities of 3.0 are incredible, and the programming model is great. Great work!'
       author: Tom
