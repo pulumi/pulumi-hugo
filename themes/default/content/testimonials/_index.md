@@ -61,7 +61,7 @@ messages:
       source: email
     -
       message: "I want to thank you and your team for an amazing tool. I am in the starting stages of an AWS modernization effort with my current employer and part of that will be IaC with Pulumi. Great product and exciting vision for the future of infrastructure."
-      author: Travis Hutto
+      author: Travis
       link: joe
       source: email
       featured: true
