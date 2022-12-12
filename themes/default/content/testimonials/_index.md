@@ -56,7 +56,7 @@ messages:
       source: blog
     -
       message: "Pulumi is awesome. This is the 3rd company I''ve introduced to Pulumi. Eventually I''ll get the TF stuff here moved over"
-      author: Derek Beattie, Sr Software Engineer, Jetlinx
+      author: Derek
       link: https://docs.google.com/presentation/d/1adJEZE1iY0P6ZRT7xknLq_R3M-eb6m5dubXII-AFxlc/edit#slide=id.g15d990b8a01_8_589
       source: email
     -
@@ -66,7 +66,7 @@ messages:
       source: email
       featured: true
     -
-      message: "Hey Joe!\n\nI'm a big fan so far! Love being able to work in C# instead of yaml. Type safety, intellisense, class abstractions, etc all feel great.\n\nI was using it for allowing for a quick setup of Keycloak on a local box that clones down my repo aand did run into a weird snag with setting up scopes, but not pulumi based as far as I can tell!\n\nRegardless, it's been pretty fun and I'm not even an infra guy"
+      message: "I'm a big fan so far! Love being able to work in C# instead of yaml. Type safety, intellisense, class abstractions, etc all feel great.\n\nI was using it for allowing for a quick setup of Keycloak on a local box that clones down my repo aand did run into a weird snag with setting up scopes, but not pulumi based as far as I can tell!\n\nRegardless, it's been pretty fun and I'm not even an infra guy"
       author: Paul
       link: https://docs.google.com/presentation/d/1lQVcTF9FloSb2odVbIDjaI0ZgZ6Fp1GfQAvL8bx7NrI/edit#slide=id.g144f9e93a3d_5_386
       source: email
@@ -76,12 +76,12 @@ messages:
       link: https://docs.google.com/presentation/d/1lQVcTF9FloSb2odVbIDjaI0ZgZ6Fp1GfQAvL8bx7NrI/edit#slide=id.g144f9e93a3d_5_386
       source: email
     -
-      message: "Hi Joe,\n\nLooks good. Coming from 5 years of terraform I find it easier for me and the team. We are going to ramp our efforts and try to build our entire infra on it.\n\nBest,\nAlon"
+      message: "Coming from 5 years of terraform I find it easier for me and the team. We are going to ramp our efforts and try to build our entire infra on it."
       author: Alon
       link: https://docs.google.com/presentation/d/11IncvcImn6ZFLu8Vhla1UgL-ugtLFPj4v321AijE5Tc/edit#slide=id.g13285f2d057_1_422
       source: email
     -
-      message: "Hello Joe,\n\nI tested Pulumi and followed one of the workshops offered by Lee and I was amazed at the possibilities compared to TF. We are starting to hear about Pulumi with our clients, so I can see myself delivering production-ready IaC with Pulumi in the near future. Something quite special you all have built."
+      message: "I tested Pulumi and followed one of the workshops offered by Lee and I was amazed at the possibilities compared to TF. We are starting to hear about Pulumi with our clients, so I can see myself delivering production-ready IaC with Pulumi in the near future. Something quite special you all have built."
       author: Jose
       link: https://docs.google.com/presentation/d/11IncvcImn6ZFLu8Vhla1UgL-ugtLFPj4v321AijE5Tc/edit#slide=id.g13285f2d057_1_422
       source: email
@@ -91,7 +91,7 @@ messages:
       link: https://docs.google.com/presentation/d/10bEPeIYTcxEO3qJLQPOz9fyIsZUfJT10qRIENAYwtlk/edit#slide=id.g1275cf56285_15_897
       source: email
     -
-      message: "Hi Joe,\n\nI have been long time user of AWS CDK and now I am trying Pulumi.\n\nLooks great so far and exceeds my expectations"
+      message: "I have been long time user of AWS CDK and now I am trying Pulumi.\n\nLooks great so far and exceeds my expectations"
       author: Nemanja
       link: https://docs.google.com/presentation/d/10bEPeIYTcxEO3qJLQPOz9fyIsZUfJT10qRIENAYwtlk/edit#slide=id.g1275cf56285_15_897
       source: email
@@ -101,7 +101,7 @@ messages:
       link: https://docs.google.com/presentation/d/1jMinKtVH5HgvSZgXmuKGegQyLsN0782HFS3NaMyjMic/edit#slide=id.g12308ba8081_1_455
       source: email
     -
-      message: "Hi Joe,\n\nFeedback? I will be honest.\n\nI love it!\n\nI am a consulting software engineer and my primary language is C#. I enjoyed a lot while creating resources with the language I prefer and doing that without any extra knowledge!\n\nI will be your tech evangelist in the companies I am working with.\n\nThanks for this great product.\n\n"
+      message: "Feedback? I will be honest.\n\nI love it!\n\nI am a consulting software engineer and my primary language is C#. I enjoyed a lot while creating resources with the language I prefer and doing that without any extra knowledge!\n\nI will be your tech evangelist in the companies I am working with.\n\nThanks for this great product.\n\n"
       author: Ayberk
       link: https://docs.google.com/presentation/d/1-5T3r9oF4V6vXMTLgufMdIx3_Ffl-zNOAsbb5Jg20gQ/edit#slide=id.g118d1455e14_2_4100
       source: email
@@ -111,7 +111,7 @@ messages:
       link: https://docs.google.com/presentation/d/1fgk8314WyfZdD4dKJkdax3FA0MLi4stE5bCAhuP-wwE/edit#slide=id.ge4534e2623_3_567
       source: email
     -
-      message: "Hi Joe,\n\nI feel your product is awesome and the code examples are great and what made me like Pulumi is your constant support and documentation related emails. Keep doing what you are doing and I hope it will be the best IAC tool for the future."
+      message: "I feel your product is awesome and the code examples are great and what made me like Pulumi is your constant support and documentation related emails. Keep doing what you are doing and I hope it will be the best IAC tool for the future."
       author: Azhar
       link: https://docs.google.com/presentation/d/14Q0ul5PHBwKuqTdkm8CuczUNXWJO32kuJSJ3grxEX-o/edit#slide=id.ge4534e2623_3_567
       source: email
@@ -128,12 +128,12 @@ messages:
       source: email
       featured: true
     -
-      message: "I've loved Pulumi so far - doing some early testing before doing a small in-house deployment, then I'll be able to encourage adoption of Pulumi across our new business unit, then perhaps across the whole of our org (Altium) - we'll see. \n\nI love the model of Pulumi, being able to use it mainly as a library, from different languages, and I'm looking forward to using the automation API. Great work all round :)"
+      message: "I've loved Pulumi so far - doing some early testing before doing a small in-house deployment, then I'll be able to encourage adoption of Pulumi across our new business unit, then perhaps across the whole of our org - we'll see. \n\nI love the model of Pulumi, being able to use it mainly as a library, from different languages, and I'm looking forward to using the automation API. Great work all round :)"
       author: John
       link: https://docs.google.com/presentation/d/1qckqNguxjF4J-96uREhXX6GFUdEE_2FCJMlX83Ns_Tc/edit#slide=id.ge4534e2623_3_567
       source: email
     -
-      message: "It''s a really great product. It sucks that other companies are not doing devops the way Pulumi does it. I hope I can contribute to the noise in pushing for industry adoption. If you could provide one place for your fans that would be great. I would like to become a follower, provide a 5 star rating on platforms like Product Hunt, etc. Let me know how I could help."
+      message: "It's a really great product. It sucks that other companies are not doing devops the way Pulumi does it. I hope I can contribute to the noise in pushing for industry adoption. If you could provide one place for your fans that would be great. I would like to become a follower, provide a 5 star rating on platforms like Product Hunt, etc. Let me know how I could help."
       author: Jade
       link: https://docs.google.com/presentation/d/1ahXIVNcjnXYRoRLGhujo-doD8diBE4tpvVSOS4fcybk/edit#slide=id.ge4534e2623_3_567
       source: email
