@@ -147,6 +147,7 @@ messages:
       author: Erik Näslund
       link: https://blog.ekik.org/my-experience-migrating-my-infrastructure-from-terraform-to-pulumi
       source: blog
+      featured: true
     -
       message: "I love it!\n\nI came from about 3 years of terraform + kube + aws. The kubernetes & helm support in Pulumi is amazing, it fixes most of the jank i had with terraform at scale. Just being able to spin up a cluster and install addons and extras cleanly (no external kubectl with un-tracked resources) is life-changing. Also things like being able to change the version in a helm chart and see the actual resource diffs properly.\n\nIt seemed pretty clear to me that your team actually tried to _use_ the kube support, and cared about how well it worked, vs $other_vendor.\n\nThanks for an amazing tool."
       author: Blair
