@@ -71,7 +71,7 @@ messages:
       link: https://docs.google.com/presentation/d/1lQVcTF9FloSb2odVbIDjaI0ZgZ6Fp1GfQAvL8bx7NrI/edit#slide=id.g144f9e93a3d_5_386
       source: email
     -
-      message: "Pulumi is --- awesome.  Finally, an imperative way to set up infrastructure. I've been doing a POC for Confluent Cloud, and I was able to provision and deprovision an environment+cluster+api-keys, and then launch my application as a local.Command, all in a single 50 line python script and in a single day. Amazing.\n\nAnyway, I never liked Terraform, and now I know why.\n\nThanks!"
+      message: "Pulumi is --- awesome.  Finally, an imperative way to set up infrastructure. I've been doing a POC for Confluent Cloud, and I was able to provision and deprovision an environment+cluster+api-keys, and then launch my application as a local.Command, all in a single 50 line python script and in a single day. Amazing."
       author: Simon
       link: https://docs.google.com/presentation/d/1lQVcTF9FloSb2odVbIDjaI0ZgZ6Fp1GfQAvL8bx7NrI/edit#slide=id.g144f9e93a3d_5_386
       source: email
