@@ -1,5 +1,5 @@
 ---
-title: Software Engineers Love Pulumi
+title: Engineers Love Pulumi
 meta_desc: Software Engineers Love Pulumi. Hear from software engineers why they love Pulumi.
 type: page
 layout: testimonials
