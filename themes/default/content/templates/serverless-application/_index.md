@@ -1,5 +1,5 @@
 ---
-title: Serverless Templates
+title: Serverless Applications and Templates
 layout: overview
 description: Pulumi program templates are the fastest way to deploy serverless applications on AWS, Azure, or Google Cloud Platform. Templates come with predefined infrastructure as code so you can get started instantly.
 meta_desc: Pulumi program templates that make it easy to deploy serverless applications on AWS, Azure, or Google Cloud Platform.
