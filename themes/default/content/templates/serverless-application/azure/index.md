@@ -1,4 +1,5 @@
 ---
+title_tag: Building Azure Serverless Applications
 title: Azure Serverless Application
 layout: template
 meta_desc: The Azure Serverless Template makes it easy to deploy a serverless application on Azure with Pulumi, Azure Functions, and Azure Blob Storage.
@@ -18,13 +19,13 @@ cloud:
   slug: azure
 ---
 
-The Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Azure with Pulumi. It deploys an [Azure Blob Storage account](/registry/packages/azure-native/api-docs/storage/storageaccount/) configured for [static website hosting](/registry/packages/azure-native/api-docs/storage/storageaccountstaticwebsite/) and an [Azure Function](/registry/packages/azure-native/api-docs/web/webappfunction/) written in the same language as the template. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
+The Azure Serverless Application template creates an infrastructure as code project in your favorite language that deploys a serverless application to Azure with Pulumi. It deploys an [Azure Blob Storage account](/registry/packages/azure-native/api-docs/storage/storageaccount/) configured for [static website hosting](/registry/packages/azure-native/api-docs/storage/storageaccountstaticwebsite/) and an [Azure Function](/registry/packages/azure-native/api-docs/web/webappfunction/) written in the same language as the template. The template ships with placeholder content to give you a working project out of the box that you can customize easily and extend to suit your needs.
 
 ![An architecture diagram of the Pulumi Azure Serverless Application template](./architecture.png)
 
 ## Using this template
 
-To use this template to deploy your own serverless application, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
+To use this template to deploy your own Azure serverless application, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
