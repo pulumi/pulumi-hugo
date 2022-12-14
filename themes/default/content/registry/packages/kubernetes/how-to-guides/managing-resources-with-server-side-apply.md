@@ -993,7 +993,7 @@ managing it.
 {{% choosable language typescript %}}
 
 ```typescript
-const res = new MyResource("res",
+const res = new ValidatingWebhookConfiguration("res",
     { prop: "new-value" },
     { ignoreChanges: ["webhooks[*].clientConfig", "webhooks[*].namespaceSelector"] });
 ```
@@ -1002,7 +1002,7 @@ const res = new MyResource("res",
 {{% choosable language python %}}
 
 ```python
-res = MyResource("res",
+res = ValidatingWebhookConfiguration("res",
     prop="new-value",
     opts=ResourceOptions(ignore_changes=["webhooks[*].clientConfig", "webhooks[*].namespaceSelector"]))
 ```
@@ -1011,8 +1011,8 @@ res = MyResource("res",
 {{% choosable language go %}}
 
 ```go
-res, _ := NewMyResource(ctx, "res",
-    &MyResourceArgs{Prop: "new-value"},
+res, _ := NewValidatingWebhookConfiguration(ctx, "res",
+    &ValidatingWebhookConfigurationArgs{Prop: "new-value"},
     pulumi.IgnoreChanges([]string{"webhooks[*].clientConfig", "webhooks[*].namespaceSelector"}))
 ```
 
@@ -1020,8 +1020,8 @@ res, _ := NewMyResource(ctx, "res",
 {{% choosable language csharp %}}
 
 ```csharp
-var res = new MyResource("res",
-    new MyResourceArgs { Prop = "new-value" },
+var res = new ValidatingWebhookConfiguration("res",
+    new ValidatingWebhookConfigurationArgs { Prop = "new-value" },
     new CustomResourceOptions { IgnoreChanges = { "webhooks[*].clientConfig", "webhooks[*].namespaceSelector" } });
 ```
 
@@ -1029,8 +1029,8 @@ var res = new MyResource("res",
 {{% choosable language java %}}
 
 ```java
-var res = new MyResource("res",
-    MyResourceArgs.builder()
+var res = new ValidatingWebhookConfiguration("res",
+    ValidatingWebhookConfigurationArgs.builder()
         .prop("new-value")
         .build(),
     CustomResourceOptions.builder()
@@ -1045,7 +1045,7 @@ var res = new MyResource("res",
 ```yaml
 resources:
   res:
-    type: MyResource
+    type: ValidatingWebhookConfiguration
     properties:
       prop: new-value
     options:
