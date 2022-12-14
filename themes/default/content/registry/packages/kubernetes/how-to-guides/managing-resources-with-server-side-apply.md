@@ -1085,16 +1085,21 @@ const kruise = new k8s.helm.v3.Chart("kruise", {
     fetchOpts:{
         repo: "https://openkruise.github.io/charts/",
     },
+}, {
     transformations: [
         // Ignore changes that will be overwritten by the kruise-manager deployment.
-        (obj: any, opts: pulumi.CustomResourceOptions) => {
-            if (obj.kind === "ValidatingWebhookConfiguration" || obj.kind === "MutatingWebhookConfiguration") {
-                opts.ignoreChanges = [
-                    "metadata.annotations.template",
-                    "webhooks[*].clientConfig",
-                ];
+        args => {
+            if (args.type === "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" ||
+                args.type === "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration") {
+                return {
+                    props: args.props,
+                    opts: pulumi.mergeOptions(args.opts, {
+                        ignoreChanges: ["metadata.annotations.template", "webhooks[*].clientConfig"],
+                    })
+                }
             }
-        },
+            return undefined;
+        }
     ],
 });
 ```
@@ -1104,15 +1109,22 @@ const kruise = new k8s.helm.v3.Chart("kruise", {
 {{% choosable language python %}}
 
 ```python
+from pulumi import ResourceOptions, ResourceTransformationArgs, ResourceTransformationResult
 from pulumi_kubernetes.helm.v3 import Chart, ChartOpts, FetchOpts
 
+
 # Ignore changes that will be overwritten by the kruise-manager deployment.
-def ignore_changes(obj, opts):
-    if obj["kind"] == "ValidatingWebhookConfiguration" or obj["kind"] == "MutatingWebhookConfiguration":
-        opts.ignoreChanges = [
+def ignore_changes(args: ResourceTransformationArgs):
+    if args.type_ == "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" or
+        args.type_ == "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration":
+        return ResourceTransformationResult(
+            props=args.props,
+            opts=ResourceOptions.merge(args.opts, ResourceOptions(
+                ignore_changes=[
                     "metadata.annotations.template",
                     "webhooks[*].clientConfig",
-                ]
+                ],
+            )))
 
 
 kruise = Chart(
@@ -1123,8 +1135,10 @@ kruise = Chart(
         fetch_opts=FetchOpts(
             repo="https://openkruise.github.io/charts/",
         ),
-        transformations=[ignore_changes],
     ),
+    opts=ResourceOptions(
+        transformations=[ignore_changes],
+    )
 )
 ```
 
@@ -1137,35 +1151,36 @@ package main
 
 import (
     "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
-    "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/yaml"
     "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
     pulumi.Run(func(ctx *pulumi.Context) error {
-        _, err := helm.NewChart(ctx, "kruise", helm.ChartArgs{
-            Chart:   pulumi.String("kruise"),
-            Version: pulumi.String("1.3.0"),
-            FetchArgs: helm.FetchArgs{
-                Repo: pulumi.String("https://openkruise.github.io/charts/"),
-            },
-            Transformations: []yaml.Transformation{
-                // Ignore changes that will be overwritten by the kruise-manager deployment.
-                func(state map[string]interface{}, opts ...pulumi.ResourceOption) {
-                    if state["kind"] == "ValidatingWebhookConfiguration" ||
-						state["kind"] == "MutatingWebhookConfiguration" {
-						ignoreChanges := pulumi.IgnoreChanges([]string{
-                            "metadata.annotations.template",
-                            "webhooks[*].clientConfig",
-                        })
-                        opts = append(opts, ignoreChanges)
-                    }
-                },
-            },
-        })
-        if err != nil {
-            return err
-        }
+		_, err := helm.NewChart(ctx, "kruise", helm.ChartArgs{
+			Chart:   pulumi.String("kruise"),
+			Version: pulumi.String("1.3.0"),
+			FetchArgs: helm.FetchArgs{
+				Repo: pulumi.String("https://openkruise.github.io/charts/"),
+			},
+		}, pulumi.Transformations([]pulumi.ResourceTransformation{
+            // Ignore changes that will be overwritten by the kruise-manager deployment.
+            func(args *pulumi.ResourceTransformationArgs) *pulumi.ResourceTransformationResult {
+				if args.Type == "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" ||
+					args.Type == "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration" {
+					return &pulumi.ResourceTransformationResult{
+						Props: args.Props,
+						Opts: append(args.Opts, pulumi.IgnoreChanges([]string{
+							"metadata.annotations.template",
+							"webhooks[*].clientConfig",
+						})),
+					}
+				}
+				return nil
+			},
+		}))
+		if err != nil {
+			return err
+		}
 
         return nil
     })
@@ -1184,38 +1199,39 @@ using Pulumi;
 using Pulumi.Kubernetes.Helm;
 using Pulumi.Kubernetes.Helm.V3;
 
-class HelmStack : Stack
+return await Deployment.RunAsync(() =>
 {
-    public HelmStack()
+    var kruise = new Chart("kruise", new ChartArgs
     {
-        var kruise = new Chart("kruise", new ChartArgs
+        Chart = "kruise",
+        Version = "1.3.0",
+        FetchOptions = new ChartFetchArgs
         {
-            Chart = "kruise",
-            Version = "1.3.0",
-            FetchOptions = new ChartFetchArgs
-            {
-                Repo = "https://openkruise.github.io/charts/"
-            },
-            Transformations =
-            {
-                IgnoreChanges,
-            }
-
-        });
-
-        // Ignore changes that will be overwritten by the kruise-manager deployment.
-        ImmutableDictionary<string, object> IgnoreChanges(ImmutableDictionary<string, object> obj, CustomResourceOptions opts)
+            Repo = "https://openkruise.github.io/charts/"
+        },
+    }, new ComponentResourceOptions
+    {
+        ResourceTransformations =
         {
-            if ((string)obj["kind"] == "ValidatingWebhookConfiguration" || (string)obj["kind"] == "MutatingWebhookConfiguration")
+            // Ignore changes that will be overwritten by the kruise-manager deployment.
+            args =>
             {
-                opts.IgnoreChanges.Add("metadata.annotations.template");
-                opts.IgnoreChanges.Add("webhooks[*].clientConfig");
-            }
+                if (args.Resource.GetResourceType() == "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" ||
+                    args.Resource.GetResourceType() == "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration")
+                {
+                    var options = CustomResourceOptions.Merge(
+                        (CustomResourceOptions) args.Options,
+                        new CustomResourceOptions {
+                            IgnoreChanges = {"metadata.annotations.template", "webhooks[*].clientConfig"}
+                        });
+                    return new ResourceTransformationResult(args.Args, options);
+                }
 
-            return obj;
+                return null;
+            }
         }
-    }
-}
+    });
+});
 ```
 
 {{% /choosable %}}
