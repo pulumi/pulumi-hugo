@@ -45,7 +45,7 @@ for you to create a new one by hand. The `pulumi new` command-line interface
 you need, so let's use that command. The `-y` flag answers "yes" to the prompts to
 create a default project:
 
-{{< chooser language "typescript,python,java,yaml" / >}}
+{{< chooser language "typescript,python,go,java,yaml" / >}}
 
 {{% choosable language typescript %}}
 
@@ -59,6 +59,14 @@ $ pulumi new typescript -y
 
 ```bash
 $ pulumi new python -y
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```bash
+$ pulumi new go -y
 ```
 
 {{% /choosable %}}
@@ -120,6 +128,24 @@ To perform an initial deployment, run 'pulumi up'
 
 {{% /choosable %}}
 
+{{% choosable language go %}}
+
+```bash
+Created project 'my-first-app'
+# ...
+
+Installing dependencies...
+# ...
+
+Finished installing dependencies
+
+Your new project is ready to go! ✨
+
+To perform an initial deployment, run 'pulumi up'
+```
+
+{{% /choosable %}}
+
 {{% choosable language java %}}
 
 ```bash
@@ -172,6 +198,14 @@ The basic project created by `pulumi new` is comprised of multiple files:
 
 {{< /choosable >}}
 
+{{< choosable language go >}}
+
+<li><code>go.mod</code>: a file that describes the Go program's properties</li>
+<li><code>go.sum</code>: a generated file that maintains the checksums for the packages imported by the Go program</li>
+<li>{{< langfile >}}: your program's main entrypoint file</li>
+
+{{< /choosable >}}
+
 {{< choosable language java >}}
 
 <ul>
@@ -196,7 +230,7 @@ For YAML, your {{< langfile >}} is also your program's main entrypoint file.
 Use the command <code>cat</code>{{< langfile >}} to explore the contents of your
 project's empty program:
 
-{{< chooser language "typescript,python,java,yaml" / >}}
+{{< chooser language "typescript,python,go,java,yaml" / >}}
 
 {{% choosable language typescript %}}
 
@@ -212,6 +246,24 @@ import * as pulumi from "@pulumi/pulumi";
 """A Python Pulumi program"""
 
 import pulumi
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		return nil
+	})
+}
 ```
 
 {{% /choosable %}}
