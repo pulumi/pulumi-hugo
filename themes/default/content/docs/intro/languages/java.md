@@ -1,5 +1,6 @@
 ---
-title: "How to Use Java for Pulumi"
+title_tag: "How to Use Java for Pulumi"
+title: "Java"
 meta_desc: An overview of how to use the Java language with Pulumi for infrastructure as code on any cloud (AWS, Azure, GCP, Kubernetes, etc.).
 menu:
   intro:
