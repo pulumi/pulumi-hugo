@@ -12,10 +12,9 @@ subheading: |
     and tame cloud complexity -- something we call Cloud Engineering.
 
 overview:
-    title: Unite developers, infrastructure teams, and security engineers
+    title: Universal infrastructure as code for engineers 
     description: |
-        By using the industry's best languages, you can skip learning proprietary, limited domain-specific
-        languages, and enable your team to work more productively and better together.
+        Ship infrastructure at faster velocity compared to traditional tools because it supports the most popular programming languages and software engineering practices. 
 
 key_features:
     title: Key features

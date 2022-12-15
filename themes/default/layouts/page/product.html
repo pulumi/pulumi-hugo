@@ -31,7 +31,7 @@
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 pl-3 pr-16">
                 <h2>{{ .Params.overview.title }}</h2>
-                <p class="lg:pr-48 text-gray-600">{{ .Params.overview.description }}</p>
+                <p class="lg:pr-48 text-gray-600 mt-32 w-full">{{ .Params.overview.description }}</p>
             </div>
 
             <div class="product-carousel-items">
@@ -78,8 +78,27 @@
         </div>
 
         <div class="container mx-auto rounded-xl shadow-2xl">
-            <img class="w-full hidden lg:block z-10" src="/images/product/product-platform-desktop.svg" alt="Pulumi Cloud Engineering Platform" />
-            <img class="w-full lg:hidden z-10" src="/images/product/product-platform-mobile.svg" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full hidden lg:block z-10" src="/images/product/cloud-engineering-diagram.png" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full lg:hidden z-10" src="/images/product/cloud-engineering-diagram.png" alt="Pulumi Cloud Engineering Platform" />
+        </div>
+    </section>
+
+    <section class="relative mt-12">
+        <div class="container mx-auto text-center">
+            <h2>Pulumi's universal infrastructure as code engine</h2>
+            <h3>Open source. Enterprise ready.</h3>
+        </div>
+        <div class="container mx-auto">
+            <p class="mx-auto text-center text-gray-600 w-6/12">
+                The Pulumi IaC engine enables developers and infrastructure engineers to ship infrastructure faster.
+                It is an open source project that's powered by Pulumi's CrossCode universal translation technology.
+            </p>
+        </div>
+        <div class="container mx-auto text-center">
+            <h3>Author infrastructure as code in any language</h3>
+        </div>
+        <div class="container flex flex-col items-center mx-auto">
+            <img class="" src="/images/product/pulumi-iac-code.png" alt="Pulumi infrastructure as code example" />
         </div>
     </section>
 
