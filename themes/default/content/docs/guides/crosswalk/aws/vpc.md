@@ -960,22 +960,18 @@ in a public subnet, NAT gateways will only be created if there is at least one p
 
 Fewer NAT gateways can be requested (e.g., to save on costs) using the `natGateways` property:
 
-{{< chooser language "typescript,python,csharp" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
-{{% choosable language typescript %}}
+{{% choosable language "javascript,typescript" %}}
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as awsx from "@pulumi/awsx";
 
-// Allocate a new VPC with public and private subnets per AZ:
-const vpc = new awsx.ec2.Vpc("custom", {
-  natGateways: {
+const vpc = new awsx.ec2.Vpc("vpc", {natGateways: {
     strategy: awsx.ec2.NatGatewayStrategy.Single,
-  }
-});
-
-// Export a few resulting fields to make them easy to use:
-export const vpcId = vpc.id;
+}});
+export const vpcId = vpc.vpcId;
 export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
 export const vpcPublicSubnetIds = vpc.publicSubnetIds;
 ```
@@ -988,12 +984,42 @@ export const vpcPublicSubnetIds = vpc.publicSubnetIds;
 import pulumi
 import pulumi_awsx as awsx
 
-vpc = awsx.ec2.Vpc("custom", nat_gateways=awsx.ec2.NatGatewayConfigurationArgs(
-    strategy=awsx.ec2.NatGatewayStrategy.SINGLE))
+vpc = awsx.ec2.Vpc("vpc", nat_gateways=awsx.ec2.NatGatewayConfigurationArgs(
+    strategy=awsx.ec2.NatGatewayStrategy.SINGLE,
+))
+pulumi.export("vpcId", vpc.vpc_id)
+pulumi.export("vpcPrivateSubnetIds", vpc.private_subnet_ids)
+pulumi.export("vpcPublicSubnetIds", vpc.public_subnet_ids)
+```
 
-pulumi.export("vpcId", vpc.vpcId)
-pulumi.export("publicSubnetIds", vpc.public_subnet_ids)
-pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+			NatGateways: &ec2.NatGatewayConfigurationArgs{
+				Strategy: ec2.NatGatewayStrategySingle,
+			},
+		})
+		if err != nil {
+			return err
+		}
+		ctx.Export("vpcId", vpc.VpcId)
+		ctx.Export("vpcPrivateSubnetIds", vpc.PrivateSubnetIds)
+		ctx.Export("vpcPublicSubnetIds", vpc.PublicSubnetIds)
+		return nil
+	})
+}
 ```
 
 {{% /choosable %}}
@@ -1001,37 +1027,83 @@ pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
 {{% choosable language csharp %}}
 
 ```csharp
-using System.Collections.Immutable;
+using System.Collections.Generic;
 using Pulumi;
-using Pulumi.Awsx.Ec2.Inputs;
-using Ec2 = Pulumi.Awsx.Ec2;
+using Awsx = Pulumi.Awsx;
 
-class MyStack : Stack
+return await Deployment.RunAsync(() =>
 {
-    public MyStack()
+    var vpc = new Awsx.Ec2.Vpc("vpc", new()
     {
-        var vpc = new Ec2.Vpc("custom", new Ec2.VpcArgs
+        NatGateways = new Awsx.Ec2.Inputs.NatGatewayConfigurationArgs
         {
-            NatGateways = new NatGatewayConfigurationArgs
-            {
-                Strategy = Ec2.NatGatewayStrategy.Single
-            }
-        });
+            Strategy = Awsx.Ec2.NatGatewayStrategy.Single,
+        },
+    });
 
-        this.VpcId = vpc.VpcId;
-        this.PublicSubnetIds = vpc.PublicSubnetIds;
-        this.PrivateSubnetIds = vpc.PrivateSubnetIds;
+    return new Dictionary<string, object?>
+    {
+        ["vpcId"] = vpc.VpcId,
+        ["vpcPrivateSubnetIds"] = vpc.PrivateSubnetIds,
+        ["vpcPublicSubnetIds"] = vpc.PublicSubnetIds,
+    };
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.awsx.ec2.Vpc;
+import com.pulumi.awsx.ec2.VpcArgs;
+import com.pulumi.awsx.ec2.inputs.NatGatewayConfigurationArgs;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
     }
 
-    [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
-    [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
-    [Output] public Output<string> VpcId { get; set; }
-}
+    public static void stack(Context ctx) {
+        var vpc = new Vpc("vpc", VpcArgs.builder()
+            .natGateways(NatGatewayConfigurationArgs.builder()
+                .strategy("Single")
+                .build())
+            .build());
 
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
+        ctx.export("vpcId", vpc.vpcId());
+        ctx.export("vpcPrivateSubnetIds", vpc.privateSubnetIds());
+        ctx.export("vpcPublicSubnetIds", vpc.publicSubnetIds());
+    }
 }
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  vpc:
+    type: awsx:ec2:Vpc
+    properties:
+      natGateways:
+        strategy: "Single"
+outputs:
+  vpcId: ${vpc.vpcId}
+  vpcPrivateSubnetIds: ${vpc.privateSubnetIds}
+  vpcPublicSubnetIds: ${vpc.publicSubnetIds}
 ```
 
 {{% /choosable %}}
