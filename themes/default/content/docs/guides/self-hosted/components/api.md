@@ -47,11 +47,11 @@ This container runs an HTTP server which provides the APIs needed by the Console
 
 #### Function Mode
 
-It's possible to split apart the HTTP Server from the Background Jobs functionality to distribute reponsibility across multiple instances. The function mode determines the mode in which the server runs based upon the env variable `PULUMI_API_CONTAINER_MODE`. If this value is not defined, or doesn't match a valid option, then it defaults to `FULL`.
+It's possible to split apart the HTTP Server from the Background Jobs functionality to distribute responsibility across multiple instances. The function mode determines the mode in which the server runs based upon the env variable `PULUMI_API_CONTAINER_MODE`. If this value is not defined, or doesn't match a valid option, then it defaults to `FULL`.
 
 | Variable Name | Description                            |
 |---------------|----------------------------------------|
-| 	FULL         | Pulumi API & Background Jobs (Default) |
+| FULL          | Pulumi API & Background Jobs (Default) |
 | API           | Only Pulumi API                        |
 | JOBS          | Only Background Jobs                   |
 
