@@ -4,17 +4,11 @@
             <div class="dot-background"></div>
         </div>
         <div class="dot-overlay"></div>
-        <div class="home-page-hero-content mt-8">
+        <div class="home-page-hero-content">
             <div class="w-full flex flex-col items-center justify-center">
                 <h1 class="relative">
                     <span class="rainbow-text" data-text="{{ .Params.heading }}">{{ .Params.heading }}</span>
                 </h1>
-                <p class="text-center max-w-3xl leading-7">{{ .Params.subheading | markdownify }}</p>
-                <div class="mt-8 text-center">
-                    <div class="pb-12">
-                        <a class="home-hero-btn-primary" href="{{ relref . "/docs/get-started" }}">Get Started</a>
-                    </div>
-                </div>
             </div>
         </div>
     </header>
@@ -41,19 +35,19 @@
 
                 <ul id="product-carousel-headers" class="product-carousel-headers">
                     <li class="" data-product-carousel-type="build">
-                        <p class="my-0 text-black"><a href="#build" class="text-black">Build</a></p>
+                        <p class="my-0 text-black"><a href="#build" class="text-black">Languages</a></p>
                     </li>
                     <li class="" data-product-carousel-type="deploy">
-                        <p class="my-0"><a href="#deploy" class="text-gray-500">Deploy</a></p>
+                        <p class="my-0"><a href="#deploy" class="text-gray-500">CLI</a></p>
                     </li>
                     <li class="" data-product-carousel-type="manage">
-                        <p class="my-0"><a href="#manage" class="text-gray-500">Manage</a></p>
+                        <p class="my-0"><a href="#manage" class="text-gray-500">UI</a></p>
                     </li>
                 </ul>
 
                 <ul class="product-carousel-items-list carousel-always-visible-cli-only">
-                    <li class="w-full pb-3" data-product-carousel-type="build">
-                        <img class="rounded shadow-2xl" src="/images/product/typescript-product.svg" alt="" />
+                    <li class="w-full" data-product-carousel-type="build">
+                        <img class="rounded shadow-2xl" src="/images/product/pulumi-code-example.svg" alt="" />
                     </li>
 
                     <li class="w-full relative hidden" data-product-carousel-type="deploy">
@@ -94,8 +88,8 @@
                 It is an open source project that's powered by Pulumi's CrossCode universal translation technology.
             </p>
         </div>
-        <div class="container mx-auto text-center">
-            <h3>Author infrastructure as code in any language</h3>
+        <div class="container mx-auto text-center mt-10">
+            <h4>Author infrastructure as code in any language</h4>
         </div>
         <div class="container flex flex-col items-center mx-auto">
             <img class="" src="/images/product/pulumi-iac-code.png" alt="Pulumi infrastructure as code example" />
