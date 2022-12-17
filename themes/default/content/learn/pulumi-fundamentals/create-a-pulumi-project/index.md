@@ -181,7 +181,9 @@ This command creates all the files we need, initializes a new stack named `dev`
 
 The basic project created by `pulumi new` is comprised of multiple files:
 
-- `Pulumi.yaml`: your project's metadata, containing its name and language
+<!-- This section uses HTML due to an issue with langfile shortcode -->
+<ul>
+<li><code>Pulumi.yaml</code>: your project's metadata, containing its name and language</li>
 
 {{< choosable language typescript >}}
 
@@ -208,7 +210,6 @@ The basic project created by `pulumi new` is comprised of multiple files:
 
 {{< choosable language java >}}
 
-<ul>
 <li>{{< langfile >}}: your program's main entrypoint file</li>
 <li><code>settings.gradle</code>: your project's Gradle settings</li>
 <li><code>app/</code>: the app directory generated for Java, which includes the following files:
@@ -217,9 +218,9 @@ The basic project created by `pulumi new` is comprised of multiple files:
 <li><code>src/main/java/my_first_app/</code>: the directory that holds your main entrypoint file</li>
 </ul>
 </li>
-</ul>
 
 {{< /choosable >}}
+</ul>
 
 {{% choosable language yaml %}}
 
