@@ -21,70 +21,83 @@ key_features:
     items:
         - description: Build [Infrastructure as Code](/what-is/what-is-infrastructure-as-code/) in familiar languages
           features:
-              - title: Languages you love
+              - title: [placeholder]
                 icon: code
                 icon_color: yellow
                 description: |
-                    Use TypeScript, JavaScript, Python, Go, .NET, Java, and YAML to model cloud infrastructure
-                    by leveraging the features of each language.
+                    Declarative IaC in TypeScript/JavaScript, Python, Go, C#, Java, and YAML. Deep runtime integrations and no proprietary frameworks.
 
-              - title: Build on any cloud
+              - title: [placeholder]
                 icon: global
                 icon_color: yellow
                 description: |
-                    Access the full breadth of services in AWS, Azure, GCP, and [60+ providers](/registry/) through
-                    a complete and consistent SDK interface.
+                    Use your favorite IDEs with autocomplete, in-line documentation, and a natural development experience.
 
-              - title: Create reusable infrastructure
+              - title: [placeholder]
                 icon: puzzle
                 icon_color: yellow
                 description:
-                    Build and share cloud infrastructure with reusable [Pulumi Packages](/product/packages/), which
-                    encapsulate your cloud architectures and best practices.
+                    Run rapid unit tests with any supported framework to validate your infrastructure code before deployment.
 
-        - description: Deploy cloud infrastructure and applications together
+        - description: Consume infrastructure as code in any language
           features:
-              - title: Multiple deployment options
+              - title: [placeholder]
                 icon: rocketship
                 icon_color: salmon
                 description: |
-                    Deploy infrastructure interactively with a CLI, programmatically with Pulumi’s
-                    [Automation API](/automation/), or through your [CI/CD process](/docs/guides/continuous-delivery/).
+                    Build faster by reusing Pulumi libraries and CDK constructs, and create your own libraries as multi-language Pulumi Packages.
 
-              - title: Deployments as Code
+              - title: [placeholder]
                 icon: gear
                 icon_color: salmon
                 description: |
-                    Run deployments from your application code at runtime with [Automation API](/automation/). Create infrastructure APIs, custom platforms, and CLIs.
+                    Develop modern cloud applications faster while using well-architected best practices with the Crosswalk for AWS library.
 
-              - title: Preview and test changes
+              - title: [placeholder]
                 icon: eye
                 icon_color: salmon
                 description: |
-                    Test and validate infrastructure with standard [unit test frameworks](/docs/guides/testing/#unit-testing) and
-                    [integration tests](/docs/guides/testing/integration/). Preview changes before deploying.
-
-        - description: Manage cloud applications with visibility and controls
+                    Convert your existing infrastructure code to Pulumi (TF, ARM, CFN, K8s, CRD, Helm) and import existing resources into Pulumi code.
+     
+        - description: Deploy to over 100 cloud and SaaS providers
           features:
-              - title: Policy as Code
+              - title: [placeholder]
                 icon: shield
                 icon_color: purple
                 description: |
-                    [Enforce compliance and detect drift](/crossguard/) by checking infrastructure against rules for
-                    security, cost, and best practices.
+                    Native providers for AWS, Azure, Google Cloud, and Kubernetes have 100% API coverage and same-day updates for new features.
 
-              - title: State and secrets management
+              - title: [placeholder]
                 icon: security
                 icon_color: purple
                 description: |
-                    [Pulumi Service](/product/pulumi-service/) manages your infrastructure state and automatically
-                    encrypts sensitive values in transit and at rest.
+                    Use a single workflow to manage cloud native infrastructure like Kubernetes, Helm, CRDs, GitOps, and more.
 
-              - title: Administer teams and stacks
+              - title: [placeholder]
                 icon: monitor
                 icon_color: purple
                 description: |
-                    Secure access to infrastructure with role-based permissions and [single sign-on](/docs/guides/saml/). View deployed resources, review audit logs, and set tags.
+                    Find 100+ providers and cloud components in the Pulumi Registry. Bridge any existing Terraform provider to Pulumi.
+
+        - description: Not just a CLI, but Infrastructure as Software.
+          features:
+              - title: Pulumi CLI (open source)
+                icon: shield
+                icon_color: purple
+                description: |
+                    Run IaC actions from your workstation with the open source command line interface.
+
+              - title: Pulumi as a Library (open source)
+                icon: security
+                icon_color: purple
+                description: |
+                    Program IaC actions into your application code with the open source Automation API library.
+
+              - title: Pulumi as a REST API (service)
+                icon: monitor
+                icon_color: purple
+                description: |
+                    Build IaC actions into applications or workflows with the Pulumi Deployments API service.
 
 stats:
     title: Open source. Enterprise ready.
