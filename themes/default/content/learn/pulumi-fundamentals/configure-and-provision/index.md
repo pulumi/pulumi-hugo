@@ -212,15 +212,15 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-    // Get configuration values
+		// Get configuration values
 		cfg := config.New(ctx, "")
 		frontendPort := cfg.RequireFloat64("frontendPort")
 		backendPort := cfg.RequireFloat64("backendPort")
 		mongoPort := cfg.RequireFloat64("mongoPort")
 		_ = frontendPort + backendPort + mongoPort
 
-    // Pull the backend image
-    backendImageName := "backend"
+		// Pull the backend image
+		backendImageName := "backend"
 		backendImage, err := docker.NewRemoteImage(ctx, fmt.Sprintf("%v-image", backendImageName), &docker.RemoteImageArgs{
 			Name: pulumi.String("pulumi/tutorial-pulumi-fundamentals-backend:latest"),
 		})
@@ -229,7 +229,7 @@ func main() {
 		}
 		ctx.Export("backendDockerImage", backendImage.Name)
 
-    // Pull the frontend image
+		// Pull the frontend image
 		frontendImageName := "frontend"
 		frontendImage, err := docker.NewRemoteImage(ctx, fmt.Sprintf("%v-image", frontendImageName), &docker.RemoteImageArgs{
 			Name: pulumi.String("pulumi/tutorial-pulumi-fundamentals-frontend:latest"),
@@ -239,7 +239,7 @@ func main() {
 		}
 		ctx.Export("frontendDockerImage", frontendImage.Name)
 
-    // Pull the MongoDB image
+		// Pull the MongoDB image
 		mongoImage, err := docker.NewRemoteImage(ctx, "mongo-image", &docker.RemoteImageArgs{
 			Name: pulumi.String("pulumi/tutorial-pulumi-fundamentals-database-local:latest"),
 		})
@@ -1264,7 +1264,7 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-    // Get configuration values
+		// Get configuration values
 		cfg := config.New(ctx, "")
 		frontendPort := cfg.RequireFloat64("frontendPort")
 		backendPort := cfg.RequireFloat64("backendPort")
@@ -1292,7 +1292,7 @@ func main() {
 			return err
 		}
 
-    // Pull the MongoDB image
+		// Pull the MongoDB image
 		mongoImage, err := docker.NewRemoteImage(ctx, "mongo-image", &docker.RemoteImageArgs{
 			Name: pulumi.String("pulumi/tutorial-pulumi-fundamentals-database-local:latest"),
 		})
@@ -1332,7 +1332,7 @@ func main() {
 		}
 
 		// Create the backend container
-    // Use _ instead of a variable name since this container isn't referenced
+		// Use _ instead of a variable name since this container isn't referenced
 		_, err = docker.NewContainer(ctx, "backend-container", &docker.ContainerArgs{
 			Name:  pulumi.String(fmt.Sprintf("backend-%v", ctx.Stack())),
 			Image: backendImage.RepoDigest,
@@ -1361,6 +1361,7 @@ func main() {
 		if err != nil {
 			return err
 		}
+
 		// Create a frontend container
 		_, err = docker.NewContainer(ctx, "frontend-container", &docker.ContainerArgs{
 			Name:  pulumi.String(fmt.Sprintf("frontend-%v", ctx.Stack())),
