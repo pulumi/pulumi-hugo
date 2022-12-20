@@ -960,3 +960,500 @@ resources:
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+## Handle Field Conflicts on Existing Resources
+
+After a resource is deployed to the cluster, it is possible for other controllers to start managing it. Thanks
+to the power of SSA, it is possible to see a detailed record of which controller last changed every field for
+the resource. An additional benefit of this fine-grained tracking is the ability to deliberately resolve conflicts
+rather than inadvertently overwriting changes made by another controller.
+
+If you encounter a field conflict, there are several options for resolving the conflict:
+
+1. Overwrite conflicts by using the `patchForce` option. This option can be enabled either by setting an annotation, or
+   by using the `PULUMI_K8S_ENABLE_PATCH_FORCE` environment variable.
+2. Use the [ignoreChanges resource option](/docs/intro/concepts/resources/options/ignorechanges/) to skip the update
+   for the conflicting field.
+3. Transfer ownership of the conflicting field to another field manager. See the [upstream documentation](https://kubernetes.io/docs/reference/using-api/server-side-apply/#transferring-ownership)
+   for additional information about this approach.
+
+### Use the `PULUMI_K8S_ENABLE_PATCH_FORCE` environment variable for a one-time override
+
+```bash
+# Enable patch force for the target resource. In this example, we use the `**` wildcard to ignore most of the URN,
+# and match based on the type and name of the resource. (type=DeploymentPatch, name=example)
+PULUMI_K8S_ENABLE_PATCH_FORCE="true" pulumi up --target="**DeploymentPatch::example"
+```
+
+### Set the `pulumi.com/patchForce` annotation to persistently overwrite any field conflicts for a resource
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as kubernetes from "@pulumi/kubernetes";
+
+const provider = new kubernetes.Provider("k8s", {enableServerSideApply: true});
+const example = new kubernetes.core.v1.ConfigMap("example", {
+    metadata: {
+        annotations: {
+            "pulumi.com/patchForce": "true",
+        },
+        name: "example",
+    },
+    data: {
+        foo: "bar",
+    },
+}, {
+    provider: provider,
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_kubernetes as kubernetes
+
+provider = kubernetes.Provider("k8s", enable_server_side_apply=True)
+example = kubernetes.core.v1.ConfigMap("example",
+                                       metadata=kubernetes.meta.v1.ObjectMetaArgs(
+                                           annotations={
+                                               "pulumi.com/patchForce": "true",
+                                           },
+                                           name="example",
+                                       ),
+                                       data={
+                                           "foo": "bar",
+                                       },
+                                       opts=pulumi.ResourceOptions(provider=provider))
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+    "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes"
+    corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
+    metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        provider, err := kubernetes.NewProvider(ctx, "provider", &kubernetes.ProviderArgs{
+            EnableServerSideApply: pulumi.Bool(true),
+        })
+        if err != nil {
+            return err
+        }
+        _, err = corev1.NewConfigMap(ctx, "example", &corev1.ConfigMapArgs{
+            Metadata: &metav1.ObjectMetaArgs{
+                Annotations: pulumi.StringMap{
+                    "pulumi.com/patchForce": pulumi.String("true"),
+                },
+                Name: pulumi.String("example"),
+            },
+            Data: pulumi.StringMap{
+                "foo": pulumi.String("bar"),
+            },
+        }, pulumi.Provider(provider))
+        if err != nil {
+            return err
+        }
+        return nil
+    })
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using System.Collections.Generic;
+using Pulumi;
+using Kubernetes = Pulumi.Kubernetes;
+
+return await Deployment.RunAsync(() =>
+{
+    var provider = new Kubernetes.Provider("provider", new()
+    {
+        EnableServerSideApply = true,
+    });
+
+    var example = new Kubernetes.Core.V1.ConfigMap("example", new()
+    {
+        Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+        {
+            Annotations =
+            {
+                { "pulumi.com/patchForce", "true" },
+            },
+            Name = "example",
+        },
+        Data =
+        {
+            { "foo", "bar" },
+        },
+    }, new CustomResourceOptions
+    {
+        Provider = provider,
+    });
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.kubernetes;
+import com.pulumi.kubernetes.ProviderArgs;
+import com.pulumi.kubernetes.core_v1.ConfigMap;
+import com.pulumi.kubernetes.core_v1.ConfigMapArgs;
+import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+import com.pulumi.resources.CustomResourceOptions;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var provider = new Provider("provider", ProviderArgs.builder()
+            .enableServerSideApply(true)
+            .build());
+
+        var example = new ConfigMap("example", ConfigMapArgs.builder()
+            .metadata(ObjectMetaArgs.builder()
+                .annotations(Map.of("pulumi.com/patchForce", "true"))
+                .name("example")
+                .build())
+            .data(Map.of("foo", "bar"))
+            .build(), CustomResourceOptions.builder()
+                .provider(provider)
+                .build());
+
+    }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+    provider:
+        type: pulumi:providers:kubernetes
+        properties:
+            enableServerSideApply: true
+    example:
+        type: kubernetes:core/v1:ConfigMap
+        properties:
+            metadata:
+                annotations:
+                    pulumi.com/patchForce: "true"
+                name:
+                    example
+            data:
+                foo: bar
+        options:
+            provider: ${provider}
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+### Use `ignoreChanges` to allow another controller to manage a conflicting field
+
+Cert-manager is a common example of an operator that mutates other cluster resources. Consider the following sequence
+of events:
+
+1. Deploy the cert-manager operator.
+2. Deploy a `ValidatingWebhookConfiguration` resource "X" using Pulumi with the `cert-manager.io/inject-ca-from`
+annotation set.
+3. The cert-manager operator updates "X" by setting the `webhooks[*].clientConfig.caBundle` field(s). This field is now
+managed by cert-manager rather than by Pulumi, and doesn't match Pulumi's configuration.
+4. Run another Pulumi update, and the field conflict is detected.
+
+Pulumi provides a way to ignore changes for particular fields using the [ignoreChanges resource option](/docs/intro/concepts/resources/options/ignorechanges/).
+Set this resource option on resource "X" to tell Pulumi to ignore changes to this field since another controller is
+managing it.
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language javascript %}}
+
+{{% /choosable %}}
+{{% choosable language typescript %}}
+
+```typescript
+const res = new ValidatingWebhookConfiguration("res",
+    { prop: "new-value" },
+    { ignoreChanges: ["webhooks[*].clientConfig", "webhooks[*].namespaceSelector"] });
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+res = ValidatingWebhookConfiguration("res",
+    prop="new-value",
+    opts=ResourceOptions(ignore_changes=["webhooks[*].clientConfig", "webhooks[*].namespaceSelector"]))
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+res, _ := NewValidatingWebhookConfiguration(ctx, "res",
+    &ValidatingWebhookConfigurationArgs{Prop: "new-value"},
+    pulumi.IgnoreChanges([]string{"webhooks[*].clientConfig", "webhooks[*].namespaceSelector"}))
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```csharp
+var res = new ValidatingWebhookConfiguration("res",
+    new ValidatingWebhookConfigurationArgs { Prop = "new-value" },
+    new CustomResourceOptions { IgnoreChanges = { "webhooks[*].clientConfig", "webhooks[*].namespaceSelector" } });
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+var res = new ValidatingWebhookConfiguration("res",
+    ValidatingWebhookConfigurationArgs.builder()
+        .prop("new-value")
+        .build(),
+    CustomResourceOptions.builder()
+        .ignoreChanges("webhooks[*].clientConfig")
+        .ignoreChanges("webhooks[*].namespaceSelector")
+        .build());
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  res:
+    type: ValidatingWebhookConfiguration
+    properties:
+      prop: new-value
+    options:
+      ignoreChanges:
+        - webhooks[*].clientConfig
+        - webhooks[*].namespaceSelector
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+### Helm Charts
+
+Although any resource can be updated by multiple controllers, it is particularly common for Helm charts that are
+deployed by Pulumi. Consider the following sequence of events:
+
+1. Deploy a chart using Pulumi. This chart contains a resource "X" plus an operator that will update "X".
+2. Once the chart is deployed, the operator starts running and makes an update to resource "X". The updated field is now
+managed by a different controller, and the value does not match Pulumi's configuration.
+3. Run another Pulumi update, and the field conflict is detected.
+
+Pulumi provides a way to ignore changes for particular fields using the [ignoreChanges resource option](/docs/intro/concepts/resources/options/ignorechanges/).
+Normally we could set the resource option directly, but since the Helm component is managing the resources on our
+behalf, we need to use a transformation to accomplish this.
+
+Note that you can also set the `patchForce` option to resolve conflicts using a transformation, but that this is likely
+to cause further conflicts if the operator expects to manage these fields.
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as k8s from "@pulumi/kubernetes";
+
+const kruise = new k8s.helm.v3.Chart("kruise", {
+    chart: "kruise",
+    version: "1.3.0",
+    fetchOpts:{
+        repo: "https://openkruise.github.io/charts/",
+    },
+}, {
+    transformations: [
+        // Ignore changes that will be overwritten by the kruise-manager deployment.
+        args => {
+            if (args.type === "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" ||
+                args.type === "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration") {
+                return {
+                    props: args.props,
+                    opts: pulumi.mergeOptions(args.opts, {
+                        ignoreChanges: ["metadata.annotations.template", "webhooks[*].clientConfig"],
+                    })
+                }
+            }
+            return undefined;
+        }
+    ],
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+from pulumi import ResourceOptions, ResourceTransformationArgs, ResourceTransformationResult
+from pulumi_kubernetes.helm.v3 import Chart, ChartOpts, FetchOpts
+
+
+# Ignore changes that will be overwritten by the kruise-manager deployment.
+def ignore_changes(args: ResourceTransformationArgs):
+    if args.type_ == "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" or
+        args.type_ == "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration":
+        return ResourceTransformationResult(
+            props=args.props,
+            opts=ResourceOptions.merge(args.opts, ResourceOptions(
+                ignore_changes=[
+                    "metadata.annotations.template",
+                    "webhooks[*].clientConfig",
+                ],
+            )))
+
+
+kruise = Chart(
+    "kruise",
+    ChartOpts(
+        chart="kruise",
+        version="1.3.0",
+        fetch_opts=FetchOpts(
+            repo="https://openkruise.github.io/charts/",
+        ),
+    ),
+    opts=ResourceOptions(
+        transformations=[ignore_changes],
+    )
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+    "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := helm.NewChart(ctx, "kruise", helm.ChartArgs{
+			Chart:   pulumi.String("kruise"),
+			Version: pulumi.String("1.3.0"),
+			FetchArgs: helm.FetchArgs{
+				Repo: pulumi.String("https://openkruise.github.io/charts/"),
+			},
+		}, pulumi.Transformations([]pulumi.ResourceTransformation{
+            // Ignore changes that will be overwritten by the kruise-manager deployment.
+            func(args *pulumi.ResourceTransformationArgs) *pulumi.ResourceTransformationResult {
+				if args.Type == "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" ||
+					args.Type == "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration" {
+					return &pulumi.ResourceTransformationResult{
+						Props: args.Props,
+						Opts: append(args.Opts, pulumi.IgnoreChanges([]string{
+							"metadata.annotations.template",
+							"webhooks[*].clientConfig",
+						})),
+					}
+				}
+				return nil
+			},
+		}))
+		if err != nil {
+			return err
+		}
+
+        return nil
+    })
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Threading.Tasks;
+using Pulumi;
+using Pulumi.Kubernetes.Helm;
+using Pulumi.Kubernetes.Helm.V3;
+
+return await Deployment.RunAsync(() =>
+{
+    var kruise = new Chart("kruise", new ChartArgs
+    {
+        Chart = "kruise",
+        Version = "1.3.0",
+        FetchOptions = new ChartFetchArgs
+        {
+            Repo = "https://openkruise.github.io/charts/"
+        },
+    }, new ComponentResourceOptions
+    {
+        ResourceTransformations =
+        {
+            // Ignore changes that will be overwritten by the kruise-manager deployment.
+            args =>
+            {
+                if (args.Resource.GetResourceType() == "kubernetes:admissionregistration.k8s.io/v1:ValidatingWebhookConfiguration" ||
+                    args.Resource.GetResourceType() == "kubernetes:admissionregistration.k8s.io/v1:MutatingWebhookConfiguration")
+                {
+                    var options = CustomResourceOptions.Merge(
+                        (CustomResourceOptions) args.Options,
+                        new CustomResourceOptions {
+                            IgnoreChanges = {"metadata.annotations.template", "webhooks[*].clientConfig"}
+                        });
+                    return new ResourceTransformationResult(args.Args, options);
+                }
+
+                return null;
+            }
+        }
+    });
+});
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
