@@ -14,7 +14,9 @@ subheading: |
 overview:
     title: Universal infrastructure as code for engineers 
     description: |
-        Ship infrastructure at faster velocity compared to traditional tools because it supports the most popular programming languages and software engineering practices. 
+        Ship infrastructure at faster velocity with speed and scale enabled by software engineering and an API-first approach. Pulumi open source enables engineers
+        to build with any cloud using general-purpose programming languages instead of proprietary languages. It’s backed by an enterprise-grade SaaS that increases
+        velocity, collaboration, security for teams and organizations.
 
 key_features:
     title: Key features
@@ -130,6 +132,6 @@ get_started:
     migrate:
         title: Migrating from other tools
         description: |
-            Transition to Pulumi with converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes.
+            Transition from existing infrastructure tools or continue using both. Pulumi has converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes. 
         cta_text: Explore Conversion Tools
 ---
