@@ -21,7 +21,7 @@ overview:
 key_features:
     title: Key features
     items:
-        - description: Build [Infrastructure as Code](/what-is/what-is-infrastructure-as-code/) in familiar languages
+        - description:
           features:
               - title:
                 icon: code
