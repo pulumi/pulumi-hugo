@@ -107,16 +107,19 @@ cicd:
       - /logos/tech/ci-cd/azure-devops.svg
       - /logos/tech/ci-cd/circleci.svg
       - /logos/tech/ci-cd/codefresh.svg
+      - /logos/tech/ci-cd/travis-ci.svg
       
     center:
       - /logos/tech/ci-cd/github-actions.svg
-      - /logos/tech/ci-cd/codefresh-wordmark.png
+      - /logos/tech/ci-cd/teamcity.svg
       - /logos/tech/ci-cd/gitlab-ci.svg
+      - /logos/tech/ci-cd/octopus-deploy.svg
 
     right:
       - /logos/tech/ci-cd/google-cloud-build.png
       - /logos/tech/ci-cd/jenkins.svg
       - /logos/tech/ci-cd/kubernetes.svg
+      - /logos/tech/ci-cd/spinnaker.svg
       
 
 stats:
