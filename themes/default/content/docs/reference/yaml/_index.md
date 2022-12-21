@@ -336,6 +336,30 @@ The  `parent` and `provider` values permit expressions which must use interpolat
 | `version`                 | string       | Version specifies a provider plugin version that should be used when operating on a resource |
 | `pluginDownloadURL`       | string       | Version specifies a URL that should be used when to download the provider plugin |
 
+
+##### `fn::call`
+
+Calls a function on a resource from a package and returns the whole object. The schema is:
+
+| Property    | Type                              | Required | Expression | Description                                                        |
+|-------------|-----------------------------------|----------|------------|--------------------------------------------------------------------|
+| `function`  | string                            | Yes      | No         | Name of a function to call.                                        |
+| `arguments` | map[string]Expression             | Yes      | Yes        | Arguments to pass to the expression, each key is a named argument. |
+| `options`   | [Call Options](#invoke-options)   | No       | No         | Options for the provider calling the function.                     |
+| `reource`   | Expression	                      | Yes      | Yes        | The resource to call the function on.			                   |
+
+```yaml
+variables:
+  kubeconfig:
+    fn::call:
+      function: google-native:container/v1:Cluster/getKubeconfig
+      resource: ${mycluster}
+```
+#### Call Options
+
+See [Invoke Options](#invoke-options)
+
+
 ##### `fn::join`
 
 Joins strings together separated by a delimiter. Arguments are passed as a list, with the first item being the delimiter, and the second item a list of expressions to concatenate.
