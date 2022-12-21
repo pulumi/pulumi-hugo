@@ -23,19 +23,19 @@ key_features:
     items:
         - description: Build [Infrastructure as Code](/what-is/what-is-infrastructure-as-code/) in familiar languages
           features:
-              - title: [placeholder]
+              - title:
                 icon: code
                 icon_color: yellow
                 description: |
                     Declarative IaC in TypeScript/JavaScript, Python, Go, C#, Java, and YAML. Deep runtime integrations and no proprietary frameworks.
 
-              - title: [placeholder]
+              - title:
                 icon: global
                 icon_color: yellow
                 description: |
                     Use your favorite IDEs with autocomplete, in-line documentation, and a natural development experience.
 
-              - title: [placeholder]
+              - title:
                 icon: puzzle
                 icon_color: yellow
                 description:
@@ -43,19 +43,19 @@ key_features:
 
         - description: Consume infrastructure as code in any language
           features:
-              - title: [placeholder]
+              - title:
                 icon: rocketship
                 icon_color: salmon
                 description: |
                     Build faster by reusing Pulumi libraries and CDK constructs, and create your own libraries as multi-language Pulumi Packages.
 
-              - title: [placeholder]
+              - title:
                 icon: gear
                 icon_color: salmon
                 description: |
                     Develop modern cloud applications faster while using well-architected best practices with the Crosswalk for AWS library.
 
-              - title: [placeholder]
+              - title:
                 icon: eye
                 icon_color: salmon
                 description: |
@@ -63,19 +63,19 @@ key_features:
      
         - description: Deploy to over 100 cloud and SaaS providers
           features:
-              - title: [placeholder]
+              - title: 
                 icon: shield
                 icon_color: purple
                 description: |
                     Native providers for AWS, Azure, Google Cloud, and Kubernetes have 100% API coverage and same-day updates for new features.
 
-              - title: [placeholder]
+              - title: 
                 icon: security
                 icon_color: purple
                 description: |
                     Use a single workflow to manage cloud native infrastructure like Kubernetes, Helm, CRDs, GitOps, and more.
 
-              - title: [placeholder]
+              - title: 
                 icon: monitor
                 icon_color: purple
                 description: |
@@ -100,6 +100,24 @@ key_features:
                 icon_color: purple
                 description: |
                     Build IaC actions into applications or workflows with the Pulumi Deployments API service.
+
+cicd:
+    left:
+      - /logos/tech/ci-cd/aws-codedeploy.svg
+      - /logos/tech/ci-cd/azure-devops.svg
+      - /logos/tech/ci-cd/circleci.svg
+      - /logos/tech/ci-cd/codefresh.svg
+      
+    center:
+      - /logos/tech/ci-cd/github-actions.svg
+      - /logos/tech/ci-cd/codefresh-wordmark.png
+      - /logos/tech/ci-cd/gitlab-ci.svg
+
+    right:
+      - /logos/tech/ci-cd/google-cloud-build.png
+      - /logos/tech/ci-cd/jenkins.svg
+      - /logos/tech/ci-cd/kubernetes.svg
+      
 
 stats:
     title: Open source. Enterprise ready.
