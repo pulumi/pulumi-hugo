@@ -75,7 +75,7 @@ key_features:
         - description: Not just a CLI, but Infrastructure as Software.
           features:
               - title: Pulumi CLI (open source)
-                img: /logos/brand/avatar-on-white.png
+                img: /logos/brand/avatar-on-white.svg
                 description: |
                     Run IaC actions from your workstation with the open source [command line interface](https://github.com/pulumi/pulumi).
 
