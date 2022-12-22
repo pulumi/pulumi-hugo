@@ -562,6 +562,9 @@ You will learn how to create a new Pulumi program using our Pulumi templates, sp
 Now that we have a base GCP project configured, we need to create our first resource. In this instance, we’ll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow us to store our static website. The command ```pulumi new gcp-typescript``` produced a a file ```pulumi-challenge/index.ts```. Clear the contents of the ```index.ts``` file and add the following script to create your first resources.
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as gcp from "@pulumi/gcp";
+
 // Create a GCP resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("mybucket", {
     location: "EU",
@@ -602,7 +605,7 @@ fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
 
     new gcp.storage.BucketObject(file, {
         name: file,
-        bucket: this.bucket.id,
+        bucket: bucket.id,
         source: new pulumi.asset.FileAsset(filePath),
         contentType: mime.getType(filePath) || undefined,
     });
