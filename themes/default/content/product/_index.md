@@ -57,22 +57,22 @@ key_features:
      
         - description: Deploy to over 100 cloud and SaaS providers
           features:
-              - title: 
+              - title:
                 img: /images/product/features/native_providers.svg
                 description: |
                     Native providers for [AWS](https://www.pulumi.com/blog/announcing-aws-native/), [Azure](https://www.pulumi.com/blog/pulumiup-native-providers/), [Google Cloud](https://www.pulumi.com/blog/pulumiup-google-native-provider/), and [Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/) have 100% API coverage and same-day updates for new features.
 
-              - title: 
+              - title:
                 img: /images/product/features/pulumi_cloud_native.svg
                 description: |
                     Use a single workflow to manage cloud native infrastructure like [Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/), [Helm](https://www.pulumi.com/blog/helm-release-resource-for-kubernetes-generally-available/), [CRDs](https://www.pulumi.com/blog/new-kubernetes-superpowers/#strongly-typed-kubernetes-crds), [GitOps](https://www.pulumi.com/blog/pulumi-kubernetes-new-2022/), and more.
 
-              - title: 
+              - title:
                 img: /images/product/features/pulumi_registry.svg
                 description: |
                     Find 100+ providers and cloud components in the [Pulumi Registry](https://pulumi.com/registry). [Bridge](https://github.com/pulumi/pulumi-tf-provider-boilerplate) any existing Terraform provider to Pulumi.
 
-        - description: Not just a CLI, but Infrastructure as Software.
+        - description: Not just a CLI, but Infrastructure as Software
           features:
               - title: Pulumi CLI (open source)
                 img: /logos/brand/avatar-on-white.svg

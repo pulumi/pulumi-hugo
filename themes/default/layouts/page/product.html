@@ -112,7 +112,10 @@
                     <div class="flex flex-col lg:flex-row">
                         {{ range $feature := $item.features }}
                             <div class="w-full lg:w-1/3 px-8 mt-8 lg:mb-0 text-center flex flex-col">
-                                <img style="height: 197px;" src="{{ $feature.img }}" />
+                                <img style="height: 196px;" src="{{ $feature.img }}" />
+                                {{ if not (eq $feature.title nil) }}
+                                    <h5>{{ $feature.title }}</h5>
+                                {{ end }}
                                 <p class="key-feature-description">{{ $feature.description | markdownify }}</p>
                             </div>
                         {{ end }}
@@ -125,7 +128,7 @@
     <section class="container mx-auto text-center relative">
         <div class="mx-auto card bg-white w-full my-4 lg:my-0 text-center p-6 lg:p-8 mx-0 lg:mx-4 z-10 flex flex-row items-center">
             <div class="w-1/2 pr-20">
-                <h4>Build infrastructure automation into your software and applications</h4>
+                <h4>Build infrastructure automation into your software and applications with Pulumi Automation API</h4>
             </div>
             <div class="w-full flex flex-row">
                 <div class="flex flex-col bg-white w-full my-4 lg:my-0 text-center p-6 mx-0 z-10">
@@ -219,7 +222,7 @@
 
     <section class="container mx-auto text-center">
         <h3 class="mb-10">Continuous Delivery</h3>
-        <div class="mx-auto card bg-white w-full my-4 lg:my-0 text-center pl-5 mx-0 lg:mx-4 z-10 flex flex-row items-center">
+        <div class="mx-auto card bg-white w-full my-4 lg:my-0 text-center pl-5 mx-0 lg:mx-4 z-10 flex flex-row items-center shadow-none">
             <div class="w-1/4">
                 <h5>
                     Integrate your <a class="underline text-gray-800" href="https://www.pulumi.com/docs/guides/continuous-delivery/">CI/CD pipeline</a> to automate infrastructure
