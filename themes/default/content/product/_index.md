@@ -16,7 +16,7 @@ overview:
     description: |
         Ship infrastructure at faster velocity with speed and scale enabled by software engineering and an API-first approach. Pulumi open source enables engineers
         to build with any cloud using general-purpose programming languages instead of proprietary languages. It’s backed by an enterprise-grade SaaS that increases
-        velocity, collaboration, security for teams and organizations.
+        velocity, collaboration, and security for teams and organizations.
 
 key_features:
     title: Key features
@@ -24,82 +24,70 @@ key_features:
         - description:
           features:
               - title:
-                icon: code
-                icon_color: yellow
+                img: /images/product/features/pulumi_languages.png
                 description: |
-                    Declarative IaC in TypeScript/JavaScript, Python, Go, C#, Java, and YAML. Deep runtime integrations and no proprietary frameworks.
+                    [Declarative IaC](https://pulumi.com/docs/intro/concepts/how-pulumi-works/) in TypeScript/JavaScript, Python, Go, C#, Java, and YAML. Deep runtime integrations and no proprietary frameworks.
 
               - title:
-                icon: global
-                icon_color: yellow
+                img: /images/product/features/pulumi_ides.png
                 description: |
                     Use your favorite IDEs with autocomplete, in-line documentation, and a natural development experience.
 
               - title:
-                icon: puzzle
-                icon_color: yellow
+                img: /images/product/features/test_frameworks.svg
                 description:
-                    Run rapid unit tests with any supported framework to validate your infrastructure code before deployment.
+                    Run rapid [unit tests](https://www.pulumi.com/docs/guides/testing/unit/) with any supported framework to validate your infrastructure code before deployment.
 
         - description: Consume infrastructure as code in any language
           features:
               - title:
-                icon: rocketship
-                icon_color: salmon
+                img: /images/product/features/pulumi_reusability.png
                 description: |
-                    Build faster by reusing Pulumi libraries and CDK constructs, and create your own libraries as multi-language Pulumi Packages.
+                    Build faster by reusing [Pulumi libraries](https://www.pulumi.com/docs/intro/concepts/resources/components/) and [CDK constructs](https://www.pulumi.com/blog/aws-cdk-on-pulumi/), and create your own libraries as [multi-language Pulumi Packages](https://www.pulumi.com/product/packages/).
 
               - title:
-                icon: gear
-                icon_color: salmon
+                img: /images/product/features/aws_crosswalk.svg
                 description: |
-                    Develop modern cloud applications faster while using well-architected best practices with the Crosswalk for AWS library.
+                    Develop modern cloud applications faster while using well-architected best practices with the [Crosswalk for AWS](https://www.pulumi.com/docs/guides/crosswalk/aws/) library.
 
               - title:
-                icon: eye
-                icon_color: salmon
+                img: /images/product/features/pulumi_conversion_tools.svg
                 description: |
-                    Convert your existing infrastructure code to Pulumi (TF, ARM, CFN, K8s, CRD, Helm) and import existing resources into Pulumi code.
+                    [Convert](https://www.pulumi.com/docs/converters/) your existing infrastructure code to Pulumi (TF, ARM, CFN, K8s, CRD, Helm) and [import](https://www.pulumi.com/docs/guides/adopting/import/) existing resources into Pulumi code.
      
         - description: Deploy to over 100 cloud and SaaS providers
           features:
               - title: 
-                icon: shield
-                icon_color: purple
+                img: /images/product/features/native_providers.svg
                 description: |
-                    Native providers for AWS, Azure, Google Cloud, and Kubernetes have 100% API coverage and same-day updates for new features.
+                    Native providers for [AWS](https://www.pulumi.com/blog/announcing-aws-native/), [Azure](https://www.pulumi.com/blog/pulumiup-native-providers/), [Google Cloud](https://www.pulumi.com/blog/pulumiup-google-native-provider/), and [Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/) have 100% API coverage and same-day updates for new features.
 
               - title: 
-                icon: security
-                icon_color: purple
+                img: /images/product/features/pulumi_cloud_native.svg
                 description: |
-                    Use a single workflow to manage cloud native infrastructure like Kubernetes, Helm, CRDs, GitOps, and more.
+                    Use a single workflow to manage cloud native infrastructure like [Kubernetes](https://www.pulumi.com/registry/packages/kubernetes/), [Helm](https://www.pulumi.com/blog/helm-release-resource-for-kubernetes-generally-available/), [CRDs](https://www.pulumi.com/blog/new-kubernetes-superpowers/#strongly-typed-kubernetes-crds), [GitOps](https://www.pulumi.com/blog/pulumi-kubernetes-new-2022/), and more.
 
               - title: 
-                icon: monitor
-                icon_color: purple
+                img: /images/product/features/pulumi_registry.svg
                 description: |
-                    Find 100+ providers and cloud components in the Pulumi Registry. Bridge any existing Terraform provider to Pulumi.
+                    Find 100+ providers and cloud components in the [Pulumi Registry](https://pulumi.com/registry). [Bridge](https://github.com/pulumi/pulumi-tf-provider-boilerplate) any existing Terraform provider to Pulumi.
 
         - description: Not just a CLI, but Infrastructure as Software.
           features:
               - title: Pulumi CLI (open source)
-                icon: shield
-                icon_color: purple
+                img: /logos/brand/avatar-on-white.png
                 description: |
-                    Run IaC actions from your workstation with the open source command line interface.
+                    Run IaC actions from your workstation with the open source [command line interface](https://github.com/pulumi/pulumi).
 
               - title: Pulumi as a Library (open source)
-                icon: security
-                icon_color: purple
+                img: /images/product/features/pulumi_automation_icon.svg
                 description: |
-                    Program IaC actions into your application code with the open source Automation API library.
+                    Program IaC actions into your application code with the open source [Automation API](https://www.pulumi.com/docs/guides/automation-api/) library.
 
               - title: Pulumi as a REST API (service)
-                icon: monitor
-                icon_color: purple
+                img: /images/product/features/pulumi_automation_icon.svg
                 description: |
-                    Build IaC actions into applications or workflows with the Pulumi Deployments API service.
+                    Build IaC actions into applications or workflows with the [Pulumi Deployments](https://www.pulumi.com/product/pulumi-deployments/) API service.
 
 cicd:
     left:
@@ -153,6 +141,6 @@ get_started:
     migrate:
         title: Migrating from other tools
         description: |
-            Transition from existing infrastructure tools or continue using both. Pulumi has converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes. 
+            Transition to Pulumi with converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes.
         cta_text: Explore Conversion Tools
 ---
