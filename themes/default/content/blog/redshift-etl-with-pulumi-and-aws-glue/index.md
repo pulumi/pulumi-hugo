@@ -791,6 +791,6 @@ I hope you learned as much as I did with this post --- we covered a lot, and we'
 
 Once you're up and running with Redshift, you might also want to check out the [Metabase package](/registry/packages/metabase/) in the Pulumi Registry. The Metabase package makes it easy to deploy [Metabase](https://www.metabase.com/) [alongside Redshift](https://www.metabase.com/data_sources/amazon-redshift) on AWS, allowing you to build powerful data-analysis and visualization experiences with your data.
 
-You'll find the full source of this walkthrough (in TypeScript and Python) [on GitHub](https://github.com/pulumi/examples) as well.
+You'll find the full source of this walkthrough (in [TypeScript](https://github.com/pulumi/examples/tree/master/aws-ts-redshift-glue-etl) and [Python](https://github.com/pulumi/examples/tree/master/aws-py-redshift-glue-etl)) on GitHub as well.
 
 Happy data-warehousing!
