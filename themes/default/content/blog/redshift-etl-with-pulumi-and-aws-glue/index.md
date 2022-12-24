@@ -31,7 +31,7 @@ But first ...
 
 If you haven't already, I'd encourage you to [read through the previous post](/blog/building-a-data-warehouse-on-aws-with-redshift-and-pulumi/) to get up to speed on what we're building and why. In that post, the situation was such that some hypothetical application was generating "events" --- little bits of JSON, essentially --- and writing them periodically to a text file in S3, and as data scientists, we needed some way to gather up all of these events and load them into a Redshift cluster in order to analyze them later.
 
-When we left off, we'd gotten Redshift up and running, and we were able to pull the data from S3 into Redshift directly (by running a manual query in the Redshift console), but that's as far as we got was it: no automation, no protection from duplicate records --- just the absolute basics.
+When we left off, we'd gotten Redshift up and running, and we were able to pull the data from S3 into Redshift directly (by running a manual query in the Redshift console), but that's as far as we got --- no automation, no protection from duplicate records, just the absolute basics.
 
 So to pick up from there, let's start by bootstrapping a new project with the code from the previous post. As always, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration/) in the usual way first, then run the following commands to get going:
 
