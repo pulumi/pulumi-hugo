@@ -787,7 +787,7 @@ Resources:
 
 ## What's next?
 
-I hope you learned as much as I did with this post --- we covered a lot, and we've only scratched the surface of what's possible with these tools. Once again, I'd encourage you to spend some time digging into the [Redshift](https://docs.aws.amazon.com/redshift/index.html) and [Glue](https://docs.aws.amazon.com/glue/index.html) documentation to explore both in more depth, and there's lots more to learn than what we've covered so far.
+I hope you learned as much as I did with this post --- we covered a lot, and we've only scratched the surface of what's possible with these tools. Once again, I'd encourage you to spend some time digging into the [Redshift](https://docs.aws.amazon.com/redshift/index.html) and [Glue](https://docs.aws.amazon.com/glue/index.html) documentation to explore both in more depth, as there's lots more to learn than what we've covered so far.
 
 Once you're up and running with Redshift, you might also want to check out the [Metabase package](/registry/packages/metabase/) in the Pulumi Registry. The Metabase package makes it easy to deploy [Metabase](https://www.metabase.com/) [alongside Redshift](https://www.metabase.com/data_sources/amazon-redshift) on AWS, allowing you to build powerful data-analysis and visualization experiences with your data.
 
