@@ -87,7 +87,7 @@
             <h3 class="text-center">{{ .Params.recommended.title }}</h3>
             <div class="flex flex-wrap flex-row justify-center">
                 {{ range $item := .Params.recommended.items }}
-                    <a href="{{ $item.link }}"><img class="h-72 p-8" src="{{ $item.image }}" /></a>
+                    <a href="{{ $item.link }}"><img class="h-64 p-8" src="{{ $item.image }}" /></a>
                 {{ end }}
             </div>
         </div>
