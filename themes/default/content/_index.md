@@ -40,17 +40,9 @@ overview:
       - /logos/tech/ci-cd/travis-ci.svg
 
 build:
-  title: Write your configuration quickly
+  title: Write IaC quickly
   description: |
     Pulumi helps you speed up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation working out the box. In addition you can leverage all the capabilities of the programming language of your choice to help you reduce the total number of lines of code you're writing.
-  items:
-    - title: Flexible and expressive
-      description: |
-        Pulumi allows you to write expressive and easily legible logic into your configurations, removing the need for clever workarounds to handle simple use cases.
-
-    - title: Share and reuse
-      description: |
-        You can use Pulumi Packages to build best-practice abstractions available in all supported languages.
 
   code:
     - title: index.ts
@@ -220,27 +212,14 @@ build:
           vpcId: ${eks-vpc.vpcId}
 
 deploy:
-  title: Ship your applications faster
+  title: Ship applications faster
   description: |
-    Pulumi gives you a faster outer dev loop by making  CI/CD for your IaC seamless and the default experience. Pulumi provides has integrations with all the popular CI/CD platforms and testing frameworks.
-
-  items:
-    - title: Infrastructure and applications together
-      description: Unify shipping your entire cloud software stack.
-
-    - title: Deploy with confidence
-      description: Validate every change with testing and built-in policies.
+    Pulumi gives you a faster outer dev loop by making CI/CD for your IaC seamless and the default experience. Pulumi provides has integrations with all the popular CI/CD platforms and testing frameworks. You can validate every change with testing and built-in policies. You can also build Pulumi Packages to create best-practice abstractions available in all languages.
 
 manage:
-  title: Deliver your ideas with ease
+  title: Deliver ideas with ease
   description: |
     Pulumi gives you a faster dev loop across the entire organization by guaranteeing the infrastructure software supply chain. Standard software packaging allows sharing and reuse of code across the organization along with org-wide policy enforcements. Pulumi provides the industry’s only automation workflow capability that allows software engineering to be applied to solve and manage cloud infrastructure at scale.
-  items:
-    - title: Secure by default
-      description: Automatic encryption for secrets and state. Identity and Policy as Code ensure continuous compliance
-
-    - title: See who changed what and when
-      description: Full change visibility and auditing across your entire organization.
 
 automation_api_examples:
   - name: Provision resources over HTTP (Node.js/Express)
@@ -280,17 +259,214 @@ automation_api_examples:
   - name: Create custom CLI tools (Go/Cobra)
     text: |
       ```go
-      package custom_tool
+      import (
+          "fmt"
+
+          "github.com/pulumi/pulumi/sdk/v3/go/auto"
+          "github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
+          "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+          "github.com/ThorstenHans/stringer/pkg/stringer"
+          "github.com/spf13/cobra"
+      )
+
+      func pulumiProgram(ctx *pulumi.Context) error {
+          // Your Pulumi program.
+      }
+
+      var deployCmd = &cobra.Command{
+          Use:   "deploy",
+          Short:  "Deploy my infrastructure.",
+          Run: func(cmd *cobra.Command, args []string) error {
+              ctx := context.Background()
+              projectName := "example"
+              stackName := "dev"
+              s, err := auto.UpsertStackInlineSource(ctx, stackName, projectName, pulumiProgram)
+              if err != nil {
+                return err
+              }
+
+              w := s.Workspace()
+
+              // for inline source programs, we must manage plugins ourselves
+              err = w.InstallPlugin(ctx, "aws", "v4.0.0")
+              if err != nil {
+                fmt.Printf("Failed to install program plugins: %v\n", err)
+                os.Exit(1)
+              }
+
+              // set stack configuration specifying the AWS region to deploy
+              s.SetConfig(ctx, "aws:region", auto.ConfigValue{Value: "us-west-2"})
+
+              _, err = s.Refresh(ctx)
+              if err != nil {
+                return err
+              }
+
+              stdoutStreamer := optup.ProgressStreams(os.Stdout)
+
+              res, err := s.Up(ctx, stdoutStreamer)
+              if err != nil {
+                return err
+              }
+
+              return nil
+          },
+      }
+
+      func init() {
+          rootCmd.AddCommand(deployCmd)
+      }
       ```
 
   - name: Run database migrations (Python/MySQL)
     text: |
       ```python
-      example
+      import sys
+      import json
+      import pulumi
+      import pulumi_aws as aws
+      from pulumi import automation as auto
+      from mysql.connector import connect
+
+
+      # This is our pulumi program in "inline function" form
+      def pulumi_program():
+          default_vpc = aws.ec2.get_vpc(default=True)
+          public_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=default_vpc.id)
+          subnet_group = aws.rds.SubnetGroup("db_subnet", subnet_ids=public_subnet_ids.ids)
+
+          # make a public security group for our cluster for the migration
+          security_group = aws.ec2.SecurityGroup("public_group",
+                                                ingress=[aws.ec2.SecurityGroupIngressArgs(
+                                                    protocol="-1",
+                                                    from_port=0,
+                                                    to_port=0,
+                                                    cidr_blocks=["0.0.0.0/0"]
+                                                )],
+                                                egress=[aws.ec2.SecurityGroupEgressArgs(
+                                                    protocol="-1",
+                                                    from_port=0,
+                                                    to_port=0,
+                                                    cidr_blocks=["0.0.0.0/0"]
+                                                )])
+
+          # example on, you should change this
+          db_name = "hellosql"
+          db_user = "hellosql"
+          db_pass = "hellosql"
+
+          # provision our db
+          cluster = aws.rds.Cluster("db",
+                                    engine=aws.rds.EngineType.AURORA_MYSQL,
+                                    engine_version="5.7.mysql_aurora.2.10.2",
+                                    database_name=db_name,
+                                    master_username=db_user,
+                                    master_password=db_pass,
+                                    skip_final_snapshot=True,
+                                    db_subnet_group_name=subnet_group.name,
+                                    vpc_security_group_ids=[security_group.id])
+
+          cluster_instance = aws.rds.ClusterInstance("db_instance",
+                                                    cluster_identifier=cluster.cluster_identifier,
+                                                    instance_class=aws.rds.InstanceType.T3_SMALL,
+                                                    engine=aws.rds.EngineType.AURORA_MYSQL,
+                                                    engine_version="5.7.mysql_aurora.2.10.2",
+                                                    publicly_accessible=True,
+                                                    db_subnet_group_name=subnet_group.name)
+
+          pulumi.export("host", cluster.endpoint)
+          pulumi.export("db_name", db_name)
+          pulumi.export("db_user", db_user)
+          pulumi.export("db_pass", db_pass)
+
+
+      # To destroy our program, we can run python main.py destroy
+      destroy = False
+      args = sys.argv[1:]
+      if len(args) > 0:
+          if args[0] == "destroy":
+              destroy = True
+
+      project_name = "database_migration"
+      stack_name = "dev"
+
+      # create (or select if one already exists) a stack that uses our inline program
+      stack = auto.create_or_select_stack(stack_name=stack_name,
+                                          project_name=project_name,
+                                          program=pulumi_program)
+
+      print("successfully initialized stack")
+
+      # for inline programs, we must manage plugins ourselves
+      print("installing plugins...")
+      stack.workspace.install_plugin("aws", "v4.0.0")
+      print("plugins installed")
+
+      # set stack configuration specifying the AWS region to deploy
+      print("setting up config")
+      stack.set_config("aws:region", auto.ConfigValue(value="us-west-2"))
+      print("config set")
+
+      print("refreshing stack...")
+      stack.refresh(on_output=print)
+      print("refresh complete")
+
+      if destroy:
+          print("destroying stack...")
+          stack.destroy(on_output=print)
+          print("stack destroy complete")
+          sys.exit()
+
+      print("updating stack...")
+      up_res = stack.up(on_output=print)
+      print(f"update summary: \n{json.dumps(up_res.summary.resource_changes, indent=4)}")
+      print(f"db host url: {up_res.outputs['host'].value}")
+
+      print("configuring db...")
+      with connect(
+              host=up_res.outputs['host'].value,
+              user=up_res.outputs['db_user'].value,
+              password=up_res.outputs['db_pass'].value,
+              database=up_res.outputs['db_name'].value) as connection:
+          print("db configured!")
+
+          # make sure the table exists
+          print("creating table...")
+          create_table_query = """CREATE TABLE IF NOT EXISTS hello_pulumi(
+              id int(9) NOT NULL PRIMARY KEY,
+              color varchar(14) NOT NULL);
+              """
+          with connection.cursor() as cursor:
+              cursor.execute(create_table_query)
+              connection.commit()
+
+          # seed the table with some data to start
+          seed_table_query = """INSERT IGNORE INTO hello_pulumi (id, color)
+          VALUES
+              (1, 'Purple'),
+              (2, 'Violet'),
+              (3, 'Plum');
+          """
+          with connection.cursor() as cursor:
+              cursor.execute(seed_table_query)
+              connection.commit()
+
+          print("rows inserted!")
+          print("querying to verify data...")
+
+          # read the data back
+          read_table_query = """SELECT COUNT(*) FROM hello_pulumi;"""
+          with connection.cursor() as cursor:
+              cursor.execute(read_table_query)
+              result = cursor.fetchone()
+              print(f"Result: {json.dumps(result)}")
+
+          print("database, table and rows successfully configured")
       ```
 
-  - name: And much more
-    text: View examples
+  - name: See all examples
+    text: |
+      [View examples](https://github.com/pulumi/automation-api-examples)
 
 customer_logos:
   title: Leading engineering organizations are building with Pulumi
