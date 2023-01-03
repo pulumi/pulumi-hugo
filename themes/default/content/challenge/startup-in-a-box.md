@@ -10,60 +10,39 @@ meta_image: /images/challenge/challenge_cta.png
 
 ## Welcome to the Pulumi Challenge!
 
-<div class="flex flex-wrap md:mt-12">
-  <h3>Startup in a Box</h3>
-  <p class="pr-12">
-    Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on an object store and a CDN from your favorite cloud provider (Google Cloud or AWS) and Checkly, all using Pulumi.
-  </p>
-  <h3>Prerequisites</h3>
+### Startup in a Box
+
+Thinking about turning that side project into a little something more? Follow along to stand up a website for your startup on an object store and a CDN from your favorite cloud provider (Google Cloud or AWS) and Checkly, all using Pulumi.
+
+### Prerequisites
+
+In order to complete this challenge, you'll need a couple things set up in advance.
 
 {{< chooser cloud "aws,gcp" >}}
 
-{{< choosable cloud aws >}}
+{{% choosable cloud aws %}}
 
-  <p>In order to complete this challenge, you'll need a couple things set up in advance.</p>
-  <ul>
-    <li>
-      A <a href="https://app.pulumi.com/signup" target="_blank" rel="noopener noreferrer">Pulumi account</a>
-    </li>
-    <li>
-      The <a href="/docs/get-started/install/" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
-    </li>
-    <li>
-      AWS account
-    </li>
-    <li>
-      <a href="https://www.checklyhq.com/" target="_blank" rel="noopener noreferrer">Checkly</a> account
-    </li>
-  </ul>
+* A [Pulumi account](https://app.pulumi.com/signup)
+* The [Pulumi CLI](/docs/get-started/install/)
+* An AWS account
+* A [Checkly account](https://www.checklyhq.com/)
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable cloud gcp >}}
+{{% choosable cloud gcp %}}
 
-  <p>In order to complete this challenge, you'll need a couple things set up in advance.</p>
-  <ul>
-    <li>
-      A <a href="https://app.pulumi.com/signup" target="_blank" rel="noopener noreferrer">Pulumi account</a>
-    </li>
-    <li>
-      The <a href="/docs/get-started/install/" target="_blank" rel="noopener noreferrer">Pulumi CLI</a>
-    </li>
-    <li>
-      A Google Cloud <a href="https://cloud.google.com/gcp" target="_blank" rel="noopener noreferrer">account</a> and <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects/" target="_blank" rel="noopener noreferrer">project</a>
-    </li>
-    <li>
-      <a href="https://www.checklyhq.com/" target="_blank" rel="noopener noreferrer">Checkly</a> account
-    </li>
-  </ul>
+* A [Pulumi account](https://app.pulumi.com/signup)
+* The [Pulumi CLI](/docs/get-started/install/)
+* A Google Cloud [account](https://cloud.google.com/gcp) and [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects/)
+* A [Checkly account](https://www.checklyhq.com/)
 
-  <p><b>Note:</b> If you're new to Google Cloud, you can get $300 in free credits to run, test, and deploy workloads. <a href="https://cloud.google.com/gcp" target="_blank" rel="noopener noreferrer">Open a free GCP account</a> and use it for this Pulumi Challenge!</p>
+{{< notes >}}
+If you're new to Google Cloud, you can get $300 in free credits to run, test, and deploy workloads. <a href="https://cloud.google.com/gcp" target="_blank" rel="noopener noreferrer">Open a free GCP account</a> and use it for this Pulumi Challenge!
+{{< /notes >}}
 
-{{< /choosable >}}
+{{% /choosable %}}
 
 {{< /chooser >}}
-
-</div>
 
 ### Challenge
 
@@ -71,7 +50,7 @@ Follow along with the steps outlined on this page.
 
 #### Step 1. Your First Pulumi Program
 
-You will learn how to create a new Pulumi program using our Pulumi templates, specifically for AWS or Google Cloud with TypeScript. Create a new directory called `pulumi-challenge` and run the following inside of it:
+You will learn how to create a new Pulumi program using Pulumi templates, specifically for AWS or Google Cloud with TypeScript. Create a new directory called `pulumi-challenge` and run the following inside of it:
 
 {{% chooser cloud "aws,gcp" %}}
 
@@ -88,7 +67,11 @@ pulumi new aws-typescript
 ```shell
 # create a new Pulumi project
 pulumi new gcp-typescript
+```
 
+The `pulumi new gcp-typescript` command will prompt for the name of the GCP project to use, but if you didn't enter one or need to change it, you can do so with the `pulumi config set` command. Setting the GCP region is handled in the same way.
+
+```shell
 # set the project ID
 pulumi config set gcp:project <GCP_PROJECT_ID>
 
@@ -102,7 +85,7 @@ pulumi config set gcp:region europe-west1
 
 {{% choosable cloud aws %}}
 
-Now that we have a base AWS project configured, we need to create our first resource. In this instance, we'll create a new S3 bucket which will allow us to store our static website. We'll also ensure that this bucket is private, as we want to expose it only via our CDN - which we'll configure next.
+Now that you have a base AWS project configured, you need to create your first resource. In this case, you'll create a new S3 bucket which will allow you to store your static website. You'll also want to ensure that this bucket is private, as you want to expose it only via your CDN (you'll configure that next).
 
 ```typescript
 const bucket = new aws.s3.BucketV2(
@@ -124,20 +107,20 @@ const bucketAcl = new aws.s3.BucketAclV2("bAcl", {
 
 {{% choosable cloud gcp %}}
 
-Now that we have a base GCP project configured, we need to create our first resource. In this instance, we'll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow us to store our static website. The command `pulumi new gcp-typescript` produced a a file `pulumi-challenge/index.ts`. Clear the contents of the `index.ts` file and add the following code to create your first resources.
+Now that you have a base GCP project configured, you need to create your first resource. In this instance, you'll create a new [GCS bucket](https://cloud.google.com/storage/docs/buckets) which will allow you to store your static website. The command `pulumi new gcp-typescript` produced a file `pulumi-challenge/index.ts`. Clear the contents of the `index.ts` file and add the following code to create your first resources.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
-// Create a GCP resource (Storage Bucket)
+// Create a GCP resource (Storage Bucket).
 const bucket = new gcp.storage.Bucket("mybucket", {
     // Set location as appropriate for wherever you are located
     location: "EU",
      website: {
         mainPageSuffix: "index.html",
     },
-},{});
+});
 
 // Create an IAM binding to allow public read access to the bucket.
 const bucketIamBinding = new gcp.storage.BucketIAMBinding("bucket-iam-binding", {
@@ -153,11 +136,11 @@ const bucketIamBinding = new gcp.storage.BucketIAMBinding("bucket-iam-binding", 
 
 #### Step 3. Working with Local Files
 
-Pulumi lets you use your favourite programming language to define your infrastructure. Today, we're using TypeScript, which means we have access to the Node API. This includes discovering directories and files.
+Pulumi lets you use your favourite programming language to define your infrastructure. Today, you're using TypeScript, which means you have access to the Node API. This includes discovering directories and files.
 
-Using these APIs, we can sync our local files, with the Pulumi resource model, to the object storage platform.
+Using these APIs, you can sync your local files, with the Pulumi resource model, to the object storage platform.
 
-We need to add the `mime` package from npm, as it is useful for passing the mime type of the file to the object storage platform without hardcoding it.
+You need to add the `mime` package from npm, as it is useful for passing the MIME type of the file to the object storage platform without hardcoding it.
 
 ```shell
 npm install mime @types/mime
@@ -170,6 +153,7 @@ npm install mime @types/mime
 ```typescript
 import * as fs from "fs";
 import * as mime from "mime";
+
 const staticWebsiteDirectory = "website";
 
 fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
@@ -192,6 +176,7 @@ fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
 ```typescript
 import * as fs from "fs";
 import * as mime from "mime";
+
 const staticWebsiteDirectory = "website";
 
 fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
@@ -210,9 +195,9 @@ fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
 
 {{% /chooser %}}
 
-We need our actual website too, though. Create a directory called `website` at `pulumi-challenge/website`, and inside it, add `index.html`, `style.css`, and `normalize.css`.
+You need your actual website too, though. Create a directory called `website` at `pulumi-challenge/website`, and inside it, add `index.html`, `style.css`, and `normalize.css`.
 
-For `index.html`, we have the structure of a simple website, with places to put links to your project's GitHub and Twitter, as well as your LinkedIn:
+For `index.html`, you'll have the structure of a simple website, with places to put links to your project's GitHub and Twitter, as well as your LinkedIn:
 
 ```html
 <!DOCTYPE html>
@@ -250,7 +235,7 @@ For `index.html`, we have the structure of a simple website, with places to put 
 </html>
 ```
 
-In `style.css`, we're making it pretty with some bright colors and a CSS background:
+In `style.css`, you'll make it pretty with some bright colors and a CSS background:
 
 ```css
 @import url('https://fonts.googleapis.com/css?family=News+Cycle|Teko&display=swap');
@@ -337,15 +322,17 @@ header li {
 }
 ```
 
-To make sure our styles display consistently across browsers, we also need to normalize some styles. [Copy normalize.css from GitHub](https://github.com/necolas/normalize.css/blob/master/normalize.css).
+To make sure styles display consistently across browsers, you also need to normalize some styles. [Copy normalize.css from GitHub](https://github.com/necolas/normalize.css/blob/master/normalize.css).
 
 #### Step 4. Creating a CDN
+
+Next, you want to add a CDN to your website.
 
 {{% chooser cloud "aws,gcp" %}}
 
 {{% choosable cloud aws %}}
 
-Next, we want to front our S3 bucket with Cloudfront. This is a pretty big object, but most of it can be copy and pasted without further thought.
+On AWS, this means you want to front your S3 bucket with Cloudfront. This is a pretty big object, but most of it can be copy and pasted without further thought.
 
 ```typescript
 const s3OriginId = "myS3Origin";
@@ -404,7 +391,7 @@ const cloudfrontDistribution = new aws.cloudfront.Distribution(
 
 {{% choosable cloud gcp %}}
 
-Next, we want to front our Cloud Storage Bucket with a [Load Balancer](https://cloud.google.com/load-balancing/docs/https) and enable its [CDN capabilities](https://cloud.google.com/cdn/docs/overview). Add the following additional code to your `index.ts` file in order to create a GCP Load Balancer, Public IP address and URL Map to your GCP storage bucket.
+On Google Cloud, that means you want to front your Cloud Storage Bucket with a [Load Balancer](https://cloud.google.com/load-balancing/docs/https) and enable its [CDN capabilities](https://cloud.google.com/cdn/docs/overview). Add the following additional code to your `index.ts` file in order to create a GCP Load Balancer, Public IP address and URL Map to your GCP storage bucket.
 
 ```typescript
 const backendBucket = new gcp.compute.BackendBucket("backend-bucket", {
@@ -413,7 +400,7 @@ const backendBucket = new gcp.compute.BackendBucket("backend-bucket", {
 });
 
 // Provision a global IP address for the CDN.
-const ip = new gcp.compute.GlobalAddress("ip", {});
+const ip = new gcp.compute.GlobalAddress("ip");
 
 // Create a URLMap to route requests to the storage bucket.
 const urlMap = new gcp.compute.URLMap("url-map", {defaultService: backendBucket.selfLink});
@@ -436,7 +423,7 @@ const httpForwardingRule = new gcp.compute.GlobalForwardingRule("http-forwarding
 
 #### Step 5. Introducing ComponentResources
 
-Now... we _could_ continue to add resource after resource, but Pulumi is more than that. We can build our own reusable components. Let's refactor what we have above into a `CdnWebsite` component at `pulumi-challenge/cdn-website/index.ts`.
+Now... you _could_ continue to add resource after resource, but Pulumi is more than that. You can build your own reusable components. To do that, refactor what you have above into a `CdnWebsite` component at `pulumi-challenge/cdn-website/index.ts`.
 
 {{% chooser cloud "aws,gcp" %}}
 
@@ -553,7 +540,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
       );
     });
 
-    // We also need to register all the expected outputs for this
+    // You also need to register all the expected outputs for this
     // component resource that will get returned by default.
     this.registerOutputs({
       bucketName: this.bucket.id,
@@ -604,8 +591,8 @@ export class CdnWebsite extends pulumi.ComponentResource {
         const config = new pulumi.Config();
         const path = config.get("path") || "./website";
 
-        fs.readdirSync(staticWebsiteDirectory).forEach((file) => {
-            const filePath = `${staticWebsiteDirectory}/${file}`;
+        fs.readdirSync(this.staticWebsiteDirectory).forEach((file) => {
+            const filePath = `${this.staticWebsiteDirectory}/${file}`;
 
             new gcp.storage.BucketObject(file, {
                 name: file,
@@ -633,7 +620,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
             target: httpProxy.selfLink,
         });
 
-        // We also need to register all the expected outputs for this
+        // You also need to register all the expected outputs for this
         // component resource that will get returned by default.
         this.registerOutputs({
             bucketName: this.bucket.id,
@@ -651,7 +638,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
 
 {{% /chooser %}}
 
-Now we can consume this! Awesome. Back in `pulumi-challenge/index.ts`, we can change it to have this:
+Now you can consume this elsewhere. Awesome! Back in `pulumi-challenge/index.ts`, change it to have this:
 
 {{% chooser cloud "aws,gcp" %}}
 
@@ -692,15 +679,15 @@ for (var idx in gcpServiceAPIs) {
         new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
             disableDependentServices: true,
             service: gcpServiceAPIs[idx],
-        }, {})
-    )
+        });
+    );
 }
 
 const website = new CdnWebsite("your-startup", {}, {dependsOn: apiDependencies});
 export const websiteUrl = website.url;
 ```
 
-You'll note that we've also added some code to enable the GCP service APIs that are required to run certain GCP services.
+You'll also note the presence of some code to enable the GCP service APIs that are required to run certain GCP services.
 
 {{% /choosable %}}
 
@@ -710,17 +697,17 @@ You'll note that we've also added some code to enable the GCP service APIs that 
 
 {{% choosable cloud aws %}}
 
-Now that we have our website being delivered as fast as can we via our `CdnWebsite` component and S3 with Cloudfront, how do we know that what we've deployed actually works? We could leverage a fantastic service, such as Checkly, to ensure our website passes some sanity checks.
+Now that you have your website being delivered as fast as you can via your `CdnWebsite` component and S3 with Cloudfront, how do you know that what you've deployed actually works? You could leverage a fantastic service, such as Checkly, to ensure your website passes some sanity checks.
 
 {{% /choosable %}}
 
 {{% choosable cloud gcp %}}
 
-Now that we have our website being delivered as fast as possible via our `CdnWebsite` component and Cloud CDN, how do we know that what we've deployed actually works? We could leverage a fantastic service, such as Checkly, to ensure our website passes some sanity checks.
+Now that you have your website being delivered as fast as possible via your `CdnWebsite` component and Cloud CDN, how do you know that what you've deployed actually works? You could leverage a fantastic service, such as Checkly, to ensure your website passes some sanity checks.
 
 {{% /choosable %}}
 
-First, we need to add a new provider:
+First, you need to add a new provider:
 
 ```shell
 npm install @checkly/pulumi
@@ -732,7 +719,7 @@ pulumi config set checkly:apiKey --secret
 pulumi config set checkly:accountId
 ```
 
-Next, we can use this in our code.
+Next, you can use this in your code.
 
 ```typescript
 import * as checkly from "@checkly/pulumi";
@@ -753,7 +740,7 @@ new checkly.Check("index-page", {
 });
 ```
 
-Our `pulumi-challenge/index.ts` should now look like this:
+Your `pulumi-challenge/index.ts` should now look like this:
 
 {{% chooser cloud "aws,gcp" %}}
 
@@ -811,8 +798,8 @@ for (var idx in gcpServiceAPIs) {
         new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
             disableDependentServices: true,
             service: gcpServiceAPIs[idx],
-        }, {})
-    )
+        });
+    );
 }
 
 const website = new CdnWebsite("your-startup", {}, {dependsOn: apiDependencies});
@@ -840,7 +827,7 @@ new checkly.Check("index-page", {
 
 {{% /chooser %}}
 
-You'll notice we use `fs.readFileSync` from `fs` again. That's because we're keeping our Checkly code, which is also Node based, inside its own file where it can get good auto-completion and syntax highlighting, rather than storing as a string object within our existing code. Neat, huh? Add the following to `pulumi-challenge/checkly-embed.js`:
+You'll notice the code uses `fs.readFileSync` from `fs` again. That's because the Checkly code, which is also Node based, is inside its own file where it can get good auto-completion and syntax highlighting, rather than storing it as a string object within your existing code. Neat, huh? Add the following to `pulumi-challenge/checkly-embed.js`:
 
 ```javascript
 const playwright = require("playwright");
@@ -855,8 +842,10 @@ expect(await page.title()).toBe("Pulumi Challenge");
 await browser.close();
 ```
 
+After adding this code, go ahead and run `pulumi up`. Depending on which cloud provider you're using, it may take a few minutes for the site to become available at the URL noted in the output of the `pulumi up` command. After a few minutes, though, the website for your new startup should be available.
+
 Congratulations! You completed the first Pulumi Challenge. If you'd like to tear down all of these resources, run `pulumi destroy`. Otherwise, enjoy the new website!
 
-Wanna yell it from the rooftops? Write a blog or post a quick video about it? Let us know and we'll send you a super secret piece of swag!* Tag us on social media, or email us at [da@pulumi.com](mailto:da@pulumi.com).
+Wanna yell it from the rooftops? Write a blog or post a quick video about it? Let us know and we'll send you a super secret piece of swag!&ast; Tag us on social media, or email us at [da@pulumi.com](mailto:da@pulumi.com).
 
-* Swag only available for U.S. shipping
+&ast; Swag only available for U.S. shipping
