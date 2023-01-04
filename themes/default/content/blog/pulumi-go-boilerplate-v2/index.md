@@ -34,8 +34,11 @@ We are excited to announce that we've updated the Pulumi Provider Boilerplate to
 This major update brings a wealth of usability improvements to the Pulumi Provider Boilerplate by incorporating our brand
 new Pulumi Go Provider SDK [(view on GitHub)](https://github.com/pulumi/pulumi-go-provider).
 Now, you can implement your provider in Go by defining the provider's metadata, resources, and functions, and then building the provider binary.
-The library takes care of the gRPC server for you and the Pulumi CLI takes care of the SDK code generation with the following command
-`pulumi package gen-sdk <path/to/provider-binary>`.
+The library takes care of the gRPC server for you and the Pulumi CLI takes care of the SDK code generation with the following command:
+
+```bash
+pulumi package gen-sdk <path/to/provider-binary>
+```
 
 You can leave the heavy lifting to us and focus on the implementation details that matter to your organization.
 
