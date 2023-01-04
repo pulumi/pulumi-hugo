@@ -32,17 +32,17 @@ In the wizard, select "Other Issuer" as the "Federated credential scenario".
 
 Finally, fill in the "Issuer", "Subject Identifier", "Name", and "Audience" fields in the form.
 
-- "Issuer" must be `https://api.pulumi.com/oidc`
-- "Subject Identifier" must be a valid [subject claim](/docs/guides/oidc/#overview)
-- "Name" is an arbitrary name for the credential
-- "Audience" must be the name of your Pulumi organization
+* "Issuer" must be `https://api.pulumi.com/oidc`
+* "Subject Identifier" must be a valid [subject claim](/docs/guides/oidc/#overview)
+* "Name" is an arbitrary name for the credential
+* "Audience" must be the name of your Pulumi organization
 
 Because Azure's federated credentials require that the subject identifier exactly matches an OIDC token's subject claim, this process must be repeated for each permutation of the subject claim that is possible for a stack. For example, in order to enable all of the valid operations on a stack named `dev` of the `core` project in the `contoso` organization, you would need to create credentials for each of the following subject identifiers:
 
-- `pulumi:deploy:org:contoso:project:core:stack:dev:operation:preview:scope:write`
-- `pulumi:deploy:org:contoso:project:core:stack:dev:operation:update:scope:write`
-- `pulumi:deploy:org:contoso:project:core:stack:dev:operation:refresh:scope:write`
-- `pulumi:deploy:org:contoso:project:core:stack:dev:operation:destroy:scope:write`
+* `pulumi:deploy:org:contoso:project:core:stack:dev:operation:preview:scope:write`
+* `pulumi:deploy:org:contoso:project:core:stack:dev:operation:update:scope:write`
+* `pulumi:deploy:org:contoso:project:core:stack:dev:operation:refresh:scope:write`
+* `pulumi:deploy:org:contoso:project:core:stack:dev:operation:destroy:scope:write`
 
 ## Enabling OIDC for your Stack
 

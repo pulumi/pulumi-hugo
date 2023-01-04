@@ -268,6 +268,7 @@ The following environment variables are used internally by Pulumi Deployments, a
 * **subscriptionId** (string): The ID of the subscription to use.
 
 `GCPOIDCConfiguration` has the following structure:
+
 * **projectId** (string): The numerical ID of the GCP project.
 * **region** (Optional[string]): The region of the GCP project.
 * **workloadPoolId** (string): The ID of the workload pool to use.
