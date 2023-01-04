@@ -643,7 +643,7 @@ import pulumi_awsx as awsx
 vpc = awsx.ec2.Vpc("custom", nat_gateways=awsx.ec2.NatGatewayConfigurationArgs(
     strategy=awsx.ec2.NatGatewayStrategy.SINGLE))
 
-pulumi.export("vpcId", vpc.vpcId)
+pulumi.export("vpcId", vpc.vpc_id)
 pulumi.export("publicSubnetIds", vpc.public_subnet_ids)
 pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
 ```
