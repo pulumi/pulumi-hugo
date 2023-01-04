@@ -69,7 +69,7 @@ However, we noticed JavaScript programs were importing the TypeScript compiler e
 
 Our more experienced TypeScript users also ran up against this issue. One pattern used in CI environments or with [Automation API](https://www.pulumi.com/docs/guides/automation-api/) is to typecheck Pulumi programs separately from execution. Some users enforce typechecking during pull requests to guarantee that all code hitting the repository's main branch is valid. Once it's typechecked, they can precompile the TypeScript into JavaScript before execution. Finally, when it comes time to execute their Pulumi program, they run the compiled JavaScript, which they know to be well-typed. The motivation for precompiling comes from using your own preprocessor. Some customers want to ditch TS-Node for compilation and prefer to use [SWC](https://swc.rs/), [ESBuild](https://esbuild.github.io/), or other options for increased performance or consistency with the rest of their codebase.
 
-In both scenarios, importing typescript when it's not used results in a 300ms slowdown. In [a small PR](https://github.com/pulumi/pulumi/pull/10214), we detect cases that don't require TypeScript and dynamically import it only when needed.
+In both scenarios, importing TypeScript when it's not used results in a 300ms slowdown. In [a small PR](https://github.com/pulumi/pulumi/pull/10214), we detect cases that don't require TypeScript and dynamically import it only when needed.
 
 ### Timely Lease Renewal
 
