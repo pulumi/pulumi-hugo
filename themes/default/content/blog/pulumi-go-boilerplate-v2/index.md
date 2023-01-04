@@ -42,10 +42,96 @@ pulumi package gen-sdk <path/to/provider-binary>
 
 You can leave the heavy lifting to us and focus on the implementation details that matter to your organization.
 
+## Boilerplate code
 
-### Boilerplate code
+**Note:** The completed boilerplate is attached at the bottom of this document and in the pulumi-provider-boilerplate repository [(view on GitHub)](https://github.com/pulumi/pulumi-provider-boilerplate).
 
-The pulumi provider boilerplate program is currently quite short and is pasted below:
+### Provider Entrypoint
+
+The pulumi provider boilerplate program is currently quite short and the main entrypoint is as follows.
+
+```go
+package main
+
+import (
+    p "github.com/pulumi/pulumi-go-provider"
+    "github.com/pulumi/pulumi-go-provider/infer"
+)
+
+func main() {
+    p.RunProvider("xyz", Version,
+        // We tell the provider what resources it needs to support.
+        // In this case, a single custom resource.
+        infer.Provider(infer.Options{
+            Resources: []infer.InferredResource{
+                infer.Resource[Random, RandomArgs, RandomState](),
+            },
+        }))
+}
+```
+
+### Resource Implementation
+
+Resources consist of arguments, state, and CRUD operations to control them.
+
+```go
+// Each resource has in input struct, defining what arguments it accepts.
+type RandomArgs struct {
+    // Fields projected into Pulumi must be public and hava a `pulumi:"..."` tag.
+    // The pulumi tag doesn't need to match the field name, but its generally a
+    // good idea.
+    Length int `pulumi:"length"`
+}
+
+// Each resource has a state, describing the fields that exist on the created resource.
+type RandomState struct {
+    // It is generally a good idea to embed args in outputs, but it isn't strictly necessary.
+    RandomArgs
+    // Here we define a required output called result.
+    Result string `pulumi:"result"`
+}
+
+// Each resource has a controlling struct.
+type Random struct{}
+```
+
+Resource behavior is determined by implementing methods on the controlling struct.
+
+```go
+// All resources must implement Create at a minumum.
+func (Random) Create(ctx p.Context, name string, input RandomArgs, preview bool) (string, RandomState, error) {
+    state := RandomState{RandomArgs: input}
+    if preview {
+        return name, state, nil
+    }
+    state.Result = makeRandom(input.Length)
+    return name, state, nil
+}
+```
+
+The `Create` method is mandatory, but other methods are optional.
+
+- `Check`: Remap inputs before they are typed.
+- `Diff`: Change how instances of a resource are compared.
+- `Update`: Mutate a resource in place.
+- `Read`: Get the state of a resource from the backing provider.
+- `Delete`: Custom logic when the resource is deleted.
+- `Annotate`: Describe fields and set defaults for a resource.
+- `WireDependencies`: Control how outputs and secrets flows through values.
+
+## Wrapping up
+
+We encourage everyone to try the new authoring experience, including devs who may have previously found it challenging in comparison to the ease of program authorship.
+
+### Additional Example: Command provider
+
+If you want a more involved example, the command provider [(view on GitHub)](https://github.com/pulumi/pulumi-command/) has been
+rewritten to use the Pulumi Go Provider library entirely and is heavily commented. You can actually compare the project before and after using it to see how it has streamlined
+provider implementation.
+
+### Completed example
+
+The complete boilerplate provider looks as follows:
 
 ```go
 package main
@@ -121,13 +207,3 @@ func makeRandom(length int) string {
     return string(result)
 }
 ```
-
-
-### Additional Example: Command provider
-
-If the boilerplate and the docs aren't enough and you want a more involved example, the command provider [(view on GitHub)](https://github.com/pulumi/pulumi-command/) has been
-rewritten to use it entirely and is heavily commented. You can actually compare the project before and after using the Pulumi Go Provider library to see how it has streamlined
-provider implementation.
-
-
-We encourage everyone to try the new authoring experience, including devs who may have previously found it challenging in comparison to the ease of program authorship.
