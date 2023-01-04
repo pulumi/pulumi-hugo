@@ -113,7 +113,7 @@ Now that you have a base GCP project configured, you need to create your first r
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
-// Create a GCP resource (Storage Bucket).
+// Create a GCP resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("mybucket", {
     // Set location as appropriate for wherever you are located
     location: "EU",
@@ -122,7 +122,7 @@ const bucket = new gcp.storage.Bucket("mybucket", {
     },
 });
 
-// Create an IAM binding to allow public read access to the bucket.
+// Create an IAM binding to allow public read access to the bucket
 const bucketIamBinding = new gcp.storage.BucketIAMBinding("bucket-iam-binding", {
     bucket: bucket.name,
     role: "roles/storage.objectViewer",
@@ -394,21 +394,22 @@ const cloudfrontDistribution = new aws.cloudfront.Distribution(
 On Google Cloud, that means you want to front your Cloud Storage Bucket with a [Load Balancer](https://cloud.google.com/load-balancing/docs/https) and enable its [CDN capabilities](https://cloud.google.com/cdn/docs/overview). Add the following additional code to your `index.ts` file in order to create a GCP Load Balancer, Public IP address and URL Map to your GCP storage bucket.
 
 ```typescript
+// Google Cloud Load Balancer Backend
 const backendBucket = new gcp.compute.BackendBucket("backend-bucket", {
     bucketName: bucket.name,
     enableCdn: true,
 });
 
-// Provision a global IP address for the CDN.
+// Provision a global IP address for the CDN
 const ip = new gcp.compute.GlobalAddress("ip");
 
-// Create a URLMap to route requests to the storage bucket.
+// Create a URLMap to route requests to the storage bucket
 const urlMap = new gcp.compute.URLMap("url-map", {defaultService: backendBucket.selfLink});
 
-// Create an HTTP proxy to route requests to the URLMap.
+// Create an HTTP proxy to route requests to the URLMap
 const httpProxy = new gcp.compute.TargetHttpProxy("http-proxy", {urlMap: urlMap.selfLink});
 
-// Create a GlobalForwardingRule rule to route requests to the HTTP proxy.
+// Create a GlobalForwardingRule rule to route requests to the HTTP proxy
 const httpForwardingRule = new gcp.compute.GlobalForwardingRule("http-forwarding-rule", {
     ipAddress: ip.address,
     ipProtocol: "TCP",
@@ -541,7 +542,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
     });
 
     // You also need to register all the expected outputs for this
-    // component resource that will get returned by default.
+    // component resource that will get returned by default
     this.registerOutputs({
       bucketName: this.bucket.id,
       cdnUrl: this.cloudfrontDistribution.domainName,
@@ -621,7 +622,7 @@ export class CdnWebsite extends pulumi.ComponentResource {
         });
 
         // You also need to register all the expected outputs for this
-        // component resource that will get returned by default.
+        // component resource that will get returned by default
         this.registerOutputs({
             bucketName: this.bucket.id,
             cdnUrl: pulumi.interpolate`http://${this.ip.address}`
@@ -663,7 +664,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
 // Deploy Website to Google Cloud Storage with CDN
-// Also shows the challenger how to build a ComponentResource.
+// Also shows the challenger how to build a ComponentResource
 import { CdnWebsite } from "./cdn-website";
 
 // List of GCP API's That Need to be enabled on the GCP Project
@@ -679,7 +680,8 @@ for (var idx in gcpServiceAPIs) {
         new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
             disableDependentServices: true,
             service: gcpServiceAPIs[idx],
-        });
+            disableOnDestroy: false,
+        })
     );
 }
 
@@ -782,7 +784,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
 // Deploy Website to Google Cloud Storage with CDN
-// Also shows the challenger how to build a ComponentResource.
+// Also shows the challenger how to build a ComponentResource
 import { CdnWebsite } from "./cdn-website";
 
 // List of GCP API's That Need to be enabled on the GCP Project
@@ -798,7 +800,8 @@ for (var idx in gcpServiceAPIs) {
         new gcp.projects.Service("".concat("gcp-api-", gcpServiceAPIs[idx]), {
             disableDependentServices: true,
             service: gcpServiceAPIs[idx],
-        });
+            disableOnDestroy: false,
+        })
     );
 }
 
