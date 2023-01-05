@@ -36,7 +36,7 @@ The token also contains custom claims that provide additional, deployment-specif
 | `deployment` | The deployment version. |
 | `scope` | The scope of the OIDC token. Always `write`. |
 
-## Configuring Trust Relationships
+## Configuring trust relationships
 
 As part of the process that exchanges your deployment's OIDC token for cloud provider credentials, the cloud provider must check the OIDC token's claims against the conditions configured in the provider's trust relationship. The configuration of a trust relationship varies depending on the cloud provider, but typically uses at least the Audience, Subject, and Issuer claims. These claims can be use to restrict trust to specific organizations, projects, stacks, etc.:
 
