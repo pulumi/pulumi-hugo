@@ -47,7 +47,7 @@ As part of the process that exchanges your deployment's OIDC token for cloud pro
 
 The Subject and custom claims are particularly useful for configuring trust relationships, as they allow you to set very fine-grained conditions for credentials.
 
-## Configuring OpenID Connect for Your Cloud Provider
+## Configuring OpenID Connect for your cloud provider
 
 To configure OIDC for your cloud provider, refer to one of our guides:
 

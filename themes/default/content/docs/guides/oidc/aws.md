@@ -14,7 +14,7 @@ This document outlines the steps required to configure Pulumi Deployments to use
 
 * You must be an admin of your Pulumi organization.
 
-## Adding the Identity Provider to AWS
+## Adding the identity provider to AWS
 
 To add the Pulumi Service as an OIDC provider for IAM, see the [relevant AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 

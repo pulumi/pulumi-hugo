@@ -24,7 +24,7 @@ To create the Azure Active Directory App and service principal, see the [relevan
 
 After the AAD App has been created, take note of the Application (client) ID and Directory (tenant) ID. These values will be necessary when enabling OIDC for your stack.
 
-## Adding Federated Credentials
+## Adding federated credentials
 
 Navigate to the "Certificates & secrets" pane using the sidebar. Then, select the "Federated credentials" tab and click on the "Add credential" button.
 

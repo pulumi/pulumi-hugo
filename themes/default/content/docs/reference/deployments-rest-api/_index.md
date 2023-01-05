@@ -316,7 +316,6 @@ Use OIDC with AWS:
 
 {
   "operation": "refresh",
-  "preRunCommands": [],
   "environmentVariables": {
     "AWS_REGION": "us-west-2"
   },
