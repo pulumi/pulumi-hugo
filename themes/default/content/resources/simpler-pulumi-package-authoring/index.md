@@ -51,7 +51,7 @@ main:
     # Webinar title.
     title: "Sharing Code with Pulumi Packages, Abstractions, and More"
     # URL for embedding a URL for ungated webinars.
-    youtube_url: https://www.youtube.com/embed/X-vZZybUdxc
+    youtube_url: https://www.youtube.com/embed/X-vZZybUdxc?rel=0
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2022-12-22T09:00:00.000-07:00
     # Duration of the webinar.
