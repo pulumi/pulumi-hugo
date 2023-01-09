@@ -69,7 +69,7 @@ main:
         - name: Damian Curry
           role: Business Development Technical Director, F5/NGINX
         - name: Jason Schmidt
-          role:  Senior Solutions Architect, F5/NGINX
+          role: Senior Solutions Architect, F5/NGINX
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
