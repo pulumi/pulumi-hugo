@@ -34,7 +34,7 @@ tags:
 # for additional details, and please remove these comments before submitting for review.
 ---
 
-After [launching Pulumi Deployments](/blog/pulumi-deployments) a few months ago and receiving a ton of community feedback (thank you!) we are launching today an integration with OpenID Connect (OIDC) to enable temporary credentials and granular access controls. We would like to thank GitHub user [eriklz](https://github.com/eriklz) for creating the [original request](https://github.com/pulumi/service-requests/issues/144) for this functionality.
+After [launching Pulumi Deployments](/blog/pulumi-deployments) a few months ago and receiving a ton of community feedback (thank you!) today we are launching an integration with OpenID Connect (OIDC) to enable temporary credentials and granular access controls. We would like to thank GitHub user [eriklz](https://github.com/eriklz) for creating the [original request](https://github.com/pulumi/service-requests/issues/144) for this functionality.
 
 <!--more-->
 
