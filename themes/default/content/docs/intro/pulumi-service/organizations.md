@@ -148,3 +148,11 @@ Pulumi Enterprise and Business Critical provide support for any SAML 2.0-based i
 * [Okta](/docs/guides/saml/okta/)
 
 Members of SSO organizations can login to Pulumi with the organization name auto-filled in the UI by visiting `https://app.pulumi.com/welcome/<organization-name>/sso`.
+
+## Disconnecting Identity Providers
+
+In order to disconnect an identity provider you need to select another identity proivder. This is also true for SAML SSO. To remove SAML SSO configuration, selected a new identity provider.
+
+1. Navigate to **Settings** > **Access Management**.
+1. Select **Change requirements**.
+1. Select a new identity provider.
