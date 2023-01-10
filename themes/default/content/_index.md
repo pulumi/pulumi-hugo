@@ -39,6 +39,29 @@ overview:
       - /logos/tech/ci-cd/teamcity.svg
       - /logos/tech/ci-cd/travis-ci.svg
 
+templates:
+  title: Get started
+  description: Get started quickly with a best practices template that fits your use case.
+  links:
+    - label: Containers
+      url: /templates/container-service/
+      icon: tasks
+    - label: Kubernetes Application
+      url: /templates/kubernetes-application/
+      icon: cubes
+    - label: Kubernetes Cluster
+      url: /templates/kubernetes/
+      icon: cloud
+    - label: Serverless
+      url: /templates/serverless-application/
+      icon: sitemap
+    - label: Static Website
+      url: /templates/static-website/
+      icon: folder
+    - label: Virtual Machine
+      url: /templates/virtual-machine/
+      icon: server
+
 build:
   title: Write IaC quickly
   description: |
