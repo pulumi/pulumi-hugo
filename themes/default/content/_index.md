@@ -46,7 +46,7 @@ templates:
     - label: Containers
       url: /templates/container-service/
       icon: tasks
-    - label: Kubernetes Application
+    - label: Kubernetes App
       url: /templates/kubernetes-application/
       icon: cubes
     - label: Kubernetes Cluster
