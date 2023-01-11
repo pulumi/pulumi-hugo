@@ -235,8 +235,7 @@ nodeEnvironment  development
 protocol         http://
 ```
 
-Let's set the configuration for the `staging` stack. We'll use the same values
-as `dev`, except the `frontendPort` will be set to `3002`.
+Let's set the configuration for the `staging` stack. We'll use the same values as `dev`, except the `frontendPort` will be set to `3002`.
 
 ```bash
 $ pulumi stack select staging

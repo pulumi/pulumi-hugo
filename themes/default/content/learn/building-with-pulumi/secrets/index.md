@@ -212,7 +212,7 @@ config:
 {{% /choosable %}}
 
 We can access the secrets similarly to other configuration data, however we must
-specify that it is a secret. Add this code to {{< langfile >}} inside of `my-first-app`:
+specify that it is a secret. Modify the code in {{< langfile >}} inside of `my-first-app` to contain these changes:
 
 {{< chooser language "typescript,python,go,yaml" / >}}
 
