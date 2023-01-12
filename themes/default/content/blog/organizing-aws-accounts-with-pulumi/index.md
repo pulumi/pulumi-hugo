@@ -32,7 +32,8 @@ In order to modify the organization resources you’ll need credentials to an ad
 
 Once the member accounts have been created, in order to operate in those accounts using your preferred CI/CD service, we’ll create an automation user that will specifically have the permissions to assume a role in the member account. So you should use the credentials of that user for any other resources the team would want to deploy. For example, the team might want to deploy a new ECS cluster, along with Managed Redis instances and perhaps an RDS cluster too. These are resources specific to the team and what they want to use the account for.
 
-**Note**: If you are using one of the supported CI/CD services you might be able to use federated credentials using OIDC. So if you are going to use that auth mechanism, you can skip creation of the fixed automation user account since it won’t apply to you.
+**Note**: If you are using one of the supported CI/CD services you might be able to use federated credentials using OIDC. So if you are going to use that auth mechanism, you can skip creation of the fixed automation user account since you will not need its
+credentials.
 
 ## Organizational Unit (OU)
 
@@ -274,6 +275,7 @@ The tag policy for our example looks like this:
 ```
 
 And that’s about it as far as setting up the simple org unit and member account structure shown at the beginning of this post.
+View the [full source-code](https://github.com/pulumi/examples/tree/master/aws-ts-organizations) for the component resources in the `pulumi/examples` repository.
 
 This post demonstrated how you could use the Pulumi programming model to encapsulate and account for the hierarchical organization structure that your team desires or is required to have for any number of reasons. While an enterprise organization might be interested in this sort of a setup to ensure multiple teams in the organization operate in a similar way, smaller teams should also strongly consider organizing their AWS accounts in a way that enforces the principle of least privileged access. Especially, if you are looking to get SOC2 certified and need to ensure strict isolation of resources that hold any kind of real-world customer data.
 
