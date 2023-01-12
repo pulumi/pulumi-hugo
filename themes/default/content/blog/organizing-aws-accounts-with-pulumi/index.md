@@ -155,75 +155,76 @@ We’ll once again use a component resource to encapsulate the creation of a bac
 
 ```typescript
 const vault = new aws.backup.Vault(
-           `backupVault-${accountName}`,
-           // We rely on the vault name staying consistent across AWS accounts
-           // for the purposes of the backup policy that is attached to the
-           // organizational unit.
-           { name: "Default" },
-           { provider: accountProvider, parent: this }
-       );
+    `backupVault-${accountName}`,
+    // We rely on the vault name staying consistent across AWS accounts
+    // for the purposes of the backup policy that is attached to the
+    // organizational unit.
+    { name: "Default" },
+    { provider: accountProvider, parent: this }
+);
+
 // Create the IAM role in the target account that allows AWS Backup to execute backup plans.
 const backupPolicyRole = new aws.iam.Role(
-           `${accountName}BackupPolicyRole`,
-           {
-		 // This name has to stay consistent across all member accounts
- 		 // since we will reference this role in the actual backup policy.
-               name: "MyMonthlyBackupIamRole",
-               assumeRolePolicy: {
-                   Statement: [
-                       {
-                           Effect: "Allow",
-                           Action: "sts:AssumeRole",
-                           Principal: {
-                               Service: "backup.amazonaws.com",
-                           },
-                       },
-                   ],
-                   Version: "2012-10-17",
-               },
-               managedPolicyArns: [
-                   "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-               ],
-           },
-           { provider: accountProvider, parent: this }
-       );
+    `${accountName}BackupPolicyRole`,
+    {
+        // This name has to stay consistent across all member accounts
+        // since we will reference this role in the actual backup policy.
+        name: "MyMonthlyBackupIamRole",
+        assumeRolePolicy: {
+            Statement: [
+                {
+                    Effect: "Allow",
+                    Action: "sts:AssumeRole",
+                    Principal: {
+                        Service: "backup.amazonaws.com",
+                    },
+                },
+            ],
+            Version: "2012-10-17",
+        },
+        managedPolicyArns: [
+            "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
+        ],
+    },
+    { provider: accountProvider, parent: this }
+);
 ```
 
 The actual backup policy is a JSON document with a special syntax. In our example, the monthly plan looks like this:
 
-```json
+```typescript
 Monthly_Backup_Plan: {
-                   regions: {
-                       "@@assign": this.primaryRegions,
-                   },
-                   rules: {
-                       Monthly: {
-                           schedule_expression: {
-                               "@@assign": "cron(0 5 1 * ? *)",
-                           },
-                           start_backup_window_minutes: { "@@assign": "480" },
-                           target_backup_vault_name: { "@@assign": "Default" },
-                           lifecycle: {
-                               move_to_cold_storage_after_days: {
-                                   "@@assign": "30",
-                               },
-                               delete_after_days: { "@@assign": "365" },
-                           },
-                           copy_actions: backupVaultCopyAction,
-                       },
-                   },
-                   selections: {
-                       tags: {
-                           Backup_Assignment: {
-                               iam_role_arn: {
-                                   "@@assign": `arn:aws:iam::$account:role/${this.monthlyBackupPolicyIamRoleName}`,
-                               },
-                               tag_key: { "@@assign": "BackupType" },
-                               tag_value: { "@@assign": ["MONTHLY"] },
-                           },
-                       },
-                   },
-               },
+    regions: {
+        "@@assign": this.primaryRegions,
+    },
+    rules: {
+        Monthly: {
+            schedule_expression: {
+                "@@assign": "cron(0 5 1 * ? *)",
+            },
+            start_backup_window_minutes: { "@@assign": "480" },
+            target_backup_vault_name: { "@@assign": "Default" },
+            lifecycle: {
+                move_to_cold_storage_after_days: {
+                    "@@assign": "30",
+                },
+                delete_after_days: { "@@assign": "365" },
+            },
+            copy_actions: backupVaultCopyAction,
+        },
+    },
+    selections: {
+        tags: {
+            Backup_Assignment: {
+                iam_role_arn: {
+                    "@@assign": `arn:aws:iam::$account:role/${this.monthlyBackupPolicyIamRoleName}`,
+                },
+                tag_key: { "@@assign": "BackupType" },
+                tag_value: { "@@assign": ["MONTHLY"] },
+            },
+        },
+    },
+},
 ```
 
 Note how we provide AWS with information about how to select resources (the `selections` property) eligible for backup based on the tags that a resource is assigned. In this case, the tag key is `BackupType` and the value is `MONTHLY`. This tag is optional, of course. You can enforce required tags too, which is a nice segue to our next topic.
@@ -248,7 +249,7 @@ const tagPolicies = new TagPolicies("tagPolicies", {
 
 The tag policy for our example looks like this:
 
-```json
+```typescript
 {
    type: "TAG_POLICY",
    content: JSON.stringify({
