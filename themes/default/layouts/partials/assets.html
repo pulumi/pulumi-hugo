@@ -1,4 +1,8 @@
-<!-- Use this partial to pull the JS and CSS bundles into your project. -->
+<!--
+  This partial contains the tags to include the JS and CSS assests for the website.
+  You will need to include this partial in head of pages you want the CSS styles and/or
+  JS components.
+-->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -8,6 +12,10 @@
 {{ $js := resources.Get "js/bundle.js" | fingerprint }}
 <script src="{{ $js.RelPermalink }}" defer></script>
 
+<!--
+  Our marketing styles diverge a bit from the other parts of the website so we load
+  in a different bundle on our marketing pages.
+-->
 {{ $nonMarketingSections := slice "docs" "registry" "blog" "learn" "templates" "authors" "tags" "legal" }}
 {{ if in $nonMarketingSections .Section }}
 {{ else }}
