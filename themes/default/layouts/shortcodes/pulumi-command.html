@@ -1,8 +1,7 @@
 {{/* Fetch the current version of the Pulumi CLI doc." suffix. */}}
 {{ $headers := dict }}
-{{ $gitHubToken := os.Getenv "GITHUB_TOKEN" }}
-{{ if ne $gitHubToken "" }}
-    {{ $token := printf "Bearer %s" $gitHubToken }}
+{{ with (os.Getenv "GITHUB_TOKEN") }}
+    {{ $token := printf "Bearer %s" . }}
     {{ $headers = (dict "Authorization" $token) }}
 {{ end }}
 
