@@ -10,12 +10,12 @@ pulumi-choosable {
     // override this behavior, just apply the local Tailwind utility class "inline".
     display: block;
 
+    .code-mode-dark pre.chroma {
+        @apply bg-gray-900;
+    }
+
     pre.chroma {
         @apply mt-0 bg-gray-100;
-
-        .code-mode-dark & {
-            @apply bg-gray-900;
-        }
     }
 
     .highlight,

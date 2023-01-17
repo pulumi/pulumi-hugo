@@ -37,10 +37,18 @@ export class HomeSlots {
     columnThreeRotator: NodeJS.Timeout;
 
     componentDidLoad() {
-        this.columnOne = this.leftItems.split(",");
-        this.columnTwo = this.centerItems.split(",");
-        this.columnThree = this.rightItems.split(",");
+        this.columnOne = this.shuffleArray(this.leftItems.split(","));
+        this.columnTwo = this.shuffleArray(this.centerItems.split(","));
+        this.columnThree = this.shuffleArray(this.rightItems.split(","));
         this.startRotators();
+    }
+
+    private shuffleArray(arr: string[]): string[] {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
     }
 
     private startRotators() {

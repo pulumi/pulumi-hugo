@@ -97,6 +97,19 @@ body.section-pulumi-up {
         .list-sub-title {
             color: white !important;
         }
+
+        .mobile-menu-heading {
+            color: white !important;
+        }
+
+        [class*="mobile-menu-subitems-"] {
+            a {
+                color: white !important;
+                i {
+                    color: white !important;
+                }
+            }
+        }
     }
 
     .top-nav-bar,

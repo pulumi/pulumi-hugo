@@ -192,6 +192,9 @@
     span {
         color: map-get($gray, 800) !important;
     }
+    span.tooltip-content span {
+        color: white !important;
+    }
 }
 
 .ready-cta {

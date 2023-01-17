@@ -11,6 +11,7 @@
 
     .package-tags {
         @apply inline-flex flex-wrap list-none p-0;
+        max-width: 430px;
 
         li {
             @apply mr-2 my-1 py-2 px-3 border-2 rounded text-sm border-gray-200;
@@ -126,5 +127,61 @@
                 @apply bg-yellow-300;
             }
         }
+    }
+}
+
+.packages {
+    .featured-packages .featured-package,
+    .all-packages .package {
+        a:hover {
+            .title {
+                @apply text-blue-600 underline;
+            }
+        }
+    }
+
+    .featured-package .content-container {
+        box-shadow: 0px 4px 4px rgba(230, 222, 243, 0.25);
+    }
+
+    .package .content-container {
+        box-shadow: 0px 4px 4px rgba(220, 220, 220, 0.25);
+    }
+}
+
+.package-card {
+    box-shadow: 0px 4px 4px rgba(220, 220, 220, 0.25);
+    width: 346px;
+}
+
+.package-card-compact {
+    border-color: map-get($gray, 300);
+    box-shadow: 0px 4px 4px rgba(220, 220, 220, 0.25);
+    width: 346px;
+    @media (min-width: 768px) {
+        width: 320px;
+        top: 160px;
+        position: absolute;
+    }
+    @media (min-width: 1024px) {
+        width: 320px;
+        top: 138px;
+        position: absolute;
+    }
+
+    .caret-container {
+        color: map-get($gray, 400);
+    }
+
+    .package-header {
+        font-size: 12px;
+        color: map-get($gray, 600);
+    }
+}
+
+.package-card-compact-expanded {
+    border-color: map-get($gray, 300);
+    .caret-container {
+        color: map-get($gray, 300);
     }
 }

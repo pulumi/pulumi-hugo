@@ -85,6 +85,9 @@ export namespace Components {
         "class"?: string;
         "date": string;
     }
+    interface PulumiDeveloperQuotes {
+        "quotes": string;
+    }
     interface PulumiExample {
     }
     interface PulumiExamples {
@@ -112,6 +115,7 @@ export namespace Components {
         "class"?: string;
         "formId": string;
         "goToWebinarKey"?: string;
+        "salesforceCampaignId": string;
     }
     interface PulumiInstall {
         "os"?: OSKey;
@@ -122,6 +126,13 @@ export namespace Components {
         "labelClass"?: string;
         "labelText": string;
         "selectClass"?: string;
+    }
+    interface PulumiRegistryListSearch {
+    }
+    interface PulumiResourceLinks {
+        "moduleName": string;
+        "packageName": string;
+        "resourceName": string;
     }
     interface PulumiRoot {
     }
@@ -250,6 +261,12 @@ declare global {
         prototype: HTMLPulumiDatetimeElement;
         new (): HTMLPulumiDatetimeElement;
     };
+    interface HTMLPulumiDeveloperQuotesElement extends Components.PulumiDeveloperQuotes, HTMLStencilElement {
+    }
+    var HTMLPulumiDeveloperQuotesElement: {
+        prototype: HTMLPulumiDeveloperQuotesElement;
+        new (): HTMLPulumiDeveloperQuotesElement;
+    };
     interface HTMLPulumiExampleElement extends Components.PulumiExample, HTMLStencilElement {
     }
     var HTMLPulumiExampleElement: {
@@ -303,6 +320,18 @@ declare global {
     var HTMLPulumiMultiSelectFormElement: {
         prototype: HTMLPulumiMultiSelectFormElement;
         new (): HTMLPulumiMultiSelectFormElement;
+    };
+    interface HTMLPulumiRegistryListSearchElement extends Components.PulumiRegistryListSearch, HTMLStencilElement {
+    }
+    var HTMLPulumiRegistryListSearchElement: {
+        prototype: HTMLPulumiRegistryListSearchElement;
+        new (): HTMLPulumiRegistryListSearchElement;
+    };
+    interface HTMLPulumiResourceLinksElement extends Components.PulumiResourceLinks, HTMLStencilElement {
+    }
+    var HTMLPulumiResourceLinksElement: {
+        prototype: HTMLPulumiResourceLinksElement;
+        new (): HTMLPulumiResourceLinksElement;
     };
     interface HTMLPulumiRootElement extends Components.PulumiRoot, HTMLStencilElement {
     }
@@ -378,6 +407,7 @@ declare global {
         "pulumi-convert": HTMLPulumiConvertElement;
         "pulumi-date-countdown": HTMLPulumiDateCountdownElement;
         "pulumi-datetime": HTMLPulumiDatetimeElement;
+        "pulumi-developer-quotes": HTMLPulumiDeveloperQuotesElement;
         "pulumi-example": HTMLPulumiExampleElement;
         "pulumi-examples": HTMLPulumiExamplesElement;
         "pulumi-filter-select": HTMLPulumiFilterSelectElement;
@@ -387,6 +417,8 @@ declare global {
         "pulumi-hubspot-form": HTMLPulumiHubspotFormElement;
         "pulumi-install": HTMLPulumiInstallElement;
         "pulumi-multi-select-form": HTMLPulumiMultiSelectFormElement;
+        "pulumi-registry-list-search": HTMLPulumiRegistryListSearchElement;
+        "pulumi-resource-links": HTMLPulumiResourceLinksElement;
         "pulumi-root": HTMLPulumiRootElement;
         "pulumi-slot-machine": HTMLPulumiSlotMachineElement;
         "pulumi-swipeable": HTMLPulumiSwipeableElement;
@@ -473,6 +505,9 @@ declare namespace LocalJSX {
         "class"?: string;
         "date"?: string;
     }
+    interface PulumiDeveloperQuotes {
+        "quotes"?: string;
+    }
     interface PulumiExample {
     }
     interface PulumiExamples {
@@ -496,6 +531,7 @@ declare namespace LocalJSX {
         "class"?: string;
         "formId"?: string;
         "goToWebinarKey"?: string;
+        "salesforceCampaignId"?: string;
     }
     interface PulumiInstall {
         "os"?: OSKey;
@@ -506,6 +542,14 @@ declare namespace LocalJSX {
         "labelClass"?: string;
         "labelText"?: string;
         "selectClass"?: string;
+    }
+    interface PulumiRegistryListSearch {
+        "onPackageSearch"?: (event: CustomEvent<string>) => void;
+    }
+    interface PulumiResourceLinks {
+        "moduleName"?: string;
+        "packageName"?: string;
+        "resourceName"?: string;
     }
     interface PulumiRoot {
         "onRendered"?: (event: CustomEvent<any>) => void;
@@ -566,6 +610,7 @@ declare namespace LocalJSX {
         "pulumi-convert": PulumiConvert;
         "pulumi-date-countdown": PulumiDateCountdown;
         "pulumi-datetime": PulumiDatetime;
+        "pulumi-developer-quotes": PulumiDeveloperQuotes;
         "pulumi-example": PulumiExample;
         "pulumi-examples": PulumiExamples;
         "pulumi-filter-select": PulumiFilterSelect;
@@ -575,6 +620,8 @@ declare namespace LocalJSX {
         "pulumi-hubspot-form": PulumiHubspotForm;
         "pulumi-install": PulumiInstall;
         "pulumi-multi-select-form": PulumiMultiSelectForm;
+        "pulumi-registry-list-search": PulumiRegistryListSearch;
+        "pulumi-resource-links": PulumiResourceLinks;
         "pulumi-root": PulumiRoot;
         "pulumi-slot-machine": PulumiSlotMachine;
         "pulumi-swipeable": PulumiSwipeable;
@@ -604,6 +651,7 @@ declare module "@stencil/core" {
             "pulumi-convert": LocalJSX.PulumiConvert & JSXBase.HTMLAttributes<HTMLPulumiConvertElement>;
             "pulumi-date-countdown": LocalJSX.PulumiDateCountdown & JSXBase.HTMLAttributes<HTMLPulumiDateCountdownElement>;
             "pulumi-datetime": LocalJSX.PulumiDatetime & JSXBase.HTMLAttributes<HTMLPulumiDatetimeElement>;
+            "pulumi-developer-quotes": LocalJSX.PulumiDeveloperQuotes & JSXBase.HTMLAttributes<HTMLPulumiDeveloperQuotesElement>;
             "pulumi-example": LocalJSX.PulumiExample & JSXBase.HTMLAttributes<HTMLPulumiExampleElement>;
             "pulumi-examples": LocalJSX.PulumiExamples & JSXBase.HTMLAttributes<HTMLPulumiExamplesElement>;
             "pulumi-filter-select": LocalJSX.PulumiFilterSelect & JSXBase.HTMLAttributes<HTMLPulumiFilterSelectElement>;
@@ -613,6 +661,8 @@ declare module "@stencil/core" {
             "pulumi-hubspot-form": LocalJSX.PulumiHubspotForm & JSXBase.HTMLAttributes<HTMLPulumiHubspotFormElement>;
             "pulumi-install": LocalJSX.PulumiInstall & JSXBase.HTMLAttributes<HTMLPulumiInstallElement>;
             "pulumi-multi-select-form": LocalJSX.PulumiMultiSelectForm & JSXBase.HTMLAttributes<HTMLPulumiMultiSelectFormElement>;
+            "pulumi-registry-list-search": LocalJSX.PulumiRegistryListSearch & JSXBase.HTMLAttributes<HTMLPulumiRegistryListSearchElement>;
+            "pulumi-resource-links": LocalJSX.PulumiResourceLinks & JSXBase.HTMLAttributes<HTMLPulumiResourceLinksElement>;
             "pulumi-root": LocalJSX.PulumiRoot & JSXBase.HTMLAttributes<HTMLPulumiRootElement>;
             "pulumi-slot-machine": LocalJSX.PulumiSlotMachine & JSXBase.HTMLAttributes<HTMLPulumiSlotMachineElement>;
             "pulumi-swipeable": LocalJSX.PulumiSwipeable & JSXBase.HTMLAttributes<HTMLPulumiSwipeableElement>;

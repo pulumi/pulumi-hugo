@@ -21,6 +21,10 @@ export class HubspotForm {
     @Prop()
     formId: string;
 
+    // The salesforceCampaignId is the ID for the associated SalesForce Campaign.
+    @Prop()
+    salesforceCampaignId: string;
+
     // The goToWebinarKey is used to automatically register users for a webinar
     // after they submit a form (optional).
     @Prop()
@@ -204,6 +208,7 @@ export class HubspotForm {
             cssClass: this.class,
             goToWebinarWebinarKey: this.goToWebinarKey,
             target: `#${this.hubspotFormTargetId}`,
+            sfdcCampaignId: this.salesforceCampaignId,
         });
     }
 

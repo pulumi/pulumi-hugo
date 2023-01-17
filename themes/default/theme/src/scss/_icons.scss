@@ -26,6 +26,7 @@ $fa-font-path: "/fonts/fontawesome";
     "eye"
     "gavel"
     "gear"
+    "git-merged"
     "global"
     "guage"
     "hamburger-closed"
@@ -41,6 +42,7 @@ $fa-font-path: "/fonts/fontawesome";
     "security"
     "shield"
     "type-cursor"
+    "upload-to-cloud"
 {
     .icon-#{ $icon } {
         @apply rounded-full inline-block p-4 w-20 h-20;

@@ -86,7 +86,12 @@ export class PulumiApiDocNavNode {
         }
 
         return nodes?.map(node => {
-            const nodeHref = `${linkBase}${node.link}`;
+            // Some links come back with a trailing slash, while others do not. We want all
+            // links to end in a trailing slash for SEO reasons, so we check if it already exists.
+            // If so, we leave it alone, otherwise we add it.
+            const nodeLinkLastChar = node.link.charAt(node.link.length - 1);
+            const nodeLink = nodeLinkLastChar === "/" ? node.link : `${node.link}/`;
+            const nodeHref = `${linkBase}${nodeLink}`;
 
             return (
                 <pulumi-tree-item slot="item" selected={!!this.shouldNodeBeSelected(nodeHref)} expanded={this.isExpanded} class="nav-tree-item nested" title={node.name}>

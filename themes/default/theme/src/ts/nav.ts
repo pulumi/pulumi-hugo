@@ -19,4 +19,39 @@
             }
         });
     }
+
+    // Handlers for mobile navigation menus.
+    (function () {
+        let whyPulumiOpened = false;
+        let learnOpened = false;
+
+        $("#why-pulumi-menu-label").click(function() {
+            $("#mobile-dropdown").scroll();
+            if (whyPulumiOpened) {
+                $("#mobile-dropdown").animate({
+                    scrollTop: top
+                }, 300);
+            } else {
+                $("#mobile-dropdown").animate({
+                    scrollTop: $("#why-pulumi-mobile-menu").position().top - 115
+                }, 300);
+            }
+            whyPulumiOpened = !whyPulumiOpened;
+        });
+    
+        $("#learn-menu-label").click(function() {
+            $("#mobile-dropdown").scroll();
+            if (learnOpened) {
+                $("#mobile-dropdown").animate({
+                    scrollTop: top
+                }, 300);
+            } else {
+                $("#mobile-dropdown").animate({
+                    scrollTop: $("#learn-mobile-menu").position().top - 115
+                }, 300);
+            }
+            learnOpened = !learnOpened;
+        });
+    })();
+
 })(document, jQuery);

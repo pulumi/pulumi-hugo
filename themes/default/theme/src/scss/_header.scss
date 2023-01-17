@@ -244,7 +244,7 @@
                                 color: theme("colors.gray.800");
                                 i {
                                     min-width: 1.5rem;
-                                    color: #4A5568;
+                                    color:theme("colors.gray.700");
                                 }
                             }
                         }
@@ -303,34 +303,113 @@
     .mobile-menu {
         // The 'pb-16' is used to pad the bottom of the container so
         // the CTA button does not get cut off.
-        @apply hidden w-full h-screen overflow-y-auto pb-16;
-
+        @apply hidden w-full h-screen pb-16;
+        
         @screen lg {
             @apply hidden;
         }
-
+        
         ul {
-            @apply m-4;
+            @apply m-4 overflow-y-auto;
+            height: calc(100vh - 305px);
+
+            div {
+                @apply flex flex-wrap;
+                &:not(:first-of-type) {
+                    @apply mt-4;
+                }
+            }
+
+            hr {
+                @apply mt-4;
+                flex-basis: 100%;
+            }
 
             li {
                 a {
                     @apply block;
+                    margin-left: 1.1rem;
+                }
+            }
+            
+            .mobile-menu-item {
+                @apply text-2xl font-display text-gray-800 mt-4;
+                a {
+                    @apply ml-3.5;
                 }
             }
 
-            .mobile-menu-item {
-                @apply text-xl font-display text-gray-800;
+            .mobile-menu-heading {
+                @apply flex text-2xl font-display text-gray-800;
 
                 &:not(:first-of-type) {
                     @apply mt-6;
                 }
             }
-
-            .mobile-menu-subitem {
-                @apply ml-6 mt-4 text-base;
-
+            
+            [class*="mobile-menu-subitems-"] {
+                @apply mt-2 text-base hidden;
+                flex-basis: 100%;
                 a {
-                    @apply text-gray-700;
+                    @apply text-xl font-medium text-gray-700 mt-4;
+                    color: theme("colors.gray.800");
+                    i {
+                        min-width: 2rem;
+                        color: theme("colors.gray.700");
+                    }
+                }
+            }
+
+            .dropdown-menu-caret {
+                @apply block w-0 h-0 m-1 relative left-2 top-3;
+                content: "";
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid black;
+            }
+
+            .invisible-checkbox {
+                opacity: 0%;
+            }
+
+            #why-pulumi-mobile-menu:checked ~ {
+                .mobile-menu-subitems-why-pulumi {
+                    @apply block;
+                }
+                .mobile-menu-heading {
+                    color: $brand-violet;
+                }
+                label > span.dropdown-menu-caret {
+                    @apply opacity-50;
+                    transform: rotate(180deg);
+                }
+            }
+
+            #product-mobile-menu:checked ~ {
+                .mobile-menu-subitems-product {
+                    @apply block;
+                }
+                .mobile-menu-heading {
+                    color: $brand-violet;
+                }
+                label > span.dropdown-menu-caret {
+                    @apply opacity-50;
+                    transform: rotate(180deg);
+                }
+            }
+
+            #learn-mobile-menu:checked ~ {
+                .mobile-menu-subitems-learn {
+                    @apply block;
+                }
+    
+                .mobile-menu-heading {
+                    color: $brand-violet;
+                }
+
+                label > span.dropdown-menu-caret {
+                    @apply opacity-50;
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -339,6 +418,20 @@
     .mobile-menu-toggle:checked + .mobile-menu-icon + .mobile-menu {
         @apply block;
 
+        @screen lg {
+            @apply hidden;
+        }
+    }
+    
+    .mobile-menu-footer {
+        @apply block w-full h-screen overflow-y-auto;
+        .get-started {
+            @apply flex flex-col h-16 items-center;
+            a {
+                @apply flex h-full w-full justify-center items-center;
+            }
+
+        }
         @screen lg {
             @apply hidden;
         }

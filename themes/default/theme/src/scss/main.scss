@@ -39,6 +39,7 @@
 @import "pagination";
 @import "pricing";
 @import "product";
+@import "pulumi-deployments";
 @import "pulumi-up";
 @import "search";
 @import "section-nav";
@@ -59,6 +60,7 @@
 @import "components/filter-select";
 @import "components/greenhouse-jobs-list";
 @import "components/install";
+@import "components/resource-links";
 @import "components/examples";
 @import "components/audio";
 @import "components/swiper";
@@ -87,7 +89,7 @@ h1 {
 }
 
 h2 {
-    @apply text-3xl;
+    font-size: 32px;
 }
 
 h3 {

@@ -9,6 +9,7 @@ import { Component, h, Element, Prop, Method, Listen } from "@stencil/core";
             opacity: 0;
             top: -2px;
             pointer-events: none;
+            z-index: 10;
         }
 
         .menu > div {
@@ -30,6 +31,7 @@ import { Component, h, Element, Prop, Method, Listen } from "@stencil/core";
         .toggle slot {
             position: relative;
             display: block;
+            width: 100%;
         }
 
         :host([expanded]) .menu {
