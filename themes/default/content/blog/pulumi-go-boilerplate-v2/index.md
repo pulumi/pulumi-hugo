@@ -1,10 +1,19 @@
 ---
-title: "The Easier Way to Create Pulumi Providers in Go"
-authors: ["kyle-dixler"]
-tags: ["go", "packages"]
-meta_desc: "We are thrilled to announce a major update to the Pulumi Provider Boilerplate that simplifies the provider development process."
-date: "2023-01-03"
+title: The Easier Way to Create Pulumi Providers in Go
+allow_long_title: true
+date: 2023-01-03
+authors: 
+  - kyle-dixler
+tags:
+  - go
+  - packages
+meta_desc: A major update to the Pulumi Provider Boilerplate simplifies the provider development process.
+meta_image: meta.png
 ---
+
+A major update to the Pulumi Provider Boilerplate simplifies the provider development process.
+
+<!--more-->
 
 ## Background
 
