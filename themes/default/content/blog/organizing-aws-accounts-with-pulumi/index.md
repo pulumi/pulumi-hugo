@@ -44,6 +44,17 @@ An org unit can represent anything. In our example it represents the development
 The `organizations` module in the AWS provider package contains the resources we need in order to create an OU and an account.
 
 ```typescript
+// If you've already created an organization in your root account
+// and don't want it to be managed by Pulumi then simply retrieve
+// it using the `getOrganization` function.
+const organization = aws.organizations.getOrganization({});
+
+// Otherwise, create an organization and let Pulumi manage it.
+// If you are going to create the organization using the following
+// construction, you should remove the call to getOrganization above.
+//
+// const organization = new aws.organizations.Organization("");
+
 const devOrgUnit = new aws.organizations.OrganizationalUnit("orgUnit", {
     parentId: organization.then((o) => o.roots[0].id),
     name: "Development",
