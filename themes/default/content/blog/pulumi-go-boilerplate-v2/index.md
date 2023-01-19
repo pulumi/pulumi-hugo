@@ -16,7 +16,7 @@ We are excited to announce that we've updated the Pulumi Provider Boilerplate to
 **Note:** This update will not have any impact on existing providers that are utilizing an older version of the repository.
 
 This major update brings a wealth of usability improvements to the Pulumi Provider Boilerplate by incorporating our brand
-new Pulumi Go Provider SDK [(view on GitHub)](https://github.com/pulumi/pulumi-go-provider).
+new Pulumi Go Provider SDK.
 
 <!--more-->
 
