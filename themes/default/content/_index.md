@@ -237,7 +237,7 @@ build:
 deploy:
   title: Ship applications faster
   description: |
-    Pulumi gives you a faster outer dev loop by making CI/CD for your IaC seamless and the default experience. Pulumi provides has integrations with all the popular CI/CD platforms and testing frameworks. You can validate every change with testing and built-in policies. You can also build Pulumi Packages to create best-practice abstractions available in all languages.
+    Pulumi gives you a faster outer dev loop by making CI/CD for your IaC seamless and the default experience. Pulumi has integrations with all the popular CI/CD platforms and testing frameworks, so you can validate every change with testing and built-in policies. You can also build Pulumi Packages to create best-practice abstractions available in all languages.
 
 manage:
   title: Deliver ideas with ease
