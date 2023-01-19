@@ -117,7 +117,7 @@ new aws.iam.GroupPolicy("developersGroupPolicy", {
 });
 ```
 
-And create the IAM user that we’ll use for automation purposes. Again, you don’t need to do this if you plan to use OIDC federation for your CI/CD service.
+Next, we'll create the IAM user that we’ll use for automation purposes. Again, you don’t need to do this if you plan to use OIDC federation for your CI/CD service.
 
 ```typescript
 const automationUser = new aws.iam.User("automationUser", {
