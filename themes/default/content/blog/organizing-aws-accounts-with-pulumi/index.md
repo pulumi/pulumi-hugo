@@ -1,5 +1,5 @@
 ---
-title: "Organizing Aws Accounts With Pulumi"
+title: "Organizing AWS Accounts With Pulumi"
 date: 2023-01-16
 meta_desc: Learn how you can use Pulumi to manage your AWS Organizations hierarchy and automatically create member accounts.
 meta_image: meta.png
@@ -9,7 +9,7 @@ tags:
     - aws-organizations
 ---
 
-In an Enterprise organization, an IT Self Service Vending Machine allows employees to quickly and easily request and receive access to pre-approved cloud resources. Behind the scenes, Pulumi programs may orchestrate any of the requisite resources. We will look at an example of using Pulumi to create an AWS child account, within an AWS Organization.
+In an enterprise organization, an IT self-service "vending machine" allows employees to quickly and easily request and receive access to pre-approved cloud resources. Behind the scenes, Pulumi programs may orchestrate any of the requisite resources. We will look at an example of using Pulumi to create an AWS child account, within an AWS Organization.
 
 <!--more-->
 
@@ -23,11 +23,11 @@ For the above organization structure, we want the following operational model:
 
 1. Developer accounts will be provisioned (either manually or automatically through SSO depending on your HR systems) in the root account without any permissions other than being able to assume a specific role in the target accounts that have a trust boundary with the root account.
 1. Developers will be added to a group and the group should be granted access to assume a role.
-1. An IAM user meant for automation (eg. CI/CD pipelines) in the root account should have access to assume a role in the target account in order to manage resources. No developer should have access to this assume the role meant for the automation user.
+1. An IAM user meant for automation (eg. CI/CD pipelines) in the root account should have access to assume a role in the target account in order to manage resources. No developer should have access to assume the role meant for the automation user.
 1. An org unit-level (OU) backup policy that backs-up resources tagged with a specific key/value pair.
 1. An org unit-level (OU) tagging policy that enforces tag-casing and the default tags that resources should have.
 
-The component resources mentioned in this post are for demonstration and to show you how you can use the expressiveness found only in the Pulumi programming model. Some details are omitted in this post for brevity. Please see the source repository for the complete source code.
+The component resources mentioned in this post are for demonstration and to show you how you can use the expressiveness found only in the Pulumi programming model. Some details are omitted in this post for brevity. Please see the [source repository](https://github.com/pulumi/examples/tree/master/aws-ts-organizations) for the complete source code.
 In order to modify the organization resources you’ll need credentials to an admin IAM user from your management account. Create an IAM user specifically to run this infrastructure app. These elevated credentials should not be used for anything else.
 
 Once the member accounts have been created, in order to operate in those accounts using your preferred CI/CD service, we’ll create an automation user that will specifically have the permissions to assume a role in the member account. So you should use the credentials of that user for any other resources the team would want to deploy. For example, the team might want to deploy a new ECS cluster, along with Managed Redis instances and perhaps an RDS cluster too. These are resources specific to the team and what they want to use the account for.
@@ -53,8 +53,8 @@ const devAccount = new aws.organizations.Account(
        name: "DeveloperAccount",
        parentId: devOrgUnit.id,
        email: devAccountEmailContact,
-	// This role can be used by this Pulumi app to execute
-	// an AssumeRole action on this new member account.
+	  // This role can be used by this Pulumi app to execute
+	  // an AssumeRole action on this new member account.
        roleName: "OrganizationalAccountAccessRole",
        // IMPORTANT! Set this to `false` if you do not wish to have
        // accounts closed when the account resource is removed from
@@ -278,7 +278,7 @@ The tag policy for our example looks like this:
 And that’s about it as far as setting up the simple org unit and member account structure shown at the beginning of this post.
 View the [full source-code](https://github.com/pulumi/examples/tree/master/aws-ts-organizations) for the component resources in the `pulumi/examples` repository.
 
-This post demonstrated how you could use the Pulumi programming model to encapsulate and account for the hierarchical organization structure that your team desires or is required to have for any number of reasons. While an enterprise organization might be interested in this sort of a setup to ensure multiple teams in the organization operate in a similar way, smaller teams should also strongly consider organizing their AWS accounts in a way that enforces the principle of least privileged access. Especially, if you are looking to get SOC2 certified and need to ensure strict isolation of resources that hold any kind of real-world customer data.
+This post demonstrates how you could use the Pulumi programming model to encapsulate and account for the hierarchical organization structure that your team desires or is required to have for any number of reasons. While an enterprise organization might be interested in this sort of a setup to ensure multiple teams in the organization operate in a similar way, smaller teams should also strongly consider organizing their AWS accounts in a way that enforces the principle of least privileged access. Especially, if you are looking to get SOC2 certified and need to ensure strict isolation of resources that hold any kind of real-world customer data.
 
 ## Next Steps
 
