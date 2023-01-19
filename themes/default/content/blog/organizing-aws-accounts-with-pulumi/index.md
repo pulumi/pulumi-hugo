@@ -68,12 +68,21 @@ const devAccount = new aws.organizations.Account(
         email: devAccountEmailContact,
 	    // This role can be used by this Pulumi app to execute
 	    // an AssumeRole action on this new member account.
+        // This role is automatically created in every new
+        // account created in an Organization. The name
+        // `OrganizationalAccountAccessRole` is the default
+        // name. You may choose a different name.
+        // https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html
         roleName: "OrganizationalAccountAccessRole",
         // IMPORTANT! Set this to `false` if you do not wish to have
         // accounts closed when the account resource is removed from
         // your Pulumi app.
         closeOnDeletion: true,
     },
+    // This flag tells Pulumi to protect this resource from being deleted
+    // during a `pulumi destroy` operation. It also means you need to
+    // first unprotect it if you do wish to delete it using Pulumi.
+    // https://www.pulumi.com/docs/intro/concepts/resources/options/protect/
     { protect: true }
 );
 ```
@@ -98,6 +107,8 @@ new aws.iam.GroupPolicy("developersGroupPolicy", {
             {
                 Effect: "Allow",
                 Action: "sts:AssumeRole",
+                // This role will be created by the AccountPermissions component resource
+                // introduced in the next section of this post.
                 Resource: `arn:aws:iam::*:role/DeveloperRole`,
             },
         ],
@@ -119,6 +130,8 @@ new aws.iam.UserPolicy("automationUserPolicy", {
             {
                 Effect: "Allow",
                 Action: "sts:AssumeRole",
+                // This role will be created by the AccountPermissions component resource
+                // introduced in the next section of this post.
                 Resource: `arn:aws:iam::*:role/AutomationRole`,
             },
         ],
@@ -252,6 +265,10 @@ Let’s take a look at the consumer point-of-view for this component. We want us
 const tagPolicies = new TagPolicies("tagPolicies", {
     costCenters: [
         {
+            // The component accepts an array of allowed cost center
+            // values that can be used as values in tags.
+            // This is just an example of how you can restrict what values
+            // tags can be assigned.
             allowedCostCenters: ["Development", "Testing"],
             ou: devOrgUnit,
         },
@@ -269,6 +286,8 @@ The tag policy for our example looks like this:
         tags: {
             CostCenter: {
                 tag_value: {
+                    // The allowed cost center values that we passed
+                    // to the TagPolicy component as an arg.
                     "@@assign": costCenter.allowedCostCenters,
                 },
             },
