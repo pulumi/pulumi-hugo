@@ -175,9 +175,11 @@ const devAccountPermissions = new AccountPermissions(
 
 ## Backup Policies
 
-Many teams have a requirement to have a backup policy for certain resources. Aside from the compliance requirement, it’s a good idea to ensure that your DBs, EBS volumes etc. are properly backed-up. AWS Backup is a managed backup service that allows you to define backup plans and create vaults in primary (where your resources reside) and a secondary (backup/copy region). AWS will execute your backup plans and create backups in the vaults.
+[Backup policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html) are strictly not required in order to create new member accounts in an OU. However, many teams have a requirement to have a backup policy for certain resources. Aside from the compliance requirement, it’s a good idea to ensure that your DBs, EBS volumes etc. are properly backed-up. AWS Backup is a managed backup service that allows you to define backup plans and create vaults in primary (where your resources reside) and a secondary (backup/copy region). AWS will execute your backup plans and create backups in the vaults.
 
 We’ll once again use a component resource to encapsulate the creation of a backup vault in each of our member accounts. AWS recommends that we attach the backup policy to the organizational unit so that all member accounts inherit the policy implicitly.
+
+AWS needs to know which resources to target to perform the backup. We provide that information using the `selections` property in the backup policy. The `selections` property allows you to specify tags that can be used as backup targets. In other words, compatible resources that have that tag will be targeted by this backup policy. In our example, the tag key is `BackupType` and the value is `MONTHLY`. This tag is optional, of course, since we don't need every resource to have this tag; just the ones that need to be backed-up. You can enforce required tags too, which is a nice segue to our next topic.
 
 ```typescript
 const vault = new aws.backup.Vault(
@@ -253,11 +255,9 @@ Monthly_Backup_Plan: {
 },
 ```
 
-Note how we provide AWS with information about how to select resources (the `selections` property) eligible for backup based on the tags that a resource is assigned. In this case, the tag key is `BackupType` and the value is `MONTHLY`. This tag is optional, of course. You can enforce required tags too, which is a nice segue to our next topic.
-
 ## Tagging Policies
 
-In keeping with our general theme here, we’ll encapsulate our tagging policy with yet another component resource so that we can easily include future org units. Similar to the backup policy syntax, the tag policy syntax uses JSON with some special placeholder variables.
+Similar to backup policies, [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html) are also not required to create member accounts in an OU. But it's a good idea to define one. In keeping with our general theme here, we’ll encapsulate our tagging policy with yet another component resource so that we can easily include future org units. Similar to the backup policy syntax, the tag policy syntax uses JSON with some special placeholder variables.
 
 Let’s take a look at the consumer point-of-view for this component. We want users of this component to pass in a list of allowed cost centers for a certain org unit. Say, if a team wants to have multiple org units and therefore different cost centers for each of them, this model allows those teams to use the `TagPolicies` component for each org unit separately and assign the allowed cost center values accordingly.
 
