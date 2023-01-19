@@ -65,7 +65,7 @@ templates:
 build:
   title: Write IaC quickly
   description: |
-    Pulumi helps you speed up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation working out the box. In addition you can leverage all the capabilities of the programming language of your choice to help you reduce the total number of lines of code you're writing.
+    Pulumi speeds up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation working out of the box. In addition you can leverage all the capabilities of the programming language of your choice so you can reduce the total number of lines of code you're writing.
 
   code:
     - title: index.ts
