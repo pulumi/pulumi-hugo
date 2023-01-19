@@ -15,7 +15,7 @@ In an enterprise organization, an IT self-service "vending machine" allows emplo
 
 One might envision a developer requesting a new AWS account to be added entirely through a Pull Request in a git repository either for their own use or on behalf of a team. This scenario is not just for enterprises, however. Teams of any size should organize their AWS accounts using the least-privileged access principle.
 
-Here’s the Organization structure we are looking to build with Pulumi. It is intentionally simple to demonstrate how teams can construct the structure that works best for them or follow AWS’ recommendations on this topic. Depending on your team size you may want to keep this simple or you may need something that can handle multiple teams each with multiple accounts. The decision is yours.
+Here’s the Organization structure we are looking to build with Pulumi. It just has one organizational unit (OU) with one member account under it to demonstrate how teams can construct the structure that works best for them or follow AWS’ recommendations on this topic. Depending on your team size you may want to keep this simple or you may need something that can handle multiple teams each with multiple accounts. The decision is yours.
 
 ![Organization Structure](org-structure.png)
 
