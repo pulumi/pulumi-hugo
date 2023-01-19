@@ -21,7 +21,7 @@ Here’s the Organization structure we are looking to build with Pulumi. It is i
 
 For the above organization structure, we want the following operational model:
 
-1. Developer accounts will be provisioned (either manually or automatically through SSO depending on your HR systems) in the root account without any permissions other than being able to assume a specific role in the target accounts that have a trust boundary with the root account.
+1. The user accounts for developers will be provisioned (either manually or automatically through SSO depending on your HR systems) in the root account. Developers will only be able to assume a specific role in the target accounts that have a trust boundary with the root account.
 1. Developers will be added to a group and the group should be granted access to assume a role.
 1. An IAM user meant for automation (eg. CI/CD pipelines) in the root account should have access to assume a role in the target account in order to manage resources. No developer should have access to assume the role meant for the automation user.
 1. An org unit-level (OU) backup policy that backs-up resources tagged with a specific key/value pair.
@@ -32,8 +32,10 @@ In order to modify the organization resources you’ll need credentials to an ad
 
 Once the member accounts have been created, in order to operate in those accounts using your preferred CI/CD service, we’ll create an automation user that will specifically have the permissions to assume a role in the member account. So you should use the credentials of that user for any other resources the team would want to deploy. For example, the team might want to deploy a new ECS cluster, along with Managed Redis instances and perhaps an RDS cluster too. These are resources specific to the team and what they want to use the account for.
 
-**Note**: If you are using one of the supported CI/CD services you might be able to use federated credentials using OIDC. So if you are going to use that auth mechanism, you can skip creation of the fixed automation user account since you will not need its
+{{% notes type="info" %}}
+If you are using one of the supported CI/CD services you might be able to use federated credentials using OIDC. So if you are going to use that auth mechanism, you can skip creation of the fixed automation user account since you will not need its
 credentials.
+{{% /notes %}}
 
 ## Organizational Unit (OU)
 
@@ -43,25 +45,25 @@ The `organizations` module in the AWS provider package contains the resources we
 
 ```typescript
 const devOrgUnit = new aws.organizations.OrganizationalUnit("orgUnit", {
-   parentId: organization.then((o) => o.roots[0].id),
-   name: "Development",
+    parentId: organization.then((o) => o.roots[0].id),
+    name: "Development",
 });
 
 const devAccount = new aws.organizations.Account(
-   "devAccount",
-   {
-       name: "DeveloperAccount",
-       parentId: devOrgUnit.id,
-       email: devAccountEmailContact,
-	  // This role can be used by this Pulumi app to execute
-	  // an AssumeRole action on this new member account.
-       roleName: "OrganizationalAccountAccessRole",
-       // IMPORTANT! Set this to `false` if you do not wish to have
-       // accounts closed when the account resource is removed from
-       // your Pulumi app.
-       closeOnDeletion: true,
-   },
-   { protect: true }
+    "devAccount",
+    {
+        name: "DeveloperAccount",
+        parentId: devOrgUnit.id,
+        email: devAccountEmailContact,
+	    // This role can be used by this Pulumi app to execute
+	    // an AssumeRole action on this new member account.
+        roleName: "OrganizationalAccountAccessRole",
+        // IMPORTANT! Set this to `false` if you do not wish to have
+        // accounts closed when the account resource is removed from
+        // your Pulumi app.
+        closeOnDeletion: true,
+    },
+    { protect: true }
 );
 ```
 
@@ -75,21 +77,21 @@ We’ll create an IAM group for developers and assign a group policy that allows
 
 ```typescript
 const devGroup = new aws.iam.Group("developers", {
-   name: "developers",
+    name: "developers",
 });
 
 new aws.iam.GroupPolicy("developersGroupPolicy", {
-   group: devGroup.name,
-   policy: {
-       Statement: [
-           {
-               Effect: "Allow",
-               Action: "sts:AssumeRole",
-               Resource: `arn:aws:iam::*:role/DeveloperRole`,
-           },
-       ],
-       Version: "2012-10-17",
-   },
+    group: devGroup.name,
+    policy: {
+        Statement: [
+            {
+                Effect: "Allow",
+                Action: "sts:AssumeRole",
+                Resource: `arn:aws:iam::*:role/DeveloperRole`,
+            },
+        ],
+        Version: "2012-10-17",
+    },
 });
 ```
 
@@ -97,21 +99,21 @@ And create the IAM user that we’ll use for automation purposes. Again, you don
 
 ```typescript
 const automationUser = new aws.iam.User("automationUser", {
-   name: "cicd-automation",
+    name: "cicd-automation",
 });
 
 new aws.iam.UserPolicy("automationUserPolicy", {
-   policy: {
-       Statement: [
-           {
-               Effect: "Allow",
-               Action: "sts:AssumeRole",
-               Resource: `arn:aws:iam::*:role/AutomationRole`,
-           },
-       ],
-       Version: "2012-10-17",
-   },
-   user: automationUser.name,
+    policy: {
+        Statement: [
+            {
+                Effect: "Allow",
+                Action: "sts:AssumeRole",
+                Resource: `arn:aws:iam::*:role/AutomationRole`,
+            },
+        ],
+        Version: "2012-10-17",
+    },
+    user: automationUser.name,
 });
 ```
 
@@ -125,10 +127,10 @@ We’ll use a component resource to set up the necessary roles and policies in t
 
 ```typescript
 const devAccountProvider = new aws.Provider("devAccountProvider", {
-   allowedAccountIds: [devAccount.id],
-   assumeRole: {
-       roleArn: pulumi.interpolate`arn:aws:iam::${devAccount.id}:role/OrganizationalAccountAccessRole`,
-   },
+    allowedAccountIds: [devAccount.id],
+    assumeRole: {
+        roleArn: pulumi.interpolate`arn:aws:iam::${devAccount.id}:role/OrganizationalAccountAccessRole`,
+    },
 });
 ```
 
@@ -136,14 +138,14 @@ Now, whenever we want to modify resources in the target account in this app, we�
 
 ```typescript
 const devAccountPermissions = new AccountPermissions(
-   "devAccountPermissions",
-   {
-       automationUser,
-       managementAccountId: pulumi.Output.create(
-           aws.getCallerIdentity().then((i) => i.accountId)
-       ),
-   },
-   { provider: devAccountProvider }
+    "devAccountPermissions",
+    {
+        automationUser,
+        managementAccountId: pulumi.Output.create(
+            aws.getCallerIdentity().then((i) => i.accountId)
+        ),
+    },
+    { provider: devAccountProvider }
 );
 ```
 
@@ -237,13 +239,13 @@ Let’s take a look at the consumer point-of-view for this component. We want us
 
 ```typescript
 const tagPolicies = new TagPolicies("tagPolicies", {
-   costCenters: [
-       {
-           allowedCostCenters: ["Development", "Testing"],
-           ou: devOrgUnit,
-       },
-   ],
-   orgId: organization.then((o) => o.roots[0].id),
+    costCenters: [
+        {
+            allowedCostCenters: ["Development", "Testing"],
+            ou: devOrgUnit,
+        },
+    ],
+    orgId: organization.then((o) => o.roots[0].id),
 });
 ```
 
@@ -251,27 +253,27 @@ The tag policy for our example looks like this:
 
 ```typescript
 {
-   type: "TAG_POLICY",
-   content: JSON.stringify({
-       tags: {
-           CostCenter: {
-               tag_value: {
-                   "@@assign": costCenter.allowedCostCenters,
-               },
-           },
+    type: "TAG_POLICY",
+    content: JSON.stringify({
+        tags: {
+            CostCenter: {
+                tag_value: {
+                    "@@assign": costCenter.allowedCostCenters,
+                },
+            },
 
-           // Add tags that are enforceable only to the OU.
-           Owner: {
-               tag_key: {
-                   "@@assign": "Owner",
-                   // Don't allow any child policies from changing the key of this tag.
-                   "@@operators_allowed_for_child_policies": [
-                       "@@none",
-                   ],
-               },
-           },
-       },
-   }),
+            // Add tags that are enforceable only to the OU.
+            Owner: {
+                tag_key: {
+                    "@@assign": "Owner",
+                    // Don't allow any child policies from changing the key of this tag.
+                    "@@operators_allowed_for_child_policies": [
+                        "@@none",
+                    ],
+                },
+            },
+        },
+    }),
 }
 ```
 
