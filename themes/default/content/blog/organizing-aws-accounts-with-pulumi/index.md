@@ -168,6 +168,10 @@ const devAccountPermissions = new AccountPermissions(
         managementAccountId: pulumi.Output.create(
             aws.getCallerIdentity().then((i) => i.accountId)
         ),
+        // The prefix that will be used to name the child resources created by this component
+        // since we expect to create a new instance of this component for every new member
+        // account.
+        resourceNamesPrefix: "dev"
     },
     { provider: devAccountProvider }
 );
@@ -309,6 +313,50 @@ The tag policy for our example looks like this:
 
 And that’s about it as far as setting up the simple org unit and member account structure shown at the beginning of this post.
 View the [full source-code](https://github.com/pulumi/examples/tree/master/aws-ts-organizations) for the component resources in the `pulumi/examples` repository.
+
+Here's how the stack looks once the organizational unit and the development AWS account in it have been created.
+
+![Stack Overview](stack-overview.png)
+
+Suppose there is a need to add a new AWS account for a test account in addition to the development account.
+We just need a new `Account` resource, the backup policy and the permissions for it.
+
+```typescript
+const testAccount = new aws.organizations.Account(
+    "testAccount",
+    {
+        name: "SharedTestAccount",
+        parentId: devOrgUnit.id,
+        email: testAccountEmailContact,
+        roleName: initialRoleName,
+        closeOnDeletion: true,
+    },
+    { protect: true }
+);
+
+const testAccountProvider = new aws.Provider("testAccountProvider", {
+    allowedAccountIds: [testAccount.id],
+    assumeRole: {
+        roleArn: pulumi.interpolate`arn:aws:iam::${devAccount.id}:role/${initialRoleName}`,
+    },
+});
+
+const testAccountPermissions = new AccountPermissions(
+    "testAccountPermissions",
+    {
+        automationUser,
+        managementAccountId: pulumi.Output.create(
+            aws.getCallerIdentity().then((i) => i.accountId)
+        ),
+        resourceNamePrefix: "test",
+    },
+    { provider: testAccountProvider }
+);
+```
+
+And with those additions, we get this preview:
+
+![Add Shared Test Account](add-test-account.gif)
 
 This post demonstrates how you could use the Pulumi programming model to encapsulate and account for the hierarchical organization structure that your team desires or is required to have for any number of reasons. While an enterprise organization might be interested in this sort of a setup to ensure multiple teams in the organization operate in a similar way, smaller teams should also strongly consider organizing their AWS accounts in a way that enforces the principle of least privileged access. Especially, if you are looking to get SOC2 certified and need to ensure strict isolation of resources that hold any kind of real-world customer data.
 
