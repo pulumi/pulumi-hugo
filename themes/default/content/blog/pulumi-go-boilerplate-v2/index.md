@@ -13,12 +13,12 @@ meta_image: meta.png
 
 We are excited to announce that we've updated the Pulumi Provider Boilerplate to make custom provider implementation easier!
 
-**Note:** This update will not have any impact on existing providers that are utilizing an older version of the repository.
-
 This major update brings a wealth of usability improvements to the Pulumi Provider Boilerplate by incorporating our brand
 new Pulumi Go Provider SDK.
 
 <!--more-->
+
+**Note:** This update will not have any impact on existing providers that are utilizing an older version of the repository.
 
 ## Background
 
