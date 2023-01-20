@@ -63,9 +63,9 @@ templates:
       icon: server
 
 build:
-  title: Write IaC quickly
+  title: Write infrastructure code faster
   description: |
-    Pulumi speeds up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation working out of the box. In addition you can leverage all the capabilities of the programming language of your choice so you can reduce the total number of lines of code you're writing.
+    Pulumi speeds up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation out of the box. In addition you can leverage all of the capabilities of the programming language of your choice so you can reduce the total number of lines of code you're writing.
 
   code:
     - title: index.ts
@@ -237,12 +237,12 @@ build:
 deploy:
   title: Ship applications faster
   description: |
-    Pulumi gives you a faster outer dev loop by making CI/CD for your IaC seamless and the default experience. Pulumi has integrations with all the popular CI/CD platforms and testing frameworks, so you can validate every change with testing and built-in policies. You can also build Pulumi Packages to create best-practice abstractions available in all languages.
+    Pulumi speeds up your outer dev loop by making CI/CD for your IaC seamless and the default experience. Pulumi has integrations with all the popular CI/CD platforms and testing frameworks, so you can validate every change with testing and built-in policies. You can also build Pulumi Packages to create best-practice abstractions available in all languages.
 
 manage:
   title: Deliver ideas with ease
   description: |
-    Pulumi gives you a faster dev loop across the entire organization by guaranteeing the infrastructure software supply chain. Standard software packaging allows sharing and reuse of code across the organization along with org-wide policy enforcements. Pulumi provides the industry’s only automation workflow capability that allows software engineering to be applied to solve and manage cloud infrastructure at scale.
+    Pulumi gives you a faster dev loop across the entire organization by guaranteeing the infrastructure software supply chain. Standard software packaging allows sharing and reuse of code across the organization along with org-wide policy enforcements, full change visibility and auditing across your entire organization, and automatic encryption for secrets and state. Pulumi provides the industry’s only automation workflow capability that allows software engineering to be applied to solve and manage cloud infrastructure at scale.
 
 automation_api_examples:
   - name: Provision resources over HTTP (Node.js/Express)
