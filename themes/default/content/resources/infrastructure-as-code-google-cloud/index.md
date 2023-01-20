@@ -8,6 +8,8 @@ main:
   presenters:
     - name: Josh Kodroff
       role: Sr. Solutions Architect, Pulumi
+    - name: Gary Bowers
+      role: Senior Cloud Consultant, Google Cloud
   sortable_date: 2023-02-09T17:00:00.000Z
   datetime: 2023-02-09T17:00:00.000Z
   title: Getting Started with Infrastructure as Code on Google Cloud
