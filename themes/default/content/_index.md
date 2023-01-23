@@ -248,11 +248,15 @@ automation_api_examples:
   - name: Provision resources over HTTP (Node.js/Express)
     text: |
       ```typescript
+        import * as aws from "@pulumi/aws";
         import * as auto from "@pulumi/pulumi/automation";
         import * as express from "express";
 
         function yourPulumiProgram() {
-          // Your pulumi program.
+          const bucket = new aws.s3.Bucket("bucket", {});
+          return {
+            bucket,
+          };
         }
 
         const app = express();
@@ -261,19 +265,17 @@ automation_api_examples:
           const projectName = req.body.projectName;
           const stackName = req.body.stackName;
 
-          try {
-            const stack = await auto.createStack({
-              stackName,
-              projectName,
-              program: yourPulumiProgram,
-            });
+          // Create a new stack.
+          const stack = await auto.createStack({
+            stackName,
+            projectName,
+            program: yourPulumiProgram,
+          });
 
-            await stack.up({ onOutput: console.info });
+          // Update the newly created stack.
+          await stack.up({ onOutput: console.info });
 
-            return res.send("Resources provisioned!");
-          } catch (e) {
-            return res.status(500).send(e);
-          }
+          return res.send("Resources provisioned!");
         });
 
         app.listen(3000, () => console.log("App is live at localhost:3000"));

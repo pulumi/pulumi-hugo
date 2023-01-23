@@ -271,8 +271,8 @@
         <div class="card bg-violet-200 p-6 rounded-2xl">
             <h2 class="rainbow-text">Do more with less</h2>
             <p class="text-lg max-w-3xl mx-auto">
-                Use Pulumi's Automation API to create tooling that helps you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus
-                traditional tooling.
+                Use Pulumi's Automation API to create tooling that helps you and your engineers manage <span class="font-bold">10x the amount of resources</span> versus traditional
+                tooling.
             </p>
 
             <div class="flex flex-wrap text-left">
@@ -281,7 +281,8 @@
                         What if IaC was a library and not just a CLI? Pulumi Automation API is the industry's first and only fully programmable infrastructure as code technology.
                     </p>
                     <p>
-                        With Automation API, you can embed Pulumi right into your application code to drive complex deployment workflows programmatically. Build command-line tools, desktop applications, self-service infrastructure portals, and more, all in your language of choice &mdash; without having to "shell out" to another CLI.
+                        With Automation API, you can embed Pulumi right into your application code to drive complex deployment workflows programmatically. Build command-line tools,
+                        desktop applications, self-service infrastructure portals, and more, all in your language of choice &mdash; without having to "shell out" to another CLI.
                         CLI tool to behind a HTTP API to a custom PaaS.
                     </p>
                     <p>Automation API enables you and your company to scale 10x the amount of infrastructure managed per engineer.</p>
@@ -292,14 +293,18 @@
                         <h4>Example Use Cases</h4>
 
                         <ul class="list-none mt-6">
-                            {{ range .Params.automation_api_examples }}
+                            {{ range $i, $e := .Params.automation_api_examples }}
                                 <li class="accordion-item py-6 border-b-2">
-                                    {{ partial "accordian-header" (dict "text" .name) }}
+                                    {{ if eq $i 0 }}
+                                        {{ partial "accordian-header" (dict "text" $e.name "checked" "true") }}
+                                    {{ else }}
+                                        {{ partial "accordian-header" (dict "text" $e.name) }}
+                                    {{ end }}
 
 
                                     <div class="accordion-item-body-no-animation">
                                         <p class="mt-6">
-                                            {{ .text | markdownify }}
+                                            {{ $e.text | markdownify }}
                                         </p>
                                     </div>
                                 </li>
