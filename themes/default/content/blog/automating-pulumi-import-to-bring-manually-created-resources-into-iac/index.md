@@ -1,5 +1,5 @@
 ---
-title: "Automating Pulumi Import to Bring Manually Created Resources into IaC"
+title: "Automating Pulumi Import with Manually Created Resources"
 date: 2023-01-23
 meta_desc: How to bring order to a mess of manually created cloud resources.
 meta_image: meta.png
@@ -187,7 +187,7 @@ And with that, our resources are now managed by Pulumi!
 
 ## Potential Next Steps
 
-Now that we have our resources under Pulumi management, we might want to consider some additional steps to build upon our IaC solution: 
+Now that we have our resources under Pulumi management, we might want to consider some additional steps to build upon our IaC solution:
 
 **Set up a CI/CD pipeline:** By adding our Pulumi code to a delivery pipeline, we can help ensure that all infrastructure changes go through an automated process. Pulumi has helpful integrations and documentation for many popular tools. See [Continuous Delivery](https://www.pulumi.com/docs/guides/continuous-delivery/) in the Pulumi docs for more information.
 **Add policy as code:** By adding policy as code to our IaC pipeline, we can ensure that our infrastructure is in compliance with any security or regulatory requirements before it’s ever provisioned in the cloud, as well as checks on any existing Pulumi resources. For more information on Pulumi’s policy as code capabilities, see [CrossGuard (Policy as Code)](https://www.pulumi.com/docs/guides/crossguard/) in the Pulumi docs.
