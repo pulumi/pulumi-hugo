@@ -41,7 +41,7 @@ overview:
 
 templates:
   title: Get started
-  description: Get started quickly with a best practices template that fits your use case.
+  description: Get started quickly with a project template that fits your use case.
   links:
     - label: Containers
       url: /templates/container-service/
@@ -240,7 +240,7 @@ deploy:
     Pulumi speeds up your outer dev loop by making CI/CD for your IaC seamless and the default experience. Pulumi has integrations with all the popular CI/CD platforms and testing frameworks, so you can validate every change with testing and built-in policies. You can also build Pulumi Packages to create best-practice abstractions available in all languages.
 
 manage:
-  title: Deliver ideas with ease
+  title: Deliver ideas faster
   description: |
     Pulumi gives you a faster dev loop across the entire organization by guaranteeing the infrastructure software supply chain. Standard software packaging allows sharing and reuse of code across the organization along with org-wide policy enforcements, full change visibility and auditing across your entire organization, and automatic encryption for secrets and state. Pulumi provides the industry’s only automation workflow capability that allows software engineering to be applied to solve and manage cloud infrastructure at scale.
 
