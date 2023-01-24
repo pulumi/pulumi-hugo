@@ -293,30 +293,31 @@ automation_api_examples:
   - name: Provision resources over HTTP (Node.js/Express)
     text: |
       ```typescript
-        import * as aws from "@pulumi/aws";
-        import * as auto from "@pulumi/pulumi/automation";
-        import * as express from "express";
+      import * as express from "express";
+      import * as aws from "@pulumi/aws";
+      import * as auto from "@pulumi/pulumi/automation";
 
-        const app = express();
+      const app = express();
 
-        app.post("/update", async (req, res) => {
+      app.post("/update", async (req, res) => {
+
           // Create a new stack.
           const stack = await auto.createStack({
-            stackName: req.body.stackName,
-            projectName: req.body.projectName,
-            program: () => {
-              const bucket = new aws.s3.Bucket("bucket", {});
-              return { bucket };
-            },
+              stackName: req.body.stackName,
+              projectName: req.body.projectName,
+              program: () => {
+                  return {
+                      bucket: new aws.s3.Bucket("my-bucket");
+                  };
+              },
           });
 
-          // Update the newly created stack.
+          // Update the stack.
           await stack.up({ onOutput: console.info });
+          return res.send("Update complete.");
+      });
 
-          return res.send("Resources provisioned!");
-        });
-
-        app.listen(3000, () => console.log("App is live at localhost:3000"));
+      app.listen(3000);
       ```
 
   - name: Create custom CLI tools (Go/Cobra)
