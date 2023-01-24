@@ -95,7 +95,6 @@ View Live: https://app.pulumi.com/jkodrofftest/pulumi-import-blog-sample/dev/pre
   Type                 Name                           Plan
   pulumi:pulumi:Stack  pulumi-import-blog-sample-dev
 
-
 Resources:
   2 unchanged
 ```
