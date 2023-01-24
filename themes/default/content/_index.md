@@ -297,24 +297,17 @@ automation_api_examples:
         import * as auto from "@pulumi/pulumi/automation";
         import * as express from "express";
 
-        function yourPulumiProgram() {
-          const bucket = new aws.s3.Bucket("bucket", {});
-          return {
-            bucket,
-          };
-        }
-
         const app = express();
 
         app.post("/update", async (req, res) => {
-          const projectName = req.body.projectName;
-          const stackName = req.body.stackName;
-
           // Create a new stack.
           const stack = await auto.createStack({
-            stackName,
-            projectName,
-            program: yourPulumiProgram,
+            stackName: req.body.stackName,
+            projectName: req.body.projectName,
+            program: () => {
+              const bucket = new aws.s3.Bucket("bucket", {});
+              return { bucket };
+            },
           });
 
           // Update the newly created stack.
@@ -534,7 +527,7 @@ automation_api_examples:
           print("database, table and rows successfully configured")
       ```
 
-  - name: See all examples
+  - name: See more example code
     text: |
       [View examples](https://github.com/pulumi/automation-api-examples)
 
