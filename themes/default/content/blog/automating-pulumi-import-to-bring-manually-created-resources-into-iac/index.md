@@ -33,58 +33,42 @@ When we run the command, Pulumi queries the AWS API for the VPC’s attributes. 
 $ pulumi import aws:ec2/vpc:Vpc imported-vpc vpc-0b0a6ad0766eccf3b
 Previewing import (dev)
 
-
 View Live: https://app.pulumi.com/jkodrofftest/pulumi-import-blog-sample/dev/previews/2e462988-0771-4fd0-8e13-bf0b88eb9d4b
-
 
 Type                      Name                           Plan
  +   pulumi:pulumi:Stack  pulumi-import-blog-sample-dev  create
  =   └─ aws:ec2:Vpc       imported-vpc                   import
-
-
-
 
 Resources:
   + 1 to create
   = 1 to import
   2 changes
 
-
 Do you want to perform this import? yes
 Importing (dev)
 
-
 View Live: https://app.pulumi.com/jkodrofftest/pulumi-import-blog-sample/dev/updates/1
-
 
 Type                      Name                           Status
  +   pulumi:pulumi:Stack  pulumi-import-blog-sample-dev  created (4s)
  =   └─ aws:ec2:Vpc       imported-vpc                   imported (3s)
-
-
-
 
 Resources:
   + 1 created
   = 1 imported
   2 changes
 
-
 Duration: 5s
-
 
 Please copy the following code into your Pulumi application. Not doing so
 will cause Pulumi to report that an update will happen on the next update command.
-
 
 Please note that the imported resources are marked as protected. To destroy them
 you will need to remove the `protect` option and run `pulumi update` *before*
 the destroy will take effect.
 
-
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-
 
 const imported_vpc = new aws.ec2.Vpc("imported-vpc", {
   cidrBlock: "10.0.0.0/16",
