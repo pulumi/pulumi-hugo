@@ -126,7 +126,7 @@ Run `pulumi import` to bring the resources under Pulumi control.
 
 ## Writing an Account Scraper
 
-In our account scraper, we will use the AWS Python SDK, [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html),  to query resources created in the AWS console, but a similar approach can be applied to [the many cloud and SaaS providers supported by Pulumi](https://www.pulumi.com/registry/). The full code for the sample solution can be found on GitHub at <https://github.com/pulumi/pulumi-import-aws-account-scraper>. If you find the tool useful, please submit issues and/or PRs to support additional resource types!
+In our account scraper, we will use the AWS Python SDK, [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html),  to query resources created in the AWS console, but a similar approach can be applied to [the many cloud and SaaS providers supported by Pulumi](/registry/). The full code for the sample solution can be found on GitHub at <https://github.com/pulumi/pulumi-import-aws-account-scraper>. If you find the tool useful, please submit issues and/or PRs to support additional resource types!
 
 Because the ID attribute (or multiple attributes in the case of some resources) vary based on the resource type (in AWS at least, your cloud provider may vary), we need to write custom code for each resource type that we want to import. (Note that the account scraper code only queries a subset of AWS resource types, but the code can be easily modified to accommodate additional resource types.) For example, the following code shows a query for associations between route tables and VPC subnets:
 
