@@ -65,7 +65,7 @@ templates:
 build:
   title: Write infrastructure code faster
   description: |
-    Pulumi speeds up your inner dev loop for IaC by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation out of the box. In addition you can leverage all of the capabilities of the programming language of your choice so you can reduce the total number of lines of code you're writing.
+    Pulumi speeds up your inner dev loop for Infrastructure as Code (IaC) by allowing you to use an IDE giving you statement completion, real-time type checking, and interactive documentation out of the box. In addition you can leverage all of the capabilities of the programming language of your choice so you can reduce the total number of lines of code you're writing.
 
   code:
     - title: index.ts
