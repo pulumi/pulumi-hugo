@@ -179,4 +179,4 @@ Now that we have our resources under Pulumi management, we might want to conside
 
 ## Conclusion
 
-We’ve shown how `pulumi import` enabled organizations to quickly move from slow and error prone manual management of cloud resources to a modern, automated, code-centric approach, even when we need to preserve those manually created resources because they are running critical workloads. It’s never too late for an organization to transition to managing infrastructure resources as code, and Pulumi makes this transition as painless as possible!
+We’ve shown how `pulumi import` enables organizations to quickly move from slow and error prone manual management of cloud resources to a modern, automated, code-centric approach, even when we need to preserve those manually created resources because they are running critical workloads. It’s never too late for an organization to transition to managing infrastructure resources as code, and Pulumi makes this transition as painless as possible!
