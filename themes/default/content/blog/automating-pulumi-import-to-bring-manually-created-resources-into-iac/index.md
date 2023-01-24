@@ -119,7 +119,7 @@ If you are looking to import resources that were created with a non-Pulumi IaC t
 
 ## Designing an End-to-End Solution
 
-Now that we’ve explained the benefits of brining manually created resources under IaC, and the capabilities of the `pulumi import` command, we need to design a solution that will allow us to leverage `pulumi import`’s bulk import capabilities so that we can bring all resources in our cloud environment under Pulumi management.
+Now that we’ve explained the benefits of bringing manually created resources under IaC, and the capabilities of the `pulumi import` command, we need to design a solution that will allow us to leverage `pulumi import`’s bulk import capabilities so that we can bring all resources in our cloud environment under Pulumi management.
 
 Our solution for an automated bulk import of resources into Pulumi comprises the following steps:
 Create an account scraper using our cloud provider’s SDK (or CLI) to query for the resources to be imported.
