@@ -138,9 +138,7 @@ Because the ID attribute (or multiple attributes in the case of some resources) 
 def import_route_table_associations(ec2_client):
    pulumi_resources = []
 
-
    route_tables = ec2_client.describe_route_tables()['RouteTables']
-
 
    for route_table in route_tables:
        for association in route_table["Associations"]:
@@ -151,7 +149,6 @@ def import_route_table_associations(ec2_client):
                "name": f"import-{association['RouteTableAssociationId']}",
                "id": f"{association['SubnetId']}/{route_table['RouteTableId']}",
            })
-
 
    return pulumi_resources
 ```
