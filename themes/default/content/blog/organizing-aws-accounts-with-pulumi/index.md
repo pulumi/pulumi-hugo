@@ -1,6 +1,6 @@
 ---
 title: "Organizing AWS Accounts With Pulumi"
-date: 2023-01-23
+date: 2023-02-06
 meta_desc: Learn how you can use Pulumi to manage your AWS Organizations hierarchy and automatically create member accounts.
 meta_image: meta.png
 authors:
