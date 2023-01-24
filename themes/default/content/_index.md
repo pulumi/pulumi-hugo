@@ -204,6 +204,51 @@ build:
                 ["vpcId"] = eksVpc.VpcId,
             };
         });
+    - title: App.Java
+      language: java
+      code: |
+        package my_eks_cluster;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import com.pulumi.awsx.ec2.Vpc;
+        import com.pulumi.awsx.ec2.VpcArgs;
+        import com.pulumi.eks.Cluster;
+        import com.pulumi.eks.ClusterArgs;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+                var eksVpc = new Vpc("eksVpc", VpcArgs.builder()
+                    .enableDnsHostnames(true)
+                    .cidrBlock("10.0.0.0/16")
+                    .build());
+
+                var eksCluster = new Cluster("eksCluster", ClusterArgs.builder()
+                    .vpcId(eksVpc.vpcId())
+                    .publicSubnetIds(eksVpc.publicSubnetIds())
+                    .privateSubnetIds(eksVpc.privateSubnetIds())
+                    .instanceType("t2.medium")
+                    .desiredCapacity(3)
+                    .minSize(3)
+                    .maxSize(6)
+                    .nodeAssociatePublicIpAddress(false)
+                    .build());
+
+                ctx.export("kubeconfig", eksCluster.kubeconfig());
+                ctx.export("vpcId", eksVpc.vpcId());
+            }
+        }
     - title: Pulumi.yaml
       language: yaml
       code: |

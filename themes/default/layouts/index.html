@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
-                    <pulumi-chooser type="language" options="typescript,python,go,csharp,yaml">
+                    <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
                         {{ range $item := .Params.build.code }}
                             <pulumi-choosable type="language" class="highlight" value="{{ $item.language }}">
                                 {{ partial "code" (dict "lang" $item.language "code" $item.code "mode" "dark") }}
