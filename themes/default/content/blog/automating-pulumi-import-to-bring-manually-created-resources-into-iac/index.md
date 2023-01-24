@@ -122,9 +122,10 @@ If you are looking to import resources that were created with a non-Pulumi IaC t
 Now that we’ve explained the benefits of bringing manually created resources under IaC, and the capabilities of the `pulumi import` command, we need to design a solution that will allow us to leverage `pulumi import`’s bulk import capabilities so that we can bring all resources in our cloud environment under Pulumi management.
 
 Our solution for an automated bulk import of resources into Pulumi comprises the following steps:
-Create an account scraper using our cloud provider’s SDK (or CLI) to query for the resources to be imported.
-Take the output from the cloud provider’s SDK and transform it into a JSON file suitable as an import for a batch `pulumi import` operation.
-Run `pulumi import` to bring the resources under Pulumi control.
+
+1. Create an account scraper using our cloud provider’s SDK (or CLI) to query for the resources to be imported.
+1. Take the output from the cloud provider’s SDK and transform it into a JSON file suitable as an import for a batch `pulumi import` operation.
+1. Run `pulumi import` to bring the resources under Pulumi control.
 
 ## Writing an Account Scraper
 
