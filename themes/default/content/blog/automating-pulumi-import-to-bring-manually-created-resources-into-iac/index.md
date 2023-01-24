@@ -2,6 +2,7 @@
 title: "Automating Pulumi Import with Manually Created Resources"
 date: 2023-01-23
 meta_desc: How to bring order to a mess of manually created cloud resources.
+meta_image: automating-pulumi-import.png
 authors:
     - josh-kodroff
 tags:
