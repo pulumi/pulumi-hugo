@@ -113,6 +113,7 @@ For projects with many resources, `pulumi import` also has an option that allows
     }
   ]
 }
+```
 
 Because `pulumi import` gives us the full code for an imported resource with all attributes, and because `pulumi import` has an option for batch import from an external file source (both key differentiators between Pulumi and other IaC tools) we can use `pulumi import` to import existing resources at scale in an automated fashion.
 
