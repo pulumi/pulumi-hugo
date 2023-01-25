@@ -172,7 +172,7 @@ pulumi import -f ../path/to/file.json -o imported-resources.ts -y
 
 And with that, our resources are now managed by Pulumi!
 
-## Potential Next Steps
+## Next Steps
 
 Now that we have our resources under Pulumi management, we might want to consider some additional steps to build upon our IaC solution:
 
