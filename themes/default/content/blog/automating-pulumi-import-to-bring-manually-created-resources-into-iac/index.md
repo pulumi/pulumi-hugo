@@ -19,7 +19,7 @@ Bringing resources under IaC (and Pulumi specifically) gives an organization an 
 * **Version control/change history:** With IaC placed under version control, teams can easily roll back to previous versions of infrastructure, see who changed what, and when, which provides critical visibility into how infrastructure has evolved over time. The Pulumi Service provides a great experience here, with a dashboard that collects version history and deployment logs along with git contextual data in a single pane of glass.
 
 * **Automation and pipelines:** Because IaC is code, it enjoys the same main benefits from automated pipelines as application code: a repeatable and reliable process. We can also enjoy significant security benefits: When IaC and automated pipelines become the standard way to deploy infrastructure, organizations can significantly reduce the number of users with direct access to critical infrastructure (i.e., via the cloud console or CLI) and the level of privileges needed (e.g., read-only rather than full admin). Once we get our pipeline established so that we have repeatable automated delivery of our infrastructure, we can add automated quality assurance to Pulumi programs via [unit testing](https://www.pulumi.com/docs/guides/testing/unit/) and [policy as code](https://www.pulumi.com/crossguard/).
-* **Drift detection and correction:** Most IaC tools will detect changes made out of band to resources, e.g., changes made manually in the console, and attempt to reconcile the resource back to its declared configuration. Thus, by bringing manually created resources under IaC, organizations can put a definitive end to the slow and error-prone practice of manually creating cloud resources. In Pulumi, the `pulumi refresh` command will refresh all resources in the state file. For more information on strategies to address configuration drift, check out [Patterns of Drift Detection with Pulumi](/blog/patterns-drift-detection/) in the Pulumi blog.
+* **Drift detection and correction:** Most IaC tools will detect changes made out of band to resources, e.g., changes made manually in the console, and attempt to reconcile the resource back to its declared configuration. Thus, by bringing manually created resources under IaC, organizations can put a definitive end to the slow and error-prone practice of manually managing cloud resources. In Pulumi, the `pulumi refresh` command will refresh all resources in the state file. For more information on strategies to address configuration drift, check out [Patterns of Drift Detection with Pulumi](/blog/patterns-drift-detection/) in the Pulumi blog.
 
 ## About Pulumi Import
 
@@ -84,7 +84,7 @@ const imported_vpc = new aws.ec2.Vpc("imported-vpc", {
 
 Note that in the preceding example we have TypeScript output, but `pulumi import` will automatically detect the language our Pulumi project uses and will output code in the correct language.
 
-Our resource is also has `protect: true` by default, which means that Pulumi will not delete (or recreate) the resource if the program changes. This is an overridable default setting chosen for safety: If a resource is being imported in the first place, it’s typically because there’s an important workload using it, and we should be very careful before deleting or re-creating it.
+Our resource also has the `protect: true` option specified by default, which means that Pulumi will not delete (or recreate) the resource if the program changes. This is an overridable default setting chosen for safety: If a resource is being imported in the first place, it’s typically because there’s an important workload using it, and we should be very careful before deleting or re-creating it.
 
 Now that we’ve run the `pulumi import` command and added the code that the command outputs, our resource can now be managed by Pulumi. If we run the `pulumi preview` command, we will see that our resource has been added to our stack and that no changes have been detected, meaning that Pulumi has correctly imported all of our VPC’s attributes:
 
@@ -101,21 +101,28 @@ Resources:
   2 unchanged
 ```
 
-For projects with many resources, `pulumi import` also has an option that allows it to take a list of resources in a specially formatted JSON file for batch import. We’ll be using this batch import capability to add our manually-created resources into the Pulumi state. A sample of the JSON input follows:
+## Automated Batch Import Capabilities
+
+For projects with many resources, `pulumi import` also has an option that allows it to take a list of resources in a specially formatted JSON file for batch import. We’ll be using this batch import capability to add our manually-created resources into the Pulumi state. A basic sample JSON input follows:
 
 ```json
 {
  "resources": [
    {
      "type": "aws:ec2/vpc:Vpc",
-     "name": "import-vpc-094958e4051c478c3",
+     "name": "my-vpc",
      "id": "vpc-094958e4051c478c3"
+    },
+   {
+     "type": "aws:ec2/vpc:Vpc",
+     "name": "my-other-vpc",
+     "id": "vpc-0f12a82357335a28f"
     }
   ]
 }
 ```
 
-Because `pulumi import` gives us the full code for an imported resource with all attributes, and because `pulumi import` has an option for batch import from an external file source (both key differentiators between Pulumi and other IaC tools) we can use `pulumi import` to import existing resources at scale in an automated fashion.
+Because `pulumi import` gives us the full code for an imported resource with all attributes (as demonstrated in the previous section), and because `pulumi import` has an option for batch import from an external file source (both key differentiators between Pulumi and other IaC tools) we can use `pulumi import` to import existing resources at scale in an automated fashion.
 
 {{% notes %}}
 If you are looking to import resources that were created with a non-Pulumi IaC tool as opposed to manually in the console, the approach described in this article will still work, but you may also want to consider the tools tf2pulumi and cf2pulumi for resources created with Terraform and CloudFormation, respectively. For a comprehensive guide on the various options for importing existing resources into Pulumi, see [Migrating to Pulumi](/docs/guides/adopting/).
@@ -123,9 +130,9 @@ If you are looking to import resources that were created with a non-Pulumi IaC t
 
 ## Designing an End-to-End Solution
 
-Now that we’ve explained the benefits of bringing manually created resources under IaC, and the capabilities of the `pulumi import` command, we need to design a solution that will allow us to leverage `pulumi import`’s bulk import capabilities so that we can bring all resources in our cloud environment under Pulumi management.
+Now that we’ve explained the benefits of bringing manually created resources under IaC, and the capabilities of the `pulumi import` command, we need to design a solution that will allow us to leverage `pulumi import`’s batch import capabilities so that we can bring all resources in our cloud environment under Pulumi management.
 
-Our solution for an automated bulk import of resources into Pulumi comprises the following steps:
+Our solution for an automated batch import of resources into Pulumi comprises the following steps:
 
 1. Create an account scraper using our cloud provider’s SDK (or CLI) to query for the resources to be imported.
 1. Take the output from the cloud provider’s SDK and transform it into a JSON file suitable as an import for a batch `pulumi import` operation.
@@ -133,7 +140,7 @@ Our solution for an automated bulk import of resources into Pulumi comprises the
 
 ## Writing an Account Scraper
 
-In our account scraper, we will use the AWS Python SDK, [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html),  to query resources created in the AWS console, but a similar approach can be applied to [the many cloud and SaaS providers supported by Pulumi](/registry/). The full code for the sample solution can be found on GitHub at <https://github.com/pulumi/pulumi-import-aws-account-scraper>. If you find the tool useful, please submit issues and/or PRs to support additional resource types!
+In our account scraper, we will use the AWS Python SDK, [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html), to query resources created in the AWS console, but a similar approach can be applied to [the many cloud and SaaS providers supported by Pulumi](/registry/). The full code for the sample solution can be found on GitHub at <https://github.com/pulumi/pulumi-import-aws-account-scraper>. If you find the tool useful, please submit issues and/or PRs to support additional resource types!
 
 Because the ID attribute (or multiple attributes in the case of some resources) vary based on the resource type (in AWS at least, your cloud provider may vary), we need to write custom code for each resource type that we want to import. (Note that the account scraper code only queries a subset of AWS resource types, but the code can be easily modified to accommodate additional resource types.) For example, the following code shows a query for associations between route tables and VPC subnets:
 
@@ -159,15 +166,15 @@ def import_route_table_associations(ec2_client):
 We can run the entire account scraper program to output our resources to a single JSON file by running the following command. Detailed instructions are contained in the account scraper repository:
 
 ```bash
-python account_scraper.py > ../path/to/file.json
+python account_scraper.py > /path/to/file.json
 ```
 
-## Bulk Import
+## Batch Import
 
 Now that we’ve generated our JSON file, we can use the `pulumi import` command to import all of our resources in a single command and output our code to its own file:
 
 ```bash
-pulumi import -f ../path/to/file.json -o imported-resources.ts -y
+pulumi import -f /path/to/file.json -o imported-resources.ts -y
 ```
 
 And with that, our resources are now managed by Pulumi!
