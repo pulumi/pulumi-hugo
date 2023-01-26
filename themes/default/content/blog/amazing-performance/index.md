@@ -1,6 +1,6 @@
 ---
 title: "Achieving Amazing Performance in the Pulumi CLI"
-date: 2023-01-11T07:00:00-05:00
+date: 2023-01-27T07:00:00-05:00
 meta_desc: "Introducing the Amazing Performance initiative, and an overview of performance tooling we've developed for Pulumi."
 meta_image: meta.png
 
