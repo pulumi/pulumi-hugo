@@ -1,5 +1,5 @@
 ---
-title: "Amazing Performance"
+title: "Achieving Amazing Performance in the Pulumi CLI"
 date: 2023-01-11T07:00:00-05:00
 meta_desc: "Introducing the Amazing Performance initiative, and an overview of performance tooling we've developed for Pulumi."
 meta_image: meta.png
@@ -17,11 +17,11 @@ This is the first post in a series about performance optimizations we've made to
 
 <!--more-->
 
-This post has two sections. First, we'll describe the tools we built previously to track performance. Secondly, we'll recap a few small performance wins. Future posts will detail our major wins as part of the Amazing Performance initiative.
+This post has two sections. First, we'll describe the tools we built previously to track performance. Secondly, we'll recap a few quick wins. Future posts will detail our major wins as part of the Amazing Performance initiative.
 
-## Tools We've Already Built
+## Measuring and Tracking Performance
 
-The Amazing Performance initiative didn't come from a vacuum. We've been working to understand and improve the performance of the Pulumi CLI for years. Much of the earlier effort has focused on gaining performance insights – building an understanding of where our performance pains were the sharpest. The two most impactful tools at our disposal for understanding performance pains are our analytics dashboard and our OpenTracing support.
+The Amazing Performance initiative didn't come from a vacuum. We've been working to understand and improve the performance of the Pulumi CLI for years. Much of the earlier effort has focused on gaining performance *insights* – building an understanding of where our performance pains were the sharpest. The two most impactful tools at our disposal for understanding performance pains are our analytics dashboard and our OpenTracing support.
 
 ### Analytics Dashboard
 
@@ -57,23 +57,25 @@ Pulumi can send traces to a Zipkin server, or aggregate them to a local file and
 
 Not all spans are exceptionally well-named, and there are blind spots in our traces. However, traces are typically a reliable way to subdivide the program execution, so hotspots are easily identifiable. In the future, we plan to migrate to OpenTelemetry and improve our trace coverage. (Feel free to get in touch on the [Community Slack](https://slack.pulumi.com/) if you want to help with this effort!)
 
-## Fixing Low Hanging Fruit
+## Quick Wins for Performance Gains
 
 Some of the work we completed for Amazing Performance targeted simple, isolated changes to make the system a little snappier. The rest of this blog details two quick examples.
 
 ### Skipping a Slow Import
 
-When Pulumi executes NodeJS code, it compiles TypeScript into JavaScript using [TS-Node](https://www.npmjs.com/package/ts-node). Consequently, Pulumi bundles the TypeScript compiler into its NodeJS runtime so TS-Node can perform the compilation.
+We cut 300ms in boot time a class of programs by dynamically importing TypeScript.
 
-However, we noticed JavaScript programs were importing the TypeScript compiler even when unused. Users typically hit this bug in one of two ways. Some users choose to write Pulumi programs in pure JavaScript. Since they were using the NodeJS runtime, Pulumi was importing the TypeScript compiler unnecessarily.
+When Pulumi evaluates NodeJS programs, it compiles TypeScript into JavaScript using [TS-Node](https://www.npmjs.com/package/ts-node). Consequently, Pulumi bundles the TypeScript compiler into its NodeJS runtime so TS-Node can perform the compilation. However, we noticed JavaScript programs were importing the TypeScript compiler even when unused.
 
-Our more experienced TypeScript users also ran up against this issue. One pattern used in CI environments or with [Automation API](https://www.pulumi.com/docs/guides/automation-api/) is to typecheck Pulumi programs separately from execution. Some users enforce typechecking during pull requests to guarantee that all code hitting the repository's main branch is valid. Once it's typechecked, they can precompile the TypeScript into JavaScript before execution. Finally, when it comes time to execute their Pulumi program, they run the compiled JavaScript, which they know to be well-typed. The motivation for precompiling comes from using your own preprocessor. Some customers want to ditch TS-Node for compilation and prefer to use [SWC](https://swc.rs/), [ESBuild](https://esbuild.github.io/), or other options for increased performance or consistency with the rest of their codebase.
+Users typically hit this bug in one of two ways. Some users choose to write Pulumi programs in pure JavaScript. Pulumi was needlessly importing the TypeScript compiler, even when there was nothing to compile.
+
+The second way a user might encounter this bug in a more advanced deployment pipeline. One common advanced pattern in CI environments or with [Automation API](https://www.pulumi.com/docs/guides/automation-api/) is to typecheck Pulumi programs separately from execution. CI will enforce typechecking during pull requests to guarantee that all code hitting the repository's main branch is valid. Once it's typechecked and merged, the Pulumi program can precompile the TypeScript into JavaScript before execution. Finally, when it comes time to execute the Pulumi program, the deployment pipeline will run the compiled JavaScript, which is knowned to be well-typed. The motivation for precompiling comes from using your own preprocessor. Some customers want to ditch TS-Node for compilation and prefer to use [SWC](https://swc.rs/), [ESBuild](https://esbuild.github.io/), or other options for increased performance, or for consistency with the rest of their codebase.
 
 In both scenarios, importing TypeScript when it's not used results in a 300ms slowdown. In [a small PR](https://github.com/pulumi/pulumi/pull/10214), we detect cases that don't require TypeScript and dynamically import it only when needed.
 
 ### Timely Lease Renewal
 
-A second low-hanging fruit bug involved the renewal of a new lease. When the Pulumi CLI kicks off a preview, projects that use the [Service backend](https://www.pulumi.com/docs/intro/concepts/state/#pulumi-service-backend) are authenticated with the Service so the CLI can fetch the current state. During authentication, the CLI exchanges user credentials for a short-lived access token. This access token is valid for a fixed amount of time, called a lease, after which they expire. The CLI can renew a lease by making another request to the Service to extend the duration for which the lease is valid.
+Another quick win involved the renewal of a new lease, which resulted in another 120ms shaved off of boot time. When the Pulumi CLI kicks off a preview, projects that use the [Service backend](https://www.pulumi.com/docs/intro/concepts/state/#pulumi-service-backend) are authenticated with the Service so the CLI can fetch the current state. During authentication, the CLI exchanges user credentials for a short-lived access token. This access token is valid for a fixed amount of time, called a lease, after which they expire. The CLI can renew a lease by making another request to the Service to extend the duration for which the lease is valid.
 
 We noticed that the first time the CLI renewed the lease, it blocked further execution until the renewal was complete, introducing an unnecessary slowdown of 120ms. [The fix](https://github.com/pulumi/pulumi/pull/10462) was to remove this renewal from the critical path by running it in the backend. By starting the HTTP call on a background thread and only blocking if the token is needed but not renewed, we've eliminated the 120ms slowdown.
 
