@@ -85,11 +85,11 @@ The best first step to implement is a Tag Policy, the required cloud metadata ta
 
 A basic Tag Policy for FinOps will include:
 
-* Owner - the person responsible for this resource that you would contact if you had to (eg johndoe@pulumi.com)
-* Origin - the pipeline, process and/or system through which this came to be (eg ArgoCD, Jenkins, Pulumi)
-* Business Unit - the team responsible, typically maps to the the cost center associated (eg Sales, Engineering)
-* Environment - the teams/customers this deployment services (eg Dev, Staging, Production)
-* Application Component - the part of the application that this resource serves (eg data pipeline, authentication, front end)*
+1. Owner - the person responsible for this resource that you would contact if you had to (eg johndoe@pulumi.com)
+1. Origin - the pipeline, process and/or system through which this came to be (eg ArgoCD, Jenkins, Pulumi)
+1. Business Unit - the team responsible, typically maps to the the cost center associated (eg Sales, Engineering)
+1. Environment - the teams/customers this deployment services (eg Dev, Staging, Production)
+1. Application Component - the part of the application that this resource serves (eg data pipeline, authentication, front end)*
 
 You will now be able to report on and manage resources in those tag groups.  It’s advisable that you do not create too many required tags, or it will quickly get difficult to manage and it increases the likelihood of multiple tags applying, which reduces the insightfulness of the data.
 
