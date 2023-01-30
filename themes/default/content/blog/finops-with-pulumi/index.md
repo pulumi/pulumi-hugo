@@ -51,7 +51,7 @@ Ultimately, the cloud account owner is responsible for the cloud bill, and failu
 
 ## Allocation of Costs
 
-The first step of establishing many FinOps practices is determining the allocation of costs.  It is easy to allocate costs to individual users launching cloud services, but it becomes compoundingly hard once pipeline automation, team structure, and business unit reporting comes into play.  As an organization scales it can be very difficult to allocate costs across different business units and teams, across environments such as development versus production, to application component services such as the data layer, or account for  supporting systems and services that are run in the cloud alongside, including third party commercial software.
+The first step of establishing many FinOps practices is determining the allocation of costs.  It is easy to allocate costs to individual users launching cloud services, but it becomes compoundingly hard once pipeline automation, team structure, and business unit reporting comes into play.  As an organization scales it grows increasingly difficult to allocate costs across different business units and teams, across environments such as development versus production, or across application component services such as the data layer. Further, how does an organization account for  supporting systems and services that are run alongside applications in the cloud, including third party commercial software?
 
 The best first step in allocation of costs to get you on your FinOps Journey is typically done with consistent and enforced tagging of cloud resources.  Creating a Tag Policy as a first step is covered below.
 
