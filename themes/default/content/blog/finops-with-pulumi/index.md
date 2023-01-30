@@ -47,7 +47,7 @@ Adopting a FinOps practice brings real world OpEx considerations to the decision
 
 In most smaller organizations, developers themselves are often responsible for the decisions that impact cost.  In larger organizations, this responsibility typically falls to a central IT or Cloud Platform team, often seen as the cost center for infrastructure, and the best team to optimize that spend continuously.  Some organizations are evolving toward FinOps as a practice, with dedicated teams responsible for enabling the organization to make smarter financial decisions and negotiating with cloud vendors for discounts.
 
-Ultimately, the Cloud Account Owner is responsible for the cloud bill, and failure to pay that bill will result in the suspension of cloud services, and given that infrastructure is often code, developers or IT teams are often made responsible for the task of optimization.  Optimization recommendations may range from simply deleting orphaned cloud resources to re-architecting the entire application to use a modern serverless framework that would consume less resources overall.
+Ultimately, the cloud account owner is responsible for the cloud bill, and failure to pay that bill will result in the suspension of cloud services. Given that infrastructure is often code, developers or IT teams are often made responsible for the task of optimization.  Optimization recommendations may range from simply deleting orphaned cloud resources to re-architecting the entire application to use a modern serverless framework that would consume less resources overall.
 
 ## Allocation of Costs
 
