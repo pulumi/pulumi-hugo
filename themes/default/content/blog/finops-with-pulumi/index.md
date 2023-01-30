@@ -41,7 +41,7 @@ The [FinOps Foundation](https://www.finops.org/) eloquently defines FinOps as �
 
 Just as organizations have adopted operations-focused best practices into software development cycles and have considered how to best insert security best practices along the way, financial best practices may also be codified by developers writing cloud programs.
 
-Adopting a FinOps practice brings real world OpEx considerations to the decisions that cloud engineers regularly make.  Technical teams bring financial context into service level and recovery objectives, scaling and placement decisions, and business continuity planning.  Developers are typically more conscious of the resources they are using and consider the impact of their application design decisions at both development, test and production scale.  And organizations usually realize substantial OpEx savings while better forecasting their growth.
+Adopting a FinOps practice brings real world [OpEx(Operating Expenses)](https://en.wikipedia.org/wiki/Operating_expense) considerations to the decisions that cloud engineers regularly make. When you add FinOps to your [Cloud Center of Excellence](https://finops.world/en/organization-and-key-roles/), technical teams bring financial context into service level and recovery objectives, scaling and placement decisions, and business continuity planning.  Developers are typically more conscious of the resources they are using and consider the impact of their application design decisions at both development, test and production scale.  Therefore organizations usually realize substantial OpEx savings while better forecasting their growth.
 
 ## Who is Responsible?
 
@@ -61,13 +61,13 @@ Most FinOps processes today are reactive; once you have received your bill, you 
 
 Proactive optimization and enforcement means providing real time feedback on how cloud engineering architectural changes may impact cost and creating preventative policies which do not allow for budget-busting cloud services to be provisioned.  This is an evolving practice in many modern cloud-centric organizations.  As more cloud operations are defined as code, this preventative, proactive optimization model is becoming more popular.
 
-Financial optimization can also come in the form of Strategic Sourcing; most cloud providers offer multiple discount mechanisms, including large enterprise discount plans for committed consumption that may extend to third party SaaS software purchased through the Cloud Marketplaces, as Pulumi is.  This level of optimization will provide dramatic savings on your top-line spend.
+Financial optimization can also come in the form of strategic sourcing; most cloud providers offer multiple discount mechanisms, including large enterprise discount plans for committed consumption that may extend to third party SaaS software purchased through the cloud marketplaces, as Pulumi is.  This level of optimization will provide dramatic savings on your top-line spend.
 
 ## FinOps with Pulumi
 
 Using cloud engineering practices with Pulumi, you have the opportunity to implement both proactive and reactive models to control your cloud spend.
 
-As an infrastructure as code platform, Pulumi is in the unique position to be proactive about managing your costs.  You can design guardrails on your provisioning to limit expensive resource types or quantities, direct resources to reserved allocations, ensure resources are tagged and traceable to the correct cost center, connect resources to your observability and dedicated FinOps platforms, and provide preventative visibility and control.  Consider uses for CrossGuard Policy-as-Code, multi-language components for defining resource abstractions, and Automation API to package up orchestration into web service endpoints, as described below.
+As an infrastructure as code platform, Pulumi is in the unique position to be proactive about managing your costs.  You can design guardrails on your provisioning to limit expensive resource types or quantities, direct resources to reserved allocations, ensure resources are tagged and traceable to the correct cost center, connect resources to your observability and dedicated FinOps platforms, and provide preventative visibility and control.  Consider uses for CrossGuard Policy as Code, multi-language components for defining resource abstractions, and Automation API to package up orchestration into web service endpoints, as described below.
 
 If you are proactively managing your infrastructure, then reactively, the largest contributor to financial overrun is drift; the misalignment between the desired state and the actual state.  Pulumi is used to define your desired state; however, many things may cause the actual state to begin to deviate from the desired state in your code, such as manual actions from the cloud console or ad-hoc deployment pipelines.
 
@@ -81,15 +81,15 @@ Automation of remediation is a goal for many cloud engineering organizations; if
 
 Getting started with a FinOps usually falls to the resource owners or Cloud Engineering teams themselves.  The more resources you have, the more complex and noisy things are going to get and the harder it will be to both allocate costs and resources where they are needed, as well as identify and eliminate the unneeded ones.
 
-The best first step to implement is a Tag Policy, the required cloud metadata tags for any resources provisioned by your Organization.  While not every resource in every cloud may be tagged, most are and getting into the practice early will help you maintain accountability for what you are running, demystify your cloud bills as they grow larger, and help with updating the application architecture or making cost effective product decisions long term.
+The best first step to implement is a Tag Policy, the required cloud metadata tags for any resources provisioned by your organization.  While not every resource in every cloud may be tagged, most are and getting into the practice early will help you maintain accountability for what you are running, demystify your cloud bills as they grow larger, and help with updating the application architecture or making cost effective product decisions long term.
 
 A basic Tag Policy for FinOps will include:
 
-Owner - the person responsible for this resource that you would contact if you had to (eg johndoe@pulumi.com)
-Origin - the pipeline, process and/or system through which this came to be (eg ArgoCD, Jenkins, Pulumi)
-Business Unit - the team responsible, typically maps to the the cost center associated (eg Sales, Engineering)
-Environment - the teams/customers this deployment services (eg Dev, Staging, Production)
-Application Component - the part of the application that this resource serves (eg data pipeline, authentication, front end)
+* Owner - the person responsible for this resource that you would contact if you had to (eg johndoe@pulumi.com)
+* Origin - the pipeline, process and/or system through which this came to be (eg ArgoCD, Jenkins, Pulumi)
+* Business Unit - the team responsible, typically maps to the the cost center associated (eg Sales, Engineering)
+* Environment - the teams/customers this deployment services (eg Dev, Staging, Production)
+* Application Component - the part of the application that this resource serves (eg data pipeline, authentication, front end)*
 
 You will now be able to report on and manage resources in those tag groups.  It’s advisable that you do not create too many required tags, or it will quickly get difficult to manage and it increases the likelihood of multiple tags applying, which reduces the insightfulness of the data.
 
@@ -101,7 +101,7 @@ Read more about Tag Policy implementation with Pulumi below and for extended rea
 
 Multi-language components allow you to create repeatable infrastructure patterns, modular abstractions of resources and/or groups of resources that meet your desired configuration standards.  Packaging up resources within and across clouds, implementing standard deployment best practices and making those components available to developers reduces the cognitive load that they have when building new applications from those pre-assembled, ready-to-run components.
 
-Use these guardrails to enforce Tag Policies, for example that every tag for “Production” is actually “Production” and not “Prod” or “production” (yes, case sensitivity matters).  Or you may ensure teams only deploy resources such as VMs to regions where you have allocated Reserved Instances or other financial benefits in your application architecture. With MLCs end users have access to your component and not to the underlying infrastructure resources, guaranteeing repeatabality, however, in order to realize the benefits of MLCs, your Developers must be empowered to leverage them, but limited from using other methods.
+Use these guardrails to enforce Tag Policies, for example that every tag for “Production” is actually “Production” and not “Prod” or “production” (yes, case sensitivity matters).  Or you may ensure teams only deploy resources such as VMs to regions where you have allocated Reserved Instances or other financial benefits in your application architecture. With MLCs end users have access to your component and not to the underlying infrastructure resources, guaranteeing repeatabality, however, in order to realize the benefits of MLCs, your developers must be empowered to leverage them, but limited from using other methods.
 
 ## CrossGuard
 
@@ -113,7 +113,7 @@ Go here for [examples of FinOps policies](https://github.com/pulumi/examples/tre
 
 ## Automation API
 
-Automation API allows you to create an HTTP endpoint for a Pulumi program.  Organizations have used this to control easy on/off switches for applications such as provisioning/deprovisioning single tenant SaaS architectures, short lived environments and complex testing and blue/green deployments.  Because of the encapsulation of a Pulumi program and the simplification this provides, this endpoint may be directly exposed to those responsible for making the financial decisions in the moment, such as a Sales Engineer who must turn on a new POC environment for testing who then must be sure to shut that off when completed.  Oftentimes these decisions are automated in process and pipelines.
+Of the many things Automation API allows you to do, one is you can create an HTTP endpoint for a Pulumi program.  Organizations have used this to control easy on/off switches for applications such as provisioning/deprovisioning single tenant SaaS architectures, short lived environments and complex testing and blue/green deployments.  Because of the encapsulation of a Pulumi program and the simplification this provides, this endpoint may be directly exposed to those responsible for making the financial decisions in the moment, such as a Sales Engineer who must turn on a new POC environment for testing who then must be sure to shut that off when completed.  Oftentimes these decisions are automated in process and pipelines.
 
 ## Pulumi FinOps in Practice: Sweeping up Dev and QA
 
