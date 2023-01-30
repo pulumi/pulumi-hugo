@@ -39,7 +39,7 @@ tags:
 
 The [FinOps Foundation](https://www.finops.org/) eloquently defines FinOps as “an evolving cloud financial management discipline and cultural practice that enables organizations to get maximum business value by helping engineering, finance, technology and business teams to collaborate on data-driven spending decisions.”  Simply put, FinOps is the continuous effort to control cloud spend.
 
-Just as organizations have adopted Operations best practices into Development cycles and have considered how to best insert our Security best practices along the way, Financial best practices may also be codified by developers writing cloud programs.
+Just as organizations have adopted operations-focused best practices into software development cycles and have considered how to best insert security best practices along the way, financial best practices may also be codified by developers writing cloud programs.
 
 Adopting a FinOps practice brings real world OpEx considerations to the decisions that cloud engineers regularly make.  Technical teams bring financial context into service level and recovery objectives, scaling and placement decisions, and business continuity planning.  Developers are typically more conscious of the resources they are using and consider the impact of their application design decisions at both development, test and production scale.  And organizations usually realize substantial OpEx savings while better forecasting their growth.
 
