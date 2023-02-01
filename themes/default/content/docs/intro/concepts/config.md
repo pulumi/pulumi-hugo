@@ -89,9 +89,9 @@ $ pulumi new aws-typescript --config="aws:region=us-west-2"
 
 ## Accessing Configuration from Code {#code}
 
-Configuration values can be retrieved using either {{< pulumi-config-get >}} or {{< pulumi-config-require >}}. Using {{< pulumi-config-get >}} will return {{< language-null >}} if the configuration value was not provided, and {{< pulumi-config-require >}} will raise an exception with a helpful error message to prevent the deployment from continuing until the variable has been set using the CLI.
+Configuration values can be retrieved for a given stack using either {{< pulumi-config-get >}} or {{< pulumi-config-require >}}. Using {{< pulumi-config-get >}} will return {{< language-null >}} if the configuration value was not provided, and {{< pulumi-config-require >}} will raise an exception with a helpful error message to prevent the deployment from continuing until the variable has been set using the CLI.
 
-The following example uses an empty constructor. If you are writing code that will be imported into a broader project, such as your own library of components, you should pass your library's name to the constructor. This string is used as a namespace for all configuration keys. Similarly, if you want to access the config of another library, such as the config for a standard library like `aws`, you should also pass the library's name to the constructor. The default constructor automatically uses the current project for that namespace.
+Methods like these operate on a particular namespace, which by default is the name of the current project. Passing an empty constructor to {{< pulumi-config >}}, as in the following example, reads values prefixed by the `name` of the current project:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -181,6 +181,75 @@ config:
     default: 42
 outputs:
   stdout: Hello, ${name} -- I see your lucky number is ${lucky}!
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+If you are writing code that will be imported into a broader project, such as your own library of components, you should instead pass your library's name to the constructor to reduce the likelihood of naming collisions with your library's users.
+
+<!-- Show an example of this here. -->
+
+Similarly, to access a namespaced configuration value, such as one from a provider library like `aws`, you should pass the library's name to the constructor. For example, to retrieve the configured value of `aws:region`:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+let awsConfig = new pulumi.Config("aws");
+let awsRegion = awsConfig.require("region");
+```
+
+{{% /choosable %}}
+{{% choosable language typescript %}}
+
+```typescript
+let awsConfig = new pulumi.Config("aws");
+let awsRegion = awsConfig.require("region");
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+aws_config = pulumi.Config("aws");
+aws_region = config.require("region");
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+awsConfig := config.New(ctx, "aws")
+awsRegion := conf.Require("region")
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```csharp
+var awsConfig = new Pulumi.Config("aws");
+var awsRegion = config.Require("region");
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+public static void stack(Context ctx) {
+    var awsConfig = ctx.config("aws");
+    var awsRegion = config.require("region");
+}
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+
+```yaml
+variables:
+  awsRegion: ${aws:region}
 ```
 
 {{% /choosable %}}
