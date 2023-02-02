@@ -305,7 +305,7 @@ To delete a stack:
 
 1. Navigate to **All stacks** and then a specific stack.
 1. Navigate to the stack's **Settings** and then **Options**.
-2. If you have no resources in the stack use the **Delete stack** button, otherwise use the provided CLI commands.
+1. If you have no resources in the stack use the **Delete stack** button, otherwise use the provided CLI commands.
 
 ## Related Blogs
 
