@@ -61,7 +61,7 @@ Note that you'll want to insert this just before the last `return nil` statement
 ```csharp
 return new Dictionary<string, object?>
 {
-    ["url"] = pulumi.Output.Format($"http://localhost:{frontendPort}")
+    ["url"] = Output.Format($"http://localhost:{frontendPort}")
 };
 ```
 
