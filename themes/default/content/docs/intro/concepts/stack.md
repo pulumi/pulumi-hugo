@@ -25,13 +25,16 @@ The stack name must be unique within a project. Stack names may only contain alp
 $ pulumi stack init staging
 ```
 
-If you are using Pulumi in your organization, by default the stack will be created in your user account. To target the organization, name the stack using `orgName/stackName`:
+There are a variety of available formats for the stackName, and the available formats differ between the [Service](/docs/intro/concepts/state#pulumi-service-backend) and [Self-Managed](/docs/intro/concepts/state#using-a-self-managed-backend) backends.
 
-```bash
-$ pulumi stack init broomllc/staging
-```
+| Stack Name Format               | Service     | Self-Managed |
+| ------------------------------- | ----------- | ------------ |
+| `stackName`                     | Identifies the stack `stackName` in the current user account or default organization, and the project specified by the nearest `Pulumi.yaml` project file.  | Identifies an unqualified stack `stackName` stored in the root of the backend. **Note**: The behaviour of this option may change in a future major version release to align with the service backend. |
+| `orgName/stackName`             | Identifies the stack `stackName` in the organization `orgName`, and the project specified by the nearest `Pulumi.yaml` project file. |  Not Supported - no notion of "organization" in the self-managed backend.  Separate self-managed backends can be used to manage seperate organizations. |
+| `orgName/projectName/stackName` | Identifies the stack `stackName` in the organization `orgName` and the project `proejctName`.  `projectName` must match the proejct specified by the nearest `Pulumi.yaml` project file. |  Not Supported - interpreted as `projectName/stackName`. |
+| `projectName/stackName`         | Not Supported - interpreted as `orgName/stackName`. | Identifies a stack `stackName` stored in a nested folder for `projectName` in the backend.  `projectName` must match the project specified by the nearest `Pulumi.yaml` project file. |
 
-Fully qualified stack names also include the project name, in the form `orgName/projectName/stackName`, and this fully-qualified format is required in some contexts. In most contexts, the shorthands `orgName/stackName` or `stackName` are valid and use the default organization and the current project context.
+In some contexts, stack names will be presented in their fully-qualified format (`orgName/projectName/stackName` for the Service backend) even if provided using shorthand (`stackName` or `orgName/stackName`) as input.
 
 {{% notes type="info" %}}
 While stacks with applied configuration settings will often be accompanied by `Pulumi.<stack-name>.yaml` files, these files are not created by `pulumi stack init`. They are created and managed with [`pulumi config`](/docs/reference/cli/pulumi_config). For information on how to populate your stack configuration files, see [Configuration](/docs/intro/concepts/config/).
@@ -46,8 +49,10 @@ $ pulumi stack ls
 NAME                                      LAST UPDATE              RESOURCE COUNT
 jane-dev                                  4 hours ago              97
 staging*                                  n/a                      n/a
-test                                      2 weeks ago              121
+broomellc/test                            2 weeks ago              121
 ```
+
+Note that stack names may be partially qualified when they are associated with a given organization or project different from the default for the context.
 
 ## Select a stack
 
@@ -60,7 +65,7 @@ $ pulumi stack ls
 NAME                                      LAST UPDATE              RESOURCE COUNT
 jane-dev*                                 4 hours ago              97
 staging                                   n/a                      n/a
-test                                      2 weeks ago              121
+broomellc/test                            2 weeks ago              121
 ```
 
 To select a stack that is part of an organization, use the fully-qualified stack name, either `orgName/stackName` or `orgName/projectName/stackName`:

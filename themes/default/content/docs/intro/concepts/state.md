@@ -152,19 +152,25 @@ The filesystem and cloud storage backends allow you to store state locally on yo
 
 To use a self-managed backend, specify a storage endpoint URL as `pulumi login`'s `<backend-url>` argument: `s3://<bucket-path>`, `azblob://<container-path>`, `gs://<bucket-path>`, or `file://<fs-path>`. This will tell Pulumi to store state in AWS S3, Azure Blob Storage, Google Cloud Storage, or the local filesystem, respectively. Checkpoint files are stored in a relative`.pulumi` directory. For example, if you were using the Amazon S3 self-managed backend, your checkpoint files would be stored at `s3://my-pulumi-state-bucket/.pulumi` where `my-pulumi-state-bucket` represents the name of your S3 bucket.
 
+Within the `.pulumi` folder, each self-managed backend stores these three pieces of data for your stack(s):
+
+1. `stacks`:  For each stack, the active state file (e.g. `dev.json` or `proj/dev.json` for a stack created with an explicit project scope) and the last version of the stack state (e.g. `dev.json.bak`).
+1. `locks`:  For each stack, an optional lock file if the stack is currently being operated on by a Pulumi operation (e.g. `dev/lock.json` or `proj.dev.json`).
+1. `history`: For each stack, the history of operations (e.g. `dev/dev-1675196469237644000.history.json`).
+
 The detailed format of the `<backend-url>` differs by backend and each has different options such as how to authenticate, as described below.
 
 ### Local Filesystem
 
-To use the filesystem backend to store your checkpoint files locally on your machine, pass the `--local` flag when logging in:
+To use the filesystem backend to store your state files locally on your machine, pass the `--local` flag when logging in:
 
 ```sh
 $ pulumi login --local
 ```
 
-You will see `Logged into <my-machine> as <my-user> (file://~)` as a result where `<my-machine>` and `<my-user>` are your configured machine and user names, respectively. All subsequent stack state and checkpoints will be store as JSON files locally on your machine.
+You will see `Logged into <my-machine> as <my-user> (file://~)` as a result where `<my-machine>` and `<my-user>` are your configured machine and user names, respectively. All subsequent stack state will be store as JSON files locally on your machine.
 
-The default directory for these JSON files is `~/.pulumi`. To store checkpoint files in an alternative location, specify a `file://<path>` URL instead, where `<path>` is the full path to the target directory where state files will be stored. For instance, to store state underneath `/app/data/.pulumi/` instead, run:
+The default directory for these JSON files is `~/.pulumi`. To store state files in an alternative location, specify a `file://<path>` URL instead, where `<path>` is the full path to the target directory where state files will be stored. For instance, to store state underneath `/app/data/.pulumi/` instead, run:
 
 ```sh
 $ pulumi login file:///app/data
@@ -249,8 +255,8 @@ As an example, imagine you'd like to migrate a stack named `my-app-production` f
 $ pulumi login --local
 $ pulumi stack select my-app-production
 
-# export the stack's checkpoint to a local file
-$ pulumi stack export --show-secrets --file my-app-production.checkpoint.json
+# export the stack's state to a local file
+$ pulumi stack export --show-secrets --file my-app-production.stack.json
 
 # logout and login to the desired new backend
 $ pulumi logout
@@ -259,8 +265,8 @@ $ pulumi login # default to Pulumi Service
 # create a new stack with the same name on pulumi.com
 $ pulumi stack init my-app-production
 
-# import the new existing checkpoint into pulumi.com
-$ pulumi stack import --file my-app-production.checkpoint.json
+# import the new existing state into pulumi.com
+$ pulumi stack import --file my-app-production.stack.json
 ```
 
 After performing these steps, your stack will now be under the management of the Pulumi Service. All subsequent operations should be performed using this new backend.
