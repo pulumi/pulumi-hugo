@@ -316,7 +316,7 @@ There are cases where configuration for more than one stack in a given project i
 Project level configuration is defined inside the project folder's `Pulumi.yaml` file using one's favorite editor.
 
 {{% notes "info" %}}
-At this time, the `pulumi config set` command does not support project level configuration. Therefore the configuration values are entered directly in the `Pulumi.yaml` file. Also, project level configuration only supports clear text configuration. Support for secrets and other features are planned.
+At this time, the `pulumi config set` command does not support project level configuration. Therefore the configuration values are entered directly in the `Pulumi.yaml` file. Also, project level configuration only supports clear text configuration. Support for [pulumi config](https://github.com/pulumi/pulumi/issues/12041) and [project-level secrets](https://github.com/pulumi/pulumi/issues/11549) and other features are planned.
 {{% /notes %}}
 
 Project level configuration supports both simple and structured configuraion as described in the sections above. However, structured config needs to include a `value` keyword. The following example shows what the project level configuration (inside `Pulumi.yaml`) looks like based on the examples shown above.
