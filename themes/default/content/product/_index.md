@@ -12,10 +12,9 @@ subheading: |
     and tame cloud complexity -- something we call Cloud Engineering.
 
 overview:
-    title: Unite developers, infrastructure teams, and security engineers
+    title: Universal Infrastructure as Code for Engineers
     description: |
-        By using the industry's best languages, you can skip learning proprietary, limited domain-specific
-        languages, and enable your team to work more productively and better together.
+        Ship infrastructure faster with software engineering and an API-first approach. Use Pulumi’s open source SDK with your favorite languages and software ecosystems to deploy on any cloud, and scale infrastructure as code across your team securely with enterprise-grade SaaS.
 
 key_features:
     title: Key features

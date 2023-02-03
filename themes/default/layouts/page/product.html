@@ -4,17 +4,11 @@
             <div class="dot-background"></div>
         </div>
         <div class="dot-overlay"></div>
-        <div class="home-page-hero-content mt-8">
+        <div class="home-page-hero-content p-20">
             <div class="w-full flex flex-col items-center justify-center">
                 <h1 class="relative">
                     <span class="rainbow-text" data-text="{{ .Params.heading }}">{{ .Params.heading }}</span>
                 </h1>
-                <p class="text-center max-w-3xl leading-7">{{ .Params.subheading | markdownify }}</p>
-                <div class="mt-8 text-center">
-                    <div class="pb-12">
-                        <a class="home-hero-btn-primary" href="{{ relref . "/docs/get-started" }}">Get Started</a>
-                    </div>
-                </div>
             </div>
         </div>
     </header>
@@ -28,54 +22,18 @@
             </div>
         </div>
 
+        <div class="container mx-auto text-center">
+            <div class="w-full">
+                <h2>{{ .Params.overview.title }}</h2>
+            </div>
+        </div>
         <div class="container mx-auto">
             <p class="mx-auto text-center text-gray-600 w-6/12">
+                {{ .Params.overview.description }}
                 The Pulumi IaC engine enables developers and infrastructure engineers to ship infrastructure faster. It is an
-                <a class="text-gray-600 underline" href="https://github.com/pulumi/pulumi">open source project</a> that's powered by
-                <a class="text-gray-600 underline" href="https://www.pulumi.com/crosscode/">Pulumi's CrossCode</a> universal translation technology.
             </p>
         </div>
 
-        <div class="container mx-auto flex flex-col lg:flex-row">
-            <div class="w-full lg:w-1/2 pl-3 pr-16">
-                <h2>{{ .Params.overview.title }}</h2>
-                <p class="lg:pr-48 text-gray-600">{{ .Params.overview.description }}</p>
-            </div>
-
-            <div class="product-carousel-items">
-                <span id="build" class="hidden"></span>
-                <span id="deploy" class="hidden"></span>
-                <span id="manage" class="hidden"></span>
-
-                <ul id="product-carousel-headers" class="product-carousel-headers">
-                    <li class="" data-product-carousel-type="build">
-                        <p class="my-0 text-black"><a href="#build" class="text-black">Build</a></p>
-                    </li>
-                    <li class="" data-product-carousel-type="deploy">
-                        <p class="my-0"><a href="#deploy" class="text-gray-500">Deploy</a></p>
-                    </li>
-                    <li class="" data-product-carousel-type="manage">
-                        <p class="my-0"><a href="#manage" class="text-gray-500">Manage</a></p>
-                    </li>
-                </ul>
-
-                <ul class="product-carousel-items-list carousel-always-visible-cli-only">
-                    <li class="w-full pb-3" data-product-carousel-type="build">
-                        <img class="rounded shadow-2xl" src="/images/product/typescript-product.svg" alt="" />
-                    </li>
-
-                    <li class="w-full relative hidden" data-product-carousel-type="deploy">
-                        <div class="carousel-item opacity-1 transition-all-200 w-full text-xs shadow-2xl">
-                            {{ partial "home/cli.html" }}
-                        </div>
-                    </li>
-
-                    <li class="w-full relative hidden" data-product-carousel-type="manage">
-                        <img class="rounded shadow-2xl" src="/images/home/short-console.svg" alt="Pulumi Service" />
-                    </li>
-                </ul>
-            </div>
-        </div>
     </section>
 
     <section id="info-graphic" class="relative">
