@@ -1,5 +1,6 @@
 ---
 title: What is Platform Engineering? And why developers and companies want it
+allow_long_title: true
 meta_desc: |
     Understand what platform engineering is, along with the main benefits and importance
     for modern application development.
