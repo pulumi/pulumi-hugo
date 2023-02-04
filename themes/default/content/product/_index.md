@@ -23,7 +23,7 @@ key_features:
           sub_title: "Pulumi Infrastructure as Code Engine"
           description: |
             Define infrastructure as code (IaC) in TypeScript/JavaScript, Python, Go, C#, Java, and YAML using your IDE and test frameworks for a fast inner dev loop. Deploy to 100+ providers like AWS, Azure, Google Cloud, and Kubernetes.
-          image: "/images/product/product-platform-desktop.svg"
+          image: "/images/productnew/pulumi-iac-code.png"
           features:
               - title: IaC for every engineer
                 description: |
@@ -71,7 +71,7 @@ key_features:
           sub_title: "CI/CD Integrations"
           description: |
             Version, review, test, and deploy infrastructure code through the same tools and processes used for your application code.
-          image: "/images/product/product-platform-desktop.svg"
+          image: "/images/productnew/pulumi-cicd.png"
           features:
               - title: Version and review
                 description: |
@@ -87,7 +87,7 @@ key_features:
           sub_title: "Pulumi Service"
           description: |
              Store infrastructure state & secrets, empower teams to ship infrastructure collaboratively, and manage security and governance using the Pulumi Service. The fastest and easiest way to use Pulumi at scale. 
-          image: "/images/product/product-platform-desktop.svg"
+          image: "/images/productnew/pulumi-service.png"
           features:
               - title: State & secrets management
                 description: |
@@ -107,25 +107,6 @@ key_features:
               - title: Federated identity
                 description: |
                     Manage identities and access with SCIM, SAML SSO, GitHub, GitLab, or Atlassian.
-
-stats:
-    title: Open source. Enterprise ready.
-    description: |
-        Pulumi’s Universal Infrastructure as Code CLI and SDK is an [open-source project](https://github.com/pulumi/) that’s supported
-        by an active community. We maintain a [public roadmap](/blog/relaunching-pulumis-public-roadmap/) and welcome feedback and contributions.
-    community:
-        number: "10,000s"
-        description: of community members
-    company:
-        number: "1,000s"
-        description: of companies
-    integration:
-        number: "70+"
-        description: Cloud and service integrations
-    cta:
-        title: The easiest way to use Pulumi open source at scale
-        description: |
-            The [Pulumi Service](/product/pulumi-service/) is a fully-managed service for the open-source CLI and SDK. It enables you and your team to focus on building, deploying, and managing cloud applications with your favorite languages and software engineering.
 
 get_started:
     title: Getting started
