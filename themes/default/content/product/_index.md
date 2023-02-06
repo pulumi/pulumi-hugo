@@ -24,6 +24,9 @@ key_features:
           description: |
             Define infrastructure as code (IaC) in TypeScript/JavaScript, Python, Go, C#, Java, and YAML using your IDE and test frameworks for a fast inner dev loop. Deploy to 100+ providers like AWS, Azure, Google Cloud, and Kubernetes.
           image: "/images/productnew/pulumi-iac-code.png"
+          button:
+            text: "Learn more about Pulumi SDK"
+            link: "/docs/reference/pulumi-sdk/"
           features:
               - title: IaC for every engineer
                 description: |
@@ -40,6 +43,9 @@ key_features:
           description: |
             Create workflows that coordinate provisioning, previewing, refreshing, and destroying cloud resources by using the Pulumi engine as a library in your application code.
           image: "/images/product/product-platform-desktop.svg"
+          button:
+            text: "Learn more about Pulumi SDK"
+            link: "/docs/reference/pulumi-sdk/"
           features:
               - title: 10x productivity
                 description: |
@@ -56,6 +62,9 @@ key_features:
           description: |
             Build and reuse higher-level abstractions for cloud architectures with multi-language Pulumi Packages. Distribute the packages through repositories or package managers so your team members can reuse them.
           image: "/images/product/product-platform-desktop.svg"
+          button:
+            text: "Learn more about Pulumi SDK"
+            link: "/docs/reference/pulumi-sdk/"
           features:
               - title: Native cloud providers
                 description: |
@@ -72,6 +81,9 @@ key_features:
           description: |
             Version, review, test, and deploy infrastructure code through the same tools and processes used for your application code.
           image: "/images/productnew/pulumi-cicd.png"
+          button:
+            text: "Learn more about Pulumi SDK"
+            link: "/docs/reference/pulumi-sdk/"
           features:
               - title: Version and review
                 description: |
@@ -88,6 +100,9 @@ key_features:
           description: |
              Store infrastructure state & secrets, empower teams to ship infrastructure collaboratively, and manage security and governance using the Pulumi Service. The fastest and easiest way to use Pulumi at scale. 
           image: "/images/productnew/pulumi-service.png"
+          button:
+            text: "Learn more about Pulumi SDK"
+            link: "/docs/reference/pulumi-sdk/"
           features:
               - title: State & secrets management
                 description: |
@@ -120,6 +135,6 @@ get_started:
     migrate:
         title: Migrating from other tools
         description: |
-            Transition to Pulumi with converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes.
+            Transition from existing infrastructure tools or continue using both. Pulumi has converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes. 
         cta_text: Explore Conversion Tools
 ---
