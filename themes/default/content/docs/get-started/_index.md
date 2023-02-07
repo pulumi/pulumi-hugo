@@ -21,9 +21,9 @@ Pulumi is free, [open source](https://github.com/pulumi/pulumi), and optionally 
 
 Select one of the following options to get started:
 
-{{% chooser cloud "aws,azure,gcp,kubernetes" / %}}
+{{< chooser cloud "aws,azure,gcp,kubernetes" / >}}
 
-{{% choosable cloud aws %}}
+{{< choosable cloud aws >}}
 
 <div class="tiles flex-wrap justify-center items-stretch mt-4">
     <div class="pb-4 md:pr-4 md:w-1/2">
@@ -96,7 +96,7 @@ Select one of the following options to get started:
 
 {{< /choosable >}}
 
-{{% choosable cloud azure %}}
+{{< choosable cloud azure >}}
 
 <div class="tiles flex-wrap justify-center items-stretch mt-4">
     <div class="pb-4 md:pr-4 md:w-1/2">
@@ -175,7 +175,7 @@ Select one of the following options to get started:
 
 {{< /choosable >}}
 
-{{% choosable cloud gcp %}}
+{{< choosable cloud gcp >}}
 
 <div class="tiles flex-wrap justify-center items-stretch mt-4">
     <div class="pb-4 md:pr-4 md:w-1/2">
@@ -254,7 +254,7 @@ Select one of the following options to get started:
 
 {{< /choosable >}}
 
-{{% choosable cloud kubernetes %}}
+{{< choosable cloud kubernetes >}}
 
 <div class="tiles flex-wrap justify-center items-stretch mt-4">
     <div class="pb-4 md:pr-4 md:w-1/2">
