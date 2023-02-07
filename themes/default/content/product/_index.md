@@ -42,7 +42,7 @@ key_features:
           sub_title: "Pulumi Automation API"
           description: |
             Create workflows that coordinate provisioning, previewing, refreshing, and destroying cloud resources by using the Pulumi engine as a library in your application code.
-          image: "/images/product/product-platform-desktop.svg"
+          image: "/images/product/automation-api.png"
           button:
             text: "Learn more about Automation API"
             link: "/docs/reference/pulumi-sdk/"
@@ -61,7 +61,7 @@ key_features:
           sub_title: "Pulumi Packages"
           description: |
             Build and reuse higher-level abstractions for cloud architectures with multi-language Pulumi Packages. Distribute the packages through repositories or package managers so your team members can reuse them.
-          image: "/images/product/product-platform-desktop.svg"
+          image: "/images/product/pulumi-packages.png"
           button:
             text: "Learn more about Pulumi Packages"
             link: "/docs/reference/pulumi-sdk/"

@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="container mx-auto">
-            <p class="mx-auto text-center text-gray-600 w-9/12">
+            <p class="mx-auto text-center text-gray-600 w-6/12">
                 {{ .Params.overview.description | markdownify }}
             </p>
         </div>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="container mx-auto rounded-xl shadow-2xl">
-            <img class="w-full hidden lg:block z-10" src="/images/productnew/cloud-engineering-diagram.png" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full hidden lg:block z-10" src="/images/product/pulumi-diagram.png" alt="Pulumi Cloud Engineering Platform" />
             <img class="w-full lg:hidden z-10" src="/images/product/product-platform-mobile.svg" alt="Pulumi Cloud Engineering Platform" />
         </div>
     </section>
@@ -66,8 +66,8 @@
                 {{ $item.description | markdownify }}
             </p>
             <!-- <img class="w-full hidden lg:block z-10" src="{{ $item.image }}" alt="Pulumi Cloud Engineering Platform" /> -->
-            <div class=" container flex flex-col items-center mx-auto">
-                <img class="" src="{{ $item.image }}" alt="Pulumi infrastructure as code example" />
+            <div class="max-w-3xl container flex flex-col items-center mx-auto">
+                <img src="{{ $item.image }}" alt="Pulumi infrastructure as code example" />
             </div>
             <div class="mb-8 lg:my-24">
                 <div class="flex flex-wrap lg:flex-row">
