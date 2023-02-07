@@ -21,8 +21,8 @@ key_features:
     items:
         - title: "Author in any language, deploy to any cloud"
           sub_title: "Pulumi Infrastructure as Code Engine"
-          description: |
-            Define infrastructure as code (IaC) in TypeScript/JavaScript, Python, Go, C#, Java, and YAML using your IDE and test frameworks for a fast inner dev loop. Deploy to 100+ providers like AWS, Azure, Google Cloud, and Kubernetes.
+          description: 
+            Define infrastructure as code (IaC) in TypeScript/JavaScript, Python, Go, C#, Java, and YAML using your IDE and test frameworks for a fast inner dev loop. Deploy to [100+ providers](/registry/) like AWS, Azure, Google Cloud, and Kubernetes.
           image: "/images/productnew/pulumi-iac-code.png"
           button:
             text: "Learn more about Pulumi SDK"
@@ -36,7 +36,7 @@ key_features:
                     Use your IDE with interactive documentation, type checking, and statement completion.
               - title: Write Policy as Code
                 description: |
-                    Write Policy as Code in programming languages to enforce best practices with Crossguard.
+                    Write Policy as Code in programming languages to enforce best practices with [Crossguard](/crossguard/).
 
         - title: "Create infrastructure automation workflows"
           sub_title: "Pulumi Automation API"
@@ -44,7 +44,7 @@ key_features:
             Create workflows that coordinate provisioning, previewing, refreshing, and destroying cloud resources by using the Pulumi engine as a library in your application code.
           image: "/images/product/product-platform-desktop.svg"
           button:
-            text: "Learn more about Pulumi SDK"
+            text: "Learn more about Automation API"
             link: "/docs/reference/pulumi-sdk/"
           features:
               - title: 10x productivity
@@ -63,7 +63,7 @@ key_features:
             Build and reuse higher-level abstractions for cloud architectures with multi-language Pulumi Packages. Distribute the packages through repositories or package managers so your team members can reuse them.
           image: "/images/product/product-platform-desktop.svg"
           button:
-            text: "Learn more about Pulumi SDK"
+            text: "Learn more about Pulumi Packages"
             link: "/docs/reference/pulumi-sdk/"
           features:
               - title: Native cloud providers
@@ -71,10 +71,10 @@ key_features:
                     Full API coverage for AWS, Azure, Google Cloud, and Kubernetes with same-day updates.
               - title: Crosswalk for AWS
                 description: |
-                    Adopt well-architected best practices for your infrastructure easily with the Crosswalk library.
+                    Adopt well-architected best practices for your infrastructure easily with the [Crosswalk library](/docs/guides/crosswalk/aws/).
               - title: Cloud Native support
                 description: |
-                    Use a single workflow to manage cloud native infrastructure and Kubernetes.
+                    Use a single workflow to manage cloud native infrastructure and [Kubernetes](/kubernetes/).
         
         - title: "Deliver infrastructure through software delivery pipelines"
           sub_title: "CI/CD Integrations"
@@ -82,7 +82,7 @@ key_features:
             Version, review, test, and deploy infrastructure code through the same tools and processes used for your application code.
           image: "/images/productnew/pulumi-cicd.png"
           button:
-            text: "Learn more about Pulumi SDK"
+            text: "Learn more about CI/CD Integrations"
             link: "/docs/reference/pulumi-sdk/"
           features:
               - title: Version and review
@@ -90,10 +90,10 @@ key_features:
                     Manage infrastructure code in Git and approve changes through pull requests.
               - title: Shift left
                 description: |
-                    Run fast, local unit tests and integration tests against ephemeral infrastructure.
+                    Run fast, local [unit tests and integration tests](/docs/guides/testing/) against ephemeral infrastructure.
               - title: Continuous delivery
                 description: |
-                    Integrate your CI/CD provider with Pulumi or use GitOps to manage Kubernetes clusters.
+                    [Integrate your CI/CD provider](/docs/guides/continuous-delivery/) with Pulumi or use GitOps to manage Kubernetes clusters.
         
         - title: "Scale and secure infrastructure as code for teams"
           sub_title: "Pulumi Service"
@@ -113,15 +113,15 @@ key_features:
               - title: Federated identity
                 description: |
                     Manage identities and access with SCIM, SAML SSO, GitHub, GitLab, or Atlassian.
-              - title: State & secrets management
+              - title: Policy enforcement
                 description: |
-                    Securely store state with built-in secrets manager, or bring your own KMS.
-              - title: Role-based access control
+                    Create policy packs and enforce them server-side across your team’s deployments.
+              - title: Remote deployments
                 description: |
-                    Create teams (or use GitHub teams), set stack permissions, and manage access tokens.
-              - title: Federated identity
+                    Automate execution of IaC programs in a secure, [hosted environment](/product/pulumi-deployments/) and from GitHub.
+              - title: Audit logs
                 description: |
-                    Manage identities and access with SCIM, SAML SSO, GitHub, GitLab, or Atlassian.
+                    Track and store user actions and change history with option to export logs.
 
 get_started:
     title: Getting started
@@ -136,5 +136,5 @@ get_started:
         title: Migrating from other tools
         description: |
             Transition from existing infrastructure tools or continue using both. Pulumi has converter tools for Terraform, AWS CloudFormation, Azure Resource Manager, and Kubernetes. 
-        cta_text: Explore Conversion Tools
+        cta_text: Explore Converter Tools
 ---
