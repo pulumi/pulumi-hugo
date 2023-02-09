@@ -15,7 +15,7 @@
 {{ end }}
 
 {{ define "main" }}
-    <section id="overview" class="my-16 lg:my-32 relative">
+    <section id="overview" class="mt-24 mb-16 relative">
         <div class="shape-background product-overview-section">
             <div class="shape-container">
                 <div class="circle-right"></div>
@@ -45,8 +45,8 @@
         </div>
 
         <div class="container mx-auto rounded-xl shadow-2xl">
-            <img class="w-full hidden lg:block z-10" src="/images/product/pulumi-diagram.png" alt="Pulumi Cloud Engineering Platform" />
-            <img class="w-full lg:hidden z-10" src="/images/product/product-platform-mobile.svg" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full hidden lg:block z-10" src="/images/product/pulumi-product-diagram.png" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full lg:hidden z-10" src="/images/product/pulumi-product-diagram.png" alt="Pulumi Cloud Engineering Platform" />
         </div>
     </section>
 
@@ -62,7 +62,7 @@
             <div class="container mx-auto text-center py-16 w-9/12">
                 <h3>{{ $item.title }}</h3>
                 <h4>{{ $item.sub_title }}</h4>
-                <p class="mx-auto my-12 text-center text-gray-600">
+                <p class="mx-auto w-9/12 my-12 text-center text-gray-600">
                     {{ $item.description | markdownify }}
                 </p>
                 <!-- <img class="w-full hidden lg:block z-10" src="{{ $item.image }}" alt="Pulumi Cloud Engineering Platform" /> -->
@@ -79,7 +79,7 @@
                         {{ end }}
                     </div>
                 </div>
-                <a href="{{ $item.button.text }}" class="btn-secondary">{{ $item.button.text }}</a>
+                <a href="{{ $item.button.link }}" class="btn-secondary">{{ $item.button.text }}</a>
             </div>
         {{ end }}
     </section>

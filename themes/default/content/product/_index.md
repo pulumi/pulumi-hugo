@@ -45,7 +45,7 @@ key_features:
           image: "/images/product/automation-api.png"
           button:
             text: "Learn more about Automation API"
-            link: "/docs/reference/pulumi-sdk/"
+            link: "/automation/"
           features:
               - title: 10x productivity
                 description: |
@@ -64,7 +64,7 @@ key_features:
           image: "/images/product/pulumi-packages.png"
           button:
             text: "Learn more about Pulumi Packages"
-            link: "/docs/reference/pulumi-sdk/"
+            link: "/product/packages/"
           features:
               - title: Native cloud providers
                 description: |
@@ -83,7 +83,7 @@ key_features:
           image: "/images/productnew/pulumi-cicd.png"
           button:
             text: "Learn more about CI/CD Integrations"
-            link: "/docs/reference/pulumi-sdk/"
+            link: "/docs/guides/continuous-delivery/"
           features:
               - title: Version and review
                 description: |
@@ -101,8 +101,8 @@ key_features:
              Store infrastructure state & secrets, empower teams to ship infrastructure collaboratively, and manage security and governance using the Pulumi Service. The fastest and easiest way to use Pulumi at scale. 
           image: "/images/productnew/pulumi-service.png"
           button:
-            text: "Learn more about Pulumi SDK"
-            link: "/docs/reference/pulumi-sdk/"
+            text: "Learn more about the Pulumi Service"
+            link: "/product/pulumi-service/"
           features:
               - title: State & secrets management
                 description: |
