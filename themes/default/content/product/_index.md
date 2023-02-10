@@ -61,7 +61,94 @@ key_features:
           sub_title: "Pulumi Packages"
           description: |
             Build and reuse higher-level abstractions for cloud architectures with multi-language Pulumi Packages. Distribute the packages through repositories or package managers so your team members can reuse them.
-          image: "/images/product/pulumi-packages.png"
+          ide:
+            - title: index.ts
+              language: typescript
+              code: |
+                import * as eks from "@pulumi/eks";
+
+                // Create an EKS cluster with the default configuration.
+                const cluster = new eks.Cluster("eks-cluster");
+
+                // Export the cluster's kubeconfig.
+                export const kubeconfig = cluster.kubeconfig;
+            - title: __main__.py
+              language: python
+              code: |
+                import pulumi
+                import pulumi_eks as eks
+
+                # Create an EKS cluster with the default configuration.
+                cluster = eks.Cluster("eks-cluster")
+
+                # Export the cluster's kubeconfig.
+                pulumi.export("kubeconfig", cluster.kubeconfig)
+            - title: main.go
+              language: go
+              code: |
+                    package main
+
+                    import (
+                      "github.com/pulumi/pulumi-eks/sdk/go/eks"
+                      "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+                    )
+
+                    func main() {
+                      pulumi.Run(func(ctx *pulumi.Context) error {
+                        // Create an EKS cluster with default settings.
+                        cluster, err := eks.NewCluster(ctx, "eks-cluster", nil)
+                        if err != nil {
+                          return err
+                        }
+
+                        // Export the cluster's kubeconfig.
+                        ctx.Export("kubeconfig", cluster.Kubeconfig)
+                        return nil
+                      })
+                    }
+            - title: MyStack.cs
+              language: csharp
+              code: |
+                using System.Collections.Generic;
+                using Pulumi;
+                using Pulumi.Eks;
+
+                await Deployment.RunAsync(() =>
+                {
+                  // Create an EKS cluster with default settings.
+                  var cluster = new Cluster("eks-cluster");
+
+                  // Export the cluster's kubeconfig.
+                  return new Dictionary<string, object?>
+                  {
+                    ["kubeconfig"] = cluster.Kubeconfig
+                  };
+                });
+            - title: Main.Java
+              language: java
+              code: |
+                import com.pulumi.Context;
+                import com.pulumi.Pulumi;
+                import com.pulumi.eks.Cluster;
+
+                public class App {
+                    public static void main(String[] args) {
+                        Pulumi.run(App::stack);
+                    }
+
+                    private static void stack(Context ctx) {
+                    final var cluster = new Cluster("eks-cluster");
+                    ctx.export("kubeconfig", cluster.kubeconfig());
+                  }
+                }
+            - title: Pulumi.yaml
+              language: yaml
+              code: |
+                resources:
+                  eks-cluster:
+                    type: eks:Cluster
+                outputs:
+                  kubeconfig: ${cluster.kubeconfig}
           button:
             text: "Learn more about Pulumi Packages"
             link: "/product/packages/"

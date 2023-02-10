@@ -66,9 +66,22 @@
                     {{ $item.description | markdownify }}
                 </p>
                 <!-- <img class="w-full hidden lg:block z-10" src="{{ $item.image }}" alt="Pulumi Cloud Engineering Platform" /> -->
-                <div class="max-w-3xl container flex flex-col items-center mx-auto">
-                    <img src="{{ $item.image }}" alt="Pulumi infrastructure as code example" />
-                </div>
+                {{ if not (eq $item.image nil) }}
+                    <div class="max-w-3xl container flex flex-col items-center mx-auto">
+                        <img src="{{ $item.image }}" alt="Pulumi infrastructure as code example" />
+                    </div>
+                {{ end }}
+                {{ if not (eq $item.ide nil) }}
+                    <div class="max-w-4xl container text-left card bg-white p-6 mx-auto">
+                        <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
+                            {{ range $lang := $item.ide }}
+                                <pulumi-choosable type="language" class="highlight" value="{{ $lang.language }}">
+                                    {{ partial "code" (dict "lang" $lang.language "code" $lang.code "mode" "light") }}
+                                </pulumi-choosable>
+                            {{ end }}
+                        </pulumi-chooser>
+                    </div>
+                {{ end }}
                 <div class="mb-8 lg:my-24">
                     <div class="flex flex-wrap lg:flex-row">
                         {{ range $feature := $item.features }}
