@@ -1,6 +1,6 @@
 ---
 title: KubeCon + CloudNativeCon 2023
-meta_desc: Join Pulumi at Kubecon EU 2023 to learn about the latest developments in cloud engineering and get hands-on experience with the newest Pulumi features.
+meta_desc: Join Pulumi at Kubecon EU 2023 to learn about the latest developments in infrastructure as code, Kubernetes, observability, and cloud-native computing.
 type: page
 layout: kubecon
 
@@ -29,17 +29,17 @@ templates:
         - heading: Kubernetes Cluster Templates
           description: Deploy Kubernetes clusters and their associated infrastructure on AWS, Azure, or Google Cloud Platform.
           image: /images/kubecon/templates-kubernetes-cluster.png
-          action: Kubernetes Cluster Templates
+          action: Try it
           link: /templates/kubernetes
         - heading: Kubernetes Application Templates
           description: Build and deploy applications with programming languages and deploying them to your Kubernetes clusters.
           image: /images/kubecon/templates-kubernetes-application.png
-          action: Kubernetes App Templates
+          action: Try it
           link: /templates/kubernetes-application
         - heading: Container Service Templates
           description: Pulumi program templates are the fastest way to deploy container services on AWS, Azure, or Google Cloud Platform.
           image: /images/kubecon/templates-container-service.png
-          action: Container Service Templates
+          action: Try it
           link: /templates/container-service
 
 knowledge:

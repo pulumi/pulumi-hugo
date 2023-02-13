@@ -1,10 +1,10 @@
 {{ define "hero" }}
     <header class="page-hero">
-        <div class="dot-background-container">
-            <img class="mx-auto mb-6 w-full" src="/images/kubecon/hero-2023.png" />
+        <div class="dot-background-container" style="background-color: #cff1fb">
+            <img class="mx-auto w-full" src="/images/kubecon/kubecon-hero-2023.png" />
         </div>
         <div class="page-hero-title">
-            <h1 class="relative small-title w-1/3">
+            <h1 class="small-title w-1/3">
                 <span><span style="font-size: 2.5rem" data-text="{{ .Params.title }}">{{ .Params.title }}</span></span>
             </h1>
         </div>
@@ -47,7 +47,7 @@
         <div class="container mx-auto">
             <div class="flex flex-wrap items-stretch justify-center">
                 {{ range $item := .Params.templates.items }}
-                    <div class="lg:w-1/3 w-1/2">
+                    <div class="lg:w-1/3 md:w-1/2 w-full my-4">
                         <div class="card h-full relative bg-white pb-8 mx-4">
                             <img class="rounded h-40 mx-auto" src="{{ $item.image }}" />
                             <div class="px-6 py-4">
@@ -72,7 +72,7 @@
         <div class="container mx-auto">
             <div class="flex flex-wrap flex-row justify-center">
                 {{ range $item := .Params.knowledge.items }}
-                    <a href="{{ $item.link }}" target="_blank"><img class="h-72 p-8" src="{{ $item.image }}" /></a>
+                    <a href="{{ $item.link }}" target="_blank"><img class="h-80 p-4" src="{{ $item.image }}" /></a>
                 {{ end }}
             </div>
         </div>
