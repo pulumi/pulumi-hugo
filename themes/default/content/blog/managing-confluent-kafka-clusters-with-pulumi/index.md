@@ -7,7 +7,7 @@ authors: ["josh-kodroff"]
 tags: ["confluent", "kafka"]
 ---
 
-Kafka is one of the most popular event store and stream-processing platforms in the ecosystem. However, managing Kafka clusters can require significant operational expertise that leads many organizations to look for a managed solution. Confluent Cloud provides managed Kafka clusters along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring.
+[Apache Kafka](https://kafka.apache.org/) is one of the most popular event store and stream-processing platforms in the ecosystem. However, managing Kafka clusters can require significant operational expertise that leads many organizations to look for a managed solution. [Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters that can be provisioned on AWS, Azure, and Google Cloud along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring.
 
 In this blog post, we'll show you how to use Pulumi to manage your Confluent resources in order to maximize your organization's ability to quickly ship modern, secure, event-driven workloads. Using the [Confluent Cloud Pulumi provider](https://www.pulumi.com/registry/packages/confluentcloud/), we will create a sample architecture that demonstrates some of the key capabilities of both Pulumi and Confluent Cloud.
 
