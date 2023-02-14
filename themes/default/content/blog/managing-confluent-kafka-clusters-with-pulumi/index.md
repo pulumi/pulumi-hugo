@@ -7,9 +7,13 @@ authors: ["josh-kodroff"]
 tags: ["confluent", "kafka"]
 ---
 
-[Apache Kafka](https://kafka.apache.org/) is one of the most popular event store and stream-processing platforms in the ecosystem. However, managing Kafka clusters can require significant operational expertise that leads many organizations to look for a managed solution. [Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters that can be provisioned on AWS, Azure, and Google Cloud along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring.
-
 In this blog post, we'll show you how to use Pulumi to manage your Confluent resources in order to maximize your organization's ability to quickly ship modern, secure, event-driven workloads. Using the [Confluent Cloud Pulumi provider](https://www.pulumi.com/registry/packages/confluentcloud/), we will create a sample architecture that demonstrates some of the key capabilities of both Pulumi and Confluent Cloud.
+
+## About Apache Kafka and Confluent Cloud
+
+[Apache Kafka](https://kafka.apache.org/) is one of the most popular event store and stream-processing platforms in the ecosystem. By using Kafka streams, developers can write modern, event-driven applications for real-time data streaming and processing. Common Kafka application domains include gaming, financial services, healthcare, retail, and manufacturing, among others.
+
+However, managing Kafka clusters can require significant operational expertise that leads many organizations to look for a managed solution. [Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring. Clusters can be provisioned in [AWS](https://www.confluent.io/partner/amazon-web-services/), [Azure](https://www.confluent.io/partner/microsoft-azure/), or [Google Cloud](https://www.confluent.io/partner/google-cloud/) to reduce network latency and egress charges. Confluent Cloud also offers [cluster linking capabilities](https://docs.confluent.io/platform/current/multi-dc-deployments/cluster-linking/overview.html) to on-prem producers and consumers for hybrid cloud scenarios.
 
 ## Initializing the Project
 
@@ -299,8 +303,8 @@ Starting Kafka Consumer. Use Ctrl-C to exit.
 {"number":2,"date":18501,"shipping_address":"1 Bedford St, London WC2E 9HG, United Kingdom","cost":5.00}
 ```
 
-Our producer is able to write events to our topic and out consumer is able to read them. Our architecture has been proven to work!
+The producer is able to write events to our topic and the consumer is able to read them. Our architecture has been proven to work!
 
 ## Conclusion
 
-By combining the simplicity and rich functionality of Confluent Cloud with the power of Pulumi to manage our Confluent resources using real programming languages, we can help our organization quickly and securely deploy event-driven applications that deliver value for our stakeholders!
+By combining the operational simplicity and rich functionality of Confluent Cloud with the power of Pulumi's infrastructure as code platform to manage our Confluent resources using real programming languages, organizations can quickly and securely deploy Apache Kafka clusters. No matter whether your organization is using data streaming today or looking to adopt it the future, using Confluent Cloud with Pulumi will allow your organization to quickly spin up and manage Kafka infrastructure so you can focus on what really matters: delivering value to customers and stakeholders.
