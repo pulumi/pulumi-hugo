@@ -61,14 +61,14 @@ Now you're ready to create our Confluent resources!
 Your example architecture will have the following components:
 
 - A Kafka cluster for our messages ("inventory").
-- An admin service account which we'll use to create objects within the cluster (topics and users).
+- An admin service account which you'll use to create objects within the cluster (topics and users).
 - A Kafka topic for our cluster, which will hold our sample messages.
-- A producer service account, which we'll use to write messages to the topic.
-- A consumer service account, which we'll use to read messages from the topic.
+- A producer service account, which you'll use to write messages to the topic.
+- A consumer service account, which you'll use to read messages from the topic.
 
-We'll be keeping all of our resources in a single file, our `index.ts`.
+You'll be keeping all of your resources in a single file: `index.ts`.
 
-The first resource we need to create is a Confluent environment which is a container for the other resources we'll be creating:
+The first resource you'll need to create is a Confluent environment which is a container for the other Confluent resources you'll be creating:
 
 ```typescript
 const env = new confluent.Environment("environment", {
@@ -76,10 +76,10 @@ const env = new confluent.Environment("environment", {
 });
 ```
 
-Next, we'll create a standard Kafka cluster. A couple notes about the cluster we're creating:
+Next, you'll create a standard Kafka cluster. A couple notes about the cluster you're creating:
 
-1. We're creating a single-zone cluster for cost reasons, but if you're creating a cluster for production scenarios you'll likely want to use the `MULTI_ZONE` option for `availability`.
-1. While we're creating our cluster in AWS' us-east-2 region, Confluent Cloud also supports Azure and Google Cloud as well as other regions within AWS. For a full list of supported options for the `cloud` and `region` attributes, see [Cloud Providers and Regions for Confluent Cloud](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions).
+1. The cluster is a single-zone cluster for cost reasons, but if you're creating a cluster for production scenarios you'll likely want to use the `MULTI_ZONE` option for `availability`.
+1. While this cluster is in AWS' us-east-2 region, Confluent Cloud also supports Azure and Google Cloud as well as other regions within AWS. For a full list of supported options for the `cloud` and `region` attributes, see [Cloud Providers and Regions for Confluent Cloud](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions).
 
 Add the following code to your Pulumi program:
 
@@ -267,7 +267,7 @@ export const consumerApiKeyId = consumerApiKey.id;
 export const consumerApiKeySecret = consumerApiKey.secret;
 ```
 
-Our Pulumi program is now complete! We can deploy our infrastructure by running the following command:
+Your Pulumi program is now complete! You can deploy our infrastructure by running the following command:
 
 ```bash
 pulumi up
