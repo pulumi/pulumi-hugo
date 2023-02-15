@@ -17,7 +17,7 @@ In this blog post, you'll use the [Confluent Cloud Pulumi provider](https://www.
 
 [Apache Kafka](https://kafka.apache.org/) is an event store and stream-processing platform, used by more than 30% of the Fortune 500 today. Using Kafka streams, developers can write modern, event-driven applications for real-time data streaming and processing. Kafka is used across many industries, including gaming, financial services, healthcare, retail, automotive, and manufacturing.
 
-Kafka Clusters were created to allow scalable high-throughput Infrastructures to store, analyze, and reprocess streaming data. However, managing Kafka clusters can require significant operational expertise, leading many organizations to look for a managed solution.
+Kafka was created to allow scalable high-throughput applications to store, analyze, and reprocess streaming data. However, managing Kafka clusters can require significant operational expertise, leading many organizations to look for a managed solution.
 
 ### What is Confluent Cloud?
 
@@ -27,7 +27,7 @@ Using Pulumi, you can manage your Confluent resources and maximize your organiza
 
 ## Initializing the Project
 
-Before you can add Confluent resources to the Pulumi program, you'll need to ensure you have a Confluent Cloud account and an API key. You can [sign up for a free trial of Confluent Cloud](https://www.confluent.io/get-started/) if you do not already have a Confluent Cloud account. [Create an API key](https://docs.confluent.io/cloud/current/access-management/authenticate/api-keys/api-keys.html#create-a-cloud-api-key) and set its values as environment variables:
+Before you can add Confluent resources to your Pulumi program, you'll need to ensure you have a Confluent Cloud account and an API key. You can [sign up for a free trial of Confluent Cloud](https://www.confluent.io/get-started/) if you do not already have a Confluent Cloud account. [Create an API key](https://docs.confluent.io/cloud/current/access-management/authenticate/api-keys/api-keys.html#create-a-cloud-api-key) and set its values as environment variables:
 
 ```bash
 export CONFLUENT_CLOUD_API_KEY=<your API key>
@@ -48,13 +48,13 @@ After a few seconds, the Pulumi program has been initialized. Next, you'll need 
 npm i @pulumi/confluent
 ```
 
-Finally, you'll need to add a reference to the top of our `index.ts`:
+Finally, you'll need to add a reference to the top of the scaffolded `index.ts` file:
 
 ```typescript
 import * as confluent from "@pulumi/confluentcloud";
 ```
 
-Now you're ready to create our Confluent resources!
+Now you're ready to create and manage Confluent resources!
 
 ## Adding Resources
 
