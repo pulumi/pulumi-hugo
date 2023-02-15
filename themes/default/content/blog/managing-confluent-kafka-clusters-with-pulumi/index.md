@@ -1,7 +1,7 @@
 ---
 title: "Managing Confluent Kafka Clusters with Pulumi"
 date: 2023-02-15
-meta_desc: In this article, we'll show you how to create and manage Confluent Kafka clusters using Pulumi.
+meta_desc: Create and manage a Confluent Kafka cluster using Pulumi. Follow the blog tutorial for creating a Kafka cluster, topic, and service accounts.
 meta_image: "managing-confluent-clusters.png"
 authors: ["josh-kodroff"]
 tags: ["confluent", "kafka"]
