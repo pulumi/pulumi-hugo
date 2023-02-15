@@ -7,7 +7,7 @@ main:
   duration: 60 minutes
   presenters:
     - name: Josh Kodroff
-      role: Sr. Solutions Architect, Pulumi
+      role: Senior Solutions Architect, Pulumi
     - name: Adam Keller
       role: Senior Technologist, AWS Proton
   learn:
