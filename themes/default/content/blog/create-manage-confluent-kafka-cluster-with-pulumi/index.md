@@ -72,7 +72,7 @@ The first resource you'll need to create is a Confluent environment which is a c
 
 ```typescript
 const env = new confluent.Environment("environment", {
-  displayName: "pulumi-confluent-blog",
+    displayName: "pulumi-confluent-blog",
 });
 ```
 
@@ -85,14 +85,14 @@ Add the following code to your Pulumi program:
 
 ```typescript
 const cluster = new confluent.KafkaCluster("cluster", {
-  displayName: "inventory",
-  availability: "SINGLE_ZONE",
-  cloud: "AWS",
-  region: "us-east-2",
-  environment: {
-    id: env.id,
-  },
-  standard: {}
+    displayName: "inventory",
+    availability: "SINGLE_ZONE",
+    cloud: "AWS",
+    region: "us-east-2",
+    environment: {
+        id: env.id,
+    },
+    standard: {}
 });
 ```
 
@@ -100,33 +100,33 @@ Next, you'll need to create the admin-level service account you'll use to create
 
 ```typescript
 const serviceAccount = new confluent.ServiceAccount("app-manager", {
-  description: "Service account to manage 'inventory' Kafka cluster",
+    description: "Service account to manage 'inventory' Kafka cluster",
 });
 
 const roleBinding = new confluent.RoleBinding("app-manager-kafka-cluster-admin", {
-  principal: pulumi.interpolate`User:${serviceAccount.id}`,
-  roleName: "CloudClusterAdmin",
-  crnPattern: cluster.rbacCrn,
+    principal: pulumi.interpolate`User:${serviceAccount.id}`,
+    roleName: "CloudClusterAdmin",
+    crnPattern: cluster.rbacCrn,
 });
 
 const managerApiKey = new confluent.ApiKey("app-manager-kafka-api-key", {
-  displayName: "app-manager-kafka-api-key",
-  description: "Kafka API Key that is owned by 'app-manager' service account",
-  owner: {
-    id: serviceAccount.id,
-    kind: serviceAccount.kind,
-    apiVersion: serviceAccount.apiVersion,
-  },
-  managedResource: {
-    id: cluster.id,
-    apiVersion: cluster.apiVersion,
-    kind: cluster.kind,
-    environment: {
-      id: env.id,
+    displayName: "app-manager-kafka-api-key",
+    description: "Kafka API Key that is owned by 'app-manager' service account",
+    owner: {
+        id: serviceAccount.id,
+        kind: serviceAccount.kind,
+        apiVersion: serviceAccount.apiVersion,
     },
-  }
+    managedResource: {
+        id: cluster.id,
+        apiVersion: cluster.apiVersion,
+        kind: cluster.kind,
+        environment: {
+            id: env.id,
+        },
+    }
 }, {
-  dependsOn: roleBinding
+    dependsOn: roleBinding
 });
 ```
 
@@ -134,15 +134,15 @@ Next, you'll create your Kafka topic using the cluster admin service account cre
 
 ```typescript
 const topic = new confluent.KafkaTopic("orders", {
-  kafkaCluster: {
-    id: cluster.id,
-  },
-  topicName: "orders",
-  restEndpoint: cluster.restEndpoint,
-  credentials: {
-    key: managerApiKey.id,
-    secret: managerApiKey.secret,
-  },
+    kafkaCluster: {
+        id: cluster.id,
+    },
+    topicName: "orders",
+    restEndpoint: cluster.restEndpoint,
+    credentials: {
+        key: managerApiKey.id,
+        secret: managerApiKey.secret,
+    },
 });
 ```
 
@@ -150,41 +150,41 @@ Now that you have your topic, you need to create a consumer service account and 
 
 ```typescript
 const producerAccount = new confluent.ServiceAccount("producer", {
-  description: "Service account to produce to 'orders' topic of 'inventory' Kafka cluster",
+    description: "Service account to produce to 'orders' topic of 'inventory' Kafka cluster",
 });
 
 const producerApiKey = new confluent.ApiKey("producer-api-key", {
-  owner: {
-    id: producerAccount.id,
-    kind: producerAccount.kind,
-    apiVersion: producerAccount.apiVersion,
-  },
-  managedResource: {
-    id: cluster.id,
-    apiVersion: cluster.apiVersion,
-    kind: cluster.kind,
-    environment: {
-      id: env.id,
+    owner: {
+        id: producerAccount.id,
+        kind: producerAccount.kind,
+        apiVersion: producerAccount.apiVersion,
     },
-  },
+    managedResource: {
+        id: cluster.id,
+        apiVersion: cluster.apiVersion,
+        kind: cluster.kind,
+        environment: {
+            id: env.id,
+        },
+    },
 });
 
 new confluent.KafkaAcl("app-producer-write", {
-  kafkaCluster: {
-    id: cluster.id,
-  },
-  resourceType: "TOPIC",
-  resourceName: topic.topicName,
-  patternType: "LITERAL",
-  principal: pulumi.interpolate`User:${producerAccount.id}`,
-  host: "*",
-  operation: "WRITE",
-  permission: "ALLOW",
-  restEndpoint: cluster.restEndpoint,
-  credentials: {
-    key: managerApiKey.id,
-    secret: managerApiKey.secret,
-  }
+    kafkaCluster: {
+        id: cluster.id,
+    },
+    resourceType: "TOPIC",
+    resourceName: topic.topicName,
+    patternType: "LITERAL",
+    principal: pulumi.interpolate`User:${producerAccount.id}`,
+    host: "*",
+    operation: "WRITE",
+    permission: "ALLOW",
+    restEndpoint: cluster.restEndpoint,
+    credentials: {
+        key: managerApiKey.id,
+        secret: managerApiKey.secret,
+    }
 });
 ```
 
@@ -192,59 +192,59 @@ Now you create our consumer account which will read messages from your Kafka top
 
 ```typescript
 const consumerAccount = new confluent.ServiceAccount("consumer", {
-  description: "Service account to consume from 'orders' topic of 'inventory' Kafka cluster",
+    description: "Service account to consume from 'orders' topic of 'inventory' Kafka cluster",
 });
 
 const consumerApiKey = new confluent.ApiKey("consumer-api-key", {
-  owner: {
-    id: consumerAccount.id,
-    kind: consumerAccount.kind,
-    apiVersion: consumerAccount.apiVersion,
-  },
-  managedResource: {
-    id: cluster.id,
-    apiVersion: cluster.apiVersion,
-    kind: cluster.kind,
-    environment: {
-      id: env.id,
+    owner: {
+        id: consumerAccount.id,
+        kind: consumerAccount.kind,
+        apiVersion: consumerAccount.apiVersion,
     },
-  },
+    managedResource: {
+        id: cluster.id,
+        apiVersion: cluster.apiVersion,
+        kind: cluster.kind,
+        environment: {
+            id: env.id,
+        },
+    },
 });
 
 new confluent.KafkaAcl("consumer-read-topic-acl", {
-  kafkaCluster: {
-    id: cluster.id,
-  },
-  resourceType: "TOPIC",
-  resourceName: topic.topicName,
-  patternType: "LITERAL",
-  principal: pulumi.interpolate`User:${consumerAccount.id}`,
-  host: "*",
-  operation: "READ",
-  permission: "ALLOW",
-  restEndpoint: cluster.restEndpoint,
-  credentials: {
-    key: managerApiKey.id,
-    secret: managerApiKey.secret,
-  }
+    kafkaCluster: {
+        id: cluster.id,
+    },
+    resourceType: "TOPIC",
+    resourceName: topic.topicName,
+    patternType: "LITERAL",
+    principal: pulumi.interpolate`User:${consumerAccount.id}`,
+    host: "*",
+    operation: "READ",
+    permission: "ALLOW",
+    restEndpoint: cluster.restEndpoint,
+    credentials: {
+        key: managerApiKey.id,
+        secret: managerApiKey.secret,
+    }
 });
 
 new confluent.KafkaAcl("consumer-read-group-acl", {
-  kafkaCluster: {
-    id: cluster.id,
-  },
-  resourceType: "GROUP",
-  resourceName: "confluent_cli_consumer_",
-  patternType: "PREFIXED",
-  principal: pulumi.interpolate`User:${consumerAccount.id}`,
-  host: "*",
-  operation: "READ",
-  permission: "ALLOW",
-  restEndpoint: cluster.restEndpoint,
-  credentials: {
-    key: managerApiKey.id,
-    secret: managerApiKey.secret,
-  }
+    kafkaCluster: {
+        id: cluster.id,
+    },
+    resourceType: "GROUP",
+    resourceName: "confluent_cli_consumer_",
+    patternType: "PREFIXED",
+    principal: pulumi.interpolate`User:${consumerAccount.id}`,
+    host: "*",
+    operation: "READ",
+    permission: "ALLOW",
+    restEndpoint: cluster.restEndpoint,
+    credentials: {
+        key: managerApiKey.id,
+        secret: managerApiKey.secret,
+    }
 });
 ```
 
