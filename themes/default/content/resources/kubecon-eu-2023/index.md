@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: "Kubecon EU"
+title: "Kubecon EU 2023"
 meta_desc: "The Cloud Native Computing Foundation’s flagship conference gathers adopters and technologists from leading open source and cloud native communities."
 
 redirect_to: "/kubecon"
