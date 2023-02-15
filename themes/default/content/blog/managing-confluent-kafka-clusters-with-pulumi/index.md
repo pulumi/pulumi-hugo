@@ -14,15 +14,16 @@ In this blog post, you'll use the [Confluent Cloud Pulumi provider](https://www.
 ## About Apache Kafka and Confluent Cloud
 
 ### What is Apache Kafka?
+
 [Apache Kafka](https://kafka.apache.org/) is an event store and stream-processing platform, used by more than 30% of the Fortune 500 today. Using Kafka streams, developers can write modern, event-driven applications for real-time data streaming and processing. Kafka is used across many industries, including gaming, financial services, healthcare, retail, automotive, and manufacturing.
 
-Kafka Clusters were created to allow scalable high-throughput Infrastructures to store, analyze, and reprocess streaming data. However, managing Kafka clusters can require significant operational expertise, leading many organizations to look for a managed solution. 
+Kafka Clusters were created to allow scalable high-throughput Infrastructures to store, analyze, and reprocess streaming data. However, managing Kafka clusters can require significant operational expertise, leading many organizations to look for a managed solution.
 
 ### What is Confluent Cloud?
 
 [Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring. Clusters can be provisioned in AWS, Azure, or Google Cloud to reduce network latency and egress charges. Confluent Cloud also offers [cluster linking capabilities](https://docs.confluent.io/platform/current/multi-dc-deployments/cluster-linking/overview.html) to on-prem producers and consumers for hybrid cloud scenarios.
 
-Using Pulumi, you can manage your Confluent resources and maximize your organization's ability to quickly ship modern, secure, event-driven workloads. 
+Using Pulumi, you can manage your Confluent resources and maximize your organization's ability to quickly ship modern, secure, event-driven workloads.
 
 ## Initializing the Project
 
@@ -316,7 +317,7 @@ The producer is able to write events to your topic, and the consumer is able to 
 
 ## Conclusion
 
-By combining the operational simplicity and rich functionality of Confluent Cloud with the power of [Pulumi's infrastructure as code](https://www.pulumi.com/product/) platform to manage our Confluent resources using real programming languages, organizations can quickly and securely deploy Apache Kafka clusters. 
+By combining the operational simplicity and rich functionality of Confluent Cloud with the power of [Pulumi's infrastructure as code](https://www.pulumi.com/product/) platform to manage our Confluent resources using real programming languages, organizations can quickly and securely deploy Apache Kafka clusters.
 
 No matter whether your organization is using data streaming today or looking to adopt it in the future, using Confluent Cloud with Pulumi will allow your organization to quickly spin up and manage Kafka infrastructure so you can focus on what really matters: delivering value to customers and stakeholders.
 
