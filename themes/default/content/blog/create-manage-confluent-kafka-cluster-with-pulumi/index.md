@@ -11,6 +11,8 @@ Event streaming is used across diverse industries that demand real-time data pro
 
 In this blog post, you'll use the [Confluent Cloud Pulumi provider](https://www.pulumi.com/registry/packages/confluentcloud/) and Pulumi to create a Kafka cluster, topic, and customer account.
 
+<!--more-->
+
 ## About Apache Kafka and Confluent Cloud
 
 ### What is Apache Kafka?
