@@ -321,4 +321,6 @@ By combining the operational simplicity and rich functionality of Confluent Clou
 
 No matter whether your organization is using data streaming today or looking to adopt it in the future, using Confluent Cloud with Pulumi will allow your organization to quickly spin up and manage Kafka infrastructure so you can focus on what really matters: delivering value to customers and stakeholders.
 
-Watch Collin James, Engineering Leader, and Software Architect at Dutchie, describes how a small team has [enabled Kafka adoption by creating a monorepo of Pulumi projects that manage resources on Confluent Cloud.](https://www.pulumi.com/resources/enabling-kafka-adoption-pulumi-and-confluent-cloud/)
+## Additional Resources
+
+Watch Collin James, Engineering Leader, and Software Architect at Dutchie, describe how a small team has [enabled Kafka adoption by creating a monorepo of Pulumi projects that manage resources on Confluent Cloud](https://www.pulumi.com/resources/enabling-kafka-adoption-pulumi-and-confluent-cloud/).
