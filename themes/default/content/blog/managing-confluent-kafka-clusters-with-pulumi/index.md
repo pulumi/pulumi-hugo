@@ -16,7 +16,13 @@ In this blog post, you'll use the [Confluent Cloud Pulumi provider](https://www.
 ### What is Apache Kafka?
 [Apache Kafka](https://kafka.apache.org/) is an event store and stream-processing platform, used by more than 30% of the Fortune 500 today. Using Kafka streams, developers can write modern, event-driven applications for real-time data streaming and processing. Kafka is used across many industries, including gaming, financial services, healthcare, retail, automotive, and manufacturing.
 
-However, managing Kafka clusters can require significant operational expertise that leads many organizations to look for a managed solution. [Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring. Clusters can be provisioned in [AWS](https://www.confluent.io/partner/amazon-web-services/), [Azure](https://www.confluent.io/partner/microsoft-azure/), or [Google Cloud](https://www.confluent.io/partner/google-cloud/) to reduce network latency and egress charges. Confluent Cloud also offers [cluster linking capabilities](https://docs.confluent.io/platform/current/multi-dc-deployments/cluster-linking/overview.html) to on-prem producers and consumers for hybrid cloud scenarios.
+Kafka Clusters were created to allow scalable high-throughput Infrastructures to store, analyze, and reprocess streaming data. However, managing Kafka clusters can require significant operational expertise, leading many organizations to look for a managed solution. 
+
+### What is Confluent Cloud?
+
+[Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring. Clusters can be provisioned in AWS, Azure, or Google Cloud to reduce network latency and egress charges. Confluent Cloud also offers [cluster linking capabilities](https://docs.confluent.io/platform/current/multi-dc-deployments/cluster-linking/overview.html) to on-prem producers and consumers for hybrid cloud scenarios.
+
+Using Pulumi, you can manage your Confluent resources and maximize your organization's ability to quickly ship modern, secure, event-driven workloads. 
 
 ## Initializing the Project
 
