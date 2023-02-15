@@ -306,7 +306,11 @@ $ confluent kafka topic consume $(pulumi stack output ordersTopicName) \
   --cluster $(pulumi stack output clusterId) \
   --api-key $(pulumi stack output consumerApiKeyId) \
   --api-secret $(pulumi stack output consumerApiKeySecret --show-secrets)
+```
 
+You should see the events you entered as the producer:
+
+```json
 Starting Kafka Consumer. Use Ctrl-C to exit.
 {"number":3,"date":18502,"shipping_address":"3307 Northland Dr Suite 400, Austin, TX 78731, USA","cost":10.00}
 {"number":1,"date":18500,"shipping_address":"899 W Evelyn Ave, Mountain View, CA 94041, USA","cost":15.00}
