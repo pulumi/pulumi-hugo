@@ -39,13 +39,13 @@ Now you can create a new directory and initialize the Pulumi program:
 ```bash
 mkdir confluent-blog-post
 cd confluent-blog-post
-pulumi new typscript
+pulumi new typescript
 ```
 
 After a few seconds, the Pulumi program has been initialized. Next, you'll need to add a reference to the Pulumi Confluent provider:
 
 ```bash
-npm i @pulumi/confluent
+npm i @pulumi/confluentcloud
 ```
 
 Finally, you'll need to add a reference to the top of the scaffolded `index.ts` file:
@@ -317,7 +317,7 @@ The producer is able to write events to your topic, and the consumer is able to 
 
 ## Conclusion
 
-By combining the operational simplicity and rich functionality of Confluent Cloud with the power of [Pulumi's infrastructure as code](https://www.pulumi.com/product/) platform to manage our Confluent resources using real programming languages, organizations can quickly and securely deploy Apache Kafka clusters.
+By combining the operational simplicity and rich functionality of Confluent Cloud with the power of [Pulumi's infrastructure as code](https://www.pulumi.com/product/) platform to manage Confluent resources using real programming languages, organizations can quickly and securely deploy Apache Kafka clusters.
 
 No matter whether your organization is using data streaming today or looking to adopt it in the future, using Confluent Cloud with Pulumi will allow your organization to quickly spin up and manage Kafka infrastructure so you can focus on what really matters: delivering value to customers and stakeholders.
 
