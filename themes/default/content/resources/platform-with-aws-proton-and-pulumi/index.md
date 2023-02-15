@@ -10,6 +10,11 @@ main:
       role: Sr. Solutions Architect, Pulumi
     - name: Adam Keller
       role: Senior Technologist, AWS Proton
+  learn:
+    - How to use Pulumi to manage AWS infrastructure
+    - How to use Pulumi with AWS Proton to create and manage reusable templates
+      to ensure self-service compliant and production-ready infrastructure for
+      application teams
   title: Platform Engineering with AWS Proton and Pulumi
   description: In this workshop, you will learn how to enable self-service
     infrastructure for your organization using AWS Proton and Pulumi. The
@@ -49,7 +54,7 @@ gated: true
 type: webinars
 external: false
 block_external_search_index: false
-aws_only: false
+aws_only: true
 title: Platform Engineering with AWS Proton and Pulumi
 meta_desc: "In this workshop, you will learn how to enable self-service
   infrastructure for your organization using AWS Proton and Pulumi. "
