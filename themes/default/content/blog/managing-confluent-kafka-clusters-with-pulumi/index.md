@@ -11,7 +11,8 @@ In this blog post, we'll show you how to use Pulumi to manage your Confluent res
 
 ## About Apache Kafka and Confluent Cloud
 
-[Apache Kafka](https://kafka.apache.org/) is one of the most popular event store and stream-processing platforms in the ecosystem. By using Kafka streams, developers can write modern, event-driven applications for real-time data streaming and processing. Common Kafka application domains include gaming, financial services, healthcare, retail, and manufacturing, among others.
+### What is Apache Kafka?
+[Apache Kafka](https://kafka.apache.org/) is an event store and stream-processing platform, used by more than 30% of the Fortune 500 today. Using Kafka streams, developers can write modern, event-driven applications for real-time data streaming and processing. Kafka is used across many industries, including gaming, financial services, healthcare, retail, automotive, and manufacturing.
 
 However, managing Kafka clusters can require significant operational expertise that leads many organizations to look for a managed solution. [Confluent Cloud](https://docs.confluent.io/cloud/current/get-started/pulumi-provider.html) provides managed Kafka clusters along with major value-add features such as elasticity, integrated security, stream governance, and improved monitoring. Clusters can be provisioned in [AWS](https://www.confluent.io/partner/amazon-web-services/), [Azure](https://www.confluent.io/partner/microsoft-azure/), or [Google Cloud](https://www.confluent.io/partner/google-cloud/) to reduce network latency and egress charges. Confluent Cloud also offers [cluster linking capabilities](https://docs.confluent.io/platform/current/multi-dc-deployments/cluster-linking/overview.html) to on-prem producers and consumers for hybrid cloud scenarios.
 
