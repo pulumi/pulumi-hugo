@@ -1,5 +1,5 @@
 ---
-title: "Finops With Pulumi"
+title: "FinOps With Pulumi"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,
