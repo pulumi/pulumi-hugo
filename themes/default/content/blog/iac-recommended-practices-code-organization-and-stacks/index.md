@@ -1,67 +1,45 @@
 ---
-title: "Examining Recommended Practices: Code Placement and Stacks"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
+title: "IaC Recommended Practices: Code Organization and Stacks"
 date: 2023-02-15T13:01:26-07:00
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
-# Max length is 160 characters.
-meta_desc: This is the first in a series of blog posts on recommended practices for using Pulumi. Code placement and the use of Pulumi stacks are the focus areas.
-
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: This is the first in a series of blog posts on recommended practices for using Pulumi. Code organization and the use of Pulumi stacks are the focus areas.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
     - scott-lowe
     - christian-nunciato
     - aaron-kao
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - development-environment
+    - best-practices
     - cloud-engineering
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
+    - zephyr
 ---
 
 This is the first in a series of blog posts that explores how a fictional company---Zephyr Archaeotech Emporium---uses Pulumi to manage their online retail store. This post explores a couple common questions that users ask when working with Pulumi; specifically, where should I store my Pulumi code? And how do I support multiple environments with Pulumi? This post will provide some guidance and recommended practices around these topics, using Zephyr and their online store as the use case.<!--more-->
 
 The ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application. However, it's important to note that these recommended practices will emerge over the course of the series---not all immediately, and not all in the beginning. This is a deliberate decision to allow you to see how Zephyr's use of Pulumi evolves as the company grows and their online retail store application changes to accommodate their growth.
 
-Here are links to all the blog posts in the series (entries below that are not linked are planned but haven't yet been published---this will get updated as new posts are published): <!--The names of these posts and the order in which we publish them is mutable-->
+Here are links to all the blog posts in the series (entries below that are not linked are planned but haven't yet been published---this will get updated as new posts are published):
 
-**Examining Recommended Practices: Code Placement and Stacks** (this post)
+**IaC Recommended Practices: Code Organization and Stacks** (this post)
 
-Examining Recommended Practices: Developer Stacks and Git Branches
+IaC Recommended Practices: Developer Stacks and Git Branches
 
-Examining Recommended Practices: Local Testing with Pulumi
+IaC Recommended Practices: Local Testing with Pulumi
 
-Examining Recommended Practices: Structuring Pulumi Projects
+IaC Recommended Practices: Structuring Pulumi Projects
 
-Examining Recommended Practices: Moving Infrastructure State Between Projects
+IaC Recommended Practices: Moving Infrastructure State Between Projects
 
-Examining Recommended Practices: Tying Stacks Together with Stack References
+IaC Recommended Practices: Tying Stacks Together with Stack References
 
-Examining Recommended Practices: Evolving the Application
+IaC Recommended Practices: Evolving the Application
 
-Examining Recommended Practices: Adding Pulumi Deployments
+IaC Recommended Practices: Adding Pulumi Deployments
 
-Examining Recommended Practices: Refactoring for Reuse
+IaC Recommended Practices: Refactoring for Reuse
 
 ## Setting up the scenario
 
-Zephyr is short for Zephyr Archaeotech Emporium, the fictional company in our scenario. Zephyr is an online retailer that specializes in the sale of "rare arcane artifacts and their replicas." Over the past few years, the company has experienced a significant increase in its online presence, making it easier for customers to purchase unique and mysterious items. Zephyr's collection includes a variety of rare and unusual objects that are difficult to find elsewhere, making it a popular destination for collectors, enthusiasts, and adventurers.
+Zephyr is short for Zephyr Archaeotech Emporium, the fictional company in our scenario. Zephyr is an online retailer that specializes in the sale of "rare arcane artifacts and replicas." Over the past few years, the company has experienced a significant increase in its online presence, making it easier for customers to purchase unique and mysterious items. Zephyr's collection includes a variety of rare and unusual objects that are difficult to find elsewhere, making it a popular destination for collectors, enthusiasts, and adventurers.
 
 ## Reviewing the application
 
@@ -79,7 +57,7 @@ Astute readers may note that Zephyr's application looks very similar to [this ap
 
 ## Deploying the application with Pulumi
 
-As part of the switch to their new architecture, Zephyr decided they want to use Pulumi to manage both the infrastructure and the application deployment. Why Pulumi? Zephyr’s team recognized that moving to microservices on Kubernetes was going to make it more difficult to create reproducible, consistent implementations of their application. Zephyr's team also knew that adopting infrastructure as code would help them with fast and repeatable deployments with little additional complexity. An added bonus was being able to use programming languages they already knew.
+As part of the switch to their new architecture, Zephyr decided they wanted to use Pulumi to manage both the infrastructure and the application deployment. Why Pulumi? Zephyr’s team recognized that moving to microservices on Kubernetes was going to make it more difficult to create reproducible, consistent implementations of their application. Zephyr's team also knew that adopting infrastructure as code would help them with fast and repeatable deployments with little additional complexity. An added bonus was being able to use programming languages they already knew.
 
 As they prepared to embark on using Pulumi, a couple of questions came up for the Zephyr team:
 
@@ -94,7 +72,7 @@ When it comes to answering the question of where to store Pulumi code relative t
 
 1. **In the same repository as your application code:** This approach has the advantage of being simpler, but may not offer the necessary flexibility when dealing with multiple teams or varying levels of access control.
 2. **In a separate repository from your application code:** Using a separate repository adds some complexity, but does provide greater flexibility to more easily address a variety of organizational requirements and varying levels of access control.
-<!--Do we need to consider the situation of using the same repository but a different branch?-->
+
 So which approach is best? That will depend on a number of different factors, many of which are outlined [here](/docs/guides/organizing-projects-stacks/). Some other factors that users need to take into consideration include:
 
 * Who is responsible for maintaining the code? If the application code and the Pulumi code are managed by different teams, then using separate repositories may be the best approach.
@@ -114,9 +92,7 @@ In the case of Zephyr, their team felt like a monorepo approach (storing Pulumi 
 
 The second question Zephyr encountered is how to handle the need for multiple instances of their application. In addition to a production instance---which is the instance behind Zephyr's public-facing online store---Zephyr also felt they needed an environment for the developers to use in testing changes to the online store.
 
-This use case---needing to have multiple, separate instances of the infrastructure and applications created by a single Pulumi program---is exactly what [Pulumi stacks](https://www.pulumi.com/docs/intro/concepts/stack/) were designed to address. Each stack is a separate instance of the resources created by a Pulumi program within a project. Further, each stack has its own independent state, and each stack has its own configuration values. Stacks can be short-lived (meaning the associated resources are also short-lived), or stacks can be long-lived. Aside from the cloud resources created the Pulumi program, stacks are lightweight and simple to create or delete.
-
-<!--Are there other considerations that are involved in deciding whether or not to use stacks?-->
+This use case---needing to have multiple, separate instances of the infrastructure and applications created by a single Pulumi program---is exactly what [Pulumi stacks](https://www.pulumi.com/docs/intro/concepts/stack/) were designed to address. Each stack is a separate instance of the resources created by a Pulumi program within a project. Further, each stack has its own independent state, and each stack has its own configuration values. Stacks can be short-lived (meaning the associated resources are also short-lived), or stacks can be long-lived. Aside from the cloud resources created by the Pulumi program, stacks are lightweight and simple to create or delete.
 
 Zephyr decided to initially start with two stacks: a production stack (named "prod") and a development stack (named "dev"). As you'll observe throughout this series, this is a decision that is easily adjusted over time as your organization's requirements change.
 
@@ -124,7 +100,7 @@ Zephyr decided to initially start with two stacks: a production stack (named "pr
 
 You can view the first iteration of Zephyr's Pulumi and application code---the iteration that corresponds to the decisions described in this blog post---by navigating to [this GitHub repository](https://github.com/pulumi/zephyr-app/). From the branch/tag dropdown, switch from the "main" branch to viewing the "original" tag.
 
-From that GitHub repository, you can also choose to deploy the Pulumi code yourself. <!--Add instructions after repo tweaks are finished-->
+From that GitHub repository, you can also choose to deploy the Pulumi code yourself. Full instructions for deploying the code are found in the repository.
 
 ## Summarizing recommended practices
 
@@ -139,10 +115,3 @@ In this post the following recommended practices were covered:
 For now, Zephyr has decided to go with a monorepo approach---a single repository that contains both their application code and the Pulumi code to manage the infrastructure resources. All of the resources are defined in a single Pulumi project, with multiple stacks that correspond to development and production environments. Over the course of this series, we'll see how Zephyr's use of Pulumi changes as Zephyr grows and their application evolves.
 
 The next Zephyr blog post will examine how the Zephyr team adjusts their use of stacks and Git branches to support developer productivity. Stay tuned!
-
-<!--
-Keeping these here for now for ease of use in case I need them:
-![Placeholder Image](meta.png)
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
-{{< tweet id="1202020186234048512" user="pulumipus" >}}
--->
