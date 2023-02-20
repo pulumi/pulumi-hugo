@@ -1,6 +1,6 @@
 ---
 title: "IaC Recommended Practices: Code Organization and Stacks"
-date: 2023-02-15T13:01:26-07:00
+date: 2023-02-20T13:30:00-07:00
 meta_desc: This is the first in a series of blog posts on recommended practices for using Pulumi. Code organization and the use of Pulumi stacks are the focus areas.
 meta_image: meta.png
 authors:
