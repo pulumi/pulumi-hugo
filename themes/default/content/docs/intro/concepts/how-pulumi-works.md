@@ -29,6 +29,8 @@ The _language host_ is responsible for running a Pulumi program and setting up a
 
 The _deployment engine_ is responsible for computing the set of operations needed to drive the current state of your infrastructure into the desired state expressed by your program.  When a _resource registration_ is received from the language host, the engine consults the existing state to determine if that resource has been created before. If it has not, the engine uses a _resource provider_ in order to create it.  If it already exists, the engine works with the resource provider to determine what, if anything, has changed by comparing the old state of the resource with the new desired state of the resource as expressed by the program. If there are changes, the engine determines if it can _update_ the resource in place or if it must _replace_ it by _creating_ a new version and _deleting_ the old version. The decision depends on what properties of the resource are changing and the type of the resource itself.  When the language host communicates to the engine that it has completed execution of the Pulumi program, the engine looks for any existing resources that it did not see a new resource registration for and schedules these resources for deletion.
 
+Note that the resources not registered in the Pulumi State (e.i. prior exisitng or created using other means), will not be considered by the engine. Hence, those resources will not be deleted if they are not registered. If the existence of those resources is in the config with the creation or modification of already existing resources by the engine, an error will be thrown to protect existing infrastructure.
+
 The deployment engine is embedded in the `pulumi` CLI itself.
 
 ## Resource Providers
