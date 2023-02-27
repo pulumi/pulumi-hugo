@@ -34,8 +34,8 @@ event_data:
   end_date: 2023-04-25T13:00:00.000Z
   url: https://www.pulumi.com/resources/getting-started-with-kubernetes-azure
 form:
-  hubspot_form_id: ""
-  salesforce_campaign_id: ""
+  hubspot_form_id: 81a49dce-f5b7-4277-a9ca-98bbaa5df6cb
+  salesforce_campaign_id: 701Du0000009z7QIAQ
   gotowebinar_key: ""
 featured: false
 pre_recorded: false
