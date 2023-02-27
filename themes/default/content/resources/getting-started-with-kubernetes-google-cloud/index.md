@@ -34,8 +34,8 @@ event_data:
     handle real-world use cases. We will guide you through the process with
     diagrams and a series of labs to help accelerate your cloud projects.
 form:
-  hubspot_form_id: ""
-  salesforce_campaign_id: ""
+  hubspot_form_id: 9abcfddf-7663-442c-b13d-cfae10a7e0d9
+  salesforce_campaign_id: 701Du0000009z7LIAQ
   gotowebinar_key: ""
 featured: false
 pre_recorded: false
