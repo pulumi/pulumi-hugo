@@ -65,7 +65,7 @@ return new Dictionary<string, object?>
 };
 ```
 
-Note that you'll want to insert this just before the last `return nil` statement.
+Add this return statement to the end of the deployment function.
 
 {{% /choosable %}}
 
