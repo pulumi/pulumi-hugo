@@ -7,7 +7,7 @@ draft: false
 description: |
     Explore building a custom infrastructure API to embed Pulumi in other
     contexts.
-meta_desc: In this tutorial, we will explore how you can use Pulumi as an API for your infrastructure deployment and maintenance.
+meta_desc: In this tutorial, we will explore how to use Pulumi to build an infrastructure API for deployment and maintenance.
 index: 10
 meta_image: meta.png
 level: advanced
