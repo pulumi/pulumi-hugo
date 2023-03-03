@@ -7,7 +7,7 @@ draft: false
 description: |
     Build your first encapsulation of the Pulumi CLI with Pulumi's Automation
     API.
-meta_desc: Learn how to use the Pulumi Automation API to create a custom API for your current infrastructure in this tutorial.
+meta_desc: Learn how to use the Pulumi Automation API to create a custom API for your infrastructure in this tutorial.
 index: 1
 estimated_time: 10
 meta_image: meta.png
