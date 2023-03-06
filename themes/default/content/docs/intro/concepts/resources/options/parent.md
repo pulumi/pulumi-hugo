@@ -12,7 +12,7 @@ menu:
 The `parent` resource option specifies a parent for a resource. It is used to associate children with the parents that encapsulate or are responsible for them. Good examples of this are [component resources](/docs/intro/concepts/resources/components/). The default behavior is to parent each resource to the implicitly-created `pulumi:pulumi:Stack` component resource that is a root resource for all Pulumi stacks.
 
 {{% notes type="warning" %}}
-Although the `parent` resource option can be used to parent a resource to any other resource, it is only recommended to parent resources to [component resources] they are children of.  Parenting a resource to another [custom resource] can in some cases result in undefined behaviour.
+Although the `parent` resource option can be used to parent a resource to any other resource, it is strongly recommended to parent resources only to [component resources] when they are actually children.  Parenting a resource to another [custom resource] can in some cases result in undefined behavior.
 {{% /notes %}}
 
 For example, this code creates two resources, a parent and child, the latter of which is a child to the former:
