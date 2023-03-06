@@ -12,9 +12,9 @@ subheading: |
     and tame cloud complexity -- something we call Cloud Engineering.
 
 overview:
-    title: Universal Infrastructure as Code for Engineers
+    title: Infrastructure as Code for Engineers
     description: |
-        Ship infrastructure faster with software engineering and an API-first approach. Use Pulumi’s open source SDK with your favorite languages and software ecosystems to deploy on any cloud, and scale infrastructure as code across your team securely with enterprise-grade SaaS.
+        Ship infrastructure faster with software engineering and an API-driven approach. Use Pulumi’s open source SDK with your favorite languages and software ecosystems to deploy infrastructure on any cloud, and securely scale infrastructure as code adoption across your team with enterprise-grade SaaS.
 
 key_features:
     title: Key features
@@ -31,7 +31,7 @@ key_features:
               - title: IaC for every engineer
                 description: |
                    Author and share infrastructure code in standard languages that anyone can easily use.
-              - title: Author IaC efficiently
+              - title: Author IaC faster
                 description: |
                     Use your IDE with interactive documentation, type checking, and statement completion.
               - title: Write Policy as Code
@@ -177,7 +177,7 @@ key_features:
                     Manage infrastructure code in Git and approve changes through pull requests.
               - title: Shift left
                 description: |
-                    Run fast, local [unit tests and integration tests](/docs/guides/testing/) against ephemeral infrastructure.
+                    Get rapid feedback on your code with fast [unit tests](/docs/guides/testing/), and run [integration tests](/docs/guides/testing/) against ephemeral infrastructure.
               - title: Continuous delivery
                 description: |
                     [Integrate your CI/CD provider](/docs/guides/continuous-delivery/) with Pulumi or use GitOps to manage Kubernetes clusters.
