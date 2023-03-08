@@ -187,7 +187,8 @@ For example, after creating and deploying a new stack to validate and test the p
 Lastly, having adopted the use of developer stacks, the Zephyr team realized the name "dev" probably didn't work quite as well as it once had for the `dev` stack. Since the stack and its long-running deployment had essentially been serving (and continued to serve) as an environment for testing changes before releasing them into production, the team decided to rename the `dev` stack `test` instead. To do that, they simply ran:
 
 ```bash
-pulumi stack rename zephyr/dev zephyr/test
+pulumi stack select zephyr/dev
+pulumi stack rename zephyr/test
 ```
 
 ## Summarizing recommended practices
