@@ -44,6 +44,7 @@ Happy new year from the Pulumi team! We are excited to tell you all about the im
   - [AWS Lambda SnapStart support](#aws-lambda-snapstart-support)
 - Pulumi CLI and core technologies
   - [New CLI prompt to use Update Plans](#new-cli-prompt-to-use-update-plans)
+  - [Release artifacts are now signed using cosign](#release-artifacts-are-now-signed-using-cosign)
 - Pulumi Service & Pulumi.com
   - [Pulumi Deployments Improvements](#pulumi-deployments)
   - [Bulk stack transfers](#bulk-stack-transfers)
@@ -106,6 +107,51 @@ const functionCode = new aws.s3.BucketObject("function-code", {
 
 ## Pulumi CLI and core technologies
 
+### Release artifacts are now signed using cosign
+
+Pulumi is [proud to participate](https://landscape.openssf.org/sigstore) in efforts to secure software supply chains, and now signs CLI releases using [sigstore](https://www.sigstore.dev), a project of the [Open Source Security Foundation (OpenSSF)](https://openssf.org). These signatures are published on GitHub Releases as .sig files accompanying each asset and published to the Rekor transparency log. Using either signature files or the transparency log, users can verify that released assets were created by GitHub Actions in the [pulumi/pulumi repository]().
+
+Try it out after installing the cosign CLI!
+```
+# Download the macOS release targeting Apple Silicon:
+wget https://github.com/pulumi/pulumi/releases/download/v3.51.0/pulumi-v3.51.0-darwin-arm64.tar.gz
+wget https://github.com/pulumi/pulumi/releases/download/v3.51.0/pulumi-v3.51.0-darwin-arm64.tar.gz.sig
+
+# Verify using the cosign CLI:
+cosign verify-blob \
+  ./pulumi-v3.51.0-darwin-arm64.tar.gz \
+  --bundle ./pulumi-v3.51.0-darwin-arm64.tar.gz.sig \
+  --certificate-github-workflow-repository pulumi/pulumi \
+  --certificate-github-workflow-ref refs/heads/staging
+# Note the fields to verify may change in the future.
+```
+* [cli] pulumi destroy --remove will now delete the stack config file #11394
+
+Thanks to a community contributor, now when using `pulumi destroy —remove` will now delete the stack config file, consistent with how `pulumi stack rm` behaves. 
+ 
+* [cli] Adds a flag that allows user to set the node label as the resource name instead of full URN in the stack graph #11383 - ask Ian
+
+The `pulumi stack graph` command can be used to view the dependency graph that a Pulumi program emitted when it was run. The stack graph is outputted in the DOT format. A community contributor added a new flag `short-node-name` which allows the user to opt for short node labels, i.e, only the resource name part of the unique resource name (URN) instead of the full URN that is returned as the node label in the stack graph. Try running `pulumi stack graph -short-node-name` to produce a stack graph with short resource labels.
+
+* [cli] Allow rotating the encrpytion key for cloud secrets. #11554
+
+Previously, we supported rotating the passphrase secret provider, i.e. is changing the key and assigning a new passphrase. We have now extended this support to the cloud secret provider as well. We generate a new symmetric key in order to rotate passphrases for cloud secrets.
+
+* [cli/{config,new,package}] Preserve comments on editing of project and config files. #11456
+
+* Bundle 
+
+We have been working on adding JSON serialization across our language SDKs. 
+
+* [sdk/dotnet] Add Output.JsonSerialize using System.Text.Json. #11556
+* [sdk/go] Add JSONMarshal to go sdk. #11609
+* [sdk/nodejs] Add output jsonStringify using JSON.stringify. #11605
+* [sdk/python] Add json_dumps to python sdk. #11607
+
+* [cli/display] Improve the usability of the interactive dipslay by making the treetable scrollable #11200 - ask Pat for demo
+
+* [pkg] Add DeletedWith as a resource option. #11095 Justin / Fraser do we feel good about it have we documented it 
+
 ### New CLI prompt to use Update Plans
 
 Earlier this year we announced the experimental introduction of Update Plans as we heard from many of you that you need a strong guarantee about exactly which changes an update will make to your infrastructure, especially in critical and production environments. We have been making steady progress on this feature and are excited to further integrate it into your workflows. In the latest release of the Pulumi CLI (v3.48.0), there’s a new prompt to use experimental Update Plans when running an update.
@@ -150,11 +196,5 @@ Let’s review how bulk stack transfers can be used and when you would use them.
 3. Organization to organization: As customers scale there may be use cases where they want to add additional organizations and being able to transfer stacks in bulk will help with this.
 
 👉 Learn more by reviewing the [Bulk Stack Transfers blog post](https://www.pulumi.com/blog/stack-transfers).
-
-<!-- ### Architecture Templates Support
-
-We added Architecture Templates support to the new project experience in the Pulumi Service console. Now in addition to selecting your cloud provider and language of choice you can select a template for your new project. We currently have Static Website, Serverless, Container Service, Virtual Machine, Kubernetes cluster and web application templates, with more to come!
-
-![Arch Templates in Service](arch.png) -->
 
 ### Favicons Based on Update Status
