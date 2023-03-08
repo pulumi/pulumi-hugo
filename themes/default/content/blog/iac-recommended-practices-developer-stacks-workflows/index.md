@@ -1,6 +1,6 @@
 ---
 title: "IaC Recommended Practices: Developer Stacks and Git Branches"
-date: 2023-03-05
+date: 2023-03-08
 meta_desc: This is the second in a series of blog posts on recommended practices for using Pulumi. Developer stacks and Git-branching practices are the focus areas.
 meta_image: meta.png
 authors:
@@ -23,8 +23,8 @@ Here are links to all of the posts in the series. Entries below that are not yet
 
 * [IaC Recommended Practices: Code Organization and Stacks](/blog/iac-recommended-practices-code-organization-and-stacks/)
 * [**IaC Recommended Practices: Developer Stacks and Git Branches**](/blog/iac-recommended-practices-developer-stacks-workflows/) (this post)
-* IaC Recommended Practices: Local Testing with Pulumi
 * IaC Recommended Practices: Structuring Pulumi Projects
+* IaC Recommended Practices: Local Testing with Pulumi
 * IaC Recommended Practices: Moving Infrastructure State Between Projects
 * IaC Recommended Practices: Tying Stacks Together with Stack References
 * IaC Recommended Practices: Evolving the Application
@@ -39,7 +39,7 @@ When we [last met up](/blog/iac-recommended-practices-code-organization-and-stac
 For a snapshot of the code as it was at the end of the first post in the series, see the [`original`](https://github.com/pulumi/zephyr-app/tree/original) tag of the [`pulumi/zepyhr-app`](https://github.com/pulumi/zephyr-app) repository on GitHub.
 {{% /notes %}}
 
-Up to now, the two-stack approach has worked well for the team. It's allowed them to focus on building new features, integrating those features into the shared `dev` environment by developing and testing locally (which we'll cover in the next post) and merging their [feature branches](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) regularly into the base branch, `main`, using standard GitHub pull-request workflows. Around once a day, as the team's changes are merged into `main`, the team lead (and original author of the Pulumi program) deploys them into the `dev` environment with Pulumi with the following commands:
+Up to now, the two-stack approach has worked well for the team. It's allowed them to focus on building new features, integrating those features into the shared `dev` environment by developing and testing locally (which we'll cover in a future post) and merging their [feature branches](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) regularly into the base branch, `main`, using standard GitHub pull-request workflows. Around once a day, as the team's changes are merged into `main`, the team lead (and original author of the Pulumi program) deploys them into the `dev` environment with Pulumi with the following commands:
 
 ```bash
 git pull origin main
@@ -174,7 +174,7 @@ pulumi stack init zephyr/developer-name --copy-config-from zephyr/dev
 pulumi up
 ```
 
-Developer stacks are considered ephemeral, so they're torn down with `pulumi destrou` when not in use in order to cut down on cost. Stack configuration files (e.g., `Pulumi.developer-name.yaml`) are checked into version control and stored alongside other stacks like `Pulumi.dev.yaml` and `Pulumi.prod.yaml`.
+Developer stacks are considered ephemeral, so they're torn down with `pulumi destroy` when not in use in order to cut down on cost. Stack configuration files (e.g., `Pulumi.developer-name.yaml`) are checked into version control and stored alongside other stacks like `Pulumi.dev.yaml` and `Pulumi.prod.yaml`.
 
 ### Keeping feature-branch workflows
 
@@ -195,7 +195,8 @@ pulumi stack rename zephyr/dev zephyr/test
 In this post, we covered several new recommended practices for working collaboratively with Pulumi, all aimed at optimizing for high team and developer velocity:
 
 * **Use short-lived feature branches** and merge them frequently into a single base branch.
-* **Deploy the base branch frequently into a long-running pre-prod environment** to continuously test the integration of the components of the system.
+* **Deploy the base branch regularly into a long-running pre-prod environment** to continuously test the integration of the components of the system.
 * **Enable developers to create and use dev stacks of their own** as sandboxes for development, testing, and collaboration.
+* **Name your stacks clearly** and in alignment with the environments they deploy into --- `test`, `staging`, `production`, etc.
 
-The next Zephyr blog post will dive into how the Zephyr team handles local development and testing. Stay tuned!
+The next Zephyr blog post will dive into how the Zephyr team structures their Pulumi projects. Stay tuned!
