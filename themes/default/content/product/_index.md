@@ -23,7 +23,7 @@ key_features:
           sub_title: "Pulumi Infrastructure as Code Engine"
           description: 
             Define infrastructure as code (IaC) in TypeScript/JavaScript, Python, Go, C#, Java, and YAML using your IDE and test frameworks for a fast inner dev loop. Deploy to [100+ providers](/registry/) like AWS, Azure, Google Cloud, and Kubernetes.
-          image: "/images/productnew/pulumi-iac-code.png"
+          image: "/images/product/pulumi-iac-code.png"
           button:
             text: "Learn more about Pulumi SDK"
             link: "/docs/reference/pulumi-sdk/"
@@ -167,7 +167,7 @@ key_features:
           sub_title: "CI/CD Integrations"
           description: |
             Version, review, test, and deploy infrastructure code through the same tools and processes used for your application code.
-          image: "/images/productnew/pulumi-cicd.png"
+          image: "/images/product/pulumi-cicd.png"
           button:
             text: "Learn more about CI/CD Integrations"
             link: "/docs/guides/continuous-delivery/"
@@ -186,7 +186,7 @@ key_features:
           sub_title: "Pulumi Service"
           description: |
              Store infrastructure state & secrets, empower teams to ship infrastructure collaboratively, and manage security and governance using the Pulumi Service. The fastest and easiest way to use Pulumi at scale. 
-          image: "/images/productnew/pulumi-service.png"
+          image: "/images/product/pulumi-service.png"
           button:
             text: "Learn more about the Pulumi Service"
             link: "/product/pulumi-service/"

@@ -45,8 +45,8 @@
         </div>
 
         <div class="container mx-auto rounded-xl shadow-2xl">
-            <img class="w-full hidden lg:block z-10" src="/images/product/pulumi-product-diagram.png" alt="Pulumi Cloud Engineering Platform" />
-            <img class="w-full lg:hidden z-10" src="/images/product/pulumi-product-diagram.png" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full hidden lg:block z-10" src="/images/product/pulumi-marketecture.png" alt="Pulumi Cloud Engineering Platform" />
+            <img class="w-full lg:hidden z-10" src="/images/product/pulumi-marketecture.png" alt="Pulumi Cloud Engineering Platform" />
         </div>
     </section>
 
@@ -67,7 +67,7 @@
                 </p>
                 <!-- <img class="w-full hidden lg:block z-10" src="{{ $item.image }}" alt="Pulumi Cloud Engineering Platform" /> -->
                 {{ if not (eq $item.image nil) }}
-                    <div class="max-w-3xl container flex flex-col items-center mx-auto">
+                    <div class="max-w-4xl container flex flex-col items-center mx-auto">
                         <img src="{{ $item.image }}" alt="Pulumi infrastructure as code example" />
                     </div>
                 {{ end }}
@@ -92,7 +92,9 @@
                         {{ end }}
                     </div>
                 </div>
-                <a href="{{ $item.button.link }}" class="btn-secondary">{{ $item.button.text }}</a>
+                <div>
+                    <a href="{{ $item.button.link }}" class="btn-secondary block sm:inline">{{ $item.button.text }}</a>
+                </div>
             </div>
         {{ end }}
     </section>
