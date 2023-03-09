@@ -167,7 +167,7 @@ key_features:
           sub_title: "CI/CD Integrations"
           description: |
             Version, review, test, and deploy infrastructure code through the same tools and processes used for your application code.
-          image: "/images/product/pulumi-cicd.png"
+          image: "/images/product/pulumi-cicd-2.png"
           button:
             text: "Learn more about CI/CD Integrations"
             link: "/docs/guides/continuous-delivery/"
