@@ -16,21 +16,25 @@ sessions:
       presenters: [ "joe-duffy", "brian-goetz", "luke-hoban" ]
       description: |
         Joe Duffy, CEO of Pulumi, walks us through the evolution of the cloud and the modernization of infrastructure as code to support the changing needs of development and operations organizations. He will introduce the new features of Pulumi that will further help teams tackle scalability challenges, increase developer productivity, and manage multi-cloud complexity.
+      link: https://www.youtube.com/watch?v=ZHeFMmY88So&list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My&index=1
 
     - title: "Pulumi Infrastructure as Code "
       presenters: [ "kat-cosgrove", "aaron-friel", "kyle-dixler" ]
       description: |
         Demos will be shared including new Pulumi features in this hands-on, coding-heavy session. You will learn how to build, deploy, and manage cloud applications with infrastructure as code, powered by popular programming languages. You can expect to pick up new best practices for taming cloud complexity and supercharging your productivity when building with modern cloud architectures.
+      link: https://www.youtube.com/watch?v=BXU__gE5lJA&list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My&index=2
 
     - title: Cloud Engineering at Scale
       presenters: [ "matt-stratton", "justin-fitzhugh" ]
       description: |
         In this session, we will discuss how cloud engineering can be applied to organizations in order to deliver business innovation. We will talk about the framework in which software engineering can be applied to tame the complexity of modern cloud infrastructure and how to organize teams. Learn how cloud engineering works at Snowflake and how it gives them an advantage over their competition.
+      link: https://www.youtube.com/watch?v=2Yb3991vk8U&list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My&index=3
 
     - title: Pulumi for Enterprise
       presenters: [ "meagan-cojocar" ]
       description: |
         Join us as we discuss how Pulumi serves enterprises and organizations with sophisticated security and compliance needs. You will learn what are the most common scaling, access control, security, and compliance concerns of companies adopting Infrastructure as Code, and how the Pulumi Service resolves these concerns. You will also hear a real world case study from an enterprise customer of Pulumi.
+      link: https://www.youtube.com/watch?v=5-Tw1Yd2H3s&list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My&index=4
 
 schedule_overview:
   - title: PulumiUP
