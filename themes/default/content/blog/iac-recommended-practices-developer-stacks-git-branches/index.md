@@ -191,6 +191,12 @@ pulumi stack select zephyr/dev
 pulumi stack rename zephyr/test
 ```
 
+## Viewing the second iteration of Zephyr's code
+
+You can view the second iteration of Zephyr's Pulumi and application code --- the iteration that corresponds to the decisions described in this blog post --- by navigating to [this GitHub repository](https://github.com/pulumi/zephyr-app/). From the branch/tag dropdown, switch from the `main` branch to the [`dev-stacks`](https://github.com/pulumi/zephyr-app/tree/dev-stacks) tag
+
+From that GitHub repository, you can also choose to deploy the Pulumi code yourself. Full instructions for deploying the code are found in the repository.
+
 ## Summarizing recommended practices
 
 In this post, we covered several new recommended practices for working collaboratively with Pulumi, all aimed at optimizing for high team and developer velocity:
