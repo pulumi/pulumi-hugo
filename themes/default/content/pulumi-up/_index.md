@@ -81,7 +81,7 @@ registration:
           none
 
 customer_logos:
-  title: Brought to you by
+  title: 2022 was brought to you by
   logos:
     - oracle.png
     - aws-logo.svg
