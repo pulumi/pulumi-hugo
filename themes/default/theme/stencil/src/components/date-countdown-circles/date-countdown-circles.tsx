@@ -19,7 +19,7 @@ interface CountdownData {
     styleUrl: "date-countdown-circles.scss",
     shadow: false,
 })
-export class DateCountdown {
+export class DateCountdownCircles {
     @Prop()
     dateString: string;
 
