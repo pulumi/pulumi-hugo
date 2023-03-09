@@ -49,13 +49,13 @@ key_features:
           features:
               - title: 10x productivity
                 description: |
-                   Engineers can manage 10x more cloud resources compared to traditional CLI tools.
+                   Engineers can manage 10x more cloud resources using Automation API compared to traditional CLI tools.
               - title: Build custom CLIs
                 description: |
-                    Create CLIs that make it easy for your developers to provision prebuilt architectures.
+                    Build atop Pulumi to create CLIs that make it easy for end-users to provision prebuilt cloud architectures.
               - title: Power up your SaaS
                 description: |
-                    Enable your cloud service to dynamically provision and manage cloud resources at scale.
+                    Enable your services and APIs to dynamically provision and manage cloud resources at scale.
 
         - title: "Build infrastructure faster with reusable components"
           sub_title: "Pulumi Packages"
@@ -161,7 +161,7 @@ key_features:
                     Adopt well-architected best practices for your infrastructure easily with the [Crosswalk library](/docs/guides/crosswalk/aws/).
               - title: Cloud Native support
                 description: |
-                    Use a single workflow to manage cloud native infrastructure and [Kubernetes](/kubernetes/).
+                    Use a single workflow and programming languages to manage both [Kubernetes](/kubernetes/) resources and infrastructure.
         
         - title: "Deliver infrastructure through software delivery pipelines"
           sub_title: "CI/CD Integrations"
@@ -180,7 +180,7 @@ key_features:
                     Get rapid feedback on your code with fast [unit tests](/docs/guides/testing/), and run [integration tests](/docs/guides/testing/) against ephemeral infrastructure.
               - title: Continuous delivery
                 description: |
-                    [Integrate your CI/CD provider](/docs/guides/continuous-delivery/) with Pulumi or use GitOps to manage Kubernetes clusters.
+                    [Integrate your CI/CD provider](/docs/guides/continuous-delivery/) with Pulumi or use GitOps to [manage Kubernetes clusters](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/).
         
         - title: "Scale and secure infrastructure as code for teams"
           sub_title: "Pulumi Service"
