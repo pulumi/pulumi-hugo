@@ -14,7 +14,7 @@ subheading: |
 overview:
     title: Infrastructure as Code for Engineers
     description: |
-        Ship infrastructure faster with software engineering. Use Pulumi’s open source SDK in your favorite languages to provision infrastructure on any cloud, and securely increase infrastructure as code adoption across teams with enterprise-grade SaaS.
+        Ship infrastructure faster with software engineering. Use Pulumi’s open source SDK in your favorite languages to provision infrastructure on any cloud, and securely increase infrastructure as code adoption across teams with Pulumi's enterprise-grade SaaS.
 
 key_features:
     title: Key features
