@@ -6,7 +6,7 @@ date: 2021-11-17
 draft: false
 description: |
     Learn more about abstracting Pulumi code into classes, models, and objects.
-meta_desc: Learn how to think in abstraction and how to abstract Pulumi code into reusable classes, models, and objects with this tutorial.
+meta_desc: In this tutorial, we'll cover the concept of abstraction and how to abstract Pulumi code into reusable classes, models, and objects.
 index: 1
 estimated_time: 5
 meta_image: meta.png
