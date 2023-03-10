@@ -50,7 +50,7 @@ key_features:
               - title: 10x productivity
                 description: |
                    Engineers can manage 10x more cloud resources using Automation API compared to traditional CLI tools.
-              - title: Build custom CLIs
+              - title: Create custom CLIs
                 description: |
                     Build atop Pulumi to create CLIs that make it easy for end-users to provision prebuilt cloud architectures.
               - title: Power up your SaaS
