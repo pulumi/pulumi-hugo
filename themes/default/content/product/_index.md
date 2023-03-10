@@ -161,7 +161,7 @@ key_features:
                     Adopt well-architected best practices for your infrastructure easily with the [Crosswalk library](/docs/guides/crosswalk/aws/).
               - title: Cloud Native support
                 description: |
-                    Use a single workflow and programming languages to manage both [Kubernetes](/kubernetes/) resources and infrastructure.
+                    Use a single workflow to manage both [Kubernetes](/kubernetes/) resources and infrastructure.
         
         - title: "Deliver infrastructure through software delivery pipelines"
           sub_title: "CI/CD Integrations"
