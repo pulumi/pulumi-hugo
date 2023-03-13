@@ -41,7 +41,7 @@ SAML SSO.
 
 ![Pulumi SAML SSO Configuration](/images/docs/reference/service/saml-auth0/auth0-saml-sso-config.png)
 
-Lastly, navigate in the **Settings** tab of your application to the **Application URIs** section. In the **Application
+Finally, in the **Settings** tab of your application, navigate to the **Application URIs** section. In the **Application
 Login URI** field, enter the URL of your Pulumi organization in following format:
 
 ```
