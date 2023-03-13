@@ -10,7 +10,7 @@ tags:
     - import
 ---
 
-Point and click in the console is great when you're first starting out learning a new cloud or managed service, but it quickly becomes a hinderance when cloud is widely adopted by an organization. The point at which the term "widely adopted" becomes applicable to your situation differs, but at some point in their careers many infrastructure and platform engineers are faced with situation where a large number of critical infrastructure resources were created through "clickops" with no ability to track changes, reproduce environments consistently, and so on. When this happens (and it will probably happen to many of you), it's time to import those resources into infrastructure as code.
+Point and click in the console is great when you're first starting out learning a new cloud or managed service, but it quickly becomes a hindrance when cloud is widely adopted by an organization. The point at which the term "widely adopted" becomes applicable to your situation differs, but at some point in their careers many infrastructure and platform engineers are faced with situation where a large number of critical infrastructure resources were created through "clickops" with no ability to track changes, reproduce environments consistently, and so on. When this happens (and it will probably happen to many of you), it's time to import those resources into infrastructure as code.
 
 Fortunately, Pulumi has one of the smoothest and most powerful import processes of any IaC tool. In this post, we're going to show you how to automate the bulk importation of Google Cloud resources into Pulumi! This approach will also work on resources that were created by another IaC tool.
 
@@ -248,7 +248,7 @@ You may need to massage some of the generated output for any `*IAMPolicy` resour
 
 ## Next Steps
 
-Now that we have our Google CLoud resources under Pulumi management, we might want to consider some additional steps to build upon our IaC solution:
+Now that we have our Google Cloud resources under Pulumi management, we might want to consider some additional steps to build upon our IaC solution:
 
 * **Set up a CI/CD pipeline:** By adding our Pulumi code to a delivery pipeline, we can help ensure that all infrastructure changes go through an automated process. Pulumi has helpful integrations and documentation for many popular tools. See [Continuous Delivery](/docs/guides/continuous-delivery/) in the Pulumi docs for more information.
 
