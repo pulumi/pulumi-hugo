@@ -91,6 +91,7 @@ The executor context defines information about the executor where the Pulumi ope
 
 Image requirements:
 
+* It must be a publicly available image.
 * It must be a unix-based image which includes `curl`.
 * It must include the `pulumi` CLI in its `$PATH`.
 * It must include the required SDK runtime(s) for your Pulumi program.
