@@ -1,7 +1,7 @@
 ---
 title_tag: Configuring Auth0 | SAML SSO
 title: Auth0
-meta_desc: This page provides a walkthrough important aspects of configuring Auth0 as a SAML SSO identity provider (IDP).
+meta_desc: Configuring Auth0 as a SAML SSO identity provider (IDP).
 menu:
     userguides:
         parent: saml
