@@ -1,17 +1,17 @@
 .about-navigation-container {
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     #about-nav {
         @apply flex gap-x-9;
         
         list-style: none !important;
-        overflow-x: scroll;
-        // Don't show a scrollbar, because we have our own custom implementation with buttons.
-        &::-webkit-scrollbar {
-            display: none;
-        }
 
         li {
             > a {
-                @apply block text-base font-medium text-center text-gray-700 no-underline;
+                @apply inline-flex w-max text-base font-medium text-center text-gray-700 no-underline;
             }
 
             &:hover {
@@ -20,6 +20,10 @@
                 > a {
                     @apply text-black;
                 }
+            }
+
+            &:last-of-type {
+                @apply mr-8;
             }
         }
 
@@ -242,10 +246,40 @@
 }
 
 .value-card {
-    height: 465px;   
+    height: 600px;   
+
+    @screen xl {
+        height: 465px;
+    }
     border: double 2px transparent;
     border-radius: 12px;
     background-image: linear-gradient(white, white), linear-gradient(#F7BF2A 0%, #F26E7E 18.23%, #BE5188 38.02%, #8A3391 53.65%, #805AC3 74.48%, #7682F4 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
+}
+
+
+.values-flex .value-card {
+    width: 90%;
+    height: auto;
+
+    @screen md {
+        height: 505px;
+    }
+    
+    h4 {
+        @apply text-3xl;
+
+        @screen md {
+            @apply text-2xl;
+        }
+    }
+
+    @screen md {
+        width: 365px;
+
+        p {
+            @apply mt-0;
+        }
+    }
 }
