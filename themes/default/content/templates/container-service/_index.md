@@ -23,7 +23,7 @@ weight: 1
 
 ### Building and deploying container services on AWS, Azure, and Google Cloud
 
-Container deployment takes place when you push containers to their target environment, such as a cloud or on-premises server. [Infrastructure as code](/what-is/what-is-infrastructure-as-code/) provides an efficient and repeatable way of building container services with programming languages and deploying them to your preferred cloud, such as [AWS](/aws/), [Azure](/azure/), or [Google Cloud Platform](/gcp/).
+Container deployment takes place when you push containers to their target environment, such as a cloud server. [Infrastructure as code](/what-is/what-is-infrastructure-as-code/) provides an efficient and repeatable way of building container services with programming languages and deploying them to your preferred cloud, such as [AWS](/aws/), [Azure](/azure/), or [Google Cloud Platform](/gcp/).
 
 Pulumi’s open source, infrastructure as code SDK lets you build and deploy container services with TypeScript/JavaScript, Python, Go, Java, .NET, and YAML. The main benefits include:
 
