@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: "From Zero to Production in Kubernetes"
-meta_desc: "Go from zero to production on Kubernetes by using Python to build abstractions that make getting to production easier, and MARA - Modern Application Reference Architecture."
+meta_desc: "Go from Zero to Production on Kubernetes using Python to build abstractions and MARA - Modern Application Reference Architecture."
 
 # A featured webinar will display first in the list.
 featured: false
