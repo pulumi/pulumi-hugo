@@ -58,7 +58,7 @@ plugins:
 | - | - | - | - |
 | `name` | required | Name of the project containing alphanumeric characters, hyphens, underscores, and periods. | None. |
 | `runtime` | required | Installed language runtime of the project: `nodejs`, `python`, `go`, `dotnet`, `java` or `yaml`. | [runtime options](#runtime-options)
-| `description` | optional | Description of the project (A breif description of project). | None. |
+| `description` | optional | A brief description of the project. | None. |
 | `config` | optional | Project level config (Added in v3.44). | [config options](#config-options) |
 | `main` | optional | Path to the Pulumi program. The default is the working directory. | None. |
 | `stackConfigDir` | optional | Config directory location relative to the location of `Pulumi.yaml`. | None. |
