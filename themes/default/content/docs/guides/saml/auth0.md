@@ -12,7 +12,7 @@ aliases:
 - /docs/console/accounts/saml/auth0/
 ---
 
-This guide walks you through configuring your Auth0 as a SAML SSO identity provider
+This guide walks you through configuring your Auth0 Authentication Platform as a SAML SSO identity provider
 (IDP) for the Pulumi Service.
 
 ## Prerequisites
