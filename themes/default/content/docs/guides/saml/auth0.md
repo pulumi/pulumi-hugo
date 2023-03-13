@@ -24,7 +24,7 @@ This guide walks you through configuring your Auth0 Authentication Platform as a
 ## Enabling SAML For Your Auth0 Authentication Platform
 
 To enable SAML for your Auth0 Authentication Platform, navigate to the **Applications** section of your Auth0 dashboard. You may
-need to create a new application or select an existing application. Next we need to get the SAML metadata XML to
+need to create a new application or select an existing application. Next, we need to get the SAML metadata XML to
 configure Pulumi. For this, navigate to the **Settings** tab of your application and scroll down to the **Advanced
 Settings** section.
 
