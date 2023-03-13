@@ -21,7 +21,7 @@ This guide walks you through configuring your Auth0 Authentication Platform as a
 * You must be an admin of your Pulumi organization.
 * (Optional, but highly recommended) You should have more than one admin for your Pulumi organization.
 
-## Enabling SAML For Your Auth0 Application
+## Enabling SAML For Your Auth0 Authentication Platform
 
 To enable SAML for your Auth0 application, navigate to the **Applications** section of your Auth0 dashboard. You may
 need to create a new application or select an existing application. Next we need to get the SAML metadata XML to
