@@ -10,7 +10,7 @@ tags:
     - import
 ---
 
-Point and click in the console is great when you're first starting out learning a new cloud or managed service, but it quickly becomes a hindrance when cloud is widely adopted by an organization. The point at which the term "widely adopted" becomes applicable to your situation differs, but at some point in their careers many infrastructure and platform engineers are faced with situation where a large number of critical infrastructure resources were created through "clickops" with no ability to track changes, reproduce environments consistently, and so on. When this happens (and it will probably happen to many of you), it's time to import those resources into infrastructure as code.
+Point and click in the console is great when you're first starting out learning a new cloud or managed service, but it quickly becomes a hindrance when cloud infrastructure is widely adopted by an organization. The point at which the term "widely adopted" becomes applicable to your situation differs, but at some point in their careers, many infrastructure and platform engineers are faced with situations where a large number of critical infrastructure resources were created through "click ops" with no ability to track changes, reproduce environments consistently, and so on. When this happens (and it will probably happen to many of you), it's time to import those resources into infrastructure as code.
 
 Fortunately, Pulumi has one of the smoothest and most powerful import processes of any IaC tool. In this post, we're going to show you how to automate the bulk importation of Google Cloud resources into Pulumi! This approach will also work on resources that were created by another IaC tool.
 
@@ -28,7 +28,7 @@ Our process for importing from Google Cloud has the following steps:
 1. In a Python script, take the Config Connector YAML output and transform it into JSON suitable for a bulk `pulumi import` operation.
 1. Run the `pulumi import` command and place the generated code in our Pulumi program.
 
-### Config connector
+### Config Connector
 
 Config Connector is designed to manage Google Cloud resources represented as Kubernetes Custom Resource Definitions (CRDs). We will not be using this capability of Config Connector, but if you are interested in managing Pulumi stacks as CRDs in a GitOps workflow, check out the [Pulumi Kubernetes Operator](https://www.pulumi.com/docs/guides/continuous-delivery/pulumi-kubernetes-operator/). Instead, we'll use Config Connector's [bulk export](https://cloud.google.com/config-connector/docs/how-to/import-export/bulk-export#exporting_an_inventory_with_config-connector) capability to query our Google Cloud environment for resources and output them as Kubernetes manifests, then transform those Kubernetes manifests into JSON suitable for a bulk `pulumi import` operation via a script written in Python.
 
@@ -109,7 +109,7 @@ resource_type_mappings = {
     # etc.
 ```
 
-Obtaining the `name` is simple - virtually all of the Kubernetes manifests in our sample data contained a unique or near-unique identifier under `k8s_resource['metadata']['name']`. Occasionally, we saw naming collisions that causes errors, for example where a compute instance (VM) and its main disk resource shared the same name. At the time of writing, the `pulumi import` command requires that names be unique within the context of a bulk import. However, this is not a requirement when authoring Pulumi programs - the combination of (name, type) must be unique. In these cases, we simply ensured a unique name by appending `-1` to the resource name. This isn't the most elegant solution, but it works well enough when collisions are relatively infrequent:
+Obtaining the `name` is simple - virtually all of the Kubernetes manifests in our sample data contained a unique or near-unique identifier under `k8s_resource['metadata']['name']`. Occasionally, we saw naming collisions that cause errors, for example where a compute instance (VM) and its main disk resource shared the same name. At the time of writing, the `pulumi import` command requires that names be unique within the context of a bulk import. However, this is not a requirement when authoring Pulumi programs - the combination of (name, type) must be unique. In these cases, we simply ensured a unique name by appending `-1` to the resource name. This isn't the most elegant solution, but it works well enough when collisions are relatively infrequent:
 
 ```python
 def ensure_unique_name(pulumi_resource):
@@ -142,7 +142,7 @@ def get_default_id(k8s_resource):
     return id
 ```
 
-However, for resource types that do not fit this pattern we'll need to do some additional work.
+For any resource types that do not fit this pattern, we'll need to do some additional work.
 
 ### Mapping resources with custom ID requirements
 
@@ -209,7 +209,7 @@ The command will generate output like the following:
 // ...
 ```
 
-Once we're in our Pulumi program's root, we can instruct `pulumi import` to do a bulk import and output the generated code to a file in the language of our program (in this example, TypeScript, but `pulumi import` will automatically generate code in the correct language).
+Once we're in our Pulumi program's root, we can instruct `pulumi import` to do a bulk import and output the generated code to a file in the language of our program (this example includes TypeScript output, but `pulumi import` will automatically generate code in the correct language for your project).
 
 ```bash
 pulumi import -f ../config-connector-transform/pulumi-import.json -y -s dev -o index.ts
