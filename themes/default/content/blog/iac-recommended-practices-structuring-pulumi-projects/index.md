@@ -15,7 +15,7 @@ tags:
 
 This is the third post in a series of blog posts focused on Zephyr Archaeotech Emporium---our fictional company---and their use of Pulumi to manage their online retail store. In the first post, you saw how Zephyr initially decided to go with a single Pulumi project for managing deployments of their online retail store application. In this post, you'll see how Zephyr's use of Pulumi evolves as their company grows and evolves.<!--more-->
 
-The [first blog post](/blog/iac-recommended-practices-code-organization-and-stacks/) in the Zephyr series specifically mentions that the series will show "how Zephyr's use of Pulumi evolves as the company grows and their online retail store application changes to accommodate their growth." While the ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application, it's important to note that these recommended practices can and will change over time as the organizations using Pulumi also change and evolve.
+The [first blog post](/blog/iac-recommended-practices-code-organization-and-stacks/) in the Zephyr series specifically mentions that the series will show "how Zephyr's use of Pulumi evolves as the company grows and their online retail store application changes to accommodate their growth." While the ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application, it's important to note that many recommended practices are "point in time" recommendations---and they will change over time as the companies using Pulumi also change. This blog post is an example of that evolution in action: what was right for Zephyr while they were smaller may not be right for Zephyr when they are larger.
 
 Here are links to all the blog posts in the series (entries below that are not linked are planned but haven't yet been published---this will get updated as new posts are published):
 
@@ -25,9 +25,9 @@ Here are links to all the blog posts in the series (entries below that are not l
 
 **IaC Recommended Practices: Structuring Pulumi Projects** (this post)
 
-IaC Recommended Practices: Local Testing with Pulumi
-
 IaC Recommended Practices: Tying Stacks Together with Stack References
+
+IaC Recommended Practices: Local Testing with Pulumi
 
 IaC Recommended Practices: Evolving the Application
 
@@ -39,7 +39,11 @@ IaC Recommended Practices: Refactoring for Reuse
 
 As a result of launching its online presence, Zephyr saw amazing success. The market for arcane artifacts and novel curiosities is booming, and Zephyr is becoming a leader in this market. Funded by this success, Zephyr has grown rapidly. Along with this growth, Zephyr's software engineering and IT teams also grew and expanded. Fortunately, Zephyr's [use of per-developer stacks with short-lived ephemeral Git branches](/blog/iac-recommended-practices-developer-stacks-git-branches/) positioned the development teams well for this growth.
 
-Naturally this growth has resulted in some separation of duties. The IT team now has responsibility for the infrastructure that supports the online retail store. Within that team, some team members are focused on "core" infrastructure, while other team members are focused only on Kubernetes (a natural decision given Zephyr's use of Kubernetes in their architecture).
+{{% notes %}}
+For a look at the code as it was at the end of the second post in the series, see the [`dev-stacks`](https://github.com/pulumi/zephyr-app/tree/dev-stacks) tag of the [`pulumi/zephyr-app`](https://github.com/pulumi/zephyr-app) repository on GitHub.
+{{% /notes %}}
+
+Naturally this growth has resulted in some separation of duties. The IT team now has responsibility for the infrastructure that supports the online retail store. Within that team, some team members are focused on "core" infrastructure, while other team members are focused only on Kubernetes (a natural decision given Zephyr's use of Kubernetes in their architecture). The application team continues to remain responsible for the online store application itself.
 
 This left Zephyr again asking some questions about the best path forward:
 
@@ -64,6 +68,8 @@ For multiple projects, the key advantage is _flexibility._ It's true that the ad
 
 Finally, there is the consideration of what happens in the event of human error, and limiting the so-called "blast radius." With a single project, _all_ the resources in that project are within the blast radius---all of them could potentially be affected in the event of human error. Using separate Pulumi projects can limit the blast radius. It's not something that should drive the decision all by itself, but it _is_ a factor to be considered.
 
+In some ways, the decision points for single vs. multiple projects are analogous to the decision points for monolith vs. microservice: independent scaling and flexibility versus simplicity.
+
 _In general, most customers end up using multiple Pulumi projects per use case._ As you've seen, though, there are a number of factors that influence that decision and will affect how many projects end up in use.
 
 ## Moving forward with Zephyr
@@ -84,7 +90,7 @@ In [the first Zephyr post](/blog/iac-recommended-practices-code-organization-and
 * A new "zephyr-k8s" repository housed the code for the platform project
 * The code for the online retail store application itself remained in the same "zephyr-app" repository
 
-Note that relocating code (to a different GitHub repository or different filesystem location within a repository) generally has no impact on Pulumi---keeping in mind, of course, that filesystem paths and such may need to be adjusted in code to account for any such changes.
+Note that relocating code (to a different GitHub repository or different filesystem location within a repository) generally has no impact on Pulumi. As long as the project name and stack name do not change, then changing the filesystem location won't affect anything---keeping in mind, of course, that filesystem paths and such may need to be adjusted in code to account for any such changes.
 
 These repositories are available for you to review on GitHub; use the branch/tag selector to find the `multi-project` tab in each repository to see the state of the code as of this blog post.
 
@@ -94,5 +100,6 @@ This post covered the following recommended practices for working with Pulumi:
 
 * **Use multiple Pulumi projects** when you need the added flexibility that multiple Pulumi projects offer.
 * **Align your Pulumi projects** according to external factors like company/department/team structure, resource dependencies, lifecycle, and use case/application.
+* **Change the filesystem location** for Pulumi code as needed without impacting the resources managed by that code, as long as the Pulumi project name and stack name don't change.
 
 The next post will focus on some specific technical details related to Zephyr's project reorganization; specifically, how they used StackReferences to share information between multiple Pulumi projects. Stay tuned!
