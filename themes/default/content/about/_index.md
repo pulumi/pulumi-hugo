@@ -52,8 +52,8 @@ spotlight:
       top: 25
       left: 0
       opacity: 100
-    - id: kelsey-dirks
-      name: Kelsey Dirks
+    - id: liz-mccall
+      name: Liz McCall
       size: 94
       top: -28
       left: 175
@@ -76,14 +76,14 @@ spotlight:
       top: 20
       left: 345
       opacity: 50
-    - id: susan-evans
-      name: susan evans
+    - id: monica-rodriguez
+      name: Monica Rodriguez
       size: 94
       top: 240
       left: 445
       opacity: 50
-    - id: tushar-shah
-      name: Tushar Shah
+    - id: kyle-dixler
+      name: Kyle Dixler
       size: 94
       top: 30
       left: 580
@@ -100,14 +100,14 @@ spotlight:
       top: -15
       left: 750
       opacity: 50
-    - id: komal-ali
-      name: Komal Ali
+    - id: zaid-ajaj
+      name: Zaid Ajaj
       size: 150
       top: 120
       left: 850
       opacity: 100
-    - id: kimberley-mackenzie
-      name: Kimberley Mackenzie
+    - id: anita-trimbur
+      name: Anita Trimbur
       size: 94
       top: -50
       left: 900
@@ -142,8 +142,8 @@ spotlight:
       top: 20
       left: 1337
       opacity: 50
-    - id: nicole-besio
-      name: Nicole Besio
+    - id: sara-huddleston
+      name: Sara Huddleston
       size: 94
       top: 175
       left: 1365
