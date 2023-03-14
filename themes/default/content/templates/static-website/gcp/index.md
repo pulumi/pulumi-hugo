@@ -1,5 +1,7 @@
 ---
+title_tag: Learn to Host a Google Cloud Static Website
 title: Google Cloud Static Website
+h1: Host a Static Website on Google Cloud
 meta_desc: The Google Cloud Static Website template makes it easy to deploy a static website on Google Cloud with Pulumi, Google Cloud Storage, and Google Cloud CDN.
 meta_image: meta.png
 card_desc: Deploy a static website on Google Cloud with Pulumi, Google Cloud Storage, and Google Cloud CDN.
