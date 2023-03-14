@@ -282,7 +282,7 @@ The `<typename>` component of the type (e.g. `Bucket`, `VirtualMachine`, `Deploy
 Note that because of some of the historical details of how `<module>` is defined, a "simplified" resource type name is accepted or presented in certain places, and mapped into the "full" resource type name specified above.  The simplified resource type name applies the following rules:
 
 1. If the type token is two components instead of three, that is `<package>:<typename>`, it is interpreted as if it was `<package>:index:<typename>`.
-2. The repetition of the type name as part of the module name is not required, and will be inferred if necessary - that is `aws:s3:Bucket` will be interpreted as referring to `aws:s3/bucket:Bucket`.
+2. The repetition of the `<typename>` as part of the module definition is not required, and will be inferred if necessary - that is `aws:s3:Bucket` will be interpreted as referring to `aws:s3/bucket:Bucket`.
 
 This "simplified" type name format is currently used in the following places:
 
