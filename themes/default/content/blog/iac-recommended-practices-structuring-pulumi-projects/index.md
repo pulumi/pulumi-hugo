@@ -40,7 +40,7 @@ IaC Recommended Practices: Refactoring for Reuse
 As a result of launching its online presence, Zephyr saw amazing success. The market for arcane artifacts and novel curiosities is booming, and Zephyr is becoming a leader in this market. Funded by this success, Zephyr has grown rapidly. Along with this growth, Zephyr's software engineering and IT teams also grew and expanded. Fortunately, Zephyr's [use of per-developer stacks with short-lived ephemeral Git branches](/blog/iac-recommended-practices-developer-stacks-git-branches/) positioned the development teams well for this growth.
 
 {{% notes %}}
-For a look at the code as it was at the end of the second post in the series, see the [`dev-stacks`](https://github.com/pulumi/zephyr-app/tree/dev-stacks) tag of the [`pulumi/zephyr-app`](https://github.com/pulumi/zephyr-app) repository on GitHub.
+For a look at the state of Zephyr's Pulumi code as it stood as of the end of the second post in the series, see the [`dev-stacks`](https://github.com/pulumi/zephyr-app/tree/dev-stacks) tag of the [`pulumi/zephyr-app`](https://github.com/pulumi/zephyr-app) repository on GitHub.
 {{% /notes %}}
 
 Naturally this growth has resulted in some separation of duties. The IT team now has responsibility for the infrastructure that supports the online retail store. Within that team, some team members are focused on "core" infrastructure, while other team members are focused only on Kubernetes (a natural decision given Zephyr's use of Kubernetes in their architecture). The application team continues to remain responsible for the online store application itself.
