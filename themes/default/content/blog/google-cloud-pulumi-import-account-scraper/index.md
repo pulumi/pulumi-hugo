@@ -1,6 +1,6 @@
 ---
 title: "Google Cloud: Bulk Importing Resources into Pulumi"
-date: 2023-03-07
+date: 2023-03-16
 meta_desc: "Learn how to bulk import your Google Cloud resources into Pulumi"
 meta_image: "meta.png"
 authors:
@@ -243,7 +243,7 @@ const gke_helloworld_2a71d4f_pvc_1e6aa931_d742_437e_a52b_413999ace2be = new gcp.
 ```
 
 {{% notes %}}
-You may need to massage some of the generated output for any `*IAMPolicy` resources because deleted principals cannot be contained in IAM policies due to a limitation of the Google Classic provider, but they still contained in the generated code returned by `pulumi import`, which in turn comes from the Google API.
+You may need to massage some of the generated output for any `*IAMPolicy` resources because deleted principals cannot be contained in IAM policies due to a limitation of the Google Classic provider, but they are still contained in the generated code returned by `pulumi import`, which in turn comes from the Google API.
 {{% /notes %}}
 
 ## Next Steps
@@ -256,6 +256,6 @@ Now that we have our Google Cloud resources under Pulumi management, we might wa
 
 ## Conclusion
 
-We’ve shown how the Google Cloud account scraper combined with `pulumi import` enables organizations to quickly get all of their Google Cloud resources under management with Pulumi. Managing cloud resources with Pulumi allows organizations to utilize modern, automated, code-centric approach, and `pulumi import` makes this adopting Pulumi as painless as possible, even when critical resources have been created via point and click in the console!
+We’ve shown how the Google Cloud account scraper combined with `pulumi import` enables organizations to quickly get all of their Google Cloud resources under management with Pulumi. Managing cloud resources with Pulumi allows organizations to utilize modern, automated, code-centric approach, and `pulumi import` makes adopting Pulumi as painless as possible, even when critical resources have been created via point and click in the console!
 
 If you use the Google Cloud account scraper and find something you need is not supported, please [submit an issue](https://github.com/pulumi/pulumi-import-google-cloud-account-scraper/issues), or better yet, submit a pull request!
