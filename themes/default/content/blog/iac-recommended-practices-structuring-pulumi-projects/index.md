@@ -1,6 +1,6 @@
 ---
 title: "Iac Recommended Practices: Structuring Pulumi Projects"
-date: 2023-03-16T16:50:38-07:00
+date: 2023-03-17
 meta_desc: The third post in the Zephyr series examines recommended practices around structuring Pulumi projects.
 meta_image: meta.png
 authors:
