@@ -1,5 +1,5 @@
 ---
-title: "Reducing Our Error Rate 17x YoY"
+title: "Read Every Error"
 date: 2023-03-20
 meta_desc: How one process helped us decrease our error rate 17x in one year.
 meta_image: error_rate.png
