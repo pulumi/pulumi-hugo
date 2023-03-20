@@ -16,7 +16,7 @@ At Pulumi we read every single error message that our API produces. This is the 
 
 Doesn’t common wisdom tell us that we need a fancy observability toolchain, or to follow the Google SRE model? I can confidently say that you don’t. I’ll go a step further and state that throughout my career, every system I’ve worked on that relied on aggregate views of errors was a complete dumpster fire. In every team where we instead chose to read all the errors, reliability naturally improved over time.
 
-I offer a concrete process that will drive your error rates down over time with math to back it up. 
+I offer a concrete process that will drive your error rates down over time with math to back it up.
 
 ## Read Every Error Message That Your System Produces
 
