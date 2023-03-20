@@ -17,8 +17,6 @@ We aim to be rock solid, which is not always achievable for lean, hypergrowth st
 
 How do we still manage to make order-of-magnitude improvements? While the answer to these sorts of questions almost always boils down to [culture](https://joeduffyblog.com/2016/04/10/performance-culture/), I’d like to offer up a concrete process that is mathematically guaranteed to drive your error rate down over time.
 
-## Read Every Error
-
 Read every error message that your system produces. Simple but effective. Our team pumps every 500 into a slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
 
 ## Reliability from First Principles
