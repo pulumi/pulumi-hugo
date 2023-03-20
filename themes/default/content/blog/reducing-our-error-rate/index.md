@@ -25,7 +25,7 @@ Read every error message that your system produces. Simple but effective. Our te
 
 The equation is simple:
 
-> (API Call Volume) * (Error Rate) * (Time to Triage an Error) < On-Call Attention
+> (API Call Volume) \* (Error Rate) \* (Time to Triage an Error) < On-Call Attention
 
 This equation comes with a few important constraints:
 
