@@ -1,6 +1,6 @@
 ---
 title: Leadership
-meta_desc: Meet Pulumi's leadership team. Pulumi is a Seattle-based company that enables teams to create, deploy, and manage modern cloud applications and infrastructure.
+meta_desc: Pulumi's open source infrastructure as code SDK enables you to create, deploy, and manage infrastructure on any cloud, using your favorite languages.
 type: page
 layout: leadership
 ---

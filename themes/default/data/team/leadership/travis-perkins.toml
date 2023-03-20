@@ -2,7 +2,7 @@ id = "travis-perkins"
 name = "Travis Perkins"
 title = "VP of Customer Operations"
 company = "Pulumi"
-weight = 1
+weight = 9
 status = "active"
 
 [social]

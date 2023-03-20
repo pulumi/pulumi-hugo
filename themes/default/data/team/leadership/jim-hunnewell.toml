@@ -2,7 +2,7 @@ id = "jim-hunnewell"
 name = "Jim Hunnewell"
 title = "CRO"
 company = "Pulumi"
-weight = 1
+weight = 4
 
 status = "active"
 
