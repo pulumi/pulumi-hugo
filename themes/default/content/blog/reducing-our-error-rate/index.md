@@ -69,6 +69,6 @@ Apathy in place of customer obsession is not an option if you are a startup that
 
 Error budgets and the SRE model are haute couture. Some preach that we should never look at errors at this level of granularity and instead use expensive tools that aggregate, categorize, and collect statistics on errors flowing through your system. But all of this automation can actually make things worse when you reach for it prematurely. Aggregating errors is a great way to gloss over important details early on. Collecting fancy metrics does not matter if your users are not happy. Cutting your teeth with the tools and processes that make sense for your level of scale is the only way to build a high-performance culture. Skipping straight to step 100 does not always help.
 
-Admittedly, this process does not work for Google-level scale. But it works a lot longer than you might imagine. Pulumi manages a large fraction of the resources deployed across all clouds. We see billions of requests per year and store over 500 terabytes of cloud resource metadata. Believe it or not, it turns out that large-cap software engineer’s system is in the same order of magnitude.
+Admittedly, this process does not work for Google-level scale. But it works a lot longer than you might imagine. Pulumi manages a large fraction of the resources deployed across all clouds. Believe it or not, it turns out that large-cap software engineer’s system is in the same order of magnitude.
 
 We’re still reading every error.
