@@ -23,15 +23,14 @@ Read every error message that your system produces. Simple but effective. Our te
 
 ## Reliability from First Principles
 
-
 The equation is simple:
 
 **(# API Calls) * (Error Rate) * (Time to Triage an Error) < On-Call Attention**
 
 This equation comes with a few important constraints:
 
-1. On-call attention is a fixed commodity 
-2. API call volume scales with your business 
+1. On-call attention is a fixed commodity
+2. API call volume scales with your business
 3. This process requires reading every error message
 
 The end result is simple. Your error rate must improve over time to keep the scales balanced. If it doesn’t, the process becomes untenable.
@@ -40,17 +39,17 @@ Let’s assume you have one engineer on call, and they spend at most an hour a d
 
 Let’s say that triaging an error is a 5-minute process that might involve any of the following:
 
-- Checking the issue tracker for a pre-existing ticket to add context to, a +1, etc.
+- Checking the issue tracker for a pre-existing ticket to add additional context, a +1, etc.
 - Reaching out to a teammate who just shipped some buggy code so they can get a fix out
 - Filing a well-documented bug
-- Starting a slack thread with the team to organize a plan to address a known issue that seems to be creeping up
+- Starting a slack thread with the team to raise a known issue that seems to be cropping up more regularly
 - Just opening a PR if it’s a simple fix
 
 Rember we only have 250 hours or 15,000 minutes per year to triage with a single on-call engineer. At five minutes a pop we can triage ~3000 errors per year until things start dropping on the floor.
 
 Now imagine you work on a new product and you just launched your MVP. It is early days, but there is some traction and you’re seeing API traffic at a rate of 1,000,000 requests per year. Your annual budget for triaging as we previously determined is 3000 errors, which yields a maximum permissible error rate of 0.3%, or a 99.7% success rate.
 
-Over the next six months, the team iterates, listens to customers, and delivers a ton of value. As a result, traffic levels grow to a rate of 10,000,000 requests per year. But still, our team hasn’t grown much and we still have just one engineer on call at any given point in time meaning our error triage capacity remains fixed at 3000 errors per year. In order to keep up with triaging the error stream at the increased levels of traffic, the team must improve the error rate to 0.03%. And hopefully, this team continues to be successful, increasing API traffic superlinearly in years to come.
+Over the next six months, the team iterates, listens to customers, and delivers a ton of value. As a result, traffic levels grow to a rate of 10,000,000 requests per year. But still, our team hasn’t grown much and we still have just one engineer on call at any given point in time meaning our error triage capacity remains fixed at 3000 errors per year. In order to keep up with triaging the error stream at the increased levels of traffic, the team must improve the error rate from 0.3% to 0.03%. And hopefully, this team continues to be successful, increasing API traffic superlinearly in years to come.
 
 If you want to be able to read every error message, then the error rate has to come down as API traffic increases.
 
@@ -68,7 +67,7 @@ Apathy in place of customer obsession is not an option if you are a startup that
 
 ## The SRE's Folly
 
-Error budgets and the SRE model are haute couture. Some preach that we should never look at errors at this level of granularity and instead use expensive tools that aggregate, categorize, and collect statistics on errors flowing through your system. But all of this automation can actually make things worse when you reach for it prematurely. Aggregating errors is a great way to gloss over important details early on. Collecting fancy metrics does not matter if your users are not happy. Cutting your teeth with the tools and processes that make sense for your level of scale is the only way to build a high-performance culture. Skipping straight to step number Google does not always help.
+Error budgets and the SRE model are haute couture. Some preach that we should never look at errors at this level of granularity and instead use expensive tools that aggregate, categorize, and collect statistics on errors flowing through your system. But all of this automation can actually make things worse when you reach for it prematurely. Aggregating errors is a great way to gloss over important details early on. Collecting fancy metrics does not matter if your users are not happy. Cutting your teeth with the tools and processes that make sense for your level of scale is the only way to build a high-performance culture. Skipping straight to step 100 does not always help.
 
 Admittedly, this process does not work for Google-level scale. But it works a lot longer than you might imagine. Pulumi manages a large fraction of the resources deployed across all clouds. We see billions of requests per year and store over 500 terabytes of cloud resource metadata. Believe it or not, it turns out that large-cap software engineer’s system is in the same order of magnitude.
 
