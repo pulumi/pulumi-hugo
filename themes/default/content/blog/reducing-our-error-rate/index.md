@@ -23,7 +23,7 @@ Read every error message that your system produces. Simple but effective. Our te
 
 ## Reliability from First Principles
 
-The equation is simple:
+Why does reading error messages imply improving error rates? It isn't magic. You still have to dedicate time to fix the bugs you're shipping and make proactive investments. But you can model this process with a simple equation:
 
 ```
 (API Call Volume) * (Error Rate) * (Time to Triage an Error) < On-Call Attention
