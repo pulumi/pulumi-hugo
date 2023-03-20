@@ -9,15 +9,14 @@ tags:
     - cloud-engineering
 ---
 
-Over the last year, we reduced the error rate of api.pulumi.com by 17x, even though the success rate was already >99.997% at the outset. We take reliability extremely seriously. If our API is unavailable, it becomes much more difficult for our users to update their infrastructure and remediate live site issues of their own.<!--more-->
+
+At Pulumi we read every single error message that our API produces. This is the primary mechanism that led to a 17x YoY reduction in our error rate. You’re probably wondering how the hell reading error messages make them go away.<!--more-->
 
 ![Pulumi Service API Error Rate Graph](./error_rate.png)
 
-We aim to be rock solid, which is not always achievable for lean, hypergrowth startups. Our service engineering team is only eight individual contributors, and we have an endless backlog of feature requests, sales enablement, support, and bugs all contending in parallel as users and API traffic are scaling exponentially.
+Doesn’t Google’s cult of SRE tell us that we need a fancy observability toolchain? I can confidently say that you don’t. I’ll go a step further and state that throughout my career, every system I’ve worked on that relied on aggregate views of errors was a complete dumpster fire. In every team where we instead chose to read all the errors, reliability naturally improved over time.
 
-How do we still manage to make order-of-magnitude improvements? While the answer to these sorts of questions almost always boils down to [culture](https://joeduffyblog.com/2016/04/10/performance-culture/), I’d like to offer up a concrete process that is mathematically guaranteed to drive your error rate down over time.
-
-Read every error message that your system produces. Simple but effective. Our team pumps every 500 into a slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
+I offer a concrete process that is mathematically guaranteed to drive your error rate down over time. Read every error message that your system produces. Simple but effective. Our team pumps every 500 into a slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
 
 ## Reliability from First Principles
 
