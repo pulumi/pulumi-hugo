@@ -1,5 +1,5 @@
 ---
-title: "Read Every Error"
+title: "Read Every Single Error"
 date: 2023-03-20
 meta_desc: How one process helped us decrease our error rate 17x in one year.
 meta_image: error_rate.png
@@ -14,9 +14,13 @@ At Pulumi we read every single error message that our API produces. This is the 
 
 ![Pulumi Service API Error Rate Graph](./error_rate.png)
 
-Doesn’t Google’s cult of SRE tell us that we need a fancy observability toolchain? I can confidently say that you don’t. I’ll go a step further and state that throughout my career, every system I’ve worked on that relied on aggregate views of errors was a complete dumpster fire. In every team where we instead chose to read all the errors, reliability naturally improved over time.
+Doesn’t common wisdom tell us that we need a fancy observability toolchain, or to follow the Google SRE model? I can confidently say that you don’t. I’ll go a step further and state that throughout my career, every system I’ve worked on that relied on aggregate views of errors was a complete dumpster fire. In every team where we instead chose to read all the errors, reliability naturally improved over time.
 
-I offer a concrete process that is mathematically guaranteed to drive your error rate down over time. Read every error message that your system produces. Simple but effective. Our team pumps every 500 into a slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
+I offer a concrete process that will drive your error rates down over time with math to back it up. 
+
+## Read Every Error Message That Your System Produces
+
+You should read every error message that your system produces. Simple but effective. Our team pumps every 500 into a slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
 
 ## Reliability from First Principles
 
