@@ -10,7 +10,7 @@ tags:
 ---
 
 
-At Pulumi we read every single error message that our API produces. This is the primary mechanism that led to a 17x YoY reduction in our error rate. You’re probably wondering how the hell reading error messages make them go away.<!--more-->
+At Pulumi we read every single error message that our API produces. This is the primary mechanism that led to a 17x YoY reduction in our error rate. You’re probably wondering how reading error messages make them go away.<!--more-->
 
 ![Pulumi Service API Error Rate Graph](./error_rate.png)
 
@@ -72,6 +72,6 @@ Apathy in place of customer obsession is not an option if you are a startup that
 
 Error budgets and the SRE model are haute couture. Some preach that we should never look at errors at this level of granularity and instead use expensive tools that aggregate, categorize, and collect statistics on errors flowing through your system. But all of this automation can actually make things worse when you reach for it prematurely. Aggregating errors is a great way to gloss over important details early on. Collecting fancy metrics does not matter if your users are not happy. Cutting your teeth with the tools and processes that make sense for your level of scale is the only way to build a high-performance culture. Skipping straight to step 100 does not always help.
 
-Admittedly, this process does not work for Google-level scale. But it works a lot longer than you might imagine. Pulumi manages a large fraction of the resources deployed across all clouds. I asked large-cap software engineer about traffic levels and believe it or not, it is in the same order of magnitude as what we see at Pulumi.
+Admittedly, this process does not work for Google-level scale. But it works a lot longer than you might imagine. Pulumi manages a meaningful percentage of the resources deployed across all clouds. I asked large-cap software engineer about traffic levels and believe it or not, it is in the same order of magnitude as what we see at Pulumi.
 
 We’re still reading every error.
