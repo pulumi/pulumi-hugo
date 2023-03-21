@@ -1,6 +1,6 @@
 ---
 title: "Read Every Single Error"
-date: 2023-03-20
+date: 2023-03-21
 meta_desc: How one process helped us decrease our error rate 17x in one year.
 meta_image: meta.png
 authors:
@@ -20,17 +20,17 @@ I offer a concrete process that will drive your error rates down over time with 
 
 ## Read Every Error Message That Your System Produces
 
-You should read every error message that your system produces. Simple but effective. Our team pumps every 500 into a slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
+You should read every error message that your system produces. Simple but effective. Our team pumps every 5XX into a Slack channel and reviewing each of these is a top priority for the current on-call engineer. There’s a little more to it, but that’s the gist! Commit to this process and your error rates are guaranteed to drop. And I can prove it!
 
 ## Reliability from First Principles
 
-Why does reading error messages imply improving error rates? It isn't magic. You still have to dedicate time to fix the bugs you're shipping and make proactive investments. But you can model this process with a simple equation:
+Why does reading error messages imply improving error rates? It isn't magic. You still have to dedicate time to fix the bugs you're shipping and make proactive investments. But you can model this process with a simple inequality:
 
 ```
 (API Call Volume) * (Error Rate) * (Time to Triage an Error) < On-Call Attention
 ```
 
-This equation comes with a few important constraints:
+This comes with a few important constraints:
 
 1. On-call attention is a fixed commodity
 2. API call volume scales with your business
@@ -45,10 +45,10 @@ Let’s say that triaging an error is a 5-minute process that might involve any 
 - Checking the issue tracker for a pre-existing ticket to add additional context, a +1, etc.
 - Reaching out to a teammate who just shipped some buggy code so they can get a fix out
 - Filing a well-documented bug
-- Starting a slack thread with the team to raise a known issue that seems to be cropping up more regularly
+- Starting a Slack thread with the team to raise a known issue that seems to be cropping up more regularly
 - Just opening a PR if it’s a simple fix
 
-Rember we only have 250 hours or 15,000 minutes per year to triage with a single on-call engineer. At five minutes a pop we can triage ~3000 errors per year until things start dropping on the floor.
+Remember we only have 250 hours or 15,000 minutes per year to triage with a single on-call engineer. At five minutes a pop we can triage ~3000 errors per year until things start dropping on the floor.
 
 Now imagine you work on a new product and you just launched your MVP. It is early days, but there is some traction and you’re seeing API traffic at a rate of 1,000,000 requests per year. Your annual budget for triaging as we previously determined is 3000 errors, which yields a maximum permissible error rate of 0.3%, or a 99.7% success rate.
 
@@ -60,11 +60,11 @@ If you want to be able to read every error message, then the error rate has to c
 
 Pulumi aspires to be the most reliable infrastructure that our customers interact with, and the benefits towards that end are reason enough for us. But this process is by no means free, and there is always an opportunity cost.
 
-We noticed a powerful second-order effect emerge over time. The team began obsessing over the user experience. Following this process builds a visceral understanding of how your system behaves. You know when a new feature has a bug before the first support tickets get opened. You know which customer workloads will require scaling investments in the next 90 days. You know what features see heavy usage and which ones customers ignore. You’re forced to confront every wart in your application. Slowly, your team builds a better understanding of your customers and this trickles down into every aspect of product development. You begin to hold yourselves to higher standards.
+However, we noticed a powerful second-order effect emerge over time. The team began obsessing over the user experience. Following this process builds a visceral understanding of how your system behaves. You know when a new feature has a bug before the first support tickets get opened. You know which customer workloads will require scaling investments in the next 90 days. You know what features see heavy usage and which ones customers ignore. You’re forced to confront every wart in your application. Slowly, your team builds a better understanding of your customers and this trickles down into every aspect of product development. You begin to hold yourselves to higher standards.
 
 A friend and engineer at a large-cap software company read a draft of this post and told me:
 
- > “I can’t imagine this process being set on any of the systems I work on at *REDACTED*. They are so prone to 500s and everybody shrugs their shoulders as if it is just commonplace.”
+ > “I can’t imagine this process being set on any of the systems I work on at [redacted]. They are so prone to 500s and everybody shrugs their shoulders as if it is just commonplace.”
 
 Apathy in place of customer obsession is not an option if you are a startup that wants to disrupt anything.
 
