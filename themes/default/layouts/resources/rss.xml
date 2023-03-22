@@ -8,10 +8,11 @@
         <pubDate>{{ now | time.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
         {{ range (sort .Data.Pages ".Params.main.sortable_date").Reverse }}
             <item>
+                <guid>{{ .Site.Params.canonicalURL }}{{ .RelPermalink }}</guid>
                 <title>{{ .Params.title }}</title>
                 <description>{{ .Params.meta_desc }}</description>
                 <date>{{ .Params.main.sortable_date }}</date>
-                <link>https://pulumi.com/resources/{{ replace .Params.url_slug "/" ""}}</link>
+                <link>{{ .Site.Params.canonicalURL }}{{ .RelPermalink }}</link>
             </item>
         {{ end }}
     </channel>
