@@ -651,6 +651,217 @@ variables:
 
 {{% /choosable %}}
 
+## Working with Outputs and JSON {#outputs-and-json}
+
+Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. Pulumi provides first-class helper functions for working with deserializing JSON string outputs into your language's native objects and serializing your language's native objects to JSON string outputs.
+
+Outputs that contain strings cannot be used directly in operations such as string concatenation. String interpolation lets you more easily build a string out of various output values, without needing {{< pulumi-apply >}} or [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all). You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.
+
+The following is an example of pulumi code that operates on a JSON object and removes all of the policy satements by setting it to an empty list.
+
+{{< chooser language "javascript,typescript,python,go,csharp" >}}
+
+{{% choosable language javascript %}}
+
+### Example Converting Outputs to JSON
+
+```javascript
+const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
+    roleArn: sfnRole.arn,
+    stateMachineType: "EXPRESS",
+    definitionString: pulumi.jsonStringify({
+        "Comment": "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
+        "StartAt": "Hello",
+        "States": {
+            "Hello": {
+                "Type": "Task",
+                "Resource": helloFunction.arn,
+                "Next": "World",
+            },
+            "World": {
+                "Type": "Task",
+                "Resource": worldFunction.arn,
+                "End": true,
+            },
+        },
+    })
+});
+```
+
+### Example Parsing JSON outputs to Objects
+
+```javascript
+const jsonIAMPolicy = pulumi.output(`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::my-bucket"
+        }
+    ]
+}`);
+
+const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
+    // delete the policy statements.
+    policy.Statement = [];
+    return policy;
+});
+```
+
+For more information view the NodeJS documentation.
+
+{{% /choosable %}}
+{{% choosable language typescript %}}
+
+### Example Converting Outputs to JSON
+
+```typescript
+const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
+    roleArn: sfnRole.arn,
+    stateMachineType: "EXPRESS",
+    definitionString: pulumi.jsonStringify({
+        "Comment": "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
+        "StartAt": "Hello",
+        "States": {
+            "Hello": {
+                "Type": "Task",
+                "Resource": helloFunction.arn,
+                "Next": "World",
+            },
+            "World": {
+                "Type": "Task",
+                "Resource": worldFunction.arn,
+                "End": true,
+            },
+        },
+    })
+});
+```
+
+### Example Parsing JSON outputs to Objects
+
+```typescript
+const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
+    // delete the policy statements.
+    policy.Statement = [];
+    return policy;
+});
+```
+
+For more information view the NodeJS documentation.
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+### Example Converting Outputs to JSON
+
+```python
+state_machine = aws_native.stepfunctions.StateMachine("stateMachine",
+    role_arn=sfn_role.arn,
+    state_machine_type="EXPRESS",
+    definition_string=pulumi.Output.json_dumps({
+        "Comment": "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
+        "StartAt": "Hello",
+        "States": {
+            "Hello": {
+                "Type": "Task",
+                "Resource": hello_function.arn,
+                "Next": "World",
+            },
+            "World": {
+                "Type": "Task",
+                "Resource": world_function.arn,
+                "End": True,
+            },
+        },
+    })
+)
+```
+
+### Example Parsing JSON outputs to Objects
+
+```python
+jsonIAMPolicy = pulumi.Output.from_input('''
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::my-bucket"
+        }
+    ]
+}
+''')
+
+def update_policy(policy):
+    policy.update({'Statement': []})
+    return policy
+
+policyWithNoStatements = pulumi.Output.json_loads(jsonIAMPolicy).apply(update_policy)
+```
+
+For more details view the Python documentation.
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+### Example Converting Outputs to JSON
+
+```go
+pulumi.JSONMarshal(outputValue)
+```
+
+### Example Parsing JSON outputs to Objects
+
+```go
+pulumi.JSONUnmarshal(stringOutputValue)
+```
+
+For more details view the Go documentation.
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+### Example Converting Outputs to JSON
+
+```go
+pulumi.JSONMarshal(outputValue)
+```
+
+### Example Parsing JSON outputs to Objects
+
+```go
+pulumi.JSONUnmarshal(stringOutputValue)
+```
+
+For more details view the .NET documentation.
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
 ## Convert Input to Output through Interpolation
 
 It is possible to turn an {{< pulumi-input >}} into an {{< pulumi-output >}} value. Resource arguments already accept outputs as input values however, in some cases you need to know that a value is definitely an {{< pulumi-output >}} at runtime. Knowing this can be helpful because, since {{< pulumi-input >}} values have many possible representations—a raw value, a promise, or an output—you would normally need to handle all possible cases. By first transforming that value into an {{< pulumi-output >}}, you can treat it uniformly instead.
