@@ -28,7 +28,7 @@
         }
 
         // On initial load without a target in the url, the all tab should be active.
-        li[data-filter-name="who-we-are"] {
+        li.active-about-nav-item {
             @include gradient-border;
 
             > a {
@@ -266,7 +266,7 @@
     @screen md {
         height: 505px;
     }
-    
+
     h4 {
         @apply text-3xl;
 
