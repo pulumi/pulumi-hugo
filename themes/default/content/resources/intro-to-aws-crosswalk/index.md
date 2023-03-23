@@ -20,6 +20,9 @@ preview_image: "https://img.youtube.com/vi/PQNfLqUHu64/hqdefault.jpg"
 
 # Webinars with unlisted as true will not be shown on the webinar list
 unlisted: true
+# don't index on unlisted resources
+block_external_search_index: true
+
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
