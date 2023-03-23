@@ -11,7 +11,7 @@
                 <guid>{{ .Site.Params.canonicalURL }}{{ .RelPermalink }}</guid>
                 <title>{{ .Params.title }}</title>
                 <description>{{ .Params.meta_desc }}</description>
-                <date>{{ .Params.main.sortable_date }}</date>
+                <pubDate>{{ .Params.main.sortable_date }}</pubDate>
                 <link>{{ .Site.Params.canonicalURL }}{{ .RelPermalink }}</link>
             </item>
         {{ end }}
