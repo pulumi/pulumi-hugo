@@ -22,9 +22,8 @@ consist of stacks—separate deployments of the same infrastructure. Stacks may
 also be configured with separate inputs. Organization admins can leverage RBAC
 to grant project and stack access by sorting members into roles called "teams."
 
-Most often, stacks are created via the CLI with the `pulumi stack init` command.
-[This command](https://www.pulumi.com/docs/reference/cli/pulumi_stack_init/#options)
-initializes a new stack. If you're using the
+Stacks are often created via the CLI with the [`pulumi stack init` command](https://www.pulumi.com/docs/reference/cli/pulumi_stack_init/#options).
+This command initializes a new stack. If you're using the
 [Pulumi Service](https://www.pulumi.com/docs/intro/concepts/state/#pulumi-service-backend)
 as your backend, you can view your newly created stack in the Service UI. If your
 organization uses teams, you'll want to give your teammates access to the stack
