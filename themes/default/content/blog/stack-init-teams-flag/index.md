@@ -30,7 +30,7 @@ as your backend, you can view your newly created stack in the Service UI. If you
 organization uses teams, you'll want to give your teammates access to the stack
 you created.
 
-Now, developers can assign team access during stack creation. To do this,
+With the release of Pulumi v3.59.0, developers can assign team access during stack creation. To do this,
 pass in the `--team` flag followed by the name of the team. For instance:
 `pulumi stack init --team Red`. This saves time by eliminating context switching,
 allowing users to stay on task. Previously, the only way to assign team access to
