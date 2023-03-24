@@ -20,7 +20,7 @@ We recently released a quality-of-life feature for the Pulumi CLI to save users 
 For context, here's some background for any Pulumi newcomers. Pulumi projects
 consist of stacks—separate deployments of the same infrastructure. Stacks may
 also be configured with separate inputs. Organization admins can leverage RBAC
-to  grant project and stack access by sorting members into roles called "teams."
+to grant project and stack access by sorting members into roles called "teams."
 
 Most often, stacks are created via the CLI with the `pulumi stack init` command.
 [This command](https://www.pulumi.com/docs/reference/cli/pulumi_stack_init/#options)
