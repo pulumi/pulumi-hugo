@@ -13,9 +13,9 @@ Pulumi Deployments is a fully managed platform for managing infrastructure at sc
 
 It provides:
 
-- **Compute** - run infrastructure deployments and workloads (ie `pulumi up`) on fully managed, secure, and elastic compute. 
-- **Configuration** - A simple, centralized format for specifying everything you need to deploy your infrastructure at the stack level. Source code, cloud credentials, OpenID Connect (OIDC), environment variables, build prerequisites, and dependencies are bundled in an atomic unit.
-- **Composition** - Trigger deployments via our REST API, click to deploy in the Pulumi Service UI, Git Push to Deploy, Remote Automation API, and other programmatic building blocks that you can compose to build custom cloud automation.
+- **Compute** - run infrastructure deployments and workloads (ie `pulumi up`) on fully managed, secure, and elastic compute
+- **Configuration** - A simple, centralized format for specifying everything you need to deploy your infrastructure at the stack level. Source code, cloud credentials, OpenID Connect (OIDC), environment variables, build prerequisites, and dependencies are bundled in an atomic unit
+- **Composition** - Trigger deployments via our REST API, click to deploy in the Pulumi Service UI, Git Push to Deploy, Remote Automation API, and other programmatic building blocks that you can compose to build custom cloud automation
 
 While Pulumi Deployments has some overlap in functionality offered by a traditional CI/CD system (such as GitHub Actions) it is far more flexible and does not have the constraints and limitations of a CI/CD system. When you configure your infrastructure for Deployments, you get to choose what triggers will cause your stack to update. You may choose a `git push` based workflow, as you get with many CI/CD systems, or you may trigger deployments via the REST API, or you might choose multiple triggers.
 
