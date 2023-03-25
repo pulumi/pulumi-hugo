@@ -4,7 +4,7 @@ title: Configuring OpenID Connect for Azure
 meta_desc: This page describes how to configure OIDC token exchange in Azure for use with Pulumi Deployments
 menu:
     intro:
-        parent: oidc
+        parent: deployments-oidc
         weight: 1
 
 aliases: ["/docs/guides/oidc/azure"]
