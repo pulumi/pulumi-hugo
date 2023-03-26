@@ -20,6 +20,8 @@ It provides:
 
 While Pulumi Deployments has some overlap in functionality offered by a traditional CI/CD system (such as GitHub Actions) it is far more flexible and does not have the constraints and limitations of a CI/CD system. When you configure your infrastructure for Deployments, you get to choose what triggers will cause your stack to update. You may choose a `git push` based workflow, as you get with many CI/CD systems, or you may trigger deployments via the REST API, or you might choose multiple triggers.
 
+![Pulumi Deployments Platform Architecture](deployments.png)
+
 ## Deployment Settings
 
 Each stack in your organization can be configured with deployment settings, a manifest that describes everything needed to run an update. Deployment settings turns a stack into an atomic, deployable unit of infrastructure that self-describes all of its requirements and dependencies. That includes:
