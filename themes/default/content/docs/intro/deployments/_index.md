@@ -41,7 +41,7 @@ Pulumi Deployments offers several triggers that you can compose to build higher-
 - Deployments REST API - an endpoint available at api.pulumi.com that can trigger a variety of pulumi (`up/destroy/refresh/preview`) operations. Calls to this trigger can override individual settings properties to customize deployment behavior (ie - deploy a different branch, or modify a particular environment variable)
 - `git push` to Deploy - Deep integration with the Pulumi GitHub App that enables automatic previews on every pull request, and an automated update whenever code is pushed to the target branch
 - Click to Deploy - trigger a deployment from the Pulumi Service Console with the push of a button. Very useful for day-to-day operational activities such as debugging a stuck stack, or rectifying drift via a refresh, without having to pull a stack and its accompanying source code onto your machine.
-- Remote Automation API - Your favorite strongly typed Pulumi orchestration tool, Automation API, lets you offload update workloads into the cloud. Write deployment scripts that update thousands of environments simultaneously.
+- Remote Automation API - Your favorite strongly typed Pulumi orchestration tool, Automation API, lets you offload update workloads into the cloud. Write deployment scripts that update thousands of environments simultaneously without worrying about compute.
 
 Triggers can be used together, or not at all. Some users like to use the REST API to trigger deployments from GitHub Actions and disable the built-in `git push` integration. Doing so gives them the flexibility to compose deployment settings, the REST API, and click to deploy into useful platform workflows outside of CI/CD.
 
