@@ -22,6 +22,8 @@ While Pulumi Deployments has some overlap in functionality offered by a traditio
 
 ![Pulumi Deployments Platform Architecture](deployments.png)
 
+![Pulumi Deployments Platform Architecture](deployments.png)
+
 ## Deployment Settings
 
 Each stack in your organization can be configured with deployment settings, a manifest that describes everything needed to run an update. Deployment settings turns a stack into an atomic, deployable unit of infrastructure that self-describes all of its requirements and dependencies. That includes:
