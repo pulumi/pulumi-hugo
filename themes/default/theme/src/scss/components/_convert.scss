@@ -284,6 +284,10 @@ pulumi-convert {
                         @apply opacity-0;
                     }
                 }
+
+                .btn-convert {
+                    @apply hidden;
+                }
             }
 
             .diagnostics {

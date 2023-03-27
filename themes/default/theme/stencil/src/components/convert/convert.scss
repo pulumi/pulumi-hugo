@@ -4,4 +4,13 @@ pulumi-convert {
     textarea {
         opacity: 0;
     }
+
+    button {
+        display: block;
+        float: right;
+    }
+
+    .editor-container {
+        background-color: rgba(47, 48, 50);
+    }
 }
