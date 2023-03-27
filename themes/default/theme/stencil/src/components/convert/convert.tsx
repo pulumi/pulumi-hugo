@@ -590,9 +590,9 @@ export class Convert {
                         </div>
                         <div class="editor-container">
                             {this.renderWindowBar()}
+                            {this.renderConvertButton(true)}
                             <ul class="tabs">
                                 {this.sourceFiles.map(file => this.renderTab(file, this.selectedSourceFile, file.name, file.description, this.selectSourceFile))}
-                                <li class="actions">{this.renderConvertButton(true)}</li>
                             </ul>
                             <textarea id="editor-input"></textarea>
                             {this.renderStatusBar("input")}

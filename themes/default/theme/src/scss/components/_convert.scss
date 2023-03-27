@@ -154,9 +154,7 @@ pulumi-convert {
                     transform: translateY(-50%);
 
                     .btn-convert {
-                        @screen xl {
-                            @apply block;
-                        }
+                        @apply block;
                     }
 
                     .btn-download,
