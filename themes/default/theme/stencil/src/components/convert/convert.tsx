@@ -487,16 +487,20 @@ export class Convert {
             </button>
         );
 
+        
+
         if (!withTooltip) {
-            return button;
+            //return button;
         }
 
-        return (
-            <pulumi-tooltip>
-                {button}
-                <span slot="content">{title}</span>
-            </pulumi-tooltip>
-        );
+        return button;
+
+        // return (
+        //     <pulumi-tooltip>
+        //         {button}
+        //         <span slot="content">{title}</span>
+        //     </pulumi-tooltip>
+        // );
     }
 
     private renderDismissAlertButton() {
