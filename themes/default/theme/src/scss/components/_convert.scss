@@ -98,10 +98,6 @@ pulumi-convert {
             .tabs {
                 @apply bg-black shadow-md p-0 flex items-center overflow-x-scroll relative;
 
-                pulumi-tooltip {
-                    display: none;
-                }
-
                 @screen xl {
                     @apply overflow-visible;
 
