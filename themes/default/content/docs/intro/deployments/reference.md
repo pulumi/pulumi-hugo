@@ -46,6 +46,7 @@ Admin requirement (github and pulumi), only one github org per pulumi org.
 ## Common Scenarios
 
 ### Path Filtering
+
 Talk about filtering push to deploy actions to a particular folder
 
 ### Customizing the Deployment Environment
