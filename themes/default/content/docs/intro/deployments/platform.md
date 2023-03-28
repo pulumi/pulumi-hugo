@@ -87,7 +87,7 @@ After the expiration period has elapsed, a deployment will be queued and the dev
 
 ## Managed Infrastructure
 
-Often you need to deploy and manage infrastructure into a cloud account that you don't own or have limited access to. You might SaaS company deploying a self-hosted appliance into a customer environment, or an infrastructure team within a security-conscious enterprise.
+Often you need to deploy and manage infrastructure into a cloud account that you don't own or have limited access to. You might be a SaaS company deploying a self-hosted appliance into a customer environment, or an infrastructure team within a security-conscious enterprise.
 
 Pulumi Deployments with OIDC integration can easily enable this pattern. Account owners can configure an OIDC Identity Provider within their cloud account that enables narrowly scoped access for your Pulumi organization. Since claims such as project, stack, and user are included with the OIDC token exchange, they can write custom validation rules to further limit access.
 
