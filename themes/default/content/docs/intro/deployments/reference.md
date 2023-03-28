@@ -15,6 +15,10 @@ The goal of this page is to make it easy to get started and find pointers to com
 
 ### From the Pulumi Service UI
 
+One thing that should be clear: when you persist deployment settings via the UI, they apply to REST API calls.
+
+The UI can be used to configure settings for both push to deploy if you have the github app installed, but also click to deploy and REST API usage for generic git credentials.
+
 ### From the API
 
 ### Defined as Code with the Pulumi Service Provider
