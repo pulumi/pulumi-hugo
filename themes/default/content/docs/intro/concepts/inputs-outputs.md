@@ -653,16 +653,15 @@ variables:
 
 ## Working with Outputs and JSON {#outputs-and-json}
 
-Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. Pulumi provides first-class helper functions for working with deserializing JSON string outputs into your language's native objects and serializing your language's native objects to JSON string outputs.
+Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. Pulumi provides first-class helper functions for deserializing JSON string outputs into your language's native objects and serializing your language's native objects to JSON string outputs.
 
-Outputs that contain strings cannot be used directly in operations such as string concatenation. String interpolation lets you more easily build a string out of various output values, without needing {{< pulumi-apply >}} or [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all). You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.
-
-The following is an example of Pulumi code that operates on a JSON object and removes all of the policy satements by setting it to an empty list.
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
 {{% choosable language javascript %}}
 
 ### Example Converting Outputs to JSON
+
+The following example allows you to natively represent the definition of an AWS Step Function State Machine and easily embed outputs from other resources in your stack.
 
 ```javascript
 const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
@@ -688,6 +687,8 @@ const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
 ```
 
 ### Example Parsing JSON Outputs to Objects
+
+The following is an example of Pulumi code that operates on a JSON object and removes all of the policy statements by replacing it with an empty list.
 
 ```javascript
 const jsonIAMPolicy = pulumi.output(`{
@@ -712,7 +713,7 @@ const jsonIAMPolicy = pulumi.output(`{
 }`);
 
 const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
-    // delete the policy statements.
+    // delete the policy statements
     policy.Statement = [];
     return policy;
 });
@@ -724,6 +725,8 @@ For more information view the NodeJS documentation.
 {{% choosable language typescript %}}
 
 ### Example Converting Outputs to JSON
+
+The following example allows you to natively represent the definition of an AWS Step Function State Machine and easily embed outputs from other resources in your stack.
 
 ```typescript
 const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
@@ -750,6 +753,8 @@ const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
 
 ### Example Parsing JSON Outputs to Objects
 
+The following is an example of Pulumi code that operates on a JSON object and removes all of the policy statements by replacing it with an empty list.
+
 ```typescript
 const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
     // delete the policy statements
@@ -764,6 +769,8 @@ For more information view the NodeJS documentation.
 {{% choosable language python %}}
 
 ### Example Converting Outputs to JSON
+
+The following example allows you to natively represent the definition of an AWS Step Function State Machine and easily embed outputs from other resources in your stack.
 
 ```python
 state_machine = aws_native.stepfunctions.StateMachine("stateMachine",
@@ -789,6 +796,8 @@ state_machine = aws_native.stepfunctions.StateMachine("stateMachine",
 ```
 
 ### Example Parsing JSON Outputs to Objects
+
+The following is an example of Pulumi code that operates on a JSON object and removes all of the policy statements by replacing it with an empty list.
 
 ```python
 json_IAM_policy = pulumi.Output.from_input('''
@@ -827,15 +836,15 @@ For more details view the Python documentation.
 {{% /choosable %}}
 {{% choosable language go %}}
 
-```
+### Example Converting Outputs to JSON
+
 {{% notes type="info" %}}
-The Pulumi Go SDK does not currently support Marshalling and Unmarshalling maps with unknowns.
+The Pulumi Go SDK does not currently support Marshalling and Unmarshalling Maps with unknowns.
 
 This is being tracked [here](https://github.com/pulumi/pulumi/issues/12460).
 {{% /notes %}}
-```
 
-### Example Converting Outputs to JSON
+The following is an example of JSON Serializing pulumi Outputs in Go.
 
 ```go
 pulumi.JSONMarshal(pulumi.ToMapOutput(map[string]pulumi.Output{
@@ -853,13 +862,14 @@ pulumi.JSONMarshal(pulumi.ToMapOutput(map[string]pulumi.Output{
     "map": pulumi.ToMapOutput(map[string]pulumi.Output{
         "key": pulumi.ToOutput("value"),
     }),
-    // currently unsupported
+    // currently unsupported as myResource is unknown
     "unknown": myResource.ApplyT(func(res interface{}) (interface{}, error) { return "Hello World!", nil }),
 }))
-
 ```
 
-### Example Parsing JSON Outputs to Objects
+### Example Parsing JSON Outputs to Object
+
+The following is an example of Pulumi code that operates on a JSON object and removes all of the policy statements by replacing it with an empty list.
 
 ```go
 jsonIAMPolicy := pulumi.ToOutput(`{
@@ -888,7 +898,6 @@ policyWithNoStatements := pulumi.JSONUnmarshal(jsonIAMPolicy.(pulumi.StringInput
     v.(map[string]interface{})["Statement"] = []pulumi.ArrayOutput{}
     return v, nil
 })
-
 ```
 
 For more details view the Go documentation.
@@ -897,6 +906,8 @@ For more details view the Go documentation.
 {{% choosable language csharp %}}
 
 ### Example Converting Outputs to JSON
+
+The following example allows you to natively represent the definition of an AWS Step Function State Machine and easily embed outputs from other resources in your stack.
 
 ```csharp
 var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
@@ -918,6 +929,8 @@ var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
 ```
 
 ### Example Parsing JSON Outputs to Objects
+
+The following is an example of Pulumi code that operates on a JSON object and removes all of the policy statements by replacing it with an empty list.
 
 ```csharp
 var jsonIAMPolicy = Output.Create(@"
