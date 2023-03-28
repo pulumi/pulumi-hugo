@@ -1,5 +1,5 @@
 ---
-title: "Pulumi Deployments: The API-Driven Approach to Cloud Platform Automation"
+title: "Pulumi Deployments: API-Driven Infrastructure at Scale"
 date: 2023-03-29
 meta_desc: Pulumi Deployments is a fully managed platform for shipping infrastructure at scale using APIs and programmatic building blocks.
 meta_image: meta.png
@@ -39,7 +39,6 @@ Deployments can be configured at a stack level via Deployment Settings in three 
 2. **[The Pulumi Service Provider](https://github.com/pulumi/pulumi-pulumiservice)** lets you define deployment configuration as Pulumi code in you language of choice, reviewed and managed in source control.
 3. **The Deployment Settings REST API** provides programmatic access to configure Deployments and CI/CD dynamically, without needing to generate or check in YAML.
 
-
 ```ts
 import * as pulumi from "@pulumi/pulumi";
 import * as service from "@pulumi/pulumiservice";
@@ -74,7 +73,7 @@ Each stack configured with Pulumi Deployments gets access to a number of trigger
 3. **Click to Deploy** - trigger a deployment from the Pulumi Service Console with the push of a button. Very useful for day-to-day operational activities such as debugging a stuck stack, or rectifying drift via a refresh, without having to pull a stack and its accompanying source code onto your machine.
 4. **[Remote Automation API](https://github.com/pulumi/automation-api-examples)** - Your favorite strongly typed Pulumi orchestration tool, Automation API, lets you offload update workloads into the cloud. Write deployment scripts that update thousands of environments simultaneously without worrying about compute.
 
-You can mix, match, and compose Deployment Settings and Triggers to create a golden path to production that is perfect for your enterprise’s needs. 
+You can mix, match, and compose Deployment Settings and Triggers to create a golden path to production that is perfect for your enterprise’s needs.
 
 ## Example: Building RESTful Infrastructure APIs
 
@@ -146,7 +145,7 @@ err = s.client.createDeployment(ctx, s.org, s.project, stack, createDeploymentRe
 
 ```
 
-Notice how this REST API call specifies `InheritSettings: true` so that Deployment Settings are read from the Pulumi Service and merged with the incoming request payload to create deployment configuration for this run. This stack also has to Click to Deploy via the Pulumi Service UI, so operational tasks like refreshing the stack can be done on demand without pulling down source code. 
+Notice how this REST API call specifies `InheritSettings: true` so that Deployment Settings are read from the Pulumi Service and merged with the incoming request payload to create deployment configuration for this run. This stack also has to Click to Deploy via the Pulumi Service UI, so operational tasks like refreshing the stack can be done on demand without pulling down source code.
 
 ![Click to Deploy from the Pulumi Service UI](ui-deploy-button.png)
 
