@@ -657,8 +657,7 @@ Often in the course of working with web technologies, you encounter JavaScript O
 
 Outputs that contain strings cannot be used directly in operations such as string concatenation. String interpolation lets you more easily build a string out of various output values, without needing {{< pulumi-apply >}} or [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all). You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.
 
-The following is an example of pulumi code that operates on a JSON object and removes all of the policy satements by setting it to an empty list.
-
+The following is an example of Pulumi code that operates on a JSON object and removes all of the policy satements by setting it to an empty list.
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
 {{% choosable language javascript %}}
@@ -688,7 +687,7 @@ const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
 });
 ```
 
-### Example Parsing JSON outputs to Objects
+### Example Parsing JSON Outputs to Objects
 
 ```javascript
 const jsonIAMPolicy = pulumi.output(`{
@@ -749,11 +748,11 @@ const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
 });
 ```
 
-### Example Parsing JSON outputs to Objects
+### Example Parsing JSON Outputs to Objects
 
 ```typescript
 const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
-    // delete the policy statements.
+    // delete the policy statements
     policy.Statement = [];
     return policy;
 });
@@ -789,10 +788,10 @@ state_machine = aws_native.stepfunctions.StateMachine("stateMachine",
 )
 ```
 
-### Example Parsing JSON outputs to Objects
+### Example Parsing JSON Outputs to Objects
 
 ```python
-jsonIAMPolicy = pulumi.Output.from_input('''
+json_IAM_policy = pulumi.Output.from_input('''
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -816,10 +815,11 @@ jsonIAMPolicy = pulumi.Output.from_input('''
 ''')
 
 def update_policy(policy):
+    # delete the policy statements
     policy.update({'Statement': []})
     return policy
 
-policyWithNoStatements = pulumi.Output.json_loads(jsonIAMPolicy).apply(update_policy)
+policy_with_no_statements = pulumi.Output.json_loads(json_IAM_policy).apply(update_policy)
 ```
 
 For more details view the Python documentation.
@@ -827,16 +827,68 @@ For more details view the Python documentation.
 {{% /choosable %}}
 {{% choosable language go %}}
 
+```
+{{% notes type="info" %}}
+The Pulumi Go SDK does not currently support Marshalling and Unmarshalling maps with unknowns.
+
+This is being tracked [here](https://github.com/pulumi/pulumi/issues/12460).
+{{% /notes %}}
+```
+
 ### Example Converting Outputs to JSON
 
 ```go
-pulumi.JSONMarshal(outputValue)
+pulumi.JSONMarshal(pulumi.ToMapOutput(map[string]pulumi.Output{
+    "bool": pulumi.ToOutput(true),
+    "int":  pulumi.ToOutput(1),
+    "str":  pulumi.ToOutput("hello"),
+    "arr": pulumi.ToArrayOutput([]pulumi.Output{
+        pulumi.ToOutput(false),
+        pulumi.ToOutput(1.0),
+        pulumi.ToOutput(""),
+        pulumi.ToMapOutput(map[string]pulumi.Output{
+            "key": pulumi.ToOutput("value"),
+        }),
+    }),
+    "map": pulumi.ToMapOutput(map[string]pulumi.Output{
+        "key": pulumi.ToOutput("value"),
+    }),
+    // currently unsupported
+    "unknown": myResource.ApplyT(func(res interface{}) (interface{}, error) { return "Hello World!", nil }),
+}))
+
 ```
 
-### Example Parsing JSON outputs to Objects
+### Example Parsing JSON Outputs to Objects
 
 ```go
-pulumi.JSONUnmarshal(stringOutputValue)
+jsonIAMPolicy := pulumi.ToOutput(`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::my-bucket"
+        }
+    ]
+}`)
+
+policyWithNoStatements := pulumi.JSONUnmarshal(jsonIAMPolicy.(pulumi.StringInput)).ApplyT(func(v interface{}) (interface{}, error) {
+    // delete the policy statements
+    v.(map[string]interface{})["Statement"] = []pulumi.ArrayOutput{}
+    return v, nil
+})
+
 ```
 
 For more details view the Go documentation.
@@ -846,14 +898,59 @@ For more details view the Go documentation.
 
 ### Example Converting Outputs to JSON
 
-```go
-pulumi.JSONMarshal(outputValue)
+```csharp
+var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
+        Comment = "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
+        StartAt = "Hello",
+        States = new Dictionary<string, object?>{
+        ["Hello"] = new {
+            Type = "Task",
+            Resource = helloFunction.Arn,
+            Next = "World",
+        },
+        ["World"] = new {
+            Type = "Task",
+            Resource = worldFunction.Arn,
+            End = true,
+        },
+    },
+}));
 ```
 
-### Example Parsing JSON outputs to Objects
+### Example Parsing JSON Outputs to Objects
 
-```go
-pulumi.JSONUnmarshal(stringOutputValue)
+```csharp
+var jsonIAMPolicy = Output.Create(@"
+        {
+            ""Version"": ""2012-10-17"",
+            ""Statement"": [
+                {
+                    ""Sid"": ""VisualEditor0"",
+                    ""Effect"": ""Allow"",
+                    ""Action"": [
+                        ""s3:ListAllMyBuckets"",
+                        ""s3:GetBucketLocation""
+                    ],
+                    ""Resource"": ""*""
+                },
+                {
+                    ""Sid"": ""VisualEditor1"",
+                    ""Effect"": ""Allow"",
+                    ""Action"": [
+                        ""s3:*""
+                    ],
+                    ""Resource"": ""arn:aws:s3:::my-bucket""
+                }
+            ]
+        }
+    ");
+
+var policyWithNoStatements = Pulumi.Output.JsonDeserialize<IAMPolicy>(jsonIAMPolicy).Apply(policy =>
+{
+    // delete the policy statements.
+    policy.Statement = Pulumi.Output.Create(new List<StatementEntry> { });
+    return policy;
+})
 ```
 
 For more details view the .NET documentation.
