@@ -13,7 +13,7 @@ pulumi-convert {
         }
 
         .btn-convert {
-            @apply btn bg-blue-500 border-blue-500 flex items-center w-full text-sm justify-center mt-8 mb-4 py-3 text-white;
+            @apply btn bg-blue-500 border-blue-500 flex items-center w-full text-sm justify-center py-3 text-white;
 
             .icon {
                 @apply ml-2;
