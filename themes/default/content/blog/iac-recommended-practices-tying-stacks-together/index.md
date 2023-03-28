@@ -55,7 +55,7 @@ It's worthwhile to note that any information that needs to be accessible from an
 
 Additionally, any value retrieved via a stack reference is treated as an `Output`, and therefore may require some additional work to transform values (such as the use of `Output.apply`). The recent addition of `OutputDetails` support in Pulumi---you can read more about that [here](/blog/stack-reference-output-details/)---helps enormously in this situation. Some SDKs also have language-specific mechanisms that can help; for example, using Go's `.AsStringArrayOutput()` method on a `StackReference.GetOutput` statement makes referencing subnet IDs from other project much easier.
 
-While stack references are generally straightforward, there are some recommended practices to observe around the use of stack outputs and stack references:
+While stack references are conceptually straightforward and easy to implement, there are some recommended practices to be mindful of regarding the use of stack outputs and stack references:
 
 1. With regard to stack outputs, **only export what is needed.** If there's a need for it to be accessed from outside the stack, export it; otherwise, don't. It's easy to add more stack outputs after the fact, and as has been mentioned already this is done with a quick `pulumi up` that has no affect on existing infrastructure (you're only modifying the stack object itself).
 2. **Be judicious in the use of stack references.** Each stack reference is a call to the backend to read a value, which adds some level of latency. Using lots of stack references (think more than 20 or so) can introduce notable latency in Pulumi operations.
