@@ -13,7 +13,7 @@ pulumi-convert {
         }
 
         .btn-convert {
-            @apply btn bg-blue-500 border-blue-500 flex items-center w-full text-sm justify-center py-3 text-white;
+            @apply btn bg-blue-500 border-blue-500 flex items-center w-full text-xs justify-center py-2 text-white;
 
             .icon {
                 @apply ml-2;
@@ -34,7 +34,7 @@ pulumi-convert {
             }
 
            @screen xl {
-                @apply w-auto text-xs justify-start mt-0 mb-0 py-2;
+                @apply w-auto justify-start;
             }
         }
 
