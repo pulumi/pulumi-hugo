@@ -38,10 +38,10 @@ The Pulumi Deployments REST API will return a 401 status code if the token is mi
 
 Several endpoints accept or return deployment settings. Deployment settings are composed of several parts:
 
-* An [ExecutorContext](#ExecutorContext) that defines information about the executor where the Pulumi operation is executed.
-* A [SourceContext](#SourceContext) that defines where the source code for your project is located. Currently, only git repos are supported.
-* An [OperationContext](#OperationContext) that defines how the Pulumi project is to be executed (i.e. the Pulumi operation to execute and any associated context it requires).
-* An optional [GitHub block](#GitHub) that contains information for GitHub integration.
+* An [ExecutorContext](#executorcontext) that defines information about the executor where the Pulumi operation is executed.
+* A [SourceContext](#sourcecontext) that defines where the source code for your project is located. Currently, only git repos are supported.
+* An [OperationContext](#operationcontext) that defines how the Pulumi project is to be executed (i.e. the Pulumi operation to execute and any associated context it requires).
+* An optional [GitHub block](#github) that contains information for GitHub integration.
 
 ### ExecutorContext
 
@@ -73,7 +73,7 @@ Using a custom image may result in slower execution due to time spent pulling th
 
 The source context contains information about where the source code for your project is located. Currently, only git repos are supported as a source.
 
-* **repoURL** (Optional[string]): The URL of the git repository where the source code is located. Must not be specified if a [GitHub block](#GitHub) is present.
+* **repoURL** (Optional[string]): The URL of the git repository where the source code is located. Must not be specified if a [GitHub block](#github) is present.
 * **branch** (Optional[string]): The repository branch to use.
 * **repoDir** (Optional[string]): The directory where Pulumi.yaml is located, if not in the project source root.
 * **commit** (Optional[string]): The hash of the commit to deploy. If used, HEAD will be in detached mode. This is mutually exclusive with the branch setting. Either value must be specified.
@@ -362,7 +362,7 @@ The GitHub block describes settings for Pulumi Deployments' GitHub integration.
 
 ### Get Settings
 
-Gets the [deployment settings](#DeploymentSettings) associated with a stack.
+Gets the [deployment settings](#deploymentsettings) associated with a stack.
 
 ```
 GET https://api.pulumi.com/api/preview/{organization}/{project}/{stack}/deployment/settings
@@ -404,7 +404,7 @@ curl -XGET -H "Content-Type: application/json" -H "Authorization: token $PULUMI_
 
 ### Patch Settings
 
-Patches the [deployment settings](#DeploymentSettings) associated with a stack.
+Patches the [deployment settings](#deploymentsettings) associated with a stack.
 
 ```
 POST https://api.pulumi.com/api/preview/{organization}/{project}/{stack}/deployment/settings
@@ -509,7 +509,7 @@ Then the new settings for the stack are:
 
 ### Clear Settings
 
-Clears the [deployment settings](#DeploymentSettings) associated with a stack.
+Clears the [deployment settings](#deploymentsettings) associated with a stack.
 
 ```
 DELETE https://api.pulumi.com/api/preview/{organization}/{project}/{stack}/deployment/settings
@@ -536,7 +536,7 @@ The stack **must** exist before a deployment can be created for it. If you attem
 
 {{% /notes %}}
 
-A deployment request consists of optional [deployment settings](#DeploymentSettings) and the operation to perform.
+A deployment request consists of optional [deployment settings](#deploymentsettings) and the operation to perform.
 
 #### Examples
 
@@ -556,7 +556,7 @@ curl -i -XPOST -H "Content-Type: application/json" -H "Authorization: token $PUL
 ##### Merged stack and request deployment settings
 
 The following request will create a deployment in the "my-org" Pulumi organization for "aws-ts-s3" project and "dev" stack. It will use merge the settings associated with the stack with the settings present
-in the request according to the rules used by [Patch Settings](#PatchSettings).
+in the request according to the rules used by [the Patch Settings endpoint](#patchsettings).
 
 ```shell
 curl -i -XPOST -H "Content-Type: application/json" -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
