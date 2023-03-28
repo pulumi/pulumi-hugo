@@ -94,13 +94,11 @@ pulumi-convert {
             .tabs {
                 @apply bg-black shadow-md p-0 flex items-center overflow-x-scroll relative;
 
-                //@screen xl {
                     @apply overflow-visible;
 
                     pulumi-tooltip {
                         display: inherit;
                     }
-              //  }
 
                 .tab {
                     @apply p-4 my-0 flex items-center text-sm cursor-pointer;
@@ -127,11 +125,6 @@ pulumi-convert {
                         .indicator {
                             @apply bg-yellow-300;
                         }
-                    }
-
-                    // Hide fourth (and greater) tabs until we have enough screen width to use them.
-                    &:nth-of-type(n + 4) {
-                        @apply flex;
                     }
                 }
 
