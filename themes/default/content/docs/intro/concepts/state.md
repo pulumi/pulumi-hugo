@@ -242,6 +242,14 @@ $ pulumi login gs://<my-pulumi-state-bucket>
 
 To configure credentials for this backend, see [Application Default Credentials](https://cloud.google.com/docs/authentication/production). For additional configuration options, see [GCP Setup](/registry/packages/gcp/installation-configuration/). If you're new to Google Cloud Storage, see [the Google Cloud documentation](https://cloud.google.com/storage/docs/quickstarts).
 
+### Scoping
+
+Older versions of Pulumi prior to v3.61.0 did not scope stack names in self-managed backends. This meant that you couldn't have stacks with the same across multiple progres in the same self-managed backend. With Pulumi v3.61.0 and later, stacks created in new or empty self-managed backends are scoped by project by default.
+
+Existing self-managed backends remain non-scoped until upgraded. You can upgrade an existing self-managed backend using the `pulumi state upgrade` command. This command will upgrade all stacks in the backend to be scoped by project.
+
+Old versions of Pulumi will not be able to see stacks scoped by project. New versions of Pulumi (v3.61.0 or later) will output a warning if an older version of Pulumi has created any non-scoped stacks in a self-managed backend that has project-scoped stacks, suggesting to use the `pulumi state upgrade` command to upgrade the stacks.
+
 ## Migrating Between State Backends
 
 It is possible to start with one backend and then later migrate to another. This is common if you have began your project with Pulumi using a self-managed backend but later decided to adopt the Pulumi Service for easier use within your team. This section describes how to perform this operation, however, if you would like our assistance with a migration, [please get in touch](/contact/).
