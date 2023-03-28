@@ -92,11 +92,13 @@ pulumi-convert {
             }
 
             .tabs {
-                @apply bg-black shadow-md p-0 flex items-center overflow-x-scroll relative overflow-visible;
+                @apply bg-black shadow-md p-0 flex items-center overflow-x-scroll relative;
 
-                pulumi-tooltip {
-                    display: inherit;
-                }
+                    @apply overflow-visible;
+
+                    pulumi-tooltip {
+                        display: inherit;
+                    }
 
                 .tab {
                     @apply p-4 my-0 flex items-center text-sm cursor-pointer;
