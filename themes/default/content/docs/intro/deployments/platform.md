@@ -21,9 +21,9 @@ When you choose Pulumi Deployments for your golden path, you get productivity fe
 
 Platform teams face ever-increasing pressure to enable self-service infrastructure within their organizations. Teams of a dozen platform engineers are expected to build tools for thousands of enterprise application developers that enable them to stand up new web services with minimal coordination. This includes:
 
-Offering a menu of well-defined infrastructure components to choose from, such as Kubernetes clusters or MySQL databases.
-Brokering and delegating access to sensitive cloud environments for development and production workloads in a safe and secure manner
-Keeping track of everything that is deployed, providing updates, and security patches as needed.
+1. Offering a menu of well-defined infrastructure components to choose from, such as Kubernetes clusters or MySQL databases.
+2. Brokering and delegating access to sensitive cloud environments for development and production workloads in a safe and secure manner
+3. Keeping track of everything that is deployed, providing updates, and security patches as needed.
 
 Pulumi provides several useful building blocks that help you get the job done:
 
@@ -43,7 +43,7 @@ Leading SaaS and infrastructure companies want the best of both worlds:
 1. Custom, domain-specific REST APIs to create infrastructure on demand
 2. Desired state configuration that keeps track of what is deployed, and where
 
-You build on top of the Deployments REST API to build your own infrastructure APIs. We do all of the heavy lifting of managing deployment compute, providing asynchronous workflow orchestration,  queueing, status and logging API access, and more. At the end, you get a Pulumi Stack and state file containing a manifest of all cloud resources and their properties managed by the Pulumi Service.
+You can build on top of the Deployments REST API to build your own infrastructure APIs. The Deployments Platform does all of the heavy lifting of managing deployment compute, providing asynchronous workflow orchestration,  queueing, status and logging API access, and more. At the end, you get a Pulumi Stack and state file containing a manifest of all cloud resources and their properties managed by the Pulumi Service.
 
 ## Drift Detection
 
