@@ -96,7 +96,7 @@ pulumi-convert {
             }
 
             .tabs {
-                @apply bg-black shadow-md p-0 flex items-center overflow-x-scroll relative overflow-visible;
+                @apply bg-black shadow-md p-0 flex items-center relative overflow-visible;
 
                 pulumi-tooltip {
                     display: inherit;
