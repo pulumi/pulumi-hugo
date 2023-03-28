@@ -45,7 +45,6 @@ Leading SaaS and infrastructure companies want the best of both worlds:
 
 You build on top of the Deployments REST API to build your own infrastructure APIs. We do all of the heavy lifting of managing deployment compute, providing asynchronous workflow orchestration,  queueing, status and logging API access, and more. At the end, you get a Pulumi Stack and state file containing a manifest of all cloud resources and their properties managed by the Pulumi Service.
 
-
 ## Drift Detection
 
 Manual edits within the AWS console can wreak havoc on your infrastructure if those changes aren’t brought back into source control. The last thing you want is to scale out a service just to have the next CI run undo that change.
