@@ -46,32 +46,71 @@ It's clear that there are dependencies across projects: The `zephyr-k8s` project
 
 ## Linking stacks with stack references
 
-Stack references are a feature in Pulumi that allows you to access output values from one stack in another stack. In other words, stack references offer a way to programmatically "link" stacks in different projects for the purpose of sharing information. You can find more details on stack references [in the Pulumi docs](/docs/intro/concepts/stack/#stackreferences).
+Stack references allow you to access output values from one stack in another stack. In other words, stack references offer a way to programmatically "link" stacks in different projects for the purpose of sharing information. You can find more details [in the documentation on stack references](/docs/intro/concepts/stack/#stackreferences).
 
-Using stack references, the Zephyr team can make the necessary connections they needed:
+Using stack references, the Zephyr team can make the necessary connections they need:
 
 * The code handling the Kubernetes cluster can reference the VPC ID and subnet IDs from the base infrastructure layer.
 * Similarly, the code that is responsible for deploying the online store services can reference the necessary Kubernetes connection details (the Kubeconfig) for the Kubernetes cluster.
 
+You can see how the Zephyr team did this for their projects toward the end of this post (in the section titled "Examining Zephyr's use of stack references").
+
 It's worthwhile to note that any information that needs to be accessible from another stack via a stack reference must be exported as a stack output in the source stack. If you don't mark it as a stack output, then it can't be used in a stack reference. Adding stack outputs after the fact requires little effort and has no impact on existing infrastructure.
 
-Also, any value retrieved via a stack reference is treated as a Pulumi Output, and therefore may require some extra work to transform values (such as the use of `Output.apply`). The recent addition of `OutputDetails` support in Pulumi---you can read more about that [here](/blog/stack-reference-output-details/)---helps considerably in this situation. Some SDKs also have language-specific mechanisms that can help; for example, using Go's `.AsStringArrayOutput()` method on a `StackReference.GetOutput` statement makes referencing subnet IDs from other project much easier.
+Also, any value retrieved via a stack reference is treated as [a Pulumi Output](/docs/intro/concepts/inputs-outputs/), and therefore may require some extra work to transform values (such as the use of `Output.apply`). The recent addition of `OutputDetails` support in Pulumi---you can read more about `OutputDetails` [in this blog post announcing the functionality](/blog/stack-reference-output-details/)---helps considerably in this situation. Some SDKs also have language-specific mechanisms that can help; for example, using Go's `.AsStringArrayOutput()` method on a `StackReference.GetOutput` statement makes referencing subnet IDs from other project much easier.
 
 While stack references are conceptually straightforward and not difficult to implement, there are some recommended practices to be mindful of regarding the use of stack outputs and stack references:
 
-1. When it comes to stack outputs, **export what is needed.** If it needs to be accessed from outside the stack, export it; otherwise, don't. It's simple to add more stack outputs after the fact, and as has been mentioned already this is done with a quick `pulumi up` that has no affect on existing infrastructure (you're modifying the stack object itself).
+1. When it comes to stack outputs, **export what is needed.** If it needs to be accessed from outside the stack, export it; otherwise, don't. Why? Stack outputs form the application programming interface (API) by which other Pulumi programs interact with this Pulumi program. Like in any API implementation, expose what the user cares about or is likely to need, and leave the rest as an implementation detail. You can add more stack outputs after the fact with only minimal code changes, and as has been mentioned already this is done with a quick `pulumi up` that has no affect on existing infrastructure (you're modifying the stack object itself).
 2. **Be judicious in the use of stack references.** Each stack reference is a call to the backend to read a value, which adds some level of latency. Using lots of stack references (think more than 20 or so) can introduce notable latency in Pulumi operations.
-3. **If you need lots of stack references, use a structured data object.** It's possible to construct a JSON object (or dict or struct, depending on your language) to hold all the stack outputs, and then export that object. Then a stack reference can read that object, resulting in a single call to the backend. Be aware, though, that you'll need to write the necessary code to understand/import/unmarshall that JSON object in the referring stack, so there is a small amount of extra work required in this situation.
-4. In line with parameterizing as much of your code as possible, **also be sure to parameterize your stack references.** A stack reference is built using an organization name, a project name, and a stack name. Don't hardcode these values; instead, use configuration values to allow the users to specify from which source stack(s) the values will be referenced.
+3. **If you need to expose lots of outputs on a stack, consider exporting a structured data object.** It's possible to construct a JSON object (or dict or struct, depending on your language) to hold all the stack outputs, and then export that object. Then a stack reference can read that object, resulting in a single call to the backend. Be aware, though, that you'll need to write the necessary code to understand/import/unmarshall that JSON object in the referring stack, so there is a small amount of extra work required in this situation.
+4. In line with parameterizing as much of your code as possible, **also be sure to parameterize your stack references.** A stack reference is built using an organization name, a project name, and a stack name. Don't hardcode these values; instead, use configuration values to allow the users to specify from which source stack(s) the values will be referenced. You'll see an example of that in the next section.
 
 ## Examining Zephyr's use of stack references
 
 With these recommended practices in mind, you can examine the Zephyr team's implementation to see how they put these recommendations into action.
 
-* In the code for the base infrastructure stack, you can see that Zephyr [exported the essential values](https://github.com/pulumi/zephyr-infra/blob/multi-project/index.ts#L14-L17) needed by the Kubernetes platform stack.
-* In the Kubernetes platform stack, the Zephyr team [parameterized the values](https://github.com/pulumi/zephyr-k8s/blob/multi-project/index.ts#L10-L12) needed for the stack reference. This particular approach, by the way, is key to ensuring [the per-developer stacks](/blog/iac-recommended-practices-developer-stacks-git-branches/) to which the Zephyr team has grown accustomed are accommodated (each developer needs to specify the correct organization, project, and stack name).
-* As with the base infrastructure stack, [only the key value needed by other stacks](https://github.com/pulumi/zephyr-k8s/blob/multi-project/index.ts#L36-L37) is exported.
-* Finally, in the application stack, the [stack reference values are again parameterized](https://github.com/pulumi/zephyr-app/blob/multi-project/infra/index.ts#L7-L9), and the Kubeconfig---necessary for the application stack to deploy onto the provisioned Kubernetes cluster---is [referenced via a stack reference](https://github.com/pulumi/zephyr-app/blob/multi-project/infra/index.ts#L11-L13).
+* In the code for the base infrastructure stack, you can see that Zephyr [exported the essential values](https://github.com/pulumi/zephyr-infra/blob/multi-project/index.ts#L14-L17) needed by the Kubernetes platform stack:
+
+    ```typescript
+    // Export some values for use elsewhere
+    export const vpcId = eksVpc.vpcId;
+    export const privSubnetIds = eksVpc.privateSubnetIds;
+    export const pubSubnetIds = eksVpc.publicSubnetIds;
+    ```
+
+* In the Kubernetes platform stack, the Zephyr team [parameterized the values](https://github.com/pulumi/zephyr-k8s/blob/multi-project/index.ts#L10-L12) needed for the stack reference. This particular approach, by the way, is key to preserving [the per-developer stacks](/blog/iac-recommended-practices-developer-stacks-git-branches/) to which the Zephyr team has grown accustomed (each developer needs to specify the correct organization, project, and stack name):
+
+    ```typescript
+    // Grab some configuration values
+    // Some code omitted here
+    const infraOrgName = config.require("infraOrgName");
+    const infraProjName = config.require("infraProjName");
+    const infraStackName = config.require("infraStackName");
+
+    // Create a StackReference to get information from base stack
+    const infraSr = new pulumi.StackReference(`${infraOrgName}/${infraProjName}/${infraStackName}`);
+    ```
+
+* As with the base infrastructure stack, [only the key value needed by other stacks](https://github.com/pulumi/zephyr-k8s/blob/multi-project/index.ts#L36-L37) is exported (in this case, the Kubeconfig required to access this cluster):
+
+    ```typescript
+    // Export some values for use elsewhere
+    export const kubeconfig = eksCluster.kubeconfig;
+    ```
+
+* Finally, in the application stack, the [stack reference values are again parameterized](https://github.com/pulumi/zephyr-app/blob/multi-project/infra/index.ts#L7-L9), and the Kubeconfig---necessary for the application stack to deploy onto the provisioned Kubernetes cluster---is [referenced via a stack reference](https://github.com/pulumi/zephyr-app/blob/multi-project/infra/index.ts#L11-L13):
+
+    ```typescript
+    // Grab some configuration values
+    const config = new pulumi.Config();
+    const k8sOrgName = config.require("k8sOrgName");
+    const k8sProjName = config.require("k8sProjName");
+    const k8sStackName = config.require("k8sStackName");
+
+    // Create a StackReference to get Kubeconfig from base stack
+    const kubeSr = new pulumi.StackReference(`${k8sOrgName}/${k8sProjName}/${k8sStackName}`);
+    ```
 
 {{% notes %}}
 All of the GitHub links in the paragraphs above reference the `multi-project` tag in each repository, which has the code as of this blog post (and the earlier blog post).
@@ -86,4 +125,4 @@ This post covered the following recommended practices for working with Pulumi:
 * **Use a structured data object for large numbers of values that need to be referenced.** This enables Pulumi to retrieve all the data with a single call, but be aware you'll need to write extra code to understand the data structure in the referring stack.
 * **Parameterize your stack references.** Don't hardcode organization, project, or stack name values. Instead, pass these in as configuration values (with default values applied, if applicable).
 
-The next post continues in the "Zephyr universe," but breaks from discussing IaC recommended practices to look at an oft-overlooked use case for Pulumi: automating local testing.
+The next post continues in the "Zephyr universe," but breaks from discussing IaC recommended practices to look at an oft-overlooked use case for Pulumi: streamlining local testing.
