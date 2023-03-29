@@ -23,9 +23,9 @@ The assumptions that CI/CD systems make are limiting for infrastructure. We are 
 
 Today we’re excited to announce the release of a new version of Pulumi Deployments, a fully managed platform for shipping infrastructure at scale. It provides:
 
-- **Compute** - run infrastructure deployments and workloads (ie `pulumi up`) on fully managed, secure, and elastic compute
-- **Configuration** - A simple, centralized format for specifying everything you need to deploy your infrastructure at the stack level. Source code, cloud credentials, OpenID Connect (OIDC), environment variables, build prerequisites, and dependencies are bundled in an atomic unit
-- **Composition** - Trigger deployments via our REST API, click to deploy in the Pulumi Service UI, Git Push to Deploy, Remote Automation API, and other programmatic building blocks that you can compose to build custom cloud automation
+- **Compute** - run infrastructure deployments and workloads (i.e. `pulumi up`) on fully managed, secure, and elastic compute.
+- **Configuration** - A simple, centralized format for specifying everything you need to deploy your infrastructure at the stack level. Source code, cloud credentials, OpenID Connect (OIDC), environment variables, build prerequisites, and dependencies are bundled in an atomic unit.
+- **Composition** - Trigger deployments via our REST API, click to deploy in the Pulumi Service UI, Git Push to Deploy, Remote Automation API, and other programmatic building blocks that you can compose to build custom cloud automation.
 
 ![Pulumi Deployments Platform Architecture](deployments.png)
 
@@ -68,21 +68,21 @@ const settings = new service.DeploymentSettings("deployment_settings", {
 
 Each stack configured with Pulumi Deployments gets access to a number of triggers that can be used to start a Pulumi operation (i.e. `pulumi up`):
 
-1. **Deployments REST API** - an endpoint available at api.pulumi.com that can trigger a variety of pulumi (`up/destroy/refresh/preview`) operations. Calls to this trigger can override individual settings properties to customize deployment behavior (ie - deploy a different branch, or modify a particular environment variable)
-2. **`git push` to Deploy** - Deep integration with the Pulumi GitHub App that enables automatic previews on every pull request, and an automated update whenever code is pushed to the target branch
-3. **Click to Deploy** - trigger a deployment from the Pulumi Service Console with the push of a button. Very useful for day-to-day operational activities such as debugging a stuck stack, or rectifying drift via a refresh, without having to pull a stack and its accompanying source code onto your machine.
+1. **Deployments REST API** - an endpoint available at api.pulumi.com that can trigger a variety of pulumi (`up/destroy/refresh/preview`) operations. Calls to this trigger can override individual settings to customize deployment behavior (i.e. - deploy a different branch, or override a particular environment variable).
+2. **`git push` to Deploy** - Deep integration with the Pulumi GitHub App that enables automatic previews on every pull request, and an automated update whenever code is pushed to the target branch.
+3. **Click to Deploy** - trigger a deployment from the Pulumi Service Console with the push of a button. Very useful for day-to-day operational activities such as debugging a stuck stack, or rectifying drift via a refresh without having to pull a stack and its accompanying source code onto your machine.
 4. **[Remote Automation API](https://github.com/pulumi/automation-api-examples)** - Your favorite strongly typed Pulumi orchestration tool, Automation API, lets you offload update workloads into the cloud. Write deployment scripts that update thousands of environments simultaneously without worrying about compute.
 
 You can mix, match, and compose Deployment Settings and Triggers to create a golden path to production that is perfect for your enterprise’s needs.
 
 ## Example: Building RESTful Infrastructure APIs
 
-Increasingly, infrastructure updates happen in response to user action and not source control events like a git commit. For instance, a SaaS database company might need to spin up dedicated compute and storage when a customer puts in a credit card and self-serves onto a specific SKU. This signup workflow might happen hundreds or even thousands of times an hour. Traditional deployment systems are optimized for infrastructure that spans at most a handful of environments (dev/staging/production).
+Increasingly, infrastructure updates happen in response to user action and not source control events like a git commit. For instance, a SaaS database company might need to spin up dedicated compute and storage when a customer puts in a credit card and self-serves onto a specific SKU. This signup workflow might happen hundreds or even thousands of times an hour. Traditional deployment systems are optimized for infrastructure that spans, at most, a handful of environments (dev/staging/production).
 
 Leading SaaS and infrastructure companies want the best of both worlds:
 
-1. Custom, domain-specific REST APIs to create infrastructure on demand
-2. Desired state configuration that keeps track of what is deployed, and where
+1. Custom, domain-specific REST APIs to create infrastructure on demand.
+2. Desired state configuration that keeps track of what is deployed, and where.
 
 You can build on top of the Deployments REST API to build your own infrastructure APIs. Here we have a simple Go web server that offers a RESTful interface over top of a static website. Users can create, update, and delete static websites, specifying the content for the site in the POST payload. Here's our web server:
 
@@ -148,6 +148,8 @@ err = s.client.createDeployment(ctx, s.org, s.project, stack, createDeploymentRe
 Notice how this REST API call specifies `InheritSettings: true` so that Deployment Settings are read from the Pulumi Service and merged with the incoming request payload to create deployment configuration for this run. This stack also has to Click to Deploy via the Pulumi Service UI, so operational tasks like refreshing the stack can be done on demand without pulling down source code onto your local machine.
 
 ![Click to Deploy from the Pulumi Service UI](ui-deploy-button.png)
+
+The Deployments Platform does all of the heavy lifting of managing deployment compute, providing asynchronous workflow orchestration,  queueing, status and logging API access, and more. At the end, you get a Pulumi Stack and state file containing a manifest of all cloud resources and their properties managed by the Pulumi Service.
 
 Deployment Settings and Triggers can be combined to ship infrastructure in novel ways with just a few lines of code. See the full [RESTful infrastructure API example](https://github.com/pulumi/deploy-demos/tree/main/deployment-drivers/go/http) to try it out yourself.
 
