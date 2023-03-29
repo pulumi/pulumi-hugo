@@ -110,8 +110,6 @@ The Deployments Platform does all of the heavy lifting of managing deployment co
 
 Deployment Settings and Triggers can be combined to ship infrastructure in novel ways with just a few lines of code. See the full [RESTful infrastructure API example](https://github.com/pulumi/deploy-demos/tree/main/deployment-drivers/go/http) to try it out yourself.
 
-
-
 ## Drift Detection
 
 Manual edits within the AWS console can wreak havoc on your infrastructure if those changes aren’t brought back into source control. The last thing you want is to scale out a service just to have the next CI run undo that change.
