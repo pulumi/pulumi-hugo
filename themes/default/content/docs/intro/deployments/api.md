@@ -492,7 +492,7 @@ Then the new settings for the stack are:
       "echo \"bonjour\""
     ],
     "environmentVariables": {
-      "AWS_REGION": "us-west-2",
+      "AWS_REGION": "us-west-2"
     }
     "oidc": {
       "aws" {
