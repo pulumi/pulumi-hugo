@@ -1,38 +1,95 @@
 ---
-title: "Project-Scoped Stacks in Self-Managed State Backends"
+title: "Projects in Self-Managed State Backends"
 date: 2023-03-29
-meta_desc: The latest Pulumi update includes support for stack names scoped by project name in self-managed state backends.
+meta_desc: Pulumi's Self-Managed backend now supports stack names scoped by project name.
 meta_image: meta.png
 authors:
     - justin-vanpatten
+    - abhinav-gupta
 tags:
     - features
     - pulumi-releases
 ---
 
-The latest Pulumi update includes support for project-scoped stacks in self-managed state backends, making self-managed state backends consistent with how stacks are scoped in the Pulumi Service. Stacks created in new or empty self-managed backends will now be scoped by project by default, and existing backends can be upgraded to be scoped by project. This allows using the same simple stack names such as "dev", "staging", "production", etc. across multiple projects within the same self-managed backend.
+Pulumi's Self-Managed Backend has long been constrained in that
+it only recognized stacks, and didn't have a concept of projects.
+This made it less flexible and occasionally required involved workarounds.
+Indeed, we heard from many of you that this limitation got in your way.
+
+We've listened to your feedback,
+and we're very excited to announce that we've added
+support for **Project-Scoped Stacks** in Pulumi's Self-Managed backend!
 
 <!--more-->
 
+This change makes the Self-Managed Backend consistent with how
+the Pulumi Service Backend operates and scopes stacks.
+
 ## What are State Backends?
 
-Each Pulumi [stack](/docs/intro/concepts/stack/) has its own metadata about your infrastructure so it can manage your cloud resources. This metadata is called [_state_](/docs/intro/concepts/state/) and it is stored in a _backend_ of your choosing: **Service** or **Self-Managed**.
+Each [Pulumi stack](/docs/intro/concepts/stack/) has its own metadata about
+your infrastructure so it can manage your cloud resources.
+This metadata is called [_state_](/docs/intro/concepts/state/)
+and it is stored in a _backend_ of your choosing:
+**Service** or **Self-Managed**.
 
-The **Service** backend is hosted at <a href="https://app.pulumi.com" target="_blank">`app.pulumi.com`</a> (or self-hosted) and provides the best combination of usability, safety, and security for most users.
+The **Service** Backend is hosted at [`app.pulumi.com`](https://app.pulumi.com)
+or [on your own server](https://www.pulumi.com/product/self-hosted/),
+and provides the best combination of usability, safety, and security for most users.
 
-**Self-Managed** backends let you manage state yourself, stored as simple JSON files in AWS S3, Azure Blob Store, Google Cloud Storage, an alternatie AWS S3 API compatible server such as Minio or Ceph, or on your local filesystem. Using a self-managed backend trades off some amount of reliability for additional control over where metadata is stored.
+The **Self-Managed** Backend stores state in a JSON file,
+deferring to you to manage persistence of this information.
+You can store it in AWS S3, Azure Blob Store, Google Cloud Storage,
+a system such as Minio or Ceph with an API compatible with AWS S3,
+or on your local filesystem.
+Using this backend trades reliability and convenience of the Service Backend
+for additional control over where the information is stored.
 
-See [Deciding On a State Backend](/docs/intro/concepts/state/#deciding-on-a-state-backend) for more on how to choose a state backend.
+![State and backends](whats-a-backend.png)
 
-## Introducing Project-Scoped Stacks in Self-Managed Backends
+See [Deciding On a State Backend](/docs/intro/concepts/state/#deciding-on-a-state-backend)
+for more on how to choose a state backend.
 
-Up until the latest Pulumi release, one difference between the Service backend and self-managed backends is that in the Service, stacks are scoped by organization and project, whereas in self-managed backends there was previously no scoping. In practice, this meant you couldn't have stacks with the same name (like "dev" or "production") across multiple projects in the same self-managed backend. You'd have to use fully unique stack names within the self-managed backend, such as by manually including the project name in the stack name (e.g. "my-project-production" and "another-project-production").
+Up until now, there was a discrepancy between how
+the Service backend and self-managed backends stored state for a Pulumi stack:
+the Service backend stores stack information scoped by organization and project
+(e.g., `myorg/myproject/dev`),
+whereas the self-managed backend performed no scoping.
 
-With the latest Pulumi release, stacks created in new or empty self-managed backends are scoped by project by default, so you no longer have to include the project name in the stack name to make it unique within a backend. You can simply create a new project and use simple names for the project's stacks, such as "dev", "staging", "production", etc., and other projects within the backend can use the same simple stack names.
+![Project scoping](whats-project-scoping.png)
 
-## Upgrading Existing Self-Managed Backends
+In practice, this meant that you could not re-use stack names like "dev" or "prod"
+between different Pulumi projects stored in the same self-managed backend.
+You had to work around this by manually writing unique, project-qualified stack names
+(e.g. "myproject-dev", "otherproject-dev").
 
-Existing self-managed backends remain non-scoped until upgraded. You can upgrade an existing self-managed backend using the new `pulumi state upgrade` command. This command will upgrade all stacks in the backend to be scoped by project.
+We're pleased to announce that such workarounds are no longer necessary!
+
+## Project-Scoped Stacks in Self-Managed Backends
+
+With the latest release of Pulumi,
+we've added support for project-scoped stacks to the Self-Managed Backend.
+Stacks created in new or empty self-managed backends
+will now be scoped under the project they belong to.
+
+You no longer have to include the project name in the name of the stack.
+You can create a new project and continue to use the short, simple names
+that you're used, such as "dev", "staging", "production", etc.
+across various projects, without risk of conflict with other projects.
+
+![Project-scoped self-managed stacks](project-scoped-self-managed-stacks.png)
+
+### Upgrading existing backends
+
+As mentioned in the previous section,
+only stacks created in new or empty self-managed backends
+will be scoped to their projects.
+Existing backends will continue to operate as they do today.
+
+If you have an existing self-managed backend that you'd like to upgrade
+to use project-scoped stacks,
+you can do so with the new `pulumi state upgrade` command,
+which upgrades all stacks in the backend to use the new project-scoped layout.
 
 ```
 $ pulumi state upgrade
@@ -42,16 +99,42 @@ Are you sure you want to proceed?
 Please confirm that this is what you'd like to do by typing `yes`:
 ```
 
-If you've included the project name in your stack names as a way of making the stack name fully unique within a self-managed backend, you can additionally use the `pulumi stack rename` command to clean up your stack names.
+{{% notes type="info" %}}
+Once a self-managed backend is upgraded,
+older versions of the Pulumi CLI will be unable to access this backend.
+This change cannot be reverted.
+{{% /notes %}}
 
-## Old Pulumi Versions
+If you previously included the project name in your stack names
+as a way of making them unique across the self-managed backend,
+you can use the `pulumi stack rename` command to clean up these names
+after the upgrade.
 
-Old versions of Pulumi will not be able to see stacks scoped by project. New versions of Pulumi (v3.61.0 or later) will output a warning if an older CLI has created any non-scoped stacks in a self-managed backend that has project-scoped stacks, suggesting to use the `pulumi state upgrade` command to upgrade the stacks.
+```
+$ pulumi stack rename --stack myproject-dev dev
+```
+
+![Upgrading and renaming stacks](upgrade-and-rename.png)
 
 ## Referencing Project-Scoped Stacks
 
-Project-scoped stacks in self-managed backends are scoped under a virtual organization, a constant value ("organization"). This allows for a consistent stack identity format across both Service and self-managed backends, e.g. with self-managed backends you can refer to a fully-qualified stack with `organization/my-project/my-stack`, or using the shorthands `organization/my-stack` or `my-stack` (depending on context) just like with the Service backend.
+Project-scoped stacks in self-managed backends
+are scoped under a virtual organization named "organization".
+This value is constant and cannot be changed.
+This allows for a consistent stack identity format
+across both the Service Backend and the Self-Managed Backend.
 
-## Availablity
+For example, with self-managed backends,
+you can refer to a fully-qualified stack with `organization/my-project/my-stack`.
+If the currently selected project is 'my-project',
+you can also use the shorthands `organization/my-stack` and `my-stack`&mdash;just
+like the Service Backend.
 
-Support for project-scoped stacks in self-managed backends is now available in Pulumi v3.61.0. Give it a try and share your thoughts with us on [Slack](https://slack.pulumi.com/)!
+    organization/my-project/my-stack
+    organization/my-stack  // if inside my-project
+    my-stack               // if inside my-project
+
+## Availability
+
+Support for project-scoped stacks in self-managed backends is now available in Pulumi v3.61.0.
+Give it a try and share your thoughts with us on the [Pulumi Community Slack](https://slack.pulumi.com/)!
