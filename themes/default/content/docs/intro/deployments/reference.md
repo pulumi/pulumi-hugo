@@ -19,7 +19,7 @@ Deployment settings refers to the full set of configuration required to run a Pu
 
 From the Pulumi Console, a stack's deployment settings can be accessed via the `Settings > Deploy` tab. Once the settings are defined via the UI, they apply to all Deployment triggers, including push-to-deploy (if you have the GitHub app installed), click-to-deploy and the REST API.
 
-![Pulumi UI - Deployment Settings](ui-settings.png)
+![Pulumi UI - Deployment Settings](../ui-settings.png)
 
 ### From the API
 
@@ -134,13 +134,13 @@ The merge behavior of deployment settings are further explained in the [REST API
 
 A deployment may be triggered at the simple click of a button in the Pulumi Console. Useful to test if your deployment settings are configured correctly or to execute one-off deployments.
 
-![Pulumi UI - Click to Deploy](ui-deploy-button.png)
+![Pulumi UI - Click to Deploy](../ui-deploy-button.png)
 
 ### GitHub Push to Deploy
 
 Once you have the GitHub application installed in your Pulumi organization, you can choose to have deployments run a `pulumi preview` when Pull Requests are opened against a target branch, or `pulumi up` when a commit is pushed to a branch.
 
-![Pulumi UI - Push to Deploy](ui-push-to-deploy.png)
+![Pulumi UI - Push to Deploy](../ui-push-to-deploy.png)
 
 ## Configuring push-to-deploy from GitHub
 
