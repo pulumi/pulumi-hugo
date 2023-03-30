@@ -16,9 +16,9 @@ We recently shipped a series of impactful enhancements to our [Pulumi Service](/
 (check out [Pulumi Deployments](/blog/pulumi-deployments/) if you haven't already!),
 and we have more exciting features coming soon.
 
-While our Service backend remains the best place to store your Pulumi state,
+While our Service backend remains the most ideal place to store your Pulumi state,
 we also offer a Self-Managed backend for those who prefer to do it themselves.
-We're committed to giving you the best experience regardless of which backend you use,
+We're committed to giving you a good experience regardless of which backend you use,
 so we've been hard at work improving the Self-Managed backend as well.
 
 Therefore, we're very excited to announce that with the latest release of Pulumi,
