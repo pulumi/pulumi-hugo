@@ -53,7 +53,9 @@ Using stack references, the Zephyr team can make the necessary connections they 
 * The code handling the Kubernetes cluster can reference the VPC ID and subnet IDs from the base infrastructure layer.
 * Similarly, the code that is responsible for deploying the online store services can reference the necessary Kubernetes connection details (the Kubeconfig) for the Kubernetes cluster.
 
-You can see how the Zephyr team did this for their projects toward the end of this post (in the section titled "Examining Zephyr's use of stack references").
+You can see how the Zephyr team did this for their projects, including code samples, toward the end of this post (in the section titled "Examining Zephyr's use of stack references"). This graphical representation also illustrates Zephyr's current repository and project structure as well as the stack references:
+
+![Graphic showing the relationships between three Git repositories and three Pulumi projects](projects-and-repos.png)
 
 It's worthwhile to note that any information that needs to be accessible from another stack via a stack reference must be exported as a stack output in the source stack. If you don't mark it as a stack output, then it can't be used in a stack reference. Adding stack outputs after the fact requires little effort and has no impact on existing infrastructure.
 
@@ -62,9 +64,10 @@ Also, any value retrieved via a stack reference is treated as [a Pulumi Output](
 While stack references are conceptually straightforward and not difficult to implement, there are some recommended practices to be mindful of regarding the use of stack outputs and stack references:
 
 1. When it comes to stack outputs, **export what is needed.** If it needs to be accessed from outside the stack, export it; otherwise, don't. Why? Stack outputs form the application programming interface (API) by which other Pulumi programs interact with this Pulumi program. Like in any API implementation, expose what the user cares about or is likely to need, and leave the rest as an implementation detail. You can add more stack outputs after the fact with only minimal code changes, and as has been mentioned already this is done with a quick `pulumi up` that has no affect on existing infrastructure (you're modifying the stack object itself).
-2. **Be judicious in the use of stack references.** Each stack reference is a call to the backend to read a value, which adds some level of latency. Using lots of stack references (think more than 20 or so) can introduce notable latency in Pulumi operations.
+2. **Be judicious in your use of stack references.** This is sort of the "flip side" of the previous bullet. If you need to reference an output from another stack, then do so; otherwise, don't. If you find yourself needing lots of stack references, then the way in which you've structured your projects may need to be re-examined so as to minimize the coupling between projects. Additionally, there is a potential "speed of light" concern here; if where you are executing your Pulumi code is across a high-latency link from where you store your Pulumi state, stack references will be affected by that latency.
 3. **If you need to expose lots of outputs on a stack, consider exporting a structured data object.** It's possible to construct a JSON object (or dict or struct, depending on your language) to hold all the stack outputs, and then export that object. Then a stack reference can read that object, resulting in a single call to the backend. Be aware, though, that you'll need to write the necessary code to understand/import/unmarshall that JSON object in the referring stack, so there is a small amount of extra work required in this situation.
 4. In line with parameterizing as much of your code as possible, **also be sure to parameterize your stack references.** A stack reference is built using an organization name, a project name, and a stack name. Don't hardcode these values; instead, use configuration values to allow the users to specify from which source stack(s) the values will be referenced. You'll see an example of that in the next section.
+5. **Plan for handling cascading stack updates.** If a stack has outputs being consumed via stack references, what happens when those stack outputs change? The Pulumi Service [supports webhooks](/docs/intro/pulumi-service/webhooks/) that can help, and Pulumi is currently exploring options for having Pulumi Deployments help with this (see [this GitHub issue](https://github.com/pulumi/service-requests/issues/181)). In practice this should be uncommon, and frequent occurrences may be a good indicator that your resource partitioning (how resources are split among multiple projects) needs to be adjusted.
 
 ## Examining Zephyr's use of stack references
 
@@ -121,8 +124,9 @@ All of the GitHub links in the paragraphs above reference the `multi-project` ta
 This post covered the following recommended practices for working with Pulumi:
 
 * **Export the minimum of what's needed** from your stacks. It's not difficult to add stack outputs later, and you can do it with no impact to existing infrastructure.
-* **Be judicious in the use of stack references.** Each stack reference introduces a small bit of latency in Pulumi operations, so reduce stack references where possible.
+* **Be judicious in the use of stack references.** Reducing stack references where possible helps keep projects from becoming overly coupled together, much in the same way as minimizing stack outputs.
 * **Use a structured data object for large numbers of values that need to be referenced.** This enables Pulumi to retrieve all the data with a single call, but be aware you'll need to write extra code to understand the data structure in the referring stack.
-* **Parameterize your stack references.** Don't hardcode organization, project, or stack name values. Instead, pass these in as configuration values (with default values applied, if applicable).
+* **Parameterize your stack references.** Don't hardcode organization, project, or stack name values. Instead, pass these in as configuration values (with default values applied, where applicable).
+* **Plan to build mechanisms to handle cascading stack updates.** Using the Pulumi Service's webhook functionality can be useful here. Frequent instances of cascading updates might be an indicator that your project structure needs to be revisited for optimal resource partitioning.
 
 The next post continues in the "Zephyr universe," but breaks from discussing IaC recommended practices to look at an oft-overlooked use case for Pulumi: streamlining local testing.
