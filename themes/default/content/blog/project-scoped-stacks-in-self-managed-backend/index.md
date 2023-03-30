@@ -11,8 +11,8 @@ tags:
     - pulumi-releases
 ---
 
-At Pulumi, we aim to offer our users the best-in-class IaaC experience.
-We recently shipped a series of impactful enhancements to our Service backend
+At Pulumi, we aim to offer our users the best-in-class IaC experience.
+We recently shipped a series of impactful enhancements to our [Pulumi Service](/product/pulumi-service/) backend
 (check out [Pulumi Deployments](/blog/pulumi-deployments/) if you haven't already!),
 and we have more exciting features coming soon.
 
