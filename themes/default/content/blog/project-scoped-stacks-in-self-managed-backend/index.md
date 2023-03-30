@@ -1,6 +1,6 @@
 ---
 title: "Projects in Self-Managed State Backends"
-date: 2023-03-29
+date: 2023-04-03
 meta_desc: Pulumi's Self-Managed backend now supports stack names scoped by project name.
 meta_image: meta.png
 authors:
