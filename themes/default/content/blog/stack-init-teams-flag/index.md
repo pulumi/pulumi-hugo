@@ -30,15 +30,15 @@ organization uses teams, you'll want to give your teammates access to the stack
 you created.
 
 With the release of Pulumi v3.59.0, developers can assign team access during stack creation. To do this,
-pass in the `--team` flag followed by the name of the team. For instance:
-`pulumi stack init --team Red`. This saves time by eliminating context switching,
+pass in the `--teams` flag followed by the name of the team. For instance:
+`pulumi stack init --teams Red`. This saves time by eliminating context switching,
 allowing users to stay on task. Previously, the only way to assign team access to
 a stack was through the Service UI. This meant a necessary trip to a browser
 before your teammates could peek at your work. This enhancement streamlines the
 DX of stack creation, helping you spin up new infrastructure.
 
 Use the flag multiple times to assign access to multiple teams, as in
-`pulumi stack init --team Red --team Blue`. Currently, the feature always grants
+`pulumi stack init --teams Red --teams Blue`. Currently, the feature always grants
 `read` and `write` access, the most commonly assigned permissions.
 
 We implemented this feature at the request of our daily users.
