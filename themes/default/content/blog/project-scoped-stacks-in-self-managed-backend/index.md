@@ -59,8 +59,8 @@ It provides the best combination of usability, safety, and security for most use
 
 The **Self-Managed** backend stores state in a JSON file,
 deferring to you to manage persistence of this information.
-You can store it in AWS S3, Azure Blob Store, Google Cloud Storage,
-a system such as Minio or Ceph with an API compatible with AWS S3,
+You can store it in Amazon S3, Azure Blob Store, Google Cloud Storage,
+a system such as Minio or Ceph with an API compatible with Amazon S3,
 or on your local filesystem.
 Using this backend trades reliability and convenience of the Service backend
 for additional control over where the information is stored.
@@ -73,7 +73,7 @@ see [Deciding On a State Backend](/docs/intro/concepts/state/#deciding-on-a-stat
 ### Project-scoped stacks
 
 Depending on your needs, you can have several Pulumi projects.
-For example, you might have a "net" project to set up an AWS VPC,
+For example, you might have a "net" project to set up an Amazon VPC,
 a "k8s" project to set up a Kubernetes cluster deployed to it,
 and an "app" project to build and deploy your application to the cluster.
 Each of these projects will have their own stacks, e.g. "test" and "prod".
