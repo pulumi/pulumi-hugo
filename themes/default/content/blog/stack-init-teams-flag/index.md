@@ -1,5 +1,5 @@
 ---
-title: "Announcing the Stack Init Teams Flag"
+title: "Manage Pulumi Teams in Bulk with the New CLI Teams Flag"
 date: "2023-03-31"
 meta_desc: "We've added a new CLI flag to the stack init subcommand allowing users to grant team access to newly created stacks."
 meta_image: "meta.png"
