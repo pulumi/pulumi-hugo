@@ -23,8 +23,7 @@ Here are links to all the blog posts in the series (entries not linked below are
 * [IaC Recommended Practices: Developer Stacks and Git Branches](/blog/iac-recommended-practices-developer-stacks-git-branches/)
 * [IaC Recommended Practices: Structuring Pulumi Projects](/blog/iac-recommended-practices-structuring-pulumi-projects/)
 * **IaC Recommended Practices: Using Stack References** (you are here)
-* IaC Recommended Practices: Local Testing with Pulumi
-* IaC Recommended Practices: Evolving the Application
+* IaC Recommended Practices: RBAC and Security
 * IaC Recommended Practices: Adding Pulumi Deployments
 * IaC Recommended Practices: Refactoring for Reuse
 
@@ -68,6 +67,8 @@ While stack references are conceptually straightforward and not difficult to imp
 3. **If you need to expose lots of outputs on a stack, consider exporting a structured data object.** It's possible to construct a JSON object (or dict or struct, depending on your language) to hold all the stack outputs, and then export that object. Then a stack reference can read that object, resulting in a single call to the backend. Be aware, though, that you'll need to write the necessary code to understand/import/unmarshall that JSON object in the referring stack, so there is a small amount of extra work required in this situation.
 4. In line with parameterizing as much of your code as possible, **also be sure to parameterize your stack references.** A stack reference is built using an organization name, a project name, and a stack name. Don't hardcode these values; instead, use configuration values to allow the users to specify from which source stack(s) the values will be referenced. You'll see an example of that in the next section.
 5. **Plan for handling cascading stack updates.** If a stack has outputs being consumed via stack references, what happens when those stack outputs change? The Pulumi Service [supports webhooks](/docs/intro/pulumi-service/webhooks/) that can help, and Pulumi is currently exploring options for having Pulumi Deployments help with this (see [this GitHub issue](https://github.com/pulumi/service-requests/issues/181)). In practice this should be uncommon, and frequent occurrences may be a good indicator that your resource partitioning (how resources are split among multiple projects) needs to be adjusted.
+
+One thing not listed above is security---and that's because a later post in the series focuses on this topic. You'll want to keep the security of your stacks in mind when planning for the use of stack references. The teams managing the stacks where the stack references exist will need at least read-only access to the stacks where the outputs exist. More on that in a later post!
 
 ## Examining Zephyr's use of stack references
 
@@ -129,4 +130,4 @@ This post covered the following recommended practices for working with Pulumi:
 * **Parameterize your stack references.** Don't hardcode organization, project, or stack name values. Instead, pass these in as configuration values (with default values applied, where applicable).
 * **Plan to build mechanisms to handle cascading stack updates.** Using the Pulumi Service's webhook functionality can be useful here. Frequent instances of cascading updates might be an indicator that your project structure needs to be revisited for optimal resource partitioning.
 
-The next post continues in the "Zephyr universe," but breaks from discussing IaC recommended practices to look at an oft-overlooked use case for Pulumi: streamlining local testing.
+The next post in the IaC recommended practices series focuses on security and role-based access control (RBAC)---a topic you won't want to miss! Before then, the next visit to the "Zephyr universe" will be to take a look at an oft-overlooked use case for Pulumi: local testing. Come see how to use Pulumi to automate local testing for development!
