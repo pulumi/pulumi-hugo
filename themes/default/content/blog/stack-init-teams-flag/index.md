@@ -28,7 +28,7 @@ This command initializes a new stack. If you're using the
 organization uses teams, you'll want to give your teammates access to the stack
 you created.
 
-With the release of Pulumi v3.59.0, developers can assign team access during stack creation. To do this,
+With the release of Pulumi v3.59.0, developers can assign Pulumi Team access during stack creation. To do this,
 pass in the `--teams` flag followed by the team's name. For instance:
 `pulumi stack init --teams Red`. This saves time by eliminating context switching,
 allowing users to stay on task. Previously, the only way to assign team access to
