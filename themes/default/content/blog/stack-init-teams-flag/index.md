@@ -27,12 +27,20 @@ This command initializes a new stack. If you're using the
 [Pulumi Service](https://www.pulumi.com/docs/intro/concepts/state/#pulumi-service-backend) as your backend, you can view your newly created stack in the Pulumi Service console. If your organization uses teams, you will want to give your teammates access to the stack.
 
 With the release of Pulumi v3.59.0, developers can assign Pulumi Team access during stack creation. To do this, pass in the `--teams` flag followed by the team's name. For instance:
-`pulumi stack init --teams Red`. This saves time by eliminating context switching,
-allowing users to stay on task. Previously, the Service console was the most direct way to assign team access to a stack, meaning a trip to the browser before your teammates could access the stack. The `--teams` flag improves upon the process of managing stack permissions by removing this step.
 
-Use the flag multiple times to assign access to multiple Pulumi Teams, as in
-`pulumi stack init --teams Red --teams Blue`. Currently, the feature always grants
-`read` and `write` access, the most commonly assigned permissions.
+```bash
+pulumi stack init --teams Red
+```
+
+This saves time by eliminating context switching, allowing users to stay on task. Previously, the Service console was the most direct way to assign team access to a stack, meaning a trip to the browser before your teammates could access the stack. The `--teams` flag improves upon the process of managing stack permissions by removing this step.
+
+Use the flag multiple times to assign access to multiple Pulumi Teams, as in:
+
+```bash
+pulumi stack init --teams Red --teams Blue
+```
+
+Currently, the feature always grants `read` and `write` access, the most commonly assigned permissions.
 
 We implemented this feature as a direct result of feedback from daily users.
 Context switching can be expensive when you're creating enough stacks.
