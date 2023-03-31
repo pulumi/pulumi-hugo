@@ -18,19 +18,18 @@ We recently released a quality-of-life feature for the Pulumi CLI to save users 
 <!--more-->
 
 Here's some background for any Pulumi newcomers. Pulumi projects
-consist of stacks—separate deployments of the same infrastructure. Stacks may
+consist of stacks, which are separate deployments of the same infrastructure. Stacks may
 also be configured with separate inputs. Organization admins can leverage RBAC
 to grant project and stack access by sorting members into roles called "teams."
 
 Stacks are often created via the CLI with the [`pulumi stack init` command](https://www.pulumi.com/docs/reference/cli/pulumi_stack_init/#options).
 This command initializes a new stack. If you're using the
-[Pulumi Service](https://www.pulumi.com/docs/intro/concepts/state/#pulumi-service-backend)
-as your backend, you can view your newly created stack in the Service UI. If your
+[Pulumi Service](https://www.pulumi.com/docs/intro/concepts/state/#pulumi-service-backend) as your backend, you can view your newly created stack in the Service UI. If your
 organization uses teams, you'll want to give your teammates access to the stack
 you created.
 
 With the release of Pulumi v3.59.0, developers can assign team access during stack creation. To do this,
-pass in the `--teams` flag followed by the name of the team. For instance:
+pass in the `--teams` flag followed by the team's name. For instance:
 `pulumi stack init --teams Red`. This saves time by eliminating context switching,
 allowing users to stay on task. Previously, the only way to assign team access to
 a stack was through the Service UI. This meant a necessary trip to a browser
@@ -39,7 +38,9 @@ DX of stack creation, helping you spin up new infrastructure.
 
 Use the flag multiple times to assign access to multiple Pulumi Teams, as in
 `pulumi stack init --teams Red --teams Blue`. Currently, the feature always grants
-`read` and `write` access, the most commonly assigned permissions.
+`read` and `write` access, the most commonly assigned permissions. Teams are available at the
+
+Enterprise pricing tier and higher.
 
 We implemented this feature at the request of our daily users.
 Context switching can be expensive when you're creating enough stacks.
