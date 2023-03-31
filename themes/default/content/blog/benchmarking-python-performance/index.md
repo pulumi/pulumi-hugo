@@ -100,7 +100,16 @@ that it did not! Strangely, API calls were issued in an initial batch of 20;
 as one completed, another would start.
 
 The culprit was the Python default future executor,
-[ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor). We observed that benchmark was run on a four-core computer, and in Python 3.5 to Python 3.7, the number of max workers is five times the number of cores, or 20. In (Python 3.8, this number was changed to `min(32, os.cpu_count() + 4)`.) We realized we shouldn't be using the default `ThreadExecutor`, and instead we should provide a `ThreadExecutor` with an adjusted number of `max_workers` based on the configured parallelism value. That way, when users run `pulumi up --parallel`, which issues an upper bound on parallel resource construction, the `ThreadExecutor` will respect that bound. We [merged a fix](https://github.com/pulumi/pulumi/pull/11122)
+[ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor).
+We observed that benchmark was run on a four-core computer, and in Python 3.5
+to Python 3.7, the number of max workers is five times the number of cores, or 20.
+In (Python 3.8, this number was changed to `min(32, os.cpu_count() + 4)`.) We
+realized we shouldn't be using the default `ThreadExecutor`, and instead we
+should provide a `ThreadExecutor` with an adjusted number of `max_workers`
+based on the configured parallelism value. That way, when users run
+`pulumi up --parallel`, which issues an upper bound on parallel resource
+construction, the `ThreadExecutor` will respect that bound. We
+[merged a fix](https://github.com/pulumi/pulumi/pull/11122)
 that would plumb the value of `--parallel` through to a custom `ThreadExecutor`
 and measured the impact this change had on the performance of our benchmark.
 
