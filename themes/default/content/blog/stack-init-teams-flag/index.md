@@ -37,7 +37,7 @@ a stack was through the Service UI. This meant a necessary trip to a browser
 before your teammates could peek at your work. This enhancement streamlines the
 DX of stack creation, helping you spin up new infrastructure.
 
-Use the flag multiple times to assign access to multiple teams, as in
+Use the flag multiple times to assign access to multiple Pulumi Teams, as in
 `pulumi stack init --teams Red --teams Blue`. Currently, the feature always grants
 `read` and `write` access, the most commonly assigned permissions.
 
