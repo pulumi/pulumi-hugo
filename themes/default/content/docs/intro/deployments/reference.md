@@ -128,7 +128,7 @@ The `inheritSettings` property allows you to make use of the predefined deployme
 }
 ```
 
-The merge behavior of deployment settings are further explained in the [REST API documentation](api.md).
+The merge behavior of deployment settings are further explained in the [REST API documentation](../api).
 
 ### Click to Deploy
 
