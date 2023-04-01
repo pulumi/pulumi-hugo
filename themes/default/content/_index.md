@@ -580,7 +580,7 @@ get_started:
       source: twitter
       text: "@PulumiCorp is pretty awesome. Just nuked a couple of load balancers and recreated them, no big deal."
       username: "@joepferguson@phpc.social"
-      avatar: https://pbs.twimg.com/profile_images/1593803782034423809/j53OblCR_400x400.jpg
+      avatar: https://pbs.twimg.com/profile_images/1627752241158361141/OprWSkfm_400x400.jpg
       link: https://twitter.com/JoePFerguson/status/1593289950597976066
 
     -
