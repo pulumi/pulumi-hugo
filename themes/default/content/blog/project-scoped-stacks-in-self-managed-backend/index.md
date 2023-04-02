@@ -19,7 +19,7 @@ Over the last few years, we've continued to expand the features of the Pulumi Se
 
 While the majority of Pulumi users do choose to use the Pulumi Service, we also know that there are good reasons why some organizations would prefer to use Pulumi IaC alone without the Pulumi Service.  And so we support and continue to invest in enabling a variety of additional [backends](/docs/intro/concepts/state/) that allow the Pulumi CLI to be used with state stored in the local filesystem or in cloud storage like S3, Azure Blob Storage, or Google Cloud Storage.
 
-Historically the Pulumi Service backend and the self-managed file storage backends have differed in their handling of "projects". The Pulumi Service stores state for a Pulumi stack in a seperate namespace per project. The self-managed backends have historically stored all stacks in a single namespace across all projects.  This inconsistnecy has been a common source of confusion for users getting started with Pulumi when using the file storage backends.
+Historically the Pulumi Service backend and the self-managed file storage backends have differed in their handling of "projects". The Pulumi Service stores state for a Pulumi stack in a seperate namespace per project. The self-managed backends have historically stored all stacks in a single namespace across all projects.  This inconsistency has been a common source of confusion for users getting started with Pulumi when using the file storage backends.
 
 Today, we are aligning how projects are managed across all backends, adding **Project-Scoped Stacks** support to the self-managed backends.
 
