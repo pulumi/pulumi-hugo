@@ -1,5 +1,5 @@
 ---
-title: "Projects in Self-Managed State Backends"
+title: "Aligning Projects between Service and Self-Managed Backends"
 date: 2023-04-03
 meta_desc: Pulumi's Self-Managed backend now supports stack names scoped by project name.
 meta_image: meta.png
@@ -11,18 +11,17 @@ tags:
     - pulumi-releases
 ---
 
-At Pulumi, we aim to offer our users the best-in-class IaC experience.
-We recently shipped a series of impactful enhancements to our [Pulumi Service](/product/pulumi-service/) backend
-(check out [Pulumi Deployments](/blog/pulumi-deployments/) if you haven't already!),
-and we have more exciting features coming soon.
+At Pulumi, our goal is to offer the best Infrastructure as Code experience for all cloud developers.
+From the very beginning, we've believed that the best IaC experience is made possible by combining a great open source SDK and CLI with a great backend management service.
+This is why we built and run the [Pulumi Service](/product/pulumi-service/), a rich management platform for your Infrastructure as Code, which includes a forever free option for individuals, a generous free tier for teams, and critical tools for enterprises to manage IaC at scale.
 
-While we recommend using the Pulumi Service backend to store your state because of its [many features](/blog/six-things-about-pulumi-service/) that increase your productivity,
-we also offer a Self-Managed backend for those who prefer to do it themselves.
-We're committed to giving you a good experience regardless of which backend you use,
-so we've been hard at work improving the Self-Managed backend as well.
+Over the last few years, we've continued to expand the features of the Pulumi Service - with [Deployments](/blog/pulumi-deployments/),  [Audit Logs](/docs/intro/pulumi-service/audit-logs/), [SAML SSO](/docs/guides/saml/) and [SCIM](/docs/guides/scim/), [Teams](/docs/intro/pulumi-service/teams/), [Stack Transfers](/blog/stack-transfers/), [Favorites](/blog/new-improved-pulumi-service-console/), [Organization](/docs/intro/pulumi-service/organization-access-tokens/) and [Team Access Tokens](/docs/intro/pulumi-service/team-access-tokens/) and much more.
 
-Therefore, we're very excited to announce that with the latest release of Pulumi,
-we have added support for **Project-Scoped Stacks** in our Self-Managed backend.
+While the majority of Pulumi users do choose to use the Pulumi Service, we also know that there are good reasons why some organizations would prefer to use Pulumi IaC alone without the Pulumi Service.  And so we support and continue to invest in enabling a variety of additional [backends](/docs/intro/concepts/state/) that allow the Pulumi CLI to be used with state stored in the local filesystem or in cloud storage like S3, Azure Blob Storage, or Google Cloud Storage.
+
+Historically the Pulumi Service backend and the self-managed file storage backends have differed in their handling of "projects". The Pulumi Service stores state for a Pulumi stack in a seperate namespace per project. The self-managed backends have historically stored all stacks in a single namespace across all projects.  This inconsistnecy has been a common source of confusion for users getting started with Pulumi when using the file storage backends.
+
+Today, we are aligning how projects are managed across all backends, adding **Project-Scoped Stacks** support to the self-managed backends.
 
 <!--more-->
 
