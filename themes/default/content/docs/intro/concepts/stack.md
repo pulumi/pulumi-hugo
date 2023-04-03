@@ -25,15 +25,25 @@ The stack name must be unique within a project. Stack names may only contain alp
 $ pulumi stack init staging
 ```
 
-There are a variety of available formats for the stackName.
+The stack name is specified in one of the following formats:
 
 1. `stackName`: Identifies the stack `stackName` in the current user account or default organization, and the project specified by the nearest `Pulumi.yaml` project file.
 1. `orgName/stackName`: Identifies the stack `stackName` in the organization `orgName`, and the project specified by the nearest `Pulumi.yaml` project file.
 1. `orgName/projectName/stackName`: Identifies the stack `stackName` in the organization `orgName` and the project `projectName`.  `projectName` must match the project specified by the nearest `Pulumi.yaml` project file.
 
-Note that `orgName` must always be the constant value `organization` when referencing stacks in [Self-Managed](/docs/intro/concepts/state#using-a-self-managed-backend) backends.
+{{% notes type="info" %}}
+For [Self-Managed](/docs/intro/concepts/state#using-a-self-managed-backend) backends, the `orgName` portion of the stack name must always be the constant value `organization`.
+{{% /notes %}}
 
-In some contexts, stack names will be presented in their fully-qualified format (`orgName/projectName/stackName` for the Service backend) even if provided using shorthand (`stackName` or `orgName/stackName`) as input.
+Given the stack `my-org/my-project/dev`, the following are  all equivalent if the current organization is `my-org` and the current project is `my-project`:
+
+```
+my-org/my-project/dev
+my-org/dev
+dev
+```
+
+In some contexts, stack names will be presented in their fully-qualified format (`orgName/projectName/stackName`) even if provided using shorthand (`stackName` or `orgName/stackName`) as input.
 
 {{% notes type="info" %}}
 While stacks with applied configuration settings will often be accompanied by `Pulumi.<stack-name>.yaml` files, these files are not created by `pulumi stack init`. They are created and managed with [`pulumi config`](/docs/reference/cli/pulumi_config). For information on how to populate your stack configuration files, see [Configuration](/docs/intro/concepts/config/).
@@ -51,7 +61,7 @@ staging*                                  n/a                      n/a
 broomellc/test                            2 weeks ago              121
 ```
 
-Note that stack names may be partially qualified when they are associated with a given organization or project different from the default for the context.
+Stack names in the listing will be partially qualified if they are associated with an organization or project different from the default for the context.
 
 ## Select a stack
 

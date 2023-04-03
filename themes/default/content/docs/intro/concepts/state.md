@@ -152,11 +152,12 @@ The filesystem and cloud storage backends allow you to store state locally on yo
 
 To use a self-managed backend, specify a storage endpoint URL as `pulumi login`'s `<backend-url>` argument: `s3://<bucket-path>`, `azblob://<container-path>`, `gs://<bucket-path>`, or `file://<fs-path>`. This will tell Pulumi to store state in AWS S3, Azure Blob Storage, Google Cloud Storage, or the local filesystem, respectively. Checkpoint files are stored in a relative`.pulumi` directory. For example, if you were using the Amazon S3 self-managed backend, your checkpoint files would be stored at `s3://my-pulumi-state-bucket/.pulumi` where `my-pulumi-state-bucket` represents the name of your S3 bucket.
 
-Within the `.pulumi` folder, each self-managed backend stores these three pieces of data for your stack(s):
+Inside the `.pulumi` folder, we access the following subdirectories:
 
-1. `stacks`:  For each stack, the active state file (e.g. `dev.json` or `proj/dev.json` for a stack created with an explicit project scope) and the last version of the stack state (e.g. `dev.json.bak`).
-1. `locks`:  For each stack, an optional lock file if the stack is currently being operated on by a Pulumi operation (e.g. `dev/lock.json` or `proj.dev.json`).
-1. `history`: For each stack, the history of operations (e.g. `dev/dev-1675196469237644000.history.json`).
+1. `meta.yaml`: This is the metadata file. It does not hold information about the stacks but rather information about the backend itself.
+1. `stacks/`: Active state files for each stack (e.g. `dev.json` or `proj/dev.json` if the stack is scoped to a project).
+1. `locks/`: Optional lock files for each stack if the stack is currently being operated on by a Pulumi operation (e.g. `dev/$lock.json` or `proj/dev/$lock.json` where `$lock` is a unique identifier for the lock).
+1. `history/`: History for each stack (e.g. `dev/dev-$timestamp.history.json` or `proj/dev/dev-$timestamp.history.json` where `$timestamp` records the time the history file was created).
 
 The detailed format of the `<backend-url>` differs by backend and each has different options such as how to authenticate, as described below.
 
@@ -244,11 +245,13 @@ To configure credentials for this backend, see [Application Default Credentials]
 
 ### Scoping
 
-Older versions of Pulumi prior to v3.61.0 did not scope stack names in self-managed backends. This meant that you couldn't have stacks with the same across multiple progres in the same self-managed backend. With Pulumi v3.61.0 and later, stacks created in new or empty self-managed backends are scoped by project by default.
+Versions of Pulumi prior to v3.61.0 placed stacks in a global namespace in self-managed backends. This meant that you couldn't share stack names (e.g. `dev`, `prod`, `staging`) across multiple projects in the same self-managed backend. With Pulumi v3.61.0 and later, stacks created in new or empty self-managed backends are scoped by project by default&mdash;same as the Pulumi Service backend.
 
-Existing self-managed backends remain non-scoped until upgraded. You can upgrade an existing self-managed backend using the `pulumi state upgrade` command. This command will upgrade all stacks in the backend to be scoped by project.
+Existing self-managed backends will continue to use the global namespace for stacks. You can upgrade an existing self-managed backend to use project-scoped stacks using the `pulumi state upgrade` command. This command will upgrade all stacks in the backend to be scoped by project.
 
-Old versions of Pulumi will not be able to see stacks scoped by project. New versions of Pulumi (v3.61.0 or later) will output a warning if an older version of Pulumi has created any non-scoped stacks in a self-managed backend that has project-scoped stacks, suggesting to use the `pulumi state upgrade` command to upgrade the stacks.
+{{% notes type="info"%}}
+`pulumi state upgrade` will make upgraded stacks inaccesible to older versions of Pulumi. This is a one-way operation. Once you have upgraded your backend, you cannot downgrade to the previous version.
+{{% /notes %}}
 
 ## Migrating Between State Backends
 
