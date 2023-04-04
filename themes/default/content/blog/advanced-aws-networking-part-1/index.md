@@ -47,7 +47,7 @@ A hub-and-spoke network is a common architecture for creating a network topology
 
 * The **inspection VPC** provides centralized egress. It is the only VPC that has a route to the internet, so all other VPCs in the architecture must route their traffic through the inspection VPC. In part II of this blog post, you'll add AWS Firewall to the inspection VPC to allow all traffic to the internet to be governed by a single set of policies.
 * Network connectivity between VPCs is accomplished via **[AWS Transit Gateway](https://aws.amazon.com/transit-gateway/)**. The Transit Gateway maintains a central routing table that is used to route traffic from the spoke VPCs to the internet. We also need to maintain routes so that return traffic from the internet can be routed back to the correct spoke VPC.
-* The **spoke VPCs** are where we would run our application workloads. They are isolated from each other and cannot communicate with each other unless we explicitly allow a network path. They will be able to communicate with the internet by default, but only through the inspection VPC's NAT gateways.
+* The **spoke VPCs** are where we run our application workloads. They are isolated from each other and cannot communicate with each other unless we explicitly allow a network path. They will be able to communicate with the internet by default, but only through the inspection VPC's NAT gateways.
 
 A fully fleshed-out version of the architecture, with multiple spoke VPCs follows:
 
