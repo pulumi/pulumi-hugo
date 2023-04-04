@@ -38,7 +38,7 @@ In this blog series you will learn how to create a hub-and-spoke network archite
 <!--more-->
 
 {{% notes type="info" %}}
-The complete code for this project is available on [GitHub](https://github.com/pulumi/examples/tree/master/aws-py-hub-and-spoke). We won't necessarily be covering every line of code in this blog post, so please refer to the code in GitHub for full context.
+The complete code for this project is available on [GitHub](https://github.com/pulumi/examples/tree/master/aws-py-hub-and-spoke), which is a great place to go for full context.
 {{% /notes %}}
 
 ## What is a hub-and-spoke network?
@@ -73,7 +73,7 @@ There’s several advantages to this architecture:
 
 After initializing your Pulumi project and adding the necessary references to the [AWS Classic](https://www.pulumi.com/registry/packages/aws/) and [AWSX](https://www.pulumi.com/registry/packages/awsx/), you can add the resources relating to your Transit Gateway.
 
-You'll need to configure a CIDR block for your network's supernet. All spoke VPCs in this codebase must fall under the supernet CIDR block. You will  use the supernet CIDR to create a route in the inspection VPC that will route traffic returning from the internet to the Transit Gateway. The Transit Gateway will, in turn, route the traffic back to the specific originating spoke VPC.
+You'll need to configure a CIDR block for your network's supernet. All spoke VPCs in this codebase must fall under the supernet CIDR block. You will use the supernet CIDR to create a route in the inspection VPC that will route traffic returning from the internet to the Transit Gateway. The Transit Gateway will, in turn, route the traffic back to the specific originating spoke VPC.
 
 You can get the supernet CIDR from the Pulumi configuration. If the configuration value is not set, you can default to a CIDR block of `10.0.0.0/8`:
 
@@ -135,7 +135,7 @@ The code samples in this section are not exhaustive. That is, they do not contai
 
 Now that you've added some foundational Transit Gateway resources, you can create your inspection VPC.
 
-The inspection VPC is implemented as a [Pulumi component resource](https://www.pulumi.com/docs/intro/concepts/resources/components/). While we do not need to create multiple inspection VPCs in this codebase, implementing the inspection VPC as a component resource enhances the readability of both the code and the output by grouping all resources that belong to the inspection VPC together in the output of `pulumi up`. You also can further improve the readability of the component by placing its code in a separate file (in this case, `inspection.py`).
+The inspection VPC is implemented as a [Pulumi component resource](https://www.pulumi.com/docs/intro/concepts/resources/components/). While we do not need to create multiple inspection VPCs in this codebase, implementing the inspection VPC as a component resource enhances the readability of both the code and the output by grouping all resources that belong to the inspection VPC in the output of `pulumi up`. You can also improve the component's readability by placing its code in a separate file (in this case, `inspection.py`).
 
 When you create a component resource in Python, it's helpful to create a class that contains the arguments to the component resource. This allows you to pass the arguments to the component resource as a single object, which makes the code easier to read and understand. You can create a terse and easily readable arguments class in Python with the [`@dataclass` decorator](https://docs.python.org/3/library/dataclasses.html):
 
@@ -273,4 +273,4 @@ insp_vpc = InspectionVpc(
 
 At this point, we do not have have a fully functional architecture - we still need to create the spoke VPCs - but if we want to get some feedback on our architecture, we can run `pulumi up` and see what happens. We should see that Pulumi will create the VPC, the Transit Gateway attachment, and the routes.
 
-In the following post, we’ll create our spoke VPCs and verify connectivity, then add centralized inspection of network traffic going to the internet. Stay tuned!
+In the next post, we’ll create our spoke VPCs and verify connectivity, then add centralized inspection of network traffic going to the internet. Stay tuned!
