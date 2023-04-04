@@ -6,7 +6,7 @@ meta_desc: This page provides an overview of how to create a new AWS + Pulumi pr
 weight: 3
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-create-project
 
 aliases: ["/docs/quickstart/aws/create-project/"]

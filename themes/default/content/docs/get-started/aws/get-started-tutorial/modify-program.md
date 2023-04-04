@@ -6,7 +6,7 @@ meta_desc: This page provides an overview on how to update an AWS project from a
 weight: 6
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-modify-program
 
 aliases: ["/docs/quickstart/aws/modify-program/"]

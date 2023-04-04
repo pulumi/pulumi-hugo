@@ -6,7 +6,7 @@ meta_desc: This page provides an overview on how to a review a new AWS project.
 weight: 4
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-review-project
 
 aliases: ["/docs/quickstart/aws/review-project/"]

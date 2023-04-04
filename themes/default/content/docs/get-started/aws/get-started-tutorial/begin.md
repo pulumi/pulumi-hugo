@@ -6,7 +6,7 @@ meta_desc: This page provides an overview on how to get started with Pulumi when
 weight: 2
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-begin
 
 aliases: [

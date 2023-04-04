@@ -8,7 +8,7 @@ weight: 9
 no_on_this_page: true
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-next-steps
 
 aliases: ["/docs/quickstart/aws/next-steps/"]

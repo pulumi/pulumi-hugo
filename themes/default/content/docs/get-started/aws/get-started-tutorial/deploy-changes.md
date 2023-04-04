@@ -6,7 +6,7 @@ meta_desc: This page provides an overview of how deploy changes to an AWS projec
 weight: 7
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-deploy-changes
 
 aliases: ["/docs/quickstart/aws/deploy-changes/"]

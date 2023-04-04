@@ -6,7 +6,7 @@ meta_desc: This page provides an overview of how to destroy a Pulumi stack of an
 weight: 8
 menu:
   getstarted:
-    parent: aws
+    parent: aws-tutorial
     identifier: aws-destroy-stack
 
 aliases: ["/docs/quickstart/aws/destroy-stack/"]
