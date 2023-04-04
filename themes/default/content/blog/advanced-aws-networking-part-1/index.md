@@ -69,7 +69,7 @@ There’s several advantages to this architecture:
 * **Stable public IP addresses:** Because all of our egress traffic to the internet originate from the same set of stable, public elastic IP addresses (attached to the NAT gateways in the inspection VPC), we can more easily interface with systems that use high-trust, network based security models (i.e., IP allowlists). Network administrators for the systems we want to interface with only need allow a limited number of IPs to establish connectivity, as opposed to having to allow new IPs for every VPC we create. These high-trust systems are often based in the data center and may have small and infrequent change windows, so only having to go through the change management process once, not for every spoke VPC we add, is a big win.
 * **Centralized traffic inspection:** When all traffic to the internet flows through our inspection VPC, we only need to apply a firewall and associated rules in a single place. This way, we can easily ensure that all network traffic to the internet complies with our organization’s security policies. (In the part of this post, we’ll add in AWS Firewall to our inspection VPC to add centralized traffic inspection capabilities to our architecture.)
 
-## Creating the First Transit Gateway Resources
+## Creating the first Transit Gateway resources
 
 After initializing your Pulumi project and adding the necessary references to the [AWS Classic](https://www.pulumi.com/registry/packages/aws/) and [AWSX](https://www.pulumi.com/registry/packages/awsx/), you can add the resources relating to your Transit Gateway.
 
@@ -127,7 +127,7 @@ spoke_tgw_route_table = aws.ec2transitgateway.RouteTable(
 )
 ```
 
-## Creating the Inspection VPC
+## Creating the inspection VPC
 
 {{% notes type="info" %}}
 The code samples in this section are not exhaustive. That is, they do not contain every line of code required so that we can focus on the most illustrative portions. See the [GitHub repo]([GitHub](https://github.com/pulumi/examples/tree/master/aws-py-hub-and-spoke) for full context.
@@ -247,7 +247,7 @@ for subnet_id in public_subnet_ids:
 
 You need to both sets of these routes within an [apply](https://www.pulumi.com/docs/intro/concepts/inputs-outputs/#apply) because of we need to access the raw values of each of the subnet ids. Apply can be conceptually difficult for beginners in Pulumi to grasp, but it essentially means "once you know all of the values that I need, pass them on to this function".
 
-## Final Steps
+## Final steps
 
 Now that you've created our inspection VPC component, you can reference it in the main project file:
 
