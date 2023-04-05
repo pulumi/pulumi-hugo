@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <section id="countdown" class="pt-12">
+    <section id="countdown" class="pt-12 mb-16">
         <pulumi-date-countdown-circles
             date-string="{{ .Params.event_date }}"
             value-label-class="block font-normal"
@@ -44,59 +44,43 @@
         </p>
     </div>
 
-    <section id="sessions" class="py-0">
-        <div class="container mx-auto py-12">
-            <h2 class="text-black px-6">Highlights from PulumiUP 2022</h2>
-            <h4 class="px-6">Innovation & Future-Forward Thoughts on Cloud</h4>
-            <div class="flex flex-wrap justify-center items-stretch">
-                {{ $people := .Site.Data.team.team }}
-                {{ range .Params.sessions }}
-                    <div class="w-full lg:w-1/2 p-3">
-                        <div class="card h-full bg-white overflow-hidden">
-                            <div class="flex flex-col h-full pb-3">
-                                <div class="bg-black w-full p-6 pb-3">
-                                    <div class="w-full lg:h-full">
-                                        <div class="flex justify-center items-start">
-                                            {{ range $presenter := .presenters }}
-                                                {{ $presenterData := index $people $presenter }}
-                                                <div class="w-1/4 pr-2">
-                                                    <img
-                                                        class="rounded-md"
-                                                        src="/images/team/{{ $presenter }}.jpg"
-                                                        alt="{{ $presenterData.name }}"
-                                                        title="{{ $presenterData.name }}"
-                                                    />
-                                                    <div class="text-white text-sm text-center mt-2">
-                                                        {{ $presenterData.name }}
-                                                    </div>
-                                                </div>
-                                            {{ end }}
-                                        </div>
-                                    </div>
-                                </div>
+    <section id="topic-tags" class="relative mt-8">
+        <div class="dot-background-container">
+            <div class="dot-background"></div>
+        </div>
+        <div class="dot-overlay"></div>
 
-                                <div class="flex flex-col h-full p-6">
-                                    <h5 class="mt-0 mt-4">
-                                        {{ .title }}
-                                    </h5>
-                                    <p>
-                                        {{ .description }}
-                                    </p>
-                                    <div class="flex-grow text-center mt-8 flex justify-center items-end">
-                                        <a class="btn-secondary" href="{{ .link }}" target="_blank" rel="noopener noreferrer">Watch now</a>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="w-full py-8" style="background-color:rgba(255,255,255,.8)">
+            <div class="text-center relative mx-auto w-full lg:w-2/3">
+                <h3 class="text-black mb-8">At A Glance Topics</h3>
+                <p>
+                    Learn how industry leaders leverage infrastructure as code to innovate, accelerate software development, enable their developer teams, and cut costs. Grow your
+                    knowledge about cloud and trending topics, and build more efficiently.
+                </p>
+                <div class="flex flex-row flex-wrap justify-center">
+                    {{ range .Params.topics }}
+                        <div class="rounded-md px-2 py-2 m-2 text-white {{ .color }}">{{ .name }}</div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dev-stories" class="yellow-blue-gradient mt-2">
+        <div class="container mx-auto px-4 py-8 text-center">
+            <h3>DevStories</h3>
+            <div class="container">
+                {{ range .Params.stories }}
+                    <div class="card mx-auto bg-white w-full lg:w-2/3 m-4 p-4 flex flex-col lg:flex-row">
+                        <div class="w-full lg:w-1/4">
+                            {{ .name }}
+                        </div>
+                        <div class="w-full lg:w-3/4 text-left">
+                            <h5>{{ .title }}</h5>
+                            {{ .description | markdownify }}
                         </div>
                     </div>
                 {{ end }}
-
-
-                <div class="mt-16 mb-8 text-center">
-                    <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlpcvhSsUXdT5CXjRwAaM_My" target="_blank" rel="noopener noreferrer"
-                        >Watch all now</a
-                    >
-                </div>
             </div>
         </div>
     </section>
