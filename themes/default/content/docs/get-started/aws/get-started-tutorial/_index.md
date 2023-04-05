@@ -7,7 +7,7 @@ menu:
   getstarted:
     parent: aws
     identifier: aws-tutorial
-    weight: 2
+    weight: 1
 
 aliases: ["/docs/quickstart/aws/"]
 ---
