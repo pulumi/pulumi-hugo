@@ -11,7 +11,7 @@ date: 2023-04-06
 # of the content of the post, which is useful for targeting search results or social-media
 # previews. This field is required or the build will fail the linter test.
 # Max length is 160 characters.
-meta_desc: Today AWS announced support for Lambda Response Streaming and in this blog we will walk through how to use it with Pulumi.
+meta_desc: Pulumi support for the newly announced Lambda Response Streaming from AWS 
 
 # The meta_image appears in social-media previews and on the blog home page.
 # A placeholder image representing the recommended format, dimensions and aspect
