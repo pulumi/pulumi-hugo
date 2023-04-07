@@ -8,10 +8,10 @@ menu:
     weight: 5
 no_on_this_page: true
 aliases:
-- /docs/reference/service
+- /docs/reference/service/
 - /docs/intro/console/accounts-and-organizations/editions/
 - /docs/intro/console/
-- /docs/intro/pulumi-service
+- /docs/intro/pulumi-cloud//
 ---
 
 The [Pulumi Cloud](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses the Pulumi Cloud unless you use a [self-managed backend](/docs/intro/concepts/state/).
@@ -25,7 +25,7 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 When you sign in to the Pulumi Cloud, an personal account is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
-You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO](/docs/guides/saml/), you'll need to create a Pulumi [organization](/docs/intro/pulumi-service/organizations/).
+You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO](/docs/guides/saml/), you'll need to create a Pulumi [organization](/docs/intro/pulumi-cloud/organizations/).
 
 The following editions are also available as upgrade options:
 
@@ -42,28 +42,28 @@ Explore the following sections to learn more about the features and benefits of 
 
 ## Accounts & Organizations
 
-* [Accounts](/docs/intro/pulumi-service/accounts/)
-* [Organizations](/docs/intro/pulumi-service/organizations/)
-* [Access Tokens](/docs/intro/pulumi-service/accounts#access-tokens)
+* [Accounts](/docs/intro/pulumi-cloud/accounts/)
+* [Organizations](/docs/intro/pulumi-cloud/organizations/)
+* [Access Tokens](/docs/intro/pulumi-cloud/accounts#access-tokens)
 * [SAML Integrations](/docs/guides/saml/)
 
 ## Collaboration
 
 Collaborate with other developers and coordinate on updates. Provide fine-grained access to stacks and use RBAC (Role-based Access Control) for your organization.
 
-* [Organization Roles](/docs/intro/pulumi-service/organizations#organization-roles)
-* [Teams](/docs/intro/pulumi-service/teams/)
-* [Stack Permissions](/docs/intro/pulumi-service/projects-and-stacks#stack-permissions)
-* [Project and Stack Management](/docs/intro/pulumi-service/projects-and-stacks/)
-* [Audit Logs](/docs/intro/pulumi-service/audit-logs/)
+* [Organization Roles](/docs/intro/pulumi-cloud/organizations#organization-roles)
+* [Teams](/docs/intro/pulumi-cloud/teams/)
+* [Stack Permissions](/docs/intro/pulumi-cloud/projects-and-stacks#stack-permissions)
+* [Project and Stack Management](/docs/intro/pulumi-cloud/projects-and-stacks/)
+* [Audit Logs](/docs/intro/pulumi-cloud/audit-logs/)
 
 ## Integrations and Extensions
 
 Integrate Pulumi with your current continuous delivery pipeline. Build your own extensions, and create reusable templates.
 
-* [CI/CD Integration Assistant](/docs/intro/pulumi-service/ci-cd-integration-assistant)
+* [CI/CD Integration Assistant](/docs/intro/pulumi-cloud/ci-cd-integration-assistant)
 * [Pulumi Cloud Provider](/registry/packages/pulumiservice/): A Pulumi Provider To Configure Pulumi
 * [Continuous Delivery](/docs/guides/continuous-delivery/)
 * [Pulumi Cloud REST API](/docs/reference/service-rest-api/)
-* [Webhooks](/docs/intro/pulumi-service/webhooks/)
-* ["Deploy with Pulumi" Button](/docs/intro/pulumi-service/pulumi-button)
+* [Webhooks](/docs/intro/pulumi-cloud/webhooks/)
+* ["Deploy with Pulumi" Button](/docs/intro/pulumi-cloud/pulumi-button)

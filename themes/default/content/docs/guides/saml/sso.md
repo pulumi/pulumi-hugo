@@ -10,11 +10,11 @@ menu:
     weight: 1
 
 aliases:
-  - /docs/intro/pulumi-service/accounts/saml/
+  - /docs/intro/pulumi-cloud/accounts/saml/
 ---
 
 This document walks through the important aspects of configuring any SAML (Security Assertion Markup Language) 2.0 identity provider to work
-with the [Pulumi Cloud](/docs/intro/pulumi-service/).
+with the [Pulumi Cloud](/docs/intro/pulumi-cloud/).
 
 > For a specific example, refer to one of our integration guides:
 >

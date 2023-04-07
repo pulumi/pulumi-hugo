@@ -105,7 +105,7 @@ Running `pulumi login` without any argument will log into the default Pulumi Clo
 $ pulumi login
 ```
 
-This will display a prompt that asks for an [access token](/docs/intro/pulumi-service/accounts#access-tokens):
+This will display a prompt that asks for an [access token](/docs/intro/pulumi-cloud/accounts#access-tokens):
 
 ```
 Manage your Pulumi stacks by logging in.
