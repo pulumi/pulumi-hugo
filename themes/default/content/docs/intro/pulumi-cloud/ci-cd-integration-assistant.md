@@ -4,7 +4,7 @@ title: "CI/CD Integration Assistant"
 meta_desc: The CI/CD integration assistant helps you integrate Pulumi into CI/CD systems for automatically deploying stacks. Learn more about the assistant here.
 menu:
   intro:
-    parent: /pulumi-cloud/
+    parent: pulumi-cloud
     weight: 9
 aliases:
 - /docs/intro/console/extensions/

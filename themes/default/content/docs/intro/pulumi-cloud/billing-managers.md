@@ -4,7 +4,7 @@ title: "Billing Managers"
 meta_desc: The Billing Manager role gives customers the ability to have someone in their Pulumi Organization manage billing operations. Learn more about this role here.
 menu:
   intro:
-    parent: /pulumi-cloud/
+    parent: pulumi-cloud
     weight: 4
 ---
 

@@ -4,7 +4,7 @@ title: "Organization Access Tokens"
 meta_desc: Learn how Enterprise and Business Critical customers can manage resources and stack operations for their organization with Organization Access Tokens.
 menu:
   intro:
-    parent: /pulumi-cloud/
+    parent: pulumi-cloud
     weight: 3
 ---
 

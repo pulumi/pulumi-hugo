@@ -4,7 +4,7 @@ title: "Project and Stack Management"
 meta_desc: Learn how to manage projects and stacks in the Pulumi Cloud, including creating a project and managing stack permissions.
 menu:
   intro:
-    parent: /pulumi-cloud/
+    parent: pulumi-cloud
     weight: 7
 aliases:
 - /docs/intro/console/project-and-stack-management/
