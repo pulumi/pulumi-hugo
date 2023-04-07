@@ -1,21 +1,21 @@
 ---
-title_tag: Pulumi Service | Self-Hosting Pulumi
-title: Pulumi Service
+title_tag: Pulumi Cloud | Self-Hosting Pulumi
+title: Pulumi Cloud
 menu:
     userguides:
         parent: self_hosted_components
         identifier: self_hosted_console_service
         weight: 2
-meta_desc: Pulumi Service is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Pulumi Business Critical Edition.
+meta_desc: Pulumi Cloud is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Pulumi Business Critical Edition.
 ---
 
 {{% notes type="info" %}}
-Self-hosting is only available with **Pulumi Business Critical**. If you would like to evaluate the Self-Hosted Pulumi Service, sign up for the [30 day trial](/product/self-hosted#self-hosted-trial) or [contact us](/contact/).
+Self-hosting is only available with **Pulumi Business Critical**. If you would like to evaluate the Self-Hosted Pulumi Cloud, sign up for the [30 day trial](/product/self-hosted#self-hosted-trial) or [contact us](/contact/).
 
 To manage your state with a self-managed backend, such as a cloud storage bucket, see [State and Backends](/docs/intro/concepts/state/).
 {{% /notes %}}
 
-The Pulumi Service allows users to view the stacks they have created and see any past activities recorded for those stacks. It also allows you to manage RBAC for your users.
+The Pulumi Cloud allows users to view the stacks they have created and see any past activities recorded for those stacks. It also allows you to manage RBAC for your users.
 
 In order for the CLI to persist the state of a particular stack, a user must login to the CLI. In order to login to the CLI, you should have created an account using the Console first.
 
@@ -38,7 +38,7 @@ You can run this container on the same host that your API container is running o
 ## What's In The Container?
 
 {{% notes type="info" %}}
-The container image repository is private. [Contact us](/contact/) if you would like to evaluate the Self-Hosted Pulumi Service.
+The container image repository is private. [Contact us](/contact/) if you would like to evaluate the Self-Hosted Pulumi Cloud.
 {{% /notes %}}
 
 The Console container runs a web server using a Node 18-based image.

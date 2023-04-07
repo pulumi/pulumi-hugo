@@ -1,19 +1,20 @@
 ---
-title_tag: "Overview of The Pulumi Service"
-title: "Pulumi Service"
-meta_desc: The Pulumi Service web application automatically manages deployment state and enables collaboration between developers and operators.
+title_tag: "Overview of The Pulumi Cloud"
+title: "Pulumi Cloud"
+meta_desc: The Pulumi Cloud web application automatically manages deployment state and enables collaboration between developers and operators.
 menu:
   intro:
-    identifier: pulumi-service
+    identifier: pulumi-cloud
     weight: 5
 no_on_this_page: true
 aliases:
 - /docs/reference/service
 - /docs/intro/console/accounts-and-organizations/editions/
 - /docs/intro/console/
+- /docs/intro/pulumi-service
 ---
 
-The [Pulumi Service](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses the Pulumi Service unless you use a [self-managed backend](/docs/intro/concepts/state/).
+The [Pulumi Cloud](https://app.pulumi.com) web application automatically manages deployment state and enables collaboration between developers and operators. The Pulumi CLI automatically uses the Pulumi Cloud unless you use a [self-managed backend](/docs/intro/concepts/state/).
 
 ## Getting Started
 
@@ -21,7 +22,7 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 
 <a class="btn btn-secondary" href="https://app.pulumi.com/signup" target="_blank">Create an Account</a>
 
-When you sign in to the Pulumi Service, an personal account is automatically
+When you sign in to the Pulumi Cloud, an personal account is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
 You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO](/docs/guides/saml/), you'll need to create a Pulumi [organization](/docs/intro/pulumi-service/organizations/).
@@ -37,7 +38,7 @@ The following editions are also available as upgrade options:
 For more information about the specific differences and capabilities offered for the
 Pulumi Team, Enterprise and Business Critical editions, refer to the [pricing page](/pricing/).
 
-Explore the following sections to learn more about the features and benefits of using the Pulumi Service.
+Explore the following sections to learn more about the features and benefits of using the Pulumi Cloud.
 
 ## Accounts & Organizations
 
@@ -61,8 +62,8 @@ Collaborate with other developers and coordinate on updates. Provide fine-graine
 Integrate Pulumi with your current continuous delivery pipeline. Build your own extensions, and create reusable templates.
 
 * [CI/CD Integration Assistant](/docs/intro/pulumi-service/ci-cd-integration-assistant)
-* [Pulumi Service Provider](/registry/packages/pulumiservice/): A Pulumi Provider To Configure Pulumi
+* [Pulumi Cloud Provider](/registry/packages/pulumiservice/): A Pulumi Provider To Configure Pulumi
 * [Continuous Delivery](/docs/guides/continuous-delivery/)
-* [Pulumi Service REST API](/docs/reference/service-rest-api/)
+* [Pulumi Cloud REST API](/docs/reference/service-rest-api/)
 * [Webhooks](/docs/intro/pulumi-service/webhooks/)
 * ["Deploy with Pulumi" Button](/docs/intro/pulumi-service/pulumi-button)

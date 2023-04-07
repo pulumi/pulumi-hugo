@@ -1,5 +1,5 @@
 ---
-title_tag: "Pulumi Service: CI/CD Integration Assistant"
+title_tag: "Pulumi Cloud: CI/CD Integration Assistant"
 title: "CI/CD Integration Assistant"
 meta_desc: The CI/CD integration assistant helps you integrate Pulumi into CI/CD systems for automatically deploying stacks. Learn more about the assistant here.
 menu:
@@ -31,7 +31,7 @@ as well as using different services for version control and CI/CD.
 
 ## Using the CI/CD Assistant
 
-1. Navigate to a stack in a Pulumi Service organization.
+1. Navigate to a stack in a Pulumi Cloud organization.
 2. Select **Settings** in the top navigation.
 3. Select **Integrations** in the left navigation.
 4. Notice the CI/CD assistance at the top of the page. Note: If you do not see the assistant on this page, it means CI/CD is already setup for the stack.

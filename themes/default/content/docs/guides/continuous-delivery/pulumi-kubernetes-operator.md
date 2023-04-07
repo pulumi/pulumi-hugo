@@ -468,7 +468,7 @@ You can optionally choose to retry on update conflicts by using the
 `RetryOnUpdateConflict` field in the Stack.
 
 > Note: This is only recommended if you are sure that the stack updates are idempotent, and if you are willing to accept retry loops until
-> all spawned retries succeed. This will also create a more populated, and randomized activity timeline for the stack in the Pulumi Service.
+> all spawned retries succeed. This will also create a more populated, and randomized activity timeline for the stack in the Pulumi Cloud.
 
 Check out [troubleshooting](https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/troubleshooting.md) for more details, look at [known issues](https://github.com/pulumi/pulumi-kubernetes-operator/issues/) or
 open a [new issue](https://github.com/pulumi/pulumi-kubernetes-operator/issues/new) in GitHub.

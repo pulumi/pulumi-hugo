@@ -1,5 +1,5 @@
 ---
-title_tag: "Pulumi Service: Billing Managers"
+title_tag: "Pulumi Cloud: Billing Managers"
 title: "Billing Managers"
 meta_desc: The Billing Manager role gives customers the ability to have someone in their Pulumi Organization manage billing operations. Learn more about this role here.
 menu:
@@ -12,7 +12,7 @@ The Billing Manager role gives customers the ability to have someone in their Pu
 
 Any Organization Admin can view, invite, and remove Billing Managers from their organization.
 
-Team Editions of the Pulumi Service are limited to 1 Billing Manager at a time. Enterprise and Business Critical subscriptions can have unlimited Billing Managers in their organization. Visit our [Pricing page](https://www.pulumi.com/pricing) to learn more about Pulumi Service Editions.
+Team Editions of the Pulumi Cloud are limited to 1 Billing Manager at a time. Enterprise and Business Critical subscriptions can have unlimited Billing Managers in their organization. Visit our [Pricing page](https://www.pulumi.com/pricing) to learn more about Pulumi Cloud Editions.
 
 ## Inviting a Billing Manager to an Organization
 

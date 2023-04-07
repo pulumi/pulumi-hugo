@@ -11,7 +11,7 @@ menu:
 ---
 
 With this new GitLab integration, Pulumi is able to add summary notes to a GitLab Merge Request by using the merge request information
-posted to the Pulumi Service via [GitLab Webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#merge-request-events).
+posted to the Pulumi Cloud via [GitLab Webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#merge-request-events).
 
 To enable the integration with your GitLab project, you will need to ensure you have done the following two things:
 

@@ -1,5 +1,5 @@
 ---
-title_tag: "Pulumi Service: Accounts Overview"
+title_tag: "Pulumi Cloud: Accounts Overview"
 title: "Accounts"
 meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud Service in this guide.
 menu:
@@ -22,7 +22,7 @@ up. You may use any of the following identities to sign up:
 * [Email](https://app.pulumi.com/signin/email)
 * [Single Sign-on](https://app.pulumi.com/signin/sso)
 
-Your account lets you authenticate with the Pulumi Service, where you can do the
+Your account lets you authenticate with the Pulumi Cloud, where you can do the
 following:
 
 * Manage your profile settings, including your account password, access tokens, and subscriptions
@@ -70,9 +70,9 @@ For users who signed up with email, you may change your password by:
 
 ## Personal Access Tokens
 
-Use access tokens to sign into the Pulumi Service via the CLI. On this page there is a list of all your personal access tokens, including a description and last used information for each token.
+Use access tokens to sign into the Pulumi Cloud via the CLI. On this page there is a list of all your personal access tokens, including a description and last used information for each token.
 
-When you run [`pulumi login`](/docs/reference/cli/pulumi_login) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Service and lets you interact with the Pulumi service and manage your stacks.
+When you run [`pulumi login`](/docs/reference/cli/pulumi_login) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Cloud and lets you interact with the Pulumi Cloud and manage your stacks.
 
 These access tokens have the same permission as your user. If  you instead would like to scope the token to an organization, use [Organization Access Tokens](/docs/intro/pulumi-service/organization-access-tokens/).
 

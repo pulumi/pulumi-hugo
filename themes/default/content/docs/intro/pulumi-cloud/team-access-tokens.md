@@ -1,5 +1,5 @@
 ---
-title_tag: "Pulumi Service: Team Access Tokens"
+title_tag: "Pulumi Cloud: Team Access Tokens"
 title: "Team Access Tokens"
 meta_desc: Team Access Tokens enable access to be scoped to the stack access of a Pulumi Team, rather than to the entire organization’s stacks. Learn more here.
 menu:
@@ -60,7 +60,7 @@ Since an organization can have many machine tokens, it’s necessary to be able 
 
 ## Permissions/Authorization
 
-Team Access Tokens behave like a team member with the [stack permissions](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-permissions) granted by that team. They do not grant any privileges to view the Pulumi Service UI, or to create additional tokens of any type. See below for a full list of accessible APIs:
+Team Access Tokens behave like a team member with the [stack permissions](https://www.pulumi.com/docs/intro/pulumi-service/projects-and-stacks/#stack-permissions) granted by that team. They do not grant any privileges to view the Pulumi Cloud UI, or to create additional tokens of any type. See below for a full list of accessible APIs:
 
 ### API Access
 
