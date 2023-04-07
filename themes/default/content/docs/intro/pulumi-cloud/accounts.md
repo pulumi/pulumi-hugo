@@ -4,7 +4,7 @@ title: "Accounts"
 meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud Service in this guide.
 menu:
   intro:
-    parent: pulumi-service
+    parent: /pulumi-cloud/
     weight: 1
 aliases:
   - /docs/intro/console/accounts/

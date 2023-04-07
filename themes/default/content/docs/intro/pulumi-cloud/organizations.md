@@ -4,7 +4,7 @@ title: "Organizations"
 meta_desc: Organizations are a space for you to collaborate on shared projects and stacks. Learn more about how Organizations work in the Pulumi Cloud Service.
 menu:
   intro:
-    parent: pulumi-service
+    parent: /pulumi-cloud/
     weight: 2
 aliases:
 - /docs/reference/service/orgs/

@@ -3,7 +3,7 @@ title: "How to Use the Deploy with Pulumi Button"
 meta_desc: The “Deploy with Pulumi” button lets you easily create new Pulumi projects from the browser. Learn how to create this deployment button in this guide.
 menu:
   intro:
-    parent: pulumi-service
+    parent: /pulumi-cloud/
     weight: 12
 aliases:
  - /docs/reference/service/pulumi-button/
