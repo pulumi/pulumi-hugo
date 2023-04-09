@@ -13,7 +13,7 @@ This page highlights some common patterns and workflows using Pulumi Deployments
 
 ## Deployment Settings
 
-Deployment settings refers to the full set of configuration required to run a Pulumi Deployment, defined on a per-stack basis. These settings may be defined once for the stack, via the UI, Pulumi Cloud provider, or the REST API and can be consumed using any of the triggers, i.e. push-to-deploy, click-to-deploy or via the REST API.
+Deployment settings refer to the full set of configuration required to run a Pulumi Deployment, defined on a per-stack basis. These settings may be defined once for the stack, via the UI, Pulumi Service provider, or the REST API and can be consumed using any of the triggers, i.e., push-to-deploy, click-to-deploy, or via the REST API.
 
 ### From the Pulumi Cloud UI
 
@@ -63,9 +63,9 @@ To modify an environment variable in the deployment settings, you only need to s
 
 The [REST API documentation](../api) contains much more thorough information about individual API properties.
 
-### Defined as Code with the Pulumi Cloud Provider
+### Defined as Code with the Pulumi Service Provider
 
-Finally, a stack's deployment settings may be defined as a resource within the stack itself using the Pulumi Cloud provider. This allows you to securely store your settings in source control alongside your code.
+Finally, a stack's deployment settings may be defined as a resource within the stack itself using the Pulumi Service provider. This lets you securely store your settings in source control alongside your code.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -164,7 +164,7 @@ Follow these steps:
 
 4. After clicking "Install" you will be directed to GitHub. Select the GitHub organization you wish to use with Pulumi Deployments.
 5. Select which repos (or all repos) Pulumi Deployments can have access to, and then Install.
-6. You will be redirected to the Pulumi Cloud (app.pulumi.com). Return to the Settings > Integrations tab and confirm the GitHub App is installed on your desired organization.
+6. You will be redirected to the Pulumi Cloud (app.pulumi.com). Return to **Settings** > **Integrations** to confirm the GitHub App is installed.
 
 If you installed the GitHub app in the past and the steps above aren't showing it as installed for your desired organization, please try the following:
 
