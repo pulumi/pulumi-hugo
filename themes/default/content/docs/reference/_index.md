@@ -1,6 +1,6 @@
 ---
 title: Reference Documentation
-meta_desc: A collection of reference documentation for the Pulumi CLI and Cloud Services.
+meta_desc: A collection of reference documentation for Pulumi.
 menu:
   reference:
     name: Overview
@@ -18,4 +18,4 @@ This section includes all reference documentation for Pulumi.
 * [Pulumi Deployments REST API](/docs/reference/deployments-rest-api/): documentation of the REST API for Pulumi Deployments
 * [Project Configuration Reference](/docs/reference/pulumi-yaml/): required and optional metadata to configure your Pulumi project
 * [Pulumi YAML format](/docs/reference/yaml/): specification for the [Pulumi YAML](/docs/intro/languages/yaml/) format and its built-in functions
-* [Glossary](/docs/reference/glossary/): common terms and their definitions relating to the Pulumi CLI and Cloud Services
+* [Glossary](/docs/reference/glossary/): common terms and their definitions relating to Pulumi

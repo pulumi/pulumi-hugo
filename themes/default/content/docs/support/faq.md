@@ -66,7 +66,7 @@ To use Pulumi without the Pulumi Cloud, log in using `pulumi login --local` or b
 
 ### How can I go back to using the Pulumi Cloud?
 
-Run `pulumi login`, and you’ll be back to using the Pulumi Cloud. You will need to migrate any existing stacks to the Service.
+Run `pulumi login`, and you’ll be back to using the Pulumi Cloud. You will need to migrate any existing stacks to the Pulumi Cloud.
 
 ### How to migrate from a self-managed backend to the Pulumi Cloud?
 

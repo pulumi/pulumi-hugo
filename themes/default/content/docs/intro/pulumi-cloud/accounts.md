@@ -1,7 +1,7 @@
 ---
 title_tag: "Pulumi Cloud: Accounts Overview"
 title: "Accounts"
-meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud Service in this guide.
+meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud in this guide.
 menu:
   intro:
     parent: pulumi-cloud
@@ -32,8 +32,8 @@ following:
 
 ## Profile
 
-Your Pulumi user account profile is used to identify you across the Pulumi
-Service. Your account display name, avatar URL, and email address are
+Your Pulumi user account profile is used to identify you in the Pulumi
+Cloud. Your account display name, avatar URL, and email address are
 obtained from the identity provider you used when signing up.
 
 ### Editing Your Profile
