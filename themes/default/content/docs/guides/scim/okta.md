@@ -57,7 +57,7 @@ If you also want to support pushing existing Okta groups, the steps in [Setting 
 * For **HTTP HEADER**, you will use a token from the [Pulumi Cloud](https://app.pulumi.com) as the authorization bearer token. To generate a token, navigate to your org in the Pulumi Cloud, click on the **Settings** tab, and then click **SAML SSO**. Scroll down to the **SCIM** section and generate a new token if you have never generated one for your org, or regenerate it if you have already done so in the past.
 
     {{% notes "info" %}}
-Once you generate the token, please save it securely. Neither the Pulumi Cloud nor Pulumi support can retrieve a token once it's been initially generated. If you lose the SCIM token and need it again, you'll have to generate a new token, which invalidates any previous tokens for your Pulumi organization.
+Once you generate the token, save it securely. Neither the Pulumi Cloud nor Pulumi support can retrieve a token once it's been initially generated. If you lose and need the SCIM token again, you'll have to generate a new token, invalidating any previous tokens for your Pulumi organization.
     {{% /notes %}}
 
 * Paste the token from the Pulumi Cloud into the Okta SCIM configuration for **HTTP HEADER**.
@@ -142,7 +142,7 @@ To confirm that the groups were provisioned correctly, sign in to the Pulumi Clo
 
 ![SCIM teams.](/images/docs/guides/scim/console.png)
 
-Click on that group and verify its membership. Note that the team’s membership cannot be altered within the Pulumi Cloud. If any membership changes are needed, they must be done within Okta. This allows the membership to be managed using Okta so your teams on the Pulumi side will always mirror the groups you have configured there.
+Select that group and verify its membership. Note that the team’s membership cannot be altered within the Pulumi Cloud. If any membership changes are needed, they must be done within Okta. This allows the membership to be managed using Okta, so your teams on the Pulumi side will always mirror the groups you have configured.
 
 ## Known Limitations
 

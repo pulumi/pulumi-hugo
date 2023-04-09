@@ -42,7 +42,7 @@ The ECS-hosted installation of Pulumi deploys the following services:
 
 ### Pulumi deploying Pulumi
 
-This installer uses Pulumi to deploy the Pulumi Cloud. In this case, one uses the pulumi CLI with a self-managed backend (e.g. S3) to deploy all services listed above to stand up the self-hosted Pulumi Cloud. The installation package includes Pulumi project code so that you can deploy the service by running `pulumi up`.
+This installer uses Pulumi to deploy the Pulumi Cloud. In this case, one uses the pulumi CLI with a self-managed backend (e.g., S3) to deploy all services listed above to stand up the self-hosted Pulumi Cloud. The installation package includes the Pulumi project code so you can deploy the service by running `pulumi up`.
 
 To this end, you need to set up the following:
 
@@ -57,7 +57,7 @@ See the [README](https://github.com/pulumi/pulumi-self-hosted-installers/tree/ma
 
 ### Pulumi Cloud Updates
 
-When deploying the service, it is recommended to pin the Pulumi Cloud image tag to a specific version. See the installer's [README](https://github.com/pulumi/pulumi-self-hosted-installers/tree/master/ecs-hosted) file to set the `imageTag` configuration property for the installer to use.
+When deploying the Pulumi Cloud, it is recommended to pin the image tag to a specific version. See the [installer's README](https://github.com/pulumi/pulumi-self-hosted-installers/tree/master/ecs-hosted) file to set the `imageTag` configuration property for the installer to use.
 
 When ready to update the Pulumi Sevice containers to use a different version, do the following:
 
