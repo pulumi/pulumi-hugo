@@ -7,7 +7,7 @@
         <div class="home-page-hero-content">
             <h1 class="flex flex-col items-center">
                 <span class="inline-block" data-text="{{ index (.Params.hero.title) 0 }}">Infrastructure as code</span>
-                <span class="rainbow-text inline-block" data-text="{{ index (.Params.hero.title) 1 }}">in any programming language</span>
+                <span class="rainbow-text inline-block text-center" data-text="{{ index (.Params.hero.title) 1 }}">in any programming language</span>
             </h1>
             <p class="text-center leading-7">{{ .Params.hero.description | markdownify }}</p>
             <div class="overlay-middle mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
@@ -150,6 +150,11 @@
         </div>
     </section>
 
+    <!-- Panther quote -->
+    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+        {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.panther) }}
+    </section>
+
     <!-- Boost your productivity with ai -->
     <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
         <div class="shape-background home-deploy-section">
@@ -173,6 +178,11 @@
                 <p class="text-lg">{{ .Params.ai.description | markdownify }}</p>
             </div>
         </div>
+    </section>
+
+    <!-- Starburst quote -->
+    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+        {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.starburst) }}
     </section>
 
     <!-- Ship faster -->
@@ -200,6 +210,11 @@
         </div>
     </section>
 
+    <!-- Snowflake quote -->
+    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+        {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.snowflake) }}
+    </section>
+
     <!-- Do more with less. -->
     <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
         <div class="shape-background home-deploy-section">
@@ -223,6 +238,11 @@
                 <p class="text-lg">{{ .Params.more_with_less.description | markdownify }}</p>
             </div>
         </div>
+    </section>
+
+    <!-- People Data Labs quote -->
+    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+        {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.people_data_labs) }}
     </section>
 
     <!-- See all your infrastructure from one place. -->

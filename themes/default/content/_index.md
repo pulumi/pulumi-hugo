@@ -78,6 +78,27 @@ customer_logos:
       link: /blog/managing-multi-cloud-open-data-noaa
     - name: altana
 
+customer_quotes:
+  panther:
+    text: |
+      “Our developers needed a robust platform for managing our complex infrastructure, and it needed to be fast, modular, and testable. Nothing is better than having standard programming languages for building and managing infrastructure”
+    author: Austin Byers, Principal Platform Engineer
+    logo: panther-labs
+  starburst:
+    text: |
+      “Pulumi let us build and automate cloud infrastructure projects at a scale that simply wasn’t imaginable using prior-generation infrastructure as code technologies”
+    author: Matt Stephenson, Senior Principal Software Engineer
+    logo: starburst
+  snowflake:
+    text: |
+      “By breaking down language silos posed by legacy configuration tools, Pulumi helped our team to ship a new product faster than was previously possible. We needed one tool to setup and manage multi-cloud, multi-region Kubernetes clusters that infrastructure and applications teams could use collaboratively. Pulumi delivered.”
+    author: Justin Fitzhugh, VP of Cloud Platform Engineering
+    logo: snowflake
+  people_data_labs:
+    text: |
+      “Pulumi has been critical to our platform engineering strategy and has accelerated our developers’ productivity. We immediately saw the value of Pulumi Insights for helping us search our infrastructure and understand what’s been deployed for use cases like cost analysis, resource migrations, and more.”
+    author:  Tyler Scheuble, Head of Platform
+    logo: people-data-labs
 
 get_started:
   tweets:
