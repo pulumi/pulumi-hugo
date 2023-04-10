@@ -94,6 +94,11 @@ customer_quotes:
       “By breaking down language silos posed by legacy configuration tools, Pulumi helped our team to ship a new product faster than was previously possible. We needed one tool to setup and manage multi-cloud, multi-region Kubernetes clusters that infrastructure and applications teams could use collaboratively. Pulumi delivered.”
     author: Justin Fitzhugh, VP of Cloud Platform Engineering
     logo: snowflake
+  skai:
+    text: |
+      “A key benefit of Pulumi is that it allows us to modularize our cloud infrastructure as reusable Python components that enable our developer teams to build faster and more independently,”
+    author: Danny Zalkind, DevOps Group Manager
+    logo: skai
   people_data_labs:
     text: |
       “Pulumi has been critical to our platform engineering strategy and has accelerated our developers’ productivity. We immediately saw the value of Pulumi Insights for helping us search our infrastructure and understand what’s been deployed for use cases like cost analysis, resource migrations, and more.”
