@@ -11,31 +11,39 @@ hero:
 code_faster:
   title: Code faster.
   description: |
-    Author infrastructure code efficiently using programming languages you know and love. Use programming logic (e.g., loops, conditionals) to succinctly express resources and IDEs with statement completion, type checking, and live documentation. Get instant feedback using standard linters and unit tests.
-  quote:
-    text:
-    name:
-    logo:
+    Author infrastructure code efficiently using programming languages you know and love.
+
+    Write statements to succinctly express infrastructure from your IDE with autocomplete, type checking, and documentation.
+
+    Get instant feedback using standard linters and unit tests.
 
 ai:
-  title: Boost your productivity with AI.
+  title: Boost productivity with AI.
   description: |
-    Want help getting started with IaC? Use PulumiAI to generate code for your desired infrastructure – all through natural language commands. Ask Pulumi AI to iterate on your code to make changes and add new resources.
+    Want help writing IaC? Use Pulumi AI to generate code for your desired infrastructure – all through natural language commands.
+
+    Ask Pulumi AI to iterate on your code to make changes and add new resources.
 
 ship_faster:
   title: Ship faster.
   description: |
-    Use software engineering best practices and tools to rapidly test and deploy infrastructure, just like your application code. Deliver infrastructure code through your CI/CD pipeline using Pulumi’s integrations and validate code with built-in testing and policies.
+    Use software engineering best practices and tools to rapidly test and deploy infrastructure, just like your application code.
+    
+    Deliver infrastructure code through your CI/CD pipeline using Pulumi’s integrations and validate code with built-in testing and policies.
 
 more_with_less:
   title: Do more with less.
   description: |
-    Program workflows that automate infrastructure tasks like provisioning, configuring, and destroying resources. This allows you to 10x the number of resources you can manage compared to only using CLIs. Package cloud architectures into reusable libraries that reduce complex infrastructure down to a few lines of code.
+    Program workflows that automate infrastructure provisioning, configuration, and deletion with Automation API.
+
+    Package cloud architectures into reusable libraries that reduce complex infrastructure down to a few lines of code.
 
 one_place:
-  title: See all your infrastructure from one place.
+  title: Gain multi-cloud vision.
   description: |
-    View and search for deployed resources across all your clouds and SaaS – presented in a human-readable way. No more combing through cloud consoles and messy logs just to know what’s running. Export your data to gain insights into your infrastructure with your existing analytics tools.
+    View and search for deployed resources across all your cloud providers – presented in a human-readable way.
+
+    Export your data to gain insights into your infrastructure with your existing analytics tools.
 
 customer_logos:
   title: You’ll be in good company.

@@ -99,7 +99,7 @@
     </section>
 
     <!-- Code faster -->
-    <section class="mb-8 mt-12 lg:mt-0 lg:mb-24 px-6 lg:px-0 relative">
+    <section class="mb-8 mt-12 lg:mt-0 px-6 lg:px-0 relative">
         <div class="shape-background home-build-section">
             <div class="shape-container">
                 <div class="circle-left"></div>
@@ -109,7 +109,7 @@
 
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row">
-                <div class="w-full my-auto lg:w-1/2 lg:mr-32 z-10 p-8 rounded">
+                <div class="w-full my-auto lg:w-1/2 lg:mr-32 z-10 p-8">
                     <h3>{{ .Params.code_faster.title }}</h3>
                     <p class="text-lg">{{ .Params.code_faster.description | markdownify }}</p>
                     {{ range $item := .Params.code_faster.items }}
@@ -151,12 +151,12 @@
     </section>
 
     <!-- Panther quote -->
-    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.panther) }}
     </section>
 
     <!-- Boost your productivity with ai -->
-    <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
+    <section class="py-12 px-6 lg:px-0 relative">
         <div class="shape-background home-deploy-section">
             <div class="shape-container">
                 <div class="dot-background-container">
@@ -170,10 +170,10 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img class="rounded-xl shadow-2xl" src="/images/home/deploy-graphic.svg" alt="Pulumi Pipeline" />
+                <img src="/images/home/ai-infra.png" alt="AI generating infrastructure code" />
             </div>
             <div class="my-auto"></div>
-            <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 bg-white px-8 rounded">
+            <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
                 <h3>{{ .Params.ai.title }}</h3>
                 <p class="text-lg">{{ .Params.ai.description | markdownify }}</p>
             </div>
@@ -181,7 +181,7 @@
     </section>
 
     <!-- Starburst quote -->
-    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.starburst) }}
     </section>
 
@@ -199,19 +199,19 @@
         </div>
 
         <div class="container mx-auto flex flex-col lg:flex-row">
-            <div class="my-auto w-full lg:w-1/2 lg:mr-32 z-10 bg-white px-8 rounded">
+            <div class="my-auto w-full lg:w-1/2 lg:mr-32 z-10 px-8">
                 <h3>{{ .Params.ship_faster.title }}</h3>
                 <p class="text-lg">{{ .Params.ship_faster.description | markdownify }}</p>
             </div>
 
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img class="rounded-xl shadow-2xl" src="/images/home/deploy-graphic.svg" alt="Pulumi Pipeline" />
+                <img src="/images/home/software-infra-delivery.svg" alt="Pulumi Pipeline" />
             </div>
         </div>
     </section>
 
     <!-- Snowflake quote -->
-    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.snowflake) }}
     </section>
 
@@ -230,10 +230,10 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img class="rounded-xl shadow-2xl" src="/images/home/deploy-graphic.svg" alt="Pulumi Pipeline" />
+                <img src="/images/home/manage-resources.svg" alt="Pulumi Pipeline" />
             </div>
             <div class="my-auto"></div>
-            <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 bg-white px-8 rounded">
+            <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
                 <h3>{{ .Params.more_with_less.title }}</h3>
                 <p class="text-lg">{{ .Params.more_with_less.description | markdownify }}</p>
             </div>
@@ -241,11 +241,11 @@
     </section>
 
     <!-- Skai quote -->
-    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.skai) }}
     </section>
 
-    <!-- See all your infrastructure from one place. -->
+    <!-- Gain multi-cloud vision. -->
     <section class="my-12 lg:py-12 px-6 lg:px-0 relative">
         <div class="shape-background home-manage-section">
             <div class="shape-container">
@@ -259,13 +259,13 @@
         </div>
 
         <div class="container mx-auto flex flex-col lg:flex-row">
-            <div class="w-full my-auto lg:w-1/2 lg:mr-32 z-10 bg-white px-8 rounded">
+            <div class="w-full my-auto lg:w-1/2 lg:mr-32 z-10 px-8">
                 <h3>{{ .Params.one_place.title }}</h3>
                 <p class="text-lg">{{ .Params.one_place.description | markdownify }}</p>
             </div>
 
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img class="rounded-xl shadow-2xl" src="/images/home/deploy-graphic.svg" alt="Pulumi Pipeline" />
+                <img src="/images/home/search-graphic.svg" alt="Pulumi Pipeline" />
             </div>
         </div>
     </section>
@@ -313,6 +313,17 @@
                     </pulumi-swipeable>
                 {{ end }}
             </pulumi-swiper>
+        </div>
+    </section>
+
+    <section class="container mx-auto">
+        <div class="w-full lg:w-2/3 mx-auto mb-16 bg-violet-600 rounded-xl shadow p-16 flex flex-col items-center justify-center">
+            <h2 class="text-white font-light">Ready to deploy your first stack?</h2>
+            <p class="text-white text-xl description">See what Pulumi can do for you.</p>
+            <div class="mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
+                <a class="btn-secondary mr-0 md:mr-4 mb-3 md:mb-0" href="{{ relref . "/docs/get-started" }}">{{ .Params.hero.cta_text }}</a>
+                <a class="btn-secondary" href="{{ relref . "/docs/get-started/install" }}">Download Open Source</a>
+            </div>
         </div>
     </section>
 {{ end }}
