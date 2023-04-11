@@ -28,12 +28,12 @@ key_features:
             text: "Learn more about Pulumi SDK"
             link: "/docs/reference/pulumi-sdk/"
           features:
-              - title: IaC for every engineer
+              - title: Code faster
                 description: |
-                   Author and share infrastructure code in standard languages that anyone can easily use.
-              - title: Author IaC faster
+                    Write infrastructure code in languages you love using your IDE and any language ecosystem tool.
+              - title: Generate code with AI
                 description: |
-                    Use your IDE with interactive documentation, type checking, and statement completion.
+                    Ask Pulumi AI to create your desired infrastructure code with natural language prompts.
               - title: Write Policy as Code
                 description: |
                     Write Policy as Code in programming languages to enforce best practices with [Crossguard](/crossguard/).
