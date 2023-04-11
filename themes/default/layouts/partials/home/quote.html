@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center mx-auto">
     <p class="text-xl description">{{ .quote.text | markdownify }}</p>
     <p class="text-xl description">{{ .quote.author }}</p>
     <div class="h-16">{{ partial "customer-logo.html" (dict "logo" .quote.logo) }}</div>

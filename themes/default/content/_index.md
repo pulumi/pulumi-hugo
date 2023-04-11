@@ -9,44 +9,35 @@ hero:
   cta_text: Try Pulumi Cloud
 
 code_faster:
-  title: Code faster.
+  title: Code and ship faster
   description: |
-    Author infrastructure code efficiently using programming languages you know and love.
-
-    Write statements to succinctly express infrastructure from your IDE with autocomplete, type checking, and documentation.
-
-    Get instant feedback using standard linters and unit tests.
+    Author infrastructure code using programming languages you know and love. Write statements to define infrastructure using your IDE with autocomplete, type checking, and documentation.
+    
+    Test your code with unit tests and deliver it through CI/CD pipelines to validate and deploy. 
 
 ai:
-  title: Boost productivity with AI.
+  title: Boost productivity with AI
   description: |
-    Want help writing IaC? Use Pulumi AI to generate code for your desired infrastructure – all through natural language commands.
-
+    Want help writing infrastructure code? Use Pulumi AI to generate code for your desired infrastructure – all through natural language commands.
+    
     Ask Pulumi AI to iterate on your code to make changes and add new resources.
 
-ship_faster:
-  title: Ship faster.
+embed:
+  title: Embed IaC anywhere
   description: |
-    Use software engineering best practices and tools to rapidly test and deploy infrastructure, just like your application code.
-    
-    Deliver infrastructure code through your CI/CD pipeline using Pulumi’s integrations and validate code with built-in testing and policies.
-
-more_with_less:
-  title: Do more with less.
-  description: |
-    Program workflows that automate infrastructure provisioning, configuration, and deletion with Automation API.
+    With Automation API, embed Pulumi in your applications to power custom cloud infrastructure automation. No CLI - just code so you can manage 10x more resources.
 
     Package cloud architectures into reusable libraries that reduce complex infrastructure down to a few lines of code.
 
-one_place:
-  title: Gain multi-cloud vision.
+search:
+  title: Search every cloud
   description: |
     View and search for deployed resources across all your cloud providers – presented in a human-readable way.
 
     Export your data to gain insights into your infrastructure with your existing analytics tools.
 
 customer_logos:
-  title: You’ll be in good company.
+  title: You’ll be in good company
   logos:
     - name: mercedes-benz
       link: /case-studies/mercedes-benz
@@ -89,7 +80,7 @@ customer_logos:
 customer_quotes:
   panther:
     text: |
-      “Our developers needed a robust platform for managing our complex infrastructure, and it needed to be fast, modular, and testable. <b>Nothing is better than having standard programming languages for building and managing infrastructure</b>”
+      “Our developers needed a fast, modular, and testable platform for managing cloud infrastructure. <b>Nothing is better than having standard programming languages for building and managing infrastructure</b>”
     author: Austin Byers, Principal Platform Engineer
     logo: panther-labs
   starburst:
@@ -99,19 +90,9 @@ customer_quotes:
     logo: starburst
   snowflake:
     text: |
-      “Pulumi helped our team to ship a new product faster than was previously possible. We needed <b>one tool to setup and manage multi-cloud, multi-region Kubernetes clusters</b> that infrastructure and applications teams could use collaboratively. Pulumi delivered”
+      “Pulumi helped our team to ship a new product faster. We needed <b>one tool to setup and manage multi-cloud, multi-region Kubernetes clusters</b> that infrastructure and applications teams could use collaboratively”
     author: Justin Fitzhugh, VP of Cloud Platform Engineering
     logo: snowflake
-  skai:
-    text: |
-      “A key benefit of Pulumi is that it allows us to <b>modularize our cloud infrastructure as reusable Python components</b> that enable our developer teams to build faster and more independently”
-    author: Danny Zalkind, DevOps Group Manager
-    logo: skai
-  people_data_labs:
-    text: |
-      “Pulumi has accelerated our developers’ productivity. We immediately saw the value of Pulumi Insights for helping us <b>search our infrastructure and understand what’s been deployed</b> for use cases like cost analysis, resource migrations, and more”
-    author:  Tyler Scheuble, Head of Platform
-    logo: people-data-labs
 
 get_started:
   tweets:

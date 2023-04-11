@@ -25,7 +25,7 @@
 
 {{ define "main" }}
     {{ $pageContext := . }}
-    <!-- Build by engineers -->
+    <!-- Built by engineers + tweets -->
     <section class="mt-8 mb-16 lg:mb-48 relative flex flex-col">
         <div class="container mx-auto px-3">
             <div class="w-full bg-violet-600 text-white rounded-xl shadow p-16 lg:pb-56 text-center align-top">
@@ -98,7 +98,7 @@
         </div>
     </section>
 
-    <!-- Code faster -->
+    <!-- Code and ship faster -->
     <section class="mb-8 mt-12 lg:mt-0 px-6 lg:px-0 relative">
         <div class="shape-background home-build-section">
             <div class="shape-container">
@@ -155,7 +155,7 @@
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.panther) }}
     </section>
 
-    <!-- Boost your productivity with ai -->
+    <!-- Boost productivity with AI -->
     <section class="py-12 px-6 lg:px-0 relative">
         <div class="shape-background home-deploy-section">
             <div class="shape-container">
@@ -185,7 +185,7 @@
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.starburst) }}
     </section>
 
-    <!-- Ship faster -->
+    <!-- Embed IaC Anywhere -->
     <section class="my-12 lg:py-12 px-6 lg:px-0 relative">
         <div class="shape-background home-manage-section">
             <div class="shape-container">
@@ -200,12 +200,12 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="my-auto w-full lg:w-1/2 lg:mr-32 z-10 px-8">
-                <h3>{{ .Params.ship_faster.title }}</h3>
-                <p class="text-lg">{{ .Params.ship_faster.description | markdownify }}</p>
+                <h3>{{ .Params.embed.title }}</h3>
+                <p class="text-lg">{{ .Params.embed.description | markdownify }}</p>
             </div>
 
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="/images/home/software-infra-delivery.svg" alt="Pulumi Pipeline" />
+                <img src="/images/home/manage-resources.svg" alt="Pulumi Pipeline" />
             </div>
         </div>
     </section>
@@ -215,7 +215,7 @@
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.snowflake) }}
     </section>
 
-    <!-- Do more with less. -->
+    <!-- Search every cloud -->
     <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
         <div class="shape-background home-deploy-section">
             <div class="shape-container">
@@ -230,52 +230,17 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="/images/home/manage-resources.svg" alt="Pulumi Pipeline" />
+                <img src="/images/home/search-graphic.svg" alt="Pulumi Pipeline" />
             </div>
             <div class="my-auto"></div>
             <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
-                <h3>{{ .Params.more_with_less.title }}</h3>
-                <p class="text-lg">{{ .Params.more_with_less.description | markdownify }}</p>
+                <h3>{{ .Params.search.title }}</h3>
+                <p class="text-lg">{{ .Params.search.description | markdownify }}</p>
             </div>
         </div>
     </section>
 
-    <!-- Skai quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
-        {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.skai) }}
-    </section>
-
-    <!-- Gain multi-cloud vision. -->
-    <section class="my-12 lg:py-12 px-6 lg:px-0 relative">
-        <div class="shape-background home-manage-section">
-            <div class="shape-container">
-                <div class="dot-background-container">
-                    <div class="dot-background-overlay"></div>
-                    <div class="dot-background no-animate"></div>
-                </div>
-                <div class="circle-left"></div>
-                <div class="circle-right"></div>
-            </div>
-        </div>
-
-        <div class="container mx-auto flex flex-col lg:flex-row">
-            <div class="w-full my-auto lg:w-1/2 lg:mr-32 z-10 px-8">
-                <h3>{{ .Params.one_place.title }}</h3>
-                <p class="text-lg">{{ .Params.one_place.description | markdownify }}</p>
-            </div>
-
-            <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="/images/home/search-graphic.svg" alt="Pulumi Pipeline" />
-            </div>
-        </div>
-    </section>
-
-    <!-- People Data Labs quote -->
-    <section class="py-12 w-full md:w-2/3 lg:w-1/2 mx-auto">
-        {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.people_data_labs) }}
-    </section>
-
-    <!-- Logos -->
+    <!-- Logos carousel -->
     <section class="container mx-auto text-center overflow-hidden px-3 mt-24">
         <h3 class="text-center mb-10">{{ .Params.customer_logos.title }}</h3>
 
@@ -316,6 +281,7 @@
         </div>
     </section>
 
+    <!-- CTAs -->
     <section class="container mx-auto">
         <div class="w-full lg:w-2/3 mx-auto mb-16 bg-violet-600 rounded-xl shadow p-16 flex flex-col items-center justify-center">
             <h2 class="text-white font-light">Ready to deploy your first stack?</h2>
