@@ -1,17 +1,17 @@
 ---
-title: Pulumi Service
+title: Pulumi Cloud
 layout: pulumi-service
 
-meta_desc: The Pulumi Service enables infrastructure and development teams to focus on building, deploying, and managing modern cloud applications faster and reliably.
+meta_desc: Pulumi Cloud is the easiest way to use Pulumi open source at scale.
 
 overview:
     titleTop: Fully-managed
-    titleBottom: cloud engineering platform
+    titleBottom: Infrastructure as Code platform
     description: |
-        The Pulumi Service is the easiest way to use Pulumi open source at scale, enabling infrastructure and development teams to focus on building, deploying, and managing modern cloud applications faster and reliably. It is a managed service that handles infrastructure state and secrets, sets up SAML SSO, integrates with CI/CD pipelines, and enforces compliance rules.
+        Pulumi Cloud is the easiest way to use Pulumi open source at scale. It stores infrastructure state and secrets, provides search and clear visibility into all your clouds, runs remote deployments, integrates with CI/CD pipelines, and enforces policies.
 
 case_studies:
-    title: Customers innovating with Pulumi Service
+    title: Customers innovating with Pulumi Cloud
     items:
         - name: Atlassian
           link: /case-studies/atlassian
@@ -19,11 +19,11 @@ case_studies:
           description: |
             Developers reduced their time spent on maintenance by 50%.
 
-        - name: GreenPark Sports
-          link: /case-studies/greenpark-sports
-          logo: greenpark-sports
+        - name: Elkjop
+          link: /case-studies/elkjop-nordic/
+          logo: elkjop-nordic
           description: |
-            All developers contribute infrastructure code and deploy 70% more changes.
+            Increased developers' agility and speed through platform engineering.
 
         - name: Panther Labs
           link: /case-studies/panther-labs
@@ -75,19 +75,19 @@ capabilities:
 
                 Use Pulumi's secrets manager or integrate with AWS KMS, Azure Key Vault, Google KMS, and HashiCorp Vault.
 
-        - title: Increase developer productivity and collaboration
+        - title: Increase productivity and collaboration
           image: /images/product/console-stack-timeline.svg
           details:
-            - title: Team-wide visibility and collaboration
+            - title: Collaborate better within teams
               description: |
-                Visualize projects, stacks, and cloud resources so you and developers in your organization know what’s running and where.
+                Add teammates to Pulumi so you can work on projects together, ship code collaboratively, and coordinate changes to infrastructure.
 
               more_info: |
+                Invite new team members and share projects to collaborate on infrastructure.
+
                 View [timelines](/docs/intro/pulumi-cloud/projects-and-stacks/#stack-activity) that show diffs of changed resources and who made the changes.
 
                 [Tag stacks](/docs/intro/concepts/stack/#stack-tags) for easier filtering and searching.
-
-                Track the activity of users within your organization with [audit logs](/docs/intro/pulumi-cloud/audit-logs/).
 
             - title: Software delivery integrations
               description: |
@@ -104,25 +104,72 @@ capabilities:
 
                 Use [the Service API](/blog/pulumi-rest-api/) to manage stacks, updates, teams, and more.
 
+        - title: Build infrastructure automation that scales
+          image: /images/product/console-stack-timeline.svg
+          details:
+            - title: Run cloud infrastructure operations remotely
+              description: |
+                [Run remote infrastructure commands](/docs/intro/deployments/) to provision, configure, and destroy cloud resources, all executed in a secure cloud environment.
+
+              more_info: |
+                Trigger deployments via REST API, click to deploy from Pulumi Cloud's console, Git Push to Deploy, Remote Automation API, and other programmatic building blocks.
+
+                Use a simple, centralized format for specifying everything needed to deploy your infrastructure stacks.
+
+            - title: Manage infrastructure operations at high scale with Deployments-as-a-Service
+              description: |
+                Use the [Pulumi Deployments REST API](/docs/intro/deployments/api/) to programmatically trigger deployments for high volume infrastructure automation use cases.
+
+              more_info: |
+                Call Pulumi's [REST API endpoint](/docs/intro/deployments/api/) to trigger Pulumi commands that run in Pulumi Cloud (e.g., update, destroy, refresh, preview).
+
+                Offload your local Automation API deployment workloads to Pulumi Cloud via the [Remote Automation API feature](/docs/intro/deployments/#deployment-triggers).
+
+        - title: View and search all infrastructure from one place
+          image: /images/product/console-stack-timeline.svg
+          details:
+            - title: Clear visibility across all infrastructure
+              description: |
+                View resources deployed in all your clouds, organized in projects and stacks, so that you know what's running and where.
+
+              more_info: |
+                View dashboards for quick insights into your infrastructure, such as how many resources are running and who has made changes.
+
+                [Tag stacks](/docs/intro/concepts/stack/#stack-tags) for easier filtering and searching.
+
+                Jump directly to the cloud console for each resource you've deployed with Pulumi.
+
+            - title: Search for resources across all clouds
+              description: |
+                Easily look for resources in a single cloud or across all your clouds with structured queries or natural language search.
+
+              more_info: |
+                Search for resources by filtering with facets like type, provider, project, and stack.
+
+                Use a structured query syntax or natural language search (coming soon).
+
+                Share queries with your teammates.
+
         - title: Set guardrails and access controls
           image: /images/product/console-policy-group.svg
           details:
-            - title: Collaboration with secure access controls
+            - title: Set up identity and access controls
               description: |
-                Use identity and access controls to manage who can make changes to your infrastructure.
+                Integrate SSO and your [identity provider](/docs/guides/scim/) with Pulumi, set [user permissions](/docs/intro/pulumi-service/teams/) for each stack, and track user activity with [audit logs](/docs/intro/pulumi-service/audit-logs/).
 
               more_info: |
-                Invite new team members and share projects to collaborate on infrastructure.
-
                 Single sign-on with any [SAML 2.0](/docs/guides/saml/) identity provider like Azure Active Directory, Google Workspace , Okta, and OneLogin.
 
                 Manage Pulumi access from your central identity provider via [SCIM 2.0 integration](/docs/guides/scim/).
 
                 Set [role-based access controls](/docs/intro/pulumi-cloud/teams/) that limit who can access infrastructure.
 
+                Track the activity of users within your organization with [audit logs](/docs/intro/pulumi-service/audit-logs/).
+
+
             - title: Proactive compliance enforcement
               description: |
-                Set guardrails for developers in your organization and enforce configuration and deployment rules.
+                Set guardrails for developers deploying with Pulumi by creating [policy packs](/docs/guides/crossguard/configuration/) that enforce your [deployment rules](/docs/guides/crossguard/).
 
               more_info: |
                 Define [Policy as Code](/docs/guides/crossguard/) rules for security, best practices, and more.
@@ -135,7 +182,7 @@ open_source:
     title: The easiest way to use Pulumi open source
     image: /images/product/service-open-source-diagram.svg
     description: |
-        Pulumi Service is a managed service for the open source CLI and SDK. It tracks your [infrastructure’s state](/docs/intro/concepts/state/) and coordinates updates with the CLI, which creates or updates resources to reach your infrastructure’s [desired state](/docs/intro/concepts/how-pulumi-works/).
+        Pulumi Cloud is a managed service for Pulumi's open source CLI and SDK. It tracks your [infrastructure’s state](/docs/intro/concepts/state/) and coordinates updates with the CLI, which creates or updates resources to reach your infrastructure’s [desired state](/docs/intro/concepts/how-pulumi-works/).
 
         You can also use any cloud or on-premises storage to build and [run your own backend](/docs/intro/concepts/state/#logging-into-a-self-managed-backend).
 
@@ -143,27 +190,27 @@ security:
     title: Pulumi takes security seriously
     image: /images/product/soc-aicpa.svg
     description: |
-        Pulumi Service runs in an AWS VPC and our architecture follows industry best practices. All network communication is encrypted using TLS and Pulumi’s endpoints are only accessible via HTTPS. Your data is also encrypted at-rest and Pulumi is compliant with SOC 2 Type II.
+        Pulumi Cloud runs in an AWS VPC and our architecture follows industry best practices. All network communication is encrypted using TLS and Pulumi’s endpoints are only accessible via HTTPS. Your data is also encrypted at-rest and Pulumi is compliant with SOC 2 Type II.
 
 deployment:
     title: Deployment options
     items:
-        - title: Managed
+        - title: SaaS
           icon: rocketship
           icon_color: purple
           description: |
-            Use the Pulumi Service without worrying about scaling, availability, fault tolerance, and concurrency.
+            Use Pulumi Cloud without worrying about scaling, availability, fault tolerance, and concurrency.
 
         - title: Self-hosted
           icon: program
           icon_color: yellow
           description: |
-            [Run the Pulumi Service](/product/self-hosted/) in your on-premises or cloud environment and manage it yourself.
+            [Run Pulumi Cloud](/product/self-hosted/) in your on-premises or cloud environment and manage it yourself.
 
 pricing:
     title: Pricing
     description: |
-        The Pulumi Service offers Editions for Individual, Team, Enterprise, and Business Critical. Support is available on Enterprise and Business Critical. You only pay for what you use, and there are free tiers available.
+        Pulumi Cloud offers Editions for Individual, Team, Enterprise, and Business Critical. Support is available on Enterprise and Business Critical. You only pay for what you use, and there are free tiers available.
 
 get_started:
     title: Get started today
