@@ -41,41 +41,21 @@ customer_logos:
   logos:
     - name: mercedes-benz
       link: /case-studies/mercedes-benz
-    - name: sans
-      link: /case-studies/sans-institute
+    - name: gusto
     - name: snowflake
       link: /case-studies/snowflake
-    - name: credijusto
-      link: /case-studies/credijusto
-    - name: skai
-      link: /blog/kenshoo-migrates-to-aws-with-pulumi
     - name: lemonade
       link: /case-studies/lemonade
+    - name: cockroach-labs
+    - name: meta
+    - name: webflow
+    - name: bluenile
+    - name: dutchie
     - name: panther-labs
       link: /case-studies/panther-labs
     - name: sourcegraph
       link: /case-studies/sourcegraph
-    - name: whylabs
-      link: /case-studies/whylabs
-    - name: webflow
-    - name: cockroach-labs
-    - name: washington-trust
-    - name: qi
     - name: univision
-    - name: petcolove
-    - name: linktree
-    - name: materialize
-    - name: anitian
-    - name: clearsale
-    - name: ware2go
-    - name: meta
-    - name: angellist
-    - name: bluenile
-    - name: dutchie
-    - name: gusto
-    - name: cisess
-      link: /blog/managing-multi-cloud-open-data-noaa
-    - name: altana
 
 customer_quotes:
   panther:
