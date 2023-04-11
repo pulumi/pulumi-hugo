@@ -17,6 +17,8 @@ code_faster:
 
 ai:
   title: Boost productivity with AI
+  image: /images/home/ai-graphic.svg
+  alt: AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code
   description: |
     Want help writing infrastructure code? Use Pulumi AI to generate code for your desired infrastructure – all through natural language commands.
     
@@ -24,6 +26,8 @@ ai:
 
 embed:
   title: Embed IaC anywhere
+  image: /images/home/automation-api-diagram.svg
+  alt: a flowchart with arrows going from Automation API program to Infrasctucture as Code programs to Pulumi Engine deploys stacks
   description: |
     With Automation API, embed Pulumi in your applications to power custom cloud infrastructure automation. No CLI - just code so you can manage 10x more resources.
 
@@ -31,6 +35,8 @@ embed:
 
 search:
   title: Search every cloud
+  image: /images/home/search-example-graphic.svg
+  alt: a search bar populated with 'show all my prod stack resources' returning a list of prod resources from different clouds
   description: |
     View and search for deployed resources across all your cloud providers – presented in a human-readable way.
 

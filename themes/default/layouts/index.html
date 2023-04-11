@@ -100,7 +100,7 @@
 
     <!-- Code and ship faster -->
     <section class="mb-8 mt-12 lg:mt-0 px-6 lg:px-0 relative">
-        <div class="shape-background home-build-section">
+        <div class="shape-background home-background-yellow-left">
             <div class="shape-container">
                 <div class="circle-left"></div>
                 <div class="circle-right"></div>
@@ -121,27 +121,31 @@
                     <div>
                         <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
                             <pulumi-choosable type="language" class="highlight" value="typescript">
-                                <img class="mx-auto" src="/images/home/typescript.svg" alt="" />
+                                <img
+                                    class="mx-auto"
+                                    src="/images/home/typescript.svg"
+                                    alt="Pulumi code being written in TypeScript showing autocomplete for creating a new S3 bucket"
+                                />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="python">
-                                <img class="mx-auto" src="/images/home/python.svg" alt="" />
+                                <img class="mx-auto" src="/images/home/python.svg" alt="Pulumi code being written in Python showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="go">
-                                <img class="mx-auto" src="/images/home/go.svg" alt="" />
+                                <img class="mx-auto" src="/images/home/go.svg" alt="Pulumi code being written in GO showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="csharp">
-                                <img class="mx-auto" src="/images/home/c-sharp.svg" alt="" />
+                                <img class="mx-auto" src="/images/home/c-sharp.svg" alt="Pulumi code being written in C# showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="java">
-                                <img class="mx-auto" src="/images/home/java.svg" alt="" />
+                                <img class="mx-auto" src="/images/home/java.svg" alt="Pulumi code being written in Java showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="yaml">
-                                <img class="mx-auto" src="/images/home/yaml.svg" alt="" />
+                                <img class="mx-auto" src="/images/home/yaml.svg" alt="Pulumi code being written in YAML showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
                         </pulumi-chooser>
                     </div>
@@ -157,7 +161,7 @@
 
     <!-- Boost productivity with AI -->
     <section class="py-12 px-6 lg:px-0 relative">
-        <div class="shape-background home-deploy-section">
+        <div class="shape-background home-background-salmon-right">
             <div class="shape-container">
                 <div class="dot-background-container">
                     <div class="dot-background-overlay"></div>
@@ -170,7 +174,7 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="/images/home/ai-infra.png" alt="AI generating infrastructure code" />
+                <img src="{{ .Params.ai.image }}" alt="{{ .Params.ai.alt }}" />
             </div>
             <div class="my-auto"></div>
             <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
@@ -187,7 +191,7 @@
 
     <!-- Embed IaC Anywhere -->
     <section class="my-12 lg:py-12 px-6 lg:px-0 relative">
-        <div class="shape-background home-manage-section">
+        <div class="shape-background home-background-purple-left">
             <div class="shape-container">
                 <div class="dot-background-container">
                     <div class="dot-background-overlay"></div>
@@ -205,7 +209,7 @@
             </div>
 
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="/images/home/manage-resources.svg" alt="Pulumi Pipeline" />
+                <img src="{{ .Params.embed.image }}" alt="{{ .Params.embed.alt }}" />
             </div>
         </div>
     </section>
@@ -217,7 +221,7 @@
 
     <!-- Search every cloud -->
     <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
-        <div class="shape-background home-deploy-section">
+        <div class="shape-background home-background-yellow-right">
             <div class="shape-container">
                 <div class="dot-background-container">
                     <div class="dot-background-overlay"></div>
@@ -230,7 +234,7 @@
 
         <div class="container mx-auto flex flex-col lg:flex-row">
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="/images/home/search-graphic.svg" alt="Pulumi Pipeline" />
+                <img src="{{ .Params.search.image }}" alt="{{ .Params.search.alt }}" />
             </div>
             <div class="my-auto"></div>
             <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
