@@ -33,7 +33,7 @@ key_features:
                     Write infrastructure code in languages you love using your IDE and any language ecosystem tool.
               - title: Generate code with AI
                 description: |
-                    Ask Pulumi AI to create your desired infrastructure code with natural language prompts.
+                    Ask [Pulumi AI](/ai/) to create your desired infrastructure code with natural language prompts.
               - title: Write Policy as Code
                 description: |
                     Write Policy as Code in programming languages to enforce best practices with [Crossguard](/crossguard/).
@@ -194,7 +194,7 @@ key_features:
               - title: State & secrets
                 description: |
                     Securely store state with built-in secrets manager or bring your own KMS.
-              - title: Remote deployments
+              - title: Deployments service
                 description: |
                     Automate execution of IaC programs in a secure, [hosted environment](/product/pulumi-deployments/) and from GitHub.
               - title: Search and analytics
