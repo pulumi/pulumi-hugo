@@ -5,4 +5,4 @@
 - [ ] I have reviewed the [style guide](../STYLE-GUIDE.md).
 - [ ] If blogging, I have reviewed the [blogging guide](../BLOGGING.md).
 - [ ] I have manually confirmed that all new links work.
-- [ ] If I changed a filename, I added a alias (i.e., redirect)
+- [ ] I added aliases (i.e., redirects) for all filename changes.
