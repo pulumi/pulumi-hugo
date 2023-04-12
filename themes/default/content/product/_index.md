@@ -12,7 +12,7 @@ subheading: |
     and tame cloud complexity -- something we call Cloud Engineering.
 
 overview:
-    title: Infrastructure as Code in any Programming Language
+    title: Infrastructure as Code<br/>in any Programming Language
     description: |
         Build and ship infrastructure faster using languages you know and love. Use Pulumi’s open source SDK to provision infrastructure on any cloud, and securely and collaboratively build and manage infrastructure using Pulumi Cloud.
 

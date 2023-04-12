@@ -1,8 +1,10 @@
 ---
 title: Pulumi Cloud
-layout: pulumi-service
+layout: pulumi-cloud
 
 meta_desc: Pulumi Cloud is the easiest way to use Pulumi open source at scale.
+aliases:
+    - /product/pulumi-service/
 
 overview:
     titleTop: Fully-managed
