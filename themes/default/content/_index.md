@@ -1,11 +1,11 @@
 ---
-title: Pulumi - Universal Infrastructure as Code
+title: Pulumi - Infrastructure as Code in any Programming Language
 meta_desc: Pulumi's open source infrastructure as code SDK enables you to create, deploy, and manage infrastructure on any cloud, using your favorite languages.
 
 hero:
   title: [ "Infrastructure as code", "in any programming language" ]
   description: |
-    Build on any cloud fast and intuitively with familiar languages.
+    Build infrastructure intuitively on any cloud using familiar languages.
   cta_text: Try Pulumi Cloud
 
 code_faster:
@@ -47,7 +47,6 @@ customer_logos:
   logos:
     - name: mercedes-benz
       link: /case-studies/mercedes-benz
-    - name: gusto
     - name: snowflake
       link: /case-studies/snowflake
     - name: lemonade
@@ -62,6 +61,7 @@ customer_logos:
     - name: sourcegraph
       link: /case-studies/sourcegraph
     - name: univision
+    - name: washington-trust
 
 customer_quotes:
   panther:
@@ -88,14 +88,14 @@ get_started:
       avatar: https://pbs.twimg.com/profile_images/752334791782039552/BsVNGBaV_400x400.jpg
       link: https://twitter.com/BryanMigliorisi/status/1450123026901651460
       text: |
-        "There is no way around the fact that devops is complicated but @PulumiCorp is a game changer for me.  Blows away CloudForamtion, TerraForm, CDK, etc."    
+        There is no way around the fact that devops is complicated but @PulumiCorp is a game changer for me.  Blows away CloudForamtion, TerraForm, CDK, etc.  
     -
       source: twitter
       username: "@krangarajan"
       avatar: https://pbs.twimg.com/profile_images/837774934805925888/I51_kI-H_400x400.jpg
       link: https://twitter.com/krangarajan/status/1580618068203479040
       text: |
-        "Continuing on my thread about @PulumiCorp from a while ago: holy shit I am a convert. I needed to setup a staging environment that was mostly identical to prod, and once I trued up our Pulumi stack with AWS, it took *minutes* to do this. How have I lived without this until now?" 
+        Continuing on my thread about @PulumiCorp from a while ago: holy shit I am a convert. I needed to setup a staging environment that was mostly identical to prod, and once I trued up our Pulumi stack with AWS, it took *minutes* to do this. How have I lived without this until now?
     -
       source: twitter
       username: "@Vetium"
