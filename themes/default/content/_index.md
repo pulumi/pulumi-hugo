@@ -58,8 +58,6 @@ customer_logos:
     - name: dutchie
     - name: panther-labs
       link: /case-studies/panther-labs
-    - name: sourcegraph
-      link: /case-studies/sourcegraph
     - name: univision
     - name: washington-trust
 
