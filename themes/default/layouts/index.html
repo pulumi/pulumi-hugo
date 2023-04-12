@@ -99,7 +99,11 @@
     <!-- Code and ship faster -->
     <section class="mb-8 mt-12 lg:mt-0 px-6 lg:px-0 relative">
         <div class="shape-background home-background-yellow-left">
-            <div class="shape-container">
+            <div class="shape-container flex flex-row-reverse">
+                <div class="dot-background-container self-end">
+                    <div class="dot-background-overlay"></div>
+                    <div class="dot-background no-animate"></div>
+                </div>
                 <div class="circle-left"></div>
                 <div class="circle-right"></div>
             </div>
@@ -160,8 +164,8 @@
     <!-- Boost productivity with AI -->
     <section class="py-12 px-6 lg:px-0 relative">
         <div class="shape-background home-background-salmon-right">
-            <div class="shape-container">
-                <div class="dot-background-container">
+            <div class="shape-container flex">
+                <div class="dot-background-container self-end">
                     <div class="dot-background-overlay"></div>
                     <div class="dot-background no-animate"></div>
                 </div>
@@ -171,8 +175,58 @@
         </div>
 
         <div class="container mx-auto flex flex-col lg:flex-row">
-            <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="{{ .Params.ai.image }}" alt="{{ .Params.ai.alt }}" />
+            <div class="w-full lg:w-1/2 block lg:flex lg:justify-center p-6 md:pl-24 xl:pl-0">
+                <div>
+                    <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
+                        <pulumi-choosable type="language" class="highlight" value="typescript">
+                            <img
+                                class="mx-auto"
+                                src="/images/home/ai-ts.svg"
+                                alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in TypeScript"
+                            />
+                        </pulumi-choosable>
+
+                        <pulumi-choosable type="language" class="highlight" value="python">
+                            <img
+                                class="mx-auto"
+                                src="/images/home/ai-python.svg"
+                                alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in Python"
+                            />
+                        </pulumi-choosable>
+
+                        <pulumi-choosable type="language" class="highlight" value="go">
+                            <img
+                                class="mx-auto"
+                                src="/images/home/ai-go.svg"
+                                alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in GO"
+                            />
+                        </pulumi-choosable>
+
+                        <pulumi-choosable type="language" class="highlight" value="csharp">
+                            <img
+                                class="mx-auto"
+                                src="/images/home/ai-csharp.svg"
+                                alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in C#"
+                            />
+                        </pulumi-choosable>
+
+                        <pulumi-choosable type="language" class="highlight" value="java">
+                            <img
+                                class="mx-auto"
+                                src="/images/home/ai-java.svg"
+                                alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in Java"
+                            />
+                        </pulumi-choosable>
+
+                        <pulumi-choosable type="language" class="highlight" value="yaml">
+                            <img
+                                class="mx-auto"
+                                src="/images/home/ai-yaml.svg"
+                                alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in YAML"
+                            />
+                        </pulumi-choosable>
+                    </pulumi-chooser>
+                </div>
             </div>
             <div class="my-auto"></div>
             <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
