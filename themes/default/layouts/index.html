@@ -178,6 +178,10 @@
             <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
                 <h3>{{ .Params.ai.title }}</h3>
                 <p class="text-lg">{{ .Params.ai.description | markdownify }}</p>
+                <div class="mt-8">
+                    <span class="text-lg text-gray-600">Try it out: </span>
+                    <a href="/ai" target="_blank" class="underline text-lg text-blue-600">Pulumi AI<i class="fa fa-arrow-right ml-2"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -204,6 +208,10 @@
             <div class="my-auto w-full lg:w-1/2 lg:mr-32 z-10 px-8">
                 <h3>{{ .Params.embed.title }}</h3>
                 <p class="text-lg">{{ .Params.embed.description | markdownify }}</p>
+                <div class="mt-8">
+                    <span class="text-lg text-gray-600">Learn more: </span>
+                    <a href="/automation" target="_blank" class="underline text-lg text-blue-600">Automation API<i class="fa fa-arrow-right ml-2"></i></a>
+                </div>
             </div>
 
             <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
@@ -238,6 +246,10 @@
             <div class="w-full my-auto lg:w-1/2 order-first lg:order-last lg:ml-32 z-10 px-8">
                 <h3>{{ .Params.search.title }}</h3>
                 <p class="text-lg">{{ .Params.search.description | markdownify }}</p>
+                <div class="mt-8">
+                    <span class="text-lg text-gray-600">Learn more: </span>
+                    <a href="/product/pulumi-insights" target="_blank" class="underline text-lg text-blue-600">Pulumi Insights<i class="fa fa-arrow-right ml-2"></i></a>
+                </div>
             </div>
         </div>
     </section>
