@@ -7,10 +7,10 @@
         <h2 class="mt-14 text-center">Fully managed infrastructure as code platform</h2>
         <p class="max-w-3xl mx-auto mt-6">
             {{/* prettier-ignore-start */}}
-        <a class="underline" href="{{ relref . " /product/pulumi-service" }}">Pulumi Cloud</a> is the easiest way to adopt
+        <a class="underline" href="/product/pulumi-service">Pulumi Cloud</a> is the easiest way to adopt
         Pulumi's <a class="underline" href="https://github.com/pulumi/pulumi">open source SDK</a>.
         <p>Prefer to manage your own state storage backend?
-        <a class="text-blue-600 underline" href="{{ relref . "/docs/intro/concepts/state#using-a-self-managed-backend" }}"> Learn more</a>.
+        <a class="text-blue-600 underline" href="/docs/intro/concepts/state#using-a-self-managed-backend"> Learn more</a>.
         </p>
             {{/* prettier-ignore-end */}}
         </p>
@@ -63,7 +63,7 @@
                                         <span>
                                             <i class="fa fa-check pricing-checkmark mr-2"></i>
                                             <span
-                                                ><a href="{{ relref . " /docs/intro/deployments" }}" class="underline">Hosted deployments</a>
+                                                ><a href="/docs/intro/deployments" class="underline">Hosted deployments</a>
                                                 <pulumi-tooltip>
                                                     <i class="w-8 fas fa-info-circle text-blue-600"></i>
                                                     <span slot="content"> This feature is in preview.</span>
@@ -74,14 +74,15 @@
                                     <li>
                                         <span>
                                             <i class="fa fa-check pricing-checkmark mr-2"></i>
-                                            <span>Search and insights</span>
+                                            <span
+                                                    ><a href="/docs/intro/insights/search/" class="underline">Search and insights</a>
                                         </span>
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="mt-8 lg:mt-4 xl:mt-8 flex flex-col w-48">
-                                <a href="{{ relref . " /docs/get-started" }}" class="btn-secondary py-3 px-6 text-center">Get Started</a>
+                                <a href="/docs/get-started" class="btn-secondary py-3 px-6 text-center">Get Started</a>
                                 <p class="text-xs pt-1 my-0 text-center">Follow the step-by-step guide!</p>
                             </div>
                         </div>
@@ -125,7 +126,7 @@
                                                 <span>
                                                     <i class="fa fa-check pricing-checkmark mr-2"></i>
                                                     <span
-                                                        ><a href="{{ relref . " /docs/intro/deployments" }}" class="underline">Hosted deployments</a>
+                                                        ><a href="/docs/intro/deployments" class="underline">Hosted deployments</a>
                                                         <pulumi-tooltip>
                                                             <i class="w-8 fas fa-info-circle text-blue-600"></i>
                                                             <span slot="content"> This feature is in preview and is available at no additional cost during the preview.</span>
@@ -137,7 +138,7 @@
                                     </div>
 
                                     <div class="lg:hidden mt-8 lg:mt-4 xl:mt-8 flex flex-col w-56 xl:w-60">
-                                        <a href="{{ relref . " /docs/get-started" }}" class="btn-secondary py-3 px-6 text-center">Get Started</a>
+                                        <a href="/docs/get-started" class="btn-secondary py-3 px-6 text-center">Get Started</a>
                                         <p class="text-xs pt-1 my-0 text-center">Follow the step-by-step guide!</p>
                                     </div>
                                 </div>
@@ -293,7 +294,7 @@
                                             <li>
                                                 <span>
                                                     <i class="fa fa-check pricing-checkmark mr-2"></i>
-                                                    <span><a href="{{ relref . " /product/self-hosted" }}" class="underline">Self-hosting available</a></span>
+                                                    <span><a href="/product/self-hosted" class="underline">Self-hosting available</a></span>
                                                 </span>
                                             </li>
                                             <li>
@@ -392,7 +393,7 @@
                                         id="startSelfHostedTrial"
                                         data-track="trial-dialog-self-hosted"
                                         class="btn-secondary"
-                                        href="{{ relref . " /product/self-hosted#self-hosted-trial" }}"
+                                        href="/product/self-hosted#self-hosted-trial"
                                         >Request Trial of Self-Hosted</a
                                     >
                                 </div>
@@ -433,10 +434,10 @@
                     <p>
                         A Pulumi Credit is the price for managing one resource for one hour. If using the Team Edition, each credit costs $0.0005. For billing purposes, we count
                         any resource that's declared in a Pulumi program. This includes
-                        <a class="underline" href="{{ relref . " /docs/intro/concepts/resources#custom-resources" }}">provider resources</a> (e.g., an Amazon S3 bucket),
-                        <a class="underline" href="{{ relref . " /docs/intro/concepts/resources#components" }}">component resources</a>
+                        <a class="underline" href="/docs/intro/concepts/resources#custom-resources">provider resources</a> (e.g., an Amazon S3 bucket),
+                        <a class="underline" href="/docs/intro/concepts/resources#components">component resources</a>
                         which are groupings of resources (e.g., an Amazon EKS cluster), and
-                        <a class="underline" href="{{ relref . " /docs/intro/concepts/stack" }}">stacks</a> which contain resources (e.g., dev, test, prod stacks).
+                        <a class="underline" href="/docs/intro/concepts/stack">stacks</a> which contain resources (e.g., dev, test, prod stacks).
                     </p>
                     <p>
                         You consume one Pulumi Credit to manage each resource for an hour. For example, one stack containing one S3 bucket and one EC2 instance is three resources
@@ -456,7 +457,7 @@
                     </p>
                     <p>
                         Hourly usage is measured in the number of Pulumi Credits, and you are billed one Pulumi Credit to manage one
-                        <a class="underline" href="{{ relref . " /docs/intro/concepts/resources" }}">resource</a>
+                        <a class="underline" href="/docs/intro/concepts/resources">resource</a>
                         for one hour. Each credit costs $0.0005 USD.
                     </p>
                     <p>
@@ -570,7 +571,7 @@
 
                 <div class="accordion-item-body-no-animation text-base">
                     <p>
-                        Yes, you can! Please <a class="underline" href="{{ relref . " /contact.md" }}?form=sales">contact us</a>
+                        Yes, you can! Please <a class="underline" href="/contact/?form=sales">contact us</a>
                         to discuss the Enterprise and Business Critical Editions, which include bulk discounts for buying your credits in advance.
                     </p>
                 </div>
@@ -592,7 +593,7 @@
                         infrastructure’s desired state. It also manages secrets, supports SAML SSO, integrates with CI/CD pipelines, enforces compliance rules, and much more.
                     </p>
                     <p>
-                        You're not required to use <a class="underline" href="{{ relref . " /product/pulumi-service" }}">Pulumi Cloud</a>. You can use any cloud or on-premises
+                        You're not required to use <a class="underline" href="/product/pulumi-service">Pulumi Cloud</a>. You can use any cloud or on-premises
                         storage to build and run your own backend.
                     </p>
                 </div>
@@ -610,14 +611,14 @@
                     </p>
                     <p>
                         Second, Pulumi is an <a class="underline" href="https://github.com/pulumi/pulumi">open source project</a>. You can
-                        <a class="underline" href="{{ relref . " /docs/intro/concepts/state#using-a-self-managed-backend" }}">run Pulumi entirely offline</a> without the online
+                        <a class="underline" href="/docs/intro/concepts/state#using-a-self-managed-backend">run Pulumi entirely offline</a> without the online
                         service’s features, and manage state yourself, instead of using the online service. There are no restrictions &mdash; it's all there in the open for you to
                         use freely as you'd like.
                     </p>
                     <p>
                         Finally, Pulumi Team Edition offers a 14-day free trial. Once the trial is over, you get 150k free Pulumi Credits every month (equivalent to ~200 resources
                         managed free each month). If this isn't a sufficient duration for your project, please
-                        <a class="underline" href="{{ relref . " /contact.md" }}?form=sales">contact us</a>, and we are happy to work out a custom trial period for you that makes
+                        <a class="underline" href="/contact/?form=sales">contact us</a>, and we are happy to work out a custom trial period for you that makes
                         sense given your proof-of-concept timeline. After your trial expires, no data will be lost, and there is a grace period with soft enforcement.
                     </p>
                 </div>
@@ -629,7 +630,7 @@
 
                 <div class="accordion-item-body-no-animation text-base">
                     <p>
-                        Follow the <a class="underline" href="{{ relref . " /docs/get-started" }}">Getting Started guide</a>, which walks you through creating and deploying your
+                        Follow the <a class="underline" href="/docs/get-started">Getting Started guide</a>, which walks you through creating and deploying your
                         first Pulumi project.
                     </p>
                 </div>
@@ -649,8 +650,8 @@
                         more sophisticated organization management facilities, including RBAC for advanced policy controls.
                     </p>
                     <p>
-                        Pulumi <a class="underline" href="{{ relref . " /docs/intro/concepts/project" }}">projects</a> and
-                        <a class="underline" href="{{ relref . " /docs/intro/concepts/stack" }}">stacks</a> are a way to organize Pulumi code. You can consider a Pulumi Project to
+                        Pulumi <a class="underline" href="/docs/intro/concepts/project">projects</a> and
+                        <a class="underline" href="/docs/intro/concepts/stack">stacks</a> are a way to organize Pulumi code. You can consider a Pulumi Project to
                         be analogous to a GitHub repo: a single place for code -- and a Stack to be an instance of that code which has separate configuration. For instance, Project
                         Foo may have multiple stacks for Dev, Test, Prod, or perhaps for different cloud configurations (e.g. geographic region).
                     </p>
@@ -666,7 +667,7 @@
                         Yes! If you plan to use Pulumi by yourself, then try the free Individual Edition. If you and your team want to collaborate on infrastructure projects, then
                         try the Team Edition which has a 14-day free trial. After the trial, you get 150k free Pulumi Credits every month (additional credits are $0.00025 USD
                         each). 150k credits is enough to manage a small environment with about 200 resources. To upgrade to Enterprise, please
-                        <a class="underline" href="{{ relref . " /contact.md" }}?form=sales">contact us</a>.
+                        <a class="underline" href="/contact/?form=sales">contact us</a>.
                     </p>
                 </div>
             </li>
@@ -678,7 +679,7 @@
 
 
                 <div class="accordion-item-body-no-animation text-base">
-                    <p><a class="underline" href="{{ relref . " /contact.md" }}?form=sales">Contact us</a> to move to Team.</p>
+                    <p><a class="underline" href="/contact/?form=sales">Contact us</a> to move to Team.</p>
                 </div>
             </li>
 
@@ -699,7 +700,7 @@
                     <p>
                         Yes, we offer a self-hosted Pulumi Cloud for companies that have specific data control requirements and want to maintain complete control over hosting
                         Pulumi Cloud. This option is available in Business Critical Edition. You can get started with a
-                        <a class="underline" href="{{ relref . " /product/self-hosted.md#self-hosted-trial" }}">30-day free trial here</a>.
+                        <a class="underline" href="/product/self-hosted.md#self-hosted-trial">30-day free trial here</a>.
                     </p>
                 </div>
             </li>
@@ -712,7 +713,7 @@
                     <p>
                         Do you want to use Pulumi in your organization, but aren't sure how to bring it up with your boss? We've created a sample email to help you explain its
                         benefits. Feel free to use the full letter or pieces of it. We are always happy to meet to learn more about your needs and explain these benefits in person
-                        &mdash; just <a class="underline" href="{{ relref . " /contact.md" }}?form=sales">contact us</a>.
+                        &mdash; just <a class="underline" href="/contact/?form=sales">contact us</a>.
                     </p>
                     <h5>Sample Email</h5>
                     <p>Dear {Name},</p>
@@ -731,20 +732,20 @@
                     <ul>
                         <li>Tableau and Fenergo can now release new features faster by empowering their developers to deploy cloud infrastructure easily.</li>
                         <li>
-                            <a class="underline" href="{{ relref . " /case-studies/snowflake" }}">Snowflake migrated to</a>
+                            <a class="underline" href="/case-studies/snowflake">Snowflake migrated to</a>
                             Kubernetes across multiple clouds in three months.
                         </li>
                         <li>
-                            <a class="underline" href="{{ relref . " /case-studies/mercedes-benz" }}">Mercedes-Benz</a>
+                            <a class="underline" href="/case-studies/mercedes-benz">Mercedes-Benz</a>
                             Research & Development North America improved collaboration between its infrastructure and application development teams.
                         </li>
                         <li>
-                            <a class="underline" href="{{ relref . " /blog/kenshoo-migrates-to-aws-with-pulumi" }}">Skai</a>
+                            <a class="underline" href="/blog/kenshoo-migrates-to-aws-with-pulumi">Skai</a>
                             managed a complex public cloud migration project.
                         </li>
                         <li>
-                            Cockroach Labs, <a class="underline" href="{{ relref . " /case-studies/sourcegraph" }}">Sourcegraph</a>, and
-                            <a class="underline" href="{{ relref . " /case-studies/lemonade" }}">Lemonade</a> created innovative engineering cultures.
+                            Cockroach Labs, <a class="underline" href="/case-studies/sourcegraph">Sourcegraph</a>, and
+                            <a class="underline" href="/case-studies/lemonade">Lemonade</a> created innovative engineering cultures.
                         </li>
                     </ul>
                     <p>
@@ -779,7 +780,7 @@
                 <div class="accordion-item-body-no-animation text-base">
                     <p>
                         You can keep track of current credit usage and upcoming charges by navigating to Settings and then Billing & Usage in the
-                        <a class="underline" href="{{ relref . "/product/pulumi-service" }}">Pulumi Cloud</a>.
+                        <a class="underline" href="/product/pulumi-service">Pulumi Cloud</a>.
                     </p>
                 </div>
             </li>
@@ -803,7 +804,7 @@
 
                 <div class="accordion-item-body-no-animation text-base">
                     <p>
-                        The <a class="underline" href="{{ relref . " open-source-free-tier/" }}">Open-Source Free Edition</a> allows organizations not seeking a profit with
+                        The <a class="underline" href="open-source-free-tier/">Open-Source Free Edition</a> allows organizations not seeking a profit with
                         projects under an open-source license to use Pulumi for free.
                     </p>
                 </div>
@@ -817,7 +818,7 @@
                     <p>
                         For the Pulumi Team Edition, you can pay with a credit card (we use Stripe for processing). Pulumi Enterprise Edition offers additional payment options.
                         Please
-                        <a class="underline" href="{{ relref . " /contact.md" }}?form=sales">contact us</a> for those options.
+                        <a class="underline" href="/contact/?form=sales">contact us</a> for those options.
                     </p>
                 </div>
             </li>
@@ -827,7 +828,7 @@
 
 
                 <div class="accordion-item-body-no-animation text-base">
-                    <p>For any billing or related issues, please <a class="underline" href="{{ relref . " /contact.md" }}">contact us</a>.</p>
+                    <p>For any billing or related issues, please <a class="underline" href="/contact.md">contact us</a>.</p>
                 </div>
             </li>
 
@@ -840,7 +841,7 @@
                 <div class="accordion-item-body-no-animation text-base">
                     <p>
                         If you're not satisfied with Pulumi, we offer a 14-day money-back guarantee. No questions asked.
-                        <a class="underline" href="{{ relref . " /contact.md" }}">Contact us</a>.
+                        <a class="underline" href="/contact.md">Contact us</a>.
                     </p>
                 </div>
             </li>
@@ -853,7 +854,7 @@
                     <p>
                         12 x 5 support is included in Enterprise Edition and 24 x 7 support (includes a private Slack channel and dedicated support) is included in Business
                         Critical Edition.
-                        <a class="underline" href="{{ relref . " /contact.md" }}?form=sales">Contact us</a> if you need help or have any questions.
+                        <a class="underline" href="/contact/?form=sales">Contact us</a> if you need help or have any questions.
                     </p>
                 </div>
             </li>
@@ -941,7 +942,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/organizations" }}">Organizations</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/organizations">Organizations</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -959,7 +960,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . "/docs/intro/pulumi-cloud/projects-and-stacks" }}">Unlimited projects & stacks</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/projects-and-stacks">Unlimited projects & stacks</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span><i class="fa fa-check pricing-checkmark mr-2"></i></span>
@@ -1013,7 +1014,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /product/pulumi-service" }}">Pulumi web console</a></span>
+                        <span><a class="compare-table-link" href="/product/pulumi-service">Pulumi web console</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span><i class="fa fa-check pricing-checkmark mr-2"></i></span>
@@ -1031,7 +1032,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/insights/search/" }}">Resource search</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/insights/search/">Resource search</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span>2K results/query</span>
@@ -1049,7 +1050,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/insights/export/" }}">Export resource searches</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/insights/export/">Export resource searches</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1067,7 +1068,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/reference/cloud-rest-api/" }}">REST API</a></span>
+                        <span><a class="compare-table-link" href="/docs/reference/cloud-rest-api/">REST API</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span><i class="fa fa-check pricing-checkmark mr-2"></i></span>
@@ -1086,7 +1087,7 @@
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
                         <span>
-                            <a class="compare-table-link" href="{{ relref . " /docs/intro/deployments" }}">Hosted deployments</a>
+                            <a class="compare-table-link" href="/docs/intro/deployments">Hosted deployments</a>
                             <pulumi-tooltip>
                                 <i class="w-8 fas fa-info-circle text-blue-600"></i>
                                 <span slot="content"> This feature is in preview and is available at no additional cost during the preview.</span>
@@ -1109,7 +1110,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /automation" }}">Automation API</a></span>
+                        <span><a class="compare-table-link" href="/automation">Automation API</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span><i class="fa fa-check pricing-checkmark mr-2"></i></span>
@@ -1145,7 +1146,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /product/self-hosted" }}">Self-hosting</a></span>
+                        <span><a class="compare-table-link" href="/product/self-hosted">Self-hosting</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1238,7 +1239,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/guides/continuous-delivery" }}">CI/CD integrations</a></span>
+                        <span><a class="compare-table-link" href="/docs/guides/continuous-delivery">CI/CD integrations</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span>
@@ -1268,7 +1269,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/ci-cd-integration-assistant" }}">CI/CD Assistant</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/ci-cd-integration-assistant">CI/CD Assistant</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1286,7 +1287,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/webhooks" }}">Webhooks</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/webhooks">Webhooks</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1382,7 +1383,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/concepts/config" }}">Secrets and encryption</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/concepts/config">Secrets and encryption</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span><i class="fa fa-check pricing-checkmark mr-2"></i></span>
@@ -1400,7 +1401,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/accounts" }}">Identity providers</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/accounts">Identity providers</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span>GitHub, GitLab, Atlassian</span>
@@ -1418,7 +1419,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/guides/saml " }}">SAML/SSO</a></span>
+                        <span><a class="compare-table-link" href="/docs/guides/saml ">SAML/SSO</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1448,7 +1449,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/guides/scim" }}">SCIM integration</a></span>
+                        <span><a class="compare-table-link" href="/docs/guides/scim">SCIM integration</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1466,7 +1467,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/teams" }}">Create and manage teams</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/teams">Create and manage teams</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1485,7 +1486,7 @@
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
                         <span
-                            ><a class="compare-table-link" href="{{ relref . "/docs/intro/pulumi-cloud/organizations#organization-roles" }}"
+                            ><a class="compare-table-link" href="/docs/intro/pulumi-cloud/organizations#organization-roles"
                                 >Role-based access control (RBAC)</a
                             ></span
                         >
@@ -1506,7 +1507,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/audit-logs" }}">Audit logs</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/audit-logs">Audit logs</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
@@ -1525,7 +1526,7 @@
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
                         <span
-                            ><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/organization-access-tokens" }}"
+                            ><a class="compare-table-link" href="/docs/intro/pulumi-cloud/organization-access-tokens"
                                 >Organization and Team Access Tokens</a
                             ></span
                         >
@@ -1552,7 +1553,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="{{ relref . " /docs/intro/pulumi-cloud/audit-logs#automated-export" }}">Automated log export to S3</a></span>
+                        <span><a class="compare-table-link" href="/docs/intro/pulumi-cloud/audit-logs#automated-export">Automated log export to S3</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span></span>
