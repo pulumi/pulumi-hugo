@@ -186,7 +186,7 @@ key_features:
           sub_title: "Pulumi Cloud"
           description: |
              Store infrastructure state & secrets, collaborate within teams, view and search infrastructure, and manage security and compliance using Pulumi Cloud. The fastest and easiest way to use Pulumi at scale.
-          image: "/images/product/pulumi-service.png"
+          image: "/images/product/pulumi-cloud-dashboard.png"
           button:
             text: "Learn more about Pulumi Cloud"
             link: "/product/pulumi-service/"

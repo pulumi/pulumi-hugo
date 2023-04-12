@@ -105,7 +105,7 @@ capabilities:
                 Use [the Service API](/blog/pulumi-rest-api/) to manage stacks, updates, teams, and more.
 
         - title: Build infrastructure automation that scales
-          image: /images/product/console-stack-timeline.svg
+          image: /images/product/pulumi-deployments.png
           details:
             - title: Run cloud infrastructure operations remotely
               description: |
@@ -126,7 +126,7 @@ capabilities:
                 Offload your local Automation API deployment workloads to Pulumi Cloud via the [Remote Automation API feature](/docs/intro/deployments/#deployment-triggers).
 
         - title: View and search all infrastructure from one place
-          image: /images/product/console-stack-timeline.svg
+          image: /images/product/resource-search-diagram.svg
           details:
             - title: Clear visibility across all infrastructure
               description: |
