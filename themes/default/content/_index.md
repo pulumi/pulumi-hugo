@@ -13,7 +13,7 @@ code_faster:
   description: |
     Author infrastructure code using programming languages you know and love. Write statements to define infrastructure using your IDE with autocomplete, type checking, and documentation.
     
-    Test your code with unit tests and deliver it through CI/CD pipelines to validate and deploy. 
+    Test your code with unit tests and deliver it through CI/CD pipelines to validate and deploy to any cloud.
 
 ai:
   title: Boost productivity with AI
