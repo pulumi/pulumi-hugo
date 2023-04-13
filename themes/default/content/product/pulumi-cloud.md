@@ -22,7 +22,7 @@ case_studies:
             Developers reduced their time spent on maintenance by 50%.
 
         - name: Elkjop
-          link: /case-studies/elkjop-nordic/
+          link: /case-studies/elkjop-nordic
           logo: elkjop-nordic
           description: |
             Increased developers' agility and speed through platform engineering.
