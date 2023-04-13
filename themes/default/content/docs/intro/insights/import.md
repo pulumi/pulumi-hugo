@@ -53,7 +53,6 @@ $ pulumi up --skip-preview --show-reads # run the aws cloud import program
 ```
 
 The program uses 3 concurrent workers by default due to rate limits on the AWS cloud control API. You can control the concurrency through an environment variable: `PULUMI_CLOUD_IMPORT_WORKERS=10`.
-```
 
 ### Azure
 
