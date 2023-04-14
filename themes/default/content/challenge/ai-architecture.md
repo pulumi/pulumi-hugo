@@ -13,9 +13,9 @@ banner_image: /images/challenge/challenge-dec-banner.png
 
 ### What you will learn
 
-Why write your Pulumi programs yourself when you can have AI do it for you. PulumiAI leverages large language models (LLMs) to author infrastructure as code for any architecture for any cloud in any language.
+Why write your Pulumi programs yourself when you can have AI do it for you. Pulumi AI leverages large language models (LLMs) to author infrastructure as code for any architecture for any cloud in any language.
 
-Visit (website) or download (link) to use PulumiAI. The challenge is to have PulumiAI create the most complex and sophisticated piece of architecture that you can run a successful `pulumi up`. If you document this via a blog post, social media, or video, we will send you a piece of swag. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will help spread the word about your experience. All submissions will be judged at the end of the challenge, and the best submissions will receive a special grand prize.
+Visit [pulumi.com/ai](https://pulumi.com/ai) or download the [CLI](https://github.com/pulumi/pulumi-ai) to use Pulumi AI. The challenge is to have Pulumi AI create the most complex and sophisticated piece of architecture that you can run a successful `pulumi up`. If you document this via a blog post, social media, or video, we will send you a piece of swag. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will help spread the word about your experience. All submissions will be judged at the end of the challenge, and the best submissions will receive a special grand prize.
 
 ### Prerequisites
 
@@ -23,8 +23,9 @@ In order to complete this challenge, you'll need a couple things set up in advan
 
 - A [Pulumi account](https://app.pulumi.com/signup)
 - The [Pulumi CLI](/docs/get-started/install/)
-- PulumiAI
+- Pulumi AI
 - Cloud accounts
+- OpenAI API Key
 
 ### Challenge
 
