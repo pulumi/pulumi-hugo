@@ -36,7 +36,7 @@ workshops:
         action: Register
       - title: Production-ready Kubernetes for Python Developers
         date: May 18, 2023
-        description: In this workshop, you will learn how to deploy a Kubernetes cluster using the Python language. (external webinar)
+        description: In this workshop, you will learn how to deploy a Kubernetes cluster using the Python language. (External webinar)
         link: https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-on-demand-webinar-production-ready-kubernetes-for-python-developers/
         action: Register
 
