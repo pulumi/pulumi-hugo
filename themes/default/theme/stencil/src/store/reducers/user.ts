@@ -21,7 +21,7 @@ function getUserInfoCookie(): UserInfoCookie {
         try {
             userId = JSON.parse(decodeURIComponent(pulumiWebUserInfo).replace("j:", "")).userId;
         } catch (error) {
-            console.log(`Failed to parse pulumi_web_user_info cookie '${pulumiWebUserInfo}'.`);
+            console.error(`Failed to parse pulumi_web_user_info cookie '${pulumiWebUserInfo}'.`);
         }
     }
 

@@ -5,7 +5,6 @@ export interface GetUser {
 }
 
 export const getUser = () => (dispatch, _getState) => {
-    console.log("getUser");
     const action: GetUser = {
         type: TypeKeys.GET_USER_INFO,
     };
