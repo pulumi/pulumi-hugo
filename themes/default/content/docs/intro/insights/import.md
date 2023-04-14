@@ -71,7 +71,7 @@ $ pulumi up --skip-preview --show-reads # run the azure cloud import program
 
 ## Pulumi Cloud
 
-Cloud Import is available as a fully managed experience within the Pulumi Cloud. The feature is currently in private preview and you can request access via [the waitlist](pulumi.com/product/private-previews). Once you have access, you can click on the `Cloud Import` tab to get started.
+Cloud Import is available as a fully managed experience within the Pulumi Cloud. The feature is currently in private preview and you can request access via [the waitlist](pulumi.com/product/private-previews). Once you have access, select **Cloud Import** to get started.
 
 This managed experience uses [Pulumi Deployments](https://www.pulumi.com/docs/intro/deployments/) to run the Cloud Import program on your behalf. Within the Pulumi Cloud you can fill out a simple form that takes in your [OIDC configuration](https://www.pulumi.com/docs/intro/deployments/oidc/) to use a secure temporary credential workflow to connect to your cloud account. This will create the following:
 
