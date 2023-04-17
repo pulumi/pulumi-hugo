@@ -43,6 +43,9 @@ The self-hosted Pulumi Cloud can be hosted in an air-gapped environment.
 ### Destination - MySQL Database
 
 - *3306*: MySQL database
+- *25*: SMTP for outgoing email (if used)
+- *465*: SMTP over TLS for outgoing email (if used)
+- *587*: SMTP over TLS for outgoing email (if used)
 
 ### Destination - Docker Services
 
