@@ -9,6 +9,10 @@ menu:
         weight: 80
 ---
 
+{{% notes type="info" %}}
+Self-hosting is only available with **Pulumi Business Critical**. If you would like to evaluate the self-hosted Pulumi Cloud, sign up for the [30-day trial](/product/self-hosted#self-hosted-trial) or [contact us](/contact/).
+{{% /notes %}}
+
 The containers running the self-hosted Pulumi Cloud require several kinds of incoming and outgoing network access as well as access to various services depending on where you're deploying it to.
 
 The self-hosted Pulumi Cloud is made up of three containers, the API, the Console and the Migrations containers (for more information, please read the [components documentation](/docs/guides/self-hosted/components))
