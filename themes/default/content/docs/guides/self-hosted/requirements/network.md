@@ -17,7 +17,7 @@ The containers running the self-hosted Pulumi Cloud require several kinds of inc
 
 The self-hosted Pulumi Cloud comprises [three containers](/docs/guides/self-hosted/components), the API, the Console and the Migrations containers.
 
-The self-hosted Pulumi Cloud can be hosted in an air-gapped fashion.
+The self-hosted Pulumi Cloud can be hosted in an air-gapped environment.
 
 ## Ingress
 
