@@ -43,7 +43,7 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-In this blog series you will learn how to create a hub-and-spoke network architecture in AWS with centralized egress and traffic inspection. In this second installment, we'll show you how to create spoke VPCs to run your workloads, verify centralized egress is working, and then add centralized traffic inspection using Pulumi, the infrastructure as code tool that enables you to manage infrastructure with real programming languages!
+In this blog series, you will learn how to create a hub-and-spoke network architecture in AWS with centralized egress and traffic inspection. In this second installment, we'll show you how to create spoke VPCs to run your workloads, verify centralized egress is working, and then add centralized traffic inspection using Pulumi, the infrastructure as code tool that enables you to manage infrastructure with real programming languages!
 
 <!--more-->
 
@@ -84,7 +84,7 @@ class SpokeVpc(pulumi.ComponentResource):
         super().__init__("awsAdvancedNetworking:index:SpokeVpc", name, None, opts)
 ```
 
-Then, create a VPC with 2 sets of subnets, both isolated (that is, with no pathway to the internet). One set of subnets will hold our spoke VPC workloads, and the other will hold our Transit Gateway attachment. We enable DNS hostnames and support so that we can later use VPC endpoints to enable [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/index.html) access to verify that centralized egress is working as expected without requiring direct host access via SSH:
+Then, create a VPC with two sets of subnets, both isolated (with no pathway to the internet). One set of subnets will hold our spoke VPC workloads, and the other will hold our Transit Gateway attachment. We enable DNS hostnames and support so that we can later use VPC endpoints to enable [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/index.html) access to verify that centralized egress is working as expected without requiring direct host access via SSH:
 
 ```python
 self.vpc = awsx.ec2.Vpc(
@@ -135,7 +135,7 @@ self.tgw_attachment = aws.ec2transitgateway.VpcAttachment(
 )
 ```
 
-Add [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) to allow Systems Manager access so that you can open an SSH connection from the AWS console without having to allow network access to the hosts. Because Pulumi uses real programming languages, you can use a plain old Python `for` loop to create these resources with less lines of code using familiar syntax:
+Add [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) to allow Systems Manager access to open an SSH connection from the AWS console without having to allow network access to the hosts. Because Pulumi uses real programming languages, you can use a Python `for` loop to create these resources with fewer lines of code using familiar syntax:
 
 ```python
 for service in ["ec2messages", "ssmmessages", "ssm"]:
@@ -216,7 +216,7 @@ Now that you have your spoke VPCs added, it's time to test that the architecture
 
 ## Creating a Sample Spoke VPC Workload
 
-To test that internet traffic from your spoke VPC is going over the inspection VPC's NAT gateway, you'll add a workload (i.e., an EC2 instance running Amazon Linux) to your spoke VPC and verify that its public IP is that of the Elastic IP attached to the NAT gateway in the inspection VPC. The spoke VPC workload, like the spoke VPC itself, is a natural fit for a Pulumi component resource.
+To test that internet traffic from your spoke VPC is going over the inspection VPC's NAT gateway, you'll add a workload (i.e., an EC2 instance running Amazon Linux) to your spoke VPC and verify that its public IP is that of the Elastic IP attached to the NAT gateway in the inspection VPC. Like the spoke VPC workload, the spoke VPC itself is a natural fit for a Pulumi component resource.
 
 Your component should go in its own file `spoke_workload.py`, and will begin much like the spoke VPC component:
 
@@ -529,6 +529,6 @@ But traffic to other domains should be blocked:
 
 ## Conclusion
 
-The hub-and-spoke architecture gives us a number of key advantages when our organization has multiple VPCs: cost savings via centralized egress, and the ability to provide traffic inspection and apply network policies in a single place. While this architecture can be difficult to implement due to the number of resources needed, Pulumi's approach of enabling practitioners to use real programming languages makes it easier than ever to define complex, real-world infrastructure.
+The hub-and-spoke architecture gives us several key advantages when our organization has multiple VPCs: cost savings via centralized egress and the ability to provide traffic inspection and apply network policies in a single place. While this architecture can be difficult to implement due to the resources needed, Pulumi's approach of enabling practitioners to use real programming languages makes it easier to define complex, real-world infrastructure.
 
 If you enjoyed this content, [sign up for an upcoming workshop](https://www.pulumi.com/resources/) to learn more about how Pulumi can help you tame the complexity of the modern cloud, and join our community in the [Pulumi Community Slack](https://slack.pulumi.com/)!
