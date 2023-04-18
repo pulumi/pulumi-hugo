@@ -67,7 +67,7 @@ In subsequent sections we will be showing code samples. Because this is a more a
 
 ## Spoke VPC
 
-Like your inspection VPC, we will implement the spoke VPC as a Pulumi component resource. Component resources allow you to logically group resources to form reusable components. Because your network will contain multiple spoke VPCs (at least 2, possibly more), and the spoke VPC will contain both the basic VPC as well as connectivity to Transit Gateway, the spoke VPC is a natural fit for a component resource.
+Like your inspection VPC, we will implement the spoke VPC as a Pulumi component resource. Component resources allow you to logically group resources to form reusable components. Because your network will contain multiple spoke VPCs (at least 2, possibly more), and the spoke VPC will contain both the basic VPC and connectivity to Transit Gateway, the spoke VPC is a natural fit for a component resource.
 
 First, add a file `spoke.py` to your Pulumi program. In Python, it's good practice to put each component resource along with its associated arguments class in a separate file from your main program as it makes for intuitive code organization:
 
