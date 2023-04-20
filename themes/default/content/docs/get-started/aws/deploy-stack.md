@@ -119,6 +119,6 @@ Running that command will print out the name of your bucket.
 
 {{< console-note >}}
 
-Now that your bucket has been provisioned, let's make a few modifications to the program.
+Now that the bucket has been provisioned, let's modify the program to host a static website.
 
 {{< get-started-stepper >}}

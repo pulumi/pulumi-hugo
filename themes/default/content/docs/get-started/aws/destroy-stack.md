@@ -27,7 +27,7 @@ Previewing destroy (dev):
 
      Type                    Name            Plan
  -   pulumi:pulumi:Stack     quickstart-dev  delete
- -   ├─ aws:s3:BucketObject  hello.txt       delete
+ -   ├─ aws:s3:BucketObject  index.html      delete
  -   └─ aws:s3:Bucket        my-bucket       delete
 
 
@@ -42,7 +42,7 @@ Destroying (dev):
 
      Type                    Name            Status
  -   pulumi:pulumi:Stack     quickstart-dev  deleted
- -   ├─ aws:s3:BucketObject  hello.txt       deleted
+ -   ├─ aws:s3:BucketObject  index.html      deleted
  -   └─ aws:s3:Bucket        my-bucket       deleted
 
 Outputs:
@@ -60,8 +60,8 @@ Congratulations! You've successfully provisioned some cloud resources using Pulu
 
 - Created a Pulumi new project.
 - Provisioned a new S3 bucket.
-- Added a `hello.txt` file to your bucket.
-- Verified the deployment with AWS CLI.
+- Added a `index.html` file to your bucket.
+- Served the `index.html` as a static website.
 - Destroyed the resources you've provisioned.
 
 On the next page, we have a collection of examples and tutorials that you can deploy as they are or use them as a foundation for your own applications and infrastructure projects.
