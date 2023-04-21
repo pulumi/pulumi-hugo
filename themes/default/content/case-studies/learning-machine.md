@@ -8,7 +8,7 @@ meta_desc: See how Learning Machine worked with Pulumi to streamline its DevOps 
 
 customer_name: Learning Machine
 customer_logo: /logos/customers/learning-machine_logo.svg
-customer_url: https://www.learningmachine.com
+customer_url: https://www.hyland.com/
 
 exec_summary: |
     [Learning Machine](https://www.hyland.com/) provides a secure platform, using the
