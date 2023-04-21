@@ -125,7 +125,7 @@
             <div class="px-4 py-8 text-center flex flex-col lg:flex-row">
                 <div class="w-full lg:w-1/2 p-4 text-left">
                     {{ .Params.why_attend.description | markdownify }}
-                    <div class="mt-12">
+                    <div class="my-12 flex justify-center lg:justify-start">
                         <event-session-registration-modal
                             modal-title="Register for PulumiUP"
                             button-text="Register Now"
@@ -138,7 +138,8 @@
                 <div class="w-full lg:w-1/2 px-8">
                     {{ range .Params.why_attend.items }}
                         <div class="flex flex-col lg:flex-row px-4">
-                            <img src="{{ .icon }}" />
+                            <img src="{{ .icon }}" class="hidden lg:block" />
+                            <img src="{{ .icon }}" class="block lg:hidden w-14" />
                             <div class="flex-col lg:px-8 text-left">
                                 <p class="text-xl font-bold text-left">{{ .title }}</p>
                                 <p>{{ .description }}</p>
