@@ -214,7 +214,7 @@ my-bucket:
 
 Lastly, you'll make a few adjustments to make these resources accessible on the Internet.
 
-For the bucket itself, you'll need two new resources: a `BucketOwnershipControls` resource, to define the bucket's file-ownership settings, and a `BucketPublicAccessBlock` resource to allows the bucket to be accessed publicly.
+For the bucket itself, you'll need two new resources: a `BucketOwnershipControls` resource, to define the bucket's file-ownership settings, and a `BucketPublicAccessBlock` resource to allow the bucket to be accessed publicly.
 
 For the `BucketObject`, you'll need an access-control (ACL) setting of `public-read` to allow the page to be accessed anonymously (e.g., in a browser) and a content type of `text/html` to tell AWS to serve the file as a web page. Add the following lines to your program, updating the `BucketObject` in place:
 
