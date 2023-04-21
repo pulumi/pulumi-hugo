@@ -54,7 +54,7 @@ echo '<html>
 
 {{% /choosable %}}
 
-Now, open your program and this file to the S3 bucket. To do this, you'll use Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
+Now, open the program and this file to the S3 bucket. To do this, you'll use Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -63,9 +63,10 @@ Now, open your program and this file to the S3 bucket. To do this, you'll use Pu
 In `index.js`, create the `BucketObject` right after creating the bucket itself:
 
 ```javascript
+// Create an S3 Bucket object
 const bucketObject = new aws.s3.BucketObject("index.html", {
     bucket: bucket.id,
-    source: new pulumi.asset.FileAsset("index.html")
+    source: new pulumi.asset.FileAsset("./index.html")
 });
 ```
 
@@ -76,9 +77,10 @@ const bucketObject = new aws.s3.BucketObject("index.html", {
 In `index.ts`, create the `BucketObject` right after creating the bucket itself:
 
 ```typescript
+// Create an S3 Bucket object
 const bucketObject = new aws.s3.BucketObject("index.html", {
     bucket: bucket.id,
-    source: new pulumi.asset.FileAsset("index.html")
+    source: new pulumi.asset.FileAsset("./index.html")
 });
 ```
 
@@ -89,6 +91,7 @@ const bucketObject = new aws.s3.BucketObject("index.html", {
 In `__main__.py`, create a new bucket object by adding the following right after creating the bucket itself:
 
 ```python
+# Create an S3 Bucket object
 bucketObject = s3.BucketObject(
     'index.html',
     bucket=bucket.id,
@@ -103,6 +106,7 @@ bucketObject = s3.BucketObject(
 In `main.go`, create the `BucketObject` right after creating the bucket itself:
 
 ```go
+// Create an S3 Bucket object
 _, err = s3.NewBucketObject(ctx, "index.html", &s3.BucketObjectArgs{
     Bucket:  bucket.ID(),
     Source: pulumi.NewFileAsset("index.html"),
@@ -119,6 +123,7 @@ if err != nil {
 In `Program.cs`, create a new `BucketObject` right after creating the bucket itself.
 
 ```csharp
+// Create an S3 Bucket object
 var bucketObject = new BucketObject("index.html", new BucketObjectArgs
 {
     Bucket = bucket.BucketName,
@@ -133,22 +138,34 @@ var bucketObject = new BucketObject("index.html", new BucketObjectArgs
 In {{< langfile >}}, import the `FileAsset`, `BucketObject`, and `BucketObjectArgs` classes, then create the `BucketObject` right after creating the bucket itself.
 
 ```java
-// ...
-import com.pulumi.asset.FileAsset;
+package myproject;
+
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.aws.s3.Bucket;
 import com.pulumi.aws.s3.BucketObject;
 import com.pulumi.aws.s3.BucketObjectArgs;
+import com.pulumi.asset.FileAsset;
 
 public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
-            // var bucket = ...
+
+            // Create an AWS resource (S3 Bucket)
+            var bucket = new Bucket("my-bucket");
 
             // Create an S3 Bucket object
             new BucketObject("index.html", BucketObjectArgs.builder()
                 .bucket(bucket.id())
-                .source(new FileAsset("index.html"))
+                .source(new FileAsset("./index.html"))
                 .build()
             );
+
+            // Export the name of the bucket
+            ctx.export("bucketName", bucket.bucket());
+        });
+    }
+}
 ```
 
 {{% /choosable %}}
@@ -158,14 +175,26 @@ public class App {
 In {{< langfile >}}, create the `BucketObject` right below the bucket itself.
 
 ```yaml
+name: quickstart
+runtime: yaml
+description: A minimal AWS Pulumi YAML program
+
 resources:
-  # ...
+  # Create an AWS resource (S3 Bucket)
+  my-bucket:
+    type: aws:s3:Bucket
+
+  # Create an S3 Bucket object
   index.html:
     type: aws:s3:BucketObject
     properties:
       bucket: ${my-bucket}
       source:
-        Fn::FileAsset: ./index.html
+        fn::fileAsset: ./index.html
+
+outputs:
+  # Export the name of the bucket
+  bucketName: ${my-bucket.id}
 ```
 
 {{% /choosable %}}

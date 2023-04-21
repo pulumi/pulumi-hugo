@@ -25,7 +25,7 @@ Previewing update (dev):
 
      Type                    Name            Plan
      pulumi:pulumi:Stack     quickstart-dev
- +   └─ aws:s3:BucketObject  index.html       create
+ +   └─ aws:s3:BucketObject  index.html      create
 
 Resources:
     + 1 to create
@@ -45,16 +45,17 @@ Updating (dev):
 
      Type                    Name            Status
      pulumi:pulumi:Stack     quickstart-dev
- +   └─ aws:s3:BucketObject  index.html       created
+ +   └─ aws:s3:BucketObject  index.html      created (0.98s)
+
 
 Outputs:
-    bucketName: "my-bucket-b9c2eaa"
+    bucketName: "my-bucket-58ce361"
 
 Resources:
     + 1 created
     2 unchanged
 
-Duration: 6s
+Duration: 3s
 ```
 
 Once the update has completed, you can verify the object was created in your bucket by checking the AWS Console or by running the following AWS CLI command:
@@ -118,7 +119,7 @@ $ aws s3 ls $(pulumi stack output bucketName)
 Notice that your `index.html` file has been added to the bucket:
 
 ```bash
-2020-08-27 12:30:24         70 index.html
+2023-04-20 17:01:06        118 index.html
 ```
 
 Now that `index.html` is in the bucket, modify the program to serve `index.html` as the home page of the website.
@@ -167,9 +168,11 @@ if err != nil {
 {{% choosable language csharp %}}
 
 ```csharp
-var bucket = new Aws.S3.Bucket("my-bucket", new()
+using Pulumi.Aws.S3.Inputs;
+
+var bucket = new Bucket("my-bucket", new()
 {
-    Website = new Aws.S3.Inputs.BucketWebsiteArgs
+    Website = new BucketWebsiteArgs
     {
         IndexDocument = "index.html",
     },
@@ -184,7 +187,7 @@ var bucket = new Aws.S3.Bucket("my-bucket", new()
 import com.pulumi.aws.s3.BucketArgs;
 import com.pulumi.aws.s3.inputs.BucketWebsiteArgs;
 
-var bucket = new Bucket("bucket", BucketArgs.builder()
+var bucket = new Bucket("my-bucket", BucketArgs.builder()
     .website(BucketWebsiteArgs.builder()
         .indexDocument("index.html")
         .build())
@@ -230,10 +233,10 @@ const publicAccessBlock = new aws.s3.BucketPublicAccessBlock("public-access-bloc
 
 const bucketObject = new aws.s3.BucketObject("index.html", {
     bucket: bucket.id,
-    source: new pulumi.asset.FileAsset("index.html"),
+    source: new pulumi.asset.FileAsset("./index.html"),
     contentType: "text/html",
     acl: "public-read",
-}, { dependsOn: ownershipControls });
+}, { dependsOn: publicAccessBlock });
 ```
 
 {{% /choosable %}}
@@ -241,24 +244,24 @@ const bucketObject = new aws.s3.BucketObject("index.html", {
 {{% choosable language python %}}
 
 ```python
-ownership_controls = aws.s3.BucketOwnershipControls(
-    "ownership-controls",
+ownership_controls = s3.BucketOwnershipControls(
+    'ownership-controls',
     bucket=bucket.id,
-    rule=aws.s3.BucketOwnershipControlsRuleArgs(
-        object_ownership="ObjectWriter",
+    rule=s3.BucketOwnershipControlsRuleArgs(
+        object_ownership='ObjectWriter',
     ),
 )
 
-public_access_block = aws.s3.BucketPublicAccessBlock(
-    "public-access-block", bucket=bucket.id, block_public_acls=False
+public_access_block = s3.BucketPublicAccessBlock(
+    'public-access-block', bucket=bucket.id, block_public_acls=False
 )
 
 bucket_object = s3.BucketObject(
-    "index.html",
+    'index.html',
     bucket=bucket.id,
-    source=homepage,
-    content_type="text/html",
-    acl="public-read",
+    source=pulumi.FileAsset('index.html'),
+    content_type='text/html',
+    acl='public-read',
     opts=pulumi.ResourceOptions(depends_on=[public_access_block]),
 )
 ```
@@ -288,7 +291,7 @@ if err != nil {
 
 _, err = s3.NewBucketObject(ctx, "index.html", &s3.BucketObjectArgs{
     Bucket:      bucket.ID(),
-    Source:      Asset(homepage),
+    Source:      pulumi.NewFileAsset("index.html"),
     ContentType: pulumi.String("text/html"),
     Acl:         pulumi.String("public-read"),
 }, pulumi.DependsOn([]pulumi.Resource{
@@ -304,25 +307,25 @@ if err != nil {
 {{% choosable language csharp %}}
 
 ```csharp
-var ownershipControls = new Aws.S3.BucketOwnershipControls("ownership-controls", new()
+var ownershipControls = new BucketOwnershipControls("ownership-controls", new()
 {
     Bucket = bucket.Id,
-    Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    Rule = new BucketOwnershipControlsRuleArgs
     {
         ObjectOwnership = "ObjectWriter",
     },
 });
 
-var publicAccessBlock = new Aws.S3.BucketPublicAccessBlock("public-access-block", new()
+var publicAccessBlock = new BucketPublicAccessBlock("public-access-block", new()
 {
     Bucket = bucket.Id,
     BlockPublicAcls = false,
 });
 
-var indexHtml = new Aws.S3.BucketObject("index.html", new()
+var indexHtml = new BucketObject("index.html", new()
 {
     Bucket = bucket.Id,
-    Source = homepage,
+    Source = new FileAsset("./index.html"),
     ContentType = "text/html",
     Acl = "public-read",
 }, new CustomResourceOptions
@@ -344,6 +347,8 @@ import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
 import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
 import com.pulumi.aws.s3.BucketPublicAccessBlock;
 import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
+import com.pulumi.resources.CustomResourceOptions;
+import com.pulumi.asset.FileAsset;
 
 var ownershipControls = new BucketOwnershipControls("ownershipControls", BucketOwnershipControlsArgs.builder()
     .bucket(bucket.id())
@@ -357,9 +362,9 @@ var publicAccessBlock = new BucketPublicAccessBlock("publicAccessBlock", BucketP
     .blockPublicAcls(false)
     .build());
 
-var indexHtml = new BucketObject("indexHtml", BucketObjectArgs.builder()
+var indexHtml = new BucketObject("index.html", BucketObjectArgs.builder()
     .bucket(bucket.id())
-    .source(homepage)
+    .source(new FileAsset("./index.html"))
     .contentType("text/html")
     .acl("public-read")
     .build(), CustomResourceOptions.builder()
@@ -422,7 +427,7 @@ export const bucketEndpoint = pulumi.interpolate`http://${bucket.websiteEndpoint
 {{% choosable language python %}}
 
 ```python
-pulumi.export("bucket_endpoint", pulumi.Output.concat("http://", bucket.website_endpoint))
+pulumi.export('bucket_endpoint', pulumi.Output.concat('http://', bucket.website_endpoint))
 ```
 
 {{% /choosable %}}
@@ -430,7 +435,6 @@ pulumi.export("bucket_endpoint", pulumi.Output.concat("http://", bucket.website_
 {{% choosable language go %}}
 
 ```go
-// ...
 ctx.Export("bucketEndpoint", bucket.WebsiteEndpoint.ApplyT(func(websiteEndpoint string) (string, error) {
     return fmt.Sprintf("http://%v", websiteEndpoint), nil
 }).(pulumi.StringOutput))
