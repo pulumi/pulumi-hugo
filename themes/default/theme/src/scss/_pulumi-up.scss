@@ -92,6 +92,10 @@ body.section-pulumi-up {
     .yellow-blue-gradient {
         background: linear-gradient(180deg, #FEF9EA 0.21%, #F0F9DE 53.34%, #7BDEFF 100.21%);
     }
+
+    .btn-primary:hover {
+        background:linear-gradient(90deg, #be5188 0%, #805ac3 100%)
+    }
     
 }
 
