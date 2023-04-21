@@ -122,7 +122,11 @@ Notice that your `index.html` file has been added to the bucket:
 2023-04-20 17:01:06        118 index.html
 ```
 
-Now that `index.html` is in the bucket, modify the program to serve `index.html` as the home page of the website.
+Now that `index.html` is in the bucket, update the program to turn the bucket into a website.
+
+## Update the program
+
+Update the `Bucket` declaration to add a `website` property and make `index.html` the home page of the website:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -208,11 +212,11 @@ my-bucket:
 
 {{% /choosable %}}
 
-Finally, you'll make a few adjustments to allow these resources to be accessed anonymously over the Internet.
+Lastly, you'll make a few adjustments to make these resources accessible on the Internet.
 
-For the bucket itself, you'll need two new resources: a `BucketOwnershipControls` resource, which defines the bucket's object-ownership settings, and a `BucketPublicAccessBlock` resource, which allows the bucket to be accessed publicly.
+For the bucket itself, you'll need two new resources: a `BucketOwnershipControls` resource, to define the bucket's file-ownership settings, and a `BucketPublicAccessBlock` resource to allows the bucket to be accessed publicly.
 
-For the `BucketObject`, you'll need an access-control (ACL) setting of `public-read` to allow the page to be accessed publicly, and a content type of `text/html` to tell AWS to serve the file as a web page:
+For the `BucketObject`, you'll need an access-control (ACL) setting of `public-read` to allow the page to be accessed anonymously (e.g., in a browser) and a content type of `text/html` to tell AWS to serve the file as a web page. Add the following lines to your program, updating the `BucketObject` in place:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -404,9 +408,9 @@ index.html:
 
 {{% /choosable %}}
 
-Notice the `BucketObject` also includes a Pulumi resource _option:_ [`dependsOn`](/docs/intro/concepts/resources/options/dependson/). This option tells Pulumi that the `BucketObject` relies indirectly on the `BucketPublicAccessBlock`, which is currently configuring the bucket to permit public access to its objects. If this setting were omitted, the attempt to grant `public-read` access to `index.html` would fail, as all S3 buckets and their objects are blocked from public access by default.
+Note that the `BucketObject` also includes the Pulumi resource _option_ [`dependsOn`](/docs/intro/concepts/resources/options/dependson/). This setting tells Pulumi that the `BucketObject` relies indirectly on the `BucketPublicAccessBlock`, which is responsible for enabling public access to its contents. If you omitted this setting, the attempt to grant `public-read` access to `index.html` would fail, as all S3 buckets and their objects are blocked from public access by default.
 
-Finally, at the end of the program, export the resulting bucket’s endpoint URL so you can navigate to it easily:
+Finally, at the end of the program, export the resulting bucket’s endpoint URL so you can browse to it easily:
 
 {{% choosable language javascript %}}
 
@@ -473,7 +477,66 @@ outputs:
 
 {{% /choosable %}}
 
-Finally, you can check out your new static website at the URL in the `Outputs` section of your update or you can make a `curl` request and see the contents of your `index.html` object printed out in your terminal.
+## Deploy the website
+
+Update your stack to deploy these changes to AWS:
+
+```bash
+$ pulumi up
+```
+
+Again, you'll see a preview of the changes before they're deployed:
+
+```
+Previewing update (dev):
+
+     Type                               Name                 Plan       Info
+     pulumi:pulumi:Stack                quickstart-dev
+ ~   ├─ aws:s3:Bucket                   my-bucket            update     [diff: +website]
+ +   ├─ aws:s3:BucketOwnershipControls  ownership-controls   create
+ +   ├─ aws:s3:BucketPublicAccessBlock  public-access-block  create
+ ~   └─ aws:s3:BucketObject             index.html           update     [diff: ~acl,contentType]
+
+Outputs:
+  + bucketEndpoint: output<string>
+
+Resources:
+    + 2 to create
+    ~ 2 to update
+    4 changes. 1 unchanged
+
+Do you want to perform this update?
+> yes
+  no
+  details
+```
+
+Choose `yes` to perform the deployment:
+
+```
+Do you want to perform this update? yes
+Updating (dev):
+
+     Type                               Name                 Status              Info
+     pulumi:pulumi:Stack                quickstart-dev
+ ~   ├─ aws:s3:Bucket                   my-bucket            updated (3s)        [diff: +website]
+ +   ├─ aws:s3:BucketOwnershipControls  ownership-controls   created (0.84s)
+ +   ├─ aws:s3:BucketPublicAccessBlock  public-access-block  created (1s)
+ ~   └─ aws:s3:BucketObject             index.html           updated (0.53s)     [diff: ~acl,contentType]
+
+Outputs:
+  + bucketEndpoint: "http://my-bucket-dfd6bd0.s3-website-us-east-1.amazonaws.com"
+    bucketName    : "my-bucket-dfd6bd0"
+
+Resources:
+    + 2 created
+    ~ 2 updated
+    4 changes. 1 unchanged
+
+Duration: 8s
+```
+
+When the deployment completes, you can check out your new website at the URL in the `Outputs` section of your update or make a `curl` request and see the contents of `index.html` in your terminal:
 
 {{% choosable language javascript %}}
 
@@ -541,6 +604,6 @@ And you should see:
 </html>
 ```
 
-Next you will destroy the resources.
+Next, you'll destroy the resources.
 
 {{< get-started-stepper >}}

@@ -54,7 +54,7 @@ echo '<html>
 
 {{% /choosable %}}
 
-Now, open the program and this file to the S3 bucket. To do this, you'll use Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
+Now, open the program and add this file to the S3 bucket. To do this, you'll use Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -95,7 +95,7 @@ In `__main__.py`, create a new bucket object by adding the following right after
 bucketObject = s3.BucketObject(
     'index.html',
     bucket=bucket.id,
-    source=pulumi.FileAsset('index.html')
+    source=pulumi.FileAsset('./index.html')
 )
 ```
 
@@ -109,7 +109,7 @@ In `main.go`, create the `BucketObject` right after creating the bucket itself:
 // Create an S3 Bucket object
 _, err = s3.NewBucketObject(ctx, "index.html", &s3.BucketObjectArgs{
     Bucket:  bucket.ID(),
-    Source: pulumi.NewFileAsset("index.html"),
+    Source: pulumi.NewFileAsset("./index.html"),
 })
 if err != nil {
     return err
