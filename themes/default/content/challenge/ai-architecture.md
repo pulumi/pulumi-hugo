@@ -13,15 +13,15 @@ banner_image: /images/challenge/challenge-ai-banner.png
 
 ### What you will learn
 
-Why write your Pulumi programs yourself when you can have AI do it for you. Pulumi AI leverages large language models (LLMs) to author infrastructure as code for any architecture for any cloud in any language.
+Why write your Pulumi programs yourself when you can have AI do it for you? Pulumi AI leverages large language models (LLMs) to author infrastructure as code for any architecture for any cloud in any language.
 
-Visit [pulumi.com/ai](https://pulumi.com/ai) or download the [CLI](https://github.com/pulumi/pulumi-ai) to use Pulumi AI. The challenge is to have Pulumi AI create the most complex and sophisticated piece of architecture that you can run a successful `pulumi up`.
+For the **GPT your IaC Challenge**, your goal is to have Pulumi AI create the most complex and sophisticated piece of architecture where you can run a successful `pulumi up` with the program created by Pulumi AI. To participate in the challenge, you'll need to either visit [pulumi.com/ai](https://pulumi.com/ai) or download the [CLI](https://github.com/pulumi/pulumi-ai) so you can use Pulumi AI.
 
 We will send you a piece of swag if you document this via a blog post, social media, or video. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will help spread the word about your experience. All submissions will be judged at the end of the challenge, and the best submissions (there will be a few categories) will receive a special prize.
 
 ### Prerequisites
 
-In order to complete this challenge, you'll need a couple things set up in advance. The challenge utilizes whatever cloud you choose to ask PulumiAI to write a program.
+The challenge utilizes whatever cloud and whatever language you choose to ask Pulumi AI to write for you. Pulumi AI will do all the heavy lifting! However, in order to complete this challenge, you will need a couple things set up in advance. 
 
 - A [Pulumi account](https://app.pulumi.com/signup)
 - The [Pulumi CLI](/docs/get-started/install/)
@@ -29,11 +29,11 @@ In order to complete this challenge, you'll need a couple things set up in advan
 - Cloud accounts
 - OpenAI API Key
 
-### Challenge
+### An Example of Doing the Challenge
 
 #### Step 1. Go to Pulumi AI Website
 
-There are two ways to complete this challenge:  using the Pulumi AI website or the CLI. We will be using the Pulumi AI website to generate a Pulumi program and then the Pulumi CLI to run the program for this example. If you plan to use the CLI, you will need to export your AWS and OpenAI credentials. To access your OpenAI credentials, go to [__API Keys__ tab](https://platform.openai.com/account/api-keys) in the OpenAI platform console. Then click `Create new secret key` .
+There are two ways to complete this challenge: using the Pulumi AI website or the CLI. For this example of doing the challenge, we will be using the Pulumi AI website to generate a Pulumi program, and then using the Pulumi CLI to run the generated program. If you plan to use the CLI, though, you will need to export your cloud provider (we'll use AWS in this example) and OpenAI credentials. To access your OpenAI credentials, go to [__API Keys__ tab](https://platform.openai.com/account/api-keys) in the OpenAI platform console. Then click `Create new secret key` .
 
 ```shell
 export AWS_ACCESS_KEY_ID=<YOUR_ACCESS_KEY_ID>
@@ -116,7 +116,7 @@ mkdir ai-challenge && cd ai-challenge
 pulumi new aws-python
 ```
 
-Copy the Pulumi AI generated program into `__main__.py`. Save the program and then run `pulumi up`. There will be an error that looks like:
+Copy the Pulumi AI generated program into `__main__.py`. Save the program and then run `pulumi up`. If your `pulumi up` operation succeeds, then you're done! (Maybe try it again with something more complex?) In our case, there was an error:
 
 ```shell
 Diagnostics:
@@ -134,7 +134,7 @@ Diagnostics:
 
 #### Step 4. Fix Program
 
-Pulumi AI programs will sometimes have errors, but you can ask it to fix the error. Go back to [pulumi.com/ai](https://pulumi.com/ai) and enter in the chat widget `Fix this error <error outputted from pulumi up>`
+Your Pulumi AI-generated program may not work when you run `pulumi up` the first time (like ours), but you can ask it to fix the error. It's OK to have Pulumi AI fix an error as part of the **GPT your IaC Challenge**. Go back to [pulumi.com/ai](https://pulumi.com/ai) and enter in the chat widget `Fix this error <error output from pulumi up>`
 
 ![alt_text](/images/challenge/AIStep4.png "navigate to Pulumi AI website")
 
@@ -146,7 +146,7 @@ database_name is missing in the timestreamwrite.Database resource.
 Let me update the program to include the missing property.
 ```
 
-Pulumi AI will return back the original program with the error corrected, which is including the `database_name` parameter.
+Pulumi AI will return back the original program with the error corrected, which in our example now includes the previously-missing `database_name` parameter.
 
 ```python
 timestream_database = aws.timestreamwrite.Database("myTimestreamDB", database_name="my-db-name")
@@ -156,7 +156,7 @@ Take this new code and update `__main__.py`.
 
 #### Step 5. Execute Updated Pulumi Program
 
-Now that the code is fixed, run `pulumi up` again. This time the program will execute successfully.
+Now that the code is fixed, you can run `pulumi up` again. When we ran `pulumi up` again, our program executed successfully.
 
 ```shell
  Type                             Name              Status
@@ -174,7 +174,7 @@ Outputs:
     timestreamDatabaseArn: "arn:aws:timestream:us-west-2:616138583583:database/my-db-name"
 ```
 
-You now have important database infrastructure provisioned for your new app.
+There you go! Pulumi AI has helped us generate a program to provision important database infrastructure for our new app. What did Pulumi AI generate for you?
 
 ### Congratulations
 
@@ -182,7 +182,7 @@ Congratulations! You've completed this Pulumi Challenge. If you want, please cre
 
 #### What you have learned
 
-In this challenge, you have learned how to use Pulumi AI to generate a Pulumi program. This program provisions a Kinesis Data Stream, RDS database, Timestream database, and a DynamoDB table.
+In this challenge, you have learned how to use Pulumi AI to generate a Pulumi program. The example we shared provisions a Kinesis Data Stream, RDS database, Timestream database, and a DynamoDB table.
 
 #### Clean up
 
