@@ -16,7 +16,7 @@ aliases:
 
 [Pulumi Cloud](https://app.pulumi.com) is a secure cloud service for individuals and teams using Pulumi's open-source SDK. It manages deployment state and secrets, enables search across your clouds, runs deployments, integrates with CI/CD, and enforces policies and access controls.
 
-The Pulumi CLI automatically uses Pulumi Cloud unless you set up a [self-managed backend](/docs/intro/concepts/state/).
+The Pulumi CLI automatically uses Pulumi Cloud unless you set up a [self-managed backend](/docs/intro/concepts/state/#using-a-self-managed-backend).
 
 ## Getting Started
 
