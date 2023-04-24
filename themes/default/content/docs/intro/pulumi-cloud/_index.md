@@ -24,7 +24,7 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 
 <a class="btn btn-secondary" href="https://app.pulumi.com/signup" target="_blank">Create an Account</a>
 
-When you sign in to the Pulumi Cloud, a personal account is automatically
+When you sign in to the Pulumi Cloud, a personal organization is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
 You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO](/docs/guides/saml/), you'll need to create a Pulumi [organization](/docs/intro/pulumi-cloud/organizations/).
