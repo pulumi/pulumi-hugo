@@ -216,10 +216,9 @@ After building and tagging, we then need to authenticate with the ECR registry. 
 single registry and lasts 12 hours. The AWS CLI provides an easy way to do this:
 
 ```bash
-$ $(aws ecr get-login --no-include-email)
+$ aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
 ```
 
-Notice the `$(...)` part, which executes the command returned by the AWS CLI (which is a `docker login ...` sequence).
 For more information on authentication, see [Registry Authentication](
 https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth)
 
