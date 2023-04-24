@@ -1,7 +1,7 @@
 ---
 title_tag: "Overview of Pulumi Cloud"
 title: "Pulumi Cloud"
-meta_desc: The Pulumi Cloud web application automatically manages deployment state and enables collaboration between developers and operators.
+meta_desc: Pulumi Cloud is a secure cloud service for individuals and teams using Pulumi's open-source SDK.
 menu:
   intro:
     identifier: pulumi-cloud
@@ -16,7 +16,7 @@ aliases:
 
 [Pulumi Cloud](https://app.pulumi.com) is a secure cloud service for individuals and teams using Pulumi's open-source SDK. It manages deployment state and secrets, enables search across your clouds, runs deployments, integrates with CI/CD, and enforces policies and access controls.
 
-The Pulumi CLI automatically uses the Pulumi Cloud unless you use a [self-managed backend](/docs/intro/concepts/state/).
+The Pulumi CLI automatically uses Pulumi Cloud unless you set up a [self-managed backend](/docs/intro/concepts/state/).
 
 ## Getting Started
 
@@ -24,20 +24,21 @@ In your browser, navigate to <a href="https://app.pulumi.com" target="_blank">ap
 
 <a class="btn btn-secondary" href="https://app.pulumi.com/signup" target="_blank">Create an Account</a>
 
-When you sign in to the Pulumi Cloud, a personal organization is automatically
+When you sign in to Pulumi Cloud, a personal organization is automatically
 created on the **Individual** Edition. The Pulumi Individual Edition is free forever for unlimited individual use.
 
 You can create an unlimited number of stacks, encrypt configuration and resource secrets, and browse stack history. To collaborate with other developers or use advanced features like [SAML SSO](/docs/guides/saml/), you'll need to create a Pulumi [organization](/docs/intro/pulumi-cloud/organizations/).
 
 ## Key features
 
-Explore the following sections to learn more about the features and benefits of using the Pulumi Cloud.
+Explore the following sections to learn more about the features and benefits of using Pulumi Cloud.
 
 ### Identity and Organizations
 
 * [Accounts](/docs/intro/pulumi-cloud/accounts/)
 * [Organizations](/docs/intro/pulumi-cloud/organizations/)
-* [Access Tokens](/docs/intro/pulumi-cloud/accounts#access-tokens)
+* [Personal Access Tokens](/docs/intro/pulumi-cloud/accounts/#personal-access-tokens)
+* [Organization and Team Access Tokens](/docs/intro/pulumi-cloud/organization-access-tokens/)
 * [SAML Integrations](/docs/guides/saml/)
 
 ### Teams and Collaboration
