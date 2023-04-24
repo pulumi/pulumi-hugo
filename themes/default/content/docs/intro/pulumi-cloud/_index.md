@@ -62,7 +62,7 @@ Integrate Pulumi with your current continuous delivery pipeline. Build your own 
 ### Hosted Deployments Service
 
 * [Pulumi Deployments](/docs/intro/deployments/)
-* ["Deploy with Pulumi" Button](/docs/intro/pulumi-cloud/pulumi-button)
+* [Deploy with Pulumi Button](/docs/intro/pulumi-cloud/pulumi-button)
 
 ### Insights and Analytics
 
