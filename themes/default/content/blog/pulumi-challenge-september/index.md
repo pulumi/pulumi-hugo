@@ -3,7 +3,7 @@ title: "Pulumi Challenge: One Quickstart to Rule them All"
 
 date: 2022-09-30T9:24:50-07:00
 
-meta_desc: The Pulumi Challenge continues! Take this month’s challenge and win another unique piece of swag!
+meta_desc: Take the Pulumi Challenge - use a template to build a serverless application with AWS API Gateway and Lambda in less than 5 mins.
 
 meta_image: meta.png
 
