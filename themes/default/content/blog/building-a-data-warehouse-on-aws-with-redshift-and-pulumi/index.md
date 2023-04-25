@@ -457,6 +457,10 @@ SELECT *
 
 Huzzah! You've now got yourself a working data warehouse.
 
+Here's a [Modern Infrastructure](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWloyj3V5gXzPraiKStO2GGZw) video that demonstrates everything you've just read in this blog post:
+
+{{< youtube "2v_53eWGrqE?rel=0" >}}
+
 ## Taking stock, and looking ahead
 
 If you're like me, you're probably happy to be up and running --- but you've also got a few questions:

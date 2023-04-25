@@ -325,6 +325,10 @@ Starting Kafka Consumer. Use Ctrl-C to exit.
 
 The producer is able to write events to your topic, and the consumer is able to read them. Your architecture has been proven to work!
 
+This [Modern Infrastructure](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWloyj3V5gXzPraiKStO2GGZw) video shows all this in action:
+
+{{< youtube "NWm9kAzQGXY?rel=0" >}}
+
 ## Conclusion
 
 By combining the operational simplicity and rich functionality of Confluent Cloud with the power of [Pulumi's infrastructure as code](https://www.pulumi.com/product/) platform to manage Confluent resources using real programming languages, organizations can quickly and securely deploy Apache Kafka clusters.
