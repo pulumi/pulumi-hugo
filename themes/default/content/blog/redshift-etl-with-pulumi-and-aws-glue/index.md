@@ -785,9 +785,9 @@ Resources:
     - 16 deleted
 ```
 
-## Seeing a demonstration
+## See it in action
 
-If you'd like to see a demonstration of what you've read in this blog post, then this [Modern Infrastructure](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWloyj3V5gXzPraiKStO2GGZw) video covers the whole process:
+If you'd like to see a demonstration of what you've read in this blog post, then this [Modern Infrastructure video](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWloyj3V5gXzPraiKStO2GGZw) covers the whole process:
 
 {{< youtube "cbAzk9ovR9s?rel=0" >}}
 

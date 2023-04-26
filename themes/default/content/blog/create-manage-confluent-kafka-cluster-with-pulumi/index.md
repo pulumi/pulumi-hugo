@@ -325,7 +325,9 @@ Starting Kafka Consumer. Use Ctrl-C to exit.
 
 The producer is able to write events to your topic, and the consumer is able to read them. Your architecture has been proven to work!
 
-This [Modern Infrastructure](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWloyj3V5gXzPraiKStO2GGZw) video shows all this in action:
+## See it in action
+
+Want to see this in action? Here is a [Modern Infrastructure video](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWloyj3V5gXzPraiKStO2GGZw) demonstrating everything discussed in this blog post:
 
 {{< youtube "NWm9kAzQGXY?rel=0" >}}
 
