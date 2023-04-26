@@ -32,7 +32,7 @@ In a conversation at Zephyr HQ between Bob and Alice one day, Bob commented, "I'
 
 "Oh, what's wrong with the current way it's handled? Is there something we can do better?"
 
-Alice paused. "Well, don't get me wrong, the way we use [per-developer stacks](/blog/iac-recommended-practices-developer-stacks-git-branches/) makes it super easy for me to deploy an entire copy of our environment. The problem is that...well, it takes a fair amount of time to create all the AWS stuff. Sometimes I just need something faster, just to test some quick changes to the code before deploying the app to a per-developer stack."
+Alice paused. "Well, don't get me wrong, the way we use [per-developer stacks](/blog/iac-recommended-practices-developer-stacks-git-branches/) makes it super easy for me to deploy an entire copy of our environment. The problem is that...well, it takes a fair amount of time to create all the AWS stuff. Sometimes I just need something faster, just to test some quick changes to the code before deploying the app to my dev stack."
 
 Bob nodded thoughtfully. "I see. You know, Pulumi has a Docker provider; in fact, they recently released [a new version of their Docker provider](/blog/build-images-50x-faster-docker-v4/)."
 
@@ -42,7 +42,7 @@ Alice's eyes lit up. "So, you mean I can automate my local Docker instance using
 
 Alice smiled. "I have an idea."
 
-## Using Pulumi for the Inner Dev Loop
+## Using Pulumi for the inner dev loop
 
 A couple days later, Alice contacted Bob and said, "I want to show you what I've come up with."
 
@@ -54,7 +54,7 @@ When Bob met up with Alice, Alice showed him a TypeScript program she'd written 
 
 "With this code," Alice explains, "I can just run `pulumi up` and it will deploy the entire Zephyr online store locally, all in just a few minutes. Here, let me just run `pulumi up` real quick."
 
-"But why this instead of using Docker Compose?"
+"But why use this instead of Docker Compose?"
 
 "Oh, there's absolutely nothing wrong with Docker Compose; it's a great tool!" Alice replied. "But this allows me to work with TypeScript, and to build logic into my Pulumi program. Like this feature here---I can specify whether I want to build a container, or use the released version of a container."
 
@@ -140,12 +140,34 @@ const assetsContainer = new docker.Container("assets-container", {
 
 Bob nodded. "Yep, this all makes sense. Interesting, I hadn't really considered Pulumi for this particular use case. Usually when folks mention Pulumi the first thought in my head is provisioning cloud infrastructure."
 
-"Oh, certainly, and it works great for that---as evidenced by the fact that your team, the platform team, uses it to provision all the cloud infrastructure for Zephyr's online store, including [multiple stacks](/blog/iac-recommended-practices-structuring-pulumi-projects/) and [stack references](/blog/iac-recommended-practices-using-stack-references/) to share information across stacks."
+"Oh, certainly, and it works really well for that---but it also works really well for this case, too."
 
 "And since we are already using Pulumi for deploying to Kubernetes in test and production, then this brings some consistency across environments. It's just a `pulumi up` regardless of whether you're running the app locally or publishing to a Kubernetes cluster in your per-developer stack, the test stack, or even the prod stack."
 
-"Exactly. Oh, look here. It's done. Looks like it took X minutes, and now our online store app is available at this URL on `localhost`."
+"Exactly. Oh, look here. It's done. Looks like it took just over two minutes, and now our online store app is available at this URL on `localhost`."
 
-![Screenshot of a completed Pulumi operation](meta.png)
+![A terminal window showing output from a completed Pulumi up operation](pulumi-op-finished.png)
 
-Interested in seeing how you might be able to speed up your inner dev loop? Check out Alice's Pulumi program for deploying locally to Docker by navigating to the zephyr-app repository. Then select the `inner-dev-loop` tag and go to the `develop/pulumi` folder. Give it a try!
+"That's pretty fast."
+
+Alice nodded. "Yeah, a lot faster than waiting on a Kubernetes cluster to provision. We still need to run this in our dev stacks to be sure that it runs in an environment that closely mirrors production, but for quick feedback on changes I make this is very useful for me as a developer."
+
+"So if you make a change to the code and want to see the results, what's that look like?"
+
+"Here, let's do it real quick." Alice switches to her code editor, makes a few changes, and then flips back to the terminal. "I'll run a `pulumi preview` so you can see what it's going to do."
+
+![A terminal window showing the output of the Pulumi preview command](pulumi-preview-results.png)
+
+Alice pointed to the terminal output. "Here, Pulumi has recognized that the source code for this container has changed, and so it is replacing the container image, and restarting all the containers. Let me run `pulumi up`."
+
+Bob watches as the operation completes in about 17 seconds.
+
+![A terminal window showing a completed Pulumi operation that lasted 17 seconds](pulumi-op-replace-resources.png)
+
+"Wow, that's really fast!"
+
+"Exactly, Bob. That's what makes using Pulumi for this use case so helpful. While it doesn't eliminate the need for our per-developer stacks, it gives developers a way to quickly see changes we're making to the source code in very little time. When we are satisfied that the changes are working as we expect, then we can deploy to our dev stack to be sure that the changes are ready to work their way to production."
+
+## Try this out yourself
+
+Now that you've seen how Alice uses Pulumi to streamline testing the Zephyr online store's application code locally, feel free to try this out yourself! The code that you saw in this blog post is available in the `zephyr-app` repository on GitHub. Just select the `inner-dev-loop` branch and go to the `develop/pulumi` folder.
