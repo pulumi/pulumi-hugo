@@ -18,6 +18,14 @@ We’ve seen amazing engagement and stories from Pulumi users about the impact t
 
 <a href="https://twitter.com/franitog/status/1646703312761393152?s=20"><img src="tweet2.png" width="560" alt="This is absolutely insane 🤯. Both the speed with which they integrated it and how much easier it makes building infrastructure. Congrats @PulumiCorp." style="padding: 3px; filter: drop-shadow(3px 3px 3px #aaaaaa);"/></a>
 
+{{% notes type="info" %}}
+We've got a few upcoming opportunities to learn more about Pulumi Insights and Pulumi AI. Come join us!
+
+* May 3rd: [Reddit AMA: Pulumi Insights](https://www.reddit.com/r/pulumi/comments/130b4rn/ama_with_luke_hoban_cto_on_pulumi_insightsai_at/)
+* May 11th: [Workshop: Getting Started with Pulumi Insights](/resources/getting-started-with-pulumi-insights/)
+* Anytime: [Pulumi Challenge: GPT Your IaC](/challenge/ai-architecture/)
+{{% /notes %}}
+
 ## Why Pulumi AI?
 
 It’s often hard to appreciate just how large and complex modern cloud platforms have become.  Pulumi itself  supports 130 cloud providers, with many individual providers having over 1,000 resources, and many of those resources have hundreds of properties. This adds up to *millions* of configurable properties across the entire surface area!  Thank heavens Pulumi provides a consistent programming model for the community.
@@ -79,5 +87,5 @@ Pulumi AI is already offering practical value for thousands of users. We have an
 We’re just getting started and hope you join us on our journey!  Experience [Pulumi AI](/ai) today and join us for one of these upcoming events to learn more:
 
 * [Workshop: Getting Started with Pulumi Insights](/resources/getting-started-with-pulumi-insights/)
-* [Reddit AMA: Pulumi Insights](TODO)
+* [Reddit AMA: Pulumi Insights](https://www.reddit.com/r/pulumi/comments/130b4rn/ama_with_luke_hoban_cto_on_pulumi_insightsai_at/)
 * [Pulumi Challenge: GPT Your IaC](/challenge/ai-architecture/)
