@@ -281,10 +281,12 @@ registration:
 
 customer_logos:
   title: Featured Partners
-  logos:
-    - aws.png
-    - google-cloud.svg
-    - firefly.svg
-    - klotho.svg
-    - nitric.png
+  rows:
+    - logos:
+      - aws.png
+      - google-cloud.svg
+    - logos:
+      - firefly.svg
+      - klotho.svg
+      - nitric.png
 ---
