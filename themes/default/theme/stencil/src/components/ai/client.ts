@@ -5,7 +5,9 @@ import {
     Language,
     OutputChunkResponse,
     CreateConnectionAction,
+    CreateConnectionResponse,
     ChatGptModel,
+    PingArgs,
 } from "./types";
 import { parseCookie } from "../../util/util";
 
@@ -21,7 +23,7 @@ export class PulumiAIClient {
 
     constructor(
         private url: string,
-        private connectionOpenCallback: (event: Event) => void,
+        private connectionOpenCallback: (event: CreateConnectionResponse) => void,
         private outputChunkCallback: (content: OutputChunkResponse) => void,
         private outputCompleteCallback: () => void,
         private overMessageLimitCallback: () => void,
@@ -36,10 +38,11 @@ export class PulumiAIClient {
 
     private onMessage(event: MessageEvent) {
         const eventData: Response = JSON.parse(event.data);
+        console.log(eventData);
 
         switch (eventData.type) {
             case MessageType.CREATE_CONNECTION:
-                this.connectionOpenCallback(event);
+                this.connectionOpenCallback(eventData.data);
                 break
             case MessageType.OUTPUT_CHUNK:
                 this.outputChunkCallback(eventData.data);
@@ -113,10 +116,20 @@ export class PulumiAIClient {
         this.socket.close();
     }
 
-    public submit(language: Language, program: string, instructions: string, version: number, model: ChatGptModel) {
+    public ping() {
+        const args: PingArgs = {
+            type: MessageType.PING,
+            data: {},
+        };
+
+        this.send(args);
+    }
+
+    public submit(conversationId: string, language: Language, program: string, instructions: string, version: number, model: ChatGptModel) {
         const args: GenerateNewOutputAction = {
             type: MessageType.GENERATE_NEW_OUTPUT,
             data: {
+                conversationId,
                 language,
                 program: program.substring(0, this.MAX_PROGRAM_LENGTH),
                 instructions: instructions.substring(0, this.MAX_PROMPT_LENGTH),

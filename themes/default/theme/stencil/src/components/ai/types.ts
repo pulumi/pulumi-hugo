@@ -23,6 +23,7 @@ export enum Language {
 // The types of messages supported.
 export enum MessageType {
     // Messages
+    PING ="PING",
     CREATE_CONNECTION = "CREATE_CONNECTION",
     GENERATE_NEW_OUTPUT = "GENERATE_NEW_OUTPUT",
     OUTPUT_CHUNK = "OUTPUT_CHUNK",
@@ -35,6 +36,13 @@ export enum MessageType {
     OVER_MESSAGE_LIMIT_ERROR = "OVER_MESSAGE_LIMIT_ERROR",
 }
 
+// Ping
+export interface PingResponse {
+    ok: boolean;
+}
+
+export interface PingArgs {}
+
 // Version Friendly Title
 export interface VersionFriendlyTitleResponse {
     title: string;
@@ -43,6 +51,7 @@ export interface VersionFriendlyTitleResponse {
 
 // Create Connection
 export interface CreateConnectionResponse {
+    conversationId: string;
     authenticated: boolean;
     messageLimit?: number;
 }
@@ -65,6 +74,7 @@ export interface OutputCompleteResponse {
 
 // Generate New Output
 export interface GenerateNewOutputArgs {
+    conversationId: string;
     language: Language;
     instructions: string;
     program: string;
@@ -115,6 +125,7 @@ export type CreateConnection = PulumiGPTApiMessage<MessageType.CREATE_CONNECTION
 export type VersionTitle = PulumiGPTApiMessage<MessageType.VERSION_FRIENDLY_TITLE, VersionFriendlyTitleResponse>;
 export type OpenAIRateLimit = PulumiGPTApiMessage<MessageType.OPENAI_RATE_LIMIT_ERROR, OpenAIRateLimitErrorResponse>;
 export type OverMessageLimit = PulumiGPTApiMessage<MessageType.OVER_MESSAGE_LIMIT_ERROR, OverMessageLimitErrorResponse>;
+export type Ping = PulumiGPTApiMessage<MessageType.PING, PingResponse>;
 
 export type Response =
     GenerateNewOutput |
@@ -124,4 +135,5 @@ export type Response =
     CreateConnection |
     VersionTitle |
     OpenAIRateLimit |
-    OverMessageLimit;
+    OverMessageLimit | 
+    Ping;

@@ -3,7 +3,7 @@ import { store, Unsubscribe } from "@stencil/redux";
 import { AppState } from "../../store/state";
 import { setLanguage } from "../../store/actions/preferences";
 import { PulumiAIClient } from "./client";
-import { ChatGptModel, Language, OutputChunkResponse } from "./types";
+import { ChatGptModel, Language, OutputChunkResponse, CreateConnectionResponse } from "./types";
 import { SupportedLanguage, LanguageKey } from "../chooser/chooser";
 
 import * as clipboard from "clipboard-polyfill";
@@ -59,6 +59,9 @@ export class PulumiAI {
     private el: HTMLElement;
 
     @State()
+    conversationId: string;
+
+    @State()
     private running: boolean = false;
 
     @State()
@@ -85,6 +88,9 @@ export class PulumiAI {
 
     @State()
     private overMessageLimit: boolean = false;
+
+    @State()
+    private pingListener: NodeJS.Timeout;
 
     @Prop({ mutable: true })
     model: ChatGptModel;
@@ -264,10 +270,19 @@ export class PulumiAI {
         if (this.storeUnsubscribe) {
             this.storeUnsubscribe();
         }
+
+        if (this.pingListener) {
+            clearInterval(this.pingListener);
+        }
     }
 
-    private onConnected(_event: Event) {
+    private onConnected(data: CreateConnectionResponse) {
         this.connectionStatus = "Connected";
+        this.conversationId = data.conversationId;
+
+        // We ping the backend every 30 seconds to ensure
+        // we are keeping connections alive.
+        this.pingListener = setInterval(() => this.client.ping(), 30000);
     }
 
     private onSubmit(event: Event) {
@@ -576,6 +591,7 @@ export class PulumiAI {
         this.versions = Array.from(this.versions);
 
         this.client.submit(
+            this.conversationId,
             this.selectedLanguage.name as Language,
             this.versions && this.versions.length > 0 ? this.versions[this.versions.length - 1].source : "",
             this.input.value,
