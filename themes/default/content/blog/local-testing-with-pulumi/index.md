@@ -170,4 +170,4 @@ Bob watches as the operation completes in about 17 seconds.
 
 ## Try this out yourself
 
-Now that you've seen how Alice uses Pulumi to streamline testing the Zephyr online store's application code locally, feel free to try this out yourself! The code that you saw in this blog post is available in the `zephyr-app` repository on GitHub. Just select the `inner-dev-loop` branch and go to the `develop/pulumi` folder.
+Now that you've seen how Alice uses Pulumi to streamline testing the Zephyr online store's application code locally, feel free to try this out yourself! The code that you saw in this blog post is available [in the `zephyr-app` repository on GitHub](https://github.com/pulumi/zephyr-app/). Just select the `inner-dev-loop` branch and go to the `develop/pulumi` folder.
