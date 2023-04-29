@@ -74,7 +74,7 @@ function checkMetaImage(image) {
     const regex = /\.([0-9a-z]+)(?:[\?#]|$)/i;
     const extension = regex.exec(image)[1];
     if (extension !== "png") {
-        return `Meta image, '${image}', must be a png file.`
+        return `Meta image, '${image}', must be a png file.`;
     }
 
     return null;
