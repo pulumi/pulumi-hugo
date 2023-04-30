@@ -7,8 +7,8 @@
     {{ else if hasPrefix .RelPermalink "/docs/" }}
         {{/* Render a top-level menu for our major docs sections */}}
         {{ $toc_page := . }}
-        {{ $toc_sections := slice "Download & install" "Get Started" "Core concepts" "Using Pulumi" "Languages & SDKs" "Pulumi CLI" "Intro" "User Guides" "Converters" "Reference" "Support" }}
-        {{ $toc_menus := dict "Download & install" .Site.Menus.install "Get Started with Pulumi" .Site.Menus.getstarted "Core concepts" .Site.Menus.concepts "Using Pulumi" .Site.Menus.usingpulumi "Languages & SDKs" .Site.Menus.languages "Pulumi CLI" .Site.Menus.cli "Intro" .Site.Menus.intro "User Guides" .Site.Menus.userguides "Converters" .Site.Menus.converters "Reference" .Site.Menus.reference "Support" .Site.Menus.support }}
+        {{ $toc_sections := slice "Download & install" "Get Started" "Core concepts" "Using Pulumi" "Languages & SDKs" "Pulumi CLI" "Pulumi Cloud" "User Guides" "Reference" "Support" }}
+        {{ $toc_menus := dict "Download & install" .Site.Menus.install "Get Started with Pulumi" .Site.Menus.getstarted "Core concepts" .Site.Menus.concepts "Using Pulumi" .Site.Menus.usingpulumi "Languages & SDKs" .Site.Menus.languages "Pulumi CLI" .Site.Menus.cli "Pulumi Cloud" .Site.Menus.pulumicloud "User Guides" .Site.Menus.converters "Reference" .Site.Menus.reference "Support" .Site.Menus.support }}
 
         {{ range $index, $element := $toc_sections }}
             {{ $sidenav_selected := "" }}
