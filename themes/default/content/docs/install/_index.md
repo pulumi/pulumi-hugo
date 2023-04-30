@@ -1,10 +1,11 @@
 ---
-title: "Download Pulumi"
+title: "Download & install"
+title_tag: "Download & install Pulumi"
 meta_desc: This page contains detailed instructions for downloading and installing Pulumi.
-no_on_this_page: true
 menu:
-  getstarted:
-      weight: 10
+  install:
+    name: Overview
+    weight: 1
 
 aliases: ["/docs/reference/install/"]
 ---
