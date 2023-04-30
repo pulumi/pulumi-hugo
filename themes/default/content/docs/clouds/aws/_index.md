@@ -2,11 +2,10 @@
 title: Get Started with AWS
 meta_desc: This page provides an overview and guide on how to get started with AWS.
 linktitle: AWS
-weight: 1
 menu:
-  getstarted:
+  clouds:
     identifier: aws
-    weight: 2
+    weight: 1
 
 aliases: ["/docs/quickstart/aws/"]
 ---

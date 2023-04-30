@@ -3,11 +3,10 @@ title: Kubernetes Getting Started
 h1: Get Started with Kubernetes
 meta_desc: This page provides an overview and guide on how to get started with Kubernetes.
 linktitle: Kubernetes
-weight: 1
 menu:
-  getstarted:
+  clouds:
     identifier: kubernetes
-    weight: 2
+    weight: 4
 
 aliases: ["/docs/quickstart/kubernetes/"]
 ---
