@@ -5,7 +5,7 @@ linktitle: Deploy the Stack
 meta_desc: Learn how to deploy your stack to an AWS project in this guide.
 weight: 5
 menu:
-  getstarted:
+  clouds:
     parent: aws
     identifier: aws-deploy-stack
 

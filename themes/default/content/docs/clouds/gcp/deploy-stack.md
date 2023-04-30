@@ -5,7 +5,7 @@ linktitle: Deploy the Stack
 meta_desc: This page provides an overview of how to deploy changes to a Google Cloud project.
 weight: 5
 menu:
-  getstarted:
+  clouds:
     parent: gcp
     identifier: gcp-deploy-stack
 

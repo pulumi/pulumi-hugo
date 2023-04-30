@@ -5,7 +5,7 @@ linktitle: Destroy the Stack
 meta_desc: This page provides an overview of how to destroy a Pulumi stack of a Kubernetes project.
 weight: 8
 menu:
-  getstarted:
+  clouds:
     parent: kubernetes
     identifier: kubernetes-destroy-stack
 

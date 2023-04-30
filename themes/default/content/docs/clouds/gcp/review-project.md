@@ -5,7 +5,7 @@ linktitle: Review the New Project
 meta_desc: This page provides an overview on how to a review a new Google Cloud project.
 weight: 4
 menu:
-  getstarted:
+  clouds:
     parent: gcp
     identifier: gcp-review-project
 

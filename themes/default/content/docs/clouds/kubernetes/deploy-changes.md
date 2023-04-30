@@ -5,7 +5,7 @@ linktitle: Deploy the Changes
 meta_desc: This page provides an overview of how deploy changes to a Kubernetes project.
 weight: 7
 menu:
-  getstarted:
+  clouds:
     parent: kubernetes
     identifier: kubernetes-deploy-changes
 

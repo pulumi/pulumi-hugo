@@ -5,7 +5,7 @@ linktitle: Deploy the Stack
 meta_desc: This page provides an overview of how to deploy a Kubernetes project as a Pulumi Stack.
 weight: 5
 menu:
-  getstarted:
+  clouds:
     parent: kubernetes
     identifier: kubernetes-deploy-stack
 

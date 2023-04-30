@@ -5,7 +5,7 @@ linktitle: Deploy the Changes
 meta_desc: Learn how to deploy changes to an Azure project in this guide.
 weight: 7
 menu:
-  getstarted:
+  clouds:
     parent: azure
     identifier: azure-deploy-changes
 

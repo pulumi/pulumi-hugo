@@ -5,7 +5,7 @@ linktitle: Create a New Project
 meta_desc: This page provides an overview of how to create a new AWS + Pulumi project.
 weight: 3
 menu:
-  getstarted:
+  clouds:
     parent: aws
     identifier: aws-create-project
 

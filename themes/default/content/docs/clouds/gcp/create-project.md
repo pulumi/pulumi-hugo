@@ -5,7 +5,7 @@ linktitle: Create a New Project
 meta_desc: This page provides an overview of how to create a new Google Cloud + Pulumi project.
 weight: 3
 menu:
-  getstarted:
+  clouds:
     parent: gcp
     identifier: gcp-create-project
 

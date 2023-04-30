@@ -7,7 +7,7 @@ menu:
   pulumicloud:
     name: Overview
     identifier: pulumi-cloud
-    weight: 7
+    weight: 8
 
 aliases:
 - /docs/reference/service/

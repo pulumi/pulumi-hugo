@@ -6,7 +6,7 @@ meta_desc: This page provides a list of tutorials that take a deeper dive into
             Google Cloud cloud resources.
 weight: 9
 menu:
-  getstarted:
+  clouds:
     parent: gcp
     identifier: gcp-next-steps
 

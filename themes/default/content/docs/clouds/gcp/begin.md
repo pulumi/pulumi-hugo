@@ -5,7 +5,7 @@ linktitle: Before You Begin
 meta_desc: This page provides an overview on how to get started with Pulumi and Google Cloud.
 weight: 2
 menu:
-  getstarted:
+  clouds:
     parent: gcp
     identifier: gcp-begin
 

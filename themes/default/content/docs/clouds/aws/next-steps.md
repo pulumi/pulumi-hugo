@@ -7,7 +7,7 @@ meta_desc: This page provides a list of tutorials that take a deeper dive into
 weight: 9
 no_on_this_page: true
 menu:
-  getstarted:
+  clouds:
     parent: aws
     identifier: aws-next-steps
 

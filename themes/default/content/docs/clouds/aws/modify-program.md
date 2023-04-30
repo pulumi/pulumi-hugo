@@ -5,7 +5,7 @@ linktitle: Modify the Program
 meta_desc: This page provides an overview on how to update an AWS project from a Pulumi program.
 weight: 6
 menu:
-  getstarted:
+  clouds:
     parent: aws
     identifier: aws-modify-program
 

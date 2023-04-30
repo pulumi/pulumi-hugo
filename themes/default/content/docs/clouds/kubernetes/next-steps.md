@@ -6,7 +6,7 @@ meta_desc: This page provides a list of tutorials that take a deeper dive into K
            across all major cloud providers.
 weight: 9
 menu:
-  getstarted:
+  clouds:
     parent: kubernetes
     identifier: kubernetes-next-steps
 

@@ -5,7 +5,7 @@ linktitle: Review the New Project
 meta_desc: This page provides an overview on how to a review a new Azure project.
 weight: 4
 menu:
-  getstarted:
+  clouds:
     parent: azure
     identifier: azure-review-project
 
