@@ -1,5 +1,6 @@
 ---
-title: Troubleshooting Guide
+title_tag: Troubleshooting Guide
+title: Troubleshooting
 meta_desc: This guide covers common troubleshooting techniques when using Pulumi, such as tracing, manually editing deployments, and resolving common errors.
 menu:
   support:
