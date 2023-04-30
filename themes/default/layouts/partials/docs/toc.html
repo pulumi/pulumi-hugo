@@ -7,8 +7,8 @@
     {{ else if hasPrefix .RelPermalink "/docs/" }}
         {{/* Render a top-level menu for our major docs sections */}}
         {{ $toc_page := . }}
-        {{ $toc_sections := slice "Download & install" "Get Started with Pulumi" "Core concepts" "Intro" "User Guides" "Converters" "Reference" "Support" }}
-        {{ $toc_menus := dict "Download & install" .Site.Menus.install "Get Started with Pulumi" .Site.Menus.getstarted "Core concepts" .Site.Menus.concepts "Intro" .Site.Menus.intro "User Guides" .Site.Menus.userguides "Converters" .Site.Menus.converters "Reference" .Site.Menus.reference "Support" .Site.Menus.support }}
+        {{ $toc_sections := slice "Download & install" "Get Started" "Core concepts" "Using Pulumi" "Intro" "User Guides" "Converters" "Reference" "Support" }}
+        {{ $toc_menus := dict "Download & install" .Site.Menus.install "Get Started" .Site.Menus.getstarted "Core concepts" .Site.Menus.concepts "Using Pulumi" .Site.Menus.usingpulumi "Intro" .Site.Menus.intro "User Guides" .Site.Menus.userguides "Converters" .Site.Menus.converters "Reference" .Site.Menus.reference "Support" .Site.Menus.support }}
 
         {{ range $index, $element := $toc_sections }}
             {{ $sidenav_selected := "" }}
