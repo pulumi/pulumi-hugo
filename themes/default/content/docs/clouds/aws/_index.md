@@ -1,15 +1,11 @@
 ---
-title: Get Started with AWS
-meta_desc: This page provides an overview and guide on how to get started with AWS.
-linktitle: AWS
+title_tag: "AWS & Pulumi"
+title: "AWS"
+meta_desc: susan will write this later susan will write this later susan will write this later
 menu:
   clouds:
     identifier: aws
     weight: 1
-
-aliases: ["/docs/quickstart/aws/"]
 ---
 
-{{< cloud-intro "AWS" >}}
-
-{{< get-started-stepper >}}
+susan will do this later

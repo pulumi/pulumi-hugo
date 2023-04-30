@@ -1,15 +1,11 @@
 ---
-title: Get Started with Google Cloud
-meta_desc: This page provides an overview and guide on how to get started with Google Cloud.
-linktitle: Google Cloud
+title_tag: "Google Cloud & Pulumi"
+title: "Google Cloud"
+meta_desc: susan will write this later susan will write this later susan will write this later
 menu:
   clouds:
-    identifier: gcp
-    weight: 3
-
-aliases: ["/docs/quickstart/gcp/"]
+    identifier: google-cloud
+    weight: 1
 ---
 
-{{< cloud-intro "Google Cloud" >}}
-
-{{< get-started-stepper >}}
+susan will do this later

@@ -1,15 +1,11 @@
 ---
-title: Get Started with Azure
-meta_desc: This page provides an overview and guide on how to get started with Azure.
-linktitle: Azure
+title_tag: "Azure & Pulumi"
+title: "Azure"
+meta_desc: susan will write this later susan will write this later susan will write this later
 menu:
   clouds:
     identifier: azure
-    weight: 2
-
-aliases: ["/docs/quickstart/azure/"]
+    weight: 1
 ---
 
-{{< cloud-intro "Microsoft Azure" >}}
-
-{{< get-started-stepper >}}
+susan will do this later
