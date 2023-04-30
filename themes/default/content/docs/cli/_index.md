@@ -3,9 +3,10 @@ title_tag: "Pulumi CLI Overview"
 title: Pulumi CLI
 meta_desc: An overview of the Pulumi CLI and common commands used to deploy cloud applications.
 menu:
-  reference:
+  cli:
+    name: Overview
     identifier: cli
-    weight: 2
+    weight: 6
 
 aliases: [/docs/reference/commands/]
 ---
