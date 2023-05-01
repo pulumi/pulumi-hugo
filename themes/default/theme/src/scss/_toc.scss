@@ -5,7 +5,7 @@ $toc-header-spacing: 5px;
 }
 
 .toc {
-    @apply text-sm pb-8;
+    @apply text-sm pb-8 font-display;
 
     a {
         @apply text-blue-800;
@@ -20,7 +20,8 @@ $toc-header-spacing: 5px;
     }
 
     h5 {
-        @apply font-body font-semibold text-base text-blue-800;
+        @apply font-medium text-base text-blue-800;
+        margin-top: 16px !important;
 
         a {
             &:hover {
