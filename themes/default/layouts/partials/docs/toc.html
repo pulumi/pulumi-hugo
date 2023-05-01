@@ -54,45 +54,43 @@
     {{ range .menu }}
         {{/* Note that we skip "Overview" pages, since they are linked to from above */}}
 
-        {{ if or (ne .Name "Overview") }}
-            {{ $toggle_state := "toggle" }}
-            {{ $sidenav_selected := "" }}
+        {{ $toggle_state := "toggle" }}
+        {{ $sidenav_selected := "" }}
 
-            {{ if or (eq $page.RelPermalink .URL) (and (not .HasChildren) (hasPrefix $page.RelPermalink .URL) (ne .Name "Troubleshooting")) }}
-                {{ $toggle_state = "toggleVisible" }}
-                {{ $sidenav_selected = "active" }}
-            {{ else if hasPrefix $page.RelPermalink .URL }}
-                {{ $toggle_state = "toggleVisible" }}
-            {{ end }}
-
-
-            <ul class="{{ $toggle_state }}">
-                <ul class="collapsed">
-                    <li class="sidenav-topic {{ $sidenav_selected }}">
-                        <a href="{{ .URL }}" data-track="toc-{{ .Name | urlize }}">{{ .Name }}</a>
-                        {{- if .HasChildren -}}
-                            <span class="toggleButton">
-                                <i class="fas fa-caret-right"></i>
-                            </span>
-                        {{- end -}}
-                    </li>
-                </ul>
-                <ul class="expanded">
-                    <li class="sidenav-topic {{ if .HasChildren }}sidenav-parent{{ end }} {{ $sidenav_selected }}">
-                        <a href="{{ .URL }}" data-track="toc-{{ .Name | urlize }}">{{ .Name }}</a>
-                        {{- if .HasChildren -}}
-                            <span class="toggleButton">
-                                <i class="fas fa-caret-down"></i>
-                            </span>
-                        {{- end -}}
-                    </li>
-                    {{ if .HasChildren }}
-                        <div class="sidenav-subsection">
-                            {{ template "toc" (dict "page" $page "menu" .Children) }}
-                        </div>
-                    {{ end }}
-                </ul>
-            </ul>
+        {{ if or (eq $page.RelPermalink .URL) (and (not .HasChildren) (hasPrefix $page.RelPermalink .URL) (ne .Name "Troubleshooting")) }}
+            {{ $toggle_state = "toggleVisible" }}
+            {{ $sidenav_selected = "active" }}
+        {{ else if hasPrefix $page.RelPermalink .URL }}
+            {{ $toggle_state = "toggleVisible" }}
         {{ end }}
+
+
+        <ul class="{{ $toggle_state }}">
+            <ul class="collapsed">
+                <li class="sidenav-topic {{ $sidenav_selected }}">
+                    <a href="{{ .URL }}" data-track="toc-{{ .Name | urlize }}">{{ .Name }}</a>
+                    {{- if .HasChildren -}}
+                        <span class="toggleButton">
+                            <i class="fas fa-caret-right"></i>
+                        </span>
+                    {{- end -}}
+                </li>
+            </ul>
+            <ul class="expanded">
+                <li class="sidenav-topic {{ if .HasChildren }}sidenav-parent{{ end }} {{ $sidenav_selected }}">
+                    <a href="{{ .URL }}" data-track="toc-{{ .Name | urlize }}">{{ .Name }}</a>
+                    {{- if .HasChildren -}}
+                        <span class="toggleButton">
+                            <i class="fas fa-caret-down"></i>
+                        </span>
+                    {{- end -}}
+                </li>
+                {{ if .HasChildren }}
+                    <div class="sidenav-subsection">
+                        {{ template "toc" (dict "page" $page "menu" .Children) }}
+                    </div>
+                {{ end }}
+            </ul>
+        </ul>
     {{ end }}
 {{ end }}

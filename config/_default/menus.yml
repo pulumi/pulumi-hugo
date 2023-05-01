@@ -3,91 +3,91 @@
 # -------------------------------------
 cli:
   - name: cancel
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_cancel/
     weight: 1
 
   - name: config
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_config/
     weight: 2
 
   - name: console
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_console/
     weight: 3
 
   - name: destroy
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_destroy/
     weight: 4
 
   - name: import
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_import/
     weight: 5
 
   - name: login
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_login/
     weight: 6
 
   - name: logout
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_logout/
     weight: 7
 
   - name: logs
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_logs/
     weight: 8
 
   - name: new
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_new/
     weight: 9
 
   - name: plugin
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_plugin/
     weight: 10
 
   - name: policy
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_policy/
     weight: 11
 
   - name: preview
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_preview/
     weight: 12
 
   - name: refresh
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_refresh/
     weight: 13
 
   - name: stack
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_stack/
     weight: 14
 
   - name: state
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_state/
     weight: 15
 
   - name: up
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_up/
     weight: 16
 
   - name: version
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_version/
     weight: 17
 
   - name: whoami
-    parent: Commands
+    parent: commands
     url: /docs/cli/pulumi_whoami/
     weight: 18
