@@ -17,7 +17,7 @@ Members of PUGs will have access to a global network of experts who can offer he
 
 ## 7 Pulumi User Groups (PUGs) Meetups in 5 countries
 
-PUGs are led by Pulumi employees and [Puluminaries](/community/puluminaries/), who are passionate and experts in topics related to cloud infrastructure, Pulumi Cloud, cloud-native software development, and much more, and are willing to share their knowledge with the community.
+PUGs are led by Pulumi employees and [Puluminaries](/community/puluminaries/), who are passionate community members that are experts in topics related to cloud infrastructure, Pulumi Cloud, cloud-native software development, and much more, and are willing to share their knowledge with the community.
 
 ### United States Pulumi User Groups
 
