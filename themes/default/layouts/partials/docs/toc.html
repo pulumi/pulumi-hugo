@@ -1,10 +1,5 @@
 <aside class="toc pl-4">
-    {{ if hasPrefix .RelPermalink "/docs/aws/" }}
-        <h4 class="no-anchor">
-            <a data-track="toc-aws" href="{{ relref . "/docs/aws" }}">AWS</a>
-        </h4>
-        {{ template "toc" (dict "page" . "menu" .Site.Menus.aws) }}
-    {{ else if hasPrefix .RelPermalink "/docs/" }}
+    {{ if hasPrefix .RelPermalink "/docs/" }}
         {{/* Render a top-level menu for our major docs sections */}}
         {{ $toc_page := . }}
         {{ $toc_sections := slice "Download & install" "Get started" "Clouds" "Core concepts" "Using Pulumi" "Languages & SDKs" "Pulumi CLI" "Pulumi Cloud" "Support" }}
