@@ -7,7 +7,6 @@ service: "ECR"
 description: "is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images"
 aws_here: "https://aws.amazon.com/ecr/"
 
-layout: aws-single
 menu:
   clouds:
     name: ECR

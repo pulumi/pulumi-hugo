@@ -7,7 +7,6 @@ service: "SQS"
 description: "is a fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications"
 aws_here: "https://aws.amazon.com/sqs/"
 
-layout: aws-single
 menu:
   clouds:
     name: SQS

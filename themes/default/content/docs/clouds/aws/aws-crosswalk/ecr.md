@@ -6,6 +6,7 @@ linktitle: ECR
 menu:
   clouds:
     parent: crosswalk-aws
+    identifier: crosswalk-aws-ecr
     weight: 4
 
 aliases: ["/docs/reference/crosswalk/aws/ecr/"]

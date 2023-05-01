@@ -7,10 +7,10 @@ service: "EC2"
 description: "is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers"
 aws_here: "https://aws.amazon.com/ec2/"
 
-layout: aws-single
 menu:
   clouds:
     name: EC2
+    identifier: aws-guides-ec2
     parent: aws-guides
 ---
 
