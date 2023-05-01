@@ -35,15 +35,24 @@
             {{ end }}
 
 
-            <h5 class="no-anchor toc-header" id="{{ $toc_name | urlize }}-toc-header">
+            <h5 class="no-anchor toc-header toggle-topLevel toggle" id="{{ $toc_name | urlize }}-toc-header">
                 {{ if $toc_section_link }}
                     <a href="{{ $toc_section_link }}">{{ $toc_name }}</a>
+                    <span class="toggleButton-topLevel right">
+                        <i class="fas fa-caret-right"></i>
+                    </span>
+
+                    <span class="toggleButton-topLevel down">
+                        <i class="fas fa-caret-down"></i>
+                    </span>
                 {{ else }}
                     {{ $toc_name }}
                 {{ end }}
             </h5>
 
-            {{ template "toc" (dict "page" $toc_page "menu" $toc_menu) }}
+            <div class="top-level-container">
+                {{ template "toc" (dict "page" $toc_page "menu" $toc_menu) }}
+            </div>
         {{ end }}
     {{ end }}
 </aside>

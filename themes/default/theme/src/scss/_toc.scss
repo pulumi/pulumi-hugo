@@ -84,7 +84,7 @@ $toc-header-spacing: 5px;
     @apply mb-2;
 }
 
-.toggleButton {
+.toggleButton, .toggleButton-topLevel {
     @apply text-gray-500 ml-1 cursor-pointer;
 }
 
@@ -96,4 +96,32 @@ $toc-header-spacing: 5px;
 .toggle > .expanded,
 .toggleVisible > .collapsed {
     @apply hidden;
+}
+
+.toggle-topLevel.toggle + .top-level-container {
+        display: none;
+}
+
+.toggle-topLevel.toggleVisible + .top-level-container {
+        display: block;
+}
+
+.toggle-topLevel.toggle {
+    .toggleButton-topLevel.down {
+        display: none;
+    }
+
+        .toggleButton-topLevel.right {
+        display: inline;
+    }
+}
+
+.toggle-topLevel.toggleVisible {
+    .toggleButton-topLevel.down {
+        display: inline;
+    }
+
+        .toggleButton-topLevel.right {
+        display: none;
+    }
 }
