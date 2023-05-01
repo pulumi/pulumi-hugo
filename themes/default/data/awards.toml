@@ -60,7 +60,6 @@ img = "/logos/press/awards/gartner-cool-vendor.png"
 title = "IDC Innovator 2020"
 featured = true
 img = "/logos/press/awards/idc-innovator.png"
-url = "https://www.idc.com/getdoc.jsp?containerId=US44895219"
 
 [[awards]]
 title = "Top Startups of 2019"
