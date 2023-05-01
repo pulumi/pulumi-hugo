@@ -5,22 +5,33 @@ $toc-header-spacing: 5px;
 }
 
 .toc {
-    @apply text-sm pb-8 font-display;
+    @apply text-sm pb-8;
 
     a {
-        @apply text-blue-800;
+        @apply text-blue-800 py-0.5 px-1.5 rounded-sm;
 
         &:hover {
-            @apply text-blue-700;
+            background-color: #dbdef7;
+            text-decoration: none !important;
         }
     }
 
     .active {
         @apply font-semibold;
+        background-color: #dbdef7;
+
+        &::after {
+            @apply bg-blue-800;
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 21px;
+            left: 13px;
+        }
     }
 
     h5 {
-        @apply font-medium text-base text-blue-800;
+        @apply font-semibold text-base text-blue-800;
         margin-top: 16px !important;
 
         a {
