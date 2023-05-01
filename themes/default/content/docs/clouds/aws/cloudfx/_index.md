@@ -1,7 +1,12 @@
 ---
 title_tag: "Pulumi Cloud Framework Overview"
-title: "Cloud Framework (Preview)"
+title: "Cloud Framework"
 meta_desc: "The Pulumi Cloud Framework lets you program infrastructure and application logic using high-level, cloud-agnostic building blocks.Get started here."
+menu:
+  clouds:
+    weight: 6
+    parent: aws
+    identifier: aws-cloudfx
 aliases: ["/docs/quickstart/cloudfx/"]
 ---
 

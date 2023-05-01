@@ -1,7 +1,7 @@
 ---
 title: Create a New Project | AWS
 h1: Create a New Project
-linktitle: Create a New Project
+linktitle: Create project
 meta_desc: This page provides an overview of how to create a new AWS + Pulumi project.
 weight: 3
 menu:

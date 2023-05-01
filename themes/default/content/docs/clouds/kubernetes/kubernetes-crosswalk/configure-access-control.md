@@ -1,6 +1,6 @@
 ---
 title_tag: Configuring Kubernetes Access Control | Crosswalk
-title: Configuring Kubernetes Access Control
+title: Access control
 meta_desc: This page will walk you through how to configure Kubernetes
            access control on AWS, Azure, and GCP.
 menu:

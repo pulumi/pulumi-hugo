@@ -1,7 +1,7 @@
 ---
 title: Review the New Project | Kubernetes
 h1: Review the New Project
-linktitle: Review the New Project
+linktitle: Review project
 meta_desc: This page provides an overview on how to review a new Kubernetes project.
 weight: 4
 menu:

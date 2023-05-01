@@ -3,7 +3,7 @@ title_tag: "Using AWS VPC | Crosswalk"
 title: Using AWS VPC
 meta_desc: Pulumi Crosswalk for AWS provides simple, out of the box VPC functionality that follows widely accepted best
            practices.
-linktitle: Virtual Private Cloud (VPC)
+linktitle: VPC
 menu:
   clouds:
     parent: crosswalk-aws

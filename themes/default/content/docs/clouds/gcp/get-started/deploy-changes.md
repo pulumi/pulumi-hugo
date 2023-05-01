@@ -1,7 +1,7 @@
 ---
 title: Deploy the Changes | GCP
 h1: Deploy the Changes
-linktitle: Deploy the Changes
+linktitle: Deploy changes
 meta_desc: This page provides an overview of how deploy changes to a Google Cloud project.
 weight: 7
 menu:

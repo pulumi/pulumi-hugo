@@ -1,13 +1,13 @@
 ---
 title_tag: Updating Kubernetes Worker Nodes | Crosswalk
-title: Updating Kubernetes Worker Nodes
+title: Updating worker nodes
 meta_desc: This page provides a guide on how to update Kubernetes Worker Nodes
            with Pulumi.
 menu:
   clouds:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-update-workers
-    weight: 10
+    weight: 11
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

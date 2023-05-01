@@ -3,7 +3,7 @@ title_tag: "Using AWS Identity & Access Management (IAM) | Crosswalk"
 title: Using AWS Identity & Access Management (IAM)
 meta_desc: Pulumi Crosswalk for AWS adds strongly typed IAM resource classes, for creating, updating, and
            otherwise managing AWS users, groups, and roles securely.
-linktitle: Identity and Access Management (IAM)
+linktitle: IAM
 menu:
   clouds:
     parent: crosswalk-aws

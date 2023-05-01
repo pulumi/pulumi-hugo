@@ -1,7 +1,7 @@
 ---
 title: Next Steps | AWS
 h1: Next Steps
-linktitle: Next Steps
+linktitle: Next steps
 meta_desc: This page provides a list of tutorials that take a deeper dive into
             AWS cloud resources.
 weight: 9

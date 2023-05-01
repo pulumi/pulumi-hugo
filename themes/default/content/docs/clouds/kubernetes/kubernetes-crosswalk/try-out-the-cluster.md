@@ -1,6 +1,6 @@
 ---
 title_tag: Accessing Created Kubernetes Cluster | Crosswalk
-title: Accessing Created Kubernetes Cluster
+title: Accessing clusters
 meta_desc: This page provides a guide on how to try out a newly created Kubernetes cluster.
 menu:
   clouds:

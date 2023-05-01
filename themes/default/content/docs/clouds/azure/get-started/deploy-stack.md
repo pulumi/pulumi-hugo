@@ -1,7 +1,7 @@
 ---
 title: Deploy the Stack | Azure
 h1: Deploy the Stack
-linktitle: Deploy the Stack
+linktitle: Deploy stack
 meta_desc: Learn how to deploy your stack to an Azure project in this guide.
 weight: 5
 menu:

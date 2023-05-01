@@ -1,7 +1,7 @@
 ---
 title: Before You Begin | Kubernetes
 h1: Before You Begin
-linktitle: Before You Begin
+linktitle: Before you begin
 meta_desc: This page provides an overview on how to get started with Pulumi when starting an Kubernetes project.
 weight: 2
 menu:

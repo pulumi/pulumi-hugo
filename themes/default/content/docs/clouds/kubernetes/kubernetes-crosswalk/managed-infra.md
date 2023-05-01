@@ -1,14 +1,14 @@
 ---
 title_tag: Managed Infrastructure Services for Kubernetes | Crosswalk
-title: Managed Infrastructure Services for Kubernetes
+title: Infra services
 meta_desc: This page provides an overview of Managed Infrastructure services that
            support and complement Kubernetes clusters and workloads.
-linktitle: Managed Infrastructure
+linktitle: Infra services
 
 menu:
   clouds:
     parent: crosswalk-kubernetes
-    weight: 9
+    weight: 10
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}
