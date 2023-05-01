@@ -19,7 +19,7 @@
     @include transition;
 
     &.docs, &.registry {
-        border-color: map-get($blue, 300) !important;
+        border-color: map-get($brand, "blue") !important;
         &:focus {
             border-color: map-get($blue, 600) !important;
         }
@@ -78,6 +78,57 @@
     }
 }
 
+.search-header-container {
+    background-color: map-get($gray, 100);
+    height: 50px;
+    .tabs {
+        .tab {
+            cursor: pointer;
+            height: 50px;
+            padding-left: 18px;
+            padding-right: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Gilroy";
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+            color: map-get($gray, 500);
+            background-color: map-get($gray, 100);
+            padding-bottom: 3px;
+            .tab-icon {
+                background-color: map-get($gray, 100);
+                padding-right: 10px;
+            }
+        }
+
+        .tab-selected {
+            height: 50px;
+            cursor: pointer;
+            padding-left: 18px;
+            padding-right: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // background-color: map-get($gray, 200);
+            background-color: #F2F2F4;
+            font-size: 16px;
+            line-height: 26px;
+            font-family: "Gilroy";
+            font-weight: 700;
+            color: map-get($gray, 900);
+            // border-bottom: 3px solid map-get($purple, 600);
+            border-bottom: 3px solid map-get($brand, "violet");
+            .tab-icon {
+                // background-color: map-get($gray, 200);
+                background-color: #F2F2F4;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
 .search-header {
     @apply justify-center;
 
@@ -89,15 +140,24 @@
         @apply mx-auto justify-start;
     }
 
+    background-color: map-get($gray, 100);
+    
     .search-container {
         @apply flex-grow;
-
+        border-bottom: 1px solid map-get($gray, 300);
         @screen md {
             @apply flex-grow-0 justify-start;
+            border-bottom: none;
         }
+        
 
+        background-color: map-get($gray, 100);
+        height: 50px;
+        padding-left: 16px;
+        padding-right: 16px;
+        
         .search-widget {
-            @apply w-full px-4;
+            @apply w-full h-full p-0;
 
             @screen md {
                 width: 450px;
@@ -110,6 +170,18 @@
             @screen xl {
                 @apply px-0;
                 width: 800px;
+            }
+
+            #search-query {
+                font-family: "Gilroy";
+                font-size: 16px;
+                font-weight: 500;
+                height: 7px;
+                line-height: 26px;
+            }
+
+            form > button {
+                font-family: "Gilroy";
             }
         }
     }
