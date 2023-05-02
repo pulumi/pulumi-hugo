@@ -36,8 +36,8 @@
 
 
             <h5 class="no-anchor toc-header toggle-topLevel toggle" id="{{ $toc_name | urlize }}-toc-header">
-                {{ if $toc_section_link }}
-                    <a href="{{ $toc_section_link }}">{{ $toc_name }}</a>
+                <a href="{{ $toc_section_link }}">{{ $toc_name }}</a>
+                {{ if and ($toc_section_link) (ne $toc_name "Download & install") (ne $toc_name "Get started") }}
                     <span class="toggleButton-topLevel right">
                         <i class="fas fa-caret-right"></i>
                     </span>
@@ -45,8 +45,6 @@
                     <span class="toggleButton-topLevel down">
                         <i class="fas fa-caret-down"></i>
                     </span>
-                {{ else }}
-                    {{ $toc_name }}
                 {{ end }}
             </h5>
 
