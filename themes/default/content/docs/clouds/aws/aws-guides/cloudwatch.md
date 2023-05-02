@@ -8,7 +8,7 @@ description: "is a monitoring service for AWS cloud resources and the applicatio
 aws_here: "https://aws.amazon.com/cloudwatch/"
 
 menu:
-  clouds:
+  aws:
     name: CloudWatch
     parent: aws-guides
     identifier: cloud-watch-guide

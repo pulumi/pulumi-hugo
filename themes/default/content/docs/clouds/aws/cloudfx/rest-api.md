@@ -2,10 +2,6 @@
 title: "Serverless REST API"
 meta_desc: "This tutorial will teach you how to build and deploy a Serverless REST API with DynamoDB on AWS that counts the number of times a route has hit."
 aliases: ["/docs/quickstart/cloudfx/tutorial-rest-api/"]
-menu:
-  clouds:
-    weight: 1
-    parent: aws-cloudfx
 ---
 
 With Pulumi, you can combine infrastructure definitions and application code in one program. The [@pulumi/cloud] library is a set of Pulumi [components](/docs/intro/concepts/programming-model#components) that provide a higher-level abstraction over AWS. So, instead of provisioning an API Gateway instance, Lambda functions, and setting up IAM roles, you can use [cloud.API] and define application code at the same time as the infrastructure it depends on.

@@ -8,7 +8,7 @@ service: "Athena"
 aws_here: "https://aws.amazon.com/athena/"
 
 menu:
-  clouds:
+  aws:
     name: Athena
     parent: aws-guides
 ---

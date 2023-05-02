@@ -8,7 +8,7 @@ description: "is a flexible, fully managed pub/sub messaging and mobile notifica
 aws_here: "https://aws.amazon.com/sns/"
 
 menu:
-  clouds:
+  aws:
     name: SNS
     parent: aws-guides
 ---

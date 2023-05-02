@@ -8,7 +8,7 @@ description: "is a fully-managed Docker container registry that makes it easy fo
 aws_here: "https://aws.amazon.com/ecr/"
 
 menu:
-  clouds:
+  aws:
     name: ECR
     parent: aws-guides
 ---

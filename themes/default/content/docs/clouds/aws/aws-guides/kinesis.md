@@ -8,7 +8,7 @@ description: "makes it easy to collect, process, and analyze real-time, streamin
 aws_here: "https://aws.amazon.com/kinesis/"
 
 menu:
-  clouds:
+  aws:
     name: Kinesis
     parent: aws-guides
 ---

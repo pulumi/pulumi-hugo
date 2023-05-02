@@ -8,7 +8,7 @@ description: "enables you to manage access to AWS services and resources securel
 aws_here: "https://aws.amazon.com/iam/"
 
 menu:
-  clouds:
+  aws:
     name: IAM
     identifier: iam-aws-guides
     parent: aws-guides

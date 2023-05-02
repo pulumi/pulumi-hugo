@@ -4,7 +4,7 @@ title: Environment variables
 meta_desc: A list of different environment variables the Pulumi CLI supports.
 menu:
   cli:
-    weight: 1
+    weight: 19
 ---
 
 <dl class="tabular tabular-5-col">

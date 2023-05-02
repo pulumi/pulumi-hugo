@@ -2,10 +2,6 @@
 title: "Build a Container"
 meta_desc: "This tutorial will teach you how to build and deploy a simple Dockerized application to AWS or Azure using Pulumi Cloud Framework."
 aliases: ["/docs/quickstart/cloudfx/tutorial-service/"]
-menu:
-  clouds:
-    weight: 2
-    parent: aws-cloudfx
 ---
 
 In this tutorial, we'll use JavaScript to build and deploy a simple container using the [`@pulumi/cloud`](/docs/reference/pkg/nodejs/pulumi/cloud) framework.  This example can be deployed to AWS (on either Fargate or ECS) or to Azure (on ACI).  By authoring our infrastructure using the `@pulumi/cloud` framework, it can be deployed transparently to either cloud (with support for other clouds on the roadmap). The [code for this tutorial](https://github.com/pulumi/examples/tree/master/cloud-js-containers) is available on GitHub.

@@ -8,7 +8,7 @@ description: "is a web service that provides secure, resizable compute capacity 
 aws_here: "https://aws.amazon.com/ec2/"
 
 menu:
-  clouds:
+  aws:
     name: EC2
     identifier: aws-guides-ec2
     parent: aws-guides

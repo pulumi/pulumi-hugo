@@ -8,7 +8,7 @@ description: "is a fully managed message queuing service that makes it easy to d
 aws_here: "https://aws.amazon.com/sqs/"
 
 menu:
-  clouds:
+  aws:
     name: SQS
     parent: aws-guides
 ---

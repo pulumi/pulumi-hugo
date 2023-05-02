@@ -4,7 +4,7 @@ title: Command-line completion
 meta_desc: Information about command-line completion while using the Pulumi CLI.
 menu:
   cli:
-    weight: 2
+    weight: 20
 ---
 
 ## Command-line Completion

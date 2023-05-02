@@ -8,7 +8,7 @@ description: "is a fast and flexible nonrelational database service for all appl
 aws_here: "https://aws.amazon.com/dynamodb/"
 
 menu:
-  clouds:
+  awws:
     name: DynamoDB
     parent: aws-guides
 ---
