@@ -5,6 +5,7 @@ h1: How to use Pulumi YAML
 meta_desc: An overview of how to use Pulumi YAML for infrastructure as code on any cloud (AWS, Azure, GCP, Kubernetes, etc.).
 menu:
   languages:
+    identifier: yaml-language
     weight: 5
 
 aliases: ["/yaml/"]

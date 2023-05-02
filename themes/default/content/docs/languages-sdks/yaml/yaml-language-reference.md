@@ -2,6 +2,11 @@
 title: Pulumi YAML Reference
 linktitle: Pulumi YAML Reference
 meta_desc: Specification for the Pulumi YAML format and built-in functions
+
+menu:
+  languages:
+    parent: yaml-language
+    weight: 1
 ---
 
 Pulumi programs can be defined in many languages, and the Pulumi YAML dialect offers an additional language for authoring Pulumi programs.
