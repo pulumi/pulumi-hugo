@@ -46,13 +46,12 @@ $toc-header-spacing: 5px;
     }
 
     .toc-header {
+        font-size: 16px;
         width: fit-content;
         padding-right: $toc-header-spacing;
-        margin-left: -$toc-header-spacing;
 
-        a {
-            margin-left: $toc-header-spacing;
-        }
+        margin-top: 24px;
+        margin-bottom: 0;
 
         &.active {
             background-color: #dbdef7;
@@ -73,19 +72,29 @@ $toc-header-spacing: 5px;
 }
 
 .sidenav-topic {
-    @apply mb-2;
+    font-size: 16px;
+    margin-left: 16px;
+    margin-bottom: 12px;
 }
 
 .sidenav-subsection {
-    @apply mb-2 ml-4 text-sm;
+    @apply mb-2 text-sm;
 }
 
 .sidenav-parent {
-    @apply mb-2;
+
 }
 
 .toggleButton, .toggleButton-topLevel {
-    @apply text-gray-500 ml-1 cursor-pointer;
+    @apply cursor-pointer;
+    color: #2b2b2c;
+    font-size: 13px;
+    position: relative;
+    top: -2px;
+}
+
+.header-no-children {
+    color: #364098;
 }
 
 .toggle > .collapsed,
