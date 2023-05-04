@@ -205,7 +205,7 @@ export class PulumiAI {
         }
 
         if (tagName === "BUTTON" && el.getAttribute("class")?.includes("share")) {
-            const shareableLink = `${this.siteUrl}ai?convid=${this.conversationId}`;
+            const shareableLink = `${this.siteUrl}/ai?convid=${this.conversationId}`;
             clipboard.writeText(shareableLink);
             var tipEl = el.closest("pulumi-tooltip");
             var tipContentEl = tipEl.querySelector("[slot='content']");
