@@ -147,3 +147,18 @@ $ venv/bin/pip install -r requirements.txt
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+## Package Documentation
+
+SDK reference documentation, organized by language.
+
+### Standard Packages
+
+<dl class="tabular">
+    <dt>Pulumi SDK</dt>
+    <dd><a href="/docs/reference/pkg/python/pulumi">pulumi</a></dd>
+    <dt>Pulumi Policy</dt>
+    <dd><a href="/docs/reference/pkg/python/pulumi_policy">pulumi_policy</a></dd>
+    <dt>Pulumi Terraform</dt>
+    <dd><a href="/docs/reference/pkg/python/pulumi_terraform">pulumi_terraform</a></dd>
+</dl>

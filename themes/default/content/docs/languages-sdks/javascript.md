@@ -205,3 +205,29 @@ runtime:
   options:
     typescript: false
 ```
+
+## Package Documentation
+
+SDK reference documentation, organized by language.
+
+### Standard Packages
+
+<dl class="tabular">
+    <dt>Pulumi SDK</dt>
+    <dd><a href="/docs/reference/pkg/nodejs/pulumi/pulumi">@pulumi/pulumi</a></dd>
+    <dt>Pulumi Policy</dt>
+    <dd><a href="/docs/reference/pkg/nodejs/pulumi/policy">@pulumi/policy</a></dd>
+    <dt>Pulumi Terraform</dt>
+    <dd><a href="/docs/reference/pkg/nodejs/pulumi/terraform">@pulumi/terraform</a></dd>
+</dl>
+
+### Cloud-Agnostic Packages
+
+<dl class="tabular">
+    <dt>Pulumi Cloud Framework</dt>
+    <dd>
+        <a href="/docs/reference/pkg/nodejs/pulumi/cloud">@pulumi/cloud</a>
+        <span class="ml-2 badge badge-preview">PREVIEW</span>
+        <p>A highly productive, cloud-agnostic package for container and serverless programming.</p>
+    </dd>
+</dl>

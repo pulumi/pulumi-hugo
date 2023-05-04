@@ -273,3 +273,27 @@ There is also a [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app/
 ### Other CI/CD Integrations
 
 If you don't use Azure DevOps or GitHub Actions, Pulumi also supports a number of other [CI/CD integrations](/docs/guides/continuous-delivery).
+
+## Package Documentation
+
+SDK reference documentation, organized by language.
+
+### Standard Packages
+
+<dl class="tabular">
+    <dt>Pulumi SDK</dt>
+    <dd><a href="/docs/reference/pkg/nodejs/pulumi/pulumi">@pulumi/pulumi</a></dd>
+    <dt>Pulumi Policy</dt>
+    <dd><a href="/docs/reference/pkg/nodejs/pulumi/policy">@pulumi/policy</a></dd>
+    <dt>Pulumi Terraform</dt>
+    <dd><a href="/docs/reference/pkg/nodejs/pulumi/terraform">@pulumi/terraform</a></dd>
+</dl>
+
+<dl class="tabular">
+    <dt>Pulumi SDK</dt>
+    <dd><a href="/docs/reference/pkg/dotnet/Pulumi/Pulumi.html">Pulumi</a></dd>
+    <dt>Pulumi FSharp SDK</dt>
+    <dd><a href="/docs/reference/pkg/dotnet/Pulumi.FSharp/Pulumi.FSharp.html">Pulumi.FSharp</a></dd>
+    <dt>Pulumi Automation API</dt>
+    <dd><a href="/docs/reference/pkg/dotnet/Pulumi.Automation/Pulumi.Automation.html">Pulumi.Automation</a></dd>
+</dl>
