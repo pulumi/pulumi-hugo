@@ -35,19 +35,23 @@
             {{ end }}
 
             {{ $toggle_class := "toggle" }}
-            {{ if hasPrefix $.Page.RelPermalink $toc_section_link }}
+            {{ if or (hasPrefix $.Page.RelPermalink $toc_section_link) (eq $toc_name "Clouds") }}
                 {{ $toggle_class = "toggleVisible " }}
             {{ end }}
             <p class="no-anchor toc-header toggle-topLevel {{ $toggle_class }}" id="{{ $toc_name | urlize }}-toc-header">
-                {{ if and ($toc_section_link) (ne $toc_name "Download & install") (ne $toc_name "Get started") }}
+                {{ if and ($toc_section_link) (ne $toc_name "Download & install") (ne $toc_name "Get started") (ne $toc_name "Clouds") }}
                     <span class="toggleButton-topLevel down">
                         <i class="fas fa-angle-down"></i>
                     </span>
                     <span class="toggleButton-topLevel right">
                         <i class="fas fa-angle-right"></i>
                     </span>
+                {{ else if (eq $toc_name "Clouds") }}
+                    <span class="header-no-children">
+                        <i class="fas fa-cloud"></i>
+                    </span>
                 {{ else }}
-                    <span class="toggleButton-topLevel header-no-children">
+                    <span class="header-no-children">
                         <i class="fas fa-file-alt"></i>
                     </span>
                 {{ end }}
