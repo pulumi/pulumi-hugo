@@ -20,6 +20,17 @@ export enum Language {
     CSHARP = "C#",
 }
 
+export interface ConversationItem {
+    conversationId: string;
+    language: string;
+    prompt: string;
+    response: string;
+    version: number;
+    created: number;
+
+    originalConversationId?: string;
+}
+
 // The types of messages supported.
 export enum MessageType {
     // Messages
@@ -29,11 +40,22 @@ export enum MessageType {
     OUTPUT_CHUNK = "OUTPUT_CHUNK",
     OUTPUT_COMPLETE = "OUTPUT_COMPLETE",
     VERSION_FRIENDLY_TITLE = "VERSION_FRIENDLY_TITLE",
+    SET_CONNECTION_USER_IDS = "SET_CONNECTION_USER_IDS",
+    GET_CONVERSATION = "GET_CONVERSATION",
 
     // Errors
     SERVER_ERROR = "SERVER_ERROR",
     OPENAI_RATE_LIMIT_ERROR = "OPENAI_RATE_LIMIT_ERROR",
     OVER_MESSAGE_LIMIT_ERROR = "OVER_MESSAGE_LIMIT_ERROR",
+}
+
+// Get Conversation
+export interface GetConversationResponse {
+    conversation: ConversationItem[];
+}
+
+export interface GetConversationArgs {
+    conversationId: string;
 }
 
 // Ping
@@ -47,6 +69,12 @@ export interface PingArgs {}
 export interface VersionFriendlyTitleResponse {
     title: string;
     version: number;
+}
+
+// Set Connection user ids
+export interface SetConnectionUserIdsArgs {
+    segmentAnonymousId: string;
+    pulumiUserId?: string;
 }
 
 // Create Connection
@@ -80,6 +108,8 @@ export interface GenerateNewOutputArgs {
     program: string;
     model: ChatGptModel;
     version: number;
+
+    originalConversationId?: string;
 }
 
 export interface GenerateNewOutputResponse {
@@ -111,10 +141,14 @@ interface PulumiGPTApiMessage<M extends MessageType, D> {
 // Actions
 export type GenerateNewOutputAction = PulumiGPTApiMessage<MessageType.GENERATE_NEW_OUTPUT, GenerateNewOutputArgs>;
 export type CreateConnectionAction = PulumiGPTApiMessage<MessageType.CREATE_CONNECTION, CreateConnectionArgs>;
+export type SetConnectionUserIdsAction = PulumiGPTApiMessage<MessageType.SET_CONNECTION_USER_IDS, SetConnectionUserIdsArgs>;
+export type GetConversationAction = PulumiGPTApiMessage<MessageType.GET_CONVERSATION, GetConversationArgs>;
 
 export type Action =
     GenerateNewOutputAction |
-    CreateConnectionAction;
+    SetConnectionUserIdsAction |
+    CreateConnectionAction |
+    GetConversationAction;
 
 // Responses
 export type OutputChunk = PulumiGPTApiMessage<MessageType.OUTPUT_CHUNK, OutputChunkResponse>;
@@ -126,6 +160,7 @@ export type VersionTitle = PulumiGPTApiMessage<MessageType.VERSION_FRIENDLY_TITL
 export type OpenAIRateLimit = PulumiGPTApiMessage<MessageType.OPENAI_RATE_LIMIT_ERROR, OpenAIRateLimitErrorResponse>;
 export type OverMessageLimit = PulumiGPTApiMessage<MessageType.OVER_MESSAGE_LIMIT_ERROR, OverMessageLimitErrorResponse>;
 export type Ping = PulumiGPTApiMessage<MessageType.PING, PingResponse>;
+export type GetConversation = PulumiGPTApiMessage<MessageType.GET_CONVERSATION, GetConversationResponse>;
 
 export type Response =
     GenerateNewOutput |
@@ -136,4 +171,5 @@ export type Response =
     VersionTitle |
     OpenAIRateLimit |
     OverMessageLimit | 
-    Ping;
+    Ping |
+    GetConversation;

@@ -95,6 +95,11 @@
                                         @extend .fa;
                                         @extend .fa-copy;
                                     }
+
+                                    &.share {
+                                        @extend .fa;
+                                        @extend .fa-share-alt;
+                                    }
                                 }
                             }
                         }

@@ -3,8 +3,9 @@ import { store, Unsubscribe } from "@stencil/redux";
 import { AppState } from "../../store/state";
 import { setLanguage } from "../../store/actions/preferences";
 import { PulumiAIClient } from "./client";
-import { ChatGptModel, Language, OutputChunkResponse, CreateConnectionResponse } from "./types";
+import { ChatGptModel, Language, OutputChunkResponse, CreateConnectionResponse, GetConversationResponse } from "./types";
 import { SupportedLanguage, LanguageKey } from "../chooser/chooser";
+import { getQueryVariable } from "../../util/util";
 
 import * as clipboard from "clipboard-polyfill";
 import * as marked from "marked";
@@ -55,11 +56,14 @@ export class PulumiAI {
     @Prop()
     signupUrl: string;
 
+    @Prop()
+    siteUrl: string;
+
     @Element()
     private el: HTMLElement;
 
     @State()
-    conversationId: string;
+    private conversationId: string;
 
     @State()
     private running: boolean = false;
@@ -91,6 +95,9 @@ export class PulumiAI {
 
     @State()
     private pingListener: NodeJS.Timeout;
+
+    @State()
+    private existingConversationId: string;
 
     @Prop({ mutable: true })
     model: ChatGptModel;
@@ -196,6 +203,15 @@ export class PulumiAI {
                 setTimeout(() => tipContentEl.textContent = this.copyButtonTooltip, 1000);
             }
         }
+
+        if (tagName === "BUTTON" && el.getAttribute("class")?.includes("share")) {
+            const shareableLink = `${this.siteUrl}ai?convid=${this.conversationId}`;
+            clipboard.writeText(shareableLink);
+            var tipEl = el.closest("pulumi-tooltip");
+            var tipContentEl = tipEl.querySelector("[slot='content']");
+            tipContentEl.textContent = "Copied!";
+            setTimeout(() => tipContentEl.textContent = this.shareButtonTooltip, 1000);
+        }
     }
 
     @Listen("wheel", {
@@ -239,6 +255,11 @@ export class PulumiAI {
         this.selectedLanguage = this.supportedLanguages[0];
         this.connectionStatus = "Not connected";
 
+        this.existingConversationId = getQueryVariable("convid");
+        if (this.existingConversationId) {
+            this.staticWelcomeMessage = this.welcomeContent;
+        }
+
         this.validateProps();
         this.validateGlobals();
     }
@@ -258,6 +279,7 @@ export class PulumiAI {
                 () => this.onOverCapacity(),
                 (error) => this.onError(error),
                 (message) => this.onClose(message),
+                (data) => this.onGetConverstation(data),
             );
             this.client.connect();
 
@@ -279,10 +301,38 @@ export class PulumiAI {
     private onConnected(data: CreateConnectionResponse) {
         this.connectionStatus = "Connected";
         this.conversationId = data.conversationId;
+        
+        if (this.existingConversationId) {
+            console.log("exisiting conversation", this.existingConversationId);
+            this.client.getConversation(this.existingConversationId);
+        }
 
         // We ping the backend every 30 seconds to ensure
         // we are keeping connections alive.
         this.pingListener = setInterval(() => this.client.ping(), 30000);
+    }
+
+    private onGetConverstation(data: GetConversationResponse) {
+        const versions: Version[] = data.conversation.map(c => {
+            return {
+                prompt: c.prompt,
+                source: c.response,
+                language: c.language,
+                markup: this.addButtons(marked.marked.parse(c.response)),
+            };
+        });
+
+        this.currentVersion = versions[versions.length - 1];
+        this.versions = Array.from(versions);
+        this.currentVersion = null;
+
+        this.running = false;
+        this.scroll();
+        this.clear();
+        this.focus();
+
+        // Wait a bit for the versions to render, then colorize them.
+        setTimeout(() => this.highlight(this.outputVersions), 250);
     }
 
     private onSubmit(event: Event) {
@@ -303,8 +353,9 @@ export class PulumiAI {
     }
 
     private copyButtonTooltip = "Copy to clipboard";
+    private shareButtonTooltip = "Copy shareable link";
 
-    private addButtons(versionMarkup: string) {
+    private addButtons(versionMarkup: string, shareable = false) {
         const el = document.createElement("div");
         el.innerHTML = versionMarkup;
 
@@ -331,6 +382,14 @@ export class PulumiAI {
                         <span slot="content">${ this.copyButtonTooltip }</span>
                     </pulumi-tooltip>
                 </li>
+                ${ shareable ? `<li class="ml-2">
+                    <pulumi-tooltip>
+                        <button class="share">
+                            <i></i>
+                        </button>
+                        <span slot="content">${ this.shareButtonTooltip }</span>
+                    </pulumi-tooltip>
+                </li>` : "" }
             </ul>`;
 
             // Reparent the pre element under the code block.
@@ -351,7 +410,7 @@ export class PulumiAI {
 
     private onComplete() {
         const versionMarkup = marked.marked.parse(this.currentVersion.source.replace(" ⎸", ""));
-        const markupWithButtons = this.addButtons(versionMarkup);
+        const markupWithButtons = this.addButtons(versionMarkup, true);
 
         this.currentVersion.markup = markupWithButtons;
         this.versions.push(Object.assign({}, this.currentVersion));
@@ -597,6 +656,7 @@ export class PulumiAI {
             this.input.value,
             this.versions.length,
             this.selectedModel.key,
+            this.existingConversationId,
         );
     }
 
@@ -609,6 +669,10 @@ export class PulumiAI {
     }
 
     private renderWelcomeMessage() {
+        if (this.staticWelcomeMessage) {
+            return;
+        }
+
         const message = this.welcomeContent.split("");
         message.map((char, i) => setTimeout(() => {
             this.animatingWelcomeMessage += char;
