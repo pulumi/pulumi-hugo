@@ -8,4 +8,7 @@ menu:
     weight: 1
 ---
 
-susan will do this later
+- [Comparing Pulumi to other solutions](vs/)
+- [Migrating to Pulumi](migrating-to-pulumi/)
+- [Converting code to Pulumi](converters/)
+- [Importing resources to Pulumi](import/)

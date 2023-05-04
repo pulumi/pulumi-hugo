@@ -8,4 +8,10 @@ menu:
     name: Overview
 ---
 
-susan will do this later
+- [Adopting Pulumi](adopting-pulumi/)
+- [Organizing projects & stacks](organizing-projects-stacks/)
+- [Automation API](automation-api/)
+- [Continuous delivery](continuous-delivery/)
+- [Policy as code](crossguard/)
+- [Pulumi packages](pulumi-packages/)
+- [Testing](testing/)
