@@ -24,23 +24,23 @@ explore what's possible, you've come to the right place.
 
 ### Cloud Providers
 
-{{< resource-providers "digitalocean,linode,vsphere,fastly,equinix-metal,openstack,alicloud,cloudamqp,hcloud,civo,yandex" >}}
+{{< resource-providers "alicloud,eks,artifactory,astra,aviatrix,aws-apigateway,aws-iam,aws-s3-replicated-bucket,aws-static-website,awsx,azapi,azure-quickstart-acr-geo-replication,azure-justrun,cloudamqp,civo,confluentcloud,digitalocean,doppler,ec,equinix-metal,eventstorecloud,exoscale,fastly,flux,gandi,gcp-global-cloudrun,google-cloud-static-website,grafana,harness,heroku,hcloud,koyeb,launchdarkly,linode,metabase,nuage,openstack,oci,ovh,packet,proxmoxve,rootly,scaleway,tls-self-signed-cert,sentry,statuscake,str,sdm,symbiosis,synced-folder,tailscale,upstash,vsphere,yandex,zia,zpa" >}}
 
 ### Infrastructure
 
-{{< resource-providers "aiven,auth0,azuread,azuredevops,consul,docker,kafka,keycloak,kong,mailgun,okta,pagerduty,rabbitmq,rancher2,spotinst,splunk,vault,venafi,opsgenie,rke,confluent,nomad,minio,snowflake" >}}
+{{< resource-providers "aiven,auth0,azuread,azuredevops,buildkite,confluent,consul,databricks,docker,dynatrace,fusionauth,hcp,kafka,keycloak,kong,kubernetes-cert-manager,kubernetes-coredns,mailgun,aws-miniflux,minio,kubernetes-ingress-nginx,nomad,okta,onelogin,opsgenie,pagerduty,pulumiservice,rabbitmq,rancher2,rke,spotinst,splunk,vault,venafi,opsgenie,rke,twingate,snowflake,venafi" >}}
 
 ### Database
 
-{{< resource-providers "mysql,postgresql,mongodbatlas" >}}
+{{< resource-providers "aws-quickstart-aurora-postgres,aws-quickstart-redshift,mysql,postgresql,mongodbatlas" >}}
 
 ### Monitoring
 
-{{< resource-providers "datadog,newrelic,signalfx,wavefront,sumologic" >}}
+{{< resource-providers "checkly,datadog,newrelic,signalfx,sumologic,wavefront" >}}
 
 ### Network
 
-{{< resource-providers "cloudflare,dnsimple,f5bigip,ns1,akamai" >}}
+{{< resource-providers "akamai,aws-quickstart-vpc,cloudflare,dnsimple,f5bigip,ns1,unifi" >}}
 
 ### Version Control
 
@@ -48,7 +48,7 @@ explore what's possible, you've come to the right place.
 
 ### Utilities
 
-{{< resource-providers "random,tls,cloudinit,libvirt" false >}}
+{{< resource-providers "aquasec,cloudinit,command,harbor,libvirt,purrl,random,slack,time,tls,vultr" false >}}
 
 ### Classic Providers
 
