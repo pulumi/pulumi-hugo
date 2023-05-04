@@ -131,3 +131,9 @@ Pulumi is a declarative tool that uses imperative languages to define your end s
 ### How will Pulumi make me more productive?
 
 Pulumi uses strongly typed languages with programming languages that support [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) and the [Language Server Protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol) which means when you are defining Pulumi programs, you rarely need to leave your IDE.
+
+## More FAQs
+
+- [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
+- [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
+- [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)

@@ -64,3 +64,9 @@ menu:
 [pulumi-kx]: https://github.com/pulumi/pulumi-kubernetesx
 [pulumi-kq]: https://github.com/pulumi/pulumi-query
 <!-- markdownlint-enable url -->
+
+## More FAQs
+
+[Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
+[Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
+[Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)
