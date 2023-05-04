@@ -9,4 +9,10 @@ menu:
     weight: 3
 ---
 
-susan will do this later
+Pulumi supports AWS, Azure, Google Cloud, Kubernetes, and over 100 other packages.
+
+- [AWS](aws/)
+- [Azure](azure/)
+- [Google Cloud](gcp/)
+- [Kubernetes](kubernetes/)
+- [All clouds](pkg/)
