@@ -35,7 +35,11 @@
                         {{ if $multipleSessions }}
                             <span>Multiple sessions available. Check the registration form for dates and times.</span>
                         {{ else }}
-                            <h6 class="mt-4"><pulumi-datetime class="uppercase text-orange text-sm font-bold" date="{{ .sortable_date }}"></pulumi-datetime></h6>
+                            {{ if ne .hide_date true }}
+                                <h6 class="mt-4"><pulumi-datetime class="uppercase text-orange text-sm font-bold" date="{{ .sortable_date }}"></pulumi-datetime></h6>
+                            {{ else }}
+                                <h6 class="mt-4">Date to be announced</h6>
+                            {{ end }}
                         {{ end }}
                         <h6 class="mt-2">Duration: {{ .duration }}</h6>
                         {{ if .youtube_url }}
