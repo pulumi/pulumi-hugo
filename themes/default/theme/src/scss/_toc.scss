@@ -7,38 +7,26 @@ $toc-header-spacing: 5px;
 .toc {
     @apply text-sm pb-8;
 
+    li {
+        border-radius: 2px;
+    }
+
     a {
-        @apply text-blue-800 py-0.5 px-1.5 rounded-sm;
+        @apply py-0.5 px-1.5 rounded-sm;
+        color: #364098;
 
         &:hover {
-            background-color: #dbdef7;
-            text-decoration: none !important;
+            text-decoration: #8e8f97 solid underline !important;
+            text-underline-offset: 4px;
+            color: #364098;
         }
     }
 
     .active {
         @apply font-semibold;
-        background-color: #dbdef7;
-
-        &::after {
-            @apply bg-blue-800;
-            content: "";
-            position: absolute;
-            width: 3px;
-            height: 21px;
-            left: 13px;
-        }
-    }
-
-    h5 {
-        @apply font-semibold text-base text-blue-800;
-        margin-top: 16px !important;
-
-        a {
-            &:hover {
-                @apply text-blue-700;
-            }
-        }
+        background-color: #edeffb;
+        border-left: #364098 3px solid;
+        width: fit-content;
     }
 
     ul {
@@ -74,23 +62,20 @@ $toc-header-spacing: 5px;
 .sidenav-topic {
     font-size: 16px;
     margin-left: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .sidenav-subsection {
     @apply mb-2 text-sm;
-}
-
-.sidenav-parent {
-
+    margin-left: 16px;
 }
 
 .toggleButton, .toggleButton-topLevel {
     @apply cursor-pointer;
-    color: #2b2b2c;
-    font-size: 13px;
+    color: #131314;
+    font-size: 11px;
     position: relative;
-    top: -2px;
+    top: -1px;
 }
 
 .header-no-children {
@@ -120,7 +105,7 @@ $toc-header-spacing: 5px;
         display: none;
     }
 
-        .toggleButton-topLevel.right {
+    .toggleButton-topLevel.right {
         display: inline;
     }
 }
@@ -130,7 +115,11 @@ $toc-header-spacing: 5px;
         display: inline;
     }
 
-        .toggleButton-topLevel.right {
+    .toggleButton-topLevel.right {
         display: none;
     }
+}
+
+.toggleButton i {
+    color: #131314;
 }
