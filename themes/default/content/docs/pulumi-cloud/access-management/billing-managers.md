@@ -5,7 +5,7 @@ meta_desc: The Billing Manager role gives customers the ability to have someone 
 menu:
   pulumicloud:
     parent: access-management
-    weight: 3
+    weight: 4
 aliases:
 - /docs/intro/pulumi-service/billing-managers/
 ---

@@ -67,6 +67,6 @@ menu:
 
 ## More FAQs
 
-[Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
-[Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
-[Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)
+* [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
+* [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
+* [Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)

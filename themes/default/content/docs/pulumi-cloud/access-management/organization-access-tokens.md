@@ -5,7 +5,7 @@ meta_desc: Learn how Enterprise and Business Critical customers can manage resou
 menu:
   pulumicloud:
     parent: access-management
-    weight: 1
+    weight: 2
     identifier: pulumi-cloud-org-access-tokens
 aliases:
 - /docs/intro/pulumi-service/organization-access-tokens/

@@ -33,6 +33,6 @@ Deployments run on single-use virtual machines and compute and storage are never
 
 ## More FAQs
 
-[Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
-[Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
-[Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)
+- [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
+- [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
+- [Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)

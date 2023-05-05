@@ -1,6 +1,6 @@
 ---
 title: Pulumi YAML Reference
-linktitle: Pulumi YAML Reference
+linktitle: Reference
 meta_desc: Specification for the Pulumi YAML format and built-in functions
 
 menu:
