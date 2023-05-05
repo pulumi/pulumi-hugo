@@ -36,3 +36,4 @@ Deployments run on single-use virtual machines and compute and storage are never
 - [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
 - [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
 - [Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)
+- [SCIM FAQs](/docs/pulumi-cloud/access-management/scim/faq/)

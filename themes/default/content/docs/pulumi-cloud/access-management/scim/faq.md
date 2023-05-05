@@ -6,7 +6,7 @@ menu:
     pulumicloud:
         identifier: faq-scim
         parent: scim
-        weight: 1
+        weight: 4
 ---
 
 ## FAQ
@@ -30,3 +30,9 @@ If your identity provider doesn't allow you to control the username attribute's 
 ### Can I manage Pulumi-local teams if using SCIM?
 
 Yes. In addition to the SCIM-managed teams, one can also configure and manage Pulumi-local teams in the Pulumi Cloud. See [Teams](/docs/intro/pulumi-cloud/teams/) for how to configure teams in the Pulumi Cloud.
+
+## More FAQs
+
+* [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
+* [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
+* [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)

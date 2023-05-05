@@ -137,3 +137,4 @@ Pulumi uses strongly typed languages with programming languages that support [I
 * [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
 * [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
 * [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
+* [SCIM FAQs](/docs/pulumi-cloud/access-management/scim/faq/)

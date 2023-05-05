@@ -1,6 +1,6 @@
 ---
 title_tag: "Pulumi Cloud: Team Access Tokens"
-title: "Team access tokens"
+title: "Team tokens"
 meta_desc: Team Access Tokens enable access to be scoped to the stack access of a Pulumi Team, rather than to the entire organization’s stacks. Learn more here.
 menu:
   pulumicloud:

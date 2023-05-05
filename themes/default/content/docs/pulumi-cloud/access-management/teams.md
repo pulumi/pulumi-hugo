@@ -1,6 +1,6 @@
 ---
 title_tag: "Pulumi Cloud: Teams and RBAC"
-title: "Teams and RBAC"
+title: "Teams & RBAC"
 meta_desc: The Pulumi Cloud offers role-based access control (RBAC) using teams. Learn how how to create and manage teams in this guide.
 menu:
   pulumicloud:

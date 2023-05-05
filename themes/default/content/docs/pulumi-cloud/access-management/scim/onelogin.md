@@ -6,7 +6,7 @@ menu:
     pulumicloud:
         identifier: onelogin-scim
         parent: scim
-        weight: 1
+        weight: 3
 ---
 
 This document outlines the steps required to help you configure automatic provisioning/deprovisioning of your users and groups in Pulumi using SCIM 2.0.

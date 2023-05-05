@@ -1,6 +1,6 @@
 ---
 title_tag: SAML Single Sign-On (SSO) Guides
-title: SAML single sign-on (SSO)
+title: SAML(SSO)
 meta_desc:
   This page provides an overview of how to configure any SAML 2.0 identity provider
   with the Pulumi Cloud.

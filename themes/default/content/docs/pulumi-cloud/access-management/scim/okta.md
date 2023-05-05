@@ -6,7 +6,7 @@ menu:
     pulumicloud:
         identifier: okta-scim
         parent: scim
-        weight: 1
+        weight: 2
 ---
 
 This document outlines the steps required to help you configure automatic provisioning/deprovisioning of your users and groups in Pulumi using SCIM 2.0.
