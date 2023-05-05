@@ -26,6 +26,14 @@ $toc-header-spacing: 5px;
         background-color: #edeffb;
         border-left: #364098 3px solid;
         width: fit-content;
+
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+
+    p.active a:hover,
+    li.active a:hover {
         text-decoration: none !important;
     }
 
