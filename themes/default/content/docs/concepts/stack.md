@@ -6,7 +6,9 @@ menu:
   concepts:
     weight: 3
 
-aliases: ["/docs/reference/stack/"]
+aliases:
+- /docs/reference/stack/
+- /docs/tour/programs-exports/
 ---
 
 Every Pulumi program is deployed to a _stack_. A stack is an isolated, independently [configurable](/docs/intro/concepts/config/)
