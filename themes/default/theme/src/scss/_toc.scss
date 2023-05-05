@@ -17,16 +17,16 @@ $toc-header-spacing: 5px;
 
         &:hover {
             text-decoration: #8e8f97 solid underline !important;
-            text-underline-offset: 4px;
+            text-underline-offset: 6px;
             color: #364098;
         }
     }
 
     .active {
-        @apply font-semibold;
         background-color: #edeffb;
         border-left: #364098 3px solid;
         width: fit-content;
+        text-decoration: none !important;
     }
 
     ul {
@@ -38,23 +38,14 @@ $toc-header-spacing: 5px;
         width: fit-content;
         padding-right: $toc-header-spacing;
 
-        margin-top: 24px;
+        margin-top: 16px;
         margin-bottom: 0;
 
         &.active {
-            background-color: #dbdef7;
-            transition: background-color 2.5s;
-
-            a {
-                &::before {
-                    @apply bg-blue-800;
-                    content: "";
-                    position: absolute;
-                    width: 3px;
-                    height: 24px;
-                    left: 9px;
-                }
-            }
+            background-color: #edeffb;
+            border-left: #364098 3px solid;
+            width: fit-content;
+            text-decoration: none !important;
         }
     }
 }
@@ -76,6 +67,7 @@ $toc-header-spacing: 5px;
     font-size: 11px;
     position: relative;
     top: -1px;
+    padding-right: 6px;
 }
 
 .header-no-children {
