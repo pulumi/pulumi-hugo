@@ -12,7 +12,7 @@ menu:
 
 - [Get started guide](get-started/)
 
-## Packages
+## Providers
 
 ### AWS Classic
 
@@ -61,3 +61,11 @@ menu:
 - [Using AWS Identity & access management (IAM)](aws-crosswalk/iam/)
 - [Using AWS Lambda & Serverless events](aws-crosswalk/lambda/)
 - [Using AWS VPC](aws-crosswalk/vpc/)
+
+## Policies
+
+- [Policies for AWS](/docs/using-pulumi/crossguard/awsguard/)
+
+## Converters
+
+- [Convert CloudFormation to Pulumi](/cf2pulumi/)
