@@ -80,23 +80,30 @@
 
 .search-header-container {
     background-color: map-get($gray, 100);
+    border-bottom: 0px;
     height: 50px;
+    
+    @screen md {
+        height: 51px;
+        border-bottom: 1px solid #e5e5e9;
+    }
+
     .tabs {
         .tab {
-            cursor: pointer;
-            height: 50px;
-            padding-left: 18px;
-            padding-right: 18px;
-            display: flex;
             align-items: center;
-            justify-content: center;
+            background-color: map-get($gray, 100);
+            color: map-get($gray, 500);
+            cursor: pointer;
+            display: flex;
             font-family: "Gilroy";
             font-size: 16px;
             font-weight: 500;
+            height: 50px;
+            justify-content: center;
             line-height: 26px;
-            color: map-get($gray, 500);
-            background-color: map-get($gray, 100);
             padding-bottom: 3px;
+            padding-left: 24px;
+            padding-right: 24px;
             .tab-icon {
                 background-color: map-get($gray, 100);
                 padding-right: 10px;
@@ -104,24 +111,21 @@
         }
 
         .tab-selected {
-            height: 50px;
+            align-items: center;
+            background-color: #F2F2F4;
+            border-bottom: 3px solid map-get($brand, "violet");
+            color: map-get($gray, 900);
             cursor: pointer;
+            display: flex;
+            font-family: "Gilroy";
+            font-size: 16px;
+            font-weight: 700;
+            height: 50px;
+            justify-content: center;
+            line-height: 26px;
             padding-left: 18px;
             padding-right: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            // background-color: map-get($gray, 200);
-            background-color: #F2F2F4;
-            font-size: 16px;
-            line-height: 26px;
-            font-family: "Gilroy";
-            font-weight: 700;
-            color: map-get($gray, 900);
-            // border-bottom: 3px solid map-get($purple, 600);
-            border-bottom: 3px solid map-get($brand, "violet");
             .tab-icon {
-                // background-color: map-get($gray, 200);
                 background-color: #F2F2F4;
                 padding-right: 10px;
             }
@@ -173,11 +177,15 @@
             }
 
             #search-query {
-                font-family: "Gilroy";
+                font-family: "Gilroy" !important;
                 font-size: 16px;
                 font-weight: 500;
-                height: 7px;
+                height: 5px;
                 line-height: 26px;
+            }
+
+            form > i {
+                font-size: 14px;
             }
 
             form > button {
