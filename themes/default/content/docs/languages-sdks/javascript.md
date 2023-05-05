@@ -208,7 +208,7 @@ runtime:
 
 ## Package Documentation
 
-SDK reference documentation, organized by language.
+In addition to the standard and cloud-agnostic packages the [Pulumi Registry](/registry/) houses 100+ Node.js packages.
 
 ### Standard Packages
 

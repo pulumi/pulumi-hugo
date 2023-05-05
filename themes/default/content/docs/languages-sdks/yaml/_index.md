@@ -113,3 +113,7 @@ runtime:
 
 Pulumi will run whatever program and arguments are specified in `compiler` and
 interpret the output as a Pulumi YAML program.
+
+## YAML Packages
+
+The [Pulumi Registry](/registry/) houses 100+ YAML packages.

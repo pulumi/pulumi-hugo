@@ -280,6 +280,8 @@ SDK reference documentation, organized by language.
 
 ### Standard Packages
 
+In addition to the standard packages the [Pulumi Registry](/registry/) houses 100+ .NET packages.
+
 <dl class="tabular">
     <dt>Pulumi SDK</dt>
     <dd><a href="/docs/reference/pkg/nodejs/pulumi/pulumi">@pulumi/pulumi</a></dd>

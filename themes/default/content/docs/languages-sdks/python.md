@@ -150,7 +150,7 @@ $ venv/bin/pip install -r requirements.txt
 
 ## Package Documentation
 
-SDK reference documentation, organized by language.
+In addition to the standard packages the [Pulumi Registry](/registry/) houses 100+ Python packages.
 
 ### Standard Packages
 

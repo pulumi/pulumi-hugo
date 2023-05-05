@@ -75,7 +75,7 @@ The Pulumi programming model includes a core concept of `Input` and `Output` val
 
 ## Package Documentation
 
-SDK reference documentation, organized by language.
+In addition to the standard packages the [Pulumi Registry](/registry/) houses 100+ Go packages.
 
 ### Standard Packages
 
