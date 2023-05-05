@@ -12,7 +12,7 @@ menu:
 
 - [Get started guide](get-started/)
 
-## Packages
+## Providers
 
 ### Kubernetes
 
