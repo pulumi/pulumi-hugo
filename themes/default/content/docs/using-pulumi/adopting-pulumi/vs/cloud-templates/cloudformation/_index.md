@@ -6,6 +6,8 @@ menu:
   usingpulumi:
     parent: vs
     weight: 2
+aliases:
+- /docs/intro/vs/cloud-templates/cloudformation/
 ---
 
 <style>

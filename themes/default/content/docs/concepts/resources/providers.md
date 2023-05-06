@@ -6,6 +6,8 @@ menu:
   concepts:
     parent: resources
     weight: 4
+aliases:
+- /docs/intro/concepts/resources/providers/
 ---
 
 A resource provider handles communications with a cloud service to create, read, update, and delete the resources you define in your Pulumi programs. Pulumi passes your code to a language host such as Node.js, waits to be notified of resource registrations, assembles a model of your desired state, and calls on the resource provider to produce that state. The resource provider translates those requests into API calls to the cloud service.

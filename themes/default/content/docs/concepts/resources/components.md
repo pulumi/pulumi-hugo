@@ -6,6 +6,8 @@ menu:
   concepts:
     parent: resources
     weight: 3
+aliases:
+- /docs/intro/concepts/resources/components/
 ---
 
 A component resource is a logical grouping of resources. Components usually instantiate a set of related resources in their constructor, aggregate them as children, and create a larger, useful abstraction that encapsulates their implementation details.

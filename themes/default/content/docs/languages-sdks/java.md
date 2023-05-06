@@ -6,6 +6,8 @@ meta_desc: An overview of how to use the Java language with Pulumi for infrastru
 menu:
   languages:
     weight: 4
+aliases:
+- /docs/intro/languages/java/
 ---
 
 <img src="/logos/tech/java.svg" align="right" width="90" style="padding:8px; margin-top: -64px">

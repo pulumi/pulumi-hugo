@@ -6,6 +6,8 @@ menu:
     identifier: converters
     parent: adopting-pulumi
     weight: 4
+aliases:
+- /docs/converters/
 ---
 
 Pulumi converters allow you to convert ARM, CloudFormation, Kubernetes CustomResources, Kubernetes YAML, and Terraform to Pulumi.

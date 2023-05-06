@@ -2,11 +2,12 @@
 title: Concepts
 title_tag: Automation API Concepts & Terminology
 meta_desc: This page contains an overview of core concepts when using Automation API.
-weight: 1
-
+weight: 2
 menu:
   usingpulumi:
     parent: automation-api
+aliases:
+- /docs/guides/automation-api/concepts-terminology/
 ---
 
 Automation API lets you define a Pulumi program as a function within your codebase rather than in a separate project and use methods to get and set configuration parameters programmatically.

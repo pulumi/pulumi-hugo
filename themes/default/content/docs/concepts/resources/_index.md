@@ -6,6 +6,8 @@ menu:
   concepts:
     identifier: resources
     weight: 4
+aliases:
+- /docs/intro/concepts/resources/
 ---
 
 <script>

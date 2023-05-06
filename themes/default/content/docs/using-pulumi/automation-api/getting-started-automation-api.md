@@ -3,10 +3,11 @@ title: Get started
 title_tag: Getting Started with Automation API
 meta_desc: This page contains a getting started guide for Automation API.
 weight: 1
-
 menu:
     usingpulumi:
         parent: automation-api
+aliases:
+- /docs/guides/automation-api/getting-started-automation-api/
 ---
 
 Pulumi’s Automation API enables you to provision your infrastructure programmatically using the Pulumi engine by exposing Pulumi programs and stacks as strongly-typed and composable building blocks.

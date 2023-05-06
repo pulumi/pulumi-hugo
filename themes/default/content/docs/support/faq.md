@@ -1,5 +1,5 @@
 ---
-title: FAQs
+title: FAQ
 meta_desc: A collection of Frequently Asked Questions (FAQ) about Pulumi, including topics like secrets management, Pulumi Cloud, and more.
 menu:
   support:

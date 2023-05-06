@@ -6,6 +6,8 @@ menu:
     usingpulumi:
         identifier: pulumi-packages
         weight: 6
+aliases:
+- /docs/guides/pulumi-packages/
 ---
 
 Pulumi Packages are the core technology that enables cloud infrastructure resource provisioning to be defined once, and made available to users in all Pulumi languages. With Pulumi Packages, [Resources and Components](/docs/intro/concepts/resources/) can be written once, in your preferred language, and made available in all the other languages supported by Pulumi.

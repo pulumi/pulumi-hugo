@@ -7,15 +7,13 @@ keywords:
 - aws lambda
 - function serialization
 - pulumi sdk
-
 menu:
   concepts:
     weight: 9
-
-aliases: [
-    "/docs/reference/serializing-functions/",
-    "/docs/tutorials/aws/serializing-functions/"
-]
+aliases:
+- /docs/reference/serializing-functions/
+- /docs/tutorials/aws/serializing-functions/
+- /docs/intro/concepts/function-serialization/
 ---
 
 {{% notes "info" %}}

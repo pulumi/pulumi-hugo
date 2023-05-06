@@ -6,6 +6,8 @@ menu:
   concepts:
     parent: resources
     weight: 1
+aliases:
+- /docs/intro/concepts/resources/names/
 ---
 
 Each resource in Pulumi has a [logical name](#logicalname) and a [physical name](#autonaming).  The logical name is how the resource is known inside Pulumi, and establishes a notion of identity within Pulumi even when the physical resource might need to change (for example, during a replacement).  The physical name is the name used for the resource in the cloud provider that a Pulumi program is deploying to.

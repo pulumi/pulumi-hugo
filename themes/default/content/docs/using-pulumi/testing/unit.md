@@ -3,10 +3,11 @@ title_tag: Unit Testing of Pulumi Programs
 title: Unit testing
 meta_desc: "Guide to unit testing of Pulumi programs: mock-based tests across Node.js, Python, Go, and .NET."
 weight: 1
-
 menu:
   usingpulumi:
     parent: testing
+aliases:
+- /docs/guides/testing/unit/
 ---
 
 Pulumi programs are authored in a general-purpose language like TypeScript, Python, Go, C# or Java. The full power of each language is available, including access to tools and libraries for that runtime, including testing frameworks.

@@ -7,8 +7,9 @@ menu:
     usingpulumi:
         parent: cont_delivery
         weight: 1
-
-aliases: ["/docs/console/continuous-delivery/jenkins/"]
+aliases:
+- /docs/console/continuous-delivery/jenkins/
+- /docs/guides/continuous-delivery/jenkins/
 ---
 
 This document will help you setup a [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) to deploy a sample app to Azure using Pulumi.

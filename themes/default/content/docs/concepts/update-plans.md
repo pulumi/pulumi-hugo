@@ -4,10 +4,11 @@ meta_desc: Learn about Pulumi update plans and how they can be used.
 menu:
   concepts:
     weight: 11
-
 aliases:
-  - /updateplans/
-  - /docs/intro/concepts/plans/
+- /updateplans/
+- /docs/intro/concepts/plans/
+- /docs/intro/concepts/update-plans/
+- /docs/intro/vs/
 ---
 
 {{% notes type="warning" %}}

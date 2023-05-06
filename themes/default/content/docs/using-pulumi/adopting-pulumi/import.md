@@ -5,6 +5,8 @@ menu:
   usingpulumi:
     parent: adopting-pulumi
     weight: 3
+aliases:
+- /docs/guides/adopting/import/
 ---
 
 Most infrastructure projects require working with existing cloud resources, either by building on top of existing

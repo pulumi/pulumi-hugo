@@ -3,11 +3,12 @@ title_tag: "Using Spinnaker | CI/CD"
 title: Using Spinnaker
 linktitle: Spinnaker
 meta_desc: "This page provides an overview of how to use Pulumi Plugin for Spinnaker to run Pulumi apps."
-
 menu:
     usingpulumi:
         parent: cont_delivery
         weight: 1
+aliases:
+- /docs/guides/continuous-delivery/spinnaker/
 ---
 
 This page provides an overview of how to use the Pulumi Plugin for Spinnaker to run Pulumi apps. Pulumi doesn't require

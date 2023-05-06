@@ -3,10 +3,11 @@ title_tag: Integration Testing of Pulumi Programs
 title: Integration testing
 meta_desc: "Guide to integration testing of Pulumi programs with ephemeral environments."
 weight: 3
-
 menu:
   usingpulumi:
     parent: testing
+aliases:
+- /docs/guides/testing/integration/
 ---
 
 Integration testing focuses on black-box testing of Pulumi programs. An integration test runs the program in combination with the Pulumi CLI to deploy infrastructure to an ephemeral environment. It verifies the properties of the created resources and then destroys the infrastructure again.

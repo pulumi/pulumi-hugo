@@ -4,11 +4,12 @@ title: Concepts
 meta_desc: This page contains an overview of core concepts when interacting with Pulumi CrossGuard and
            Policy Pack.
 weight: 2
-
 menu:
   usingpulumi:
     parent: crossguard
     identifier: crossguard-core-concepts
+aliases:
+- /docs/guides/crossguard/core-concepts/
 ---
 
 Policies can be written in TypeScript/JavaScript (Node.js) or Python and can be applied to Pulumi stacks written in any language. More information on [language support for policies](/docs/guides/crossguard#languages).

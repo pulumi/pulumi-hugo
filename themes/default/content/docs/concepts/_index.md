@@ -8,7 +8,9 @@ menu:
     name: Overview
     weight: 4
 
-aliases: ["/docs/reference/concepts/"]
+aliases:
+- /docs/reference/concepts/
+- /docs/intro/concepts/
 ---
 
 Pulumi is a modern [infrastructure as code](/what-is/what-is-infrastructure-as-code/) platform. It leverages existing programming languages---TypeScript, JavaScript, Python, Go, .NET, Java, and markup languages like YAML---and their native ecosystem to interact with cloud resources through the Pulumi SDK. A downloadable CLI, runtime, libraries, and a hosted service work together to deliver a robust way of provisioning, updating, and managing cloud infrastructure.

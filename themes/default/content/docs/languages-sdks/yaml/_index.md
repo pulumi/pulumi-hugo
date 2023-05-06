@@ -8,7 +8,9 @@ menu:
     identifier: yaml-language
     weight: 5
 
-aliases: ["/yaml/"]
+aliases:
+- /yaml/
+- /docs/intro/languages/yaml/
 ---
 
 <img src="/logos/tech/yaml.svg" align="right" width="150" style="padding:8px; margin-top: -64px">

@@ -7,7 +7,9 @@ menu:
     name: Overview
     weight: 6
 
-aliases: ["/docs/reference/languages/"]
+aliases:
+- /docs/reference/languages/
+- /docs/intro/languages/
 ---
 
 {{< get-started-note >}}

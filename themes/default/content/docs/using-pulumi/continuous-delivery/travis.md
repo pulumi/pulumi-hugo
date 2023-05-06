@@ -8,10 +8,10 @@ menu:
     usingpulumi:
         parent: cont_delivery
         weight: 1
-
 aliases:
 - /docs/reference/cd-travis/
 - /docs/console/continuous-delivery/travis/
+- /docs/guides/continuous-delivery/travis/
 ---
 
 This page details how to use [Travis CI](https://travis-ci.com/) to manage deploying

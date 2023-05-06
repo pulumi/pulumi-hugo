@@ -6,6 +6,8 @@ menu:
     usingpulumi:
         identifier: automation-api
         weight: 3
+aliases:
+- /docs/guides/automation-api/
 ---
 
 The Pulumi Automation API is a programmatic interface for running Pulumi programs without the Pulumi CLI. Conceptually, this can be thought of as encapsulating the functionality of the CLI (`pulumi up`, `pulumi preview`, `pulumi destroy`, `pulumi stack init`, etc.) but with more flexibility. It is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI.

@@ -6,8 +6,9 @@ meta_desc: An overview of how to use Python with Pulumi for infrastructure as co
 menu:
   languages:
     weight: 2
-
-aliases: ["/docs/reference/python/"]
+aliases:
+- /docs/reference/python/
+- /docs/intro/languages/python/
 ---
 
 <img src="/logos/tech/logo-python.svg" align="right" width="150" style="padding:8px; margin-top: -64px">

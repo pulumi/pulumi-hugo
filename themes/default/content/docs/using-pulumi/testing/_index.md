@@ -6,6 +6,8 @@ menu:
     usingpulumi:
         identifier: testing
         weight: 7
+aliases:
+- /docs/guides/testing/
 ---
 
 Because Pulumi uses general purpose programming languages to provision cloud resources, you can take advantage of native testing frameworks and perform **automated tests** of your infrastructure.

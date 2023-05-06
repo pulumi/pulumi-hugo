@@ -5,6 +5,8 @@ menu:
   usingpulumi:
     parent: migrating
     weight: 4
+aliases:
+- /docs/guides/adopting/from_azure/
 ---
 
 <img src="/logos/tech/azure_arm.png" align="right" class="h-32 px-8 pb-4">

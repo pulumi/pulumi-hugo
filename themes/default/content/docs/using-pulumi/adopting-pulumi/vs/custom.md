@@ -6,9 +6,9 @@ menu:
   usingpulumi:
     parent: vs
     weight: 8
-
 aliases:
 - /docs/reference/vs/custom/
+- /docs/intro/vs/custom/
 ---
 
 Many organizations start out by manually managing their infrastructure. This often begins by pointing and clicking in

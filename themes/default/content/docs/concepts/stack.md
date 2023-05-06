@@ -5,10 +5,10 @@ meta_desc: Every Pulumi program is deployed to a stack and a project can have as
 menu:
   concepts:
     weight: 3
-
 aliases:
 - /docs/reference/stack/
 - /docs/tour/programs-exports/
+- /docs/intro/concepts/stack/
 ---
 
 Every Pulumi program is deployed to a _stack_. A stack is an isolated, independently [configurable](/docs/intro/concepts/config/)

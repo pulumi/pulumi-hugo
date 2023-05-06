@@ -5,6 +5,8 @@ menu:
   usingpulumi:
     parent: migrating
     weight: 5
+aliases:
+- /docs/guides/adopting/from_kubernetes/
 ---
 
 <img src="/logos/tech/k8s.svg" align="right" class="h-16 px-8 pb-4">

@@ -7,6 +7,8 @@ menu:
     identifier: migrating
     parent: adopting-pulumi
     weight: 2
+aliases:
+- /docs/guides/adopting/
 ---
 
 If you've fallen in love with Pulumi, it might not be obvious how to adopt it. For brand new projects, it's easy: start writing your infrastructure as code using Pulumi from the start. But what if you already have infrastructure stood up? And perhaps even actively serving a critical business need? In these cases, you may wonder, is it even possible to adopt Pulumi, without downtime or a major disturbance to your existing infrastructure? The answer is **yes**!

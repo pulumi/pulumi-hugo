@@ -3,11 +3,12 @@ title_tag: "Using JetBrains TeamCity | CI/CD"
 title: Using JetBrains TeamCity
 linktitle: JetBrains TeamCity
 meta_desc: "This page provides an overview of how to use Pulumi with JetBrains TeamCity."
-
 menu:
     usingpulumi:
         parent: cont_delivery
         weight: 1
+aliases:
+- /docs/guides/continuous-delivery/teamcity/
 ---
 
 This page details how to use [JetBrains TeamCity](https://www.jetbrains.com/teamcity/) to deploy a sample infrastructure, using Pulumi. In the example below, we will deploy to AWS, but any cloud can be used.

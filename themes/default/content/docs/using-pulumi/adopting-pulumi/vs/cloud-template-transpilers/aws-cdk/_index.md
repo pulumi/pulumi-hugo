@@ -6,6 +6,8 @@ menu:
   usingpulumi:
     parent: vs
     weight: 3
+aliases:
+- /docs/intro/vs/cloud-template-transpilers/aws-cdk/
 ---
 
 <style>

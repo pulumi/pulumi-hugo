@@ -4,10 +4,11 @@ title: Writing Policy Packs
 meta_desc: This page contains best practices for writing policy packs in Pulumi.
 linktitle: Best practices
 weight: 4
-
 menu:
   usingpulumi:
     parent: crossguard
+aliases:
+- /docs/guides/crossguard/best-practices/
 ---
 
 ## Naming Policies

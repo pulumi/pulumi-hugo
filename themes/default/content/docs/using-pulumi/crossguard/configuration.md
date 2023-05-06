@@ -4,10 +4,11 @@ title: Configurable Policy Packs
 meta_desc: Configuration allows you to write flexible policies that can be reused across you organization.
 linktitle: Configuration
 weight: 3
-
 menu:
   usingpulumi:
     parent: crossguard
+aliases:
+- /docs/guides/crossguard/configuration/
 ---
 
 <!-- markdownlint-disable ul code -->

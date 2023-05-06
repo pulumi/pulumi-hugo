@@ -7,7 +7,8 @@ menu:
     parent: vs
     weight: 1
 aliases:
-    - /docs/reference/vs/terraform/
+- /docs/reference/vs/terraform/
+- /docs/intro/vs/terraform/
 ---
 
 <style>

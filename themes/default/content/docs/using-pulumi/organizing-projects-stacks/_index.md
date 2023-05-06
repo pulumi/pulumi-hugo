@@ -6,10 +6,10 @@ menu:
   usingpulumi:
     weight: 2
 
-aliases: [
-  "/docs/reference/organizing-stacks-projects/",
-  "/docs/intro/concepts/organizing-stacks-projects/"
-]
+aliases:
+- /docs/reference/organizing-stacks-projects/
+- /docs/intro/concepts/organizing-stacks-projects/
+- /docs/guides/organizing-projects-stacks/
 ---
 
 [Projects](/docs/intro/concepts/project/) and [stacks](/docs/intro/concepts/stack/) are intentionally flexible so that they can accommodate

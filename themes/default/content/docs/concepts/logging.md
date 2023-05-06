@@ -5,6 +5,8 @@ meta_desc: An overview of the Pulumi logging functionality used for debugging an
 menu:
   concepts:
     weight: 10
+aliases:
+- /docs/intro/concepts/logging/
 ---
 
 The {{< pulumi-log >}} collection of functions allow you to log diagnostics, warnings, or errors with the Pulumi engine. These are displayed, alongside all other Pulumi output, in the CLI and in the Pulumi Cloud. Events are logged and kept for historical purposes in case you want to audit or diagnose a past event.

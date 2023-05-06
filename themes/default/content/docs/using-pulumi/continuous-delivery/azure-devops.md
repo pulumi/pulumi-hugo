@@ -12,6 +12,7 @@ menu:
 aliases:
 - /docs/reference/cd-azure-devops/
 - /docs/console/continuous-delivery/azure-devops/
+- /docs/guides/continuous-delivery/azure-devops/
 ---
 
 This page details how to use [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) to manage deploying

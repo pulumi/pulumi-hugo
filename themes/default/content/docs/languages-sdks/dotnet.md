@@ -6,8 +6,9 @@ meta_desc: An overview of how to use .NET languages like C# and F# with Pulumi f
 menu:
   languages:
     weight: 3
-
-aliases: ["/dotnet/"]
+aliases:
+- /dotnet/
+- /docs/intro/languages/dotnet/
 ---
 
 <img src="/logos/tech/dotnet.png" align="right" width="150" style="padding:8px; margin-top: -64px">

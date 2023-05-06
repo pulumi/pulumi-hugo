@@ -5,6 +5,8 @@ menu:
   usingpulumi:
     parent: migrating
     weight: 2
+aliases:
+- /docs/guides/adopting/from_terraform/
 ---
 
 If your infrastructure was provisioned with Terraform, there are a number of options that will help you adopt Pulumi.

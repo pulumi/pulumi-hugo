@@ -5,11 +5,11 @@ meta_desc: This page provides an overview of how Pulumi manages cloud applicatio
 menu:
   concepts:
     weight: 6
-
 aliases:
 - /docs/reference/config/
 - /docs/tour/programs-configuration/
 - /docs/tour/programs-configuring/
+- /docs/intro/concepts/config/
 ---
 
 In many cases, different stacks for a single project will need differing values. For instance, you may want to use a different size for your AWS EC2 instance, or a different number of servers for your Kubernetes cluster between your development and production stacks.

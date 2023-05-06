@@ -5,8 +5,9 @@ meta_desc: Resource properties are treated specially in Pulumi, both for purpose
 menu:
   concepts:
     weight: 5
-
-aliases: "/docs/reference/inputs-outputs/"
+aliases:
+- /docs/reference/inputs-outputs/
+- /docs/intro/concepts/inputs-outputs/
 
 ---
 

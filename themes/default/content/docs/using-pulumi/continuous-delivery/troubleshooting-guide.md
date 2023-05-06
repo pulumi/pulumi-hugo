@@ -6,6 +6,8 @@ menu:
     usingpulumi:
         parent: cont_delivery
         weight: 2
+aliases:
+- /docs/guides/continuous-delivery/troubleshooting-guide/
 ---
 
 In order to understand the errors encountered during an automated pipeline execution, it is important to understand

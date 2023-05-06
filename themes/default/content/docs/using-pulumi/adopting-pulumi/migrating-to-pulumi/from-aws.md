@@ -5,6 +5,8 @@ menu:
   usingpulumi:
     parent: migrating
     weight: 3
+aliases:
+- /docs/guides/adopting/from_aws/
 ---
 
 <img src="/logos/tech/aws_cloudformation.png" align="right" class="h-32 px-8 pb-4">

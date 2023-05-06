@@ -3,7 +3,7 @@ title: Pulumi vs. Cloud Template Transpilers
 meta_desc: Learn about the major differences between Pulumi and cloud template transpiler solutions like AWS CDK and Troposphere.
 linktitle: Cloud Template Transpilers
 aliases:
-  - /docs/intro/vs/cloud_template_transpilers/
+- /docs/intro/vs/cloud_template_transpilers/
 ---
 
 Because of [the challenges of writing raw YAML/JSON by hand](/docs/intro/vs/cloud-templates), two notable

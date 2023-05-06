@@ -6,8 +6,9 @@ meta_desc: Learn how to use Node.js languages like JavaScript and TypeScript wit
 menu:
   languages:
     weight: 1
-
-aliases: ["/docs/reference/javascript/"]
+aliases:
+- /docs/reference/javascript/
+- /docs/intro/languages/javascript/
 ---
 
 <img src="/logos/tech/logo-nodejs.png" align="right" width="150" style="padding:8px; margin-top: -64px">

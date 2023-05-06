@@ -10,7 +10,9 @@ menu:
   concepts:
     weight: 5
 
-aliases: ["/docs/reference/state/"]
+aliases:
+- /docs/reference/state/
+- /docs/intro/concepts/state/
 ---
 
 Pulumi stores metadata about your infrastructure so that it can manage your cloud resources. This metadata is called _state_. Each [stack](/docs/intro/concepts/stack/) has its own state, and state is how Pulumi knows when and how to create, read, delete, or update cloud resources.

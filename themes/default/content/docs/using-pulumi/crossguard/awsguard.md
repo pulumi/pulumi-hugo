@@ -5,10 +5,11 @@ meta_desc: AWSGuard codifies best practices for AWS in a library that you can co
            use to enforce these best practices for your own Pulumi stacks or organization.
 linktitle: AWSGuard
 weight: 3
-
 menu:
   usingpulumi:
     parent: crossguard
+aliases:
+- /docs/guides/crossguard/awsguard/
 ---
 <!-- markdownlint-disable ul code -->
 

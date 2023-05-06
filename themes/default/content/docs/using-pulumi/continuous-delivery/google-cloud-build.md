@@ -7,10 +7,10 @@ menu:
     usingpulumi:
         parent: cont_delivery
         weight: 1
-
 aliases:
 - /docs/reference/cd-google-cloud-build/
 - /docs/console/continuous-delivery/google-cloud-build/
+- /docs/guides/continuous-delivery/google-cloud-build/
 ---
 
 ## Prerequisites

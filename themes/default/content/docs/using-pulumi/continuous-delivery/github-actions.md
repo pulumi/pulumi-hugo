@@ -7,10 +7,10 @@ menu:
     usingpulumi:
         parent: cont_delivery
         weight: 1
-
 aliases:
 - /docs/reference/cd-github-actions/
 - /docs/console/continuous-delivery/github-actions/
+- /docs/guides/continuous-delivery/github-actions/
 ---
 
 {{% notes type="info" %}}

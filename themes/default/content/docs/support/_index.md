@@ -6,9 +6,8 @@ menu:
   support:
     name: Overview
     weight: 9
-
 aliases:
-  - /docs/troubleshooting/overview/
+- /docs/troubleshooting/overview/
 ---
 
 Pulumi is here to help! Try reviewing our troubleshooting or FAQ docs, or reach out to support.

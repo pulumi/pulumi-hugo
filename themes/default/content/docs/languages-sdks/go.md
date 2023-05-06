@@ -6,6 +6,8 @@ meta_desc: An overview of how to use the Go language with Pulumi for infrastruct
 menu:
     languages:
         weight: 4
+aliases:
+- /docs/intro/languages/go/
 ---
 
 <img src="/logos/tech/logo-golang.png" align="right" width="150" style="padding:8px; margin-top: -64px">

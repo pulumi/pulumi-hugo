@@ -7,7 +7,6 @@ menu:
   cli:
     name: Overview
     weight: 3
-
 aliases:
 - /docs/reference/commands/
 - /docs/tour/basics-deploying/
@@ -15,6 +14,7 @@ aliases:
 - /docs/tour/basics-previewing/
 - /docs/tour/basics-up/
 - /docs/tour/basics-updating/
+- /docs/reference/cli/
 ---
 
 Pulumi is controlled primarily using the command line interface (CLI). It works in conjunction with the Pulumi Cloud

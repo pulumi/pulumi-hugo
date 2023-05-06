@@ -5,6 +5,8 @@ meta_desc: This page provides an overview of how Pulumi manages sensitive config
 menu:
   concepts:
     weight: 7
+aliases:
+- docs/intro/concepts/secrets/
 ---
 
 All resource input and output values are recorded as [`state`](/docs/intro/concepts/state), and are stored in the Pulumi Cloud, a file, or a pluggable provider that you choose. These raw values are usually just server names, configuration settings, etc. However, these values sometimes contain sensitive data, such as database passwords or service tokens. **Pulumi never sends authentication secrets or credentials to the Pulumi Cloud**.
