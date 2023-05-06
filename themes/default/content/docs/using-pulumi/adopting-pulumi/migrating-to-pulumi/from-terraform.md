@@ -3,6 +3,7 @@ title: "Terraform"
 meta_desc: Migrate your existing Terraform HCL and/or coexist with existing workspaces.
 menu:
   usingpulumi:
+    identifier: from-terraform
     parent: migrating
     weight: 2
 aliases:

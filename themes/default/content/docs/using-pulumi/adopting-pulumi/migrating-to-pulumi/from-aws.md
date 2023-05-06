@@ -3,6 +3,7 @@ title: "AWS CloudFormation"
 meta_desc: Migrate your existing AWS CloudFormation JSON/YAML and/or coexist with existing stacks.
 menu:
   usingpulumi:
+    identifier: from-aws-cloudformation
     parent: migrating
     weight: 3
 aliases:
