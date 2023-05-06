@@ -1,12 +1,12 @@
 ---
 title_tag: "Using AWS Elastic Load Balancing (ELB) | Crosswalk"
-title: Using AWS Elastic Load Balancing (ELB)
+title: ELB
 meta_desc: Pulumi Crosswalk for AWS ELB provides easy provisioning Application and Network Load Balancers, and easily
            integrates with functionality of AWS other services.
-linktitle: ELB
 menu:
   clouds:
-    parent: crosswalk-aws
+    parent: aws-guides
+    identifier: aws-guides-elb
     weight: 7
 
 aliases:
@@ -26,8 +26,8 @@ Availability Zones.
 ## Overview
 
 Pulumi Crosswalk for AWS ELB provides easy APIs for provisioning Application and Network Load Balancers, and
-integrates with functionality for other services, including [API Gateway](/docs/guides/crosswalk/aws/api-gateway/),
-[Elastic Container Service (ECS)](/docs/guides/crosswalk/aws/ecs), [Lambda](/docs/guides/crosswalk/aws/lambda/), and [VPC](/docs/guides/crosswalk/aws/vpc/), to provide
+integrates with functionality for other services, including [API Gateway](/docs/clouds/aws/guides/api-gateway/),
+[Elastic Container Service (ECS)](/docs/clouds/aws/guides/ecs), [Lambda](/docs/clouds/aws/guides/lambda/), and [VPC](/docs/clouds/aws/guides/vpc/), to provide
 configurable network accessibility to the different kinds of compute you will run inside of AWS.
 
 Elastic Load Balancing offers multiple types of load balancers that all feature the high availability, automatic
@@ -223,7 +223,7 @@ const nginx = new awsx.ecs.FargateService("nginx-task", {
 export const endpoint = listener.endpoint.hostname;
 ```
 
-> [Pulumi Crosswalk for AWS ECS](/docs/guides/crosswalk/aws/ecs/) -- those classes in the `awsx.ecs` package -- will automatically create the
+> [Pulumi Crosswalk for AWS ECS](/docs/clouds/aws/guides/ecs/) -- those classes in the `awsx.ecs` package -- will automatically create the
 > right ingress and egress rules. If you are using raw `aws.ecs`, you will need to manually manage the security group
 > ingress and egress rules, much like the [EC2 Instance](#load-balancing-ec2-instances) example earlier.
 
@@ -298,7 +298,7 @@ const listener = alb.createListener("web-listener", { port: 80 });
 export const endpoint = listener.endpoint;
 ```
 
-For more information on creating and configuring VPCs, refer to [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc/).
+For more information on creating and configuring VPCs, refer to [Pulumi Crosswalk for AWS VPC](/docs/clouds/aws/guides/vpc/).
 
 ## Advanced Load Balancer Listener and Target Group Configuration
 

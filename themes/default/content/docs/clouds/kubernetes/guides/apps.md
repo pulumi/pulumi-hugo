@@ -4,8 +4,8 @@ title: Apps
 meta_desc: This page gives you an overview on how to deploy Kubernetes applications to different cloud providers.
 menu:
   clouds:
-    parent: crosswalk-kubernetes
-    identifier: crosswalk-kubernetes-apps
+    parent: kubernetes-guides
+    identifier: kubernetes-guides-apps
     weight: 12
 aliases:
 - /docs/guides/crosswalk/kubernetes/apps/
@@ -498,7 +498,7 @@ const nginx = new k8s.helm.v3.Chart("nginx",
 [nginx-priv-use]: https://github.com/helm/charts/blob/master/stable/nginx-ingress/values.yaml#L12
 [k8s-lb-svc]: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer
 [nginx-helm]: https://github.com/helm/charts/tree/master/stable/nginx-ingress
-[crosswalk-k8s-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults/#namespaces
+[crosswalk-k8s-defaults]: /docs/clouds/kubernetes/guides/configure-defaults/#namespaces
 <!-- markdownlint-enable url -->
 
 ## Deploy Wordpress

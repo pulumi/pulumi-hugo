@@ -16,7 +16,7 @@ summary: |
 ---
 
 {{% notes %}}
-Looking for information on how to deploy an EKS cluster? Checkout our [AWS Elastic Kubernetes Service](/docs/guides/crosswalk/aws/eks/) documentation.
+Looking for information on how to deploy an EKS cluster? Checkout our [AWS Elastic Kubernetes Service](/docs/clouds/aws/guides/eks/) documentation.
 {{% /notes %}}
 
 AWS Elastic Kubernetes Service (EKS) provides a range of performance and control for dynamically scaling your Kubernetes clusters, including Managed Node Groups, Fargate, and Manually-Managed Node Groups in EC2. In this post, we'll see how to use each of these compute options, and when to prefer one over the other in order to maximize productivity, flexibility, and control, based on your needs.
@@ -172,9 +172,9 @@ aws-ip-10-0-233-6.us-east-2.compute.internal     Ready    <none>   4m    v1.14.8
 
 ## Manually Managing EC2 Node Groups
 
-A fully functioning production cluster usually requires many other considerations. For those, we've put together [a set of playbooks as part of Pulumi Crosswalk for Kubernetes](/docs/guides/crosswalk/kubernetes/) that walk through how to go to production with EKS specifically, in addition to other managed Kubernetes offerings.
+A fully functioning production cluster usually requires many other considerations. For those, we've put together [a set of playbooks as part of Pulumi Crosswalk for Kubernetes](/docs/clouds/kubernetes/guides/) that walk through how to go to production with EKS specifically, in addition to other managed Kubernetes offerings.
 
-Notice, for instance, that we didn't need to even provision any worker nodes. This is thanks to the `eks.Cluster` abstraction creating a default node pool for us, which has an auto-scaling policy that attempts to maintain the `desiredCapacity` while remaining within the bounds of `minSize` and `maxSize`. Often you need more explicit control over the worker nodes, however, for reasons such precise capacity, specializing compute or storage for different workload needs, and so on. This ultimately devolves into managing EC2 instances by hand, which [the `eks.NodeGroup` class supports](/docs/guides/crosswalk/kubernetes/worker-nodes).
+Notice, for instance, that we didn't need to even provision any worker nodes. This is thanks to the `eks.Cluster` abstraction creating a default node pool for us, which has an auto-scaling policy that attempts to maintain the `desiredCapacity` while remaining within the bounds of `minSize` and `maxSize`. Often you need more explicit control over the worker nodes, however, for reasons such precise capacity, specializing compute or storage for different workload needs, and so on. This ultimately devolves into managing EC2 instances by hand, which [the `eks.NodeGroup` class supports](/docs/clouds/kubernetes/guides/worker-nodes).
 
 For example, this code creates a new EKS cluster, disabling the default node group &mdash; using `skipDefaultNodeGroup: true`, since we will create our own &mdash; and creates a single node group with more specific configuration settings: IAM role, desired instance type, scaling parameters, labels, and so on:
 

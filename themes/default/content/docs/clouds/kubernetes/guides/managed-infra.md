@@ -5,7 +5,7 @@ meta_desc: This page provides an overview of Managed Infrastructure services tha
            support and complement Kubernetes clusters and workloads.
 menu:
   clouds:
-    parent: crosswalk-kubernetes
+    parent: kubernetes-guides
     weight: 13
 aliases:
 - /docs/guides/crosswalk/kubernetes/managed-infra/
@@ -29,7 +29,7 @@ The full code for this stack is on [GitHub][gh-repo-stack].
 
 <!-- markdownlint-disable url -->
 [gh-repo-stack]: https://github.com/pulumi/kubernetes-guides/tree/master/aws/02-managed-infra
-[crosswalk-aws]: /docs/guides/crosswalk/aws/
+[crosswalk-aws]: /docs/clouds/aws/guides/
 [aws-managed-svcs]: https://aws.amazon.com/products/
 [aws-vpc]: https://aws.amazon.com/vpc/
 [aws-azs]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
@@ -133,12 +133,12 @@ export const publicSubnetIds = vpc.publicSubnetIds;
 export const privateSubnetIds = vpc.privateSubnetIds;
 ```
 
-[crosswalk-aws]: /docs/guides/crosswalk/aws/
-[vpc]: /docs/guides/crosswalk/aws/vpc/#setting-up-a-new-vpc
-[vpc-azs]: /docs/guides/crosswalk/aws/vpc/#configuring-availability-zones-for-an-aws-vpc
-[vpc-subnets]: /docs/guides/crosswalk/aws/vpc/#configuring-subnets-for-a-vpc
-[vpc-gw]: /docs/guides/crosswalk/aws/vpc/#configuring-internet-and-nat-gateways-for-subnets-in-a-vpc
-[vpc-sg]: /docs/guides/crosswalk/aws/vpc/#configuring-security-groups-for-a-vpc
+[crosswalk-aws]: /docs/clouds/aws/guides/
+[vpc]: /docs/clouds/aws/guides/vpc/#setting-up-a-new-vpc
+[vpc-azs]: /docs/clouds/aws/guides/vpc/#configuring-availability-zones-for-an-aws-vpc
+[vpc-subnets]: /docs/clouds/aws/guides/vpc/#configuring-subnets-for-a-vpc
+[vpc-gw]: /docs/clouds/aws/guides/vpc/#configuring-internet-and-nat-gateways-for-subnets-in-a-vpc
+[vpc-sg]: /docs/clouds/aws/guides/vpc/#configuring-security-groups-for-a-vpc
 
 {{% /choosable %}}
 
@@ -309,7 +309,7 @@ See [Persisting Kubernetes Workloads with Amazon EFS][pulumi-efs] and the
 [pulumi-efs]: /blog/persisting-kubernetes-workloads-with-amazon-efscsi-volumes-using-pulumi-sdks/
 [aws-efs]: https://aws.amazon.com/efs/
 [pulumi-s3]: /docs/aws/s3/
-[crosswalk-ecr]: /docs/guides/crosswalk/aws/ecr/
+[crosswalk-ecr]: /docs/clouds/aws/guides/ecr/
 [aws-ecr]: https://aws.amazon.com/ecr/
 [aws-s3]: https://aws.amazon.com/s3
 <!-- markdownlint-enable url -->
@@ -451,7 +451,7 @@ const picture = new gcp.storage.BucketObject("picture", {
 {{% /choosable %}}
 
 <!-- markdownlint-disable url -->
-[crosswalk-cluster-svcs]: /docs/guides/crosswalk/kubernetes/cluster-services/
-[crosswalk-app-svcs]: /docs/guides/crosswalk/kubernetes/app-services/
+[crosswalk-cluster-svcs]: /docs/clouds/kubernetes/guides/cluster-services/
+[crosswalk-app-svcs]: /docs/clouds/kubernetes/guides/app-services/
 [k8s-pvs]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 <!-- markdownlint-enable url -->

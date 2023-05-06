@@ -1,14 +1,13 @@
 ---
 title_tag: "Using AWS Lambda & Serverless Events | Crosswalk"
-title: Using AWS Lambda & Serverless Events
+title: Lambda
 meta_desc: Pulumi Crosswalk for AWS brings a more natural, and easier to use, way of building serverless applications using
            AWS Lambda.
-linktitle: Lambda
 menu:
   clouds:
-    parent: crosswalk-aws
+    parent: aws-guides
+    identifier: aws-guides-lambda
     weight: 9
-
 aliases:
 - /docs/reference/crosswalk/aws/lambda/
 - /docs/guides/crosswalk/aws/lambda/
@@ -36,7 +35,7 @@ configuration of the associated AWS resources. This lets you focus on your appli
 worry about boilerplate, and with confidence that the resulting infrastructure automatically uses AWS best practices.
 
 With Pulumi Crosswalk for AWS, event sources are available on all native resource types, including AWS S3, SQS,
-DynamoDB, CloudWatch, Kinesis, and more, in addition to full support for [API Gateway](/docs/guides/crosswalk/aws/api-gateway/).
+DynamoDB, CloudWatch, Kinesis, and more, in addition to full support for [API Gateway](/docs/clouds/aws/guides/api-gateway/).
 This improves discoverability of event sources in addition to adding strong typing to the event handler
 inputs and outputs that AWS Lambda will deliver to your code.
 
@@ -341,7 +340,7 @@ authors and manages the serverless functions attached to them. For more informat
 
 ## Easy Lambda Log Consumption
 
-[Pulumi Crosswalk for AWS CloudWatch](/docs/guides/crosswalk/aws/cloudwatch/) ensures that resources have built-in
+[Pulumi Crosswalk for AWS CloudWatch](/docs/clouds/aws/guides/cloudwatch/) ensures that resources have built-in
 logging, with easy ways to customize associated policies. Additionally, the `pulumi logs` CLI command allows
 us to monitor logs in realtime from any CloudWatch resources in our program. For Lambda Functions, this means
 we can run `pulumi logs -f` to tail all of the logs for all of our Lambdas in a program.

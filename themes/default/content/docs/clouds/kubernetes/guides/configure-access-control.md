@@ -5,8 +5,8 @@ meta_desc: This page will walk you through how to configure Kubernetes
            access control on AWS, Azure, and GCP.
 menu:
   clouds:
-    parent: crosswalk-kubernetes
-    identifier: crosswalk-kubernetes-configure-authorization
+    parent: kubernetes-guides
+    identifier: kubernetes-guides-configure-authorization
     weight: 6
 aliases:
 - /docs/guides/crosswalk/kubernetes/configure-access-control/
@@ -103,8 +103,8 @@ $ export KUBECONFIG=`pwd`/kubeconfig-admin.json
 ```
 
 <!-- markdownlint-disable url -->
-[crosswalk-configure-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults/
-[crosswalk-identity]: /docs/guides/crosswalk/kubernetes/identity/
+[crosswalk-configure-defaults]: /docs/clouds/kubernetes/guides/configure-defaults/
+[crosswalk-identity]: /docs/clouds/kubernetes/guides/identity/
 <!-- markdownlint-enable url -->
 
 {{% /choosable %}}
@@ -139,8 +139,8 @@ $ export KUBECONFIG=`pwd`/kubeconfig-admin.json
 ```
 
 <!-- markdownlint-disable url -->
-[crosswalk-configure-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults/
-[crosswalk-identity]: /docs/guides/crosswalk/kubernetes/identity/
+[crosswalk-configure-defaults]: /docs/clouds/kubernetes/guides/configure-defaults/
+[crosswalk-identity]: /docs/clouds/kubernetes/guides/identity/
 <!-- markdownlint-enable url -->
 
 {{% /choosable %}}
@@ -173,10 +173,10 @@ workloads in the `apps` namespace (created in [cluster defaults][crosswalk-confi
 the Kubernetes `Role` to the IAM `devs` role.
 
 <!-- markdownlint-disable url -->
-[crosswalk-configure-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults/
+[crosswalk-configure-defaults]: /docs/clouds/kubernetes/guides/configure-defaults/
 [k8s-rbac-docs]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [gke-predefined-roles]: https://cloud.google.com/kubernetes-engine/docs/how-to/iam#predefined
-[crosswalk-identity]: /docs/guides/crosswalk/kubernetes/identity/
+[crosswalk-identity]: /docs/clouds/kubernetes/guides/identity/
 <!-- markdownlint-enable url -->
 
 Assume the `admin` user.
@@ -291,7 +291,7 @@ RBAC in Amazon EKS][simplify-rbac].
 See the [official Kubernetes RBAC docs][k8s-rbac-docs] for more details.
 
 <!-- markdownlint-disable url -->
-[crosswalk-identity]: /docs/guides/crosswalk/kubernetes/identity/
+[crosswalk-identity]: /docs/clouds/kubernetes/guides/identity/
 [k8s-rbac-docs]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
-[crosswalk-configure-defaults]: /docs/guides/crosswalk/kubernetes/configure-defaults/
+[crosswalk-configure-defaults]: /docs/clouds/kubernetes/guides/configure-defaults/
 <!-- markdownlint-enable url -->

@@ -158,7 +158,7 @@ key_features:
                     Full API coverage for AWS, Azure, Google Cloud, and Kubernetes with same-day updates.
               - title: Crosswalk for AWS
                 description: |
-                    Adopt well-architected best practices for your infrastructure easily with the [Crosswalk library](/docs/guides/crosswalk/aws/).
+                    Adopt well-architected best practices for your infrastructure easily with the [Crosswalk library](/docs/clouds/aws/guides/).
               - title: Cloud Native support
                 description: |
                     Use a single workflow to manage both [Kubernetes](/kubernetes/) resources and infrastructure.

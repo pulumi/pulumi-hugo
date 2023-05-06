@@ -5,8 +5,8 @@ meta_desc: This page provides a guide on how to update Kubernetes Worker Nodes
            with Pulumi.
 menu:
   clouds:
-    parent: crosswalk-kubernetes
-    identifier: crosswalk-kubernetes-update-workers
+    parent: kubernetes-guides
+    identifier: kubernetes-guides-update-workers
     weight: 10
 aliases:
 - /docs/guides/crosswalk/kubernetes/update-worker-nodes/

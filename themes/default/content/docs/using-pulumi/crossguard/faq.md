@@ -164,4 +164,4 @@ $ venv/bin/pip install -r requirements.txt
 * [Kubernetes guides FAQ](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
 * [Pulumi Deployments FAQ](/docs/pulumi-cloud/deployments/faq/)
 * [Pulumi CLI & Pulumi Cloud FAQ](/docs/support/faq/)
-* [SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)
+* [Pulumi Cloud SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)

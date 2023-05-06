@@ -251,5 +251,5 @@ Infrastructure as code provides fine-grained control over resources and helps yo
 Learn how to manage Kubernetes with code with these resources:
 
 [Kubernetes Tutorials](/registry/packages/kubernetes/how-to-guides/)
-[Crosswalk for Kubernetes](/docs/guides/crosswalk/kubernetes/)
+[Crosswalk for Kubernetes](/docs/clouds/kubernetes/guides/)
 [Crossguard - Policy as Code](/docs/guides/crossguard/)

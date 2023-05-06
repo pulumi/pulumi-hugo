@@ -391,7 +391,7 @@ var imageName = repo.RepositoryUrl;
 
 #### Learn More About ECR
 
-ECR offers many additional options not shown here. This includes configuring advanced IAM permissions, enabling image vulnerability scanning, managing the lifetime of images so that older, unused images are deleted based on configured policies, encrypting images, and more. For details on these advanced capabilities and more, refer to [Pulumi's ECR user guide](https://www.pulumi.com/docs/guides/crosswalk/aws/ecr/), [Pulumi's ECR API reference](https://www.pulumi.com/docs/reference/pkg/aws/ecr/repository/), or [Amazon's product documentation](https://aws.amazon.com/ecr/).
+ECR offers many additional options not shown here. This includes configuring advanced IAM permissions, enabling image vulnerability scanning, managing the lifetime of images so that older, unused images are deleted based on configured policies, encrypting images, and more. For details on these advanced capabilities and more, refer to [Pulumi's ECR user guide](https://www.pulumi.com/docs/clouds/aws/guides/ecr/), [Pulumi's ECR API reference](https://www.pulumi.com/docs/reference/pkg/aws/ecr/repository/), or [Amazon's product documentation](https://aws.amazon.com/ecr/).
 
 > To view another cloud provider's registry details, [select a new cloud in the switcher above](#prepare-a-container-registry).
 
@@ -1917,8 +1917,8 @@ The same container image URLs exported above can be used as inputs to other reso
 
 > This article assumes you already have a containerized environment to deploy to, like a Kubernetes cluster, and have [configured your project accordingly](/registry/packages/kubernetes/installation-configuration/). If not, you can provision one using Pulumi first. Pulumi supports many clouds and infrastructure resources, but here are a few starting points to get up and running with:
 
-- [AWS Elastic Container Service ECS](/docs/guides/crosswalk/aws/ecs/),
-- [AWS Elastic Kubernetes Service (EKS)](/docs/guides/crosswalk/aws/eks),
+- [AWS Elastic Container Service ECS](/docs/clouds/aws/guides/ecs/),
+- [AWS Elastic Kubernetes Service (EKS)](/docs/clouds/aws/guides/eks),
 - [Azure Kubernetes Service (AKS)](/registry/packages/kubernetes/how-to-guides/aks),
 - [Google Cloud Kubernetes Engine (GKE)](/registry/packages/kubernetes/how-to-guides/gke),
 - [DigitalOcean Kubernetes](https://www.digitalocean.com/community/tutorials/how-to-manage-digitalocean-and-kubernetes-infrastructure-with-pulumi).

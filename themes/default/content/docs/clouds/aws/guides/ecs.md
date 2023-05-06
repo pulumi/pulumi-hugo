@@ -1,12 +1,12 @@
 ---
 title_tag: "Using AWS Elastic Container Service (ECS) | Crosswalk"
-title: Using AWS Elastic Container Service (ECS)
+title: ECS
 meta_desc: Pulumi Crosswalk for AWS ECS simplifies deploying containerized applications into ECS and managing all of the
             associated resources.
-linktitle: ECS
 menu:
   clouds:
-    parent: crosswalk-aws
+    parent: aws-guides
+    identifier: aws-guides-ecs
     weight: 5
 
 aliases:
@@ -35,7 +35,7 @@ providing full control over the underlying EC2 machine resources that power your
 > containerized applications in a cluster. EKS tends to be more complex to provision and manage, but has
 > the added advantage of using the industry standard container orchestrator, Kubernetes, and therefore can help
 > with portability between clouds and self-hosted configurations. See
-> [Pulumi Crosswalk for AWS EKS](/docs/guides/crosswalk/aws/eks/) for more information about using EKS.
+> [Pulumi Crosswalk for AWS EKS](/docs/clouds/aws/guides/eks/) for more information about using EKS.
 
 ## Creating a Load Balanced ECS Service
 
@@ -306,10 +306,10 @@ Giving the following output:
 
 We have chosen to create an [Elastic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing) so that we
 can access our services over the Internet at a stable address, spread evenly across two instances. Any of the ELB
-options described in the [Pulumi Crosswalk for ELB documentation](/docs/guides/crosswalk/aws/elb/) can be used with our ECS service.
+options described in the [Pulumi Crosswalk for ELB documentation](/docs/clouds/aws/guides/elb/) can be used with our ECS service.
 
 Behind the scenes, our program creates the ECS cluster in the default VPC to run the compute. This is something
-[we can configure](/docs/guides/crosswalk/aws/eks#configuring-your-eks-clusters-networking) if we want to use a different VPC.
+[we can configure](/docs/clouds/aws/guides/eks#configuring-your-eks-clusters-networking) if we want to use a different VPC.
 
 Because we've used [`Fargate`](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html), we don't
 need to specify anything about our machine instances. Instead, Fargate will manage that for us automatically based on
@@ -321,7 +321,7 @@ approach is simple and hides a lot of complexity, it's often desirable to contro
 ## Creating an ECS Cluster in a VPC
 
 To create an ECS service inside of a VPC, we will first create or use an existing VPC using any of the techniques
-described in [Pulumi Crosswalk for AWS VPC](/docs/guides/crosswalk/aws/vpc/). Then we pass the subnets
+described in [Pulumi Crosswalk for AWS VPC](/docs/clouds/aws/guides/vpc/). Then we pass the subnets
 from that VPC into the network configuration argument for our cluster:
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
@@ -945,7 +945,7 @@ outputs:
 
 {{% /choosable %}}
 
-For more information about using ECR, refer to [Pulumi Crosswalk for AWS ECR](/docs/guides/crosswalk/aws/ecr/).
+For more information about using ECR, refer to [Pulumi Crosswalk for AWS ECR](/docs/clouds/aws/guides/ecr/).
 
 ## Additional ECS Resources
 

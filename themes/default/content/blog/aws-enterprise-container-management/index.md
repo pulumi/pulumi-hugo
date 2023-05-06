@@ -39,11 +39,11 @@ We’re excited to be launch partners for the new [Enterprise Container Manageme
 
 ### Provisioning Container Infrastructure
 
-Pulumi manages multi-region, multi-account, multi-cluster Kubernetes deployments with ease on any cloud.  With [Pulumi Crosswalk for Kubernetes](/docs/guides/crosswalk/kubernetes/) we’ve provided a set of [Day 0 and Day 1 playbooks](/docs/guides/crosswalk/kubernetes/playbooks/) that take the guesswork out of the provisioning process from creating a control plane to [deploying your apps](/docs/guides/crosswalk/kubernetes/apps/) and updating workers.
+Pulumi manages multi-region, multi-account, multi-cluster Kubernetes deployments with ease on any cloud.  With [Pulumi Crosswalk for Kubernetes](/docs/clouds/kubernetes/guides/) we’ve provided a set of [Day 0 and Day 1 playbooks](/docs/clouds/kubernetes/guides/playbooks/) that take the guesswork out of the provisioning process from creating a control plane to [deploying your apps](/docs/clouds/kubernetes/guides/apps/) and updating workers.
 
 ### Managing AWS Container Services
 
-Pulumi gives you the flexibility to pick the container services that meet the needs of your workloads and the requirements of your organization. Choosing the right services can be a challenge, so we’ve assembled a short overview to help you [get started managing AWS containers](/blog/managing-containers-on-aws-with-pulumi/). Once you’ve chosen your scheduler, Pulumi has a host of examples to guide you through [deploying Amazon ECS](/docs/guides/crosswalk/aws/ecs/) and [Amazon EKS](/docs/guides/crosswalk/aws/eks/). There is also a [Pulumi EKS component](/registry/packages/eks/) that provides multi-language convenience functions and boilerplate to simplify EKS deployments.
+Pulumi gives you the flexibility to pick the container services that meet the needs of your workloads and the requirements of your organization. Choosing the right services can be a challenge, so we’ve assembled a short overview to help you [get started managing AWS containers](/blog/managing-containers-on-aws-with-pulumi/). Once you’ve chosen your scheduler, Pulumi has a host of examples to guide you through [deploying Amazon ECS](/docs/clouds/aws/guides/ecs/) and [Amazon EKS](/docs/clouds/aws/guides/eks/). There is also a [Pulumi EKS component](/registry/packages/eks/) that provides multi-language convenience functions and boilerplate to simplify EKS deployments.
 
 ### Support for the Entire Kubernetes API
 

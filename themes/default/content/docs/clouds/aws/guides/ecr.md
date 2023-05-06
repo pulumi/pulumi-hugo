@@ -1,12 +1,11 @@
 ---
 title_tag: "Using AWS Elastic Container Registry (ECR) | Crosswalk"
-title: Using AWS Elastic Container Registry (ECR)
+title: ECR
 meta_desc: Pulumi Crosswalk for AWS ECR makes the provisioning of new ECR repositories as simple as one line of code.
-linktitle: ECR
 menu:
   clouds:
-    parent: crosswalk-aws
-    identifier: crosswalk-aws-ecr
+    parent: aws-guides
+    identifier: aws-guides-ecr
     weight: 4
 
 aliases:
@@ -27,7 +26,7 @@ about scaling the underlying infrastructure, while hosting your images in a high
 ## Overview
 
 Pulumi Crosswalk for AWS ECR makes the provisioning of new ECR repositories as simple as one line of code,
-integrates with Pulumi Crosswalk for AWS [ECS](/docs/guides/crosswalk/aws/ecs/) and [EKS](/docs/guides/crosswalk/aws/eks/) to ease
+integrates with Pulumi Crosswalk for AWS [ECS](/docs/clouds/aws/guides/ecs/) and [EKS](/docs/clouds/aws/guides/eks/) to ease
 deployment of new application containers to your ECS, "Fargate", and/or Kubernetes clusters, and even supports
 building and deploying Docker images from your developer desktop or CI/CD workflows.
 
@@ -731,7 +730,7 @@ outputs:
 
 {{% /choosable %}}
 
-For information about ECS, refer to the [Pulumi Crosswalk for AWS ECS documentation](/docs/guides/crosswalk/aws/ecs/). For
+For information about ECS, refer to the [Pulumi Crosswalk for AWS ECS documentation](/docs/clouds/aws/guides/ecs/). For
 information about consuming ECR images from ECS services specifically, see
 [Using Amazon ECR Images with Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_ECS.html).
 
@@ -1293,7 +1292,7 @@ outputs:
 
 {{% /choosable %}}
 
-For information about EKS, refer to the [Pulumi Crosswalk for AWS EKS documentation](/docs/guides/crosswalk/aws/eks/).
+For information about EKS, refer to the [Pulumi Crosswalk for AWS EKS documentation](/docs/clouds/aws/guides/eks/).
 
 ### IAM Permissions Required to use ECR
 
@@ -1318,7 +1317,7 @@ policy permissions to access your Amazon ECR registry. The following example def
 }
 ```
 
-See the [Pulumi Crosswalk for AWS IAM documentation](/docs/guides/crosswalk/aws/iam/) for instructions on how to manage
+See the [Pulumi Crosswalk for AWS IAM documentation](/docs/clouds/aws/guides/iam/) for instructions on how to manage
 such policies.
 
 ## Managing Container Image Lifecycles using Policies

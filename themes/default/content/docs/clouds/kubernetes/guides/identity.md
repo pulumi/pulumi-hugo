@@ -6,8 +6,8 @@ no_on_this_page: true
 linktitle: IAM
 menu:
   clouds:
-    parent: crosswalk-kubernetes
-    identifier: crosswalk-kube-iam
+    parent: kubernetes-guides
+    identifier: kubernetes-guides-iam
     weight: 11
 aliases:
 - /docs/guides/crosswalk/kubernetes/identity/
@@ -40,10 +40,10 @@ The full code for this stack is on [GitHub][gh-repo-stack].
 [roles]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
 [policies]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
 [crosswalk-aws]: /docs/guides/crosswalk/aws
-[iam-users]: /docs/guides/crosswalk/aws/iam/#iam-users
-[iam-groups]: /docs/guides/crosswalk/aws/iam/#iam-groups
-[iam-roles]: /docs/guides/crosswalk/aws/iam/#iam-roles
-[iam-policies]: /docs/guides/crosswalk/aws/iam/#using-the-policydocument-interface
+[iam-users]: /docs/clouds/aws/guides/iam/#iam-users
+[iam-groups]: /docs/clouds/aws/guides/iam/#iam-groups
+[iam-roles]: /docs/clouds/aws/guides/iam/#iam-roles
+[iam-policies]: /docs/clouds/aws/guides/iam/#using-the-policydocument-interface
 [gh-repo-stack]: https://github.com/pulumi/kubernetes-guides/tree/master/aws/01-identity
 <!-- markdownlint-enable url -->
 

@@ -1,11 +1,11 @@
 ---
 title_tag: "Configuring AWS API Gateway | Crosswalk"
-title: Configuring AWS API Gateway
+title: API Gateway
 meta_desc: Pulumi Crosswalk for AWS provides a significantly easier way of programming API Gateway. Here is how.
-linktitle: API Gateway
 menu:
   clouds:
-    parent: crosswalk-aws
+    parent: aws-guides
+    identifier: aws-guides-api-gateway
     weight: 1
 
 aliases:
@@ -79,7 +79,7 @@ The path can be parameterized to match specific patterns:
 - A parameterized pattern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
 - A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
 
-For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation](/docs/guides/crosswalk/aws/lambda/).
+For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation](/docs/clouds/aws/guides/lambda/).
 
 {{< chooser language "typescript,python,go" / >}}
 
@@ -513,7 +513,7 @@ You can define a Lambda Authorizer for an Event Handler Route or a Static Route.
 To define an Authorizer, you provide a Lambda that recieves an
 [Authorizer Event](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html)
 and responds with a valid [Authorizer Response](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html).
-See [Pulumi Crosswalk for AWS Lambda](/docs/guides/crosswalk/aws/lambda/) for other ways you can define your Lambda for the Authorizer.
+See [Pulumi Crosswalk for AWS Lambda](/docs/clouds/aws/guides/lambda/) for other ways you can define your Lambda for the Authorizer.
 
 #### Lambda Request Authorizer
 

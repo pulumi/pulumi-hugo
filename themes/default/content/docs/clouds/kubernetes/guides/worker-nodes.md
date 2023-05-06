@@ -6,8 +6,8 @@ meta_desc: This page provides a guide on how to create Kubernetes Worker Nodes
 no_on_this_page: true
 menu:
   clouds:
-    parent: crosswalk-kubernetes
-    identifier: crosswalk-kubernetes-worker-nodes
+    parent: kubernetes-guides
+    identifier: kubernetes-guides-worker-nodes
     weight: 3
 aliases:
 - /docs/guides/crosswalk/kubernetes/worker-nodes/
@@ -105,7 +105,7 @@ const ng2xlarge = new eks.NodeGroup(`${projectName}-ng-2xlarge`, {
 ```
 
 [aws-instance-profile]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html
-[crosswalk-aws-identity]: /docs/guides/crosswalk/kubernetes/identity/
+[crosswalk-aws-identity]: /docs/clouds/kubernetes/guides/identity/
 
 {{% /choosable %}}
 
@@ -167,7 +167,7 @@ const ng2xlarge = new eks.NodeGroup(`${projectName}-ng-2xlarge`, {
 });
 ```
 
-[crosswalk-sgs]: /docs/guides/crosswalk/aws/vpc/#configuring-security-groups-for-a-vpc
+[crosswalk-sgs]: /docs/clouds/aws/guides/vpc/#configuring-security-groups-for-a-vpc
 
 {{% /choosable %}}
 

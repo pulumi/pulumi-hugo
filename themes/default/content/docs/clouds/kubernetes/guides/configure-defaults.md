@@ -5,8 +5,8 @@ meta_desc: This page will walk you through how to configure Kubernetes Cluster D
            on AWS, Azure, and GCP.
 menu:
   clouds:
-    parent: crosswalk-kubernetes
-    identifier: crosswalk-kubernetes-defaults
+    parent: kubernetes-guides
+    identifier: kubernetes-guides-defaults
     weight: 5
 aliases:
 - /docs/guides/crosswalk/kubernetes/configure-defaults/
@@ -66,7 +66,7 @@ $ aws sts assume-role --role-arn `pulumi stack output adminsIamRoleArn` --role-s
 $ export KUBECONFIG=`pwd`/kubeconfig-admin.json
 ```
 
-[aws-admin-identity-stack]: /docs/guides/crosswalk/kubernetes/identity/#create-an-iam-role-for-admins
+[aws-admin-identity-stack]: /docs/clouds/kubernetes/guides/identity/#create-an-iam-role-for-admins
 {{% /choosable %}}
 {{% choosable cloud azure %}}
 Authenticate as the ServicePrincipal from the [Identity][azure-identity-stack] stack.
@@ -76,7 +76,7 @@ $ az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_
 $ export KUBECONFIG=`pwd`/kubeconfig-admin.json
 ```
 
-[azure-identity-stack]: /docs/guides/crosswalk/kubernetes/identity/#prerequisites
+[azure-identity-stack]: /docs/clouds/kubernetes/guides/identity/#prerequisites
 
 {{% /choosable %}}
 
@@ -89,7 +89,7 @@ $ gcloud auth activate-service-account --key-file k8s-admin-sa-key.json
 $ export KUBECONFIG=`pwd`/kubeconfig.json
 ```
 
-[gcp-admin-identity-stack]: /docs/guides/crosswalk/kubernetes/identity/#create-an-iam-role-for-admins
+[gcp-admin-identity-stack]: /docs/clouds/kubernetes/guides/identity/#create-an-iam-role-for-admins
 
 {{% /choosable %}}
 

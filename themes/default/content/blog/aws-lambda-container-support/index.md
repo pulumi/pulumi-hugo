@@ -114,7 +114,7 @@ const bucket = new aws.s3.Bucket("bucket");
 
 ### Build the container image and publish it to ECR
 
-We can use [Pulumi Crosswalk for AWS](https://www.pulumi.com/docs/guides/crosswalk/aws/) to build the Docker image and publish it to a new ECR repository with just three lines of code.
+We can use [Pulumi Crosswalk for AWS](https://www.pulumi.com/docs/clouds/aws/guides/) to build the Docker image and publish it to a new ECR repository with just three lines of code.
 
 ```ts
 import * as awsx from "@pulumi/awsx";

@@ -1,14 +1,13 @@
 ---
 title_tag: "Configuring AWS Auto Scaling | Crosswalk"
-title: Configuring AWS Auto Scaling
+title: Auto Scaling
 meta_desc: Pulumi Crosswalk for AWS allows you to easily to define Auto Scaling Groups (ASGs) to configure scaling of EC2
            instances.
-linktitle: Auto Scaling
 menu:
   clouds:
-    parent: crosswalk-aws
+    parent: aws-guides
+    identifier: aws-guides-auto-scaling
     weight: 2
-
 aliases:
 - /docs/reference/crosswalk/aws/autoscaling/
 - /docs/guides/crosswalk/aws/autoscaling/
@@ -32,7 +31,7 @@ This functionality is currently only available in TypeScript and as part of the 
 ## Overview
 
 Pulumi Crosswalk for AWS enables easy definition of Auto Scaling Groups (ASGs) to configure scaling of EC2
-instances, for either VM or container workloads using ECS. Using this, combined with [Pulumi Crosswalk for AWS's support for Amazon CloudWatch](/docs/guides/crosswalk/aws/cloudwatch),
+instances, for either VM or container workloads using ECS. Using this, combined with [Pulumi Crosswalk for AWS's support for Amazon CloudWatch](/docs/clouds/aws/guides/cloudwatch),
 you can create powerful scaling policies that
 meet your performance and scaling needs, while also maximizing cost effectiveness.
 
@@ -79,7 +78,7 @@ in addition to [the `AutoScalingGroup` API documentation](
 Another way to create an ASG is to define it on an `awsx.ecs.Cluster` when auto-scaling the EC2 instances powering
 our ECS cluster. This is not necessary when using ECS "Fargate", but by defining an ASG, you have complete control
 over the scaling of your ECS cluster. For more information about ECS specifically, see the associated
-[Pulumi Crosswalk for AWS ECS documentation](/docs/guides/crosswalk/aws/ecs/).
+[Pulumi Crosswalk for AWS ECS documentation](/docs/clouds/aws/guides/ecs/).
 
 To make this easier, the `awsx.classic.ecs.Cluster` class offers a `createAutoScalingGroup` class that associates the newly
 created ASG with the ECS cluster, and runs all container compute on it. For example:
@@ -269,7 +268,7 @@ Target Tracking Scaling for ASGs offer several pre-defined scaling metrics.
 
 #### Using Custom Metric Target Tracking Scaling
 
-On top of the predefined targets defined above, you can also scale using [a CloudWatch metric](/docs/guides/crosswalk/aws/cloudwatch#subscribing-to-cloudwatch-metrics), such as based on CPU or memory utilization.
+On top of the predefined targets defined above, you can also scale using [a CloudWatch metric](/docs/clouds/aws/guides/cloudwatch#subscribing-to-cloudwatch-metrics), such as based on CPU or memory utilization.
 
 Not all metrics work for target tracking, an important point when specifying a customized metric. The metric must be a
 valid utilization metric and describe how busy an instance is. The metric value must increase or decrease proportionally

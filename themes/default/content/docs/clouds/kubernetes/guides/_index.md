@@ -6,7 +6,7 @@ linktitle: Guides
 menu:
   clouds:
     parent: kube
-    identifier: crosswalk-kubernetes
+    identifier: kubernetes-guides
     weight: 5
 aliases:
 - /docs/guides/k8s-the-prod-way/app
@@ -113,9 +113,9 @@ Join the Pulumi team and thousands of practioners in our
 See the [FAQ][crosswalk-faq] for more details.
 
 <!-- markdownlint-disable url -->
-[crosswalk-faq]: /docs/guides/crosswalk/kubernetes/faq/
-[cw-index]: /docs/guides/crosswalk/kubernetes/
-[cw-playbooks]: /docs/guides/crosswalk/kubernetes/playbooks/
+[crosswalk-faq]: /docs/clouds/kubernetes/guides/faq/
+[cw-index]: /docs/clouds/kubernetes/guides/
+[cw-playbooks]: /docs/clouds/kubernetes/guides/playbooks/
 [k8s-get-started]: /docs/clouds/kubernetes/get-started/
 [eks]: https://aws.amazon.com/eks/
 [aks]: https://azure.microsoft.com/en-us/services/kubernetes-service/

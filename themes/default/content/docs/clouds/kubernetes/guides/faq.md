@@ -4,7 +4,7 @@ title: FAQ
 meta_desc: A collection of common questions about Kubernetes usage with Pulumi.
 menu:
   clouds:
-    parent: crosswalk-kubernetes
+    parent: kubernetes-guides
     weight: 14
 aliases:
 - /docs/guides/crosswalk/kubernetes/faq/
@@ -59,7 +59,7 @@ aliases:
 [pulumi-slack]: https://slack.pulumi.com/
 [pulumi-docs]: https://github.com/pulumi/docs
 [pulumi-guides]: https://github.com/pulumi/kubernetes-guides
-[cw-playbooks]: /docs/guides/crosswalk/kubernetes/playbooks/
+[cw-playbooks]: /docs/clouds/kubernetes/guides/playbooks/
 [pulumi-k8s]: https://github.com/pulumi/pulumi-kubernetes
 [pulumi-kx]: https://github.com/pulumi/pulumi-kubernetesx
 [pulumi-kq]: https://github.com/pulumi/pulumi-query
@@ -70,4 +70,4 @@ aliases:
 * [Policy as code FAQ](/docs/using-pulumi/crossguard/faq/)
 * [Pulumi Deployments FAQ](/docs/pulumi-cloud/deployments/faq/)
 * [Pulumi CLI & Pulumi Cloud FAQ](/docs/support/faq/)
-* [SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)
+* [Pulumi Cloud SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)

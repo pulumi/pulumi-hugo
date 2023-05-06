@@ -89,7 +89,7 @@ You can get started with Pulumi YAML today in the [Pulumi Getting Started](/docs
 
 ## Crosswalk for AWS in All Pulumi Languages
 
-[Crosswalk for AWS](/docs/guides/crosswalk/aws/) is a collection of libraries that use automatic well-architected best practices to make common infrastructure as code tasks in AWS easier and more secure. This includes libraries for EKS and API Gateway as well as the AWSX library that provides VPC, ECS, LoadBalancing and more.  All of these libraries are now available in the Pulumi Registry for all Pulumi languages.  The AWSX library, which was previously only available for Pulumi TypeScript users has become one of the most used libraries in the Pulumi ecosystem.  With today’s release, it is now available to the entirety of the Pulumi language ecosystem - including Java and YAML!
+[Crosswalk for AWS](/docs/clouds/aws/guides/) is a collection of libraries that use automatic well-architected best practices to make common infrastructure as code tasks in AWS easier and more secure. This includes libraries for EKS and API Gateway as well as the AWSX library that provides VPC, ECS, LoadBalancing and more.  All of these libraries are now available in the Pulumi Registry for all Pulumi languages.  The AWSX library, which was previously only available for Pulumi TypeScript users has become one of the most used libraries in the Pulumi ecosystem.  With today’s release, it is now available to the entirety of the Pulumi language ecosystem - including Java and YAML!
 
 For example - to run a Docker container in ECS using default network and cluster settings, users can use the `awsx.ecs.FargateService` class along with an Application Load Balancer listening on port 80 at a stable address - with just a few lines of code:
 
@@ -274,7 +274,7 @@ outputs:
 
 {{% /choosable %}}
 
-You can get started with Crosswalk for AWS in the [Pulumi Crosswalk for AWS Guides](/docs/guides/crosswalk/aws/), now available with examples in all languages.
+You can get started with Crosswalk for AWS in the [Pulumi Crosswalk for AWS Guides](/docs/clouds/aws/guides/), now available with examples in all languages.
 
 👉 Read more in the [Pulumi Crosswalk for AWS support for all Pulumi Languages](/blog/crosswalk-for-aws-all-languages/)  blog post.
 
