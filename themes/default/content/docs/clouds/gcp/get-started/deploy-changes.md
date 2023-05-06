@@ -9,7 +9,9 @@ menu:
     parent: google-cloud-get-started
     identifier: gcp-deploy-changes
 
-aliases: ["/docs/quickstart/gcp/deploy-changes/"]
+aliases:
+- /docs/quickstart/gcp/deploy-changes/
+- /docs/get-started/gcp/deploy-changes/
 ---
 
 Now let's deploy your changes.

@@ -9,7 +9,9 @@ menu:
     parent: aws-get-started
     identifier: aws-get-started-create-project
 
-aliases: ["/docs/quickstart/aws/create-project/"]
+aliases:
+- /docs/quickstart/aws/create-project/
+- /docs/get-started/aws/create-project/
 ---
 
 Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,

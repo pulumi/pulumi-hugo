@@ -9,7 +9,9 @@ menu:
     parent: google-cloud-get-started
     identifier: gcp-create-project
 
-aliases: ["/docs/quickstart/gcp/create-project/"]
+aliases:
+- /docs/quickstart/gcp/create-project/
+- /docs/get-started/gcp/create-project/
 ---
 
 Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,

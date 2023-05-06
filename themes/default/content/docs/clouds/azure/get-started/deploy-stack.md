@@ -9,7 +9,9 @@ menu:
     parent: azure-get-started
     identifier: azure-deploy-stack
 
-aliases: ["/docs/quickstart/azure/deploy-stack/"]
+aliases:
+- /docs/quickstart/azure/deploy-stack/
+- /docs/get-started/azure/deploy-stack/
 ---
 
 Let's go ahead and deploy your stack:

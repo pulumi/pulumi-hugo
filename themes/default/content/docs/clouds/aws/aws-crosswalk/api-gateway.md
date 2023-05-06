@@ -8,7 +8,9 @@ menu:
     parent: crosswalk-aws
     weight: 1
 
-aliases: ["/docs/reference/crosswalk/aws/api-gateway/"]
+aliases:
+- /docs/reference/crosswalk/aws/api-gateway/
+- /docs/guides/crosswalk/aws/api-gateway/
 ---
 
 <a href="./">

@@ -8,8 +8,9 @@ menu:
     identifier: kubernetes-get-started
     parent: kube
     weight: 4
-
-aliases: ["/docs/quickstart/kubernetes/"]
+aliases:
+- /docs/quickstart/kubernetes/
+- /docs/get-started/kubernetes/
 ---
 
 Pulumi's Cloud Native SDK makes it easy to target any Kubernetes environment to

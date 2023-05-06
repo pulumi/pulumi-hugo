@@ -4,12 +4,13 @@ title: IAM
 meta_desc: An overview of cloud identity and access management providers when using Kubernetes.
 no_on_this_page: true
 linktitle: IAM
-
 menu:
   clouds:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kube-iam
-    weight: 8
+    weight: 11
+aliases:
+- /docs/guides/crosswalk/kubernetes/identity/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

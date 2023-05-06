@@ -9,6 +9,7 @@ menu:
 aliases:
 - /docs/reference/crosswalk/aws/other/
 - /docs/guides/crosswalk/aws/other/
+- /docs/guides/crosswalk/aws/aws-index-of-services/
 ---
 
 <a href="./">

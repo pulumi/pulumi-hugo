@@ -9,7 +9,9 @@ menu:
     parent: google-cloud-get-started
     identifier: gcp-review-project
 
-aliases: ["/docs/quickstart/gcp/review-project/"]
+aliases:
+- /docs/quickstart/gcp/review-project/
+- /docs/get-started/gcp/review-project/
 ---
 
 Let's review some of the generated project files:

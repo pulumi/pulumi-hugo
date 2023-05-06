@@ -6,7 +6,9 @@ menu:
   clouds:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-apps
-    weight: 9
+    weight: 12
+aliases:
+- /docs/guides/crosswalk/kubernetes/apps/
 ---
 
 The following are examples of how to create and use various types of Kubernetes

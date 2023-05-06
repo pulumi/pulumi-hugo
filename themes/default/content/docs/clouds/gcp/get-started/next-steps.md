@@ -10,7 +10,9 @@ menu:
     parent: google-cloud-get-started
     identifier: gcp-next-steps
 
-aliases: ["/docs/quickstart/gcp/next-steps/"]
+aliases:
+- /docs/quickstart/gcp/next-steps/
+- /docs/get-started/gcp/next-steps/
 ---
 
 Congrats! You've deployed your first project on Google Cloud with Pulumi. Here are some next steps, depending on your learning style.

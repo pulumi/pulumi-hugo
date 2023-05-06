@@ -9,7 +9,9 @@ menu:
     parent: kubernetes-get-started
     identifier: kubernetes-get-started-create-project
 
-aliases: ["/docs/quickstart/kubernetes/create-project/"]
+aliases:
+- /docs/quickstart/kubernetes/create-project/
+- /docs/get-started/kubernetes/create-project/
 ---
 Now that you have set up your environment let's create your first Pulumi program.
 

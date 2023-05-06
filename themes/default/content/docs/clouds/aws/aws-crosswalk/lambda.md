@@ -9,7 +9,9 @@ menu:
     parent: crosswalk-aws
     weight: 9
 
-aliases: ["/docs/reference/crosswalk/aws/lambda/"]
+aliases:
+- /docs/reference/crosswalk/aws/lambda/
+- /docs/guides/crosswalk/aws/lambda/
 ---
 
 <a href="./">

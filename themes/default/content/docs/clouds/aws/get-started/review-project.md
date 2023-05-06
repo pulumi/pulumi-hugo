@@ -8,7 +8,9 @@ menu:
   clouds:
     parent: aws-get-started
 
-aliases: ["/docs/quickstart/aws/review-project/"]
+aliases:
+- /docs/quickstart/aws/review-project/
+- /docs/get-started/aws/review-project/
 ---
 
 Let's review some of the generated project files:

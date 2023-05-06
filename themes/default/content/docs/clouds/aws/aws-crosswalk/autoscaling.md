@@ -9,7 +9,9 @@ menu:
     parent: crosswalk-aws
     weight: 2
 
-aliases: ["/docs/reference/crosswalk/aws/autoscaling/"]
+aliases:
+- /docs/reference/crosswalk/aws/autoscaling/
+- /docs/guides/crosswalk/aws/autoscaling/
 ---
 
 <a href="./">

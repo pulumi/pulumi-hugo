@@ -9,7 +9,9 @@ menu:
     parent: azure-get-started
     identifier: azure-deploy-changes
 
-aliases: ["/docs/quickstart/azure/deploy-changes/"]
+aliases:
+- /docs/quickstart/azure/deploy-changes/
+- /docs/get-started/azure/deploy-changes/
 ---
 
 Deploy your changes by using `pulumi up` again.

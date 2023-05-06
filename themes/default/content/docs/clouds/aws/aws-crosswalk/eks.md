@@ -10,8 +10,9 @@ menu:
     weight: 6
 
 aliases:
-    - "/docs/reference/crosswalk/aws/eks/"
-    - "/eks"
+ - /docs/reference/crosswalk/aws/eks/
+ - /eks/
+ - /docs/guides/crosswalk/aws/eks/
 ---
 
 <a href="./">

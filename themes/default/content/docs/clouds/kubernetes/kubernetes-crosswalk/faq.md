@@ -1,13 +1,13 @@
 ---
 title_tag: Kubernetes FAQs | Crosswalk
-title: FAQs
+title: FAQ
 meta_desc: A collection of common questions about Kubernetes usage with Pulumi.
-linktitle: FAQ
-
 menu:
   clouds:
     parent: crosswalk-kubernetes
-    weight: 12
+    weight: 14
+aliases:
+- /docs/guides/crosswalk/kubernetes/faq/
 ---
 
 1. **What does Crosswalk for Kubernetes include?**

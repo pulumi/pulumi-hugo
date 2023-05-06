@@ -8,6 +8,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-defaults
     weight: 5
+aliases:
+- /docs/guides/crosswalk/kubernetes/configure-defaults/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

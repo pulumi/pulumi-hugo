@@ -9,7 +9,9 @@ menu:
     parent: kubernetes-get-started
     identifier: kubernetes-review-project-get-started
 
-aliases: ["/docs/quickstart/kubernetes/review-project/"]
+aliases:
+- /docs/quickstart/kubernetes/review-project/
+- /docs/get-started/kubernetes/review-project/
 ---
 
 Let's review some of the generated project files:

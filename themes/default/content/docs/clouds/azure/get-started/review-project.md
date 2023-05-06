@@ -9,7 +9,9 @@ menu:
     parent: azure-get-started
     identifier: azure-review-project
 
-aliases: ["/docs/quickstart/azure/review-project/"]
+aliases:
+- /docs/quickstart/azure/review-project/
+- /docs/get-started/azure/review-project/
 ---
 
 Let's review some of the generated project files:

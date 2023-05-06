@@ -10,7 +10,9 @@ menu:
     parent: aws-get-started
     identifier: aws-get-started-next-steps
 
-aliases: ["/docs/quickstart/aws/next-steps/"]
+aliases:
+- /docs/quickstart/aws/next-steps/
+- /docs/get-started/aws/next-steps/
 ---
 
 Congrats! You've deployed your first project on AWS with Pulumi. Here are some next steps, depending on your learning style.

@@ -1,7 +1,7 @@
 ---
-title: "Crosswalk for AWS Guides"
+title_tag: "Crosswalk for AWS Guides"
+title: "Guides"
 meta_desc: Pulumi Crosswalk for AWS supports a simplified approach to defining and deploying cloud infrastructure.
-linktitle: Guides
 menu:
   clouds:
     identifier: crosswalk-aws
@@ -12,6 +12,7 @@ aliases:
 - /docs/reference/crosswalk/aws/
 - /docs/reference/crosswalk/
 - /docs/guides/crosswalk/
+- /docs/guides/crosswalk/aws/
 ---
 <a href="./">
     <img src="/images/docs/reference/crosswalk/aws/logo.svg" align="right" width="280" style="margin: 0 0 32px 16px;">

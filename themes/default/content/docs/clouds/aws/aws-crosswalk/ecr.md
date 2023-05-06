@@ -9,7 +9,9 @@ menu:
     identifier: crosswalk-aws-ecr
     weight: 4
 
-aliases: ["/docs/reference/crosswalk/aws/ecr/"]
+aliases:
+- /docs/reference/crosswalk/aws/ecr/
+- /docs/guides/crosswalk/aws/ecr/
 ---
 
 <a href="./">

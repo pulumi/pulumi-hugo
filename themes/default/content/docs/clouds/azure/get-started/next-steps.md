@@ -10,7 +10,9 @@ menu:
     parent: azure-get-started
     identifier: azure-next-steps
 
-aliases: ["/docs/quickstart/azure/next-steps/"]
+aliases:
+- /docs/quickstart/azure/next-steps/
+- /docs/get-started/azure/next-steps/
 ---
 
 Congrats! You've deployed your first project on Azure with Pulumi. Here are some next steps, depending on your learning style.

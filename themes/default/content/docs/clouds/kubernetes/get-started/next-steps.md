@@ -10,7 +10,9 @@ menu:
     parent: kubernetes-get-started
     identifier: kubernetes-next-steps
 
-aliases: ["/docs/quickstart/kubernetes/next-steps/"]
+aliases:
+- /docs/quickstart/kubernetes/next-steps/
+- /docs/get-started/kubernetes/next-steps/
 ---
 
 Congrats! You've deployed your first project to Kubernetes with Pulumi. Here are some next steps, depending on your learning style.

@@ -9,6 +9,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-worker-nodes
     weight: 3
+aliases:
+- /docs/guides/crosswalk/kubernetes/worker-nodes/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

@@ -9,7 +9,9 @@ menu:
     parent: aws-get-started
     identifier: aws-get-started-deploy-changes
 
-aliases: ["/docs/quickstart/aws/deploy-changes/"]
+aliases:
+- /docs/quickstart/aws/deploy-changes/
+- /docs/get-started/aws/deploy-changes/
 ---
 
 Now let's deploy your changes.

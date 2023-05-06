@@ -7,7 +7,9 @@ menu:
   clouds:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-update-workers
-    weight: 11
+    weight: 10
+aliases:
+- /docs/guides/crosswalk/kubernetes/update-worker-nodes/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

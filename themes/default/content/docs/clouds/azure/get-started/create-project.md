@@ -9,7 +9,9 @@ menu:
     parent: azure-get-started
     identifier: azure-create-project
 
-aliases: ["/docs/quickstart/azure/create-project/"]
+aliases:
+- /docs/quickstart/azure/create-project/
+- /docs/get-started/azure/create-project/
 ---
 
 Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,

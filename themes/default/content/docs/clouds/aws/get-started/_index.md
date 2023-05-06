@@ -7,7 +7,9 @@ menu:
     identifier: aws-get-started
     weight: 1
 
-aliases: ["/docs/quickstart/aws/"]
+aliases:
+- /docs/quickstart/aws/
+- /docs/get-started/aws/
 ---
 
 {{< cloud-intro "AWS" >}}

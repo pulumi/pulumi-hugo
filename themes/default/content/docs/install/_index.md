@@ -7,7 +7,9 @@ menu:
     name: Overview
     weight: 1
 
-aliases: ["/docs/reference/install/"]
+aliases:
+- /docs/reference/install/
+- /docs/get-started/install/
 ---
 
 <!--

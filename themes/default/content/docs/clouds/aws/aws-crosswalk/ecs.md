@@ -9,7 +9,9 @@ menu:
     parent: crosswalk-aws
     weight: 5
 
-aliases: ["/docs/reference/crosswalk/aws/ecs/"]
+aliases:
+- /docs/reference/crosswalk/aws/ecs/
+- /docs/guides/crosswalk/aws/ecs/
 ---
 
 <a href="./">

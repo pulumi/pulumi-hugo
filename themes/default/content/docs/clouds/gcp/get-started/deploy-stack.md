@@ -9,7 +9,9 @@ menu:
     parent: google-cloud-get-started
     identifier: gcp-deploy-stack
 
-aliases: ["/docs/quickstart/gcp/deploy-stack/"]
+aliases:
+- /docs/quickstart/gcp/deploy-stack/
+- /docs/get-started/gcp/deploy-stack/
 ---
 
 Let's go ahead and deploy your stack:

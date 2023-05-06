@@ -8,6 +8,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-playbooks
     weight: 1
+aliases:
+- /docs/guides/crosswalk/kubernetes/playbooks/
 ---
 
 <a href="./">

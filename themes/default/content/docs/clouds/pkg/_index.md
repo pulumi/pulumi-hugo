@@ -6,5 +6,7 @@ menu:
   clouds:
     name: All clouds
     weight: 5
+aliases:
+- /docs/reference/pkg/
 redirect_to: /registry/
 ---

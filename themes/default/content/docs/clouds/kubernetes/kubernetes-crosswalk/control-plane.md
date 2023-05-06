@@ -8,6 +8,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-control-plane
     weight: 2
+aliases:
+- /docs/guides/crosswalk/kubernetes/control-plane/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

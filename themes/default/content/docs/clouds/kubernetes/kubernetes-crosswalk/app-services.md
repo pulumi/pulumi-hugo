@@ -8,6 +8,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-app-svcs
     weight: 8
+aliases:
+- /docs/guides/crosswalk/kubernetes/app-services/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

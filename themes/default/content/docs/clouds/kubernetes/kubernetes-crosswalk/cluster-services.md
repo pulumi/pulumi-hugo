@@ -8,6 +8,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-cluster-svcs
     weight: 7
+aliases:
+- /docs/guides/crosswalk/kubernetes/cluster-services/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

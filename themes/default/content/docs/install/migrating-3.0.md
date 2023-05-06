@@ -2,6 +2,10 @@
 title: Upgrading to Pulumi 3.0
 meta_desc: This page provides instructions for upgrading to Pulumi 3.0
 no_on_this_page: true
+
+aliases:
+- /docs/get-started/install/migrating-3.0/
+- /docs/get-started/install/migrating-2.0/
 ---
 
 Pulumi 3.0 is generally available. It’s simple to upgrade:

@@ -8,7 +8,9 @@ menu:
     parent: crosswalk-aws
     weight: 3
 
-aliases: ["/docs/reference/crosswalk/aws/cloudwatch/"]
+aliases:
+- /docs/reference/crosswalk/aws/cloudwatch/
+- /docs/guides/crosswalk/aws/cloudwatch/
 ---
 
 <a href="./">

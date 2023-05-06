@@ -9,7 +9,9 @@ menu:
     parent: crosswalk-aws
     weight: 10
 
-aliases: ["/docs/reference/crosswalk/aws/vpc/"]
+aliases:
+- /docs/reference/crosswalk/aws/vpc/
+- /docs/guides/crosswalk/aws/vpc/
 ---
 
 <a href="./">

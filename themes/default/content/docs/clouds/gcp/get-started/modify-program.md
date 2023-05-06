@@ -9,7 +9,9 @@ menu:
     parent: google-cloud-get-started
     identifier: gcp-modify-program
 
-aliases: ["/docs/quickstart/gcp/modify-program/"]
+aliases:
+- /docs/quickstart/gcp/modify-program/
+- /docs/get-started/gcp/modify-program/
 ---
 
 Now that your storage bucket is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.

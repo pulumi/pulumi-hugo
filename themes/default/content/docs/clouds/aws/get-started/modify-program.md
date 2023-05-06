@@ -9,7 +9,9 @@ menu:
     parent: aws-get-started
     identifier: aws-get-started-modify-program
 
-aliases: ["/docs/quickstart/aws/modify-program/"]
+aliases:
+- /docs/quickstart/aws/modify-program/
+- /docs/get-started/aws/modify-program/
 ---
 
 Now that your S3 bucket is provisioned, let's add a file to it. First, from within your project directory, create a new file called `index.html` file along with some content:

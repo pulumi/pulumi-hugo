@@ -9,7 +9,9 @@ menu:
     parent: aws-get-started
     identifier: aws-get-started-destroy-stack
 
-aliases: ["/docs/quickstart/aws/destroy-stack/"]
+aliases:
+- /docs/quickstart/aws/destroy-stack/
+- /docs/get-started/aws/destroy-stack/
 ---
 
 Now that you've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of your stack.

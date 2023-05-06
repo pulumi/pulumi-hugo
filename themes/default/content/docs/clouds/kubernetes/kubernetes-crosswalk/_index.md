@@ -8,7 +8,10 @@ menu:
     parent: kube
     identifier: crosswalk-kubernetes
     weight: 5
-aliases: ["/docs/guides/k8s-the-prod-way/app", "/docs/guides/k8s-the-prod-way/architecture"]
+aliases:
+- /docs/guides/k8s-the-prod-way/app
+- /docs/guides/k8s-the-prod-way/architecture
+- /docs/guides/crosswalk/kubernetes/
 ---
 
 <a href="./">

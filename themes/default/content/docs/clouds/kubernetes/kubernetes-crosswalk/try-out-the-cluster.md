@@ -7,6 +7,8 @@ menu:
     parent: crosswalk-kubernetes
     identifier: crosswalk-kubernetes-use-cluster
     weight: 4
+aliases:
+- /docs/guides/crosswalk/kubernetes/try-out-the-cluster/
 ---
 
 {{< chooser cloud "aws,azure,gcp" / >}}

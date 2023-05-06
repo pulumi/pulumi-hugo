@@ -8,7 +8,9 @@ menu:
     identifier: google-cloud-get-started
     weight: 3
 
-aliases: ["/docs/quickstart/gcp/"]
+aliases:
+- /docs/quickstart/gcp/
+- /docs/get-started/gcp/
 ---
 
 {{< cloud-intro "Google Cloud" >}}
