@@ -76,7 +76,7 @@ commit-hash, and the branch in which this stack was updated.
 
 ![gl-4](./gl-4.png)
 
-## FAQs
+## FAQ
 
 ### I use my GitHub identity to login into GitLab. How do I do that with Pulumi?
 
