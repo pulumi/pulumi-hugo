@@ -7,6 +7,8 @@ menu:
     identifier: additionalSecretOutputs
     parent: options
     weight: 1
+aliases:
+- /docs/intro/concepts/resources/options/additionalsecretoutputs/
 ---
 
 The `additionalSecretOutputs` resource option specifies a list of named output properties that should be treated as [secrets](/docs/intro/concepts/secrets/), which means they will be encrypted. It augments the list of values that Pulumi detects, based on secret inputs to the resource.

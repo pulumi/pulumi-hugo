@@ -4,7 +4,7 @@ title: "Logging"
 meta_desc: An overview of the Pulumi logging functionality used for debugging and diagnostics.
 menu:
   concepts:
-    weight: 10
+    weight: 11
 aliases:
 - /docs/intro/concepts/logging/
 ---

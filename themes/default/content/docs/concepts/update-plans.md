@@ -3,7 +3,7 @@ title: "Update plans"
 meta_desc: Learn about Pulumi update plans and how they can be used.
 menu:
   concepts:
-    weight: 11
+    weight: 12
 aliases:
 - /updateplans/
 - /docs/intro/concepts/plans/

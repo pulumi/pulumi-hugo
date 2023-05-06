@@ -7,6 +7,8 @@ menu:
     identifier: parent
     parent: options
     weight: 8
+aliases:
+- /docs/intro/concepts/resources/options/parent/
 ---
 
 The `parent` resource option specifies a parent for a resource. It is used to associate children with the parents that encapsulate or are responsible for them. Good examples of this are [component resources](/docs/intro/concepts/resources/components/). The default behavior is to parent each resource to the implicitly-created `pulumi:pulumi:Stack` component resource that is a root resource for all Pulumi stacks.

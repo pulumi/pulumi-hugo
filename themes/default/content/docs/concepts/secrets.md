@@ -4,7 +4,7 @@ title: "Secrets"
 meta_desc: This page provides an overview of how Pulumi manages sensitive configuration data using secrets.
 menu:
   concepts:
-    weight: 7
+    weight: 8
 aliases:
 - docs/intro/concepts/secrets/
 ---

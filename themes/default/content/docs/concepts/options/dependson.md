@@ -7,6 +7,8 @@ menu:
     identifier: dependsOn
     parent: options
     weight: 5
+aliases:
+- /docs/intro/concepts/resources/options/dependson/
 ---
 
 The `dependsOn` resource option creates a list of explicit dependencies between resources.

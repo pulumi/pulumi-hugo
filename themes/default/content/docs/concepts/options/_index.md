@@ -5,8 +5,9 @@ meta_desc: Resource options can be used to configure how all Pulumi resources ar
 menu:
   concepts:
     identifier: options
-    parent: resources
-    weight: 2
+    weight: 5
+aliases:
+- /docs/intro/concepts/resources/options/
 ---
 
 All resource constructors accept an options argument that provide the following resource options:

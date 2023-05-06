@@ -4,7 +4,7 @@ title: "Configuration"
 meta_desc: This page provides an overview of how Pulumi manages cloud application configuration settings.
 menu:
   concepts:
-    weight: 6
+    weight: 7
 aliases:
 - /docs/reference/config/
 - /docs/tour/programs-configuration/

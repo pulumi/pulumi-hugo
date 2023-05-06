@@ -4,7 +4,7 @@ title: "Inputs & outputs"
 meta_desc: Resource properties are treated specially in Pulumi, both for purposes of input and output. Learn how to work with inputs and outputs in this guide.
 menu:
   concepts:
-    weight: 5
+    weight: 6
 aliases:
 - /docs/reference/inputs-outputs/
 - /docs/intro/concepts/inputs-outputs/

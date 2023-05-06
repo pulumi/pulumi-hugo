@@ -7,6 +7,8 @@ menu:
     identifier: provider
     parent: options
     weight: 10
+aliases:
+- /docs/intro/concepts/resources/options/provider/
 ---
 
 The `provider` resource option sets a provider for the resource. For more information, see [Providers](../providers). The default is to inherit this value from the parent resource, and to use the ambient provider specified by Pulumi configuration for resources without a parent.
