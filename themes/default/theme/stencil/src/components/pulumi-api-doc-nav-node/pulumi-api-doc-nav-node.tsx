@@ -129,18 +129,6 @@ export class PulumiApiDocNavNode {
                                     id={this.node.name}
                                     
                 title={this.node.name}
-<<<<<<< HEAD
-            >
-                <span class="glyph" slot="expand-collapse-glyph">►</span>
-                <div class="content-container">
-                    <a class={`depth-${this.depth}`} href={this.href}>
-                        {this.getIcon(this.node.type)}
-                        <span class="link-container">{this.node.name}</span>
-                    </a>
-                </div>
-                {this.getChildNodes(this.node.children, this.isExpanded)}
-            </pulumi-tree-item>
-=======
                 onClick={() => this.onExpansionChange()}
                 >
                     <summary class="content-container" data-selected={this.shouldNodeBeSelected(this.href) ? "true" : "false"}>
@@ -151,7 +139,6 @@ export class PulumiApiDocNavNode {
                     </summary>
                     {this.getChildNodes(this.node.children, this.isExpanded)}
                 </details>
->>>>>>> 95e15762 (First pass at updating API nav and removing facet.)
         );
     }
 }
