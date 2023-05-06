@@ -68,11 +68,13 @@ $base-ch-width-l: 12ch;
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: black;
+        color: map-get($gray, 900);
+        max-width: 24ch;
     }
 
     summary {
         width: 100%;
+        padding-left: 8px;
         @media (max-width: 1279px) {
             &.depth-0 {
                 max-width: $base-ch-width-l;
