@@ -1,5 +1,5 @@
 ---
-title: "From Azure Resource Manager"
+title: "Azure Resource Manager"
 meta_desc: Migrate your existing Azure Resource Manager (ARM) templates and/or coexist with existing deployments.
 menu:
   usingpulumi:

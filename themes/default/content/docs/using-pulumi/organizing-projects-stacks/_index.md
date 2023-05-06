@@ -1,5 +1,6 @@
 ---
-title: Organizing projects & stacks
+title_tag: Organizing projects & stacks
+title: Organizing projects
 meta_desc: An overview of best practices when organizing and structuring cloud projects and stacks.
 menu:
   usingpulumi:

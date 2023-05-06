@@ -1,5 +1,5 @@
 ---
-title: "From Kubernetes YAML or Helm Charts"
+title: "Kubernetes YAML or Helm Charts"
 meta_desc: Migrate your existing Kubernetes YAML or Helm Charts and/or coexist with existing templates.
 menu:
   usingpulumi:

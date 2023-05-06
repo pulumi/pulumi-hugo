@@ -1,5 +1,5 @@
 ---
-title: "Migrate to..."
+title: "Migrate from..."
 title_tag: "Migrating to Pulumi"
 meta_desc: Migrate from an existing infrastructure management solution to Pulumi.
 menu:

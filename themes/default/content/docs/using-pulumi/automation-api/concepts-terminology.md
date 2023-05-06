@@ -1,5 +1,5 @@
 ---
-title: Core concepts
+title: Concepts
 title_tag: Automation API Concepts & Terminology
 meta_desc: This page contains an overview of core concepts when using Automation API.
 weight: 1
