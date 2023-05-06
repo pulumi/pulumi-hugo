@@ -9,6 +9,7 @@ menu:
     identifier: pulumi-cloud-org-access-tokens
 aliases:
 - /docs/intro/pulumi-service/organization-access-tokens/
+- /docs/intro/pulumi-cloud/organization-access-tokens/
 ---
 
 Organization Access Tokens provide Enterprise and Business Critical customers the opportunity to manage resources and stack operations for their organization independent of a single-user account.

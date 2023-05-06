@@ -11,6 +11,7 @@ aliases:
 - /docs/intro/console/extensions/webhooks/
 - /docs/intro/console/webhooks/
 - /docs/intro/pulumi-service/webhooks/
+- /docs/intro/pulumi-cloud/webhooks/
 ---
 
 {{% notes "info" %}}

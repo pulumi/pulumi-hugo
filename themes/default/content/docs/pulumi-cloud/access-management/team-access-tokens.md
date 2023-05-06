@@ -8,7 +8,8 @@ menu:
     parent: access-management
     identifier: pulumi-cloud-team-access-tokens
 aliases:
-  - /docs/intro/pulumi-service/team-access-tokens/
+- /docs/intro/pulumi-service/team-access-tokens/
+- /docs/intro/pulumi-cloud/team-access-tokens/
 ---
 {{% notes "info" %}}
 Team Access Tokens are only available to organizations using Pulumi Enterprise or Pulumi Business Critical.

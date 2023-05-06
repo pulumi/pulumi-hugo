@@ -1,13 +1,14 @@
 ---
 title_tag: "REST API Documentation"
-title: "REST API"
+title: "API Docs"
 meta_desc: Documentation for the Pulumi Deployments REST API including configuring settings and OIDC
 menu:
   pulumicloud:
     parent: deployments
-    weight: 6
-
-aliases: ["/docs/reference/deployments-rest-api/"]
+    weight: 7
+aliases:
+- /docs/reference/deployments-rest-api/
+- /docs/intro/deployments/api/
 ---
 
 

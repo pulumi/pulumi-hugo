@@ -11,6 +11,7 @@ menu:
 aliases:
 - /docs/reference/service/saml-aad/
 - /docs/console/accounts/saml/aad/
+- /docs/guides/saml/aad/
 ---
 
 This guide walks you through configuring your Azure Active Directory (Azure AD) as a SAML SSO identity provider

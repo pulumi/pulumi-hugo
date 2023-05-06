@@ -10,6 +10,7 @@ menu:
 aliases:
 - /docs/reference/service/saml-auth0/
 - /docs/console/accounts/saml/auth0/
+- /docs/guides/saml/auth0/
 ---
 
 This guide walks you through configuring your Auth0 Authentication Platform as a SAML SSO identity provider

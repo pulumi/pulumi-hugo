@@ -9,8 +9,9 @@ menu:
     weight: 2
 
 aliases:
-  - /docs/reference/service/saml-onelogin/
-  - /docs/console/accounts/saml/onelogin/
+- /docs/reference/service/saml-onelogin/
+- /docs/console/accounts/saml/onelogin/
+- /docs/guides/saml/onelogin/
 ---
 
 This guide walks you through configuring OneLogin as a SAML SSO identity provider (IdP) for the Pulumi Cloud.

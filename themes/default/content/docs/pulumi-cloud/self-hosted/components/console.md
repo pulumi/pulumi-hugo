@@ -1,12 +1,13 @@
 ---
 title_tag: Pulumi Cloud | Self-Hosting Pulumi
 title: Pulumi Cloud
+meta_desc: Pulumi Cloud is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Pulumi Business Critical Edition.
 menu:
     pulumicloud:
-        parent: self_hosted_components
-        identifier: self_hosted_console_service
+        parent: self-hosted-components
         weight: 2
-meta_desc: Pulumi Cloud is one of the components required for self-hosting Pulumi. Self-hosting is available as part of the Pulumi Business Critical Edition.
+alias:
+- /docs/guides/self-hosted/components/console/
 ---
 
 {{% notes type="info" %}}

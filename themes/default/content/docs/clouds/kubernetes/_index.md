@@ -49,7 +49,7 @@ menu:
 - [Apps](kubernetes-crosswalk/apps/)
 - [Infra services](kubernetes-crosswalk/managed-infra/)
 - [Updating worker nodes](kubernetes-crosswalk/update-worker-nodes/)
-- [FAQs](kubernetes-crosswalk/faq/)
+- [FAQ](kubernetes-crosswalk/faq/)
 
 ## Cluster management
 

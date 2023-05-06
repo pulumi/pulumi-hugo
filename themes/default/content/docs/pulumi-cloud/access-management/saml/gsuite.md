@@ -11,6 +11,7 @@ menu:
 aliases:
 - /docs/reference/service/saml-gsuite/
 - /docs/console/accounts/saml/gsuite/
+- /docs/guides/saml/gsuite/
 ---
 
 This guide walks you through configuring your Google Workspace (formerly known as G Suite) service as a SAML SSO identity provider

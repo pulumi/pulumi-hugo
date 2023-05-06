@@ -1,5 +1,5 @@
 ---
-title_tag: Kubernetes FAQs | Crosswalk
+title_tag: Kubernetes FAQ | Crosswalk
 title: FAQ
 meta_desc: A collection of common questions about Kubernetes usage with Pulumi.
 menu:
@@ -65,9 +65,9 @@ aliases:
 [pulumi-kq]: https://github.com/pulumi/pulumi-query
 <!-- markdownlint-enable url -->
 
-## More FAQs
+## More FAQ
 
-* [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
-* [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
-* [Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)
-* [SCIM FAQs](/docs/pulumi-cloud/access-management/scim/faq/)
+* [Policy as code FAQ](/docs/using-pulumi/crossguard/faq/)
+* [Pulumi Deployments FAQ](/docs/pulumi-cloud/deployments/faq/)
+* [Pulumi CLI & Pulumi Cloud FAQ](/docs/support/faq/)
+* [SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)

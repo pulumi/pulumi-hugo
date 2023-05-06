@@ -68,6 +68,6 @@ If you're looking for some example Policy Packs, take a look at these:
 
 {{< /chooser >}}
 
-## FAQs
+## FAQ
 
 Get the answers to some [Frequently Asked Questions](/docs/guides/crossguard/faq/) about CrossGuard.

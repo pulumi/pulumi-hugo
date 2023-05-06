@@ -4,11 +4,11 @@ title: Components
 meta_desc: The Pulumi Cloud container images page links and docker hub links.
 menu:
     pulumicloud:
-        parent: self_hosted
-        identifier: self_hosted_components
-        weight: 70
+        parent: self-hosted
+        identifier: self-hosted-components
 aliases:
-  - /docs/guides/self-hosted/console/
+- /docs/guides/self-hosted/console/
+- /docs/guides/self-hosted/components/
 ---
 
 {{% notes type="info" %}}

@@ -1,12 +1,14 @@
 ---
 title_tag: Frequently Asked Questions (FAQ) | SCIM
-title: FAQs
+title: FAQ
 meta_desc: This page describes how to resolve issues that may occur when configuring SCIM provisioning
 menu:
     pulumicloud:
         identifier: faq-scim
         parent: scim
         weight: 4
+alias:
+- /docs/guides/scim/faq/
 ---
 
 ## FAQ
@@ -31,8 +33,9 @@ If your identity provider doesn't allow you to control the username attribute's 
 
 Yes. In addition to the SCIM-managed teams, one can also configure and manage Pulumi-local teams in the Pulumi Cloud. See [Teams](/docs/intro/pulumi-cloud/teams/) for how to configure teams in the Pulumi Cloud.
 
-## More FAQs
+## More FAQ
 
-* [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
-* [Policy as code FAQs](/docs/using-pulumi/crossguard/faq/)
-* [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
+* [Kubernetes guides FAQ](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
+* [Policy as code FAQ](/docs/using-pulumi/crossguard/faq/)
+* [Pulumi Deployments FAQ](/docs/pulumi-cloud/deployments/faq/)
+* [Pulumi CLI & Pulumi Cloud FAQ](/docs/support/faq/)

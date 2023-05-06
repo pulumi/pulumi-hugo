@@ -6,6 +6,8 @@ menu:
   pulumicloud:
     parent: deployments
     weight: 1
+alias:
+- /docs/intro/deployments/platform/
 ---
 
 ## Golden Path to Prod

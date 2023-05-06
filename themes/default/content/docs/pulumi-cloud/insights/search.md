@@ -6,6 +6,8 @@ menu:
   pulumicloud:
     parent: insights
     weight: 1
+alias:
+- /docs/intro/insights/search/
 ---
 
 Resource Search allows you to explore your resources, stacks and projects in detail.

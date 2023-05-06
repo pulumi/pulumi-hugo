@@ -4,9 +4,11 @@ title: Network reqs
 meta_desc: The Pulumi Cloud networking ingress and egress information.
 menu:
     pulumicloud:
-        parent: self_hosted_requirements
-        identifier: self_hosted_requirements_network
-        weight: 80
+        parent: self-hosted
+        weight: 4
+alias:
+- /docs/guides/self-hosted/requirements/
+- /docs/guides/self-hosted/requirements/network/
 ---
 
 {{% notes type="info" %}}

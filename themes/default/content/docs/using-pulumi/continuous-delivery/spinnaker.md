@@ -213,7 +213,7 @@ kubectl get pods -o wide
 curl http://<POD_IP>
 ```
 
-## FAQs
+## FAQ
 
 **Can I get colored log output from Pulumi?**
 

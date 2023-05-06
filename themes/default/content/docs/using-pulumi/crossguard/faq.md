@@ -1,6 +1,6 @@
 ---
-title_tag: Frequently Asked Questions (FAQs) | CrossGuard
-title: FAQs
+title_tag: Frequently Asked Questions (FAQ) | CrossGuard
+title: FAQ
 meta_desc: This page contains Frequently Asked Questions about Pulumi CrossGuard and Policy Packs.
 weight: 5
 menu:
@@ -159,9 +159,9 @@ $ venv/bin/pip install -r requirements.txt
 
 {{< /chooser >}}
 
-## More FAQs
+## More FAQ
 
-* [Kubernetes guides FAQs](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
-* [Pulumi Deployments FAQs](/docs/pulumi-cloud/deployments/faq/)
-* [Pulumi CLI & Pulumi Cloud FAQs](/docs/support/faq/)
-* [SCIM FAQs](/docs/pulumi-cloud/access-management/scim/faq/)
+* [Kubernetes guides FAQ](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
+* [Pulumi Deployments FAQ](/docs/pulumi-cloud/deployments/faq/)
+* [Pulumi CLI & Pulumi Cloud FAQ](/docs/support/faq/)
+* [SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)

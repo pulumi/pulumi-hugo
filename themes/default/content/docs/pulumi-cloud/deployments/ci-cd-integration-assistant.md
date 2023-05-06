@@ -11,6 +11,7 @@ aliases:
 - /docs/intro/console/extensions/ci-cd-integration-assistant/
 - /docs/intro/console/ci-cd-integration-assistant/
 - /docs/intro/pulumi-service/ci-cd-integration-assistant/
+- /docs/intro/pulumi-cloud/ci-cd-integration-assistant/
 ---
 
 {{% notes "info" %}}

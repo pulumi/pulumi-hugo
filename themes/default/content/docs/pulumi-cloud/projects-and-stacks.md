@@ -12,6 +12,7 @@ aliases:
 - /docs/intro/console/stack-permissions/
 - /docs/intro/console/projects-and-stacks/
 - /docs/intro/pulumi-service/projects-and-stacks/
+- /docs/intro/pulumi-cloud/projects-and-stacks/
 ---
 
 Projects group stacks together and contain a Pulumi.yaml file.

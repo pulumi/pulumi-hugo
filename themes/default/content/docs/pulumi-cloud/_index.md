@@ -7,13 +7,13 @@ menu:
   pulumicloud:
     name: Overview
     identifier: pulumi-cloud
-    weight: 8
 
 aliases:
 - /docs/reference/service/
 - /docs/intro/console/accounts-and-organizations/editions/
 - /docs/intro/console/
 - /docs/intro/pulumi-service/
+- /docs/intro/pulumi-cloud/
 ---
 
 [Pulumi Cloud](https://app.pulumi.com) is a secure cloud service for individuals and teams using Pulumi's open-source SDK. It manages deployment state and secrets, enables search across your clouds, runs deployments, integrates with CI/CD, and enforces policies and access controls.

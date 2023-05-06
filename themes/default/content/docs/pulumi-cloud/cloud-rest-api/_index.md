@@ -1,6 +1,6 @@
 ---
 title_tag: "Pulumi Cloud REST API"
-title: "API Documentation"
+title: "API Docs"
 meta_desc: An overview of the Pulumi Cloud REST API for querying Organization, Stack, State, etc. information.
 menu:
   pulumicloud:

@@ -6,8 +6,8 @@ menu:
   pulumicloud:
     identifier: insights
     weight: 5
-
-aliases: ["/docs/intro/insights/"]
+aliases:
+- /docs/intro/insights/
 ---
 
 Pulumi Insights provides advanced search, analytics, and AI for your infrastructure as code.

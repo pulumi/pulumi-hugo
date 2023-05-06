@@ -6,6 +6,8 @@ menu:
   pulumicloud:
     parent: insights
     weight: 2
+alias:
+- /docs/intro/insights/export/
 ---
 
 ## CSV Format
