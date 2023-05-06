@@ -40,7 +40,7 @@ precisely.
 In our example, we are using three separate clouds, one of these being a local KinD cluster.
 
 - [Nodejs](https://nodejs.org/en/download/)
-- [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
+- [Pulumi CLI](https://www.pulumi.com/docs/install/)
 - Have the Pulumi Registry documentation handy for some Pulumi providers:
     - [Pulumi Civo Provider](https://www.pulumi.com/registry/packages/civo/)
     - [Pulumi Linode Provider](https://www.pulumi.com/registry/packages/linode/)

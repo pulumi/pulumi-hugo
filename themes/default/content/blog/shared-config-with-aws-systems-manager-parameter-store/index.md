@@ -32,7 +32,7 @@ Let's start Stack 1 --- the `shared-config` stack.
 
 ## Building the shared config stack
 
-First, make sure you've [installed](/docs/get-started/install/) and [configured Pulumi for AWS](/registry/packages/aws/installation-configuration/), and then, in your shell of choice, create a new folder to house our three stacks-to-be:
+First, make sure you've [installed](/docs/install/) and [configured Pulumi for AWS](/registry/packages/aws/installation-configuration/), and then, in your shell of choice, create a new folder to house our three stacks-to-be:
 
 ```bash
 $ mkdir shared-config-with-ssm && cd shared-config-with-ssm

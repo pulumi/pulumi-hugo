@@ -489,7 +489,7 @@ or visit https://pulumi.com/docs/reference/install/ for manual instructions and 
 
 ## Upgrading Pulumi
 
-If you are upgrading from Pulumi 2.0 to 3.0, please see our [migration guide](/docs/get-started/install/migrating-3.0).
+If you are upgrading from Pulumi 2.0 to 3.0, please see our [migration guide](/docs/install/migrating-3.0).
 
 ## Installing Betas and Previous Versions
 

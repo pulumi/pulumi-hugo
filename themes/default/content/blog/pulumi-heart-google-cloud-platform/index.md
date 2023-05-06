@@ -263,7 +263,7 @@ Pulumi is free and open source. You can get started with Pulumi today.
 Here are a few resources to learn more about working with Pulumi and
 GCP:
 
-- [Google Cloud Platform Getting Started Guide](/docs/get-started/gcp/)
+- [Google Cloud Platform Getting Started Guide](/docs/clouds/gcp/get-started/)
 - [GKE Tutorial](/registry/packages/kubernetes/how-to-guides/gke/)
 - [GCE Tutorial](/registry/packages/gcp/how-to-guides/gce-webserver/)
 - Example: [Serverless Slackbot with Cloud Functions in JavaScript](https://github.com/pulumi/examples/tree/master/gcp-ts-slackbot)

@@ -25,22 +25,22 @@ The fastest way to get up and running is to choose from one of the following Get
 
 <div class="tiles mt-4">
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="/docs/get-started/aws/?language=csharp">
+        <a class="tile p-4" href="/docs/clouds/aws/get-started/?language=csharp">
             <img class="h-8 mx-auto" src="/logos/tech/aws.svg" alt="AWS">
         </a>
     </div>
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="/docs/get-started/azure/?language=csharp">
+        <a class="tile p-4" href="/docs/clouds/azure/get-started/?language=csharp">
             <img class="h-8 mx-auto" src="/logos/tech/azure.svg" alt="Azure">
         </a>
     </div>
     <div class="flex-1 pb-4 md:mr-4">
-        <a class="tile p-4" href="/docs/get-started/gcp/?language=csharp">
+        <a class="tile p-4" href="/docs/clouds/gcp/get-started/?language=csharp">
             <img class="h-8 mx-auto" src="/logos/tech/gcp.svg" alt="Google Cloud">
         </a>
     </div>
     <div class="flex-1 pb-4">
-        <a class="tile p-4" href="/docs/get-started/kubernetes/?language=csharp">
+        <a class="tile p-4" href="/docs/clouds/kubernetes/get-started/?language=csharp">
             <img class="h-8 mx-auto" src="/logos/tech/k8s.svg" alt="Kubernetes">
         </a>
     </div>
@@ -54,7 +54,7 @@ The Getting Started guides only demonstrate C#, but will also work for F# and Vi
 
 Before using Pulumi for .NET, you will need to install both Pulumi and .NET Core SDK 3.1, .NET 5, or .NET 6 (recommended). If you follow the Getting Started guides above, they will walk you through doing this.
 
-1. [Install Pulumi](/docs/get-started/install/)
+1. [Install Pulumi](/docs/install/)
 1. [Install .NET SDK](https://dotnet.microsoft.com/download)
 
 ## Example

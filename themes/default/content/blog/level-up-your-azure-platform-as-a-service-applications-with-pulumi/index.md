@@ -101,7 +101,7 @@ definition, and deployment pipeline in [Pulumi Examples repository](https://git
 
 The Pulumi development experience is powered by the
 [Pulumi CLI](/docs/reference/cli/). After
-[installing the CLI](/docs/get-started/install/), I jump into an empty
+[installing the CLI](/docs/install/), I jump into an empty
 `infra` folder and run `pulumi new azure-typescript` accepting all the
 default answers. The CLI bootstraps a skeleton of a TypeScript NodeJS
 application. The code looks like this:
@@ -455,8 +455,8 @@ language.
 You can get going with these resources:
 
 - [Getting Started with Pulumi](/docs/get-started/)
-- [Setup Pulumi to work with Azure](/docs/get-started/azure/)
-- [Walkthroughs and Examples](/docs/get-started/azure/)
+- [Setup Pulumi to work with Azure](/docs/clouds/azure/get-started/)
+- [Walkthroughs and Examples](/docs/clouds/azure/get-started/)
 
 Pulumi enables developers to define cloud infrastructure using general
 purpose programming languages. Pulumi works with multiple cloud

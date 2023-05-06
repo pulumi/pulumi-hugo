@@ -10,7 +10,7 @@ aliases:
 
 Pulumi 3.0 is generally available. It’s simple to upgrade:
 
-1. [Install or upgrade to the 3.0 CLI](/docs/get-started/install/).
+1. [Install or upgrade to the 3.0 CLI](/docs/install/).
 2. Review the updated CLI behaviors listed below.
 3. Update each of your Pulumi programs to utilize the new version of the SDK.
 

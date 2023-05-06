@@ -23,7 +23,7 @@ altered to fit into any existing type of deployment setup.
 
 - A working installation of a recent version of Jenkins.
 - An account in the [Pulumi Cloud](https://app.pulumi.com).
-- The [latest version of Pulumi](/docs/get-started/install/).
+- The [latest version of Pulumi](/docs/install/).
 - Setup a new project and [stack](/docs/intro/concepts/stack/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
 and choosing one of the many templates that are available.
 - A bare repo and set the remote URL to be your GitHub project.

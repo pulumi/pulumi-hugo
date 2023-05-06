@@ -59,7 +59,7 @@ To start, you'll create a Pulumi IaC project, which will declare all of the supp
 
 > Note: If you're following along, be sure to install the prerequisites:
 >
-> * [Install Pulumi](https://www.pulumi.com/docs/get-started/install/)
+> * [Install Pulumi](https://www.pulumi.com/docs/install/)
 > * [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 > * [Configure AWS Credentials](https://www.pulumi.com/docs/intro/cloud-providers/aws/setup/)
 

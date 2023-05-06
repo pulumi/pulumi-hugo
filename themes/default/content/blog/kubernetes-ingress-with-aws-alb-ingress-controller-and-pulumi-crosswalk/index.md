@@ -48,7 +48,7 @@ packages.
 ## Step 1: Initialize Pulumi project and stack
 
 [Install pulumi CLI](/docs/get-started/)
-and set up your [AWS credentials](/docs/get-started/aws/).
+and set up your [AWS credentials](/docs/clouds/aws/get-started/).
 Initialize a new [Pulumi project](/docs/intro/concepts/project/)
 and [Pulumi stack](/docs/reference/cli/pulumi_stack/) from
 available programming [language

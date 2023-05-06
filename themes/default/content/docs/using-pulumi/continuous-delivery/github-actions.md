@@ -42,7 +42,7 @@ for it. There are three ways to do this:
 
 1. [Clone an existing Pulumi example](https://github.com/pulumi/examples)
 2. [Use the New Project wizard](https://app.pulumi.com/site/new-project)
-3. [Download the CLI](/docs/get-started/install/) and run `pulumi new` to
+3. [Download the CLI](/docs/install/) and run `pulumi new` to
    select a template
 
 ## Creating a Workflow

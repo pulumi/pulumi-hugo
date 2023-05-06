@@ -36,7 +36,7 @@ So let's build ourselves a MERN app and deploy it on DigitalOcean with Pulumi. G
 The code for this walkthrough is [available as a template repository on GitHub](https://github.com/pulumi/fullstack-pulumi-mern-digitalocean), so if you want to follow along (and you should!), you should grab a copy of your own to work with by forking the repository or creating a new one from the template. Once you've done that, you should also:
 
 * [Clone the repository](https://github.com/pulumi/fullstack-pulumi-mern-digitalocean) to your local machine.
-* [Install Pulumi](/docs/get-started/install/) and [Node.js](https://nodejs.org/).
+* [Install Pulumi](/docs/install/) and [Node.js](https://nodejs.org/).
 * [Sign into DigitalOcean](https://cloud.digitalocean.com/) and obtain a [personal access token](https://cloud.digitalocean.com/account/api/tokens) with read-write permissions.
 * Grant DigitalOcean access to your GitHub repository by [visiting the Apps page](https://cloud.digitalocean.com/apps), choosing Create App, and following the steps to install DigitalOcean's GitHub app.
 * Optionally, if you'd like to develop the application locally as well, [install and configure MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/).

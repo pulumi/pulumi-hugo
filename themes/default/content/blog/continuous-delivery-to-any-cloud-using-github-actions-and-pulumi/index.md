@@ -151,7 +151,7 @@ There is so much more fun to have, and we're just getting started. Look
 for more in the weeks to come. In the meantime, here are some follow up
 links in case you want to learn more about GitHub Actions and Pulumi:
 
-- To learn more, [install Pulumi](/docs/get-started/install/) and then
+- To learn more, [install Pulumi](/docs/install/) and then
   check out our [Getting Started guide](/docs/get-started/).
 - In addition to [the keynote video](https://www.youtube.com/watch?v=59SxB2uY9E0), we have two
   other videos that you might enjoy watching to learn more:

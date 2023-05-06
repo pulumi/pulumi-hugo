@@ -108,14 +108,14 @@ The method for fixing this issue depends on whether you are using an Intel based
 #### Non-Intel based processor
 
 1. Remove Pulumi - if you're using Homebrew, `brew remove pulumi` to remove Pulumi and `rm -rf ~/.pulumi` to remove plugins and templates.
-1. Download [latest version of Pulumi](/docs/get-started/install/versions/).
+1. Download [latest version of Pulumi](/docs/install/versions/).
 1. Add Pulumi to path: `export PATH=$PATH:~/.pulumi/bin`
 1. Update packages in your Pulumi program to latest version (for example `npm install @pulumi/aws@latest)
 1. Install Pulumi provider: `arch -x86_64 pulumi plugin install resource {provider_name} v{version}` (where  {provider_name} is the name of the provider, i.e. aws and {version} is the same version number that your package has updated to). `arch` is used to run the selected architecture of a binary, in this case so that you can run the non-ARM64 version of Pulumi on your laptop.
 1. [Login to Pulumi](/docs/intro/concepts/state#logging-into-and-out-of-state-backends).
 1. Run a Pulumi preview: `arch -x86_64 pulumi pre`.
 1. Remove Pulumi again `rm -rf ~/.pulumi`.
-1. [Re-install Pulumi](/docs/get-started/install/)
+1. [Re-install Pulumi](/docs/install/)
 1. [Login to Pulumi](/docs/intro/concepts/state#logging-into-and-out-of-state-backends).
 1. Run a Pulumi preview to check everything is ok: `pulumi pre`
 

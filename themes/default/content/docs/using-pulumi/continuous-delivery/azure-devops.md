@@ -30,7 +30,7 @@ the steps outlined in the sample YAML file below to the Visual Designer as well.
 
 - An account on [https://app.pulumi.com](https://app.pulumi.com).
 - The latest CLI.
-    - [Installation instructions](/docs/get-started/install/).
+    - [Installation instructions](/docs/install/).
 - A git repo with your Azure DevOps project set as the remote URL.
     - To learn more about how to [create a git repo in your DevOps project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=vsts&tabs=new-nav).
 - Optional, but recommended, the [Pulumi Azure DevOps task extension](https://marketplace.visualstudio.com/items?itemName=pulumi.build-and-release-task).
@@ -159,14 +159,14 @@ You can set [job-scoped output variables](https://docs.microsoft.com/en-us/azure
 
 `pulumi` requires a few environment variables in order to work in a CI/CD environment. More specifically, `PULUMI_ACCESS_TOKEN` is required
 to allow the `pulumi` CLI to perform an unattended login. In addition to this, you will also need to set the cloud provider-specific
-variables. [Azure environment variables](/docs/get-started/azure/).
+variables. [Azure environment variables](/docs/clouds/azure/get-started/).
 
 > If you are using the [Pulumi task extension](https://marketplace.visualstudio.com/items?itemName=pulumi.build-and-release-task) for Azure Pipelines, you don't need to manually configure the environment variables in your pipeline builds. You can use [Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops) to centralize access to your Azure subscription(s).
 
 ### Agents
 
 Azure DevOps allows you to specify a build agent for each of your jobs in your pipeline. You may have a requirement to run certain jobs on a
-Ubuntu agent, and some on a Windows agent. If not using the task extension, `pulumi` can be installed on these agents by following the directions from [this](/docs/get-started/install/) page.
+Ubuntu agent, and some on a Windows agent. If not using the task extension, `pulumi` can be installed on these agents by following the directions from [this](/docs/install/) page.
 
 ### Setup
 

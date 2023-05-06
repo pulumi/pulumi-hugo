@@ -46,7 +46,7 @@ Here are a few highlights:
 
 [Install `pulumi` CLI](/docs/get-started/install) and
 set up your
-[AWS credentials](/docs/get-started/aws/).
+[AWS credentials](/docs/clouds/aws/get-started/).
 Initialize a new
 [Pulumi project](/docs/intro/concepts/project/) from available
 templates. We use `aws-typescript template` here to install all

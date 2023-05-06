@@ -29,7 +29,7 @@ Some of the most exciting new features in this release include:
 * **Improved Go and Python SDKs**: Updates to the core Go and Python SDKs make APIs simpler and more consistent, unlock more tooling support, and improve compile times - making it even easier to use all the benefits of your favorite programming language when building and managing cloud infrastructure.
 * **New Integrations and Features in the Pulumi Service**: Alongside Pulumi 3.0, users of the Pulumi Service also now have access to new dashboards for organization-level cloud infrastructure insights, a CI/CD Assistant for easy version control and CI/CD integration with just a few clicks, and new identity, access control, and auditing capabilities.
 
-👉 [Get started](/docs/get-started/) with Pulumi 3.0 today or check out the [Pulumi 3.0 migration guide](/docs/get-started/install/migrating-3.0) to update your existing Pulumi projects to Pulumi 3.0.
+👉 [Get started](/docs/get-started/) with Pulumi 3.0 today or check out the [Pulumi 3.0 migration guide](/docs/install/migrating-3.0) to update your existing Pulumi projects to Pulumi 3.0.
 
 ## Pulumi Automation API
 
@@ -156,11 +156,11 @@ Pulumi’s language SDKs bring the power of cloud infrastructure management into
 
 <img align="right" width="120" src="go.png">
 
-For Go users, Pulumi 3.0 reduces binary sizes by 4x and improves build times by up to 3x, leading to a much faster infrastructure development loop. Along with this, the Go APIs for working with Pulumi `Output` values have been simplified to provide a single way of transforming outputs instead of three different options.  This makes the Pulumi Go SDK more consistent and easier to get started with.  You can learn more about these changes in the [Pulumi 3.0 migration guide](/docs/get-started/install/migrating-3.0).
+For Go users, Pulumi 3.0 reduces binary sizes by 4x and improves build times by up to 3x, leading to a much faster infrastructure development loop. Along with this, the Go APIs for working with Pulumi `Output` values have been simplified to provide a single way of transforming outputs instead of three different options.  This makes the Pulumi Go SDK more consistent and easier to get started with.  You can learn more about these changes in the [Pulumi 3.0 migration guide](/docs/install/migrating-3.0).
 
 <img align="right" width="90" src="py.png">
 
-For Python users, Pulumi 3.0 brings a new, more strongly typed way to provide inputs to cloud resources, ensuring that users get completion lists, type checking, documentation, and more within their IDE of choice.  Along with this, some inconsistencies in input property naming have also been removed; now, all property names follow a consistent and predictable naming convention.  You can learn more about these changes in the [Pulumi 3.0 migration guide](/docs/get-started/install/migrating-3.0).
+For Python users, Pulumi 3.0 brings a new, more strongly typed way to provide inputs to cloud resources, ensuring that users get completion lists, type checking, documentation, and more within their IDE of choice.  Along with this, some inconsistencies in input property naming have also been removed; now, all property names follow a consistent and predictable naming convention.  You can learn more about these changes in the [Pulumi 3.0 migration guide](/docs/install/migrating-3.0).
 
 <img width="600" src="pythoncompletion.png">
 
@@ -191,6 +191,6 @@ To learn more about each of the new areas - check out these blog posts with more
 * [Pulumi CI/CD Integration Assistant available for all plans](/blog/pulumiup-ci-cd-assistant-all-plans)
 * [Easily bring your team to Pulumi with SAML SSO and SCIM](/blog/pulumiup-bring-your-whole-team-to-pulumi/)
 
-You can [get started](/docs/get-started/) with Pulumi 3.0 today, or check out the [Pulumi 3.0 migration guide](/docs/get-started/install/migrating-3.0) to update your existing Pulumi projects to Pulumi 3.0.
+You can [get started](/docs/get-started/) with Pulumi 3.0 today, or check out the [Pulumi 3.0 migration guide](/docs/install/migrating-3.0) to update your existing Pulumi projects to Pulumi 3.0.
 
 We can't wait to see what you build with Pulumi 3.0!

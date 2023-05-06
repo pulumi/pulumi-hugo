@@ -42,7 +42,7 @@ Pulumi uses the Service backend hosted at <a href="https://app.pulumi.com" targe
 - Secure access to cloud resource metadata, with client-side authentication to your cloud provider
 - Team policies, including Policy as Code and Role Based Access Control (RBAC)
 
-The Pulumi Cloud backend requires no additional configuration after [installing the CLI](/docs/get-started/install/). Pulumi offers this backend hosted online free for individuals, with [advanced tiers](/pricing/) available for teams and enterprises (with <a href="https://app.pulumi.com/site/trial" target="_blank">free trials</a>). It has successfully undergone multiple security audits including SOC2, pen-testing, and more.
+The Pulumi Cloud backend requires no additional configuration after [installing the CLI](/docs/install/). Pulumi offers this backend hosted online free for individuals, with [advanced tiers](/pricing/) available for teams and enterprises (with <a href="https://app.pulumi.com/site/trial" target="_blank">free trials</a>). It has successfully undergone multiple security audits including SOC2, pen-testing, and more.
 
 > To learn more about the Pulumi Cloud backend's design, including why it doesn't need your cloud credentials, see [Pulumi Cloud Architecture](#/pulumi-cloud/-architecture). If you are interested in the hosting your own instance, see the [Self-Hosting User Guide](/docs/guides/self-hosted/).
 

@@ -27,7 +27,7 @@ need for building cloud applications. Better than that, you can even
 
 ## Our first serverless app in 5 lines of JavaScript
 
-After [installing the Pulumi CLI](/docs/get-started/install/), just run
+After [installing the Pulumi CLI](/docs/install/), just run
 the following to create your new serverless JavaScript app:
 
     mkdir firstapp && cd firstapp

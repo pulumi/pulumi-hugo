@@ -84,7 +84,7 @@ an easy-to-use mechanism for installing and running the various `pulumi` command
 * [Spinnaker Plugin](https://github.com/pulumi/spinnaker-preconfigured-job-plugin) - [Spinnaker Guide](/docs/guides/continuous-delivery/spinnaker/)
 
 If you are using a CI system that does not have a native extension for installing the CLI, you can always run an inline script step
-to [install the CLI manually](/docs/get-started/install/).
+to [install the CLI manually](/docs/install/).
 
 #### Tips
 

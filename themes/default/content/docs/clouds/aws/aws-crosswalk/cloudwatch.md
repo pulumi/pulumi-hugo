@@ -411,4 +411,4 @@ For more information about Amazon CloudWatch, see the following:
 
 * [Amazon CloudWatch homepage](https://aws.amazon.com/cloudwatch/)
 
-Or [get started with Pulumi](/docs/get-started/aws/).
+Or [get started with Pulumi](/docs/clouds/aws/get-started/).

@@ -27,7 +27,7 @@ Let's get to it.
 
 ## Step 1: Create a new project {#create}
 
-If you haven't already, make sure you've [installed Pulumi](/docs/get-started/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration/). For this example, we'll be using [AWS](/registry/packages/aws/installation-configuration/), but the process is the same for any cloud provider, so if you aren't set up on AWS, you should still be able to follow along anyway.
+If you haven't already, make sure you've [installed Pulumi](/docs/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration/). For this example, we'll be using [AWS](/registry/packages/aws/installation-configuration/), but the process is the same for any cloud provider, so if you aren't set up on AWS, you should still be able to follow along anyway.
 
 Create a new project in the usual way using one of our starter templates. The YAML template is a good choice for this walkthrough, as YAML projects are simple and lightweight (no runtime dependencies!), and because they combine both project and program into one file, they're especially conducive to sharing:
 

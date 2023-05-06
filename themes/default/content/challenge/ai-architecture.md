@@ -24,7 +24,7 @@ We will send you a piece of swag if you document this via a blog post, social me
 The challenge utilizes whatever cloud and whatever language you choose to ask Pulumi AI to write for you. Pulumi AI will do all the heavy lifting! However, in order to complete this challenge, you will need a couple things set up in advance.
 
 - A [Pulumi account](https://app.pulumi.com/signup)
-- The [Pulumi CLI](/docs/get-started/install/)
+- The [Pulumi CLI](/docs/install/)
 - Pulumi AI
 - Cloud accounts
 - OpenAI API Key

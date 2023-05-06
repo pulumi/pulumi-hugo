@@ -28,7 +28,7 @@ altered to fit into any existing type of deployment setup.
 - An account on [https://app.pulumi.com](https://app.pulumi.com) and that you have created a new project.
     - This just means you will sign-in using your GitLab credentials.
     - However, pulumi can be run from anywhere and your infrastructure code itself can be hosted anywhere.
-- The [latest CLI](/docs/get-started/install/).
+- The [latest CLI](/docs/install/).
 - A bare repo and set the remote URL to be your GitLab project.
 
 ## Stack and Branch Mappings

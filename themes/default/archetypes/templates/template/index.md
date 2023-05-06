@@ -49,7 +49,7 @@ and extend to suit your needs.
 ## Using this template
 
 To use this template to deploy your own $THING,
-make sure you've [installed Pulumi](/docs/get-started/install/)
+make sure you've [installed Pulumi](/docs/install/)
 and [configured your $CLOUD credentials](/registry/packages/$CLOUD/installation-configuration/#credentials),
 then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
 

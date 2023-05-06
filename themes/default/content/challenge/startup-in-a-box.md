@@ -23,7 +23,7 @@ In order to complete this challenge, you'll need a couple things set up in advan
 {{% choosable cloud aws %}}
 
 * A [Pulumi account](https://app.pulumi.com/signup)
-* The [Pulumi CLI](/docs/get-started/install/)
+* The [Pulumi CLI](/docs/install/)
 * An AWS account
 * A [Checkly account](https://www.checklyhq.com/)
 
@@ -32,7 +32,7 @@ In order to complete this challenge, you'll need a couple things set up in advan
 {{% choosable cloud gcp %}}
 
 * A [Pulumi account](https://app.pulumi.com/signup)
-* The [Pulumi CLI](/docs/get-started/install/)
+* The [Pulumi CLI](/docs/install/)
 * A Google Cloud [account](https://cloud.google.com/gcp) and [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects/)
 * A [Checkly account](https://www.checklyhq.com/)
 
