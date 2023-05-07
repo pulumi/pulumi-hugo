@@ -177,7 +177,7 @@ key_features:
                     Manage infrastructure code in Git and approve changes through pull requests.
               - title: Shift left
                 description: |
-                    Get rapid feedback on your code with fast [unit tests](/docs/using-pulumi/testing/), and run [integration tests](/docs/using-pulumi/testing/) against ephemeral infrastructure.
+                    Get rapid feedback on your code with fast [unit tests](/docs/using-pulumi/testing/unit/), and run [integration tests](/docs/using-pulumi/testing/integration/) against ephemeral infrastructure.
               - title: Continuous delivery
                 description: |
                     [Integrate your CI/CD provider](/docs/using-pulumi/continuous-delivery/) with Pulumi or use GitOps to [manage Kubernetes clusters](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/).

@@ -249,7 +249,7 @@ detail_sections:
 superpowers:
   - title: Multi Cloud
     cta: Learn more
-    cta_url: "/docs/get-started/azure"
+    cta_url: "/docs/clouds/azure/get-started/"
     icon_type: cloud
     description: |
         Pulumi allows you to use top programming languages across all public clouds with support
@@ -258,7 +258,7 @@ superpowers:
 
   - title: Reduce Provisioning Time
     cta: Learn more
-    cta_url: "/docs/get-started/azure"
+    cta_url: "/docs/clouds/azure/get-started/"
     icon_type: provisioning
     description: |
         With Pulumi you are able to take advantage of the features of programming languages,

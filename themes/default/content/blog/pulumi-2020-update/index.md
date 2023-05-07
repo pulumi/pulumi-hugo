@@ -23,7 +23,7 @@ We completely overhauled [our Go SDK](/docs/languages-sdks/go/) to be more idiom
 
 The major change in the Go SDK is that we previously used `map[string]interface{}` types in many places instead of properly-typed data structures. No more! Instead, you now get strong typing for all Go resource APIs across all providers, including AWS, Azure, GCP, and Kubernetes. The improvements here are huge, as you can see [in this before/after PR](https://github.com/pulumi/examples/commit/b88f385a8951f81fe41cb4f40eb940b074e9263b#diff-07803f7bc3bff97871e6e3eea7287cb8). Examples and documentation have been updated to this new style.
 
-[GoDocs are now here](/docs/reference/pkg?language=golang ) for all of our providers and we've also added Go versions to our getting started guides for [AWS](/docs/get-started/aws?language=golang), [Azure](/docs/get-started/azure?language=golang), and [GCP](/docs/get-started/gcp?language=golang), and have many more improvements on the way.
+[GoDocs are now here](/docs/reference/pkg?language=golang ) for all of our providers and we've also added Go versions to our getting started guides for [AWS](/docs/clouds/aws/get-started?language=golang), [Azure](/docs/clouds/azure/get-started?language=golang), and [GCP](/docs/clouds/gcp/get-started/?language=golang), and have many more improvements on the way.
 
 We've also added support for core Pulumi features, including [aliases](/docs/concepts/resources#aliases) and [transformations](/docs/concepts/resources#transformations). A few remain to flesh out like adding Go support for our Kubernetes, Docker, and Terraform remote state packages. The biggest change to come is retiring Dep in favor of Go modules everywhere.
 

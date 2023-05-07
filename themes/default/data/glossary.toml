@@ -146,7 +146,7 @@ link = "/docs/reference/cli"
 [[entries]]
 term = "Project"
 description = "A Pulumi project is any folder which contains a Pulumi.yaml file."
-link = "/docs/concepts/project"
+link = "/docs/concepts/projects"
 
 [[entries]]
 term = "Project File"

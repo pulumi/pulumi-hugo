@@ -278,7 +278,7 @@ The following topics provide more details on the core concepts of Pulumi and how
         <p>Learn about how Pulumi performs deployments under the hood.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/concepts/project"><i class="fas fa-folder-open pr-2"></i>Projects</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/projects"><i class="fas fa-folder-open pr-2"></i>Projects</a></h3>
         <p>Learn how Pulumi projects are organized and configured.</p>
     </div>
 </div>
