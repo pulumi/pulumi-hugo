@@ -98,7 +98,7 @@ Pulumi AI now offers a more succinct solution for common queries such as "a stat
 
 When asked for modern resources such as [Google AlloyDB](https://cloud.google.com/alloydb), launched six weeks ago, Pulumi AI now references Registry documentation to answer "google alloydb with an automatic backup policy":
 
-> Based on the Pulumi Registry results and trying to accomplish your goal of creating an AlloyDB cluster with an automatic backup policy, we can create a Google Cloud Platform (GCP) AlloyDB cluster using the [gcp.alloydb.Cluster](/registry/packages/gcp/api-docs/alloydb/cluster/) resource. You can set the `automatedBackupPolicy` property with the necessary configuration to enable automatic backups.
+> Based on the Pulumi Registry results and trying to accomplish your goal of creating an AlloyDB cluster with an automatic backup policy, we can create a Google Cloud Platform (GCP) AlloyDB cluster using the [`gcp.alloydb.Cluster`](/registry/packages/gcp/api-docs/alloydb/cluster/) resource. You can set the `automatedBackupPolicy` property with the necessary configuration to enable automatic backups.
 >
 > Here's a Pulumi program in TypeScript that creates an AlloyDB Cluster with an automatic backup policy:
 >
@@ -146,7 +146,7 @@ When asked for modern resources such as [Google AlloyDB](https://cloud.google.co
 
 Our enhancements to Pulumi AI have made it a more useful tool for generating accurate and relevant cloud infrastructure solutions. We're excited about the future of Pulumi AI as we continue to integrate it into [Pulumi Cloud](https://app.pulumi.com) and empower everyone to become a cloud engineer.
 
-These enhancements are live now at [Pulumi AI](/ai/), and we've added links to Pulumi AI in pages on the Pulumi Registry, for example on the [eks.Cluster](/registry/packages/eks/api-docs/cluster/) docs mentioned earlier.
+These enhancements are live now at [Pulumi AI](/ai/), and we've added links to Pulumi AI in pages on the Pulumi Registry, for example on the [`eks.Cluster`](/registry/packages/eks/api-docs/cluster/) docs mentioned earlier.
 
 Give them a try and share your experiences with us. Together, let's build a future where infrastructure as code becomes more accessible, efficient, and enjoyable for everyone.
 
