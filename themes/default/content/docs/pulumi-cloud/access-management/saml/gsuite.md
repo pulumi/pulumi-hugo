@@ -19,7 +19,7 @@ This guide walks you through configuring your Google Workspace (formerly known a
 
 ## Prerequisites
 
-- [Single Sign-On](/docs/guides/saml/sso/)
+- [Single Sign-On](/docs/pulumi-cloud/access-management/saml/sso/)
 
 ## Creating the SAML Application
 

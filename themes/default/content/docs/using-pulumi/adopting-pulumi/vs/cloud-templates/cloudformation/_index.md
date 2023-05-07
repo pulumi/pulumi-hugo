@@ -185,7 +185,7 @@ To learn more about configuring projects and stacks with Pulumi, see [Configurat
 
 Administrators of organizations backed by the Pulumi Cloud are able to view and export audit logs that keep track of all user-related activity across the organization. Audit logs capture many kinds of events (stack update requests, failed login attempts, decrypted secrets, removed policies, etc.) along with the timestamp of the event, the user who triggered it, and the source IP address of the call that was made. Audit logs are available to Pulumi Enterprise and Business Critical subscribers. CloudFormation offers similar capability through its integration with AWS CloudTrail.
 
-To learn more about Audit Logs and the kinds of events they capture, see [Audit Logs](/docs/intro/pulumi-cloud/audit-logs/).
+To learn more about Audit Logs and the kinds of events they capture, see [Audit Logs](/docs/pulumi-cloud/audit-logs/).
 
 ### Adopt Existing Resources {#adopting}
 

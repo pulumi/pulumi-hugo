@@ -17,7 +17,7 @@ Self-hosting is only available with **Pulumi Business Critical**. If you would l
 
 The containers running the self-hosted Pulumi Cloud require several kinds of incoming and outgoing network access as well as access to various services depending on where you're deploying it to.
 
-The self-hosted Pulumi Cloud comprises [three containers](/docs/guides/self-hosted/components), the API, the Console and the Migrations containers.
+The self-hosted Pulumi Cloud comprises [three containers](/docs/pulumi-cloud/self-hosted/components), the API, the Console and the Migrations containers.
 
 The self-hosted Pulumi Cloud can be hosted in an air-gapped environment.
 

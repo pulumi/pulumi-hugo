@@ -15,15 +15,15 @@ aliases:
 ---
 
 This document walks through the important aspects of configuring any SAML (Security Assertion Markup Language) 2.0 identity provider to work
-with the [Pulumi Cloud](/docs/intro/pulumi-cloud/).
+with the [Pulumi Cloud](/docs/pulumi-cloud/).
 
 > For a specific example, refer to one of our integration guides:
 >
-> - [Azure Active Directory](/docs/guides/saml/aad/)
-> - [Google Workspace](/docs/guides/saml/gsuite/)
-> - [Okta](/docs/guides/saml/okta/)
-> - [Auth0](/docs/guides/saml/auth0/)
-> - [OneLogin](/docs/guides/saml/onelogin/)
+> - [Azure Active Directory](/docs/pulumi-cloud/access-management/saml/aad/)
+> - [Google Workspace](/docs/pulumi-cloud/access-management/saml/gsuite/)
+> - [Okta](/docs/pulumi-cloud/access-management/saml/okta/)
+> - [Auth0](/docs/pulumi-cloud/access-management/saml/auth0/)
+> - [OneLogin](/docs/pulumi-cloud/access-management/saml/onelogin/)
 
 ## Terminology
 

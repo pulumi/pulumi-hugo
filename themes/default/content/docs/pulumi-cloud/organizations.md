@@ -24,7 +24,7 @@ Organizations are a space for you to collaborate on shared projects and stacks.
 | Page | Description |
 |--------|--------|
 | Dashboard | An overview of the organization including recently updated stacks, recent activity, and a resource count graph. |
-| All stacks | A searchable list of organization stacks that you can group by project and tag. For more information, see [Project and Stack Management](/docs/intro/pulumi-cloud/projects-and-stacks/). |
+| All stacks | A searchable list of organization stacks that you can group by project and tag. For more information, see [Project and Stack Management](/docs/pulumi-cloud/projects-and-stacks/). |
 | Policies | Lists of organization policies and policy groups. Policies allow you to set guardrails to enforce best practices and compliance. |
 | Settings | Organization settings including subscription and payment information and history, Billing Managers, stack permissions, and links to Pulumi's [continuous delivery guides](/docs/using-pulumi/continuous-delivery/). |
 
@@ -92,7 +92,7 @@ of that GitHub organization may be added to the Pulumi organization. Similarly, 
 someone loses access to the GitHub organization, they will no longer have access to the
 Pulumi organization.
 
-In addition, a Pulumi organization can be backed by a [SAML 2.0 identity provider](/docs/guides/saml/).
+In addition, a Pulumi organization can be backed by a [SAML 2.0 identity provider](/docs/pulumi-cloud/access-management/saml/).
 
 ### Changing Identity Providers
 
@@ -155,10 +155,10 @@ members that they can add or invite to the Pulumi organization.
 
 Pulumi Enterprise and Business Critical provide support for any SAML 2.0-based identity provider.
 
-* [SAML-based configuration guide](/docs/guides/saml/)
-* [Azure Active Directory](/docs/guides/saml/aad/)
-* [Google Workspace](/docs/guides/saml/gsuite/)
-* [Auth0](/docs/guides/saml/auth0/)
-* [Okta](/docs/guides/saml/okta/)
+* [SAML-based configuration guide](/docs/pulumi-cloud/access-management/saml/)
+* [Azure Active Directory](/docs/pulumi-cloud/access-management/saml/aad/)
+* [Google Workspace](/docs/pulumi-cloud/access-management/saml/gsuite/)
+* [Auth0](/docs/pulumi-cloud/access-management/saml/auth0/)
+* [Okta](/docs/pulumi-cloud/access-management/saml/okta/)
 
 Members of SSO organizations can login to Pulumi with the organization name auto-filled in the UI by visiting `https://app.pulumi.com/welcome/<organization-name>/sso`.

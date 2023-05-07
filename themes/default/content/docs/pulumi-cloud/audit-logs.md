@@ -42,7 +42,7 @@ To view audit logs:
 This will show the most recent events in descending order. You can
 also filter logs by a particular user by selecting their profile picture.
 
-<img src="/images/docs/guides/self-hosted/auditlogs.png">
+<img src="/images/docs/pulumi-cloud/self-hosted/auditlogs.png">
 
 ## Automated Export
 

@@ -44,7 +44,7 @@ Pulumi uses the Service backend hosted at <a href="https://app.pulumi.com" targe
 
 The Pulumi Cloud backend requires no additional configuration after [installing the CLI](/docs/install/). Pulumi offers this backend hosted online free for individuals, with [advanced tiers](/pricing/) available for teams and enterprises (with <a href="https://app.pulumi.com/site/trial" target="_blank">free trials</a>). It has successfully undergone multiple security audits including SOC2, pen-testing, and more.
 
-> To learn more about the Pulumi Cloud backend's design, including why it doesn't need your cloud credentials, see [Pulumi Cloud Architecture](#/pulumi-cloud/-architecture). If you are interested in the hosting your own instance, see the [Self-Hosting User Guide](/docs/guides/self-hosted/).
+> To learn more about the Pulumi Cloud backend's design, including why it doesn't need your cloud credentials, see [Pulumi Cloud Architecture](#/pulumi-cloud/-architecture). If you are interested in the hosting your own instance, see the [Self-Hosting User Guide](/docs/pulumi-cloud/self-hosted/).
 
 Pulumi also lets you manage state yourself using a self-managed backend. Your state is stored as simple JSON files in AWS S3, Azure Blob Store, Google Cloud Storage, an alternative AWS S3 API compatible server such as Minio or Ceph, or on your local filesystem. These self-managed backends are all open source and free to use in any setting. Using a self-managed backend trades off some amount of reliability for additional control over where metadata is stored. For instance, you will need to manually configure secure access, encryption, and history, and devise your own concurrency control and recovery capabilities. To choose a self-managed backend, use the `pulumi login` command [as documented below](#using-a-self-managed-backend).
 
@@ -106,7 +106,7 @@ Running `pulumi login` without any argument will log into the default Pulumi Clo
 $ pulumi login
 ```
 
-This will display a prompt that asks for an [access token](/docs/intro/pulumi-cloud/accounts#access-tokens):
+This will display a prompt that asks for an [access token](/docs/pulumi-cloud/accounts#access-tokens):
 
 ```
 Manage your Pulumi stacks by logging in.
@@ -143,7 +143,7 @@ It is possible to host your own version of the Pulumi Cloud in your private clou
 
 <img src="/images/docs/reference/state_enterprise.png" alt="Pulumi Enterprise Architecture" class="img-bordered">
 
-To learn more about self-host options, see [Self-Hosted Pulumi Cloud](/docs/guides/self-hosted/) or [Contact Us](/pricing#contact).
+To learn more about self-host options, see [Self-Hosted Pulumi Cloud](/docs/pulumi-cloud/self-hosted/) or [Contact Us](/pricing#contact).
 
 ## Using a Self-Managed Backend
 

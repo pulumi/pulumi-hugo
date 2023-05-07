@@ -18,7 +18,7 @@ This guide walks you through configuring your Auth0 Authentication Platform as a
 
 ## Prerequisites
 
-* Your organization must already be configured to use [SAML](/docs/guides/saml/sso/) with Pulumi.
+* Your organization must already be configured to use [SAML](/docs/pulumi-cloud/access-management/saml/sso/) with Pulumi.
 * You must be an admin of your Pulumi organization.
 * (Optional, but highly recommended) You should have more than one admin for your Pulumi organization.
 

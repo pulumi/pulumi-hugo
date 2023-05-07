@@ -34,19 +34,19 @@ Pulumi can be installed in almost any on-premise or cloud provider environment. 
 
 Here are some examples of deployment topologies:
 
-{{< figure src="/images/docs/guides/self-hosted/on-prem-internet-config.png" caption="Internet-Accessible Deployment" >}}
+{{< figure src="/images/docs/pulumi-cloud/self-hosted/on-prem-internet-config.png" caption="Internet-Accessible Deployment" >}}
 
-{{< figure src="/images/docs/guides/self-hosted/on-prem-intranet-config.png" caption="Intranet-Only Deployment" >}}
+{{< figure src="/images/docs/pulumi-cloud/self-hosted/on-prem-intranet-config.png" caption="Intranet-Only Deployment" >}}
 
-For information on ingress and egress from the self-hosted Pulumi Cloud, please see the [network requirements](/docs/guides/self-hosted/requirements/network/) information.
+For information on ingress and egress from the self-hosted Pulumi Cloud, please see the [network requirements](/docs/pulumi-cloud/self-hosted/network/network/) information.
 
 ## Deployment Options
 
-The Pulumi Cloud [Docker container images](/docs/guides/self-hosted/components/) can be run using any OCI-compatible container orchestrator.
+The Pulumi Cloud [Docker container images](/docs/pulumi-cloud/self-hosted/components/) can be run using any OCI-compatible container orchestrator.
 
 However, Pulumi provides [installers](https://github.com/pulumi/pulumi-self-hosted-installers) to support common deployment environments:
 
-* [Quickstart Docker Compose](/docs/guides/self-hosted/quickstart-docker-compose/): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local Docker environment.
+* [Quickstart Docker Compose](docs/pulumi-cloud/self-hosted/deployment-options/quickstart-docker-compose/): Using a Pulumi-provided set of docker-compose files and bash scripts, one can deploy a small system for **testing** in a local Docker environment.
 * [ECS-Hosted](ecs-hosted/): Using a Pulumi-provided set of Pulumi programs written in TypeScript or Go, one can automate the deployment and maintenance of a production-grade self-hosted solution.
 * [EKS-Hosted](eks-hosted/): Using a Pulumi-provided set of Pulumi programs written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution running on Amazon Elastic Kubernetes Sevice (EKS). This solution most closely matches the managed service deployment model.
 * [AKS-Hosted](aks-hosted/): Using a Pulumi-provided set of Pulumi programs written in TypeScript, one can automate the deployment and maintenance of a production-grade self-hosted solution on Azure Kubernetes Service (AKS).

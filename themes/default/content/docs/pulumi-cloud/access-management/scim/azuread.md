@@ -17,7 +17,7 @@ Please note that some advanced SCIM features aren't supported yet. For more info
 
 ## Prerequisites
 
-* Your organization must already be configured to use [SAML SSO](/docs/guides/saml/aad/) with Pulumi.
+* Your organization must already be configured to use [SAML SSO](/docs/pulumi-cloud/access-management/saml/aad/) with Pulumi.
 * You must be an admin of your Pulumi organization.
 * (Optional, but highly recommended) You should have more than one admin for your Pulumi organization.
 
@@ -48,7 +48,7 @@ Make sure the **Provision Azure Active Directory _Users_** mapping is enabled.
 If you are not yet ready to enable provisioning for Groups, disable that.
     {{% /notes %}}
 
-![mappings](/images/docs/guides/scim/azuread/mappings.png)
+![mappings](/images/docs/pulumi-cloud/access-management/scim/azuread/mappings.png)
 
 ### Adjust User Attribute Mappings
 
@@ -58,7 +58,7 @@ In the configuration window, change the value of the **Source attribute** drop-d
 
 The mapping should now be updated as shown below:
 
-![userName](/images/docs/guides/scim/azuread/userName.png)
+![userName](/images/docs/pulumi-cloud/access-management/scim/azuread/userName.png)
 
 ### Remove Unused Attributes
 
@@ -75,11 +75,11 @@ Delete all attributes **except** for the following using the **Delete** button:
 
 In the user attribute mappings editor, scroll-down and click the **Show advanced options** checkbox and then the **Edit attribute list for customappsso** link.
 
-![advanced options](/images/docs/guides/scim/azuread/advanced_options.png)
+![advanced options](/images/docs/pulumi-cloud/access-management/scim/azuread/advanced_options.png)
 
 Check the **required** checkbox for the **emails** attribute, and click **Save**.
 
-![email required](/images/docs/guides/scim/azuread/email_required.png)
+![email required](/images/docs/pulumi-cloud/access-management/scim/azuread/email_required.png)
 
 You are now done with the Mappings configuration. Click **Save** and close the child windows/blades until you get back to the main **Provisioning** window where you can see the **Provisioning Status** drop-down.
 
@@ -97,7 +97,7 @@ between `objectId` and `externalId`. Click **Save** once you are done.
 
 Under the **Settings** expansion panel, the **Scope** drop-down should be set to **Sync only assigned users and groups**. This ensures that only the users who are assigned to this application are synced with Pulumi, and not everyone in your Azure Active Directory.
 
-![settings scope](/images/docs/guides/scim/azuread/settings_scope.png)
+![settings scope](/images/docs/pulumi-cloud/access-management/scim/azuread/settings_scope.png)
 
 Set the **Provisioning Status** to **On** and then click **Save**.
 

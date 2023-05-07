@@ -87,7 +87,7 @@ $ pulumi up
 
 ## Tidying up
 
-You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/cli/
+You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/cli/pulumii_destroy):
 
 ```bash
 $ pulumi destroy

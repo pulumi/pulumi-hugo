@@ -18,7 +18,7 @@ This guide walks you through configuring OneLogin as a SAML SSO identity provide
 
 ## Prerequisites
 
-- [Single Sign-On](/docs/guides/saml/sso/)
+- [Single Sign-On](/docs/pulumi-cloud/access-management/saml/sso/)
 
 ## Creating the OneLogin Application
 

@@ -206,7 +206,7 @@ Pulumi always transmits and stores entire state files securely. However, Pulumi 
 
 ### Audit Capabilities {#auditing}
 
-Pulumi provides audit logs that enable you to track the activity of users within an organization. Audit logs capture the UNIX timestamp of the event, the user who invoked the action, the event that took place, and the source IP of the call the user made. These logs are available to organizations with an Enterprise level subscription. The logs are immutable and record all user actions. Terraform Cloud only provides a stream of audit events that describe changes throughout an organization with 14 days of retention. To learn more, see [Audit Logs](/docs/intro/pulumi-cloud/audit-logs/).
+Pulumi provides audit logs that enable you to track the activity of users within an organization. Audit logs capture the UNIX timestamp of the event, the user who invoked the action, the event that took place, and the source IP of the call the user made. These logs are available to organizations with an Enterprise level subscription. The logs are immutable and record all user actions. Terraform Cloud only provides a stream of audit events that describe changes throughout an organization with 14 days of retention. To learn more, see [Audit Logs](/docs/pulumi-cloud/audit-logs/).
 
 ### Adopt Existing Resources {#adopting}
 

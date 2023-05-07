@@ -18,7 +18,7 @@ The type of failure you experience is likely related to one of these steps.
 
 In order to run a Pulumi command, the following are required:
 
-* A [Pulumi access token](/docs/intro/pulumi-cloud/accounts#access-tokens) for the account you wish to use.
+* A [Pulumi access token](/docs/pulumi-cloud/accounts#access-tokens) for the account you wish to use.
 [Create a token](https://app.pulumi.com/account/tokens) by logging in with the appropriate account.
 * A stack that you would like to update the automated pipeline.
 * Pulumi CLI available in the system `PATH`.

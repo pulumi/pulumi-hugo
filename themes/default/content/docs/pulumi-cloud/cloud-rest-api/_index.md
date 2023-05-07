@@ -25,7 +25,7 @@ For the Managed Pulumi Cloud (i.e. [app.pulumi.com](https://app.pulumi.com/)), A
 https://api.pulumi.com
 ```
 
-If you are using [Self-Hosted Pulumi Cloud](/docs/guides/self-hosted/), then use the configured endpoint for the [Pulumi API component](/docs/guides/self-hosted/components/api#api-service) (e.g. `https://api.pulumi.example.com`).
+If you are using [Self-Hosted Pulumi Cloud](/docs/pulumi-cloud/self-hosted/), then use the configured endpoint for the [Pulumi API component](/docs/pulumi-cloud/self-hosted/components/api#api-service) (e.g. `https://api.pulumi.example.com`).
 
 ## Authentication
 
@@ -295,7 +295,7 @@ Status: 200 OK
 
 ### Transfer Stack
 
-Transfers the stack from one organization in the Pulumi Cloud to a different organization. The user calling this operation must have the necessary [stack permissions](/docs/intro/pulumi-cloud/projects-and-stacks#stack-permissions) for this operation to be successful.
+Transfers the stack from one organization in the Pulumi Cloud to a different organization. The user calling this operation must have the necessary [stack permissions](/docs/pulumi-cloud/projects-and-stacks#stack-permissions) for this operation to be successful.
 
 This operation will return a 409 response error if an update is currently in progress.
 
@@ -1318,9 +1318,9 @@ Status: 200 OK
 
 ### Add User to Organization
 
-User must have already signed up for a Pulumi account and meet the [organization membership requirements](/docs/intro/pulumi-cloud/organizations#organization-types) to be added to the organization, otherwise a 4xx error will occur.
+User must have already signed up for a Pulumi account and meet the [organization membership requirements](/docs/pulumi-cloud/organizations#organization-types) to be added to the organization, otherwise a 4xx error will occur.
 
-If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration](/docs/guides/scim/) documentation.
+If you want to provision SSO/SAML users, please refer to the [SCIM 2.0 Integration](/docs/pulumi-cloud/access-management/scim/) documentation.
 
 ```
 POST /api/orgs/{organization}/members/{username}
@@ -1542,8 +1542,8 @@ EMPTY RESPONSE BODY
 
 {{% notes "info" %}}
 
-- For [GitHub-backed organizations](/docs/intro/pulumi-cloud/teams#github-based-teams), this operation cannot be used as membership is managed on GitHub.
-- For [SCIM managed teams](/docs/guides/scim/), this operation cannot be used as membership is managed via the SSO provider.
+- For [GitHub-backed organizations](/docs/pulumi-cloud/teams#github-based-teams), this operation cannot be used as membership is managed on GitHub.
+- For [SCIM managed teams](/docs/pulumi-cloud/access-management/scim/), this operation cannot be used as membership is managed via the SSO provider.
 
 {{% /notes %}}
 
@@ -1834,7 +1834,7 @@ POST /api/orgs/{organization}/hooks
 | `displayName`      | string  | body | name of webhook                                                                                                               |
 | `organizationName` | string  | body | organization name                                                                                                             |
 | `payloadUrl`       | string  | body | URL to send request to                                                                                                        |
-| `secret`           | string  | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/intro/pulumi-cloud/webhooks#headers) for more information |
+| `secret`           | string  | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/pulumi-cloud/webhooks#headers) for more information |
 
 #### Example
 
@@ -2796,7 +2796,7 @@ created,custom,delete,id,modified,module,name,package,parent_urn,pending,project
 
 | Status | Meaning                                                                    | Description                     | Schema                              |
 | ------ | -------------------------------------------------------------------------- | ------------------------------- | ----------------------------------- |
-| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Successful export.              | [CSV](/docs/intro/insights/export/) |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Successful export.              | [CSV](/docs/pulumi-cloud/insights/export/) |
 | 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad request. Not safe to retry. | None                                |
 | 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Server error. Safe to retry.    | None                                |
 

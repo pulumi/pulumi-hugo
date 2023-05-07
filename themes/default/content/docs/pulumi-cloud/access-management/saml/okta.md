@@ -18,7 +18,7 @@ This guide walks you through configuring Okta as a SAML SSO identity provider (I
 
 ## Prerequisites
 
-- [Single Sign-On](/docs/guides/saml/sso/)
+- [Single Sign-On](/docs/pulumi-cloud/access-management/saml/sso/)
 
 > **Note:** The screen shots below are using the Okta _Classic UI_. You can switch to it by clicking the gear
 > icon on the upper right corner of the screen.
