@@ -30,7 +30,7 @@ This means that if a stack belongs to multiple Policy Groups that specify differ
 
 Under a stack's "Settings" tab you can take a look at the Policy Packs that would be enforced on a `preview` or `update` as well as the Policy Groups that the stack belongs to.
 
-![Stack Policy Settings](/images/docs/using-pulumi/crossguard/stack-policies.jpg)
+![Stack Policy Settings](/images/docs/guides/crossguard/stack-policies.jpg)
 
 ## How does Policy as Code work during a stack import or refresh?
 
@@ -122,7 +122,7 @@ If you prefer to manage the virtual environment on your own (for example, using 
 runtime: python
 ```
 
-When managing the virtual environment on your own and [running the Policy Pack locally](/docs/using-pulumi/crossguard/get-started#authoring-a-policy-pack#running-locally) against a Pulumi program, you'll need to run any `pulumi` commands (such as `pulumi up`) from an activated virtual environment shell (or, if using a tool like [Pipenv](https://github.com/pypa/pipenv), prefix any `pulumi` commands with `pipenv run pulumi ...`). If the Pulumi program is also Python, both the Policy Pack and Pulumi program can use the same virtual environment.
+When managing the virtual environment on your own and [running the Policy Pack locally](/docs/using-pulumi/crossguard/get-started#running-locally) against a Pulumi program, you'll need to run any `pulumi` commands (such as `pulumi up`) from an activated virtual environment shell (or, if using a tool like [Pipenv](https://github.com/pypa/pipenv), prefix any `pulumi` commands with `pipenv run pulumi ...`). If the Pulumi program is also Python, both the Policy Pack and Pulumi program can use the same virtual environment.
 
 Enforced Policy Packs that are published to the Pulumi Cloud will automatically create a virtual environment, install dependencies in the virtual environment, and use the virtual environment when running against a Pulumi stack.
 
@@ -161,7 +161,7 @@ $ venv/bin/pip install -r requirements.txt
 
 ## More FAQ
 
-* [Kubernetes guides FAQ](/docs/clouds/kubernetes/kubernetes-crosswalk/faq/)
+* [Kubernetes guides FAQ](/docs/clouds/kubernetes/guides/faq/)
 * [Pulumi Deployments FAQ](/docs/pulumi-cloud/deployments/faq/)
 * [Pulumi CLI & Pulumi Cloud FAQ](/docs/support/faq/)
 * [Pulumi Cloud SCIM FAQ](/docs/pulumi-cloud/access-management/scim/faq/)

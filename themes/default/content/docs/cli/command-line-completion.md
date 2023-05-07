@@ -7,8 +7,6 @@ menu:
     weight: 20
 ---
 
-## Command-line Completion
-
 The Pulumi CLI also has a command to generate a command-line completion script for Bash, Zsh, and Fish. This gives you tab completion for all commands,
 sub-commands, and flags, which can make it easier to remember what to type and where.
 
