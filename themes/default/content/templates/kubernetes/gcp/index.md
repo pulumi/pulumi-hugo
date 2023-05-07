@@ -31,7 +31,7 @@ The Kubernetes Cluster template creates an infrastructure as code project in you
 
 ## Using this template
 
-To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/concepts/projects/) using the template in your language of choice:
+To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi](/docs/install/) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/concepts/projects/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 

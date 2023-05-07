@@ -16,7 +16,7 @@
 We generally use Hugo's [`relref` shortcode](https://gohugo.io/content-management/shortcodes/#ref-and-relref) when linking to other pages. Examples:
 
 ```markdown
-[Install]({{< relref "/docs/get-started/install" >}})
+[Install]({{< relref "/docs/install" >}})
 [Outputs]({{< relref "/docs/concepts/stack#outputs" >}})
 ```
 

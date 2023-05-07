@@ -16,7 +16,7 @@ Pulumi is an <a href="https://github.com/pulumi/pulumi" target="_blank">open sou
 
 <div class="flex justify-center py-6">
     <a class="btn btn-lg mx-2 my-1" href="/docs/get-started">Get Started</a>
-    <a class="btn btn-secondary btn-lg mx-2 my-1" href="/docs/get-started/install">Download</a>
+    <a class="btn btn-secondary btn-lg mx-2 my-1" href="/docs/install/">Download</a>
 </div>
 
 <div class="bg-gray-100 rounded max-w-6xl my-4 px-4 py-2">

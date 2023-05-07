@@ -31,7 +31,7 @@ The Helm Chart template creates an infrastructure as code project in your favori
 
 ## Using this template
 
-To use this template to deploy a Helm chart to a Kubernetes cluster, make sure you've already provisioned a [Kubernetes cluster](/templates/kubernetes), [installed Pulumi](/docs/get-started/install) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/), and [configured your kubeconfig file](/registry/packages/kubernetes/installation-configuration#setup). Then create a new [project](/docs/concepts/projects/) using the template in your language of choice:
+To use this template to deploy a Helm chart to a Kubernetes cluster, make sure you've already provisioned a [Kubernetes cluster](/templates/kubernetes), [installed Pulumi](/docs/install/) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/), and [configured your kubeconfig file](/registry/packages/kubernetes/installation-configuration#setup). Then create a new [project](/docs/concepts/projects/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
