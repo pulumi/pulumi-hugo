@@ -297,7 +297,7 @@ func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
 }
 ```
 
-Running this as part of `main.go` will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set [`pulumi.Parent()`](/docs/concepts/resources/options/parent) on the child teams:
+Running this as part of `main.go` will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set [`pulumi.Parent()`](/docs/concepts/options/parent) on the child teams:
 
 ```go
 for _, childTeam := range parentTeam.Teams {

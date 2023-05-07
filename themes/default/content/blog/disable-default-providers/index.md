@@ -17,8 +17,8 @@ resource's [parent resource][par-res].
 [prov-res]: /docs/concepts/resources/providers/
 [def-prov]: /docs/concepts/resources/providers/#default-provider-configuration
 [res]: /docs/concepts/resources/
-[prov-res-opts]: /docs/concepts/resources/options/provider/
-[par-res]: /docs/concepts/resources/options/parent/
+[prov-res-opts]: /docs/concepts/options/provider/
+[par-res]: /docs/concepts/options/parent/
 
 <!-- more -->
 

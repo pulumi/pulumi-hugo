@@ -56,7 +56,7 @@ The value of `resources` is an object whose keys are logical resource names by w
 
 #### Resource Options
 
-The value of the `options` property of a Resource is an object whose keys are [resource option names](/docs/concepts/resources/options/) and whose values are elements of the schema below. No resource options are required.
+The value of the `options` property of a Resource is an object whose keys are [resource option names](/docs/concepts/options/) and whose values are elements of the schema below. No resource options are required.
 
 The `dependsOn`, `parent`, `provider`, and `providers` values permit expressions which must use interpolation syntax to reference resources by name. For example:
 

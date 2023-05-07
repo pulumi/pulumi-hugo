@@ -165,7 +165,7 @@ Example: _project:my-cool-repo_
 
 #### protected
 
-Whether the resource is [protected](/docs/concepts/resources/options/protect) from deletion.
+Whether the resource is [protected](/docs/concepts/options/protect) from deletion.
 
 Examples: _protected:true_ | _protected:false_
 

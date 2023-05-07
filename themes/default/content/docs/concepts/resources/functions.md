@@ -148,7 +148,7 @@ Each function and method also accepts "invoke options", either as an object or a
 | pluginDownloadURL | Download the provider plugin from this URL. The download URL is otherwise inferred from the provider package. |
 | _async_ | _This option is deprecated and will be removed in a future release_ |
 
-The `parent` option has a similar purpose to the [parent option](/docs/concepts/resources/options/parent/) used when creating a resource. The parent is consulted when determining the provider to use.
+The `parent` option has a similar purpose to the [parent option](/docs/concepts/options/parent/) used when creating a resource. The parent is consulted when determining the provider to use.
 
 The `provider` option gives an explicit provider to use when running the invoked function. This is useful, for example, if you want to invoke a function in each of a set of AWS regions.
 

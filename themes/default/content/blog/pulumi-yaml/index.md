@@ -187,7 +187,7 @@ The following example highlights the use of a variety of Pulumi features via Pul
 * __Config__: Specify the Pulumi configuration parameters and their defaults
 * __Variables__: Use Pulumi function invokes to get data from the cloud provider for use in constructing resources.
 * __Providers__:  Create resource providers to connect to specific instances of a target cloud, like an Azure account or in this case a Docker registry.
-* __Resource Options__: Pass any Pulumi [Resource Option](/docs/concepts/resources/options/) to a resource definition, to define replacement behavior, resource protection, secret outputs and more.
+* __Resource Options__: Pass any Pulumi [Resource Option](/docs/concepts/options/) to a resource definition, to define replacement behavior, resource protection, secret outputs and more.
 * __Multiple Providers__:  Pass outputs from Azure resources into Docker resources, and outputs from Docker resources back into Azure resources to orchestrate a complete application deployment.
 
 ```yaml
