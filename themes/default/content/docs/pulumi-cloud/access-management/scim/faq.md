@@ -31,7 +31,7 @@ If your identity provider doesn't allow you to control the username attribute's 
 
 ### Can I manage Pulumi-local teams if using SCIM?
 
-Yes. In addition to the SCIM-managed teams, one can also configure and manage Pulumi-local teams in the Pulumi Cloud. See [Teams](/docs/pulumi-cloud/teams/) for how to configure teams in the Pulumi Cloud.
+Yes. In addition to the SCIM-managed teams, one can also configure and manage Pulumi-local teams in the Pulumi Cloud. See [Teams](/docs/pulumi-cloud/access-management/teams/) for how to configure teams in the Pulumi Cloud.
 
 ## More FAQ
 

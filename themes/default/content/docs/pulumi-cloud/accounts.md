@@ -75,7 +75,7 @@ Use access tokens to sign into the Pulumi Cloud via the CLI. On this page there 
 
 When you run [`pulumi login`](/docs/cli/pulumi_login) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Cloud and lets you interact with the Pulumi Cloud and manage your stacks.
 
-These access tokens have the same permission as your user. If  you instead would like to scope the token to an organization, use [Organization Access Tokens](/docs/pulumi-cloud/organization-access-tokens/).
+These access tokens have the same permission as your user. If  you instead would like to scope the token to an organization, use [Organization Access Tokens](/docs/pulumi-cloud/access-management/organization-access-tokens/).
 
 ![Access tokens](/images/docs/reference/service/access-tokens.png)
 

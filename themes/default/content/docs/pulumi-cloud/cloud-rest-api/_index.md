@@ -1543,7 +1543,7 @@ EMPTY RESPONSE BODY
 
 {{% notes "info" %}}
 
-- For [GitHub-backed organizations](/docs/pulumi-cloud/teams#github-based-teams), this operation cannot be used as membership is managed on GitHub.
+- For [GitHub-backed organizations](/docs/pulumi-cloud/access-management/teams#github-based-teams), this operation cannot be used as membership is managed on GitHub.
 - For [SCIM managed teams](/docs/pulumi-cloud/access-management/scim/), this operation cannot be used as membership is managed via the SSO provider.
 
 {{% /notes %}}

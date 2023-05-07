@@ -15,7 +15,7 @@ aliases:
 Team Access Tokens are only available to organizations using Pulumi Enterprise or Pulumi Business Critical.
 To learn more about our editions, visit our [pricing page](/pricing/).
 {{% /notes %}}
-Team Access Tokens, like [Organization Access Tokens](/docs/pulumi-cloud/organization-access-tokens/), provide Enterprise and Business Critical customers the opportunity to manage resources and stack operations for their organization independent of a single-user account. However, Team Access Tokens enable this access to be scoped to the stack access of a [Pulumi Team](/docs/pulumi-cloud/teams/), rather than to the entire organization's stacks.
+Team Access Tokens, like [Organization Access Tokens](/docs/pulumi-cloud/access-management/organization-access-tokens/), provide Enterprise and Business Critical customers the opportunity to manage resources and stack operations for their organization independent of a single-user account. However, Team Access Tokens enable this access to be scoped to the stack access of a [Pulumi Team](/docs/pulumi-cloud/access-management/teams/), rather than to the entire organization's stacks.
 
 Collectively Organization Access Tokens and Team Access Tokens are referred to as "machine tokens", which are not owned by a real user in your organization. This distinguishes them from Personal Access Tokens.
 

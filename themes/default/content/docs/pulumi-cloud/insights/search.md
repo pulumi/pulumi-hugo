@@ -318,7 +318,7 @@ More specifically:
 
 - Organization admins have access to all resources.
 - If an organization has a default permission of read or write, then all users can query all resources.
-- If an organization has no default permission, then users can only query resources they have access to via [Stack](../../pulumi-cloud/projects-and-stacks/#stack-permissions) or [Team](/docs/pulumi-cloud/teams/#team-permissions) permissions.
+- If an organization has no default permission, then users can only query resources they have access to via [Stack](../../pulumi-cloud/projects-and-stacks/#stack-permissions) or [Team](/docs/pulumi-cloud/access-management/teams/#team-permissions) permissions.
 
 [types]: /docs/concepts/resources/names/#types
 [urn]: /docs/concepts/resources/names/#urns

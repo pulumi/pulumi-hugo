@@ -40,7 +40,7 @@ Explore the following sections to learn more about the features and benefits of 
 * [Accounts](/docs/pulumi-cloud/accounts/)
 * [Organizations](/docs/pulumi-cloud/organizations/)
 * [Personal Access Tokens](/docs/pulumi-cloud/accounts/#personal-access-tokens)
-* [Organization and Team Access Tokens](/docs/pulumi-cloud/organization-access-tokens/)
+* [Organization and Team Access Tokens](/docs/pulumi-cloud/access-management/organization-access-tokens/)
 * [SAML Integrations](/docs/pulumi-cloud/access-management/saml/)
 
 ### Teams and Collaboration
@@ -48,7 +48,7 @@ Explore the following sections to learn more about the features and benefits of 
 Collaborate with other developers and coordinate on updates. Provide fine-grained access to stacks and use RBAC (Role-based Access Control) for your organization.
 
 * [Organization Roles](/docs/pulumi-cloud/organizations#organization-roles)
-* [Teams](/docs/pulumi-cloud/teams/)
+* [Teams](/docs/pulumi-cloud/access-management/teams/)
 * [Stack Permissions](/docs/pulumi-cloud/projects-and-stacks#stack-permissions)
 * [Project and Stack Management](/docs/pulumi-cloud/projects-and-stacks/)
 

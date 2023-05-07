@@ -164,7 +164,7 @@ capabilities:
 
                 Manage Pulumi access from your central identity provider via [SCIM 2.0 integration](/docs/pulumi-cloud/access-management/scim/).
 
-                Set [role-based access controls](/docs/pulumi-cloud/teams/) that limit who can access infrastructure.
+                Set [role-based access controls](/docs/pulumi-cloud/access-management/teams/) that limit who can access infrastructure.
 
                 Track the activity of users within your organization with [audit logs](/docs/intro/pulumi-service/audit-logs/).
 

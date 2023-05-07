@@ -32,7 +32,7 @@ Pulumi has three levels to consider access for: users, teams and organizations.
 
 [Organizations](/docs/pulumi-cloud/organizations/) are a space for you to collaborate on shared projects and stacks.  You may have multiple cloud accounts from a single cloud provider or multiple cloud provider accounts tied to an organization in any combination.  It’s recommended that you segment organizations and cloud accounts to limit access and the “blast radius” of security or financial events that may occur within them.
 
-[Teams](/docs/pulumi-cloud/teams/) are groups of users within an organization with specific permissions to stacks.  Consider using these to break up access to environments such as dev, staging and production.  You should look to mirror your code repository or IAM teams/groups as much as possible.
+[Teams](/docs/pulumi-cloud/access-management/teams/) are groups of users within an organization with specific permissions to stacks.  Consider using these to break up access to environments such as dev, staging and production.  You should look to mirror your code repository or IAM teams/groups as much as possible.
 
 [Users](/docs/pulumi-cloud/accounts/) are tied to personal identities, often with an identity provider and should be used wherever a human is using Pulumi.  These identities should not be used for any systems, tools or pipeline-based provisioning.
 
@@ -46,7 +46,7 @@ Connect your user and Pulumi organization with an [Identity Provider](/docs/pulu
 
 ### Build Pulumi Teams
 
-[Teams](/docs/pulumi-cloud/teams#creating-a-team) improve on basic role-based access control (RBAC) for administrators and users by allowing you to group users and their access to specific stacks in your organization.  For example, a team called `productionreadonly` could be created and scoped so that all members have only limited access to read the production stacks, while another team, `productionadmins`, would retain full privileges to those stacks.
+[Teams](/docs/pulumi-cloud/access-management/teams#creating-a-team) improve on basic role-based access control (RBAC) for administrators and users by allowing you to group users and their access to specific stacks in your organization.  For example, a team called `productionreadonly` could be created and scoped so that all members have only limited access to read the production stacks, while another team, `productionadmins`, would retain full privileges to those stacks.
 
 ### Import Manually Created Resources
 
@@ -72,11 +72,11 @@ Organization Access Tokens, Team Access Tokens and Personal Access Tokens secure
 
 #### Organizational Access Tokens
 
-These are scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token](/docs/pulumi-cloud/organization-access-tokens/) is likely appropriate for your CI/CD pipeline that deploys production.
+These are scoped to the entire Pulumi organization.  Use these for tooling with broad access across stacks and resources deployed in that organization.  For example, if your production environment runs in an isolated cloud account and organization, then an [Organization Access Token](/docs/pulumi-cloud/access-management/organization-access-tokens/) is likely appropriate for your CI/CD pipeline that deploys production.
 
 #### Team Access Tokens
 
-Scoped to the [stack access](/docs/pulumi-cloud/team-access-tokens#stacks) of a Pulumi team.  Use these when resources associated with different environments or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token](/docs/pulumi-cloud/team-access-tokens/) for each CI/CD pipeline, for example, `dev` vs `production`.
+Scoped to the [stack access](/docs/pulumi-cloud/access-management/team-access-tokens#stacks) of a Pulumi team.  Use these when resources associated with different environments or services are commingled within a single cloud account or organization.  In general, it is often recommended to create a [Team Access Token](/docs/pulumi-cloud/access-management/team-access-tokens/) for each CI/CD pipeline, for example, `dev` vs `production`.
 
 #### Personal Access Tokens
 
