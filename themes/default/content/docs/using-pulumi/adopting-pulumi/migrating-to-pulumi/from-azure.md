@@ -217,7 +217,7 @@ Let's say you have an existing ARM Template shown below.
 }
 ```
 
-Navigate to the [`arm2pulumi`](https://www.pulumi.com/arm2pulumi/) page, select the Custom tab, paste your template to the editor, select the desired language, and click the Convert button. You will receive the Pulumi program that is equivalent to the ARM template.
+Navigate to the [`arm2pulumi`](/arm2pulumi/) page, select the Custom tab, paste your template to the editor, select the desired language, and click the Convert button. You will receive the Pulumi program that is equivalent to the ARM template.
 
 {{< chooser language "typescript,python,go,csharp" >}}
 

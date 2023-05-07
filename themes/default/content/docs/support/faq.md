@@ -122,7 +122,7 @@ Supported languages run out of process and communicate over gRPC with the Pulumi
 
 ### Does Pulumi use Terraform?
 
-Pulumi does not use the Terraform engine in any way. However, some Pulumi providers use the open-source [Terraform schemas](https://www.terraform.io/docs/extend/schemas/index.html) in order to know what resources and parameters are available, and to determine the return and response attributes. On the other hand, [Pulumi native providers](https://www.pulumi.com/blog/pulumiup-native-providers/) are mapped directly to the cloud provider APIs and do not use Terraform schemas.
+Pulumi does not use the Terraform engine in any way. However, some Pulumi providers use the open-source [Terraform schemas](https://www.terraform.io/docs/extend/schemas/index.html) in order to know what resources and parameters are available, and to determine the return and response attributes. On the other hand, [Pulumi native providers](/blog/pulumiup-native-providers/) are mapped directly to the cloud provider APIs and do not use Terraform schemas.
 
 ### Is Pulumi imperative or declarative?
 

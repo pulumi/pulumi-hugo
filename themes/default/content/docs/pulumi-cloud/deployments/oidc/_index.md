@@ -14,7 +14,7 @@ aliases:
 - /docs/intro/deployments/oidc/
 ---
 
-[Pulumi Deployments](https://www.pulumi.com/docs/reference/deployments-rest-api/) supports OpenID Connect (OIDC) integration with cloud providers. OIDC enables your deployments to exchange a signed, short-lived token issued by the Pulumi Cloud for short-term credentials from your cloud provider. This can improve the security of your deployments by eliminating the need for hardcoded cloud provider credentials. If you are unfamiliar with OIDC, GitHub provides a [fine introduction to the topic](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+[Pulumi Deployments](/docs/reference/deployments-rest-api/) supports OpenID Connect (OIDC) integration with cloud providers. OIDC enables your deployments to exchange a signed, short-lived token issued by the Pulumi Cloud for short-term credentials from your cloud provider. This can improve the security of your deployments by eliminating the need for hardcoded cloud provider credentials. If you are unfamiliar with OIDC, GitHub provides a [fine introduction to the topic](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
 ## Overview
 

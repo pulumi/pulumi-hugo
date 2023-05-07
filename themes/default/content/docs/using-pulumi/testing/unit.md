@@ -327,7 +327,7 @@ public static class Testing
 
 {{% /choosable %}}
 
-The definition of the mocks interface is available at the [runtime API reference page](https://www.pulumi.com/docs/reference/pkg/nodejs/pulumi/pulumi/runtime/#Mocks).
+The definition of the mocks interface is available at the [runtime API reference page](/docs/reference/pkg/nodejs/pulumi/pulumi/runtime/#Mocks).
 
 ## Write the Tests
 

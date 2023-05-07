@@ -10,7 +10,7 @@ aliases:
 - /docs/intro/concepts/resources/functions/
 ---
 
-A provider may make **functions** available in its SDK as well as resource types. These "provider functions" are often for calling a platform API to get a value that is not part of a resource. For example, the AWS provider includes the function [`aws.apigateway.getDomainName`](https://www.pulumi.com/registry/packages/aws/api-docs/apigateway/getdomainname/):
+A provider may make **functions** available in its SDK as well as resource types. These "provider functions" are often for calling a platform API to get a value that is not part of a resource. For example, the AWS provider includes the function [`aws.apigateway.getDomainName`](/registry/packages/aws/api-docs/apigateway/getdomainname/):
 
 <div><pulumi-examples>
 <div><pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml"></pulumi-chooser></div>
@@ -158,7 +158,7 @@ The `pluginDownloadURL` option gives a URL for fetching the provider plugin. It 
 
 ### Provider methods
 
-Provider SDKs may also include methods attached to a resource type. For example, in the [EKS](https://www.pulumi.com/registry/packages/eks/api-docs/) SDK, the `Cluster` resource has a method [.GetKubeconfig](https://www.pulumi.com/registry/packages/eks/api-docs/cluster/#method_GetKubeconfig):
+Provider SDKs may also include methods attached to a resource type. For example, in the [EKS](/registry/packages/eks/api-docs/) SDK, the `Cluster` resource has a method [.GetKubeconfig](/registry/packages/eks/api-docs/cluster/#method_GetKubeconfig):
 
 <div><pulumi-examples>
 <div><pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml"></pulumi-chooser></div>

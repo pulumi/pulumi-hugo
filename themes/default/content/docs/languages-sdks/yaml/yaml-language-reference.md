@@ -321,7 +321,7 @@ variables:
       return: id
 ```
 
-The expression `${AmazonLinuxAmi}` will return the AMI ID returned from the [`aws:getAmi`](https://www.pulumi.com/registry/packages/aws/api-docs/getami/) function.
+The expression `${AmazonLinuxAmi}` will return the AMI ID returned from the [`aws:getAmi`](/registry/packages/aws/api-docs/getami/) function.
 
 #### Invoke Options
 

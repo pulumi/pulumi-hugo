@@ -1742,7 +1742,7 @@ When you create an Amazon EKS cluster, the IAM entity user or role (for example,
 cluster is automatically granted `system:masters` permissions in the cluster's RBAC configuration. To grant additional
 AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes.
 
-The [`roleMappings` property](https://www.pulumi.com/registry/packages/eks/api-docs/cluster/#rolemappings_nodejs)
+The [`roleMappings` property](/registry/packages/eks/api-docs/cluster/#rolemappings_nodejs)
 for your EKS cluster lets you configure custom IAM roles. For example, you can create different IAM roles for cluster
 admins, automation accounts (for CI/CD), and production roles, and supply them to `roleMappings`; this has the effect of
 placing them in the `aws-auth` ConfigMap for your cluster automatically. Pulumi also lets you configure Kubernetes

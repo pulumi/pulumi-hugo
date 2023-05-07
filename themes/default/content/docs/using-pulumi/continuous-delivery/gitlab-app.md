@@ -49,7 +49,7 @@ If you only want to configure a webhook for a certain project, then you may do t
 
 ![Group Hook Setup 2](/images/docs/guides/continuous-delivery/gitlab-app/group_hook_2.png)
 
-That's it! Now when you create a merge request and run Pulumi in a merge request pipeline, you should see notes in the MR that show a summary of the Pulumi preview. Learn how to run [Pulumi in GitLab CI/CD](https://www.pulumi.com/docs/guides/continuous-delivery/gitlab-ci/).
+That's it! Now when you create a merge request and run Pulumi in a merge request pipeline, you should see notes in the MR that show a summary of the Pulumi preview. Learn how to run [Pulumi in GitLab CI/CD](/docs/guides/continuous-delivery/gitlab-ci/).
 
 Here's a preview of what it looks like.
 

@@ -99,7 +99,7 @@ Automation API supports cross-language implementations where it runs in a progra
 
 ## Blog Posts
 
-For more ideas of what's possible with Automation API, [check out](https://www.pulumi.com/blog/tag/automation-api/) some of the ways we and community members use it in different use cases.
+For more ideas of what's possible with Automation API, [check out](/blog/tag/automation-api/) some of the ways we and community members use it in different use cases.
 
 ## Known issues
 

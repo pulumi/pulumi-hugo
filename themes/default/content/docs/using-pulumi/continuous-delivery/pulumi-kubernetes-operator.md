@@ -379,7 +379,7 @@ custom resource definition][] details the wrapping; the [reference for Pulumi YA
 fields that are part of the program itself.
 
 [Program custom resource definition]: https://github.com/pulumi/pulumi-kubernetes-operator/blob/master/docs/programs.md
-[reference for Pulumi YAML]: https://www.pulumi.com/docs/reference/yaml/
+[reference for Pulumi YAML]: /docs/reference/yaml/
 
 Here is an example as a YAML file:
 

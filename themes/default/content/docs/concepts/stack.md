@@ -853,7 +853,7 @@ export = async () => {
 }
 ```
 
-See [Javascript Entrypoint](https://www.pulumi.com/docs/intro/languages/javascript/#entrypoint)
+See [Javascript Entrypoint](/docs/intro/languages/javascript/#entrypoint)
 for more information.
 
 {{% /choosable %}}
@@ -882,7 +882,7 @@ export = async () => {
 }
 ```
 
-See [Javascript Entrypoint](https://www.pulumi.com/docs/intro/languages/javascript/#entrypoint)
+See [Javascript Entrypoint](/docs/intro/languages/javascript/#entrypoint)
 for more information.
 
 {{% /choosable %}}

@@ -38,7 +38,7 @@ record that the program wants to set the input field, it can't record the value 
 simply records `unknown`.
 
 The next most common issue is creating resources inside an [`apply`
-function](https://www.pulumi.com/docs/concepts/inputs-outputs/#apply). If the value for the apply is
+function](/docs/concepts/inputs-outputs/#apply). If the value for the apply is
 unknown at preview time than the entire apply function will not run. This results in the plan not recording
 anything for the resources created inside the apply and reporting an error at update time when they try to
 create. This mostly comes up in the context of needing to create a resource for every item in an array, we

@@ -64,11 +64,11 @@ Since an organization can have many machine tokens, it’s necessary to be able 
 
 ## Permissions/Authorization
 
-Team Access Tokens behave like a team member with the [stack permissions](https://www.pulumi.com/docs/intro/pulumi-cloud/projects-and-stacks/#stack-permissions) granted by that team. They do not grant any privileges to view the Pulumi Cloud UI, or to create additional tokens of any type. See below for a full list of accessible APIs:
+Team Access Tokens behave like a team member with the [stack permissions](/docs/intro/pulumi-cloud/projects-and-stacks/#stack-permissions) granted by that team. They do not grant any privileges to view the Pulumi Cloud UI, or to create additional tokens of any type. See below for a full list of accessible APIs:
 
 ### API Access
 
-See the [Pulumi Cloud REST API docs](https://www.pulumi.com/docs/reference/cloud-rest-api/) for more information about each API endpoint.
+See the [Pulumi Cloud REST API docs](/docs/reference/cloud-rest-api/) for more information about each API endpoint.
 
 #### Stacks
 

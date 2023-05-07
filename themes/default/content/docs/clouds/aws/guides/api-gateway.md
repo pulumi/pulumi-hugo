@@ -29,7 +29,7 @@ Pulumi Crosswalk for Amazon Web Services (AWS) provides better AWS API managemen
 ways of programming an API Gateway. This includes using infrastructure as code techniques for simple, declarative
 APIs, including easy Lambda integration.
 
-Full examples can be found in the [AWS API Gateway component](https://www.pulumi.com/registry/packages/aws-apigateway/) in the Pulumi Registry.
+Full examples can be found in the [AWS API Gateway component](/registry/packages/aws-apigateway/) in the Pulumi Registry.
 
 ## Create and Configure Routes
 

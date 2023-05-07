@@ -34,13 +34,13 @@ method (i.e. Kubernetes).
 
 ### Pulumi
 
-This guide assumes you are using the default Pulumi Cloud [managed backend](https://www.pulumi.com/docs/concepts/state/#backends).
+This guide assumes you are using the default Pulumi Cloud [managed backend](/docs/concepts/state/#backends).
 To sign-up for a new Pulumi account, head over to the [Pulumi Cloud](https://app.pulumi.com/signup).
 The Pulumi Plugin for Spinnaker referenced in this guide supports specifying alternate backend URLs.
 
 ## Pulumi Stack And Branch Mappings
 
-> Learn more about [Stacks](https://www.pulumi.com/docs/concepts/stack/).
+> Learn more about [Stacks](/docs/concepts/stack/).
 
 The sample pipeline (shown later) below acts on a hypothetical stack: `dev`. The name `dev` is used for demonstration
 purposes only. You may choose a different name that best suits your use case.
@@ -53,11 +53,11 @@ on your machine and push it to your Version Control System (VCS) repository.
 The source code used as an [example](https://github.com/pulumi/examples/tree/master/kubernetes-ts-nginx) in this guide
 uses TypeScript. The example infrastructure code creates a Kubernetes `Deployment` using the `nginx` container image.
 If you modify the sample app or wish to create the `Deployment` resource in a different Kubernetes cluster, follow the
-setup guide for the [Kubernetes provider](https://www.pulumi.com/registry/packages/kubernetes/installation-configuration/)
+setup guide for the [Kubernetes provider](/registry/packages/kubernetes/installation-configuration/)
 to ensure that Pulumi can access that Kubernetes cluster.
 
 The example in this topic shows you how to deploy a Kubernetes resource; however, you can use any of the other
-cloud providers in the [Registry](https://www.pulumi.com/registry) that Pulumi supports.
+cloud providers in the [Registry](/registry) that Pulumi supports.
 
 ## Pulumi Plugin For Spinnaker
 
@@ -95,7 +95,7 @@ If you do not use the Pulumi Cloud backend, the `PULUMI_ACCESS_TOKEN` is optiona
 Here's an **example** `Secret` resource applied in a Spinnaker installation.
 
 {{% notes "info" %}}
-If your Spinnaker Kubernetes cluster was created using Pulumi, then instead of writing this YAML, you could deploy the [Secret](https://www.pulumi.com/docs/reference/pkg/kubernetes/core/v1/secret/) resource using Pulumi too.
+If your Spinnaker Kubernetes cluster was created using Pulumi, then instead of writing this YAML, you could deploy the [Secret](/docs/reference/pkg/kubernetes/core/v1/secret/) resource using Pulumi too.
 {{% /notes %}}
 
 ```yaml
@@ -129,7 +129,7 @@ To create this resource in your Spinnaker cluster, run:
 kubectl apply -f secrets.yaml
 ```
 
-You can set any environment variables required for the specific providers you plan to use in your Pulumi app. For more information, see the Setup page for a given [provider](https://www.pulumi.com/registry/packages/).
+You can set any environment variables required for the specific providers you plan to use in your Pulumi app. For more information, see the Setup page for a given [provider](/registry/packages/).
 
 For private VCS repos, you can save the Personal Access Token used to clone your repo into the batch job container. This means when you configure the Stage in the Spinnaker Pipelines UI, you can reference the same key names in the URL you specify. For example, the environment variables in the URL `https://$(GIT_USERNAME):$(GIT_PAT)@github.com/owner/repo` will automatically resolve to the correct values as per your Secret resource inside the preconfigured job container.
 
@@ -248,8 +248,8 @@ The following links may be helpful in building your own custom image:
 
 We showed you a simple example of how you can get started with using Pulumi in your Spinnaker instance.
 
-* Check out [detailed examples for Pulumi](https://www.pulumi.com/docs/tutorials/).
-* Learn how to use the multitude of [providers](https://www.pulumi.com/docs/reference/pkg/) available with Pulumi.
+* Check out [detailed examples for Pulumi](/docs/tutorials/).
+* Learn how to use the multitude of [providers](/docs/reference/pkg/) available with Pulumi.
 * We hope that you find the plugin useful in running Pulumi in your Spinnaker instance. If you run into problems or
   would like to provide feedback, we encourage you to open an issue in the [plugin repo](https://github.com/pulumi/spinnaker-preconfigured-job-plugin).
   The plugin is free and open-source.
