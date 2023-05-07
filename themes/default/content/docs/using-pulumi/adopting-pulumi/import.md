@@ -28,7 +28,7 @@ second, let's now see how to adopt existing resources.
 ## Adopting Existing Resources
 
 There are two ways to adopt existing resources so that Pulumi is able to manage subsequent updates to them. The first way is to use the
-[`import`](/docs/reference/cli/pulumi_import) cli command. This command specifies that a resource defined in
+[`import`](/docs/cli/pulumi_import) cli command. This command specifies that a resource defined in
 your Pulumi program should adopt an existing resource from a cloud provider rather than creating a new one after running `pulumi up`.
 Another way is to use the [`import`](/docs/concepts/resources#import) resource option.
 This resource option is defined in your Pulumi program, and like the `import` command, the `import` resource option adopts an existing resource in the cloud provider rather

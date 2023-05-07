@@ -189,7 +189,7 @@ The version information for these providers is stored in the deployment for each
 This error can occur when the deployment state for a stack already contains a newer version of a specific provider, but you are trying
 to run a `pulumi up` (or `preview`) command after downgrading the provider dependency in your pulumi program.
 
-This error occurs because the `pulumi` [plugin cache](/docs/reference/cli/pulumi_plugin_ls/) does not have the required version installed.
+This error occurs because the `pulumi` [plugin cache](/docs/cli/pulumi_plugin_ls/) does not have the required version installed.
 This is more likely to occur if you are running `pulumi` in a CI/CD environment, since your plugin cache is likely not saved across builds.
 
 It is okay to have multiple versions of a provider installed and have stacks depend on different provider version. It is only a problem when you
@@ -427,7 +427,7 @@ to manually edit the stack's state to fix the issue.
 
 This is an advanced operation and should be an absolute last resort. We recommend you check-in with the [Pulumi Community Slack](https://slack.pulumi.com) first before editing your snapshot.
 
-If you intend to unprotect or delete a resource, consider using the [`pulumi state`](/docs/reference/cli/pulumi_state) command instead of editing your state directly. `pulumi state` makes fixes to your state without
+If you intend to unprotect or delete a resource, consider using the [`pulumi state`](/docs/cli/pulumi_state) command instead of editing your state directly. `pulumi state` makes fixes to your state without
 requiring you to edit the JSON representation of your stack's current state.
 
 To get a JSON representation of your stack's current state, export your current stack

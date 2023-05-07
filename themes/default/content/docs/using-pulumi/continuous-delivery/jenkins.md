@@ -24,7 +24,7 @@ altered to fit into any existing type of deployment setup.
 - A working installation of a recent version of Jenkins.
 - An account in the [Pulumi Cloud](https://app.pulumi.com).
 - The [latest version of Pulumi](/docs/install/).
-- Setup a new project and [stack](/docs/concepts/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
+- Setup a new project and [stack](/docs/concepts/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/cli/pulumi_new)
 and choosing one of the many templates that are available.
 - A bare repo and set the remote URL to be your GitHub project.
 
@@ -35,13 +35,13 @@ You can download an [example project](https://github.com/pulumi/examples/tree/ma
 ## Stack and Branch Mappings
 
 The scripts below act on a hypothetical stack: `homer/acme/product-catalog-service-stack`.
-You can create a new stack by running [`pulumi stack init`](/docs/reference/cli/pulumi_stack_init) if you have already created a project.
+You can create a new stack by running [`pulumi stack init`](/docs/cli/pulumi_stack_init) if you have already created a project.
 The source code for the stack is in a repository in GitHub and uses TypeScript as the language.
 
 **Note**: The names used above are purely for demonstration purposes only.
 You may choose a naming convention that best suits your organization.
 
-Alternatively, you can also run `pulumi new [template]` to create a [template project](/docs/reference/cli/pulumi_new/).
+Alternatively, you can also run `pulumi new [template]` to create a [template project](/docs/cli/pulumi_new/).
 
 ## PULUMI_ACCESS_TOKEN
 

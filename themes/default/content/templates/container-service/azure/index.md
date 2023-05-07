@@ -33,7 +33,7 @@ Follow the prompts to complete the new-project wizard. When it's done, you'll ha
 
 ## Deploying the project
 
-The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`](/docs/reference/cli/pulumi_up):
+The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`](/docs/cli/pulumi_up):
 
 ```bash
 $ pulumi up
@@ -78,7 +78,7 @@ imageName
 imageTag
 : The tag applied to published container images. Defaults to `latest`.
 
-All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`](/docs/reference/cli/pulumi_config_set) as shown below:
+All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`](/docs/cli/pulumi_config_set) as shown below:
 
 ```bash
 $ pulumi config set someProp ../some/value
@@ -87,7 +87,7 @@ $ pulumi up
 
 ## Tidying up
 
-You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/reference/cli/pulumi_destroy):
+You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/cli/
 
 ```bash
 $ pulumi destroy

@@ -34,7 +34,7 @@ You will need the following tools to complete this module:
 
 * A [Pulumi account and token](/docs/intro/pulumi-cloud/accounts#access-tokens)
     * If you don't have an account, go to the [signup page](https://app.pulumi.com/signup).
-* [Pulumi CLI](/docs/reference/cli/)
+* [Pulumi CLI](/docs/cli/)
     * If you don't have the CLI, go to the [installation page](/docs/install/).
 
 As to skills, you should be able to

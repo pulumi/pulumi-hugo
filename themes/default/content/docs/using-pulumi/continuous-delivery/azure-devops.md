@@ -45,7 +45,7 @@ The task handles installing the Pulumi CLI and running any commands without the 
 
 ### Command Summary
 
-Details regarding parameters and options supported by the extension can be found in the [Pulumi CLI](/docs/reference/cli/) documentation.
+Details regarding parameters and options supported by the extension can be found in the [Pulumi CLI](/docs/cli/) documentation.
 
 | Parameter Name | Required? | Parameter Description |
 |----|---|----|
@@ -131,7 +131,7 @@ acme-ui
 Once you login into the `pulumi` CLI on your machine, you can create a stack by running `pulumi stack init`.
 To create a `pulumi` program using one of the many available templates, you may run `pulumi new <template>`.
 You can find a suitable template to run, using the command `pulumi new --help`.
-Learn more about the `pulumi` [CLI commands](/docs/reference/cli/).
+Learn more about the `pulumi` [CLI commands](/docs/cli/).
 
 Once your stack has been initialized, the `Pulumi.<stack-name>.yaml` file will be created with some basic configuration.
 The yaml file is used just for configuration values. All of your infrastructure will be built using your `pulumi` program.

@@ -64,7 +64,7 @@ Feel free to inspect the code in {{< langfile >}} for a closer look.
 
 The template requires no additional configuration.
 Once the new project is created,
-you can deploy it immediately with [`pulumi up`](/docs/reference/cli/pulumi_up/):
+you can deploy it immediately with [`pulumi up`](/docs/cli/pulumi_up/):
 
 ```bash
 $ pulumi up
@@ -101,7 +101,7 @@ otherProp
 
 All of these settings are optional and may be adjusted
 either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`)
-or by changing their values with [`pulumi config set`](/docs/reference/cli/pulumi_config_set/) as shown below.
+or by changing their values with [`pulumi config set`](/docs/cli/pulumi_config_set/) as shown below.
 
 ### Changing a config value
 
@@ -198,7 +198,7 @@ A description of the other next step.
 
 ## Tidying up
 
-You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/reference/cli/pulumi_destroy/):
+You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/cli/pulumi_destroy/):
 
 ```bash
 $ pulumi destroy

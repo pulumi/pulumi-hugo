@@ -14,7 +14,7 @@ aliases:
 
 In many cases, different stacks for a single project will need differing values. For instance, you may want to use a different size for your AWS EC2 instance, or a different number of servers for your Kubernetes cluster between your development and production stacks.
 
-Pulumi offers a configuration system for managing such differences. Instead of hard-coding the differences, you can store and retrieve configuration values using a combination of the [CLI](/docs/reference/cli/) and the programming model.
+Pulumi offers a configuration system for managing such differences. Instead of hard-coding the differences, you can store and retrieve configuration values using a combination of the [CLI](/docs/cli/) and the programming model.
 
 The key-value pairs for any given stack are stored in [your project's stack settings file](/docs/concepts/projects#stack-settings-file), which is automatically named `Pulumi.<stack-name>.yaml`. You can typically ignore this file, although you may want to check it in and version it with your project source code.
 

@@ -100,7 +100,7 @@ definition, and deployment pipeline in [Pulumi Examples repository](https://git
 ## Bootstrapping a Pulumi Program
 
 The Pulumi development experience is powered by the
-[Pulumi CLI](/docs/reference/cli/). After
+[Pulumi CLI](/docs/cli/). After
 [installing the CLI](/docs/install/), I jump into an empty
 `infra` folder and run `pulumi new azure-typescript` accepting all the
 default answers. The CLI bootstraps a skeleton of a TypeScript NodeJS

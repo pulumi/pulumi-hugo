@@ -75,7 +75,7 @@ So, the search began, and soon enough, we discovered Pulumi. And as it turned ou
 
 - different options when it comes to storing cloud infrastructure state files: a managed SaaS ([pulumi.com](https://app.pulumi.com/signin)) with a console and self-hosted, (for example [Amazon S3](https://aws.amazon.com/s3/))
 - ability to deploy cloud infrastructure into multiple environments using its concept of [stacks](/docs/concepts/stack/)
-- advanced features like [Policy as Code](/docs/using-pulumi/crossguard/get-started/) and [watch mode](/docs/reference/cli/pulumi_watch/)
+- advanced features like [Policy as Code](/docs/using-pulumi/crossguard/get-started/) and [watch mode](/docs/cli/pulumi_watch/)
 - great documentation
 - a vibrant community of developers and a responsive team behind the product
 
@@ -113,7 +113,7 @@ Ultimately, we decided that each project application should be a [Pulumi project
 
 ### Pulumi CLI and Webiny CLI
 
-Once we understood how to use Pulumi concepts with Webiny's project organization, the next step was integrating the [Pulumi CLI](/docs/reference/cli/) with the [Webiny CLI](https://www.webiny.com/docs/key-topics/webiny-cli?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00650).
+Once we understood how to use Pulumi concepts with Webiny's project organization, the next step was integrating the [Pulumi CLI](/docs/cli/) with the [Webiny CLI](https://www.webiny.com/docs/key-topics/webiny-cli?utm_source=Pulumi&utm_medium=blog-post&utm_campaign=webiny-blog-promotion&utm_content=how-webiny-built-framework-with-pulumi&utm_term=W00650).
 
 And although the Pulumi CLI is great, we still wanted to keep it super simple for the user and make the overall developer experience as straightforward and unified as possible. For starters, we didn’t want our users to install the Pulumi CLI manually. We wanted it to happen automatically.
 

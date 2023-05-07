@@ -33,7 +33,7 @@ Follow the prompts to complete the new-project wizard. When it's done, you'll ha
 
 ## Deploying the project
 
-The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`](/docs/reference/cli/pulumi_up):
+The template requires no additional configuration. Once the new project is created, you can deploy it immediately with [`pulumi up`](/docs/cli/pulumi_up):
 
 ```bash
 $ pulumi up
@@ -66,11 +66,11 @@ instanceType
 vpcNetworkCidr
 : The network CIDR to use for the VPC. Defaults to `10.0.0.0/16`.
 
-All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`](/docs/reference/cli/pulumi_config_set) as shown below.
+All of these settings are optional and may be adjusted either by editing the stack configuration file directly (by default, `Pulumi.dev.yaml`) or by changing their values with [`pulumi config set`](/docs/cli/pulumi_config_set) as shown below.
 
 ## Cleaning up
 
-You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/reference/cli/pulumi_destroy):
+You can cleanly destroy the stack and all of its infrastructure with [`pulumi destroy`](/docs/cli/pulumi_destroy):
 
 ```bash
 $ pulumi destroy
