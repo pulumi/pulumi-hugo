@@ -73,7 +73,7 @@ Getting started with Pulumi is easy if you already have experience with a genera
 
 ### Language Support {#language}
 
-CloudFormation templates are written in YAML or JSON, which can be easy to get started with, but cumbersome in practice and complex to maintain at scale. With Pulumi, you're able to use general-purpose programming languages like Python, Go, TypeScript, and C#, which not only allows you to manage complexity by using familiar programming constructs like loops, conditionals, functions, and classes, but also simplifies common configuration tasks like string interpolation or array manipulation that are awkward to express with CloudFormation intrinsic functions. First-class support for languages also means you can take full advantage of the entire ecosystem of your language of choice. For more information, see [Languages](/docs/intro/languages/).
+CloudFormation templates are written in YAML or JSON, which can be easy to get started with, but cumbersome in practice and complex to maintain at scale. With Pulumi, you're able to use general-purpose programming languages like Python, Go, TypeScript, and C#, which not only allows you to manage complexity by using familiar programming constructs like loops, conditionals, functions, and classes, but also simplifies common configuration tasks like string interpolation or array manipulation that are awkward to express with CloudFormation intrinsic functions. First-class support for languages also means you can take full advantage of the entire ecosystem of your language of choice. For more information, see [Languages](/docs/languages-sdks/).
 
 ### IDE Support {#ide}
 

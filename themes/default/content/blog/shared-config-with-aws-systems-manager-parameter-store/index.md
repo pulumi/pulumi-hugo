@@ -49,7 +49,7 @@ $ tree .
 └── shared-config
 ```
 
-Change to the `shared-config` folder and generate a new [Pulumi YAML](/docs/intro/languages/yaml/) project, accepting the defaults to create a new `dev` stack:
+Change to the `shared-config` folder and generate a new [Pulumi YAML](/docs/languages-sdks/yaml/) project, accepting the defaults to create a new `dev` stack:
 
 ```bash
 $ cd shared-config

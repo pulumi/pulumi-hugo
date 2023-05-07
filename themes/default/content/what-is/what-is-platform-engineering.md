@@ -119,7 +119,7 @@ In summary, site reliability engineering and platform engineering are related in
 
 Platform engineering roles typically require a combination of technical and soft skills. Here are some of the skills that are commonly required to be a platform engineer:
 
-* Strong programming skills: Platform engineers should have a solid foundation in at least [one programming language](/docs/intro/languages/) and experience with software design patterns.
+* Strong programming skills: Platform engineers should have a solid foundation in at least [one programming language](/docs/languages-sdks/) and experience with software design patterns.
 
 * [Cloud engineering](/cloud-engineering/): Experience with cloud computing platforms such as Amazon Web Services (AWS), Google Cloud Platform (Google Cloud), or Microsoft Azure is often required, as well as familiarity with Infrastructure As Code.
 

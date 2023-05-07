@@ -26,7 +26,7 @@ key_features:
           image: "/images/product/pulumi-iac-code.png"
           button:
             text: "Learn more about Pulumi SDK"
-            link: "/docs/reference/pulumi-sdk/"
+            link: "/docs/languages-sdks/"
           features:
               - title: Code faster
                 description: |

@@ -124,7 +124,7 @@ There are two major parts to any infrastructure as code technology: the programm
 
 In summary, here is what modern provisioning-based infrastructure as code tools do:
 
-- [They have an expression language](/docs/intro/languages/) (markup, DSL, or general-purpose language) which a user declares a desired state within. This desired state represents the infrastructure building blocks, their names and property values, and how they connect to each other.
+- [They have an expression language](/docs/languages-sdks/) (markup, DSL, or general-purpose language) which a user declares a desired state within. This desired state represents the infrastructure building blocks, their names and property values, and how they connect to each other.
 
 - They have a way to trigger an update, and might offer multiple ways to do so. This includes the first deployment to an environment as well as subsequent updates.
 

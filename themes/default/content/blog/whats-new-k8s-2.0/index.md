@@ -8,7 +8,7 @@ meta_image: pulumi_k8s.png
 ---
 
 We recently announced the 2.0 release of Pulumi which includes parity for
-[Node.js (JavaScript, TypeScript)](/docs/intro/languages/javascript), [Python](/docs/intro/languages/python/), [.NET (C#, F#, etc)](/docs/intro/languages/dotnet) and [Go](/docs/intro/languages/go/),
+[Node.js (JavaScript, TypeScript)](/docs/languages-sdks/javascript), [Python](/docs/languages-sdks/python/), [.NET (C#, F#, etc)](/docs/languages-sdks/dotnet) and [Go](/docs/languages-sdks/go/),
 and improvements to Kubernetes and dozens of other [supported cloud resource providers](/registry/) and [packages](/docs/reference/pkg#package-documentation).
 
 [Kubernetes support](/registry/packages/kubernetes/) in Pulumi spans orchestration of clusters and application

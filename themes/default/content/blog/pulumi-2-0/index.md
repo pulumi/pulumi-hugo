@@ -44,7 +44,7 @@ The main theme of 2.0 is something we've taken to calling "superpowers." This is
 
 After [shipping 1.0 last year](/blog/pulumi-1-0/), we've been hard at work helping customers to succeed at their modern cloud projects. This has taken us beyond the basics to include:
 
-* **Provisioning**. All core language SDKs are now at parity, including all existing languages &mdash; [Node.js (JavaScript, TypeScript)](/docs/intro/languages/javascript) and [Python](/docs/intro/languages/python/) &mdash; as well as the new additions to the family &mdash; [.NET (C#, F#, etc)](/docs/intro/languages/dotnet) and [Go](/docs/intro/languages/go/). We've also significantly expanded upon the supported cloud resource providers in the [Registry](/registry/), totalling above three dozen, and rolled out [entirely new API documentation](/registry/).
+* **Provisioning**. All core language SDKs are now at parity, including all existing languages &mdash; [Node.js (JavaScript, TypeScript)](/docs/languages-sdks/javascript) and [Python](/docs/languages-sdks/python/) &mdash; as well as the new additions to the family &mdash; [.NET (C#, F#, etc)](/docs/languages-sdks/dotnet) and [Go](/docs/languages-sdks/go/). We've also significantly expanded upon the supported cloud resource providers in the [Registry](/registry/), totalling above three dozen, and rolled out [entirely new API documentation](/registry/).
 
 * **Delivery**. As we've worked with customers to go from development to production, we've added [more CI/CD integrations](/docs/guides/continuous-delivery) as well as [environment management capabilities to help at scale](/blog/pulumi-service-improvements_02-2020/), such as [project and stack tagging and filtering](/docs/concepts/stack#stack-tags).
 

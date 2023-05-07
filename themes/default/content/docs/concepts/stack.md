@@ -853,7 +853,7 @@ export = async () => {
 }
 ```
 
-See [Javascript Entrypoint](/docs/intro/languages/javascript/#entrypoint)
+See [Javascript Entrypoint](/docs/languages-sdks/javascript/#entrypoint)
 for more information.
 
 {{% /choosable %}}
@@ -882,7 +882,7 @@ export = async () => {
 }
 ```
 
-See [Javascript Entrypoint](/docs/intro/languages/javascript/#entrypoint)
+See [Javascript Entrypoint](/docs/languages-sdks/javascript/#entrypoint)
 for more information.
 
 {{% /choosable %}}

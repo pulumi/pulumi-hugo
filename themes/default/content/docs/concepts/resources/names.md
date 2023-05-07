@@ -288,7 +288,7 @@ Note that because of some of the historical details of how `<module>` is defined
 
 This "simplified" type name format is currently used in the following places:
 
-- The [Pulumi YAML](/docs/intro/languages/yaml/) language allows simple type names to be used as the `type` of a resource.
+- The [Pulumi YAML](/docs/languages-sdks/yaml/) language allows simple type names to be used as the `type` of a resource.
 
 The examples above can be written in simplified form as:
 

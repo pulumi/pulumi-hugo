@@ -82,7 +82,7 @@ Terraform and Pulumi have some similarities in that you can create, deploy and m
 
 ## Pulumi vs. Terraform: Key Differences {#differences}
 
-Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: HashiCorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python](/docs/intro/languages/python/), [TypeScript](/docs/intro/languages/javascript/), [JavaScript](/docs/intro/languages/javascript/), [Go](/docs/intro/languages/go/), [.NET](/docs/intro/languages/dotnet/), [Java](/docs/intro/languages/java/), and markup languages like [YAML](/docs/intro/languages/yaml/), with the tools you already use to accomplish the same goals. Terraform recently released the beta of a development kit that allows you to use programming languages that compile to HCL.
+Pulumi and Terraform differ in that Terraform requires the use of a domain-specific language: HashiCorp Configuration Language (HCL). In contrast, Pulumi allows you to use familiar general purpose languages like [Python](/docs/languages-sdks/python/), [TypeScript](/docs/languages-sdks/javascript/), [JavaScript](/docs/languages-sdks/javascript/), [Go](/docs/languages-sdks/go/), [.NET](/docs/languages-sdks/dotnet/), [Java](/docs/languages-sdks/java/), and markup languages like [YAML](/docs/languages-sdks/yaml/), with the tools you already use to accomplish the same goals. Terraform recently released the beta of a development kit that allows you to use programming languages that compile to HCL.
 
 Here is a summary of the key differences between Pulumi and Terraform:
 
