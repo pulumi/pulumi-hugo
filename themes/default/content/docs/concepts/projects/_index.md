@@ -229,4 +229,4 @@ For stacks that are actively developed by multiple members of a team, the recomm
 
 When using ephemeral stacks, the stack settings are typically not checked into source control.
 
-For more information about configuration and how this file is managed using the CLI and programming model, refer to [Configuration](/docs/intro/concepts/config/).
+For more information about configuration and how this file is managed using the CLI and programming model, refer to [Configuration](/docs/concepts/config/).

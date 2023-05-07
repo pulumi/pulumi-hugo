@@ -56,7 +56,7 @@ Visit [Visit Pulumi Registry](/registry/) and filter to Components to get starte
 
 ### Pulumi Kubernetes Operator 1.0
 
-The Pulumi Kubernetes Operator defines a Kubernetes Custom Resource called `pulumi.com/v1/Stack`, which represents a Pulumi [stack](/docs/intro/concepts/stack/). Using the Operator, you can specify the desired state of your cloud infrastructure using resources managed directly in your Kubernetes cluster, which trigger creation, update and deletion of the detailed cloud infrastructure you need. Get started with the [1.0 release](https://github.com/pulumi/pulumi-kubernetes-operator/releases/tag/v1.0.0) of the Pulumi Kubernetes Operator today!
+The Pulumi Kubernetes Operator defines a Kubernetes Custom Resource called `pulumi.com/v1/Stack`, which represents a Pulumi [stack](/docs/concepts/stack/). Using the Operator, you can specify the desired state of your cloud infrastructure using resources managed directly in your Kubernetes cluster, which trigger creation, update and deletion of the detailed cloud infrastructure you need. Get started with the [1.0 release](https://github.com/pulumi/pulumi-kubernetes-operator/releases/tag/v1.0.0) of the Pulumi Kubernetes Operator today!
 
 This example Kubernetes resource uses the Pulumi Kubernetes Operator to deploy a Pulumi program which provisions cloud infrastructure to manage NGINX provided in the target Git repo and commit, and future updates to the commit or config settings will deploy updates to the infrastructure:
 

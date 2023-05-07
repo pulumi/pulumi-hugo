@@ -52,7 +52,7 @@ $ mkdir audichron-2022 && cd audichron-2022
 $ pulumi new aws-typescript
 ```
 
-Step through the prompts to create a new [stack](/docs/intro/concepts/stack/) (you'll only need one stack for this project), and when the new-project wizard completes, clear out the contents of `index.ts` entirely, as we'll be building this program entirely from the ground up.
+Step through the prompts to create a new [stack](/docs/concepts/stack/) (you'll only need one stack for this project), and when the new-project wizard completes, clear out the contents of `index.ts` entirely, as we'll be building this program entirely from the ground up.
 
 ## Install and configure Jest
 
@@ -118,7 +118,7 @@ With that, it's time to get to start writing some real tests.
 
 As devoted practitioners of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development), we're going to start by writing some unit tests --- specifically, some _failing_ unit tests that we can fix by writing the Pulumi code to make them pass.
 
-Recall that our design requires just two cloud resources: a Lambda function and a Lambda function URL. For the function itself, we'll use the high-level [`aws.lambda.CallbackFunction`](/docs/intro/concepts/function-serialization) resource, one of my favorites for managing for Lambdas because it requires only one property: an inline JavaScript function to handle the event that triggers the Lambda.
+Recall that our design requires just two cloud resources: a Lambda function and a Lambda function URL. For the function itself, we'll use the high-level [`aws.lambda.CallbackFunction`](/docs/concepts/function-serialization) resource, one of my favorites for managing for Lambdas because it requires only one property: an inline JavaScript function to handle the event that triggers the Lambda.
 
 For the URL resource --- the eventual triggerer of that event ---  you'll use an [`aws.lambda.FunctionURL`](/registry/packages/aws/api-docs/lambda/functionurl) configured to make the Lambda publicly accessible (i.e., available to anyone on the internet) and embeddable on any domain, making it easy, for example, to embed the URL as the `src` attribute of an [HTML5 `audio` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio).
 
@@ -278,7 +278,7 @@ it("is publicly accessible", () => {
 });
 ```
 
-The main reason is the asynchronous nature of the objects we're testing. An `aws.lambda.FunctionUrl`, after all, isn't just a plain ol' JavaScript object --- it's a [Pulumi `CustomResource`](/docs/intro/concepts/resources), a representation of an eventual resource running in the cloud, with properties that may not be known until sometime after the resource has been deployed. While it's true we provided `authorizationType` as a regular JavaScript `string`, by the time we attempt to read it in the test, it's been transformed into a [`pulumi.Output<string>`](/docs/intro/concepts/inputs-outputs#apply) --- an asynchronous value, like a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), that has to be unwrapped with a call to `apply()` before it can be read.
+The main reason is the asynchronous nature of the objects we're testing. An `aws.lambda.FunctionUrl`, after all, isn't just a plain ol' JavaScript object --- it's a [Pulumi `CustomResource`](/docs/concepts/resources), a representation of an eventual resource running in the cloud, with properties that may not be known until sometime after the resource has been deployed. While it's true we provided `authorizationType` as a regular JavaScript `string`, by the time we attempt to read it in the test, it's been transformed into a [`pulumi.Output<string>`](/docs/concepts/inputs-outputs#apply) --- an asynchronous value, like a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), that has to be unwrapped with a call to `apply()` before it can be read.
 
 However, just adding `apply` and calling `expect` from within its callback doesn't quite work, either:
 
@@ -540,7 +540,7 @@ export const timeURL = new aws.lambda.FunctionUrl("time-url", {
 export const audioURL = timeURL.functionUrl;
 ```
 
-Finally, open `index.ts` (which should still be empty) and add a couple of lines to import the `resources` module and export the function URL as a Pulumi [stack output](/docs/intro/concepts/stack#outputs):
+Finally, open `index.ts` (which should still be empty) and add a couple of lines to import the `resources` module and export the function URL as a Pulumi [stack output](/docs/concepts/stack#outputs):
 
 ```typescript
 import "./resources";

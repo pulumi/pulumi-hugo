@@ -34,7 +34,7 @@ Pulumi tries to offer a solution where our customers are only limited by their i
 
 ## Pulumi Architecture
 
-Here is the diagram from our [How Pulumi Works](/docs/intro/concepts/how-pulumi-works/) page:
+Here is the diagram from our [How Pulumi Works](/docs/concepts/how-pulumi-works/) page:
 
 ![Pulumi Architecture](/images/docs/reference/engine-block-diagram.png)
 

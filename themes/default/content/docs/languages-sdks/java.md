@@ -76,7 +76,7 @@ For details around using JAR, please check our docs on [Pulumi.yaml](/docs/refer
 
 {{% /notes %}}
 
-This will create a maven project with a `pom.xml` and a `Pulumi.yaml` [project file](/docs/intro/concepts/project/) containing some minimal metadata about your project (including a name and description which you may wish to change) and an `App.java` file in the `src/main/java/myproject` directory containing your program.
+This will create a maven project with a `pom.xml` and a `Pulumi.yaml` [project file](/docs/concepts/project/) containing some minimal metadata about your project (including a name and description which you may wish to change) and an `App.java` file in the `src/main/java/myproject` directory containing your program.
 
 To deploy your infrastructure, run `pulumi up` and Pulumi will build your app using maven (gradle is also supported) and perform the operations needed to deploy the infrastructure you have declared.
 
@@ -158,10 +158,10 @@ application {
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as code programs using
-Pulumi. [Architecture & Concepts](/docs/intro/concepts/?language=java) describes these concepts
+Pulumi. [Architecture & Concepts](/docs/concepts/?language=java) describes these concepts
 with examples available in Java. These concepts are made available to you in the Pulumi SDK.
 
-The Pulumi programming model includes a core concept of `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource to resolve dependencies. This concept is important to understand when getting started with Pulumi, and the [Inputs and Outputs](/docs/intro/concepts/inputs-outputs/?language=java) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
+The Pulumi programming model includes a core concept of `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource to resolve dependencies. This concept is important to understand when getting started with Pulumi, and the [Inputs and Outputs](/docs/concepts/inputs-outputs/?language=java) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
 
 Unlike other Pulumi languages, Pulumi Java does not have a dedicated `Input<T> = T | Output<T>` type. Instead, when constructing resource arguments, builders have overloads that accept both a `T` and an `Output<T>` value.
 

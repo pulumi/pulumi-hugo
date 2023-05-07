@@ -42,7 +42,7 @@ running the `pulumi` command can access the env var.
 
 ### Stack Name
 
-> Learn about [stacks](/docs/intro/concepts/stack/) and their [configuration](/docs/intro/concepts/config/).
+> Learn about [stacks](/docs/concepts/stack/) and their [configuration](/docs/concepts/config/).
 
 A stack represents a specific configuration state for your infrastructure resources. For a typical CI pipeline, the stack must have been created
 beforehand using the `pulumi stack init` command and in the **appropriate organization**.
@@ -124,13 +124,13 @@ when you run `pulumi preview` or `pulumi update --yes`.
 * For `nodejs` and `python` runtimes, add a step prior to running any `pulumi` commands to restore the dependencies.
 * For `dotnet` and `go` runtimes, the dependencies are restored for you automatically when you run `pulumi preview` or `pulumi update --yes`.
 * There is an exception to restoring dependencies automatically for `.NET` when you use a private package feed. You must ensure that the
-package(s) from the private feed are accessible or you can use a [pre-built binary](/docs/intro/concepts/project/) with Pulumi to avoid rebuilding your `.NET` solution again.
+package(s) from the private feed are accessible or you can use a [pre-built binary](/docs/concepts/project/) with Pulumi to avoid rebuilding your `.NET` solution again.
 
 > Note that if you do choose to use a pre-built binary, you will need to install the necessary Pulumi plugins manually using `pulumi plugin install`.
 
 * You might be caching the library dependencies but not the Pulumi plugins. Some services offer dependency caching by capturing a specific folder and restoring
 that folder when your pipeline executes. However, note that Pulumi dependencies have a post-install step that also pulls-down
-a [plugin](/docs/intro/concepts/how-pulumi-works#resource-providers) binary from our CDN. So be sure to cache the plugins path as well.
+a [plugin](/docs/concepts/how-pulumi-works#resource-providers) binary from our CDN. So be sure to cache the plugins path as well.
 
   If in doubt about problems encountered during execution, clear out all caches and restore dependencies from scratch.
 

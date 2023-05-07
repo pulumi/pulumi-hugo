@@ -399,7 +399,7 @@ class MyStack : Stack
 
 {{< /chooser >}}
 
-Notice also that we've used [Pulumi secrets](/docs/intro/concepts/secrets/) to ensure the Terraform Cloud or Enterprise token is secure and encrypted.
+Notice also that we've used [Pulumi secrets](/docs/concepts/secrets/) to ensure the Terraform Cloud or Enterprise token is secure and encrypted.
 
 The full list of available backends are as follows:
 

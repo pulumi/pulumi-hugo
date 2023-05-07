@@ -245,7 +245,7 @@ superpowers:
 
     - title: Smart Architecture
       cta: Learn more
-      cta_url: "/docs/intro/concepts"
+      cta_url: "/docs/concepts/"
       icon_type: architecture
       description: |
         YAML and templated DSLs force you to write the same boilerplate code over and over.

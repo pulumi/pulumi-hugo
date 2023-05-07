@@ -74,7 +74,7 @@ The key features that we were looking for were the following:
 So, the search began, and soon enough, we discovered Pulumi. And as it turned out, it not only checked all the boxes we had initially listed but much more:
 
 - different options when it comes to storing cloud infrastructure state files: a managed SaaS ([pulumi.com](https://app.pulumi.com/signin)) with a console and self-hosted, (for example [Amazon S3](https://aws.amazon.com/s3/))
-- ability to deploy cloud infrastructure into multiple environments using its concept of [stacks](https://www.pulumi.com/docs/intro/concepts/stack/)
+- ability to deploy cloud infrastructure into multiple environments using its concept of [stacks](https://www.pulumi.com/docs/concepts/stack/)
 - advanced features like [Policy as Code](https://www.pulumi.com/docs/guides/crossguard/get-started/) and [watch mode](https://www.pulumi.com/docs/reference/cli/pulumi_watch/)
 - great documentation
 - a vibrant community of developers and a responsive team behind the product
@@ -109,7 +109,7 @@ As an example, a default Webiny project includes three project applications:
 
 If we were to compare these by the complexity of the necessary cloud infrastructure to deploy, the Admin Area is the simplest. It only relies on a single [Amazon S3](https://aws.amazon.com/s3/) bucket and an [Amazon Cloudfront](https://aws.amazon.com/cloudfront/) distribution. On the other hand, the API project application is the most complex one as it needs to deploy multiple [AWS Lambda](https://aws.amazon.com/lambda/) functions, [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) tables, Amazon S3 buckets, and more.
 
-Ultimately, we decided that each project application should be a [Pulumi project](https://www.pulumi.com/docs/intro/concepts/project/#projects). With this approach, we gave developers the ability to both define and deploy respective cloud infrastructures independently. And, with the concept of [stacks](https://www.pulumi.com/docs/intro/concepts/stack/), they are also able to deploy them into multiple environments, which we’ll show in a moment.
+Ultimately, we decided that each project application should be a [Pulumi project](https://www.pulumi.com/docs/concepts/project/#projects). With this approach, we gave developers the ability to both define and deploy respective cloud infrastructures independently. And, with the concept of [stacks](https://www.pulumi.com/docs/concepts/stack/), they are also able to deploy them into multiple environments, which we’ll show in a moment.
 
 ### Pulumi CLI and Webiny CLI
 
@@ -145,9 +145,9 @@ Note the `--env` argument appended to each command. With it and Pulumi’s conce
 
 The last piece of the puzzle was storing cloud infrastructure state files. Here we went with the following approach.
 
-For local development, users’ cloud infrastructure state files are stored locally within their Webiny project using the [Local Filesystem Backend](https://www.pulumi.com/docs/intro/concepts/state/#logging-into-the-local-filesystem-backend), which we’ve seen worked great for developers.
+For local development, users’ cloud infrastructure state files are stored locally within their Webiny project using the [Local Filesystem Backend](https://www.pulumi.com/docs/concepts/state/#logging-into-the-local-filesystem-backend), which we’ve seen worked great for developers.
 
-On the other hand, for ephemeral environments spawned in CI/CD or long-lived environments like staging or production, through our [documentation](https://www.webiny.com/docs/key-topics/ci-cd/cloud-infrastructure-state-files#using-different-backends), we advise our users to use centralized and remote storage by using backends like [Amazon S3](https://www.pulumi.com/docs/intro/concepts/state/#aws-s3) and even [Pulumi Service (pulumi.com)](https://www.pulumi.com/docs/intro/concepts/state/#logging-into-the-pulumi-service-backend). Both backends have their pros and cons, and we let the users choose the one they want to use.
+On the other hand, for ephemeral environments spawned in CI/CD or long-lived environments like staging or production, through our [documentation](https://www.webiny.com/docs/key-topics/ci-cd/cloud-infrastructure-state-files#using-different-backends), we advise our users to use centralized and remote storage by using backends like [Amazon S3](https://www.pulumi.com/docs/concepts/state/#aws-s3) and even [Pulumi Service (pulumi.com)](https://www.pulumi.com/docs/concepts/state/#logging-into-the-pulumi-service-backend). Both backends have their pros and cons, and we let the users choose the one they want to use.
 
 ## Show Me the Code
 
@@ -255,7 +255,7 @@ export = async () => {
 
 #### Protect Feature
 
-Finally, to protect our users from accidental deletions of mission-critical cloud infrastructure resources, we’ve used Pulumi’s [protect](https://www.pulumi.com/docs/intro/concepts/resources/#protect) feature:
+Finally, to protect our users from accidental deletions of mission-critical cloud infrastructure resources, we’ve used Pulumi’s [protect](https://www.pulumi.com/docs/concepts/resources/#protect) feature:
 
 > The protect option marks a resource as protected. A protected resource cannot be deleted directly. Instead, you must first set `protect: false` and run `pulumi up`. Then you can delete the resource by removing the line of code or by running `pulumi destroy`. The default is to inherit this value from the parent resource and `false` for resources without a parent.
 

@@ -139,7 +139,7 @@ that such an application will run in multiple environments: production,
 staging, development, and so on.
 
 Pulumi comes with a handy concept of
-[stacks](/docs/intro/concepts/stack/)--- isolated,
+[stacks](/docs/concepts/stack/)--- isolated,
 independently configurable instances of a Pulumi program. A separate
 stack can be designated for each deployment environment.
 
@@ -263,7 +263,7 @@ I'm using Azure SQL Database service.
 Setting up a SQL Server requires a couple of parameter values that might
 change between execution environments, for instance, a username and a
 password for the connection string. Pulumi provides
-[a way to configure](/docs/intro/concepts/config/) the program's
+[a way to configure](/docs/concepts/config/) the program's
 parameters per stack.
 
 The configuration itself will happen in my CI/CD pipeline. For now, I

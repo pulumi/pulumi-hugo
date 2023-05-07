@@ -83,7 +83,7 @@ Many high-quality plugins are available to assist you with authoring CloudFormat
 
 Both Pulumi and CloudFormation provide built-in support for keeping track of the state of your infrastructure. By default, Pulumi uses the free Pulumi Cloud, which handles state management automatically, but you can also choose to manage your infrastructure state on your own, either by bringing your own storage mechanism (e.g., an S3 bucket, S3-compatible service, third-party blob storage, or just a flat file) or even self-hosting the Pulumi Cloud within your enterprise network. CloudFormation state is managed entirely within the CloudFormation service.
 
-For more information on how Pulumi manages state, or using alternative backends, see [State and Backends](/docs/intro/concepts/state/).
+For more information on how Pulumi manages state, or using alternative backends, see [State and Backends](/docs/concepts/state/).
 
 ### Provider Support {#providers}
 
@@ -91,7 +91,7 @@ As an AWS product, CloudFormation offers limited support for third-party cloud p
 
 Pulumi also has [native providers](/blog/pulumiup-native-providers/) for AWS, Azure, Google, and Kubernetes. Native providers are packages generated from cloud-provider API schemas that provide same-day support for new features as they're released.
 
-For a full list of the providers we currently support, visit the [Pulumi Registry](/registry/). To learn more about how you can build providers of your own, see [Pulumi Packages](/docs/guides/pulumi-packages/) or [Dynamic Providers](/docs/intro/concepts/resources/dynamic-providers/).
+For a full list of the providers we currently support, visit the [Pulumi Registry](/registry/). To learn more about how you can build providers of your own, see [Pulumi Packages](/docs/guides/pulumi-packages/) or [Dynamic Providers](/docs/concepts/resources/dynamic-providers/).
 
 #### Extending Pulumi with Terraform Providers {#providers-terraform}
 
@@ -115,7 +115,7 @@ To learn more about Pulumi's support for the cloud native ecosystem, see our whi
 
 Occasionally you may want to manage a third-party cloud or SaaS resource that isn't yet supported by Pulumi directly, and isn't covered by a community-supported package in the Pulumi Registry or elsewhere. With Dynamic Providers, you can write custom logic into your Pulumi program to extend the Pulumi resource model to include any local or remote resource that can be managed by way of standard `create`, `read`, `update`, and `delete` operations. Comparable functionality is possible with CloudFormation custom resources, but these require you to create and manage publicly accessible HTTP endpoints to handle deploy-time requests from the CloudFormation service.
 
-To learn more about Dynamic Providers and how to use them, see [Dynamic Providers](/docs/intro/concepts/resources/dynamic-providers/).
+To learn more about Dynamic Providers and how to use them, see [Dynamic Providers](/docs/concepts/resources/dynamic-providers/).
 
 ### OSS License {#license}
 
@@ -125,9 +125,9 @@ CloudFormation is a closed-source proprietary service of AWS. Pulumi's open-sour
 
 With CloudFormation, you can codify and reuse infrastructure configuration by using CloudFormation modules --- specialized templates that can be uploaded to the CloudFormation Registry and referenced from within other CloudFormation templates.
 
-Pulumi also allows you to create modular and reusable infrastructure building blocks, but it does so by building onto the capabilities of your programming language and its ecosystem. With Pulumi [_components_](/docs/intro/concepts/resources/components/), you can abstract and encapsulate complexity into higher-level software resources that have their own trackable state, appear in diffs, and use a logical name that identifies its resources across deployments. Moreover, with Pulumi Packages, you can author components in one language and make them accessible in any language Pulumi supports, and then list those packages on the public Pulumi Registry, a searchable collection of resource providers published by Pulumi, our partners, and the community.
+Pulumi also allows you to create modular and reusable infrastructure building blocks, but it does so by building onto the capabilities of your programming language and its ecosystem. With Pulumi [_components_](/docs/concepts/resources/components/), you can abstract and encapsulate complexity into higher-level software resources that have their own trackable state, appear in diffs, and use a logical name that identifies its resources across deployments. Moreover, with Pulumi Packages, you can author components in one language and make them accessible in any language Pulumi supports, and then list those packages on the public Pulumi Registry, a searchable collection of resource providers published by Pulumi, our partners, and the community.
 
-To learn more, see [Components](/docs/intro/concepts/resources/components/), [Pulumi Packages](/docs/guides/pulumi-packages/), and [Pulumi Registry](/registry/).
+To learn more, see [Components](/docs/concepts/resources/components/), [Pulumi Packages](/docs/guides/pulumi-packages/), and [Pulumi Registry](/registry/).
 
 ### Testing and Validation {#testing}
 
@@ -143,7 +143,7 @@ Pulumi's approach is fundamentally different in that deployments are performed b
 
 Pulumi can also be embedded into application code and driven programmatically with [Automation API](/docs/guides/automation-api/), enabling higher-order orchestration workflows and more dynamically managed infrastructure.
 
-To learn more about how Pulumi deploys infrastructure, see [How Pulumi Works](/docs/intro/concepts/how-pulumi-works/). To learn more about running Pulumi within the context of another program, see [Automation API](/docs/guides/automation-api/).
+To learn more about how Pulumi deploys infrastructure, see [How Pulumi Works](/docs/concepts/how-pulumi-works/). To learn more about running Pulumi within the context of another program, see [Automation API](/docs/guides/automation-api/).
 
 ### Embed within Application Code {#embedding}
 
@@ -167,7 +167,7 @@ In CloudFormation, it's possible to refer to an externally managed secret (like 
 
 Pulumi, however, has first-class support for encrypting, storing, and decrypting secret values and for handling them safely throughout the program lifecycle. Secrets are encrypted in transit and at rest, recorded as ciphertext in configuration and state files, are safe to check into version-control systems, and are protected from accidental exposure by the Pulumi CLI. You can also choose to use your own secrets provider (e.g., AWS Key Management Service, Azure Key Vault, Google Cloud KMS, or HashiCorp Vault) with Pulumi.
 
-For more information on managing secrets with Pulumi, see [Secrets](/docs/intro/concepts/secrets/).
+For more information on managing secrets with Pulumi, see [Secrets](/docs/concepts/secrets/).
 
 ### Drift Detection and Correction {#drift-detection}
 
@@ -179,7 +179,7 @@ With CloudFormation, infrastructure stacks are configured with _parameters_, whi
 
 Pulumi makes stack configuration less tedious and error-prone, and more collaboration-friendly, by giving each stack its own configuration file and exposing the file's contents to your program at runtime as typed data --- strings, booleans, numbers, arrays, even hierarchical object data. Values can be marked as optional or required, sensitive values can be encrypted and stored safely as ciphertext, and deployment environments (dev, test, staging, production) can be targeted easily with `pulumi stack select`. Configuration files are generally checked into version control as well, and can easily be obtained with `pulumi config refresh`.
 
-To learn more about configuring projects and stacks with Pulumi, see [Configuration](/docs/intro/concepts/config/).
+To learn more about configuring projects and stacks with Pulumi, see [Configuration](/docs/concepts/config/).
 
 ### Audit Capabilities {#auditing}
 
@@ -201,8 +201,8 @@ To learn more, see [Conversion](/docs/guides/adopting/#conversion) in our Adopti
 
 ### Resource Aliases {#aliases}
 
-Aliases help facilitate refactoring by allowing you to modify certain properties of a resource without risk of replacing it. With an alias, you can change the logical name of a given resource, change its parent (i.e., move it from one component to another), change its underlying resource type, or even move it to an entirely different project or stack. Both Pulumi and CloudFormation support the notion of resource renaming. To learn more about renaming or aliasing existing resources in Pulumi, see [Aliases](/docs/intro/concepts/resources/options/aliases/) in the Resource documentation.
+Aliases help facilitate refactoring by allowing you to modify certain properties of a resource without risk of replacing it. With an alias, you can change the logical name of a given resource, change its parent (i.e., move it from one component to another), change its underlying resource type, or even move it to an entirely different project or stack. Both Pulumi and CloudFormation support the notion of resource renaming. To learn more about renaming or aliasing existing resources in Pulumi, see [Aliases](/docs/concepts/resources/options/aliases/) in the Resource documentation.
 
 ### Resource Transformations {#transformations}
 
-Transformations, which are unique to Pulumi, allow you to programmatically set or override the input properties of resources belonging to a particular collection, such as the child resources of a Pulumi component or even all of the resources belonging to a stack. Transformations make it easy to apply consistent settings across your infrastructure without having to manipulate the properties of individual resources. CloudFormation does not have support for this feature. To learn more, see [Transformations](/docs/intro/concepts/resources/options/transformations/) in the Resource documentation.
+Transformations, which are unique to Pulumi, allow you to programmatically set or override the input properties of resources belonging to a particular collection, such as the child resources of a Pulumi component or even all of the resources belonging to a stack. Transformations make it easy to apply consistent settings across your infrastructure without having to manipulate the properties of individual resources. CloudFormation does not have support for this feature. To learn more, see [Transformations](/docs/concepts/resources/options/transformations/) in the Resource documentation.

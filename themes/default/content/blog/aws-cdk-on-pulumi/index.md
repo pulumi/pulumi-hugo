@@ -150,7 +150,7 @@ const stack = new LambdaStack('teststack');
 export const ruleArn = stack.ruleArn;
 ```
 
-Note how the `pulumicdk.asString` and `asOutput` functions are used to convert Pulumi [Outputs](/docs/intro/concepts/inputs-outputs/) to AWS CDK [Tokens](https://docs.aws.amazon.com/cdk/v2/guide/tokens.html) and vice-versa to map values out of and into Pulumi.
+Note how the `pulumicdk.asString` and `asOutput` functions are used to convert Pulumi [Outputs](/docs/concepts/inputs-outputs/) to AWS CDK [Tokens](https://docs.aws.amazon.com/cdk/v2/guide/tokens.html) and vice-versa to map values out of and into Pulumi.
 
 ## Building on AWS Native and the AWS Cloud Control API
 

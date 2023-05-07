@@ -10,7 +10,7 @@ aliases:
 - /docs/guides/pulumi-packages/
 ---
 
-Pulumi Packages are the core technology that enables cloud infrastructure resource provisioning to be defined once, and made available to users in all Pulumi languages. With Pulumi Packages, [Resources and Components](/docs/intro/concepts/resources/) can be written once, in your preferred language, and made available in all the other languages supported by Pulumi.
+Pulumi Packages are the core technology that enables cloud infrastructure resource provisioning to be defined once, and made available to users in all Pulumi languages. With Pulumi Packages, [Resources and Components](/docs/concepts/resources/) can be written once, in your preferred language, and made available in all the other languages supported by Pulumi.
 
 ![A diagram showing how Pulumi Package code can be authored in one language and made available in all other languages supported by Pulumi](img/pulumi-package-overview.png)
 
@@ -27,7 +27,7 @@ To create your own Pulumi Package, use the [guide](/docs/guides/pulumi-packages/
 Regardless of the type of Pulumi Package you want to author, there are a few key steps in the process of authoring a Pulumi package.
 
 1. Decide the [type](#types-of-pulumi-packages) of package you want to create and create a repository for it using one of the template repos provided by Pulumi
-1. Create the [Resources or Components](/docs/intro/concepts/resources/) you want to include in the package, either by authoring them manually (in the case of a Component Package) or generating them from a cloud provider's API or via a provider bridge
+1. Create the [Resources or Components](/docs/concepts/resources/) you want to include in the package, either by authoring them manually (in the case of a Component Package) or generating them from a cloud provider's API or via a provider bridge
 1. Build the resource provider plugin: the binary file that contains all of the components or resources you defined in your source code
 1. Generate the SDK code for all languages supported by Pulumi and packs the SDK packages–the npm, NuGet, and Python packages–that the Pulumi Package’s users will reference in their own programs
 1. Publish the SDK packages and the resource provider plugin

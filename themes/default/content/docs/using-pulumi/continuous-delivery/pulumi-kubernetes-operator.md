@@ -42,7 +42,7 @@ To work with the operator, we'll need to follow these steps.
 - [Concurrent Updates on the Same Stack](#concurrent-updates-on-the-same-stack)
 
 [k8s-ext-pattern]: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
-[stack]: /docs/intro/concepts/stack/
+[stack]: /docs/concepts/stack/
 
 ## Deploy the Pulumi Kubernetes Operator
 

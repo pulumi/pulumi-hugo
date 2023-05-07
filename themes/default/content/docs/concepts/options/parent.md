@@ -11,10 +11,10 @@ aliases:
 - /docs/intro/concepts/resources/options/parent/
 ---
 
-The `parent` resource option specifies a parent for a resource. It is used to associate children with the parents that encapsulate or are responsible for them. Good examples of this are [component resources](/docs/intro/concepts/resources/components/). The default behavior is to parent each resource to the implicitly-created `pulumi:pulumi:Stack` component resource that is a root resource for all Pulumi stacks.
+The `parent` resource option specifies a parent for a resource. It is used to associate children with the parents that encapsulate or are responsible for them. Good examples of this are [component resources](/docs/concepts/resources/components/). The default behavior is to parent each resource to the implicitly-created `pulumi:pulumi:Stack` component resource that is a root resource for all Pulumi stacks.
 
 {{% notes type="warning" %}}
-Although the `parent` resource option can be used to parent a resource to any other resource, it is strongly recommended to parent resources only to [component resources](/docs/intro/concepts/resources/components/) when they are actually children.  Parenting a resource to another [custom resource](/docs/intro/concepts/resources/) can in some cases result in undefined behavior.
+Although the `parent` resource option can be used to parent a resource to any other resource, it is strongly recommended to parent resources only to [component resources](/docs/concepts/resources/components/) when they are actually children.  Parenting a resource to another [custom resource](/docs/concepts/resources/) can in some cases result in undefined behavior.
 {{% /notes %}}
 
 For example, this code creates two resources, a parent and child, the latter of which is a child to the former:
@@ -104,10 +104,10 @@ Previewing update (dev):
 
 Child resources inherit default values for many other resource options from their `parent`, including:
 
-* [`provider`](/docs/intro/concepts/resources/options/provider):  The provider instance used to construct a resource is inherited from it's parent, unless explicitly overridden by the child resource. The parent itself may have inherited the global [default provider](../providers/#default-provider-configuration) if no resource in the parent chain specified a provider instance for the corresponding provider type.
+* [`provider`](/docs/concepts/resources/options/provider):  The provider instance used to construct a resource is inherited from it's parent, unless explicitly overridden by the child resource. The parent itself may have inherited the global [default provider](../providers/#default-provider-configuration) if no resource in the parent chain specified a provider instance for the corresponding provider type.
 
-* [`aliases`](/docs/intro/concepts/resources/options/aliases):  Aliases applied to a parent are applied to all child resources, so that changing the type of a parent resource correctly changes the qualified type of a child resource, and changing the name of a parent resource correctly changes the name prefix of child resources.
+* [`aliases`](/docs/concepts/resources/options/aliases):  Aliases applied to a parent are applied to all child resources, so that changing the type of a parent resource correctly changes the qualified type of a child resource, and changing the name of a parent resource correctly changes the name prefix of child resources.
 
-* [`protect`](/docs/intro/concepts/resources/options/protect):  A protected parent will protect all children.  This ensures that if a parent is marked as protected, none of it's children will be deleted ahead of the attempt to delete the parent failing.
+* [`protect`](/docs/concepts/resources/options/protect):  A protected parent will protect all children.  This ensures that if a parent is marked as protected, none of it's children will be deleted ahead of the attempt to delete the parent failing.
 
-* [`transformations`](/docs/intro/concepts/resources/options/transformations):  Transformations applied to a parent will run on the parent and on all child resources. This allows a transformation to be applied to a component to intercept and modify any resources created by it's children. As a special case, [Stack transformations](/docs/intro/concepts/resources/options/transformations#stack-transformations) will be applied to *all* resources (since all resources ultimately are parented directly or indirectly by the root stack resource).
+* [`transformations`](/docs/concepts/resources/options/transformations):  Transformations applied to a parent will run on the parent and on all child resources. This allows a transformation to be applied to a component to intercept and modify any resources created by it's children. As a special case, [Stack transformations](/docs/concepts/resources/options/transformations#stack-transformations) will be applied to *all* resources (since all resources ultimately are parented directly or indirectly by the root stack resource).

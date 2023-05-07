@@ -16,10 +16,10 @@ The Pulumi YAML provider supports programs written in YAML or JSON.  In both cas
 
 | Property        | Type | Required           | Expression  | Description |
 | ------------- |---|-------------| -----|---|
-| `config`      | [config options](/docs/reference/pulumi-yaml/#config-options) | No | No | Config specifies the [Pulumi config](/docs/intro/concepts/config/) inputs to the deployment. |
-| `resources`      | map[string]Resource | No | No | Resources declares the [Pulumi resources](/docs/intro/concepts/resources/) that will be deployed and managed by the program |
+| `config`      | [config options](/docs/reference/pulumi-yaml/#config-options) | No | No | Config specifies the [Pulumi config](/docs/concepts/config/) inputs to the deployment. |
+| `resources`      | map[string]Resource | No | No | Resources declares the [Pulumi resources](/docs/concepts/resources/) that will be deployed and managed by the program |
 | `variables`      | map[string]Expression | No | Yes | Variables specifies intermediate values of the program, the values of variables are expressions that can be re-used. |
-| `outputs`      | map[string]Expression | No | Yes | Outputs specifies the [Pulumi stack outputs](/docs/intro/concepts/stack#outputs) of the program and how they are computed from the `resources` is a value of the appropriate type for the template to use if no value is specified. |
+| `outputs`      | map[string]Expression | No | Yes | Outputs specifies the [Pulumi stack outputs](/docs/concepts/stack#outputs) of the program and how they are computed from the `resources` is a value of the appropriate type for the template to use if no value is specified. |
 
 In many locations within this schema, values may be expressions which computed a value based on the `config`, `variables`, or outputs of `resources`.  These expressions can be provided in two ways:
 
@@ -56,7 +56,7 @@ The value of `resources` is an object whose keys are logical resource names by w
 
 #### Resource Options
 
-The value of the `options` property of a Resource is an object whose keys are [resource option names](/docs/intro/concepts/resources/options/) and whose values are elements of the schema below. No resource options are required.
+The value of the `options` property of a Resource is an object whose keys are [resource option names](/docs/concepts/resources/options/) and whose values are elements of the schema below. No resource options are required.
 
 The `dependsOn`, `parent`, `provider`, and `providers` values permit expressions which must use interpolation syntax to reference resources by name. For example:
 
@@ -90,7 +90,7 @@ The `dependsOn`, `parent`, `provider`, and `providers` values permit expressions
 
 #### Resource Getter
 
-Supplying a `get` key turns the resource declaration into a [Getter Function](/docs/intro/concepts/resources/get/).
+Supplying a `get` key turns the resource declaration into a [Getter Function](/docs/concepts/resources/get/).
 
 | Property | Type                  | Required | Description                                                                                                        |
 |----------|-----------------------|----------|--------------------------------------------------------------------------------------------------------------------|
@@ -389,7 +389,7 @@ The expression `${policyVersion}` will have the value `v1.1`.
 
 ##### `fn::*Asset` and `fn::*Archive`
 
-[Assets and Archives](/docs/intro/concepts/assets-archives/) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
+[Assets and Archives](/docs/concepts/assets-archives/) are intrinsic types to Pulumi, like strings and numbers, and some resources may take these as inputs or return them as outputs. The built-ins create each kind of asset or archive. Each takes all take a single string value.
 
 | Built-In      | Argument Type | Description |
 | ------------- |---|------|
@@ -425,7 +425,7 @@ The expression `${reference}` will have the value of the `outputName` output fro
 
 ##### `fn::secret`
 
-Constructs a [Secret](/docs/intro/concepts/secrets/) from an existing value.
+Constructs a [Secret](/docs/concepts/secrets/) from an existing value.
 
 ``` yaml
 variables:

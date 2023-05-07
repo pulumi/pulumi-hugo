@@ -28,17 +28,17 @@ If you're already familiar with Terraform, learning Pulumi terminology and comma
 
 | Terraform | Pulumi |
 | --------- | ------ |
-| Workspace | [Stack](/docs/intro/concepts/stack/) |
-| Variables | [Stack Config](/docs/intro/concepts/config/) |
-| Directory | [Project](/docs/intro/concepts/project/) |
-| Module | [Component](/docs/intro/concepts/resources/components/) |
-| Resource | [Resource](/docs/intro/concepts/resources/) |
-| Interpolation | [Interpolation](/docs/intro/concepts/inputs-outputs#outputs-and-strings) |
+| Workspace | [Stack](/docs/concepts/stack/) |
+| Variables | [Stack Config](/docs/concepts/config/) |
+| Directory | [Project](/docs/concepts/project/) |
+| Module | [Component](/docs/concepts/resources/components/) |
+| Resource | [Resource](/docs/concepts/resources/) |
+| Interpolation | [Interpolation](/docs/concepts/inputs-outputs#outputs-and-strings) |
 | Run | [Up](/docs/reference/cli/pulumi_up/) |
-| Output Values | [Outputs](/docs/intro/concepts/inputs-outputs/) |
-| State | [State](/docs/intro/concepts/state/) |
+| Output Values | [Outputs](/docs/concepts/inputs-outputs/) |
+| State | [State](/docs/concepts/state/) |
 | State Version | [Update Events](/docs/reference/service-rest-api#list-update-events) |
-| Backend | [Backend](/docs/intro/concepts/state/) |
+| Backend | [Backend](/docs/concepts/state/) |
 | Deposed | [Pending Operations](/docs/support/troubleshooting#interrupted-update-recovery) |
 
 ## Commands

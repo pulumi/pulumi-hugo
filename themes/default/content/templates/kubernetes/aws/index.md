@@ -25,7 +25,7 @@ The Kubernetes Cluster template creates an infrastructure as code project in you
 
 ## Using this template
 
-To use this template to deploy your own managed Kubernetes cluster, make sure you've [installed Pulumi](/docs/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
+To use this template to deploy your own managed Kubernetes cluster, make sure you've [installed Pulumi](/docs/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration#credentials), then create a new [project](/docs/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -39,7 +39,7 @@ The template requires no additional configuration. Once the new project is creat
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/concepts/stack#outputs) values:
 
 kubeconfig
 : The cluster's kubeconfig file which you can use with `kubectl` to access and communicate with your clusters.
@@ -56,7 +56,7 @@ $ open $(pulumi stack output cdnURL)
 
 ## Customizing the project
 
-Projects created with the Kubernetes template expose the following [configuration](/docs/intro/concepts/config/) settings:
+Projects created with the Kubernetes template expose the following [configuration](/docs/concepts/config/) settings:
 
 minClusterSize
 : The minimum number of nodes to allow in the cluster. Defaults to `3`.

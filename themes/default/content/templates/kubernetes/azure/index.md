@@ -25,7 +25,7 @@ The Kubernetes Cluster template creates an infrastructure as code project in you
 
 ## Using this template
 
-To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi](/docs/install/) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
+To use this template to deploy your own Kubernetes cluster, make sure you've [installed Pulumi](/docs/install/) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -47,7 +47,7 @@ Once the new project is created, you can deploy it immediately with [`pulumi up`
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/concepts/stack#outputs) values:
 
 rgname
 : The name of the Azure Resource Group containing the Kubernetes cluster resources.
@@ -65,7 +65,7 @@ Output values like these are useful in many ways, most commonly as inputs for ot
 
 ## Customizing the project
 
-Projects created with the Kubernetes Cluster template expose the following [configuration](/docs/intro/concepts/config/) settings:
+Projects created with the Kubernetes Cluster template expose the following [configuration](/docs/concepts/config/) settings:
 
 numWorkerNodes
 : The number of nodes in your cluster. Defaults to `3`.

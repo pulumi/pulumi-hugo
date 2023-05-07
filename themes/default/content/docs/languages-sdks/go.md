@@ -54,7 +54,7 @@ $ mkdir myproject && cd myproject
 $ pulumi new go
 ```
 
-This will create a `Pulumi.yaml` [project file](/docs/intro/concepts/project/) containing some minimal metadata about your project (including a name and description which you may wish to change) and a `main.go` file containing your program. The name of the directory is used as the project name in `Pulumi.yaml`. Use your favorite Go dependency manager (such as Go's built-in modules system, by running `go mod init` in your project's directory).
+This will create a `Pulumi.yaml` [project file](/docs/concepts/project/) containing some minimal metadata about your project (including a name and description which you may wish to change) and a `main.go` file containing your program. The name of the directory is used as the project name in `Pulumi.yaml`. Use your favorite Go dependency manager (such as Go's built-in modules system, by running `go mod init` in your project's directory).
 
 To deploy your infrastructure, first build your Go program: `go build -o $(basename $(pwd))`. Then run `pulumi up` and Pulumi will perform the operations needed to deploy the infrastructure you have declared.
 
@@ -73,7 +73,7 @@ with examples available in Go. These concepts are made available to you in the P
 The Pulumi SDK is available to Go developers in source form on GitHub. To learn more,
 [refer to the Pulumi SDK Reference Guide](https://pkg.go.dev/github.com/pulumi/pulumi/sdk/v3/go/pulumi).
 
-The Pulumi programming model includes a core concept of `Input` and `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource.  This concept is important to understand when getting started with Go and Pulumi, and the [Inputs and Outputs](/docs/intro/concepts/inputs-outputs/) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
+The Pulumi programming model includes a core concept of `Input` and `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource.  This concept is important to understand when getting started with Go and Pulumi, and the [Inputs and Outputs](/docs/concepts/inputs-outputs/) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.
 
 ## Package Documentation
 

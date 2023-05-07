@@ -49,7 +49,7 @@ As Pulumi template authors, our general goal is twofold:
 
 A good template, in other words, is one that not only takes you from `pulumi new` to `pulumi up` in as few steps as possible, but that also leaves you with an open, extensible program you can use as a foundation to build upon. For us, the goal is to create a template that can be used to provision the minimal set of cloud resources one needs to run a static website on AWS. And done well, our template will also lend itself easily to further development --- custom domains, serverless functions, edge caching, and so on.
 
-To that end, let's start by replacing the contents of `Pulumi.yaml` with the following program, which defines the core resources we need: an [S3 bucket](/registry/packages/aws/api-docs/s3/bucket/) to hold the files of the website and an [S3 bucket object](/registry/packages/aws/api-docs/s3/bucketobject/) (`index.html`) to serve as its home page. We'll also export the computed URL of the website as a Pulumi [stack output](/docs/intro/concepts/stack/#outputs) to give us something to navigate to after deployment:
+To that end, let's start by replacing the contents of `Pulumi.yaml` with the following program, which defines the core resources we need: an [S3 bucket](/registry/packages/aws/api-docs/s3/bucket/) to hold the files of the website and an [S3 bucket object](/registry/packages/aws/api-docs/s3/bucketobject/) (`index.html`) to serve as its home page. We'll also export the computed URL of the website as a Pulumi [stack output](/docs/concepts/stack/#outputs) to give us something to navigate to after deployment:
 
 ```yaml
 name: my-template-project

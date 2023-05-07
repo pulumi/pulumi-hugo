@@ -25,7 +25,7 @@ The Container Service template creates an infrastructure as code project in your
 
 ## Using this template
 
-To use this template to deploy your own container service, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy your own container service, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Azure credentials](/registry/packages/azure/installation-configuration#credentials), then create a new [project](/docs/concepts/project) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -39,7 +39,7 @@ The template requires no additional configuration. Once the new project is creat
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/concepts/stack#outputs) values:
 
 hostname
 : The hostname of the container group.
@@ -58,7 +58,7 @@ $ open $(pulumi stack output url)
 
 ## Customizing the project
 
-Projects created with the Container Service template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Container Service template expose the following [configuration](/docs/concepts/config) settings:
 
 appPath
 : The path to the folder containing the application and Dockerfile. Defaults to `./app`, which contains a "Hello world" example.

@@ -133,7 +133,7 @@ const triggerSchedule = aws.cloudwatch.onSchedule(
     "keyRotatorScheduler", "rate(1 hour)", lambdaCallbackFn);
 ```
 
-When writing reusable infrastructure components in Pulumi however, it is helpful to organize things into a [custom resource](/docs/intro/concepts/resources#custom-resources).
+When writing reusable infrastructure components in Pulumi however, it is helpful to organize things into a [custom resource](/docs/concepts/resources#custom-resources).
 
 For example, we can bundle together the AWS Lambda, CloudWatcn schedule, and the associated IAM policies into a single conceptual resource `AccessKeyRotator`. Bundling resources allows for the code reuse.
 
@@ -151,7 +151,7 @@ With the mechanics of updating an AWS access key out of the way, the next step i
 systems.
 
 The following snippet shows how the `CredentialPusher` is configured in the key rotator app. We load a Travis CI access token from the
-[Pulumi stack's configuration](https://www.pulumi.com/docs/intro/concepts/config/), and hard-code the specific set of projects and encrypted environment variables to
+[Pulumi stack's configuration](https://www.pulumi.com/docs/concepts/config/), and hard-code the specific set of projects and encrypted environment variables to
 store the new access key.
 
 ```ts

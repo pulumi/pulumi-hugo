@@ -13,7 +13,7 @@ meta_image: "pulumi-1-0.png"
 
 ## .NET
 
-[Our .NET SDK](/docs/intro/languages/dotnet/) has come a long way. We recently tidied up the API surface area to feel more familiar to .NET developers, added C# getting started guides for [AWS](/docs/clouds/aws/get-started/?language=csharp), [Azure](/docs/clouds/azure/get-started/?language=csharp), [GCP](/docs/clouds/aws/get-started/?language=csharp), and [Kubernetes](/docs/clouds/aws/get-started/?language=csharp), and added many new examples. We also closed the gap on core Pulumi features missing from the initial release, including [aliases](/docs/intro/concepts/resources/#aliases), [transformations](/docs/intro/concepts/resources/#transformations), [StackReference](/docs/intro/concepts/stack/#stackreferences), and .NET versions of the [Kubernetes](https://github.com/pulumi/pulumi-kubernetes), [Docker](https://github.com/pulumi/pulumi-docker), and [Terraform remote state](https://github.com/pulumi/pulumi-terraform) packages.
+[Our .NET SDK](/docs/intro/languages/dotnet/) has come a long way. We recently tidied up the API surface area to feel more familiar to .NET developers, added C# getting started guides for [AWS](/docs/clouds/aws/get-started/?language=csharp), [Azure](/docs/clouds/azure/get-started/?language=csharp), [GCP](/docs/clouds/aws/get-started/?language=csharp), and [Kubernetes](/docs/clouds/aws/get-started/?language=csharp), and added many new examples. We also closed the gap on core Pulumi features missing from the initial release, including [aliases](/docs/concepts/resources/#aliases), [transformations](/docs/concepts/resources/#transformations), [StackReference](/docs/concepts/stack/#stackreferences), and .NET versions of the [Kubernetes](https://github.com/pulumi/pulumi-kubernetes), [Docker](https://github.com/pulumi/pulumi-docker), and [Terraform remote state](https://github.com/pulumi/pulumi-terraform) packages.
 
 The remaining areas to improve for the .NET SDK include making the API documentation available in C# (details are below in the "still to come" section), migrating to .NET Core 3.1, and enabling you to test your infrastructure using familiar C# tools more easily.
 
@@ -25,7 +25,7 @@ The major change in the Go SDK is that we previously used `map[string]interface{
 
 [GoDocs are now here](/docs/reference/pkg?language=golang ) for all of our providers and we've also added Go versions to our getting started guides for [AWS](/docs/get-started/aws?language=golang), [Azure](/docs/get-started/azure?language=golang), and [GCP](/docs/get-started/gcp?language=golang), and have many more improvements on the way.
 
-We've also added support for core Pulumi features, including [aliases](/docs/intro/concepts/resources#aliases) and [transformations](/docs/intro/concepts/resources#transformations). A few remain to flesh out like adding Go support for our Kubernetes, Docker, and Terraform remote state packages. The biggest change to come is retiring Dep in favor of Go modules everywhere.
+We've also added support for core Pulumi features, including [aliases](/docs/concepts/resources#aliases) and [transformations](/docs/concepts/resources#transformations). A few remain to flesh out like adding Go support for our Kubernetes, Docker, and Terraform remote state packages. The biggest change to come is retiring Dep in favor of Go modules everywhere.
 
 ## Policy as Code
 

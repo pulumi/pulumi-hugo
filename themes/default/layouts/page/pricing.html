@@ -10,7 +10,7 @@
         <a class="underline" href="/product/pulumi-service">Pulumi Cloud</a> is the easiest way to adopt
         Pulumi's <a class="underline" href="https://github.com/pulumi/pulumi">open source SDK</a>.
         <p>Prefer to manage your own state storage backend?
-        <a class="text-blue-600 underline" href="/docs/intro/concepts/state#using-a-self-managed-backend"> Learn more</a>.
+        <a class="text-blue-600 underline" href="/docs/concepts/state#using-a-self-managed-backend"> Learn more</a>.
         </p>
             {{/* prettier-ignore-end */}}
         </p>
@@ -429,10 +429,10 @@
                     <p>
                         A Pulumi Credit is the price for managing one resource for one hour. If using the Team Edition, each credit costs $0.0005. For billing purposes, we count
                         any resource that's declared in a Pulumi program. This includes
-                        <a class="underline" href="/docs/intro/concepts/resources#custom-resources">provider resources</a> (e.g., an Amazon S3 bucket),
-                        <a class="underline" href="/docs/intro/concepts/resources#components">component resources</a>
+                        <a class="underline" href="/docs/concepts/resources#custom-resources">provider resources</a> (e.g., an Amazon S3 bucket),
+                        <a class="underline" href="/docs/concepts/resources#components">component resources</a>
                         which are groupings of resources (e.g., an Amazon EKS cluster), and
-                        <a class="underline" href="/docs/intro/concepts/stack">stacks</a> which contain resources (e.g., dev, test, prod stacks).
+                        <a class="underline" href="/docs/concepts/stack">stacks</a> which contain resources (e.g., dev, test, prod stacks).
                     </p>
                     <p>
                         You consume one Pulumi Credit to manage each resource for an hour. For example, one stack containing one S3 bucket and one EC2 instance is three resources
@@ -452,7 +452,7 @@
                     </p>
                     <p>
                         Hourly usage is measured in the number of Pulumi Credits, and you are billed one Pulumi Credit to manage one
-                        <a class="underline" href="/docs/intro/concepts/resources">resource</a>
+                        <a class="underline" href="/docs/concepts/resources">resource</a>
                         for one hour. Each credit costs $0.0005 USD.
                     </p>
                     <p>
@@ -606,8 +606,8 @@
                     </p>
                     <p>
                         Second, Pulumi is an <a class="underline" href="https://github.com/pulumi/pulumi">open source project</a>. You can
-                        <a class="underline" href="/docs/intro/concepts/state#using-a-self-managed-backend">run Pulumi entirely offline</a> without the online service’s features,
-                        and manage state yourself, instead of using the online service. There are no restrictions &mdash; it's all there in the open for you to use freely as you'd
+                        <a class="underline" href="/docs/concepts/state#using-a-self-managed-backend">run Pulumi entirely offline</a> without the online service’s features, and
+                        manage state yourself, instead of using the online service. There are no restrictions &mdash; it's all there in the open for you to use freely as you'd
                         like.
                     </p>
                     <p>
@@ -645,10 +645,10 @@
                         more sophisticated organization management facilities, including RBAC for advanced policy controls.
                     </p>
                     <p>
-                        Pulumi <a class="underline" href="/docs/intro/concepts/project">projects</a> and <a class="underline" href="/docs/intro/concepts/stack">stacks</a> are a way
-                        to organize Pulumi code. You can consider a Pulumi Project to be analogous to a GitHub repo: a single place for code -- and a Stack to be an instance of
-                        that code which has separate configuration. For instance, Project Foo may have multiple stacks for Dev, Test, Prod, or perhaps for different cloud
-                        configurations (e.g. geographic region).
+                        Pulumi <a class="underline" href="/docs/concepts/project">projects</a> and <a class="underline" href="/docs/concepts/stack">stacks</a> are a way to organize
+                        Pulumi code. You can consider a Pulumi Project to be analogous to a GitHub repo: a single place for code -- and a Stack to be an instance of that code which
+                        has separate configuration. For instance, Project Foo may have multiple stacks for Dev, Test, Prod, or perhaps for different cloud configurations (e.g.
+                        geographic region).
                     </p>
                 </div>
             </li>
@@ -1384,7 +1384,7 @@
 
                 <div class="compare-plans-table-row-container">
                     <div class="compare-plans-table-row-item">
-                        <span><a class="compare-table-link" href="/docs/intro/concepts/config">Secrets and encryption</a></span>
+                        <span><a class="compare-table-link" href="/docs/concepts/config">Secrets and encryption</a></span>
                     </div>
                     <div class="compare-plans-table-row-item">
                         <span><i class="fa fa-check pricing-checkmark mr-2"></i></span>

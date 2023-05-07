@@ -47,9 +47,9 @@ Let's say you already have infrastructure provisioned by an existing tool, such 
 
 In these cases, new infrastructure can coexist with old infrastructure in two ways, letting you keep your existing infrastructure as-is while building new infrastructure under Pulumi's management. The following techniques can be used:
 
-* [**Resource Getters**](/docs/intro/concepts/resources#resource-get) available on every resource let you read all the details for a resource from the cloud provider based just on its ID.
+* [**Resource Getters**](/docs/concepts/resources#resource-get) available on every resource let you read all the details for a resource from the cloud provider based just on its ID.
 
-* [**Stack References**](/docs/intro/concepts/stack#stackreferences) let you reference outputs of another Pulumi stack for use as inputs to a stack, which is very useful for [organizing projects and stacks](/docs/guides/organizing-projects-stacks/).
+* [**Stack References**](/docs/concepts/stack#stackreferences) let you reference outputs of another Pulumi stack for use as inputs to a stack, which is very useful for [organizing projects and stacks](/docs/guides/organizing-projects-stacks/).
 
 * **External State References** let you reference outputs from a non-Pulumi stack for use as inputs to a Pulumi stack. Many infrastructure as code tools have the notion of "outputs," which are values exported for easy consumption. This might be VPC IDs, auto-assigned IP addresses, and so on. Examples include [Terraform state files and workspaces](from_terraform/), [AWS CloudFormation stacks](from_aws/), and [Azure Resource Manager (ARM) deployments](from_azure).
 

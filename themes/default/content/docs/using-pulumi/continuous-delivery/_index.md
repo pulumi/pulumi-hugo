@@ -105,7 +105,7 @@ permit one stack to depend upon another. This facilitates continuous delivery an
 ### Using Branches for Environments
 
 Pulumi is agnostic to what sort of branching strategy you take. Most customers use Git-based flows; the most common is
-to use one branch-per-[stack](/docs/intro/concepts/stack/). This allows you to control deployments to environments
+to use one branch-per-[stack](/docs/concepts/stack/). This allows you to control deployments to environments
 using your usual commit, code review, and approval process, such as GitHub pull requests.
 
 If you are using GitHub pull requests to trigger updates, you will likely want to use the

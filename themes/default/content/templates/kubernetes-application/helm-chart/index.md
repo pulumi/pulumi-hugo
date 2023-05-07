@@ -31,7 +31,7 @@ The Helm Chart template creates an infrastructure as code project in your favori
 
 ## Using this template
 
-To use this template to deploy a Helm chart to a Kubernetes cluster, make sure you've already provisioned a [Kubernetes cluster](/templates/kubernetes), [installed Pulumi](/docs/get-started/install) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/), and [configured your kubeconfig file](/registry/packages/kubernetes/installation-configuration#setup). Then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy a Helm chart to a Kubernetes cluster, make sure you've already provisioned a [Kubernetes cluster](/templates/kubernetes), [installed Pulumi](/docs/get-started/install) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/), and [configured your kubeconfig file](/registry/packages/kubernetes/installation-configuration#setup). Then create a new [project](/docs/concepts/project) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -45,7 +45,7 @@ The template requires no additional configuration. By default, it will install a
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/concepts/stack#outputs) values:
 
 name
 : The name of your new Helm chart deployment.
@@ -54,7 +54,7 @@ Output values like these are useful in many ways, most commonly as inputs for ot
 
 ## Customizing the project
 
-Projects created with the Helm Chart template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Helm Chart template expose the following [configuration](/docs/concepts/config) settings:
 
 k8sNamespace
 : The name of the namespace to be created in your existing cluster. Defaults to `nginx-ingress`.

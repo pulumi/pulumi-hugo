@@ -64,16 +64,16 @@ capabilities:
               more_info: |
                 Allow developers to safely deploy in parallel with concurrent state-locking.
 
-                Audit changes or rollback to previous versions with a [complete history](/docs/intro/concepts/state/#checkpoints) of your state.
+                Audit changes or rollback to previous versions with a [complete history](/docs/concepts/state/#checkpoints) of your state.
 
             - title: Automatic secrets management
               description: |
                 Use built-in secrets management for encrypted data such as credentials or tokens. You can also bring your own secrets manager.
 
               more_info: |
-                Your infrastructure [state is encrypted](/docs/intro/concepts/state/#state-encryption) in transit and at rest.
+                Your infrastructure [state is encrypted](/docs/concepts/state/#state-encryption) in transit and at rest.
 
-                Sensitive configurations (e.g. database passwords, cloud tokens) are [stored as secrets](/docs/intro/concepts/secrets/).
+                Sensitive configurations (e.g. database passwords, cloud tokens) are [stored as secrets](/docs/concepts/secrets/).
 
                 Use Pulumi's secrets manager or integrate with AWS KMS, Azure Key Vault, Google KMS, and HashiCorp Vault.
 
@@ -89,7 +89,7 @@ capabilities:
 
                 View [timelines](/docs/intro/pulumi-cloud/projects-and-stacks/#stack-activity) that show diffs of changed resources and who made the changes.
 
-                [Tag stacks](/docs/intro/concepts/stack/#stack-tags) for easier filtering and searching.
+                [Tag stacks](/docs/concepts/stack/#stack-tags) for easier filtering and searching.
 
             - title: Software delivery integrations
               description: |
@@ -137,7 +137,7 @@ capabilities:
               more_info: |
                 View dashboards for quick insights into your infrastructure, such as how many resources are running and who has made changes.
 
-                [Tag stacks](/docs/intro/concepts/stack/#stack-tags) for easier filtering and searching.
+                [Tag stacks](/docs/concepts/stack/#stack-tags) for easier filtering and searching.
 
                 Jump directly to the cloud console for each resource you've deployed with Pulumi.
 
@@ -184,9 +184,9 @@ open_source:
     title: The easiest way to use Pulumi open source
     image: /images/product/service-open-source-diagram.svg
     description: |
-        Pulumi Cloud is a managed service for Pulumi's open source CLI and SDK. It tracks your [infrastructure’s state](/docs/intro/concepts/state/) and coordinates updates with the CLI, which creates or updates resources to reach your infrastructure’s [desired state](/docs/intro/concepts/how-pulumi-works/).
+        Pulumi Cloud is a managed service for Pulumi's open source CLI and SDK. It tracks your [infrastructure’s state](/docs/concepts/state/) and coordinates updates with the CLI, which creates or updates resources to reach your infrastructure’s [desired state](/docs/concepts/how-pulumi-works/).
 
-        You can also use any cloud or on-premises storage to build and [run your own backend](/docs/intro/concepts/state/#logging-into-a-self-managed-backend).
+        You can also use any cloud or on-premises storage to build and [run your own backend](/docs/concepts/state/#logging-into-a-self-managed-backend).
 
 security:
     title: Pulumi takes security seriously

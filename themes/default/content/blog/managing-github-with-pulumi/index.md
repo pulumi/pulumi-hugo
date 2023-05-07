@@ -258,7 +258,7 @@ Here is where things get a little tricky. Any GitHub Team can have subteams, but
 4. Write the parent team’s ID into the `ParentTeamId field` of each child team.
 5. Do all of the above in a single `pulumi up`.
 
-This is where maintaining infrastructure with Pulumi truly shines. In our code, we can use [Pulumi Apply](/docs/intro/concepts/inputs-outputs#apply) to hold on to the promise of a parent team ID, and pass this promise into the appropriate field:
+This is where maintaining infrastructure with Pulumi truly shines. In our code, we can use [Pulumi Apply](/docs/concepts/inputs-outputs#apply) to hold on to the promise of a parent team ID, and pass this promise into the appropriate field:
 
 ```go
 func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
@@ -297,7 +297,7 @@ func setupTeams(ctx *pulumi.Context, parentTeam *Team) error {
 }
 ```
 
-Running this as part of `main.go` will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set [`pulumi.Parent()`](/docs/intro/concepts/resources/options/parent) on the child teams:
+Running this as part of `main.go` will result in beautifully nested teams on the GitHub UI. But with Pulumi, we can do even better. We can set [`pulumi.Parent()`](/docs/concepts/resources/options/parent) on the child teams:
 
 ```go
 for _, childTeam := range parentTeam.Teams {

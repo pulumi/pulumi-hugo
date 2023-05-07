@@ -14,7 +14,7 @@ aliases:
 {{< chooser cloud "aws,azure,gcp" / >}}
 
 After the cluster is created with a Pulumi update, there will be
-[outputs](/docs/intro/concepts/inputs-outputs/) with fields like the cluster's `kubeconfig` file
+[outputs](/docs/concepts/inputs-outputs/) with fields like the cluster's `kubeconfig` file
 contents, and its cluster name for reference.
 
 {{% choosable cloud aws %}}

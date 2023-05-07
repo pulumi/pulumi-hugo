@@ -20,7 +20,7 @@ In this article, we'll do a deep dive into each of these testing methods.
 
 <!--more-->
 
-Cloud engineering testing differs from application testing because multiple dependencies between components can have high latency. Let's examine these dependencies using an [example application](https://github.com/pulumi/examples/tree/master/aws-ts-stackreference-architecture) composed of an application layer, a database layer, and a network layer. We can visualize these dependencies with Pulumi's resource graph.The graph is constructed from the [inputs](/docs/intro/concepts/inputs-outputs/) needed to create a resource.
+Cloud engineering testing differs from application testing because multiple dependencies between components can have high latency. Let's examine these dependencies using an [example application](https://github.com/pulumi/examples/tree/master/aws-ts-stackreference-architecture) composed of an application layer, a database layer, and a network layer. We can visualize these dependencies with Pulumi's resource graph.The graph is constructed from the [inputs](/docs/concepts/inputs-outputs/) needed to create a resource.
 
 The resource graph for the application layer shows many dependencies. The application deploys containers in AWS Fargate, which are instantiated with an application service that requires a service definition with many inputs.
 
@@ -127,7 +127,7 @@ In this simple example, we'll use Automation API to create an S3 bucket and perf
 - delete the file
 - delete the stack with the bucket
 
-The following code sets up the Pulumi [stack](/docs/intro/concepts/) and S3 bucket with Automation API. It's interesting to note that the tests don't import the Pulumi AWS SDK and uses a combination of Python's built-in `unittest` framework and Amazon's [`boto3`](https://aws.amazon.com/sdk-for-python/) Python library. This illustrates the extensibility and flexibility of infrastructure as code by letting developers choose the tools and SDKs.
+The following code sets up the Pulumi [stack](/docs/concepts/) and S3 bucket with Automation API. It's interesting to note that the tests don't import the Pulumi AWS SDK and uses a combination of Python's built-in `unittest` framework and Amazon's [`boto3`](https://aws.amazon.com/sdk-for-python/) Python library. This illustrates the extensibility and flexibility of infrastructure as code by letting developers choose the tools and SDKs.
 
 ```python
 import os

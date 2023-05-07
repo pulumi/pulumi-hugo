@@ -274,57 +274,57 @@ The following topics provide more details on the core concepts of Pulumi and how
 
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/how-pulumi-works"><i class="fas fa-upload pr-2"></i>How Pulumi Works</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/how-pulumi-works"><i class="fas fa-upload pr-2"></i>How Pulumi Works</a></h3>
         <p>Learn about how Pulumi performs deployments under the hood.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/project"><i class="fas fa-folder-open pr-2"></i>Projects</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/project"><i class="fas fa-folder-open pr-2"></i>Projects</a></h3>
         <p>Learn how Pulumi projects are organized and configured.</p>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/stack"><i class="fas fa-cloud pr-2"></i>Stacks</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/stack"><i class="fas fa-cloud pr-2"></i>Stacks</a></h3>
         <p>Learn how to create and deploy stacks.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/state"><i class="fas fa-file-alt pr-2"></i>State and Backends</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/state"><i class="fas fa-file-alt pr-2"></i>State and Backends</a></h3>
         <p>Learn how Pulumi stores state and manages concurrency.</p>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/resources"><i class="fas fa-server pr-2"></i>Resources</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources"><i class="fas fa-server pr-2"></i>Resources</a></h3>
         <p>Learn more about how to use and manage resources in your program.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/inputs-outputs"><i class="fas fa-hdd pr-2"></i>Inputs and Outputs</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/inputs-outputs"><i class="fas fa-hdd pr-2"></i>Inputs and Outputs</a></h3>
         <p>Learn how to use resource properties to handle dependencies between resources.</p>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/config"><i class="fas fa-check-square pr-2"></i>Configuration</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/config"><i class="fas fa-check-square pr-2"></i>Configuration</a></h3>
         <p>Learn how to configure stacks for different deployment scenarios.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/secrets"><i class="fas fa-key pr-2"></i>Secrets</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/secrets"><i class="fas fa-key pr-2"></i>Secrets</a></h3>
         <p>Learn how to handle sensitive data and how to store secret encrypted settings in Pulumi.</p>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/assets-archives"><i class="fas fa-stream pr-2"></i>Assets and Archives</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/assets-archives"><i class="fas fa-stream pr-2"></i>Assets and Archives</a></h3>
         <p>Learn how to use local or remote files with your Pulumi program.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/function-serialization"><i class="fas fa-terminal pr-2"></i>Function Serialization</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/function-serialization"><i class="fas fa-terminal pr-2"></i>Function Serialization</a></h3>
         <p>Learn how to serialize JavaScript functions into an artifact that can be used at runtime in the cloud.</p>
     </div>
 </div>
 <div>
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/intro/concepts/logging"><i class="fas fa-clipboard-list pr-2"></i>Logging</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/logging"><i class="fas fa-clipboard-list pr-2"></i>Logging</a></h3>
         <p>Learn about how to access log information for diagnostics and debugging.</p>
     </div>
 </div>

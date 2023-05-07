@@ -8,10 +8,10 @@ menu:
     parent: options
     weight: 11
 aliases:
-- /docs/intro/concepts/resources/options/providers/
+- /docs/concepts/resources/options/providers/
 ---
 
-The `providers` resource option sets a map of providers for the resource and its children. This map is combined with resource parent's `providers` map. If no value is provided, the providers map is identical to the parent's providers map. When determining which provider to use for a resource, the `providers` map is used if [provider](/docs/intro/concepts/resources/options/provider/) is not supplied.
+The `providers` resource option sets a map of providers for the resource and its children. This map is combined with resource parent's `providers` map. If no value is provided, the providers map is identical to the parent's providers map. When determining which provider to use for a resource, the `providers` map is used if [provider](/docs/concepts/resources/options/provider/) is not supplied.
 
 {{< chooser language "javascript,typescript,python,go,yaml" >}}
 

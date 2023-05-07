@@ -81,7 +81,7 @@ Examples: _delete:true_ | _delete:false_
 
 #### dependency
 
-The [URN][urn] of another resource this resource explicitly or implicitly [depends on](/docs/intro/concepts/resources#dependson).
+The [URN][urn] of another resource this resource explicitly or implicitly [depends on](/docs/concepts/resources#dependson).
 
 A resource can have multiple dependencies. When querying, `dependency:foo` returns resources with any dependency with a URN matching `foo`.
 
@@ -92,7 +92,7 @@ Examples:
 
 #### id
 
-The [physical name](/docs/intro/concepts/resources/names/#autonaming) of the resource, as assigned by the resource’s provider. May not be set if the resource is pending creation.
+The [physical name](/docs/concepts/resources/names/#autonaming) of the resource, as assigned by the resource’s provider. May not be set if the resource is pending creation.
 
 Example: _id:my-bucket-d7c2fa0_
 
@@ -112,7 +112,7 @@ Examples:
 
 #### name
 
-The [logical name](/docs/intro/concepts/resources/names/#logicalname) of the resource.
+The [logical name](/docs/concepts/resources/names/#logicalname) of the resource.
 
 Typically the first parameter provided to the resource when it was instantiated.
 
@@ -165,13 +165,13 @@ Example: _project:my-cool-repo_
 
 #### protected
 
-Whether the resource is [protected](/docs/intro/concepts/resources/options/protect) from deletion.
+Whether the resource is [protected](/docs/concepts/resources/options/protect) from deletion.
 
 Examples: _protected:true_ | _protected:false_
 
 #### provider.urn
 
-The [URN][urn] of the resource's [provider](/docs/intro/concepts/resources/providers/).
+The [URN][urn] of the resource's [provider](/docs/concepts/resources/providers/).
 
 Examples:
 
@@ -320,5 +320,5 @@ More specifically:
 - If an organization has a default permission of read or write, then all users can query all resources.
 - If an organization has no default permission, then users can only query resources they have access to via [Stack](../../pulumi-cloud/projects-and-stacks/#stack-permissions) or [Team](/docs/intro/pulumi-cloud/teams/#team-permissions) permissions.
 
-[types]: /docs/intro/concepts/resources/names/#types
-[urn]: /docs/intro/concepts/resources/names/#urns
+[types]: /docs/concepts/resources/names/#types
+[urn]: /docs/concepts/resources/names/#urns

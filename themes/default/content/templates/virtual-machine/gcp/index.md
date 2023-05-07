@@ -25,7 +25,7 @@ The Virtual Machine template creates an infrastructure as code project in your f
 
 ## Using this template
 
-To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project) using the template in your language of choice:
+To use this template to deploy a website of your own, make sure you've [installed Pulumi](/docs/get-started/install) and [configured your Google Cloud credentials](/registry/packages/gcp/installation-configuration#credentials), then create a new [project](/docs/concepts/project) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -39,7 +39,7 @@ The template requires no additional configuration. Once the new project is creat
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/concepts/stack#outputs) values:
 
 ip
 : The IP address of the virtual machine.
@@ -58,7 +58,7 @@ $ open $(pulumi stack output url)
 
 ## Customizing the project
 
-Projects created with the Virtual Machine template expose the following [configuration](/docs/intro/concepts/config) settings:
+Projects created with the Virtual Machine template expose the following [configuration](/docs/concepts/config) settings:
 
 machineType
 : The Compute Engine machine type to use for the VM. Defaults to `f1-micro`.

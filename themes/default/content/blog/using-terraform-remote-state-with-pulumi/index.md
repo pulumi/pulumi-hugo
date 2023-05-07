@@ -19,7 +19,7 @@ by different teams. For example, it's common to see an application team
 deploying into a VPC owned and managed by a network operations team.
 
 Pulumi supports
-[this kind of workflow](/docs/intro/concepts/stack#stackreferences)
+[this kind of workflow](/docs/concepts/stack#stackreferences)
 natively using the [`StackReference`](/docs/reference/pkg/nodejs/pulumi/pulumi#StackReference)
 type from the Pulumi SDK. Integration with the most popular
 cloud-specific tools have been supported by Pulumi since the earliest

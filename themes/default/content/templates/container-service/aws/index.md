@@ -25,7 +25,7 @@ The Container Service template creates an infrastructure as code project in your
 
 ## Using this template
 
-To use this template to deploy an ECS cluster that's running your container service, make sure you've [installed Pulumi](/docs/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration#credentials), then create a new [project](/docs/intro/concepts/project/) using the template in your language of choice:
+To use this template to deploy an ECS cluster that's running your container service, make sure you've [installed Pulumi](/docs/install/) and [configured your AWS credentials](/registry/packages/aws/installation-configuration#credentials), then create a new [project](/docs/concepts/project/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 
@@ -39,7 +39,7 @@ The template requires no additional configuration. Once the new project is creat
 $ pulumi up
 ```
 
-When the deployment completes, Pulumi exports the following [stack output](/docs/intro/concepts/stack#outputs) values:
+When the deployment completes, Pulumi exports the following [stack output](/docs/concepts/stack#outputs) values:
 
 url
 : The HTTP URL for the container's endpoint.
@@ -52,7 +52,7 @@ $ open $(pulumi stack output url)
 
 ## Customizing the project
 
-Projects created with the Container Service template expose the following [configuration](/docs/intro/concepts/config/) settings:
+Projects created with the Container Service template expose the following [configuration](/docs/concepts/config/) settings:
 
 container_port
 : Specifies the port mapping for the container. Defaults to port 80.

@@ -16,7 +16,7 @@ In this post, we showcase what's new!
 
 ## First-class Support for Tags
 
-Pulumi has had support for [stack tags](/docs/intro/concepts/stack#stack-tags) for a while, enabling
+Pulumi has had support for [stack tags](/docs/concepts/stack#stack-tags) for a while, enabling
 you to add attributes to your stacks with custom data such as the `account-id` or `environment`. But previously the data was
 only available on the command-line, via the `pulumi stack tag` command ([documentation](/docs/reference/cli/pulumi_stack_tag/).
 
@@ -54,7 +54,7 @@ We now pretty print JSON configuration values and have much better support for v
 ## Download Earlier Checkpoints
 
 The most important job of the Pulumi Service is to maintain a durable, accurate snapshot of your cloud resource data.
-While in most cases your [stack's checkpoint data](/docs/intro/concepts/state) is a low-level detail
+While in most cases your [stack's checkpoint data](/docs/concepts/state) is a low-level detail
 you don't need to worry about; in some advanced scenarios, you may need to inspect or edit it manually.
 
 You can now download a stack’s checkpoint file directly from the Pulumi Service. You can get the

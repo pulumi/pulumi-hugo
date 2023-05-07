@@ -18,7 +18,7 @@ aliases:
 - A working installation of Octopus or a hosted instance from [https://octopus.com](https://octopus.com).
 - An account in the [Pulumi Cloud](https://app.pulumi.com).
 - The [latest version of Pulumi](/docs/install/).
-- Setup a new project and [stack](/docs/intro/concepts/stack/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
+- Setup a new project and [stack](/docs/concepts/stack/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/reference/cli/pulumi_new)
 and choosing one of the many templates that are available.
 - Optionally, also create a CI pipeline from a source control repository of your choice to be the source of packages. You will learn more about packages and how to create them later in this guide.
 
@@ -38,7 +38,7 @@ You may choose a naming convention that best suits your organization.
 
 ### Infrastructure
 
-Infrastructure in Octopus is represented as environments, deployment targets and workers (tentacles or SSH machines.) You could think of each environment as representing one of your Pulumi stacks. For example, if you are creating cloud infrastructure that represents your dev, staging and prod environments, each of those would typically map to a [Pulumi stack](/docs/intro/concepts/stack/) and you could create an Octopus environment for each of those.
+Infrastructure in Octopus is represented as environments, deployment targets and workers (tentacles or SSH machines.) You could think of each environment as representing one of your Pulumi stacks. For example, if you are creating cloud infrastructure that represents your dev, staging and prod environments, each of those would typically map to a [Pulumi stack](/docs/concepts/stack/) and you could create an Octopus environment for each of those.
 
 In a typical scenario where Pulumi is creating your cloud infrastructure, you will only need to a worker that can run the Pulumi CLI commands against your code package.
 

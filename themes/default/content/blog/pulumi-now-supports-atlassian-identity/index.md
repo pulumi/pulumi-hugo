@@ -52,7 +52,7 @@ Team-backed organization, you can invite the same members to collaborate
 on Pulumi.
 
 This allows you to set permissions on
-[Stacks](/docs/intro/concepts/stack/) owned by your
+[Stacks](/docs/concepts/stack/) owned by your
 organization. You can learn more about
 [Teams](/docs/intro/pulumi-cloud/teams/)
 in the Pulumi and how those permissions get applied too.

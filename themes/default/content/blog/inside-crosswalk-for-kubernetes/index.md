@@ -28,7 +28,7 @@ Managed Kubernetes clusters, such as AWS Elastic Kubernetes Services (EKS), Azur
 
 ## How Crosswalk for Kubernetes Is Organized
 
-We have been working with customers and open source users of our infrastructure as code tools for Kubernetes and we’ve seen several common patterns that we’ve distilled into six distinct playbooks realized as [stacks](/docs/intro/concepts/stack/):
+We have been working with customers and open source users of our infrastructure as code tools for Kubernetes and we’ve seen several common patterns that we’ve distilled into six distinct playbooks realized as [stacks](/docs/concepts/stack/):
 
 * Identity
 * Managed Infrastructure
