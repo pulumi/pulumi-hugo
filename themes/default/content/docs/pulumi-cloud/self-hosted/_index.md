@@ -5,6 +5,7 @@ meta_desc: Pulumi Business Critical Edition gives you the option to self-host Pu
 menu:
     pulumicloud:
         identifier: self-hosted
+        weight: 10
 alias:
 - /docs/guides/self-hosted/
 ---

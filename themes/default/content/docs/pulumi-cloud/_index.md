@@ -59,7 +59,7 @@ Integrate Pulumi with your current continuous delivery pipeline. Build your own 
 * [CI/CD Integration Assistant](/docs/pulumi-cloud/ci-cd-integration-assistant)
 * [Pulumi Service Provider](/registry/packages/pulumiservice/): A Pulumi Provider To Configure Pulumi
 * [Continuous Delivery](/docs/using-pulumi/continuous-delivery/)
-* [Pulumi Cloud REST API](/docs/reference/cloud-rest-api/)
+* [Pulumi Cloud REST API](/docs/pulumi-cloud/cloud-rest-api/)
 * [Webhooks](/docs/pulumi-cloud/webhooks/)
 
 ### Hosted Deployments Service
