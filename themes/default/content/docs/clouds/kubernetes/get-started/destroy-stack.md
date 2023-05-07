@@ -1,8 +1,8 @@
 ---
-title: Destroy the Stack | Kubernetes
-h1: Destroy the Stack
-linktitle: Destroy stack
+title_tag: Destroy the Stack | Kubernetes
 meta_desc: This page provides an overview of how to destroy a Pulumi stack of a Kubernetes project.
+title: Destroy stack
+h1: "Pulumi & Kubernetes: Destroy stack"
 weight: 8
 menu:
   clouds:

@@ -1,7 +1,7 @@
 ---
-title: Deploy the Stack | AWS
-h1: Deploy the Stack
-linktitle: Deploy stack
+title_tag: Deploy the Stack | AWS
+title: Deploy stack
+h1: "Pulumi & AWS: Deploy stack"
 meta_desc: Learn how to deploy your stack to an AWS project in this guide.
 weight: 5
 menu:

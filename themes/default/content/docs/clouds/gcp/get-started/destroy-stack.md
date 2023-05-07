@@ -1,8 +1,8 @@
 ---
-title: Destroy the Stack | GCP
-h1: Destroy the Stack
-linktitle: Destroy stack
+title_tag: Destroy the Stack | Google Cloud
 meta_desc: This page provides an overview of how to destroy a Pulumi stack of a Google Cloud (GCP) project.
+title: Destroy stack
+h1: "Pulumi & Google Cloud: Destroy stack"
 weight: 8
 menu:
   clouds:

@@ -1,8 +1,8 @@
 ---
-title: Review the New Project | Azure
-h1: Review the New Project
-linktitle: Review project
+title_tag: Review the New Project | Azure
 meta_desc: This page provides an overview on how to a review a new Azure project.
+title: Review project
+h1: "Pulumi & Azure: Review project"
 weight: 4
 menu:
   clouds:

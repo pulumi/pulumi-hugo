@@ -1,8 +1,8 @@
 ---
-title: Deploy the Stack | Google Cloud
-h1: Deploy the Stack
-linktitle: Deploy stack
+title_tag: Deploy the Stack | Google Cloud
 meta_desc: This page provides an overview of how to deploy changes to a Google Cloud project.
+title: Deploy stack
+h1: "Pulumi & Google Cloud: Deploy stack"
 weight: 5
 menu:
   clouds:

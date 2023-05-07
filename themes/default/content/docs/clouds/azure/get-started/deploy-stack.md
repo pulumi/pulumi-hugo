@@ -1,8 +1,8 @@
 ---
-title: Deploy the Stack | Azure
-h1: Deploy the Stack
-linktitle: Deploy stack
+title_tag: Deploy the Stack | Azure
 meta_desc: Learn how to deploy your stack to an Azure project in this guide.
+title: Deploy stack
+h1: "Pulumi & Azure: Deploy stack"
 weight: 5
 menu:
   clouds:

@@ -1,8 +1,8 @@
 ---
-title: Modify the Program | Azure
-h1: Modify the Program
-linktitle: Modify program
+title_tag: Modify the Program | Azure
 meta_desc: This page provides an overview on how to update an Azure project from a Pulumi program.
+title: Modify program
+h1: "Pulumi & Azure: Modify program"
 weight: 6
 menu:
   clouds:

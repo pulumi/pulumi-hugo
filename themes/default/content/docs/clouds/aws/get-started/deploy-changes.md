@@ -1,14 +1,13 @@
 ---
-title: Deploy the Changes | AWS
-h1: Deploy the Changes
-linktitle: Deploy changes
+title_tag: Deploy the Changes | AWS
+title: Deploy changes
+h1: "Pulumi & AWS: Deploy changes"
 meta_desc: Learn how to deploy changes to an AWS project in this guide.
 weight: 7
 menu:
   clouds:
     parent: aws-get-started
     identifier: aws-get-started-deploy-changes
-
 aliases:
 - /docs/quickstart/aws/deploy-changes/
 - /docs/get-started/aws/deploy-changes/

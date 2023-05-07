@@ -1,8 +1,8 @@
 ---
-title: Review the New Project | Kubernetes
-h1: Review the New Project
-linktitle: Review project
+title_tag: Review the New Project | Kubernetes
 meta_desc: This page provides an overview on how to review a new Kubernetes project.
+title: Review project
+h1: "Pulumi & Kubernetes: Review project"
 weight: 4
 menu:
   clouds:

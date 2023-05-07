@@ -1,7 +1,7 @@
 ---
-title: Next Steps | AWS
-h1: Next Steps
-linktitle: Next steps
+title_tag: Next Steps | AWS
+title: Next steps
+h1: Next Steps with Pulumi & AWS
 meta_desc: This page provides a list of tutorials that take a deeper dive into
             AWS cloud resources.
 weight: 9

@@ -1,7 +1,8 @@
 ---
-title: "Download & install"
 title_tag: "Download & install Pulumi"
 meta_desc: This page contains detailed instructions for downloading and installing Pulumi.
+title: "Download & install"
+h1: Download & install Pulumi
 menu:
   install:
     name: Overview

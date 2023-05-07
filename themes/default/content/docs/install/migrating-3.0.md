@@ -1,6 +1,7 @@
 ---
-title: Upgrading to Pulumi 3.0
+title_tag: Upgrading to Pulumi 3.0
 meta_desc: This page provides instructions for upgrading to Pulumi 3.0
+title: Upgrading to Pulumi 3.0
 no_on_this_page: true
 
 aliases:

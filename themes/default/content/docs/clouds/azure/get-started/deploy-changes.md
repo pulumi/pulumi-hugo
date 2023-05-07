@@ -1,8 +1,8 @@
 ---
-title: Deploy the Changes | Azure
-h1: Deploy the Changes
-linktitle: Deploy changes
+title_tag: Deploy the Changes | Azure
 meta_desc: Learn how to deploy changes to an Azure project in this guide.
+title: Deploy changes
+h1: "Pulumi & Azure: Deploy changes"
 weight: 7
 menu:
   clouds:

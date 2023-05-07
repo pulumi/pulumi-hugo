@@ -1,7 +1,8 @@
 ---
 title_tag: Get Started with Azure
-title: Get started
 meta_desc: This page provides an overview and guide on how to get started with Azure.
+title: Get started
+h1: Get started with Pulumi & Azure
 menu:
   clouds:
     parent: azure

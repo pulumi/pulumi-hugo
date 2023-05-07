@@ -1,8 +1,9 @@
 ---
 title_tag: Updating Kubernetes Worker Nodes | Crosswalk
-title: Updating worker nodes
 meta_desc: This page provides a guide on how to update Kubernetes Worker Nodes
            with Pulumi.
+title: Updating worker nodes
+h1: Updating Kubernetes worker nodes
 menu:
   clouds:
     parent: kubernetes-guides

@@ -1,8 +1,8 @@
 ---
-title: Create a New Project | Azure
-h1: Create a New Project
-linktitle: Create project
+title_tag: Create a New Project | Azure
 meta_desc: This page provides an overview of how to create a new Azure + Pulumi project.
+title: Create project
+h1: "Pulumi & Azure: Create project"
 weight: 3
 menu:
   clouds:

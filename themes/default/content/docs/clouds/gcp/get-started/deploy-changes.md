@@ -1,8 +1,8 @@
 ---
-title: Deploy the Changes | Google Cloud
-h1: Deploy the Changes
-linktitle: Deploy changes
+title_tag: Deploy the Changes | Google Cloud
 meta_desc: This page provides an overview of how deploy changes to a Google Cloud project.
+title: Deploy changes
+h1: "Pulumi & Google Cloud: Deploy changes"
 weight: 7
 menu:
   clouds:

@@ -1,9 +1,9 @@
 ---
-title: Next Steps | Azure
-h1: Next Steps
-linktitle: Next steps
+title_tag: Next Steps | Azure
 meta_desc: This page provides a list of tutorials that take a deeper dive into
             Azure cloud resources.
+title: Next steps
+h1: "Pulumi & Azure: Next steps"
 weight: 9
 menu:
   clouds:

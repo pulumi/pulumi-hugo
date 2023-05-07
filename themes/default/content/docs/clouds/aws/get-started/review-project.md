@@ -1,7 +1,7 @@
 ---
-title: Review the New Project | AWS
-h1: Review the New Project
-linktitle: Review project
+title_tag: Review the New Project | AWS
+title: Review project
+h1: "Pulumi & AWS: Review project"
 meta_desc: This page provides an overview on how to a review a new AWS project.
 weight: 4
 menu:

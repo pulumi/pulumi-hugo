@@ -1,7 +1,8 @@
 ---
 title_tag: Get Started with Google Cloud
-title: Get started
 meta_desc: This page provides an overview and guide on how to get started with Google Cloud.
+title: Get started
+h1: Get started with Pulumi & Google Cloud
 menu:
   clouds:
     parent: google-cloud

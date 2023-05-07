@@ -1,9 +1,9 @@
 ---
-title: Next Steps | Google Cloud
-h1: Next Steps
-linktitle: Next steps
+title_tag: Next Steps | Google Cloud
 meta_desc: This page provides a list of tutorials that take a deeper dive into
             Google Cloud cloud resources.
+title: Next steps
+h1: "Pulumi & Google Cloud: Next steps"
 weight: 9
 menu:
   clouds:

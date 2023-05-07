@@ -1,8 +1,8 @@
 ---
-title: Modify the Program | Kubernetes
-h1: Modify the Program
-linktitle: Modify program
+title_tag: Modify the Program | Kubernetes
 meta_desc: This page provides an overview on how to update Kubernetes project from a Pulumi program.
+title: Modify program
+h1: "Pulumi & Kubernetes: Modify program"
 weight: 6
 menu:
   clouds:

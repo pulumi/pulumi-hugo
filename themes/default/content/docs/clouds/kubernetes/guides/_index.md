@@ -1,8 +1,9 @@
 ---
-title: "Crosswalk for Kubernetes Guides"
+title_tag: "Crosswalk for Kubernetes Guides"
 meta_desc: Pulumi Crosswalk for Kubernetes is production-ready Kubernetes for teams. Work together to deliver
            Kubernetes to AWS, Azure, Google Cloud, or private.
-linktitle: Guides
+title: Guides
+h1: Pulumi & Kubernetes guides
 menu:
   clouds:
     parent: kube

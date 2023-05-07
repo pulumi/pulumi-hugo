@@ -1,9 +1,9 @@
 ---
 title_tag: Creating Kubernetes Worker Nodes | Crosswalk
-title: Worker node creation
 meta_desc: This page provides a guide on how to create Kubernetes Worker Nodes
            with Pulumi.
-no_on_this_page: true
+title: Worker node creation
+h1: Creating Kubernetes worker nodes
 menu:
   clouds:
     parent: kubernetes-guides

@@ -1,8 +1,8 @@
 ---
-title: Before You Begin | Google Cloud
-h1: Before You Begin
-linktitle: Before you begin
+title_tag: Before You Begin | Google Cloud
 meta_desc: This page provides an overview on how to get started with Pulumi and Google Cloud.
+title: Before you begin
+h1: "Pulumi & Google Cloud: Before you begin"
 weight: 2
 menu:
   clouds:

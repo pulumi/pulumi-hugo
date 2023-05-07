@@ -1,7 +1,8 @@
 ---
 title_tag: "Azure & Pulumi"
+meta_desc: Pulumi offers full support for AWS, with two providers, 5+ components, and templates.
 title: "Azure"
-meta_desc: susan will write this later susan will write this later susan will write this later
+h1: Azure & Pulumi
 menu:
   clouds:
     identifier: azure

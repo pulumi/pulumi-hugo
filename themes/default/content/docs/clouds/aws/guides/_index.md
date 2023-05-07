@@ -1,6 +1,7 @@
 ---
 title_tag: "Crosswalk for AWS Guides"
 title: Guides
+h1: AWS Guides
 meta_desc: Pulumi Crosswalk for AWS supports a simplified approach to defining and deploying cloud infrastructure.
 menu:
   clouds:

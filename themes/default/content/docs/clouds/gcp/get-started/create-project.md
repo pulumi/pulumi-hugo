@@ -1,8 +1,8 @@
 ---
-title: Create a New Project | Google Cloud
-h1: Create a New Project
-linktitle: Create project
+title_tag: Create a New Project | Google Cloud
 meta_desc: This page provides an overview of how to create a new Google Cloud + Pulumi project.
+title: Create project
+h1: "Pulumi & Google Cloud: Create project"
 weight: 3
 menu:
   clouds:

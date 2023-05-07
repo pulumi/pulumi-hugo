@@ -1,8 +1,8 @@
 ---
-title: Before You Begin | Kubernetes
-h1: Before You Begin
-linktitle: Before you begin
+title_tag: Before You Begin | Kubernetes
 meta_desc: This page provides an overview on how to get started with Pulumi when starting an Kubernetes project.
+title: Before you begin
+h1: "Pulumi & Kubernetes: Before you begin"
 weight: 2
 menu:
   clouds:
