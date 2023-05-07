@@ -364,7 +364,7 @@ relevant User Guides to get started:
 
 ### Continuous Deployment
 
-* [Using Pulumi from AWS Code Services](/docs/guides/continuous-delivery/aws-code-services/)
+* [Using Pulumi from AWS Code Services](/docs/using-pulumi/continuous-delivery/aws-code-services/)
 
 ### Other AWS Services
 

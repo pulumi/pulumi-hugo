@@ -23,7 +23,7 @@ TypeScript support), richer
 (serverless frameworks for Azure and
 Google Cloud),  and is more deeply
 integrated into the application lifecycle
-([GitHub App for CI/CD integration](/docs/guides/continuous-delivery/github-app)).
+([GitHub App for CI/CD integration](/docs/using-pulumi/continuous-delivery/github-app)).
 
 In this post, we'll take a quick tour of these new features. Stay tuned
 for follow up blog posts to dive deeper into individual topics.
@@ -262,7 +262,7 @@ infrastructure changes.
 
 The Pulumi GitHub App is still in preview as we work to support more CI
 systems and extend its capabilities. For information on how to install
-it and configure it with your CI system, please [read the documentation](/docs/guides/continuous-delivery/github-app/).
+it and configure it with your CI system, please [read the documentation](/docs/using-pulumi/continuous-delivery/github-app/).
 
 ## Summary
 

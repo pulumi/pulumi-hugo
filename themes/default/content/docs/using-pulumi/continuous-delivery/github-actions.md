@@ -376,7 +376,7 @@ deployment on the Pulumi Cloud with more details:
 
 ![Action Logs](/images/docs/reference/gh-actions-logs.png)
 
-For even better Pull Request integration, make sure to also [install our GitHub App](/docs/guides/continuous-delivery/github-app/)!
+For even better Pull Request integration, make sure to also [install our GitHub App](/docs/using-pulumi/continuous-delivery/github-app/)!
 
 ![Action Pull Requests](/images/docs/reference/gh-actions-prs.png)
 
@@ -391,7 +391,7 @@ the GitHub Actions container directly.
 
 ### Pulumi GitHub App
 
-The [Pulumi GitHub App](/docs/guides/continuous-delivery/github-app/) is something you install on your
+The [Pulumi GitHub App](/docs/using-pulumi/continuous-delivery/github-app/) is something you install on your
 GitHub organization. It allows the Pulumi Cloud to leave comments on Pull Requests.
 
 Once the Pulumi GitHub App is installed, when your GitHub Actions run Pulumi, a summary of

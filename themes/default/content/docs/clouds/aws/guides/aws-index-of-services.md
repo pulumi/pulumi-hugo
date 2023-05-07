@@ -73,10 +73,10 @@ tbody tr td:first-child {
 | [AWS CloudHSM](https://aws.amazon.com/cloudhsm/) | Managed hardware security module (HSM) | | [cloudhsmv2](/registry/packages/aws/api-docs/cloudhsmv2/) |
 | [AWS CloudTrail](https://aws.amazon.com/cloudtrail/) | Track user activity and API usage | | [cloudtrail](/registry/packages/aws/api-docs/cloudtrail/) |
 | [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) | Application and infrastructure monitoring | [User Guide](/docs/clouds/aws/guides/cloudwatch/) | [cloudwatch](/registry/packages/aws/api-docs/cloudwatch/) |
-| [AWS CodeBuild](https://aws.amazon.com/codebuild/) | Build and test code | [User Guide](/docs/guides/continuous-delivery/aws-code-services/) | [codebuild](/registry/packages/aws/api-docs/codebuild/) |
-| [AWS CodeCommit](https://aws.amazon.com/codecommit/) | Host private Git repos | [User Guide](/docs/guides/continuous-delivery/aws-code-services/) | [codecommit](/registry/packages/aws/api-docs/codecommit/) |
-| [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) | Automate code deployments | [User Guide](/docs/guides/continuous-delivery/aws-code-services/) | [codedeploy](/registry/packages/aws/api-docs/codedeploy/) |
-| [AWS CodePipeline](https://aws.amazon.com/codepipeline) | Continuous delivery pipelines | [User Guide](/docs/guides/continuous-delivery/aws-code-services/) | [codepipeline](/registry/packages/aws/api-docs/codepipeline/) |
+| [AWS CodeBuild](https://aws.amazon.com/codebuild/) | Build and test code | [User Guide](/docs/using-pulumi/continuous-delivery/aws-code-services/) | [codebuild](/registry/packages/aws/api-docs/codebuild/) |
+| [AWS CodeCommit](https://aws.amazon.com/codecommit/) | Host private Git repos | [User Guide](/docs/using-pulumi/continuous-delivery/aws-code-services/) | [codecommit](/registry/packages/aws/api-docs/codecommit/) |
+| [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) | Automate code deployments | [User Guide](/docs/using-pulumi/continuous-delivery/aws-code-services/) | [codedeploy](/registry/packages/aws/api-docs/codedeploy/) |
+| [AWS CodePipeline](https://aws.amazon.com/codepipeline) | Continuous delivery pipelines | [User Guide](/docs/using-pulumi/continuous-delivery/aws-code-services/) | [codepipeline](/registry/packages/aws/api-docs/codepipeline/) |
 | [Amazon Cognito](https://aws.amazon.com/cognito/) | Simple and secure user identity | | [cognito](/registry/packages/aws/api-docs/cognito/) |
 | [AWS Cost and Usage Reporting](https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/) | Report on usage and cost | | [cur](/registry/packages/aws/api-docs/cur/) |
 | [AWS DataSync](https://aws.amazon.com/datasync/) | Easily transfer data | | [datasync](/registry/packages/aws/api-docs/datasync/) |

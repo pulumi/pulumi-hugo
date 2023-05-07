@@ -94,7 +94,7 @@ out CI/CD and automation systems into your clusters, creating native support to 
 [k8s-operator]: https://github.com/pulumi/pulumi-kubernetes-operator
 [k8s-ext-pattern]: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
 [stack]: /docs/concepts/stack/
-[k8s-operator-cicd]: /docs/guides/continuous-delivery/pulumi-kubernetes-operator/
+[k8s-operator-cicd]: /docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/
 
 ## Join the Community
 
@@ -127,7 +127,7 @@ See the [FAQ][crosswalk-faq] for more details.
 [gh-pulumi]: https://github.com/pulumi
 [pulumi-cloud-k8s]: /registry/packages/kubernetes
 [pulumi-cloud-k8s]: /registry/packages/kubernetes/
-[pulumi-cd]: /docs/guides/continuous-delivery/
+[pulumi-cd]: /docs/using-pulumi/continuous-delivery/
 [pulumi-slack]: https://slack.pulumi.com/
 [pulumi-twitter]: https://twitter.com/pulumicorp
 [pulumi-yt]: https://www.youtube.com/channel/UC2Dhyn4Ev52YSbcpfnfP0Mw

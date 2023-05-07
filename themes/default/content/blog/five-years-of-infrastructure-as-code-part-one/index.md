@@ -150,7 +150,7 @@ I should note that most tools operate in one of two modes:
 
 - **Continuous control-loop**: the tool simply runs regularly, sometimes reactively (such as when an event like a Git commit occurs), constantly producing new desired-states, comparing to the last-known state, and updating things as needed. Typically, a human is not involved in deciding to review and/or apply the changes.
 
-Some tools, like Pulumi, offer both models, as each can be useful for different purposes: you can run the CLI at discrete times, trigger deployments from a [CI/CD pipeline](/docs/guides/continuous-delivery/) or [Kubernetes Operator](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/), or using [arbitrary automation program logic](/automation/) with ultimate flexibility.
+Some tools, like Pulumi, offer both models, as each can be useful for different purposes: you can run the CLI at discrete times, trigger deployments from a [CI/CD pipeline](/docs/using-pulumi/continuous-delivery/) or [Kubernetes Operator](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/), or using [arbitrary automation program logic](/automation/) with ultimate flexibility.
 
 ## Cloud Resources as Building Blocks
 

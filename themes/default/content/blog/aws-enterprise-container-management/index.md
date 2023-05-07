@@ -59,7 +59,7 @@ Adhering to the principle of least privilege for users and roles is an important
 
 ### Centralized Governance and Compliance Controls
 
-Many customers are using Pulumi and Kubernetes to stand up shared services platforms (SSP) to empower their developers to self-service new infrastructure environments. To keep these environments compliant with internal policies, Pulumi Business Critical Edition includes [CrossGuard](/docs/guides/crossguard/) policy-as-code capabilities built-in.  This helps operators to ensure that configuration mistakes won’t reach production with policies that are enforced organization-wide.
+Many customers are using Pulumi and Kubernetes to stand up shared services platforms (SSP) to empower their developers to self-service new infrastructure environments. To keep these environments compliant with internal policies, Pulumi Business Critical Edition includes [CrossGuard](/docs/using-pulumi/crossguard/) policy-as-code capabilities built-in.  This helps operators to ensure that configuration mistakes won’t reach production with policies that are enforced organization-wide.
 
 ### Support for Hybrid Deployments
 
@@ -67,9 +67,9 @@ Many users need to manage container-based workloads on AWS as well as on-prem an
 
 ### Automated Deployment of Infrastructure and Applications
 
-One of the benefits of Pulumi is that it enables infrastructure and application development to leverage the same tooling and processes familiar to software engineers. Adding infrastructure to your CI/CD workflow is easy with Pulumi because it supports a wide variety of [test frameworks](/docs/guides/testing/unit/), simplifies the process of integration testing using ephemeral environments, and includes a [CI/CD Integration Assistant](/docs/intro/pulumi-cloud/ci-cd-integration-assistant) to guide you through the process of connecting Pulumi to popular platforms such as [GitHub Actions](/docs/guides/continuous-delivery/github-actions/), [AWS Code Services](/docs/guides/continuous-delivery/aws-code-services/) and many more.
+One of the benefits of Pulumi is that it enables infrastructure and application development to leverage the same tooling and processes familiar to software engineers. Adding infrastructure to your CI/CD workflow is easy with Pulumi because it supports a wide variety of [test frameworks](/docs/using-pulumi/testing/unit/), simplifies the process of integration testing using ephemeral environments, and includes a [CI/CD Integration Assistant](/docs/intro/pulumi-cloud/ci-cd-integration-assistant) to guide you through the process of connecting Pulumi to popular platforms such as [GitHub Actions](/docs/using-pulumi/continuous-delivery/github-actions/), [AWS Code Services](/docs/using-pulumi/continuous-delivery/aws-code-services/) and many more.
 
-Once you have your cluster provisioned, you can also deploy workloads into your cluster with GitOps style workflows using the [Pulumi Kubernetes Operator](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/).
+Once you have your cluster provisioned, you can also deploy workloads into your cluster with GitOps style workflows using the [Pulumi Kubernetes Operator](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/).
 
 ### Conclusion
 

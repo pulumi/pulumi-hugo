@@ -54,8 +54,7 @@ Working with Inter-Stack Dependencies with the latter option is more
 suited in a production setup giving users more flexibility and
 boundaries between their teams. We will use this structure in our
 example below. For more information on Pulumi projects and stacks,
-please refer to our documentation
-[here](/docs/guides/organizing-projects-stacks/).
+please refer to our [organizaing documentation](/docs/using-pulumi/organizing-projects-stacks/).
 
 ### Use Tags to group Pulumi Stacks as Environments:
 

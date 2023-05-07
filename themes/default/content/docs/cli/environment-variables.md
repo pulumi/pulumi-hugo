@@ -51,7 +51,7 @@ aliases:
     </dt>
     <dd>
         <p>
-            Sets <a href="/docs/concepts/config">configuration</a> for <a href="/docs/guides/testing/unit">unit testing</a>. Must be in JSON format.
+            Sets <a href="/docs/concepts/config">configuration</a> for <a href="/docs/using-pulumi/testing/unit">unit testing</a>. Must be in JSON format.
         </p>
         <p>
             <strong>This environment variable is ignored during normal Pulumi operations -- e.g., <code>up</code>, <code>preview</code>, etc.</strong>

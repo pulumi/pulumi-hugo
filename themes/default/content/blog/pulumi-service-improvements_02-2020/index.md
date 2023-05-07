@@ -34,7 +34,7 @@ added by Pulumi's first (and extremely awesome) intern, Tasia (👋)!
 
 ## Deep Linking into CI/CD Systems
 
-Many people practice [continuous delivery using Pulumi](/docs/guides/continuous-delivery/), automatically
+Many people practice [continuous delivery using Pulumi](/docs/using-pulumi/continuous-delivery/), automatically
 updating stacks in response to code check-ins or merges. We've now added support for deep links from the Pulumi Service back
 into your CI/CD tool of choice. So, for example, you'll now see links to the [Circle CI job](https://circleci.com) or
 [Travis CI build](https://travis-ci.com) from the Pulumi Service.

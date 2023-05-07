@@ -58,7 +58,7 @@ Integrate Pulumi with your current continuous delivery pipeline. Build your own 
 
 * [CI/CD Integration Assistant](/docs/intro/pulumi-cloud/ci-cd-integration-assistant)
 * [Pulumi Service Provider](/registry/packages/pulumiservice/): A Pulumi Provider To Configure Pulumi
-* [Continuous Delivery](/docs/guides/continuous-delivery/)
+* [Continuous Delivery](/docs/using-pulumi/continuous-delivery/)
 * [Pulumi Cloud REST API](/docs/reference/cloud-rest-api/)
 * [Webhooks](/docs/intro/pulumi-cloud/webhooks/)
 
@@ -74,7 +74,7 @@ Integrate Pulumi with your current continuous delivery pipeline. Build your own 
 ### Security and Compliance
 
 * [Audit Logs](/docs/intro/pulumi-cloud/audit-logs/)
-* [Policy Packs](/docs/guides/crossguard/configuration/)
+* [Policy Packs](/docs/using-pulumi/crossguard/configuration/)
 * [Pulumi Cloud security whitepaper](/security/pulumi-cloud-security-whitepaper.pdf): Pulumi Cloud is multi-tenanted and runs within an AWS Virtual Private Cloud (VPC). All communications between Pulumi clients and the server are encrypted using TLS. Pulumi is SOC 2 Type II certified.
 
 ## Upgrade Editions

@@ -67,7 +67,7 @@ The following table summarizes some additional similarities and differences betw
 | [Resource Aliases](#aliases) | Yes | Limited |
 | [Resource Transformations](#transformations) | Yes | No |
 
-Getting started with Pulumi is easy if you already have experience with a general-purpose programming language. Follow our [Adopting Pulumi from AWS CloudFormation guide](/docs/guides/adopting/from_aws/) or try our [CloudFormation conversion tool](/cf2pulumi/). To deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy if you already have experience with a general-purpose programming language. Follow our [Adopting Pulumi from AWS CloudFormation guide](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_aws/) or try our [CloudFormation conversion tool](/cf2pulumi/). To deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 
@@ -91,7 +91,7 @@ As an AWS product, CloudFormation offers limited support for third-party cloud p
 
 Pulumi also has [native providers](/blog/pulumiup-native-providers/) for AWS, Azure, Google, and Kubernetes. Native providers are packages generated from cloud-provider API schemas that provide same-day support for new features as they're released.
 
-For a full list of the providers we currently support, visit the [Pulumi Registry](/registry/). To learn more about how you can build providers of your own, see [Pulumi Packages](/docs/guides/pulumi-packages/) or [Dynamic Providers](/docs/concepts/resources/dynamic-providers/).
+For a full list of the providers we currently support, visit the [Pulumi Registry](/registry/). To learn more about how you can build providers of your own, see [Pulumi Packages](/docs/using-pulumi/pulumi-packages/) or [Dynamic Providers](/docs/concepts/resources/dynamic-providers/).
 
 #### Extending Pulumi with Terraform Providers {#providers-terraform}
 
@@ -103,11 +103,11 @@ If you’d like to create a new Pulumi provider, or learn more about how this in
 
 #### Converting CloudFormation Templates to Pulumi {#providers-converting}
 
-We also offer a tool called [cf2pulumi](/cf2pulumi/) that converts CloudFormation templates into a downloadable Pulumi program written in your programming language of choice. To learn more, see [Converting AWS CloudFormation to Pulumi](/docs/guides/adopting/from_aws/) in our Adopting Pulumi user guide.
+We also offer a tool called [cf2pulumi](/cf2pulumi/) that converts CloudFormation templates into a downloadable Pulumi program written in your programming language of choice. To learn more, see [Converting AWS CloudFormation to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_aws/) in our Adopting Pulumi user guide.
 
 ### Cloud Native Support {#cloud-native}
 
-Pulumi supports the full cloud native ecosystem: you can use Pulumi to manage any cloud or SaaS provider, including Kubernetes, with a single, unified programming model. Additionally, Pulumi's native Kubernetes provider offers 100% API coverage in all Pulumi-supported languages, as well as support for Helm charts, strongly typed CustomResourceDefinitions (CRDs), and Kubernetes YAML and Kustomize templates. Pulumi also offers a [Kubernetes operator](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/) that enables continuous delivery through GitOps. CloudFormation has no support for these capabilities.
+Pulumi supports the full cloud native ecosystem: you can use Pulumi to manage any cloud or SaaS provider, including Kubernetes, with a single, unified programming model. Additionally, Pulumi's native Kubernetes provider offers 100% API coverage in all Pulumi-supported languages, as well as support for Helm charts, strongly typed CustomResourceDefinitions (CRDs), and Kubernetes YAML and Kustomize templates. Pulumi also offers a [Kubernetes operator](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/) that enables continuous delivery through GitOps. CloudFormation has no support for these capabilities.
 
 To learn more about Pulumi's support for the cloud native ecosystem, see our whitepaper, [Delivering Cloud Native Infrastructure as Code](/whitepapers/delivering-cloud-native-infrastructure-as-code/).
 
@@ -127,13 +127,13 @@ With CloudFormation, you can codify and reuse infrastructure configuration by us
 
 Pulumi also allows you to create modular and reusable infrastructure building blocks, but it does so by building onto the capabilities of your programming language and its ecosystem. With Pulumi [_components_](/docs/concepts/resources/components/), you can abstract and encapsulate complexity into higher-level software resources that have their own trackable state, appear in diffs, and use a logical name that identifies its resources across deployments. Moreover, with Pulumi Packages, you can author components in one language and make them accessible in any language Pulumi supports, and then list those packages on the public Pulumi Registry, a searchable collection of resource providers published by Pulumi, our partners, and the community.
 
-To learn more, see [Components](/docs/concepts/resources/components/), [Pulumi Packages](/docs/guides/pulumi-packages/), and [Pulumi Registry](/registry/).
+To learn more, see [Components](/docs/concepts/resources/components/), [Pulumi Packages](/docs/using-pulumi/pulumi-packages/), and [Pulumi Registry](/registry/).
 
 ### Testing and Validation {#testing}
 
 Testing is an important component of the software-development lifecycle, and Pulumi supports testing in many forms, including unit tests (fast in-memory tests that mock external calls to cloud-provider APIs), property tests (resource-level assertions that can run while infrastructure is being deployed), and integration tests (external tests run against deployed or ephemeral infrastructure). Popular testing libraries and frameworks are also supported. CloudFormation supports only document-level syntax checking and validation.
 
-To learn more about how Pulumi enables testing and test-driven development tools and workflows, see [Testing](/docs/guides/testing/).
+To learn more about how Pulumi enables testing and test-driven development tools and workflows, see [Testing](/docs/using-pulumi/testing/).
 
 ### Modes of Execution {#modes}
 
@@ -141,25 +141,25 @@ CloudFormation deployments are handled fully within the CloudFormation service a
 
 Pulumi's approach is fundamentally different in that deployments are performed by the CLI itself --- specifically by the Pulumi engine. This results in a much tighter development loop, quicker feedback and debugging, and easier integration into CI/CD workflows because of the CLI's ability to block until deployment is complete and return with a standard exit code indicating whether the deployment succeeded.
 
-Pulumi can also be embedded into application code and driven programmatically with [Automation API](/docs/guides/automation-api/), enabling higher-order orchestration workflows and more dynamically managed infrastructure.
+Pulumi can also be embedded into application code and driven programmatically with [Automation API](/docs/using-pulumi/automation-api/), enabling higher-order orchestration workflows and more dynamically managed infrastructure.
 
-To learn more about how Pulumi deploys infrastructure, see [How Pulumi Works](/docs/concepts/how-pulumi-works/). To learn more about running Pulumi within the context of another program, see [Automation API](/docs/guides/automation-api/).
+To learn more about how Pulumi deploys infrastructure, see [How Pulumi Works](/docs/concepts/how-pulumi-works/). To learn more about running Pulumi within the context of another program, see [Automation API](/docs/using-pulumi/automation-api/).
 
 ### Embed within Application Code {#embedding}
 
-With Automation API, you can import Pulumi into another application and drive stack operations  programmatically. Automation API gives you a strongly typed and safe way to use Pulumi in many different kinds of embedded contexts --- command-line tools, web applications, self-service portals, or desktop applications --- without having to shell out to a CLI, enabling creation of custom experiences tailored to your use-case, team, or domain. As a managed service, CloudFormation does not have this capability. To learn more about using Pulumi programmatically, see [Automation API](/docs/guides/automation-api/).
+With Automation API, you can import Pulumi into another application and drive stack operations  programmatically. Automation API gives you a strongly typed and safe way to use Pulumi in many different kinds of embedded contexts --- command-line tools, web applications, self-service portals, or desktop applications --- without having to shell out to a CLI, enabling creation of custom experiences tailored to your use-case, team, or domain. As a managed service, CloudFormation does not have this capability. To learn more about using Pulumi programmatically, see [Automation API](/docs/using-pulumi/automation-api/).
 
 ### Third-Party CI/CD Integration {#cicd}
 
 Pulumi integrates with many popular CI/CD providers including AWS Code Services, Azure DevOps, CircleCI, CodeFresh, GitHub Actions, GitLab Pipelines, Google Cloud Build, Jenkins, Octopus Deploy, Jetbrains TeamCity, Spinnaker, and Travis CI. As well, Pulumi has a number of built-in features that facilitate CI/CD workflows including support for unit testing, rich deployment previews with resource-level diffing, drift detection and correction, Git commit tracking, and blocking CLI behavior with standard exit codes. While CloudFormation deployments can generally be triggered from within any CI/CD provider, and are well supported in AWS CodePipeline, CloudFormation itself has no support for these additional CI/CD features.
 
-For more information on how to integrate Pulumi with your CI/CD provider of choice, see our [Continuous Delivery guides](/docs/guides/continuous-delivery/).
+For more information on how to integrate Pulumi with your CI/CD provider of choice, see our [Continuous Delivery guides](/docs/using-pulumi/continuous-delivery/).
 
 ### Policy as Code {#policy}
 
 Pulumi CrossGuard gives you the ability to set guardrails that enforce best practices and security compliance, allowing developers to provision infrastructure easily while at the same time adhering to the standards defined by their teams and organizations. Using Policy as Code, you can write flexible business or security policies in any Pulumi-supported language as well as Open Policy Agent (OPA) Rego, and administrators can apply these policies either to individual stacks or to all of the stacks in an organization. CrossGuard is open source and free to use. Comparable functionality is possible through the use of CloudFormation hooks, though the process of building, testing, and using CloudFormation hooks is considerably different.
 
-To learn more about policy as code with Pulumi, see [Policy as Code ("CrossGuard")](/docs/guides/crossguard/).
+To learn more about policy as code with Pulumi, see [Policy as Code ("CrossGuard")](/docs/using-pulumi/crossguard/).
 
 ### Secrets Management {#secrets}
 
@@ -191,13 +191,13 @@ To learn more about Audit Logs and the kinds of events they capture, see [Audit 
 
 Both Pulumi and CloudFormation allow you to bring existing, unmanaged cloud resources into a new or existing stack. In Pulumi, this process is called _importing_, and can be done in one of two ways: either with the Pulumi CLI, using `pulumi import`, which adds the resource to your stack state and generates the code to manage resource going forward; or in code, in a resource declaration using the `import` resource option. CloudFormation also supports this capability, but the process is a bit more involved, requiring a changeset with a modified CloudFormation template or a template fragment supplied on the command line.
 
-To learn more about how to import and manage cloud resources with Pulumi, see [Importing Infrastructure](/docs/guides/adopting/import/) in our Adopting Pulumi user guide.
+To learn more about how to import and manage cloud resources with Pulumi, see [Importing Infrastructure](/docs/using-pulumi/adopting-pulumi/import/) in our Adopting Pulumi user guide.
 
 ### Convert Code from Other IaC Tools {#converting}
 
 Pulumi offers a number of useful tools to help you convert code written for other infrastructure-as-code tools (including CloudFormation) into deployable Pulumi programs written in your language of choice. The conversion process automatically generates a new, fully-functional Pulumi program that matches the source IaC program or template. CloudFormation has no comparable support for this feature.
 
-To learn more, see [Conversion](/docs/guides/adopting/#conversion) in our Adopting Pulumi user guide.
+To learn more, see [Conversion](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/#conversion) in our Adopting Pulumi user guide.
 
 ### Resource Aliases {#aliases}
 

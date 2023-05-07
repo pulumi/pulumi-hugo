@@ -118,7 +118,7 @@ Because `web-secgrp` has port 22 open to all IP addresses, we can expect it to f
 
 ## Integration testing
 
-Integration testing requires deploying resources in either a test environment or an ephemeral environment. In this [integration testing example](https://github.com/pulumi/examples/tree/master/testing-integration-py), we'll deploy a single resource using Pulumi's [Automation API](/docs/guides/automation-api/). Spinning up [ephemeral environments](/docs/guides/testing/integration#ephemeral-environments) for integration testing is an excellent use for the Automation API, which provides a programmatic interface for building infrastructure without a CLI or web-based console.
+Integration testing requires deploying resources in either a test environment or an ephemeral environment. In this [integration testing example](https://github.com/pulumi/examples/tree/master/testing-integration-py), we'll deploy a single resource using Pulumi's [Automation API](/docs/using-pulumi/automation-api/). Spinning up [ephemeral environments](/docs/using-pulumi/testing/integration#ephemeral-environments) for integration testing is an excellent use for the Automation API, which provides a programmatic interface for building infrastructure without a CLI or web-based console.
 
 In this simple example, we'll use Automation API to create an S3 bucket and perform a set of tests that include:
 

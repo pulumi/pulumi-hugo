@@ -108,7 +108,7 @@ structure enables seamless continuous deployment.
 
 In this model, there is a rough correspondence between a Git repo and a Pulumi project, and a Git branch and
 its associated Pulumi stack. Read more about
-[Continuous Delivery](/docs/guides/continuous-delivery/).
+[Continuous Delivery](/docs/using-pulumi/continuous-delivery/).
 
 ## Tagging Stacks
 

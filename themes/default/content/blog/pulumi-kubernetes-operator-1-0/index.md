@@ -65,7 +65,7 @@ Along with support for branch tracking, the Operator also now supports access to
 
 ### Building on the Pulumi Automation API
 
-A couple months after we released the Pulumi Kubernetes Operator, we also released the initial version of the [Pulumi Automation API](/docs/guides/automation-api/). The Automation API provides an SDK for embedding Pulumi deployments inside your own software and systems, allowing you to build your own interfaces for managing cloud infrastructure. The design of the Automation API was heavily influenced by our experience building the Pulumi Kubernetes Operator, which was a perfect example of one of these custom interfaces - the Pulumi Kubernetes Operator embeds Pulumi deployments inside Kubernetes, offering a new interface (Kubernetes `Stack` resources) for managing cloud infrastructure.
+A couple months after we released the Pulumi Kubernetes Operator, we also released the initial version of the [Pulumi Automation API](/docs/using-pulumi/automation-api/). The Automation API provides an SDK for embedding Pulumi deployments inside your own software and systems, allowing you to build your own interfaces for managing cloud infrastructure. The design of the Automation API was heavily influenced by our experience building the Pulumi Kubernetes Operator, which was a perfect example of one of these custom interfaces - the Pulumi Kubernetes Operator embeds Pulumi deployments inside Kubernetes, offering a new interface (Kubernetes `Stack` resources) for managing cloud infrastructure.
 
 Since then, we’ve moved the Pulumi Kubernetes Operator over to use the Pulumi Automation API, significantly reducing the size of the operator implementation, building on a robust foundation shared with dozens of other projects in the Pulumi ecosystem, and benefiting from many improvements and features added to the Pulumi Automation API. Earlier this year, the [Pulumi Automation API](/blog/pulumiup-automation-api-ga/) also reached GA as part of the [Pulumi 3.0](/blog/pulumi-3-0/) release.
 
@@ -127,4 +127,4 @@ The 1.0 release of the Pulumi Kubernetes Operator is an important milestone, but
 
 ## Conclusion
 
-The Pulumi Kubernetes Operator is a great way to deploy and manage cloud infrastructure from within your Kubernetes environment. With the 1.0 release, we’ve added many significant enhancements, as well as scalability, performance and quality improvements. You can [get started with the Pulumi Kubernetes Operator today](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/). Enjoy!
+The Pulumi Kubernetes Operator is a great way to deploy and manage cloud infrastructure from within your Kubernetes environment. With the 1.0 release, we’ve added many significant enhancements, as well as scalability, performance and quality improvements. You can [get started with the Pulumi Kubernetes Operator today](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/). Enjoy!

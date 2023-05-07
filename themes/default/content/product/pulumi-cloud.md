@@ -100,7 +100,7 @@ capabilities:
 
                 Integrate your [source control system](/docs/intro/pulumi-cloud/ci-cd-integration-assistant/) so teams can trace changes back to commits and pull requests.
 
-                Continuously deliver infrastructure through existing pipelines with [CI/CD integrations](/docs/guides/continuous-delivery/).
+                Continuously deliver infrastructure through existing pipelines with [CI/CD integrations](/docs/using-pulumi/continuous-delivery/).
 
                 Use event-based [webhooks](/docs/intro/pulumi-cloud/webhooks/) to notify external services like Slack or continuous integration tools.
 
@@ -171,12 +171,12 @@ capabilities:
 
             - title: Proactive compliance enforcement
               description: |
-                Set guardrails for developers deploying with Pulumi by creating [policy packs](/docs/guides/crossguard/configuration/) that enforce your [deployment rules](/docs/guides/crossguard/).
+                Set guardrails for developers deploying with Pulumi by creating [policy packs](/docs/using-pulumi/crossguard/configuration/) that enforce your [deployment rules](/docs/using-pulumi/crossguard/).
 
               more_info: |
-                Define [Policy as Code](/docs/guides/crossguard/) rules for security, best practices, and more.
+                Define [Policy as Code](/docs/using-pulumi/crossguard/) rules for security, best practices, and more.
 
-                Assign [policy packs](/docs/guides/crossguard/configuration/) that run on specific stacks (e.g., dev/test/staging rules).
+                Assign [policy packs](/docs/using-pulumi/crossguard/configuration/) that run on specific stacks (e.g., dev/test/staging rules).
 
                 Automatically block deployments that violate your organization's policies.
 

@@ -71,4 +71,4 @@ success.
 Deploying Pulumi stacks in Kubernetes provides the capability to build
 out CI/CD and automation systems into your clusters, creating native support to manage your infrastructure alongside your Kubernetes workloads.
 
-Get started using the [Pulumi Kubernetes Operator continuous delivery guide](/docs/guides/continuous-delivery/pulumi-kubernetes-operator).
+Get started using the [Pulumi Kubernetes Operator continuous delivery guide](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator).

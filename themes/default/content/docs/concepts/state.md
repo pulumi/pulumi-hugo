@@ -293,7 +293,7 @@ Pulumi is designed to abstract state management away from you so that you can op
 
 Pulumi supports importing resources that were already created outside of Pulumi, such as resources created using the cloud console, a cloud CLI or SDK, or even another infrastructure as code tool. Resource metadata is imported into your Pulumi state and source code is generated in your chosen language to match that state.
 
-To learn more about importing existing resources, see [Importing Infrastructure](/docs/guides/adopting/import/).
+To learn more about importing existing resources, see [Importing Infrastructure](/docs/using-pulumi/adopting-pulumi/import/).
 
 ### Checkpoints
 

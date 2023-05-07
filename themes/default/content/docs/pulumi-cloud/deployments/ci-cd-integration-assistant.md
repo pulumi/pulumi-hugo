@@ -108,7 +108,7 @@ that will run the `pulumi preview` command. Select the **Next** button to valida
 Congratulations on configuring a version control system and an automated pipeline for your stack! 🎉
 
 {{% notes "info" %}}
-If your pull request build failed, use the [CI/CD troubleshooting guide](/docs/guides/continuous-delivery/troubleshooting-guide) to diagnose the issue.
+If your pull request build failed, use the [CI/CD troubleshooting guide](/docs/using-pulumi/continuous-delivery/troubleshooting-guide) to diagnose the issue.
 {{% /notes %}}
 
 ## Skip the line and get the workflow directly

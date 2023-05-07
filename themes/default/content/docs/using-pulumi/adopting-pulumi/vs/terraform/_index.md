@@ -108,7 +108,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Transformations](#transformations) | Yes | No |
 | [Import Code from other IaC Tools](#converting) | Yes | No |
 
-Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/guides/adopting/from_terraform#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/intro/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/using-pulumi/adopting-pulumi/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 
@@ -148,7 +148,7 @@ In the event you’d like to add new providers, or understand how this integrati
 
 #### Converting From Terraform to Pulumi {#providers-converting}
 
-Pulumi offers a tool called [tf2pulumi](https://github.com/pulumi/tf2pulumi) that converts Terraform HCL to Pulumi. It is open source on GitHub, and works well for most projects. (If you run into a snag, issues and pull requests are welcome!) To learn more, see [Converting Terraform HCL to Pulumi](/docs/guides/adopting/from_terraform#converting-terraform-hcl-to-pulumi) in our Adopting Pulumi user guide.
+Pulumi offers a tool called [tf2pulumi](https://github.com/pulumi/tf2pulumi) that converts Terraform HCL to Pulumi. It is open source on GitHub, and works well for most projects. (If you run into a snag, issues and pull requests are welcome!) To learn more, see [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform#converting-terraform-hcl-to-pulumi) in our Adopting Pulumi user guide.
 
 For an example of how to do a Terraform-to-Pulumi conversion, see our article, [From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/).
 
@@ -158,7 +158,7 @@ Pulumi supports [consuming local or remote Terraform state](/blog/using-terrafor
 
 For example, maybe you would like to keep your VPC and low-level network definitions written in Terraform so as to avoid any disruption, or maybe some of the team would like to stay on Terraform for now and make a shift in the future. Using the state reference support described previously, you can author higher-level infrastructure in Pulumi that consumes the Terraform-provisioned VPC information (such as the VPC ID, Subnet IDs, etc.), making the co-existence of Pulumi and Terraform easy to automate.
 
-To learn more, see [Referencing Terraform State](/docs/guides/adopting/from_terraform#referencing-terraform-state) in our Adopting Pulumi user guide.
+To learn more, see [Referencing Terraform State](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform#referencing-terraform-state) in our Adopting Pulumi user guide.
 
 ### Cloud Native Support {#cloud-native}
 
@@ -180,25 +180,25 @@ Pulumi also provides the [Pulumi Registry](/registry/) which is a searchable col
 
 ### Testing and Validation {#testing}
 
-Terraform supports integration testing. With Pulumi, you can take advantage of native testing frameworks and perform automated tests of your infrastructure because Pulumi uses general purpose programming languages to provision cloud resources. Pulumi provides unit tests (fast in-memory tests that mock all external calls), property tests (run resource-level assertions while infrastructure is being deployed), and integration tests (deploy ephemeral infrastructure and run external tests against it). For more information on how to run tests with Pulumi, see [Testing](/docs/guides/testing/).
+Terraform supports integration testing. With Pulumi, you can take advantage of native testing frameworks and perform automated tests of your infrastructure because Pulumi uses general purpose programming languages to provision cloud resources. Pulumi provides unit tests (fast in-memory tests that mock all external calls), property tests (run resource-level assertions while infrastructure is being deployed), and integration tests (deploy ephemeral infrastructure and run external tests against it). For more information on how to run tests with Pulumi, see [Testing](/docs/using-pulumi/testing/).
 
 ### Modes of Execution {#modes}
 
-Both Pulumi and Terraform can execute commands through their CLI. Terraform can also do remote operations through Terraform Cloud. Pulumi also provides two APIs by which you can execute Pulumi commands. First, the Automation API allows you to provision, update, and destroy infrastructure through Pulumi directly in your application code. This enables higher order orchestration workflows and dynamically managed infrastructure. Second, the REST API allows you to query and interact with state information, history, stack tags when using the Managed Pulumi Cloud. To learn more, see [Automation API](/docs/guides/automation-api/) and [REST API](/docs/reference/cloud-rest-api/).
+Both Pulumi and Terraform can execute commands through their CLI. Terraform can also do remote operations through Terraform Cloud. Pulumi also provides two APIs by which you can execute Pulumi commands. First, the Automation API allows you to provision, update, and destroy infrastructure through Pulumi directly in your application code. This enables higher order orchestration workflows and dynamically managed infrastructure. Second, the REST API allows you to query and interact with state information, history, stack tags when using the Managed Pulumi Cloud. To learn more, see [Automation API](/docs/using-pulumi/automation-api/) and [REST API](/docs/reference/cloud-rest-api/).
 
 ### Embed within Application Code {#embedding}
 
-Pulumi has the ability to embed Pulumi programs directly into your application code through the Automation API, a programmatic interface for running Pulumi programs without the Pulumi CLI. The Automation API is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. You can easily create custom experiences on top of Pulumi that are tailored to your use-case, domain, and team. Terraform does not have an equivalent to Automation API. To learn more, see [Automation API](/docs/guides/automation-api/).
+Pulumi has the ability to embed Pulumi programs directly into your application code through the Automation API, a programmatic interface for running Pulumi programs without the Pulumi CLI. The Automation API is a strongly typed and safe way to use Pulumi in embedded contexts such as web servers without having to shell out to a CLI. You can easily create custom experiences on top of Pulumi that are tailored to your use-case, domain, and team. Terraform does not have an equivalent to Automation API. To learn more, see [Automation API](/docs/using-pulumi/automation-api/).
 
 ### Third-Party CI/CD Tools Support {#cicd}
 
 Pulumi integrates with existing CI/CD providers including AWS Code Services, Azure DevOps, CircleCI, CodeFresh, GitHub Actions, GitLab Pipelines, Google Cloud Build, Jenkins, Octopus Deploy, Jetbrains TeamCity, Spinnaker, and Travis. Pulumi allows you to use the same CI/CD system for your infrastructure as your application code. Terraform also has similar support with existing CI/CD providers.
 
-For more information on how to integrate your CI/CD system with Pulumi, see [Continuous Delivery](/docs/guides/continuous-delivery/).
+For more information on how to integrate your CI/CD system with Pulumi, see [Continuous Delivery](/docs/using-pulumi/continuous-delivery/).
 
 ### Policy as Code {#policy}
 
-Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinel also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego. For more information on how to implement policy as code using Pulumi, see [Policy as Code ("CrossGuard")](/docs/guides/crossguard/).
+Terraform provides policy as code through its Sentinel product, which is closed source and limited to Terraform Enterprise and Terraform Cloud. Sentinel also requires the use of a proprietary HashiCorp Sentinel Language. Pulumi, however, provides policy as code through CrossGuard which acts as programmable guardrails to enforce security, best practices, and cost across all infrastructure. CrossGuard is open source, free to use, and lets you write rules in Python, JavaScript, or Open Policy Agent (OPA) Rego. For more information on how to implement policy as code using Pulumi, see [Policy as Code ("CrossGuard")](/docs/using-pulumi/crossguard/).
 
 ### Secrets Management {#secrets}
 
@@ -210,7 +210,7 @@ Pulumi provides audit logs that enable you to track the activity of users within
 
 ### Adopt Existing Resources {#adopting}
 
-Both Pulumi and Terraform support importing existing resources so that they can be managed by each. Pulumi also allows you to generate code in your language of choice from the existing state. Terraform only supports importing state but requires you to hand-author the HCL. To learn more, see [Importing Infrastructure](/docs/guides/adopting/import/) in our Adopting Pulumi user guide.
+Both Pulumi and Terraform support importing existing resources so that they can be managed by each. Pulumi also allows you to generate code in your language of choice from the existing state. Terraform only supports importing state but requires you to hand-author the HCL. To learn more, see [Importing Infrastructure](/docs/using-pulumi/adopting-pulumi/import/) in our Adopting Pulumi user guide.
 
 ### Aliases
 
@@ -222,7 +222,7 @@ Transformations, which are unique to Pulumi, allow you to programmatically set o
 
 ### Import Code from Other IaC Tools {#converting}
 
-Pulumi allows you to convert templates by Terraform HCL , Kubernetes YAML, and Azure ARM into Pulumi programs. This preserves existing program structure, which may be important if you carefully designed your existing infrastructure as code layout in terms of names, modules, and configurability. Conversion takes care of the static program structure and will automatically generate a new, fully-functional Pulumi program that matches the source infrastructure as code program. To learn more, see [Conversion](/docs/guides/adopting/#conversion) in our Adopting Pulumi user guide.
+Pulumi allows you to convert templates by Terraform HCL , Kubernetes YAML, and Azure ARM into Pulumi programs. This preserves existing program structure, which may be important if you carefully designed your existing infrastructure as code layout in terms of names, modules, and configurability. Conversion takes care of the static program structure and will automatically generate a new, fully-functional Pulumi program that matches the source infrastructure as code program. To learn more, see [Conversion](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/#conversion) in our Adopting Pulumi user guide.
 
 ## Get Started with Pulumi
 

@@ -197,15 +197,15 @@ $ pulumi preview --policy-pack <path-to-policy-pack-directory> --policy-pack-con
 
 ## Using the Pulumi Cloud
 
-Configuration can also be added, edited and enabled via the Pulumi Cloud. Once a Policy Pack has been published to the Pulumi Cloud, organization administrators can enable the pack with configuration on a Policy Group using the console. Learn more in the [Enforcing a policy pack guide](/docs/guides/crossguard/get-started#enforcing-a-policy-pack).
+Configuration can also be added, edited and enabled via the Pulumi Cloud. Once a Policy Pack has been published to the Pulumi Cloud, organization administrators can enable the pack with configuration on a Policy Group using the console. Learn more in the [Enforcing a policy pack guide](/docs/using-pulumi/crossguard/get-started#enforcing-a-policy-pack).
 
 On a Policy Group page, you can click the ADD button to enable a new Policy Pack.
 
-![Enable Policy Pack](/images/docs/guides/crossguard/enable-policy-pack.jpg)
+![Enable Policy Pack](/images/docs/using-pulumi/crossguard/enable-policy-pack.jpg)
 
 If the selected Policy Pack has configuration, a form will appear for you to enter the configuration. The form provides automatic validation to ensure the supplied configuration meets the configuration schema.
 
-![Policy Pack Configuration Form](/images/docs/guides/crossguard/config-dialog.jpg)
+![Policy Pack Configuration Form](/images/docs/using-pulumi/crossguard/config-dialog.jpg)
 
 ### Using the CLI with the Console
 

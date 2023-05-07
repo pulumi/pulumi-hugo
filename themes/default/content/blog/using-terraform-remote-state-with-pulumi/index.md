@@ -178,6 +178,6 @@ Pulumi is free and open-source, and you can [get started today](/docs/get-starte
 To learn more about migrating
 from Terraform to Pulumi, check out
 [From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/)
-and the [Terraform comparison documentation](/docs/intro/vs/terraform/), or join us in
+and the [Terraform comparison documentation](/docs/using-pulumi/adopting-pulumi/vs/terraform/), or join us in
 the [Pulumi Community Slack](https://slack.pulumi.com/) to discuss with
 the Pulumi community.

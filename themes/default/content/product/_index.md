@@ -170,17 +170,17 @@ key_features:
           image: "/images/product/pulumi-cicd.png"
           button:
             text: "Learn more about CI/CD Integrations"
-            link: "/docs/guides/continuous-delivery/"
+            link: "/docs/using-pulumi/continuous-delivery/"
           features:
               - title: Version and review
                 description: |
                     Manage infrastructure code in Git and approve changes through pull requests.
               - title: Shift left
                 description: |
-                    Get rapid feedback on your code with fast [unit tests](/docs/guides/testing/), and run [integration tests](/docs/guides/testing/) against ephemeral infrastructure.
+                    Get rapid feedback on your code with fast [unit tests](/docs/using-pulumi/testing/), and run [integration tests](/docs/using-pulumi/testing/) against ephemeral infrastructure.
               - title: Continuous delivery
                 description: |
-                    [Integrate your CI/CD provider](/docs/guides/continuous-delivery/) with Pulumi or use GitOps to [manage Kubernetes clusters](/docs/guides/continuous-delivery/pulumi-kubernetes-operator/).
+                    [Integrate your CI/CD provider](/docs/using-pulumi/continuous-delivery/) with Pulumi or use GitOps to [manage Kubernetes clusters](/docs/using-pulumi/continuous-delivery/pulumi-kubernetes-operator/).
 
         - title: "Scale and secure infrastructure as code for teams"
           sub_title: "Pulumi Cloud"

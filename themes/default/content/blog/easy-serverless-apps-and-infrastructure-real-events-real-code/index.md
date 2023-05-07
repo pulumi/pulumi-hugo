@@ -288,7 +288,7 @@ We've given the function's ID, `zipTpsReports-19d51dc`, which allows
 Pulumi to locate it in your account and reuse it. This can make it easy
 to incrementally adopt Pulumi one piece at a time, collaborate between
 teams, or stitch together resources
-[managed by different stacks](/docs/guides/organizing-projects-stacks/).
+[managed by different stacks](/docs/using-pulumi/organizing-projects-stacks/).
 
 ## More About Functions
 
@@ -363,7 +363,7 @@ For instance, it's common for the DevOps team to manage the physical
 cloud resources like queues, topics, and buckets, while the development
 team authors and manages the serverless functions attached to them. Read
 more about
-this [here](/docs/guides/organizing-projects-stacks/).
+this in the [organizaing projects & stacks documentation](/docs/using-pulumi/organizing-projects-stacks/).
 
 ## More About Event Sources
 
