@@ -21,7 +21,7 @@ In this blog post, we'll explore our recent enhancements to Pulumi AI, focusing 
 
 As powerful as Pulumi AI may seem, it was initially limited by the training cutoff of the model. Pulumi AI wasn't aware of new providers or changes to resources after late 2021. Additionally, the limitations in generative AI made it difficult for the model to reproduce all the input properties and relevant details of the resources it was trained on from "memory."
 
-These factors led to a phenomenon researchers call "hallucination." Pulumi AI would sometimes generate an API for a non-existent provider when asked to produce a Pulumi program. To overcome these challenges, we turned to the rich [Pulumi Package schema](https://www.pulumi.com/docs/guides/pulumi-packages/schema/) data and [CrossCode](https://www.pulumi.com/crosscode/) technology that powers the [Pulumi Registry](https://www.pulumi.com/registry/) docs, our code conversion tools, and other Pulumi enhancements.
+These factors led to a phenomenon researchers call "hallucination." Pulumi AI would sometimes generate an API for a non-existent provider when asked to produce a Pulumi program. To overcome these challenges, we turned to the rich [Pulumi Package schema](/docs/guides/pulumi-packages/schema/) data and [CrossCode](/crosscode/) technology that powers the [Pulumi Registry](/registry/) docs, our code conversion tools, and other Pulumi enhancements.
 
 ### Integrating Pulumi Package Schema Data
 
@@ -78,7 +78,7 @@ For EKS clusters, Pulumi AI now typically recommends our `eks` provider's high l
 
 Pulumi AI now offers a more succinct solution for common queries such as "a static website on Azure":
 
-> To accomplish your goal, I will generate a Pulumi TypeScript program using the [`azure-static-website.Website`](https://www.pulumi.com/registry/packages/azure-static-website/api-docs/website/) resource from the Pulumi Registry. This resource is designed specifically for hosting static websites on Azure.
+> To accomplish your goal, I will generate a Pulumi TypeScript program using the [`azure-static-website.Website`](/registry/packages/azure-static-website/api-docs/website/) resource from the Pulumi Registry. This resource is designed specifically for hosting static websites on Azure.
 >
 > Here's a Pulumi TypeScript program to deploy a static website on Azure using the `azure-static-website.Website` resource.
 >
@@ -98,7 +98,7 @@ Pulumi AI now offers a more succinct solution for common queries such as "a stat
 
 When asked for modern resources such as [Google AlloyDB](https://cloud.google.com/alloydb), launched six weeks ago, Pulumi AI now references Registry documentation to answer "google alloydb with an automatic backup policy":
 
-> Based on the Pulumi Registry results and trying to accomplish your goal of creating an AlloyDB cluster with an automatic backup policy, we can create a Google Cloud Platform (GCP) AlloyDB cluster using the [gcp.alloydb.Cluster](https://www.pulumi.com/registry/packages/gcp/api-docs/alloydb/cluster/) resource. You can set the `automatedBackupPolicy` property with the necessary configuration to enable automatic backups.
+> Based on the Pulumi Registry results and trying to accomplish your goal of creating an AlloyDB cluster with an automatic backup policy, we can create a Google Cloud Platform (GCP) AlloyDB cluster using the [gcp.alloydb.Cluster](/registry/packages/gcp/api-docs/alloydb/cluster/) resource. You can set the `automatedBackupPolicy` property with the necessary configuration to enable automatic backups.
 >
 > Here's a Pulumi program in TypeScript that creates an AlloyDB Cluster with an automatic backup policy:
 >
@@ -146,7 +146,7 @@ When asked for modern resources such as [Google AlloyDB](https://cloud.google.co
 
 Our enhancements to Pulumi AI have made it a more useful tool for generating accurate and relevant cloud infrastructure solutions. We're excited about the future of Pulumi AI as we continue to integrate it into [Pulumi Cloud](https://app.pulumi.com) and empower everyone to become a cloud engineer.
 
-These enhancements are live now at [Pulumi AI](https://www.pulumi.com/ai/), and we've added links to Pulumi AI in pages on the Pulumi Registry, for example on the [eks.Cluster](https://www.pulumi.com/registry/packages/eks/api-docs/cluster/) docs mentioned earlier.
+These enhancements are live now at [Pulumi AI](/ai/), and we've added links to Pulumi AI in pages on the Pulumi Registry, for example on the [eks.Cluster](/registry/packages/eks/api-docs/cluster/) docs mentioned earlier.
 
 Give them a try and share your experiences with us. Together, let's build a future where infrastructure as code becomes more accessible, efficient, and enjoyable for everyone.
 
