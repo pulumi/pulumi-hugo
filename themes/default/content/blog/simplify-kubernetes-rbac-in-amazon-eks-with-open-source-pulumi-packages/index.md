@@ -48,7 +48,7 @@ Here are a few highlights:
 set up your
 [AWS credentials](/docs/clouds/aws/get-started/).
 Initialize a new
-[Pulumi project](/docs/concepts/project/) from available
+[Pulumi project](/docs/concepts/projects/) from available
 templates. We use `aws-typescript template` here to install all
 dependencies and save the configuration.
 

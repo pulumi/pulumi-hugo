@@ -76,7 +76,7 @@ For details around using JAR, please check our docs on [Pulumi.yaml](/docs/refer
 
 {{% /notes %}}
 
-This will create a maven project with a `pom.xml` and a `Pulumi.yaml` [project file](/docs/concepts/project/) containing some minimal metadata about your project (including a name and description which you may wish to change) and an `App.java` file in the `src/main/java/myproject` directory containing your program.
+This will create a maven project with a `pom.xml` and a `Pulumi.yaml` [project file](/docs/concepts/projects/) containing some minimal metadata about your project (including a name and description which you may wish to change) and an `App.java` file in the `src/main/java/myproject` directory containing your program.
 
 To deploy your infrastructure, run `pulumi up` and Pulumi will build your app using maven (gradle is also supported) and perform the operations needed to deploy the infrastructure you have declared.
 

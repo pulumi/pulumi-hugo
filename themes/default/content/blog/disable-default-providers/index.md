@@ -298,7 +298,7 @@ Disabling a default provider involves adding the relevant package name to the co
 `pulumi:disable-default-providers`. For example, disabling the default provider for Kubernetes and AWS would look like
 this snippet in the [configuration file][config]:
 
-[config]: /docs/concepts/project/#stack-settings-file
+[config]: /docs/concepts/projects/#stack-settings-file
 
 ```yaml
 pulumi:disable-default-providers:

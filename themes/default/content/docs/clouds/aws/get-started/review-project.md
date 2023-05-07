@@ -17,13 +17,13 @@ Let's review some of the generated project files:
 
 {{% choosable language "javascript,typescript,python,go,csharp,java" %}}
 
-- `Pulumi.yaml` defines the [project](/docs/concepts/project/).
+- `Pulumi.yaml` defines the [project](/docs/concepts/projects/).
 
 {{% /choosable %}}
 
 {{% choosable language "yaml" %}}
 
-- `Pulumi.yaml` defines both the [project](/docs/concepts/project/) and the program that manages your stack resources.
+- `Pulumi.yaml` defines both the [project](/docs/concepts/projects/) and the program that manages your stack resources.
 
 {{% /choosable %}}
 

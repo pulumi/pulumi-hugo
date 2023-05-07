@@ -51,7 +51,7 @@ and extend to suit your needs.
 To use this template to deploy your own $THING,
 make sure you've [installed Pulumi](/docs/install/)
 and [configured your $CLOUD credentials](/registry/packages/$CLOUD/installation-configuration/#credentials),
-then create a new [project](/docs/concepts/project/) using the template in your language of choice:
+then create a new [project](/docs/concepts/projects/) using the template in your language of choice:
 
 {{< templates/pulumi-new >}}
 

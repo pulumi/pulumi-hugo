@@ -24,7 +24,7 @@ In the following sections, we'll discuss how to organize an application as micro
 
 ## Projects and Stacks
 
-Pulumi is organized around [Projects](/docs/concepts/project/) and [Stacks](/docs/concepts/stack/).  A Project specifies the runtime to use, which determines where to find the program to execute during deployment. A Stack is an independent instance of a Pulumi program used to denote different phases of development (such as development, staging, and production) or feature branches (such as new-feature-dev).
+Pulumi is organized around [Projects](/docs/concepts/projects/) and [Stacks](/docs/concepts/stack/).  A Project specifies the runtime to use, which determines where to find the program to execute during deployment. A Stack is an independent instance of a Pulumi program used to denote different phases of development (such as development, staging, and production) or feature branches (such as new-feature-dev).
 
 Monolithic stacks are a common way to structure a project. A single project defines the infrastructure and resources for an entire service. However, Pulumi also supports deploying microservices as individual stacks within a project. Because microservices represent a specific business capability, having stacks for each service allows teams to work independently of each other. Separate stacks can enforce security policies through Role-Based Access Control, and each service can be built and deployed independently of other components.
 

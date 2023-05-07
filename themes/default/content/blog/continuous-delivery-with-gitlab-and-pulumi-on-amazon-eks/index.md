@@ -31,7 +31,7 @@ organization. This can be a specific GitHub, GitLab or Atlassian
 organization or your solo organization. Inside each organization, users
 create Pulumi projects and stacks.
 
-Pulumi [projects](/docs/concepts/project/)
+Pulumi [projects](/docs/concepts/projects/)
 and [stacks](/docs/concepts/stack/)
 are flexible to accommodate the diverse needs across teams, applications,
 and infrastructure scenarios. Just like Git repos that work with varying

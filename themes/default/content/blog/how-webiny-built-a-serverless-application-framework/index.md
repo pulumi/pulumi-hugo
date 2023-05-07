@@ -109,7 +109,7 @@ As an example, a default Webiny project includes three project applications:
 
 If we were to compare these by the complexity of the necessary cloud infrastructure to deploy, the Admin Area is the simplest. It only relies on a single [Amazon S3](https://aws.amazon.com/s3/) bucket and an [Amazon Cloudfront](https://aws.amazon.com/cloudfront/) distribution. On the other hand, the API project application is the most complex one as it needs to deploy multiple [AWS Lambda](https://aws.amazon.com/lambda/) functions, [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) tables, Amazon S3 buckets, and more.
 
-Ultimately, we decided that each project application should be a [Pulumi project](https://www.pulumi.com/docs/concepts/project/#projects). With this approach, we gave developers the ability to both define and deploy respective cloud infrastructures independently. And, with the concept of [stacks](https://www.pulumi.com/docs/concepts/stack/), they are also able to deploy them into multiple environments, which we’ll show in a moment.
+Ultimately, we decided that each project application should be a [Pulumi project](https://www.pulumi.com/docs/concepts/projects/#projects). With this approach, we gave developers the ability to both define and deploy respective cloud infrastructures independently. And, with the concept of [stacks](https://www.pulumi.com/docs/concepts/stack/), they are also able to deploy them into multiple environments, which we’ll show in a moment.
 
 ### Pulumi CLI and Webiny CLI
 

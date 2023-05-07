@@ -30,7 +30,7 @@ If you're already familiar with Terraform, learning Pulumi terminology and comma
 | --------- | ------ |
 | Workspace | [Stack](/docs/concepts/stack/) |
 | Variables | [Stack Config](/docs/concepts/config/) |
-| Directory | [Project](/docs/concepts/project/) |
+| Directory | [Project](/docs/concepts/projects/) |
 | Module | [Component](/docs/concepts/resources/components/) |
 | Resource | [Resource](/docs/concepts/resources/) |
 | Interpolation | [Interpolation](/docs/concepts/inputs-outputs#outputs-and-strings) |

@@ -33,7 +33,7 @@ Feel free to skip ahead to the next section if you're already familiar with this
 
 ### Projects and stacks
 
-Pulumi [*projects*](/docs/concepts/project/) are a unit of organization.
+Pulumi [*projects*](/docs/concepts/projects/) are a unit of organization.
 A project holds the code and configuration for your infrastructure,
 and can be used to deploy multiple stacks.
 A [*stack*](/docs/concepts/stack/) is a single,
