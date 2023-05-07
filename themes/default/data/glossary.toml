@@ -151,12 +151,12 @@ link = "/docs/concepts/project"
 [[entries]]
 term = "Project File"
 description = "The Pulumi.yaml project file specifies metadata about your project."
-link = "/docs/concepts/project#pulumi-yaml"
+link = "/docs/concepts/projects#pulumi-yaml"
 
 [[entries]]
 term = "Paths"
 description = "When your Pulumi program references resources in the local filesystem, they are always relative to the working directory."
-link = "/docs/concepts/project#paths"
+link = "/docs/concepts/projects#paths"
 
 [[entries]]
 term = "State"
