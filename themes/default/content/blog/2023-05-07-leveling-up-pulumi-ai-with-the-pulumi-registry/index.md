@@ -51,27 +51,27 @@ With the integration of Pulumi Package schema data, Pulumi AI now generates more
 
 ### Powerful components
 
-For EKS clusters, Pulumi AI now typically recommends our `eks` provider's high level component, and uses recently added fields when asked for "an eks cluster with a managed node group":
+For EKS clusters, Pulumi AI now typically recommends our `eks` provider's high level component when asked for "an eks cluster":
 
-> Considering your goal, I recommend using the eks.Cluster Pulumi resource. This cluster will include the worker nodes, storage classes, and optional deployment of the Kubernetes dashboard. It'll allow easy provisioning, scaling, and management of EKS clusters with Pulumi.
+> To achieve your goal of creating an EKS cluster, I recommend using the [`eks.Cluster`](/registry/packages/eks/api-docs/cluster/) Pulumi resource, which is a higher-level component encapsulating the necessary AWS and Kubernetes resources. This resource makes it easy to provision, scale, and manage EKS clusters in a Pulumi Python program.
 >
-> Below is a Pulumi Python program that creates an EKS cluster using the eks.Cluster resource:
+> To proceed, you'll need to have the pulumi-eks package installed:
+>
+> ```
+> pip install pulumi-eks
+> ```
+>
+> Here's a simple Pulumi Python program that creates an EKS cluster:
 >
 > ```python
 > import pulumi
 > from pulumi_eks import Cluster
 >
-> # Create an EKS cluster
-> eks_cluster = Cluster("my-eks-cluster",
->     instance_type="t2.medium",  # Worker node instance type
->     desired_capacity=2,          # Desired number of worker nodes
->     min_size=1,                  # Minimum number of worker nodes
->     max_size=3,                  # Maximum number of worker nodes
-> )
+> # Create an EKS cluster.
+> my_cluster = Cluster("my-cluster")
 >
-> # Export the Kubernetes configuration and cluster name
-> pulumi.export("kubeconfig", eks_cluster.kubeconfig)
-> pulumi.export("cluster_name", eks_cluster.name)
+> # Export the cluster kubeconfig.
+> pulumi.export("kubeconfig", my_cluster.kubeconfig)
 > ```
 
 ### Simple building blocks
