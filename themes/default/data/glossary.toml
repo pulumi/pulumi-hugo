@@ -24,8 +24,8 @@ description = "Self-hosted in Pulumi applies to on-premise \"behind a firewall\"
 link = "/docs/concepts/state#deciding-on-a-state-backend"
 
 [[entries]]
-term = "Pulumi Service"
-description = "The Pulumi Service refers to the web application at `app.pulumi.com` which automatically manages deployment state and enables collaboration between developers and operators."
+term = "Pulumi Cloud"
+description = "The Pulumi Cloud refers to the web application at `app.pulumi.com` which automatically manages deployment state and enables collaboration between developers and operators."
 link = "/docs/intro/pulumi-cloud"
 
 [[entries]]
@@ -45,7 +45,7 @@ link = "https://en.wikipedia.org/wiki/SAML_Metadata#Introduction_to_SAML_Metadat
 
 [[entries]]
 term = "Organization"
-description = "An organization is the primary grouping unit for stacks within the Pulumi Service."
+description = "An organization is the primary grouping unit for stacks within the Pulumi Cloud."
 link = "/docs/intro/pulumi-cloud/organizations"
 
 [[entries]]
@@ -125,12 +125,12 @@ link = "/docs/concepts/function-serialization"
 
 [[entries]]
 term = "SAML"
-description = "Security Assertion Markup Language. You may use a SAML 2.0-compatible identity provider in order to sign in to the Pulumi Service via single sign-on. The SAML SSO feature is only available in Pulumi Enterprise."
+description = "Security Assertion Markup Language. You may use a SAML 2.0-compatible identity provider in order to sign in to the Pulumi Cloud via single sign-on. The SAML SSO feature is only available in Pulumi Enterprise."
 link = "https://en.wikipedia.org/wiki/SAML_2.0"
 
 [[entries]]
 term = "Stack Tags"
-description = "Stacks have associated metadata in the form of tags, with each tag consisting of a name and value. Stack tags are only supported when logged into the Pulumi Service backend."
+description = "Stacks have associated metadata in the form of tags, with each tag consisting of a name and value. Stack tags are only supported when logged into the Pulumi Cloud backend."
 link = "/docs/concepts/stack#stack-tags"
 
 [[entries]]
@@ -140,7 +140,7 @@ link = "/registry"
 
 [[entries]]
 term = "CLI"
-description = "Command-line Interface. The Pulumi CLI is open source and works in conjunction with the Pulumi service to deploy changes to your cloud apps and infrastructure."
+description = "Command-line Interface. The Pulumi CLI is open source and works in conjunction with the Pulumi Cloud to deploy changes to your cloud apps and infrastructure."
 link = "/docs/reference/cli"
 
 [[entries]]
@@ -171,5 +171,5 @@ link = "/docs/concepts/state"
 
 [[entries]]
 term = "Secrets Encryption"
-description = "The Pulumi Service automatically manages per-stack encryption keys on your behalf. Anytime you encrypt a value using --secret or by programmatically wrapping it as a secret at runtime, a secure protocol is used between the CLI and Pulumi Service that ensures secret data is encrypted in transit, at rest, and physically anywhere it gets stored."
+description = "The Pulumi Cloud automatically manages per-stack encryption keys on your behalf. Anytime you encrypt a value using --secret or by programmatically wrapping it as a secret at runtime, a secure protocol is used between the CLI and Pulumi Cloud that ensures secret data is encrypted in transit, at rest, and physically anywhere it gets stored."
 link = "/docs/concepts/config#configuring-secrets-encryption"
