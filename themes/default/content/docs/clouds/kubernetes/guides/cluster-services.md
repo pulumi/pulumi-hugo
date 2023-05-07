@@ -41,9 +41,9 @@ The full code for the Azure cluster services is on [GitHub][gh-repo-stack].
 
 {{% choosable cloud gcp %}}
 
-GKE logging and monitoring is managed by GCP through StackDriver.
+GKE logging and monitoring is managed by Google Cloud through StackDriver.
 
-The repo for the GCP cluster services is on [GitHub][gh-repo-stack], but it is empty since no extra steps are required after cluster and Node Pool creation in the [Cluster Configuration][crosswalk-k8s-cluster] stack.
+The repo for the Google Cloud cluster services is on [GitHub][gh-repo-stack], but it is empty since no extra steps are required after cluster and Node Pool creation in the [Cluster Configuration][crosswalk-k8s-cluster] stack.
 
 <!-- markdownlint-disable url -->
 [crosswalk-k8s-cluster]: https://github.com/pulumi/kubernetes-guides/tree/master/gcp/03-cluster-configuration
@@ -408,14 +408,14 @@ See the official [AKS docs][aks-kubelet-logs] for more details.
 
 We'll explore how to setup:
 
-* [GCP Logging and Monitoring](#azure-logging-and-monitoring)
+* [Google Cloud Logging and Monitoring](#azure-logging-and-monitoring)
 * [Datadog](#datadog)
 
 See the official [GKE][gke-logs] and [StackDriver Observing][gke-sd-observe] docs for more details.
 
-## GCP Logging and Monitoring
+## Google Cloud Logging and Monitoring
 
-GKE monitoring is managed by GCP through [StackDriver][gke-sd].
+GKE monitoring is managed by Google Cloud through [StackDriver][gke-sd].
 
 Stackdriver Kubernetes Engine Monitoring is the default logging option for GKE
 clusters, and it comes automatically enabled for all clusters starting with version 1.14.

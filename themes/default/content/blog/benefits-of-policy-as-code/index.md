@@ -33,7 +33,7 @@ Controlling access to resources is basic infrastructure security. Leaving servic
 
 Controlling ingress and egress to and from resources and not exposing them on the Internet is a best practice. Policies that run at the level of the organization can mitigate the likelihood of unauthorized access to resources or even data breaches. Regardless of the type of environment, whether its dev, test, production, Policy as Code can enforce best practice across the organization.
 
-Another area of concern is securing your software supply chain. Although your infrastructure runs on a cloud provider, it is not exempt form vulnerabilities as shown by [CVE-2020-8835](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8835) which allows container escape to get root privileges on the host node. On GCP, nodes running on Ubuntu running Kubernetes 1.16 and 1.17 were affected. You can write a policy that checks the version of GKE and prevents those version from being deployed.
+Another area of concern is securing your software supply chain. Although your infrastructure runs on a cloud provider, it is not exempt form vulnerabilities as shown by [CVE-2020-8835](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8835) which allows container escape to get root privileges on the host node. On Google Cloud, nodes running on Ubuntu running Kubernetes 1.16 and 1.17 were affected. You can write a policy that checks the version of GKE and prevents those version from being deployed.
 
 ## Validate Before or During Deployment
 

@@ -51,11 +51,11 @@ Many developers now use JavaScript to create IaC, often in [serverless applicati
 - Node.js doesn’t need to be compiled.
 - There is a vast ecosystem of reusable modules that developers can leverage to create microservices.
 - The npm package manager makes it easy to make JavaScript modules easy to discover and it manages dependency conflicts.
-- JavaScript is the best language for processing the JSON format. A common serverless function (called Lambdas on AWS, Azure Functions on Azure and Google Cloud Functions on GCP) is to perform some sort of translation on a JSON object.
+- JavaScript is the best language for processing the JSON format. A common serverless function (called Lambdas on AWS, Azure Functions on Azure and Google Cloud Functions on Google Cloud) is to perform some sort of translation on a JSON object.
 
 ## The Serverless Framework
 
-The Serverless Framework is another reason for JavaScript’s popularity for serverless architectures. It is written in Node.js and it lets you develop and deploy serverless applications to AWS, Azure, GCP and other cloud providers. A Serverless app can be as simple as a couple of lambda functions or an entire back-end composed of hundreds of lambda functions.
+The Serverless Framework is another reason for JavaScript’s popularity for serverless architectures. It is written in Node.js and it lets you develop and deploy serverless applications to AWS, Azure, Google Cloud and other cloud providers. A Serverless app can be as simple as a couple of lambda functions or an entire back-end composed of hundreds of lambda functions.
 
 ## Find the Right Platform: JavaScript and Infrastructure as Code
 

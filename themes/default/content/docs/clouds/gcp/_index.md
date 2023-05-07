@@ -30,7 +30,7 @@ menu:
 
 ## Components
 
-- [GCP Global CloudRun](/registry/packages/gcp-global-cloudrun/)
+- [Google Cloud Global CloudRun](/registry/packages/gcp-global-cloudrun/)
 - [Google Cloud static website](/registry/packages/google-cloud-static-website/)
 
 ## Templates

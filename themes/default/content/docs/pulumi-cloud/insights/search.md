@@ -295,7 +295,7 @@ You may need to refine the pre-populated query slightly to capture your intent. 
 
 > type:"aws:s3/bucket:Bucket"
 
-This isn't accurate if you're using GCP, however. In that case you could modify the query to be
+This isn't accurate if you're using Google Cloud, however. In that case you could modify the query to be
 
 > type:"gcp:storage:Bucket"
 

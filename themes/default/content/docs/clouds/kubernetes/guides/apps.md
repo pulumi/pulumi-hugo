@@ -38,7 +38,7 @@ The full code for the Azure apps stack is on [GitHub][gh-repo-stack].
 
 {{% choosable cloud gcp %}}
 
-The full code for the GCP apps stack is on [GitHub][gh-repo-stack].
+The full code for the Google Cloud apps stack is on [GitHub][gh-repo-stack].
 
 <!-- markdownlint-disable url -->
 [gh-repo-stack]: https://github.com/pulumi/kubernetes-guides/tree/master/gcp/06-apps
@@ -316,7 +316,7 @@ import * as gcp from "@pulumi/gcp";
 import * as k8s from "@pulumi/kubernetes";
 import * as pulumi from "@pulumi/pulumi";
 
-// Get the GCP project registry repository.
+// Get the Google Cloud project registry repository.
 const registry = gcp.container.getRegistryRepositoryOutput();
 
 // Get the repository URL
@@ -369,7 +369,7 @@ import * as k8s from "@pulumi/kubernetes";
 import * as kx from "@pulumi/kubernetesx";
 import * as pulumi from "@pulumi/pulumi";
 
-// Get the GCP project registry repository.
+// Get the Google Cloud project registry repository.
 const registry = gcp.container.getRegistryRepositoryOutput();
 
 // Get the repository URL

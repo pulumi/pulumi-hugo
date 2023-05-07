@@ -360,7 +360,7 @@ based on your provider of choice. For example:
 
 * `AWS_ACCESS_KEY_ID`, `AWS_REGION` and `AWS_SECRET_ACCESS_KEY` for [AWS](/registry/packages/aws/installation-configuration/)
 * `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET`, and `ARM_TENANT_ID` for [Azure](/registry/packages/azure/installation-configuration/)
-* `GOOGLE_CREDENTIALS` for [GCP](/registry/packages/gcp/installation-configuration/)
+* `GOOGLE_CREDENTIALS` for [Google Cloud](/registry/packages/gcp/installation-configuration/)
 * `KUBECONFIG` for [Kubernetes](/registry/packages/kubernetes/installation-configuration/)
 
 ## Try It Out!

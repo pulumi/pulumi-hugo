@@ -68,12 +68,12 @@ The full code for this stack is on [GitHub][gh-repo-stack].
 
 {{% choosable cloud gcp %}}
 
-GCP has a catalog of [managed infrastructure][gcp-managed-svcs] services that
+Google Cloud has a catalog of [managed infrastructure][gcp-managed-svcs] services that
 support and complement Kubernetes clusters and their workloads.
 
 At a minimum, networking must be configured for deployment of an EKS cluster.
 
-GCP exposes a [Virtual Private Cloud][gcp-vpc] API which can be used to create
+Google Cloud exposes a [Virtual Private Cloud][gcp-vpc] API which can be used to create
 resources into a virtual network. With the VPC you can define the region to use,
 alongwith [Routes][gcp-rts], [Subnets][gcp-subnets], [Forwarding Rules][gcp-fwd-rules],
 and [Firewall Rules][gcp-fw-rules].
@@ -435,7 +435,7 @@ const appImage = new docker.Image(customImage, {
 });
 ```
 
-### GCP Object Storage
+### Google Cloud Object Storage
 
 Create a new bucket with a data source of a local file.
 

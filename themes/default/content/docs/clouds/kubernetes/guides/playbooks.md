@@ -83,7 +83,7 @@ can grant minimal permissions based on the [principle of least privilege][least-
 
 The identity stack typically contains:
 
-* Identities and roles for the team e.g. [AWS IAM][aws-iam], [GCP IAM][gcp-iam], [Azure AD][azure-ad].
+* Identities and roles for the team e.g. [AWS IAM][aws-iam], [Google Cloud IAM][gcp-iam], [Azure AD][azure-ad].
 
     For example, the database team typically gets only administrative permissions for the datastores, while an app team might only get cluster developer permissions.
 * Service Accounts for bots and CI/CD.

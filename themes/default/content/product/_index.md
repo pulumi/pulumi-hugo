@@ -216,7 +216,7 @@ get_started:
     get_started:
         title: Get started now
         description: |
-            Deploy your first app in just five minutes. Follow our tutorials for AWS, Azure, GCP, Kubernetes, and more.
+            Deploy your first app in just five minutes. Follow our tutorials for AWS, Azure, Google Cloud, Kubernetes, and more.
         cta_text: Get Started
 
     migrate:

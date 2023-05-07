@@ -49,7 +49,7 @@ See our dedicated documentation page on how to use [Pulumi and Codefresh togethe
 
 Just like your application code, you can build your infrastructure with a CI/CD pipeline. Pulumi lets developers write infrastructure using their favorite language, such as Typescript, Python, or go.  Developers can take advantage of abstractions, code reuse, refactoring, favorite development environments, and testing tools.
 
-In addition to supporting multiple languages, you can build infrastructure on any cloud such as AWS, Azure, GCP, and Kubernetes and take full advantage of their service offerings. Choose your toolchain and frameworks, and you're set to deploy infrastructure on any major cloud provider and even hybrid and on-premises environments.
+In addition to supporting multiple languages, you can build infrastructure on any cloud such as AWS, Azure, Google Cloud, and Kubernetes and take full advantage of their service offerings. Choose your toolchain and frameworks, and you're set to deploy infrastructure on any major cloud provider and even hybrid and on-premises environments.
 
 By leveraging infrastructure as code combined with software developement practices, engineers can achieve greater productivity while enabling their development teams to be more "self-serve" with appropriate policies and guardrails in place. Pulumi brings cloud security engineering to the infrastructure and development teams. Using one common workflow that spans any cloud environment, whether public, private, or hybrid, security teams can enforce policies that accomplish cloud governance projects of all kinds — security, compliance, cost control, and more.
 

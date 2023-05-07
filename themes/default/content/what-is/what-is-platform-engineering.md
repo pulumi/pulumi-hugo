@@ -121,7 +121,7 @@ Platform engineering roles typically require a combination of technical and soft
 
 * Strong programming skills: Platform engineers should have a solid foundation in at least [one programming language](/docs/intro/languages/) and experience with software design patterns.
 
-* [Cloud engineering](/cloud-engineering/): Experience with cloud computing platforms such as Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure is often required, as well as familiarity with Infrastructure As Code.
+* [Cloud engineering](/cloud-engineering/): Experience with cloud computing platforms such as Amazon Web Services (AWS), Google Cloud Platform (Google Cloud), or Microsoft Azure is often required, as well as familiarity with Infrastructure As Code.
 
 * DevOps and automation: Familiarity with DevOps practices and tools for automation, such as containerization, [continuous integration/delivery pipelines](/docs/guides/continuous-delivery/), and configuration management.
 

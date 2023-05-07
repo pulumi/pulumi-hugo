@@ -20,7 +20,7 @@ link = "/docs/concepts/how-pulumi-works"
 
 [[entries]]
 term = "Self-hosted"
-description = "Self-hosted in Pulumi applies to on-premise \"behind a firewall\" scenarios, as well as environments hosted within your own AWS, Azure, or GCP account."
+description = "Self-hosted in Pulumi applies to on-premise \"behind a firewall\" scenarios, as well as environments hosted within your own AWS, Azure, or Google Cloud account."
 link = "/docs/concepts/state#deciding-on-a-state-backend"
 
 [[entries]]

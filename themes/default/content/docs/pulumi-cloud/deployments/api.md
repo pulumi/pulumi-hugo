@@ -230,8 +230,8 @@ The following environment variables are used internally by Pulumi Deployments, a
 
 `GCPOIDCConfiguration` has the following structure:
 
-* **projectId** (string): The numerical ID of the GCP project.
-* **region** (Optional[string]): The region of the GCP project.
+* **projectId** (string): The numerical ID of the Google Cloud project.
+* **region** (Optional[string]): The region of the Google Cloud project.
 * **workloadPoolId** (string): The ID of the workload pool to use.
 * **providerId** (string): The ID of the identity provider associated with the workload pool.
 * **serviceAccount** (string): The email address of the service account to use.

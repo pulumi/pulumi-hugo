@@ -1,5 +1,5 @@
 ---
-title: Deploy the Changes | GCP
+title: Deploy the Changes | Google Cloud
 h1: Deploy the Changes
 linktitle: Deploy changes
 meta_desc: This page provides an overview of how deploy changes to a Google Cloud project.

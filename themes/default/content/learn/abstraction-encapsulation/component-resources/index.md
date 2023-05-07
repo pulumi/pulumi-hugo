@@ -185,6 +185,6 @@ There's a lot more to explore regarding this topic in Pulumi. We're working on m
 
 * [An AWS/Python example](https://github.com/pulumi/examples/tree/master/aws-py-wordpress-fargate-rds)
 * [An Azure/Python example](https://github.com/pulumi/examples/tree/master/classic-azure-py-webserver-component)
-* [A GCP/Python example](https://github.com/pulumi/examples/tree/master/gcp-py-network-component)
+* [A Google Cloud/Python example](https://github.com/pulumi/examples/tree/master/gcp-py-network-component)
 
 Go build new things, and watch this space for more learning experiences with Pulumi!

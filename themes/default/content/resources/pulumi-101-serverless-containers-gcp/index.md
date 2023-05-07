@@ -39,7 +39,7 @@ url_slug: "pulumi-101-serverless-containers-gcp"
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: "Pulumi 101: Serverless containers on GCP"
+    title: "Pulumi 101: Serverless containers on Google Cloud"
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
@@ -49,7 +49,7 @@ hero:
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: "Pulumi 101: Serverless containers on GCP"
+    title: "Pulumi 101: Serverless containers on Google Cloud"
     # URL for embedding a URL for ungated webinars.
     youtube_url: https://www.youtube.com/embed/FuDq9pGwJg4?rel=0
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.

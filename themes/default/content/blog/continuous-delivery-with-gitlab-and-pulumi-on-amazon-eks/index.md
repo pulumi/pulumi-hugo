@@ -12,7 +12,7 @@ In this blog, we will work through an example that shows how to use Pulumi to en
 continuous delivery with your Kubernetes workloads on Amazon EKS. This integration will work just
 as seamlessly for any Kubernetes cluster, including Azure AKS or Google GKE, using the relevant
 Pulumi libraries for [Azure](https://github.com/pulumi/pulumi-azure) and
-[GCP](https://github.com/pulumi/pulumi-gcp).
+[Google Cloud](https://github.com/pulumi/pulumi-gcp).
 <!--more-->
 
 ## Prerequisites

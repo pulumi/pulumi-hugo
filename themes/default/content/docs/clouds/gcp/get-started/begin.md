@@ -1,5 +1,5 @@
 ---
-title: Before You Begin | GCP
+title: Before You Begin | Google Cloud
 h1: Before You Begin
 linktitle: Before you begin
 meta_desc: This page provides an overview on how to get started with Pulumi and Google Cloud.

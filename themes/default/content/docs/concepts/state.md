@@ -139,7 +139,7 @@ The Pulumi Cloud doesn't ever acquire your cloud credentials, and does not commu
 
 The Pulumi Cloud is reliable, secure, and has undergone multiple audits, including SOC2 and professional pen-testing. Because of the client/server division of responsibilities &mdash; notably that the server doesn't have direct access to your cloud credentials, runtime data, or PII &mdash; the Pulumi Cloud has been used in organizations with advanced compliance needs, including PCI, ISO 27001, HIPAA, and more. If you'd like to discuss any of these topics, please [contact us](/contact/).
 
-It is possible to host your own version of the Pulumi Cloud in your private cloud environment. Pulumi offers versions that run natively on AWS, Azure, GCP, Kubernetes, or simple virtual machine-based private and hybrid cloud environments. The architecture is very similar to the online version, but is privately hosted and does not depend on public access over the Internet:
+It is possible to host your own version of the Pulumi Cloud in your private cloud environment. Pulumi offers versions that run natively on AWS, Azure, Google Cloud, Kubernetes, or simple virtual machine-based private and hybrid cloud environments. The architecture is very similar to the online version, but is privately hosted and does not depend on public access over the Internet:
 
 <img src="/images/docs/reference/state_enterprise.png" alt="Pulumi Enterprise Architecture" class="img-bordered">
 
@@ -242,7 +242,7 @@ To use the [Google Cloud Storage](https://cloud.google.com/storage/) backend pas
 $ pulumi login gs://<my-pulumi-state-bucket>
 ```
 
-To configure credentials for this backend, see [Application Default Credentials](https://cloud.google.com/docs/authentication/production). For additional configuration options, see [GCP Setup](/registry/packages/gcp/installation-configuration/). If you're new to Google Cloud Storage, see [the Google Cloud documentation](https://cloud.google.com/storage/docs/quickstarts).
+To configure credentials for this backend, see [Application Default Credentials](https://cloud.google.com/docs/authentication/production). For additional configuration options, see [Google Cloud Setup](/registry/packages/gcp/installation-configuration/). If you're new to Google Cloud Storage, see [the Google Cloud documentation](https://cloud.google.com/storage/docs/quickstarts).
 
 ### Scoping
 

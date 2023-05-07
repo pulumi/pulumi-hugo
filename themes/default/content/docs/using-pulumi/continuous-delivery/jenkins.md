@@ -139,7 +139,7 @@ You can get to the administration in one of two ways depending on which UI (Clas
 
 ### Using the withCredentials binding plugin
 
-Jenkins allows you to [manage credentials in a global credentials store](https://jenkins.io/doc/pipeline/steps/credentials-binding/). By using the `withCredentials` plugin, you could store your AWS, Azure or GCP credentials in the credentials store, and inject it into the pipeline easily. For example, in order to use the Azure CLI credentials, you will need the Azure CLI plugin additionally. Once added, you can add a new Service Principal credential and map its properties to the appropriate env variables needed by the Pulumi CLI.
+Jenkins allows you to [manage credentials in a global credentials store](https://jenkins.io/doc/pipeline/steps/credentials-binding/). By using the `withCredentials` plugin, you could store your AWS, Azure or Google Cloud credentials in the credentials store, and inject it into the pipeline easily. For example, in order to use the Azure CLI credentials, you will need the Azure CLI plugin additionally. Once added, you can add a new Service Principal credential and map its properties to the appropriate env variables needed by the Pulumi CLI.
 
 ```groovy
 ...

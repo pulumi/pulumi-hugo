@@ -1,5 +1,5 @@
 ---
-title: Next Steps | GCP
+title: Next Steps | Google Cloud
 h1: Next Steps
 linktitle: Next steps
 meta_desc: This page provides a list of tutorials that take a deeper dive into

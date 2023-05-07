@@ -33,7 +33,7 @@ usually a mix of cloud provider and custom services.
 
 {{% choosable cloud gcp %}}
 
-* [GCP app services stack on GitHub](https://github.com/pulumi/kubernetes-guides/tree/master/gcp/05-app-services)
+* [Google Cloud app services stack on GitHub](https://github.com/pulumi/kubernetes-guides/tree/master/gcp/05-app-services)
 
 {{% /choosable %}}
 
@@ -301,7 +301,7 @@ const dbConn = new k8s.core.v1.Secret(
 
 ### Redis Datastore
 
-Create a Redis datastore instance in [GCP Cloud MemoryStore][gcp-redis], and store its
+Create a Redis datastore instance in [Google Cloud MemoryStore][gcp-redis], and store its
 connection information in a Kubernetes [ConfigMap][k8s-cm] for apps to refer
 to and consume.
 

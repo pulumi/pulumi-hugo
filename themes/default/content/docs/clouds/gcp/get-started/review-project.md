@@ -1,5 +1,5 @@
 ---
-title: Review the New Project | GCP
+title: Review the New Project | Google Cloud
 h1: Review the New Project
 linktitle: Review project
 meta_desc: This page provides an overview on how to a review a new Google Cloud project.
@@ -54,7 +54,7 @@ Let's examine {{< langfile >}}.
 const pulumi = require("@pulumi/pulumi");
 const gcp = require("@pulumi/gcp");
 
-// Create a GCP resource (Storage Bucket)
+// Create a Google Cloud resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("my-bucket");
 
 // Export the DNS name of the bucket
@@ -69,7 +69,7 @@ exports.bucketName = bucket.url;
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
-// Create a GCP resource (Storage Bucket)
+// Create a Google Cloud resource (Storage Bucket)
 const bucket = new gcp.storage.Bucket("my-bucket");
 
 // Export the DNS name of the bucket
@@ -84,7 +84,7 @@ export const bucketName = bucket.url;
 import pulumi
 from pulumi_gcp import storage
 
-# Create a GCP resource (Storage Bucket)
+# Create a Google Cloud resource (Storage Bucket)
 bucket = storage.Bucket('my-bucket')
 
 # Export the DNS name of the bucket
@@ -105,7 +105,7 @@ import (
 
 func main() {
     pulumi.Run(func(ctx *pulumi.Context) error {
-        // Create a GCP resource (Storage Bucket)
+        // Create a Google Cloud resource (Storage Bucket)
 	bucket, err := storage.NewBucket(ctx, "my-bucket", &storage.BucketArgs{
 	    Location: pulumi.String("US"),
 	})
@@ -131,7 +131,7 @@ using System.Collections.Generic;
 
 return await Deployment.RunAsync(() =>
 {
-    // Create a GCP resource (Storage Bucket)
+    // Create a Google Cloud resource (Storage Bucket)
     var bucket = new Bucket("my-bucket", new BucketArgs
     {
         Location = "US"
@@ -181,7 +181,7 @@ runtime: yaml
 description: A minimal Google Cloud Pulumi YAML program
 
 resources:
-  # Create a GCP resource (Storage Bucket)
+  # Create a Google Cloud resource (Storage Bucket)
   my-bucket:
     type: gcp:storage:Bucket
     properties:

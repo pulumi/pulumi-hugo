@@ -74,12 +74,12 @@ The full code for this stack is on [GitHub][gh-repo-stack].
 
 {{% choosable cloud gcp %}}
 
-GCP exposes an [Identity Access and Management (IAM)][gcp-iam] API which can be used to grant
+Google Cloud exposes an [Identity Access and Management (IAM)][gcp-iam] API which can be used to grant
 permissions to both human and bot users. Using this API, [IAM Members][gcp-iam] can be
 slotted into end users, [IAM Groups][gcp-iam] (e.g., the `networkAdmins` IAM Group),
 and GSuite accounts, and can then be allocated [IAM Roles][gcp-roles] with baseline permissions using [IAM Policies][gcp-policies].
 
-GCP services can also be granted permissions temporarily, without the need for usernames and passwords, using [ServiceAccounts][gcp-sa].
+Google Cloud services can also be granted permissions temporarily, without the need for usernames and passwords, using [ServiceAccounts][gcp-sa].
 
 The full code for this stack is on [GitHub][gh-repo-stack].
 
@@ -327,9 +327,9 @@ See the official [docs][gke-rbac] for more details.
 
 ### Prerequisites
 
-To facilitate working with GCP, it is recommended that you create a new
+To facilitate working with Google Cloud, it is recommended that you create a new
 ServiceAccount with the proper permissions needed to create all of the
-resources in each stack. We'll set this ServiceAccount to be bound to [GCP roles][gcp-roles]
+resources in each stack. We'll set this ServiceAccount to be bound to [Google Cloud roles][gcp-roles]
 the with permissions of `role/editor` and `roles/container.clusterAdmin`.
 
 Create the ServiceAccount and its secret key to use for auth. Then bind it to
@@ -347,7 +347,7 @@ $ gcloud auth activate-service-account --key-file ~/key.json
 
 ## Create an IAM Role and ServiceAccount for Admins
 
-Create an admin role in GCP and attach admin policies to the role.
+Create an admin role in Google Cloud and attach admin policies to the role.
 This role will be bound to the admin service account.
 
 ```typescript
@@ -524,7 +524,7 @@ export const adGroupDevs = devs.displayName;
 
 ## Create an IAM Role and ServiceAccount for Developers
 
-Create a developer role in GCP that will be mapped into a limited developer
+Create a developer role in Google Cloud that will be mapped into a limited developer
 role in Kubernetes RBAC.
 
 ```typescript

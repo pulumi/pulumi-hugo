@@ -20,7 +20,7 @@ aliases:
 - A Google Cloud Platform account with the following APIs enabled:
     - Cloud Build API
     - Cloud Functions API (and/or any other relevant resource that will be deployed).
-- Add `Cloud Functions Developer` role (and/or any other relevant resource that will be deployed) and the `Service Account User` role to the Cloud Build's service account. You can do this by navigating to the IAM tab in the GCP Console.
+- Add `Cloud Functions Developer` role (and/or any other relevant resource that will be deployed) and the `Service Account User` role to the Cloud Build's service account. You can do this by navigating to the IAM tab in the Google Cloud Console.
 
 ![Cloud Build service account](/images/docs/reference/google-cloud-build/cloud-build-service-account.png)
 
@@ -34,7 +34,7 @@ error: Plan apply failed: googleapi: Error 403: Missing necessary permission iam
 
 - A Pulumi account. Don't have one? [Signup](https://app.pulumi.com/signup) now.
 - An existing stack or create one based off a template.
-- This page uses the [GCP Functions example](https://github.com/pulumi/examples/tree/master/gcp-ts-functions) from the Pulumi examples repo.
+- This page uses the [Google Cloud Functions example](https://github.com/pulumi/examples/tree/master/gcp-ts-functions) from the Pulumi examples repo.
     - The choice of example has no bearing on the information presented on this page. You may choose any example. However, the Cloud Functions example is the easiest and quickest to get up and running with Cloud Build.
 
 ## Deploying from a Cloud Source repo
@@ -49,11 +49,11 @@ Have an existing repo already? Cloud Source supports [mirroring repositories](ht
 
 ## Pulumi Config
 
-Set the appropriate `gcp:project` and `gcp:region` values. For example, if your GCP project ID is `awesome-project` and you would like to deploy resources to `us-central1`, then you should run:
+Set the appropriate `gcp:project` and `gcp:region` values. For example, if your Google Cloud project ID is `awesome-project` and you would like to deploy resources to `us-central1`, then you should run:
 
 `pulumi config set gcp:project awesome-project` and `pulumi config set gcp:region us-central`
 
-**Note**: Not all resources are available in all regions. Check that GCP supports [the region and resource combination](https://cloud.google.com/about/locations/).
+**Note**: Not all resources are available in all regions. Check that Google Cloud supports [the region and resource combination](https://cloud.google.com/about/locations/).
 
 ## Build Configuration
 
@@ -133,7 +133,7 @@ esac
 ### Build Triggers
 
 Cloud Build supports triggers that can start a new instance of your cloud build using the configuration defined in your repo.
-To setup a build trigger, navigate to the [Cloud Build service](https://console.cloud.google.com/cloud-build/triggers) in your GCP Console, making sure that you have the correct project selected.
+To setup a build trigger, navigate to the [Cloud Build service](https://console.cloud.google.com/cloud-build/triggers) in your Google Cloud Console, making sure that you have the correct project selected.
 Click on **Add Trigger** and follow the prompts to setup a trigger for your repo. In the final step **Trigger settings**, select the following settings:
 
 - **Branch (regex)**: `[^master]`
@@ -147,7 +147,7 @@ Click on **Add Trigger** and follow the prompts to setup a trigger for your repo
 
 ### Use the Pulumi community builder image for Google Cloud Build
 
-We have created a builder image that will install the Pulumi CLI for you in a Node-based image. Since the builder is part of Google Cloud Build's community builders, you will need to make the builder available to your project by cloning the community builders' Git repo. See [GCP Cloud Builders Community Repository](https://github.com/GoogleCloudPlatform/cloud-builders-community/tree/master/pulumi) for more information and an example for how to use the builder in your project.
+We have created a builder image that will install the Pulumi CLI for you in a Node-based image. Since the builder is part of Google Cloud Build's community builders, you will need to make the builder available to your project by cloning the community builders' Git repo. See [Google Cloud Cloud Builders Community Repository](https://github.com/GoogleCloudPlatform/cloud-builders-community/tree/master/pulumi) for more information and an example for how to use the builder in your project.
 
 ### Encrypted Variables
 

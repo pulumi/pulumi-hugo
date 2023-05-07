@@ -22,12 +22,12 @@ The GKE-hosted installation of Pulumi deploys the following services:
 
 ### Pulumi deploying Pulumi
 
-This installer uses Pulumi to deploy the Pulumi Cloud. In this case, one uses the Pulumi CLI with a self-managed backend (e.g. GCP storage bucket) to deploy all services listed above to stand up the self-hosted Pulumi Cloud. The installation package includes Pulumi project code so that you can deploy the Service by running `pulumi up`.
+This installer uses Pulumi to deploy the Pulumi Cloud. In this case, one uses the Pulumi CLI with a self-managed backend (e.g. Google Cloud storage bucket) to deploy all services listed above to stand up the self-hosted Pulumi Cloud. The installation package includes Pulumi project code so that you can deploy the Service by running `pulumi up`.
 
 To this end, you need to set up the following:
 
 * [Download and install the Pulumi CLI](/docs/install/) on your workstation
-* [Login to GCP Storage Backend](/docs/concepts/state#google-cloud-storage)
+* [Login to Google Cloud Storage Backend](/docs/concepts/state#google-cloud-storage)
 
 ### Deployment Steps
 
@@ -47,7 +47,7 @@ When ready to update the Pulumi Sevice containers to use a different version, do
 
 ### Database Maintenance
 
-Currently, the installer deploys a single-server MySQL backend database server. By default, GCP provides 7 days of backups.
+Currently, the installer deploys a single-server MySQL backend database server. By default, Google Cloud provides 7 days of backups.
 
 ### Bucket Maintenance
 

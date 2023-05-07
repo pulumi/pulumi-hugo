@@ -21,7 +21,7 @@ Pulumi supports more platforms
 (Parallelism, simpler (native
 TypeScript support), richer
 (serverless frameworks for Azure and
-GCP),  and is more deeply
+Google Cloud),  and is more deeply
 integrated into the application lifecycle
 ([GitHub App for CI/CD integration](/docs/guides/continuous-delivery/github-app)).
 
@@ -199,12 +199,12 @@ and the [pulumi-openstack](https://github.com/pulumi/pulumi-openstack)
 GitHub project for additional details. Huge thanks to Fraser for his
 work on this!
 
-## Serverless Functions in GCP and Azure
+## Serverless Functions in Google Cloud and Azure
 
 Particularly with serverless functions being real functions, we had a
 lot of interest in broadening our existing support beyond [just AWS
 serverless](https://github.com/pulumi/pulumi-aws-serverless).  We are
-happy to announce better serverless functionality for GCP and Azure.
+happy to announce better serverless functionality for Google Cloud and Azure.
 
 On Azure, the new `@pulumi/azure-serverless` package makes it easy to
 work with serverless functions, and has initial support for hooking up

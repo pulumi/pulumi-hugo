@@ -240,11 +240,11 @@ $ export KUBECONFIG=`pwd`/kubeconfig-devs.json
 
 {{% choosable cloud gcp %}}
 
-In GCP, the account caller will be placed into the
+In Google Cloud, the account caller will be placed into the
 `system:masters` Kubernetes RBAC group by default. The `kubeconfig`
 generated will be specific to this primary cluster creator use-case.
 
-GCP authentication will use tokens to operate as Members such as Users or ServiceAccounts,
+Google Cloud authentication will use tokens to operate as Members such as Users or ServiceAccounts,
 and with certain permissions as detailed in [Configure Access Control][crosswalk-configure-access].
 
 #### Admin Authentication

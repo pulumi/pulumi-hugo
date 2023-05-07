@@ -2,7 +2,7 @@
 title: TypeScript (Node.js)
 title_tag: How to use Node.js (TypeScript) with Pulumi
 h1: How to use Node.js (TypeScript) with Pulumi
-meta_desc: Learn how to use Node.js languages like JavaScript and TypeScript with Pulumi for infrastructure as code on any cloud (AWS, Azure, GCP, Kubernetes, etc.).
+meta_desc: Learn to use Node.js languages like JavaScript and TypeScript with Pulumi for infrastructure as code on any cloud (AWS, Azure, Google Cloud, Kubernetes, etc.).
 menu:
   languages:
     weight: 1

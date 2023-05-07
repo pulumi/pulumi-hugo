@@ -377,7 +377,7 @@ Pulumi supports the entirety of the AWS platform. If your favorite service isn't
 ### What Clouds Does Pulumi Crosswalk Support?
 
 Pulumi Crosswalk supports AWS only at the moment. Support for additional clouds is on the roadmap
-([Azure](https://github.com/pulumi/pulumi-azure/issues/277), [GCP](https://github.com/pulumi/pulumi-gcp/issues/165),
+([Azure](https://github.com/pulumi/pulumi-azure/issues/277), [Google Cloud](https://github.com/pulumi/pulumi-gcp/issues/165),
 and [Kubernetes](https://github.com/pulumi/pulumi-kubernetes/issues/589)).
 
 ### What Languages are Supported?

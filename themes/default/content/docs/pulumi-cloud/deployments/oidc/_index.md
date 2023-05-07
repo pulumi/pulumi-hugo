@@ -18,7 +18,7 @@ aliases:
 
 ## Overview
 
-Every time a deployment runs, the Pulumi Cloud issues a new OIDC token specific to that deployment. The OIDC token is a short-lived, signed [JSON Web Token](https://jwt.io) that contains information about the deployment and that can be exchanged for credentials from a cloud provider. For AWS, Azure, and GCP, this credential exchange can be done automatically as part of deployment setup. For advanced scenarios or other cloud providers, the token is available in the `PULUMI_OIDC_TOKEN` environment variable as well as in the `/mnt/pulumi/pulumi.oidc` file.
+Every time a deployment runs, the Pulumi Cloud issues a new OIDC token specific to that deployment. The OIDC token is a short-lived, signed [JSON Web Token](https://jwt.io) that contains information about the deployment and that can be exchanged for credentials from a cloud provider. For AWS, Azure, and Google Cloud, this credential exchange can be done automatically as part of deployment setup. For advanced scenarios or other cloud providers, the token is available in the `PULUMI_OIDC_TOKEN` environment variable as well as in the `/mnt/pulumi/pulumi.oidc` file.
 
 The token contains the standard audience, issuer, and subject claims:
 
@@ -57,4 +57,4 @@ To configure OIDC for your cloud provider, refer to one of our guides:
 
 - [Configuring OIDC for AWS](/docs/guides/oidc/aws/)
 - [Configuring OIDC for Azure](/docs/guides/oidc/azure/)
-- [Configuring OIDC for GCP](/docs/guides/oidc/gcp/)
+- [Configuring OIDC for Google Cloud](/docs/guides/oidc/gcp/)

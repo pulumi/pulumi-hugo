@@ -1,5 +1,5 @@
 ---
-title: Deploy the Stack | GCP
+title: Deploy the Stack | Google Cloud
 h1: Deploy the Stack
 linktitle: Deploy stack
 meta_desc: This page provides an overview of how to deploy changes to a Google Cloud project.

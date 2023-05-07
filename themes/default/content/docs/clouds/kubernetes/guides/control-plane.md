@@ -2,7 +2,7 @@
 title_tag: Creating a Kubernetes Control Plane | Crosswalk
 title: Control Plane
 meta_desc: This page will walk you through how to create on a Kubernetes Control Pane
-           on AWS, Azure, and GCP.
+           on AWS, Azure, and Google Cloud.
 menu:
   clouds:
     parent: kubernetes-guides
@@ -43,7 +43,7 @@ The full code for this stack is on [GitHub](https://github.com/pulumi/kubernetes
 {{% choosable cloud gcp %}}
 
 In order to run container workloads, you will need a Kubernetes cluster.
-While it is possible to provision and manage a cluster manually on GCP,
+While it is possible to provision and manage a cluster manually on Google Cloud,
 their managed offering, [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/), offers an
 easier way to get up and running.
 
@@ -314,7 +314,7 @@ creates workers that will not be publicly accessible from the Internet,
 and they'll typically be shielded within your network.
 
 GKE will manage Kubernetes Pod networking for us through
-the use of Alias IPs to address and route pods within a GCP network.
+the use of Alias IPs to address and route pods within a Google Cloud network.
 
 ```typescript
 // Create a new network.
@@ -576,7 +576,7 @@ See the [official GKE docs](https://cloud.google.com/kubernetes-engine/docs/conc
 {{< choosable k8s-language yaml >}}
 
 After the cluster is provisioned and running, create a StorageClass to
-provision GCP disks.
+provision Google Cloud disks.
 
 Create the storage classes using `kubectl`.
 
@@ -751,7 +751,7 @@ general best-practices and recommendations to configure in the cluster.
 * Enable [PodSecurityPolicies](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) using `podSecurityPolicyConfig: { enabled: true }`
 * Skip enabling the default node group in favor of managing them separately from
   the control plane, as demonstrated in [Create the Worker Nodes](/docs/clouds/kubernetes/guides/worker-nodes/).
-* [Disable legacy metadata APIs](https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata#disable-legacy-apis) that are not v1 and do not enforce internal GCP metadata headers
+* [Disable legacy metadata APIs](https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata#disable-legacy-apis) that are not v1 and do not enforce internal Google Cloud metadata headers
 * Enable control plane logging and monitoring through `oauthScopes` to have diagnostics of the control
   plane's actions, and for use in debugging and auditing.
 * (Optional) Configure private accessibility of the control plane /
