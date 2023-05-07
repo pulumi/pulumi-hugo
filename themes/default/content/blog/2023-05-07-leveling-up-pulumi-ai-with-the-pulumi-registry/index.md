@@ -31,15 +31,15 @@ What puts the "large" in large language model is the volume of data required to 
 
 To better understand the limitations, let's talk about tokens. Instead of operating on Unicode text, these models operate on token arrays, mapping many sequences of characters (words or parts of words) to 16-bit integers. For example, "Script" is one token, and "JavaScript" is typically two tokens. We found that despite this compression of words to tokens, the latest schemas for all of our providers would use on the order of one billion tokens.
 
-The most powerful systems to date support at most 32,000 tokens in their prompt – enough to fit a novella!
+The most powerful systems to date support at most 32,000 tokens in their prompt – enough to fit a novella! That should be enough, right?
 
-We did the math: one billion minus 32000... And we're still about a billion tokens over the limit.
+We did the math: one billion minus 32,000... And we're still about a billion tokens over the limit.
 
 ### The right information, at the right time
 
 To work around this limitation, we need to carefully select and inject the right schema information into the context window, ensuring that the model could understand, process, and generate the best possible solutions for users.
 
-We cracked open our college textbooks on information storage & retrieval, evaluated the latest vector databases and embedding systems, and perused the literature. One internal demo we did used a technique similar to [Hypothetical Document Embeddings (HyDE)](https://arxiv.org/abs/2212.10496). While this did improve accuracy and reduce hallucinations, that approach also requires pre-processing step on the user's query. That additional step results in a much higher time-to-first-token (TTFT) latency, negatively impacting user experience.
+We cracked open our college textbooks on information storage & retrieval, evaluated the latest vector databases and embedding systems, and perused the literature. One internal demo we did used a technique similar to [Hypothetical Document Embeddings (HyDE)](https://arxiv.org/abs/2212.10496). While this did improve accuracy and reduce hallucinations, that approach also requires pre-processing the user's query. That additional step results in a much higher time-to-first-token (TTFT) latency, negatively impacting user experience.
 
 After iterating on these approaches in the weeks after launch, we've implemented a method that yields comparable results to HyDE without slowing the system down. Our current approach allowed us to maintain an engaging and responsive interface while still enhancing Pulumi AI's accuracy.
 
