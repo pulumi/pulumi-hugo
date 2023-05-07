@@ -1,7 +1,8 @@
 ---
-title_tag: "Intro to Pulumi: Logging"
-title: "Logging"
+title_tag: "Pulumi concepts: Logging"
 meta_desc: An overview of the Pulumi logging functionality used for debugging and diagnostics.
+title: "Logging"
+h1: "Logging"
 menu:
   concepts:
     weight: 11

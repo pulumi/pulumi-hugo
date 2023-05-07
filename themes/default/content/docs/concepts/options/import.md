@@ -1,7 +1,8 @@
 ---
-title_tag: "Import Resource Option"
-title: "Import"
+title_tag: "Pulumi concepts: import resource option"
 meta_desc: The import resource option brings an existing cloud resource into Pulumi.
+title: "import"
+h1: "Resource option: import"
 menu:
   concepts:
     identifier: import

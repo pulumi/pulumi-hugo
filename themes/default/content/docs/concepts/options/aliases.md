@@ -1,7 +1,8 @@
 ---
-title_tag: "Aliases Resource Option"
-title: "Aliases"
+title_tag: "Pulumi concepts: aliases resource option"
 meta_desc: The aliases resource option is commonly used when refactoring Pulumi programs.
+title: "aliases"
+h1: "Resource option: aliases"
 menu:
   concepts:
     identifier: aliases

@@ -1,7 +1,8 @@
 ---
-title_tag: "IgnoreChanges Resource Option"
-title: "IgnoreChanges"
+title_tag: "Pulumi concepts: ignoreChanges resource option"
 meta_desc: The ignoreChanges resource option declares that changes to certain properties should be ignored during a diff.
+title: "ignoreChanges"
+h1: "Resource option: ignoreChanges"
 menu:
   concepts:
     identifier: ignoreChanges

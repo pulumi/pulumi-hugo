@@ -1,7 +1,8 @@
 ---
-title_tag: "AdditionalSecretOutputs Resource Option"
-title: "AdditionalSecretOutputs"
+title_tag: "Pulumi concepts: additionalSecretOutputs resource option"
 meta_desc: The additionalSecretOutputs resource option specifies a list of named output properties that should be treated as secrets.
+title: "additionalSecretOutputs"
+h1: "Resource option: additionalSecretOutputs"
 menu:
   concepts:
     identifier: additionalSecretOutputs

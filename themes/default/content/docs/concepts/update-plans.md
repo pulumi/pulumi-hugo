@@ -1,6 +1,8 @@
 ---
-title: "Update plans"
+title_tag: "Pulumi concepts: Update plans"
 meta_desc: Learn about Pulumi update plans and how they can be used.
+title: Update plans
+h1: Update  plans
 menu:
   concepts:
     weight: 12

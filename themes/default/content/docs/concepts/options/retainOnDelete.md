@@ -1,7 +1,8 @@
 ---
-title_tag: "RetainOnDelete Resource Option"
-title: "RetainOnDelete"
+title_tag: "Pulumi concepts: retainOnDelete resource option"
 meta_desc: The `retainOnDelete` resource option marks a resource to be retained during a delete operation.
+title: "retainOnDelete"
+h1: "Resource option: retainOnDelete"
 menu:
   concepts:
     identifier: retainOnDelete

@@ -1,7 +1,8 @@
 ---
-title_tag: "Version Resource Option"
-title: "Version"
+title_tag: "Pulumi concepts: cersion resource option"
 meta_desc: The version resource option specifies a provider version to use when operating on a resource.
+title: "version"
+h1: "Resource option: version"
 menu:
   concepts:
     identifier: version

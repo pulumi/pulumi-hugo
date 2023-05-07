@@ -1,7 +1,8 @@
 ---
-title_tag: "Parent Resource Option"
-title: "Parent"
+title_tag: "Pulumi concepts: parent resource option"
 meta_desc: The parent resource option establishes an explicit parent/child relationship between resources.
+title: "parent"
+h1: "Resource option: parent"
 menu:
   concepts:
     identifier: parent

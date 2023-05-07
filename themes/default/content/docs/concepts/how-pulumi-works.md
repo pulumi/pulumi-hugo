@@ -1,11 +1,11 @@
 ---
-title_tag: "Intro to Pulumi: How Does Pulumi Work?"
-title: "Pulumi architecture"
+title_tag: "Pulumi concepts: Pulumi architecture"
 meta_desc: This page provides an overview of how Pulumi works and interacts with different Cloud Providers like AWS, Azure, Kubernetes, and more.
+title: "Architecture"
+h1: "Pulumi architecture"
 menu:
   concepts:
     weight: 1
-
 aliases:
 - /docs/reference/how/
 - /docs/tour/basics-programs/

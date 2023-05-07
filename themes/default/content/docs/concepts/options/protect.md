@@ -1,7 +1,8 @@
 ---
-title_tag: "Protect Resource Option"
-title: "Protect"
+title_tag: "Pulumi concepts: protect resource option"
 meta_desc: The protect resource option prevents accidental deletion of a resource by marking it as protected.
+title: "protect"
+h1: "Resource option: protect"
 menu:
   concepts:
     identifier: protect

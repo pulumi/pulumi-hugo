@@ -1,7 +1,8 @@
 ---
-title_tag: "Provider Resource Option"
-title: "Provider"
+title_tag: "Pulumi concepts: provider resource option"
 meta_desc: The provider resource option passes an explicitly configured provider to be used instead of the global or ambient provider.
+title: "provider"
+h1: "Resource option: provider"
 menu:
   concepts:
     identifier: provider

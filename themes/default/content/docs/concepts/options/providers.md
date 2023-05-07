@@ -1,7 +1,8 @@
 ---
-title_tag: "Providers Resource Option"
-title: "Providers"
+title_tag: "Pulumi concepts: providers resource option"
 meta_desc: The providers resource option specifies a set of explicitly configured providers to be used for a resource and all of its children.
+title: "providers"
+h1: "Resource option: providers"
 menu:
   concepts:
     identifier: providers

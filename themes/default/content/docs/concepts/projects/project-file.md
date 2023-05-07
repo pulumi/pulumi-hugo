@@ -1,7 +1,8 @@
 ---
-title: Project File Reference
-linktitle: Project File
+title_tag: Project File Reference
 meta_desc: Documentation of the settings that are valid for the Pulumi project file.
+title: Project file
+h1: Pulumi project file
 menu:
   concepts:
     parent: projects

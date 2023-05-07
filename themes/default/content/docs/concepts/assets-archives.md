@@ -1,7 +1,8 @@
 ---
-title_tag: "Intro to Pulumi: Assets and Archives"
-title: "Assets & archives"
+title_tag: "Pulumi concepts: Assets and archives"
 meta_desc: "The Pulumi SDK provides two classes for working with files: Asset and Archive. Learn about the different object types for each class and how to use them."
+title: Assets & archives
+h1: Assets & archives
 menu:
   concepts:
     weight: 9

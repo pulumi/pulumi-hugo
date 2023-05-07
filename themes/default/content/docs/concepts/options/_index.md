@@ -1,7 +1,8 @@
 ---
-title_tag: "Intro to Pulumi: Resource Options"
-title: "Resource options"
+title_tag: "Pulumi concepts: Resource Options"
 meta_desc: Resource options can be used to configure how all Pulumi resources are managed. Learn more about the types of resource options and how to use them here.
+title: Resource options
+h1: Resource options
 menu:
   concepts:
     identifier: options

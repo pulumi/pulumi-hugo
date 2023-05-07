@@ -1,7 +1,8 @@
 ---
-title_tag: "Intro to Pulumi: Configuration"
-title: "Configuration"
+title_tag: "Pulumi concepts: Configuration"
 meta_desc: This page provides an overview of how Pulumi manages cloud application configuration settings.
+title: Config
+h1: Configuration
 menu:
   concepts:
     weight: 7
