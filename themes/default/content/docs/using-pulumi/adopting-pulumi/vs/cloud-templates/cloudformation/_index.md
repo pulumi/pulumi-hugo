@@ -68,7 +68,7 @@ The following table summarizes some additional similarities and differences betw
 | [Resource Aliases](#aliases) | Yes | Limited |
 | [Resource Transformations](#transformations) | Yes | No |
 
-Getting started with Pulumi is easy if you already have experience with a general-purpose programming language. Follow our [Adopting Pulumi from AWS CloudFormation guide](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_aws/) or try our [CloudFormation conversion tool](/cf2pulumi/). To deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy if you already have experience with a general-purpose programming language. Follow our [Adopting Pulumi from AWS CloudFormation guide](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws/) or try our [CloudFormation conversion tool](/cf2pulumi/). To deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 
@@ -104,7 +104,7 @@ If you’d like to create a new Pulumi provider, or learn more about how this in
 
 #### Converting CloudFormation Templates to Pulumi {#providers-converting}
 
-We also offer a tool called [cf2pulumi](/cf2pulumi/) that converts CloudFormation templates into a downloadable Pulumi program written in your programming language of choice. To learn more, see [Converting AWS CloudFormation to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_aws/) in our Adopting Pulumi user guide.
+We also offer a tool called [cf2pulumi](/cf2pulumi/) that converts CloudFormation templates into a downloadable Pulumi program written in your programming language of choice. To learn more, see [Converting AWS CloudFormation to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws/) in our Adopting Pulumi user guide.
 
 ### Cloud Native Support {#cloud-native}
 

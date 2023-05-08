@@ -18,11 +18,11 @@ This user guide offers a tour of tried-and-true tools and techniques that can be
 
 Below we will review some basic concepts, but feel free to jump straight to a specific guide:
 
-* [**Importing Infrastructure**](/docs/guides/adopting/import): for any cloud, no matter how it's provisioned
-* [**From Terraform**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform): coexist with existing workspaces or convert your HCL
-* [**From AWS CloudFormation**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_aws): coexist with, deploy, or convert your templates and stacks
-* [**From Azure Resource Manager (ARM)**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_azure): coexist with, deploy, or convert your templates and deployments
-* [**From Kubernetes YAML or Helm**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_kubernetes): coexist with, deploy, or convert your configuration
+* [**Importing Infrastructure**](/docs/using-pulumi/adopting-pulumi/import/): for any cloud, no matter how it's provisioned
+* [**From Terraform**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/): coexist with existing workspaces or convert your HCL
+* [**From AWS CloudFormation**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws/): coexist with, deploy, or convert your templates and stacks
+* [**From Azure Resource Manager (ARM)**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-azure/): coexist with, deploy, or convert your templates and deployments
+* [**From Kubernetes YAML or Helm**](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-kubernetes/): coexist with, deploy, or convert your configuration
 
 ## Concepts
 

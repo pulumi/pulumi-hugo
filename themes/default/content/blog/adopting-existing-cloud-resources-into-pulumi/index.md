@@ -12,7 +12,7 @@ Migrate from Terraform to modern languages with tf2pulumi.  Supports Terraform 0
 {{% /notes %}}
 
 <div class="header-hero-actions mt-8 mb-4 text-center">
-    <a class="btn btn-lg mr-2" href="/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform">
+    <a class="btn btn-lg mr-2" href="/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/">
         Learn More
     </a>
 </div>

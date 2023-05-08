@@ -63,7 +63,7 @@ The following table summarizes some additional similarities and differences betw
 | [Adopt Existing Resources](#adopting) | Yes. Generates code as part of the import process | No |
 | [Import code from other IaC Tools](#import) | Yes | No |
 
-Getting started with Pulumi is easy if you already have experience with CDK or a general-purpose programming language. Follow our [Adopting Pulumi from AWS CloudFormation](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_aws/) or try our [CloudFormation conversion tool](/cf2pulumi/). To deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy if you already have experience with CDK or a general-purpose programming language. Follow our [Adopting Pulumi from AWS CloudFormation](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws/) or try our [CloudFormation conversion tool](/cf2pulumi/). To deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 

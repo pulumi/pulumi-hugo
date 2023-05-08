@@ -109,7 +109,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Transformations](#transformations) | Yes | No |
 | [Import Code from other IaC Tools](#converting) | Yes | No |
 
-Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/using-pulumi/adopting-pulumi/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/using-pulumi/adopting-pulumi/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 
@@ -149,7 +149,7 @@ In the event you’d like to add new providers, or understand how this integrati
 
 #### Converting From Terraform to Pulumi {#providers-converting}
 
-Pulumi offers a tool called [tf2pulumi](https://github.com/pulumi/tf2pulumi) that converts Terraform HCL to Pulumi. It is open source on GitHub, and works well for most projects. (If you run into a snag, issues and pull requests are welcome!) To learn more, see [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform#converting-terraform-hcl-to-pulumi) in our Adopting Pulumi user guide.
+Pulumi offers a tool called [tf2pulumi](https://github.com/pulumi/tf2pulumi) that converts Terraform HCL to Pulumi. It is open source on GitHub, and works well for most projects. (If you run into a snag, issues and pull requests are welcome!) To learn more, see [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) in our Adopting Pulumi user guide.
 
 For an example of how to do a Terraform-to-Pulumi conversion, see our article, [From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/).
 
@@ -159,7 +159,7 @@ Pulumi supports [consuming local or remote Terraform state](/blog/using-terrafor
 
 For example, maybe you would like to keep your VPC and low-level network definitions written in Terraform so as to avoid any disruption, or maybe some of the team would like to stay on Terraform for now and make a shift in the future. Using the state reference support described previously, you can author higher-level infrastructure in Pulumi that consumes the Terraform-provisioned VPC information (such as the VPC ID, Subnet IDs, etc.), making the co-existence of Pulumi and Terraform easy to automate.
 
-To learn more, see [Referencing Terraform State](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from_terraform#referencing-terraform-state) in our Adopting Pulumi user guide.
+To learn more, see [Referencing Terraform State](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#referencing-terraform-state) in our Adopting Pulumi user guide.
 
 ### Cloud Native Support {#cloud-native}
 
