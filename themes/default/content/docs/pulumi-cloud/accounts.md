@@ -1,7 +1,8 @@
 ---
-title_tag: "Pulumi Cloud: Accounts Overview"
-title: "Accounts"
-meta_desc: Learn how to create and manage a personal account in the Pulumi Cloud in this guide.
+title_tag: "Pulumi Cloud accounts"
+meta_desc: Learn how to create and accounts in the Pulumi Cloud in this guide.
+title: Accounts
+h1: Pulumi Cloud accounts
 menu:
   pulumicloud:
     weight: 1

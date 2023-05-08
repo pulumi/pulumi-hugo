@@ -1,7 +1,8 @@
 ---
 title_tag: "Pulumi Cloud: Project and Stack Management"
-title: "Projects & stacks"
 meta_desc: Learn how to manage projects and stacks in the Pulumi Cloud, including creating a project and managing stack permissions.
+title: "Projects & stacks"
+h1: "Projects & stacks"
 menu:
   pulumicloud:
     weight: 3

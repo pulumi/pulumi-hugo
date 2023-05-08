@@ -1,7 +1,8 @@
 ---
-title_tag: "Overview of Pulumi Cloud"
-title: "Pulumi Cloud"
+title_tag: Pulumi Cloud overview
 meta_desc: Pulumi Cloud is a secure cloud service for individuals and teams using Pulumi's open-source SDK.
+title: Pulumi Cloud
+h1: Pulumi Cloud overview
 no_on_this_page: true
 menu:
   pulumicloud:

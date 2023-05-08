@@ -1,7 +1,8 @@
 ---
 title_tag: EKS-Hosted Install | Self-Hosting Pulumi
-title: EKS
 meta_desc: Installer and installation instructions for deploying the self-hosted Pulumi Cloud in EKS.
+title: EKS
+h1: Pulumi Cloud self-hosted EKS install
 menu:
     pulumicloud:
         parent: deployment-options

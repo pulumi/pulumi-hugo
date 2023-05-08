@@ -1,7 +1,8 @@
 ---
-title_tag: Cloud Import
-title: Cloud import
+title_tag: "Pulumi Insights: Cloud import"
 meta_desc: Import resources from your cloud account into Pulumi Insights
+title: Cloud import
+h1: Cloud import
 menu:
   pulumicloud:
     parent: insights

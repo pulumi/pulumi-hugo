@@ -1,7 +1,8 @@
 ---
-title_tag: "Pulumi Insights"
-title: "Insights"
+title_tag: "Pulumi Cloud: Pulumi Insights"
 meta_desc: Pulumi Insights provides advanced search, analytics, and AI for your infrastructure as code.
+title: Insights
+h1: Pulumi Insights
 menu:
   pulumicloud:
     identifier: insights

@@ -1,7 +1,8 @@
 ---
-title_tag: "Pulumi Cloud: Organizations"
-title: "Organizations"
+title_tag: "Pulumi Cloud organizations"
 meta_desc: Organizations are a space for you to collaborate on shared projects and stacks. Learn more about how Organizations work in the Pulumi Cloud.
+title: "Organizations"
+h1: Pulumi Cloud organizations
 menu:
   pulumicloud:
     weight: 2

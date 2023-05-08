@@ -1,7 +1,8 @@
 ---
 title_tag: Pulumi API | Self-Hosting Pulumi
-title: Pulumi API
 meta_desc: Pulumi API is one of the components required for self-hosting the Pulumi Cloud. Self-hosting is available as part of the Pulumi Business Critical Edition.
+title: Pulumi API
+h1: Pulumi Cloud self-hosted API
 menu:
     pulumicloud:
         parent: self-hosted-components

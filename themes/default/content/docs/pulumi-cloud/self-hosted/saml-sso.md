@@ -1,7 +1,8 @@
 ---
-title_tag: Enabling SAML SSO | Self-Hosting Pulumi
-title: SAML SSO
+title_tag: "Pulumi Cloud: Enabling SAML SSO for self-hosted environments"
 meta_desc: Learn how to make the self-hosted Pulumi ready for SAML SSO with any IdP. Self-hosting is available as part of the Enterprise Edition.
+title: SAML SSO
+h1: SAML SSO for self-hosted Pulumi Cloud
 menu:
     pulumicloud:
         parent: self-hosted

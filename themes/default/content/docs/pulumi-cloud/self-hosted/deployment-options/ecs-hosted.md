@@ -1,7 +1,8 @@
 ---
 title_tag: ECS-Hosted Install | Self-Hosting Pulumi
-title: ECS
 meta_desc: Installer and installation instructions for deploying the self-hosted Pulumi Cloud in ECS.
+title: ECS
+h1: Pulumi Cloud self-hosted ECS install
 menu:
     pulumicloud:
         parent: deployment-options

@@ -1,7 +1,8 @@
 ---
 title_tag: BYO-Infra Install | Self-Hosting Pulumi
-title: Bring-your-own infra
 meta_desc: Installer and installation instructions for deploying the self-hosted Pulumi Cloud on your own K8s, MySQL and S3-compatible infrastructure.
+title: Bring-your-own infra
+h1: Pulumi Cloud self-hosted BYO-infra install
 menu:
     pulumicloud:
         parent: deployment-options
