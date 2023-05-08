@@ -74,7 +74,7 @@ main:
     presenters:
         - name: Josh Kodroff
           role: Senior Solutions Architect, Pulumi
-          - name: Noam Stern
+      - name: Noam Stern
           role: Product Manager, Redis
 
     # A bullet point list containing what the user will learn during the webinar.
