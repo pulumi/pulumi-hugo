@@ -1,11 +1,12 @@
 ---
 title_tag: "Pulumi Deployments vs Traditional CI/CD Systems"
-title: "Vs. traditional CI/CD"
 meta_desc: How does Pulumi deployments compare to traditional CI/CD systems?
+title: "Vs. traditional CI/CD"
+h1: "Pulumi Deployments vs. traditional CI/CD"
 menu:
   pulumicloud:
     parent: deployments
-    weight: 2
+    weight: 5
 alias:
 - /docs/intro/deployments/versus/
 ---

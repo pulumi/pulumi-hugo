@@ -1,11 +1,12 @@
 ---
-title_tag: "Pulumi Deployments Reference Documentation"
-title: "Reference"
+title_tag: "Using Pulumi Deployments"
 meta_desc: Reference documentation for configuring and using Pulumi Deployments
+title: "Using deployments"
+h1: "Using Pulumi Deployments"
 menu:
   pulumicloud:
     parent: deployments
-    weight: 5
+    weight: 2
 alias:
 - /docs/intro/deployments/reference/
 ---

@@ -1,8 +1,9 @@
 ---
 title_tag: OpenID Connect Integration for Pulumi Deployments
-title: OpenID Connect
 meta_desc: This page provides an overview of how to configure OpenID Connect integration between
            Pulumi Deployments and supported cloud providers.
+title: OpenID Connect
+h1: OpenID Connect integration
 menu:
     pulumicloud:
         identifier: deployments-oidc

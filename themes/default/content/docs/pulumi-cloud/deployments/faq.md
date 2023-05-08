@@ -1,7 +1,8 @@
 ---
-title_tag: "FAQ and Pricing"
-title: "FAQ"
+title_tag: "Pulumi Deployments: FAQ and Pricing"
 meta_desc: Frequently asked questions including pricing, general availability, and roadmap.
+title: FAQ
+h1: Pulumi Deployments FAQ
 menu:
   pulumicloud:
     parent: deployments
