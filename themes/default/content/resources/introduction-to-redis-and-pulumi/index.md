@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
-title: "Introduction to Redis and Pulumi"
-meta_desc: "Join the Redis and Pulumi team as they team you about how to use the newest features in Redis with Pulumi."
+title: "Introduction to Redis Cloud and Pulumi"
+meta_desc: "Join the Redis and Pulumi team to learn how to deploy Redis Cloud resources on any cloud using any programming language with Pulumi."
 
 # A featured webinar will display first in the list.
 featured: false
@@ -68,7 +68,7 @@ main:
     datetime: ""
     # Description of the webinar.
     description: |
-        Join the Redis and Pulumi team as they team you about how to use the newest features in Redis with Pulumi.
+        Redis Cloud makes apps faster by providing an in-memory database that enables teams to create a real-time data platform. Join the Pulumi and Redis team to learn how to provision Redis Cloud alongside other cloud resources on AWS, Azure and Google Cloud - all using your favorite programming languages and the new Redis Cloud provider for Pulumi.
 
     # The webinar presenters
     presenters:
@@ -79,7 +79,8 @@ main:
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
-        - How to get started with Redis.
+        - How to get started with NoSQL using Redis Cloud.
+        - Defining and deploying Redis Cloud resources using popular programming langauges 
         - How to use Pulumi and Redis together.
 
 form:
