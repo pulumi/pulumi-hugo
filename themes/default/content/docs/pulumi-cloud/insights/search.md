@@ -274,7 +274,7 @@ For a complete description of the CSV format returned, see the [Data Export](../
 
 ## API Access
 
-Resources can also be queried programmatically. See the [Pulumi Cloud REST API](/docs/reference/cloud-rest-api#resource-search) for full details of the API endpoint to query resources.
+Resources can also be queried programmatically. See the [Pulumi Cloud REST API](/docs/pulumi-cloud/cloud-rest-api#resource-search) for full details of the API endpoint to query resources.
 
 ## AI Assist
 

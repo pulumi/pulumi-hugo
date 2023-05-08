@@ -42,7 +42,7 @@ You can control how many resources are displayed per page and paginate through y
 ![Resource Search Pagination](search-pagination.png)
 
 {{% notes "info" %}}
-If you need access to more resources, you can use the [Data Export](export) feature or access them programmatically via the [Pulumi Cloud Rest API](/docs/reference/cloud-rest-api#resource-search).
+If you need access to more resources, you can use the [Data Export](export) feature or access them programmatically via the [Pulumi Cloud Rest API](/docs/pulumi-cloud/cloud-rest-api#resource-search).
 {{% /notes %}}
 
 Use the search bar to refine the resources displayed on the page.
@@ -84,4 +84,4 @@ For a more detailed description of CSV schema, see the [export documentation](ex
 
 ## APIs
 
-See the [Pulumi Cloud REST API](/docs/reference/cloud-rest-api#resource-search) for full details of the API endpoint to query and export resources.
+See the [Pulumi Cloud REST API](/docs/pulumi-cloud/cloud-rest-api#resource-search) for full details of the API endpoint to query and export resources.

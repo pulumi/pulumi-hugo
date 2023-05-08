@@ -38,4 +38,4 @@ created, custom, delete, id, modified, module, name, package, parent_urn, pendin
 | type         | The type of the resource.                                                                                          |
 | urn          | The URN of the resource.                                                                                           |
 
-See the [API specification](/docs/reference/cloud-rest-api#data-export) for a more complete description of what these fields represent.
+See the [API specification](/docs/pulumi-cloud/cloud-rest-api/#data-export) for a more complete description of what these fields represent.
