@@ -1,7 +1,8 @@
 ---
 title_tag: Configuring OneLogin | SCIM
-title: OneLogin
 meta_desc: This page describes how to support SCIM 2.0 functionality between Pulumi and OneLogin.
+title: OneLogin
+h1: "SCIM: Configuring OneLogin"
 menu:
     pulumicloud:
         identifier: onelogin-scim

@@ -1,7 +1,8 @@
 ---
 title_tag: "Pulumi Cloud: Organization Access Tokens"
-title: "Organization tokens"
 meta_desc: Learn how Enterprise and Business Critical customers can manage resources and stack operations for their organization with Organization Access Tokens.
+title: "Organization tokens"
+h1: "Organization tokens"
 menu:
   pulumicloud:
     parent: access-management

@@ -1,7 +1,8 @@
 ---
 title_tag: Configuring Okta | SCIM
-title: Okta
 meta_desc: This page describes how to support SCIM 2.0 functionality between Pulumi and Okta.
+title: Okta
+h1: "SCIM: Configuring Okta"
 menu:
     pulumicloud:
         identifier: okta-scim

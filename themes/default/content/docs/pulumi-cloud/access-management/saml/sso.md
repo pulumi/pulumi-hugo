@@ -1,9 +1,10 @@
 ---
 title_tag: Configuring SAML | SAML SSO
-title: SAML
 meta_desc:
   This page provides a walkthrough important aspects of configuring any SAML
   (Security Assertion Markup Language) 2.0 identity provider.
+title: Using SAML
+h1: "SAML: Terminology & concepts"
 menu:
   pulumicloud:
     parent: saml
