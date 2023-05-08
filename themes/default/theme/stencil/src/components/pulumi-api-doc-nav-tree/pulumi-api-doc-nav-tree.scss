@@ -70,6 +70,10 @@ $base-ch-width-l: 12ch;
         text-decoration: none;
         color: map-get($gray, 900);
         max-width: 24ch;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     summary {
@@ -122,15 +126,24 @@ details {
     summary {
         list-style: none;
         padding: 0.25rem 0rem;
+        cursor: pointer;
 
         &:hover {
             background-color: #f9f9f9;
         }
 
+        &.is-link:hover {
+            text-decoration: underline;
+        }
+
          &[data-selected="true"] {
-        background-color: #e0e0e0;
-        font-weight: bold;
-    }
+            background-color: #e0e0e0;
+            font-weight: bold;
+
+            a:hover {
+                text-decoration: none;
+            }
+        }
 
         &::-webkit-details-marker {
             display: none;

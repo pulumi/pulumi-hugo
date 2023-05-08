@@ -22,8 +22,19 @@ export class PulumiApiDocNavNode {
         this.isExpanded = !!this.node.isExpanded || this.isNodeInPathForCurrentlyVisiblePage(this.node.name);
     }
 
-    onExpansionChange() {
+    onExpansionChange(href: string, isLink = false) {
+        if (isLink) {
+            window.location.href = href;
+        }
+
         this.isExpanded = !this.isExpanded;
+    }
+
+    // For whatever reason, the <a> href doesn't work
+    // in Safari, so we handle the routing explicitly.
+    handleLinkClick(e: MouseEvent, href: string) {
+        e.stopPropagation();
+        window.location.href = href;
     }
 
     componentShouldUpdate(newVal, oldVal, propName) {
@@ -89,6 +100,7 @@ export class PulumiApiDocNavNode {
             const nodeLinkLastChar = node.link.charAt(node.link.length - 1);
             const nodeLink = nodeLinkLastChar === "/" ? node.link : `${node.link}/`;
             const nodeHref = `${linkBase}${nodeLink}`;
+            const hasChildren = node.children ? node.children.length === 0 : false;
 
             return (
                             <details
@@ -102,10 +114,10 @@ export class PulumiApiDocNavNode {
                     class="nav-tree-item nested"
                                     id={node.name}
                 title={node.name}
-                onClick={() => this.onExpansionChange()}
+                onClick={() => this.onExpansionChange(nodeHref, !hasChildren)}
                 >
-                    <summary class="content-container" data-selected={this.shouldNodeBeSelected(nodeHref) ? "true" : "false"}>
-                     <a class={`depth-${depth}`} href={nodeHref}>
+                    <summary class={`content-container ${hasChildren ? "" : "is-link"}`} data-selected={this.shouldNodeBeSelected(nodeHref) ? "true" : "false"}>
+                     <a class={`depth-${depth}`} href={nodeHref} onClick={(e) => this.handleLinkClick(e, nodeHref)}>
                          {this.getIcon(node.type)}
                          <span class="link-container">{node.name}</span>
                      </a>
@@ -129,10 +141,10 @@ export class PulumiApiDocNavNode {
                                     id={this.node.name}
                                     
                 title={this.node.name}
-                onClick={() => this.onExpansionChange()}
+                onClick={() => this.onExpansionChange(this.href, this.node.children.length === 0)}
                 >
                     <summary class="content-container" data-selected={this.shouldNodeBeSelected(this.href) ? "true" : "false"}>
-                     <a class={`depth-${this.depth}`} href={this.href}>
+                     <a class={`depth-${this.depth}`} href={this.href} onClick={(e) => this.handleLinkClick(e, this.href)}>
                          {this.getIcon(this.node.type)}
                          <span class="link-container">{this.node.name}</span>
                      </a>
