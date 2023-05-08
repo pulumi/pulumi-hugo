@@ -1,5 +1,5 @@
 <div class="search-header-container">
-    <div class="search-header md:hidden lg:container flex flex-1 justify-between">
+    <!-- <div class="search-header md:hidden lg:container flex flex-1 justify-between">
         <div id="search-container" class="search-container bg-white mt-2 flex justify-center lg:ml-6 py-0">
             <div id="search-form" class="search-widget text-gray-600 focus-within:text-gray-700 py-0">
                 <form class="relative flex">
@@ -9,8 +9,8 @@
                 <div id="search-results" class="relative"></div>
             </div>
         </div>
-    </div>
-    <div class="search-header lg:container flex flex-1 justify-between">
+    </div> -->
+    <div class="search-header flex-col-reverse md:flex-row lg:container flex flex-1 justify-between">
         <div class="flex xl:w-3/12 px-4 lg:px-8 xl:px-5">
             <div class="flex tabs">
                 {{ $mode := .Scratch.Get "mode" }}
@@ -41,8 +41,8 @@
                 </div>
             </div>
         </div>
-        <div id="search-container" class="search-container hidden bg-white mt-4 md:mt-0 md:flex md:justify-center lg:ml-6 py-0">
-            <div id="search-form" class="search-widget text-gray-600 focus-within:text-gray-700 py-0 flex justify-end items-center">
+        <div id="search-container" class="search-container bg-white mt-2 md:mt-0 md:flex md:justify-center lg:ml-6 py-0">
+            <div id="search-form" class="search-widget text-gray-600 focus-within:text-gray-700 py-0 md:flex justify-center md:justify-end items-center">
                 <form class="relative flex">
                     <i class="fas fa-search absolute inset-y-0 flex items-center pl-3"></i>
                     <input id="search-query" type="text" class="st-default-search-input docs text-sm transition" placeholder="Search..." />

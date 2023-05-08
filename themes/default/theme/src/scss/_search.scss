@@ -51,6 +51,12 @@
     top: auto !important;
     left: auto !important;
 
+    @screen md {
+        top: 16px !important;
+        left: -650px !important;
+        width: 650px !important;
+    }
+
     .st-query-present {
         .st-ui-result {
             .st-ui-type-heading {
@@ -182,6 +188,13 @@
                 font-weight: 500;
                 height: 7px;
                 line-height: 26px;
+            }
+
+            form {
+                width: 100%;
+                @screen md {
+                    width: 346px;
+                }
             }
 
             form > i {
