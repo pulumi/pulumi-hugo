@@ -1,7 +1,8 @@
 ---
 title_tag: "Command-line completion | Pulumi CLI"
-title: Command-line completion
 meta_desc: Information about command-line completion while using the Pulumi CLI.
+title: Command-line completion
+h1: Pulumi CLI command-line completion
 menu:
   cli:
     weight: 20

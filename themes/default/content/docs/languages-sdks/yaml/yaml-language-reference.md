@@ -1,7 +1,8 @@
 ---
-title: Pulumi YAML Reference
-linktitle: Reference
+title_tag: "Pulumi languages & SDKs: Pulumi YAML reference"
 meta_desc: Specification for the Pulumi YAML format and built-in functions
+title: Reference
+h1: Pulumi YAML reference
 menu:
   languages:
     parent: yaml-language

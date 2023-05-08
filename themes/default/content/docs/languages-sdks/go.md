@@ -1,8 +1,8 @@
 ---
-title: Go
-title_tag: How to use Go with Pulumi
-h1: How to use Go with Pulumi
+title_tag: "Pulumi languages & SDKs: Go"
 meta_desc: An overview of how to use the Go language with Pulumi for infrastructure as code on any cloud (AWS, Azure, Google Cloud, Kubernetes, etc.).
+title: Go
+h1: Pulumi & Go
 menu:
     languages:
         weight: 4

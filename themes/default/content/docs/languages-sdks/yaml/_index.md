@@ -1,8 +1,8 @@
 ---
-title: YAML
-title_tag: How to use Pulumi YAML
-h1: How to use Pulumi YAML
+title_tag: "Pulumi languages & SDKs: YAML"
 meta_desc: An overview of how to use Pulumi YAML for infrastructure as code on any cloud (AWS, Azure, Google Cloud, Kubernetes, etc.).
+title: YAML
+h1: Pulumi & YAML
 menu:
   languages:
     identifier: yaml-language

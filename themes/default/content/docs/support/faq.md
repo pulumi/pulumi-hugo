@@ -1,6 +1,8 @@
 ---
-title: FAQ
+title_tag: Pulumi CLI & Pulumi Cloud FAQ
 meta_desc: A collection of Frequently Asked Questions (FAQ) about Pulumi, including topics like secrets management, Pulumi Cloud, and more.
+title: FAQ
+h1: Pulumi CLI & Pulumi Cloud FAQ
 menu:
   support:
     weight: 2

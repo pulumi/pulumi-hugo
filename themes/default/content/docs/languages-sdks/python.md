@@ -1,8 +1,8 @@
 ---
-title: Python
-title_tag: How to use Python with Pulumi
-h1: How to use Python with Pulumi
+title_tag: "Pulumi languages & SDKs: Python"
 meta_desc: An overview of how to use Python with Pulumi for infrastructure as code on any cloud (AWS, Azure, Google Cloud, Kubernetes, etc.).
+title: Python
+h1: Pulumi & Python
 menu:
   languages:
     weight: 2
