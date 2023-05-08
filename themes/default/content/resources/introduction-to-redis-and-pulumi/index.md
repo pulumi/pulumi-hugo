@@ -17,7 +17,7 @@ pulumi_tv: false
 preview_image: ""
 
 # Webinars with unlisted as true will not be shown on the webinar list.
-unlisted: false
+unlisted: true
 
 # Gated webinars will have a registration form
 # and the user will need to fill out the form before viewing.
@@ -60,7 +60,7 @@ main:
     youtube_url: ""
     # Sortable date.
     # The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2023-05-15T10:00:00-07:00
+    sortable_date: 2023-07-13T06:00:00-07:00
     hide_date: true
     # Duration of the webinar.
     duration: "1 hour"
@@ -72,8 +72,10 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Engineers from Redis and Pulumi
-          role: ""
+        - name: Josh Kodroff
+          role: Senior Solutions Architect, Pulumi
+          - name: Noam Stern
+          role: Product Manager, Redis
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
