@@ -70,7 +70,7 @@
                     {{ end }}
                 </div>
                 <div id="webinarRegistrationForm" class="mt-10 md:mt-0 md:w-1/2 md:mx-8 bg-gray-200 rounded p-6">
-                    {{ if (or .Params.unlisted $timePassed) }}
+                    {{ if $timePassed }}
                         <h4 class="text-orange">Recording Coming Soon!</h4>
                         <p>This live webinar is no longer available. The recording will be posted to this page when it is available.</p>
                     {{ else }}
