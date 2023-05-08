@@ -1,7 +1,8 @@
 ---
-title: Pulumi vs. Serverless Framework
+title_tag: "Adopting Pulumi: Pulumi vs. Serverless Framework"
 meta_desc: Learn about the major differences between Pulumi and the Serverless Framework, and how Pulumi offers a more holistic approach to writing applications.
-linktitle: Serverless Framework
+title: Serverless Framework
+h1: Pulumi vs. Severless Framework
 menu:
   usingpulumi:
     parent: vs

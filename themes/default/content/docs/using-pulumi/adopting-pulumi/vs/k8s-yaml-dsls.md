@@ -1,7 +1,8 @@
 ---
-title: Pulumi vs. Kubernetes YAML and DSLs
+title_tag: "Adopting Pulumi: Pulumi vs. Kubernetes YAML and DSLs"
 meta_desc: Learn about the major differences between Pulumi and Kubernetes YAML & DSLs.
-linktitle: Kubernetes YAML
+title: Kubernetes YAML
+h1: Pulumi vs Kubernetes YAML, Helm Charts and DSLs
 menu:
   usingpulumi:
     parent: vs

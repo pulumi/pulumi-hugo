@@ -1,6 +1,8 @@
 ---
-title: "AWS CloudFormation"
+title_tag: "Adopting Pulumi: Migrating AWS CloudFormation to Pulumi"
 meta_desc: Migrate your existing AWS CloudFormation JSON/YAML and/or coexist with existing stacks.
+title: AWS CloudFormation
+h1: "Migrating from AWS CloudFormation to Pulumi"
 menu:
   usingpulumi:
     identifier: from-aws-cloudformation

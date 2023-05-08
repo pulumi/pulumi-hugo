@@ -1,9 +1,9 @@
 ---
-title_tag: Using Pulumi Kubernetes Operator | CI/CD
-title: Using Pulumi Kubernetes Operator
-linktitle: Pulumi Kubernetes Operator
+title_tag: "Using Pulumi: Pulumi Kubernetes Operator | CI/CD"
 meta_desc: This page details how to use the Pulumi Kubernetes Operator to manage deploying
            stacks based on commits in git, Kubernetes objects, or Flux sources.
+title: Pulumi Kubernetes Operator
+h1: Pulumi Kubernetes Operator
 menu:
     usingpulumi:
         parent: cont_delivery

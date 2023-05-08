@@ -1,6 +1,8 @@
 ---
-title: "Kubernetes YAML or Helm Charts"
+title_tag: "Adopting Pulumi: Migrating from Kubernetes YAML or Helm Charts to Pulumi"
 meta_desc: Migrate your existing Kubernetes YAML or Helm Charts and/or coexist with existing templates.
+title: Kubernetes YAML & Helm Charts
+h1: Migrating from Kubernetes YAML or Helm Charts to Pulumi
 menu:
   usingpulumi:
     parent: migrating

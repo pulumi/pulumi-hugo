@@ -1,7 +1,8 @@
 ---
-title_tag: Pulumi Packages Guides
-title: Pulumi packages
+title_tag: "Using Pulumi: Pulumi Packages"
 meta_desc: Pulumi Packages enable you to write infrastructure abstractions once in TypeScript, C#, Go, or Python and make them available for use in any Pulumi language.
+title: Pulumi packages
+h1: Pulumi packages
 menu:
     usingpulumi:
         identifier: pulumi-packages

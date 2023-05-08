@@ -1,7 +1,8 @@
 ---
 title_tag: Frequently Asked Questions (FAQ) | CrossGuard
-title: FAQ
 meta_desc: This page contains Frequently Asked Questions about Pulumi CrossGuard and Policy Packs.
+title: FAQ
+h1: Policy as code FAQ
 weight: 5
 menu:
   usingpulumi:

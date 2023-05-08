@@ -1,9 +1,9 @@
 ---
-title_tag: Policies for AWS (AWSGuard) | CrossGuard
-title: Policies for AWS (AWSGuard)
+title_tag: "Using Pulumi: Policies for AWS (AWSGuard) | CrossGuard"
 meta_desc: AWSGuard codifies best practices for AWS in a library that you can configure and
            use to enforce these best practices for your own Pulumi stacks or organization.
-linktitle: AWSGuard
+title: AWSGuard
+h1: AWSGuard policies
 weight: 3
 menu:
   usingpulumi:

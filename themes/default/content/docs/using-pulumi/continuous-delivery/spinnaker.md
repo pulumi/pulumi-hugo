@@ -1,8 +1,8 @@
 ---
-title_tag: "Using Spinnaker | CI/CD"
-title: Using Spinnaker
-linktitle: Spinnaker
+title_tag: "Using Pulumi: Spinnaker | CI/CD"
 meta_desc: "This page provides an overview of how to use Pulumi Plugin for Spinnaker to run Pulumi apps."
+title: Spinnaker
+h1: Pulumi CI/CD & Spinnaker
 menu:
     usingpulumi:
         parent: cont_delivery

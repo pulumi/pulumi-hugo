@@ -1,9 +1,9 @@
 ---
-title_tag: Using GitLab CI | CI/CD
-title: Using GitLab CI
-linktitle: GitLab CI
+title_tag: "Using Pulumi: GitLab CI | CI/CD"
 meta_desc: This page details how to use GitLab CI to manage deploying staging and
            production stacks based on commits to specific Git branches.
+title: GitLab CI
+h1: Pulumi CI/CD & GitLab
 menu:
     usingpulumi:
         parent: cont_delivery
@@ -15,7 +15,7 @@ aliases:
 - /docs/guides/continuous-delivery/gitlab-ci/
 ---
 
-[This](https://about.gitlab.com/features/gitlab-ci-cd/) page details how to use GitLab CI to manage deploying
+[GitLab CI/CD](https://about.gitlab.com/features/gitlab-ci-cd/) enables the management of deploying
 staging and production stacks based on commits to specific Git branches. This is sometimes
 referred to as Push-to-Deploy.
 

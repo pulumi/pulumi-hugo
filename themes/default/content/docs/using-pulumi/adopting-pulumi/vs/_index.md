@@ -1,7 +1,8 @@
 ---
-title: Pulumi Compared to Alternatives
+title_tag: "Adopting Pulumi: Pulumi Compared to Alternatives"
 meta_desc: Learn how Pulumi compares with alternative infrastructure as code solutions that may share overlapping capabilities. 
-linktitle: Compare to...
+title: Compare to...
+h1: Compare Pulumi to other solutions
 menu:
   usingpulumi:
     identifier: vs

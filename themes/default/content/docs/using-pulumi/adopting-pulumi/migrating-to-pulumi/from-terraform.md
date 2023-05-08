@@ -1,6 +1,8 @@
 ---
-title: "Terraform"
+title_tag: "Adopting Pulumi: Migrating from Terraform to Pulumi"
 meta_desc: Migrate your existing Terraform HCL and/or coexist with existing workspaces.
+title: Terraform
+h1: Migrating from Terraform to Pulumi
 menu:
   usingpulumi:
     identifier: from-terraform

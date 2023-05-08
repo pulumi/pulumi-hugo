@@ -1,8 +1,8 @@
 ---
-title_tag: Using Codefresh | CI/CD
-title: Using Codefresh
-linktitle: Codefresh
+title_tag: "Using Pulumi: Codefresh | CI/CD"
 meta_desc: This page will walk you through setting up Codefresh CI/CD with a Pulumi program.
+title: Codefresh
+h1: Pulumi CI/CD & Codefresh
 menu:
     usingpulumi:
         parent: cont_delivery
