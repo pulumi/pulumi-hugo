@@ -1,0 +1,134 @@
+---
+title: "AWS API Gateway V2 HTTP API"
+meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
+program:
+  name: aws-ts-apigatewayv2-http-api
+  settings:
+    name: aws-ts-apigatewayv2-http-api
+    description: Example of using AWS API Gateway v2 HTTP API
+    runtime: nodejs
+
+stack:
+  name: moolumi/examples-api
+  config: {}
+
+lastUpdate:
+  result:
+    summary:
+      result: succeeded
+      resourceChanges:
+        create: 9
+    outputs:
+      endpoint:
+        value: https://g9i98m3iy2.execute-api.us-west-2.amazonaws.com/examples-api
+        secret: false
+    startTime: 1683412685000
+    endTime: 1683412721000
+    config: {}
+  resources:
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::pulumi:pulumi:Stack::aws-ts-apigatewayv2-http-api-examples-api
+      type: pulumi:pulumi:Stack
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::pulumi:providers:aws::default_5_40_0
+      type: pulumi:providers:aws
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/api:Api::httpApiGateway
+      type: aws:apigatewayv2/api:Api
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:iam/role:Role::lambdaRole
+      type: aws:iam/role:Role
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambdaRoleAttachment
+      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:lambda/function:Function::lambdaFunction
+      type: aws:lambda/function:Function
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:lambda/permission:Permission::lambdaPermission
+      type: aws:lambda/permission:Permission
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/integration:Integration::lambdaIntegration
+      type: aws:apigatewayv2/integration:Integration
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/route:Route::apiRoute
+      type: aws:apigatewayv2/route:Route
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/stage:Stage::apiStage
+      type: aws:apigatewayv2/stage:Stage
+
+---
+
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-apigatewayv2-http-api/README.md)
+
+# AWS API Gateway V2 HTTP API
+
+Set up a HTTP API using AWS API Gateway V2, complete with a route, stage and integration.
+
+## Deploying and running the program
+
+Note: some values in this example will be different from run to run.  These values are indicated
+with `***`.
+
+1.  Create a new stack:
+
+    ```bash
+    $ pulumi stack init http-api
+    ```
+
+1.  Set the AWS region:
+
+    ```
+    $ pulumi config set aws:region us-east-2
+    ```
+
+1.  Restore NPM modules via `npm install` or `yarn install`.
+
+1.  Run `pulumi up` to preview and deploy changes:
+
+    ```
+    $ pulumi up
+    Previewing update (http-api)
+    ...
+
+    Updating (http-api)
+
+         Type                             Name                                   Status
+     +   pulumi:pulumi:Stack              aws-ts-apigatewayv2-http-api-http-api  created
+     +   ├─ aws:apigatewayv2:Api          httpApiGateway                         created
+     +   ├─ aws:iam:Role                  lambdaRole                             created
+     +   ├─ aws:lambda:Function           lambdaFunction                         created
+     +   ├─ aws:iam:RolePolicyAttachment  lambdaRoleAttachment                   created
+     +   ├─ aws:lambda:Permission         lambdaPermission                       created
+     +   ├─ aws:apigatewayv2:Integration  lambdaIntegration                      created
+     +   ├─ aws:apigatewayv2:Route        apiRoute                               created
+     +   └─ aws:apigatewayv2:Stage        apiStage                               created
+
+    Outputs:
+        endpoint: "https://****.execute-api.us-east-2.amazonaws.com/http-api"
+
+    Resources:
+        + 9 created
+
+    Duration: 33s
+    ```
+
+1.  View the endpoint URL and curl a few routes:
+
+    ```bash
+    $ pulumi stack output
+    Current stack outputs (1):
+        OUTPUT            VALUE
+        endpoint          https://***.execute-api.us-east-2.amazonaws.com/http-api
+
+    $ curl $(pulumi stack output endpoint)
+    Hello, Pulumi!
+    ```
+
+1.  To view the runtime logs of the Lambda function, use the `pulumi logs` command. To get a log stream, use `pulumi logs --follow`.
+
+## Clean up
+
+1.  Run `pulumi destroy` to tear down all resources.
+
+1.  To delete the stack itself, run `pulumi stack rm`. Note that this command deletes all deployment history from the Pulumi console.

@@ -1,0 +1,132 @@
+---
+title: "GraphQL Endpoint in AWS AppSync"
+meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
+program:
+  name: aws-ts-appsync
+  settings:
+    name: aws-ts-appsync
+    description: Basic example of defining an AWS AppSync endpoint from Pulumi
+    runtime: nodejs
+
+stack:
+  name: moolumi/examples-api
+  config: {}
+
+lastUpdate:
+  result:
+    summary:
+      result: succeeded
+      resourceChanges:
+        create: 11
+    outputs:
+      endpoint:
+        value: >-
+          https://j4dbjfqckfhfvniw2wxpxjkvj4.appsync-api.us-west-2.amazonaws.com/graphql
+        secret: false
+      key:
+        value: da2-olyxivgwpnd5pbx5cpre5h6lga
+        secret: true
+    startTime: 1683412732000
+    endTime: 1683412759000
+    config: {}
+  resources:
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::pulumi:pulumi:Stack::aws-ts-appsync-examples-api
+      type: pulumi:pulumi:Stack
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::pulumi:providers:random::default_4_13_0
+      type: pulumi:providers:random
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::random:index/randomString:RandomString::random-datasource-name
+      type: random:index/randomString:RandomString
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::pulumi:providers:aws::default_5_40_0
+      type: pulumi:providers:aws
+    - urn: urn:pulumi:examples-api::aws-ts-appsync::aws:iam/role:Role::iam-role
+      type: aws:iam/role:Role
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/graphQLApi:GraphQLApi::api
+      type: aws:appsync/graphQLApi:GraphQLApi
+    - urn: urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/apiKey:ApiKey::key
+      type: aws:appsync/apiKey:ApiKey
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:dynamodb/table:Table::tenants
+      type: aws:dynamodb/table:Table
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/dataSource:DataSource::tenants-ds
+      type: aws:appsync/dataSource:DataSource
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:iam/policy:Policy::iam-policy
+      type: aws:iam/policy:Policy
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/resolver:Resolver::get-resolver
+      type: aws:appsync/resolver:Resolver
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:iam/rolePolicyAttachment:RolePolicyAttachment::iam-rpa
+      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
+    - urn: >-
+        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/resolver:Resolver::add-resolver
+      type: aws:appsync/resolver:Resolver
+
+---
+
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-appsync/README.md)
+
+# GraphQL Endpoint in AWS AppSync
+
+This example shows how to set up a basic GraphQL endpoint in AWS AppSync. The endpoint contains one query and one mutation that get and put items to a Dynamo DB table.
+
+## Deploying and running the Pulumi App
+
+1.  Create a new stack:
+
+    ```bash
+    $ pulumi stack init dev
+    ```
+
+1.  Set the AWS region:
+
+    ```
+    $ pulumi config set aws:region us-east-2
+    ```
+
+1.  Restore NPM modules via `npm install` or `yarn install`.
+
+1.  Run `pulumi up` to preview and deploy changes:
+
+    ``` 
+    $ pulumi up
+    Previewing update (dev):
+    ...
+
+    Updating (dev):
+    ...
+    Resources:
+        + 10 created
+    Duration: 20s
+    ```
+
+1.  Check the deployed GraphQL endpoint:
+
+    ```
+    $ pulumi stack output endpoint
+    https://***.appsync-api.us-east-2.amazonaws.com/graphql
+    $ pulumi stack output key
+    ***sensitivekey***
+    $ curl -XPOST -H "Content-Type:application/graphql" -H "x-api-key:$(pulumi stack output key)" -d '{ "query": "mutation AddTenant { addTenant(id: \"123\", name: \"FirstCorp\") { id name } }" }' "$(pulumi stack output endpoint)" 
+    {
+        "data": {
+            "addTenant": {
+                "id": "123",
+                "name": "FirstCorp"
+            }
+        }
+    }
+    ```
+
+## Clean up
+
+1.  Run `pulumi destroy` to tear down all resources.
+
+1.  To delete the stack itself, run `pulumi stack rm`. Note that this command deletes all deployment history from the Pulumi console.
+
