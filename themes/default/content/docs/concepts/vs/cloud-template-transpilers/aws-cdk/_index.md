@@ -1,10 +1,10 @@
 ---
-title_tag: "Adopting Pulumi: Pulumi vs. AWS CDK"
+title_tag: "Pulumi concepts: Pulumi vs. AWS CDK"
 meta_desc: Pulumi and AWS Cloud Development Kit (CDK) share some similarities, but there are many key differences. Learn about these major differences here.
 title: AWS CDK
 h1: Pulumi vs AWS Cloud Development Kit (CDK)
 menu:
-  usingpulumi:
+  concepts:
     parent: vs
     weight: 3
 aliases:
@@ -36,7 +36,7 @@ Both Pulumi and CDK allow you to build and deploy infrastructure on AWS using fa
 
 First, CDK supports only AWS, whereas Pulumi supports over 60 cloud and SaaS providers, with more being added all the time. Second, while both Pulumi and CDK support languages like TypeScript, Python, Go, C#, and Java, the two tools are fundamentally different in how they interpret these languages and deploy resources. Unlike Pulumi, whose open-source engine understands these languages and communicates directly with cloud providers to deploy infrastructure, CDK is a transpiler (i.e., a [source-to-source compiler](https://en.wikipedia.org/wiki/Source-to-source_compiler)) that produces AWS Cloud Assembly, an intermediate format consisting of CloudFormation templates and other assets. After the assets are uploaded to the appropriate services (S3, ECR), CDK uses the CloudFormation service, which acts as the deployment engine for provisioning resources.
 
-Moreover, because CDK depends on CloudFormation as the deployment engine, it shares many of the same benefits and limitations as CloudFormation (see [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation/).
+Moreover, because CDK depends on CloudFormation as the deployment engine, it shares many of the same benefits and limitations as CloudFormation (see [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation/).
 
 Finally, while both CDK and Pulumi support automated testing, the scenarios they're able to support are quite different. For example, both CDK and Pulumi support unit testing, but Pulumi offers significant advantages as a result of the deep integration between language host and runtime. With Pulumi, you can run fast, in-memory (offline) unit tests that mock external calls to cloud providers, whereas with CDK, you're only able to run assertions against the rendered CloudFormation template synthesized by the CDK app, and there is no equivalent option for offline testing.
 
@@ -77,19 +77,19 @@ To learn more about languages and language runtimes in Pulumi, see [How Pulumi W
 
 ### State Management {#state}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#state) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#state) to learn more.
 
 ### Provider Support {#providers}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#providers) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#providers) to learn more.
 
 ### Cloud Native Support {#cloud-native}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#cloud-native) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#cloud-native) to learn more.
 
 ### Dynamic Provider Support {#dynamic-providers}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#dynamic-providers) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#dynamic-providers) to learn more.
 
 ### OSS License {#license}
 
@@ -124,19 +124,19 @@ With Automation API, you can import Pulumi into another application and drive st
 
 ### Third-Party CI/CD Support {#cicd}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#cicd) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#cicd) to learn more.
 
 ### Policy as Code {#policy}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#policy) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#policy) to learn more.
 
 ### Secrets Management {#secrets}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#secrets) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#secrets) to learn more.
 
 ### Audit Capabilities {#auditing}
 
-CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation#auditing) to learn more.
+CDK depends on AWS CloudFormation for this capability. See [Pulumi vs. CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation#auditing) to learn more.
 
 ### Adopt Existing Resources {#adopting}
 

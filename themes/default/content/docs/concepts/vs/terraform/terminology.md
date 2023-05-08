@@ -4,7 +4,7 @@ meta_desc: Many of the terms you may know from working with Terraform have direc
 title: Pulumi equivalents
 h1: Pulumi terms & command equivalents
 menu:
-  usingpulumi:
+  concepts:
     parent: vs-terraform
     weight: 1
 aliases:

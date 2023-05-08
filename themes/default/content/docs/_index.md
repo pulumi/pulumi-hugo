@@ -49,7 +49,7 @@ Pulumi is an <a href="https://github.com/pulumi/pulumi" target="_blank">open sou
     <div class="md:mx-8 md:w-1/3">
         <h3 class="no-anchor">Alternatives</h3>
         <p class="text-sm text-gray-700">
-            <a href="/docs/using-pulumi/adopting-pulumi/vs/">Other approaches</a> use proprietary domain-specific languages (DSLs) that you need to
+            <a href="/docs/concepts/vs/">Other approaches</a> use proprietary domain-specific languages (DSLs) that you need to
             master and train your team to use. These alternative approaches reinvent
             familiar concepts like sharing and reuse, don't tap into existing
             ecosystems, and are often different for every cloud that you need to target.

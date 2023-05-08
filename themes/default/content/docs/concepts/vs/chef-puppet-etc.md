@@ -1,10 +1,10 @@
 ---
-title_tag: "Adopting Pulumi: Pulumi vs. Chef, Puppet, Ansible, and Salt"
+title_tag: "Pulumi concepts: Pulumi vs. Chef, Puppet, Ansible, and Salt"
 meta_desc: Learn about the major differences between Pulumi and configuration management tools like Chef, Puppet, Ansible, Salt, and more. 
 title: Chef & Puppet
 h1: Chef, Puppet, Ansible, & Salt vs Pulumi
 menu:
-  usingpulumi:
+  concepts:
     parent: vs
     weight: 7
 aliases:

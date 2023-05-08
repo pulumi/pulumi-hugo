@@ -1,10 +1,10 @@
 ---
-title_tag: "Adopting Pulumi: Pulumi vs. Terraform"
+title_tag: "Pulumi concepts: Pulumi vs. Terraform"
 meta_desc: Pulumi and Terraform have a few similarities, but they differ in many key ways. This page helps provide a rundown of these major differences.
 title: Terraform
 h1: Pulumi vs Terraform
 menu:
-  usingpulumi:
+  concepts:
     identifier: vs-terraform
     parent: vs
     weight: 1
@@ -109,7 +109,7 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Transformations](#transformations) | Yes | No |
 | [Import Code from other IaC Tools](#converting) | Yes | No |
 
-Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/using-pulumi/adopting-pulumi/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/concepts/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 

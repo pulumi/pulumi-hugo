@@ -1,5 +1,5 @@
 ---
-title_tag: "Adopting Pulumi: Pulumi vs. Cloud templates"
+title_tag: "Pulumi concepts: Pulumi vs. Cloud templates"
 meta_desc: Learn about the major differences between Pulumi and cloud templating solutions like AWS CloudFormation and Microsoft Azure Resource Manager (ARM).
 title: Cloud Templates
 h1: Pulumi vs. Cloud templates
@@ -19,4 +19,4 @@ While these template-based solutions are often easy to get started with, they ca
 
 Unlike many of these provider-specific services, Pulumi is [open source](https://github.com/pulumi/pulumi) and community-driven. To learn more about how Pulumi compares to some of these services in detail, see the following comparison docs:
 
-* [Pulumi vs. AWS CloudFormation](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates/cloudformation/)
+* [Pulumi vs. AWS CloudFormation](/docs/concepts/vs/cloud-templates/cloudformation/)

@@ -1,13 +1,12 @@
 ---
-title_tag: "Adopting Pulumi: Pulumi Compared to Alternatives"
+title_tag: "Pulumi concepts: Pulumi Compared to Alternatives"
 meta_desc: Learn how Pulumi compares with alternative infrastructure as code solutions that may share overlapping capabilities. 
 title: Compare to...
 h1: Compare Pulumi to other solutions
 menu:
-  usingpulumi:
+  concepts:
     identifier: vs
-    parent: adopting-pulumi
-    weight: 1
+    weight: 13
 aliases:
 - /docs/reference/vs/
 - /docs/intro/vs/
@@ -21,11 +20,11 @@ of these are complementary and can be used together, whereas some are "either or
 
 Here are several useful comparisons that will help you understand Pulumi's place in the cloud tooling ecosystem:
 
-* [Hashicorp Terraform](/docs/using-pulumi/adopting-pulumi/vs/terraform/)
-* [Cloud Templates (AWS CloudFormation, etc.)](/docs/using-pulumi/adopting-pulumi/vs/cloud-templates)
-* [Cloud Template Transpilers (AWS CDK, etc.)](/docs/using-pulumi/adopting-pulumi/vs/cloud-template-transpilers)
-* [Cloud SDKs (AWS Boto, etc.)](/docs/using-pulumi/adopting-pulumi/vs/cloud-sdks)
-* [Serverless Framework](/docs/using-pulumi/adopting-pulumi/vs/serverless/)
-* [Kubernetes YAML and DSLs](/docs/using-pulumi/adopting-pulumi/vs/k8s-yaml-dsls/)
-* [Chef, Puppet, Ansible, Salt, etc.](/docs/using-pulumi/adopting-pulumi/vs/chef-puppet-etc/)
-* [Custom Solutions](/docs/using-pulumi/adopting-pulumi/vs/custom/)
+* [Hashicorp Terraform](/docs/concepts/vs/terraform/)
+* [Cloud Templates (AWS CloudFormation, etc.)](/docs/concepts/vs/cloud-templates)
+* [Cloud Template Transpilers (AWS CDK, etc.)](/docs/concepts/vs/cloud-template-transpilers)
+* [Cloud SDKs (AWS Boto, etc.)](/docs/concepts/vs/cloud-sdks)
+* [Serverless Framework](/docs/concepts/vs/serverless/)
+* [Kubernetes YAML and DSLs](/docs/concepts/vs/k8s-yaml-dsls/)
+* [Chef, Puppet, Ansible, Salt, etc.](/docs/concepts/vs/chef-puppet-etc/)
+* [Custom Solutions](/docs/concepts/vs/custom/)

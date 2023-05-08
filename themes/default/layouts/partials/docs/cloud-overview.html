@@ -1,8 +1,8 @@
 <style>
     section.top-cards {
-        display:flex;
+        display: flex;
         flex-direction: row;
-        flex-wrap: wrap ;
+        flex-wrap: wrap;
         gap: 12px;
     }
 
@@ -20,39 +20,31 @@
         border: 1px solid #a6adec;
         box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
     }
-
-
-
-
 </style>
-
 
 <section class="top-cards">
     <div>
         <i class="fas fa-play"></i>
         <p>Get started</p>
-        <a href={{ .Params.get_started_guide }}>guide</a>
+        <a href="{{ .Params.get_started_guide }}">guide</a>
         <i class="fas fa-arrow-right"></i>
     </div>
     <div>
         <i class="fas fa-hand-holding-heart"></i>
         <p>Providers</p>
-        <a href={{ .Params.get_started_guide }}>guide</a>
+        <a href="{{ .Params.get_started_guide }}">guide</a>
         <i class="fas fa-arrow-right"></i>
     </div>
     <div>
         <i class="fas fa-puzzle-piece"></i>
         <p>Components</p>
-        <a href={{ .Params.get_started_guide }}>guide</a>
+        <a href="{{ .Params.get_started_guide }}">guide</a>
         <i class="fas fa-arrow-right"></i>
     </div>
     <div>
         <i class="fas fa-ruler"></i>
         <p>Templates</p>
-        <a href={{ .Params.get_started_guide }}>guide</a>
+        <a href="{{ .Params.get_started_guide }}">guide</a>
         <i class="fas fa-arrow-right"></i>
     </div>
 </section>
-
-
-

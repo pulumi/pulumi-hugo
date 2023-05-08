@@ -1,7 +1,7 @@
 ---
 title_tag: "Intro to Pulumi: Dynamic Resource Providers"
 meta_desc: Dynamic resource providers are providers that can be written inside your Pulumi program. Learn how to use dynamic providers and use cases for them.
-title: Dynamic resource providers
+title: Dynamic providers
 h1: Dynamic resource providers
 menu:
   concepts:

@@ -129,38 +129,38 @@ The following topics provide more details on the core concepts for working with 
 
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="names"><i class="fas fa-font pr-2"></i>Resource Names</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/names/"><i class="fas fa-font pr-2"></i>Resource Names</a></h3>
         <p>Learn how Pulumi projects are organized and configured.</p>
     </div>
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="options"><i class="fas fa-cogs pr-2"></i>Resource Options</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/options/"><i class="fas fa-cogs pr-2"></i>Resource Options</a></h3>
         <p>Learn how to use resource options to modify the way that resources are managed by Pulumi.</p>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="components"><i class="fas fa-project-diagram pr-2"></i>Components</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/components/"><i class="fas fa-project-diagram pr-2"></i>Components</a></h3>
         <p>Learn how to create and deploy stacks.</p>
     </div>
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="providers"><i class="fas fa-server pr-2"></i>Providers</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/providers/"><i class="fas fa-server pr-2"></i>Providers</a></h3>
         <p>Learn more about how to use and manage resources in your program.</p>
     </div>
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="dynamic-providers"><i class="fas fa-file-alt pr-2"></i>Dynamic Providers</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/dynamic-providers/"><i class="fas fa-file-alt pr-2"></i>Dynamic Providers</a></h3>
         <p>Learn how Pulumi stores state and manages concurrency.</p>
     </div>
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="get"><i class="fas fa-cloud-download-alt pr-2"></i>Getter Functions</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/get/"><i class="fas fa-cloud-download-alt pr-2"></i>Getter Functions</a></h3>
         <p>Learn how to configure stacks for different deployment scenarios.</p>
     </div>
 </div>
 
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/functions"><i class="fas fa-file-alt pr-2"></i>Provider Functions</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/resources/functions/"><i class="fas fa-file-alt pr-2"></i>Provider Functions</a></h3>
         <p>Learn how to use the functions included with Pulumi packages.</p>
     </div>
 </div>
