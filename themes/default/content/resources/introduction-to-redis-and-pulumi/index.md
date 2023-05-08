@@ -61,7 +61,6 @@ main:
     # Sortable date.
     # The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2023-07-13T06:00:00-07:00
-    hide_date: true
     # Duration of the webinar.
     duration: "1 hour"
     # Datetime of the webinar.
@@ -74,7 +73,7 @@ main:
     presenters:
         - name: Josh Kodroff
           role: Senior Solutions Architect, Pulumi
-      - name: Noam Stern
+        - name: Noam Stern
           role: Product Manager, Redis
 
     # A bullet point list containing what the user will learn during the webinar.
