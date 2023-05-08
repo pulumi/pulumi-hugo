@@ -9,6 +9,17 @@ $toc-header-spacing: 5px;
 
     li {
         border-radius: 2px;
+        border-left: transparent 3px solid;
+
+        &.active {
+            background-color: #edeffb;
+            border-left: #364098 3px solid;
+            width: fit-content;
+    
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
     }
 
     a {
@@ -19,16 +30,6 @@ $toc-header-spacing: 5px;
             text-decoration: #8e8f97 solid underline !important;
             text-underline-offset: 6px;
             color: #364098;
-        }
-    }
-
-    .active {
-        background-color: #edeffb;
-        border-left: #364098 3px solid;
-        width: fit-content;
-
-        &:hover {
-            text-decoration: none !important;
         }
     }
 
@@ -48,6 +49,7 @@ $toc-header-spacing: 5px;
 
         margin-top: 16px;
         margin-bottom: 0;
+        border-left: transparent 3px solid;
 
         &.active {
             background-color: #edeffb;
@@ -60,13 +62,19 @@ $toc-header-spacing: 5px;
 
 .sidenav-topic {
     font-size: 16px;
-    margin-left: 16px;
+    margin-left: 8px;
     margin-bottom: 16px;
+    margin-top: 16px;
 }
 
 .sidenav-subsection {
     @apply mb-2 text-sm;
     margin-left: 16px;
+}
+
+.top-level-container {
+    border-left: #e5e5e9 1px solid;
+    margin-left: 8px;
 }
 
 .toggleButton, .toggleButton-topLevel {
