@@ -18,6 +18,9 @@ $toc-header-spacing: 5px;
     
             &:hover {
                 text-decoration: none !important;
+                background-color: #cacef4;
+                color: #272e6d;
+                border-left: #272e6d 3px solid;
             }
         }
     }
@@ -42,7 +45,7 @@ $toc-header-spacing: 5px;
         @apply list-none p-0;
     }
 
-    .toc-header {
+    p.toc-header {
         font-size: 16px;
         width: fit-content;
         padding-right: $toc-header-spacing;
@@ -56,6 +59,12 @@ $toc-header-spacing: 5px;
             border-left: #364098 3px solid;
             width: fit-content;
             text-decoration: none !important;
+
+            &:hover {
+                background-color: #cacef4;
+                color: #272e6d;
+                border-left: #272e6d 3px solid;
+            }
         }
     }
 }
