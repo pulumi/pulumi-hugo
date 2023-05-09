@@ -21,16 +21,16 @@ Pulumi is an <a href="https://github.com/pulumi/pulumi" target="_blank">open sou
 
 <div class="bg-gray-100 rounded max-w-6xl my-4 px-4 py-2">
     <div class="md:flex justify-between items-center">
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="/docs/clouds/aws/get-started/">
+        <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="/docs/clouds/aws/">
             <img class="inline-block h-8 w-auto -mb-2" src="/logos/tech/aws.svg">
         </a>
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="/docs/clouds/azure/get-started/">
+        <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="/docs/clouds/azure/">
             <img class="inline-block h-8 w-auto" src="/logos/tech/azure.svg">
         </a>
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="/docs/clouds/gcp/get-started/">
+        <a class="block rounded hover:bg-gray-200 transition-all my-2 text-center md:mx-2 py-4 px-6" href="/docs/clouds/gcp/">
             <img class="inline-block h-8 w-auto" src="/logos/tech/gcp.svg">
         </a>
-        <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="/docs/clouds/kubernetes/get-started/">
+        <a class="block rounded hover:bg-gray-200 transition-all my-2 py-4 text-center px-6" href="/docs/clouds/kubernetes/">
             <img class="inline-block h-8 w-auto" src="/logos/tech/k8s.svg">
         </a>
     </div>
