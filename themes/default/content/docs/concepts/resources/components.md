@@ -1,7 +1,7 @@
 ---
 title_tag: "Pulumi concepts: Component resources"
 meta_desc: A component resource is a logical grouping of resources. Learn how to author a new component resource, create child resources, and more in this guide.
-title: Component resources
+title: Components
 h1: Component resources
 menu:
   concepts:

@@ -1,8 +1,8 @@
 ---
 title_tag: "Pulumi concepts: Resource Providers"
 meta_desc: A resource provider handles communications with a cloud service to create, read, update, and delete the resources you define in your Pulumi programs.
-title: Resource providers
-h1: Providers
+title: Providers
+h1: Resource providers
 menu:
   concepts:
     parent: resources

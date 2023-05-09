@@ -1,7 +1,7 @@
 ---
 title_tag: "Pulumi concepts: Resource Names"
 meta_desc: A resource in Pulumi has a logical name (in Pulumi) and a physical name (in the cloud provider). Learn more about resource names and how to use them here.
-title: Resource names
+title: Names
 h1: Resource names
 menu:
   concepts:
