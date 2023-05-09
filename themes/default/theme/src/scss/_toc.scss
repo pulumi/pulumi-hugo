@@ -53,6 +53,7 @@ $toc-header-spacing: 5px;
         margin-top: 16px;
         margin-bottom: 0;
         border-left: transparent 3px solid;
+        border-radius: 0 2px 2px 0;
 
         &.active {
             background-color: #edeffb;
