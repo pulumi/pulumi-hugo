@@ -7,6 +7,8 @@ menu:
   clouds:
     identifier: aws
     weight: 1
+cloud_overview: true
+get_started_guide: get-started/
 ---
 
 ## Get started guide
