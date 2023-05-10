@@ -1,4 +1,4 @@
-h2 {
+section h2 {
     font-family: Gilroy;
     font-size: 21px;
     font-weight: 400;
@@ -33,26 +33,26 @@ section div.col {
     flex-direction: column;
 }
 
-section.top-cards,
-section.grid {
+section.inner-cards,
+div.col {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-section.get-started div.row,
-section.get-started div.col,
-section.top-cards div.row {
+section.card-heading-para-inner-cards div.row,
+section.card-heading-para-inner-cards div.col,
+section.inner-cards div.row {
     display: flex;
     gap: 24px;
 }
 
-section.top-cards div.row a,
-section.get-started div.row a {
+section.inner-cards div.row a,
+section.card-heading-para-inner-cards div.row a {
     flex: 1;
 }
 
-section.get-started {
+section.card-heading-para-inner-cards {
     box-shadow: 0px 2px 24px 0px #5f606524;
     border: 1px solid #e5e5e9;
     border-radius: 4px;
@@ -95,7 +95,7 @@ section.get-started {
     }
 }
 
-section.top-cards {
+section.inner-cards {
     div.row div.card {
         padding: 12px 24px;
         border: #e5e5e9 1px solid;
@@ -139,7 +139,7 @@ section.top-cards {
     }
 }
 
-section.convert {
+section.card-heading-para {
     background: #fff;
     padding: 24px;
     box-shadow: 0px 2px 24px 0px #5f606524;
