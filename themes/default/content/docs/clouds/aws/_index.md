@@ -23,6 +23,10 @@ components:
   url: aws-iam
 - display_name: AWS static website
   url: aws-static-website
+convert:
+- heading: Convert CloudFormation to Pulumi
+  url: /cf2pulumi
+  description: Convert CloudForfmation templates to your language of choice with Pulumi's conversion tool.
 templates:
 - display_name: Container service on AWS
   url: container-service/aws
@@ -41,4 +45,7 @@ guides:
   url: guides/cloudwatch
 - display_name: Using AWS Elastic Container Registry (ECR)
   url: guides/ecr
+policy:
+- url: /awsguard
+  description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
 ---

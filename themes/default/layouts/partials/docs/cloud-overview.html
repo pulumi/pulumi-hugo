@@ -88,16 +88,25 @@
             {{ end }}
         </div>
     </section>
-    <section class="convert card-heading-para">
-        <div class="top">
-            <div class="heading">
-                <i class="fas fa-puzzle-piece"></i>
-                <h2>Convert CloudFormation to Pulumi</h2>
-            </div>
-            <i class="fas fa-arrow-right"></i>
-        </div>
-        <p>Convert CloudForfmation templates to your language of choice with Pulumi's conversion tool.</p>
-    </section>
+
+    {{ if .Params.convert }}
+        {{ range $convert := .Params.convert }}
+            <a href="{{ $convert.url }}/">
+                <section class="policies card-heading-para">
+                    <div class="top">
+                        <div class="heading">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <h2>{{ $convert.heading }}</h2>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <p>
+                        {{ $convert.description }}
+                    </p>
+                </section>
+            </a>
+        {{ end }}
+    {{ end }}
     <section class="templates card-heading-para-inner-cards">
         <h2>Templates</h2>
         <p>
@@ -161,16 +170,23 @@
             {{ end }}
         </div>
     </section>
-    <section class="policies card-heading-para">
-        <div class="top">
-            <div class="heading">
-                <i class="fas fa-puzzle-piece"></i>
-                <h2>Policies</h2>
-            </div>
-            <i class="fas fa-arrow-right"></i>
-        </div>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
-        </p>
-    </section>
+
+    {{ if .Params.policy }}
+        {{ range $policy := .Params.policy }}
+            <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}/">
+                <section class="policies card-heading-para">
+                    <div class="top">
+                        <div class="heading">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <h2>Policies</h2>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <p>
+                        {{ $policy.description }}
+                    </p>
+                </section>
+            </a>
+        {{ end }}
+    {{ end }}
 </section>
