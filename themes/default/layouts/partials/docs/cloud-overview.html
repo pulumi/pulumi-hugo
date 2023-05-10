@@ -1,5 +1,6 @@
 <section class="content">
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.</p>
+    <p>{{ .Params.description }}</p>
+
     <section class="inner-cards">
         <div class="col">
             <div class="row">
@@ -44,12 +45,13 @@
             </div>
         </div>
     </section>
+
     <section class="providers card-heading-para-inner-cards">
         <h2>Providers</h2>
         <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
         <div class="row">
             {{ range $provider := .Params.providers }}
-                <a href="/registry/packages/{{ $provider.url }}/">
+                <a href="/registry/packages/{{ $provider.url }}">
                     <div class="card">
                         <div class="heading">
                             <p>{{ $provider.display_name }}</p>
@@ -59,6 +61,7 @@
             {{ end }}
         </div>
     </section>
+
     <section class="components card-heading-para-inner-cards">
         <h2>Components</h2>
         <p>Components support all languages and group a set of resources together.</p>
@@ -69,14 +72,14 @@
                     <div class="row">
                         {{ $item1 := index $components $index }}
                         {{ $item2 := index $components (add $index 1) }}
-                        <a href="/registry/packages/{{ $item1.url }}/">
+                        <a href="/registry/packages/{{ $item1.url }}">
                             <div class="card">
                                 <div class="heading">
                                     <p>{{ $item1.display_name }}</p>
                                 </div>
                             </div>
                         </a>
-                        <a href="/registry/packages/{{ $item2.url }}/">
+                        <a href="/registry/packages/{{ $item2.url }}">
                             <div class="card">
                                 <div class="heading">
                                     <p>{{ $item2.display_name }}</p>
@@ -91,7 +94,7 @@
 
     {{ if .Params.convert }}
         {{ range $convert := .Params.convert }}
-            <a href="{{ $convert.url }}/">
+            <a href="{{ $convert.url }}">
                 <section class="policies card-heading-para">
                     <div class="top">
                         <div class="heading">
@@ -107,6 +110,8 @@
             </a>
         {{ end }}
     {{ end }}
+
+
     <section class="templates card-heading-para-inner-cards">
         <h2>Templates</h2>
         <p>
@@ -120,45 +125,14 @@
                     <div class="row">
                         {{ $item1 := index $templates $index }}
                         {{ $item2 := index $templates (add $index 1) }}
-                        <a href="/templates/{{ $item1.url }}/">
+                        <a href="/templates/{{ $item1.url }}">
                             <div class="card">
                                 <div class="heading">
                                     <p>{{ $item1.display_name }}</p>
                                 </div>
                             </div>
                         </a>
-                        <a href="/templates/{{ $item2.url }}/">
-                            <div class="card">
-                                <div class="heading">
-                                    <p>{{ $item2.display_name }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                {{ end }}
-            {{ end }}
-        </div>
-    </section>
-    <section class="guides card-heading-para-inner-cards">
-        <h2>Guides</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
-        </p>
-        <div class="col">
-            {{ $guides := .Params.guides }}
-            {{ range $index, $guide := $guides }}
-                {{ if eq (mod $index 2) 0 }}
-                    <div class="row">
-                        {{ $item1 := index $guides $index }}
-                        {{ $item2 := index $guides (add $index 1) }}
-                        <a href="{{ $item1.url }}/">
-                            <div class="card">
-                                <div class="heading">
-                                    <p>{{ $item1.display_name }}</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{ $item2.url }}/">
+                        <a href="/templates/{{ $item2.url }}">
                             <div class="card">
                                 <div class="heading">
                                     <p>{{ $item2.display_name }}</p>
@@ -171,9 +145,44 @@
         </div>
     </section>
 
+    {{ if .Params.guides }}
+        <section class="guides card-heading-para-inner-cards">
+            <h2>Guides</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis
+                ac.
+            </p>
+            <div class="col">
+                {{ $guides := .Params.guides }}
+                {{ range $index, $guide := $guides }}
+                    {{ if eq (mod $index 2) 0 }}
+                        <div class="row">
+                            {{ $item1 := index $guides $index }}
+                            {{ $item2 := index $guides (add $index 1) }}
+                            <a href="{{ $item1.url }}">
+                                <div class="card">
+                                    <div class="heading">
+                                        <p>{{ $item1.display_name }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{{ $item2.url }}">
+                                <div class="card">
+                                    <div class="heading">
+                                        <p>{{ $item2.display_name }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </section>
+    {{ end }}
+
     {{ if .Params.policy }}
         {{ range $policy := .Params.policy }}
-            <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}/">
+            <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
                 <section class="policies card-heading-para">
                     <div class="top">
                         <div class="heading">
