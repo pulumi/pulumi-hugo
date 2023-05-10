@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-aks
+  title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-aks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Kubernetes cluster in Azure using the Python programming language. The example creates the cluster, a Virtual Network, and a Storage Account, and is useful for setting up a multi-container cloud-based application on Azure. It also provides guidance on how to securely access and configure the cluster, making it an ideal example for cloud-computing use cases."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-aks/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Wordpress Helm Chart Deployed Using Helm Release Resource"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-go-helm-release-wordpress
+  title: "Wordpress Helm Chart Deployed Using Helm Release Resource"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-go-helm-release-wordpress
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provides a demonstration of setting up a Kubernetes Helm release of a WordPress application. It uses the Go programming language and is configured to run with Google Cloud Platform&#x27;s Kubernetes Engine. It creates a Kubernetes deployment and service, configures a storage volume for persistent WordPress data, and provisions an ingress for access to the WordPress application. The example serves the general cloud computing use case of deploying a managed service on a Kubernetes instance."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-go-helm-release-wordpress/README.md)

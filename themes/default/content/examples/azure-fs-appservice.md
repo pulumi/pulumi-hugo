@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service with SQL Database and Application Insights"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-fs-appservice
+  title: "Azure App Service with SQL Database and Application Insights"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-fs-appservice
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses the Azure cloud provider and the TypeScript programming language to create a full serverless architecture with an Azure File Share and an App Service. The file share is a simple storage service, and the App Service will host web apps, APIs, and mobile backends. Together, these two services are used to create a cost-effective, highly available cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-fs-appservice/README.md)

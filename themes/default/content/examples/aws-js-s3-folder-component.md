@@ -1,12 +1,17 @@
 ---
 title: "Static Website Hosted on AWS S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-js-s3-folder-component
+  title: "Static Website Hosted on AWS S3"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-js-s3-folder-component
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a JavaScript-based demonstration of how to use Pulumi to configure Amazon Web Services. It deploys an S3 bucket and then further configures it to host a static website, including setting up appropriate IAM roles. It uses AWS and JavaScript, and serves as an example of how Pulumi can be used to easily and quickly set up cloud resources and configure them for a particular use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-js-s3-folder-component/README.md)

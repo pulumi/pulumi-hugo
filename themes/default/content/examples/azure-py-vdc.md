@@ -1,12 +1,17 @@
 ---
 title: "Azure Virtual Data Center (VDC)"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-vdc
+  title: "Azure Virtual Data Center (VDC)"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-vdc
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses Python and Microsoft Azure to create a virtual data center. It deploys resources such as Virtual Networks, Subnets, and Network Security Groups in order to create a secure and reliable data center. Additionally, it also configures a virtual machine and some storage accounts, in order to provide a more sophisticated data center. This example serves as a starter template for users who need to deploy and manage data centers in Azure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-virtual-data-center/README.md)

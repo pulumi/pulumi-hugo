@@ -1,46 +1,21 @@
 ---
 title: "Web Server Using Amazon EC2 (in Go)"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: go-webserver
-  settings:
-    name: go-webserver
-    description: Basic example of an AWS web server accessible over HTTP
-    runtime: go
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 3
-    outputs:
-      publicHostName:
-        value: ec2-52-41-40-42.us-west-2.compute.amazonaws.com
-        secret: false
-      publicIp:
-        value: 52.41.40.42
-        secret: false
-    startTime: 1683413025000
-    endTime: 1683413122000
-    config: {}
+meta_desc: "Basic example of an AWS web server accessible over HTTP"
+metadata:
+  id: go-webserver
+  title: "Web Server Using Amazon EC2 (in Go)"
+  description: "Basic example of an AWS web server accessible over HTTP"
+  url: https://github.com/pulumi/examples/tree/master/go-webserver
+  runtime: go
+  lastUpdate: 1683413122000
+  duration: 97000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::go-webserver::pulumi:pulumi:Stack::go-webserver-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::go-webserver::pulumi:providers:aws::default
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::go-webserver::aws:ec2/securityGroup:SecurityGroup::web-secgrp
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::go-webserver::aws:ec2/instance:Instance::web-server-www
-      type: aws:ec2/instance:Instance
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/instance:Instance
 
+summary: "This Pulumi example deploys a Web server on any cloud provider using the Go programming language. It uses an existing Amazon Web Services (AWS) S3 bucket and a public CloudFront distribution to present the website’s content to the world. It uses Pulumi to deploy the stack via Go code, resulting in spinning up a CloudFront distribution and a load balancer linked to an auto-scaled Firecracker server. This allows for an easy and secure deployment of a web server with minimal effort."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-go-webserver/README.md)

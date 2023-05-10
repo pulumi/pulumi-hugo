@@ -1,234 +1,76 @@
 ---
 title: "Amazon EKS Cluster"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-eks
-  settings:
-    name: aws-ts-eks
-    description: EKS cluster example
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 57
-    outputs:
-      kubeconfig:
-        value:
-          current-context: aws
-          apiVersion: v1
-          contexts:
-            - context:
-                cluster: kubernetes
-                user: aws
-              name: aws
-          clusters:
-            - name: kubernetes
-              cluster:
-                server: >-
-                  https://389F62B2C2E8ABA6C1425F0CE3D0EA3C.gr7.us-west-2.eks.amazonaws.com
-                certificate-authority-data: >-
-                  LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1EVXdOakl5TkRVd05Gb1hEVE16TURVd016SXlORFV3TkZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTk1WCml3Wm9uSzVuNWJQMUFZMTZ2VFZ6b1hnMHYvUFVLMjhnNERVbWt4a1hFck1HRHI3NTlVNHRBaVZSUERpMTIyMmQKRDN3WmZyemhFWlVMSlhvQzVsQVVpYTZNNGRDYnNpb2FRS3UyU2FaTG4vM2dFQXpwTjZnYUNxK3VLMy9XcFlZYgpRNXV3Mm45RlpxTnlUb1I3Sk04L1VKZUlnRFJYbjRoQlRWSUZBbXFZd3JWZnRTZXVLQ0QxRHFXbFBwRFhJcVVsCk9xbGdkb3RxSTExaFhmTUh4b3UrS2tTQndLSmNKcnE1RCt6L3l4eCtlZFI1ZDdDTUVsSHQ5aFpkcWhxT3kwbVMKY0FzWmU1RWx4eGxrUUFKU1FUcjN4cmN5TW9ZQjNZdk5SSGxmaVdncVBCc0I1UmhkWjZBbnI5aWh1cHVqY1krUgpqczROM2JESGEyOXg2RHRVUXg4Q0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZQblJaWkFXOWlyVU5yaDV4U0lSaFRTTUxCb0JNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBRTU0MFdsRDU0R2F3NHRUQXhqYQpEVnZSZHdhbnhLMER6U2lkbDIyYTdKcEl3YVphNTNvS3Vxd0s1blZhcFo5ODI2Um5VRWVydFo0NWVSQUJISUhmCmJMTnlZWGhSR0p6dXdYYVp0Vm9TemNuSit4TEJnUXpWTmJ5dUgxK0hMVWxMdW1RYlZWbGF4WHNFbzQvMnJkdFAKbDJ2Q3Q3R1dvdnI2WHdiRk9pZm00TForUWs3SCtDV2NYU0dIcm8zdWZOWWFxYkd0Vi9UOElXUzNmZzVHbHAzWgppYkF2WEhmOGV6dlNRa2ZIdDhnbERMOGUxUlV3SG91ZmN1UExSUDRPRmxVcWdDd2VKQmR4ZmNTUjBDcENZRnNICmNOWHYrZVlhVkFndzdIeXdwU0dCZUhOcUdldXVOc2hWZ2tCYzlOWElPTXptQms0V0t1MTcyczllODZRNlN4M2MKUEw0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
-          kind: Config
-          users:
-            - name: aws
-              user:
-                exec:
-                  args:
-                    - eks
-                    - get-token
-                    - '--cluster-name'
-                    - cluster-eksCluster-cb6c455
-                  apiVersion: client.authentication.k8s.io/v1beta1
-                  env:
-                    - name: KUBERNETES_EXEC_INFO
-                      value: '{"apiVersion": "client.authentication.k8s.io/v1beta1"}'
-                  command: aws
-        secret: false
-    startTime: 1683412731000
-    endTime: 1683413373000
-    config: {}
+meta_desc: "EKS cluster example"
+metadata:
+  id: aws-ts-eks
+  title: "Amazon EKS Cluster"
+  description: "EKS cluster example"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-eks
+  runtime: nodejs
+  lastUpdate: 1683413373000
+  duration: 642000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::pulumi:pulumi:Stack::aws-ts-eks-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc::vpc
-      type: awsx:x:ec2:Vpc
-    - urn: urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster::cluster
-      type: eks:index:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole::cluster-instanceRole
-      type: eks:index:ServiceRole
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole::cluster-eksRole
-      type: eks:index:ServiceRole
-    - urn: urn:pulumi:examples-api::aws-ts-eks::pulumi:providers:eks::default
-      type: pulumi:providers:eks
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:NatGateway::vpc-0
-      type: awsx:x:ec2:NatGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::vpc-private-0
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:NatGateway::vpc-1
-      type: awsx:x:ec2:NatGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::vpc-public-0
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::vpc-private-1
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:InternetGateway::vpc
-      type: awsx:x:ec2:InternetGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::vpc-public-1
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:RandomSuffix::cluster-cfnStackName
-      type: eks:index:RandomSuffix
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole$aws:iam/role:Role::cluster-instanceRole-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole$aws:iam/role:Role::cluster-eksRole-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole$aws:iam/rolePolicyAttachment:RolePolicyAttachment::cluster-instanceRole-03516f97
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole$aws:iam/rolePolicyAttachment:RolePolicyAttachment::cluster-instanceRole-e1b295bd
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole$aws:iam/rolePolicyAttachment:RolePolicyAttachment::cluster-instanceRole-3eb088f2
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:NatGateway$aws:ec2/eip:Eip::vpc-0
-      type: aws:ec2/eip:Eip
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:ServiceRole$aws:iam/rolePolicyAttachment:RolePolicyAttachment::cluster-eksRole-4b490823
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:NatGateway$aws:ec2/eip:Eip::vpc-1
-      type: aws:ec2/eip:Eip
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:iam/instanceProfile:InstanceProfile::cluster-instanceProfile
-      type: aws:iam/instanceProfile:InstanceProfile
-    - urn: urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$aws:ec2/vpc:Vpc::vpc
-      type: aws:ec2/vpc:Vpc
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:InternetGateway$aws:ec2/internetGateway:InternetGateway::vpc
-      type: aws:ec2/internetGateway:InternetGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTable:RouteTable::vpc-public-1
-      type: aws:ec2/routeTable:RouteTable
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTable:RouteTable::vpc-private-0
-      type: aws:ec2/routeTable:RouteTable
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTable:RouteTable::vpc-public-0
-      type: aws:ec2/routeTable:RouteTable
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTable:RouteTable::vpc-private-1
-      type: aws:ec2/routeTable:RouteTable
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/subnet:Subnet::vpc-private-0
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/subnet:Subnet::vpc-private-1
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/route:Route::vpc-public-1-ig
-      type: aws:ec2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/route:Route::vpc-public-0-ig
-      type: aws:ec2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-private-1
-      type: aws:ec2/routeTableAssociation:RouteTableAssociation
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-private-0
-      type: aws:ec2/routeTableAssociation:RouteTableAssociation
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroup:SecurityGroup::cluster-eksClusterSecurityGroup
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-eksClusterInternetEgressRule
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/subnet:Subnet::vpc-public-1
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-public-1
-      type: aws:ec2/routeTableAssociation:RouteTableAssociation
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/subnet:Subnet::vpc-public-0
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-public-0
-      type: aws:ec2/routeTableAssociation:RouteTableAssociation
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:NatGateway$aws:ec2/natGateway:NatGateway::vpc-1
-      type: aws:ec2/natGateway:NatGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/route:Route::vpc-private-1-nat-1
-      type: aws:ec2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:NatGateway$aws:ec2/natGateway:NatGateway::vpc-0
-      type: aws:ec2/natGateway:NatGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet$aws:ec2/route:Route::vpc-private-0-nat-0
-      type: aws:ec2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:eks/cluster:Cluster::cluster-eksCluster
-      type: aws:eks/cluster:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$pulumi:providers:kubernetes::cluster-eks-k8s
-      type: pulumi:providers:kubernetes
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$kubernetes:core/v1:ConfigMap::cluster-nodeAccess
-      type: kubernetes:core/v1:ConfigMap
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$eks:index:VpcCni::cluster-vpc-cni
-      type: eks:index:VpcCni
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroup:SecurityGroup::cluster-nodeSecurityGroup
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-eksNodeClusterIngressRule
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-eksClusterIngressRule
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-eksExtApiServerClusterIngressRule
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/launchConfiguration:LaunchConfiguration::cluster-nodeLaunchConfiguration
-      type: aws:ec2/launchConfiguration:LaunchConfiguration
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-eksNodeIngressRule
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-eksNodeInternetEgressRule
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$aws:cloudformation/stack:Stack::cluster-nodes
-      type: aws:cloudformation/stack:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-eks::eks:index:Cluster$pulumi:providers:kubernetes::cluster-provider
-      type: pulumi:providers:kubernetes
+  - pulumi:pulumi:Stack
+  - awsx:x:ec2:Vpc
+  - eks:index:Cluster
+  - pulumi:providers:aws
+  - eks:index:ServiceRole
+  - eks:index:ServiceRole
+  - pulumi:providers:eks
+  - awsx:x:ec2:NatGateway
+  - awsx:x:ec2:Subnet
+  - awsx:x:ec2:NatGateway
+  - awsx:x:ec2:Subnet
+  - awsx:x:ec2:Subnet
+  - awsx:x:ec2:InternetGateway
+  - awsx:x:ec2:Subnet
+  - eks:index:RandomSuffix
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ec2/eip:Eip
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ec2/eip:Eip
+  - aws:iam/instanceProfile:InstanceProfile
+  - aws:ec2/vpc:Vpc
+  - aws:ec2/internetGateway:InternetGateway
+  - aws:ec2/routeTable:RouteTable
+  - aws:ec2/routeTable:RouteTable
+  - aws:ec2/routeTable:RouteTable
+  - aws:ec2/routeTable:RouteTable
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/route:Route
+  - aws:ec2/route:Route
+  - aws:ec2/routeTableAssociation:RouteTableAssociation
+  - aws:ec2/routeTableAssociation:RouteTableAssociation
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/routeTableAssociation:RouteTableAssociation
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/routeTableAssociation:RouteTableAssociation
+  - aws:ec2/natGateway:NatGateway
+  - aws:ec2/route:Route
+  - aws:ec2/natGateway:NatGateway
+  - aws:ec2/route:Route
+  - aws:eks/cluster:Cluster
+  - pulumi:providers:kubernetes
+  - kubernetes:core/v1:ConfigMap
+  - eks:index:VpcCni
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/launchConfiguration:LaunchConfiguration
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:cloudformation/stack:Stack
+  - pulumi:providers:kubernetes
 
+summary: "This Pulumi example deploys a Kubernetes cluster in AWS using Typescript. It sets up an EC2 instance, security groups and load balancers, to create an Amazon Elastic Kubernetes Service (EKS) cluster. It uses the AWS cloud provider and Typescript as the programming language. This example serves the general use case of deploying a cloud-based application in the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-eks/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Apps"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-containerapps
+  title: "Azure Container Apps"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-containerapps
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses Python, Microsoft Azure, and container apps to deploy and configure a web application. It creates an Azure Resource Group, two services, an Azure Container Instance, as well as networking resources. This example can be used to set up a general cloud-computing use case, such as running web applications in containers on an Azure cloud environment."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-containerapps/README.md)

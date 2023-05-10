@@ -1,12 +1,17 @@
 ---
 title: "App Rollout via ConfigMap Data Change"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-go-configmap-rollout
+  title: "App Rollout via ConfigMap Data Change"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-go-configmap-rollout
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates creating a Kubernetes ConfigMap using the Go programming language, running on either AWS or GCP. It covers the use case of rolling out a config change in a manner designed to prevent downtime. It creates a new ConfigMap on a staging namespace, waits for it to be validated, and then updates a ConfigMap object in the production namespace. The user is given the option to write custom validation logic in the code."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-go-configmap-rollout/README.md)

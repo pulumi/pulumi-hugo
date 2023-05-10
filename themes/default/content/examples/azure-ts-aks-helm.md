@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster and Helm Chart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-aks-helm
+  title: "Azure Kubernetes Service (AKS) Cluster and Helm Chart"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-aks-helm
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates the deployment of a Kubernetes cluster with Helm and Azure Container Service on Microsoft Azure using TypeScript. The example deploys two resource groups, an Azure Container Service cluster, an Azure Virtual Network, public IPs and DNS, a container registry and a Kubernetes service. The example serves the cloud computing use case of deploying Kubernetes clusters on the Microsoft Azure cloud platform."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-aks-helm/README.md)

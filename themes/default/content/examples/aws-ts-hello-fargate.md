@@ -1,168 +1,63 @@
 ---
 title: "Dockerized App Using ECS, ECR, and Fargate"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-hello-fargate
-  settings:
-    name: aws-ts-hello-fargate
-    description: A minimal "Hello, World" container in Fargate.
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 39
-    outputs:
-      url:
-        value: net-lb-816be1a-141670846.us-west-2.elb.amazonaws.com
-        secret: false
-    startTime: 1683412660000
-    endTime: 1683412868000
-    config: {}
+meta_desc: "A minimal &quot;Hello, World&quot; container in Fargate."
+metadata:
+  id: aws-ts-hello-fargate
+  title: "Dockerized App Using ECS, ECR, and Fargate"
+  description: "A minimal &quot;Hello, World&quot; container in Fargate."
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-hello-fargate
+  runtime: nodejs
+  lastUpdate: 1683412868000
+  duration: 208000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::pulumi:pulumi:Stack::aws-ts-hello-fargate-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster::cluster
-      type: awsx:x:ecs:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer::net-lb
-      type: aws:lb:ApplicationLoadBalancer
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition::app-svc
-      type: awsx:x:ecs:FargateTaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::pulumi:providers:awsx::default_1_0_2
-      type: pulumi:providers:awsx
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateService::app-svc
-      type: awsx:x:ecs:FargateService
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup::cluster
-      type: awsx:x:ec2:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationTargetGroup::web
-      type: awsx:lb:ApplicationTargetGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationListener::web
-      type: awsx:lb:ApplicationListener
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:ecr:Repository::repo
-      type: awsx:ecr:Repository
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule::cluster-ssh
-      type: awsx:x:ec2:IngressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule::cluster-containers
-      type: awsx:x:ec2:IngressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationListener$awsx:x:ec2:IngressSecurityGroupRule::web-external-0-ingress
-      type: awsx:x:ec2:IngressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:EgressSecurityGroupRule::cluster-egress
-      type: awsx:x:ec2:EgressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationListener$awsx:x:ec2:EgressSecurityGroupRule::web-external-0-egress
-      type: awsx:x:ec2:EgressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:iam/role:Role::app-svc-execution
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:iam/role:Role::app-svc-task
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:cloudwatch/logGroup:LogGroup::app-svc
-      type: aws:cloudwatch/logGroup:LogGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::pulumi:providers:aws::default_5_16_2
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ec2:Vpc::default-vpc
-      type: awsx:x:ec2:Vpc
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ec2:Vpc$aws:ec2/subnet:Subnet::default-vpc-public-1
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::app-svc-execution-58ed699a
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:ecr:Repository$aws:ecr/repository:Repository::repo
-      type: aws:ecr/repository:Repository
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ec2:Vpc$aws:ec2/subnet:Subnet::default-vpc-public-0
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::app-svc-execution-9a42f520
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::app-svc-task-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::app-svc-task-0cbb1731
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:ec2/vpc:Vpc::default-vpc
-      type: aws:ec2/vpc:Vpc
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::default-vpc-public-1
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::default-vpc-public-0
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:ecr:Repository$aws:ecr/lifecyclePolicy:LifecyclePolicy::repo
-      type: aws:ecr/lifecyclePolicy:LifecyclePolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::pulumi:providers:pulumi::default
-      type: pulumi:providers:pulumi
-    - urn: urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:ecr:Image::app-img
-      type: awsx:ecr:Image
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationTargetGroup$aws:lb/targetGroup:TargetGroup::web
-      type: aws:lb/targetGroup:TargetGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$aws:ecs/cluster:Cluster::cluster
-      type: aws:ecs/cluster:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$aws:ec2/securityGroup:SecurityGroup::cluster
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationListener$awsx:x:ec2:EgressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::web-external-0-egress
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-ssh
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:EgressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-egress
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::cluster-containers
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationListener$awsx:x:ec2:IngressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::web-external-0-ingress
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$aws:lb/loadBalancer:LoadBalancer::net-lb
-      type: aws:lb/loadBalancer:LoadBalancer
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::aws:lb:ApplicationLoadBalancer$awsx:lb:ApplicationListener$aws:lb/listener:Listener::web
-      type: aws:lb/listener:Listener
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateTaskDefinition$aws:ecs/taskDefinition:TaskDefinition::app-svc
-      type: aws:ecs/taskDefinition:TaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-hello-fargate::awsx:x:ecs:FargateService$aws:ecs/service:Service::app-svc
-      type: aws:ecs/service:Service
+  - pulumi:pulumi:Stack
+  - awsx:x:ecs:Cluster
+  - aws:lb:ApplicationLoadBalancer
+  - awsx:x:ecs:FargateTaskDefinition
+  - pulumi:providers:awsx
+  - awsx:x:ecs:FargateService
+  - awsx:x:ec2:SecurityGroup
+  - awsx:lb:ApplicationTargetGroup
+  - awsx:lb:ApplicationListener
+  - pulumi:providers:aws
+  - awsx:ecr:Repository
+  - awsx:x:ec2:IngressSecurityGroupRule
+  - awsx:x:ec2:IngressSecurityGroupRule
+  - awsx:x:ec2:IngressSecurityGroupRule
+  - awsx:x:ec2:EgressSecurityGroupRule
+  - awsx:x:ec2:EgressSecurityGroupRule
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:cloudwatch/logGroup:LogGroup
+  - pulumi:providers:aws
+  - awsx:x:ec2:Vpc
+  - aws:ec2/subnet:Subnet
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ecr/repository:Repository
+  - aws:ec2/subnet:Subnet
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ec2/vpc:Vpc
+  - awsx:x:ec2:Subnet
+  - awsx:x:ec2:Subnet
+  - aws:ecr/lifecyclePolicy:LifecyclePolicy
+  - pulumi:providers:pulumi
+  - awsx:ecr:Image
+  - aws:lb/targetGroup:TargetGroup
+  - aws:ecs/cluster:Cluster
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:lb/loadBalancer:LoadBalancer
+  - aws:lb/listener:Listener
+  - aws:ecs/taskDefinition:TaskDefinition
+  - aws:ecs/service:Service
 
+summary: "This Pulumi example creates a serverless application on AWS with Fargate, written in TypeScript. It configures a container with a Node.js web server and an Amazon Relational Database Service (Amazon RDS) database. The serverless application also has an Amazon Elastic Load Balancer to split incoming traffic between the Fargate containers. Finally, this example configures Amazon S3 to serve static content and Amazon CloudFront to cache it, providing a basic serverless web application."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-hello-fargate/README.md)

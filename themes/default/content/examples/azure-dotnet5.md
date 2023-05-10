@@ -1,12 +1,17 @@
 ---
 title: "Deploy Containerized Web Applications using the native Azure Provider, .NET 5, and C# 9"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-dotnet5
+  title: "Deploy Containerized Web Applications using the native Azure Provider, .NET 5, and C# 9"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-dotnet5
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up an example web-application on Azure using .NET 5 and the Azure Websites service. It demonstrates how Pulumi can be used to create an Azure instance and configure various services that can be used with it, such as a storage account, an Azure database, a website, an App Service, and an Application Insights instance. The example serves as a demonstration of how to set up a web-application with Pulumi, using the Azure cloud provider and .NET 5 programming language."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-net5-aks-webapp/README.md)

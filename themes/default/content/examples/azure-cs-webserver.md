@@ -1,12 +1,17 @@
 ---
 title: "Web Server Using Azure Virtual Machine"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-webserver
+  title: "Web Server Using Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-webserver
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example from Pulumi demonstrates how to deploy a Web Server in Azure using Python, Pulumi, and Azure APIs. It uses Azure Cloud Services to host the Web Server and provides a configuration consisting of an ASP.NET website with an associated Storage Account. The provided Python program uses Pulumi&#x27;s Azure SDK to create and configure the service, making it easier for developers to deploy and configure web application in the cloud. This example serves as a useful use case for quickly deploying a Web Server on Azure, with the ability to easily configure and manage application components."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-cs-webserver/README.md)

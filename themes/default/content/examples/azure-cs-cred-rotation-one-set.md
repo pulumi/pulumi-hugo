@@ -1,12 +1,17 @@
 ---
 title: "Automate the rotation of a secret for resources that use one set of authentication credentials"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-cred-rotation-one-set
+  title: "Automate the rotation of a secret for resources that use one set of authentication credentials"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-cred-rotation-one-set
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an Azure cloud service that provides an automated credential rotation based on a set period of time. It uses the Azure cloud provider and the Pulumi programming language to programmatically define a resource group, storage account, cloud service and scheduled task. The example serves the general use case of regularly changing the credentials used to access a given cloud service system."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-credential-rotation-one-set/README.md)

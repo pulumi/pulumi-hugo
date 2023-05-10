@@ -1,193 +1,72 @@
 ---
 title: "Video Thumbnailer Using AWS Fargate"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: video-thumbnailer
-  settings:
-    name: video-thumbnailer
-    description: A video thumbnail extractor using serverless functions and containers
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 48
-    outputs:
-      bucketName:
-        value: bucket-767492c
-        secret: false
-    startTime: 1683413712000
-    endTime: 1683413819000
-    config: {}
+meta_desc: "A video thumbnail extractor using serverless functions and containers"
+metadata:
+  id: video-thumbnailer
+  title: "Video Thumbnailer Using AWS Fargate"
+  description: "A video thumbnail extractor using serverless functions and containers"
+  url: https://github.com/pulumi/examples/tree/master/video-thumbnailer
+  runtime: nodejs
+  lastUpdate: 1683413819000
+  duration: 107000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::pulumi:pulumi:Stack::video-thumbnailer-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition::ffmpegThumbTask
-      type: awsx:x:ecs:FargateTaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster::default-cluster
-      type: awsx:x:ecs:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::pulumi:providers:awsx::default_1_0_2
-      type: pulumi:providers:awsx
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:iam/role:Role::onNewVideo
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup::default-cluster
-      type: awsx:x:ec2:SecurityGroup
-    - urn: urn:pulumi:examples-api::video-thumbnailer::awsx:x:ec2:Vpc::default-vpc
-      type: awsx:x:ec2:Vpc
-    - urn: urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket::bucket
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:iam/role:Role::ffmpegThumbTask-task
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:iam/role:Role::ffmpegThumbTask-execution
-      type: aws:iam/role:Role
-    - urn: urn:pulumi:examples-api::video-thumbnailer::awsx:ecr:Repository::repo
-      type: awsx:ecr:Repository
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:cloudwatch/logGroup:LogGroup::ffmpegThumbTask
-      type: aws:cloudwatch/logGroup:LogGroup
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewVideo-aadec3c3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule::default-cluster-ssh
-      type: awsx:x:ec2:IngressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewVideo-0cbb1731
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: urn:pulumi:examples-api::video-thumbnailer::aws:ec2/vpc:Vpc::default-vpc
-      type: aws:ec2/vpc:Vpc
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:EgressSecurityGroupRule::default-cluster-egress
-      type: awsx:x:ec2:EgressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule::default-cluster-containers
-      type: awsx:x:ec2:IngressSecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ec2:Vpc$aws:ec2/subnet:Subnet::default-vpc-public-0
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ec2:Vpc$aws:ec2/subnet:Subnet::default-vpc-public-1
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::default-vpc-public-0
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ec2:Vpc$awsx:x:ec2:Subnet::default-vpc-public-1
-      type: awsx:x:ec2:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription::onNewThumbnail
-      type: aws:s3:BucketEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription::onNewVideo
-      type: aws:s3:BucketEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::ffmpegThumbTask-task-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::ffmpegThumbTask-task-0cbb1731
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::ffmpegThumbTask-execution-9a42f520
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::ffmpegThumbTask-execution-58ed699a
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$aws:ecs/cluster:Cluster::default-cluster
-      type: aws:ecs/cluster:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::pulumi:providers:aws::default_5_16_2
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:ecr:Repository$aws:ecr/repository:Repository::repo
-      type: aws:ecr/repository:Repository
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/role:Role::onNewThumbnail
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:ecr:Repository$aws:ecr/lifecyclePolicy:LifecyclePolicy::repo
-      type: aws:ecr/lifecyclePolicy:LifecyclePolicy
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::pulumi:providers:pulumi::default
-      type: pulumi:providers:pulumi
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$aws:ec2/securityGroup:SecurityGroup::default-cluster
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:ecr:Image::ffmpegThumbTask
-      type: awsx:ecr:Image
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::default-cluster-ssh
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:IngressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::default-cluster-containers
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:Cluster$awsx:x:ec2:SecurityGroup$awsx:x:ec2:EgressSecurityGroupRule$aws:ec2/securityGroupRule:SecurityGroupRule::default-cluster-egress
-      type: aws:ec2/securityGroupRule:SecurityGroupRule
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/function:Function::onNewThumbnail
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/permission:Permission::onNewThumbnail
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::awsx:x:ecs:FargateTaskDefinition$aws:ecs/taskDefinition:TaskDefinition::ffmpegThumbTask
-      type: aws:ecs/taskDefinition:TaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:lambda/function:Function::onNewVideo
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/permission:Permission::onNewVideo
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer::aws:s3/bucket:Bucket$aws:s3/bucketNotification:BucketNotification::onNewVideo
-      type: aws:s3/bucketNotification:BucketNotification
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - awsx:x:ecs:FargateTaskDefinition
+  - awsx:x:ecs:Cluster
+  - pulumi:providers:awsx
+  - aws:iam/role:Role
+  - awsx:x:ec2:SecurityGroup
+  - awsx:x:ec2:Vpc
+  - aws:s3/bucket:Bucket
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - awsx:ecr:Repository
+  - aws:cloudwatch/logGroup:LogGroup
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - awsx:x:ec2:IngressSecurityGroupRule
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ec2/vpc:Vpc
+  - awsx:x:ec2:EgressSecurityGroupRule
+  - awsx:x:ec2:IngressSecurityGroupRule
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/subnet:Subnet
+  - awsx:x:ec2:Subnet
+  - awsx:x:ec2:Subnet
+  - aws:s3:BucketEventSubscription
+  - aws:s3:BucketEventSubscription
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ecs/cluster:Cluster
+  - pulumi:providers:aws
+  - aws:ecr/repository:Repository
+  - aws:iam/role:Role
+  - aws:ecr/lifecyclePolicy:LifecyclePolicy
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - pulumi:providers:pulumi
+  - aws:ec2/securityGroup:SecurityGroup
+  - awsx:ecr:Image
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:ec2/securityGroupRule:SecurityGroupRule
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:ecs/taskDefinition:TaskDefinition
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:s3/bucketNotification:BucketNotification
 
+summary: "This Pulumi example allows video files to be processed in the cloud at scale. It is an AWS serverless application written in Python which enables the creation of thumbnails for static video files. The serverless application utilizes Amazon S3 for hosting the video files, AWS Lambda for triggering the thumbnail creation, and Amazon API Gateway to provide users with a convenient API to submit videos to the application. The example demonstrates how to build a scalable, cost-effective cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-thumbnailer/README.md)

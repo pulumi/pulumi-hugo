@@ -1,74 +1,31 @@
 ---
 title: "API Gateway V2 to EventBridge"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-apigatewayv2-eventbridge
-  settings:
-    name: aws-ts-apigatewayv2-eventbridge
-    description: An example that integrates API Gateway, EventBridge, and Lambda.
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 13
-    outputs:
-      url:
-        value: https://8q33ookfgl.execute-api.us-west-2.amazonaws.com/examples-api
-        secret: false
-    startTime: 1683413377000
-    endTime: 1683413410000
-    config: {}
+meta_desc: "An example that integrates API Gateway, EventBridge, and Lambda."
+metadata:
+  id: aws-ts-apigatewayv2-eventbridge
+  title: "API Gateway V2 to EventBridge"
+  description: "An example that integrates API Gateway, EventBridge, and Lambda."
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-eventbridge
+  runtime: nodejs
+  lastUpdate: 1683413410000
+  duration: 33000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::pulumi:pulumi:Stack::aws-ts-apigatewayv2-eventbridge-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:iam/role:Role::lambda
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:apigatewayv2/api:Api::api
-      type: aws:apigatewayv2/api:Api
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:cloudwatch/eventBus:EventBus::bus
-      type: aws:cloudwatch/eventBus:EventBus
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:iam/role:Role::api-gateway-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambda-57e41134
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:apigatewayv2/stage:Stage::stage
-      type: aws:apigatewayv2/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:cloudwatch/eventRule:EventRule::rule
-      type: aws:cloudwatch/eventRule:EventRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:apigatewayv2/integration:Integration::integration
-      type: aws:apigatewayv2/integration:Integration
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:apigatewayv2/route:Route::route
-      type: aws:apigatewayv2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:lambda/function:Function::lambda
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:lambda/permission:Permission::lambda-permission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-eventbridge::aws:cloudwatch/eventTarget:EventTarget::lambda-target
-      type: aws:cloudwatch/eventTarget:EventTarget
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:apigatewayv2/api:Api
+  - aws:cloudwatch/eventBus:EventBus
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:apigatewayv2/stage:Stage
+  - aws:cloudwatch/eventRule:EventRule
+  - aws:apigatewayv2/integration:Integration
+  - aws:apigatewayv2/route:Route
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:cloudwatch/eventTarget:EventTarget
 
+summary: "This Pulumi example deploys an API Gateway v2 API with event-driven Lambda functions, using AWS, TypeScript, and the Serverless Architecture pattern. The example consists of an API Gateway endpoint and associated Lambda functions, which together form a complete API, triggered by incoming events from an EventBridge event bus. This implementation serves as a practical demonstration of the cloud-computing use case of developing API endpoints within an EventBridge-equipped AWS environment."
 ---
 
 # API Gateway V2 to EventBridge

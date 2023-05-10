@@ -1,12 +1,17 @@
 ---
 title: "Post AWS SQS Messages to Slack using Serverless Lambdas"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-js-sqs-slack
+  title: "Post AWS SQS Messages to Slack using Serverless Lambdas"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-js-sqs-slack
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses the Javascript programming language and the Amazon Web Services (AWS) cloud platform to set up a system that posts messages from an Amazon Simple Queue Service (SQS) queue to a Slack channel. The example provides an interface for receiving and posting messages to SQS and Slack via a single Lambda function. It demonstrates a general use case of cloud computation for sending messages between different services."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-js-sqs-slack/README.md)

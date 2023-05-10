@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service Running Docker Containers on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-appservice-docker
+  title: "Azure App Service Running Docker Containers on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-appservice-docker
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Docker container image hosted on an Azure App Service on a Linux Web App, using the Python SDK. This example showcases how to use Pulumi to create and manage web applications on the Azure cloud provider. It also instructs users on storing secrets in Key Vault. Pulumi is used to do the work of provisioning and configuring the resources on Azure using the Python programming language. The example serves a general cloud-computing use case of deploying a website with a Docker container image to a Linux Web App."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-appservice-docker/README.md)

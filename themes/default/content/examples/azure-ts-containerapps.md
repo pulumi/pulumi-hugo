@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Apps"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-containerapps
+  title: "Azure Container Apps"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-containerapps
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to deploy a container application to Azure with TypeScript. It uses the Microsoft Azure cloud provider, TypeScript for language bindings, and provides a general cloud computing use case. It allows users to create a resource group, App Service, Linux containers, and load balancer to run containers with a single command. This example is useful for creating a stack from scratch to run a containerized application in Azure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-containerapps/README.md)

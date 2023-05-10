@@ -1,12 +1,17 @@
 ---
 title: "Instance Using Alicloud ECS"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: alicloud-ts-ecs
+  title: "Instance Using Alicloud ECS"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/alicloud-ts-ecs
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys an Elastic Compute Service (ECS) cluster on the Alibaba Cloud using TypeScript. It sets up a domain name and a SSH Keypair, as well as creating a Virtual Private Cloud, Security Groups and Network Interfaces. It is a great example of automating the creation of cloud resources in a reliable, repeatable and easy to understand way."
 ---
 
 # Instance Using Alicloud ECS

@@ -1,12 +1,17 @@
 ---
 title: "Run an RSS Service with Miniflux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-pulumi-miniflux
+  title: "Run an RSS Service with Miniflux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-pulumi-miniflux
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Miniflux server to AWS using TypeScript. It uses AWS cloud services, like a Relational Database Service instance, to achieve its goal. The example serves as a tutorial on how to use Pulumi to configure an infrastructure on AWS according to an example use case. Ultimately, this example provides a working cloud-computing environment with Miniflux running on AWS."
 ---
 
 # Run an RSS Service with Miniflux

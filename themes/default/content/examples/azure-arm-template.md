@@ -1,12 +1,17 @@
 ---
 title: "Azure Resource Manager (ARM) Template"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-arm-template
+  title: "Azure Resource Manager (ARM) Template"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-arm-template
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example template utilizes the Azure cloud platform, a cloud-computing provider. It is written with the TypeScript programming language and supports creating resources by reading an existing Azure Resource Manager (ARM) template. Specifically, this example shows how to deploy an Azure App Service and Cosmos DB instance in a single operation. This use case offers developers the ability to quickly deploy both an App Service and a Cosmos DB instance on the same underlying infrastructure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-arm-template/README.md)

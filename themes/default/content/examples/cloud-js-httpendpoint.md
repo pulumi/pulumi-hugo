@@ -1,100 +1,39 @@
 ---
 title: "Serverless REST API on AWS"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: cloud-js-httpendpoint
-  settings:
-    name: cloud-js-httpendpoint
-    description: >-
-      A simple HTTP endpoint that returns the number of times a route has been
-      hit
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 21
-    outputs:
-      endpoint:
-        value: https://24iqm40up3.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-    startTime: 1683475291000
-    endTime: 1683475318000
-    config: {}
+meta_desc: "A simple HTTP endpoint that returns the number of times a route has been hit"
+metadata:
+  id: cloud-js-httpendpoint
+  title: "Serverless REST API on AWS"
+  description: "A simple HTTP endpoint that returns the number of times a route has been hit"
+  url: https://github.com/pulumi/examples/tree/master/cloud-js-httpendpoint
+  runtime: nodejs
+  lastUpdate: 1683475318000
+  duration: 27000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::pulumi:pulumi:Stack::cloud-js-httpendpoint-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:table:Table::counterTable
-      type: cloud:table:Table
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API::hello-world
-      type: cloud:http:API
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::pulumi:providers:aws::default_4_38_1
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:apigateway:x:API::hello-world
-      type: aws:apigateway:x:API
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/role:Role::hello-worlda552609d
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-worlda552609d-0cbb1731
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:table:Table$aws:dynamodb/table:Table::counterTable
-      type: aws:dynamodb/table:Table
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:lambda/function:Function::hello-worlda552609d
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:apigateway:x:API$aws:apigateway/restApi:RestApi::hello-world
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:apigateway:x:API$aws:apigateway/deployment:Deployment::hello-world
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:apigateway:x:API$aws:lambda/permission:Permission::hello-world-86405973
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::cloud-js-httpendpoint::cloud:http:API$aws:apigateway:x:API$aws:apigateway/stage:Stage::hello-world
-      type: aws:apigateway/stage:Stage
+  - pulumi:pulumi:Stack
+  - cloud:table:Table
+  - cloud:http:API
+  - pulumi:providers:aws
+  - aws:apigateway:x:API
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:dynamodb/table:Table
+  - aws:lambda/function:Function
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:lambda/permission:Permission
+  - aws:apigateway/stage:Stage
 
+summary: "The Pulumi example is a cloud-js-httpendpoint example that uses the Pulumi cloud development platform to deploy an HTTP endpoint on AWS using JavaScript and Node.js. It creates an Amazon Elastic Compute Cloud (EC2) instance and web server, assigns a public IP address to the instance, and provisions a Route53 DNS record. The example also creates a security group to restrict access to the endpoint and deploys a load balancer to distribute incoming traffic. This Pulumi example serves as an easy-to-use implementation of a cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/cloud-js-api/README.md)

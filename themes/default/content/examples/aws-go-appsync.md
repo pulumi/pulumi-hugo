@@ -1,72 +1,30 @@
 ---
 title: "GraphQL Endpoint in AWS AppSync (in Go)"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-go-appsync
-  settings:
-    name: aws-go-appsync
-    description: defining an AWS AppSync endpoint from Pulumi in Golang
-    runtime: go
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 11
-    outputs:
-      endpoint:
-        value: >-
-          https://gj7ojzyru5dsrbu5rv2nf6oywa.appsync-api.us-west-2.amazonaws.com/graphql
-        secret: false
-      key:
-        value: da2-vumu3umx6bai3omecmjccmmymq
-        secret: true
-    startTime: 1683413391000
-    endTime: 1683413443000
-    config: {}
+meta_desc: "defining an AWS AppSync endpoint from Pulumi in Golang"
+metadata:
+  id: aws-go-appsync
+  title: "GraphQL Endpoint in AWS AppSync (in Go)"
+  description: "defining an AWS AppSync endpoint from Pulumi in Golang"
+  url: https://github.com/pulumi/examples/tree/master/aws-go-appsync
+  runtime: go
+  lastUpdate: 1683413443000
+  duration: 52000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::pulumi:pulumi:Stack::aws-go-appsync-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::aws-go-appsync::pulumi:providers:aws::default
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::pulumi:providers:random::default
-      type: pulumi:providers:random
-    - urn: urn:pulumi:examples-api::aws-go-appsync::aws:iam/role:Role::iam-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::random:index/randomString:RandomString::random-datasource-name
-      type: random:index/randomString:RandomString
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:appsync/graphQLApi:GraphQLApi::key
-      type: aws:appsync/graphQLApi:GraphQLApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:dynamodb/table:Table::tenants
-      type: aws:dynamodb/table:Table
-    - urn: urn:pulumi:examples-api::aws-go-appsync::aws:appsync/apiKey:ApiKey::key
-      type: aws:appsync/apiKey:ApiKey
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:iam/policy:Policy::iam-policy
-      type: aws:iam/policy:Policy
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:iam/rolePolicyAttachment:RolePolicyAttachment::iamPolicyAttachment
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:appsync/dataSource:DataSource::tenants-DS
-      type: aws:appsync/dataSource:DataSource
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:appsync/resolver:Resolver::getResolver
-      type: aws:appsync/resolver:Resolver
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-appsync::aws:appsync/resolver:Resolver::addResolver
-      type: aws:appsync/resolver:Resolver
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - pulumi:providers:random
+  - aws:iam/role:Role
+  - random:index/randomString:RandomString
+  - aws:appsync/graphQLApi:GraphQLApi
+  - aws:dynamodb/table:Table
+  - aws:appsync/apiKey:ApiKey
+  - aws:iam/policy:Policy
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:appsync/dataSource:DataSource
+  - aws:appsync/resolver:Resolver
+  - aws:appsync/resolver:Resolver
 
+summary: "This Pulumi example illustrates how to provision an Amazon Web Services (AWS) AppSync GraphQL API with a DynamoDB data source using the Go programming language. It provides a cloud-computing use case for building a highly scalable and secure backend for mobile and web apps, resulting in the ability to easily query and mutate data stored in DynamoDB. The resource stack created in this example includes an AppSync API, data source, and DynamoDB table."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-go-appsync/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service Running Docker Containers on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-appservice-docker
+  title: "Azure App Service Running Docker Containers on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-appservice-docker
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a simple Azure web application service that runs a Docker container. It uses the Azure cloud provider and is programmed in TypeScript. The example illustrates how to use Pulumi to create an Azure app service and deploy and configure Docker containers on the service. It serves as an example of how to build, deploy and manage containers in a cloud environment."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-appservice-docker/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "App Rollout via ConfigMap Data Change"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: configmap-rollout
+  title: "App Rollout via ConfigMap Data Change"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/configmap-rollout
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example shows how to manage a rollout of a ConfigMap across an entire Kubernetes cluster in a reliable way. It uses the Pulumi SDK and Kubernetes API to connect to a cloud provider, which in this case is Google Cloud Platform. It can also use other cloud providers such as AWS or Azure. The programming language used is TypeScript. This example serves the cloud-computing use case of reliably managing an automatic ConfigMap update by rolling out the changes on a timeline."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-configmap-rollout/README.md)

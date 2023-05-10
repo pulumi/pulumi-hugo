@@ -1,12 +1,17 @@
 ---
 title: "Globally Distributed Serverless URL Shortener Using Azure Functions and Cosmos DB"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-serverless-url-shorterner-global
+  title: "Globally Distributed Serverless URL Shortener Using Azure Functions and Cosmos DB"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-serverless-url-shorterner-global
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a global URL shortener solution on Azure using TypeScript. It provides a serverless experience with two microservices, allowing users to generate short URLs as well as redirect short URLs to their original links. Resources used include Azure App Service, SQL database, Cosmos DB, with Azure Functions providing the solution&#x27;s logic. It serves as an example of how to build highly available, cost effective solutions on the Azure cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-serverless-url-shortener-global/README.md)

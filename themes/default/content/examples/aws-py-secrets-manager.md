@@ -1,45 +1,21 @@
 ---
 title: "Setup AWS Secrets manager"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-py-secrets-manager
-  settings:
-    name: aws-py-secrets-manager
-    description: A minimal AWS Python Pulumi program
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 3
-    outputs:
-      secret_id:
-        value: >-
-          arn:aws:secretsmanager:us-west-2:894850187425:secret:secret-a402666-oOPdaj
-        secret: false
-    startTime: 1683413013000
-    endTime: 1683413060000
-    config: {}
+meta_desc: "A minimal AWS Python Pulumi program"
+metadata:
+  id: aws-py-secrets-manager
+  title: "Setup AWS Secrets manager"
+  description: "A minimal AWS Python Pulumi program"
+  url: https://github.com/pulumi/examples/tree/master/aws-py-secrets-manager
+  runtime: python
+  lastUpdate: 1683413060000
+  duration: 47000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-secrets-manager::pulumi:pulumi:Stack::aws-py-secrets-manager-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-secrets-manager::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-secrets-manager::aws:secretsmanager/secret:Secret::secret
-      type: aws:secretsmanager/secret:Secret
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-secrets-manager::aws:secretsmanager/secretVersion:SecretVersion::secret_version
-      type: aws:secretsmanager/secretVersion:SecretVersion
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:secretsmanager/secret:Secret
+  - aws:secretsmanager/secretVersion:SecretVersion
 
+summary: "This Pulumi example from the Github repository sets up a secure Azure secrets manager using the Python programming language. The example shows how to set up access policies for a secrets manager, store a secret in the service, and then refer to it using an environment variable. The example also demonstrates how to retrieve encrypted secrets. This example serves as a use case for securely managing secrets in the cloud using Azure and Python."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)

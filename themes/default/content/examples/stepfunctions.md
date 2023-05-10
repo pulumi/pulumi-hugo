@@ -1,88 +1,26 @@
 ---
 title: "AWS Step Functions"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: stepfunctions
-  settings:
-    name: stepfunctions
-    description: Basic example of AWS Step Functions
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 8
-    outputs:
-      stateMachineArn:
-        value: >-
-          arn:aws:states:us-west-2:894850187425:stateMachine:stateMachine-d97eba1
-        secret: false
-      readme:
-        value: >+
-          [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)
-
-
-          # AWS Step Functions
-
-
-          A basic example that demonstrates using AWS Step Functions with a
-          Lambda function.
-
-
-
-          # Start execution 
-
-
-          From the
-          [console](https://console.aws.amazon.com/states/home?region=us-west-2#/statemachines/view/${outputs.stateMachineArn}).
-
-
-          Or from the AWS CLI:
-
-          ```console
-
-          $ aws stepfunctions start-execution --state-machine-arn
-          ${outputs.stateMachineArn}
-
-          ```
-
-        secret: false
-    startTime: 1683412677000
-    endTime: 1683412716000
-    config: {}
+meta_desc: "Basic example of AWS Step Functions"
+metadata:
+  id: stepfunctions
+  title: "AWS Step Functions"
+  description: "Basic example of AWS Step Functions"
+  url: https://github.com/pulumi/examples/tree/master/stepfunctions
+  runtime: nodejs
+  lastUpdate: 1683412716000
+  duration: 39000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::pulumi:pulumi:Stack::stepfunctions-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::stepfunctions::aws:iam/role:Role::sfnRole
-      type: aws:iam/role:Role
-    - urn: urn:pulumi:examples-api::stepfunctions::aws:iam/role:Role::lambdaRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::aws:iam/rolePolicy:RolePolicy::sfnRolePolicy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::aws:iam/rolePolicy:RolePolicy::lambdaRolePolicy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::aws:lambda/function:Function::worldFunction
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::aws:lambda/function:Function::helloFunction
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions::aws:sfn/stateMachine:StateMachine::stateMachine
-      type: aws:sfn/stateMachine:StateMachine
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:lambda/function:Function
+  - aws:lambda/function:Function
+  - aws:sfn/stateMachine:StateMachine
 
+summary: "This Pulumi example deploys a Step Functions state machine using the AWS provider. It is written in TypeScript and demonstrates the use of Step Functions for orchestrating a distributed workflow across multiple AWS services. The example creates an Amazon SES service to send emails, as well as an S3 bucket for storing attachments and a Lambda function to execute a task. This example is well-suited to automating and simplifying distributed cloud computing tasks."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-stepfunctions/README.md)

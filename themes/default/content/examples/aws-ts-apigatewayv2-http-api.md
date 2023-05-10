@@ -1,62 +1,27 @@
 ---
 title: "AWS API Gateway V2 HTTP API"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-apigatewayv2-http-api
-  settings:
-    name: aws-ts-apigatewayv2-http-api
-    description: Example of using AWS API Gateway v2 HTTP API
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 9
-    outputs:
-      endpoint:
-        value: https://g9i98m3iy2.execute-api.us-west-2.amazonaws.com/examples-api
-        secret: false
-    startTime: 1683412685000
-    endTime: 1683412721000
-    config: {}
+meta_desc: "Example of using AWS API Gateway v2 HTTP API"
+metadata:
+  id: aws-ts-apigatewayv2-http-api
+  title: "AWS API Gateway V2 HTTP API"
+  description: "Example of using AWS API Gateway v2 HTTP API"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-http-api
+  runtime: nodejs
+  lastUpdate: 1683412721000
+  duration: 36000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::pulumi:pulumi:Stack::aws-ts-apigatewayv2-http-api-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/api:Api::httpApiGateway
-      type: aws:apigatewayv2/api:Api
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:iam/role:Role::lambdaRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambdaRoleAttachment
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:lambda/function:Function::lambdaFunction
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:lambda/permission:Permission::lambdaPermission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/integration:Integration::lambdaIntegration
-      type: aws:apigatewayv2/integration:Integration
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/route:Route::apiRoute
-      type: aws:apigatewayv2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api::aws:apigatewayv2/stage:Stage::apiStage
-      type: aws:apigatewayv2/stage:Stage
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:apigatewayv2/api:Api
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:apigatewayv2/integration:Integration
+  - aws:apigatewayv2/route:Route
+  - aws:apigatewayv2/stage:Stage
 
+summary: "This Pulumi example demonstrates how to use an AWS HTTP API with serverless TypeScript functions. It uses Amazon Web Services (AWS) and TypeScript as its cloud provider and programming language, respectively. The example creates an API Gateway v2 HTTP API endpoint, an AWS Lambda function to power its back-end, and an AWS IAM role to enable the Lambda function to access other AWS services. This example provides an example of cloud-computing use cases related to building and deploying web applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-apigatewayv2-http-api/README.md)

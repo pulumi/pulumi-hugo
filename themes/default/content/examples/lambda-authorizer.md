@@ -1,12 +1,17 @@
 ---
 title: "Secure Serverless REST API Using Auth0"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: lambda-authorizer
+  title: "Secure Serverless REST API Using Auth0"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/lambda-authorizer
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up a Lambda Authorizer for AWS API Gateway. It uses the Node.js programming language and is specific to the AWS cloud provider. The example demonstrates how to use Pulumi to create an AWS Lambda function and how to configure AWS API Gateway to call it as an authorizer. The general cloud-computing use case this example serves is to restrict access to an API Gateway endpoint by using a Lambda Authorizer."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-apigateway-auth0/README.md)

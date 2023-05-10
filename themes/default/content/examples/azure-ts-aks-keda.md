@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster and Azure Functions with KEDA"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-aks-keda
+  title: "Azure Kubernetes Service (AKS) Cluster and Azure Functions with KEDA"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-aks-keda
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Kubernetes cluster with the Azure Kubernetes Service (AKS) and container-orchestration service KEDA on Microsoft Azure using TypeScript. It serves the cloud-computing use case of setting up and managing container-orchestrated workloads that can scale up or down as determined by custom metrics. The AKS cluster will have at least one worker node and a service principal for authentication. The example additionally configures Azure Storage for use by KEDA."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-aks-keda/README.md)

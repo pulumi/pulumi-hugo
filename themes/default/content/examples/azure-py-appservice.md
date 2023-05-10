@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service with SQL Database and Application Insights"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-appservice
+  title: "Azure App Service with SQL Database and Application Insights"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-appservice
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example from Pulumi shows how to build and deploy an Azure web application using the Python programming language. It demonstrates how to use Pulumi to configure an App Service web application onto Azure and deploy it using Azure DevOps. It provides a simple web application implemented with Python web framework Flask. The example uses the Azure cloud provider and Python programming language to deploy a web application in a cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-appservice/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Instances on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-aci
+  title: "Azure Container Instances on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-aci
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a simple web application into Azure using Go and the Azure Container Instances (ACI) service. It will create an ACI instance running a Hello World web server and an Azure Load Balancer for routing HTTP requests to the ACI instance. The example demonstrates how Pulumi can be used to manage and automate Azure services using the Go programming language. This example provides a simple demonstration of how multiple Azure components can be coordinated with Pulumi to deploy cloud applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-go-aci/README.md)

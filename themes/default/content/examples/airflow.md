@@ -1,12 +1,17 @@
 ---
 title: "RDS Postgres and Containerized Airflow"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: airflow
+  title: "RDS Postgres and Containerized Airflow"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/airflow
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an Airflow workflow in AWS using TypeScript. It creates a VPC, EC2 instance running an Airflow worker, and a SQS queue for task management. This example aims to provide a cloud-based platform for orchestrating computational workflows in a serverless way."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-airflow/README.md)

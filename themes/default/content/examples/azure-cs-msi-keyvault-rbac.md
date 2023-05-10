@@ -1,12 +1,17 @@
 ---
 title: "Managing Secrets and Secure Access in Azure Applications"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-msi-keyvault-rbac
+  title: "Managing Secrets and Secure Access in Azure Applications"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-msi-keyvault-rbac
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys an entire application stack to the Microsoft Azure cloud. It uses the Pulumi Crosswalk for Azure library and TypeScript as the programming language. It creates an Azure Container Service, configures it with a managed identity and Kubernetes cluster, and finally creates an Azure Key Vault and configures role-based access controls (RBAC). The use case served is configuring and deploying an application stack to the cloud securely, with support for role-based access control."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-cs-msi-keyvault-rbac/README.md)

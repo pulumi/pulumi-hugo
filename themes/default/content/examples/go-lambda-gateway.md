@@ -1,12 +1,17 @@
 ---
 title: "AWS Golang Lambda With API Gateway"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: go-lambda-gateway
+  title: "AWS Golang Lambda With API Gateway"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/go-lambda-gateway
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses Go and Amazon Web Services (AWS) to deploy a highly-available API Gateway backed by AWS Lambda functions. The example demonstrates how to create an API gateway with the Pulumi programming model and AWS to fulfil the cloud computing use case of providing a scalable and secure web API. The example provisions an API endpoint using AWS API Gateway, invokes the Lambda functions using custom authorizers, and configures the gateway to route requests to them. The Pulumi example shows how to use AWS services to create a scalable and secure web API."
 ---
 
 # AWS Golang Lambda With API Gateway

@@ -1,12 +1,17 @@
 ---
 title: "Multiple Azure Kubernetes Service (AKS) Clusters"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-aks-multicluster
+  title: "Multiple Azure Kubernetes Service (AKS) Clusters"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-aks-multicluster
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example from Pulumi uses Python and the Azure cloud provider to create an AKS multicluster with Kubernetes. It provisions the necessary components for running AKS clusters in two separate resource groups and then configures them to join a single federation. This example serves as a general cloud computing use case that demonstrates how to utilise multiple cloud resources to create a larger, distributed system."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-aks-multicluster/README.md)

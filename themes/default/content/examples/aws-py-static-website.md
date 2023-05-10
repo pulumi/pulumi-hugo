@@ -1,12 +1,17 @@
 ---
 title: "Secure Static Website Using Amazon S3, CloudFront, Route53, and Certificate Manager"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-py-static-website
+  title: "Secure Static Website Using Amazon S3, CloudFront, Route53, and Certificate Manager"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-py-static-website
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example builds a static website on AWS using Python. It deploys an Amazon S3 bucket to host the website, maps it with an Amazon Route 53 public hosted zone, deploys an Amazon CloudFront network distribution, and configures an AWS Certificate Manager SSL/TLS certificate so the site can be served securely over HTTPS. This allows users to run a low-cost, secure static website on AWS using Python."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-static-website/README.md)

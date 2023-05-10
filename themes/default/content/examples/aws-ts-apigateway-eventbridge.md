@@ -1,92 +1,37 @@
 ---
 title: "API Gateway V1 to EventBridge"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-apigateway-eventbridge
-  settings:
-    name: aws-ts-apigateway-eventbridge
-    description: A minimal AWS TypeScript Pulumi program
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 19
-    outputs:
-      url:
-        value: https://hu7wm4wgtd.execute-api.us-west-2.amazonaws.com/dev
-        secret: false
-    startTime: 1683413668000
-    endTime: 1683413709000
-    config: {}
+meta_desc: "A minimal AWS TypeScript Pulumi program"
+metadata:
+  id: aws-ts-apigateway-eventbridge
+  title: "API Gateway V1 to EventBridge"
+  description: "A minimal AWS TypeScript Pulumi program"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-apigateway-eventbridge
+  runtime: nodejs
+  lastUpdate: 1683413709000
+  duration: 41000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::pulumi:pulumi:Stack::aws-ts-apigateway-eventbridge-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:cloudwatch/eventBus:EventBus::bus
-      type: aws:cloudwatch/eventBus:EventBus
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:iam/role:Role::lambda
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:iam/role:Role::api-gateway-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/restApi:RestApi::api
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:cloudwatch/eventRule:EventRule::rule
-      type: aws:cloudwatch/eventRule:EventRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambda-57e41134
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/resource:Resource::resource
-      type: aws:apigateway/resource:Resource
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/model:Model::model
-      type: aws:apigateway/model:Model
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/requestValidator:RequestValidator::validator
-      type: aws:apigateway/requestValidator:RequestValidator
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/method:Method::method
-      type: aws:apigateway/method:Method
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/methodResponse:MethodResponse::method-response
-      type: aws:apigateway/methodResponse:MethodResponse
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/integration:Integration::integration
-      type: aws:apigateway/integration:Integration
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/integrationResponse:IntegrationResponse::integration-response
-      type: aws:apigateway/integrationResponse:IntegrationResponse
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/deployment:Deployment::deployment
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:apigateway/stage:Stage::stage
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:lambda/function:Function::lambda
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:lambda/permission:Permission::lambda-permission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-eventbridge::aws:cloudwatch/eventTarget:EventTarget::lambda-target
-      type: aws:cloudwatch/eventTarget:EventTarget
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:cloudwatch/eventBus:EventBus
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:apigateway/restApi:RestApi
+  - aws:cloudwatch/eventRule:EventRule
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:apigateway/resource:Resource
+  - aws:apigateway/model:Model
+  - aws:apigateway/requestValidator:RequestValidator
+  - aws:apigateway/method:Method
+  - aws:apigateway/methodResponse:MethodResponse
+  - aws:apigateway/integration:Integration
+  - aws:apigateway/integrationResponse:IntegrationResponse
+  - aws:apigateway/deployment:Deployment
+  - aws:apigateway/stage:Stage
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:cloudwatch/eventTarget:EventTarget
 
+summary: "This Pulumi example creates a serverless REST API to trigger an AWS EventBridge event. Using Typescript and the AWS cloud provider, it demonstrates how to use AWS CloudFormation, API Gateway, and Lambda to enable a cloud-computing use case. This example shows how to set up a function which is triggered by an API call and sends an AWS EventBridge event which leads to other AWS services reacting and perform some tasks."
 ---
 
 # API Gateway V1 to EventBridge

@@ -1,12 +1,17 @@
 ---
 title: "Static Website on Amazon S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-go-s3-folder-component
+  title: "Static Website on Amazon S3"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-go-s3-folder-component
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a cloud-computing use case that provides a programmatic way to set up an Amazon Web Services (AWS) S3 folder and its associated policies using Go. It makes use of Pulumi&#x27;s stack to define the configuration and resources, as well as the Go sdk for accessing the AWS services. There is also a &#x60;pulumi preview&#x60; and &#x60;pulumi up&#x60; to view what configuration will run and apply the changes respectively. Finally, the program can output the URI of the created S3 folder."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-go-s3-folder-component/README.md)

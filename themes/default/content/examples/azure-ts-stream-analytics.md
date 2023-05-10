@@ -1,12 +1,17 @@
 ---
 title: "Azure Stream Analytics"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-stream-analytics
+  title: "Azure Stream Analytics"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-stream-analytics
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an Azure Time Series Insights environment in Microsoft Azure using TypeScript. It creates the related resource groups, storage account, and event hub so that an end user can collect and analyze time series data for the purpose of predicting future events. The example uses Azure and TypeScript to provide general cloud-computing use cases related to data analysis and predictive analytics."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-stream-analytics/README.md)

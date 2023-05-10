@@ -1,12 +1,17 @@
 ---
 title: "Exposing a Deployment with a Public IP Address"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: exposed-deployment
+  title: "Exposing a Deployment with a Public IP Address"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/exposed-deployment
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example shows how to spin up a public-facing web application using the Amazon Web Services cloud provider and the programming language of your choice (Python, TypeScript, Go, or .NET). It does this by creating a compute instance, configuring an IP address, creating a public-facing network, and attaching an SSL certificate. This example is useful for cloud-computing use cases where a public-facing web application needs to be securely exposed to the internet."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-exposed-deployment/README.md)

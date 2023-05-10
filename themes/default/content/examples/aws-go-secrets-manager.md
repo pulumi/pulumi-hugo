@@ -1,45 +1,21 @@
 ---
 title: "Setup AWS Secrets manager"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-go-secrets-manager
-  settings:
-    name: aws-go-secrets-manager
-    description: A minimal AWS Go Pulumi program
-    runtime: go
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 3
-    outputs:
-      secretContainer:
-        value: >-
-          arn:aws:secretsmanager:us-west-2:894850187425:secret:secretcontainer-2a00018-TuNlQp
-        secret: false
-    startTime: 1683386725000
-    endTime: 1683386758000
-    config: {}
+meta_desc: "A minimal AWS Go Pulumi program"
+metadata:
+  id: aws-go-secrets-manager
+  title: "Setup AWS Secrets manager"
+  description: "A minimal AWS Go Pulumi program"
+  url: https://github.com/pulumi/examples/tree/master/aws-go-secrets-manager
+  runtime: go
+  lastUpdate: 1683386758000
+  duration: 33000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-secrets-manager::pulumi:pulumi:Stack::aws-go-secrets-manager-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-secrets-manager::pulumi:providers:aws::default
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-secrets-manager::aws:secretsmanager/secret:Secret::secretcontainer
-      type: aws:secretsmanager/secret:Secret
-    - urn: >-
-        urn:pulumi:examples-api::aws-go-secrets-manager::aws:secretsmanager/secretVersion:SecretVersion::secret
-      type: aws:secretsmanager/secretVersion:SecretVersion
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:secretsmanager/secret:Secret
+  - aws:secretsmanager/secretVersion:SecretVersion
 
+summary: "This Pulumi example creates a secure and automated way to store server credentials in an AWS Secrets Manager. It uses AWS cloud services and the Go programming language. It is an example of using cloud computing to facilitate secure data storage utilizing AWS&#x27;s Secrets Manager services. The example includes the setting up of the secrets manager, setting secrets within it, and the retrieving of secrets. Finally, the example also provides code snippets needed to put the setup into action."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)

@@ -1,12 +1,17 @@
 ---
 title: "ETL pipeline with Amazon Redshift and AWS Glue"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-redshift-glue-etl
+  title: "ETL pipeline with Amazon Redshift and AWS Glue"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-redshift-glue-etl
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is an end-to-end ETL pipeline on AWS using typescript. It uses a series of AWS services including Redshift, Glue and S3 buckets to load a data set into the Redshift cluster and then extract, transform and load the data into an analytics-ready format in S3. The example provides a cloud-computing use case of loading and transforming data for analytics."
 ---
 
 # ETL pipeline with Amazon Redshift and AWS Glue

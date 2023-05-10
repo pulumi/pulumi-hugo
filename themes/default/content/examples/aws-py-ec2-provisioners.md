@@ -1,12 +1,17 @@
 ---
 title: "AWS WebServer with Manual Provisioning (in Python)"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-py-ec2-provisioners
+  title: "AWS WebServer with Manual Provisioning (in Python)"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-py-ec2-provisioners
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example app provisions an EC2 instance on AWS, written in Python. It demonstrates how Pulumi can create resources on AWS by defining the instance type, AMI, and other aspects of the EC2 instance. This example serves the larger cloud-computing use case of being able to easily provision cloud resources on AWS quickly and effectively."
 ---
 
 # AWS WebServer with Manual Provisioning (in Python)

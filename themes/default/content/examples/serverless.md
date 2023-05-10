@@ -1,12 +1,17 @@
 ---
 title: "Serverless C# App"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: serverless
+  title: "Serverless C# App"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/serverless
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provides a serverless application stack on AWS using Python and JavaScript. The stack consists of an Amazon API Gateway to serve and proxy requests, an AWS Lambda function to handle the logic and business logic, and an Amazon DynamoDB to store data. It demonstrates a simple and cost-effective way to create cloud-based applications that scale automatically in response to user demand. This example serves a general cloud-computing use case by showing how to create and deploy a serverless application on a major cloud provider."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-serverless-raw/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Azure VM Scale Sets"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-vm-scaleset
+  title: "Azure VM Scale Sets"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-vm-scaleset
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an Azure virtual machine scale set with a load balancer in Python. It uses the Azure cloud provider and Python programming language to deploy multi-machine compute clusters that can easily be scaled up or down as needed. It is designed to serve the cloud-computing use case of quickly provisioning groups of virtual machines to save time and cost in easily managing deployments."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-py-vm-scaleset/README.md)

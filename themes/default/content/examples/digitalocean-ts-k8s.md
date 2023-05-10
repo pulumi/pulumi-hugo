@@ -1,12 +1,17 @@
 ---
 title: "DigitalOcean Kubernetes Cluster and Application"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: digitalocean-ts-k8s
+  title: "DigitalOcean Kubernetes Cluster and Application"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/digitalocean-ts-k8s
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up a Kubernetes cluster on DigitalOcean using Typescript. It uses the DigitalOcean cloud provider and Typescript programming language to show how to create, configure, and manage Kubernetes clusters on DigitalOcean. The example serves as a cloud-computing example for users interested in setting up a Kubernetes cluster in the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/digitalocean-ts-k8s/README.md)

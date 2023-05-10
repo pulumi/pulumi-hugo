@@ -1,12 +1,17 @@
 ---
 title: "Web Server Component Using Azure Virtual Machine"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: ws-ts-azure-comp
+  title: "Web Server Component Using Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/ws-ts-azure-comp
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example utilizes Azure, TypeScript, and Docker to deploy a web service. It serves as a demonstration of how to use serverless functions within a cloud infrastructure. The cloud-computing use case is to demonstrate the ability to set up a basic web service that serves an HTML page and allows a user to submit data to a serverless function, which is then stored in a Table Storage."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-webserver-component/README.md)

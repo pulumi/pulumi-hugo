@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) App Using CosmosDB"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-mean
+  title: "Azure Kubernetes Service (AKS) App Using CosmosDB"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-mean
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up a website powered by a MEAN (MongoDB, ExpressJS, Angular, NodeJS) stack on Azure. It uses a combination of Node.js and TypeScript code to deploy the infrastructure with Pulumi. It creates an Azure storage account, Azure Web App service, and an Azure Cosmos DB account with the MongoDB API. It serves the general use case of setting up an automated cloud-hosted web application with a MEAN stack."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-aks-mean/README.md)

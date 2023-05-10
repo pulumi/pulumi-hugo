@@ -1,194 +1,67 @@
 ---
 title: "Routes in API Gateway"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-apigateway-ts-routes
-  settings:
-    name: aws-apigateway-ts-routes
-    description: Demonstration of API Gateway routes
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 46
-    outputs:
-      apiKeyValue:
-        value: zqrAIZAE0Y4Nb0DNKwiA8166G24dQJkH5fhjiIib
-        secret: true
-      swaggerUrl:
-        value: https://48lrwz4jic.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-      userPoolClientId:
-        value: 3jp6up8afclolm91s8tcgc5966
-        secret: false
-      userPoolId:
-        value: us-west-2_bZa2rO3Ow
-        secret: false
-      url:
-        value: https://1ag1pr2tn7.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-    startTime: 1683386660000
-    endTime: 1683386745000
-    config: {}
+meta_desc: "Demonstration of API Gateway routes"
+metadata:
+  id: aws-apigateway-ts-routes
+  title: "Routes in API Gateway"
+  description: "Demonstration of API Gateway routes"
+  url: https://github.com/pulumi/examples/tree/master/aws-apigateway-ts-routes
+  runtime: nodejs
+  lastUpdate: 1683386745000
+  duration: 85000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::pulumi:pulumi:Stack::aws-apigateway-ts-routes-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/role:Role::auth
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:apigateway/apiKey:ApiKey::api-key
-      type: aws:apigateway/apiKey:ApiKey
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::pulumi:providers:aws-apigateway::default_0_0_5
-      type: pulumi:providers:aws-apigateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/role:Role::hello-handler
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:cognito/userPool:UserPool::user-pool
-      type: aws:cognito/userPool:UserPool
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI::swagger-api
-      type: apigateway:index:RestAPI
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::auth-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-handler-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::pulumi:providers:aws::default_4_23_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:cognito/userPoolClient:UserPoolClient::user-pool-client
-      type: aws:cognito/userPoolClient:UserPoolClient
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:apigateway/restApi:RestApi::swagger-api
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:apigateway/deployment:Deployment::swagger-api
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:apigateway/stage:Stage::swagger-api
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::pulumi:providers:pulumi::default
-      type: pulumi:providers:pulumi
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:lambda/function:Function::auth
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:lambda/function:Function::hello-handler
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI::api
-      type: apigateway:index:RestAPI
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:iam/role:Role::api-authorizer-1-authorizer-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:iam/role:Role::apibc092886
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:iam/rolePolicy:RolePolicy::api-authorizer-1-invocation-policy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:iam/rolePolicyAttachment:RolePolicyAttachment::apibc092886
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:s3/bucket:Bucket::api
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:s3/bucketObject:BucketObject::apibc092886/index.html
-      type: aws:s3/bucketObject:BucketObject
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:apigateway/restApi:RestApi::api
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:apigateway/deployment:Deployment::api
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:lambda/permission:Permission::api-bdec4f56
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:lambda/permission:Permission::api-d55ce0e2
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:lambda/permission:Permission::api-e50f9aca
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:lambda/permission:Permission::api-a75de0f2
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::apigateway:index:RestAPI$aws:apigateway/stage:Stage::api
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:apigateway/usagePlan:UsagePlan::usage-plan
-      type: aws:apigateway/usagePlan:UsagePlan
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-ts-routes::aws:apigateway/usagePlanKey:UsagePlanKey::usage-plan-key
-      type: aws:apigateway/usagePlanKey:UsagePlanKey
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:apigateway/apiKey:ApiKey
+  - pulumi:providers:aws-apigateway
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:cognito/userPool:UserPool
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - apigateway:index:RestAPI
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - pulumi:providers:aws
+  - aws:cognito/userPoolClient:UserPoolClient
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:apigateway/stage:Stage
+  - pulumi:providers:pulumi
+  - aws:lambda/function:Function
+  - aws:lambda/function:Function
+  - apigateway:index:RestAPI
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:s3/bucket:Bucket
+  - aws:s3/bucketObject:BucketObject
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:apigateway/stage:Stage
+  - aws:apigateway/usagePlan:UsagePlan
+  - aws:apigateway/usagePlanKey:UsagePlanKey
 
+summary: "This Pulumi example uses the AWS cloud provider and JavaScript programming language to create a secure, serverless API with API Gateway and API endpoints created and managed with AWS Lambda functions. It uses TypeScript for type checking, AWS Cognito for authentication, and Amazon DynamoDB for a data store. The result is a complete API system that can power an e-commerce checkout flow or similar general cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-apigateway-ts-routes/README.md)

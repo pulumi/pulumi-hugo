@@ -1,12 +1,17 @@
 ---
 title: "Stateless Application Using a Deployment"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: k8s-nginx
+  title: "Stateless Application Using a Deployment"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/k8s-nginx
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "The Pulumi example is a Kubernetes and Nginx demonstration, using the Pulumi programming language and the Google Cloud Platform. It contains three components: an Nginx deployment, a service, and an Ingress. This example creates a simple Kubernetes-managed public web server on the GCP, which serves as a basic use case for cloud-computing."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-nginx/README.md)

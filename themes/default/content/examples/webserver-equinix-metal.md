@@ -1,12 +1,17 @@
 ---
 title: "Equinix Metal Webserver"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: webserver-equinix-metal
+  title: "Equinix Metal Webserver"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/webserver-equinix-metal
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a webserver stack on Equinix Metal, a bare-metal cloud provider. It uses the programming language JavaScript to provision and manage infrastructure. This example creates and configures AWS services such as EC2 instances, S3 buckets, and IAM roles for hosting a website. It also configures external-facing resources such as routing tables and Firewall rules. The example serves the general use case of providing the necessary infrastructure needed to deploy a website."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/equinix-metal-ts-webserver/README.md)

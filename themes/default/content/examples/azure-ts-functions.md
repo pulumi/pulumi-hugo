@@ -1,12 +1,17 @@
 ---
 title: "Deploying Azure Functions"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-functions
+  title: "Deploying Azure Functions"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-functions
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provides a basic example of using Microsoft Azure and TypeScript to host Serverless Functions. It uses the Azure cloud provider and TypeScript programming language in order to deploy an Azure Function that is triggered by an HTTP request. This example demonstrates how to deploy a Function App with multiple functions and set up an associated storage account. It serves as a basic template for Serverless Functions development in Azure and can be used as the basis for more complex scenarios."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-functions/README.md)

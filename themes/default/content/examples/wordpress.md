@@ -1,12 +1,17 @@
 ---
 title: "WordPress Helm Chart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: wordpress
+  title: "WordPress Helm Chart"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/wordpress
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is for creating a WordPress instance on Azure. It uses the Pulumi infrastructure-as-code SDK for .NET, so you can write your code in either C# or F#. The example uses the Azure cloud provider, demonstrating how to provision a web server, database server and WordPress web application. It also shows how to connect the WordPress application to the database server. The example simplifies the process of creating a WordPress instance on Azure, providing a more automated way of managing cloud applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-helm-wordpress/README.md)

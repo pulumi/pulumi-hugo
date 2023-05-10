@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-aks
+  title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-aks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a Kubernetes cluster on Microsoft Azure with an ARM template and a custom C# script. It utilizes Azure&#x27;s cloud services while making use of the C# programming language. The example serves the use case of setting up a scalable Kubernetes cluster on Azure with a reliable, low-cost infrastructure. The deployment includes an Azure Active Directory service, VNET, and an App Service Plan. It also involves setting up Application Insights for monitoring, logging, and alerting automated service-level objectives."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-aks/README.md)

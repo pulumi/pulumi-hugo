@@ -1,12 +1,17 @@
 ---
 title: "Slackbot for Posting Slack Mention Notifications"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: gcp-ts-slack
+  title: "Slackbot for Posting Slack Mention Notifications"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/gcp-ts-slack
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a TypeScript-based Slack bot on Google Cloud Platform (GCP). It utilizes Cloud Functions and the Firebase Cloud Firestore database to make a notification system that sends updated information from GCP to a Slack channel. The code requires users to install the Pulumi SDK, as well as Google Cloud SDK, and uses TypeScript to make the Slack bot. This example serves as a general cloud computing use case to allow users to receive notifications from GCP services in a Slack channel."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/gcp-ts-slackbot/README.md)

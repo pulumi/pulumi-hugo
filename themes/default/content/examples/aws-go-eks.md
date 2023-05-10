@@ -1,12 +1,17 @@
 ---
 title: "AWS Golang EKS Cluster"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-go-eks
+  title: "AWS Golang EKS Cluster"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-go-eks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to set up an Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) cluster using the Go programming language. It makes use of other AWS services to set up a networking layer and an EC2 instance. The example will take a user-defined value and use it to set the desired number of worker nodes for the EKS cluster. This example serves the general cloud-computing use case of deploying a Kubernetes cluster on AWS for container orchestration."
 ---
 
 # AWS Golang EKS Cluster

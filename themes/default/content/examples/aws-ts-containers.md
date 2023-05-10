@@ -1,102 +1,41 @@
 ---
 title: "Easy container example"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-containers
-  settings:
-    name: aws-ts-containers
-    description: NGINX container example
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 20
-    outputs:
-      frontendURL:
-        value: http://loadbalancer-aa539f0-14798330.us-west-2.elb.amazonaws.com
-        secret: false
-    startTime: 1683413074000
-    endTime: 1683413302000
-    config: {}
+meta_desc: "NGINX container example"
+metadata:
+  id: aws-ts-containers
+  title: "Easy container example"
+  description: "NGINX container example"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-containers
+  runtime: nodejs
+  lastUpdate: 1683413302000
+  duration: 228000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::pulumi:pulumi:Stack::aws-ts-containers-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::pulumi:providers:awsx::default_1_0_2
-      type: pulumi:providers:awsx
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:lb:ApplicationLoadBalancer::loadbalancer
-      type: awsx:lb:ApplicationLoadBalancer
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::pulumi:providers:aws::default_5_16_2
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:lb:ApplicationLoadBalancer$aws:lb/targetGroup:TargetGroup::loadbalancer
-      type: aws:lb/targetGroup:TargetGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:lb:ApplicationLoadBalancer$aws:ec2/securityGroup:SecurityGroup::loadbalancer
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::aws:ecs/cluster:Cluster::cluster
-      type: aws:ecs/cluster:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:lb:ApplicationLoadBalancer$aws:lb/loadBalancer:LoadBalancer::loadbalancer
-      type: aws:lb/loadBalancer:LoadBalancer
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:lb:ApplicationLoadBalancer$aws:lb/listener:Listener::loadbalancer-0
-      type: aws:lb/listener:Listener
-    - urn: urn:pulumi:examples-api::aws-ts-containers::awsx:ecr:Repository::repo
-      type: awsx:ecr:Repository
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::pulumi:providers:pulumi::default
-      type: pulumi:providers:pulumi
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecr:Repository$aws:ecr/repository:Repository::repo
-      type: aws:ecr/repository:Repository
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecr:Repository$aws:ecr/lifecyclePolicy:LifecyclePolicy::repo
-      type: aws:ecr/lifecyclePolicy:LifecyclePolicy
-    - urn: urn:pulumi:examples-api::aws-ts-containers::awsx:ecr:Image::image
-      type: awsx:ecr:Image
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService::service
-      type: awsx:ecs:FargateService
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition::service
-      type: awsx:ecs:FargateTaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:cloudwatch/logGroup:LogGroup::service
-      type: aws:cloudwatch/logGroup:LogGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:iam/role:Role::service-execution
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:iam/role:Role::service-task
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:iam/rolePolicyAttachment:RolePolicyAttachment::service-execution-9a42f520
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:ecs/taskDefinition:TaskDefinition::service
-      type: aws:ecs/taskDefinition:TaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$aws:ec2/securityGroup:SecurityGroup::service-sg
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-containers::awsx:ecs:FargateService$aws:ecs/service:Service::service
-      type: aws:ecs/service:Service
+  - pulumi:pulumi:Stack
+  - pulumi:providers:awsx
+  - awsx:lb:ApplicationLoadBalancer
+  - pulumi:providers:aws
+  - pulumi:providers:aws
+  - aws:lb/targetGroup:TargetGroup
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ecs/cluster:Cluster
+  - aws:lb/loadBalancer:LoadBalancer
+  - aws:lb/listener:Listener
+  - awsx:ecr:Repository
+  - pulumi:providers:pulumi
+  - aws:ecr/repository:Repository
+  - aws:ecr/lifecyclePolicy:LifecyclePolicy
+  - awsx:ecr:Image
+  - awsx:ecs:FargateService
+  - awsx:ecs:FargateTaskDefinition
+  - aws:cloudwatch/logGroup:LogGroup
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ecs/taskDefinition:TaskDefinition
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ecs/service:Service
 
+summary: "This Pulumi example provides a demonstration of how to use TypeScript to orchestrate a multi-container application on AWS. It sets up an Amazon Elastic Container Service (ECS) cluster to deploy Docker containers, and an Amazon Elastic Container Registry (ECR) to store the application artifacts. The example is written in TypeScript and uses AWS to provide a cloud-based computing use case. It demonstrates an effective way to spin up a multi-container application in the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-containers/README.md)

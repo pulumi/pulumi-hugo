@@ -1,12 +1,17 @@
 ---
 title: "DigitalOcean Kubernetes Cluster and Application"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: digitalocean-py-k8s
+  title: "DigitalOcean Kubernetes Cluster and Application"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/digitalocean-py-k8s
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to deploy a Kubernetes cluster on DigitalOcean using Python. It creates a digitalocean Droplet with an Ubuntu operating system, creates an SSH keypair, adds a firewall to the Droplet, and then creates a Kubernetes cluster with two Droplets for the master and minion nodes. It also creates a Kubernetes network and configures the cluster details. This example serves the general cloud-computing use case of launching a production-grade Kubernetes cluster on DigitalOcean with Python."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/digitalocean-py-k8s/README.md)

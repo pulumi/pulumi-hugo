@@ -1,12 +1,17 @@
 ---
 title: "Docker multi-container example"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: docker-cs-multi-container-app
+  title: "Docker multi-container example"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/docker-cs-multi-container-app
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a simple multi-container application in Docker on the Amazon Web Services (AWS) cloud platform using the TypeScript programming language. It creates and runs a Docker container hosting a web-based counter that can be incremented by visiting the endpoint. It also utilizes a MongoDB database container to persist the data from the counter in the cloud. The example serves to demonstrate how Pulumi can be used to manage and deploy a multi-container cloud-based application."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/docker-cs-multi-container-app/README.md)

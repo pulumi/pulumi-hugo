@@ -1,12 +1,17 @@
 ---
 title: "Serverless C# App"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: serverless-raw
+  title: "Serverless C# App"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/serverless-raw
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a serverless application written in TypeScript that deploys resources to AWS. It defines a CloudFront distribution and an S3 bucket that serves as the origin for the website, as well as Lambda@Edge functions to inject additional headers for security. The example demonstrates how to use raw CloudFormation templates with Pulumi for a common serverless use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-serverless-raw/README.md)

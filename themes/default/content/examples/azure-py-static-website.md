@@ -1,12 +1,17 @@
 ---
 title: "Static Website Using Azure Blob Storage and CDN"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-static-website
+  title: "Static Website Using Azure Blob Storage and CDN"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-static-website
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a static website in Azure using Python. It deploys an Azure Storage account, an Azure Storage Blob Container, and an Azure CDN endpoint. It uses Azure as the cloud provider and the Python programming language. The general cloud-computing use case it serves is providing a cost-effective web hosting solution that is highly available, secure, and performant."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-static-website/README.md)

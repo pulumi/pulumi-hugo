@@ -1,12 +1,17 @@
 ---
 title: "Twilio SMS Handler"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: twilio-ts-component
+  title: "Twilio SMS Handler"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/twilio-ts-component
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a Twilio component (an internal abstraction used by the Twilio platform) using TypeScript and the AWS provider. It showcases how to create a new component in the Twilio platform and how to send and receive text messages to a number. It demonstrates a use case of cloud computing, specifically how resources can be automated and managed on the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/twilio-ts-component/README.md)

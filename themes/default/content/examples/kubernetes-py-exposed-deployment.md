@@ -1,12 +1,17 @@
 ---
 title: "Exposing a Deployment with a Public IP Address"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-py-exposed-deployment
+  title: "Exposing a Deployment with a Public IP Address"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-py-exposed-deployment
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses Python, Kubernetes, and AWS to build a cloud-based deployment consisting of a web server and database. It creates a ReplicaSet and Deployment resource, and exposes them to the web via an AWS ELB Classic Load Balancer. In addition, the example sets up a PostgreSQL database and creates the corresponding database resources. The example demonstrates a typical cloud-based deployment use case for deploying a web application on AWS."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)

@@ -1,12 +1,17 @@
 ---
 title: "Kubernetes Application Deployed To Multiple Clusters"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-ts-multicloud
+  title: "Kubernetes Application Deployed To Multiple Clusters"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-ts-multicloud
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses TypeScript and a Kubernetes cluster to demonstrate a cloud-native application running on multiple cloud providers. It allows for automated deployments to a deployment pipeline with rolling updates. The Kubernetes cluster can be deployed to multiple clouds, including AWS, Azure, and Google Cloud, allowing for applications to be built and tested on multiple cloud provider environments. This example highlights some of the flexibility and scalability Pulumi provides for cloud-computing use cases."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-multicloud/README.md)

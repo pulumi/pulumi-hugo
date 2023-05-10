@@ -1,12 +1,17 @@
 ---
 title: "Staged App Rollout Gated by Prometheus Checks"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: staged-rollout
+  title: "Staged App Rollout Gated by Prometheus Checks"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/staged-rollout
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to do a staged rollout of a containerized web application hosted in a Kubernetes cluster on Google Cloud Platform. It uses the Pulumi programming language, which is a cloud native Infrastructure as Code library, to set up the application in stages which allow for gradual deployment. The example creates a Jenkins server in a custom VPC, which is then used to build and deploy a sample web application to the Kubernetes cluster. This example demonstrates a cloud-computing use case of gradually rolling out a web application to a Kubernetes cluster in a secure and reliable way."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-staged-rollout-with-prometheus/README.md)

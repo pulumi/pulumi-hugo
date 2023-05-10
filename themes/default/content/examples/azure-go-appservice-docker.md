@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service Running Docker Containers on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-appservice-docker
+  title: "Azure App Service Running Docker Containers on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-appservice-docker
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example demonstrates how to deploy a Go app to Azure App Service using Docker. It utilizes Pulumi for Infrastructure as Code and uses the language Go, a programming language developed by Google. The example also shows how to create an Azure Resource Manager (ARM) template and use it to construct a Docker image and provision it onto App Service. This is a good example of setting up a web service to use on the Azure cloud platform."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-go-appservice-docker/README.md)

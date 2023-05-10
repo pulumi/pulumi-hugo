@@ -1,53 +1,24 @@
 ---
 title: "AWS API Gateway V2 HTTP API Quickstart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-py-apigatewayv2-http-api-quickstart
-  settings:
-    name: aws-py-apigatewayv2-http-api-quickstart
-    description: Quickstart example of using AWS API Gateway v2 HTTP API
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 6
-    outputs:
-      endpoint:
-        value: https://eriyxjtg61.execute-api.us-west-2.amazonaws.com
-        secret: false
-    startTime: 1683413015000
-    endTime: 1683413081000
-    config: {}
+meta_desc: "Quickstart example of using AWS API Gateway v2 HTTP API"
+metadata:
+  id: aws-py-apigatewayv2-http-api-quickstart
+  title: "AWS API Gateway V2 HTTP API Quickstart"
+  description: "Quickstart example of using AWS API Gateway v2 HTTP API"
+  url: https://github.com/pulumi/examples/tree/master/aws-py-apigatewayv2-http-api-quickstart
+  runtime: python
+  lastUpdate: 1683413081000
+  duration: 66000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::pulumi:pulumi:Stack::aws-py-apigatewayv2-http-api-quickstart-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::aws:iam/role:Role::lambdaRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambdaRoleAttachment
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::aws:lambda/function:Function::lambdaFunction
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::aws:lambda/permission:Permission::lambdaPermission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-http-api-quickstart::aws:apigatewayv2/api:Api::httpApiGateway
-      type: aws:apigatewayv2/api:Api
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:apigatewayv2/api:Api
 
+summary: "This Pulumi example is an AWS-based project with a Python programming language. It creates an API Gateway v2 HTTP API, which enables users to create HTTP APIs to run serverless applications, including functions on AWS Lambda, serve web apps and expose backend services. It also adds an Amazon Cognito authorizer and domain name configuration for the API. This example serves the general cloud computing use case of creating a Gateway API for communication between applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-apigatewayv2-http-api-quickcreate/README.md)

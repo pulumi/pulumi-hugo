@@ -1,49 +1,22 @@
 ---
 title: "Web Server Using Amazon EC2"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: webserver-py
-  settings:
-    name: webserver-py
-    description: Basic example of an AWS web server accessible over HTTP (in Python!)
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 3
-    outputs:
-      public_dns:
-        value: ec2-34-221-226-240.us-west-2.compute.amazonaws.com
-        secret: false
-      public_ip:
-        value: 34.221.226.240
-        secret: false
-    startTime: 1683413026000
-    endTime: 1683413108000
-    config: {}
+meta_desc: "Basic example of an AWS web server accessible over HTTP (in Python!)"
+metadata:
+  id: webserver-py
+  title: "Web Server Using Amazon EC2"
+  description: "Basic example of an AWS web server accessible over HTTP (in Python!)"
+  url: https://github.com/pulumi/examples/tree/master/webserver-py
+  runtime: python
+  lastUpdate: 1683413108000
+  duration: 82000
   resources:
-    - urn: urn:pulumi:examples-api::webserver-py::pulumi:providers:aws::default
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::webserver-py::pulumi:pulumi:Stack::webserver-py-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::webserver-py::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::webserver-py::aws:ec2/securityGroup:SecurityGroup::web-secgrp
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::webserver-py::aws:ec2/instance:Instance::web-server-www
-      type: aws:ec2/instance:Instance
+  - pulumi:providers:aws
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/instance:Instance
 
+summary: "The Pulumi webserver example is a practical demonstration of deploying an infrastructure-as-code workload to a cloud provider. It uses the Python programming language and the AWS cloud provider to deploy a basic web server with a publicly-available URL. The example covers setup of the server environment, creation of the EC2 instance, and configuration of the security groups. The end result is a functioning web server for public use, demonstrating how Pulumi can be used to deploy scalable cloud-based solutions using code."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-webserver/README.md)

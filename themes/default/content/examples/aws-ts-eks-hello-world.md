@@ -1,12 +1,17 @@
 ---
 title: "Amazon EKS Cluster: Hello World!"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-eks-hello-world
+  title: "Amazon EKS Cluster: Hello World!"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-eks-hello-world
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to set up a Kubernetes cluster on Amazon Web Services (AWS) using TypeScript. It can be used as a reference for setting up a cluster on AWS and managing it with type-safe coding. The example shows how to deploy a basic web application onto the cluster and make it available externally via LoadBalancer. It also provides an example of how Pulumi can be used to deploy and maintain infrastructure and Confiugurations as Code on AWS."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-eks-hello-world/README.md)

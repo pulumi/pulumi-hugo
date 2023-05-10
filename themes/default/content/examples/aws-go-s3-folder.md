@@ -1,12 +1,17 @@
 ---
 title: "Host a Static Website on Amazon S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-go-s3-folder
+  title: "Host a Static Website on Amazon S3"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-go-s3-folder
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up an S3 folder in your AWS account using the Go programming language. It serves as a simple example of how to configure resources in the cloud using Pulumi. The example makes use of the AWS cloud provider to set up an S3 folder with a given name, manages the files and folders that the S3 folder contains, assigns ACLs to the S3 folder, and configures the bucket policy. In summary, this example serves as a straightforward use case to demonstrate how to utilize Pulumi for configuring and managing cloud resources in AWS with Go."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-go-s3-folder/README.md)

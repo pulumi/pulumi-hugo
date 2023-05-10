@@ -1,12 +1,17 @@
 ---
 title: "Docker multi-container example"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: docker-ts-multi-container-app
+  title: "Docker multi-container example"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/docker-ts-multi-container-app
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example from Pulumi demonstrates the deployment of a multi-container application on the Docker platform. It utilzes the Terraform cloud provider and the Typescript programming language. The application itself is a sample &quot;To Do&quot; list web app. In general, the example showcases the use of Pulumi to create cloud-native applications across Docker."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/docker-ts-multi-container-app/README.md)

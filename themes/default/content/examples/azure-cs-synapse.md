@@ -1,12 +1,17 @@
 ---
 title: "Azure Synapse Workspace and Pools"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-synapse
+  title: "Azure Synapse Workspace and Pools"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-synapse
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a serverless analytics solution on Microsoft Azure using TypeScript. It creates an Azure Synapse Analytics data warehouse and a Spark pool, as well as several related resources such as a network, storage accounts, and an Azure SQL server. The example also creates Azure Data Factory pipelines to move data between the data warehouse and the Spark pool. The end result is a serverless analytics platform that can handle data ingestion and analytics."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-synapse/README.md)

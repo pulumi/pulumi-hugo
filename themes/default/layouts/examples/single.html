@@ -5,12 +5,34 @@
         </div>
         <div class="lg:w-6/12 my-8 px-4 lg:px-0 w-full">
             <header>
-                <h1 class="text-5xl mb-0">
+                <h1 class="text-3xl mb-0">
                     {{ .Title }}
                 </h1>
             </header>
             <section class="mt-8 mb-16">
-                {{ .Content }}
+                {{ .Summary }}
+            </section>
+            <section>
+                <h3>Details</h3>
+                <div>
+                    <a class="text-blue-600 underline" href="{{ .Params.metadata.url }}">{{ .Params.metadata.url }}</a>
+                </div>
+                <div>
+                    {{ .Params.metadata.runtime }}
+                </div>
+                <div>
+                    {{ .Params.metadata.lastUpdate }}
+                </div>
+                <div>
+                    {{ .Params.metadata.duration }}
+                </div>
+                <ul>
+                    {{ range .Params.metadata.resources }}
+                        <li>
+                            {{ . }}
+                        </li>
+                    {{ end }}
+                </ul>
             </section>
         </div>
         <div class="hidden lg:block lg:w-3/12 mt-24 sticky-sidebar flex-1">

@@ -1,12 +1,17 @@
 ---
 title: "Wordpress Helm Chart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-go-helm-wordpress
+  title: "Wordpress Helm Chart"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-go-helm-wordpress
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a WordPress deployment on a Kubernetes cluster using Helm and Go. It uses the Google Cloud Platform as a cloud provider and Go as the programming language. In general, this example serves the cloud-computing use case of provisioning a scalable web application by deploying it to a managed Kubernetes cluster."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-go-helm-wordpress/README.md)

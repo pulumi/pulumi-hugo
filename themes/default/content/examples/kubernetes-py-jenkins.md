@@ -1,12 +1,17 @@
 ---
 title: "Continuous Integration with Jenkins"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-py-jenkins
+  title: "Continuous Integration with Jenkins"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-py-jenkins
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Jenkins deployment to a Kubernetes cluster using Python. It uses Kubernetes, a container-orchestration system, with support for the Google Cloud Platform. The example serves as a guide for setting up Jenkins on a Kubernetes cluster with the ability to scale up or down depending on needs. This can be particularly useful for cloud-native CI/CD pipelines that require a dynamic set of resources for automation."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-py-jenkins/README.md)

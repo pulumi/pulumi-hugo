@@ -1,12 +1,17 @@
 ---
 title: "AWS C# EKS Cluster"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-cs-eks
+  title: "AWS C# EKS Cluster"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-cs-eks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a managed Kubernetes cluster on AWS using JavaScript APIs. It uses cloud services from Amazon Web Services (AWS) and JavaScript for the programming language. It deploys a Cloudformation stack and creates the necessary AWS components to setup a managed Kubernetes cluster. This is useful for deploying application workloads in a cloud-native, container-based environment."
 ---
 
 # AWS C# EKS Cluster

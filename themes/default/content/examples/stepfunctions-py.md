@@ -1,55 +1,25 @@
 ---
 title: "AWS Step Functions"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: stepfunctions-py
-  settings:
-    name: stepfunctions-py
-    description: Basic example of AWS Step Functions in Python
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 7
-    outputs:
-      state_machine_arn:
-        value: >-
-          arn:aws:states:us-west-2:894850187425:stateMachine:stateMachine-2855aa0
-        secret: false
-    startTime: 1683413022000
-    endTime: 1683413077000
-    config: {}
+meta_desc: "Basic example of AWS Step Functions in Python"
+metadata:
+  id: stepfunctions-py
+  title: "AWS Step Functions"
+  description: "Basic example of AWS Step Functions in Python"
+  url: https://github.com/pulumi/examples/tree/master/stepfunctions-py
+  runtime: python
+  lastUpdate: 1683413077000
+  duration: 55000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions-py::pulumi:pulumi:Stack::stepfunctions-py-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions-py::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::stepfunctions-py::aws:iam/role:Role::sfnRole
-      type: aws:iam/role:Role
-    - urn: urn:pulumi:examples-api::stepfunctions-py::aws:iam/role:Role::lambdaRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions-py::aws:iam/rolePolicy:RolePolicy::sfnRolePolicy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions-py::aws:iam/rolePolicy:RolePolicy::lambdaRolePolicy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions-py::aws:lambda/function:Function::helloWorldFunction
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::stepfunctions-py::aws:sfn/stateMachine:StateMachine::stateMachine
-      type: aws:sfn/stateMachine:StateMachine
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:lambda/function:Function
+  - aws:sfn/stateMachine:StateMachine
 
+summary: "This Pulumi example creates a serverless workflow using Amazon Step Functions and Amazon API Gateway in Python. It uses Amazon Web Services (AWS) as the cloud provider. The example creates a Step Function to recognize entity types in strings and a web service to get the results. It serves as a general cloud-computing use case for enabling serverless workflows on AWS."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-stepfunctions/README.md)

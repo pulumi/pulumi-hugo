@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service with SQL Database and Application Insights"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-app-service
+  title: "Azure App Service with SQL Database and Application Insights"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-app-service
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provids a guide on how to set up a basic serverless web application on Azure using Node.js. The example deploys an app service in an existing VNet resource, and wires up a CI/CD pipeline to deploy updates to the web app without any manual intervention. This example uses the Microsoft Azure cloud provider, and Node.js as its programming language. It is best suited for cloud-computing use cases that require a serverless web application to be set up quickly and with minimal manual intervention."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-appservice/README.md)

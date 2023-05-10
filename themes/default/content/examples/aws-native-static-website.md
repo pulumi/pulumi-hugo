@@ -1,12 +1,17 @@
 ---
 title: "Host a Static Website on Amazon S3 with the AWS Native Provider"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-native-static-website
+  title: "Host a Static Website on Amazon S3 with the AWS Native Provider"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-native-static-website
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a static website in AWS with a low-cost serverless hosting solution. It uses code written in Python and deployed on Amazon Web Services. It sets up an S3 bucket to host the website and CloudFront to deliver content from the S3 bucket. This example covers a basic cloud computing use case that serves as a demonstration of deploying low-cost and highly-available websites."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-native-ts-s3-folder/README.md)

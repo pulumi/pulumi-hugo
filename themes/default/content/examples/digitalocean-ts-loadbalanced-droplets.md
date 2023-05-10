@@ -1,56 +1,25 @@
 ---
 title: "Pulumi DigitalOcean Droplets"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: digitalocean-ts-loadbalanced-droplets
-  settings:
-    name: digitalocean-ts-loadbalanced-droplets
-    description: Basic example of load balanced droplets on DigitalOcean
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 7
-    outputs:
-      endpoint:
-        value: 138.197.57.242
-        secret: false
-    startTime: 1683416253000
-    endTime: 1683416514000
-    config: {}
+meta_desc: "Basic example of load balanced droplets on DigitalOcean"
+metadata:
+  id: digitalocean-ts-loadbalanced-droplets
+  title: "Pulumi DigitalOcean Droplets"
+  description: "Basic example of load balanced droplets on DigitalOcean"
+  url: https://github.com/pulumi/examples/tree/master/digitalocean-ts-loadbalanced-droplets
+  runtime: nodejs
+  lastUpdate: 1683416514000
+  duration: 261000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::pulumi:pulumi:Stack::digitalocean-ts-loadbalanced-droplets-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::pulumi:providers:digitalocean::default_4_19_1
-      type: pulumi:providers:digitalocean
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::digitalocean:index/tag:Tag::web-0
-      type: digitalocean:index/tag:Tag
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::digitalocean:index/tag:Tag::demo-app-examples-api
-      type: digitalocean:index/tag:Tag
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::digitalocean:index/tag:Tag::web-1
-      type: digitalocean:index/tag:Tag
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::digitalocean:index/droplet:Droplet::web-0
-      type: digitalocean:index/droplet:Droplet
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::digitalocean:index/droplet:Droplet::web-1
-      type: digitalocean:index/droplet:Droplet
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-ts-loadbalanced-droplets::digitalocean:index/loadBalancer:LoadBalancer::public
-      type: digitalocean:index/loadBalancer:LoadBalancer
+  - pulumi:pulumi:Stack
+  - pulumi:providers:digitalocean
+  - digitalocean:index/tag:Tag
+  - digitalocean:index/tag:Tag
+  - digitalocean:index/tag:Tag
+  - digitalocean:index/droplet:Droplet
+  - digitalocean:index/droplet:Droplet
+  - digitalocean:index/loadBalancer:LoadBalancer
 
+summary: "This example from Pulumi shows how to use the company&#x27;s JavaScript-based infrastructure-as-code platform to automate the creation of a simplified digital load balancer across two DigitalOcean droplets using TypeScript. It serves as a demonstration of how to use Pulumi to deploy cloud-native infrastructure to DigitalOcean and is applicable to any cloud-computing use case that requires spinning up servers and assigning public endpoints."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/digitalocean-ts-loadbalanced-droplets/README.md)

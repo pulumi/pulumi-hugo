@@ -1,53 +1,24 @@
 ---
 title: "AWS API Gateway V2 HTTP API Quickstart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-apigatewayv2-http-api-quickstart
-  settings:
-    name: aws-ts-apigatewayv2-http-api-quickstart
-    description: Quickstart example of using AWS API Gateway v2 HTTP API
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 6
-    outputs:
-      endpoint:
-        value: https://z3um0rmje8.execute-api.us-west-2.amazonaws.com
-        secret: false
-    startTime: 1683413684000
-    endTime: 1683413717000
-    config: {}
+meta_desc: "Quickstart example of using AWS API Gateway v2 HTTP API"
+metadata:
+  id: aws-ts-apigatewayv2-http-api-quickstart
+  title: "AWS API Gateway V2 HTTP API Quickstart"
+  description: "Quickstart example of using AWS API Gateway v2 HTTP API"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-apigatewayv2-http-api-quickstart
+  runtime: nodejs
+  lastUpdate: 1683413717000
+  duration: 33000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::pulumi:pulumi:Stack::aws-ts-apigatewayv2-http-api-quickstart-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::aws:iam/role:Role::lambdaRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambdaRoleAttachment
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::aws:lambda/function:Function::lambdaFunction
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::aws:lambda/permission:Permission::lambdaPermission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigatewayv2-http-api-quickstart::aws:apigatewayv2/api:Api::httpApiGateway
-      type: aws:apigatewayv2/api:Api
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:apigatewayv2/api:Api
 
+summary: "This Pulumi example demonstrates how to quickly set up a serverless HTTP API using AWS components such as a VPC, security groups, an ECS cluster, and an API gateway. The example is written in TypeScript and uses the AWS cloud provider. It serves the general cloud-computing use case of providing an easily accessible, low-cost way for developers to create and deploy applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-apigatewayv2-http-api-quickcreate/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Deploy two App Services - Front web app with VNet injection and Back web app with a Private Endpoint"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-webapp-privateendpoint-vnet-injection
+  title: "Deploy two App Services - Front web app with VNet injection and Back web app with a Private Endpoint"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-webapp-privateendpoint-vnet-injection
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys an Azure web application using TypeScript, using a Virtual Network, Private Endpoint and Virtual Network Injection. It provides a cloud-computing use case for securely connecting resources in a Virtual Network to an App Service. The example uses the Azure cloud provider and TypeScript as the programming language."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-webapp-privateendpoint-vnet-injection/README.md)

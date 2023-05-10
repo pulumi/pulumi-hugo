@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster with Diagnostics"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-aks-with-diagnostics
+  title: "Azure Kubernetes Service (AKS) Cluster with Diagnostics"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-aks-with-diagnostics
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example demonstrates how to deploy a Kubernetes cluster on Microsoft Azure with Diagnostics enabled, using Pulumi and TypeScript. It is a cloud-native tooling example that leverages the Azure Kubernetes Service (AKS) and Azure Container Registry (ACR) services. TypeScript is used as the programming language to define the necessary resources and parameters needed to set up the Kubernetes cluster on Azure. The general use case of this example is to provide a clusterized application platform on the cloud that can be monitored and managed using Diagnostics."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-aks-with-diagnostics/README.md)

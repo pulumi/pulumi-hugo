@@ -1,12 +1,17 @@
 ---
 title: "Azure Synapse Workspace and Pools"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-synapse
+  title: "Azure Synapse Workspace and Pools"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-synapse
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys an Azure Synapse workspace using Python. It enables an automated and versioned deployment for the scalable analytics platform on Azure, a cloud provider. The example provisions and configures an additional subnet for Synapse within the given virtual network. It showcases how to create an Azure Storage account and associated containers needed to store various Synapse resources. Finally, this example can be used to serve a broad range of cloud-computing use cases as it allows data engineers to provision and manage a powerful analytics platform with ease."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-synapse/README.md)

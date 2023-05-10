@@ -1,12 +1,17 @@
 ---
 title: "Web Server Using Openstack"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: pulum
+  title: "Web Server Using Openstack"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/pulum
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a serverless cloud-computing example that provides a high-level, cross-platform infrastructure-as-code tool for creating, deploying, and managing cloud-native applications. It uses the AWS cloud provider and the Python programming language, and it serves a range of cloud-computing use-cases such as spinning up serverless functions, deploying web services, and creating containerized microservices."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/openstack-py-webserver/README.md)

@@ -1,74 +1,31 @@
 ---
 title: "API Gateway V2 to EventBridge"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-py-apigatewayv2-eventbridge
-  settings:
-    name: aws-py-apigatewayv2-eventbridge
-    description: An example that integrates API Gateway, EventBridge, and Lambda.
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 13
-    outputs:
-      url:
-        value: https://y8o7t91l99.execute-api.us-west-2.amazonaws.com/examples-api
-        secret: false
-    startTime: 1683413397000
-    endTime: 1683413469000
-    config: {}
+meta_desc: "An example that integrates API Gateway, EventBridge, and Lambda."
+metadata:
+  id: aws-py-apigatewayv2-eventbridge
+  title: "API Gateway V2 to EventBridge"
+  description: "An example that integrates API Gateway, EventBridge, and Lambda."
+  url: https://github.com/pulumi/examples/tree/master/aws-py-apigatewayv2-eventbridge
+  runtime: python
+  lastUpdate: 1683413469000
+  duration: 72000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::pulumi:pulumi:Stack::aws-py-apigatewayv2-eventbridge-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:cloudwatch/eventBus:EventBus::bus
-      type: aws:cloudwatch/eventBus:EventBus
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:apigatewayv2/api:Api::example
-      type: aws:apigatewayv2/api:Api
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:iam/role:Role::lambda-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:cloudwatch/eventRule:EventRule::rule
-      type: aws:cloudwatch/eventRule:EventRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:iam/role:Role::api-gateway-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:apigatewayv2/stage:Stage::stage
-      type: aws:apigatewayv2/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:iam/rolePolicy:RolePolicy::lambda-role-policy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:apigatewayv2/integration:Integration::integration
-      type: aws:apigatewayv2/integration:Integration
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:apigatewayv2/route:Route::route
-      type: aws:apigatewayv2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:lambda/function:Function::lambda
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:lambda/permission:Permission::lambda-permission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigatewayv2-eventbridge::aws:cloudwatch/eventTarget:EventTarget::lambda-target
-      type: aws:cloudwatch/eventTarget:EventTarget
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:cloudwatch/eventBus:EventBus
+  - aws:apigatewayv2/api:Api
+  - aws:iam/role:Role
+  - aws:cloudwatch/eventRule:EventRule
+  - aws:iam/role:Role
+  - aws:apigatewayv2/stage:Stage
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:apigatewayv2/integration:Integration
+  - aws:apigatewayv2/route:Route
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:cloudwatch/eventTarget:EventTarget
 
+summary: "This Pulumi example uses the Python programming language and the AWS cloud provider to deploy an API Gateway v2 webhook endpoint, an EventBridge event bus, and an AWS Lambda handler to handle events sent to the webhook. It services a general cloud-computing use case with code that creates resources in the AWS cloud, sets up an event bus, and handles events triggered by the endpoint when triggered."
 ---
 
 # API Gateway V2 to EventBridge

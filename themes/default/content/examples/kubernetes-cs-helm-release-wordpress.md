@@ -1,12 +1,17 @@
 ---
 title: "Wordpress Helm Chart Deployed Using Helm Release Resource"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-cs-helm-release-wordpress
+  title: "Wordpress Helm Chart Deployed Using Helm Release Resource"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-cs-helm-release-wordpress
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "The Pulumi example enables a Kubernetes deployment of a Helm release of WordPress, using the cloud provider AWS and the programming language TypeScript. It streamlines the process while deploying a CloudSQL instance and VPC resources in order to setup an environment suitable for the WordPress website. The example is general purpose and serves to demonstrate the capabilities of Pulumi in launching a cloud-hosted application."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-cs-helm-release-wordpress/README.md)

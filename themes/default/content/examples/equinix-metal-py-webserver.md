@@ -1,12 +1,17 @@
 ---
 title: "Equinix Metal Webserver"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: equinix-metal-py-webserver
+  title: "Equinix Metal Webserver"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/equinix-metal-py-webserver
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a single web server on Equinix Metal with a static website. It uses Python for the language, and Equinix Metal for the cloud provider. The use case is to provision and manage the server, along with deploying the website. In addition, it sets up DNS, security groups, and other miscellaneous configurations to ensure everything is secure and available. Finally, it offers monitoring for the application to ensure its up and running."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/equinix-metal-py-webserver/README.md)

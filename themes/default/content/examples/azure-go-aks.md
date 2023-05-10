@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-aks
+  title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-aks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses the Go programming language and the Azure cloud provider to create a Kubernetes cluster. It provides an easy way to create, update, and delete resources from Azure, such as Storage Accounts and a Virtual Network. This example demonstrates how to manage and deploy an Azure Kubernetes Service (AKS) cluster, providing an automated way of creating a cloud computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-go-aks/README.md)

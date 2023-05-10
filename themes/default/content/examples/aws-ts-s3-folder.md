@@ -1,59 +1,25 @@
 ---
 title: "Host a Static Website on Amazon S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-s3-folder
-  settings:
-    name: aws-ts-s3-folder
-    description: A static website hosted on AWS S3
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 7
-    outputs:
-      bucketName:
-        value: s3-website-bucket-b82452d
-        secret: false
-      websiteUrl:
-        value: s3-website-bucket-b82452d.s3-website-us-west-2.amazonaws.com
-        secret: false
-    startTime: 1683413007000
-    endTime: 1683413032000
-    config: {}
+meta_desc: "A static website hosted on AWS S3"
+metadata:
+  id: aws-ts-s3-folder
+  title: "Host a Static Website on Amazon S3"
+  description: "A static website hosted on AWS S3"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-s3-folder
+  runtime: nodejs
+  lastUpdate: 1683413032000
+  duration: 25000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::pulumi:pulumi:Stack::aws-ts-s3-folder-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::aws:s3/bucket:Bucket::s3-website-bucket
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock::public-access-block
-      type: aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::aws:s3/bucketOwnershipControls:BucketOwnershipControls::ownership-controls
-      type: aws:s3/bucketOwnershipControls:BucketOwnershipControls
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::aws:s3/bucketObject:BucketObject::index.html
-      type: aws:s3/bucketObject:BucketObject
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::aws:s3/bucketPolicy:BucketPolicy::bucketPolicy
-      type: aws:s3/bucketPolicy:BucketPolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-s3-folder::aws:s3/bucketObject:BucketObject::favicon.png
-      type: aws:s3/bucketObject:BucketObject
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:s3/bucket:Bucket
+  - aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock
+  - aws:s3/bucketOwnershipControls:BucketOwnershipControls
+  - aws:s3/bucketObject:BucketObject
+  - aws:s3/bucketPolicy:BucketPolicy
+  - aws:s3/bucketObject:BucketObject
 
+summary: "This Pulumi example creates an S3 bucket and lists all files in the folder on Amazon Web Services using TypeScript. It uses AWS Cloud Computing services and the programming language TypeScript. The example specifically creates an S3 bucket and provides a list of all files in that folder. Overall, it serves as a tutorial on how basic AWS services can be used to automatically list files in a folder."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-s3-folder/README.md)

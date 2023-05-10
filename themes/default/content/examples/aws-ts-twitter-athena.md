@@ -1,12 +1,17 @@
 ---
 title: "Twitter Search in Athena"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-twitter-athena
+  title: "Twitter Search in Athena"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-twitter-athena
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provides a tutorial that demonstrates how to create a Twitter sentiment analysis system in the AWS cloud. The example uses the TypeScript programming language and makes use of AWS services including Glue, Athena, SNS, Lambda, and CloudWatch. The example creates a workflow where tweets are read from the Twitter streaming API and sentiment analysis is performed on those tweets using AWS Glue, Athena, and Lambda. The resulting sentiment analysis is written to the an SNS topic, which can be used for further downstream processing. This example represents a simple cloud-computing use case where data from an external source is processed and analyzed quickly and cost-effectively in the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-twitter-athena/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Instances on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-aci
+  title: "Azure Container Instances on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-aci
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses Python to deploy a web application to Azure, allowing developers to rapidly spin up and host their applications on a generally accessible cloud service. It utilizes the Azure Container Instances (ACI) service to host the application, providing a straightforward way to package, deploy, and manage it. The example deploys a simple &quot;Hello World&quot; web application, showcasing the ability for developers to quickly use the cloud to host their applications. This is a general use case of cloud computing, using existing services from a cloud provider to quickly and easily host and deploy applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-aci/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Spark on Azure HDInsight"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-hdinsight-spark
+  title: "Spark on Azure HDInsight"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-hdinsight-spark
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an HDInsight Spark cluster with an associated storage account in Azure using TypeScript. It utilizes Azure&#x27;s VM, Storage, Network and HDInsight services to configure a cloud-based Big Data processing platform. The code allows users to define cluster sizes, specify storage options, configure the virtual network and more. This Pulumi example thus serves a Big Data processing use case on the Azure cloud platform."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-hdinsight-spark/README.md)

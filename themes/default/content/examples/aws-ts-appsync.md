@@ -1,73 +1,30 @@
 ---
 title: "GraphQL Endpoint in AWS AppSync"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-appsync
-  settings:
-    name: aws-ts-appsync
-    description: Basic example of defining an AWS AppSync endpoint from Pulumi
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 11
-    outputs:
-      endpoint:
-        value: >-
-          https://j4dbjfqckfhfvniw2wxpxjkvj4.appsync-api.us-west-2.amazonaws.com/graphql
-        secret: false
-      key:
-        value: da2-olyxivgwpnd5pbx5cpre5h6lga
-        secret: true
-    startTime: 1683412732000
-    endTime: 1683412759000
-    config: {}
+meta_desc: "Basic example of defining an AWS AppSync endpoint from Pulumi"
+metadata:
+  id: aws-ts-appsync
+  title: "GraphQL Endpoint in AWS AppSync"
+  description: "Basic example of defining an AWS AppSync endpoint from Pulumi"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-appsync
+  runtime: nodejs
+  lastUpdate: 1683412759000
+  duration: 27000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::pulumi:pulumi:Stack::aws-ts-appsync-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::pulumi:providers:random::default_4_13_0
-      type: pulumi:providers:random
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::random:index/randomString:RandomString::random-datasource-name
-      type: random:index/randomString:RandomString
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::aws-ts-appsync::aws:iam/role:Role::iam-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/graphQLApi:GraphQLApi::api
-      type: aws:appsync/graphQLApi:GraphQLApi
-    - urn: urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/apiKey:ApiKey::key
-      type: aws:appsync/apiKey:ApiKey
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:dynamodb/table:Table::tenants
-      type: aws:dynamodb/table:Table
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/dataSource:DataSource::tenants-ds
-      type: aws:appsync/dataSource:DataSource
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:iam/policy:Policy::iam-policy
-      type: aws:iam/policy:Policy
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/resolver:Resolver::get-resolver
-      type: aws:appsync/resolver:Resolver
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:iam/rolePolicyAttachment:RolePolicyAttachment::iam-rpa
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-appsync::aws:appsync/resolver:Resolver::add-resolver
-      type: aws:appsync/resolver:Resolver
+  - pulumi:pulumi:Stack
+  - pulumi:providers:random
+  - random:index/randomString:RandomString
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:appsync/graphQLApi:GraphQLApi
+  - aws:appsync/apiKey:ApiKey
+  - aws:dynamodb/table:Table
+  - aws:appsync/dataSource:DataSource
+  - aws:iam/policy:Policy
+  - aws:appsync/resolver:Resolver
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:appsync/resolver:Resolver
 
+summary: "This Pulumi example shows how to deploy a typescript serverless GraphQL back-end on AWS that uses AppSync to provide real-time data synchronization. The example uses AWS services such as DynamoDB, AppSync, and Lambda, and is programmed in Typescript. It demonstrates how to use Pulumi to set up a cloud infrastructure and deploy a serverless GraphQL back-end using AWS services. The provided solution satisfies the general use case of a cloud-based serverless back-end for a web or mobile application."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-appsync/README.md)

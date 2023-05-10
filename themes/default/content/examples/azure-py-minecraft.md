@@ -1,12 +1,17 @@
 ---
 title: "Minecraft Server Using an Azure Virtual Machine"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-minecraft
+  title: "Minecraft Server Using an Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-minecraft
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to deploy a Minecraft server on Azure using Python. It uses the Azure cloud provider and Python programming language. The use case of this example is to simulate creating and deploying a cloud-based game server. In short, it creates an Azure Virtual Network, a subnet within that network, and an Ubuntu Linux Server inside Azure to host the Minecraft server. Finally, it sets up port forwarding to make the Minecraft server reachable outside of the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-minecraft-server/README.md)

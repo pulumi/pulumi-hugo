@@ -1,12 +1,17 @@
 ---
 title: "Web Server Component Using Azure Virtual Machine"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: ws-go-azure-comp
+  title: "Web Server Component Using Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/ws-go-azure-comp
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to use Go and Azure to configure a web server and website. The example sets up a storage account, virtual network and virtual machine using Go in the Azure cloud provider. It is a general use case example of deploying cloud infrastructure components such as storage, networking and compute, and can be used as a starting point for more complex applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-go-webserver-component/README.md)

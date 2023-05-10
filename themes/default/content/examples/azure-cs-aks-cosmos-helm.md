@@ -1,12 +1,17 @@
 ---
 title: "A Helm chart deployed to AKS that stores TODOs in an Azure Cosmos DB MongoDB API"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-aks-cosmos-helm
+  title: "A Helm chart deployed to AKS that stores TODOs in an Azure Cosmos DB MongoDB API"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-aks-cosmos-helm
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an Azure Kubernetes cluster, with a Cosmos database, and deploys and configures a Helm chart on the cluster. It is written in TypeScript and uses Azure and Kubernetes as the cloud providers. The general use case it serves is for configuring Kubernetes clusters with applications and containers quickly and effectively."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-aks-cosmos-helm/README.md)

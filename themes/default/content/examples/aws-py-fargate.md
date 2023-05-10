@@ -1,68 +1,29 @@
 ---
 title: "NGINX on AWS ECS Fargate using Python"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-py-fargate
-  settings:
-    name: aws-py-fargate
-    description: >-
-      A container running in AWS ECS Fargate, using Python infrastructure as
-      code
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 10
-    outputs:
-      url:
-        value: app-lb-4fe4144-2053885829.us-west-2.elb.amazonaws.com
-        secret: false
-    startTime: 1683412713000
-    endTime: 1683412902000
-    config: {}
+meta_desc: "A container running in AWS ECS Fargate, using Python infrastructure as code"
+metadata:
+  id: aws-py-fargate
+  title: "NGINX on AWS ECS Fargate using Python"
+  description: "A container running in AWS ECS Fargate, using Python infrastructure as code"
+  url: https://github.com/pulumi/examples/tree/master/aws-py-fargate
+  runtime: python
+  lastUpdate: 1683412902000
+  duration: 189000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::pulumi:pulumi:Stack::aws-py-fargate-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::aws-py-fargate::pulumi:providers:aws::default
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:iam/role:Role::task-exec-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:iam/rolePolicyAttachment:RolePolicyAttachment::task-exec-policy
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:ecs/taskDefinition:TaskDefinition::app-task
-      type: aws:ecs/taskDefinition:TaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:lb/targetGroup:TargetGroup::app-tg
-      type: aws:lb/targetGroup:TargetGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:ec2/securityGroup:SecurityGroup::web-secgrp
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:ecs/cluster:Cluster::cluster
-      type: aws:ecs/cluster:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:lb/loadBalancer:LoadBalancer::app-lb
-      type: aws:lb/loadBalancer:LoadBalancer
-    - urn: urn:pulumi:examples-api::aws-py-fargate::aws:lb/listener:Listener::web
-      type: aws:lb/listener:Listener
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-fargate::aws:ecs/service:Service::app-svc
-      type: aws:ecs/service:Service
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ecs/taskDefinition:TaskDefinition
+  - aws:lb/targetGroup:TargetGroup
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ecs/cluster:Cluster
+  - aws:lb/loadBalancer:LoadBalancer
+  - aws:lb/listener:Listener
+  - aws:ecs/service:Service
 
+summary: "This Pulumi example uses AWS and Python to launch a Fargate container on AWS in approximately ten minutes. It shows how to use the Pulumi library to easily launch a containerized application on a scalable platform, leveraging the automated build and deployment features of Fargate. This example applies to a general use-case for cloud computing, making it simple to start and scale containerized applications using Pulumi and AWS Fargate."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-fargate/README.md)

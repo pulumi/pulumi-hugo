@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Apps"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-container-apps
+  title: "Azure Container Apps"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-container-apps
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates the deployment of a container-based application to Azure. It is written in TypeScript and enables the deployment of a Kubernetes cluster on Azure using Azure Container Services and Azure Container Registry. The general cloud-computing use case it serves is the deployment of cloud-native applications to Azure using container-based technology."
 ---
 
 # Azure Container Apps

@@ -1,86 +1,35 @@
 ---
 title: "Serverless App to Copy and Zip Objects Between Amazon S3 Buckets"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: slss-tps
-  settings:
-    name: slss-tps
-    description: Copy and zip TPS reports, using AWS Lambda, from one S3 Bucket to another.
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 17
-    outputs:
-      tpsReportsBucket:
-        value: tpsreports-797656f
-        secret: false
-      tpsZipsBucket:
-        value: tpszips-801bc73
-        secret: false
-    startTime: 1683412992000
-    endTime: 1683413028000
-    config: {}
+meta_desc: "Copy and zip TPS reports, using AWS Lambda, from one S3 Bucket to another."
+metadata:
+  id: slss-tps
+  title: "Serverless App to Copy and Zip Objects Between Amazon S3 Buckets"
+  description: "Copy and zip TPS reports, using AWS Lambda, from one S3 Bucket to another."
+  url: https://github.com/pulumi/examples/tree/master/slss-tps
+  runtime: nodejs
+  lastUpdate: 1683413028000
+  duration: 36000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::pulumi:pulumi:Stack::slss-tps-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::slss-tps::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket::tpsZips
-      type: aws:s3/bucket:Bucket
-    - urn: urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket::tpsReports
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription::zipTpsReports
-      type: aws:s3:BucketEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/role:Role::zipTpsReports
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::zipTpsReports-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/function:Function::zipTpsReports
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/permission:Permission::zipTpsReports
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::slss-tps::aws:s3/bucket:Bucket$aws:s3/bucketNotification:BucketNotification::zipTpsReports
-      type: aws:s3/bucketNotification:BucketNotification
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:s3/bucket:Bucket
+  - aws:s3/bucket:Bucket
+  - aws:s3:BucketEventSubscription
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:s3/bucketNotification:BucketNotification
 
+summary: "This Pulumi example deploys a three-tier web application using AWS and TypeScript. It creates a VPC (Virtual Private Cloud) and two subnets, provisions EC2 instances, deploys an RDS instance, and creates an S3 bucket for static web hosting. The use case is a classic cloud computing one, allowing users to securely deploy, manage and scale a web application with near-infinite scalability."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-s3-lambda-copyzip/README.md)

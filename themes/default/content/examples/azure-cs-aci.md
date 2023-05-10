@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Instances on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-aci
+  title: "Azure Container Instances on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-aci
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a containerized application to Azure using TypeScript. The app is composed of a web front-end running on Azure Container Instances and an Azure Cosmos DB storage backend. It serves as a demonstration of how to easily set up an environment with containers in Azure, and serves a general use case of creating a cloud computing environment with containerized applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-aci/README.md)

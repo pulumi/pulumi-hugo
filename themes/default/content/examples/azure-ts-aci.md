@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Instances on Linux"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-aci
+  title: "Azure Container Instances on Linux"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-aci
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example shows how to use the Pulumi programming framework to create and deploy a containerized TypeScript web application to Azure. It uses Azure as its cloud provider and TypeScript as its programming language. It creates an Azure Container Instance that serves as the web application&#x27;s host, and a storage account to store application files. It is an example of a general cloud-computing use case where an application is containerized and deployed to the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-aci/README.md)

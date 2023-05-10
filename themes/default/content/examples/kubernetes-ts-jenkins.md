@@ -1,12 +1,17 @@
 ---
 title: "Continuous Integration with Jenkins"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-ts-jenkins
+  title: "Continuous Integration with Jenkins"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-ts-jenkins
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Jenkins CI/CD system on Kubernetes on AWS. It uses Typescript as the programming language and provides a general cloud-computing use case. It creates a Kubernetes cluster, configures Jenkins with a Kubernetes ServiceK8s class, and configures the Jenkins container and jobs. It also installs the Kubernetes plugin for the Jenkins container and registers a service for scp access. Finally, the example provisions a load balancer, enabling secure access to Jenkins from the internet."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-jenkins/README.md)

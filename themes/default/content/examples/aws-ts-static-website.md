@@ -1,12 +1,17 @@
 ---
 title: "Secure Static Website Using Amazon S3, CloudFront, Route53, and Certificate Manager"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-static-website
+  title: "Secure Static Website Using Amazon S3, CloudFront, Route53, and Certificate Manager"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-static-website
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a static HTML website on Amazon Web Services (AWS) using TypeScript. It provisions all the necessary resources such as a S3 bucket, Cloudfront distribution and related configurations. It demonstrates the capability for seamless integration of multiple cloud services resulting in an end-to-end deployment of a static web page solution. This example is useful for any user looking for an easy way to deploy a static web page on AWS using TypeScript."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-static-website/README.md)

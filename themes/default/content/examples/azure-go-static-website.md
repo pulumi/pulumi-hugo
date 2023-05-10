@@ -1,12 +1,17 @@
 ---
 title: "Static Website Using Azure Blob Storage and CDN"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-static-website
+  title: "Static Website Using Azure Blob Storage and CDN"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-static-website
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a static website hosted on an Azure Storage Account. It is written in Go and uses Azure for the cloud provider. It creates an Azure Resource Group, Storage Account, Blob Container, and Table Service. It then sets up an Azure Front Door instance which routes the requests to the static website. This example showcase how you can deploy a static website that is served from a cloud provider."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-go-static-website/README.md)

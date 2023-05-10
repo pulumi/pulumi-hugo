@@ -1,12 +1,17 @@
 ---
 title: "Web Server Using Amazon EC2"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-cs-webserver
+  title: "Web Server Using Amazon EC2"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-cs-webserver
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a web server using Amazon Web Services (AWS) in the .NET programming language. It creates an EC2 instance on AWS and configures its security group rules, key pair, and an Elastic IP address. Pulumi is used to orchestrate the necessary resources in the cloud to launch the web server. This example demonstrates a general cloud-computing use case of spinning up a web server with automated provisioning."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-cs-webserver/README.md)

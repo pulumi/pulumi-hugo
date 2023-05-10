@@ -1,12 +1,17 @@
 ---
 title: "Azure Cosmos DB, an API Connection, and a Logic App"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-cosmosdb-logicapp
+  title: "Azure Cosmos DB, an API Connection, and a Logic App"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-cosmosdb-logicapp
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Logic App on an Azure cloud provider, written in TypeScript language. It also creates a CosmosDB database to store the data that the Logic App collects. This example serves the general cloud-computing use case of creating automated jobs based on trigger events."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-cosmosdb-logicapp/README.md)

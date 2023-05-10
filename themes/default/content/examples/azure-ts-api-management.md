@@ -1,12 +1,17 @@
 ---
 title: "Azure API Management"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-api-management
+  title: "Azure API Management"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-api-management
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example shows how to configure an API gateway on the Azure cloud provider using Typescript programming language. It creates an Azure App Service resource, an Azure Storage Account, an Azure SQL Database, an Azure API Management service and an HTTPS endpoint. It further configures the Azure API Management service to host the Typescript code, to serve as a gateway to the backend services and to provide access control for external users. This Pulumi example demonstrates an end-to-end cloud-computing use case for setting up an API gateway with Azure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-api-management/README.md)

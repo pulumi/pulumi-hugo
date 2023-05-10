@@ -1,12 +1,17 @@
 ---
 title: "Sock Shop Pulumi Demo"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: sock-shop
+  title: "Sock Shop Pulumi Demo"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/sock-shop
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provisions and configures a distributed microservices application on Amazon Web Services (AWS) using JavaScript (Node.js). It deploys all the necessary components to run a Sock Shop application, including the web front end, back end services and databases such as MongoDB and Redis for data storage and caching. The Sock Shop application demonstrates a realistic cloud-computing use case, demonstrating how to architect, deploy and manage an application with multiple services running on several different cloud providers."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-sock-shop/README.md)

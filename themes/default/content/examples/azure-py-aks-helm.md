@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster and Helm Chart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-aks-helm
+  title: "Azure Kubernetes Service (AKS) Cluster and Helm Chart"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-aks-helm
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a Python program which provisions an Azure Kubernetes Service cluster and then deploys an NGINX helm chart to it. It uses both Azure and Python and is leveraged to create and manage an application on Kubernetes, making it a great example of a more automated cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-aks-helm/README.md)

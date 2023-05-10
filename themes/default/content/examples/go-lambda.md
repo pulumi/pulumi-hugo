@@ -1,45 +1,22 @@
 ---
 title: "AWS Golang Lambda"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: go-lambda
-  settings:
-    name: go-lambda
-    description: Basic example of an AWS lambda
-    runtime: go
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 4
-    outputs:
-      lambda:
-        value: arn:aws:lambda:us-west-2:894850187425:function:basicLambda-fafe99a
-        secret: false
-    startTime: 1683412696000
-    endTime: 1683412759000
-    config: {}
+meta_desc: "Basic example of an AWS lambda"
+metadata:
+  id: go-lambda
+  title: "AWS Golang Lambda"
+  description: "Basic example of an AWS lambda"
+  url: https://github.com/pulumi/examples/tree/master/go-lambda
+  runtime: go
+  lastUpdate: 1683412759000
+  duration: 63000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::go-lambda::pulumi:pulumi:Stack::go-lambda-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::go-lambda::pulumi:providers:aws::default
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::go-lambda::aws:iam/role:Role::task-exec-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::go-lambda::aws:iam/rolePolicy:RolePolicy::lambda-log-policy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::go-lambda::aws:lambda/function:Function::basicLambda
-      type: aws:lambda/function:Function
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:lambda/function:Function
 
+summary: "This Pulumi example deploys an AWS Lambda function written in Go to an AWS cloud infrastructure. It is a basic example of a cloud-computing use case in which a serverless compute instance is set up to perform a single task. It uses the Amazon Web Services cloud provider and the Go programming language. After deployment, the Lambda function will run when it is triggered by an appropriate event."
 ---
 
 # AWS Golang Lambda

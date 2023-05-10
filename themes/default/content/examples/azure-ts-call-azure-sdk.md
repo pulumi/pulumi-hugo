@@ -1,12 +1,17 @@
 ---
 title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-call-azure-sdk
+  title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-call-azure-sdk
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is an Azure TypeScript example that calls into the Azure SDK. It uses the Azure cloud provider and TypeScript as the programming language. The example deploys a basic storage account, creates a virtual machine, allocates a public IP address to the VM, and prints out connection information. This example serves as a general cloud-computing use case, showing how to use Pulumi to manage and deploy cloud resources in Azure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-call-azure-sdk/README.md)

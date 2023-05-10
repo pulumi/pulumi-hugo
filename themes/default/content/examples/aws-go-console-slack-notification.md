@@ -1,12 +1,17 @@
 ---
 title: "AWS Console Change Slack Notifier in Go"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-go-console-slack-notification
+  title: "AWS Console Change Slack Notifier in Go"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-go-console-slack-notification
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses the AWS cloud provider and Go programming language to set up an automated system that sends out notifications to Slack channels when an AWS EC2 instance or Auto Scaling Group has launched successfully. It is an example of using multiple cloud services in an automated fashion to help facilitate cloud-computing use cases, such as managing a serverless application or running an elastic compute farm."
 ---
 
 # AWS Console Change Slack Notifier in Go

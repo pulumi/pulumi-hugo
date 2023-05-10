@@ -1,12 +1,17 @@
 ---
 title: "Using the Pulumi Libvirt Provider to Deploy a VM on a KVM Server"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: libvirt-py-vm
+  title: "Using the Pulumi Libvirt Provider to Deploy a VM on a KVM Server"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/libvirt-py-vm
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a simple virtual machine to Libvirt using Python programming language. It creates a virtual machine with two disks, creates a local bridge for networking and adds an SSH key. It orchestrates the use-case of cloud-computing using the Libvirt open source virtualization hypervisor. This example doesn&#x27;t involve any cloud providers so it can be used to deploy resources without connecting to any cloud providers such as AWS or GCP."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/libvirt-py-vm/README.md)

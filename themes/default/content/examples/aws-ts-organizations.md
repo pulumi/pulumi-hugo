@@ -1,12 +1,17 @@
 ---
 title: "AWS Organizations"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-organizations
+  title: "AWS Organizations"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-organizations
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to use TypeScript to set up and configure an AWS Organizations structure. It uses the Pulumi Library to simplify the process of creating AWS organizational units, accounts and service control policies. This example contains TypeScript code, which is compatible with the AWS cloud provider. The example serves the general cloud-computing use case of setting up an organization with different accounts and controlling access to those services."
 ---
 
 # AWS Organizations

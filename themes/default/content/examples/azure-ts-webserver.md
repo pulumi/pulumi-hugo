@@ -1,12 +1,17 @@
 ---
 title: "Web Server Using Azure Virtual Machine"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-webserver
+  title: "Web Server Using Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-webserver
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a webserver in Azure using TypeScript. It uses Azure as the cloud provider and TypeScript as the programming language. It provisions an Ubuntu virtual machine and uses an Azure storage account to host a static website. The example serves a use case of hosting a static website in the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-webserver/README.md)

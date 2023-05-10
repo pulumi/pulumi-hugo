@@ -1,79 +1,31 @@
 ---
 title: "Lambda-backed API Gateway"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-py-apigateway-lambda-serverless
-  settings:
-    name: aws-py-apigateway-lambda-serverless
-    description: A minimal AWS Python Pulumi program
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 13
-    outputs:
-      apigateway-rest-endpoint:
-        value: >-
-          https://xxvjdblft0.execute-api.us-west-2.amazonaws.com/example/{proxy+}
-        secret: false
-      apigatewayv2-http-endpoint:
-        value: >-
-          https://yd3bhog79f.execute-api.us-west-2.amazonaws.com/example-stage-39d331c/
-        secret: false
-    startTime: 1683412670000
-    endTime: 1683412737000
-    config: {}
+meta_desc: "A minimal AWS Python Pulumi program"
+metadata:
+  id: aws-py-apigateway-lambda-serverless
+  title: "Lambda-backed API Gateway"
+  description: "A minimal AWS Python Pulumi program"
+  url: https://github.com/pulumi/examples/tree/master/aws-py-apigateway-lambda-serverless
+  runtime: python
+  lastUpdate: 1683412737000
+  duration: 67000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::pulumi:pulumi:Stack::aws-py-apigateway-lambda-serverless-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:iam/role:Role::lambdaRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigatewayv2/api:Api::http-api-pulumi-example
-      type: aws:apigatewayv2/api:Api
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:iam/rolePolicy:RolePolicy::lambdaRolePolicy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:lambda/function:Function::mylambda
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:lambda/permission:Permission::api-http-lambda-permission
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigatewayv2/integration:Integration::example
-      type: aws:apigatewayv2/integration:Integration
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigatewayv2/route:Route::example-route
-      type: aws:apigatewayv2/route:Route
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigateway/restApi:RestApi::api
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigateway/deployment:Deployment::api-deployment
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigatewayv2/stage:Stage::example-stage
-      type: aws:apigatewayv2/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:apigateway/stage:Stage::api-stage
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-py-apigateway-lambda-serverless::aws:lambda/permission:Permission::api-rest-lambda-permission
-      type: aws:lambda/permission:Permission
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:apigatewayv2/api:Api
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:apigatewayv2/integration:Integration
+  - aws:apigatewayv2/route:Route
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:apigatewayv2/stage:Stage
+  - aws:apigateway/stage:Stage
+  - aws:lambda/permission:Permission
 
+summary: "This example from Pulumi is a demonstration of how to build a serverless architecture in Python using AWS. It creates an API gateway that is backed by a Lambda service. The example uses AWS as its cloud provider and Python as its programming language. This example serves as a general cloud-computing use case, whereby a web service can be served through a cloud provider, eliminating the need for hardware infrastructure and associated costs."
 ---
 
 # Lambda-backed API Gateway

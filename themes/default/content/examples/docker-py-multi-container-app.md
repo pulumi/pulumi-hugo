@@ -1,12 +1,17 @@
 ---
 title: "Docker multi-container example"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: docker-py-multi-container-app
+  title: "Docker multi-container example"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/docker-py-multi-container-app
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example from Pulumi sets up a multi-container application for Docker and Python on a cloud provider of one&#x27;s choice. It uses a combination of the Pulumi SDK and the Docker API to programmatically manage resources, making it a great fit for anyone or organization looking to build and deploy applications within the cloud. Furthermore, the Pulumi SDK and Docker API allow the user to define their application stack and provide cloud inputs in any programming language they choose. This example serves as an ideal proof-of-concept for anyone looking to build and deploy cloud applications with a multi-container set up."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/docker-py-multi-container-app/README.md)

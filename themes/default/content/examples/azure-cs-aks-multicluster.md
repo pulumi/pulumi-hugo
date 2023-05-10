@@ -1,12 +1,17 @@
 ---
 title: "Multiple Azure Kubernetes Service (AKS) Clusters"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-aks-multicluster
+  title: "Multiple Azure Kubernetes Service (AKS) Clusters"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-aks-multicluster
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example uses Pulumi to demonstrate a multi-cluster setup on Azure using C#. It creates an Azure Kubernetes Service (AKS) cluster and a Virtual Network with multiple subnets. The use case for this particular example is to set up a production environment in one cluster and a dev environment in another, leveraging the same Virtual Network. It makes use of Azure&#x27;s networking capabilities and the scalability of cloud computing to achieve this."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-aks-multicluster/README.md)

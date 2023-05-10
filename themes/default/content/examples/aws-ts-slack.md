@@ -1,132 +1,51 @@
 ---
 title: "Create a Slackbot for Posting Mention Notifications"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-slack
-  settings:
-    name: aws-ts-slack
-    description: Basic example of creating a slackbot
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 33
-    outputs:
-      url:
-        value: https://xg6fpib5b9.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-    startTime: 1683412662000
-    endTime: 1683412705000
-    config: {}
+meta_desc: "Basic example of creating a slackbot"
+metadata:
+  id: aws-ts-slack
+  title: "Create a Slackbot for Posting Mention Notifications"
+  description: "Basic example of creating a slackbot"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-slack
+  runtime: nodejs
+  lastUpdate: 1683412705000
+  duration: 43000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::pulumi:pulumi:Stack::aws-ts-slack-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API::mentionbot
-      type: aws:apigateway:x:API
-    - urn: urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic::messages
-      type: aws:sns/topic:Topic
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription::processTopicMessage
-      type: aws:sns:TopicEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/role:Role::mentionbot8e3f228c
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/role:Role::processTopicMessage
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::mentionbot8e3f228c-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::processTopicMessage-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:dynamodb/table:Table::subscriptions
-      type: aws:dynamodb/table:Table
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:lambda/function:Function::mentionbot8e3f228c
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:apigateway/restApi:RestApi::mentionbot
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:apigateway/deployment:Deployment::mentionbot
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:lambda/permission:Permission::mentionbot-89b3ba11
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:apigateway:x:API$aws:apigateway/stage:Stage::mentionbot
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:lambda/function:Function::processTopicMessage
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:lambda/permission:Permission::processTopicMessage
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-slack::aws:sns/topic:Topic$aws:sns:TopicEventSubscription$aws:sns/topicSubscription:TopicSubscription::processTopicMessage
-      type: aws:sns/topicSubscription:TopicSubscription
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:apigateway:x:API
+  - aws:sns/topic:Topic
+  - aws:sns:TopicEventSubscription
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:dynamodb/table:Table
+  - aws:lambda/function:Function
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:lambda/permission:Permission
+  - aws:apigateway/stage:Stage
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:sns/topicSubscription:TopicSubscription
 
+summary: "This Pulumi example is an example use-case for slack and AWS. It uses typescript and the cloud provider AWS. It creates a Lambda Function that is triggered by an SNS Topic and then archives messages to S3 and reports to slack. The general cloud-computing use case it serves is providing automated solutions to easily log, archive and report on messages."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-slackbot/README.md)

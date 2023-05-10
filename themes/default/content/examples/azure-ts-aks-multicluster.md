@@ -1,12 +1,17 @@
 ---
 title: "Multiple Azure Kubernetes Service (AKS) Clusters"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-aks-multicluster
+  title: "Multiple Azure Kubernetes Service (AKS) Clusters"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-aks-multicluster
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example demonstrates how to deploy a Windows and Linux cluster in the Azure cloud using Pulumi and the TypeScript programming language. It allows developers to manage their infrastructure as code and quickly and easily spin up a multi-cluster Kubernetes cluster on Azure. This example showcases the flexibility of Pulumi&#x27;s infrastructure-as-code offering on the Azure cloud platform and is suitable for a variety of use cases, including distributed application hosting and data processing."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-aks-multicluster/README.md)

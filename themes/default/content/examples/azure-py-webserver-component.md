@@ -1,12 +1,17 @@
 ---
 title: "Web Server Using Azure Virtual Machine with ComponentResource"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-webserver-component
+  title: "Web Server Using Azure Virtual Machine with ComponentResource"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-webserver-component
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a web server component on Azure using Python. The component consists of a load balancer, public IP address, vNet, and virtual machine. The example demonstrates the automation of set up of a typical cloud-computing use case that requires a virtual machine with a public IP address for hosting applications publicly accessible over the Internet."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-py-webserver-component/README.md)

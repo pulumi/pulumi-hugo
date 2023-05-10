@@ -1,12 +1,17 @@
 ---
 title: "Amazon EKS Distro Cluster"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-eks-distro
+  title: "Amazon EKS Distro Cluster"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-eks-distro
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to create and manage an Amazon Web Services (AWS) EKS shared nodegroup in TypeScript. It creates an AWS EKS cluster, and then uses the Pulumi EKS NodeGroup type to create an on-demand cluster nodegroup associated with the EKS cluster. The resulting cloud infrastructure serves to distribute and run workloads, allowing for easier scalability and orchestration of workloads on Kubernetes."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-eks-distro/README.md)

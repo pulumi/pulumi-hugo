@@ -1,12 +1,17 @@
 ---
 title: "ETL pipeline with Amazon Redshift and AWS Glue"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-py-redshift-glue-etl
+  title: "ETL pipeline with Amazon Redshift and AWS Glue"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-py-redshift-glue-etl
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to set up an ETL pipeline on AWS using the Python programming language. It creates an Amazon Redshift data warehouse and an AWS Glue ETL job to transfer data between two S3 buckets. It demonstrates a cloud computing use case of integrating a data warehouse with an ETL pipeline to transport data."
 ---
 
 # ETL pipeline with Amazon Redshift and AWS Glue

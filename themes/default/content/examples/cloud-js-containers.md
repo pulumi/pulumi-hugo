@@ -1,12 +1,17 @@
 ---
 title: "Containerized App"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: cloud-js-containers
+  title: "Containerized App"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/cloud-js-containers
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example configures and provisions a Kubernetes cluster on Google Cloud Platform with JavaScript and TypeScript. It uses Pulumi to deploy a container image and service that displays a simple &quot;hello world&quot; message. It shows how to use JavaScript and TypeScript to create a Kubernetes cluster on Google Cloud Platform and deploy a containerized web application. In addition, this example demonstrates a general cloud-computing use case where code is used to provision and configure cloud infrastructure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/cloud-js-containers/README.md)

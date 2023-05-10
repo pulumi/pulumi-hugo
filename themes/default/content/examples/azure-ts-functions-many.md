@@ -1,12 +1,17 @@
 ---
 title: "Azure Functions in All Supported Languages"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-functions-many
+  title: "Azure Functions in All Supported Languages"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-functions-many
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a TypeScript project that creates serverless functions on Microsoft Azure. It creates multiple Function Apps and deploys serverless functions inside of them. It uses Azure and TypeScript to serve as a general cloud-computing use case. Specifically, it helps to show how to use Pulumi to quickly create Function Apps and deploy many serverless functions in an automated way."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-functions-many/README.md)

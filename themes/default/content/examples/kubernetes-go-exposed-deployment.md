@@ -1,12 +1,17 @@
 ---
 title: "Exposing a Deployment with a Public IP Address"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-go-exposed-deployment
+  title: "Exposing a Deployment with a Public IP Address"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-go-exposed-deployment
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to deploy a Kubernetes service with exposed ports and endpoints to any cloud provider using the Go programming language. It creates a basic Kubernetes deployment and service on the cloud provider of your choice, exposing a simple HTTP server listening on port 8080. It also creates a Kubernetes ingress to make this service externally accessible. This example has a wide range of uses and is suitable for general cloud-computing tasks."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-go-exposed-deployment/README.md)

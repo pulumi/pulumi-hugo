@@ -1,160 +1,59 @@
 ---
 title: "Lambda-backed REST API"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-apigateway-lambda-serverless
-  settings:
-    name: aws-ts-apigateway-lambda-serverless
-    description: >-
-      Creates a serverless application using API Gateway backed by lambda
-      functions
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 41
-    outputs:
-      endpointUrl:
-        value: https://9xdex52ho0.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-    startTime: 1683412709000
-    endTime: 1683412760000
-    config: {}
+meta_desc: "Creates a serverless application using API Gateway backed by lambda functions"
+metadata:
+  id: aws-ts-apigateway-lambda-serverless
+  title: "Lambda-backed REST API"
+  description: "Creates a serverless application using API Gateway backed by lambda functions"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-apigateway-lambda-serverless
+  runtime: nodejs
+  lastUpdate: 1683412760000
+  duration: 51000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::pulumi:pulumi:Stack::aws-ts-apigateway-lambda-serverless-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API::hello-world
-      type: aws:apigateway:x:API
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/role:Role::hello-world2bb21f83
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/role:Role::hello-world40ecbb97
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/role:Role::hello-world4fcc7b60
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world2bb21f83-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world40ecbb97-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:iam/rolePolicyAttachment:RolePolicyAttachment::hello-world4fcc7b60-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:lambda/function:Function::hello-world2bb21f83
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:lambda/function:Function::hello-world40ecbb97
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:lambda/function:Function::hello-world4fcc7b60
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:apigateway/restApi:RestApi::hello-world
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:apigateway/deployment:Deployment::hello-world
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:lambda/permission:Permission::hello-world-29d762f7
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:lambda/permission:Permission::hello-world-d21e9c98
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:lambda/permission:Permission::hello-world-86405973
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-apigateway-lambda-serverless::aws:apigateway:x:API$aws:apigateway/stage:Stage::hello-world
-      type: aws:apigateway/stage:Stage
+  - pulumi:pulumi:Stack
+  - aws:apigateway:x:API
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:lambda/function:Function
+  - aws:lambda/function:Function
+  - aws:lambda/function:Function
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:apigateway/stage:Stage
 
+summary: "This Pulumi example configures an application stack designed for serverless use cases with AWS. It uses TypeScript and creates an API Gateway working in tandem with a Lambda function to serve as a fully serverless backend. This allows the application to scale as demand increases, while also avoiding the complexity of managing a full server."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-apigateway-lambda-serverless/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Setup AWS Secrets manager"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-cs-secrets-manager
+  title: "Setup AWS Secrets manager"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-cs-secrets-manager
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to create and manage secrets using AWS Secrets Manager with Pulumi in TypeScript. It uses AWS cloud services and showcases the ability to securely store and manage API keys, database connection strings, and other types of secrets. It allows you to easily define and deploy infrastructures up and running in the cloud with TypeScript language. This example provides a simple cloud-computing use case to securely manage and store confidential data/information."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)

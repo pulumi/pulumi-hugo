@@ -1,12 +1,17 @@
 ---
 title: "Azure VM Scale Sets"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-vm-scaleset
+  title: "Azure VM Scale Sets"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-vm-scaleset
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a scale set of virtual machines on Azure using TypeScript. It automates the deployment of a basic Azure compute cluster, networking, and storage that then sets up a Linux scaled set of virtual machines which can be easily managed and configured through the Pulumi SDK. It uses the Azure cloud provider, the TypeScript programming language, and serves a general cloud-computing use case of setting up a scale set for resources management."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-cs-vm-scaleset/README.md)

@@ -1,45 +1,21 @@
 ---
 title: "Setup AWS Secrets manager"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-secrets-manager
-  settings:
-    name: aws-secrets-manager
-    description: Demo showing how to set up AWS secrets manager
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 3
-    outputs:
-      secretId:
-        value: >-
-          arn:aws:secretsmanager:us-west-2:894850187425:secret:secret-ec97836-4GUBKC
-        secret: false
-    startTime: 1683412706000
-    endTime: 1683412727000
-    config: {}
+meta_desc: "Demo showing how to set up AWS secrets manager"
+metadata:
+  id: aws-secrets-manager
+  title: "Setup AWS Secrets manager"
+  description: "Demo showing how to set up AWS secrets manager"
+  url: https://github.com/pulumi/examples/tree/master/aws-secrets-manager
+  runtime: nodejs
+  lastUpdate: 1683412727000
+  duration: 21000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-secrets-manager::pulumi:pulumi:Stack::aws-secrets-manager-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-secrets-manager::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-secrets-manager::aws:secretsmanager/secret:Secret::secret
-      type: aws:secretsmanager/secret:Secret
-    - urn: >-
-        urn:pulumi:examples-api::aws-secrets-manager::aws:secretsmanager/secretVersion:SecretVersion::secretVersion
-      type: aws:secretsmanager/secretVersion:SecretVersion
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:secretsmanager/secret:Secret
+  - aws:secretsmanager/secretVersion:SecretVersion
 
+summary: "This Pulumi example creates and manages AWS Secrets Manager resources in the cloud. It uses the AWS cloud provider and the TypeScript programming language. It has two main parts, where users can view a secret stored in AWS Secrets Manager, and administrators can also rotate secret credentials. This example provides a general use case for cloud-based secret storage and management."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)

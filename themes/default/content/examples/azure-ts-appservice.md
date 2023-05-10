@@ -1,12 +1,17 @@
 ---
 title: "Azure App Service with SQL Database and Application Insights"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-appservice
+  title: "Azure App Service with SQL Database and Application Insights"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-appservice
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "The Pulumi example creates an Azure app service using TypeScript and the Azure SDK for JavaScript. It creates an application, web service plan, and a custom domain in Azure using Pulumi’s infrastructure-as-code programming model. It leverages Azure’s compute, database, and storage services for deployments, automations, and scalability. It serves as an example of using Pulumi to easily create cloud infrastructure for web applications on Azure in TypeScript."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-appservice/README.md)

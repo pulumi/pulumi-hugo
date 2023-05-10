@@ -1,12 +1,17 @@
 ---
 title: "Managing Secrets and Secure Access in Azure Applications"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-msi-keyvault-rbac
+  title: "Managing Secrets and Secure Access in Azure Applications"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-msi-keyvault-rbac
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses Python and the Azure Cloud platform to present a comprehensive cloud computing use case. It creates a virtual machine with a managed service identity (MSI), a key vault, and a resource group. The base access control for the resources is then configured with a role-based access control policy. Finally, the example shows how to add a secret to the key vault from a Python program."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-py-msi-keyvault-rbac/README.md)

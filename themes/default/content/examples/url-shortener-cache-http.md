@@ -1,12 +1,17 @@
 ---
 title: "Serverless URL Shortener with Redis Cache and HttpServer"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: url-shortener-cache-http
+  title: "Serverless URL Shortener with Redis Cache and HttpServer"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/url-shortener-cache-http
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up a URL shortener with a caching layer using Go and AWS. It creates an Amazon API Gateway, Amazon S3 buckets, an Amazon DynamoDB table and a Lambda function to provide the URL shortening service. The example also configures the caching parameters of the API Gateway so that specific requests can be served from cache. This example serves the general cloud-computing use case of creating a layer of caching in order to respond to requests more quickly."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-url-shortener-cache-http/README.md)

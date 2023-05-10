@@ -1,12 +1,17 @@
 ---
 title: "Azure Bot Service with Application Insights"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-botservice
+  title: "Azure Bot Service with Application Insights"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-botservice
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example sets up a Bot Service in Azure using Node.js to enable automated conversations with users. The code attempts to make it both easier and quicker to create and manage Chatbots with an Azure subscription. Pulumi helps to create the required resources in the Azure cloud provider, such as the Web App Bot, App Insights, Storage Account, and App Service Plan. Ultimately, this example demonstrates the use case of creating and deploying Chatbots in Azure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-cs-botservice/README.md)

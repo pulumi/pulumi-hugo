@@ -1,56 +1,25 @@
 ---
 title: "Pulumi DigitalOcean Droplets"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: digitalocean-py-loadbalanced-droplets
-  settings:
-    name: digitalocean-py-loadbalanced-droplets
-    description: Basic example of load balanced droplets on DigitalOcean in Python
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 7
-    outputs:
-      endpoint:
-        value: 165.227.251.234
-        secret: false
-    startTime: 1683416267000
-    endTime: 1683416388000
-    config: {}
+meta_desc: "Basic example of load balanced droplets on DigitalOcean in Python"
+metadata:
+  id: digitalocean-py-loadbalanced-droplets
+  title: "Pulumi DigitalOcean Droplets"
+  description: "Basic example of load balanced droplets on DigitalOcean in Python"
+  url: https://github.com/pulumi/examples/tree/master/digitalocean-py-loadbalanced-droplets
+  runtime: python
+  lastUpdate: 1683416388000
+  duration: 121000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::pulumi:pulumi:Stack::digitalocean-py-loadbalanced-droplets-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::pulumi:providers:digitalocean::default_4_19_1
-      type: pulumi:providers:digitalocean
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::digitalocean:index/tag:Tag::web-0
-      type: digitalocean:index/tag:Tag
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::digitalocean:index/tag:Tag::demo-app-examples-api
-      type: digitalocean:index/tag:Tag
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::digitalocean:index/tag:Tag::web-1
-      type: digitalocean:index/tag:Tag
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::digitalocean:index/droplet:Droplet::web-0
-      type: digitalocean:index/droplet:Droplet
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::digitalocean:index/droplet:Droplet::web-1
-      type: digitalocean:index/droplet:Droplet
-    - urn: >-
-        urn:pulumi:examples-api::digitalocean-py-loadbalanced-droplets::digitalocean:index/loadBalancer:LoadBalancer::public
-      type: digitalocean:index/loadBalancer:LoadBalancer
+  - pulumi:pulumi:Stack
+  - pulumi:providers:digitalocean
+  - digitalocean:index/tag:Tag
+  - digitalocean:index/tag:Tag
+  - digitalocean:index/tag:Tag
+  - digitalocean:index/droplet:Droplet
+  - digitalocean:index/droplet:Droplet
+  - digitalocean:index/loadBalancer:LoadBalancer
 
+summary: "This Pulumi example uses the Python programming language and DigitalOcean cloud provider to demonstrate how to create and manage a load-balanced cluster of cloud resources. Specifically, it provisions three DigitalOcean Droplets and a Floating IP, plus a DigitalOcean Load Balancer to distribute traffic across the Droplets. This example shows a cloud-computing use case applicable to workloads such as web services, databases, and other applications that require load balancing across several instances."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/digitalocean-py-loadbalanced-droplets/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Multiple Azure Kubernetes Service (AKS) Clusters"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-aks-multicluster
+  title: "Multiple Azure Kubernetes Service (AKS) Clusters"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-aks-multicluster
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates the usage of a Microsoft Azure Kubernetes Service (AKS) to create a multi-cluster setup. It uses the Go programming language and the Microsoft Azure cloud provider. This example enables users to create a secure private cluster and then expose a subset of the workloads through a public cluster, while still keeping sensitive workloads on the private cluster. This cloud computation use case helps to ensure that all sensitive workloads remain secure and separate from public-facing applications."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-go-aks-multicluster/README.md)

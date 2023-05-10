@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster and Helm Chart"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-aks-helm
+  title: "Azure Kubernetes Service (AKS) Cluster and Helm Chart"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-aks-helm
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to use Go to deploy a Kubernetes cluster to Azure. It uses the Azure Cloud provider and the programming language Go. The example also sets up Helm, a package manager for Kubernetes, and deploys an example application to the cluster. All of this provides an easy way to create a Kubernetes-based cloud-computing architecture."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-go-aks-helm/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "Pulumi Webhook Handler"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-pulumi-webhooks
+  title: "Pulumi Webhook Handler"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-pulumi-webhooks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example implements a webhook-based workflow on AWS using Typescript. It enables developers to trigger automated actions using webhooks from Slack and GitHub, leveraging AWS services such as API Gateway, Lambda, SNS, and SQS. It demonstrates how webhooks can be used to quickly produce scalable cloud-based workflows in an easily maintainable fashion."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-pulumi-webhooks/README.md)

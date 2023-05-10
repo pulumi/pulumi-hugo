@@ -1,12 +1,17 @@
 ---
 title: "Pulumi Python Dynamic Resource demonstration"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-py-dynamicresource
+  title: "Pulumi Python Dynamic Resource demonstration"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-py-dynamicresource
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to create a dynamic AWS infrastructure using Python. It uses AWS cloud services such as EC2, IAM, and S3 to deploy a sample web application. The example also shows how to define cloud resources in code with Python and manage them in a programmatic way. It serves as an example for how to set up a cloud infrastructure for scalable web applications using Python and the AWS cloud provider."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-dynamicresource/README.md)

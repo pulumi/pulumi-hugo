@@ -3,6 +3,14 @@ const handlebars = require("handlebars");
 const yaml = require("js-yaml");
 const fs = require("fs");
 
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
 // export EXAMPLES_API="$(pulumi stack output -s moolumi/examples-api/dev apiURL)"
 const examplesAPI = process.env.EXAMPLES_API || "";
 
@@ -21,16 +29,20 @@ async function generateExamples() {
 async function renderExample(example) {
     const result = template({
         ...{
-            title: example.title,
-            description: "This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.",
-            id: example.id,
-            program: yaml.dump({ program: example.program || null }),
-            stack: yaml.dump({ stack: example.stack || null }),
-            lastUpdate: yaml.dump({ lastUpdate: example.lastUpdate || null }),
-            readme: example.readme,
+            ...example,
+            resources: yaml.dump({ resources: example.resources || [] }),
+            summary: (await summarizeExample(example)).data.choices[0].text.trim(),
         },
     });
     fs.writeFileSync(`./themes/default/content/examples/${example.id}.md`, result);
+}
+
+async function summarizeExample(example) {
+    return openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: `Summarize the Pulumi example at ${example.url} in five sentences or less, explaining what the example does, which cloud provider and programming language it uses, and the general cloud-computing use case it serves.`,
+        max_tokens: 256,
+    });
 }
 
 generateExamples();

@@ -1,12 +1,17 @@
 ---
 title: "Serverless Datawarehouse"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-serverless-datawarehouse
+  title: "Serverless Datawarehouse"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-serverless-datawarehouse
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates a serverless data warehouse on AWS using TypeScript. It deploys an Amazon Redshift cluster, IAM roles and policies, event scheduling, and a data source. The example illustrates a cloud-computing use case of setting up a scalable and cost-effective data warehouse service, enabling businesses to store, process and query their data with minimal effort and cost."
 ---
 
 # Serverless Datawarehouse

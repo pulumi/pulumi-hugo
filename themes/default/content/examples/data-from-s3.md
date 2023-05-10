@@ -1,12 +1,17 @@
 ---
 title: "App Rollout via Data Change in Amazon S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: data-from-s3
+  title: "App Rollout via Data Change in Amazon S3"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/data-from-s3
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to read any file stored in an Amazon S3-compatible object store. It uses JavaScript programming language with the cloud provider Amazon Web Services (AWS). The example will set up an S3 bucket and read a text file from it using Pulumi code. It serves the use case of making reading of data from an object store more efficient."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-ts-s3-rollout/README.md)

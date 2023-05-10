@@ -1,12 +1,17 @@
 ---
 title: "Azure CDN Custom Domain Dynamic Provider"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cdn-custom-domain
+  title: "Azure CDN Custom Domain Dynamic Provider"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cdn-custom-domain
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a Custom Domain and Content Delivery Network (CDN) on Azure. It uses Pulumi in TypeScript to automate the deployment process, allowing for the easy deployment of a custom domain name across multiple Azure CDN Endpoints. This example serves a general cloud-computing use case of deploying a custom domain and CDN on a cloud provider."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-ts-dynamicresource/README.md)

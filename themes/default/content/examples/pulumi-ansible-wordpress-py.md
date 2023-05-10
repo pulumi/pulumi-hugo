@@ -1,12 +1,17 @@
 ---
 title: "Deploy Wordpress to AWS EC2 using Pulumi and Ansible"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: pulumi-ansible-wordpress-py
+  title: "Deploy Wordpress to AWS EC2 using Pulumi and Ansible"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/pulumi-ansible-wordpress-py
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example provides a complete setup for a WordPress instance on Amazon Web Services (AWS), written in Python. It provisions AWS EC2 instances and creates an SSH connection for Ansible to configure a web server and install a MySQL database. It also creates networking resources such as Elastic IPs, security groups, and S3 buckets. This example serves the general cloud-computing use case of deploying a scalable, production-ready WordPress site on AWS."
 ---
 
 # Deploy Wordpress to AWS EC2 using Pulumi and Ansible

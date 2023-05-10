@@ -1,123 +1,43 @@
 ---
 title: "WordPress Site in AWS Fargate with RDS DB Backend"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-wordpress-fargate-rds
-  settings:
-    name: aws-ts-wordpress-fargate-rds
-    description: Deploys Wordpress in ECS Fargate with RDS backend.
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 24
-    outputs:
-      webServiceUrl:
-        value: >-
-          http://wp-fargate-rds-fe-alb-ab5adbf-869952005.us-west-2.elb.amazonaws.com
-        secret: false
-      databaseEndpoint:
-        value: wp-fargate-rds-db-rdse7b0e80.cws0ah986urg.us-west-2.rds.amazonaws.com
-        secret: false
-      databasePassword:
-        value: uyc94nYuvape1wOw
-        secret: true
-      ecsClusterName:
-        value: wp-fargate-rds-fe-ecs-44b03f9
-        secret: false
-      databaseUserName:
-        value: admin
-        secret: false
-    startTime: 1683413011000
-    endTime: 1683413349000
-    config: {}
+meta_desc: "Deploys Wordpress in ECS Fargate with RDS backend."
+metadata:
+  id: aws-ts-wordpress-fargate-rds
+  title: "WordPress Site in AWS Fargate with RDS DB Backend"
+  description: "Deploys Wordpress in ECS Fargate with RDS backend."
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-wordpress-fargate-rds
+  runtime: nodejs
+  lastUpdate: 1683413349000
+  duration: 338000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::pulumi:pulumi:Stack::aws-ts-wordpress-fargate-rds-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService::wp-fargate-rds-fe
-      type: custom:resource:WebService
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:DB::wp-fargate-rds-db
-      type: custom:resource:DB
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC::wp-fargate-rds-net
-      type: custom:resource:VPC
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::pulumi:providers:random::default_4_13_0
-      type: pulumi:providers:random
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::random:index/randomPassword:RandomPassword::dbPassword
-      type: random:index/randomPassword:RandomPassword
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:iam/role:Role::wp-fargate-rds-fe-task-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:iam/rolePolicyAttachment:RolePolicyAttachment::wp-fargate-rds-fe-task-policy
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:ecs/cluster:Cluster::wp-fargate-rds-fe-ecs
-      type: aws:ecs/cluster:Cluster
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/vpc:Vpc::wp-fargate-rds-net-vpc
-      type: aws:ec2/vpc:Vpc
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/internetGateway:InternetGateway::wp-fargate-rds-net-igw
-      type: aws:ec2/internetGateway:InternetGateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:lb/targetGroup:TargetGroup::wp-fargate-rds-fe-app-tg
-      type: aws:lb/targetGroup:TargetGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/routeTable:RouteTable::wp-fargate-rds-net-rt
-      type: aws:ec2/routeTable:RouteTable
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/securityGroup:SecurityGroup::wp-fargate-rds-net-rds-sg
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/securityGroup:SecurityGroup::wp-fargate-rds-net-fe-sg
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/subnet:Subnet::wp-fargate-rds-net-subnet-1
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/subnet:Subnet::wp-fargate-rds-net-subnet-0
-      type: aws:ec2/subnet:Subnet
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-route-table-assoc-1
-      type: aws:ec2/routeTableAssociation:RouteTableAssociation
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:VPC$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-route-table-assoc-0
-      type: aws:ec2/routeTableAssociation:RouteTableAssociation
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:DB$aws:rds/subnetGroup:SubnetGroup::wp-fargate-rds-db-sng
-      type: aws:rds/subnetGroup:SubnetGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:lb/loadBalancer:LoadBalancer::wp-fargate-rds-fe-alb
-      type: aws:lb/loadBalancer:LoadBalancer
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:lb/listener:Listener::wp-fargate-rds-fe-listener
-      type: aws:lb/listener:Listener
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:DB$aws:rds/instance:Instance::wp-fargate-rds-db-rds
-      type: aws:rds/instance:Instance
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:ecs/taskDefinition:TaskDefinition::wp-fargate-rds-fe-app-task
-      type: aws:ecs/taskDefinition:TaskDefinition
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-wordpress-fargate-rds::custom:resource:WebService$aws:ecs/service:Service::wp-fargate-rds-fe-app-svc
-      type: aws:ecs/service:Service
+  - pulumi:pulumi:Stack
+  - custom:resource:WebService
+  - pulumi:providers:aws
+  - custom:resource:DB
+  - custom:resource:VPC
+  - pulumi:providers:random
+  - random:index/randomPassword:RandomPassword
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ecs/cluster:Cluster
+  - aws:ec2/vpc:Vpc
+  - aws:ec2/internetGateway:InternetGateway
+  - aws:lb/targetGroup:TargetGroup
+  - aws:ec2/routeTable:RouteTable
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/subnet:Subnet
+  - aws:ec2/routeTableAssociation:RouteTableAssociation
+  - aws:ec2/routeTableAssociation:RouteTableAssociation
+  - aws:rds/subnetGroup:SubnetGroup
+  - aws:lb/loadBalancer:LoadBalancer
+  - aws:lb/listener:Listener
+  - aws:rds/instance:Instance
+  - aws:ecs/taskDefinition:TaskDefinition
+  - aws:ecs/service:Service
 
+summary: "This Pulumi example creates resources for a WordPress installation on AWS using TypeScript. It uses Docker Fargate for the WordPress containers and Amazon Relational Database Service (RDS) for the MySQL database. This demonstrates how to use Pulumi to build a fully-managed web application stack on Amazon Web Services, allowing easy deployment and update of web-based applications. It uses AWS and TypeScript to serve a general cloud-computing use case."
 ---
 
 # WordPress Site in AWS Fargate with RDS DB Backend

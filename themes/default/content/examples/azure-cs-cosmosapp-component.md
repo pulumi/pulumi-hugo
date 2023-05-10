@@ -1,12 +1,17 @@
 ---
 title: "Reusable Component to Create Globally-distributed Applications with Azure Cosmos DB"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-cosmosapp-component
+  title: "Reusable Component to Create Globally-distributed Applications with Azure Cosmos DB"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-cosmosapp-component
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is an example of how to deploy a cloud-native application on Azure, using the programming language of choice. It creates an API, App Service plan, and Azure Cosmos DB, creating an availability model of 99.999% and automating other aspects of the deployment. This example uses the cloud provider Azure and is written in TypeScript, and is useful to deploy a cloud-native application that requires an API, App Service plan, and Azure Cosmos DB."
 ---
 
 # Reusable Component to Create Globally-distributed Applications with Azure Cosmos DB

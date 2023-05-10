@@ -1,46 +1,22 @@
 ---
 title: "AWS Web Server Component"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: webserver
-  settings:
-    name: webserver
-    description: Basic example of an AWS web server accessible over HTTP
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 4
-    outputs:
-      webUrl:
-        value: http://ec2-52-33-199-59.us-west-2.compute.amazonaws.com
-        secret: false
-    startTime: 1683414061000
-    endTime: 1683414115000
-    config: {}
+meta_desc: "Basic example of an AWS web server accessible over HTTP"
+metadata:
+  id: webserver
+  title: "AWS Web Server Component"
+  description: "Basic example of an AWS web server accessible over HTTP"
+  url: https://github.com/pulumi/examples/tree/master/webserver
+  runtime: nodejs
+  lastUpdate: 1683414115000
+  duration: 54000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::webserver::pulumi:pulumi:Stack::webserver-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: urn:pulumi:examples-api::webserver::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::webserver::aws:ec2/securityGroup:SecurityGroup::web-secgrp
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::webserver::aws:ec2/instance:Instance::web-server-www
-      type: aws:ec2/instance:Instance
-    - urn: >-
-        urn:pulumi:examples-api::webserver::aws:ec2/instance:Instance::web-server-app
-      type: aws:ec2/instance:Instance
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/instance:Instance
+  - aws:ec2/instance:Instance
 
+summary: "This Pulumi example deploys a web server in the cloud using JavaScript. It uses the AWS cloud provider to deploy a simple web server on EC2 Instances. The web server serves a dynamic website which is configured in JavaScript. This example demonstrates how Pulumi can automate the deployment of applications in the cloud in a programmatic way."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-js-webserver-component/README.md)

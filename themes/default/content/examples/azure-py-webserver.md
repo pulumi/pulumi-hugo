@@ -1,12 +1,17 @@
 ---
 title: "Web Server Using Azure Virtual Machine"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-webserver
+  title: "Web Server Using Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-webserver
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an environment with a Windows web server on Azure using Python. It provisions a resource group, virtual network, and Windows VM, sets up a Windows firewall, and configures the VM to run IIS and a demo web page. It uses Azure cloud services and Python programming language to serve a general cloud-computing use case."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-webserver/README.md)

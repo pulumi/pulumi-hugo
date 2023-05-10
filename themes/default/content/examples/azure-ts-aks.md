@@ -1,12 +1,17 @@
 ---
 title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-aks
+  title: "Azure Kubernetes Service (AKS) Cluster using the native Azure Provider"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-aks
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates an Azure Kubernetes Service (AKS) cluster on the Microsoft Azure cloud. It uses TypeScript for the programming language. It provisions an Azure Active Directory service to enable authentication for the cluster, along with a Managed Identity service that has access to the AKS resource group. It configures the cluster with GPU-enabled nodes and provisions a storage account for the storage class. This example serves the general cloud-computing use case of creating and managing Kubernetes clusters on the Azure cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-aks/README.md)

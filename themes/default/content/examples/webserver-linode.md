@@ -1,12 +1,17 @@
 ---
 title: "Web Server on Linode"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: webserver-linode
+  title: "Web Server on Linode"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/webserver-linode
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example creates and configures a web server on the Linode cloud platform, using the Node.js programming language. It provisions both the virtual machine and the underlying infrastructure components, such as the network, and configures them for use with an Nginx web server to serve a simple &quot;Hello world&quot; response. This example serves as a general use case for cloud-computing, demonstrating how to easily deploy a web server on a cloud platform with minimal configuration."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/linode-js-webserver/README.md)

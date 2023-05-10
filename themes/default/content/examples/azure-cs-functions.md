@@ -1,12 +1,17 @@
 ---
 title: "Azure Functions on a Linux App Service Plan"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-functions
+  title: "Azure Functions on a Linux App Service Plan"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-functions
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example uses the Azure cloud and the Javascript programming language to deploy a cloud-hosted serverless function. This example deploys a simple &quot;Hello world!&quot; function to an Azure Functions environment. The function outputs the sentence &quot;Hello world!&quot; when invoked. The example serves a general cloud-computing use case of demonstrating how to deploy a simple serverless function to the Azure cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-functions/README.md)

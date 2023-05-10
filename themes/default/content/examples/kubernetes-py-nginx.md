@@ -1,12 +1,17 @@
 ---
 title: "Stateless Application Using a Deployment"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: kubernetes-py-nginx
+  title: "Stateless Application Using a Deployment"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/kubernetes-py-nginx
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to set up a Kubernetes application using Python and Google Cloud Platform. It enables deploying an NGINX web server, creating a GKE Cluster, and setting up auto-scaling for that cluster. It uses the Python programming language as well as GCP for its cloud provider. This example serves as a general cloud computing use case to show how to deploy a Kubernetes application quickly and efficiently."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/kubernetes-py-nginx/README.md)

@@ -1,12 +1,17 @@
 ---
 title: "AWS WebServer with Manual Provisioning"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-ts-ec2-provisioners
+  title: "AWS WebServer with Manual Provisioning"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-ec2-provisioners
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to set up an EC2 instance for a web server in an AWS environment using TypeScript. It focuses on creating, managing, and configuring the instance and associated security groups, as well as deploying a web application to each instance. It uses the Amazon Web Services cloud provider and TypeScript as the programming language. It serves as an example of how to successfully provision, deploy, and run a web application on an EC2 instance in the cloud."
 ---
 
 # AWS WebServer with Manual Provisioning

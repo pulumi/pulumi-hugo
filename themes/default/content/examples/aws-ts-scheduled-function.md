@@ -1,86 +1,35 @@
 ---
 title: "Scheduled Function on AWS"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-scheduled-function
-  settings:
-    name: aws-ts-scheduled-function
-    description: Basic example of AWS Cloud Watch Scheduled Function
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 17
-    outputs:
-      bucketName:
-        value: trash-8c8a648
-        secret: false
-    startTime: 1683412721000
-    endTime: 1683412755000
-    config: {}
+meta_desc: "Basic example of AWS Cloud Watch Scheduled Function"
+metadata:
+  id: aws-ts-scheduled-function
+  title: "Scheduled Function on AWS"
+  description: "Basic example of AWS Cloud Watch Scheduled Function"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-scheduled-function
+  runtime: nodejs
+  lastUpdate: 1683412755000
+  duration: 34000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::pulumi:pulumi:Stack::aws-ts-scheduled-function-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription::emptyTrash
-      type: aws:cloudwatch:EventRuleEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/role:Role::emptyTrash
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-e1a3786d
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-1b4caae3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:cloudwatch/eventRule:EventRule::emptyTrash
-      type: aws:cloudwatch/eventRule:EventRule
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-019020e7
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-b5aeb6b6
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-6c156834
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-74d12784
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-4aaabb8e
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-a1de8170
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::emptyTrash-7cd09230
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:s3/bucket:Bucket::trash
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:lambda/function:Function::emptyTrash
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:lambda/permission:Permission::emptyTrash
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-scheduled-function::aws:cloudwatch:EventRuleEventSubscription$aws:cloudwatch/eventTarget:EventTarget::emptyTrash
-      type: aws:cloudwatch/eventTarget:EventTarget
+  - pulumi:pulumi:Stack
+  - aws:cloudwatch:EventRuleEventSubscription
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:cloudwatch/eventRule:EventRule
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:s3/bucket:Bucket
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:cloudwatch/eventTarget:EventTarget
 
+summary: "This Pulumi example creates a scheduled cloud function on AWS using TypeScript. It sets up an AWS Lambda and uses CloudWatch Events to trigger it to run at a user-defined frequency. The example demonstrates how to use Pulumi to create serverless infrastructure components and manage them through code, enabling more concise and repeatable deployments."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-scheduled-function/README.md)

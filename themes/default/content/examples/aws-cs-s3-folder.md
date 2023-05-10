@@ -1,12 +1,17 @@
 ---
 title: "Host a Static Website on Amazon S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: aws-cs-s3-folder
+  title: "Host a Static Website on Amazon S3"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-cs-s3-folder
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is an implementation of a cloud-computing use case in which an AWS S3 folder is created to store content. It uses the AWS cloud provider and the programming language TypeScript. It sets up cloud resources, such as creating an S3 bucket, setting up permissions, and enabling S3 versioning. Lastly, it can be used to post files to the newly created S3 folder to be stored in the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-cs-s3-folder/README.md)

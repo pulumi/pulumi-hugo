@@ -1,12 +1,17 @@
 ---
 title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-py-call-azure-sdk
+  title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-py-call-azure-sdk
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example is a Python program that creates and manages a cloud resource in Microsoft Azure. It uses the Azure software development kit (SDK) and the Pulumi Python library. The program creates an Azure virtual machine, virtual network, and storage account while setting configuration parameters such as network security groups. This illustrates how to create and manage cloud resources in Azure using programming, making it a useful example for general cloud-computing use cases."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-py-call-azure-sdk/README.md)

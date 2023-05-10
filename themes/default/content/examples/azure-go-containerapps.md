@@ -1,12 +1,17 @@
 ---
 title: "Azure Container Apps"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-go-containerapps
+  title: "Azure Container Apps"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-go-containerapps
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example demonstrates how to create a containerized application on Azure using Go. It uses Azure as the cloud provider and Go as the programming language. The example creates an App Service Plan and an App Service with a Docker container image and exposes the app using an Azure Load Balancer. It&#x27;s a general cloud-computing use case that creates a basic cloud-hosted containerized application."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-go-containerapps/README.md)

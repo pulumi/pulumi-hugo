@@ -1,12 +1,17 @@
 ---
 title: "Static Website Using Azure Blob Storage and CDN"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-ts-static-website
+  title: "Static Website Using Azure Blob Storage and CDN"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-ts-static-website
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example from Pulumi is a static website hosted in Azure, written in TypeScript and created with Pulumi for infrastructure as code. It uses a Blob Storage account for hosting the website; an Azure Storage Container for static content; and an Azure CDN endpoint and profile for delivering content. It also configures an Azure Front Door to provide routing and TLS. This example serves the general cloud-computing use case of setting up a static website using the Azure cloud provider."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-ts-static-website/README.md)

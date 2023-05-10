@@ -1,12 +1,17 @@
 ---
 title: "Voting app Using Django and MySQL"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: voting-app
+  title: "Voting app Using Django and MySQL"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/voting-app
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "The Pulumi example voting app is a cloud-computing application designed with the popular programming language Python which can be used with any cloud provider. It is a voting app which shows how to deploy, manage and secure a web application. The voting app works on AWS and uses an API server, web application and database to create an example of a typical web application system. The code in the example shows how to build, deploy and update infrastructure on the cloud."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-py-django-voting-app/README.md)

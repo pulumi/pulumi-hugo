@@ -1,47 +1,21 @@
 ---
 title: "Web Server Using Amazon EC2"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-ts-webserver
-  settings:
-    name: aws-ts-webserver
-    description: Basic example of an AWS web server accessible over HTTP
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 3
-    outputs:
-      publicHostName:
-        value: ec2-54-218-62-87.us-west-2.compute.amazonaws.com
-        secret: false
-      publicIp:
-        value: 54.218.62.87
-        secret: false
-    startTime: 1683413368000
-    endTime: 1683413436000
-    config: {}
+meta_desc: "Basic example of an AWS web server accessible over HTTP"
+metadata:
+  id: aws-ts-webserver
+  title: "Web Server Using Amazon EC2"
+  description: "Basic example of an AWS web server accessible over HTTP"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-webserver
+  runtime: nodejs
+  lastUpdate: 1683413436000
+  duration: 68000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-webserver::pulumi:pulumi:Stack::aws-ts-webserver-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-webserver::pulumi:providers:aws::default_3_38_1
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-webserver::aws:ec2/securityGroup:SecurityGroup::web-secgrp
-      type: aws:ec2/securityGroup:SecurityGroup
-    - urn: >-
-        urn:pulumi:examples-api::aws-ts-webserver::aws:ec2/instance:Instance::web-server-www
-      type: aws:ec2/instance:Instance
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ec2/instance:Instance
 
+summary: "This Pulumi example demonstrates how to build an AWS-hosted webserver using TypeScript. It provides an example of setting up a typical cloud computing use case by creating an S3 bucket, dynamodb table, and an EC2 instance for a web server. By using TypeScript, users can harness the power of the Pulumi Cloud platform to quickly deploy a web server on the AWS cloud platform. The example also showcases how infrastructure can be configured as code, making it easier for users to manage the entire application lifecycle."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-webserver/README.md)

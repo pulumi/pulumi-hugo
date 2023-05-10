@@ -1,85 +1,34 @@
 ---
 title: "Video Thumbnailer Using AWS Lambda"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: video-thumbnailer-lambda
-  settings:
-    name: video-thumbnailer-lambda
-    description: >-
-      A video thumbnail extractor using serverless functions packaged with
-      containers
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 16
-    outputs:
-      bucketName:
-        value: bucket-707e1bc
-        secret: false
-    startTime: 1683413344000
-    endTime: 1683413502000
-    config: {}
+meta_desc: "A video thumbnail extractor using serverless functions packaged with containers"
+metadata:
+  id: video-thumbnailer-lambda
+  title: "Video Thumbnailer Using AWS Lambda"
+  description: "A video thumbnail extractor using serverless functions packaged with containers"
+  url: https://github.com/pulumi/examples/tree/master/video-thumbnailer-lambda
+  runtime: nodejs
+  lastUpdate: 1683413502000
+  duration: 158000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::pulumi:pulumi:Stack::video-thumbnailer-lambda-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::awsx:ecr:Repository::sampleapp
-      type: awsx:ecr:Repository
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:iam/role:Role::thumbnailerRole
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:iam/role:Role::onNewThumbnail
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::awsx:ecr:Repository$aws:ecr/repository:Repository::sampleapp
-      type: aws:ecr/repository:Repository
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:iam/rolePolicyAttachment:RolePolicyAttachment::lambdaFullAccess
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:iam/rolePolicyAttachment:RolePolicyAttachment::onNewThumbnail-aadec3c3
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:s3/bucket:Bucket::bucket
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::awsx:ecr:Repository$aws:ecr/lifecyclePolicy:LifecyclePolicy::sampleapp
-      type: aws:ecr/lifecyclePolicy:LifecyclePolicy
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription::onNewThumbnail
-      type: aws:s3:BucketEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription::onNewVideo
-      type: aws:s3:BucketEventSubscription
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:lambda/function:Function::onNewThumbnail
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/permission:Permission::onNewThumbnail
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:lambda/function:Function::thumbnailer
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:s3/bucket:Bucket$aws:s3:BucketEventSubscription$aws:lambda/permission:Permission::onNewVideo
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::video-thumbnailer-lambda::aws:s3/bucket:Bucket$aws:s3/bucketNotification:BucketNotification::onNewVideo
-      type: aws:s3/bucketNotification:BucketNotification
+  - pulumi:pulumi:Stack
+  - awsx:ecr:Repository
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:ecr/repository:Repository
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:s3/bucket:Bucket
+  - aws:ecr/lifecyclePolicy:LifecyclePolicy
+  - aws:s3:BucketEventSubscription
+  - aws:s3:BucketEventSubscription
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:lambda/function:Function
+  - aws:lambda/permission:Permission
+  - aws:s3/bucketNotification:BucketNotification
 
+summary: "This Pulumi example demonstrates deploying a Video Thumbnailer using AWS Lambda. It uses AWS cloud provider and Node.js programming language to create an Amazon S3 bucket, an Amazon DynamoDB table, an IAM role, and a Lambda function to store, queue, and process video thumbnails. The broad use case it serves is cloud-based data processing."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-lambda-thumbnailer/README.md)

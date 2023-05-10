@@ -1,12 +1,17 @@
 ---
 title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-cs-call-azure-api
+  title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-call-azure-api
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This example demonstrates a basic scenario of calling an Azure API using Pulumi, a cloud-native programming platform. It is a Node.js project that can be used to manage resources on the Microsoft Azure cloud provider. This example shows how to create an Azure service principal, enable an API and assign the service principal permissions to get data from an API. Additionally, it shows how this API can be used to retrieve data from an Azure service like Azure Storage. This example serves as a starting point for users to learn how to interact with Azure APIs using Pulumi."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-call-azure-api/README.md)

@@ -1,140 +1,49 @@
 ---
 title: "Routes in API Gateway"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-apigateway-py-routes
-  settings:
-    name: aws-apigateway-py-routes
-    description: Demonstration of API Gateway routes
-    runtime: python
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 28
-    outputs:
-      user-pool-client-id:
-        value: dicupi9jvcr0h7t4rjegu43fv
-        secret: false
-      swagger-url:
-        value: https://frkm2lzu9e.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-      user-pool-id:
-        value: us-west-2_9lkH54Y66
-        secret: false
-      api-key-value:
-        value: VFoxePjQRl52q1BbWCpAW45kt8giRMdB67rXkX3W
-        secret: true
-      url:
-        value: https://h7gux1smvf.execute-api.us-west-2.amazonaws.com/stage/
-        secret: false
-    startTime: 1683386641000
-    endTime: 1683386719000
-    config: {}
+meta_desc: "Demonstration of API Gateway routes"
+metadata:
+  id: aws-apigateway-py-routes
+  title: "Routes in API Gateway"
+  description: "Demonstration of API Gateway routes"
+  url: https://github.com/pulumi/examples/tree/master/aws-apigateway-py-routes
+  runtime: python
+  lastUpdate: 1683386719000
+  duration: 78000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::pulumi:pulumi:Stack::aws-apigateway-py-routes-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::pulumi:providers:aws-apigateway::default_1_0_1
-      type: pulumi:providers:aws-apigateway
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:iam/role:Role::auth-lambda-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:cognito/userPool:UserPool::user-pool
-      type: aws:cognito/userPool:UserPool
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI::swagger-api
-      type: aws-apigateway:index:RestAPI
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:apigateway/apiKey:ApiKey::api-key
-      type: aws:apigateway/apiKey:ApiKey
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:iam/rolePolicy:RolePolicy::auth-lambda-role-policy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:cognito/userPoolClient:UserPoolClient::user-pool-client
-      type: aws:cognito/userPoolClient:UserPoolClient
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::pulumi:providers:aws::default_5_16_2
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:apigateway/restApi:RestApi::swagger-api
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:apigateway/deployment:Deployment::swagger-api
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:apigateway/stage:Stage::swagger-api
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::pulumi:providers:pulumi::default
-      type: pulumi:providers:pulumi
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:lambda/function:Function::auth-lambda
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:lambda/function:Function::hello-handler
-      type: aws:lambda/function:Function
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI::api
-      type: aws-apigateway:index:RestAPI
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:iam/role:Role::api-authorizer-1-authorizer-role
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:iam/role:Role::apibc092886
-      type: aws:iam/role:Role
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:iam/rolePolicy:RolePolicy::api-authorizer-1-invocation-policy
-      type: aws:iam/rolePolicy:RolePolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:iam/rolePolicyAttachment:RolePolicyAttachment::apibc092886
-      type: aws:iam/rolePolicyAttachment:RolePolicyAttachment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:s3/bucket:Bucket::api
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:s3/bucketObject:BucketObject::apibc092886/index.html
-      type: aws:s3/bucketObject:BucketObject
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:apigateway/restApi:RestApi::api
-      type: aws:apigateway/restApi:RestApi
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:apigateway/deployment:Deployment::api
-      type: aws:apigateway/deployment:Deployment
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:lambda/permission:Permission::api-d55ce0e2
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:lambda/permission:Permission::api-e50f9aca
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:lambda/permission:Permission::api-bdec4f56
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:lambda/permission:Permission::api-a75de0f2
-      type: aws:lambda/permission:Permission
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws-apigateway:index:RestAPI$aws:apigateway/stage:Stage::api
-      type: aws:apigateway/stage:Stage
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:apigateway/usagePlan:UsagePlan::usage-plan
-      type: aws:apigateway/usagePlan:UsagePlan
-    - urn: >-
-        urn:pulumi:examples-api::aws-apigateway-py-routes::aws:apigateway/usagePlanKey:UsagePlanKey::usage-plan-key
-      type: aws:apigateway/usagePlanKey:UsagePlanKey
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - pulumi:providers:aws-apigateway
+  - aws:iam/role:Role
+  - aws:cognito/userPool:UserPool
+  - aws-apigateway:index:RestAPI
+  - aws:apigateway/apiKey:ApiKey
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:cognito/userPoolClient:UserPoolClient
+  - pulumi:providers:aws
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:apigateway/stage:Stage
+  - pulumi:providers:pulumi
+  - aws:lambda/function:Function
+  - aws:lambda/function:Function
+  - aws-apigateway:index:RestAPI
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:s3/bucket:Bucket
+  - aws:s3/bucketObject:BucketObject
+  - aws:apigateway/restApi:RestApi
+  - aws:apigateway/deployment:Deployment
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:lambda/permission:Permission
+  - aws:apigateway/stage:Stage
+  - aws:apigateway/usagePlan:UsagePlan
+  - aws:apigateway/usagePlanKey:UsagePlanKey
 
+summary: "This Pulumi example demonstrates how to deploy a serverless web service on Amazon Web Services (AWS) using the Python programming language. The example creates an AWS API Gateway with two routes which call two separate Lambda functions. Each Lambda function returns a response when invoked, creating a simple serverless web service with two endpoints. This example is a good demonstration of how Pulumi simplifies the process of creating cloud infrastructure."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-apigateway-py-routes/README.md)

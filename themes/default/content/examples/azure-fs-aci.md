@@ -1,12 +1,17 @@
 ---
 title: "Custom Docker Image running in Azure Container Instances"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program: null
+meta_desc: ""
+metadata:
+  id: azure-fs-aci
+  title: "Custom Docker Image running in Azure Container Instances"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-fs-aci
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
 
-stack: null
-
-lastUpdate: null
-
+summary: "This Pulumi example deploys a web application to Azure using a Fileshare and an Azure Container Instance. It uses Pulumi with JavaScript to deploy the application and infrastructure to Azure, making use of the Azure App Service, Fileshare, and Container Instance services. This can serve as an example for deploying serverless applications with Azure and Pulumi in JavaScript."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-fs-aci/README.md)

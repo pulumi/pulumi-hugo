@@ -1,59 +1,25 @@
 ---
 title: "Host a Static Website on Amazon S3"
-meta_desc: This is a placeholder description for this example, which is an interesting example of how to do something with Pulumi.
-program:
-  name: aws-js-s3-folder
-  settings:
-    name: aws-js-s3-folder
-    description: A static website hosted on AWS S3
-    runtime: nodejs
-
-stack:
-  name: moolumi/examples-api
-  config: {}
-
-lastUpdate:
-  result:
-    summary:
-      result: succeeded
-      resourceChanges:
-        create: 7
-    outputs:
-      bucketName:
-        value: s3-website-bucket-bb9c3d7
-        secret: false
-      websiteUrl:
-        value: s3-website-bucket-bb9c3d7.s3-website-us-west-2.amazonaws.com
-        secret: false
-    startTime: 1683413716000
-    endTime: 1683413725000
-    config: {}
+meta_desc: "A static website hosted on AWS S3"
+metadata:
+  id: aws-js-s3-folder
+  title: "Host a Static Website on Amazon S3"
+  description: "A static website hosted on AWS S3"
+  url: https://github.com/pulumi/examples/tree/master/aws-js-s3-folder
+  runtime: nodejs
+  lastUpdate: 1683413725000
+  duration: 9000
   resources:
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::pulumi:pulumi:Stack::aws-js-s3-folder-examples-api
-      type: pulumi:pulumi:Stack
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::pulumi:providers:aws::default_5_40_0
-      type: pulumi:providers:aws
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::aws:s3/bucket:Bucket::s3-website-bucket
-      type: aws:s3/bucket:Bucket
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::aws:s3/bucketOwnershipControls:BucketOwnershipControls::ownership-controls
-      type: aws:s3/bucketOwnershipControls:BucketOwnershipControls
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock::public-access-block
-      type: aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::aws:s3/bucketPolicy:BucketPolicy::bucketPolicy
-      type: aws:s3/bucketPolicy:BucketPolicy
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::aws:s3/bucketObject:BucketObject::index.html
-      type: aws:s3/bucketObject:BucketObject
-    - urn: >-
-        urn:pulumi:examples-api::aws-js-s3-folder::aws:s3/bucketObject:BucketObject::favicon.png
-      type: aws:s3/bucketObject:BucketObject
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:s3/bucket:Bucket
+  - aws:s3/bucketOwnershipControls:BucketOwnershipControls
+  - aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock
+  - aws:s3/bucketPolicy:BucketPolicy
+  - aws:s3/bucketObject:BucketObject
+  - aws:s3/bucketObject:BucketObject
 
+summary: "This Pulumi example uses JavaScript and AWS to create a cloud-based folder containing a single file. It sets up an S3 bucket, a DynamoDB table, an AWS Lambda-based function, an S3 event trigger, an SNS topic, and an S3 folder to contain the generated file. The example is meant to illustrate a general cloud-computing use case of automating the creation and deployment of resources through scripting of an Infrastructure as Code (IaC) tool."
 ---
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-js-s3-folder/README.md)
