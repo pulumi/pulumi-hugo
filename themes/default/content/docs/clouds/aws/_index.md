@@ -9,4 +9,36 @@ menu:
     weight: 1
 cloud_overview: true
 get_started_guide: get-started/
+providers:
+- display_name: AWS Classic
+  url: aws
+- display_name: AWS Native
+  url: aws-native
+components:
+- display_name: AWSx
+  url: awsx
+- display_name: AWS API Gateway
+  url: aws-apigateway
+- display_name: AWS IAM
+  url: aws-iam
+- display_name: AWS static website
+  url: aws-static-website
+templates:
+- display_name: Container service on AWS
+  url: container-service/aws
+- display_name: AWS Serverless application
+  url: serverless-application/aws
+- display_name: AWS static website
+  url: static-website/aws
+- display_name: Virtual machine on AWS
+  url: virtual-machine/aws
+guides:
+- display_name: Configuring AWS API Gateway
+  url: guides/api-gateway
+- display_name: Configuring AWS Auto Scaling
+  url: guides/autoscaling
+- display_name: Using AWS CloudWatch
+  url: guides/cloudwatch
+- display_name: Using AWS Elastic Container Registry (ECR)
+  url: guides/ecr
 ---

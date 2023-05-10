@@ -48,59 +48,45 @@
         <h2>Providers</h2>
         <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
         <div class="row">
-            <a href="{{ .Params.get_started_guide }}">
-                <div class="card">
-                    <div class="heading">
-                        <p>AWS Classic</p>
+            {{ range $provider := .Params.providers }}
+                <a href="/registry/packages/{{ $provider.url }}/">
+                    <div class="card">
+                        <div class="heading">
+                            <p>{{ $provider.display_name }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="{{ .Params.get_started_guide }}">
-                <div class="card">
-                    <div class="heading">
-                        <p>AWS Native</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            {{ end }}
         </div>
     </section>
     <section class="components card-heading-para-inner-cards">
         <h2>Components</h2>
         <p>Components support all languages and group a set of resources together.</p>
-        <section class="col">
-            <div class="row">
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>AWSx</p>
-                        </div>
+        <div class="col">
+            {{ $components := .Params.components }}
+            {{ range $index, $component := $components }}
+                {{ if eq (mod $index 2) 0 }}
+                    <div class="row">
+                        {{ $item1 := index $components $index }}
+                        {{ $item2 := index $components (add $index 1) }}
+                        <a href="/registry/packages/{{ $item1.url }}/">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $item1.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/registry/packages/{{ $item2.url }}/">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $item2.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>AWS API Gateway</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>AWS IAM</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>AWS static website</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
+                {{ end }}
+            {{ end }}
+        </div>
     </section>
     <section class="convert card-heading-para">
         <div class="top">
@@ -118,78 +104,62 @@
             Pulumi templates are the fastest way to deploy infrastructure. After deploying, you can easily modify the infrastructure by updating the code in your language of
             choice.
         </p>
-        <section class="col">
-            <div class="row">
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Container service</p>
-                        </div>
+        <div class="col">
+            {{ $templates := .Params.templates }}
+            {{ range $index, $template := $templates }}
+                {{ if eq (mod $index 2) 0 }}
+                    <div class="row">
+                        {{ $item1 := index $templates $index }}
+                        {{ $item2 := index $templates (add $index 1) }}
+                        <a href="/templates/{{ $item1.url }}/">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $item1.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/templates/{{ $item2.url }}/">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $item2.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Serverless application</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Static website</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Virtual machine</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
+                {{ end }}
+            {{ end }}
+        </div>
     </section>
     <section class="guides card-heading-para-inner-cards">
         <h2>Guides</h2>
         <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
         </p>
-        <section class="col">
-            <div class="col">
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Configuring AWS API Gateway</p>
-                        </div>
+        <div class="col">
+            {{ $guides := .Params.guides }}
+            {{ range $index, $guide := $guides }}
+                {{ if eq (mod $index 2) 0 }}
+                    <div class="row">
+                        {{ $item1 := index $guides $index }}
+                        {{ $item2 := index $guides (add $index 1) }}
+                        <a href="{{ $item1.url }}/">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $item1.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ $item2.url }}/">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $item2.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Configuring AWS Auto Scaling</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Using AWS Cloudwatch</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card">
-                        <div class="heading">
-                            <p>Using AWS Elastic Container Registry (ECR)</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
+                {{ end }}
+            {{ end }}
+        </div>
     </section>
     <section class="policies card-heading-para">
         <div class="top">
