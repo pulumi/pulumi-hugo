@@ -59,7 +59,7 @@ Organization Access Tokens behave like an organization member with [stack write 
 
 ### API Access
 
-See the Pulumi [Cloud REST API docs](/docs/pulumi-cloud/cloud-rest-api/) for more information about each API endpoint.
+See the [Pulumi Cloud REST API docs](/docs/pulumi-cloud/cloud-rest-api/) for more information about each API endpoint.
 
 #### Stacks
 

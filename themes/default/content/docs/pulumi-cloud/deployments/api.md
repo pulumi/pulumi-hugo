@@ -1,8 +1,8 @@
 ---
 title_tag: "Pulumi Cloud: Pulumi Deployments REST API Documentation"
 meta_desc: Documentation for the Pulumi Deployments REST API including configuring settings and OIDC
-title: "API docs"
-h1: Pulumi Deployments API docs
+title: "REST API docs"
+h1: Pulumi Deployments REST API docs
 menu:
   pulumicloud:
     parent: deployments
