@@ -7,40 +7,34 @@ menu:
   clouds:
     identifier: azure
     weight: 1
+cloud_overview: true
+description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
+get_started_guide: get-started/
+providers:
+- display_name: Azure Native
+  url: azure-native/
+- display_name: Azure Classic
+  url: azure/
+components:
+- display_name: Azure Active Directory (Azure AD)
+  url: azuread/
+- display_name: Azure DevOps
+  url: azuredevops/
+- display_name: Azure QuickStart ACR Geo Replication
+  url: azure-quickstart-acr-geo-replication/
+- display_name: Azure static website
+  url: azure-static-website/
+convert:
+- heading: Convert ARM Templates to Pulumi
+  url: /arm2pulumi/
+  description: Convert ARM Templates templates to your language of choice with Pulumi's conversion tool.
+templates:
+- display_name: Container service on Azure
+  url: container-service/azure/
+- display_name: Azure Serverless application
+  url: serverless-application/azure/
+- display_name: Azure static website
+  url: static-website/azure/
+- display_name: Virtual machine on Azure
+  url: virtual-machine/azure/
 ---
-
-## Get started guide
-
-- [Get started guide](get-started/)
-
-## Providers
-
-### Azure Native
-
-- [Overview](/registry/packages/azure-native/)
-- [Installation & configuration](/registry/packages/azure-native/installation-configuration/)
-- [API documentation](/registry/packages/azure-native/api-docs/)
-- [How-to guides](/registry/packages/azure-native/how-to-guides/)
-
-### Azure Classic
-
-- [Overview](/registry/packages/azure/)
-- [Installation & configuration](/registry/packages/azure/installation-configuration/)
-- [API documentation](/registry/packages/azure/api-docs/)
-- [How-to guides](/registry/packages/azure/how-to-guides/)
-
-## Components
-
-- [Azure Active Directory (Azure AD)](/registry/packages/azuread/)
-- [Azure DevOps](/registry/packages/azuredevops/)
-- [Azure QuickStart ACR Geo Replication](/registry/packages/azure-quickstart-acr-geo-replication/)
-- [Azure static website](/registry/packages/azure-static-website/)
-- [Azure JustRun](/registry/packages/azure-justrun/)
-
-## Templates
-
-- [Container service on Azure](/templates/container-service/azure/)
-- [Azure Serverless application](/templates/serverless-application/azure/)
-- [Azure static website](/templates/static-website/azure/)
-- [Virtual machine on Azure](/templates/virtual-machine/azure/)
-- [Kubernetes cluster on Azure](/templates/kubernetes/azure/)

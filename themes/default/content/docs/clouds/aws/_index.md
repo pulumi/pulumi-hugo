@@ -27,7 +27,7 @@ components:
 convert:
 - heading: Convert CloudFormation to Pulumi
   url: /cf2pulumi/
-  description: Convert CloudForfmation templates to your language of choice with Pulumi's conversion tool.
+  description: Convert CloudFormation templates to your language of choice with Pulumi's conversion tool.
 templates:
 - display_name: Container service on AWS
   url: container-service/aws/

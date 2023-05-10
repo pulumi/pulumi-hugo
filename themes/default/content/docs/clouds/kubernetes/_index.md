@@ -7,50 +7,46 @@ menu:
   clouds:
     identifier: kube
     weight: 4
+cloud_overview: true
+description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
+get_started_guide: get-started/
+providers:
+- display_name: Kubernetes
+  url: kubernetes/
+components:
+- display_name: Kubernetes Cert Manager
+  url: kubernetes-cert-manager/
+- display_name: Kubernetes CoreDNS
+  url: kubernetes-coredns/
+- display_name: Pulumi Kubernetes Extensions
+  url: pulumi-kubernetesx/
+convert:
+- heading: Convert Kubernetes YAML to Pulumi
+  url: /kube2pulumi/
+  description: Convert Kubernetes YAML templates to your language of choice with Pulumi's conversion tool.
+templates:
+- display_name: Kubernetes cluster on AWS
+  url: kubernetes/aws/
+- display_name: Kubernetes cluster on Azure
+  url: templates/kubernetes/azure/
+- display_name: Kubernetes cluster on Google Cloud
+  url: templates/kubernetes/gcp/
+- display_name: Helm Chart on Kubernetes
+  url: templates/kubernetes-application/helm-chart/
+guides:
+- display_name: Crosswalk playbooks for Kubernetes
+  url: guides/playbooks/
+- display_name: Control plane
+  url: guides/control-plane/
+- display_name: Worker node creation
+  url: guides/worker-nodes/
+- display_name: Accessing clusters
+  url: guides/try-out-the-cluster/
 ---
 
-## Get started guide
+## Other converter?
 
-- [Get started guide](get-started/)
-
-## Providers
-
-### Kubernetes
-
-- [Overview](/registry/packages/kubernetes/)
-- [Installation & configuration](/registry/packages/kubernetes/installation-configuration/)
-- [API documentation](/registry/packages/kubernetes/api-docs/)
-- [How-to guides](/registry/packages/kubernetes/how-to-guides/)
-
-## Components
-
-- [Kubernetes Cert Manager](/registry/packages/kubernetes-cert-manager/)
-- [Kubernetes CoreDNS](/registry/packages/kubernetes-coredns/)
-- [Pulumi Kubernetes Extensions](https://github.com/pulumi/pulumi-kubernetesx/)
-
-## Templates
-
-- [Kubernetes cluster on AWS](/templates/kubernetes/aws/)
-- [Kubernetes cluster on Azure](/templates/kubernetes/azure/)
-- [Kubernetes cluster on Google Cloud](/templates/kubernetes/gcp/)
-- [Helm Chart on Kubernetes](/templates/kubernetes-application/helm-chart/)
-- [Web application on Kubernetes](/templates/kubernetes-application/web-application/)
-
-## Guides
-
-- [Crosswalk playbooks for Kubernetes](kubernetes-crosswalk/playbooks/)
-- [Control plane](kubernetes-crosswalk/control-plane/)
-- [Worker node creation](kubernetes-crosswalk/worker-nodes/)
-- [Accessing clusters](kubernetes-crosswalk/try-out-the-cluster/)
-- [Cluster defaults](kubernetes-crosswalk/configure-defaults/)
-- [Access control](kubernetes-crosswalk/configure-access-control/)
-- [Cluster services](kubernetes-crosswalk/cluster-services/)
-- [App services](kubernetes-crosswalk/app-services/)
-- [IAM](kubernetes-crosswalk/identity/)
-- [Apps](kubernetes-crosswalk/apps/)
-- [Infra services](kubernetes-crosswalk/managed-infra/)
-- [Updating worker nodes](kubernetes-crosswalk/update-worker-nodes/)
-- [FAQ](kubernetes-crosswalk/faq/)
+[do we want this to be on the convert cards](https://www.pulumi.com/blog/introducing-crd2pulumi/)
 
 ## Cluster management
 

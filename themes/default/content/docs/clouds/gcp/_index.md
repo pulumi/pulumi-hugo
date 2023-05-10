@@ -7,37 +7,26 @@ menu:
   clouds:
     identifier: google-cloud
     weight: 1
+cloud_overview: true
+description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
+get_started_guide: get-started/
+providers:
+- display_name: Google Cloud Classic
+  url: gcp/
+- display_name: Google Cloud Native
+  url: google-native/
+components:
+- display_name: Google Cloud Global CloudRun
+  url: gcp-global-cloudrun/
+- display_name: Google Cloud static website
+  url: google-cloud-static-website
+templates:
+- display_name: Container service on Google Cloud
+  url: container-service/gcp/
+- display_name: Google Cloud Serverless application
+  url: serverless-application/gcp/
+- display_name: Google Cloud static website
+  url: static-website/gcp/
+- display_name: Virtual machine on Google Cloud
+  url: virtual-machine/gcp/
 ---
-
-## Get started guide
-
-- [Get started guide](get-started/)
-
-## Providers
-
-### Google Cloud Classic
-
-- [Overview](/registry/packages/gcp/)
-- [Installation & configuration](/registry/packages/gcp/installation-configuration/)
-- [API documentation](/registry/packages/gcp/api-docs/)
-- [How-to guides](/registry/packages/gcp/how-to-guides/)
-
-### Google Cloud Native
-
-- [Overview](/registry/packages/google-native/)
-- [Installation & configuration](/registry/packages/google-native/installation-configuration/)
-- [API documentation](/registry/packages/google-native/api-docs/)
-- [How-to guides](/registry/packages/google-native/how-to-guides/)
-
-## Components
-
-- [Google Cloud Global CloudRun](/registry/packages/gcp-global-cloudrun/)
-- [Google Cloud static website](/registry/packages/google-cloud-static-website/)
-
-## Templates
-
-- [Container service on Google Cloud](/templates/container-service/gcp/)
-- [Google Cloud Serverless application](/templates/serverless-application/gcp/)
-- [Google Cloud static website](/templates/static-website/gcp/)
-- [Virtual machine on Google Cloud](/templates/virtual-machine/gcp/)
-- [Kubernetes cluster on Google Cloud](/templates/kubernetes/gcp/)

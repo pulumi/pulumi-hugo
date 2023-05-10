@@ -79,13 +79,15 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="/registry/packages/{{ $item2.url }}">
-                            <div class="card">
-                                <div class="heading">
-                                    <p>{{ $item2.display_name }}</p>
+                        {{ if $item2 }}
+                            <a href="/registry/packages/{{ $item2.url }}">
+                                <div class="card">
+                                    <div class="heading">
+                                        <p>{{ $item2.display_name }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        {{ end }}
                     </div>
                 {{ end }}
             {{ end }}
