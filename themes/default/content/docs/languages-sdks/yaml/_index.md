@@ -94,7 +94,7 @@ project and set up starter resources for the chosen cloud. The `yaml` template i
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as
-code programs using Pulumi. [Architecture & Concepts](/docs/intro/concepts)
+code programs using Pulumi. [Concepts](/docs/intro/concepts)
 describes these concepts with examples available in all supported languages, including Pulumi YAML.
 
 To learn how the Pulumi Programming Model is implemented for Pulumi YAML, refer

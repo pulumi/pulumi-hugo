@@ -121,7 +121,7 @@ link = "/registry/"
 [[entries]]
 term = "Runtime Code"
 description = "You can create libraries and components that allow the caller to pass in JavaScript callbacks to invoke at runtime."
-link = "/docs/concepts/function-serialization/"
+link = "docs/concepts/inputs-outputs/function-serialization/"
 
 [[entries]]
 term = "SAML"

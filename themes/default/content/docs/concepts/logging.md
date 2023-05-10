@@ -5,7 +5,7 @@ title: "Logging"
 h1: "Logging"
 menu:
   concepts:
-    weight: 11
+    weight: 9
 aliases:
 - /docs/intro/concepts/logging/
 ---

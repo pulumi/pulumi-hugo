@@ -5,7 +5,8 @@ title: Assets & archives
 h1: Assets & archives
 menu:
   concepts:
-    weight: 9
+    weight: 1
+    parent: inputs-outputs
 aliases:
 - /docs/intro/concepts/assets-archives/
 ---

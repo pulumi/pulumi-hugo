@@ -5,7 +5,7 @@ title: Config
 h1: Configuration
 menu:
   concepts:
-    weight: 7
+    weight: 6
 aliases:
 - /docs/reference/config/
 - /docs/tour/programs-configuration/

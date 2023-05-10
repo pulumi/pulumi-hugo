@@ -5,7 +5,7 @@ title: Secrets
 h1: Secrets
 menu:
   concepts:
-    weight: 8
+    weight: 7
 aliases:
 - docs/intro/concepts/secrets/
 ---

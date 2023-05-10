@@ -5,7 +5,7 @@ title: Update plans
 h1: Update  plans
 menu:
   concepts:
-    weight: 12
+    weight: 10
 aliases:
 - /updateplans/
 - /docs/intro/concepts/plans/

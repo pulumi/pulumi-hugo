@@ -6,7 +6,7 @@ h1: Resource options
 menu:
   concepts:
     identifier: options
-    weight: 5
+    weight: 4
 aliases:
 - /docs/intro/concepts/resources/options/
 ---

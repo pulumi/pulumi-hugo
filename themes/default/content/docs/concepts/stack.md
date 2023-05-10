@@ -5,7 +5,7 @@ title: Stacks
 h1: Stacks
 menu:
   concepts:
-    weight: 3
+    weight: 2
 aliases:
 - /docs/reference/stack/
 - /docs/tour/programs-exports/

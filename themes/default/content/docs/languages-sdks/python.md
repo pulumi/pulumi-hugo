@@ -47,7 +47,7 @@ The fastest way to get up and running is to choose from one of the following Get
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as code programs using
-Pulumi. [Architecture & Concepts](/docs/intro/concepts) describes these concepts
+Pulumi. [Concepts](/docs/intro/concepts) describes these concepts
 with examples available in Python. These concepts are made available to you in the Pulumi SDK.
 
 The Pulumi SDK is available to Python developers as a Pip package distributed on PyPI. To learn more,

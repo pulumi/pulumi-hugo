@@ -243,7 +243,7 @@ Although you can use any editor, [Visual Studio Code](https://code.visualstudio.
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as code programs using
-Pulumi. [Architecture & Concepts](/docs/intro/concepts) describes these concepts
+Pulumi. [Concepts](/docs/intro/concepts) describes these concepts
 with examples available in Python. These concepts are made available to you in the Pulumi SDK.
 
 The Pulumi SDK is available to .NET developers as a Nuget package. To learn more,

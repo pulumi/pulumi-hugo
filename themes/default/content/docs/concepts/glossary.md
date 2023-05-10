@@ -5,7 +5,7 @@ title: Pulumi glossary
 h1: Pulumi glossay
 menu:
   concepts:
-    weight: 14
+    weight: 12
 ---
 
 {{< glossary >}}

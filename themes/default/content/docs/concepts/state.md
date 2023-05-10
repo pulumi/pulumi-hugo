@@ -9,7 +9,7 @@ keywords:
  - state backend
 menu:
   concepts:
-    weight: 5
+    weight: 8
 
 aliases:
 - /docs/reference/state/

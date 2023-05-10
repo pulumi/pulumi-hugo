@@ -158,7 +158,7 @@ application {
 ## Pulumi Programming Model
 
 The Pulumi programming model defines the core concepts you will use when creating infrastructure as code programs using
-Pulumi. [Architecture & Concepts](/docs/concepts/?language=java) describes these concepts
+Pulumi. [Concepts](/docs/concepts/?language=java) describes these concepts
 with examples available in Java. These concepts are made available to you in the Pulumi SDK.
 
 The Pulumi programming model includes a core concept of `Output` values, which are used to track how outputs of one resource flow in as inputs to another resource to resolve dependencies. This concept is important to understand when getting started with Pulumi, and the [Inputs and Outputs](/docs/concepts/inputs-outputs/?language=java) documentation is recommended to get a feel for how to work with this core part of Pulumi in common cases.

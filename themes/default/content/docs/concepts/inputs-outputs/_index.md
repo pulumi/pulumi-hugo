@@ -5,7 +5,8 @@ title: "Inputs & outputs"
 h1: "Inputs & outputs"
 menu:
   concepts:
-    weight: 6
+    identifier: inputs-outputs
+    weight: 5
 aliases:
 - /docs/reference/inputs-outputs/
 - /docs/intro/concepts/inputs-outputs/

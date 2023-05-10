@@ -6,7 +6,7 @@ h1: Projects
 menu:
   concepts:
     identifier: projects
-    weight: 2
+    weight: 1
 
 aliases:
 - /docs/reference/project/
