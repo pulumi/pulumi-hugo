@@ -5,7 +5,7 @@ title: Command-line completion
 h1: Pulumi CLI command-line completion
 menu:
   cli:
-    weight: 20
+    weight: 3
 ---
 
 The Pulumi CLI also has a command to generate a command-line completion script for Bash, Zsh, and Fish. This gives you tab completion for all commands,

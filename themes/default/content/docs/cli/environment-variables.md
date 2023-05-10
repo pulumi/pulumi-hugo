@@ -5,7 +5,7 @@ title: Environment variables
 h1: Pulumi CLI environment variables
 menu:
   cli:
-    weight: 19
+    weight: 2
 aliases:
 - /docs/reference/cli/environment-variables/
 ---
