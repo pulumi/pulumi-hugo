@@ -182,22 +182,21 @@
         </section>
     {{ end }}
 
-    {{ if .Params.policy }}
-        {{ range $policy := .Params.policy }}
-            <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
-                <section class="policies card-heading-para">
-                    <div class="top">
-                        <div class="heading">
-                            <i class="fas fa-puzzle-piece"></i>
-                            <h2>Policies</h2>
-                        </div>
-                        <i class="fas fa-arrow-right"></i>
+    {{ $policy := .Params.policy }}
+    {{ if $policy }}
+        <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
+            <section class="policies card-heading-para">
+                <div class="top">
+                    <div class="heading">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h2>Policies</h2>
                     </div>
-                    <p>
-                        {{ $policy.description }}
-                    </p>
-                </section>
-            </a>
-        {{ end }}
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <p>
+                    {{ $policy.description }}
+                </p>
+            </section>
+        </a>
     {{ end }}
 </section>

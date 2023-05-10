@@ -47,6 +47,6 @@ guides:
 - display_name: Using AWS Elastic Container Registry (ECR)
   url: guides/ecr/
 policy:
-- url: /awsguard/
+  url: /awsguard/
   description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
 ---
