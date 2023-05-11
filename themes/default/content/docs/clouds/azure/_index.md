@@ -12,9 +12,25 @@ description: Build infrastructure intuitively on Azure using TypeScript, Python,
 get_started_guide: get-started/
 providers:
 - display_name: Azure Native
-  url: azure-native/
+  content_links: 
+  - display_name: Overview
+    url: azure-native/
+  - display_name: Install & config
+    url: azure-native/installation-configuration/
+  - display_name: API docs
+    url: azure-native/api-docs/
+  - display_name: How-to guides
+    url: azure-native/how-to-guides/
 - display_name: Azure Classic
-  url: azure/
+  content_links:
+  - display_name: Overview
+    url: azure/
+  - display_name: Install & config
+    url: azure/installation-configuration/
+  - display_name: API docs
+    url: azure/api-docs/
+  - display_name: How-to guides
+    url: azure/how-to-guides/
 components:
 - display_name: Azure Active Directory (Azure AD)
   url: azuread/

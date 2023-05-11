@@ -12,9 +12,25 @@ description: Build infrastructure intuitively on Google Cloud using TypeScript, 
 get_started_guide: get-started/
 providers:
 - display_name: Google Cloud Classic
-  url: gcp/
+  content_links:
+  - display_name: Overview
+    url: gcp/
+  - display_name: Install & config
+    url: gcp/installation-configuration/
+  - display_name: API docs
+    url: gcp/api-docs/
+  - display_name: How-to guides
+    url: gcp/how-to-guides/
 - display_name: Google Cloud Native
-  url: google-native/
+  content_links:
+  - display_name: Overview
+    url: google-native/
+  - display_name: Install & config
+    url: google-native/installation-configuration/
+  - display_name: API docs
+    url: google-native/api-docs/
+  - display_name: How-to guides
+    url: google-native/how-to-guides/
 components:
 - display_name: Google Cloud Global CloudRun
   url: gcp-global-cloudrun/

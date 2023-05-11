@@ -12,7 +12,15 @@ description: Streamline Kubernetes cluster configuration, management, and app wo
 get_started_guide: get-started/
 providers:
 - display_name: Kubernetes
-  url: kubernetes/
+  content_links:
+  - display_name: Overview
+    url: kubernetes/
+  - display_name: Install & config
+    url: kubernetes/installation-configuration/
+  - display_name: API docs
+    url: kubernetes/api-docs/
+  - display_name: How-to guides
+    url: kubernetes/how-to-guides/
 components:
 - display_name: Kubernetes Cert Manager
   url: kubernetes-cert-manager/

@@ -15,22 +15,33 @@
         </div>
     </section>
 
-    <section class="providers card-heading-para-inner-cards">
-        <h2>Providers</h2>
-        <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
-        <div class="row">
-            {{ range $provider := .Params.providers }}
-                <a href="/registry/packages/{{ $provider.url }}">
-                    <div class="card">
+    <section class="providers">
+        <div class="col">
+            <h2>Providers</h2>
+            <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
+            <div class="row">
+                {{ range $provider := .Params.providers }}
+                    <div class="card provider-card col">
                         <div class="heading">
                             <p>{{ $provider.display_name }}</p>
                         </div>
+                        <div class="col">
+                            {{ range $content_link := $provider.content_links }}
+                                <a href="/registry/packages/{{ $content_link.url }}">
+                                    <div class="card content-link">
+                                        <div class="heading">
+                                            <div class="icon icon-18-18 icon-left-of-heading {{ $content_link.icon }}"></div>
+                                            <p class="content-name">{{ $content_link.display_name }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            {{ end }}
+                        </div>
                     </div>
-                </a>
-            {{ end }}
+                {{ end }}
+            </div>
         </div>
     </section>
-
     <section class="components card-heading-para-inner-cards">
         <div class="heading parent-heading">
             <h2>Components</h2>

@@ -12,9 +12,33 @@ description: Build infrastructure intuitively on AWS using TypeScript, Python, G
 get_started_guide: get-started/
 providers:
 - display_name: AWS Classic
-  url: aws/
+  content_links:
+  - display_name: Overview
+    icon: page-small-black
+    url: aws/
+  - display_name: Install & config
+    icon: gear-small-black
+    url: aws/installation-configuration/
+  - display_name: API docs
+    icon: book-small-black
+    url: aws/api-docs/
+  - display_name: How-to guides
+    icon: question-small-black
+    url: aws/how-to-guides/
 - display_name: AWS Native
-  url: aws-native/
+  content_links:
+  - display_name: Overview
+    icon: page-small-black
+    url: aws-native/
+  - display_name: Install & config
+    icon: gear-small-black
+    url: aws-native/installation-configuration/
+  - display_name: API docs
+    icon: book-small-black
+    url: aws-native/api-docs/
+  - display_name: How-to guides
+    icon: question-small-black
+    url: aws-native/how-to-guides/
 components:
 - display_name: AWSx
   url: awsx/
