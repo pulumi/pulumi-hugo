@@ -1,3 +1,13 @@
+h1#aws-pulumi {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 30px;
+    background-image: url(/images/docs/h1-gradient.svg);
+    background-position: 0 24px;
+    background-repeat: no-repeat;
+    background-size: 190px 12px;
+}
+
 section.cloud-overview {
     display: flex;
     flex-direction: column;
