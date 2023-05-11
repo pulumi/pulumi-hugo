@@ -21,7 +21,8 @@
             <h2>Providers</h2>
             <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
             <div class="row">
-                {{ range $provider := .Params.providers }}
+                {{ $num_of_providers := .Params.providers }}
+                {{ range $provider := $num_of_providers }}
                     <div class="card provider-card col">
                         <div class="heading">
                             {{ $display_name := $provider.display_name }}
@@ -36,18 +37,48 @@
                             {{ end }}
                             <p>{{ $first_half_name }}<strong>{{ $second_half_name }}</strong></p>
                         </div>
-                        <div class="col">
-                            {{ range $content_link := $provider.content_links }}
-                                <a href="/registry/packages/{{ $content_link.url }}">
-                                    <div class="card content-link">
-                                        <div class="heading">
-                                            <div class="icon icon-18-18 icon-left-of-heading {{ $content_link.icon }}"></div>
-                                            <p class="content-name">{{ $content_link.display_name }}</p>
+                        {{ if ge (len $num_of_providers) 2 }}
+                            <div class="col">
+                                {{ range $content_link := $provider.content_links }}
+                                    <a href="/registry/packages/{{ $content_link.url }}">
+                                        <div class="card content-link">
+                                            <div class="heading">
+                                                <div class="icon icon-18-18 icon-left-of-heading {{ $content_link.icon }}"></div>
+                                                <p class="content-name">{{ $content_link.display_name }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            {{ end }}
-                        </div>
+                                    </a>
+                                {{ end }}
+                            </div>
+                        {{ else }}
+                            <div class="col">
+                                {{ $content_links := $provider.content_links }}
+                                {{ range $index, $content_link := $content_links }}
+                                    {{ if eq (mod $index 2) 0 }}
+                                        <div class="row">
+                                            {{ $item1 := index $content_links $index }}
+                                            {{ $item2 := index $content_links (add $index 1) }}
+                                            <a href="/registry/packages/{{ $item1.url }}">
+                                                <div class="card content-link">
+                                                    <div class="heading">
+                                                        <div class="icon icon-18-18 icon-left-of-heading {{ $item1.icon }}"></div>
+                                                        <p class="content-name">{{ $item1.display_name }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="/registry/packages/{{ $item2.url }}">
+                                                <div class="card content-link">
+                                                    <div class="heading">
+                                                        <div class="icon icon-18-18 icon-left-of-heading {{ $item2.icon }}"></div>
+                                                        <p class="content-name">{{ $item2.display_name }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {{ end }}
+                                {{ end }}
+                            </div>
+                        {{ end }}
                     </div>
                 {{ end }}
             </div>
