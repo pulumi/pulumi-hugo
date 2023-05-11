@@ -10,7 +10,7 @@ links:
         - heading: RSVP to Seattle Meetup
           description: Join us at our re-launch of the Seattle Pulumi User Group to meet our CEO, Joe Duffy, and members of our product and engineering teams. 5PM on May 23rd at Rhein Haus Seattle.
           action: Reserve your spot
-          link: https://www.meetup.com/pulumi-seattle/events/293452944/
+          link: https://info.pulumi.com/en/pug-meetup/happy-hour
         - heading: Join a Workshop
           description: Our workshops are live, and 100% open source. Choose from fundamental to advanced topics. They are hands-on and code source is provided.
           action: Check upcoming workshops
