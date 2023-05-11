@@ -53,10 +53,15 @@ section.cloud-overview {
         div.card {
             min-width: 400px;
             padding: 16px 24px;
-            background: #edeffb;
-            border: 1px solid #A6ADEC;
             box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
             border-radius: 4px;
+            background: rgba(237, 239, 251, 0.5);
+            border: 1px solid #A6ADEC;
+
+            &:hover {
+                background: #EDEFFB;
+                border: 1px solid #828CE4;
+            }
 
             p {
                 font-family: 'Gilroy';
@@ -110,6 +115,10 @@ section.cloud-overview {
             box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
             border: 1px solid #dcdcdc;
             padding: 16px 24px;
+            &:hover {
+                background: #F9F9F9;
+                border: 1px solid #BEBFC9;
+            }
         }
     }
 
