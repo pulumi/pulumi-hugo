@@ -24,7 +24,17 @@
                 {{ range $provider := .Params.providers }}
                     <div class="card provider-card col">
                         <div class="heading">
-                            <p>{{ $provider.display_name }}</p>
+                            {{ $display_name := $provider.display_name }}
+                            {{ $first_half_name := $provider.display_name }}
+                            {{ $second_half_name := "" }}
+                            {{ if strings.Contains $display_name "Classic" }}
+                                {{ $first_half_name = strings.TrimRight "Classic" $display_name }}
+                                {{ $second_half_name = "Classic" }}
+                            {{ else if strings.Contains $display_name "Native" }}
+                                {{ $first_half_name = strings.TrimRight "Native" $display_name }}
+                                {{ $second_half_name = " Native" }}
+                            {{ end }}
+                            <p>{{ $first_half_name }}<strong>{{ $second_half_name }}</strong></p>
                         </div>
                         <div class="col">
                             {{ range $content_link := $provider.content_links }}
