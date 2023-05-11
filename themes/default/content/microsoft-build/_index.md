@@ -8,7 +8,7 @@ layout: microsoft-build
 links:
     items:
         - heading: RSVP to Seattle Meetup
-          description: Join us at our re-launch of the Seattle Pulumi User Group to meet our CEO, Joe Duffy, and members of our product and engineering teams. 5PM on May 23rd at Rhein Haus Seattle.
+          description: No speakers, no agenda. Just a casual evening to network and have fun! Meet fellow engineers and CEO Joe Duffy and CTO Luke Lohan. Food and drinks are on us. May 23, 5:00 Pm PDT at Rhein Haus Seattle.
           action: Reserve your spot
           link: https://info.pulumi.com/en/pug-meetup/happy-hour
         - heading: Join a Workshop
