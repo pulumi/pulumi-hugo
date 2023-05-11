@@ -7,7 +7,7 @@ layout: microsoft-build
 
 links:
     items:
-        - heading: RSVP to Seattle Meetup
+        - heading: Join Us for Happy Hour
           description: No speakers, no agenda. Just a casual evening to network and have fun! Meet fellow engineers and CEO Joe Duffy and CTO Luke Lohan. Food and drinks are on us. May 23, 5:00 Pm PDT at Rhein Haus Seattle.
           action: Reserve your spot
           link: https://info.pulumi.com/en/pug-meetup/happy-hour
