@@ -76,6 +76,6 @@ guides:
   - display_name: Using AWS Elastic Container Registry (ECR)
     url: guides/ecr/
 policy:
-  url: /awsguard/
+  url: awsguard/
   description: Use AWSGuard to configure and enforce best practices for your Pulumi stacks.
 ---
