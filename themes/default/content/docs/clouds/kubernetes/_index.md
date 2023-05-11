@@ -34,7 +34,7 @@ components:
 - display_name: Kubernetes CoreDNS
   url: kubernetes-coredns/
 - display_name: Pulumi Kubernetes Extensions
-  url: pulumi-kubernetesx/
+  url: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
 convert:
 - heading: Convert Kubernetes YAML to Pulumi
   tools:
@@ -84,5 +84,3 @@ The packages are available in Node.js (Javascript and Typescript), Python, Go, .
 - Azure: [`pulumi/azure-native`](https://github.com/pulumi/pulumi-azure-native/)
 - DigitalOcean: [`pulumi/digitalocean`](https://github.com/pulumi/pulumi-digitalocean/)
 - Google Cloud: [`pulumi/gcp`](https://github.com/pulumi/gcp/)
-
-[extension pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
