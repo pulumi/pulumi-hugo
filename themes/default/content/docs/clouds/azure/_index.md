@@ -3,6 +3,9 @@ title_tag: "Azure & Pulumi"
 meta_desc: Pulumi offers full support for AWS, with two providers, 5+ components, and templates.
 title: "Azure"
 h1: Azure & Pulumi
+notitle: true
+h1_gradient_width: 200
+h1_gradient_name: azure
 menu:
   clouds:
     identifier: azure
@@ -14,22 +17,30 @@ providers:
 - display_name: Azure Native
   content_links: 
   - display_name: Overview
+    icon: page-small-black
     url: azure-native/
   - display_name: Install & config
+    icon: gear-small-black
     url: azure-native/installation-configuration/
   - display_name: API docs
+    icon: book-small-black
     url: azure-native/api-docs/
   - display_name: How-to guides
+    icon: question-small-black
     url: azure-native/how-to-guides/
 - display_name: Azure Classic
   content_links:
   - display_name: Overview
+    icon: page-small-black
     url: azure/
   - display_name: Install & config
+    icon: gear-small-black
     url: azure/installation-configuration/
   - display_name: API docs
+    icon: book-small-black
     url: azure/api-docs/
   - display_name: How-to guides
+    icon: question-small-black
     url: azure/how-to-guides/
 components:
 - display_name: Azure Active Directory (Azure AD)

@@ -3,6 +3,9 @@ title_tag: "Kubernetes & Pulumi"
 meta_desc: Pulumi offers full support for Kubernetes, with a providers, 3+ components, templates, and guides.
 title: "Kubernetes"
 h1: Kubernetes & Pulumi
+notitle: true
+h1_gradient_width: 281
+h1_gradient_name: kubernetes
 menu:
   clouds:
     identifier: kube
@@ -14,12 +17,16 @@ providers:
 - display_name: Kubernetes
   content_links:
   - display_name: Overview
+    icon: page-small-black
     url: kubernetes/
   - display_name: Install & config
+    icon: gear-small-black
     url: kubernetes/installation-configuration/
   - display_name: API docs
+    icon: book-small-black
     url: kubernetes/api-docs/
   - display_name: How-to guides
+    icon: question-small-black
     url: kubernetes/how-to-guides/
 components:
 - display_name: Kubernetes Cert Manager
