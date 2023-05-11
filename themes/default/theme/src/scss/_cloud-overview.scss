@@ -146,6 +146,11 @@ section.cloud-overview {
             box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
             border-radius: 4px;
             padding: 8px 24px;
+
+            &:hover {
+                background: #F9F9F9;
+                border: 1px solid #BEBFC9;
+            }
         }
     }
 
