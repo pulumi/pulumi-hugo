@@ -1,5 +1,5 @@
 ---
-title: Microsoft Build - May 23–25, 2023
+title: Microsoft Build <br/> May 23–25, 2023
 meta_desc: Join us to find out how Pulumi’s Infrastructure as Code reduces cloud complexity, accelerates development velocity and helps companies scale and innovate.
 meta_image: /images/microsoft-build/meta.png
 type: page
