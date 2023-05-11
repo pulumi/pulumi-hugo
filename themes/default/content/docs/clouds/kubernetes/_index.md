@@ -8,7 +8,7 @@ menu:
     identifier: kube
     weight: 4
 cloud_overview: true
-description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
+description: Streamline Kubernetes cluster configuration, management, and app workload deployments using TypeScript, Python, Go, C#, Java or YAML. Use the Pulumi Kubernetes Operator to manage both Kubernetes and cloud resources.
 get_started_guide: get-started/
 providers:
 - display_name: Kubernetes
@@ -33,15 +33,18 @@ templates:
   url: templates/kubernetes/gcp/
 - display_name: Helm Chart on Kubernetes
   url: templates/kubernetes-application/helm-chart/
+guides-description: Learn how to use Pulumi & Kubernetes together.
 guides:
-- display_name: Crosswalk playbooks for Kubernetes
-  url: guides/playbooks/
-- display_name: Control plane
-  url: guides/control-plane/
-- display_name: Worker node creation
-  url: guides/worker-nodes/
-- display_name: Accessing clusters
-  url: guides/try-out-the-cluster/
+  description: Learn how to use Kubernetes & Pulumi together.
+  guides_list:
+  - display_name: Crosswalk playbooks for Kubernetes
+    url: guides/playbooks/
+  - display_name: Control plane
+    url: guides/control-plane/
+  - display_name: Worker node creation
+    url: guides/worker-nodes/
+  - display_name: Accessing clusters
+    url: guides/try-out-the-cluster/
 ---
 
 ## Other converter?

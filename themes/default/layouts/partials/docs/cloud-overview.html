@@ -63,7 +63,10 @@
     </section>
 
     <section class="components card-heading-para-inner-cards">
-        <h2>Components</h2>
+        <div class="heading parent-heading">
+            <h2>Components</h2>
+            <div class="icon icon-24-24 icon-right-of-heading puzzle-piece-gray"></div>
+        </div>
         <p>Components support all languages and group a set of resources together.</p>
         <div class="col">
             {{ $components := .Params.components }}
@@ -100,7 +103,7 @@
                 <section class="policies card-heading-para">
                     <div class="top">
                         <div class="heading">
-                            <i class="fas fa-puzzle-piece"></i>
+                            <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
                             <h2>{{ $convert.heading }}</h2>
                         </div>
                         <i class="fas fa-arrow-right"></i>
@@ -115,7 +118,10 @@
 
 
     <section class="templates card-heading-para-inner-cards">
-        <h2>Templates</h2>
+        <div class="heading parent-heading">
+            <h2>Templates</h2>
+            <div class="icon icon-24-24 icon-right-of-heading ruler-triangle-gray"></div>
+        </div>
         <p>
             Pulumi templates are the fastest way to deploy infrastructure. After deploying, you can easily modify the infrastructure by updating the code in your language of
             choice.
@@ -147,20 +153,24 @@
         </div>
     </section>
 
-    {{ if .Params.guides }}
+    {{ $guides := .Params.guides }}
+    {{ if $guides }}
         <section class="guides card-heading-para-inner-cards">
-            <h2>Guides</h2>
+            <div class="heading parent-heading">
+                <h2>Guides</h2>
+                <div class="icon icon-24-24 icon-right-of-heading question-medium-gray"></div>
+            </div>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis
-                ac.
+                {{ $guides.description }}
             </p>
+
             <div class="col">
-                {{ $guides := .Params.guides }}
-                {{ range $index, $guide := $guides }}
+                {{ $guides_list := $guides.guides_list }}
+                {{ range $index, $guide := $guides_list }}
                     {{ if eq (mod $index 2) 0 }}
                         <div class="row">
-                            {{ $item1 := index $guides $index }}
-                            {{ $item2 := index $guides (add $index 1) }}
+                            {{ $item1 := index $guides_list $index }}
+                            {{ $item2 := index $guides_list (add $index 1) }}
                             <a href="{{ $item1.url }}">
                                 <div class="card">
                                     <div class="heading">
@@ -188,10 +198,10 @@
             <section class="policies card-heading-para">
                 <div class="top">
                     <div class="heading">
-                        <i class="fas fa-puzzle-piece"></i>
+                        <div class="icon icon-21-21 icon-left-of-heading badge-gray"></div>
                         <h2>Policies</h2>
                     </div>
-                    <i class="fas fa-arrow-right"></i>
+                    <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
                 </div>
                 <p>
                     {{ $policy.description }}

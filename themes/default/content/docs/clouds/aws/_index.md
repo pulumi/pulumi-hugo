@@ -8,7 +8,7 @@ menu:
     identifier: aws
     weight: 1
 cloud_overview: true
-description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
+description: Build infrastructure intuitively on AWS using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all AWS services and stays up-to-date with all AWS features.
 get_started_guide: get-started/
 providers:
 - display_name: AWS Classic
@@ -38,15 +38,17 @@ templates:
 - display_name: Virtual machine on AWS
   url: virtual-machine/aws/
 guides:
-- display_name: Configuring AWS API Gateway
-  url: guides/api-gateway/
-- display_name: Configuring AWS Auto Scaling
-  url: guides/autoscaling/
-- display_name: Using AWS CloudWatch
-  url: guides/cloudwatch/
-- display_name: Using AWS Elastic Container Registry (ECR)
-  url: guides/ecr/
+  description: Learn how to use AWS & Pulumi together.
+  guides_list:
+  - display_name: Configuring AWS API Gateway
+    url: guides/api-gateway/
+  - display_name: Configuring AWS Auto Scaling
+    url: guides/autoscaling/
+  - display_name: Using AWS CloudWatch
+    url: guides/cloudwatch/
+  - display_name: Using AWS Elastic Container Registry (ECR)
+    url: guides/ecr/
 policy:
   url: /awsguard/
-  description: Lorem ipsum dolor sit amet consectetur adipiscing elit. Nullam pellentesque fringilla massa, et finibus erat consequat nec. Quisque libero urna, aliquet a sagittis ac.
+  description: Use AWSGuard to configure and enforce best practices for your Pulumi stacks.
 ---
