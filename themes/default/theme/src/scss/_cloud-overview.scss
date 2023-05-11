@@ -92,7 +92,7 @@ section.cloud-overview {
         }
         p {
             margin-top: 0;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
     }
 
@@ -149,6 +149,13 @@ section.cloud-overview {
         }
     }
 
+    .provider-label {
+        font-family: 'Inter' !important;
+        font-weight: 400 !important;
+        font-size: 14px !important;
+        color: #5F6065 !important;
+    }
+
     .card-gradient {
         background: rgb(246, 247, 253);
         background: linear-gradient(
@@ -199,6 +206,11 @@ section.cloud-overview {
             font-size: 18px;
             margin: 0;
         }
+    }
+
+    .provider-heading {
+        justify-content: space-between;
+        align-items: center;
     }
 
     section.card-heading-para-inner-cards div.card,

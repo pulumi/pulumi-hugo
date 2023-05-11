@@ -15,6 +15,7 @@ description: Build infrastructure intuitively on Azure using TypeScript, Python,
 get_started_guide: get-started/
 providers:
 - display_name: Azure Native
+  recommended: true
   content_links: 
   - display_name: Overview
     icon: page-small-black

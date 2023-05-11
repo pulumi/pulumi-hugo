@@ -15,6 +15,7 @@ description: Build infrastructure intuitively on AWS using TypeScript, Python, G
 get_started_guide: get-started/
 providers:
 - display_name: AWS Classic
+  recommended: true
   content_links:
   - display_name: Overview
     icon: page-small-black
@@ -29,6 +30,7 @@ providers:
     icon: question-small-black
     url: aws/how-to-guides/
 - display_name: AWS Native
+  public_preview: true
   content_links:
   - display_name: Overview
     icon: page-small-black

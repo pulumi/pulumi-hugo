@@ -15,6 +15,7 @@ description: Build infrastructure intuitively on Google Cloud using TypeScript, 
 get_started_guide: get-started/
 providers:
 - display_name: Google Cloud Classic
+  recommended: true
   content_links:
   - display_name: Overview
     icon: page-small-black
@@ -29,6 +30,7 @@ providers:
     icon: question-small-black
     url: gcp/how-to-guides/
 - display_name: Google Cloud Native
+  public_preview: true
   content_links:
   - display_name: Overview
     icon: page-small-black

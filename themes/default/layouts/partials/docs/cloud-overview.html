@@ -24,7 +24,7 @@
                 {{ $num_of_providers := .Params.providers }}
                 {{ range $provider := $num_of_providers }}
                     <div class="card provider-card col card-gradient">
-                        <div class="heading">
+                        <div class="heading provider-heading">
                             {{ $display_name := $provider.display_name }}
                             {{ $first_half_name := $provider.display_name }}
                             {{ $second_half_name := "" }}
@@ -36,6 +36,11 @@
                                 {{ $second_half_name = " Native" }}
                             {{ end }}
                             <p>{{ $first_half_name }}<strong>{{ $second_half_name }}</strong></p>
+                            {{ if $provider.public_preview }}
+                                <p class="provider-label">Public preview</p>
+                            {{ else if $provider.recommended }}
+                                <p class="provider-label">Recommended</p>
+                            {{ end }}
                         </div>
                         {{ if ge (len $num_of_providers) 2 }}
                             <div class="col">
