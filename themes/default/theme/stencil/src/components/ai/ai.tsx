@@ -3,7 +3,7 @@ import { store, Unsubscribe } from "@stencil/redux";
 import { AppState } from "../../store/state";
 import { setLanguage } from "../../store/actions/preferences";
 import { PulumiAIClient } from "./client";
-import { ChatGptModel, Language, OutputChunkResponse, CreateConnectionResponse, GetConversationResponse } from "./types";
+import { ChatGptModel, GenerateNewOutputResponse, Language, OutputChunkResponse, CreateConnectionResponse, GetConversationResponse } from "./types";
 import { SupportedLanguage, LanguageKey } from "../chooser/chooser";
 import { getQueryVariable } from "../../util/util";
 
@@ -13,10 +13,16 @@ import * as marked from "marked";
 type ConnectionStatus = "Not connected" | "Connecting" | "Connected" | "Disconnected";
 
 interface Version {
+    id: string;
     prompt: string;
     language: string;
     source: string;
     markup: string;
+
+    // Feedback
+    feedbackSubmitted: boolean;
+    helpful?: boolean;
+    comments?: string;
 }
 
 interface SupportedGPTModel {
@@ -311,7 +317,7 @@ export class PulumiAI {
                 this.wsEndpoint,
                 (event) => this.onConnected(event),
                 (response) => this.onContent(response),
-                () => this.onComplete(),
+                (response) => this.onComplete(response),
                 () => this.onOverMessageLimit(),
                 () => this.onOverCapacity(),
                 (error) => this.onError(error),
@@ -333,6 +339,12 @@ export class PulumiAI {
         if (this.pingListener) {
             clearInterval(this.pingListener);
         }
+        
+        this.versions.forEach(v => {
+            if (!v.feedbackSubmitted && v.helpful !== undefined) {
+                this.sendFeedback(v.id);
+            }
+        });
     }
 
     private onConnected(data: CreateConnectionResponse) {
@@ -448,10 +460,13 @@ export class PulumiAI {
         this.highlight(this.outputStream);
     }
 
-    private onComplete() {
+    private onComplete(response: GenerateNewOutputResponse) {
+        console.log("output complete", response);
+
         const versionMarkup = marked.marked.parse(this.currentVersion.source.replace(" ⎸", ""));
         const markupWithButtons = this.addButtons(versionMarkup);
 
+        this.currentVersion.id = response.resultId;
         this.currentVersion.markup = markupWithButtons;
         this.versions.push(Object.assign({}, this.currentVersion));
         this.versions = Array.from(this.versions);
@@ -688,9 +703,11 @@ export class PulumiAI {
 
         this.currentVersion = {
             prompt: query,
+            id: "",
             language: this.selectedLanguage.name,
             source: "",
             markup: "",
+            feedbackSubmitted: false,
         };
 
         this.versions = Array.from(this.versions);
@@ -704,6 +721,37 @@ export class PulumiAI {
             this.selectedModel.key,
             this.existingConversationId,
         );
+    }
+
+    private handleFeedback(resultId: string, helpful: boolean) {
+        const versions = [ ...this.versions ];
+        const versionIndex = this.versions.findIndex(v => v.id === resultId);
+        const version = this.versions[versionIndex];
+        this.versions[versionIndex].helpful = helpful;
+        versions[versionIndex] = version;
+        this.versions = versions;
+        this.scroll()
+    }
+
+    private updateFeedbackComment(resultId: string, comments: string) {
+        const versions = [ ...this.versions ];
+        const versionIndex = this.versions.findIndex(v => v.id === resultId);
+        const version = this.versions[versionIndex];
+        this.versions[versionIndex].comments = comments;
+        versions[versionIndex] = version;
+        this.versions = versions;
+    }
+
+    private sendFeedback(resultId: string) {
+        const versions = [ ...this.versions ];
+        const versionIndex = versions.findIndex(v => v.id === resultId);
+        const version = versions[versionIndex];
+
+        this.client.sendFeedback(version.id, version.helpful, version.comments);
+
+        version.feedbackSubmitted = true;
+        versions[versionIndex] = version;
+        this.versions = versions;
     }
 
     private renderStream(markdown: string = "") {
@@ -745,6 +793,45 @@ export class PulumiAI {
         </div>;
     }
 
+    private renderFeedback(version: Version) {
+        if (version.helpful !== undefined && !version.feedbackSubmitted) {
+            return(
+                <div class="feedback">
+                    <p class="feedback-description">Would you like to leave a comment?</p>
+                    <div class="feedback-comments">
+                        <textarea rows={2} value={version.comments} onChange={(e: any) => this.updateFeedbackComment(version.id, e.target.value)} />
+                        <button onClick={() => this.sendFeedback(version.id)} class="feedback-submit-button">Submit</button>
+                    </div>
+                </div>
+            );
+        }
+
+        if (version.feedbackSubmitted) {
+            return(
+                <div class="feedback">
+                    <p class="feedback-description">Thank you for your feedback!</p>
+                </div>
+            );
+        }
+
+        return(
+            <div class="feedback">
+                <p class="feedback-description">Was this response helpful?</p>
+                <div class="feedback-actions">
+                    <div class="feedback-button" onClick={() => this.handleFeedback(version.id, true)}>
+                        <i class="fas fa-thumbs-up"></i>
+                        Yes
+                    </div>
+
+                    <div class="feedback-button" onClick={() => this.handleFeedback(version.id, false)}>
+                        <i class="fas fa-thumbs-down"></i>
+                        No
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div>
@@ -767,6 +854,7 @@ export class PulumiAI {
                                         <hr />
                                         { this.renderPrompt(version) }
                                         <div class="version" innerHTML={ this.renderVersion(version) }></div>
+                                        { !this.currentVersion ? this.renderFeedback(version) : undefined }
                                     </li>)
                                 }
                                 </ol>
