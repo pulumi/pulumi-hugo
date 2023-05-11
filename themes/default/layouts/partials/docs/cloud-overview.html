@@ -119,26 +119,6 @@
         </div>
     </section>
 
-    {{ if .Params.convert }}
-        {{ range $convert := .Params.convert }}
-            <a href="{{ $convert.url }}">
-                <section class="policies card-heading-para">
-                    <div class="top">
-                        <div class="heading">
-                            <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
-                            <h2>{{ $convert.heading }}</h2>
-                        </div>
-                        <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
-                    </div>
-                    <p>
-                        {{ $convert.description }}
-                    </p>
-                </section>
-            </a>
-        {{ end }}
-    {{ end }}
-
-
     <section class="templates card-heading-para-inner-cards">
         <div class="heading parent-heading">
             <h2>Templates</h2>
@@ -175,6 +155,53 @@
         </div>
     </section>
 
+    {{ if .Params.convert }}
+        {{ range $convert := .Params.convert }}
+            {{ $tools := $convert.tools }}
+            {{ if not $tools }}
+                <a href="{{ $convert.url }}">
+                    <section class="convert card-heading-para">
+                        <div class="top">
+                            <div class="heading">
+                                <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
+                                <h2>{{ $convert.heading }}</h2>
+                            </div>
+                            <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
+                        </div>
+                        <p>
+                            {{ $convert.description }}
+                        </p>
+                    </section>
+                </a>
+            {{ else }}
+                <section class="convert card-heading-para">
+                    <div class="top">
+                        <div class="heading">
+                            <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
+                            <h2>{{ $convert.heading }}</h2>
+                        </div>
+                        <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
+                    </div>
+                    {{ if $tools }}
+                        <div class="tools row">
+                            {{ range $converter := $tools }}
+                                <div class="col">
+                                    <a href="{{ $converter.url }}">
+                                        <div class="card">
+                                            <div class="heading">
+                                                <p>{{ $converter.display_name }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                </section>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+
     {{ $guides := .Params.guides }}
     {{ if $guides }}
         <section class="guides card-heading-para-inner-cards">
@@ -204,7 +231,7 @@
 
     {{ $policy := .Params.policy }}
     {{ if $policy }}
-        <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
+        <a class="test" href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
             <section class="policies card-heading-para">
                 <div class="top">
                     <div class="heading">

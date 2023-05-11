@@ -146,11 +146,6 @@ section.cloud-overview {
             box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
             border-radius: 4px;
             padding: 8px 24px;
-
-            &:hover {
-                background: #F9F9F9;
-                border: 1px solid #BEBFC9;
-            }
         }
     }
 
@@ -186,65 +181,35 @@ section.cloud-overview {
         div.parent-heading p {
             color: #131314;
         }
+    }
+
+    section.card-heading-para-inner-cards,
+    .convert {
+        div.card {
+            box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
+            border: 1px solid #dcdcdc;
+            padding: 16px 24px;
+        }
 
         div.heading p {
             font-family: Gilroy;
             font-size: 18px;
             margin: 0;
         }
-        
-        div.card {
-            box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
-            border: 1px solid #dcdcdc;
-            padding: 16px 24px;
-            &:hover {
-                background: #F9F9F9;
-                border: 1px solid #BEBFC9;
-            }
+    }
+
+    section.card-heading-para-inner-cards div.card,
+    div.provider-card div.content-link,
+    section.policies,
+    .convert div.card {
+        &:hover {
+            background: #F9F9F9;
+            border: 1px solid #BEBFC9;
         }
     }
 
-    section.inner-cards {
-        div.row div.card {
-            padding: 12px 24px;
-            border: #e5e5e9 1px solid;
-            box-shadow: 0px 2px 24px rgba(95, 96, 101, 0.14);
-            flex-basis: 49%;
-        }
-
-        div.row a div.special {
-            background: rgba(237, 239, 251, 0.5);
-            border: 1px solid #a6adec;
-            box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
-        }
-
-        div.row div i:not(i.fa-arrow-right) {
-            font-size: 12px;
-            margin-right: 12px;
-            vertical-align: middle;
-            line-height: 19px;
-            position: relative;
-            color: #5f6065;
-        }
-
-        div.row div.heading i.fa-play {
-            color: #4d5bd9;
-        }
-
-        div.row div i.fa-arrow-right {
-            font-size: 16px;
-            color: #8e8f97;
-            display: flex;
-            align-items: center;
-        }
-
-        div.row div p {
-            font-size: 21px;
-            font-family: Gilroy;
-            display: inline-block;
-            margin: 4px 0;
-            font-weight: 400;
-        }
+    .tools {
+        margin-top: 16px;
     }
 
     div.heading {

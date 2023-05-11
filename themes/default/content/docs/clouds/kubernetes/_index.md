@@ -37,8 +37,11 @@ components:
   url: pulumi-kubernetesx/
 convert:
 - heading: Convert Kubernetes YAML to Pulumi
-  url: /kube2pulumi/
-  description: Convert Kubernetes YAML templates to your language of choice with Pulumi's conversion tool.
+  tools:
+  - display_name: Convert Kubernetes YAML templates to Pulumi
+    url: /kube2pulumi/
+  - display_name: Generate types in Pulumi for Custom resources
+    url: https://www.pulumi.com/blog/introducing-crd2pulumi/
 templates:
 - display_name: Kubernetes cluster on AWS
   url: kubernetes/aws/
@@ -62,9 +65,7 @@ guides:
     url: guides/try-out-the-cluster/
 ---
 
-## Other converter?
 
-[do we want this to be on the convert cards](https://www.pulumi.com/blog/introducing-crd2pulumi/)
 
 ## Cluster management
 
