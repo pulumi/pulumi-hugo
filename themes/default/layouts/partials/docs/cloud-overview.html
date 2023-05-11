@@ -23,7 +23,7 @@
             <div class="row">
                 {{ $num_of_providers := .Params.providers }}
                 {{ range $provider := $num_of_providers }}
-                    <div class="card provider-card col">
+                    <div class="card provider-card col card-gradient">
                         <div class="heading">
                             {{ $display_name := $provider.display_name }}
                             {{ $first_half_name := $provider.display_name }}
@@ -84,7 +84,7 @@
             </div>
         </div>
     </section>
-    <section class="components card-heading-para-inner-cards">
+    <section class="components card-heading-para-inner-cards card-gradient">
         <div class="heading parent-heading">
             <h2>Components</h2>
             <div class="icon icon-24-24 icon-right-of-heading puzzle-piece-gray"></div>
@@ -119,7 +119,7 @@
         </div>
     </section>
 
-    <section class="templates card-heading-para-inner-cards">
+    <section class="templates card-heading-para-inner-cards card-gradient">
         <div class="heading parent-heading">
             <h2>Templates</h2>
             <div class="icon icon-24-24 icon-right-of-heading ruler-triangle-gray"></div>
@@ -204,7 +204,7 @@
 
     {{ $guides := .Params.guides }}
     {{ if $guides }}
-        <section class="guides card-heading-para-inner-cards">
+        <section class="guides card-heading-para-inner-cards card-gradient">
             <div class="heading parent-heading">
                 <h2>Guides</h2>
                 <div class="icon icon-24-24 icon-right-of-heading question-medium-gray"></div>
@@ -245,5 +245,29 @@
                 </p>
             </section>
         </a>
+    {{ end }}
+
+    {{ $operator := .Params.kubernetes_operator }}
+    {{ if $operator }}
+        <section class="guides card-heading-para-inner-cards">
+            <div class="heading parent-heading">
+                <h2>{{ $operator.heading }}</h2>
+            </div>
+            <p>{{ $operator.description_1 }}</p>
+            <p>{{ $operator.description_2 }}</p>
+            <div class="col">
+                {{ range $link := $operator.links }}
+                    <div class="row">
+                        <a href="{{ $link.url }}">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $link.display_name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{ end }}
+            </div>
+        </section>
     {{ end }}
 </section>

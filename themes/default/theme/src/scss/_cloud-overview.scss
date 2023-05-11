@@ -149,11 +149,7 @@ section.cloud-overview {
         }
     }
 
-    section.card-heading-para-inner-cards {
-        box-shadow: 0px 2px 24px 0px #5f606524;
-        border: 1px solid #e5e5e9;
-        border-radius: 4px;
-        padding: 24px;
+    .card-gradient {
         background: rgb(246, 247, 253);
         background: linear-gradient(
             135deg,
@@ -170,7 +166,14 @@ section.cloud-overview {
             rgba(249, 247, 252, 1) 95%,
             rgba(246, 247, 253, 1) 100%
         );
+    }
 
+    section.card-heading-para-inner-cards,
+    section.card-heading-para-inner-cards-kube {
+        box-shadow: 0px 2px 24px 0px #5f606524;
+        border: 1px solid #e5e5e9;
+        border-radius: 4px;
+        padding: 24px;
         
         p {
             font-family: Inter;
