@@ -1,48 +1,17 @@
 <section class="content cloud-overview">
-    <p>{{ .Params.description }}</p>
+    <p class="top-para">{{ .Params.description }}</p>
 
-    <section class="inner-cards">
+    <section class="get-started">
         <div class="col">
-            <div class="row">
-                <a href="{{ .Params.get_started_guide }}">
-                    <div class="card special">
-                        <div class="heading">
-                            <i class="fas fa-play test"></i>
-                            <p>Get started</p>
-                        </div>
-                        <i class="fas fa-arrow-right"></i>
+            <a href="{{ .Params.get_started_guide }}">
+                <div class="card special">
+                    <div class="heading">
+                        <div class="icon icon-21-21 icon-left-of-heading play-blue"></div>
+                        <p>Get started</p>
                     </div>
-                </a>
-                <a href="">
-                    <div class="card">
-                        <div class="heading">
-                            <i class="fas fa-hand-holding-heart"></i>
-                            <p>Providers</p>
-                        </div>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <a href="">
-                    <div class="card">
-                        <div class="heading">
-                            <i class="fas fa-puzzle-piece"></i>
-                            <p>Components</p>
-                        </div>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="card">
-                        <div class="heading">
-                            <i class="fas fa-ruler"></i>
-                            <p>Templates</p>
-                        </div>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-            </div>
+                    <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -106,7 +75,7 @@
                             <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
                             <h2>{{ $convert.heading }}</h2>
                         </div>
-                        <i class="fas fa-arrow-right"></i>
+                        <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
                     </div>
                     <p>
                         {{ $convert.description }}
@@ -165,28 +134,16 @@
             </p>
 
             <div class="col">
-                {{ $guides_list := $guides.guides_list }}
-                {{ range $index, $guide := $guides_list }}
-                    {{ if eq (mod $index 2) 0 }}
-                        <div class="row">
-                            {{ $item1 := index $guides_list $index }}
-                            {{ $item2 := index $guides_list (add $index 1) }}
-                            <a href="{{ $item1.url }}">
-                                <div class="card">
-                                    <div class="heading">
-                                        <p>{{ $item1.display_name }}</p>
-                                    </div>
+                {{ range $guide := $guides.guides_list }}
+                    <div class="row">
+                        <a href="{{ $guide.url }}">
+                            <div class="card">
+                                <div class="heading">
+                                    <p>{{ $guide.display_name }}</p>
                                 </div>
-                            </a>
-                            <a href="{{ $item2.url }}">
-                                <div class="card">
-                                    <div class="heading">
-                                        <p>{{ $item2.display_name }}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    {{ end }}
+                            </div>
+                        </a>
+                    </div>
                 {{ end }}
             </div>
         </section>

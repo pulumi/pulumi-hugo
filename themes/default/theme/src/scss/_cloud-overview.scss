@@ -2,7 +2,7 @@ section.cloud-overview {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-top: 28px;
+    margin-top: 14px;
 
     h2 {
         font-family: Gilroy;
@@ -12,11 +12,19 @@ section.cloud-overview {
         padding-bottom: 8px;
     }
 
+    p.top-para {
+        margin-bottom: 0;
+    }
+
     div.card {
         display: flex;
         justify-content: space-between;
         background: #fff;
         border-radius: 4px;
+
+        p {
+            color: #5f6065;
+        }
     }
 
     div.row {
@@ -35,6 +43,28 @@ section.cloud-overview {
 
     div.row a {
         flex: 1;
+    }
+
+    section.get-started {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+
+        div.card {
+            min-width: 400px;
+            padding: 16px 24px;
+            background: #edeffb;
+            border: 1px solid #A6ADEC;
+            box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
+            border-radius: 4px;
+
+            p {
+                font-family: 'Gilroy';
+                font-weight: 500;
+                font-size: 21px;
+                margin: 0;
+            }
+        }
     }
 
     section.card-heading-para-inner-cards {
@@ -63,8 +93,11 @@ section.cloud-overview {
         p {
             font-family: Inter;
             font-size: 16px;
-            color: #131314;
             line-height: 1.5;
+        }
+
+        div.parent-heading p {
+            color: #131314;
         }
 
         div.heading p {
@@ -164,10 +197,12 @@ section.cloud-overview {
         div.parent-heading {
             justify-content: space-between;
             border-bottom: 1px solid #e5e5e9;
+            color: #131314;
 
             h2 {
                 padding-bottom: 0;
             }
+        
         }
     }
 
@@ -225,6 +260,10 @@ section.cloud-overview {
         background: url(/images/docs/icons/right-arrow-gray.svg);
     }
 
+    div.play-blue {
+        background: url(/images/docs/icons/play-blue.svg);
+    }
+
     i.question-small-black {
 
     }
@@ -238,10 +277,6 @@ section.cloud-overview {
     }
 
     i.page-black {
-
-    }
-
-    i.play-blue {
 
     }
 }
