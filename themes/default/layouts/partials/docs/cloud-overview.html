@@ -20,7 +20,7 @@
         <div class="col">
             <h2>Providers</h2>
             <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
-            <div class="row">
+            <div class="row cols-2">
                 {{ $num_of_providers := .Params.providers }}
                 {{ range $provider := $num_of_providers }}
                     <div class="card provider-card col card-gradient">
@@ -60,7 +60,7 @@
                                 {{ $content_links := $provider.content_links }}
                                 {{ range $index, $content_link := $content_links }}
                                     {{ if eq (mod $index 2) 0 }}
-                                        <div class="row">
+                                        <div class="row cols-2">
                                             {{ $item1 := index $content_links $index }}
                                             {{ $item2 := index $content_links (add $index 1) }}
                                             <a href="/registry/packages/{{ $item1.url }}">
@@ -267,14 +267,16 @@
                             {{ $item2 := index $links (add $index 1) }}
                             <a href="{{ $item1.link }}">
                                 <div class="card-inner">
-                                    <div>
+                                    <div class="card-inner-content-1">
+                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $link.icon }}"></div>
                                         <p>{{ $item1.display_name }}</p>
                                     </div>
                                 </div>
                             </a>
                             <a href="{{ $item2.link }}">
                                 <div class="card-inner">
-                                    <div>
+                                    <div class="card-inner-content-1">
+                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $link.icon }}"></div>
                                         <p>{{ $item2.display_name }}</p>
                                     </div>
                                 </div>
@@ -299,9 +301,13 @@
                     <div class="row">
                         <a href="{{ $link.url }}">
                             <div class="card-inner">
-                                <div>
+                                <div class="card-inner-content-1">
+                                    <div class="icon icon-18-18 icon-left-of-card-label {{ $link.icon }}"></div>
                                     <p>{{ $link.display_name }}</p>
                                 </div>
+                                {{ if $link.has_arrow }}
+                                    <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
+                                {{ end }}
                             </div>
                         </a>
                     </div>

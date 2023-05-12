@@ -69,19 +69,26 @@ kubernetes_cluster_management:
   links:
     - display_name: AWS
       link: https://github.com/pulumi/aws/
+      icon: aws-small
     - display_name: Azure
       link: https://github.com/pulumi/pulumi-azure-native/
+      icon: azure-small
     - display_name: DigitalOcean
       link: https://github.com/pulumi/pulumi-digitalocean/
+      icon: digitalocean-small
     - display_name: Google Cloud
       link: https://github.com/pulumi/gcp/
+      icon: google-cloud-small
 kubernetes_operator:
   heading: Pulumi Kubernetes Operator
   description_1: The Pulumi Kubernetes Operator is an extension pattern that enables Kubernetes users to create a Stack as a first-class API resource, and use the StackController to drive the updates of the Stack until success.
   description_2: Deploying Pulumi stacks in Kubernetes provides the capability to build out CI/CD and automation systems into your clusters, creating native support to manage your infrastructure alongside your Kubernetes workloads.
   links:
-  - display_name: GitHub
+  - display_name: GitHub repository
+    has_arrow: true
     url: https://github.com/pulumi/pulumi-kubernetes-operator
-  - display_name: Get started guide
+    icon: github-small
+  - display_name: Get started with Pulumi Kubernetes Operator
     url: /docs/guides/continuous-delivery/pulumi-kubernetes-operator/
+    icon: light-bulb-small-gray
 ---
