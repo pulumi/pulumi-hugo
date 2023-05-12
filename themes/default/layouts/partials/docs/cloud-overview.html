@@ -102,7 +102,15 @@
                     <div class="row cols-2">
                         {{ $item1 := index $components $index }}
                         {{ $item2 := index $components (add $index 1) }}
-                        <a href="/registry/packages/{{ $item1.url }}">
+                        {{ $item1_url := print "/registry/packages/" $item1.url }}
+                        {{ $item2_url := print "/registry/packages/" $item2.url }}
+                        {{ if $item1.link_outside_registry }}
+                            {{ $item1_url =  $item1.url }}
+                        {{ end }}
+                        {{ if $item2.link_outside_registry }}
+                            {{ $item2_url =  $item1.url }}
+                        {{ end }}
+                        <a href="{{ $item1_url }}">
                             <div class="card-inner">
                                 <div>
                                     <p>{{ $item1.display_name }}</p>
@@ -110,7 +118,7 @@
                             </div>
                         </a>
                         {{ if $item2 }}
-                            <a href="/registry/packages/{{ $item2.url }}">
+                            <a href="{{ $item2_url }}">
                                 <div class="card-inner">
                                     <div>
                                         <p>{{ $item2.display_name }}</p>

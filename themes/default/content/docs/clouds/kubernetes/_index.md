@@ -35,6 +35,7 @@ components:
   url: kubernetes-coredns/
 - display_name: Pulumi Kubernetes Extensions
   url: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
+  link_outside_registry: true
 convert:
 - heading: Convert Kubernetes YAML to Pulumi
   tools:

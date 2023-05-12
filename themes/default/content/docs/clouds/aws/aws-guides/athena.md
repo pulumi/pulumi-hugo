@@ -1,16 +1,15 @@
 ---
 title: "Creating an AWS Athena Data Service with Pulumi"
-layout: "aws-single"
 meta_desc: "Learn how to use Pulumi to define an AWS Athena resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-athena.png"
-
 service: "Athena"
 aws_here: "https://aws.amazon.com/athena/"
-
 menu:
   aws:
     name: Athena
     parent: aws-guides
+aliases:
+- /docs/aws/athena/
 ---
 
 ## Create an AWS Athena resource using `@pulumi/aws`

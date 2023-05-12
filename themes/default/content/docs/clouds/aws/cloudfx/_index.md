@@ -2,7 +2,9 @@
 title_tag: "Pulumi Cloud Framework Overview"
 title: "Cloud Framework"
 meta_desc: "The Pulumi Cloud Framework lets you program infrastructure and application logic using high-level, cloud-agnostic building blocks.Get started here."
-aliases: ["/docs/quickstart/cloudfx/"]
+aliases:
+- /docs/quickstart/cloudfx/
+- /docs/tutorials/cloudfx
 ---
 
 <img src="/images/docs/quickstart/cloudfx-purple.png" align="right">

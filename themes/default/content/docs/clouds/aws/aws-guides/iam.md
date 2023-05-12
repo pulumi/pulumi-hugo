@@ -2,16 +2,16 @@
 title: "Creating an AWS IAM Service with Pulumi"
 meta_desc: "Learn how to use Pulumi to define an AWS IAM resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-iam.png"
-
 service: "IAM"
 description: "enables you to manage access to AWS services and resources securely"
 aws_here: "https://aws.amazon.com/iam/"
-
 menu:
   aws:
     name: IAM
     identifier: iam-aws-guides
     parent: aws-guides
+aliases:
+- /docs/aws/iam/
 ---
 
 ## Create an AWS IAM resource using `@pulumi/aws`

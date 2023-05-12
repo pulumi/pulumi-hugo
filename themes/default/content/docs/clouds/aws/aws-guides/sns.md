@@ -2,15 +2,15 @@
 title: "Creating an AWS SNS with Pulumi"
 meta_desc: "Learn how to use Pulumi to define an AWS SNS resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-sns.png"
-
 service: "SNS"
 description: "is a flexible, fully managed pub/sub messaging and mobile notifications service for coordinating the delivery of messages to subscribing endpoints and clients"
 aws_here: "https://aws.amazon.com/sns/"
-
 menu:
   aws:
     name: SNS
     parent: aws-guides
+aliases:
+- /docs/aws/sns/
 ---
 
 ## Create an AWS SNS resource using `@pulumi/aws`

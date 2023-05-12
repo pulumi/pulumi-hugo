@@ -2,15 +2,15 @@
 title: "Creating an AWS Kinesis Data Service with Pulumi"
 meta_desc: "Learn how to use Pulumi to define an AWS Kinesis resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-kinesis.png"
-
 service: "Kinesis"
 description: "makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information"
 aws_here: "https://aws.amazon.com/kinesis/"
-
 menu:
   aws:
     name: Kinesis
     parent: aws-guides
+aliases:
+- /docs/aws/kinesis/
 ---
 
 ## Create an AWS Kinesis resource using `@pulumi/aws`

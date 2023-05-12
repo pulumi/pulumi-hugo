@@ -2,15 +2,15 @@
 title: "Creating an AWS DynamoDB Data Service with Pulumi"
 meta_desc: "Learn how to use Pulumi to define an AWS DynamoDB resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-dynamodb.png"
-
 service: "DynamoDB"
 description: "is a fast and flexible nonrelational database service for all applications that need consistent, single-digit millisecond latency at any scale"
 aws_here: "https://aws.amazon.com/dynamodb/"
-
 menu:
-  awws:
+  aws:
     name: DynamoDB
     parent: aws-guides
+aliases:
+- /docs/aws/dynamodb/
 ---
 
 ## Create an AWS DynamoDB resource using `@pulumi/aws`

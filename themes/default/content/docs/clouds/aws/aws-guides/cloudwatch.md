@@ -2,16 +2,16 @@
 title: "Creating an AWS CloudWatch Monitoring Service"
 meta_desc: "Learn how to use Pulumi to define an AWS CloudWatch resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-cloudwatch.png"
-
 service: "CloudWatch"
 description: "is a monitoring service for AWS cloud resources and the applications you run on Amazon Web Services."
 aws_here: "https://aws.amazon.com/cloudwatch/"
-
 menu:
   aws:
     name: CloudWatch
     parent: aws-guides
     identifier: cloud-watch-guide
+aliases:
+- /docs/aws/cloudwatch/
 ---
 
 ## Create an AWS CloudWatch resource using `@pulumi/aws`

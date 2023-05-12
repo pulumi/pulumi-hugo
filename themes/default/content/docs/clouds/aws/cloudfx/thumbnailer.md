@@ -1,7 +1,9 @@
 ---
 title: "Video Thumbnail Extractor"
 meta_desc: "Learn how to build a video thumbnail extractor using serverless, containers, and cloud infrastructure in this tutorial."
-aliases: ["/docs/quickstart/cloudfx/tutorial-thumbnailer/"]
+aliases:
+- /docs/quickstart/cloudfx/tutorial-thumbnailer/
+- /docs/tutorials/cloudfx/thumbnailer/
 ---
 
 In this tutorial, we'll use JavaScript to combine serverless, containers and cloud infrastructure together into a

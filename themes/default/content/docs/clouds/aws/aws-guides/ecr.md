@@ -2,15 +2,15 @@
 title: "Creating an AWS ECR Service with Pulumi"
 meta_desc: "Learn how to use Pulumi to define an AWS ECR resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-ecr.png"
-
 service: "ECR"
 description: "is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images"
 aws_here: "https://aws.amazon.com/ecr/"
-
 menu:
   aws:
     name: ECR
     parent: aws-guides
+aliases:
+- /docs/aws/ecr/
 ---
 
 ## Create an AWS ECR resource using `@pulumi/aws`

@@ -2,16 +2,16 @@
 title: "Creating AWS EC2 Instances with Pulumi"
 meta_desc: "Learn how to use Pulumi to define an AWS EC2 resource which can then be deployed to AWS and managed as infrastructure as code."
 meta_image: "/images/docs/service/aws-ec2.png"
-
 service: "EC2"
 description: "is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers"
 aws_here: "https://aws.amazon.com/ec2/"
-
 menu:
   aws:
     name: EC2
     identifier: aws-guides-ec2
     parent: aws-guides
+aliases:
+- /docs/aws/ec2/
 ---
 
 ## Create an AWS EC2 resource using `@pulumi/aws`

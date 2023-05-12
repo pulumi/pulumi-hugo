@@ -1,10 +1,10 @@
 ---
 title_tag: "AWS Guides"
-title: "Guides"
 meta_desc: "Learn how to use Pulumi and AWS to code, deploy, and manage cloud, serverless, and container apps and infrastructure faster than ever before."
+title: "AWS Guides"
+aliases:
+- /docs/aws/
 ---
-
-susan will do this later
 
 ## Multi-cloud development with `@pulumi\cloud`
 
