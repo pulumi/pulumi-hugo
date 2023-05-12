@@ -1,6 +1,6 @@
 <section class="content cloud-overview">
     <h1 style="background-size: {{ .Params.h1_gradient_width }}px 12px; background-image: url(/images/docs/{{ .Params.h1_gradient_name }}-h1-gradient.svg);">{{ .Params.h1 }}</h1>
-    <p class="top-para">{{ .Params.description }}</p>
+    <p>{{ .Params.description }}</p>
 
     <section class="get-started">
         <div class="col">
@@ -89,8 +89,8 @@
             </div>
         </div>
     </section>
-    <section class="components card-heading-para-inner-cards card-gradient">
-        <div class="heading parent-heading">
+    <section class="components card-outer card-gradient">
+        <div class="card-heading card-heading-1">
             <h2>Components</h2>
             <div class="icon icon-24-24 icon-right-of-heading puzzle-piece-gray"></div>
         </div>
@@ -99,20 +99,20 @@
             {{ $components := .Params.components }}
             {{ range $index, $component := $components }}
                 {{ if eq (mod $index 2) 0 }}
-                    <div class="row">
+                    <div class="row cols-2">
                         {{ $item1 := index $components $index }}
                         {{ $item2 := index $components (add $index 1) }}
                         <a href="/registry/packages/{{ $item1.url }}">
-                            <div class="card">
-                                <div class="heading">
+                            <div class="card-inner">
+                                <div>
                                     <p>{{ $item1.display_name }}</p>
                                 </div>
                             </div>
                         </a>
                         {{ if $item2 }}
                             <a href="/registry/packages/{{ $item2.url }}">
-                                <div class="card">
-                                    <div class="heading">
+                                <div class="card-inner">
+                                    <div>
                                         <p>{{ $item2.display_name }}</p>
                                     </div>
                                 </div>
@@ -123,9 +123,8 @@
             {{ end }}
         </div>
     </section>
-
-    <section class="templates card-heading-para-inner-cards card-gradient">
-        <div class="heading parent-heading">
+    <section class="templates card-outer card-gradient">
+        <div class="card-heading card-heading-1">
             <h2>Templates</h2>
             <div class="icon icon-24-24 icon-right-of-heading ruler-triangle-gray"></div>
         </div>
@@ -137,19 +136,19 @@
             {{ $templates := .Params.templates }}
             {{ range $index, $template := $templates }}
                 {{ if eq (mod $index 2) 0 }}
-                    <div class="row">
+                    <div class="row cols-2">
                         {{ $item1 := index $templates $index }}
                         {{ $item2 := index $templates (add $index 1) }}
                         <a href="/templates/{{ $item1.url }}">
-                            <div class="card">
-                                <div class="heading">
+                            <div class="card-inner">
+                                <div>
                                     <p>{{ $item1.display_name }}</p>
                                 </div>
                             </div>
                         </a>
                         <a href="/templates/{{ $item2.url }}">
-                            <div class="card">
-                                <div class="heading">
+                            <div class="card-inner">
+                                <div>
                                     <p>{{ $item2.display_name }}</p>
                                 </div>
                             </div>
@@ -165,8 +164,8 @@
             {{ $tools := $convert.tools }}
             {{ if not $tools }}
                 <a href="{{ $convert.url }}">
-                    <section class="convert card-heading-para">
-                        <div class="top">
+                    <section class="convert card-outer">
+                        <div class="card-heading card-heading-2">
                             <div class="heading">
                                 <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
                                 <h2>{{ $convert.heading }}</h2>
@@ -179,8 +178,8 @@
                     </section>
                 </a>
             {{ else }}
-                <section class="convert card-heading-para">
-                    <div class="top">
+                <section class="convert card-outer">
+                    <div class="card-heading card-heading-2">
                         <div class="heading">
                             <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
                             <h2>{{ $convert.heading }}</h2>
@@ -188,12 +187,12 @@
                         <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
                     </div>
                     {{ if $tools }}
-                        <div class="tools row">
+                        <div class="row">
                             {{ range $converter := $tools }}
                                 <div class="col">
                                     <a href="{{ $converter.url }}">
-                                        <div class="card">
-                                            <div class="heading">
+                                        <div class="card-inner">
+                                            <div>
                                                 <p>{{ $converter.display_name }}</p>
                                             </div>
                                         </div>
@@ -209,8 +208,8 @@
 
     {{ $guides := .Params.guides }}
     {{ if $guides }}
-        <section class="guides card-heading-para-inner-cards card-gradient">
-            <div class="heading parent-heading">
+        <section class="guides card-outer card-gradient">
+            <div class="card-heading card-heading-1">
                 <h2>Guides</h2>
                 <div class="icon icon-24-24 icon-right-of-heading question-medium-gray"></div>
             </div>
@@ -222,8 +221,8 @@
                 {{ range $guide := $guides.guides_list }}
                     <div class="row">
                         <a href="{{ $guide.url }}">
-                            <div class="card">
-                                <div class="heading">
+                            <div class="card-inner">
+                                <div>
                                     <p>{{ $guide.display_name }}</p>
                                 </div>
                             </div>
@@ -237,8 +236,8 @@
     {{ $policy := .Params.policy }}
     {{ if $policy }}
         <a class="test" href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
-            <section class="policies card-heading-para">
-                <div class="top">
+            <section class="policies card-outer">
+                <div class="card-heading card-heading-2">
                     <div class="heading">
                         <div class="icon icon-21-21 icon-left-of-heading badge-gray"></div>
                         <h2>Policies</h2>
@@ -254,8 +253,8 @@
 
     {{ $operator := .Params.kubernetes_operator }}
     {{ if $operator }}
-        <section class="guides card-heading-para-inner-cards">
-            <div class="heading parent-heading">
+        <section class="guides card-outer">
+            <div class="card-heading card-heading-1">
                 <h2>{{ $operator.heading }}</h2>
             </div>
             <p>{{ $operator.description_1 }}</p>
@@ -264,8 +263,8 @@
                 {{ range $link := $operator.links }}
                     <div class="row">
                         <a href="{{ $link.url }}">
-                            <div class="card">
-                                <div class="heading">
+                            <div class="card-inner">
+                                <div>
                                     <p>{{ $link.display_name }}</p>
                                 </div>
                             </div>
