@@ -172,7 +172,7 @@
             {{ $tools := $convert.tools }}
             {{ if not $tools }}
                 <a href="{{ $convert.url }}">
-                    <section class="convert card-outer">
+                    <section class="convert card-outer card-outer-hover">
                         <div class="card-heading card-heading-2">
                             <div class="heading">
                                 <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
@@ -244,7 +244,7 @@
     {{ $policy := .Params.policy }}
     {{ if $policy }}
         <a class="test" href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
-            <section class="policies card-outer">
+            <section class="policies card-outer card-outer-hover">
                 <div class="card-heading card-heading-2">
                     <div class="heading">
                         <div class="icon icon-21-21 icon-left-of-heading badge-gray"></div>
