@@ -1,6 +1,6 @@
 ---
 title_tag: "Kubernetes & Pulumi"
-meta_desc: Pulumi offers full support for Kubernetes, with a providers, 3+ components, templates, and guides.
+meta_desc: Pulumi offers full support for Kubernetes, with a provider, an operator, 3+ components, multiple templates, and several guides.
 title: "Kubernetes"
 h1: Kubernetes & Pulumi
 notitle: true
@@ -11,7 +11,7 @@ menu:
     identifier: kube
     weight: 4
 cloud_overview: true
-description: Streamline Kubernetes cluster configuration, management, and app workload deployments using TypeScript, Python, Go, C#, Java or YAML. Use the Pulumi Kubernetes Operator to manage both Kubernetes and cloud resources.
+description: Streamline Kubernetes cluster configuration, management, and application workload deployments using TypeScript, Python, Go, C#, Java or YAML. Use the Pulumi Kubernetes Operator to manage both Kubernetes and cloud resources.
 get_started_guide:
   link: get-started/
   icon:
@@ -40,10 +40,11 @@ components:
   link_outside_registry: true
 convert:
 - heading: Convert Kubernetes YAML to Pulumi
+  description: Convert or generate Kubernetes YAML manifests in the language of your choice with Pulumi's tools
   tools:
-  - display_name: Convert Kubernetes YAML templates to Pulumi
+  - display_name: Convert Kubernetes YAML manifests to Pulumi
     url: /kube2pulumi/
-  - display_name: Generate types in Pulumi for Custom resources
+  - display_name: Generate types in Pulumi for Custom Resources
     url: https://www.pulumi.com/blog/introducing-crd2pulumi/
 templates:
 - display_name: Kubernetes cluster on AWS

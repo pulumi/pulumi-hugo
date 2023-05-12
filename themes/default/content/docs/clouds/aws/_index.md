@@ -1,6 +1,6 @@
 ---
 title_tag: "AWS & Pulumi"
-meta_desc: Pulumi offers full support for AWS, with two providers, 10+ components, templates and guides.
+meta_desc: Pulumi offers full support for AWS, with two providers, 10+ components, multiple templates, and numerous guides.
 title: "AWS"
 h1: AWS & Pulumi
 notitle: true
@@ -11,7 +11,7 @@ menu:
     identifier: aws
     weight: 1
 cloud_overview: true
-description: Build infrastructure intuitively on AWS using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all AWS services and stays up-to-date with all AWS features.
+description: Build infrastructure on AWS using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all AWS services and stays up-to-date with all AWS features.
 get_started_guide:
   link: get-started/
   icon: aws-35-35

@@ -1,6 +1,6 @@
 ---
 title_tag: "Azure & Pulumi"
-meta_desc: Pulumi offers full support for AWS, with two providers, 5+ components, and templates.
+meta_desc: Pulumi offers full support for Azure, with two providers, 4+ components, and several templates.
 title: "Azure"
 h1: Azure & Pulumi
 notitle: true
@@ -11,7 +11,7 @@ menu:
     identifier: azure
     weight: 1
 cloud_overview: true
-description: Build infrastructure intuitively on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager.
+description: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
 get_started_guide:
   link: get-started/
   icon:
@@ -57,7 +57,7 @@ components:
 convert:
 - heading: Convert ARM Templates to Pulumi
   url: /arm2pulumi/
-  description: Convert ARM Templates templates to your language of choice with Pulumi's conversion tool.
+  description: Convert ARM templates to your language of choice with Pulumi's conversion tool.
 templates:
 - display_name: Container service on Azure
   url: container-service/azure/

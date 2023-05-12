@@ -1,6 +1,6 @@
 ---
 title_tag: "Google Cloud & Pulumi"
-meta_desc: Pulumi offers full support for Google Clouds, with two providers, 2 components, and templates.
+meta_desc: Pulumi offers full support for Google Cloud, with two providers, 2 components, and multiple templates.
 title: "Google Cloud"
 h1: Google Cloud & Pulumi
 notitle: true
@@ -11,7 +11,7 @@ menu:
     identifier: google-cloud
     weight: 1
 cloud_overview: true
-description: Build infrastructure intuitively on Google Cloud using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all Google Cloud APIs and stays up-to-date with all Google Cloud features.
+description: Build infrastructure on Google Cloud using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all Google Cloud APIs and stays up-to-date with all Google Cloud features.
 get_started_guide:
   link: get-started/
   icon:
