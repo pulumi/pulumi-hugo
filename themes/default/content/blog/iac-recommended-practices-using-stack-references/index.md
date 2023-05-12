@@ -58,7 +58,7 @@ You can see how the Zephyr team did this for their projects, including code samp
 
 It's worthwhile to note that any information that needs to be accessible from another stack via a stack reference must be exported as a stack output in the source stack. If you don't mark it as a stack output, then it can't be used in a stack reference. Adding stack outputs after the fact requires little effort and has no impact on existing infrastructure.
 
-Also, any value retrieved via a stack reference is treated as [a Pulumi Output](/docs/intro/concepts/inputs-outputs/), and therefore may require some extra work to transform values (such as the use of `Output.apply`). The recent addition of `OutputDetails` support in Pulumi---you can read more about `OutputDetails` [in this blog post announcing the functionality](/blog/stack-reference-output-details/)---helps considerably in this situation. Some SDKs also have language-specific mechanisms that can help; for example, using Go's `.AsStringArrayOutput()` method on a `StackReference.GetOutput` statement makes referencing subnet IDs from other project much easier.
+Also, any value retrieved via a stack reference is treated as [a Pulumi Output](/docs/intro/concepts/inputs-outputs/), and therefore may require some extra work to transform values (such as the use of `Output.apply`). The recent addition of `OutputDetails` support in Pulumi---you can read more about `OutputDetails` [in this blog post announcing the functionality](/blog/stack-reference-output-details/)---helps considerably in this situation. Some SDKs also have language-specific mechanisms that can help; for example, using Go's `.AsStringArrayOutput()` method on a `StackReference.GetOutput` statement makes referencing subnet IDs from another project much easier.
 
 While stack references are conceptually straightforward and not difficult to implement, there are some recommended practices to be mindful of regarding the use of stack outputs and stack references:
 
@@ -117,7 +117,7 @@ With these recommended practices in mind, you can examine the Zephyr team's impl
     ```
 
 {{% notes %}}
-All of the GitHub links in the paragraphs above reference the `blog/multi-project` branch in each repository, which has the code as of this blog post (and the earlier blog post).
+All of the GitHub links in the paragraphs above reference the `blog/multi-project` branch in each repository, which has the code as of this blog post (and the earlier blog posts).
 {{% /notes %}}
 
 ## Summarizing recommended practices
