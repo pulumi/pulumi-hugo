@@ -46,7 +46,6 @@ export class PulumiAIClient {
         switch (eventData.type) {
             case MessageType.CREATE_CONNECTION:
                 this.connectionOpenCallback(eventData.data);
-                console.log("convid", eventData.data);
                 break;
             case MessageType.GET_CONVERSATION:
                 this.getConversationCallback(eventData.data);
@@ -149,7 +148,6 @@ export class PulumiAIClient {
     }
 
     public submit(conversationId: string, language: Language, program: string, instructions: string, version: number, model: ChatGptModel, originalConversationId?: string) {
-        console.log("new output");
         const args: GenerateNewOutputAction = {
             type: MessageType.GENERATE_NEW_OUTPUT,
             data: {
@@ -162,8 +160,6 @@ export class PulumiAIClient {
                 originalConversationId,
             },
         };
-
-        console.log(args);
 
         this.send(args);
     }
