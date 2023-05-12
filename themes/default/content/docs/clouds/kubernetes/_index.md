@@ -12,7 +12,9 @@ menu:
     weight: 4
 cloud_overview: true
 description: Streamline Kubernetes cluster configuration, management, and app workload deployments using TypeScript, Python, Go, C#, Java or YAML. Use the Pulumi Kubernetes Operator to manage both Kubernetes and cloud resources.
-get_started_guide: get-started/
+get_started_guide:
+  link: get-started/
+  icon:
 providers:
 - display_name: Kubernetes
   content_links:

@@ -295,6 +295,22 @@ section.cloud-overview {
         background-size: 24px 24px;
     }
 
+    div.icon-35-35 {
+        width: 35px;
+        height: 35px;
+        background-size: 35px 35px;
+    }
+
+    div.icon-get-started {
+        margin-right: 16px;
+    }
+
+    div.icon-get-started-arrow {
+        top: 4px;
+        position: relative;
+        margin-right: 2px;
+    }
+
     div.icon-left-of-heading {
         position: relative;
         top: 4px;
@@ -380,5 +396,9 @@ section.cloud-overview {
 
     div.digitalocean-small {
         background: url(/images/docs/icons/digitalocean-small.svg);
+    }
+
+    div.aws-35-35 {
+        background: url(/images/docs/icons/aws-35-35.svg);
     }
 }

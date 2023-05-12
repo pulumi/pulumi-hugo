@@ -4,13 +4,14 @@
 
     <section class="get-started">
         <div class="col">
-            <a href="{{ .Params.get_started_guide }}">
+            {{ $get_started_guide := .Params.get_started_guide }}
+            <a href="{{ $get_started_guide.link }}">
                 <div class="card special">
                     <div class="heading">
-                        <div class="icon icon-21-21 icon-left-of-heading play-blue"></div>
+                        <div class="icon icon-35-35 icon-get-started {{ $get_started_guide.icon }}"></div>
                         <p>Get started</p>
                     </div>
-                    <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
+                    <div class="icon icon-24-24 icon-get-started-arrow right-arrow-gray"></div>
                 </div>
             </a>
         </div>
