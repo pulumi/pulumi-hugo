@@ -78,6 +78,9 @@ export class PulumiAI {
     private versions: Version[] = [];
 
     @State()
+    private submissionCount = 0;
+
+    @State()
     private currentVersion: Version;
 
     @State()
@@ -98,6 +101,12 @@ export class PulumiAI {
 
     @State()
     private existingConversationId: string;
+
+    @State()
+    private showShareMenu = false;
+
+    @State()
+    private shareMenuElement: HTMLElement;
 
     @Prop({ mutable: true })
     model: ChatGptModel;
@@ -204,13 +213,8 @@ export class PulumiAI {
             }
         }
 
-        if (tagName === "BUTTON" && el.getAttribute("class")?.includes("share")) {
-            const shareableLink = `${this.siteUrl}/ai/?convid=${this.conversationId}`;
-            clipboard.writeText(shareableLink);
-            var tipEl = el.closest("pulumi-tooltip");
-            var tipContentEl = tipEl.querySelector("[slot='content']");
-            tipContentEl.textContent = "Copied!";
-            setTimeout(() => tipContentEl.textContent = this.shareButtonTooltip, 1000);
+        if (this.shareMenuElement && !this.shareMenuElement.contains(el)) {
+            this.showShareMenu = false;
         }
     }
 
@@ -248,6 +252,28 @@ export class PulumiAI {
                 return "Example: Add a serverless REST API";
         }
         return "";
+    }
+
+    private get shareableLink() {
+        if (this.versions.length === 0) {
+            return `${this.siteUrl}/ai/`;
+        }
+
+        if (this.submissionCount === 0) {
+            return `${this.siteUrl}/ai/?convid=${this.existingConversationId}`;
+        }
+
+        return `${this.siteUrl}/ai/?convid=${this.conversationId}`;
+    }
+
+    private get twitterLink() {
+        let postText = "Checkout what I've generated with Pulumi AI!";
+        if (this.versions.length === 0) {
+            postText = "Pulumi AI can help you generate Infrastructure as Code specific to your use case. Give it a try!"
+        }
+
+        const tweet = `${postText} ${this.shareableLink}`;
+        return `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`;
     }
 
     componentWillLoad() {
@@ -340,6 +366,10 @@ export class PulumiAI {
         this.submit();
     }
 
+    private copyShareableLink() {
+        clipboard.writeText(this.shareableLink);
+    }
+
     private get runnable() {
         return this.connectionStatus === "Connected" && !this.running && this.input.value != "";
     }
@@ -355,7 +385,7 @@ export class PulumiAI {
     private copyButtonTooltip = "Copy to clipboard";
     private shareButtonTooltip = "Copy shareable link";
 
-    private addButtons(versionMarkup: string, shareable = false) {
+    private addButtons(versionMarkup: string) {
         const el = document.createElement("div");
         el.innerHTML = versionMarkup;
 
@@ -382,14 +412,6 @@ export class PulumiAI {
                         <span slot="content">${ this.copyButtonTooltip }</span>
                     </pulumi-tooltip>
                 </li>
-                ${ shareable ? `<li class="ml-2">
-                    <pulumi-tooltip>
-                        <button class="share">
-                            <i></i>
-                        </button>
-                        <span slot="content">${ this.shareButtonTooltip }</span>
-                    </pulumi-tooltip>
-                </li>` : "" }
             </ul>`;
 
             // Reparent the pre element under the code block.
@@ -410,7 +432,7 @@ export class PulumiAI {
 
     private onComplete() {
         const versionMarkup = marked.marked.parse(this.currentVersion.source.replace(" ⎸", ""));
-        const markupWithButtons = this.addButtons(versionMarkup, true);
+        const markupWithButtons = this.addButtons(versionMarkup);
 
         this.currentVersion.markup = markupWithButtons;
         this.versions.push(Object.assign({}, this.currentVersion));
@@ -598,6 +620,10 @@ export class PulumiAI {
         </ul>
     }
 
+    private toggleShareMenu() {
+        this.showShareMenu = !this.showShareMenu;
+    }
+
     private selectLanguage(language: SelectableLanguage) {
         this.selectedLanguage = language;
         this.focus();
@@ -633,6 +659,7 @@ export class PulumiAI {
         this.errorMessage = null;
         this.staticWelcomeMessage = this.welcomeContent;
         this.overMessageLimit = false;
+        this.submissionCount++;
 
         const query = this.input.value?.trim()
 
@@ -755,38 +782,60 @@ export class PulumiAI {
                                 </form>
                             </div>
                         </div>
-                        <div class="chat-status">
-                            <div>
-                                <span>{ this.connectionStatus }</span>
-                                {
-                                    this.connectionStatus === "Connected" && this.selectedModel && <span>
-                                        <span> &bull; </span>
-                                        <span class="models">
-                                            <span class="label">GPT</span>
-                                            {
-                                                this.supportedModels.map(model => <span>
-                                                    <a
-                                                        class={ model.key === this.selectedModel.key ? "active" : "" }
-                                                        onClick={ this.selectGPTModel.bind(this, model) }>
-                                                            <span>{ model.version }</span>
-                                                    </a>
-                                                </span>)
-                                            }
+                        <div class="chat-details">
+                            <div class="chat-status">
+                                <div>
+                                    <span>{ this.connectionStatus }</span>
+                                    {
+                                        this.connectionStatus === "Connected" && this.selectedModel && <span>
+                                            <span> &bull; </span>
+                                            <span class="models">
+                                                <span class="label">GPT</span>
+                                                {
+                                                    this.supportedModels.map(model => <span>
+                                                        <a
+                                                            class={ model.key === this.selectedModel.key ? "active" : "" }
+                                                            onClick={ this.selectGPTModel.bind(this, model) }>
+                                                                <span>{ model.version }</span>
+                                                        </a>
+                                                    </span>)
+                                                }
+                                            </span>
                                         </span>
-                                    </span>
-                                }
-                                {
-                                    this.connectionStatus === "Disconnected" && <span>
-                                        <span> &bull; </span>
-                                        <a class="alert" onClick={ () => location.reload() }>Reload</a>
-                                    </span>
-                                }
-                                {
-                                    this.errorMessage && <span>
-                                        <span> &bull; </span>
-                                        <span class="alert">Error: { this.errorMessage }</span>
-                                    </span>
-                                }
+                                    }
+                                    {
+                                        this.connectionStatus === "Disconnected" && <span>
+                                            <span> &bull; </span>
+                                            <a class="alert" onClick={ () => location.reload() }>Reload</a>
+                                        </span>
+                                    }
+                                    {
+                                        this.errorMessage && <span>
+                                            <span> &bull; </span>
+                                            <span class="alert">Error: { this.errorMessage }</span>
+                                        </span>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="chat-share">
+                                <div class="share-button">
+                                    { this.showShareMenu ? <ul class="share-button-options" ref={(el) => this.shareMenuElement = el}>
+                                        <div class="caret"></div>
+
+                                        <li onClick={() => this.copyShareableLink()}>
+                                            <span><i class="fas fa-link"></i>Copy Link</span>
+                                        </li>
+
+                                        <li>
+                                            <a href={this.twitterLink} target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i>Share on Twitter</a>
+                                        </li>
+                                    </ul> : undefined}
+
+                                    <div class="share-link" onClick={() => this.toggleShareMenu()}>
+                                        <span><i class="fas fa-share-square"></i> Share Conversation</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
