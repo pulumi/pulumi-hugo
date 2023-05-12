@@ -63,6 +63,18 @@ guides:
     url: guides/worker-nodes/
   - display_name: Accessing clusters
     url: guides/try-out-the-cluster/
+kubernetes_cluster_management:
+  heading: Cluster management
+  description: The following SDKs are available to work with IaaS resources, and managed or self-managed Kubernetes clusters. The packages are available in Node.js (Javascript and Typescript), Python, Go, .NET and Java.
+  links:
+    - display_name: AWS
+      link: https://github.com/pulumi/aws/
+    - display_name: Azure
+      link: https://github.com/pulumi/pulumi-azure-native/
+    - display_name: DigitalOcean
+      link: https://github.com/pulumi/pulumi-digitalocean/
+    - display_name: Google Cloud
+      link: https://github.com/pulumi/gcp/
 kubernetes_operator:
   heading: Pulumi Kubernetes Operator
   description_1: The Pulumi Kubernetes Operator is an extension pattern that enables Kubernetes users to create a Stack as a first-class API resource, and use the StackController to drive the updates of the Stack until success.
@@ -73,14 +85,3 @@ kubernetes_operator:
   - display_name: Get started guide
     url: /docs/guides/continuous-delivery/pulumi-kubernetes-operator/
 ---
-
-## Cluster management
-
-The following SDKs are available to work with IaaS resources, and managed or self-managed Kubernetes clusters.
-
-The packages are available in Node.js (Javascript and Typescript), Python, Go, .NET and Java.
-
-- AWS: [`pulumi/aws`](https://github.com/pulumi/aws/)
-- Azure: [`pulumi/azure-native`](https://github.com/pulumi/pulumi-azure-native/)
-- DigitalOcean: [`pulumi/digitalocean`](https://github.com/pulumi/pulumi-digitalocean/)
-- Google Cloud: [`pulumi/gcp`](https://github.com/pulumi/gcp/)

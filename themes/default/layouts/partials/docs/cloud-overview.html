@@ -187,7 +187,7 @@
                         <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
                     </div>
                     {{ if $tools }}
-                        <div class="row">
+                        <div class="row cols-2">
                             {{ range $converter := $tools }}
                                 <div class="col">
                                     <a href="{{ $converter.url }}">
@@ -251,9 +251,44 @@
         </a>
     {{ end }}
 
+    {{ $cluster_management := .Params.kubernetes_cluster_management }}
+    {{ if $cluster_management }}
+        <section class="card-outer">
+            <div class="card-heading card-heading-1">
+                <h2>{{ $cluster_management.heading }}</h2>
+            </div>
+            <p>{{ $cluster_management.description }}</p>
+            <div class="col">
+                {{ $links := $cluster_management.links }}
+                {{ range $index, $link := $links }}
+                    {{ if eq (mod $index 2) 0 }}
+                        <div class="row cols-2">
+                            {{ $item1 := index $links $index }}
+                            {{ $item2 := index $links (add $index 1) }}
+                            <a href="{{ $item1.link }}">
+                                <div class="card-inner">
+                                    <div>
+                                        <p>{{ $item1.display_name }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{{ $item2.link }}">
+                                <div class="card-inner">
+                                    <div>
+                                        <p>{{ $item2.display_name }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </section>
+    {{ end }}
+
     {{ $operator := .Params.kubernetes_operator }}
     {{ if $operator }}
-        <section class="guides card-outer">
+        <section class="card-outer">
             <div class="card-heading card-heading-1">
                 <h2>{{ $operator.heading }}</h2>
             </div>

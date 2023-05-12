@@ -76,14 +76,28 @@ section.cloud-overview {
 
     div.col {
         flex-direction: column;
-
-        div.cols-2 a {
-            max-width: 49.2%
-        }
     }
 
     div.row {
         flex-direction: row;
+    }
+
+    div.cols-2 {
+        flex-direction: row;
+        max-width: 100%;
+
+        @media (max-width: 680px) {
+            flex-direction: column;
+            max-width: 49.2%
+
+            a {
+                max-width: 49.2%
+            }
+        }
+    }
+
+    div.row a {
+        flex: 1;
     }
 
     div.heading {
@@ -137,10 +151,6 @@ section.cloud-overview {
             rgba(249, 247, 252, 1) 95%,
             rgba(246, 247, 253, 1) 100%
         );
-    }
-
-    div.row a {
-        flex: 1;
     }
 
     section.get-started {
