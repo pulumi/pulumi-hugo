@@ -88,19 +88,55 @@
         </div>
         <p>Components support all languages and group a set of resources together.</p>
         <div class="flex">
-            {{ range $component := .Params.components }}
-                <div class="flex-2-col">
-                    {{ $url := print "/registry/packages/" $component.url }}
-                    {{ if $component.link_outside_registry }}
-                        {{ $url =  $component.url }}
-                    {{ end }}
-                    <a href="{{ $url }}">
-                        <div class="card-inner">
-                            <div>
-                                <p>{{ $component.display_name }}</p>
+            {{ range $index, $component := .Params.components }}
+                {{ if le $index 3 }}
+                    <div class="flex-2-col">
+                        {{ $url := print "/registry/packages/" $component.url }}
+                        {{ if $component.link_outside_registry }}
+                            {{ $url =  $component.url }}
+                        {{ end }}
+                        <a href="{{ $url }}">
+                            <div class="card-inner">
+                                <div>
+                                    <p>{{ $component.display_name }}</p>
+                                </div>
                             </div>
+                        </a>
+                    </div>
+                {{ end }}
+            {{ end }}
+            {{ if ge (len .Params.components) 5 }}
+                <div id="accordion-components" class="accordion flex-1-col">
+                    <div>
+                        <input type="checkbox" id="accordion-checkbox-components" />
+                        <div class="accordion-content flex">
+                            {{ range $index, $component := .Params.components }}
+                                {{ if ge $index 4 }}
+                                    <div class="flex-2-col">
+                                        {{ $url := print "/registry/packages/" $component.url }}
+                                        {{ if $component.link_outside_registry }}
+                                            {{ $url =  $component.url }}
+                                        {{ end }}
+                                        <a href="{{ $url }}">
+                                            <div class="card-inner">
+                                                <div>
+                                                    <p>{{ $component.display_name }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {{ end }}
+                            {{ end }}
                         </div>
-                    </a>
+                        <label for="accordion-checkbox-components" class="show">
+                            Show {{ sub (len .Params.components) 4 }} more
+                            <div class="icon icon-16-16 keyboard-arrow-down-gray"></div>
+                        </label>
+                        <label for="accordion-checkbox-components" class="hide">
+                            Show {{ sub (len .Params.components) 4 }} less
+                            <div class="icon icon-16-16 keyboard-arrow-up-gray"></div>
+                        </label>
+                    </div>
                 </div>
             {{ end }}
         </div>
@@ -183,15 +219,47 @@
                 {{ $guides.description }}
             </p>
             <div class="col">
-                {{ range $guide := $guides.guides_list }}
-                    <div class="row">
-                        <a href="{{ $guide.url }}">
-                            <div class="card-inner">
-                                <div>
-                                    <p>{{ $guide.display_name }}</p>
+                {{ range $index, $guide := $guides.guides_list }}
+                    {{ if le $index 3 }}
+                        <div class="row">
+                            <a href="{{ $guide.url }}">
+                                <div class="card-inner">
+                                    <div>
+                                        <p>{{ $guide.display_name }}</p>
+                                    </div>
                                 </div>
+                            </a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+                {{ if ge (len $guides.guides_list ) 5 }}
+                    <div id="accordion-guides" class="accordion flex-1-col">
+                        <div>
+                            <input type="checkbox" id="accordion-checkbox-guides" />
+                            <div class="accordion-content flex">
+                                {{ range $index, $guide := $guides.guides_list }}
+                                    {{ if ge $index 4 }}
+                                        <div class="flex-1-col">
+                                            <a href="{{ $guide.url }}">
+                                                <div class="card-inner">
+                                                    <div>
+                                                        <p>{{ $guide.display_name }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {{ end }}
+                                {{ end }}
                             </div>
-                        </a>
+                            <label for="accordion-checkbox-guides" class="show">
+                                Show {{ sub (len $guides.guides_list) 4 }} more
+                                <div class="icon icon-16-16 keyboard-arrow-down-gray"></div>
+                            </label>
+                            <label for="accordion-checkbox-guides" class="hide">
+                                Show {{ sub (len $guides.guides_list) 4 }} less
+                                <div class="icon icon-16-16 keyboard-arrow-up-gray"></div>
+                            </label>
+                        </div>
                     </div>
                 {{ end }}
             </div>

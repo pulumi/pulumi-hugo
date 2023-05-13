@@ -91,6 +91,20 @@ guides:
     url: guides/cloudwatch/
   - display_name: Using AWS Elastic Container Registry (ECR)
     url: guides/ecr/
+  - display_name: Using AWS Elastic Container Service (ECS)
+    url: guides/ecs/
+  - display_name: Using Elastic Kubernetes Service (EKS)
+    url: guides/eks/
+  - display_name: Using Elastic Load Balancing (ELB)
+    url: guides/elb/
+  - display_name: Using AWS Identity & Access Management (IAM)
+    url: guides/iam/
+  - display_name: Using AWS Lambda & Serverless Events
+    url: guides/iam/
+  - display_name: Using AWS Virtual Private Cloud (VPC)
+    url: guides/vpc/
+  - display_name: AWS index of services
+    url: guides/aws-index-of-services/
 policy:
   url: awsguard/
   description: Use AWSGuard to configure and enforce best practices for your Pulumi stacks.

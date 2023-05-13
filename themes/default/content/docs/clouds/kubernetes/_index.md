@@ -69,6 +69,24 @@ guides:
     url: guides/worker-nodes/
   - display_name: Accessing clusters
     url: guides/try-out-the-cluster/
+  - display_name: Kubernetes cluster defaults
+    url: guides/configure-defaults/
+  - display_name: Kubernetes access control
+    url: guides/configure-access-control/
+  - display_name: Kubernetes cluster services
+    url: guides/cluster-services/
+  - display_name: Kubernetes App services
+    url: guides/app-services/
+  - display_name: Updating Kubernetes worker nodes
+    url: guides/update-worker-nodes/
+  - display_name: Kubernetes identity and access management (IAM)
+    url: guides/identity/
+  - display_name: Kubernetes Apps
+    url: guides/apps/
+  - display_name: Kubernetes infrastructure services
+    url: guides/managed-infra/
+  - display_name: Kubernetes FAQ
+    url: guides/faq/
 kubernetes_cluster_management:
   heading: Cluster management
   description: The following SDKs are available to work with IaaS resources, and managed or self-managed Kubernetes clusters. The packages are available in Node.js (Javascript and Typescript), Python, Go, .NET and Java.

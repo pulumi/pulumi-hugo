@@ -263,6 +263,10 @@ section.cloud-overview {
         flex-basis: calc(50% - 6px);
     }
 
+    .flex-1-col {
+        flex-basis: 100%;
+    }
+
     .provider-label {
         font-family: 'Inter' !important;
         font-weight: 400 !important;
@@ -279,6 +283,13 @@ section.cloud-overview {
     div.icon {
         display: block;
         text-indent: -9999px;
+    }
+
+    div.icon-16-16 {
+        width: 16px;
+        height: 16px;
+        background-size: 16px 16px;   
+        position: relative;
     }
 
     div.icon-18-18 {
@@ -326,6 +337,60 @@ section.cloud-overview {
         top: 3px;
         position: relative;
         margin-right: 2px;
+    }
+
+    .accordion {
+        overflow: hidden;
+
+        label {
+            padding-top: 12px;
+            border-radius: 4px;
+            display: flex;
+            font-family: 'Inter';
+            font-weight: 500;
+            font-size: 16px;
+            color: #5f6065;
+            cursor: pointer;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.icon {
+            margin-left: 8px;
+        }
+    
+        label:hover {
+            text-decoration: underline;
+        }
+    }
+
+    div#accordion-components {
+        div.accordion-content,
+        input,
+        label.hide,
+        input:checked ~ label.show  {
+            display: none;
+        }
+    
+        input:checked ~ div.accordion-content,
+        input:checked ~ label.hide {
+            display: flex;
+        }
+    }
+
+    div#accordion-guides {
+        div.accordion-content,
+        input,
+        label.hide,
+        input:checked ~ label.show  {
+            display: none;
+        }
+    
+        input:checked ~ div.accordion-content,
+        input:checked ~ label.hide {
+            display: flex;
+        }
     }
 
     div.badge-gray {
@@ -415,5 +480,13 @@ section.cloud-overview {
 
     div.kubernetes-35-35 {
         background: url(/images/docs/icons/clouds/kubernetes-35-35.svg);
+    }
+
+    div.keyboard-arrow-down-gray {
+        background: url(/images/docs/icons/keyboard-arrow-down-gray.svg);
+    }
+
+    div.keyboard-arrow-up-gray {
+        background: url(/images/docs/icons/keyboard-arrow-up-gray.svg);
     }
 }
