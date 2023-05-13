@@ -81,6 +81,29 @@
             </div>
         </div>
     </section>
+    <section class="templates card-outer card-gradient">
+        <div class="card-heading card-heading-1">
+            <h2>Templates</h2>
+            <div class="icon icon-24-24 icon-right-of-heading ruler-triangle-gray"></div>
+        </div>
+        <p>
+            Pulumi templates are the fastest way to deploy infrastructure. After deploying, you can easily modify the infrastructure by updating the code in your language of
+            choice.
+        </p>
+        <div class="flex">
+            {{ range $template := .Params.templates }}
+                <div class="flex-2-col">
+                    <a href="/templates/{{ $template.url }}">
+                        <div class="card-inner">
+                            <div>
+                                <p>{{ $template.display_name }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {{ end }}
+        </div>
+    </section>
     <section class="components card-outer card-gradient">
         <div class="card-heading card-heading-1">
             <h2>Components</h2>
@@ -138,29 +161,6 @@
                             <div class="icon icon-16-16 keyboard-arrow-up-gray"></div>
                         </label>
                     </div>
-                </div>
-            {{ end }}
-        </div>
-    </section>
-    <section class="templates card-outer card-gradient">
-        <div class="card-heading card-heading-1">
-            <h2>Templates</h2>
-            <div class="icon icon-24-24 icon-right-of-heading ruler-triangle-gray"></div>
-        </div>
-        <p>
-            Pulumi templates are the fastest way to deploy infrastructure. After deploying, you can easily modify the infrastructure by updating the code in your language of
-            choice.
-        </p>
-        <div class="flex">
-            {{ range $template := .Params.templates }}
-                <div class="flex-2-col">
-                    <a href="/templates/{{ $template.url }}">
-                        <div class="card-inner">
-                            <div>
-                                <p>{{ $template.display_name }}</p>
-                            </div>
-                        </div>
-                    </a>
                 </div>
             {{ end }}
         </div>
