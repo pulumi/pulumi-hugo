@@ -51,14 +51,17 @@ section.cloud-overview {
 
     div.card-heading-2 {
         flex-direction: row;
+        align-items: center;
 
         div.heading {
             display: flex;
             flex: 1;
+            align-items: center;
 
             h2 {
                 margin-top: 0;
-                margin-bottom: 8px;
+                margin-bottom: 0;
+                padding-bottom: 0;
             }
         }
     }
@@ -208,6 +211,7 @@ section.cloud-overview {
         border: 1px solid #e5e5e9;
         border-radius: 4px;
         padding: 24px;
+        flex-basis: 50%;
     
         div.heading p {
             font-family: 'Gilroy';
@@ -293,7 +297,7 @@ section.cloud-overview {
 
     div.icon-left-of-heading {
         position: relative;
-        top: 4px;
+        top: -1px;
         margin-right: 12px;
     }
 
@@ -313,8 +317,12 @@ section.cloud-overview {
         background: url(/images/docs/icons/badge-gray.svg);
     }
 
-    div.recycle-gray {
-        background: url(/images/docs/icons/recycle-gray.svg);
+    div.recycle-gray-21-21 {
+        background: url(/images/docs/icons/recycle-gray-21-21.svg);
+    }
+
+    div.recycle-gray-24-24 {
+        background: url(/images/docs/icons/recycle-gray-24-24.svg);
     }
 
     div.question-medium-gray {
