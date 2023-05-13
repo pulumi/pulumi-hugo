@@ -61,31 +61,18 @@
                                 {{ end }}
                             </div>
                         {{ else }}
-                            <div class="col">
-                                {{ $content_links := $provider.content_links }}
-                                {{ range $index, $content_link := $content_links }}
-                                    {{ if eq (mod $index 2) 0 }}
-                                        <div class="row cols-2">
-                                            {{ $item1 := index $content_links $index }}
-                                            {{ $item2 := index $content_links (add $index 1) }}
-                                            <a href="/registry/packages/{{ $item1.url }}">
-                                                <div class="card content-link">
-                                                    <div class="heading">
-                                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item1.icon }}"></div>
-                                                        <p class="content-name">{{ $item1.display_name }}</p>
-                                                    </div>
+                            <div class="flex">
+                                {{ range $content_link := $provider.content_links }}
+                                    <div class="flex-2-col">
+                                        <a href="/registry/packages/{{ $content_link.url }}">
+                                            <div class="card content-link">
+                                                <div class="heading">
+                                                    <div class="icon icon-18-18 icon-left-of-card-label {{ $content_link.icon }}"></div>
+                                                    <p class="content-name">{{ $content_link.display_name }}</p>
                                                 </div>
-                                            </a>
-                                            <a href="/registry/packages/{{ $item2.url }}">
-                                                <div class="card content-link">
-                                                    <div class="heading">
-                                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item2.icon }}"></div>
-                                                        <p class="content-name">{{ $item2.display_name }}</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    {{ end }}
+                                            </div>
+                                        </a>
+                                    </div>
                                 {{ end }}
                             </div>
                         {{ end }}
@@ -100,39 +87,21 @@
             <div class="icon icon-24-24 icon-right-of-heading puzzle-piece-gray"></div>
         </div>
         <p>Components support all languages and group a set of resources together.</p>
-        <div class="col">
-            {{ $components := .Params.components }}
-            {{ range $index, $component := $components }}
-                {{ if eq (mod $index 2) 0 }}
-                    <div class="row cols-2">
-                        {{ $item1 := index $components $index }}
-                        {{ $item2 := index $components (add $index 1) }}
-                        {{ $item1_url := print "/registry/packages/" $item1.url }}
-                        {{ $item2_url := print "/registry/packages/" $item2.url }}
-                        {{ if $item1.link_outside_registry }}
-                            {{ $item1_url =  $item1.url }}
-                        {{ end }}
-                        {{ if $item2.link_outside_registry }}
-                            {{ $item2_url =  $item1.url }}
-                        {{ end }}
-                        <a href="{{ $item1_url }}">
-                            <div class="card-inner">
-                                <div>
-                                    <p>{{ $item1.display_name }}</p>
-                                </div>
+        <div class="flex">
+            {{ range $component := .Params.components }}
+                <div class="flex-2-col">
+                    {{ $url := print "/registry/packages/" $component.url }}
+                    {{ if $component.link_outside_registry }}
+                        {{ $url =  $component.url }}
+                    {{ end }}
+                    <a href="{{ $url }}">
+                        <div class="card-inner">
+                            <div>
+                                <p>{{ $component.display_name }}</p>
                             </div>
-                        </a>
-                        {{ if $item2 }}
-                            <a href="{{ $item2_url }}">
-                                <div class="card-inner">
-                                    <div>
-                                        <p>{{ $item2.display_name }}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        {{ end }}
-                    </div>
-                {{ end }}
+                        </div>
+                    </a>
+                </div>
             {{ end }}
         </div>
     </section>
@@ -145,29 +114,17 @@
             Pulumi templates are the fastest way to deploy infrastructure. After deploying, you can easily modify the infrastructure by updating the code in your language of
             choice.
         </p>
-        <div class="col">
-            {{ $templates := .Params.templates }}
-            {{ range $index, $template := $templates }}
-                {{ if eq (mod $index 2) 0 }}
-                    <div class="row cols-2">
-                        {{ $item1 := index $templates $index }}
-                        {{ $item2 := index $templates (add $index 1) }}
-                        <a href="/templates/{{ $item1.url }}">
-                            <div class="card-inner">
-                                <div>
-                                    <p>{{ $item1.display_name }}</p>
-                                </div>
+        <div class="flex">
+            {{ range $template := .Params.templates }}
+                <div class="flex-2-col">
+                    <a href="/templates/{{ $template.url }}">
+                        <div class="card-inner">
+                            <div>
+                                <p>{{ $template.display_name }}</p>
                             </div>
-                        </a>
-                        <a href="/templates/{{ $item2.url }}">
-                            <div class="card-inner">
-                                <div>
-                                    <p>{{ $item2.display_name }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                {{ end }}
+                        </div>
+                    </a>
+                </div>
             {{ end }}
         </div>
     </section>
@@ -197,28 +154,17 @@
                         <div class="icon icon-24-24 icon-right-of-heading recycle-gray-24-24"></div>
                     </div>
                     <p>{{ $convert.description }}</p>
-                    <div class="col">
-                        {{ range $index, $converter := $tools }}
-                            {{ if eq (mod $index 2) 0 }}
-                                <div class="row cols-2">
-                                    {{ $item1 := index $tools $index }}
-                                    {{ $item2 := index $tools (add $index 1) }}
-                                    <a href="{{ $item1.url }}">
-                                        <div class="card-inner">
-                                            <div>
-                                                <p>{{ $item1.display_name }}</p>
-                                            </div>
+                    <div class="flex">
+                        {{ range $converter := $tools }}
+                            <div class="flex-2-col">
+                                <a href="{{ $converter.url }}">
+                                    <div class="card-inner">
+                                        <div>
+                                            <p>{{ $converter.display_name }}</p>
                                         </div>
-                                    </a>
-                                    <a href="{{ $item2.url }}">
-                                        <div class="card-inner">
-                                            <div>
-                                                <p>{{ $item2.display_name }}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            {{ end }}
+                                    </div>
+                                </a>
+                            </div>
                         {{ end }}
                     </div>
                 </section>
@@ -236,7 +182,6 @@
             <p>
                 {{ $guides.description }}
             </p>
-
             <div class="col">
                 {{ range $guide := $guides.guides_list }}
                     <div class="row">
@@ -255,7 +200,7 @@
 
     {{ $policy := .Params.policy }}
     {{ if $policy }}
-        <a class="test" href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
+        <a href="/docs/using-pulumi/crossguard/{{ $policy.url }}">
             <section class="policies card-outer card-outer-hover">
                 <div class="card-heading card-heading-2">
                     <div class="heading">
@@ -278,31 +223,18 @@
                 <h2>{{ $cluster_management.heading }}</h2>
             </div>
             <p>{{ $cluster_management.description }}</p>
-            <div class="col">
-                {{ $links := $cluster_management.links }}
-                {{ range $index, $link := $links }}
-                    {{ if eq (mod $index 2) 0 }}
-                        <div class="row cols-2">
-                            {{ $item1 := index $links $index }}
-                            {{ $item2 := index $links (add $index 1) }}
-                            <a href="{{ $item1.link }}">
-                                <div class="card-inner">
-                                    <div class="card-inner-content-1">
-                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item1.icon }}-18-18"></div>
-                                        <p>{{ $item1.display_name }}</p>
-                                    </div>
+            <div class="flex">
+                {{ range $link := $cluster_management.links }}
+                    <div class="flex-2-col">
+                        <a href="{{ $link.url }}">
+                            <div class="card-inner">
+                                <div class="card-inner-content-1">
+                                    <div class="icon icon-18-18 icon-left-of-card-label {{ $link.icon }}-18-18"></div>
+                                    <p>{{ $link.display_name }}</p>
                                 </div>
-                            </a>
-                            <a href="{{ $item2.link }}">
-                                <div class="card-inner">
-                                    <div class="card-inner-content-1">
-                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item2.icon }}-18-18"></div>
-                                        <p>{{ $item2.display_name }}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    {{ end }}
+                            </div>
+                        </a>
+                    </div>
                 {{ end }}
             </div>
         </section>

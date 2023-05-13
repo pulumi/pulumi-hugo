@@ -57,6 +57,16 @@ components:
   url: aws-iam/
 - display_name: AWS static website
   url: aws-static-website/
+- display_name: AWS QuickStart Aurora Postgres
+  url: aws-quickstart-aurora-postgres/
+- display_name: AWS QuickStart Redshift
+  url: aws-quickstart-redshift/
+- display_name: AWS QuickStart VPC
+  url: aws-quickstart-vpc/
+- display_name: AWS S3 Replicated Bucket
+  url: aws-s3-replicated-bucket/
+- display_name: Metabase (AWS)
+  url: metabase/
 convert:
 - heading: Convert CloudFormation to Pulumi
   url: /cf2pulumi/

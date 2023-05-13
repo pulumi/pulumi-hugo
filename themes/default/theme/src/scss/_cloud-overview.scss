@@ -248,6 +248,21 @@ section.cloud-overview {
         }
     }
 
+    .flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        @media (max-width: 680px) {
+            flex-direction: column;
+        }
+    }
+
+    .flex-2-col {
+        flex-basis: calc(50% - 6px);
+    }
+
     .provider-label {
         font-family: 'Inter' !important;
         font-weight: 400 !important;
