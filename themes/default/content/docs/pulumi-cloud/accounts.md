@@ -74,7 +74,7 @@ For users who signed up with email, you may change your password by:
 
 Use access tokens to sign into the Pulumi Cloud via the CLI. On this page there is a list of all your personal access tokens, including a description and last used information for each token.
 
-When you run [`pulumi login`](/docs/cli/pulumi_login) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Cloud and lets you interact with the Pulumi Cloud and manage your stacks.
+When you run [`pulumi login`](/docs/cli/commands/pulumi_login) from the command line, you will be prompted for an access token. Once obtained, the access token logs you into the Pulumi Cloud and lets you interact with the Pulumi Cloud and manage your stacks.
 
 These access tokens have the same permission as your user. If  you instead would like to scope the token to an organization, use [Organization Access Tokens](/docs/pulumi-cloud/access-management/organization-access-tokens/).
 

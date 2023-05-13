@@ -55,7 +55,7 @@ Resources:
 Duration: 1s
 ```
 
-To delete the stack itself, run [`pulumi stack rm`](/docs/cli/pulumi_stack_rm). Note that this removes the stack
+To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_stack_rm). Note that this removes the stack
 entirely from the Pulumi Cloud, along with all of its update history.
 
 Next, we'll look at some next steps.

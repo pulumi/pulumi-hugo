@@ -565,14 +565,14 @@ $ pulumi stack init my-stack \
 
 ### Changing the Secrets Provider for a Stack
 
-To change the secrets provider for an existing stack use the [`pulumi stack change-secrets-provider`](/docs/cli/pulumi_stack_change-secrets-provider) command.
+To change the secrets provider for an existing stack use the [`pulumi stack change-secrets-provider`](/docs/cli/commands/pulumi_stack_change-secrets-provider) command.
 
 ```bash
 $ pulumi stack change-secrets-provider "<secrets-provider>"
 ```
 
 This will change the encrypted secrets in the provider configuration and the stack's state file to use the new secrets provider.
-The [supported secrets providers](/docs/cli/pulumi_stack_init/) are:
+The [supported secrets providers](/docs/cli/commands/pulumi_stack_init/) are:
 
 - `default`
 - `passphrase`

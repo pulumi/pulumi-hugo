@@ -34,7 +34,7 @@ Optionally, if you want to build some of the examples yourself to experiment, yo
 
 - A [Pulumi account and token](/docs/pulumi-cloud/accounts#access-tokens)
     - If you don't have an account, go to the [signup page](https://app.pulumi.com/signup).
-- The [Pulumi CLI](/docs/cli/)
+- The [Pulumi CLI](/docs/cli/commands/)
     - If you don't have the CLI, go to the [installation page](/docs/install/).
 - An AWS account (the free version should be fine)
 - Familiarity with either the TypeScript or Python programming language

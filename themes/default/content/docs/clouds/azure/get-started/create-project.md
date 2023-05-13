@@ -70,7 +70,7 @@ $ pulumi new azure-yaml
 
 {{% /choosable %}}
 
-The [`pulumi new`](/docs/cli/pulumi_new) command creates a new Pulumi project with some basic scaffolding based on the cloud and language specified.
+The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with some basic scaffolding based on the cloud and language specified.
 
 {{< cli-note >}}
 

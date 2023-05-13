@@ -51,13 +51,13 @@ Pulumi also lets you manage state yourself using a self-managed backend. Your st
 
 ## Logging into and out of State Backends
 
-The [`login` command](/docs/cli/pulumi_login) logs you into a backend:
+The [`login` command](/docs/cli/commands/pulumi_login) logs you into a backend:
 
 ```sh
 $ pulumi login
 ```
 
-The [`logout` command](/docs/cli/pulumi_logout) logs you out of the current backend.
+The [`logout` command](/docs/cli/commands/pulumi_logout) logs you out of the current backend.
 
 ```sh
 $ pulumi logout
@@ -91,7 +91,7 @@ If you forget to log in, you will be automatically prompted to do so before you 
 
 After logging in, your credentials are recorded in the `~/.pulumi/credentials.json` file, and all subsequent operations will use the chosen backend. From time to time, you will see a helpful URL to your update or stack pages. For example, after an update completes, you will see a link to that update's details. You can always go there to see a full history of updates.
 
-If you ever want to check what user is logged in, use the [`whoami` command](/docs/cli/pulumi_whoami). To additionally see what  backend is currently being used, pass the `--verbose` (or `-v`) flag:
+If you ever want to check what user is logged in, use the [`whoami` command](/docs/cli/commands/pulumi_whoami). To additionally see what  backend is currently being used, pass the `--verbose` (or `-v`) flag:
 
 ```bash
 $ pulumi whoami -v
@@ -259,7 +259,7 @@ Existing self-managed backends will continue to use the global namespace for sta
 
 It is possible to start with one backend and then later migrate to another. This is common if you have began your project with Pulumi using a self-managed backend but later decided to adopt the Pulumi Cloud for easier use within your team. This section describes how to perform this operation, however, if you would like our assistance with a migration, [please get in touch](/contact/).
 
-The state for a stack includes information about its backend as well as other unique information such as its encryption provider. As such, moving a stack between backends isn't as simple as merely copying its state file. The [`pulumi stack rename` command](/docs/cli/pulumi_stack_rename) can be used for simple renames within the same backend; however, Pulumi also supports migrating stacks between backends using the `pulumi stack export` and `pulumi stack import` commands, which understand how to perform the necessary translations.
+The state for a stack includes information about its backend as well as other unique information such as its encryption provider. As such, moving a stack between backends isn't as simple as merely copying its state file. The [`pulumi stack rename` command](/docs/cli/commands/pulumi_stack_rename) can be used for simple renames within the same backend; however, Pulumi also supports migrating stacks between backends using the `pulumi stack export` and `pulumi stack import` commands, which understand how to perform the necessary translations.
 
 As an example, imagine you'd like to migrate a stack named `my-app-production` from a self-managed backend to the Pulumi Cloud backend. To perform the migration, run the following sequence commands:
 
@@ -316,10 +316,10 @@ To learn more about available encryption providers and how to customize your sta
 
 ### Exporting and Importing State
 
-The `pulumi stack export` and `pulumi stack import` commands can be used to export the latest or a specific version of a stack's state. This can be used to inspect or even manually edit the contents for advanced use cases. For more information on usage, [refer to the CLI documentation](/docs/cli/pulumi_stack/).
+The `pulumi stack export` and `pulumi stack import` commands can be used to export the latest or a specific version of a stack's state. This can be used to inspect or even manually edit the contents for advanced use cases. For more information on usage, [refer to the CLI documentation](/docs/cli/commands/pulumi_stack/).
 
 ### Editing State Manually
 
 Although Pulumi was designed to shield you from manually needing to manage state, there are some circumstances where you will want or need to. This includes certain catastrophic failure scenarios, adding, deleting, renaming resources, and other advanced scenarios.
 
-The Pulumi state file uses a relatively easy to understand JSON format. The precise JSON format these state files use is not documented, but is defined in the [APIType source code](https://github.com/pulumi/pulumi/tree/master/sdk/go/common/apitype/). The [`state` command](/docs/cli/pulumi_state) also includes some helpful commands to edit your state.
+The Pulumi state file uses a relatively easy to understand JSON format. The precise JSON format these state files use is not documented, but is defined in the [APIType source code](https://github.com/pulumi/pulumi/tree/master/sdk/go/common/apitype/). The [`state` command](/docs/cli/commands/pulumi_state) also includes some helpful commands to edit your state.
