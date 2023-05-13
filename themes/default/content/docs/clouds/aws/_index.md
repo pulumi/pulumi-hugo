@@ -14,38 +14,40 @@ cloud_overview: true
 description: Build infrastructure on AWS using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all AWS services and stays up-to-date with all AWS features.
 get_started_guide:
   link: get-started/
-  icon: aws-35-35
+  icon: aws
 providers:
-- display_name: AWS Classic
-  recommended: true
-  content_links:
-  - display_name: Overview
-    icon: page-small-black
-    url: aws/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: aws/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: aws/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: aws/how-to-guides/
-- display_name: AWS Native
-  public_preview: true
-  content_links:
-  - display_name: Overview
-    icon: page-small-black
-    url: aws-native/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: aws-native/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: aws-native/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: aws-native/how-to-guides/
+  description: The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to AWS resources.
+  provider_list:
+  - display_name: AWS Classic
+    recommended: true
+    content_links:
+    - display_name: Overview
+      icon: page-small-black
+      url: aws/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: aws/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: aws/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: aws/how-to-guides/
+  - display_name: AWS Native
+    public_preview: true
+    content_links:
+    - display_name: Overview
+      icon: page-small-black
+      url: aws-native/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: aws-native/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: aws-native/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: aws-native/how-to-guides/
 components:
 - display_name: AWSx
   url: awsx/

@@ -14,38 +14,41 @@ cloud_overview: true
 description: Build infrastructure on Google Cloud using TypeScript, Python, Go, C#, Java or YAML. Pulumi supports all Google Cloud APIs and stays up-to-date with all Google Cloud features.
 get_started_guide:
   link: get-started/
-  icon:
+  icon: google-cloud
 providers:
-- display_name: Google Cloud Classic
-  recommended: true
-  content_links:
-  - display_name: Overview
-    icon: page-small-black
-    url: gcp/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: gcp/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: gcp/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: gcp/how-to-guides/
-- display_name: Google Cloud Native
-  public_preview: true
-  content_links:
-  - display_name: Overview
-    icon: page-small-black
-    url: google-native/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: google-native/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: google-native/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: google-native/how-to-guides/
+  description: The Google Cloud Classic provider can provision many Google Cloud resources. Use the Google Cloud Native provider for same-day access to Google Cloud resources.
+  provider_list:
+  - display_name: Google Cloud Classic
+    description: The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.
+    recommended: true
+    content_links:
+    - display_name: Overview
+      icon: page-small-black
+      url: gcp/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: gcp/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: gcp/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: gcp/how-to-guides/
+  - display_name: Google Cloud Native
+    public_preview: true
+    content_links:
+    - display_name: Overview
+      icon: page-small-black
+      url: google-native/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: google-native/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: google-native/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: google-native/how-to-guides/
 components:
 - display_name: Google Cloud Global CloudRun
   url: gcp-global-cloudrun/

@@ -14,22 +14,24 @@ cloud_overview: true
 description: Streamline Kubernetes cluster configuration, management, and application workload deployments using TypeScript, Python, Go, C#, Java or YAML. Use the Pulumi Kubernetes Operator to manage both Kubernetes and cloud resources.
 get_started_guide:
   link: get-started/
-  icon:
+  icon: kubernetes
 providers:
-- display_name: Kubernetes
-  content_links:
-  - display_name: Overview
-    icon: page-small-black
-    url: kubernetes/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: kubernetes/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: kubernetes/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: kubernetes/how-to-guides/
+  description: The Kubernetes provider can provision any resources available in the Kubernetes API. 
+  provider_list:
+  - display_name: Kubernetes
+    content_links:
+    - display_name: Overview
+      icon: page-small-black
+      url: kubernetes/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: kubernetes/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: kubernetes/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: kubernetes/how-to-guides/
 components:
 - display_name: Kubernetes Cert Manager
   url: kubernetes-cert-manager/
@@ -40,7 +42,7 @@ components:
   link_outside_registry: true
 convert:
 - heading: Convert Kubernetes YAML to Pulumi
-  description: Convert or generate Kubernetes YAML manifests in the language of your choice with Pulumi's tools
+  description: Convert or generate Kubernetes YAML manifests in the language of your choice with Pulumi's tools.
   tools:
   - display_name: Convert Kubernetes YAML manifests to Pulumi
     url: /kube2pulumi/
@@ -73,16 +75,16 @@ kubernetes_cluster_management:
   links:
     - display_name: AWS
       link: https://github.com/pulumi/aws/
-      icon: aws-small
+      icon: aws
     - display_name: Azure
       link: https://github.com/pulumi/pulumi-azure-native/
-      icon: azure-small
+      icon: azure
     - display_name: DigitalOcean
       link: https://github.com/pulumi/pulumi-digitalocean/
-      icon: digitalocean-small
+      icon: digitalocean
     - display_name: Google Cloud
       link: https://github.com/pulumi/gcp/
-      icon: google-cloud-small
+      icon: google-cloud
 kubernetes_operator:
   heading: Pulumi Kubernetes Operator
   description_1: The Pulumi Kubernetes Operator is an extension pattern that enables Kubernetes users to create a Stack as a first-class API resource, and use the StackController to drive the updates of the Stack until success.

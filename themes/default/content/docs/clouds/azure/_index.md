@@ -14,37 +14,39 @@ cloud_overview: true
 description: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
 get_started_guide:
   link: get-started/
-  icon:
+  icon: azure
 providers:
-- display_name: Azure Native
-  recommended: true
-  content_links: 
-  - display_name: Overview
-    icon: page-small-black
-    url: azure-native/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: azure-native/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: azure-native/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: azure-native/how-to-guides/
-- display_name: Azure Classic
-  content_links:
-  - display_name: Overview
-    icon: page-small-black
-    url: azure/
-  - display_name: Install & config
-    icon: gear-small-black
-    url: azure/installation-configuration/
-  - display_name: API docs
-    icon: book-small-black
-    url: azure/api-docs/
-  - display_name: How-to guides
-    icon: question-small-black
-    url: azure/how-to-guides/
+  description: We recommend using the Azure Native provider to provision Azure infrastructure. Azure Classic has fewer resources and resource options and receives new features more slowly.
+  provider_list:
+  - display_name: Azure Native
+    recommended: true
+    content_links: 
+    - display_name: Overview
+      icon: page-small-black
+      url: azure-native/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: azure-native/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: azure-native/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: azure-native/how-to-guides/
+  - display_name: Azure Classic
+    content_links:
+    - display_name: Overview
+      icon: page-small-black
+      url: azure/
+    - display_name: Install & config
+      icon: gear-small-black
+      url: azure/installation-configuration/
+    - display_name: API docs
+      icon: book-small-black
+      url: azure/api-docs/
+    - display_name: How-to guides
+      icon: question-small-black
+      url: azure/how-to-guides/
 components:
 - display_name: Azure Active Directory (Azure AD)
   url: azuread/

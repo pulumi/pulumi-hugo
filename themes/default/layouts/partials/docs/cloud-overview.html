@@ -8,7 +8,7 @@
             <a href="{{ $get_started_guide.link }}">
                 <div class="card special">
                     <div class="heading">
-                        <div class="icon icon-35-35 icon-get-started {{ $get_started_guide.icon }}"></div>
+                        <div class="icon icon-35-35 icon-get-started {{ $get_started_guide.icon }}-35-35"></div>
                         <p>Get started</p>
                     </div>
                     <div class="icon icon-24-24 icon-get-started-arrow right-arrow-gray"></div>
@@ -20,11 +20,15 @@
     <section class="providers">
         <div class="col">
             <h2>Providers</h2>
-            <p>The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.</p>
+            <p>{{ .Params.providers.description }}</p>
             <div class="row cols-2">
-                {{ $num_of_providers := .Params.providers }}
-                {{ range $provider := $num_of_providers }}
-                    <div class="card provider-card col card-gradient">
+                {{ $num_of_providers := .Params.providers.provider_list }}
+                {{ range $index, $provider := $num_of_providers }}
+                    {{ $card_background := "" }}
+                    {{ if eq $index 0 }}
+                        {{ $card_background = "card-gradient" }}
+                    {{ end }}
+                    <div class="card provider-card col {{ $card_background }}">
                         <div class="heading provider-heading">
                             {{ $display_name := $provider.display_name }}
                             {{ $first_half_name := $provider.display_name }}
@@ -49,7 +53,7 @@
                                     <a href="/registry/packages/{{ $content_link.url }}">
                                         <div class="card content-link">
                                             <div class="heading">
-                                                <div class="icon icon-18-18 icon-left-of-heading {{ $content_link.icon }}"></div>
+                                                <div class="icon icon-18-18 icon-left-of-card-label {{ $content_link.icon }}"></div>
                                                 <p class="content-name">{{ $content_link.display_name }}</p>
                                             </div>
                                         </div>
@@ -67,7 +71,7 @@
                                             <a href="/registry/packages/{{ $item1.url }}">
                                                 <div class="card content-link">
                                                     <div class="heading">
-                                                        <div class="icon icon-18-18 icon-left-of-heading {{ $item1.icon }}"></div>
+                                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item1.icon }}"></div>
                                                         <p class="content-name">{{ $item1.display_name }}</p>
                                                     </div>
                                                 </div>
@@ -75,7 +79,7 @@
                                             <a href="/registry/packages/{{ $item2.url }}">
                                                 <div class="card content-link">
                                                     <div class="heading">
-                                                        <div class="icon icon-18-18 icon-left-of-heading {{ $item2.icon }}"></div>
+                                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item2.icon }}"></div>
                                                         <p class="content-name">{{ $item2.display_name }}</p>
                                                     </div>
                                                 </div>
@@ -187,29 +191,36 @@
                     </section>
                 </a>
             {{ else }}
-                <section class="convert card-outer">
-                    <div class="card-heading card-heading-2">
-                        <div class="heading">
-                            <div class="icon icon-21-21 icon-left-of-heading recycle-gray"></div>
-                            <h2>{{ $convert.heading }}</h2>
-                        </div>
-                        <div class="icon icon-24-24 icon-right-of-heading right-arrow-gray"></div>
+                <section class="converters card-outer">
+                    <div class="card-heading card-heading-1">
+                        <h2>{{ $convert.heading }}</h2>
+                        <div class="icon icon-24-24 icon-right-of-heading recycle-gray"></div>
                     </div>
-                    {{ if $tools }}
-                        <div class="row cols-2">
-                            {{ range $converter := $tools }}
-                                <div class="col">
-                                    <a href="{{ $converter.url }}">
+                    <p>{{ $convert.description }}</p>
+                    <div class="col">
+                        {{ range $index, $converter := $tools }}
+                            {{ if eq (mod $index 2) 0 }}
+                                <div class="row cols-2">
+                                    {{ $item1 := index $tools $index }}
+                                    {{ $item2 := index $tools (add $index 1) }}
+                                    <a href="{{ $item1.url }}">
                                         <div class="card-inner">
                                             <div>
-                                                <p>{{ $converter.display_name }}</p>
+                                                <p>{{ $item1.display_name }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="{{ $item2.url }}">
+                                        <div class="card-inner">
+                                            <div>
+                                                <p>{{ $item2.display_name }}</p>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             {{ end }}
-                        </div>
-                    {{ end }}
+                        {{ end }}
+                    </div>
                 </section>
             {{ end }}
         {{ end }}
@@ -277,7 +288,7 @@
                             <a href="{{ $item1.link }}">
                                 <div class="card-inner">
                                     <div class="card-inner-content-1">
-                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item1.icon }}"></div>
+                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item1.icon }}-18-18"></div>
                                         <p>{{ $item1.display_name }}</p>
                                     </div>
                                 </div>
@@ -285,7 +296,7 @@
                             <a href="{{ $item2.link }}">
                                 <div class="card-inner">
                                     <div class="card-inner-content-1">
-                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item2.icon }}"></div>
+                                        <div class="icon icon-18-18 icon-left-of-card-label {{ $item2.icon }}-18-18"></div>
                                         <p>{{ $item2.display_name }}</p>
                                     </div>
                                 </div>

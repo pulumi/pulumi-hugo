@@ -8,6 +8,7 @@ section.cloud-overview {
         flex-direction: row;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     h1 {
@@ -16,7 +17,7 @@ section.cloud-overview {
         font-size: 30px;
         background-position: 0 24px;
         background-repeat: no-repeat;
-
+        margin-bottom: 0;
     }
 
     h2 {
@@ -96,6 +97,7 @@ section.cloud-overview {
 
     div.heading {
         display:flex;
+        align-items: center;
     }
 
 
@@ -123,6 +125,7 @@ section.cloud-overview {
         div.card-inner-content-1 {
             display: flex;
             flex-direction: row;
+            align-items: center;
         }
     }
 
@@ -140,7 +143,7 @@ section.cloud-overview {
         }
     }
 
-    section.card-gradient {
+   .card-gradient {
         background: rgb(246, 247, 253);
         background: linear-gradient(
             135deg,
@@ -162,7 +165,6 @@ section.cloud-overview {
     section.get-started {
         display: flex;
         justify-content: center;
-        margin-top: 16px;
 
         div.card {
             min-width: 400px;
@@ -206,22 +208,6 @@ section.cloud-overview {
         border: 1px solid #e5e5e9;
         border-radius: 4px;
         padding: 24px;
-        background: rgb(246, 247, 253);
-        background: linear-gradient(
-            135deg,
-            rgba(246, 247, 253, 1) 0%,
-            rgba(249, 247, 252, 1) 5%,
-            rgba(249, 245, 250, 1) 10%,
-            rgba(254, 248, 249, 1) 15%,
-            rgba(255, 253, 247, 1) 20%,
-            rgba(255, 255, 255, 1) 25%,
-            rgba(255, 255, 255, 1) 75%,
-            rgba(254, 248, 249, 1) 80%,
-            rgba(254, 248, 249, 1) 85%,
-            rgba(249, 245, 250, 1) 90%,
-            rgba(249, 247, 252, 1) 95%,
-            rgba(246, 247, 253, 1) 100%
-        );
     
         div.heading p {
             font-family: 'Gilroy';
@@ -263,6 +249,7 @@ section.cloud-overview {
         font-weight: 400 !important;
         font-size: 14px !important;
         color: #5F6065 !important;
+        text-align: right;
     }
 
     .provider-heading {
@@ -280,7 +267,6 @@ section.cloud-overview {
         height: 18px;
         background-size: 18px 18px;   
         position: relative;
-        top: 8px !important;  
     }
 
     div.icon-21-21 {
@@ -305,12 +291,6 @@ section.cloud-overview {
         margin-right: 16px;
     }
 
-    div.icon-get-started-arrow {
-        top: 4px;
-        position: relative;
-        margin-right: 2px;
-    }
-
     div.icon-left-of-heading {
         position: relative;
         top: 4px;
@@ -319,7 +299,7 @@ section.cloud-overview {
 
     div.icon-left-of-card-label {
         position: relative;
-        top: 3px !important;
+        top: -1px;
         margin-right: 8px;
     }
 
@@ -382,23 +362,35 @@ section.cloud-overview {
         background: url(/images/docs/icons/light-bulb-small-gray.svg);
     }
 
-    div.aws-small {
-        background: url(/images/docs/icons/aws-small.svg);
+    div.aws-18-18 {
+        background: url(/images/docs/icons/clouds/aws-18-18.svg);
     }
 
-    div.azure-small {
-        background: url(/images/docs/icons/azure-small.svg);
+    div.azure-18-18 {
+        background: url(/images/docs/icons/clouds/azure-18-18.svg);
     }
 
-    div.google-cloud-small {
-        background: url(/images/docs/icons/google-cloud-small.svg);
+    div.google-cloud-18-18 {
+        background: url(/images/docs/icons/clouds/google-cloud-18-18.svg);
     }
 
-    div.digitalocean-small {
-        background: url(/images/docs/icons/digitalocean-small.svg);
+    div.digitalocean-18-18 {
+        background: url(/images/docs/icons/clouds/digitalocean-18-18.svg);
     }
 
     div.aws-35-35 {
-        background: url(/images/docs/icons/aws-35-35.svg);
+        background: url(/images/docs/icons/clouds/aws-35-35.svg);
+    }
+
+    div.azure-35-35 {
+        background: url(/images/docs/icons/clouds/azure-35-35.svg);
+    }
+
+    div.google-cloud-35-35 {
+        background: url(/images/docs/icons/clouds/google-cloud-35-35.svg);
+    }
+
+    div.kubernetes-35-35 {
+        background: url(/images/docs/icons/clouds/kubernetes-35-35.svg);
     }
 }
