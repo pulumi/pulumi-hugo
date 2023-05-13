@@ -35,10 +35,13 @@ providers:
 components:
 - display_name: Kubernetes Cert Manager
   url: kubernetes-cert-manager/
+  description:
 - display_name: Kubernetes CoreDNS
   url: kubernetes-coredns/
+  description:
 - display_name: Pulumi Kubernetes Extensions
   url: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
+  description:
   link_outside_registry: true
 convert:
 - heading: Convert Kubernetes YAML to Pulumi

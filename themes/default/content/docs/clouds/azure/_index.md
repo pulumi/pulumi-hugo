@@ -50,12 +50,16 @@ providers:
 components:
 - display_name: Azure Active Directory (Azure AD)
   url: azuread/
+  description:
 - display_name: Azure DevOps
   url: azuredevops/
+  description:
 - display_name: Azure QuickStart ACR Geo Replication
   url: azure-quickstart-acr-geo-replication/
+  description:
 - display_name: Azure static website
   url: azure-static-website/
+  description:
 convert:
 - heading: Convert ARM Templates to Pulumi
   url: /arm2pulumi/

@@ -51,22 +51,31 @@ providers:
 components:
 - display_name: AWSx
   url: awsx/
+  description:
 - display_name: AWS API Gateway
   url: aws-apigateway/
+  description:
 - display_name: AWS IAM
   url: aws-iam/
+  description:
 - display_name: AWS static website
   url: aws-static-website/
+  description:
 - display_name: AWS QuickStart Aurora Postgres
   url: aws-quickstart-aurora-postgres/
+  description:
 - display_name: AWS QuickStart Redshift
   url: aws-quickstart-redshift/
+  description:
 - display_name: AWS QuickStart VPC
   url: aws-quickstart-vpc/
+  description:
 - display_name: AWS S3 Replicated Bucket
   url: aws-s3-replicated-bucket/
+  description:
 - display_name: Metabase (AWS)
   url: metabase/
+  description:
 convert:
 - heading: Convert CloudFormation to Pulumi
   url: /cf2pulumi/

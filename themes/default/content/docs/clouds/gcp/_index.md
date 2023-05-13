@@ -52,8 +52,10 @@ providers:
 components:
 - display_name: Google Cloud Global CloudRun
   url: gcp-global-cloudrun/
+  description:
 - display_name: Google Cloud static website
   url: google-cloud-static-website
+  description:
 templates:
 - display_name: Container service on Google Cloud
   url: container-service/gcp/

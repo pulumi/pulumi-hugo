@@ -96,10 +96,11 @@
                             {{ $url =  $component.url }}
                         {{ end }}
                         <a href="{{ $url }}">
-                            <div class="card-inner">
-                                <div>
-                                    <p>{{ $component.display_name }}</p>
-                                </div>
+                            <div class="card-inner col">
+                                <p>{{ $component.display_name }}</p>
+                                {{ if $component.description }}
+                                    <p class="inner-card-description">{{ $component.description }}</p>
+                                {{ end }}
                             </div>
                         </a>
                     </div>
