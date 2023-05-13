@@ -6,7 +6,9 @@
     "license": "Apache-2.0",
     "dependencies": {
         "@types/marked": "^4.0.8",
+        "algoliasearch": "^4.17.0",
         "clipboard-polyfill": "^3.0.3",
+        "instantsearch.js": "^4.55.0",
         "marked": "^4.3.0",
         "tailwindcss": "^2.2.9"
     },

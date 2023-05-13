@@ -69,3 +69,6 @@ new-learn-topic:
 .PHONY: new-template
 new-template:
 	./scripts/content/new-template.sh
+
+update_search: build
+	./scripts/search/update-all.sh ./public/index.json

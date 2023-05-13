@@ -6,6 +6,7 @@
     "author": "Christian Nunciato <c@nunciato.org>",
     "license": "MIT",
     "dependencies": {
+        "algoliasearch": "^4.17.0",
         "concurrently": "^6.0.0",
         "js-yaml": "^3.13.1",
         "markdownlint": "^0.17.2",

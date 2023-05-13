@@ -1,0 +1,15 @@
+{{- $index := slice -}}
+{{- range $page := $.Site.RegularPages -}}
+    {{-
+        $index = $index | append (dict
+            "objectID" $page.File.UniqueID
+            "title" $page.Title
+            "description" $page.Params.meta_desc
+            "lastModified" $page.Lastmod.Unix
+            "section" $page.Section
+            "href" $page.Permalink
+            "tags" $page.Params.tags
+        )
+    -}}
+{{- end -}}
+{{- $index | jsonify (dict "indent" "    ") -}}

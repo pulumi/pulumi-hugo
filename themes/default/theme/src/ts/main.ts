@@ -15,6 +15,7 @@ import "./copybutton";
 import "./code-tabbed";
 import "./resources";
 import "./search";
+import "./swiftype";
 import "./packages";
 import "./pricing-trial";
 import "./developer-advocates";

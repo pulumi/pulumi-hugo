@@ -40,6 +40,7 @@ security:
       - PULUMI_CONVERT_URL
       - PULUMI_AI_WS_URL
       - GITHUB_TOKEN
+      - ALGOLIA_APP_SEARCH_KEY
 
 disableKinds:
   - category
@@ -74,6 +75,7 @@ outputFormats:
 outputs:
   home:
     - HTML
+    - JSON
   section:
     - HTML
 
@@ -115,3 +117,10 @@ params:
   meta_desc: |
     Pulumi's open source infrastructure as code SDK enables you to create, deploy,
     and manage infrastructure on any cloud, using your favorite languages.
+  asdfasdf:
+    vars:
+      - title
+      - summary
+      - date
+      - publishdate
+      - permalink
