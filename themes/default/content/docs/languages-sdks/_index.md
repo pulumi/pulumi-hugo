@@ -11,7 +11,7 @@ menu:
 aliases:
 - /docs/reference/languages/
 - /docs/intro/languages/
-- /docs/reference/pulumi-sdk
+- /docs/reference/pulumi-sdk/
 ---
 
 {{< get-started-note >}}

@@ -315,11 +315,11 @@ The following topics provide more details on the core concepts of Pulumi and how
 </div>
 <div class="md:flex flex-row mt-6 mb-6">
     <div class="md:w-1/2 border-solid md:ml-4 border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/concepts/assets-archives"><i class="fas fa-stream pr-2"></i>Assets and Archives</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/inputs-outputs/assets-archives/"><i class="fas fa-stream pr-2"></i>Assets and Archives</a></h3>
         <p>Learn how to use local or remote files with your Pulumi program.</p>
     </div>
     <div class="md:w-1/2 border-solid border-t-2 border-gray-200">
-        <h3 class="no-anchor pt-4"><a href="/docs/concepts/function-serialization"><i class="fas fa-terminal pr-2"></i>Function Serialization</a></h3>
+        <h3 class="no-anchor pt-4"><a href="/docs/concepts/inputs-outputs/function-serialization/"><i class="fas fa-terminal pr-2"></i>Function Serialization</a></h3>
         <p>Learn how to serialize JavaScript functions into an artifact that can be used at runtime in the cloud.</p>
     </div>
 </div>

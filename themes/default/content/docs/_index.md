@@ -6,6 +6,8 @@ no_on_this_page: true
 menu:
     header:
         weight: 3
+aliases:
+- /docs/reference/
 ---
 
 Welcome to the Pulumi documentation! These pages cover what Pulumi is, how to get started using it, and reference materials for its features.
