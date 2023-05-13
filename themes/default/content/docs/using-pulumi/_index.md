@@ -7,6 +7,8 @@ menu:
   usingpulumi:
     weight: 5
     name: Overview
+aliases:
+- /docs/guides/
 ---
 
 Learn how to adopt Pulumi, organize projects & stacks, use the Automation API, continuous delivery, policy as code, pulumi packages, and test Pulumi code.
