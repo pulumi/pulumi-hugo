@@ -4,15 +4,15 @@ section.cloud-overview {
     gap: 24px;
     margin-top: 14px;
 
-    div.special {
-        flex-direction: row;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    h1, h2, p {
+        color: #131314;
+    }
+
+    h1, h2 {
+        font-family: 'Gilroy';
     }
 
     h1 {
-        font-family: 'Gilroy';
         font-weight: 500;
         font-size: 30px;
         background-position: 0 24px;
@@ -21,11 +21,65 @@ section.cloud-overview {
     }
 
     h2 {
-        font-family: Gilroy;
         font-size: 21px;
         font-weight: 400;
-        color: #131314;
         padding-bottom: 8px;
+    }
+
+    p {
+        font-family: Inter;
+        font-size: 16px;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+
+    }
+
+    .flex-2-col {
+        flex-basis: calc(50% - 6px);
+        display: flex;
+
+        a {
+            display: flex;
+            flex-grow: 1;
+        }
+    }
+
+    .flex-1-col {
+        flex-basis: 100%;
+    }
+
+    div.col,
+    div.row {
+        display: flex;
+        gap: 12px;
+    }
+
+    div.col {
+        flex-direction: column;
+    }
+
+    div.cols-2 {
+        flex-direction: row;
+    }
+
+    .flex,
+    div.cols-2 {
+        @media (max-width: 680px) {
+            flex-direction: column;
+        }
+    }
+
+    div.row {
+        flex-direction: row;
+
+        a {
+            flex: 1;
+        }
     }
 
     div.card-heading {
@@ -66,43 +120,10 @@ section.cloud-overview {
         }
     }
 
-    p {
-        font-family: Inter;
-        font-size: 16px;
-        color: #131314;
-    }
-
-    div.col,
-    div.row {
-        display: flex;
-        gap: 12px;
-    }
-
-    div.col {
-        flex-direction: column;
-    }
-
-    div.row {
-        flex-direction: row;
-    }
-
-    div.cols-2 {
-        flex-direction: row;
-
-        @media (max-width: 680px) {
-            flex-direction: column;
-        }
-    }
-
-    div.row a {
-        flex: 1;
-    }
-
     div.heading {
         display:flex;
         align-items: center;
     }
-
 
     div.card-inner {
         box-shadow: 0px 0px 12px rgba(95,96,101,.08);
@@ -149,8 +170,8 @@ section.cloud-overview {
 
     section.card-outer-hover {
         &:hover {
-            background: #F9F9F9;
-            border: 1px solid #BEBFC9;
+            background: #f9f9f9;
+            border: 1px solid #bebfc9;
         }
     }
 
@@ -184,6 +205,10 @@ section.cloud-overview {
             border-radius: 4px;
             background: rgba(237, 239, 251, 0.5);
             border: 1px solid #A6ADEC;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
             &:hover {
                 background: #EDEFFB;
@@ -196,13 +221,15 @@ section.cloud-overview {
                 font-size: 21px;
                 margin: 0;
             }
+
+            div.icon {
+                margin-right: 16px;
+            }
         }
     }
 
     section.providers {
         h2 {
-            font-family: 'Gilroy';
-            font-weight: 500;
             font-size: 24px;
             padding-bottom: 0;
             margin-bottom: 0;
@@ -211,150 +238,60 @@ section.cloud-overview {
             margin-top: 0;
             margin-bottom: 8px;
         }
-    }
 
-    div.provider-card {
-        flex-grow: 1;
-        box-shadow: 0px 2px 24px 0px #5f606524;
-        border: 1px solid #e5e5e9;
-        border-radius: 4px;
-        padding: 24px;
-        flex-basis: 50%;
-    
-        div.heading p {
-            font-family: 'Gilroy';
-            font-weight: 500;
-            font-size: 21px;
-        }
-
-        div.top-heading p {
-            font-family: 'Gilroy';
-            font-weight: 500;
-            font-size: 24px;
-        }
-
-        p.content-name {
-            font-family: 'Gilroy';
-            font-weight: 500;
-            font-size: 18px !important;
-            line-height: 200%;
-            color: #5F6065;
-            margin: 0;
-        }
-
-        div.content-link {
-            background: #fff;
-            border: 1px solid #dcdcdc;
-            box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
+        div.provider-card {
+            flex-grow: 1;
+            box-shadow: 0px 2px 24px 0px #5f606524;
+            border: 1px solid #e5e5e9;
             border-radius: 4px;
-            padding: 8px 24px;
-            flex-basis: 100%;
+            padding: 24px;
+            flex-basis: 50%;
+        
+            div.heading p {
+                font-family: 'Gilroy';
+                font-weight: 500;
+                font-size: 21px;
+            }
+    
+            div.content-link {
+                background: #fff;
+                border: 1px solid #dcdcdc;
+                box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
+                border-radius: 4px;
+                padding: 8px 24px;
+                flex-basis: 100%;
+    
+                &:hover {
+                    background: #f9f9f9;
+                    border: 1px solid #bebfc9;
+                }
 
-            &:hover {
-                background: #F9F9F9;
-                border: 1px solid #BEBFC9;
+                div.heading p.content-name {
+                    font-family: 'Gilroy';
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 200%;
+                    color: #5f6065;
+                    margin: 0;
+                }
+            }
+        
+            div.provider-heading {
+                justify-content: space-between;
+                align-items: center;
+
+                p.provider-label {
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #5f6065;
+                    text-align: right;
+                }
             }
         }
     }
 
-    .flex {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
-
-        @media (max-width: 680px) {
-            flex-direction: column;
-        }
-    }
-
-    .flex-2-col {
-        flex-basis: calc(50% - 6px);
-        display: flex;
-
-        a {
-            display: flex;
-            flex-grow: 1;
-        }
-    }
-
-    .flex-1-col {
-        flex-basis: 100%;
-    }
-
-    .provider-label {
-        font-family: 'Inter' !important;
-        font-weight: 400 !important;
-        font-size: 12px !important;
-        color: #5F6065 !important;
-        text-align: right;
-    }
-
-    .provider-heading {
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    div.icon {
-        display: block;
-        text-indent: -9999px;
-    }
-
-    div.icon-16-16 {
-        width: 16px;
-        height: 16px;
-        background-size: 16px 16px;   
-        position: relative;
-    }
-
-    div.icon-18-18 {
-        width: 18px;
-        height: 18px;
-        background-size: 18px 18px;   
-        position: relative;
-    }
-
-    div.icon-21-21 {
-        width: 21px;
-        height: 21px;
-        background-size: 21px 21px;
-    }
-
-    div.icon-24-24 {
-        width: 24px;
-        height: 24px;
-        background-size: 24px 24px;
-    }
-
-    div.icon-35-35 {
-        width: 35px;
-        height: 35px;
-        background-size: 35px 35px;
-    }
-
-    div.icon-get-started {
-        margin-right: 16px;
-    }
-
-    div.icon-left-of-heading {
-        position: relative;
-        top: -1px;
-        margin-right: 12px;
-    }
-
-    div.icon-left-of-card-label {
-        position: relative;
-        top: -1px;
-        margin-right: 8px;
-    }
-
-    div.icon-right-of-heading {
-        top: 3px;
-        position: relative;
-        margin-right: 2px;
-    }
-
-    .accordion {
+    div.accordion {
         overflow: hidden;
 
         label {
@@ -406,6 +343,61 @@ section.cloud-overview {
         input:checked ~ label.hide {
             display: flex;
         }
+    }
+
+    div.icon {
+        display: block;
+        text-indent: -9999px;
+    }
+
+    div.icon-left-of-heading {
+        position: relative;
+        top: -1px;
+        margin-right: 12px;
+    }
+
+    div.icon-left-of-card-label {
+        position: relative;
+        top: -1px;
+        margin-right: 8px;
+    }
+
+    div.icon-right-of-heading {
+        top: 3px;
+        position: relative;
+        margin-right: 2px;
+    }
+
+    div.icon-16-16 {
+        width: 16px;
+        height: 16px;
+        background-size: 16px 16px;   
+        position: relative;
+    }
+
+    div.icon-18-18 {
+        width: 18px;
+        height: 18px;
+        background-size: 18px 18px;   
+        position: relative;
+    }
+
+    div.icon-21-21 {
+        width: 21px;
+        height: 21px;
+        background-size: 21px 21px;
+    }
+
+    div.icon-24-24 {
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
+    }
+
+    div.icon-35-35 {
+        width: 35px;
+        height: 35px;
+        background-size: 35px 35px;
     }
 
     div.badge-gray {
