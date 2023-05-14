@@ -42,9 +42,9 @@
                             {{ end }}
                             <p>{{ $first_half_name }}<strong>{{ $second_half_name }}</strong></p>
                             {{ if $provider.public_preview }}
-                                <p class="provider-label">Preview</p>
+                                <p class="provider-label preview">Preview</p>
                             {{ else if $provider.recommended }}
-                                <p class="provider-label">Recommended</p>
+                                <p class="provider-label recommended">Recommended</p>
                             {{ end }}
                         </div>
                         {{ if ge (len $num_of_providers) 2 }}
