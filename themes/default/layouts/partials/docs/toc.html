@@ -1,4 +1,4 @@
-<nav class="toc pl-4">
+<nav class="toc">
     {{ if hasPrefix .RelPermalink "/docs/" }}
         {{/* Render a top-level menu for our major docs sections */}}
         {{ $toc_page := . }}
@@ -19,20 +19,6 @@
 
             {{ if (eq $.Page.RelPermalink $toc_section_link) }}
                 {{ $sidenav_selected = "active" }}
-            {{ end }}
-        {{ end }}
-
-        {{ range $toc_sections }}
-            {{ $toc_name := . }}
-            {{ $toc_menu := (index $toc_menus $toc_name) }}
-            {{ $sidenav_selected := "" }}
-
-            {{/* If this section has an "Overview" page, link to it from the header */}}
-            {{ $toc_section_link := "" }}
-            {{ range $toc_menu }}
-                {{ if (eq .Name "Overview") }}
-                    {{ $toc_section_link = .URL }}
-                {{ end }}
             {{ end }}
 
             {{ $toggle_class := "toggle" }}
@@ -81,21 +67,21 @@
                     <ul class="collapsed">
                         <li class="sidenav-topic {{ $sidenav_selected }}">
                             <a href="{{ .URL }}" data-track="toc-{{ .Name | urlize }}">{{ .Name }}</a>
-                            {{- if .HasChildren -}}
+                            {{ if .HasChildren }}
                                 <span class="toggleButton">
                                     <i class="fas fa-angle-right"></i>
                                 </span>
-                            {{- end -}}
+                            {{ end }}
                         </li>
                     </ul>
                     <ul class="expanded">
                         <li class="sidenav-topic {{ if .HasChildren }}sidenav-parent{{ end }} {{ $sidenav_selected }}">
                             <a href="{{ .URL }}" data-track="toc-{{ .Name | urlize }}">{{ .Name }}</a>
-                            {{- if .HasChildren -}}
+                            {{ if .HasChildren }}
                                 <span class="toggleButton">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
-                            {{- end -}}
+                            {{ end }}
                         </li>
                         {{ if .HasChildren }}
                             <div class="sidenav-subsection">

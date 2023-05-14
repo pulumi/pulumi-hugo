@@ -1,11 +1,13 @@
-$toc-header-spacing: 5px;
-
 #left-nav {
     scroll-behavior: smooth;
 }
 
-.toc {
+nav.toc {
     @apply text-sm pb-8;
+
+    ul {
+        @apply list-none p-0;
+    }
 
     li {
         border-radius: 0 2px 2px 0;
@@ -17,7 +19,7 @@ $toc-header-spacing: 5px;
             width: fit-content;
     
             &:hover {
-                text-decoration: none !important;
+                text-decoration: none;
                 background-color: #cacef4;
                 color: #272e6d;
                 border-left: #272e6d 3px solid;
@@ -30,7 +32,7 @@ $toc-header-spacing: 5px;
         color: #364098;
 
         &:hover {
-            text-decoration: #8e8f97 solid underline !important;
+            text-decoration: #8e8f97 solid underline;
             text-underline-offset: 6px;
             color: #364098;
         }
@@ -38,17 +40,13 @@ $toc-header-spacing: 5px;
 
     p.active a:hover,
     li.active a:hover {
-        text-decoration: none !important;
-    }
-
-    ul {
-        @apply list-none p-0;
+        text-decoration: none;
     }
 
     p.toc-header {
         font-size: 16px;
         width: fit-content;
-        padding-right: $toc-header-spacing;
+        padding-right: 5px;
 
         margin-top: 16px;
         margin-bottom: 0;
@@ -59,7 +57,7 @@ $toc-header-spacing: 5px;
             background-color: #edeffb;
             border-left: #364098 3px solid;
             width: fit-content;
-            text-decoration: none !important;
+            text-decoration: none;
 
             &:hover {
                 background-color: #cacef4;
@@ -68,76 +66,72 @@ $toc-header-spacing: 5px;
             }
         }
     }
-}
 
-.sidenav-topic {
-    font-size: 16px;
-    margin-left: 8px;
-    margin-bottom: 16px;
-    margin-top: 16px;
-}
+    .sidenav-topic {
+        font-size: 16px;
+        margin-left: 8px;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
 
-.sidenav-subsection {
-    @apply mb-2 text-sm;
-    margin-left: 16px;
-}
+    .sidenav-subsection {
+        @apply mb-2 text-sm;
+        margin-left: 16px;
+    }
 
-.top-level-container {
-    border-left: #e5e5e9 1px solid;
-    margin-left: 8px;
-}
+    .top-level-container {
+        border-left: #e5e5e9 1px solid;
+        margin-left: 8px;
+    }
 
-.toggleButton, .toggleButton-topLevel {
-    @apply cursor-pointer;
-    color: #131314;
-    font-size: 11px;
-    position: relative;
-    top: -1px;
-    padding-right: 6px;
-}
+    .toggleButton, .toggleButton-topLevel {
+        @apply cursor-pointer;
+        color: #131314;
+        font-size: 11px;
+        position: relative;
+        top: -1px;
+        padding-right: 6px;
+    }
 
-.header-no-children {
-    color: #364098;
-}
+    .toggle > .collapsed,
+    .toggleVisible > .expanded {
+        @apply visible;
+    }
 
-.toggle > .collapsed,
-.toggleVisible > .expanded {
-    @apply visible;
-}
+    .toggle > .expanded,
+    .toggleVisible > .collapsed {
+        @apply hidden;
+    }
 
-.toggle > .expanded,
-.toggleVisible > .collapsed {
-    @apply hidden;
-}
-
-.toggle-topLevel.toggle + .top-level-container {
+    .toggle-topLevel.toggle + .top-level-container {
         display: none;
-}
+    }
 
-.toggle-topLevel.toggleVisible + .top-level-container {
+    .toggle-topLevel.toggleVisible + .top-level-container {
         display: block;
-}
-
-.toggle-topLevel.toggle {
-    .toggleButton-topLevel.down {
-        display: none;
     }
 
-    .toggleButton-topLevel.right {
-        display: inline;
-    }
-}
+    .toggle-topLevel.toggle {
+        .toggleButton-topLevel.down {
+            display: none;
+        }
 
-.toggle-topLevel.toggleVisible {
-    .toggleButton-topLevel.down {
-        display: inline;
+        .toggleButton-topLevel.right {
+            display: inline;
+        }
     }
 
-    .toggleButton-topLevel.right {
-        display: none;
-    }
-}
+    .toggle-topLevel.toggleVisible {
+        .toggleButton-topLevel.down {
+            display: inline;
+        }
 
-.toggleButton i {
-    color: #131314;
+        .toggleButton-topLevel.right {
+            display: none;
+        }
+    }
+
+    .toggleButton i {
+        color: #131314;
+    }
 }
