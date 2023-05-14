@@ -95,16 +95,16 @@ kubernetes_cluster_management:
   description: The following SDKs are available to work with IaaS resources, and managed or self-managed Kubernetes clusters. The packages are available in Node.js (Javascript and Typescript), Python, Go, .NET and Java.
   links:
     - display_name: AWS
-      link: https://github.com/pulumi/aws/
+      url: https://github.com/pulumi/aws/
       icon: aws
     - display_name: Azure
-      link: https://github.com/pulumi/pulumi-azure-native/
+      url: https://github.com/pulumi/pulumi-azure-native/
       icon: azure
     - display_name: DigitalOcean
-      link: https://github.com/pulumi/pulumi-digitalocean/
+      url: https://github.com/pulumi/pulumi-digitalocean/
       icon: digitalocean
     - display_name: Google Cloud
-      link: https://github.com/pulumi/gcp/
+      url: https://github.com/pulumi/gcp/
       icon: google-cloud
 kubernetes_operator:
   heading: Pulumi Kubernetes Operator

@@ -199,7 +199,6 @@ section.cloud-overview {
         justify-content: center;
 
         div.card {
-            min-width: 400px;
             padding: 16px 24px;
             box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
             border-radius: 4px;
@@ -222,8 +221,16 @@ section.cloud-overview {
                 margin: 0;
             }
 
-            div.icon {
+            div.kubernetes-35-35 {
                 margin-right: 16px;
+            }
+
+            div.icon-get-started-arrow {
+                margin-left: 16px;
+            }
+
+            @media (min-width: 400px) {
+                min-width: 400px;
             }
         }
     }
@@ -287,6 +294,16 @@ section.cloud-overview {
                     color: #5f6065;
                     text-align: right;
                 }
+            }
+        }
+    }
+
+    section.convert {
+        div.recycle-gray-21-21 {
+            display: none;
+
+            @media (min-width: 450px) {
+                display: block;
             }
         }
     }
