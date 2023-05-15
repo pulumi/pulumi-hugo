@@ -1,3 +1,11 @@
+$text-color: #131314;
+$text-color-inner-card: #5f6065;
+$border-color-outer-card: #e5e5e9;
+$border-color-inner-card: #dcdcdc;
+$border-hover: #bebfc9;
+$card-background: #f9f9f9;
+$box-shadow: #5f606524;
+
 section.cloud-overview {
     display: flex;
     flex-direction: column;
@@ -5,7 +13,7 @@ section.cloud-overview {
     margin-top: 14px;
 
     h1, h2, p {
-        color: #131314;
+        color: $text-color
     }
 
     h1, h2 {
@@ -93,8 +101,8 @@ section.cloud-overview {
 
     div.card-heading-1 {
         justify-content: space-between;
-        border-bottom: 1px solid #e5e5e9;
-        color: #131314;
+        border-bottom: 1px solid $border-color-outer-card;
+        color: $text-color;
         flex: 1;
 
         h2 {
@@ -127,7 +135,7 @@ section.cloud-overview {
 
     div.card-inner {
         box-shadow: 0px 0px 12px rgba(95,96,101,.08);
-        border: 1px solid #dcdcdc;
+        border: 1px solid $border-color-inner-card;
         padding: 16px 24px;
         display: flex;
         justify-content: space-between;
@@ -136,18 +144,18 @@ section.cloud-overview {
         flex-basis: 100%;
 
         p {
-            color: #5f6065;
+            color: $text-color-inner-card;
             font-family: Gilroy;
             font-size: 18px;
             margin: 0;
         }
 
         &:hover {
-            background: #F9F9F9;
-            border: 1px solid #BEBFC9;
+            background: $card-background;
+            border: 1px solid $border-hover;
 
             p {
-                color: #131314;
+                color: $text-color;
             }
         }
 
@@ -161,21 +169,21 @@ section.cloud-overview {
             font-family: 'Inter';
             font-weight: 400;
             font-size: 14px;
-            color: #131314;
+            color: $text-color;
         }
     }
 
     section.card-outer {
-        box-shadow: 0px 2px 24px 0px #5f606524;
-        border: 1px solid #e5e5e9;
+        box-shadow: 0px 2px 24px 0px $box-shadow;
+        border: 1px solid $border-color-outer-card;
         border-radius: 4px;
         padding: 24px;
     }
 
     section.card-outer-hover {
         &:hover {
-            background: #f9f9f9;
-            border: 1px solid #bebfc9;
+            background: $card-background;
+            border: 1px solid $border-hover;
         }
     }
 
@@ -207,14 +215,14 @@ section.cloud-overview {
             box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
             border-radius: 4px;
             background: rgba(237, 239, 251, 0.5);
-            border: 1px solid #A6ADEC;
+            border: 1px solid #a6adec;
             flex-direction: row;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             &:hover {
-                background: #EDEFFB;
+                background: #edeffb;
                 border: 1px solid #828CE4;
             }
 
@@ -252,8 +260,8 @@ section.cloud-overview {
 
         div.provider-card {
             flex-grow: 1;
-            box-shadow: 0px 2px 24px 0px #5f606524;
-            border: 1px solid #e5e5e9;
+            box-shadow: 0px 2px 24px 0px $box-shadow;
+            border: 1px solid $border-color-outer-card;
             border-radius: 4px;
             padding: 24px;
             flex-basis: 50%;
@@ -266,15 +274,15 @@ section.cloud-overview {
     
             div.content-link {
                 background: #fff;
-                border: 1px solid #dcdcdc;
+                border: 1px solid $border-color-inner-card;
                 box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
                 border-radius: 4px;
                 padding: 8px 24px;
                 flex-basis: 100%;
     
                 &:hover {
-                    background: #f9f9f9;
-                    border: 1px solid #bebfc9;
+                    background: $card-background;
+                    border: 1px solid $border-hover;
                 }
 
                 div.heading p.content-name {
@@ -282,14 +290,14 @@ section.cloud-overview {
                     font-weight: 500;
                     font-size: 18px;
                     line-height: 200%;
-                    color: #5f6065;
+                    color: $text-color-inner-card;
                     margin: 0;
                 }
             }
 
             a:hover {
                 p {
-                    color: #131314 !important;
+                    color: $text-color !important;
                 }
             }
 
@@ -305,7 +313,7 @@ section.cloud-overview {
 
                     &.preview {
                         font-weight: 400;
-                        color: #5f6065;
+                        color: $text-color-inner-card;
                     }
 
                     &.recommended {
@@ -340,7 +348,7 @@ section.cloud-overview {
             font-family: 'Inter';
             font-weight: 500;
             font-size: 16px;
-            color: #5f6065;
+            color: $text-color-inner-card;
             cursor: pointer;
             position: relative;
             justify-content: center;

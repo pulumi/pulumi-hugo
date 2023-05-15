@@ -38,12 +38,12 @@ nav.toc {
         }
     }
 
-    p.active a:hover,
+    div.active a:hover,
     li.active a:hover {
         text-decoration: none;
     }
 
-    p.toc-header {
+    div.toc-header {
         font-size: 16px;
         width: fit-content;
         padding-right: 5px;
@@ -67,7 +67,10 @@ nav.toc {
         }
     }
 
-    .sidenav-topic {
+    div.toc-header,
+    li.sidenav-topic {
+        display: flex;
+        align-items: center;
         font-size: 16px;
         margin-left: 8px;
         margin-bottom: 16px;
@@ -79,7 +82,8 @@ nav.toc {
         margin-left: 16px;
     }
 
-    .top-level-container {
+    .top-level-container,
+    div.sidenav-subsection {
         border-left: #e5e5e9 1px solid;
         margin-left: 8px;
     }
@@ -131,7 +135,23 @@ nav.toc {
         }
     }
 
-    .toggleButton i {
-        color: #131314;
+    div.icon {
+        display: block;
+        text-indent: -9999px;
+    }
+
+    div.icon-14-14 {
+        width: 14px;
+        height: 14px;
+        background-size: 14px 14px;   
+        position: relative;
+    }
+
+    div.keyboard-arrow-right-gray {
+        background: url(/images/docs/icons/keyboard-arrow-right-gray.svg);
+    }
+
+    div.keyboard-arrow-down-gray-14-14 {
+        background: url(/images/docs/icons/keyboard-arrow-down-gray-14-14.svg);
     }
 }
