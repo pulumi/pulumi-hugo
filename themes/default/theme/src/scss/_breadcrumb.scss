@@ -24,12 +24,11 @@ ol.docs-breadcrumb {
         &.active a {
             font-weight: 700;
         }
-
-        & + li {
-
-            &::before {
+        
+        &:has(+ li) {
+            &::after {
                 display: inline-block;
-                padding-right: 6px;
+                padding-left: 6px;
                 color: #bebfc9;
                 content: "/";
             }
