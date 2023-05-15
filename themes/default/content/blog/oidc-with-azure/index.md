@@ -1,5 +1,5 @@
 ---
-title: "Oidc with Azure"
+title: "OIDC with Azure"
 
 # The date represents the post's publish date,
 # and by default corresponds with the date this file was generated.
@@ -45,7 +45,7 @@ Recently, we’ve released a long requested feature: OIDC authentication for Azu
 
 ### The What and Why of OIDC
 
-OIDC stands for OpenID Connect, which is a standardized protocol for federated identity. This means that if you maintain an identity with two service providers, you can tell one of them to trust the other. Then, you can use credentials for the trusted service to get credentials for the other.
+OIDC stands for OpenID Connect, a standardized protocol for federated identity. This means that if you maintain an identity with two service providers, you can tell one of them to trust the other. Then, you can use credentials for the trusted service to get credentials for the other.
 
 As an example, we’ll use a Pulumi program running in CI on GitHub Workflows, creating Azure resources in the process. Without OIDC, this program would need a secret to authenticate with Azure - a client secret or a certificate. With OIDC, your program doesn't need a secret. It can send its GitHub token to Azure instead.  Based on the trust relationship between the two, Azure will exchange the GitHub token for an Azure token.
 
@@ -55,7 +55,7 @@ Secrets need to be safeguarded, rotated, and possibly revoked. If you’ve ever 
 
 There are two parts to enabling your Pulumi program to authenticate via OIDC. One is establishing the trust relationship between Azure and the other service that’s involved, like GitHub. This is a one-time operation. The second one is providing your program with the necessary configuration to perform the OIDC token exchange at runtime.
 
-Fortunately, Microsoft have the first step, establishing the trust relationship, [thoroughly covered here](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp). We won’t repeat all the details of this guide here. The idea is that an Active Directory app registration holds the necessary federated credentials. Your program will then use this app’s tenant id to request the token exchange. The exact setup depends on whether you run on GitHub Actions, Kubernetes, or other providers. The linked guide covers these scenarios.
+Fortunately, Microsoft has the first step covered with their [establishing the trust relationship guide](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp). The idea is that an Active Directory app registration holds the necessary federated credentials. Your program will then use this app’s tenant id to request the token exchange. The setup depends on whether you run on GitHub Actions, Kubernetes, or other providers.
 
 On to the second step, configuring your Pulumi program. First, set the configuration `ARM_USE_OIDC` to true. Next, you’re in luck if your program runs on GitHub Actions: you're done. GitHub exports the necessary values in form of variables that Pulumi understands.
 
