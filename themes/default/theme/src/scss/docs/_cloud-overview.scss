@@ -285,18 +285,23 @@ section.cloud-overview {
                     border: 1px solid $border-hover;
                 }
 
+                div.heading div.icon {
+                    top: -1px;
+                    color: $text-color-inner-card
+                }
+
                 div.heading p.content-name {
                     font-family: 'Gilroy';
                     font-weight: 500;
                     font-size: 18px;
-                    line-height: 200%;
                     color: $text-color-inner-card;
                     margin: 0;
                 }
             }
 
             a:hover {
-                p {
+                p,
+                div.icon {
                     color: $text-color !important;
                 }
             }
