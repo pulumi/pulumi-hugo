@@ -145,6 +145,10 @@ section.cloud-overview {
         &:hover {
             background: #F9F9F9;
             border: 1px solid #BEBFC9;
+
+            p {
+                color: #131314;
+            }
         }
 
         div.card-inner-content-1 {

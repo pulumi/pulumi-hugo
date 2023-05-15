@@ -109,7 +109,7 @@ guides:
   - display_name: Using AWS Identity & Access Management (IAM)
     url: guides/iam/
   - display_name: Using AWS Lambda & Serverless Events
-    url: guides/iam/
+    url: guides/lambda/
   - display_name: Using AWS Virtual Private Cloud (VPC)
     url: guides/vpc/
   - display_name: AWS index of services
