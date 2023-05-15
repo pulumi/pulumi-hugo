@@ -286,7 +286,13 @@ section.cloud-overview {
                     margin: 0;
                 }
             }
-        
+
+            a:hover {
+                p {
+                    color: #131314 !important;
+                }
+            }
+
             div.provider-heading {
                 justify-content: space-between;
                 align-items: flex-start;
