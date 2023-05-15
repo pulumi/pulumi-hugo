@@ -1,5 +1,5 @@
 ---
-title: "OIDC with Azure"
+title: "Announcing OIDC Support for Pulumi Azure Providers"
 
 # The date represents the post's publish date,
 # and by default corresponds with the date this file was generated.
@@ -35,7 +35,7 @@ tags:
 
 ---
 
-Recently, we’ve released a long requested feature: OIDC authentication for Azure. It's available in both the native and the classic provider. Let’s dig in to what it is, how it works, and why it’s useful.
+We are happy to announce the delivery of Azure OIDC authentication, one of the [most requested features](https://github.com/pulumi/pulumi-azure-native/issues/1324) for the [Pulumi Azure Native Provider](https://www.pulumi.com/registry/packages/azure-native/). With the v1.100.0 release, OpenID Connect (OIDC) authentication is now fully supported in both the native and [classic](https://www.pulumi.com/registry/packages/azure/) providers. Let’s dig in to learn what it is, how it works, and why it’s useful.
 
 <!--more-->
 
@@ -71,9 +71,9 @@ Let’s take a look at how the CI end-to-end tests of the Pulumi Azure Native pr
 
 ```
 env:
-  ARM_CLIENT_ID: 30e520fa-[redacted]
-  ARM_SUBSCRIPTION_ID: 0282681f-[redacted]
-  ARM_TENANT_ID: 706143bc-[redacted]
+  ARM_CLIENT_ID: 11223344-****-****-****-************ [redacted]
+  ARM_SUBSCRIPTION_ID: 55667788-****-****-****-************ [redacted]
+  ARM_TENANT_ID: 99aabbcc-****-****-****-************ [redacted]
   ARM_USE_OIDC=true
 ```
 
