@@ -47,7 +47,7 @@ Recently, we’ve released a long requested feature: OIDC authentication for Azu
 
 OIDC stands for OpenID Connect, a standardized protocol for federated identity. This means that if you maintain an identity with two service providers, you can tell one of them to trust the other. Then, you can use credentials for the trusted service to get credentials for the other.
 
-As an example, we’ll use a Pulumi program running in CI on GitHub Workflows, creating Azure resources in the process. Without OIDC, this program would need a secret to authenticate with Azure - a client secret or a certificate. With OIDC, your program doesn't need a secret. It can send its GitHub token to Azure instead.  Based on the trust relationship between the two, Azure will exchange the GitHub token for an Azure token.
+As an example, we’ll use a Pulumi program running in CI on GitHub Workflows, creating Azure resources. Without OIDC, this program would need a secret to authenticate with Azure - a client secret or a certificate. With OIDC, your program doesn't need a secret. It can send its GitHub token to Azure instead.  Based on the trust relationship between the two, Azure will exchange the GitHub token for an Azure token.
 
 Secrets need to be safeguarded, rotated, and possibly revoked. If you’ve ever managed a system, whether production or CI/CD, the possibility of managing fewer secrets will be enticing. So how do we go about implementing this?
 
