@@ -1,3 +1,9 @@
+import {LocalStorageService} from "./state";
+
+
+const navigationState = new LocalStorageService("navigation-toggle-state");
+loadToggleStates();
+
 function bindToggle(el) {
     $(".toggleButton", el).click(function () {
         if ($(this).closest(".toggle, .toggleVisible")[0] != el) {
@@ -7,13 +13,27 @@ function bindToggle(el) {
 
         if ($(el).is(".toggle")) {
             $(el).addClass("toggleVisible").removeClass("toggle");
+            updateToggleState(el, "expanded");
         } else {
+            $(el).addClass("toggle").removeClass("toggleVisible");
+            updateToggleState(el, "collapsed");
+        }
+    });
+}
+
+function loadToggleStates() {
+    $(".toggle-topLevel, .toggleVisible-topLevel, .toggle, .toggleVisible").each(function (i, el) {
+        if (navigationState.getKey(el.id) == "expanded") {
+            $(el).addClass("toggleVisible").removeClass("toggle");
+        } else if (navigationState.getKey(el.id) == "collapsed") {
             $(el).addClass("toggle").removeClass("toggleVisible");
         }
     });
 }
 
-
+function updateToggleState(el, toggleState) {
+    navigationState.updateKey(el.id, toggleState)
+}
 
 function bindTopLevelToggle(el) {
     $(".toggleButton-topLevel", el).click(function () {
@@ -24,8 +44,10 @@ function bindTopLevelToggle(el) {
 
         if ($(el).is(".toggle")) {
             $(el).addClass("toggleVisible").removeClass("toggle");
+            updateToggleState(el, "expanded");
         } else {
             $(el).addClass("toggle").removeClass("toggleVisible");
+            updateToggleState(el, "collapsed");
         }
     });
 }
