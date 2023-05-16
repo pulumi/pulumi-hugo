@@ -18,7 +18,7 @@ Pulumi community member [Erik Näslund](https://blog.ekik.org/) shares his thoug
 
 I've been using [Terraform](https://www.terraform.io/) for a couple of years and overall I've been quite happy with it. However there's a few things that started to bother me more and more recently.
 
-Terraform uses a language called Hashicorp HCL to define the infrastructure. It's a relatively simple declarative language, but it's something I had to learn along the way. Just like any language it has it's little quirks, and I often found myself spending more time than I wanted to figure out how to do certain things. As I'm doing all the infrastructure myself I really wanted to be able to use a language I'm familiar with, to make things simple.
+Terraform uses a language called Hashicorp HCL to define the infrastructure. It's a relatively simple declarative language, but it's something I hadd to learn along the way. Just like any language it has it's little quirks, and I often found myself spending more time than I wanted to figure out how to do certain things. As I'm doing all the infrastructure myself I really wanted to be able to use a language I'm familiar with, to make things simple.
 
 I had written my own [Terraform modules](https://www.terraform.io/docs/language/modules/develop/index.html) to organize my code. Modules are a great help when it comes to organizing your code in a logical way, and I strongly recommend it if you haven't tried using them already. However, after using it for a while I realized that the Terraform [type system](https://www.terraform.io/docs/language/expressions/types.html) left something to be desired. There are a few basic types available, but not much more than that. This caused bad "micro interactions" between me and Terraform. It was commonplace for me to submit an MR to my Gitlab CI where I passed in a security group *name* instead of an *arn* or *id*.
 
@@ -136,7 +136,7 @@ $ pulumi stack
 
 ```
 
-As you can see I've defined a component called "vt:RedisServer" which I use to group all the resources associated with my Redis server. You'll get a graph representation of your whole infrastructure in the [Pulumi Web Console](https://www.pulumi.com/docs/intro/console/) .
+As you can see I've defined a component called "vt:RedisServer" which I use to group all the resources associated with my Redis server. You'll get a graph representation of your whole infrastructure in the [Pulumi Web Console](/docs/pulumi-cloud/) .
 
 ![image.png](./graph.jpeg)
 
