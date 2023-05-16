@@ -224,5 +224,5 @@ Because the website is deployed in response to a commit to pulumi/docs `master`,
 - [ ] Check that your meta_image appears properly on the blog home page. Do not use animated GIFs for preview images.
 - [ ] Check that your meta_image is using the current Pulumi logo.
 - [ ] Preview locally. Check formatting, links, and images for appearance.
-- [ ] Use the [Twitter card validator](https://cards-dev.twitter.com/validator) to check the how the blog appears in a tweet (use the preview provided in the PR).
+- [ ] Check how the blog appears in a tweet by pasting the preview link from the PR into Twitter's composer. A preview image should be automatically generated.
 - [ ] Reach out in #blogs to make Marketing aware that your post is about to go live!
