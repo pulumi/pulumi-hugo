@@ -267,7 +267,7 @@ export class PulumiAI {
     }
 
     private get twitterLink() {
-        let postText = "Checkout what I've generated with Pulumi AI!";
+        let postText = "Check out what I generated with Pulumi AI!";
         if (this.versions.length === 0) {
             postText = "Pulumi AI can help you generate infrastructure as code specific to your use case. Give it a try!"
         }
