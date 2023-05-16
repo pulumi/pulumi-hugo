@@ -1825,20 +1825,30 @@ EMPTY RESPONSE BODY
 ### Create Webhook
 
 ```
+// To create an organization webhook
 POST /api/orgs/{organization}/hooks
+
+// To create a stack webhook
+POST /api/stacks/{organization}/{project}/{stack}/hooks
 ```
 
 #### Parameters
 
-| Parameter          | Type    | In   | Description                                                                                                             |
-|--------------------|---------|------|-------------------------------------------------------------------------------------------------------------------------|
-| `active`           | boolean | body | enable webhook                                                                                                          |
-| `displayName`      | string  | body | name of webhook                                                                                                         |
-| `organizationName` | string  | body | organization name                                                                                                       |
-| `payloadUrl`       | string  | body | URL to send request to                                                                                                  |
-| `secret`           | string  | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/pulumi-cloud/webhooks#headers) for more information |
+| Parameter          | Type          | In   | Description                                                                                                                                                                     |
+|--------------------|---------------|------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `active`           | boolean       | body | enable webhook                                                                                                                                                                  |
+| `displayName`      | string        | body | name of webhook                                                                                                                                                                 |
+| `organizationName` | string        | body | organization name                                                                                                                                                               |
+| `payloadUrl`       | string        | body | URL to send request to                                                                                                                                                          |
+| `projectName`      | string        | body | **Optional.** project name (required for stack webhooks)                                                                                                                        |
+| `stackName`        | string        | body | **Optional.** stack name (required for stack webhooks)                                                                                                                          |
+| `format`           | string        | body | **Optional.** format of the payload. Possible values are `raw` or `slack`. Default is `raw`.                                                                                    |
+| `filters`          | array[string] | body | **Optional.** list of filters for events the webhook should receive. See [webhook docs](/docs/pulumi-cloud/webhooks#filters) for more information on what filters are available |
+| `secret`           | string        | body | **Optional.** secret used as the HMAC key. See [webhook docs](/docs/pulumi-cloud/webhooks#headers) for more information                                                         |
 
-#### Example
+#### Examples
+
+##### Create an organization webhook
 
 ```bash
 curl \
@@ -1846,11 +1856,17 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{"organizationName":"{organization}","displayName":"My Webhook","payloadUrl":"https://example.com","secret":"mysecret","active":true}' \
+  --data '{
+      "organizationName":"{organization}",
+      "displayName":"My Webhook",
+      "payloadUrl":"https://example.com",
+      "secret":"mysecret",
+      "active":true
+  }' \
   https://api.pulumi.com/api/orgs/{organization}/hooks
 ```
 
-#### Default response
+Default Response
 
 ```
 Status: 201 CREATED
@@ -1858,27 +1874,112 @@ Status: 201 CREATED
 
 ```
 {
-  "organizationName":"demo",
+  "organizationName":"{organization}",
   "name":"bd7e0a35",
   "displayName":"My Webhook",
   "payloadUrl":"https://example.com",
+  "active":true,
+  "format":"raw"
+}
+```
+
+###### Create a stack webhook formatted for slack
+
+```bash
+curl \
+  -H "Accept: application/vnd.pulumi+8" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+  --request POST \
+  --data '{
+      "organizationName":"{organization}",
+      "projectName":"{project}",
+      "stackName":"{stack}",
+      "displayName":"#some-slack-channel",
+      "payloadUrl":"https://hooks.slack.com/services/...",
+      "format": "slack",
+      "active":true
+  }' \
+  https://api.pulumi.com/api/orgs/{organization}/{project}/{stack}/hooks
+```
+
+Default Response
+
+```
+Status: 201 CREATED
+```
+
+```
+{
+  "organizationName":"{organization}",
+  "projectName":"{project}",
+  "stackName":"{stack}",
+  "name":"bd7e0a35",
+  "displayName":"#some-slack-channel",
+  "payloadUrl":"https://hooks.slack.com/services/...",
+  "format":"slack",
+  "active":true
+}
+```
+
+###### Create a stack webhook with filters
+
+```bash
+curl \
+  -H "Accept: application/vnd.pulumi+8" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+  --request POST \
+  --data '{
+      "organizationName":"{organization}",
+      "projectName":"{project}",
+      "stackName":"{stack}",
+      "displayName":"#stack_failures-channel",
+      "payloadUrl":"https://hooks.slack.com/services/...",
+      "format": "slack",
+      "filters": ["preview_failed", "update_failed", "destroy_failed", "refresh_failed", "deployment_failed"],
+      "active":true
+  }' \
+  https://api.pulumi.com/api/orgs/{organization}/{project}/{stack}/hooks
+```
+
+#### Default response
+
+Default Response
+
+```
+Status: 201 CREATED
+```
+
+```
+{
+  "organizationName":"{organization}",
+  "projectName":"{project}",
+  "stackName":"{stack}",
+  "name":"bd7e0a35",
+  "displayName":"#stack_failures-channel",
+  "payloadUrl":"https://hooks.slack.com/services/...",
+  "format":"slack",
+  "filters":["preview_failed", "update_failed", "destroy_failed", "refresh_failed", "deployment_failed"],
   "active":true
 }
 ```
 
 ### List Webhooks
 
+#### List organization webhooks
+
 ```
 GET /api/orgs/{organization}/hooks
 ```
 
-#### Parameters
+##### Parameters
 
 | Parameter      | Type   | In   | Description       |
 |----------------|--------|------|-------------------|
 | `organization` | string | path | organization name |
 
-#### Example
+##### Example
 
 ```bash
 curl \
@@ -1888,7 +1989,7 @@ curl \
   https://api.pulumi.com/api/orgs/{organization}/hooks
 ```
 
-#### Default response
+##### Default response
 
 ```
 [
@@ -1896,14 +1997,67 @@ curl \
     "organizationName":"{organization}",
     "name":"4e662b3b",
     "displayName":"MyWebhook",
-    "payloadUrl":"http://example.com",
+    "payloadUrl":"https://example.com",
+    "format":"raw",
     "active":true
   },
   {
     "organizationName":"{organization}",
     "name":"7732dd4c",
     "displayName":"My secret webhook",
+    "payloadUrl":"https://hooks.slack.com/services/...",
+    "format":"slack",
+    "active":true
+  }
+]
+```
+
+#### List stack webhooks
+
+```
+GET /api/stacks/{organization}/{project}/{stack}/hooks
+```
+
+##### Parameters
+
+| Parameter      | Type   | In   | Description       |
+|----------------|--------|------|-------------------|
+| `organization` | string | path | organization name |
+| `project`      | string | path | project name      |
+| `stack`        | string | path | stack name        |
+
+##### Example
+
+```bash
+curl \
+  -H "Accept: application/vnd.pulumi+8" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+  https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/hooks
+```
+
+##### Default response
+
+```
+[
+  {
+    "organizationName":"{organization}",
+    "projectName":"{project}",
+    "stackName":"{stack}",
+    "name":"4e662b3b",
+    "displayName":"My stack webhook",
     "payloadUrl":"https://example.com",
+    "active":true
+  },
+  {
+    "organizationName":"{organization}",
+    "projectName":"{project}",
+    "stackName":"{stack}",
+    "name":"7732dd4c",
+    "displayName":"#failures-channel",
+    "payloadUrl":"https://hooks.slack.com/services/...",
+    "format":"slack",
+    "filters":["preview_failed", "update_failed", "destroy_failed", "refresh_failed", "deployment_failed"],
     "active":true
   }
 ]
@@ -1911,18 +2065,20 @@ curl \
 
 ### Get Webhook
 
+#### Get organization webhook
+
 ```
 GET /api/orgs/{organization}/hooks/{webhookname}
 ```
 
-#### Parameters
+##### Parameters
 
 | Parameter      | Type   | In   | Description       |
 |----------------|--------|------|-------------------|
 | `organization` | string | path | organization name |
 | `webhookname`  | string | path | webhook name      |
 
-#### Example
+##### Example
 
 ```bash
 curl \
@@ -1932,7 +2088,7 @@ curl \
   https://api.pulumi.com/api/orgs/{organization}/hooks/{webhookname}
 ```
 
-#### Default response
+##### Default response
 
 ```
 Status: 200 OK
@@ -1943,23 +2099,79 @@ Status: 200 OK
   "organizationName":"{organization}",
   "name":"{webhookname}",
   "displayName":"My Webhook",
-  "payloadUrl":"http://example.com",
+  "payloadUrl":"https://example.com",
+  "format":"raw",
+  "active":true
+}
+```
+
+#### Get stack webhook
+
+```
+GET /api/stacks/{organization}/{project}/{stack}/hooks/{webhookname}
+```
+
+##### Parameters
+
+| Parameter      | Type   | In   | Description       |
+|----------------|--------|------|-------------------|
+| `organization` | string | path | organization name |
+| `project`      | string | path | project name      |
+| `stack`        | string | path | stack name        |
+| `webhookname`  | string | path | webhook name      |
+
+##### Example
+
+```bash
+curl \
+  -H "Accept: application/vnd.pulumi+8" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+  https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/hooks/{webhookname}
+```
+
+##### Default response
+
+```
+Status: 200 OK
+```
+
+```
+{
+  "organizationName":"{organization}",
+  "projectName":"{project}",
+  "stackName":"{stack}",
+  "name":"{webhookname}",
+  "displayName":"#failures-channel",
+  "payloadUrl":"https://hooks.slack.com/services/...",
+  "format":"slack",
+  "filters":["preview_failed", "update_failed", "destroy_failed", "refresh_failed", "deployment_failed"],
   "active":true
 }
 ```
 
 ### Ping Webhook
 
+#### Ping organization webhook
+
 ```
 POST /api/orgs/{organization}/hooks/{webhookname}/ping
 ```
 
+#### Ping stack webhook
+
+```
+POST /api/stacks/{organization}/{project}/{stack}/hooks/{webhookname}/ping
+```
+
 #### Parameters
 
-| Parameter      | Type   | In   | Description       |
-|----------------|--------|------|-------------------|
-| `organization` | string | path | organization name |
-| `webhookname`  | string | path | webhook name      |
+| Parameter      | Type   | In   | Description                            |
+|----------------|--------|------|----------------------------------------|
+| `organization` | string | path | organization name                      |
+| `project`      | string | path | project name (only for stack webhooks) |
+| `stack`        | string | path | stack name  (only for stack webhooks)  |
+| `webhookname`  | string | path | webhook name                           |
 
 #### Example
 
@@ -1990,18 +2202,28 @@ Status: 200 OK
 }
 ```
 
-### List Webhooks Deliveries
+### List webhook deliveries
+
+#### List organization webhook deliveries
 
 ```
 GET /api/orgs/{organization}/hooks/{webhookname}/deliveries
 ```
 
+#### List stack webhook deliveries
+
+```
+GET /api/stacks/{organization}/{project}/{stack}/hooks/{webhookname}/deliveries
+```
+
 #### Parameters
 
-| Parameter      | Type   | In   | Description       |
-|----------------|--------|------|-------------------|
-| `organization` | string | path | organization name |
-| `webhookname`  | string | path | webhook name      |
+| Parameter      | Type   | In   | Description                            |
+|----------------|--------|------|----------------------------------------|
+| `organization` | string | path | organization name                      |
+| `project`      | string | path | project name (only for stack webhooks) |
+| `stack`        | string | path | stack name  (only for stack webhooks)  |
+| `webhookname`  | string | path | webhook name                           |
 
 #### Example
 
