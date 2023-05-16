@@ -43,7 +43,7 @@ We are happy to announce the delivery of Azure OIDC authentication, one of the [
 [Pulumi announced OIDC support for Deployments](https://www.pulumi.com/blog/oidc-blog/) in January. This article is about the same OIDC protocol, this time used to authenticate your Pulumi program to access Azure resources.
 {{% /notes %}}
 
-### The What and Why of OIDC
+## The What and Why of OIDC
 
 OIDC stands for OpenID Connect, a standardized protocol for federated identity. This means that if you maintain an identity with two service providers, you can tell one of them to trust the other. Then, you can use credentials for the trusted service to get credentials for the other.
 
@@ -51,7 +51,7 @@ As an example, we’ll use a Pulumi program running in CI on GitHub Workflows, c
 
 Secrets need to be safeguarded, rotated, and possibly revoked. If you’ve ever managed a system, whether production or CI/CD, the possibility of managing fewer secrets will be enticing. So how do we go about implementing this?
 
-### Enabling OIDC
+## Enabling OIDC
 
 There are two parts to enabling your Pulumi program to authenticate via OIDC. One is establishing the trust relationship between Azure and the other service that’s involved, like GitHub. This is a one-time operation. The second one is providing your program with the necessary configuration to perform the OIDC token exchange at runtime.
 
@@ -65,9 +65,13 @@ For GitHub, pay close attention to the “entity type” of your Azure Active Di
 
 For other providers, you need to provide your Pulumi program with two more settings. `ARM_OIDC_REQUEST_TOKEN` is your provider’s token to exchange for an Azure token. `ARM_OIDC_REQUEST_URL` is the URL to contact to initiate the token exchange.
 
-### A complete example
+## A complete example
 
-Let’s take a look at how the CI end-to-end tests of the Pulumi Azure Native provider are set up. First, we have an Active Directory App creatively named oidc-test. We simply copy its client and tenant ids and set them in the CI workflow, along with our subscription:
+Let’s take a look at how the CI end-to-end tests of the Pulumi Azure Native provider are set up.
+
+### Configuration
+
+First, we have an Active Directory App creatively named oidc-test. We simply copy its client and tenant ids and set them in the CI workflow, along with our subscription:
 
 ```
 env:
@@ -90,4 +94,18 @@ In Azure, we added the required credentials to the Active Directory App. You'll 
 
 ![OIDC credentials](oidc-credentials.png)
 
-That’s it! I hope this helps you simplify your Azure authentication.
+### End to End Flow
+
+Now, when our GitHub workflow for CI tests runs, the Azure provider knows to authenticate via OIDC because `ARM_USE_OIDC` is set. It performs the following steps:
+
+1. Call GitHub's OIDC provider, found at the URL that GitHub [automatically exports](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#updating-your-actions-for-oidc) as `ACTIONS_ID_TOKEN_REQUEST_URL`. For authentication, it includes a token GitHub generates for each workflow run and exports as `ACTIONS_ID_TOKEN_REQUEST_TOKEN`. The response is an OIDC token in form of a JSON Web Token (JWT).
+2. Send the OIDC token to Azure's Active Directory endpoint. Include the client and tenant ids of our Active Directory App that we configured via `ARM_CLIENT_ID` and `ARM_TENANT_ID`. Active Directory looks up the trust relationship we configured and validates the token, and responds with a valid access token for Azure.
+3. The Pulumi provider can now access Azure resources.
+
+That’s it! Your CI job now runs without maintaining an Azure secret in GitHub, or wherever your Pulumi program runs.
+
+## Wrapping up
+
+This article only demonstrated the basics. You can also [customize your OIDC token's claims](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims) to control access to Azure in a more fine-grained manner.
+
+I hope this helps you simplify your Azure authentication. Please try it out and let us know if you hit any issues in the [Pulumi Community Slack](https://slack.pulumi.com/?_gl=1*1vur1o*_ga*MTk2MzcxMzEwMC4xNjgwMTI4NTk3*_ga_FQHG5CVY2D*MTY4NDI2OTA4OC45Mi4xLjE2ODQyNjkxMDkuMzkuMC4w)!
