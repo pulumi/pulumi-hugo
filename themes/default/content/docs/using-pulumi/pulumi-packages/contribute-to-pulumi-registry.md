@@ -9,7 +9,7 @@ menu:
         identifier: contribute-to-pulumi-registry
         weight: 1
 aliases:
-- /docs/using-pulumi/pulumi-packages/contribute-to-pulumi-registry/
+- /docs/guides/pulumi-packages/contribute-to-pulumi-registry/
 ---
 
 Pulumi Registry is the global index of everything you can do with Pulumi. We're always eager to expand that index with new Pulumi Packages to Pulumi Registry. Whether you want to author a new native provider, bridge a provider from the Terraform ecosystem, or create a cloud component with best practices and sensible defaults built in, we'd like to work with you to list it on Pulumi Registry.

@@ -48,7 +48,7 @@ learn:
         - title: Documentation
           description: Refer to our documentation to get Pulumi Deployments set up once you have been accepted into the Preview.
           buttons:
-            - link: /docs/pulumi-cloud/deployments/
+            - link: /docs/pulumi-cloud/deployments
               action: Pulumi Deployments Docs
             - link: /docs/reference/deployments-rest-api
               action: Pulumi Deployments REST API Docs

@@ -263,7 +263,7 @@ superpowers:
 
     - title: Reduce Deployment Complexity
       cta: Learn more
-      cta_url: "/docs/using-pulumi/testing/"
+      cta_url: "/docs/using-pulumi/testing"
       icon_type: testing
       description: |
         Deploying untested code can lead to some unexpected results. Pulumi lets you take advantage
