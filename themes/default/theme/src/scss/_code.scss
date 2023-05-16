@@ -1,8 +1,9 @@
-@import "pygments";
+@import "chroma";
 @import "colors";
 
 code {
-    @apply bg-gray-100 rounded py-1 px-2 text-sm break-words;
+    @apply rounded py-1 px-2 text-sm break-words leading-relaxed;
+    font-size: 0.8em;
 }
 
 h1,
@@ -22,7 +23,7 @@ pre,
 }
 
 pre {
-    @apply bg-gray-100 py-4 px-5 pr-8 overflow-x-auto leading-normal;
+    @apply bg-gray-900 text-gray-400 py-4 px-5 pr-8 overflow-x-auto leading-normal;
 
     .code-mode-dark & {
         @apply bg-gray-900 border-none shadow-md;
