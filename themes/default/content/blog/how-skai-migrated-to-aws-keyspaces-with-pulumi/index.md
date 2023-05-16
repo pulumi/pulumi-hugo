@@ -12,13 +12,13 @@ tags:
     - migration
 ---
 
-> Danny Zalkind is the DevOps group manager for Skai, an award-winning intelligent marketing platform. He brings his 15 years of exprience of managing tech teams to his current role where he's dedicated to allow Skai R&D to efficiently produce and serve software. You can find him on [Linkedin](https://www.linkedin.com/in/danny-zalkind-01602b56/).
+> Danny Zalkind is the DevOps group manager for Skai, an award-winning intelligent marketing platform. He brings his 15 years of experience of managing tech teams to his current role where he's dedicated to allow Skai R&D to efficiently produce and serve software. You can find him on [Linkedin](https://www.linkedin.com/in/danny-zalkind-01602b56/).
 
 As Skai continues its journey towards [fully migrating to the cloud using Pulumi](https://www.pulumi.com/blog/kenshoo-migrates-to-aws-with-pulumi/), we've taken another large bite out of the migration pie, moving our most critical data to AWS on top of [Amazon Keyspaces](https://aws.amazon.com/keyspaces/), an Apache Cassandra–compatible database service.
 
 This blog post will dive into how we used Pulumi and AWS Lambda to perform the migration.
 
-## Offloading a piece of pie to AWS
+## Offloading a piece of the pie to AWS
 
 First, some background on what we do. Skai helps marketers work smarter and faster with a unified platform to reach and convert shoppers. An important service we provide to our clients is optimization of their digital marketing campaign efficiency. We store billions of events per day to enable clients to continuously improve the value they get from their ad spend.
 
@@ -26,14 +26,14 @@ Our on-premises setup included a 100-node Apache Cassandra cluster to be able to
 
 ## Why Amazon Keyspaces
 
-When looking for a solution, we were looking for a service that will mark the following checkboxes:
+When looking for a solution, we were looking for a service that would mark the following checkboxes:
 
 * Fully serverless to allow us focus on our business instead of server maintenance.
 * Scalability should be automatic and easy to perform.
 * High availability and multi-region built-in.
 * Cost effective pay-as-you-go and commitment-based model.
 * Extensive support and rich documentation.
-* Fully automatable using our main Infrastructure as Code framework Pulumi.
+* Fully automatable using Pulumi, our main Infrastructure as Code framework.
 
 ## Migration method
 
@@ -41,15 +41,17 @@ Let's take a look at how we set up the migration. We decided to migrate the data
 
 ![Skai data-migration diagram](./skai-migration-diagram.png)
 
-Finally, to make sure that the data is valid and we have no data discrepancies on the Keyspaces side, we've added a Lambda function to periodically sample the data and compare it to the data in our on-prem cluster.
+Finally, to make sure that the data is valid and we have no data discrepancies on the Keyspaces side, we added a Lambda function to periodically sample the data and compare it to the data in our on-prem cluster.
 
 We made a conscious decision to decouple the application code from the provisioning of the infrastructure, letting Pulumi handle all resource creation and configuration, while the application team used our standard CI/CD pipeline to deliver their code to the service owning the Keyspaces data.
 
-## Lets start provisioning
+## Let's start provisioning
 
-Keyspaces requires creating a logical entity called a keyspace, which groups related tables relevant for one or more applications. After that, we will iterate over our config and create each table with the relevant columns and the preferred provisioning mode --- either "on-demand" or "provisioned" depending on our workload pattern. A provisioned workload in pre-allocated and thus significantly (x7) lower in hourly price, suitable mainly for use cases where the workload is quite predictable with no spikes.
+Keyspaces requires creating a logical entity called a keyspace, which groups related tables relevant for one or more applications. After that, we iterate over our config and create each table with the relevant columns and the preferred provisioning mode --- either "on-demand" or "provisioned," depending on our workload pattern. A provisioned workload in pre-allocated and thus significantly (x7) lower in hourly price, suitable mainly for use cases where the workload is quite predictable with no spikes.
 
-Finally we will populate AWS tags in order to be able track costs and performance metrics.
+Finally we populate AWS tags in order to be able track costs and performance metrics.
+
+The following Python code illustrates the process:
 
 ```python
 import pulumi
@@ -158,9 +160,9 @@ def pulumi_program():
 
 ## Comparison Lambda
 
-Next we will define and create a Lambda function that samples and compares data between the data newly ingested into  Keyspaces, our on-premise Cassandra cluster, and our data lake Snowflake.
+Next we define and create a Lambda function that samples and compares data between the data newly ingested into  Keyspaces, our on-premise Cassandra cluster, and our data lake Snowflake.
 
-We created an abstract class implementation of AWS Lambda to standardize our various Lambda implementations and keep the code readable. This class returns all needed arguments, configuration, layers, etc.
+We created an abstract class implementation of AWS Lambda to standardize our various Lambda implementations and keep the code readable. This class returns all needed arguments, configuration, layers, etc. Here is some Python code that shows our abstraction, named `AwsFunction`:
 
 ```python
 class AwsFunction(AbstractAwsFunction):
@@ -209,7 +211,7 @@ class AwsFunction(AbstractAwsFunction):
         )
 ```
 
-Now we will instantiate the abstract class as part of our "building block" component class, create the function, triggers and invocation:
+Now we instantiate the abstract class as part of our "building block" component class, create the function, triggers and invocation:
 
 ```python
 class AwsLambda(ComponentResource):
