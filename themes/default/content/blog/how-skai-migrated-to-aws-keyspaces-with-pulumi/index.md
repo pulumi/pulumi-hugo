@@ -1,6 +1,6 @@
 ---
 title: How Skai Migrated to Amazon Keyspaces with Pulumi
-date: 2023-05-15
+date: 2023-05-16
 meta_desc: "Learn how Skai used Pulumi to manage the migration of its its on-prem Cassandra cluster to Amazon Keyspaces."
 meta_image: meta.png
 authors:
@@ -10,6 +10,7 @@ tags:
     - cassandra
     - data-warehouse
     - migration
+    - guest-post
 ---
 
 > Danny Zalkind is the DevOps group manager for Skai, an award-winning intelligent marketing platform. He brings his 15 years of experience of managing tech teams to his current role where he's dedicated to allow Skai R&D to efficiently produce and serve software. You can find him on [Linkedin](https://www.linkedin.com/in/danny-zalkind-01602b56/).
