@@ -371,7 +371,7 @@ export class PulumiAI {
     }
 
     private get runnable() {
-        return this.connectionStatus === "Connected" && !this.running && this.input.value != "";
+        return this.connectionStatus === "Connected" && !this.running && this.input.value.trim() != "";
     }
 
     private highlight(parentNode: HTMLElement): void {
@@ -383,7 +383,6 @@ export class PulumiAI {
     }
 
     private copyButtonTooltip = "Copy to clipboard";
-    private shareButtonTooltip = "Copy shareable link";
 
     private addButtons(versionMarkup: string) {
         const el = document.createElement("div");
@@ -549,14 +548,15 @@ export class PulumiAI {
     private prepareInput() {
         this.input.addEventListener("keydown", (event: KeyboardEvent) => {
             if (event.key === "Enter") {
-                if (event.metaKey) {
-                    this.input.value += "\n";
+                if (event.shiftKey) {
                     this.input.rows++;
                     return;
                 }
-
+                
                 event.preventDefault();
-                this.submit();
+                if (this.runnable) {
+                    this.submit();
+                }
             }
         });
         this.focus();
@@ -661,14 +661,14 @@ export class PulumiAI {
         this.overMessageLimit = false;
         this.submissionCount++;
 
-        const query = this.input.value?.trim()
+        const query = this.input.value?.trim();
 
         if (!query) {
             return;
         }
 
         this.currentVersion = {
-            prompt: this.input.value,
+            prompt: query,
             language: this.selectedLanguage.name,
             source: "",
             markup: "",
@@ -680,7 +680,7 @@ export class PulumiAI {
             this.conversationId,
             this.selectedLanguage.name as Language,
             this.versions && this.versions.length > 0 ? this.versions[this.versions.length - 1].source : "",
-            this.input.value,
+            query,
             this.versions.length,
             this.selectedModel.key,
             this.existingConversationId,
@@ -832,9 +832,9 @@ export class PulumiAI {
                                         </li>
                                     </ul> : undefined}
 
-                                    <div class="share-link" onClick={() => this.toggleShareMenu()}>
+                                    { this.versions.length ? <div class="share-link" onClick={() => this.toggleShareMenu()}>
                                         <span><i class="fas fa-share-square"></i> Share conversation</span>
-                                    </div>
+                                    </div> : undefined }
                                 </div>
                             </div>
                         </div>
