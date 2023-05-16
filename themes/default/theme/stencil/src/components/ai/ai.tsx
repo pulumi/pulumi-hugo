@@ -269,7 +269,7 @@ export class PulumiAI {
     private get twitterLink() {
         let postText = "Checkout what I've generated with Pulumi AI!";
         if (this.versions.length === 0) {
-            postText = "Pulumi AI can help you generate Infrastructure as Code specific to your use case. Give it a try!"
+            postText = "Pulumi AI can help you generate infrastructure as code specific to your use case. Give it a try!"
         }
 
         const tweet = `${postText} ${this.shareableLink}`;
@@ -833,7 +833,7 @@ export class PulumiAI {
                                     </ul> : undefined}
 
                                     <div class="share-link" onClick={() => this.toggleShareMenu()}>
-                                        <span><i class="fas fa-share-square"></i> Share Conversation</span>
+                                        <span><i class="fas fa-share-square"></i> Share conversation</span>
                                     </div>
                                 </div>
                             </div>
