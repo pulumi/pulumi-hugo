@@ -283,7 +283,7 @@
             }
 
             .share-link {
-                @apply text-right cursor-pointer text-gray-400;
+                @apply text-right cursor-pointer text-gray-400 text-xs;
 
                 &:hover {
                     @apply text-white;
