@@ -54,7 +54,7 @@ That's it! Now when you create a merge request and run Pulumi in a merge request
 
 Here's a preview of what it looks like.
 
-![Merge Request Note](/images/docs/guides/continuous-delivery/gitlab-app/merge_request_note.pngg)
+![Merge Request Note](/images/docs/guides/continuous-delivery/gitlab-app/merge_request_note.png)
 
 ## Disabling the Integration
 
