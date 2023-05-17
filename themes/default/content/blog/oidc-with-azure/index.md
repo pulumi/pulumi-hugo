@@ -35,12 +35,12 @@ tags:
 
 ---
 
-We are happy to announce the delivery of Azure OIDC authentication, one of the [most requested features](https://github.com/pulumi/pulumi-azure-native/issues/1324) for the [Pulumi Azure Native Provider](https://www.pulumi.com/registry/packages/azure-native/). With the v1.100.0 release, OpenID Connect (OIDC) authentication is now fully supported in both the native and [classic](https://www.pulumi.com/registry/packages/azure/) providers. Let’s dig in to learn what it is, how it works, and why it’s useful.
+We are happy to announce the delivery of Azure OIDC authentication, one of the [most requested features](https://github.com/pulumi/pulumi-azure-native/issues/1324) for the [Pulumi Azure Native Provider](https://www.pulumi.com/registry/packages/azure-native/). With the v1.100.0 release, OpenID Connect (OIDC) authentication is now fully supported in both the Azure Native and [Azure Classic](https://www.pulumi.com/registry/packages/azure/) providers. Let’s dig in to learn what it is, how it works, and why it’s useful.
 
 <!--more-->
 
 {{% notes type="info" %}}
-[Pulumi announced OIDC support for Deployments](https://www.pulumi.com/blog/oidc-blog/) in January. This article is about the same OIDC protocol, this time used to authenticate your Pulumi program to access Azure resources.
+[Pulumi announced OIDC support for Deployments](https://www.pulumi.com/blog/oidc-blog/) in January. This article is about the same OIDC protocol, used to authenticate your Pulumi program with Azure instead of Pulumi Deployments.
 {{% /notes %}}
 
 ## The What and Why of OIDC
@@ -57,13 +57,13 @@ There are two parts to enabling your Pulumi program to authenticate via OIDC. On
 
 Fortunately, Microsoft has the first step covered with their [establishing the trust relationship guide](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp). The idea is that an Active Directory app registration holds the necessary federated credentials. Your program will then use this app’s tenant id to request the token exchange. The setup depends on whether you run on GitHub Actions, Kubernetes, or other providers.
 
-On to the second step, configuring your Pulumi program. First, set the configuration `ARM_USE_OIDC` to true. Next, you’re in luck if your program runs on GitHub Actions: you're done. GitHub exports the necessary values in form of variables that Pulumi understands.
+On to the second step, configuring your Pulumi program. First, tell the Pulumi provider to use OIDC by setting the environment variable `ARM_USE_OIDC` or the Pulumi configuration `azure-native:useOidc` to true. Next, you’re in luck if your program runs on GitHub Actions: you're done. GitHub exports the necessary values in form of variables that Pulumi understands.
 
 {{% notes type="info" %}}
 For GitHub, pay close attention to the “entity type” of your Azure Active Directory credential as documented in the Azure guide. It can be a Git branch or tag, a pull request, or an environment as specified in the GitHub workflow. When your Action requests the OIDC token exchange, one of these needs to match exactly. This means that the only way to configure OIDC authentication for all branches or tags is to use environments in your workflows.
 {{% /notes %}}
 
-For other providers, you need to provide your Pulumi program with two more settings. `ARM_OIDC_REQUEST_TOKEN` is your provider’s token to exchange for an Azure token. `ARM_OIDC_REQUEST_URL` is the URL to contact to initiate the token exchange.
+For other providers, you need to provide your Pulumi program with two more settings. Environment variable `ARM_OIDC_REQUEST_TOKEN` or configuration `azure-native:oidcRequestToken` is your provider’s token to exchange for an Azure token. `ARM_OIDC_REQUEST_URL` or `azure-native:oidcRequestUrl` is the URL to contact to initiate the token exchange.
 
 ## A complete example
 
