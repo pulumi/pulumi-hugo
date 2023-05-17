@@ -6,6 +6,8 @@ h1: Pulumi glossay
 menu:
   concepts:
     weight: 12
+aliases:
+- h/docs/reference/glossary/
 ---
 
 {{< glossary >}}
