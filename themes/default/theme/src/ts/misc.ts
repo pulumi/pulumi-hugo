@@ -13,16 +13,14 @@ function bindToggle(el) {
 
         if ($(el).is(".toggle")) {
             $(el).addClass("toggleVisible").removeClass("toggle");
-            updateToggleState(el, "expanded");
         } else {
             $(el).addClass("toggle").removeClass("toggleVisible");
-            updateToggleState(el, "collapsed");
         }
     });
 }
 
 function loadToggleStates() {
-    $(".toggle-topLevel, .toggleVisible-topLevel, .toggle, .toggleVisible").each(function (i, el) {
+    $(".toggle-topLevel, .toggleVisible-topLevel").each(function (i, el) {
         if (navigationState.getKey(el.id) == "expanded") {
             $(el).addClass("toggleVisible").removeClass("toggle");
         } else if (navigationState.getKey(el.id) == "collapsed") {
