@@ -52,15 +52,15 @@ The Webhooks management page is on the Stack or Organization Settings tab.
 To create an organization webhook:
 
 1. Navigate to **Settings** > **Integrations**.
-1. Select **Create webhook**.
-1. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
+2. Select **Create webhook**.
+3. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
 
 To create a stack webhook:
 
 1. Navigate to the stack.
-1. Then navigate to **Settings** > **Integrations**
-1. Select **Create webhook**.
-1. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
+2. Then navigate to **Settings** > **Integrations**
+3. Select **Create webhook**.
+4. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
 
 If a secret is provided, webhook deliveries will contain a signature
 in the HTTP request header that can be used to authenticate messages as coming from
@@ -72,16 +72,16 @@ The following events will be emitted to webhooks registered to a stack or an org
 Organization-level webhooks will be sent webhook events from all of the stacks within
 that organization.
 
-| Event Kind | Triggered |
-| --- | --- |
-| `stack_update` | Whenever a stack is updated. |
+| Event Kind      | Triggered                             |
+|-----------------|---------------------------------------|
+| `stack_update`  | Whenever a stack is updated.          |
 | `stack_preview` | Whenever a stack update is previewed. |
 
 The following events are only delivered to organization-based webhooks.
 
-| Event Kind | Triggered |
-| --- | --- |
-| `stack` | Whenever a stack is created or deleted within an organization. |
+| Event Kind | Triggered                                                      |
+|------------|----------------------------------------------------------------|
+| `stack`    | Whenever a stack is created or deleted within an organization. |
 
 ## Payloads
 
@@ -95,10 +95,10 @@ the organization name, and a URL for the event. It will also contain the `stackN
 
 Payloads contain several headers.
 
-| Header | Description |
-|--------|-------------|
-| `Pulumi-Webhook-ID` | Unique ID for each webhook sent which you can reference when looking at delivery logs in the Pulumi Cloud. |
-| `Pulumi-Webhook-Kind` | The kind of webhook event, e.g. `stack_update`. |
+| Header                     | Description                                                                                                                                                   |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Pulumi-Webhook-ID`        | Unique ID for each webhook sent which you can reference when looking at delivery logs in the Pulumi Cloud.                                                    |
+| `Pulumi-Webhook-Kind`      | The kind of webhook event, e.g. `stack_update`.                                                                                                               |
 | `Pulumi-Webhook-Signature` | Only set if the webhook has a shared secret. HMAC hex digest of the request payload, using the `sha256` hash function and the webhook secret as the HMAC key. |
 
 The following snippets show how to compute and verify the webhook signature.
