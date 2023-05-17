@@ -62,7 +62,7 @@ Quick shortcuts to jump to your favorite area:
 
 ### Aligning Projects between Service and Self-Managed Backends
 
-While the majority of Pulumi users do choose to use the Pulumi Service, we also know that there are good reasons why some organizations would prefer to use Pulumi IaC alone without the Pulumi Service. The self-managed backends have historically stored all stacks in a single namespace across all projects.
+While the majority of Pulumi users do choose to use Pulumi Cloud, we also know that there are good reasons why some organizations would prefer to use Pulumi IaC alone without Pulumi Cloud. The self-managed backends have historically stored all stacks in a single namespace across all projects.
 
 With the `3.61.0` release of Pulumi, we've added support for project-scoped stacks to the Self-Managed backend. Stacks created in new or empty self-managed backends will automatically use the new project-scoped layout.
 
@@ -149,7 +149,10 @@ Every week we keep shipping provider updates. A few highlights on our native pro
 - Azure Native shipped six new resources for `containerstorage`, `guestconfiguration`, and `hybridcloud` ([releases](https://github.com/pulumi/pulumi-azure-native/releases))
 - AWS Native shipped 33 new resources in `apigatewayv2`, `appconfig`, `chatbot`, `comprehend`, `connect`, `datasync`, `devopsguru`, `ec2`, `frauddetector`, `lambda`, `msk`, `neptune`, `quicksight`, `ram`, `sagemaker`, `ssmcontacts`, and `vpclattice` modules ([changelog](https://github.com/pulumi/pulumi-aws-native/blob/master/CHANGELOG.md))
 
-Five new community packages were added to the Registry: TODO.
+Two new community packages were added to the Registry: 
+
+- [AzAPI](https://www.pulumi.com/registry/packages/azapi/) - shoutout to [Engin Diri](https://github.com/dirien)
+- [StrongDM](https://www.pulumi.com/registry/packages/sdm/) - shoutout to [Piers Karsenbarg](https://github.com/pierskarsenbarg)
 
 ## Pulumi Cloud & Pulumi.com
 
