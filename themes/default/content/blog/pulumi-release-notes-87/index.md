@@ -188,4 +188,4 @@ You can now view the Pulumi Deployments Click-to-Deploy menu on all stack pages,
 
 ### SAML Admin
 
-For customers on the Enterprise or Business Critical Editions of Pulumi Cloud there is a new role for a SAML admin in your organization. SAML Admins have a email and password for accessing the organization when SAML is the only permitting authentication method. We are slowly rolling this out across our customer base, if it is not yet in your organization you should expect it in the coming weeks.
+For customers on the Enterprise or Business Critical Editions of Pulumi Cloud there is a new role for a SAML admin in your organization. SAML Admins can add another identity to authenticate when SAML is the only permitting authentication method.  This could be an email and password or another authentication method, like GitHub. We are slowly rolling this out across our customer base, if it is not yet in your organization you should expect it in the coming weeks.
