@@ -63,7 +63,7 @@ function bindToggles(selector) {
 }
 
 function generateOnThisPage() {
-    var $ul = $(".on-this-page > ul");
+    var $ul = $(".on-this-page > .content > ul");
     if ($ul) {
         var found = false;
         var headings = [];
