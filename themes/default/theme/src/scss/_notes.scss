@@ -62,7 +62,7 @@
     }
 
     &.note-info {
-        background: rgba(237, 239, 251, 0.5);
+        background: #f6f7fd;
 
         a, 
         i {
@@ -74,12 +74,12 @@
         }
 
         code {
-            background: rgba(202, 206, 244, 0.5);
+            background-color: #ebedfb;
         }
     }
 
     &.note-warning {
-        background: rgba(249, 228, 210, 0.5);
+        background: #fcf2e9;
 
         a {
             color: #9D5314;
@@ -90,11 +90,11 @@
         }
 
         div.line {
-            background-color: #Ecad77;
+            background-color: #ecad77;
         }
 
         code {
-            background: rgba(243, 201, 164, 0.5);
+            background: #f9e6d4;
         }
     }
 }
