@@ -67,26 +67,33 @@ Pulumi Resource Search is composed of:
 It can be helpful when picking up a new feature to see some example queries that you can edit for your organization. See below a list of example query syntax queries:
 
 See all resources that have not been modified in a year
+
 ```modified:<=2022-05-18```
 
 See all resources with a certain tag in your cloud provider
+
 ```type:aws:s3/bucket:Bucket tags.costcenter:1234```
 
 Find the Snowflake resources used in your data engineering team
+
 ```package:snowflake stack:production team:data```
 
 Find resources in a project that aren't in a certain stack
+
 ```package:aws project:pulumi-cloud-import-aws stack:-staging-us-west-2```
 
 ## AI Assist Examples
 
 show me all virtual machines across all cloud providers
+
 ```(type:aws:ec2/instance:Instance OR type:azure:compute:VirtualMachine OR type:gcp:compute:Instance)```
 
 show me all s3 buckets not tagged in production
+
 ```(type:aws:s3/bucket:Bucket -tags.enviornment:production```
 
 show azure and azure native security groups
+
 ```((type:azure:network:NetworkSecurityGroup OR type:azure-native:network:NetworkSecurityGroup)```
 
 ## Advanced Filtering & Pulumi Teams support
