@@ -5,22 +5,23 @@
     padding: 10px 12px 12px 12px;
     align-items: flex-start;
     gap: 12px;
-    margin: 24px 0;
+    margin: 12px 0;
     position: relative;
 
     p {
+        margin-bottom: 16px;
+        line-height: 1.6;
+
         &:first-of-type {
             margin-top: 0;
         }
+    }
 
-        &:last-of-type {
-            margin-bottom: 0;
-        }
+    :last-child {
+        margin-bottom: 0;
     }
 
     a {
-        color: #4d5bd9;
-
         &:hover {
             text-decoration: underline;
         }
@@ -55,9 +56,15 @@
         flex-direction: row;
     }
 
+    code {
+        border-radius: 4px;
+        padding: 1px 6px 3px 6px;
+    }
+
     &.note-info {
         background: rgba(237, 239, 251, 0.5);
 
+        a, 
         i {
             color: #4d5bd9;
         }
@@ -65,10 +72,18 @@
         div.line {
             background-color: #a6adec;
         }
+
+        code {
+            background: rgba(202, 206, 244, 0.5);
+        }
     }
 
     &.note-warning {
         background: rgba(249, 228, 210, 0.5);
+
+        a {
+            color: #9D5314;
+        }
 
         i {
             color: #e0771c;
@@ -76,6 +91,10 @@
 
         div.line {
             background-color: #Ecad77;
+        }
+
+        code {
+            background: rgba(243, 201, 164, 0.5);
         }
     }
 }
