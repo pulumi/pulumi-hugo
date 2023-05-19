@@ -458,7 +458,15 @@ export class PulumiAI {
     }
 
     private onContent(content: OutputChunkResponse) {
-        this.currentVersion.sourceChunks.splice(content.order, 0, content.content);
+        const orderDiff = content.order - this.currentVersion.sourceChunks.length;
+        if (orderDiff > 1) {
+            for (let i = 0; i < (orderDiff + 1); i++) {
+                this.currentVersion.sourceChunks.push("");
+            }
+        }
+
+        const shouldDelete = orderDiff === 0 ? 0 : 1;
+        this.currentVersion.sourceChunks.splice(content.order, shouldDelete, content.content);
         this.currentVersion.source = [ ...this.currentVersion.sourceChunks, " ⎸"].join("");
         this.currentVersion = Object.assign({}, this.currentVersion);
 
