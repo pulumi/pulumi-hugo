@@ -1,6 +1,6 @@
 ---
 title: "Leveling up Pulumi AI with the Pulumi Registry"
-date: 2023-05-10
+date: 2023-05-19
 meta_desc: >
     We've combined Pulumi AI with the knowledge of the Pulumi Registry. These improvements enable Pulumi AI to generate more accurate infrastructure.
 meta_image: meta.png
@@ -13,7 +13,7 @@ tags:
     - registry
 ---
 
-Pulumi AI harnesses a form of generative AI, known as large language models, to help you discover, learn, and use new cloud infrastructure APIs with ease. Think of Pulumi AI as a sophisticated compass, guiding you through the ever-changing landscape of cloud infrastructure and pointing you in the direction of the most suitable solutions for your unique requirements.
+[Pulumi AI](/ai) harnesses a form of generative AI, known as large language models, to help you discover, learn, and use new cloud infrastructure APIs with ease. Think of Pulumi AI as a sophisticated compass, guiding you through the ever-changing landscape of cloud infrastructure and pointing you in the direction of the most suitable solutions for your unique requirements.
 
 In this blog post, we'll explore our recent enhancements to Pulumi AI, focusing on how we've integrated Pulumi Package schema data to generate more accurate and relevant Pulumi programs. We'll also share examples showcasing the improvements and how they can benefit your infrastructure as code journey.
 
@@ -144,10 +144,10 @@ When asked for modern resources such as [Google AlloyDB](https://cloud.google.co
 
 ## Getting Started with the Enhanced Pulumi AI
 
-Our enhancements to Pulumi AI have made it a more useful tool for generating accurate and relevant cloud infrastructure solutions. We're excited about the future of Pulumi AI as we continue to integrate it into [Pulumi Cloud](https://app.pulumi.com) and empower everyone to become a cloud engineer.
+Our enhancements to Pulumi AI have made it an even more useful tool for generating accurate and relevant cloud infrastructure solutions. We're excited about the future of Pulumi AI as we continue to integrate it into [Pulumi Cloud](https://app.pulumi.com) and empower everyone to become a cloud engineer.
 
-These enhancements are live now at [Pulumi AI](/ai/), and we've added links to Pulumi AI in pages on the Pulumi Registry, for example on the [`eks.Cluster`](/registry/packages/eks/api-docs/cluster/) docs mentioned earlier.
+We've also added new ways to reach Pulumi AI. In the Pulumi Registry, "Explore with Pulumi AI" links provide interactive documentation. And after you've had a conversation with Pulumi AI, you can share it via a "Share conversation" link in the bottom right corner of the message box:
 
-Give them a try and share your experiences with us. Together, let's build a future where infrastructure as code becomes more accessible, efficient, and enjoyable for everyone.
+[<img src="./pulumi-ai-sharing.png" alt="Pulumi AI Sharing" style="width: 760px; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">](/ai/)
 
-Happy coding!
+Try out [Pulumi AI](/ai/) today, and happy coding!
