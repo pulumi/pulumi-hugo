@@ -98,28 +98,6 @@
         </div>
     </section>
 
-    <section id="topic-tags" class="relative mt-16">
-        <div class="dot-background-container">
-            <div class="dot-background"></div>
-        </div>
-        <div class="dot-overlay"></div>
-
-        <div class="w-full py-8" style="background-color:rgba(255,255,255,.8)">
-            <div class="text-center relative mx-auto w-full lg:w-2/3">
-                <h2 class="text-black mb-8">At A Glance Topics</h2>
-                <p>
-                    Learn how industry leaders leverage infrastructure as code to innovate, accelerate software development, enable their developer teams, and cut costs. Grow your
-                    knowledge about cloud and trending topics, and build more efficiently.
-                </p>
-                <div class="flex flex-row flex-wrap justify-center">
-                    {{ range .Params.topics }}
-                        <div class="rounded-md px-2 py-2 m-2 text-white {{ .color }}">{{ .name }}</div>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="why-attend" class="my-8 lg:my-20">
         <div class="container mx-auto">
             <h2 class="pl-8">Why Attend</h2>
