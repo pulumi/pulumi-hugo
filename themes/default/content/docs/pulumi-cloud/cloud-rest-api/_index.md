@@ -15,10 +15,6 @@ aliases:
 
 The Pulumi Cloud REST API is used by the Pulumi CLI to query and interact with state information, history, stack tags, etc. This API is available for end users to integrate into their own automation use cases.
 
-{{% notes "info" %}}
-While the Pulumi Cloud REST API is used by the Pulumi CLI and the console, Pulumi makes no guarantees about changes that might affect backwards compatibility or cause breaking changes.
-{{% /notes %}}
-
 ## Endpoint URL
 
 For the Managed Pulumi Cloud (i.e. [app.pulumi.com](https://app.pulumi.com/)), API endpoints are prefixed with the following url:

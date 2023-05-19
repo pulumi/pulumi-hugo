@@ -33,15 +33,9 @@ of most _ChatOps_ workflows.
 ## Management
 
 Webhooks can be attached to either a stack or an organization. Stack webhooks
-will be notified whenever a stack is updated or changed. Organization
+will be notified of events specific to the stack. Organization
 webhooks will be notified for events happening within each of the organization's
 stacks.
-
-{{% notes "info" %}}
-There are some restrictions on the number of webhooks that can be registered
-when using the Pulumi Team editions. [Contact us](/contact/)
-if you need the limit increased.
-{{% /notes %}}
 
 The Webhooks management page is on the Stack or Organization Settings tab.
 
@@ -51,31 +45,40 @@ The Webhooks management page is on the Stack or Organization Settings tab.
 
 To create an organization webhook:
 
-1. Navigate to **Settings** > **Integrations**.
+1. Navigate to **Settings** > **Webhooks**.
 2. Select **Create webhook**.
-3. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
+3. Select between a slack-formatted webhook or regular Pulumi webhooks.
+4. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
+5. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
+6. Choose between receiving all events or only receiving specific events using the filters menu.
 
 To create a stack webhook:
 
 1. Navigate to the stack.
-2. Then navigate to **Settings** > **Integrations**
+2. Then navigate to **Settings** > **Webhooks**
 3. Select **Create webhook**.
-4. Provide a _Display Name_, _Payload URL_, and optionally a _Secret_.
+4. Select between a slack-formatted webhook or regular Pulumi JSON webhooks.
+5. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
+6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
+7. Choose between receiving all events or only receiving specific events using the filters menu.
 
+{{% notes "info" %}}
 If a secret is provided, webhook deliveries will contain a signature
 in the HTTP request header that can be used to authenticate messages as coming from
 the Pulumi Cloud.
+{{% /notes %}}
 
 ## Event Notifications
 
 The following events will be emitted to webhooks registered to a stack or an organization.
-Organization-level webhooks will be sent webhook events from all of the stacks within
+Organization-level webhooks will be sent webhook events from all stacks within
 that organization.
 
-| Event Kind      | Triggered                             |
-|-----------------|---------------------------------------|
-| `stack_update`  | Whenever a stack is updated.          |
-| `stack_preview` | Whenever a stack update is previewed. |
+| Event Kind      | Triggered                                             |
+|-----------------|-------------------------------------------------------|
+| `stack_update`  | Whenever a stack is updated.                          |
+| `stack_preview` | Whenever a stack update is previewed.                 |
+| `deployment`    | Whenever a deployment is queued, starts or completes. |
 
 The following events are only delivered to organization-based webhooks.
 
@@ -189,42 +192,6 @@ the stack update or performed the action.
 	"action": "created",
 	"projectName": "website",
 	"stackName": "website-prod"
-}
-```
-
-### Team Stack Update
-
-```
-{
-	"user": {
-		"name": "Morty Smith",
-		"githubLogin": "morty",
-		"avatarUrl": "https://crazy-adventures.net/morty.png"
-	},
-	"organization": {
-		"name": "Crazy Adventures",
-		"githubLogin": "crazy-adventures",
-		"avatarUrl": "https://crazy-adventures.net/logo.png"
-	},
-	"action": "updated",
-	"stackName": "website-prod",
-	"team": {
-		"kind": "github",
-		"name": "Adventurers",
-		"members": [
-			{
-				"name": "Morty Smith",
-				"githubLogin": "morty",
-				"avatarUrl": "https://crazy-adventures.net/morty.png"
-			}
-		],
-		"stacks": [
-			{
-				"stackName": "website-prod",
-				"permission": 3
-			}
-		]
-	}
 }
 ```
 
