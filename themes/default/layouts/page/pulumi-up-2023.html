@@ -44,6 +44,43 @@
         </p>
     </div>
 
+    <section id="ai-panel" class="mb-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-center">AI and the Future of Cloud Development</h2>
+            <p class="text-center mb-8">
+                Get ready for the future of cloud development! Listen to industry experts in our unfiltered panel discussion on how AI is transforming cloud native landscape. Stay
+                ahead of the curve by hearing and learning from the best in the industry.
+            </p>
+            <div class="container justify-center flex flex-col lg:flex-row">
+                {{ range .Params.panelists }}
+                    <div class="mx-2 flex flex-row lg:flex-col my-2">
+                        <img src="{{ .image }}" class="rounded-l-md lg:rounded-b-none lg:rounded-t-md" style="height: 220px; width: 220px;" />
+                        <div class="light-blue-background w-full px-4 py-2 rounded-r-md lg:rounded-t-none lg:rounded-b-md text-left">
+                            <h6>{{ .name }}</h6>
+                            <p class="text-sm text-black my-2 flex-wrap">{{ .position }}</p>
+                            <p class="text-sm text-black my-2">{{ .company }}</p>
+                            <div class="flex flex-row my-4">
+                                {{ range .socials }}
+                                    <a href="{{ .link }}" target="_blank">
+                                        <img src="/logos/tech/{{ .site }}.svg" alt="{{ .site }}" class="mr-2" href="{{ .link }}" />
+                                    </a>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+            <h6 class="py-4">Be a part of shaping the future of cloud infrastructure!</h6>
+            <event-session-registration-modal
+                modal-title="Register for PulumiUP"
+                button-text="Register Now"
+                button-class="btn-primary"
+                event-sessions="{{ .Params.registration.items | jsonify }}"
+            >
+            </event-session-registration-modal>
+        </div>
+    </section>
+
     <section id="personas" class="light-blue-background">
         <div class="container mx-auto px-4 py-8 text-center">
             <h2>A MUST attend for...</h2>
@@ -87,7 +124,7 @@
                     </div>
                 {{ end }}
             </div>
-            <h5 class="py-4">Stay tuned... More to come!</h5>
+            <h6 class="py-4">Don't miss out on this opportunity to improve your knowledge and skills in cloud infrastructure.</h6>
             <event-session-registration-modal
                 modal-title="Register for PulumiUP"
                 button-text="Register Now"
