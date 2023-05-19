@@ -18,6 +18,8 @@ ol.docs-breadcrumb {
             &:hover {
                 color: #5f6065;
                 text-decoration: underline;
+                text-underline-offset: 6px;
+                text-decoration-color: #8e8f97;
             }
         }
 
