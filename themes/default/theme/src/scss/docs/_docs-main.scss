@@ -1,4 +1,53 @@
 .docs-list-main .docs-list-main-content,
 .docs-single-main .docs-single-main-content {
     margin-bottom: 450px;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Gilroy;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-weight: 500;
+        font-size: 30px;
+        color: #131314;
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 16px;
+        color: #131314;
+    }
+
+    h3 {
+        font-weight: 600;
+        font-size: 21px;
+        color: #131314;
+    }
+
+    h4 {
+        font-weight: 600;
+        font-size: 18px;
+        color: #5f6065;
+    }
+
+    h5 {
+        font-weight: 500;
+        font-size: 18px;
+        color: #131314;
+    }
+
+    h6 {
+        font-weight: 600;
+        font-size: 16px;
+        color: #5a5a5a;
+          
+    }
+
+    p {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 16px;
+        color: #131314;
+    }
 }
