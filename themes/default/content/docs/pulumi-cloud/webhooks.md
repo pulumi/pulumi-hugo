@@ -62,6 +62,11 @@ To create a stack webhook:
 6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
 7. Choose between receiving all events or only receiving specific events using the filters menu.
 
+{{% notes "info" %}}
+Pulumi Webhooks may also be created by using the [Webhook resource](https://www.pulumi.com/registry/packages/pulumiservice/api-docs/webhook/)
+from the Pulumi provider, or by [using the API](/docs/pulumi-cloud/cloud-rest-api/#create-webhook) directly.
+{{% /notes %}}
+
 ## Event Filtering
 
 Event filtering allows you to choose which events should be delivered to each webhook. You may choose to receive
