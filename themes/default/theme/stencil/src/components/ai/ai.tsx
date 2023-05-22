@@ -21,6 +21,7 @@ interface Version {
 
     // Feedback
     feedbackSubmitted: boolean;
+    feedbackDisabled?: boolean;
     helpful?: boolean;
     comments?: string;
 }
@@ -364,10 +365,13 @@ export class PulumiAI {
     private onGetConverstation(data: GetConversationResponse) {
         const versions: Version[] = data.conversation.map(c => {
             return {
+                id: "",
                 prompt: c.prompt,
                 source: c.response,
                 language: c.language,
                 markup: this.addButtons(marked.marked.parse(c.response)),
+                feedbackSubmitted: false,
+                feedbackDisabled: true,
             };
         });
 
@@ -795,10 +799,12 @@ export class PulumiAI {
         if (version.helpful !== undefined && !version.feedbackSubmitted) {
             return(
                 <div class="feedback">
-                    <p class="feedback-description">Would you like to leave a comment?</p>
+                    <p class="feedback-description">Would you like to leave a comment (optional)?</p>
                     <div class="feedback-comments">
                         <textarea rows={2} value={version.comments} onChange={(e: any) => this.updateFeedbackComment(version.id, e.target.value)} />
-                        <button onClick={() => this.sendFeedback(version.id)} class="feedback-submit-button">Submit</button>
+                        <div class="feedback-submit-button-container">
+                            <button onClick={() => this.sendFeedback(version.id)} class="feedback-submit-button">Send Feedback</button>
+                        </div>
                     </div>
                 </div>
             );
@@ -852,7 +858,7 @@ export class PulumiAI {
                                         <hr />
                                         { this.renderPrompt(version) }
                                         <div class="version" innerHTML={ this.renderVersion(version) }></div>
-                                        { !this.currentVersion ? this.renderFeedback(version) : undefined }
+                                        { !this.currentVersion && !version.feedbackDisabled ? this.renderFeedback(version) : undefined }
                                     </li>)
                                 }
                                 </ol>
