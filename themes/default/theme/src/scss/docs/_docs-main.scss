@@ -7,10 +7,15 @@
         line-height: 1.5;
     }
 
+    h2, h3, h4, h5, h6 {
+        margin: 12px 0;
+    }
+
     h1 {
         font-weight: 500;
         font-size: 30px;
         color: #131314;
+        margin: 16px 0;
     }
 
     h2 {
@@ -49,5 +54,6 @@
         font-weight: 400;
         font-size: 16px;
         color: #131314;
+        margin-bottom: 12px;
     }
 }
