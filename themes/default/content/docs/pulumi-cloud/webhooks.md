@@ -43,6 +43,10 @@ The Webhooks management page is on the Stack or Organization Settings tab.
 
 ### Create a Webhook
 
+Pulumi Webhooks may be created through the UI using the steps outlined below, or by using the
+[Webhook resource](https://www.pulumi.com/registry/packages/pulumiservice/api-docs/webhook/) from the Pulumi provider,
+or by [using the API](/docs/pulumi-cloud/cloud-rest-api/#create-webhook) directly.
+
 #### Create an Organization Webhook
 
 1. Navigate to **Settings** > **Webhooks**.
@@ -61,11 +65,6 @@ The Webhooks management page is on the Stack or Organization Settings tab.
 5. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
 6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
 7. Choose between receiving all events or only receiving specific events using the filters menu.
-
-{{% notes "info" %}}
-Pulumi Webhooks may also be created by using the [Webhook resource](https://www.pulumi.com/registry/packages/pulumiservice/api-docs/webhook/)
-from the Pulumi provider, or by [using the API](/docs/pulumi-cloud/cloud-rest-api/#create-webhook) directly.
-{{% /notes %}}
 
 ## Event Filtering
 
@@ -107,6 +106,10 @@ follow the link below to quickly get started with a pre-defined Slack app manife
 <div class="btn btn-secondary"><a target="_blank" href="https://api.slack.com/apps?new_app=1&manifest_yaml=display_information%3A%0A%20%20name%3A%20pulumi-slack-notifications%0A%20%20description%3A%20Funnel%20Pulumi%20webhooks%20to%20Slack%0A%20%20background_color%3A%20%22%238a3391%22%0Afeatures%3A%0A%20%20bot_user%3A%0A%20%20%20%20display_name%3A%20pulumi-slack-notifications%0A%20%20%20%20always_online%3A%20false%0Aoauth_config%3A%0A%20%20scopes%3A%0A%20%20%20%20bot%3A%0A%20%20%20%20%20%20-%20incoming-webhook%0Asettings%3A%0A%20%20org_deploy_enabled%3A%20false%0A%20%20socket_mode_enabled%3A%20false%0A%20%20token_rotation_enabled%3A%20false" class="tile h-full">Create a Slack app from manifest</a></div>
 
 ### Generic JSON Webhooks
+
+When using generic JSON webhooks, Pulumi will send an HTTP `POST` request to
+all registered webhooks. The webhook can then be used to emit a
+notification, start running integration tests, or even update additional stacks.
 
 {{% notes "info" %}}
 If a secret is provided, webhook deliveries will contain a signature in the HTTP request header that can be used
@@ -220,7 +223,7 @@ the organization name, and a URL for the event. It will also contain the `stackN
 }
 ```
 
-### Headers
+#### Headers
 
 Payloads contain several headers.
 
