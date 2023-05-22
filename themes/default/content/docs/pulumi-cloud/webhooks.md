@@ -43,21 +43,21 @@ The Webhooks management page is on the Stack or Organization Settings tab.
 
 ### Create a Webhook
 
-To create an organization webhook:
+#### Create an Organization Webhook
 
 1. Navigate to **Settings** > **Webhooks**.
 2. Select **Create webhook**.
-3. Select between a slack-formatted webhook or regular Pulumi webhooks.
+3. Select between a slack-formatted or generic JSON webhooks.
 4. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
 5. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
 6. Choose between receiving all events or only receiving specific events using the filters menu.
 
-To create a stack webhook:
+#### Create a Stack Webhook
 
 1. Navigate to the stack.
 2. Then navigate to **Settings** > **Webhooks**
 3. Select **Create webhook**.
-4. Select between a slack-formatted webhook or regular Pulumi JSON webhooks.
+4. Select between a slack-formatted webhook or generic JSON webhooks.
 5. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
 6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
 7. Choose between receiving all events or only receiving specific events using the filters menu.
@@ -104,7 +104,7 @@ and optionally choosing which events you want delivered using [event filters](#e
 You can either create your own Slack app (or use an existing one you may already have installed in your workspace), or
 follow the link below to quickly get started with a pre-defined Slack app manifest.
 
-[Slack App Manifest](https://api.slack.com/apps?new_app=1&manifest_yaml=display_information%3A%0A%20%20name%3A%20pulumi-slack-notifications%0A%20%20description%3A%20Funnel%20Pulumi%20webhooks%20to%20Slack%0A%20%20background_color%3A%20%22%238a3391%22%0Afeatures%3A%0A%20%20bot_user%3A%0A%20%20%20%20display_name%3A%20pulumi-slack-notifications%0A%20%20%20%20always_online%3A%20false%0Aoauth_config%3A%0A%20%20scopes%3A%0A%20%20%20%20bot%3A%0A%20%20%20%20%20%20-%20incoming-webhook%0Asettings%3A%0A%20%20org_deploy_enabled%3A%20false%0A%20%20socket_mode_enabled%3A%20false%0A%20%20token_rotation_enabled%3A%20false)
+<div class="btn btn-secondary"><a href="https://api.slack.com/apps?new_app=1&manifest_yaml=display_information%3A%0A%20%20name%3A%20pulumi-slack-notifications%0A%20%20description%3A%20Funnel%20Pulumi%20webhooks%20to%20Slack%0A%20%20background_color%3A%20%22%238a3391%22%0Afeatures%3A%0A%20%20bot_user%3A%0A%20%20%20%20display_name%3A%20pulumi-slack-notifications%0A%20%20%20%20always_online%3A%20false%0Aoauth_config%3A%0A%20%20scopes%3A%0A%20%20%20%20bot%3A%0A%20%20%20%20%20%20-%20incoming-webhook%0Asettings%3A%0A%20%20org_deploy_enabled%3A%20false%0A%20%20socket_mode_enabled%3A%20false%0A%20%20token_rotation_enabled%3A%20false" class="tile h-full">Create a Slack app from manifest</a></div>
 
 ### Generic JSON Webhooks
 
