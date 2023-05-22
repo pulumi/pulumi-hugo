@@ -1,31 +1,16 @@
-<nav class="top-nav-bar docs transition-all">
+<nav class="top-nav-bar docs actually-docs transition-all">
     <div class="top-nav-container">
         <div class="logo-get-started">
-            <div data-track="header-pulumi-logo" class="logo-nav-button logo-hamburger" aria-haspopup="true" aria-controls="logo-nav-menu">
+            <div data-track="header-pulumi-logo" class="logo-nav-button logo-parent" aria-haspopup="true" aria-controls="logo-nav-menu">
                 <div class="logo">
                     <img src="/images/logo/logo-on-white.svg" alt="Pulumi logo" />
-                    <i class="fa fa-chevron-down ml-4 pr-1 hidden lg:block"></i>
-                </div>
-                <div class="hamburger">
-                    <i class="fa fa-bars text-2xl"></i>
-                    <i class="hidden fa fa-times text-2xl"></i>
+                    <i class="fa fa-chevron-down"></i>
                 </div>
                 <ul id="logo-nav-menu" role="menu" class="logo-nav-menu hidden">
                     <li role="none"><a role="menuitem" href="/">Pulumi home</a></li>
                     <li role="none"><a role="menuitem" href="{{ relref . " /pricing" }}">Pricing</a></li>
                     <li role="none"><a role="menuitem" href="{{ relref . " /blog" }}">Blog</a></li>
                     <li role="none"><a role="menuitem" href="{{ relref . " /resources" }}">Events & workshops</a></li>
-                    <ul role="menu" class="sm:hidden">
-                        <li role="none"><a role="menuitem" href="https://github.com/pulumi/pulumi">GitHub</a></li>
-                        <li role="none"><a role="menuitem" href="https://slack.pulumi.com">Slack</a></li>
-                        <li role="none"><a role="menuitem" href="{{ relref . " /registry" }}">Registry</a></li>
-                        <li role="none"><a role="menuitem" href="{{ relref . " /ai" }}">Pulumi AI</a></li>
-                        <li role="none">
-                            <a role="menuitem" href="https://app.pulumi.com">
-                                {{ partial "top-nav-user-toggle" }}
-                            </a>
-                        </li>
-                    </ul>
                 </ul>
             </div>
             <div class="get-started">
@@ -33,7 +18,7 @@
             </div>
         </div>
         <div class="nav-items">
-            <ul class="hidden w-full lg:flex">
+            <ul>
                 <li class="github-widget">
                     <a
                         data-track="header-github-pulumi"
@@ -46,25 +31,25 @@
                         Star
                     </a>
                 </li>
-                <li>
+                <li class="slack">
                     <a data-track="header-slack" href="https://slack.pulumi.com/">
                         <i class="fab fa-slack"></i>
                         Slack
                     </a>
                 </li>
-                <li>
-                    <a data-track="header-github" href="{{ relref . " /docs" }}">
+                <li class="docs">
+                    <a data-track="header-docs" href="{{ relref . " /docs" }}">
                         <i class="fas fa-book"></i>
                         Docs
                     </a>
                 </li>
-                <li>
-                    <a data-track="header-github" href="{{ relref . " /registry" }}">
+                <li class="registry">
+                    <a data-track="header-registry" href="{{ relref . " /registry" }}">
                         <i class="fas fa-archive"></i>
                         Registry
                     </a>
                 </li>
-                <li>
+                <li class="ai">
                     <a data-track="header-ai" href="{{ relref . " /ai" }}">
                         <i class="fas fa-robot"></i>
                         Pulumi AI

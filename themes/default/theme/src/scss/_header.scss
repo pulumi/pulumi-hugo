@@ -48,15 +48,11 @@
     // The nav bar will be pinned on mobile but not on desktop.
     &.registry,
     &.docs {
-        @apply sticky z-auto -top-px;
         background-color: #fff;
         color: #131314;
         width: 100%;
-
-        @screen md {
-            @apply relative;
-        }
-
+        position: relative;
+        
         &.is-pinned {
             box-shadow: 0 1px 12px 0 rgba(0,0,0,.06),0 1px 4px 0 rgba(0,0,0,.04);
             
@@ -193,7 +189,7 @@
                 }
 
                 &.header-nav-item-drop-down {
-                    @apply relative cursor-pointer;
+                    @apply cursor-pointer;
 
                     .header-nav-drop-down-menu {
                         @apply w-full absolute hidden pt-6 mt-2 top-0 z-20;
