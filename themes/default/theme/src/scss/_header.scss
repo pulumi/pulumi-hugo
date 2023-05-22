@@ -190,6 +190,7 @@
 
                 &.header-nav-item-drop-down {
                     @apply cursor-pointer;
+                    @apply relative;
 
                     .header-nav-drop-down-menu {
                         @apply w-full absolute hidden pt-6 mt-2 top-0 z-20;
