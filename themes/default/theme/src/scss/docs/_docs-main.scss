@@ -27,7 +27,7 @@
         font-weight: 400;
         font-size: 30px;
         color: #131314;
-        margin: 16px 0 !important;;
+        margin: 16px 0 !important;
     }
 
     h2 {
@@ -66,8 +66,13 @@
         font-weight: 400;
         font-size: 16px;
         color: #131314;
-        margin-bottom: 12px;
+        padding: 0 0 12px 0;
+        margin: 0;
         line-height: 1.6;
+    }
+
+    table {
+        margin-bottom: 16px;
     }
 
     section.docs-content {
