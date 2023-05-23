@@ -8,14 +8,26 @@
     }
 
     h2, h3, h4, h5, h6 {
-        margin: 12px 0;
+        margin: 12px 0 !important;
+    }
+
+    h1 + h2,
+    h2 + h2,
+    h2 + h3,
+    h3 + h3,
+    h3 + h4,
+    h4 + h4,
+    h5 + h6,
+    h5 + h5,
+    h6 + h6 {
+        margin-top: 0 !important;
     }
 
     h1 {
         font-weight: 400;
         font-size: 30px;
         color: #131314;
-        margin: 16px 0;
+        margin: 16px 0 !important;;
     }
 
     h2 {
@@ -60,14 +72,15 @@
 
     section.docs-content {
         p a:not(.btn-secondary),
-        ul li a[href] {
+        ul li a[href]  {
             color: #4d5bd9;
-            background: linear-gradient(90deg,hsla(60,2%,74%,0),hsla(60,2%,74%,0)),linear-gradient(90deg,#8e8f97,#8e8f97);
+            background: linear-gradient(90deg,#fff,#fff),linear-gradient(90deg,#8e8f97,#8e8f97);
             background-position: 100% 100%,0 100%;
             background-repeat: no-repeat;
             background-size: 100% 0.1em,0 0.1em;
             padding-bottom: 0.2rem;
-            transition: background-size .4s!important;
+            transition: background-size .3s;
+            transition-timing-function: ease-in;
 
             &:hover {
                 color: #4552c3;
