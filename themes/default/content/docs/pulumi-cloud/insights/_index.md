@@ -21,7 +21,7 @@ It provides:
 - **Resource Search Aggregates** See aggregates at a glance for your resources under management.
   Start with a birds-eye view of your infrastructure, and leverage search to dig deeper.
 
-- **Cloud Import** ring your own cloud provider account and import all of your existing resources into Pulumi to see how things break down. Zero code required.
+- **Cloud Import** Bring your own cloud provider account and import all your existing resources into Pulumi to see how things break down. Zero code required.
 
 - **Data Export** Export your Pulumi resources into your business intelligence tool of choice to go even further.
 
