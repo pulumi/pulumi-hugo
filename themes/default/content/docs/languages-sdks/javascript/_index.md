@@ -211,7 +211,7 @@ runtime:
 ## Package Management
 
 Pulumi has official support for NPM and Yarn Classic. Pulumi does
-not currently support Yarn Plug'n'Play.
+not support Yarn Plug'n'Play.
 
 Pulumi defaults to using NPM. However, if Pulumi detects a `yarn.lock` file
 in the project root, or the environment variable `PULUMI_PREFER_YARN=true`,
