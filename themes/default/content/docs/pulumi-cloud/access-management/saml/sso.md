@@ -77,9 +77,9 @@ The name ID format is one of the most important aspects of your SAML SSO configu
 
 ## Session Lifetime
 
-Most identity providers support configuring the lifetime of the SAML session by passing the optional `SessionNotOnAfter` attribute in the `AuthnStatement` element in the SAML assertion. Please refer to your identity provider for guidance on how to set this attribute.
+Most identity providers support configuring the lifetime of the SAML session by passing the optional `SessionNotOnAfter` attribute in the `AuthnStatement` element in the SAML assertion. Refer to your identity provider for guidance on how to set this attribute.
 
-Here's an example of the `AuthnStatement` element with session lifetime configured:
+Example of the `AuthnStatement` element with session lifetime configured:
 
 ```xml
 <saml:AuthnStatement AuthnInstant="2023-05-23T00:49:39Z" SessionNotOnOrAfter="2023-05-23T10:49:39Z" SessionIndex="...">

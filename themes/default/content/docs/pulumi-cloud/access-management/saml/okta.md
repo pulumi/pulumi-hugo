@@ -107,7 +107,7 @@ Once the IDP metadata descriptor has been saved, you are all set to log into Pul
 
 ## Configuring Session Lifetime
 
-The Pulumi Cloud uses the `SessionNotOnOrAfter` attribute in the `AuthnStatement` element to configure the session lifetime. In order to configure this in Okta, you will need to use a [SAML assertion inline hook](https://developer.okta.com/docs/guides/saml-inline-hook/main/).
+The Pulumi Cloud uses the `SessionNotOnOrAfter` attribute in the `AuthnStatement` element to configure the session lifetime. To configure this in Okta, you must use a [SAML assertion inline hook](https://developer.okta.com/docs/guides/saml-inline-hook/main/).
 
 The JSON payload the inline hook sends to Okta should contain the following:
 
