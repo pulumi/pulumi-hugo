@@ -1,6 +1,6 @@
 ---
 title: "GPT Your IaC"
-layout: challenge/single
+layout: challenge/offer
 description: |
     Use Pulumi AI to generate the most interesting or sophisticated architecture possible
 meta_desc: |
@@ -15,9 +15,9 @@ banner_image: /images/challenge/challenge-ai-banner.png
 
 Why write your Pulumi programs yourself when you can have AI do it for you? Pulumi AI leverages large language models (LLMs) to author infrastructure as code for any architecture for any cloud in any language.
 
-For the **GPT Your IaC challenge**, your goal is to have Pulumi AI create the most complex and sophisticated piece of architecture where you can run a successful `pulumi up` with the program created by Pulumi AI. To participate in the challenge, you'll need to either visit [pulumi.com/ai](/ai) or download the [CLI](https://github.com/pulumi/pulumi-ai) so you can use Pulumi AI.
+For the **GPT Your IaC Challenge**, your goal is to have Pulumi AI write a Pulumi program for any architecture you want and run a successful `pulumi up` with the program created. To participate in the challenge, you'll need to either visit [pulumi.com/ai](/ai) or download the [CLI](https://github.com/pulumi/pulumi-ai) so you can use Pulumi AI.
 
-We will send you a piece of swag if you document this via a blog post, social media, or video. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will help spread the word about your experience. All submissions will be judged at the end of the challenge, and the best submissions (there will be a few categories) will receive a special prize.
+We will send you limited edition swag for completion of the challenge. We will also send you an even better piece of swag if you document this via a blog post, social media, or video. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com), and we will help spread the word about your experience. All submissions will be judged at the end of the challenge, and the best submissions (there will be a few categories) will receive a special prize.
 
 ### Prerequisites
 
@@ -178,7 +178,9 @@ There you go! Pulumi AI has helped us generate a program to provision important 
 
 ### Congratulations
 
-Congratulations! You've completed this **Pulumi Challenge**. If you want, please create a blog post, social media, or video documenting your work on this challenge. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com) to claim your swag. Winners will be chosen in a few months and receive a special prize.
+Congratulations! You've completed this **Pulumi Challenge**. Please fill in the form below to receive limited edition swag for this challenge. You will need to upload a screenshot of the `pulumi up` output for us to verify completion.
+
+If you want, please create a blog post, social media, or video documenting your work on this challenge. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com) to claim another piece of even more special swag. Winners will be chosen in a few months and receive a special prize.
 
 #### What you have learned
 
