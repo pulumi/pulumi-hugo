@@ -13,7 +13,7 @@ fi
 
 aws sts get-caller-identity
 
-./scripts/ci/ci-login
+./scripts/ci/ci-login.sh
 ./scripts/ci/build.sh preview
 ./scripts/ci/sync.sh preview
-./scripts/ci/run-pulumi.sh preview
+./scripts/ci/run-pulumi.sh update

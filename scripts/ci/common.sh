@@ -16,11 +16,17 @@ aws_region() {
 }
 
 clone_docs_infrastructure() {
-    git init infrastructure
-    pushd infrastructure
-    git remote add -f origin "git@github.com:pulumi/docs.git"
-    git config core.sparseCheckout true
-    echo "infrastructure" >> .git/info/sparse-
+    git clone "https://github.com/pulumi/docs.git" --no-checkout docsrepo --depth 1
+    pushd docsrepo
+    git sparse-checkout init --cone
+    git sparse-checkout set infrastructure
+    git checkout
+    yarn install
+    # temporarily here until merging docs updates into master
+    curl -o infrastructure/Pulumi.www-testing.yaml -L "https://raw.githubusercontent.com/pulumi/docs/e42a792362be5e2dac89d30d7cd1429d5b98cb82/infrastructure/Pulumi.www-testing.yaml"
+    curl -o infrastructure/index.ts -L "https://raw.githubusercontent.com/pulumi/docs/e42a792362be5e2dac89d30d7cd1429d5b98cb82/infrastructure/index.ts"
+    curl -o infrastructure/lambdaEdge.ts -L "https://raw.githubusercontent.com/pulumi/docs/e42a792362be5e2dac89d30d7cd1429d5b98cb82/infrastructure/lambdaEdge.ts"
+    mv infrastructure ../
     popd
 }
 
