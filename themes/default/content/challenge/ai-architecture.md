@@ -1,12 +1,13 @@
 ---
 title: "GPT Your IaC"
-layout: challenge/offer
+layout: challenge/single
 description: |
     Use Pulumi AI to generate the most interesting or sophisticated architecture possible
 meta_desc: |
     Use Pulumi AI to generate the most interesting or sophisticated architecture possible
 meta_image: /images/challenge/challenge-ai-meta.png
 banner_image: /images/challenge/challenge-ai-banner.png
+hubspot_form_id: 1pC3zwQ3ET8ijTyGxv0W2Zg2mxud
 ---
 
 ## Welcome to the GPT Your IaC Challenge!
@@ -49,7 +50,7 @@ To begin the challenge, first navigate to [pulumi.com/ai](/ai).
 
 Next, you will use Pulumi AI to generate a program that will provision cloud infrastructure. In this example, we asked Pulumi AI to create some database infrastructure that will be used for a real-time application that generates lots of data. Using the chat widget on the Pulumi AI page, describe the infrastructure you would like to build. In our case, we supplied: `Deploy a Kinesis Data Stream, RDS database, DynamoDB database, and Timestream database.`
 
-Pulumi AI returned to us the code below:  
+Pulumi AI returned to us the code below:
 
 ```python
 import pulumi
@@ -178,7 +179,9 @@ There you go! Pulumi AI has helped us generate a program to provision important 
 
 ### Congratulations
 
-Congratulations! You've completed this **Pulumi Challenge**. Please fill in the form below to receive limited edition swag for this challenge. You will need to upload a screenshot of the `pulumi up` output for us to verify completion.
+Congratulations! You've completed this **Pulumi Challenge**. Follow the link below and complete your submission to receive limited edition swag for this challenge. You will need to upload a screenshot of the `pulumi up` output for us to verify completion.
+
+{{< challenge/open-form-button >}}
 
 If you want, please create a blog post, social media, or video documenting your work on this challenge. Tag us on social media or email us at [da@pulumi.com](mailto:da@pulumi.com) to claim another piece of even more special swag. Winners will be chosen in a few months and receive a special prize.
 
