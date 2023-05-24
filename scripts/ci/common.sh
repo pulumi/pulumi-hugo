@@ -15,6 +15,15 @@ aws_region() {
     echo "us-west-2"
 }
 
+clone_docs_infrastructure() {
+    git init infrastructure
+    pushd infrastructure
+    git remote add -f origin "git@github.com:pulumi/docs.git"
+    git config core.sparseCheckout true
+    echo "infrastructure" >> .git/info/sparse-
+    popd
+}
+
 # Posts a message to Slack. Requires a valid access token is available in $SLACK_ACCESS_TOKEN.
 # Usage: post_to_slack <channel> <message>
 post_to_slack() {

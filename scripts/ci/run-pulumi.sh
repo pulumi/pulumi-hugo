@@ -10,8 +10,6 @@ if [ -z ${1:-} ]; then
     exit 1
 fi
 
-source ./scripts/common.sh
-
 export PULUMI_ACTION=${1}
 
 case ${PULUMI_ACTION} in
@@ -25,7 +23,7 @@ case ${PULUMI_ACTION} in
         # pulumi -C infrastructure refresh -t "${CDN_URN}" --yes
 
         # pulumi -C infrastructure up --yes
-        pulumi stack ls
+        pulumi -C infrastructure preview
         ;;
     *)
         echo "Unknown action '${PULUMI_ACTION}'"

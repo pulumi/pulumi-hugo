@@ -79,6 +79,8 @@ aws s3 cp "$build_dir/latest-version" "${destination_bucket_uri}/latest-version"
 # Coupled with the locking we get from the Pulumi Service, using a local file is a safe
 # way to ensure we're deploying what we just finished building and testing.
 echo "Writing result metadata."
+pulumi -C infrastructure stack select "pulumi/www-testing"
+registry_bucket=$(pulumi -C infrastructure stack output registryS3BucketName)
 metadata='{
     "timestamp": %s,
     "commit": "%s",
@@ -86,7 +88,7 @@ metadata='{
     "registryBucket": "%s",
     "url": "%s"
 }'
-printf "$metadata" "$(current_time_in_ms)" "$(git_sha)" "$destination_bucket" "$destination_bucket" "$s3_website_url" > "$metadata_file"
+printf "$metadata" "$(current_time_in_ms)" "$(git_sha)" "$destination_bucket" "$registry_bucket" "$s3_website_url" > "$metadata_file"
 
 # Copy the file to the destination bucket, for future reference.
 aws s3 cp "$metadata_file" "${destination_bucket_uri}/metadata.json" --region "$(aws_region)" --acl public-read
