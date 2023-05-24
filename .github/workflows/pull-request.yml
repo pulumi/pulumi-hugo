@@ -33,15 +33,6 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@v2
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-          role-session-name: PullRequestPreviewSession
-
       - name: Build and deploy preview
         run: make ci-pull-request
         env:
@@ -51,3 +42,5 @@ jobs:
           ALGOLIA_APP_SEARCH_KEY: ${{ vars.ALGOLIA_APP_SEARCH_KEY }}
           DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
           PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
