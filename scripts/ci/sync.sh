@@ -34,6 +34,9 @@ fi
 destination_bucket="$(origin_bucket_prefix)-$(build_identifier)"
 destination_bucket_uri="s3://${destination_bucket}"
 
+echo "destination bucket: ${destination_bucket}"
+echo "destination bucket uri: ${destination_bucket_uri}"
+
 # Make the bucket. If this fails, there are two explanations, given the way we're naming
 # our buckets: either a previous run failed at some point after creating the bucket, in
 # which case we should simply proceed (to repopulate it), or the bucket was somehow
@@ -80,9 +83,10 @@ metadata='{
     "timestamp": %s,
     "commit": "%s",
     "bucket": "%s",
+    "registryBucket": "%s",
     "url": "%s"
 }'
-printf "$metadata" "$(current_time_in_ms)" "$(git_sha)" "$destination_bucket" "$s3_website_url" > "$metadata_file"
+printf "$metadata" "$(current_time_in_ms)" "$(git_sha)" "$destination_bucket" "$destination_bucket" "$s3_website_url" > "$metadata_file"
 
 # Copy the file to the destination bucket, for future reference.
 aws s3 cp "$metadata_file" "${destination_bucket_uri}/metadata.json" --region "$(aws_region)" --acl public-read
@@ -91,9 +95,11 @@ aws s3 cp "$metadata_file" "${destination_bucket_uri}/metadata.json" --region "$
 set_bucket_for_commit "$(git_sha)" "$destination_bucket" "$(aws_region)"
 
 # Finally, post a comment to the PR that directs the user to the resulting bucket URL.
-pr_comment_api_url="$(cat "$GITHUB_EVENT_PATH" | jq -r ".pull_request._links.comments.href")"
-post_github_pr_comment \
-    "Your site preview for commit $(git_sha_short) is ready! :tada:\n\n${s3_website_url}." \
-    $pr_comment_api_url
+if [[ "$1" == "preview" ]]; then
+    pr_comment_api_url="$(cat "$GITHUB_EVENT_PATH" | jq -r ".pull_request._links.comments.href")"
+    post_github_pr_comment \
+        "Your site preview for commit $(git_sha_short) is ready! :tada:\n\n${s3_website_url}." \
+        $pr_comment_api_url
+fi
 
 echo "Done! The bucket website is now built and available at ${s3_website_url}."

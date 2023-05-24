@@ -1,0 +1,70 @@
+name: Push testing
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build
+    # Only run this step on the upstream repo.
+    if: github.repository == 'pulumi/pulumi-hugo'
+    runs-on: ubuntu-latest
+    environment: testing
+    steps:
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.19.x
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.96.0"
+          extended: true
+
+      - name: Check out branch
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+
+      - name: Fetch the latest pulumi/registry
+        run: |
+          hugo mod get github.com/pulumi/registry/themes/default
+          hugo mod tidy
+
+      - name: Build assets
+        run: |
+          make ensure build-assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build site
+        run: make ci_push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME}}
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
+
+  notify:
+    if: failure()
+    name: Send slack notification
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Slack Notification
+        uses: docker://sholung/action-slack-notify:v2.3.0
+        env:
+          SLACK_CHANNEL: docs-ops-test
+          SLACK_COLOR: "#F54242"
+          SLACK_MESSAGE: "build failure in pulumi-hugo repo :meow_sad:"
+          SLACK_USERNAME: hugobot
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_ICON: https://www.pulumi.com/logos/brand/avatar-on-white.png
