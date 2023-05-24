@@ -77,50 +77,48 @@
 @import "components/tabs";
 
 
-body {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-display text-gray-800 mb-2;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-display text-gray-800 mb-2;
 
-        &:not(:first-child) {
-            // Don't apply top margin when one's being specified.
-            &:not([class*="mt-"]):not([class*="m-"]) {
-                @apply mt-8;
-            }
+    &:not(:first-child) {
+        // Don't apply top margin when one's being specified.
+        &:not([class*="mt-"]):not([class*="m-"]) {
+            @apply mt-8;
         }
     }
+}
 
-    h1 {
-        @apply text-4xl;
-    }
+h1 {
+    @apply text-4xl;
+}
 
-    h2 {
-        font-size: 32px;
-    }
+h2 {
+    font-size: 32px;
+}
 
-    h3 {
-        @apply text-2xl;
-    }
+h3 {
+    @apply text-2xl;
+}
 
-    h4 {
-        @apply text-xl;
-    }
+h4 {
+    @apply text-xl;
+}
 
-    h5 {
-        @apply text-lg;
-    }
+h5 {
+    @apply text-lg;
+}
 
-    h6 {
-        @apply text-sm;
-    }
+h6 {
+    @apply text-sm;
+}
 
-    p {
-        @apply mb-4 leading-normal my-4;
-    }
+p {
+    @apply mb-4 leading-normal my-4;
 }
 
 body {
