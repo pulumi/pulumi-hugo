@@ -12,6 +12,7 @@ jobs:
       GOPATH: ${{ github.workspace }}/go
     name: Build and deploy preview
     runs-on: ubuntu-latest
+    environment: testing
     steps:
       - name: Install Node
         uses: actions/setup-node@v1
