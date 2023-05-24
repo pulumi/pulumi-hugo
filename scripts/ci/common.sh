@@ -67,7 +67,7 @@ current_time_in_ms() {
 }
 
 origin_bucket_prefix() {
-    echo "$(repo_name)-origin"
+    echo "${DEPLOYMENT_ENVIRONMENT}-$(repo_name)-origin"
 }
 
 # Returns the name of the metadata file we expect to exist locally before running Pulumi.

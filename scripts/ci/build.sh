@@ -10,7 +10,10 @@ export PULUMI_AI_WS_URL=${PULUMI_AI_WS_URL:-$(pulumi stack output --stack pulumi
 
 printf "Running Hugo...\n\n"
 export REPO_THEME_PATH="themes/default/"
-export HUGO_BASEURL="http://$(origin_bucket_prefix)-$(build_identifier).s3-website.$(aws_region).amazonaws.com"
-hugo --minify --templateMetrics --buildDrafts --buildFuture -e "preview" | grep -v -e 'WARN .* REF_NOT_FOUND'
-
+if [ "$1" == "preview" ]; then
+    export HUGO_BASEURL="http://$(origin_bucket_prefix)-$(build_identifier).s3-website.$(aws_region).amazonaws.com"
+    hugo --minify --templateMetrics --buildDrafts --buildFuture -e "preview" | grep -v -e 'WARN .* REF_NOT_FOUND'
+else
+    hugo --minify --templateMetrics --buildDrafts --buildFuture -e "production" | grep -v -e 'WARN .* REF_NOT_FOUND'
+fi
 printf "Done!\n\n"
