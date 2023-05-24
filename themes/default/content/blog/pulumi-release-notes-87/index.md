@@ -1,37 +1,15 @@
 ---
 title: "Pulumi Release Notes: Resource Search, Deployment Actions, Projects in Self-Managed Backends, and more"
 allow_long_title: true
- 
-# The date represents the post's publish date, and by default corresponds with
-# the date this file was generated. Posts with future dates are visible in development,
-# but excluded from production builds. Use the time and timezone-offset portions of
-# of this value to schedule posts for publishing later.
-date: 2023-05-19
- 
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or social-media
-# previews. This field is required or the build will fail the linter test.
+date: 2023-05-24
 meta_desc: The latest Pulumi updates include our providers updates, enhancements made in the CLI and any Pulumi Cloud features released in March and April 2023.
- 
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
- 
-# At least one author is required. The values in this list correspond with the `id`
-# properties of the team member files at /data/team/team. Create a file for yourself
-# if you don't already have one.
 authors:
    - mikhail-shilkov
    - meagan-cojocar
- 
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
    - features
    - pulumi-releases
- 
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md.
-# for additional details, and please remove these comments before submitting for review.
 ---
 
 We have been busy shipping improvements in the last 2 months. Let's walk through the release highlights across Pulumi engineering areas from March and April. If you want to learn more between release blogs, follow the CLI improvements in the [pulumi/pulumi repo changelog](https://github.com/pulumi/pulumi/blob/master/CHANGELOG.md) and Pulumi Cloud features in the [new features blogs](/blog/tag/features).
