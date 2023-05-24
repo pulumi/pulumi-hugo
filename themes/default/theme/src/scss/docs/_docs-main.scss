@@ -8,7 +8,7 @@
     }
 
     h2, h3, h4, h5, h6 {
-        margin: 12px 0 !important;
+        margin: 12px 0;
     }
 
     h1 + h2,
@@ -79,7 +79,7 @@
         p a:not(.btn-secondary),
         ul li a[href]  {
             color: #4d5bd9;
-            background: linear-gradient(90deg,#fff,#fff),linear-gradient(90deg,#8e8f97,#8e8f97);
+            background: linear-gradient(90deg,rgba(142, 143, 151, 0),rgba(142, 143, 151, 0)),linear-gradient(90deg,#8e8f97,#8e8f97);
             background-position: 100% 100%,0 100%;
             background-repeat: no-repeat;
             background-size: 100% 0.1em,0 0.1em;
