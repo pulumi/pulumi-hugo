@@ -47,6 +47,7 @@ jobs:
         run: make ci_push
         env:
           GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          CDN_PULUMI_URN: ${{ vars.CDN_PULUMI_URN }}
           PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME}}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
