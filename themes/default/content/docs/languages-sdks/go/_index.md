@@ -19,7 +19,7 @@ Pulumi supports writing your infrastructure as code in the Go language built for
 
 ## Templates
 
-The fastest way to get started is to use a template. The template will initialize a Pulumi project. The getting started guides shown above will help do this on your cloud of choice, but this section describes doing so independently.
+The fastest way to get started is to use a template. The template will initialize a Pulumi project.
 
 From an empty directory, create a new project:
 
