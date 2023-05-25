@@ -23,9 +23,6 @@
         {{ partial "docs/search.html" . }}
     </div>
 {{ else }}
-    {{ if eq .Page.RelPermalink "/" }}
-        {{ partial "home/dismissible-banner.html" . }}
-    {{ end }}
     <nav class="top-nav-bar transition-all">
         <div class="top-nav-container lg:container lg:px-4">
             {{ partial "banner" . }}
