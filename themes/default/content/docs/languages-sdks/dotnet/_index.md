@@ -143,7 +143,7 @@ End Module
 
 ## C\#, F\#, and VB Templates
 
-You can write Pulumi programs in your favorite .NET language to get additional verification and tooling benefits. The fastest way to get started is to use a template. The template will autogenerate a set of files and initialize a Pulumi project. The getting started guides shown above will help do this on your cloud of choice, but this section describes doing so independently.
+You can write Pulumi programs in your favorite .NET language to get additional verification and tooling benefits. The fastest way to get started is to use a template. The template will autogenerate a set of files and initialize a Pulumi project.
 
 {{< chooser language "csharp,fsharp,visualbasic" >}}
 
