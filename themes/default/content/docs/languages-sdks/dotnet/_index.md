@@ -29,6 +29,8 @@ Before using Pulumi for .NET, you will need to install both Pulumi and .NET Core
 
 ## Example
 
+{{% chooser language "csharp,fsharp,visualbasic" %}}
+
 {{% choosable language csharp %}}
 For example, this C# program provisions an Azure resource group and storage account:
 
@@ -136,6 +138,8 @@ End Module
 ```
 
 {{% /choosable %}}
+
+{{% /chooser %}}
 
 ## C\#, F\#, and VB Templates
 

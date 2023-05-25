@@ -29,7 +29,7 @@ Please post any Bug Reports or Feature Requests in [GitHub Issues](https://githu
 
 ## Templates
 
-The getting started guides shown above will help you write a Pulumi Java program via tutorial, but this section describes starting a basic project that you can start to explore with.
+This section describes starting a basic project that you can start to explore with.
 
 From an empty directory, create a new project:
 
