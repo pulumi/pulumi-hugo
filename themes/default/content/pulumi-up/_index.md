@@ -138,6 +138,21 @@ why_attend:
       description: Meet peers, expand your industry and professional network. Participate in contests, share ideas and join Q&As
 
 speakers:
+  - name: Amanda Silver
+    image: /images/pulumiup-2023/speakers/amanda-silver.png
+    title: CVP Developer Tools
+    logo: /images/pulumiup-2023/speaker-logos/microsoft.svg
+    company: Microsoft
+  - name: Beyang Liu
+    image: /images/pulumiup-2023/speakers/beyang-liu.png
+    title: Co-Founder and CTO
+    logo: /images/pulumiup-2023/speaker-logos/sourcegraph.svg
+    company: Sourcegraph
+  - name: Sam Cogan
+    image: /images/pulumiup-2023/speakers/sam-cogan.png
+    title: Solution Architect
+    logo: /images/pulumiup-2023/speaker-logos/wtw.svg
+    company: Willis Towers Watson
   - name: Tim Holm
     image: /images/pulumiup-2023/speakers/tim-holm.png
     title: Co-Founder and CTO
@@ -168,6 +183,21 @@ speakers:
     title: Head of Platform
     logo: /images/pulumiup-2023/speaker-logos/people-data-labs.svg
     company: People Data Labs
+  - name: Aaron Torres
+    image: /images/pulumiup-2023/speakers/aaron-torres.png
+    title: Co-Founder
+    logo: /images/pulumiup-2023/speaker-logos/klotho.svg
+    company: Klotho
+  - name: Meagan Cojocar
+    image: /images/team/meagan-cojocar.jpg
+    title: Principal Product Manager
+    logo: /images/pulumiup-2023/speaker-logos/pulumi.svg
+    company: Pulumi
+  - name: Zaid Ajaj
+    image: /images/team/zaid-ajaj.jpg
+    title: Software Engineer
+    logo: /images/pulumiup-2023/speaker-logos/pulumi.svg
+    company: Pulumi
   - name: Joe Duffy
     image: /images/team/joe-duffy.jpg
     title: Co-Founder and CEO
@@ -178,9 +208,9 @@ speakers:
     title: CTO
     logo: /images/pulumiup-2023/speaker-logos/pulumi.svg
     company: Pulumi
-  - name: Eric Rudder
-    image: /images/team/eric-rudder.jpg
-    title: Co-Founder and Executive Chairman
+  - name: Evan Boyle
+    image: /images/team/evan-boyle.jpg
+    title: Engineering Manager
     logo: /images/pulumiup-2023/speaker-logos/pulumi.svg
     company: Pulumi
 
