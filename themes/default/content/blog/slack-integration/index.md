@@ -96,7 +96,7 @@ curl \
 
 The Pulumi Service provider allows you to create Pulumi Cloud resources via Pulumi. You can provision and manage webhooks, including Slack-formatted webhooks, using this provider.
 
-{{< chooser language "typescript,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language typescript %}}
 
@@ -105,30 +105,34 @@ The Pulumi Service provider allows you to create Pulumi Cloud resources via Pulu
 import * as pulumi from "@pulumi/pulumi";
 import { Webhook, WebhookFormat, WebhookFilters } from "@pulumi/pulumiservice";
 
-const serviceOrg = "service-provider-test-org";
+const orgName = "my-org";
 
-const webhook = new Webhook("wh", {
+const orgWebhook = new Webhook("org-webhook", {
   active: true,
-  displayName: "webhook-from-provider",
-  organizationName: serviceOrg,
-  payloadUrl: "https://google.com",
-  filters: [WebhookFilters.DeploymentStarted, WebhookFilters.DeploymentSucceeded],
+  displayName: "#my-org-activity-channel",
+  organizationName: orgName,
+  payloadUrl: "https://hooks.slack.com/services/...",
+  format: WebhookFormat.Slack,
+  filters: [
+      WebhookFilters.StackCreated,
+      WebhookFilters.StackDeleted,
+      WebhookFilters.DeploymentSucceeded,
+      WebhookFilters.DeploymentFailed,
+  ],
 });
 
 const stackWebhook = new Webhook("stack-webhook", {
   active: true,
-  displayName: "stack-webhook",
-  organizationName: serviceOrg,
+  displayName: "#my-stack-activity-channel",
+  organizationName: orgName,
   projectName: pulumi.getProject(),
   stackName: pulumi.getStack(),
-  payloadUrl: "https://example.com",
+  payloadUrl: "https://hooks.slack.com/services/...",
   format: WebhookFormat.Slack,
 })
 
-export const orgName = webhook.organizationName;
-export const name = webhook.name;
+export const orgWebhookName = orgWebhook.name;
 export const stackWebhookName = stackWebhook.name;
-export const stackWebhookProjectName = stackWebhook.projectName;
 
 ```
 
@@ -138,23 +142,224 @@ export const stackWebhookProjectName = stackWebhook.projectName;
 
 ```yaml
 
-name: yaml-webhooks
+name: webhook-examples
 runtime: yaml
-description: A minimal example of provisioning access token via Pulumi YAML
+description: An example of provisioning a Pulumi Cloud Webhook via Pulumi Service Provider
 
 resources:
-  webhook:
+  orgWebhook:
     type: pulumiservice:index:Webhook
     properties:
       active: true
-      displayName: yaml-webhook
-      organizationName: service-provider-test-org
-      payloadUrl: "https://google.com"
+      displayName: "#my-org-activity-channel"
+      organizationName: my-org
+      payloadUrl: "https://hooks.slack.com/services/..."
+      format: slack
+      filters:
+        - stack_created
+        - stack_deleted
+        - deployment_succeeded
+        - deployment_failed
+  stackWebhook:
+    type: pulumiservice:index:Webhook
+    properties:
+      active: true
+      displayName: "#my-stack-activity-channel"
+      organizationName: my-org
+      projectName: webhook-examples
+      stackName: dev
+      payloadUrl: "https://hooks.slack.com/services/..."
+      format: slack
 
 outputs:
-  # export the name of the webhook
-  name: ${webhook.name}
+  # export the name of the webhooks
+  orgWebhookName: ${orgWebhook.name}
+  stackWebhookName: ${stackWebhook.name}
 
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_pulumiservice as pulumiservice
+
+org_webhook = pulumiservice.Webhook("orgWebhook",
+    active=True,
+    display_name="#my-org-activity-channel",
+    organization_name="my-org",
+    payload_url="https://hooks.slack.com/services/...",
+    format=pulumiservice.WebhookFormat.SLACK,
+    filters=[
+        pulumiservice.WebhookFilters.STACK_CREATED,
+        pulumiservice.WebhookFilters.STACK_DELETED,
+        pulumiservice.WebhookFilters.DEPLOYMENT_SUCCEEDED,
+        pulumiservice.WebhookFilters.DEPLOYMENT_FAILED,
+    ])
+
+stack_webhook = pulumiservice.Webhook("stackWebhook",
+    active=True,
+    display_name="#my-stack-activity-channel",
+    organization_name="my-org",
+    project_name="webhook-examples",
+    stack_name="dev",
+    payload_url="https://hooks.slack.com/services/...",
+    format=pulumiservice.WebhookFormat.SLACK)
+
+pulumi.export("orgWebhookName", org_webhook.name)
+pulumi.export("stackWebhookName", stack_webhook.name)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-pulumiservice/sdk/go/pulumiservice"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		orgWebhook, err := pulumiservice.NewWebhook(ctx, "orgWebhook", &pulumiservice.WebhookArgs{
+			Active:           pulumi.Bool(true),
+			DisplayName:      pulumi.String("#my-org-activity-channel"),
+			OrganizationName: pulumi.String("my-org"),
+			PayloadUrl:       pulumi.String("https://hooks.slack.com/services/..."),
+			Format:           pulumiservice.WebhookFormatSlack,
+			Filters: pulumiservice.WebhookFiltersArray{
+				pulumiservice.WebhookFiltersStackCreated,
+				pulumiservice.WebhookFiltersStackDeleted,
+				pulumiservice.WebhookFiltersDeploymentSucceeded,
+				pulumiservice.WebhookFiltersDeploymentFailed,
+			},
+		})
+		if err != nil {
+			return err
+		}
+		stackWebhook, err := pulumiservice.NewWebhook(ctx, "stackWebhook", &pulumiservice.WebhookArgs{
+			Active:           pulumi.Bool(true),
+			DisplayName:      pulumi.String("#my-stack-activity-channel"),
+			OrganizationName: pulumi.String("my-org"),
+			ProjectName:      pulumi.String("webhook-examples"),
+			StackName:        pulumi.String("dev"),
+			PayloadUrl:       pulumi.String("https://hooks.slack.com/services/..."),
+			Format:           pulumiservice.WebhookFormatSlack,
+		})
+		if err != nil {
+			return err
+		}
+		ctx.Export("orgWebhookName", orgWebhook.Name)
+		ctx.Export("stackWebhookName", stackWebhook.Name)
+		return nil
+	})
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using PulumiService = Pulumi.PulumiService;
+
+return await Deployment.RunAsync(() =>
+{
+    var orgWebhook = new PulumiService.Webhook("orgWebhook", new()
+    {
+        Active = true,
+        DisplayName = "#my-org-activity-channel",
+        OrganizationName = "my-org",
+        PayloadUrl = "https://hooks.slack.com/services/...",
+        Format = PulumiService.WebhookFormat.Slack,
+        Filters = new[]
+        {
+            PulumiService.WebhookFilters.StackCreated,
+            PulumiService.WebhookFilters.StackDeleted,
+            PulumiService.WebhookFilters.DeploymentSucceeded,
+            PulumiService.WebhookFilters.DeploymentFailed,
+        },
+    });
+
+    var stackWebhook = new PulumiService.Webhook("stackWebhook", new()
+    {
+        Active = true,
+        DisplayName = "#my-stack-activity-channel",
+        OrganizationName = "my-org",
+        ProjectName = "webhook-examples",
+        StackName = "dev",
+        PayloadUrl = "https://hooks.slack.com/services/...",
+        Format = PulumiService.WebhookFormat.Slack,
+    });
+
+    return new Dictionary<string, object?>
+    {
+        ["orgWebhookName"] = orgWebhook.Name,
+        ["stackWebhookName"] = stackWebhook.Name,
+    };
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package generated_program;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import com.pulumi.pulumiservice.Webhook;
+import com.pulumi.pulumiservice.WebhookArgs;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var orgWebhook = new Webhook("orgWebhook", WebhookArgs.builder()
+            .active(true)
+            .displayName("#my-org-activity-channel")
+            .organizationName("my-org")
+            .payloadUrl("https://hooks.slack.com/services/...")
+            .format("slack")
+            .filters(
+                "stack_created",
+                "stack_deleted",
+                "deployment_succeeded",
+                "deployment_failed")
+            .build());
+
+        var stackWebhook = new Webhook("stackWebhook", WebhookArgs.builder()
+            .active(true)
+            .displayName("#my-stack-activity-channel")
+            .organizationName("my-org")
+            .projectName("webhook-examples")
+            .stackName("dev")
+            .payloadUrl("https://hooks.slack.com/services/...")
+            .format("slack")
+            .build());
+
+        ctx.export("orgWebhookName", orgWebhook.name());
+        ctx.export("stackWebhookName", stackWebhook.name());
+    }
+}
 ```
 
 {{% /chooser %}}
