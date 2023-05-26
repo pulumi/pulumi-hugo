@@ -103,23 +103,25 @@
 
     <section id="dev-stories" class="yellow-blue-gradient">
         <div class="container mx-auto px-4 pb-16 text-center">
-            <h2>DevStories</h2>
+            <h2>DevStories and Demos</h2>
             <p class="text-lg">
                 PulumiUP isn't just another developer conference. Our brilliant speakers are engineers like you, who tackled challenges, successfully implemented solutions, and
                 some even founded their own companies. Listen to their stories, their ideas, be inspired and learn from the best.
             </p>
-            <div class="container">
+            <div class="container flex flex-wrap">
                 {{ range .Params.stories }}
-                    <div class="card mx-auto bg-white w-full m-4 p-4 flex flex-col lg:flex-row">
-                        <div class="w-full lg:w-1/5 flex-col">
-                            <img class="mx-auto pt-2" src="{{ .photo }}" alt="{{ .name }}" />
-                            <div class="text-xl my-2">{{ .name }}</div>
-                            <div class="text-sm text-gray-700 my-2">{{ .position }}</div>
-                            <img class="h-5 mx-auto my-2" src="{{ .logo }}" alt="{{ .company }}" />
-                        </div>
-                        <div class="w-full lg:w-4/5 text-left">
-                            <h5>{{ .title }}</h5>
-                            {{ .description | markdownify }}
+                    <div class="p-2 w-full lg:w-1/2">
+                        <div class="card mx-auto h-full bg-white p-4 flex">
+                            <div class="w-full lg:w-1/3 flex-col">
+                                <img class="w-full" src="{{ .photo }}" alt="{{ .name }}" />
+                            </div>
+                            <div class="w-full lg:w-2/3 pl-2 text-left">
+                                <p class="text-md font-semibold my-0">{{ .title }}</p>
+                                <p class="text-sm text-gray-600 my-2">{{ .description }}</p>
+                                <div class="text-md my-2">{{ .name }}</div>
+                                <div class="text-sm text-gray-700 my-2">{{ .position }}</div>
+                                <img class="h-5 my-2" src="{{ .logo }}" alt="{{ .company }}" />
+                            </div>
                         </div>
                     </div>
                 {{ end }}
