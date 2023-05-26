@@ -63,7 +63,7 @@ You can either create your own Slack app (or use an existing one you may already
 
 By following these steps, which can also be found in [our webhooks documentation](/docs/pulumi-cloud/webhooks), in a few clicks you will have a Slack incoming webhook URL which you can use to set up a webhook in [Pulumi Cloud](https://app.pulumi.com), as shown in the GIF below.
 
-![Setting it up in the UI](webhooks.gif)
+![Setting it up in the UI](webhooks_2.gif)
 
 There are Pulumi customers with hundreds to thousands of stacks, making setting up webhooks for each via the UI a time consuming task. In order to enable Pulumi notifications at scale, we have added Pulumi Cloud REST API endpoints for creating webhooks as well as [Pulumi Service Provider](https://www.pulumi.com/registry/packages/pulumiservice) support.
 
@@ -161,4 +161,32 @@ outputs:
 
 ## Pulumi Deployment Notifictation Events
 
+Pulumi Deployments is infrastructure deployments as a managed service. With Pulumi Deployments, you can run a Pulumi infrastructure as code action (a preview, update, destroy or refresh) inside Pulumi’s managed service. Pulumi provides scalability, observability and security for deployments. Both Slack-formatted and generic JSON webhooks in Pulumi Cloud now send notifications events on Pulumi Deployments statuses: when a deployment is queued, started, succeeds and fails.
+
 ## Filtering Notifictation Events
+
+Event filtering allows you to select which events should be delivered to each webhook. You may want to receive
+all events, or filter to specific events (only failures, only deployment events, etc.). The following table describes the various event filters available and the context in which they are relevant.
+
+| Filter                 | Event Kind      | Webhook Type               | Triggered                         |
+|------------------------|-----------------|----------------------------|-----------------------------------|
+| `stack_created`        | `stack`         | Organization webhooks only | When a stack is created.          |
+| `stack_deleted`        | `stack`         | Organization webhooks only | When a stack is deleted.          |
+| `preview_succeeded`    | `stack_preview` | Both                       | When a stack `preview` succeeds.  |
+| `preview_failed`       | `stack_preview` | Both                       | When a stack `preview` fails.     |
+| `update_succeeded`     | `stack_update`  | Both                       | When a stack `update` succeeds.   |
+| `update_failed`        | `stack_update`  | Both                       | When a stack `update` fails.      |
+| `destroy_succeeded`    | `stack_update`  | Both                       | When a stack `destroy` succeeds.  |
+| `destroy_failed`       | `stack_update`  | Both                       | When a stack `destroy` fails.     |
+| `refresh_succeeded`    | `stack_update`  | Both                       | When a stack `refresh` succeeds.  |
+| `refresh failed`       | `stack_update`  | Both                       | When a stack `refresh` fails.     |
+| `deployment_queued`    | `deployment`    | Both                       | When a deployment is queued.      |
+| `deployment_started`   | `deployment`    | Both                       | When a deployment starts running. |
+| `deployment_succeeded` | `deployment`    | Both                       | When a deployment succeeds.       |
+| `deployment_failed`    | `deployment`    | Both                       | When a deployment fails.          |
+
+## Wrapping up
+
+We hope you and your team can streamline deployment related notifications to where you spend your time. Our webhooks improvements enable ChatOps workflows and more visibility into your infrastructure. As always, please let us know if you have feedback on the feature by opening a issue in the Pulumi Cloud requests repository or if you have other features you would like to see in Pulumi Cloud.
+
+Happy building! 👷
