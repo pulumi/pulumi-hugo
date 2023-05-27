@@ -18,7 +18,7 @@
         padding: 32px 0 0 0;
         flex-basis: 250px;
         overflow-y: auto;
-        height: calc(100vh - 260px);
+        height: calc(100vh - 148px);
         width: 250px;
 
         nav.toc div:first-of-type {
@@ -30,7 +30,7 @@
         max-width: 700px;
         margin: 32px 24px 0 24px;;
         overflow-y: auto;
-        height: calc(100vh - 260px);
+        height: calc(100vh - 148px);
         padding-bottom: 24px;
 
         &::-webkit-scrollbar {
