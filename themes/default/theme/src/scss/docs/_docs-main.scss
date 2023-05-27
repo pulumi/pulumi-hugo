@@ -13,12 +13,28 @@
 
     .docs-main-nav {
         flex-shrink: 0;
-        margin: 32px 16px;
+        margin: 0 16px;
+        padding: 32px 0 0 0;
+        flex-basis: 250px;
+        border-right: 1px solid #e5e5e9;
+        overflow-y: auto;
+        height: 100vh;
+        width: 250px;
+
+        nav.toc div:first-of-type {
+            margin-top: 0;
+        }
     }
 
     .docs-main-content {
         max-width: 700px;
-        margin: 32px 24px;
+        margin: 32px 24px 0 24px;;
+        overflow-y: auto;
+        height: 100vh;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     .docs-table-of-contents {
