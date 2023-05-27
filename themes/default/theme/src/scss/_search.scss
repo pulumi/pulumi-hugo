@@ -1,5 +1,41 @@
 @import "colors";
 
+.docs-type-nav-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 16px;
+    background: #f9f9fa;
+    border-top: #e5e5e9 1px solid;
+    border-bottom: #e5e5e9 1px solid;
+    border-width: 1px 0px;
+    align-items: center;
+
+    .docs-type-nav {
+        display: flex;
+        flex-direction: row;
+
+        a {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 16px 24px 15px 24px;
+            font-family: Gilroy;
+            font-weight: 500;
+            font-size: 16px;
+            border-bottom: 5px solid transparent;
+            color: #5f6065;
+
+            &.tab-selected {
+                background-color: #f2f2f4;
+                border-bottom: 5px solid #805ac3;
+                font-weight: 700;
+                color: #131314;
+            }
+        }
+    }
+}
+
 // Override the default styles of the Swiftype input field.
 .st-default-search-input {
     display: block !important;

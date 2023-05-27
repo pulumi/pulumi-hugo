@@ -9,16 +9,16 @@
         gap: 36px;
         justify-content: center;
         flex-grow: 2;
+        border-left: 1px solid #e5e5e9;
     }
 
     .docs-main-nav {
         flex-shrink: 0;
-        margin: 0 16px;
+        margin: 0 6px 0 16px;
         padding: 32px 0 0 0;
         flex-basis: 250px;
-        border-right: 1px solid #e5e5e9;
         overflow-y: auto;
-        height: 100vh;
+        height: calc(100vh - 260px);
         width: 250px;
 
         nav.toc div:first-of-type {
@@ -30,7 +30,8 @@
         max-width: 700px;
         margin: 32px 24px 0 24px;;
         overflow-y: auto;
-        height: 100vh;
+        height: calc(100vh - 260px);
+        padding-bottom: 24px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -71,8 +72,6 @@ body.section-registry {
     }
 
     section.docs-content {
-        margin-bottom: 450px;
-
         h1, h2, h3, h4, h5, h6 {
             font-family: Gilroy;
             line-height: 1.5;
