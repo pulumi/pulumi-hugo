@@ -18,24 +18,23 @@
         padding: 32px 0 0 0;
         flex-basis: 250px;
         overflow-y: auto;
-        height: calc(100vh - 148px);
+        height: calc(100vh - 38px);
         width: 250px;
+        position: sticky;
 
         nav.toc div:first-of-type {
             margin-top: 0;
         }
     }
 
+    nav.toc {
+        position: relative;
+    }
+
     .docs-main-content {
         max-width: 700px;
         margin: 32px 24px 0 24px;;
-        overflow-y: auto;
-        height: calc(100vh - 148px);
         padding-bottom: 24px;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
     }
 
     .docs-table-of-contents {
