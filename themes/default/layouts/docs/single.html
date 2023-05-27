@@ -7,8 +7,8 @@
                 </div>
 
                 <div class="docs-sidebar-content hidden lg:block lg:w-1/4 xxl:w-4/12 pr-8 mb-2 pt-8 lg:order-first lg:border-none lg:pt-0 lg:mt-0">
-                    <div class="sticky-sidebar" id="left-nav">
-                        {{ partial "docs/toc.html" . }}
+                    <div class="sticky-sidebar" id="docs-main-nav">
+                        {{ partial "docs/main-nav.html" . }}
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
             <div class="xxl:w-3/12 xxl:pl-8 mt-2">
                 <div class="sticky-sidebar">
                     <div class="ml-2 hidden xxl:block">
-                        {{ partial "docs/right-nav.html" . }}
+                        {{ partial "docs/table-of-contents.html" . }}
                     </div>
                     <div>
                         {{ partial "docs/feedback.html" . }}

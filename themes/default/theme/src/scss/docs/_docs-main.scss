@@ -1,4 +1,35 @@
-.docs-list-main .docs-list-main-content,
+.docs-list-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .docs-main-content-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+        justify-content: center;
+        flex-grow: 2;
+    }
+
+    .docs-main-nav {
+        flex-shrink: 0;
+        margin: 32px 16px;
+    }
+
+    .docs-main-content {
+        max-width: 700px;
+        margin: 32px 24px;
+    }
+
+    .docs-table-of-contents {
+        flex-basis: 340px;
+        margin-top: 38px;
+        margin-right: 16px;
+        padding: 18px 24px;
+    }
+}
+
+.docs-list-main .docs-main-content,
 .docs-single-main .docs-single-main-content,
 body.section-registry {
     div.special-h1 {

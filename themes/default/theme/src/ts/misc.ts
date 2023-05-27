@@ -39,7 +39,7 @@ function loadToggleStates() {
     $(".toggleVisible, .toggleVisible-topLevel").each(function (i, el) {
         // Scroll to active item in list.
         if (isCurrentPage(el)) {
-            $("#left-nav").animate({
+            $("#docs-main-nav").animate({
                 scrollTop: $(el).offset().top - 145
             }, 0);
         }
