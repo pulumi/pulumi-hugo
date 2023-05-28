@@ -22,8 +22,8 @@
                 top: 60px;
                 left: 0;
                 z-index: 2;
-                width: 233px;
-                flex-basis: 233px;
+                width: 265px;
+                flex-basis: 265px;
                 background-color: #fff;
                 box-shadow: 6px 0px 36px rgba(0, 0, 0, 0.08);
                 overflow-y: auto;
@@ -37,6 +37,7 @@
 
             nav.toc {
                 display: block !important;
+                padding-left: 16px;
             }
         }
 
@@ -63,7 +64,6 @@
         overflow-y: auto;
         height: calc(100vh - 38px);
         position: sticky;
-        top: 0;
         left: 0;
         top: 60px;
 
@@ -81,7 +81,8 @@
             box-shadow: none;
             margin: 0 6px 0 16px;
             border-right: 1px solid #e5e5e9;
-
+            box-shadow: none;
+            position: sticky;
 
             nav.toc {
                 display: block !important;

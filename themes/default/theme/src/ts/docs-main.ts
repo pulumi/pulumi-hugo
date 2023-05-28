@@ -1,5 +1,6 @@
+var docsMainNavWrapper = $(".docs-main-nav-wrapper");
+
 (function (document, $) {
-    var docsMainNavWrapper = $(".docs-main-nav-wrapper");
     var docsToggle = $(".docs-nav-toggle");
 
     docsToggle.on("click", function () {
@@ -12,3 +13,13 @@
         }
     });
 })(document, jQuery);
+
+$(window).on("resize", function () {
+    if ($(this).width() >= 1280) {
+        if (docsMainNavWrapper.hasClass("docs-nav-show")) {
+            docsMainNavWrapper.removeClass("docs-nav-show");
+        } else if (docsMainNavWrapper.hasClass("docs-nav-hide")) {
+            docsMainNavWrapper.removeClass("docs-nav-hide");
+        }
+    }
+}).trigger('resize');
