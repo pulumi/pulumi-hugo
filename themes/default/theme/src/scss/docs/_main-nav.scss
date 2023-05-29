@@ -134,24 +134,4 @@ nav.main-nav {
             display: none;
         }
     }
-
-    div.icon {
-        display: block;
-        text-indent: -9999px;
-    }
-
-    div.icon-14-14 {
-        width: 14px;
-        height: 14px;
-        background-size: 14px 14px;   
-        position: relative;
-    }
-
-    div.keyboard-arrow-right-gray {
-        background: url(/images/docs/icons/keyboard-arrow-right-gray.svg);
-    }
-
-    div.keyboard-arrow-down-gray-14-14 {
-        background: url(/images/docs/icons/keyboard-arrow-down-gray-14-14.svg);
-    }
 }

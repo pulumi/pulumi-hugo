@@ -24,21 +24,6 @@ div.table-of-contents {
         }
     }
 
-    div.icon {
-        display: block;
-        text-indent: -9999px;
-    }
-
-    div.icon-12-12 {
-        width: 12px;
-        height: 12px;
-        background-size: 12px 12px;
-    }
-
-    div.icon-on-this-page {
-        background: url(/icons/on-this-page.svg);
-    }
-
     ul {
         list-style: none;
         display: flex;
