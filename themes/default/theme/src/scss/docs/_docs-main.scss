@@ -5,12 +5,95 @@
 
     .docs-main-content-wrapper {
         display: flex;
-        flex-direction: row;
-        gap: 36px;
+        flex-direction: column-reverse;
+        gap: 0;
         justify-content: center;
         flex-grow: 2;
         height: fit-content;
         position: relative;
+
+        .docs-table-of-contents {
+            border-top: 1px solid #e5e5e9;
+            border-bottom: 1px solid #e5e5e9;
+            margin: 24px 0 0 16px;
+            padding: 16px 0;
+            max-width: 700px;
+            display: flex;
+
+            .table-of-contents,
+            .content {
+                display: flex;
+                flex: auto;
+            }
+
+            .icon-heading-wrapper {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .heading {
+                justify-content: space-between;
+            }
+
+            .content {
+                border: none;
+                margin: 0;
+                padding: 0
+            }
+
+            div.expand-more-18-18 {
+                display: flex;
+            }
+        }
+
+        .table-of-contents-list,
+        .table-of-contents-feedback,
+        #docsFeedbackContainer,
+        .docs-marketing-ad {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            gap: 36px;
+
+            .table-of-contents-list {
+                display: flex;
+            }
+
+            .table-of-contents-feedback,
+            #docsFeedbackContainer,
+            .docs-marketing-ad  {
+                display: block;
+            }
+
+            .docs-table-of-contents {
+                flex-basis: 340px;
+                margin-top: 38px;
+                margin-right: 16px;
+                padding: 18px 24px;
+                overflow-y: auto;
+                height: min-content;
+                position: sticky;
+                top: 94px;
+                display: block;
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    padding-bottom: 24px;
+                    margin-bottom: 24px;
+                    border-bottom: 1px solid #dcdcdc;
+                }
+
+                div.expand-more-18-18 {
+                    display: none;
+                }
+            }
+        }
     }
 
     .docs-main-nav-wrapper {
@@ -38,13 +121,13 @@
                 margin-left: 48px;
             }
 
-            nav.toc {
+            nav.main-nav {
                 display: block !important;
             }
         }
 
         &.docs-nav-hide {
-            nav.toc {
+            nav.main-nav {
                 display: none;
             }
         }
@@ -68,11 +151,11 @@
         left: 0;
         top: 60px;
 
-        nav.toc div:first-of-type {
+        nav.main-nav div:first-of-type {
             margin-top: 0;
         }
 
-        nav.toc {
+        nav.main-nav {
             display: none;
             padding: 32px 0 0 0;
         }
@@ -86,7 +169,7 @@
             box-shadow: none;
             position: sticky;
 
-            nav.toc {
+            nav.main-nav {
                 display: block !important;
             }
         }
@@ -123,17 +206,6 @@
         @media (min-width: 1280px) {
             margin-left: 24px;
         }
-    }
-
-    .docs-table-of-contents {
-        flex-basis: 340px;
-        margin-top: 38px;
-        margin-right: 16px;
-        padding: 18px 24px;
-        overflow-y: auto;
-        height: min-content;
-        position: sticky;
-        top: 94px;
     }
 }
 
@@ -261,6 +333,13 @@ div.icon {
     text-indent: -9999px;
 }
 
+div.icon-18-18 {
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;   
+    position: relative;
+}
+
 div.icon-24-24 {
     width: 24px;
     height: 24px;
@@ -275,4 +354,9 @@ div.open-docs-main-nav {
 div.close-docs-main-nav {
     background: url(/images/docs/icons/close-docs-main-nav.svg);
 }
+
+div.expand-more-18-18 {
+    background: url(/images/docs/icons/expand-more-18-18.svg);
+}
+
 
