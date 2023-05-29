@@ -48,6 +48,14 @@ function setDocsMainNavPosition() {
         } else {
             docsNavToggleIcon.addClass("close-docs-main-nav");
         }
+
+        if (isInViewport(topNavContainer.get(0))) {
+            docsMainNavToggleWrapper.css("top", 114);
+        } else {
+            docsMainNavToggleWrapper.css("top", 60);
+        }
+    } else {
+        docsMainNavToggleWrapper.css("top", 0);
     }
 }
 
