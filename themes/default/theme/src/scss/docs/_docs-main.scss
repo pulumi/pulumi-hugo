@@ -3,6 +3,20 @@
     flex-direction: row;
     justify-content: space-between;
 
+    div#accordion-table-of-contents {
+        div.accordion-content,
+        input,
+        label.hide,
+        input:checked ~ label.show  {
+            display: none;
+        }
+    
+        input:checked ~ div.accordion-content,
+        input:checked ~ label.hide {
+            display: flex;
+        }
+    }
+
     .docs-main-content-wrapper {
         display: flex;
         flex-direction: column-reverse;
@@ -23,7 +37,13 @@
             .table-of-contents,
             .content {
                 display: flex;
+                flex-direction: column;
                 flex: auto;
+            }
+
+            label {
+                margin-bottom: 24px;
+                cursor: pointer;
             }
 
             .icon-heading-wrapper {
@@ -35,6 +55,7 @@
 
             .heading {
                 justify-content: space-between;
+                flex: auto;
             }
 
             .content {
@@ -48,7 +69,6 @@
             }
         }
 
-        .table-of-contents-list,
         .table-of-contents-feedback,
         #docsFeedbackContainer,
         .docs-marketing-ad {

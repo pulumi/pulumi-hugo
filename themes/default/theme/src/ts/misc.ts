@@ -39,7 +39,7 @@ function loadToggleStates() {
     $(".toggleVisible, .toggleVisible-topLevel").each(function (i, el) {
         // Scroll to active item in list.
         if (isCurrentPage(el)) {
-            $("#docs-main-nav").animate({
+            $("#left-nav").animate({
                 scrollTop: $(el).offset().top - 145
             }, 0);
         }
@@ -80,7 +80,7 @@ function bindToggles(selector) {
 }
 
 function generateOnThisPage() {
-    var $ul = $(".table-of-contents > .content > ul");
+    var $ul = $(".table-of-contents .content ul.table-of-contents-list");
     if ($ul) {
         var found = false;
         var headings = [];
