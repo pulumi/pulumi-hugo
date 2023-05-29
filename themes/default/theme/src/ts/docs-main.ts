@@ -39,7 +39,6 @@ $(window).on("scroll", function () {
 
 $(window).on("load", function() {
     setDocsMainNavPosition();
-    docsMainNavToggleWrapper.addClass("docs-nav-hide");
 });
 
 function setDocsMainNavPosition() {
