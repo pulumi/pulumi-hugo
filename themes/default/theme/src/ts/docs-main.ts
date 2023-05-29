@@ -30,6 +30,7 @@ $(window).on("resize", function () {
     } else {
         docsMainNavToggleWrapper.addClass("docs-nav-hide");
     }
+    setDocsMainNavPosition();
 }).trigger('resize');
 
 $(window).on("scroll", function () {
