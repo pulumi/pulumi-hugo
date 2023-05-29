@@ -107,6 +107,8 @@
         position: relative;
         top: 110px;
         left: 0;
+        align-items: center;
+        justify-content: center;
 
         @media (min-width: 1280px){
             display: none;
@@ -253,3 +255,24 @@ body.section-registry {
         }
     }
 }
+
+div.icon {
+    display: block;
+    text-indent: -9999px;
+}
+
+div.icon-24-24 {
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;   
+    position: relative;
+}
+
+div.open-docs-main-nav {
+    background: url(/images/docs/icons/open-docs-main-nav.svg);
+}
+
+div.close-docs-main-nav {
+    background: url(/images/docs/icons/close-docs-main-nav.svg);
+}
+
