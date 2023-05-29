@@ -11,10 +11,16 @@ var docsNavToggleIcon = $(".docs-nav-toggle-icon");
         if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
             docsMainNavToggleWrapper.removeClass("docs-nav-show");
             docsMainNavToggleWrapper.addClass("docs-nav-hide");
+            if (docsNavToggleIcon.hasClass("close-docs-main-nav")) {
+                docsNavToggleIcon.removeClass("close-docs-main-nav")
+            }
             docsNavToggleIcon.addClass("open-docs-main-nav");
         } else {
             docsMainNavToggleWrapper.removeClass("docs-nav-hide");
             docsMainNavToggleWrapper.addClass("docs-nav-show");
+            if (docsNavToggleIcon.hasClass("open-docs-main-nav")) {
+                docsNavToggleIcon.removeClass("open-docs-main-nav")
+            }
             docsNavToggleIcon.addClass("close-docs-main-nav");
         }
     });
@@ -44,9 +50,15 @@ $(window).on("load", function() {
 function setDocsMainNavPosition() {
     if ($(this).width() < 1280) {
         if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
-            docsNavToggleIcon.addClass("open-docs-main-nav");
-        } else {
+            if (docsNavToggleIcon.hasClass("open-docs-main-nav")) {
+                docsNavToggleIcon.removeClass("open-docs-main-nav")
+            }
             docsNavToggleIcon.addClass("close-docs-main-nav");
+        } else {
+            if (docsNavToggleIcon.hasClass("close-docs-main-nav")) {
+                docsNavToggleIcon.removeClass("close-docs-main-nav")
+            }
+            docsNavToggleIcon.addClass("open-docs-main-nav");
         }
 
         if (isInViewport(topNavContainer.get(0))) {
