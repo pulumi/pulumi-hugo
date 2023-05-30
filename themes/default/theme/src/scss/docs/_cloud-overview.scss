@@ -1,9 +1,9 @@
-$text-color: #131314;
-$text-color-inner-card: #5f6065;
-$border-color-outer-card: #e5e5e9;
-$border-color-inner-card: #dcdcdc;
-$border-hover: #bebfc9;
-$card-background: #f9f9f9;
+$text-color: map-get($gray, 950);
+$text-color-inner-card: map-get($gray, 650);
+$border-color-outer-card: map-get($gray, 150);
+$border-color-inner-card: map-get($gray, 300);
+$border-hover: map-get($gray, 350);
+$card-background: map-get($gray, 100);
 $box-shadow: #5f606524;
 
 .docs-list-main .docs-main-content-wrapper .docs-main-content {
@@ -200,7 +200,7 @@ $box-shadow: #5f606524;
             padding: 16px 24px;
             display: flex;
             justify-content: space-between;
-            background: #fff;
+            background: $white;
             border-radius: 4px;
             flex-basis: 100%;
 
@@ -280,15 +280,15 @@ $box-shadow: #5f606524;
                 box-shadow: 0px 2px 24px rgba(77, 91, 217, 0.14);
                 border-radius: 4px;
                 background: rgba(237, 239, 251, 0.5);
-                border: 1px solid #a6adec;
+                border: 1px solid map-get($blue, 350);
                 flex-direction: row;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
                 &:hover {
-                    background: #edeffb;
-                    border: 1px solid #828CE4;
+                    background: map-get($blue, 100);
+                    border: 1px solid map-get($blue, 450);
                 }
 
                 p {
@@ -338,7 +338,7 @@ $box-shadow: #5f606524;
                 }
         
                 div.content-link {
-                    background: #fff;
+                    background: $white;
                     border: 1px solid $border-color-inner-card;
                     box-shadow: 0px 0px 12px rgba(95, 96, 101, 0.08);
                     border-radius: 4px;
@@ -388,9 +388,9 @@ $box-shadow: #5f606524;
 
                         &.recommended {
                             font-weight: 500;
-                            color: #2f3032;
+                            color: map-get($gray, 925);
                             padding: 2px 6px;
-                            border: 1px solid #cacef4;
+                            border: 1px solid map-get($blue, 250);
                             border-radius: 3px;
                         }
                     }

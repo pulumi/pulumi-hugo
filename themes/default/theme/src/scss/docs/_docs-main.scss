@@ -27,8 +27,8 @@
         position: relative;
 
         .docs-table-of-contents {
-            border-top: 1px solid #e5e5e9;
-            border-bottom: 1px solid #e5e5e9;
+            border-top: 1px solid map-get($gray, 150);
+            border-bottom: 1px solid map-get($gray, 150);
             margin: 24px 0 0 16px;
             padding: 16px 0;
             max-width: 700px;
@@ -106,7 +106,7 @@
                     gap: 16px;
                     padding-bottom: 24px;
                     margin-bottom: 24px;
-                    border-bottom: 1px solid #dcdcdc;
+                    border-bottom: 1px solid map-get($gray, 300);
                 }
 
                 div.expand-more-18-18 {
@@ -123,10 +123,10 @@
         .docs-nav-toggle {
             width: 32px;
             height: 40px;
-            background: #fff;
+            background: $white;
             border-width: 1px 1px 1px 0px;
             border-style: solid;
-            border-color: #e5e5e9;
+            border-color: map-get($gray, 150);
             box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.08);
             border-radius: 0px 4px 4px 0px;
             cursor: pointer;
@@ -152,10 +152,10 @@
                 overflow-y: auto;
                 height: calc(100vh - 38px);
                 padding-left: 16px;
-                background-color: #fff;
+                background-color: $white;
                 box-shadow: 6px 0px 36px rgba(0, 0, 0, 0.08);
                 justify-content: space-between;
-                border-right: 1px solid #E5E5E9;
+                border-right: 1px solid map-get($gray, 150);
             }
 
             nav.main-nav {
@@ -220,7 +220,7 @@
             flex-basis: 265px;
             box-shadow: none;
             margin: 0 6px 0 16px;
-            border-right: 1px solid #e5e5e9;
+            border-right: 1px solid map-get($gray, 150);
             box-shadow: none;
             position: sticky;
 
@@ -253,7 +253,7 @@ body.section-registry {
             line-height: 1.5;
             font-weight: 400;
             font-size: 30px;
-            color: #131314;
+            color: map-get($gray, 950);
             margin: 16px 0;
         }
     }
@@ -261,7 +261,7 @@ body.section-registry {
     div.h1-gradient {
         width: calc(100% - 32px);
         height: 12px;
-        background: linear-gradient(90deg, #F7BF2A 0%, #F26E7E 18.23%, #BE5188 38.02%, #8A3391 53.65%, #805AC3 74.48%, #7682F4 100%);
+        background: linear-gradient(90deg, map-get($brand, "yellow") 0%, map-get($brand, "salmon") 18.23%, map-get($brand, "fuchsia-darker") 38.02%, map-get($brand, "purple") 53.65%, map-get($brand, "violet") 74.48%, map-get($brand, "blue-lighter") 100%);
         opacity: 0.1;
         position: relative;
         top: -34px;
@@ -292,38 +292,38 @@ body.section-registry {
         h1 {
             font-weight: 400;
             font-size: 30px;
-            color: #131314;
+            color: map-get($gray, 950);
             margin: 16px 0;
         }
 
         h2 {
             font-weight: 400;
             font-size: 24px;
-            color: #131314;
+            color: map-get($gray, 950);
         }
 
         h3 {
             font-weight: 600;
             font-size: 21px;
-            color: #131314;
+            color: map-get($gray, 950);
         }
 
         h4 {
             font-weight: 600;
             font-size: 18px;
-            color: #5f6065;
+            color: map-get($gray, 650);
         }
 
         h5 {
             font-weight: 400;
             font-size: 18px;
-            color: #131314;
+            color: map-get($gray, 950);
         }
 
         h6 {
             font-weight: 600;
             font-size: 16px;
-            color: #5a5a5a;
+            color: map-get($gray, 600);
             
         }
 
@@ -331,7 +331,7 @@ body.section-registry {
             font-family: 'Inter';
             font-weight: 400;
             font-size: 16px;
-            color: #131314;
+            color: map-get($gray, 950);
             padding: 0 0 12px 0;
             margin: 0;
             line-height: 1.6;
@@ -343,8 +343,8 @@ body.section-registry {
 
         p a:not(.btn-secondary),
         ul li a[href]  {
-            color: #4d5bd9;
-            background: linear-gradient(90deg,rgba(142, 143, 151, 0),rgba(142, 143, 151, 0)),linear-gradient(90deg,#8e8f97,#8e8f97);
+            color: map-get($brand, "blue");
+            background: linear-gradient(90deg,rgba(142, 143, 151, 0),rgba(142, 143, 151, 0)),linear-gradient(90deg,map-get($gray, 450),map-get($gray, 450));
             background-position: 100% 100%,0 100%;
             background-repeat: no-repeat;
             background-size: 100% 0.1em,0 0.1em;
@@ -353,7 +353,7 @@ body.section-registry {
             transition-timing-function: ease-in;
 
             &:hover {
-                color: #4552c3;
+                color: map-get($brand, "blue-darker");
                 text-decoration: none;
                 background-size: 0 0.1em,100% 0.1em;
             }
