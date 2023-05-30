@@ -261,6 +261,11 @@
         }
     }
 
+    .docs-main-content-wrapper,
+    .docs-main-content {
+        min-width: 0;
+    }
+
     .docs-main-content {
         max-width: 700px;
         margin: 32px 24px 0 16px;
