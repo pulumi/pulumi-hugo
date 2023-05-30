@@ -51,7 +51,7 @@ Pulumi Cloud Webhooks, including the Slack integration, are available to all Pul
 
 ## Slack integration
 
-### Setiing up the Slack Integration
+### Setting up the Slack Integration
 
 ![Example of the notifications in Slack](slack.png)
 
