@@ -361,6 +361,6 @@ all events, or filter to specific events (only failures, only deployment events,
 
 ## Wrapping up
 
-We hope you and your team can streamline deployment related notifications to where you spend your time. Our webhooks improvements enable ChatOps workflows and more visibility into your infrastructure. As always, please let us know if you have feedback on the feature by opening an issue in the Pulumi Cloud requests repository or if you have other features you would like to see in Pulumi Cloud.
+We hope you and your team can streamline deployment related notifications to where you spend your time. Our webhooks improvements enable ChatOps workflows and more visibility into your infrastructure. As always, please let us know if you have feedback on the feature by opening an issue in the [Pulumi Cloud requests repository](https://github.com/pulumi/pulumi-cloud-requests/issues/new/choose) or if you have other features you would like to see in Pulumi Cloud.
 
 Happy building! 👷
