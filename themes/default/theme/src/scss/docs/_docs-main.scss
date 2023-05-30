@@ -68,9 +68,19 @@
             .table-of-contents {
                 border-top: 1px solid map-get($gray, 150);
                 border-bottom: 1px solid map-get($gray, 150);
-                margin: 24px 0 0 16px;
-                padding: 16px 0;
+                // margin: 24px 0 0 16px;
+                // padding: 16px 0;
+                padding: 8px 0;
             }
+        }
+
+        .docs-toc-mobile {
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .docs-toc-desktop {
+            display: none;
         }
 
         .table-of-contents-feedback,
@@ -82,6 +92,14 @@
         @media (min-width: 1024px) {
             flex-direction: row;
             gap: 24px;
+
+            .docs-main-content .docs-toc-mobile {
+                display: none;
+            }
+
+            .docs-main-content .docs-toc-desktop {
+                display: flex;
+            }
 
             .table-of-contents-list {
                 display: flex;
