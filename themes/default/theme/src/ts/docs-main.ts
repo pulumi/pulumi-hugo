@@ -8,35 +8,21 @@ var docsNavToggleIcon = $(".docs-nav-toggle-icon");
 
     docsToggle.on("click", function () {
         setDocsMainNavPosition();
-        if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
-            docsMainNavToggleWrapper.removeClass("docs-nav-show");
-            docsMainNavToggleWrapper.addClass("docs-nav-hide");
-            if (docsNavToggleIcon.hasClass("close-docs-main-nav")) {
-                docsNavToggleIcon.removeClass("close-docs-main-nav")
-            }
-            docsNavToggleIcon.addClass("open-docs-main-nav");
-        } else {
-            docsMainNavToggleWrapper.removeClass("docs-nav-hide");
-            docsMainNavToggleWrapper.addClass("docs-nav-show");
-            if (docsNavToggleIcon.hasClass("open-docs-main-nav")) {
-                docsNavToggleIcon.removeClass("open-docs-main-nav")
-            }
-            docsNavToggleIcon.addClass("close-docs-main-nav");
-        }
+        docsMainNavToggleWrapper.toggleClass("docs-nav-show");
+        docsMainNavToggleWrapper.toggleClass("docs-nav-hide");
+        docsNavToggleIcon.toggleClass("close-docs-main-nav");
+        docsNavToggleIcon.toggleClass("open-docs-main-nav");
     });
 })(document, jQuery);
 
 $(window).on("resize", function () {
+    setDocsMainNavPosition();
     if ($(this).width() >= 1280) {
-        if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
-            docsMainNavToggleWrapper.removeClass("docs-nav-show");
-        } else if (docsMainNavToggleWrapper.hasClass("docs-nav-hide")) {
-            docsMainNavToggleWrapper.removeClass("docs-nav-hide");
-        }
-    } else {
+        docsMainNavToggleWrapper.removeClass("docs-nav-show");
+        docsMainNavToggleWrapper.removeClass("docs-nav-hide");
+    } else if(!docsMainNavToggleWrapper.hasClass("docs-nav-hide") && !docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
         docsMainNavToggleWrapper.addClass("docs-nav-hide");
     }
-    setDocsMainNavPosition();
 }).trigger('resize');
 
 $(window).on("scroll", function () {
@@ -50,14 +36,10 @@ $(window).on("load", function() {
 function setDocsMainNavPosition() {
     if ($(this).width() < 1280) {
         if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
-            if (docsNavToggleIcon.hasClass("open-docs-main-nav")) {
-                docsNavToggleIcon.removeClass("open-docs-main-nav")
-            }
+            docsNavToggleIcon.removeClass("open-docs-main-nav")
             docsNavToggleIcon.addClass("close-docs-main-nav");
-        } else {
-            if (docsNavToggleIcon.hasClass("close-docs-main-nav")) {
-                docsNavToggleIcon.removeClass("close-docs-main-nav")
-            }
+        } else if (docsMainNavToggleWrapper.hasClass("docs-nav-hide")) {
+            docsNavToggleIcon.removeClass("close-docs-main-nav")
             docsNavToggleIcon.addClass("open-docs-main-nav");
         }
 
