@@ -364,7 +364,7 @@ public class App {
 
 {{% /chooser %}}
 
-## Pulumi Deployment Notifictation Events
+## Pulumi Deployment Notification Events
 
 Pulumi Deployments is infrastructure deployments as a managed service. With Pulumi Deployments, you can run a Pulumi infrastructure as code action (a preview, update, destroy or refresh) inside Pulumi’s managed service. Pulumi provides scalability, observability and security for deployments. Both Slack-formatted and generic JSON webhooks in Pulumi Cloud now send notifications events on Pulumi Deployments statuses: when a deployment is queued, started, succeeds and fails.
 
