@@ -41,7 +41,7 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-Today, we are excited to introduce a set of improvements to [Pulumi Cloud Webhooks](/docs/pulumi-cloud/webhooks), designed to streamline your deployment notifications to where you already spend your time, enabling faster response times to critical issues. We are also announcing two new improvements to our webhooks feature: Pulumi Deployments events and fine-grained filtering.
+Today, we are excited to introduce a set of improvements to [Pulumi Cloud Webhooks](/docs/pulumi-cloud/webhooks), designed to streamline your deployment notifications to where you already spend your time, enabling faster response times to critical issues. We are also announcing two new improvements to our webhooks feature: Pulumi Deployments events and fine-grained event filtering.
 
 <!--more-->
 
