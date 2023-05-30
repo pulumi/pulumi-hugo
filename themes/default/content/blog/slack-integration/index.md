@@ -59,8 +59,6 @@ curl \
       "active":true
   }' \
   https://api.pulumi.com/api/orgs/{organization}/{project}/{stack}/hooks
-
-
 ```
 
 ### Pulumi Service Provider
