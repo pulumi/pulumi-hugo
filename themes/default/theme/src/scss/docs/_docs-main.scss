@@ -81,7 +81,7 @@
 
         @media (min-width: 1024px) {
             flex-direction: row;
-            gap: 36px;
+            gap: 24px;
 
             .table-of-contents-list {
                 display: flex;
@@ -97,7 +97,7 @@
                 flex-basis: 340px;
                 margin-top: 38px;
                 margin-right: 16px;
-                padding: 18px 24px;
+                padding: 16px 24px;
                 overflow-y: auto;
                 height: min-content;
                 position: sticky;
@@ -161,8 +161,8 @@
             }
             
             .docs-main-nav-wrapper .docs-main-nav {
-                width: 265px;
-                flex-basis: 265px;
+                width: 240px;
+                flex-basis: 240px;
                 overflow-y: auto;
                 height: calc(100vh - 38px);
                 padding-left: 16px;
@@ -229,8 +229,8 @@
         }
 
         @media (min-width: 1280px) {
-            width: 265px;
-            flex-basis: 265px;
+            width: 240px;
+            flex-basis: 240px;
             box-shadow: none;
             margin: 0 6px 0 16px;
             border-right: 1px solid map-get($gray, 150);
@@ -255,7 +255,10 @@
 
     @media (min-width: 1024px) {
         div#accordion-table-of-contents {
-            pointer-events: none;
+            .accordion-checkbox-table-of-contents,
+            label {
+                pointer-events: none;
+            }
 
             div.accordion-content {
                 display: flex;
