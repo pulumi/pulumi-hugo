@@ -1,5 +1,5 @@
 ---
-title: "Announcing Slack and Deployment Notifications in Pulumi Cloud"
+title: "Announcing Slack and Deployment Notifications for Pulumi Cloud"
 allow_long_title: true
 date: 2023-05-26T11:07:30-07:00
 meta_desc: Pulumi Cloud now has an easy to set up Slack integration, Pulumi Deployments notifications and event filtering.
