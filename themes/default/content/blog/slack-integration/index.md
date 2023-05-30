@@ -143,7 +143,6 @@ outputs:
   # export the name of the webhooks
   orgWebhookName: ${orgWebhook.name}
   stackWebhookName: ${stackWebhook.name}
-
 ```
 
 {{% /choosable %}}
