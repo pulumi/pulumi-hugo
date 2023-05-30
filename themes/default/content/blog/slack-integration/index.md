@@ -368,7 +368,7 @@ public class App {
 
 Pulumi Deployments is infrastructure deployments as a managed service. With Pulumi Deployments, you can run a Pulumi infrastructure as code action (a preview, update, destroy or refresh) inside Pulumi’s managed service. Pulumi provides scalability, observability and security for deployments. Both Slack-formatted and generic JSON webhooks in Pulumi Cloud now send notifications events on Pulumi Deployments statuses: when a deployment is queued, started, succeeds and fails.
 
-## Filtering Notifictation Events
+## Filtering Notification Events
 
 Event filtering allows you to select which events should be delivered to each webhook. You may want to receive
 all events, or filter to specific events (only failures, only deployment events, etc.). The following table describes the various event filters available and the context in which they are relevant.
