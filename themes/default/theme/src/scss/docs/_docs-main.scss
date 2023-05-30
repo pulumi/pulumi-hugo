@@ -16,6 +16,18 @@
             margin-bottom: 24px;
             display: flex;
         }
+
+        .heading:hover {
+            div.icon {
+                background-color: map-get($gray, 900);
+            }
+            
+            .icon-heading-wrapper {
+                h2 {
+                    color: map-get($gray, 900);
+                }
+            }
+        }
     }
 
     .docs-main-content-wrapper {
@@ -133,7 +145,7 @@
                     flex-direction: column;
                     gap: 16px;
                     padding-bottom: 24px;
-                    margin-bottom: 24px;
+                    margin-bottom: 4px;
                     border-bottom: 1px solid map-get($gray, 300);
                 }
 
@@ -164,6 +176,14 @@
             justify-content: center;
             margin-top: 94px;
             margin-left: -1px;
+
+            &:hover {
+                border-color: map-get($gray, 500);
+
+                .docs-nav-toggle-icon {
+                    background-color: map-get($gray, 900);
+                }
+            }
         }
 
         .docs-main-nav-wrapper {

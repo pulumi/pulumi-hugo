@@ -157,18 +157,26 @@ div.keyboard-arrow-up-gray {
 
 div.open-docs-main-nav {
     background: url(/images/docs/icons/open-docs-main-nav.svg);
+    -webkit-mask-image: url(/images/docs/icons/open-docs-main-nav.svg);
+    mask-image: url(/images/docs/icons/open-docs-main-nav.svg);
 }
 
 div.close-docs-main-nav {
     background: url(/images/docs/icons/close-docs-main-nav.svg);
+    -webkit-mask-image: url(/images/docs/icons/close-docs-main-nav.svg);
+    mask-image: url(/images/docs/icons/close-docs-main-nav.svg);
 }
 
 div.expand-more-18-18 {
     background: url(/images/docs/icons/expand-more-18-18.svg);
+    -webkit-mask-image: url(/images/docs/icons/expand-more-18-18.svg);
+    mask-image: url(/images/docs/icons/expand-more-18-18.svg);
 }
 
 div.icon-on-this-page {
     background: url(/icons/on-this-page.svg);
+    -webkit-mask-image: url(/icons/on-this-page.svg);
+    mask-image: url(/icons/on-this-page.svg);
 }
 
 div.robot-outline {
