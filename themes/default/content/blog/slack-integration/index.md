@@ -45,7 +45,7 @@ Today, we are excited to introduce a set of improvements to [Pulumi Cloud Webhoo
 
 <!--more-->
 
-Teams using Pulumi Cloud have been setting up Slack notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Slack integration, for organization or stack notifications, with less steps and without needing to host the infrastructure themselves. We have also expanded the types of event notifications and the filtering options on both Pulumi Cloud Webhooks and for the Slack integration.
+Teams using Pulumi Cloud have been setting up Slack notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Slack integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves. We have also expanded the types of event notifications and the filtering options on both Pulumi Cloud Webhooks and for the Slack integration.
 
 Pulumi Cloud Webhooks, including the Slack integration, are available to all Pulumi Cloud organizations.
 
@@ -57,7 +57,7 @@ Pulumi Cloud Webhooks, including the Slack integration, are available to all Pul
 
 Before today Pulumi customers used Pulumi Cloud Webhooks to set up generic JSON webhooks. When events occur, we send a HTTP POST request to any registered listeners. Webhooks can then be used to send notifications to an app (like Slack), start running automated tests, or even to update another stack! We have now built support for Slack-formatted webhooks, which allow you to quickly enable notifications about your Pulumi stacks and organizations into your Slack workspace by simply providing a [Slack incoming webhook URL](https://api.slack.com/messaging/webhooks).
 
-You can either create your own Slack app (or use an existing one you may already have installed in your workspace) or you can use the below link to quickly get started with a pre-defined Slack app manifest.
+You can either create your own Slack app (or use an existing one you may already have installed in your workspace) or you can use the link below to quickly get started with a predefined Slack app manifest.
 
 [Create a Slack app from manifest](https://api.slack.com/apps?new_app=1&manifest_yaml=display_information%3A%0A%20%20name%3A%20pulumi-slack-notifications%0A%20%20description%3A%20Funnel%20Pulumi%20webhooks%20to%20Slack%0A%20%20background_color%3A%20%22%238a3391%22%0Afeatures%3A%0A%20%20bot_user%3A%0A%20%20%20%20display_name%3A%20pulumi-slack-notifications%0A%20%20%20%20always_online%3A%20false%0Aoauth_config%3A%0A%20%20scopes%3A%0A%20%20%20%20bot%3A%0A%20%20%20%20%20%20-%20incoming-webhook%0Asettings%3A%0A%20%20org_deploy_enabled%3A%20false%0A%20%20socket_mode_enabled%3A%20false%0A%20%20token_rotation_enabled%3A%20false)
 
@@ -392,6 +392,6 @@ all events, or filter to specific events (only failures, only deployment events,
 
 ## Wrapping up
 
-We hope you and your team can streamline deployment related notifications to where you spend your time. Our webhooks improvements enable ChatOps workflows and more visibility into your infrastructure. As always, please let us know if you have feedback on the feature by opening a issue in the Pulumi Cloud requests repository or if you have other features you would like to see in Pulumi Cloud.
+We hope you and your team can streamline deployment related notifications to where you spend your time. Our webhooks improvements enable ChatOps workflows and more visibility into your infrastructure. As always, please let us know if you have feedback on the feature by opening an issue in the Pulumi Cloud requests repository or if you have other features you would like to see in Pulumi Cloud.
 
 Happy building! 👷
