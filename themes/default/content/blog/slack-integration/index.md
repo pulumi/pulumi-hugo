@@ -79,28 +79,28 @@ import { Webhook, WebhookFormat, WebhookFilters } from "@pulumi/pulumiservice";
 const orgName = "my-org";
 
 const orgWebhook = new Webhook("org-webhook", {
-  active: true,
-  displayName: "#my-org-activity-channel",
-  organizationName: orgName,
-  payloadUrl: "https://hooks.slack.com/services/...",
-  format: WebhookFormat.Slack,
-  filters: [
-      WebhookFilters.StackCreated,
-      WebhookFilters.StackDeleted,
-      WebhookFilters.DeploymentSucceeded,
-      WebhookFilters.DeploymentFailed,
-  ],
+    active: true,
+    displayName: "#my-org-activity-channel",
+    organizationName: orgName,
+    payloadUrl: "https://hooks.slack.com/services/...",
+    format: WebhookFormat.Slack,
+    filters: [
+        WebhookFilters.StackCreated,
+        WebhookFilters.StackDeleted,
+        WebhookFilters.DeploymentSucceeded,
+        WebhookFilters.DeploymentFailed,
+    ],
 });
 
 const stackWebhook = new Webhook("stack-webhook", {
-  active: true,
-  displayName: "#my-stack-activity-channel",
-  organizationName: orgName,
-  projectName: pulumi.getProject(),
-  stackName: pulumi.getStack(),
-  payloadUrl: "https://hooks.slack.com/services/...",
-  format: WebhookFormat.Slack,
-})
+    active: true,
+    displayName: "#my-stack-activity-channel",
+    organizationName: orgName,
+    projectName: pulumi.getProject(),
+    stackName: pulumi.getStack(),
+    payloadUrl: "https://hooks.slack.com/services/...",
+    format: WebhookFormat.Slack,
+});
 
 export const orgWebhookName = orgWebhook.name;
 export const stackWebhookName = stackWebhook.name;
