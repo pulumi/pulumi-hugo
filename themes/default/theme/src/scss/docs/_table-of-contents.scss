@@ -45,8 +45,10 @@ div.table-of-contents {
         li.h3 {
             margin-left: 16px;
         }
+    }
 
-        li.active a {
+    @media (min-width: 1024px) {
+        ul li.active a {
             font-weight: 700;
 
             &::before {

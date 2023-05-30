@@ -13,6 +13,7 @@
     
         input:checked ~ div.accordion-content,
         input:checked ~ label.hide {
+            margin-bottom: 24px;
             display: flex;
         }
     }
@@ -27,10 +28,6 @@
         position: relative;
 
         .docs-table-of-contents {
-            border-top: 1px solid map-get($gray, 150);
-            border-bottom: 1px solid map-get($gray, 150);
-            margin: 24px 0 0 16px;
-            padding: 16px 0;
             max-width: 700px;
             display: flex;
 
@@ -42,7 +39,7 @@
             }
 
             label {
-                margin-bottom: 24px;
+                display: flex;
                 cursor: pointer;
             }
 
@@ -66,6 +63,13 @@
 
             div.expand-more-18-18 {
                 display: flex;
+            }
+
+            .table-of-contents {
+                border-top: 1px solid map-get($gray, 150);
+                border-bottom: 1px solid map-get($gray, 150);
+                margin: 24px 0 0 16px;
+                padding: 16px 0;
             }
         }
 
@@ -99,6 +103,12 @@
                 position: sticky;
                 top: 94px;
                 display: block;
+
+                .table-of-contents {
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                }
 
                 .content {
                     display: flex;
@@ -145,6 +155,10 @@
 
         &.docs-nav-show { 
             display: flex;
+
+            .docs-main-nav-wrapper {
+                border-right: 1px solid map-get($gray, 150);
+            }
             
             .docs-main-nav-wrapper .docs-main-nav {
                 width: 265px;
@@ -155,7 +169,6 @@
                 background-color: $white;
                 box-shadow: 6px 0px 36px rgba(0, 0, 0, 0.08);
                 justify-content: space-between;
-                border-right: 1px solid map-get($gray, 150);
             }
 
             nav.main-nav {
@@ -230,7 +243,6 @@
         }
     }
 
-
     .docs-main-content {
         max-width: 700px;
         margin: 32px 24px 0 16px;
@@ -238,6 +250,20 @@
 
         @media (min-width: 1280px) {
             margin-left: 24px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        div#accordion-table-of-contents {
+            pointer-events: none;
+
+            div.accordion-content {
+                display: flex;
+            }
+        }
+
+        label {
+            margin-bottom: 24px;
         }
     }
 }
