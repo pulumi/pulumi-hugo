@@ -362,6 +362,8 @@ public class App {
 }
 ```
 
+{{% /choosable %}}
+
 {{% /chooser %}}
 
 ## Pulumi Deployment Notification Events
