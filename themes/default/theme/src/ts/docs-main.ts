@@ -1,26 +1,23 @@
 var docsMainNavToggleWrapper = $(".docs-main-nav-toggle-wrapper");
 var docsNavToggleIcon = $(".docs-nav-toggle-icon");
+var docsTableOfContents = $(".docs-toc-desktop");
+var docsMainContent = $(".docs-main-content");
 
 (function (document, $) {
     var docsToggle = $(".docs-nav-toggle");
 
     docsToggle.on("click", function () {
-        setDocsMainNavPosition();
         docsMainNavToggleWrapper.toggleClass("docs-nav-show");
         docsMainNavToggleWrapper.toggleClass("docs-nav-hide");
         docsNavToggleIcon.toggleClass("close-docs-main-nav");
         docsNavToggleIcon.toggleClass("open-docs-main-nav");
+        setTableOfContentsVisibility()
     });
 })(document, jQuery);
 
 $(window).on("resize", function () {
     setDocsMainNavPosition();
-    if ($(this).width() >= 1280) {
-        docsMainNavToggleWrapper.removeClass("docs-nav-show");
-        docsMainNavToggleWrapper.removeClass("docs-nav-hide");
-    } else if(!docsMainNavToggleWrapper.hasClass("docs-nav-hide") && !docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
-        docsMainNavToggleWrapper.addClass("docs-nav-hide");
-    }
+    setTableOfContentsVisibility()
 }).trigger('resize');
 
 $(window).on("scroll", function () {
@@ -29,6 +26,7 @@ $(window).on("scroll", function () {
 
 $(window).on("load", function() {
     setDocsMainNavPosition();
+    setTableOfContentsVisibility()
 });
 
 function setDocsMainNavPosition() {
@@ -52,5 +50,30 @@ function setDocsMainNavPosition() {
         } else {
             mainNav.css("margin-top", 0);
         }
+    }
+
+    if ($(this).width() >= 1280) {
+        docsMainNavToggleWrapper.removeClass("docs-nav-show");
+        docsMainNavToggleWrapper.removeClass("docs-nav-hide");   
+    } else if (!docsMainNavToggleWrapper.hasClass("docs-nav-hide") && !docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
+        docsMainNavToggleWrapper.addClass("docs-nav-hide");
+    }
+}
+
+function setTableOfContentsVisibility() {
+    if (window.innerWidth > 1024 && window.innerWidth < 1280) {
+        if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
+            docsTableOfContents.hide();
+            docsMainContent.css("flex-basis", "100%");
+        } else {
+            docsTableOfContents.show();
+            docsMainContent.css("flex-basis", "60%");
+        }
+    } else if (window.innerWidth >= 1280) {
+        docsTableOfContents.show();
+        docsMainContent.css("flex-basis", "100%");
+    } else {
+        docsTableOfContents.hide();
+        docsMainContent.css("flex-basis", "100%");
     }
 }
