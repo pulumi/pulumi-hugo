@@ -105,6 +105,10 @@
             flex-direction: row;
             gap: 24px;
 
+            .docs-main-content {
+                flex-basis: 60%;
+            }
+
             .docs-main-content .docs-toc-mobile {
                 display: none;
             }
@@ -124,7 +128,9 @@
             }
 
             .docs-table-of-contents {
-                flex-basis: 340px;
+                max-width: 340px;
+                min-width: 0;
+                flex-basis: 40%;
                 margin-top: 38px;
                 margin-right: 16px;
                 padding: 16px 24px;
@@ -282,6 +288,7 @@
     .docs-main-content-wrapper,
     .docs-main-content {
         min-width: 0;
+        flex-shrink: 1;
     }
 
     .docs-main-content {
