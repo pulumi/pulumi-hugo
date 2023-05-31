@@ -249,8 +249,8 @@
 
     .docs-main-nav {
         border: none;
-        display: flex;
-        flex-direction: row;
+        display: block;
+        padding-bottom: 24px;
         flex-shrink: 0;
         margin: 0;
         width: 32px;
