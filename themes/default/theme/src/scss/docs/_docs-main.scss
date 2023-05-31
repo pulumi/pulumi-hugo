@@ -257,14 +257,14 @@ body.section-registry {
         .docs-main-content {
             min-width: 0;
             flex-shrink: 1;
-            max-width: 700px;
+            max-width: 634px;
             min-width: 0;
             margin: 32px 24px 0 16px;
             padding-bottom: 24px;
     
             @media (min-width: 1280px) {
                 margin-left: 24px;
-                max-width: 634px;
+                max-width: 700px;
                 min-width: 0;
             }
         }
