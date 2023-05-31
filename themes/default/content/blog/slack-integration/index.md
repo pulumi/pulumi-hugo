@@ -23,9 +23,13 @@ Pulumi Cloud Webhooks, including the Slack integration, are available to all Pul
 
 ## Slack integration
 
+![Example of the notifications in Slack](slack.png)
+
+Pulumi Slack notifications enable central visibility for your team. In addition to getting the notification of a successful or failed update, you will have links to take you directly to the stack and directly to the update itself. You can see what Pulumi operation was being run, which user initiated it and the number of resouces changed and unaffected. All of this information in one place lets you spend less time context switching and more time collaborating.
+
+
 ### Setting up the Slack Integration
 
-![Example of the notifications in Slack](slack.png)
 
 Before today Pulumi customers used Pulumi Cloud Webhooks to set up generic JSON webhooks. When events occur, we send a HTTP POST request to any registered listeners. Webhooks can then be used to send notifications to an app (like Slack), start running automated tests, or even to update another stack! We have now built support for Slack-formatted webhooks, which allow you to quickly enable notifications about your Pulumi stacks and organizations into your Slack workspace by simply providing a [Slack incoming webhook URL](https://api.slack.com/messaging/webhooks).
 
@@ -336,7 +340,9 @@ public class App {
 
 ## Pulumi Deployment Notification Events
 
-Pulumi Deployments is infrastructure deployments as a managed service. With Pulumi Deployments, you can run a Pulumi infrastructure as code action (a preview, update, destroy or refresh) inside Pulumi Cloud. Pulumi provides scalability, observability and security for deployments. Both Slack-formatted and generic JSON webhooks in Pulumi Cloud now send notifications events on Pulumi Deployments statuses: when a deployment is queued, started, succeeds and fails.
+Pulumi Deployments is a fully managed platform for managing infrastructure at scale. With Pulumi Deployments, you can run a Pulumi infrastructure as code action (a preview, update, destroy or refresh) inside Pulumi Cloud. Pulumi provides scalability, observability and security for deployments. Both Slack-formatted and generic JSON webhooks in Pulumi Cloud now send notifications events on Pulumi Deployments statuses: when a deployment is queued, started, succeeds and fails.
+
+![Deploy notifications](deploy_notifications.png)
 
 ## Filtering Notification Events
 
