@@ -1,6 +1,4 @@
 var docsMainNavToggleWrapper = $(".docs-main-nav-toggle-wrapper");
-var topNavContainer = $(".top-nav-container");
-var docsMainNav = $(".docs-main-nav");
 var docsNavToggleIcon = $(".docs-nav-toggle-icon");
 
 (function (document, $) {
@@ -42,23 +40,12 @@ function setDocsMainNavPosition() {
             docsNavToggleIcon.removeClass("close-docs-main-nav")
             docsNavToggleIcon.addClass("open-docs-main-nav");
         }
+    } 
 
-        if (isInViewport(topNavContainer.get(0))) {
-            docsMainNavToggleWrapper.css("top", 114);
-        } else {
-            docsMainNavToggleWrapper.css("top", 60);
-        }
+    var mainNav = $(".main-nav");
+    if ($(".docs-list-main").get(0).getBoundingClientRect().y <= 0) {
+        mainNav.css("margin-top", 60 - Math.max($(".top-nav-container").get(0).getBoundingClientRect().y, 0));
     } else {
-        docsMainNavToggleWrapper.css("top", 0);
+        mainNav.css("margin-top", 0);
     }
-}
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
 }
