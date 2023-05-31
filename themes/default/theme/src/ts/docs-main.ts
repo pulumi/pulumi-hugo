@@ -43,8 +43,10 @@ function setDocsMainNavPosition() {
     } 
 
     var mainNav = $(".main-nav");
+    var mainNavToggle = $(".docs-nav-toggle");
     if ($(".docs-list-main").get(0).getBoundingClientRect().y <= 0) {
         mainNav.css("margin-top", 60 - Math.max($(".top-nav-container").get(0).getBoundingClientRect().y, 0));
+        mainNavToggle.css("top", 211 - Math.max($(".top-nav-container").get(0).getBoundingClientRect().y, 0));
     } else {
         mainNav.css("margin-top", 0);
     }

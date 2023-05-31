@@ -157,10 +157,10 @@
     }
 
     .docs-main-nav-toggle-wrapper {
-        position: fixed;
         z-index: 2;
 
         .docs-nav-toggle {
+            z-index: 100;
             width: 32px;
             height: 40px;
             background: $white;
@@ -222,10 +222,6 @@
             &.docs-nav-hide .docs-main-nav-wrapper {
                 display: none;
             }
-        }
-
-        + div.docs-main-content-wrapper {
-            margin-left: 36px;
         }
 
         @media (min-width: 1280px) {
