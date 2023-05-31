@@ -202,12 +202,17 @@
                 width: 240px;
                 flex-basis: 240px;
                 overflow-y: auto;
-                height: calc(100vh - 38px);
+                height: calc(100vh);
                 padding-left: 16px;
                 background-color: $white;
                 box-shadow: 6px 0px 36px rgba(0, 0, 0, 0.08);
                 justify-content: space-between;
+
+                @media (min-width: 768) {
+                    height: calc(100vh - 38px);
+                }
             }
+            
 
             nav.main-nav {
                 display: block !important;
