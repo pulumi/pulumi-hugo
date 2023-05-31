@@ -1,5 +1,5 @@
 ---
-title: "The New and Improved Pulumi Service console"
+title: "The New and Improved Pulumi Service Console"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date this file was generated. Posts with future dates are visible in development,

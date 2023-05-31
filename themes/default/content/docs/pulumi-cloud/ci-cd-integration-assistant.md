@@ -5,8 +5,7 @@ title: "CI/CD assistant"
 h1: "CI/CD integration assistant"
 menu:
   pulumicloud:
-    parent: deployments
-    weight: 4
+    weight: 10
 aliases:
 - /docs/intro/console/extensions/
 - /docs/intro/console/extensions/ci-cd-integration-assistant/
