@@ -68,17 +68,13 @@ function setTableOfContentsVisibility() {
     if (window.innerWidth > 1024 && window.innerWidth < 1280) {
         if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
             docsTableOfContents.hide();
-            docsMainContent.css("flex-basis", "100%");
         } else {
             docsTableOfContents.show();
-            docsMainContent.css("flex-basis", "60%");
         }
     } else if (window.innerWidth >= 1280) {
         docsTableOfContents.show();
-        docsMainContent.css("flex-basis", "100%");
     } else {
         docsTableOfContents.hide();
-        docsMainContent.css("flex-basis", "100%");
     }
 }
 
