@@ -1,5 +1,5 @@
-var docsMainNavToggleWrapper = $(".docs-main-nav-toggle-wrapper");
-var docsNavToggleIcon = $(".docs-nav-toggle-icon");
+let docsMainNavToggleWrapper = $(".docs-main-nav-toggle-wrapper");
+let docsNavToggleIcon = $(".docs-nav-toggle-icon");
 
 $(window).on("resize", function () {
     setDocsMainNavPosition();
@@ -18,7 +18,7 @@ $(window).on("load", function() {
 });
 
 (function (document, $) {
-    var docsToggle = $(".docs-nav-toggle");
+    let docsToggle = $(".docs-nav-toggle");
 
     docsToggle.on("click", function () {
         docsMainNavToggleWrapper.toggleClass("docs-nav-show");
@@ -40,10 +40,10 @@ function setDocsMainNavPosition() {
         }
     } 
 
-    var mainNav = $(".main-nav");
-    var mainNavToggle = $(".docs-nav-toggle");
-    var docsTypeNavSearch = $(".docs-type-nav-search");
-    var docsToggleOffset = 94;
+    let mainNav = $(".main-nav");
+    let mainNavToggle = $(".docs-nav-toggle");
+    let docsTypeNavSearch = $(".docs-type-nav-search");
+    let docsToggleOffset = 94;
 
     if (document.getElementsByClassName("docs-list-main").length > 0) {
         if ($(".docs-list-main").get(0).getBoundingClientRect().y <= 0) {
@@ -63,7 +63,7 @@ function setDocsMainNavPosition() {
 }
 
 function setTableOfContentsVisibility() {
-    var docsTableOfContents = $(".docs-toc-desktop");
+    let docsTableOfContents = $(".docs-toc-desktop");
 
     if (window.innerWidth > 1024 && window.innerWidth < 1280) {
         if (docsMainNavToggleWrapper.hasClass("docs-nav-show")) {
