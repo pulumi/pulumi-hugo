@@ -116,7 +116,8 @@ body.section-registry {
     }
 }
 
-.docs-list-main {
+.docs-list-main,
+body.section-registry {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
