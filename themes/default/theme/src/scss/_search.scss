@@ -137,7 +137,8 @@
 }
 
 // Override the default styles of the Swiftype autocomplete results container.
-div.docs-type-nav-search .st-default-autocomplete {
+div.docs-type-nav-search .st-default-autocomplete,
+.section-blog .st-default-autocomplete {
     z-index: 40 !important; /* z-40 */
 
     // Swiftype's JS imperatively positions the autocomplete container in relation to the top-left
@@ -159,7 +160,9 @@ div.docs-type-nav-search .st-default-autocomplete {
             }
         }
     }
+}
 
+div.docs-type-nav-search .st-default-autocomplete {
     @screen md {
         top: 16px !important;
         left: -650px !important;
