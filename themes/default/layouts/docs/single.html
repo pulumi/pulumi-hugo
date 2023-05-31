@@ -25,6 +25,10 @@
                     <div class="h1-gradient"></div>
                 </div>
 
+                <div class="docs-table-of-contents docs-toc-mobile">
+                    {{ partial "docs/table-of-contents.html" . }}
+                </div>
+
                 {{ if .Params.cloud_overview }}
                     {{ partial "docs/cloud-overview.html" . }}
                 {{ end }}
@@ -35,7 +39,7 @@
                 </section>
             </div>
 
-            <div class="docs-table-of-contents">
+            <div class="docs-table-of-contents docs-toc-desktop">
                 {{ partial "docs/table-of-contents.html" . }}
 
                 {{ partial "docs/feedback.html" . }}
