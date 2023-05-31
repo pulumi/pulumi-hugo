@@ -178,8 +178,6 @@
             margin-left: -1px;
 
             &:hover {
-                border-color: map-get($gray, 500);
-
                 .docs-nav-toggle-icon {
                     background-color: map-get($gray, 900);
                 }
@@ -212,7 +210,6 @@
                     height: calc(100vh - 38px);
                 }
             }
-            
 
             nav.main-nav {
                 display: block !important;
@@ -306,6 +303,12 @@
 
             div.accordion-content {
                 display: flex;
+
+                div.content {
+                    max-height: 400px;
+                    min-height: 0;
+                    overflow-y: scroll;
+                }
             }
 
             label {
