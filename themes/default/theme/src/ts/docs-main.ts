@@ -2,6 +2,8 @@ var docsMainNavToggleWrapper = $(".docs-main-nav-toggle-wrapper");
 var docsNavToggleIcon = $(".docs-nav-toggle-icon");
 var docsTableOfContents = $(".docs-toc-desktop");
 var docsMainContent = $(".docs-main-content");
+var docsFooter = $(".docs-footer");
+var docsMainNav = $(".docs-main-nav");
 
 (function (document, $) {
     var docsToggle = $(".docs-nav-toggle");
@@ -17,7 +19,8 @@ var docsMainContent = $(".docs-main-content");
 
 $(window).on("resize", function () {
     setDocsMainNavPosition();
-    setTableOfContentsVisibility()
+    setTableOfContentsVisibility();
+    setMainNavHeight();
 }).trigger('resize');
 
 $(window).on("scroll", function () {
@@ -26,7 +29,8 @@ $(window).on("scroll", function () {
 
 $(window).on("load", function() {
     setDocsMainNavPosition();
-    setTableOfContentsVisibility()
+    setTableOfContentsVisibility();
+    setMainNavHeight();
 });
 
 function setDocsMainNavPosition() {
@@ -76,4 +80,8 @@ function setTableOfContentsVisibility() {
         docsTableOfContents.hide();
         docsMainContent.css("flex-basis", "100%");
     }
+}
+
+function setMainNavHeight() {
+    docsMainNav.css("height", docsFooter.height() + window.innerHeight);
 }
