@@ -233,8 +233,6 @@ After the command completes, the project and stack will be ready.
 
 {{% /choosable %}}
 
-Next, we'll review the generated project files.
-
 ## Review project
 
 Let's review some of the generated project files:
@@ -502,7 +500,7 @@ Do you want to perform this update?
   details
 ```
 
-Once the preview has finished, you are given three options to choose from. Choosing `details` will show you a rich diff of the changes to be made. Choosing `yes` will create your new S3 bucket in AWS. Choosing `no` will return you to the user prompt without performing the update operation.
+Once the preview has finished choose `yes` to create your new S3 bucket in AWS.
 
 ```
 Do you want to perform this update? yes
@@ -521,7 +519,7 @@ Resources:
 Duration: 5s
 ```
 
-Remember the output you defined in the previous step? That [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. You can access your outputs from the CLI by running the `pulumi stack output [property-name]` command.
+The [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. Access your outputs from the CLI by running  `pulumi stack output [property-name]`.
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
@@ -772,7 +770,7 @@ outputs:
 
 This bucket object is part of the `Bucket` that we deployed earlier because we _reference_ the bucket name in the properties of the bucket object.
 
-We refer to this relationship as the `BucketObject` being a _child_ resource of the S3 `Bucket` that is the _parent_ resource. This is how Pulumi knows what S3 bucket the object should live in.
+We refer to this relationship as the `BucketObject` being a _child_ resource of the S3 `Bucket` that is the _parent_ resource.
 
 ## Deploy changes
 
@@ -801,7 +799,7 @@ Do you want to perform this update?
   details
 ```
 
-Choosing `yes` will proceed with the update and upload the `index.html` file to your bucket:
+Choose `yes` to proceed with the update and upload the `index.html` file to your bucket:
 
 ```
 Do you want to perform this update? yes
@@ -822,7 +820,7 @@ Resources:
 Duration: 3s
 ```
 
-Once the update has completed, you can verify the object was created in your bucket by checking the AWS Console or by running the following AWS CLI command:
+Verify the object was created in your bucket by checking the AWS Console or by running the following AWS CLI command:
 
 {{% choosable language javascript %}}
 
@@ -1247,7 +1245,7 @@ Update your stack to deploy these changes to AWS:
 $ pulumi up
 ```
 
-Again, you'll see a preview of the changes before they're deployed:
+Review the preview of the changes before deploying:
 
 ```
 Previewing update (dev):
@@ -1298,7 +1296,7 @@ Resources:
 Duration: 8s
 ```
 
-When the deployment completes, you can check out your new website at the URL in the `Outputs` section of your update or make a `curl` request and see the contents of `index.html` in your terminal:
+Check out your new website at the URL in the `Outputs` section of your update or make a `curl` request and see the contents of `index.html` in your terminal:
 
 {{% choosable language javascript %}}
 
@@ -1356,8 +1354,6 @@ $ curl $(pulumi stack output bucketEndpoint)
 
 {{% /choosable %}}
 
-And you should see:
-
 ```bash
 <html>
     <body>
@@ -1376,7 +1372,7 @@ To destroy resources, run the following:
 $ pulumi destroy
 ```
 
-You'll be prompted to make sure you really want to delete these resources. This can take a minute or two; Pulumi waits until all resources are shut down and deleted before it considers the destroy operation to be complete.
+You'll be prompted to make sure you really want to delete these resources.
 
 ```
 Previewing destroy (dev):
@@ -1415,13 +1411,13 @@ Resources:
 Duration: 4s
 ```
 
-To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_stack_rm). Note that this removes the stack entirely from Pulumi Cloud, along with all of its update history.
+To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_stack_rm). This removes the stack and the update history from Pulumi Cloud.
 
 ## Next steps
 
-Congrats! You've deployed your first project on AWS with Pulumi. Here are some next steps, depending on your learning style.
+Congrats! You've deployed your first project on AWS with Pulumi. Try a next step!
 
 - **Learn pulumi**: Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
-- **AWS How-to Guides**: Explore our how-to guides if you're looking for examples of specific architectures or application stacks. These guides are available in all Pulumi languages and cover many common architectures such as [static websites](/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder/), [EC2 virtual machines](/registry/packages/aws/how-to-guides/ec2-webserver/), [EKS clusters](/registry/packages/aws/how-to-guides/aws-ts-eks/), [Fargate containers](/registry/packages/aws/how-to-guides/ecs-fargate/), and [serverless applications](/registry/packages/aws/how-to-guides/rest-api/).
+- **AWS How-to Guides**: Explore our how-to guides: [static websites](/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder/), [EC2 virtual machines](/registry/packages/aws/how-to-guides/ec2-webserver/), [EKS clusters](/registry/packages/aws/how-to-guides/aws-ts-eks/), [Fargate containers](/registry/packages/aws/how-to-guides/ecs-fargate/), and [serverless applications](/registry/packages/aws/how-to-guides/rest-api/).
 - **Pulumi concepts**: Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
-- **Blog posts**: Read through the [latest blog posts](/blog/tag/aws) about using Pulumi with AWS, including everything from new AWS features and products supported by Pulumi to technical architectures and best practices.
+- **Blog posts**: Read through the [latest blog posts](/blog/tag/aws) about using Pulumi with AWS.
