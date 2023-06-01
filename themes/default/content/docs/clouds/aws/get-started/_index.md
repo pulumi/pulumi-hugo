@@ -50,12 +50,14 @@ All Windows examples in this tutorial assume you are running in PowerShell.
 
 Next, install the required language runtime, if you have not already.
 
-### Install Language Runtime
+### Install language runtime
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language "javascript,typescript" %}}
-{{< install-node >}}
+
+Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via package manager](https://nodejs.org/en/download/package-manager/).
+
 {{% /choosable %}}
 
 {{% choosable language python %}}
@@ -80,11 +82,11 @@ Next, install the required language runtime, if you have not already.
 
 ### Configure Pulumi to access your AWS account
 
-Pulumi requires cloud credentials to manage and provision resources. You must use an IAM user account that has **Programmatic access** with rights to deploy and manage resources handled through Pulumi.
+Pulumi requires cloud credentials to manage and provision resources. Use an IAM user account that has **Programmatic access** with rights to deploy and manage resources.
 
 If you have previously installed configured the AWS CLI, Pulumi will respect and use your configuration settings.
 
-If you do not have the AWS CLI installed or plan on using Pulumi from within a CI/CD pipeline, <a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys" target="_blank">retrieve your access key ID and secret access key</a> and then set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables on your workstation.
+If you do not have the AWS CLI installed or plan on using Pulumi from within a CI/CD pipeline,[retrieve your access key ID and secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) and then set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables on your workstation.
 
 {{< chooser os "linux,macos,windows" >}}
 {{% choosable os linux %}}
@@ -976,7 +978,7 @@ Lastly, you'll make a few adjustments to make these resources accessible on the 
 
 For the bucket itself, you'll need two new resources: a `BucketOwnershipControls` resource, to define the bucket's file-ownership settings, and a `BucketPublicAccessBlock` resource to allow the bucket to be accessed publicly.
 
-For the `BucketObject`, you'll need an access-control (ACL) setting of `public-read` to allow the page to be accessed anonymously (e.g., in a browser) and a content type of `text/html` to tell AWS to serve the file as a web page. Add the following lines to your program, updating the `BucketObject` in place:
+For the `BucketObject`, you'll need an access-control (ACL) setting of `public-read` to allow the page to be accessed anonymously (e.g., in a browser) and a content type of `text/html` to tell AWS to serve the file as a web page.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -1168,9 +1170,9 @@ index.html:
 
 {{% /choosable %}}
 
-Note that the `BucketObject` also includes the Pulumi resource _option_ [`dependsOn`](/docs/concepts/options/dependson/). This setting tells Pulumi that the `BucketObject` relies indirectly on the `BucketPublicAccessBlock`, which is responsible for enabling public access to its contents. If you omitted this setting, the attempt to grant `public-read` access to `index.html` would fail, as all S3 buckets and their objects are blocked from public access by default.
+The `BucketObject` includes the Pulumi resource _option_ [`dependsOn`](/docs/concepts/options/dependson/). This setting tells Pulumi that the `BucketObject` relies indirectly on the `BucketPublicAccessBlock`, which is responsible for enabling public access to its contents.
 
-Finally, at the end of the program, export the resulting bucket’s endpoint URL so you can browse to it easily:
+At the end of the program, export the resulting bucket’s endpoint URL:
 
 {{% choosable language javascript %}}
 
@@ -1296,7 +1298,7 @@ Resources:
 Duration: 8s
 ```
 
-Check out your new website at the URL in the `Outputs` section of your update or make a `curl` request and see the contents of `index.html` in your terminal:
+Check out your new website at the URL or make a `curl` request:
 
 {{% choosable language javascript %}}
 
@@ -1371,8 +1373,6 @@ To destroy resources, run the following:
 ```bash
 $ pulumi destroy
 ```
-
-You'll be prompted to make sure you really want to delete these resources.
 
 ```
 Previewing destroy (dev):
