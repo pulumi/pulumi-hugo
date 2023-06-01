@@ -50,8 +50,6 @@ Next, install the required language runtime, if you have not already.
 
 ### Install Language Runtime
 
-#### Choose Your Language
-
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language "javascript,typescript" %}}
@@ -82,7 +80,7 @@ Next, install the required language runtime, if you have not already.
 
 Pulumi requires cloud credentials to manage and provision resources. You must use an IAM user account that has **Programmatic access** with rights to deploy and manage resources handled through Pulumi.
 
-If you have previously <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html" target="_blank">installed</a> and <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html" target="_blank">configured</a> the AWS CLI, Pulumi will respect and use your configuration settings.
+If you have previously installed configured the AWS CLI, Pulumi will respect and use your configuration settings.
 
 If you do not have the AWS CLI installed or plan on using Pulumi from within a CI/CD pipeline, <a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys" target="_blank">retrieve your access key ID and secret access key</a> and then set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables on your workstation.
 
@@ -115,14 +113,9 @@ $ export AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_ACCESS_KEY>
 {{% /choosable %}}
 {{< /chooser >}}
 
-For additional information on setting and using AWS credentials, see [AWS Setup](/registry/packages/aws/installation-configuration/).
-
-Next, you'll create a new Pulumi project.
-
 ## Create project
 
-Now that you have set up your environment by installing Pulumi, installing your preferred language runtime,
-and configuring your AWS credentials, let's create your first Pulumi program.
+Let's create your first Pulumi project, stack, and program. Pulumi [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/) organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of  code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -183,13 +176,9 @@ $ pulumi new aws-yaml
 
 {{% /choosable %}}
 
-The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with some basic scaffolding based on the cloud and language specified.
+The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with basic scaffolding.
 
-{{< cli-note >}}
-
-After logging in, the CLI will proceed with walking you through creating a new project.
-
-First, you will be asked for a **project name** and **project description**. Hit `ENTER` to accept the default values or specify new values.
+You will be asked for a **project name** and **project description**.
 
 ```
 This command will walk you through creating a new Pulumi project.
@@ -202,7 +191,7 @@ project description: (A minimal AWS Pulumi program)
 Created project 'quickstart'
 ```
 
-Next, you will be asked for a **stack name**. Hit `ENTER` to accept the default value of `dev`.
+Then you will be asked for a **stack name**.
 
 ```
 Please enter your desired stack name.
@@ -211,14 +200,12 @@ stack name: (dev)
 Created stack 'dev'
 ```
 
-Finally, you will be prompted for some configuration values for the stack. For AWS projects, you will be prompted for the AWS region. You can accept the default value or choose another value like `us-west-2`.
+Finally, you will be prompted for a configuration value for the stack, specifically the AWS region.
 
 ```
 aws:region: The AWS region to deploy into: (us-west-2)
 Saved config
 ```
-
-> What are [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/)? Pulumi projects and stacks let you organize Pulumi code. Consider a Pulumi _project_ to be analogous to a GitHub repo---a single place for code---and a _stack_ to be an instance of that code with a separate configuration. For instance, _Project Foo_ may have multiple stacks for different development environments (Dev, Test, or Prod), or perhaps for different cloud configurations (geographic region for example). See [Organizing Projects and Stacks](/docs/using-pulumi/organizing-projects-stacks/) for some best practices on organizing your Pulumi projects and stacks.
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -282,8 +269,6 @@ Let's review some of the generated project files:
 - <span>{{< langfile >}}</span> is the Pulumi program that defines your stack resources.
 
 {{% /choosable %}}
-
-Let's examine {{< langfile >}}.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -489,11 +474,9 @@ outputs:
 
 {{% /choosable %}}
 
-Next, you'll deploy your stack, which will provision your S3 bucket.
-
 ## Deploy stack
 
-Let's go ahead and deploy your stack:
+Let's deploy the stack:
 
 ```bash
 $ pulumi up
@@ -536,7 +519,7 @@ Resources:
 Duration: 5s
 ```
 
-Remember the output you defined in the previous step? That [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. You can access your outputs from the CLI by running the `pulumi stack output [property-name]` command. For example you can print the name of your bucket with the following command:
+Remember the output you defined in the previous step? That [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. You can access your outputs from the CLI by running the `pulumi stack output [property-name]` command.
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
@@ -595,12 +578,6 @@ $ pulumi stack output bucketName
 ```
 
 {{% /choosable %}}
-
-Running that command will print out the name of your bucket.
-
-{{< console-note >}}
-
-Now that the bucket has been provisioned, let's modify the program to host a static website.
 
 ## Modify program
 
@@ -795,8 +772,6 @@ This bucket object is part of the `Bucket` that we deployed earlier because we _
 
 We refer to this relationship as the `BucketObject` being a _child_ resource of the S3 `Bucket` that is the _parent_ resource. This is how Pulumi knows what S3 bucket the object should live in.
 
-Next, you'll deploy your changes.
-
 ## Deploy changes
 
 Now let's deploy your changes.
@@ -908,8 +883,6 @@ Notice that your `index.html` file has been added to the bucket:
 ```bash
 2023-04-20 17:01:06        118 index.html
 ```
-
-Now that `index.html` is in the bucket, update the program to turn the bucket into a website.
 
 ## Update the program
 
@@ -1391,8 +1364,6 @@ And you should see:
 </html>
 ```
 
-Next, you'll destroy the resources.
-
 ## Destroy stack
 
 Now that you've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of your stack.
@@ -1442,42 +1413,13 @@ Resources:
 Duration: 4s
 ```
 
-> To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_stack_rm). Note that this removes the stack entirely from Pulumi Cloud, along with all of its update history.
-
-Congratulations! You've successfully provisioned some cloud resources using Pulumi. By completing this guide you have successfully:
-
-- Created a Pulumi new project.
-- Provisioned a new S3 bucket.
-- Added an `index.html` file to your bucket.
-- Served the `index.html` as a static website.
-- Destroyed the resources you've provisioned.
-
-On the next page, we have a collection of examples and tutorials that you can deploy as they are or use them as a foundation for your own applications and infrastructure projects.
+To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_stack_rm). Note that this removes the stack entirely from Pulumi Cloud, along with all of its update history.
 
 ## Next steps
 
 Congrats! You've deployed your first project on AWS with Pulumi. Here are some next steps, depending on your learning style.
 
-### Learn Pulumi
-
-Dive into Learn Pulumi for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
-
-{{< get-started-next-step path="/learn/pulumi-fundamentals" label="Learn Pulumi Fundamentals" ref="gs-aws-learn" >}}
-
-### How-to Guides
-
-Explore our how-to guides if you're looking for examples of specific architectures or application stacks. These guides are available in all Pulumi languages and cover many common architectures such as [static websites](/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder/), [EC2 virtual machines](/registry/packages/aws/how-to-guides/ec2-webserver/), [EKS clusters](/registry/packages/aws/how-to-guides/aws-ts-eks/), [Fargate containers](/registry/packages/aws/how-to-guides/ecs-fargate/), and [serverless applications](/registry/packages/aws/how-to-guides/rest-api/).
-
-{{< get-started-next-step path="/registry/packages/aws/how-to-guides" label="Explore How-to Guides" ref="gs-aws-guides" >}}
-
-### How Pulumi Works
-
-Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
-
-{{< get-started-next-step path="/docs/concepts/" label="Read Documentation" ref="gs-aws-docs" >}}
-
-### Blog Posts
-
-Read through the latest blog posts about using Pulumi with AWS, including everything from new AWS features and products supported by Pulumi to technical architectures and best practices.
-
-{{< get-started-next-step path="/blog/tag/aws" label="Read the Pulumi Blog" ref="gs-aws-blog" >}}
+- **Learn pulumi**: Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
+- **AWS How-to Guides**: Explore our how-to guides if you're looking for examples of specific architectures or application stacks. These guides are available in all Pulumi languages and cover many common architectures such as [static websites](/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder/), [EC2 virtual machines](/registry/packages/aws/how-to-guides/ec2-webserver/), [EKS clusters](/registry/packages/aws/how-to-guides/aws-ts-eks/), [Fargate containers](/registry/packages/aws/how-to-guides/ecs-fargate/), and [serverless applications](/registry/packages/aws/how-to-guides/rest-api/).
+- **Pulumi concepts**: Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
+- **Blog posts**: Read through the [latest blog posts](/blog/tag/aws) about using Pulumi with AWS, including everything from new AWS features and products supported by Pulumi to technical architectures and best practices.
