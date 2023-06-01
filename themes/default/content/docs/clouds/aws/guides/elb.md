@@ -1,5 +1,5 @@
 ---
-title_tag: "Using AWS Elastic Load Balancing (ELB) | Crosswalk"
+title_tag: "Pulumi Crosswalk for AWS ELB"
 title: ELB
 h1: AWS Elastic Load Balancing (ELB)
 meta_desc: Pulumi Crosswalk for AWS ELB provides easy provisioning Application and Network Load Balancers, and easily
