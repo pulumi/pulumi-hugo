@@ -36,7 +36,9 @@ aliases:
 - /docs/get-started/aws/review-project/
 ---
 
-{{< cloud-intro "AWS" >}}
+Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage AWS containers, serverless functions, and infrastructure using familiar programming languages.
+
+This tutorial takes you through the following steps to easily deploy a static website.
 
 ## Install Pulumi
 
