@@ -1,5 +1,5 @@
 ---
-title_tag: "Pulumi Crosswalk for AWS EKS"
+title_tag: "Using AWS Elastic Kubernetes Service (EKS) | Crosswalk"
 title: EKS
 h1: AWS Elastic Kubernetes Service (EKS)
 meta_desc: Pulumi Crosswalk for AWS simplifies the creation, configuration, and management of EKS clusters
