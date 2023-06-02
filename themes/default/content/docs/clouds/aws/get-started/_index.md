@@ -81,7 +81,7 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 
 ### Configure Pulumi to access your AWS account
 
-Pulumi requires cloud credentials to manage and provision resources. Use an IAM user account that has **Programmatic access** with rights to deploy and manage resources.
+Pulumi requires cloud credentials to manage and provision resources. Use an IAM user account that has **programmatic access** with rights to deploy and manage resources.
 
 If you have previously installed configured the AWS CLI, Pulumi will respect and use your configuration settings.
 
@@ -118,7 +118,7 @@ $ export AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_ACCESS_KEY>
 
 ## Create project
 
-Let's create your first Pulumi project, stack, and program. Pulumi [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/) organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of  code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.
+Let's create your first Pulumi project, stack, and program. Pulumi [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/) organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
