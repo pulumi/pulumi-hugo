@@ -113,6 +113,16 @@
             }
         }
     }
+
+    .page-hero-title-with-subtitle {
+        h1 {
+            @apply mb-2;
+        }
+
+        h2 {
+            @apply text-violet-600 text-3xl mt-0 mb-10;
+        }
+    }
 }
 
 .aws-dev-day-header {
@@ -122,6 +132,21 @@
 }
 
 .rainbow-text {
+    @apply relative;
+
+    &::after {
+        content: attr(data-text);
+        z-index: -1;
+        text-shadow: -1px -1px white, 1px -1px white, -1px 1px white, 1px 1px white;
+        @apply absolute left-0;
+
+        @screen sm {
+            text-shadow: -3px -3px white, 3px -3px white, -3px 3px white, 3px 3px white;
+        }
+    }
+}
+
+.hero-subtitle {
     @apply relative;
 
     &::after {

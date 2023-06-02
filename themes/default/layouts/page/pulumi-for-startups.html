@@ -1,0 +1,63 @@
+{{ define "hero" }}
+    <header class="page-hero">
+        <div class="dot-background-container">
+            <div class="dot-background"></div>
+        </div>
+        <div class="dot-overlay"></div>
+        <div class="page-hero-title page-hero-title-with-subtitle">
+            <h1 class="rainbow-text mb-0">Pulumi for Startups</h1>
+            <h2 class="hero-subtitle mt-0">Get $10,000 in Pulumi credits and exclusive help for your projects</h2>
+        </div>
+    </header>
+{{ end }}
+
+{{ define "main" }}
+    <section id="success-stories" class="container mx-auto my-16 text-center">
+        <h3>Pulumi Startup Success Stories</h3>
+        <div class="container mx-auto flex flex-col lg:flex-row justify-center space-x-4 space-y-4">
+            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/sourcegraph" }}</span>
+            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/panther-labs-color" }}</span>
+            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/cockroach-labs" }}</span>
+            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/lemonade" }}</span>
+        </div>
+    </section>
+
+    <section id="details" class="container mx-auto my-16 justify-center flex flex-col lg:flex-row">
+        <div class="w-full lg:w-1/2 px-8">
+            <h3>Why Pulumi for Startups?</h3>
+            <h4 class="text-2xl">Help your small, nimble team scale up infrastructure</h4>
+            <p>
+                Pulumi for Startups is the easiest way for early-stage companies to build and deploy their cloud apps, using our Infrastructure as Code (IaC) platform. Your team
+                can manage and automate cloud infrastructure, using their favorite programming languages like JavaScript, TypeScript, Python, .NET, Java, and Go. Adopt the best of
+                the cloud without having to learn new DSL dialects and remove the need to dedicate entire teams to just manage and scale your infrastructure.
+            </p>
+            <h4 class="text-2xl">Get $10,000 in Pulumi credits</h4>
+            <p>You’ll get the best of Pulumi with $10,000 in free Pulumi Credits and access to Pulumi Enterprise edition features for your whole team.</p>
+            <h4 class="text-2xl">Access to exclusive office hours and events</h4>
+            <p>You will get access to exclusive office hours and workshops to help you ship your product quickly.</p>
+            <h3>Who can join?</h3>
+            <p>Pulumi for Startups is designed for pre-series A companies with less than $1M in annual revenue.</p>
+            <h3>How long does the program last?</h3>
+            <p>Pulumi for Startups lasts for up to 2 years.</p>
+        </div>
+        <div class="w-full lg:w-1/2 px-8">
+            <div class="mt-10 md:mt-0 md:mx-8 bg-gray-200 rounded p-6">
+                <pulumi-hubspot-form form-id="a325e554-3483-416c-901a-c64ed34da3bc"></pulumi-hubspot-form>
+            </div>
+        </div>
+    </section>
+
+    <section id="lemonade-testimonial" class="container mx-auto px-4 my-16 flex justify-center text-center">
+        <div class="w-full lg:w-1/2">
+            <p>
+                <i
+                    >“Pulumi supercharged our whole organization by letting us create reusable building blocks that developers can leverage to provision new resources and enforce
+                    organizational policies for logging, permissions, resource tagging, and security. This has empowered our developer teams to self-provision resources and ship
+                    new capabilities faster without having to wait for the infrastructure team to deploy new resources on their behalf.”</i
+                >
+            </p>
+            <p class="mb-0 font-semibold">- Igor Shapiro, Principal Engineer</p>
+            <span class="flex justify-center">{{ partial "customer-logos/lemonade" }}</span>
+        </div>
+    </section>
+{{ end }}
