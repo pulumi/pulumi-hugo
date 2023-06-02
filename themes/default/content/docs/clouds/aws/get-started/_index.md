@@ -79,7 +79,7 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 
 {{< /chooser >}}
 
-### Configure Pulumi to access your AWS account
+### Configure Pulumi to access AWS account
 
 Pulumi requires cloud credentials to manage and provision resources. Use an IAM user account that has **programmatic access** with rights to deploy and manage resources.
 

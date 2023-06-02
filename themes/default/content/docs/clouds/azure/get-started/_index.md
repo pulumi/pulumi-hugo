@@ -78,7 +78,7 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 
 {{< /chooser >}}
 
-### Configure Pulumi to access your Microsoft Azure account
+### Configure Pulumi to access Microsoft Azure account
 
 Pulumi requires cloud credentials to manage and provision resources. Pulumi can authenticate to Azure using a user account or service principal that has **programmatic access** with rights to deploy and manage your Azure resources.
 

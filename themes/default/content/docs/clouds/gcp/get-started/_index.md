@@ -79,7 +79,7 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 
 {{< /chooser >}}
 
-### Configure Pulumi to access your Google Cloud account
+### Configure Pulumi to access Google Cloud account
 
 Pulumi requires cloud credentials to manage and provision resources. You must use an IAM user or service account that has **programmatic access** with rights to deploy and manage your Google Cloud resources.
 
