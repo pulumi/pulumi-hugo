@@ -38,7 +38,7 @@ aliases:
 
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage AWS containers, serverless functions, and infrastructure using familiar programming languages.
 
-This tutorial takes you through the following steps to easily deploy a static website.
+This tutorial takes you through the steps to easily deploy a static website.
 
 ## Install Pulumi
 
@@ -79,7 +79,7 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 
 {{< /chooser >}}
 
-### Configure Pulumi to access AWS account
+### Configure Pulumi to access AWS
 
 Pulumi requires cloud credentials to manage and provision resources. Use an IAM user account that has **programmatic access** with rights to deploy and manage resources.
 
