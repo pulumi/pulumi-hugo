@@ -91,7 +91,7 @@ In this guide, you will need an IAM user account with permissions that can creat
 
 Let's create your first Pulumi project, stack, and program. Pulumi [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/) organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -213,10 +213,11 @@ Let's review some of the generated project files:
 - <span>{{< langfile >}}</span> is the Pulumi program that defines your stack resources.
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Let's examine {{< langfile >}}.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -426,6 +427,7 @@ outputs:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 ## Deploy stack
 
@@ -473,7 +475,7 @@ Duration: 3s
 
 Remember the output you defined in the previous step? That [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. You can access your outputs from the CLI by running the `pulumi stack output [property-name]` command. For example you can print the name of your bucket with the following command:
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -530,6 +532,7 @@ $ pulumi stack output bucketName
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Running that command will print out the name of your bucket.
 
@@ -537,7 +540,7 @@ Running that command will print out the name of your bucket.
 
 Now that your storage bucket is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.
 
-{{< chooser os "macos,linux,windows" / >}}
+{{< chooser os "macos,linux,windows" >}}
 
 {{% choosable os macos %}}
 
@@ -580,12 +583,13 @@ EOT
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Now that you have your new `index.html` with some content, open your program file and modify it to add the contents of your `index.html` file to your storage bucket.
 
 To accomplish this, you will use Pulumi's `FileAsset` class to assign the content of the file to a new  `BucketObject`.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -703,6 +707,7 @@ resources:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Notice how you provide the bucket you created earlier as an input to your new `BucketObject`. This is so Pulumi knows what storage bucket the object should live in.
 
