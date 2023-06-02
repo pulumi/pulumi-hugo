@@ -6,7 +6,7 @@
         <div class="dot-overlay"></div>
         <div class="page-hero-title page-hero-title-with-subtitle">
             <h1 class="rainbow-text mb-0">Pulumi for Startups</h1>
-            <h2 class="hero-subtitle mt-0">Get $10,000 in Pulumi credits and exclusive help for your projects</h2>
+            <h2 class="hero-subtitle mt-0 px-2 text-center">Get $10,000 in Pulumi credits and exclusive help for your projects</h2>
         </div>
     </header>
 {{ end }}
@@ -14,11 +14,11 @@
 {{ define "main" }}
     <section id="success-stories" class="container mx-auto my-16 text-center">
         <h3>Pulumi Startup Success Stories</h3>
-        <div class="container mx-auto flex flex-col lg:flex-row justify-center space-x-4 space-y-4">
-            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/sourcegraph" }}</span>
-            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/panther-labs-color" }}</span>
-            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/cockroach-labs" }}</span>
-            <span class="flex align-middle items-center justify-center">{{ partial "customer-logos/lemonade" }}</span>
+        <div class="container mx-auto flex lg:flex-row flex-wrap justify-center space-x-4 spacy-y-4 mb-4">
+            <a href="/case-studies/sourcegraph/"><img src="/logos/customers/sourcegraph-logo-cropped.svg" class="h-6 lg:h-8 my-2" alt="Sourcegraph" /></a>
+            <a href="/case-studies/panther-labs/"><img src="/logos/customers/panther-labs-wordmark.svg" class="h-6 lg:h-8 my-2" alt="Panther" /></a>
+            <img src="/logos/customers/cockroach-labs-logo.svg" class="h-6 lg:h-8 my-2" alt="CockroachDB" />
+            <a href="/case-studies/lemonade/"><img src="/logos/customers/lemonade-cropped.svg" class="h-6 lg:h-8 my-2" alt="Lemonade" /></a>
         </div>
     </section>
 
@@ -51,9 +51,8 @@
         <div class="w-full lg:w-1/2">
             <p>
                 <i
-                    >“Pulumi supercharged our whole organization by letting us create reusable building blocks that developers can leverage to provision new resources and enforce
-                    organizational policies for logging, permissions, resource tagging, and security. This has empowered our developer teams to self-provision resources and ship
-                    new capabilities faster without having to wait for the infrastructure team to deploy new resources on their behalf.”</i
+                    >"Pulumi supercharged our whole organization and empowered our developer teams to self-provision resources and ship new capabilities faster without having to
+                    wait for the infrastructure team to deploy new resources on their behalf."</i
                 >
             </p>
             <p class="mb-0 font-semibold">- Igor Shapiro, Principal Engineer</p>
