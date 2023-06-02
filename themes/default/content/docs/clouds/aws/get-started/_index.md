@@ -48,8 +48,6 @@ All Windows examples in this tutorial assume you are running in PowerShell.
 {{% /notes %}}
 {{< /install-pulumi >}}
 
-Next, install the required language runtime, if you have not already.
-
 ### Install language runtime
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
@@ -1426,6 +1424,6 @@ To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_st
 Congrats! You've deployed your first project on AWS with Pulumi. Try a next step!
 
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
-- Explore our how-to guides: [static websites](/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder/), [EC2 virtual machines](/registry/packages/aws/how-to-guides/ec2-webserver/), [EKS clusters](/registry/packages/aws/how-to-guides/aws-ts-eks/), [Fargate containers](/registry/packages/aws/how-to-guides/ecs-fargate/), and [serverless applications](/registry/packages/aws/how-to-guides/rest-api/).
+- Explore how-to guides: [static websites](/registry/packages/aws-native/how-to-guides/aws-native-ts-s3-folder/), [EC2 virtual machines](/registry/packages/aws/how-to-guides/ec2-webserver/), [EKS clusters](/registry/packages/aws/how-to-guides/aws-ts-eks/), [Fargate containers](/registry/packages/aws/how-to-guides/ecs-fargate/), and [serverless applications](/registry/packages/aws/how-to-guides/rest-api/).
 - Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
 - Read through the [latest blog posts](/blog/tag/aws) about using Pulumi with AWS.
