@@ -278,4 +278,4 @@ Several more extensive examples are available in the Pulumi Examples repo:
 - Web Application with Azure Container Instances: [TypeScript](https://github.com/pulumi/examples/tree/master/azure-ts-aci), [C#](https://github.com/pulumi/examples/tree/master/azure-cs-aci), [Python](https://github.com/pulumi/examples/tree/master/azure-py-aci), [Go](https://github.com/pulumi/examples/tree/master/azure-go-aci)
 - Web Server Using Azure Virtual Machine: [TypeScript](https://github.com/pulumi/examples/tree/master/azure-ts-webserver), [Python](https://github.com/pulumi/examples/tree/master/azure-py-webserver)
 
-You can browse [API reference docs](https://www.pulumi.com/registry/azure-native/) with inline examples or explore the [Pulumi Azure-Native SDKs](https://github.com/pulumi/pulumi-azure-native) repository.
+You can browse [API reference docs](https://www.pulumi.com/registry/packages/azure-native/) with inline examples or explore the [Pulumi Azure-Native SDKs](https://github.com/pulumi/pulumi-azure-native) repository.
