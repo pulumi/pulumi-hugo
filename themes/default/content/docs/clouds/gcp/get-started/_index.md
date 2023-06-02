@@ -958,6 +958,7 @@ pulumi.export('bucket_endpoint', pulumi.Output.concat('http://storage.googleapis
 {{% /choosable %}}
 
 {{% choosable language go %}}
+
 Now that `index.html` is in your bucket, modify the program file to have the bucket serve `index.html` as a static website.
 
 First, set the `website` property on your bucket. And, to align with Google Cloud Storage recommendations, set uniform bucket-level access on the bucket to `true`.
