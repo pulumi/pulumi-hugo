@@ -3,11 +3,17 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+
 jobs:
   build:
-    name: Build
+    name: Build and Deploy
     # Only run this step on the upstream repo.
     if: github.repository == 'pulumi/pulumi-hugo'
+    env:
+      GOPATH: ${{ github.workspace }}/go
     runs-on: ubuntu-latest
     environment: testing
     steps:
@@ -44,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build site
-        run: make ci_push
+        run: make ci-push
         env:
           GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
           CDN_PULUMI_URN: ${{ vars.CDN_PULUMI_URN }}
