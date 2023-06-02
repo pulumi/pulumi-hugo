@@ -81,7 +81,7 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 
 Let's create your first Pulumi project, stack, and program. Pulumi [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/) organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -141,6 +141,7 @@ $ pulumi new kubernetes-yaml
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 First, you will be asked for a **project name** and **project description**. Select `ENTER` to accept the default values or specify new values.
 
@@ -197,7 +198,7 @@ Let's review some of the generated project files:
 
 Let's examine {{< langfile >}}.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -471,6 +472,7 @@ outputs:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 This Pulumi program creates an NGINX deployment and exports the name of the deployment.
 
@@ -527,7 +529,7 @@ Now that we have an instance of our Pulumi program deployed, let's update it to 
 
 Replace the entire contents of {{< langfile >}} with the following:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -988,6 +990,7 @@ outputs:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Our program now creates a service to access the NGINX deployment, and requires a new [config](/docs/concepts/config/) value to indicate whether the program is being deployed to Minikube or not.
 
