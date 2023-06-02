@@ -52,8 +52,7 @@ All Windows examples in this tutorial assume you are running in PowerShell.
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language "javascript,typescript" %}}
-
-Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via package manager](https://nodejs.org/en/download/package-manager/).
+Install [Node.js](https://nodejs.org/en/download).
 {{% /choosable %}}
 
 {{% choosable language python %}}
