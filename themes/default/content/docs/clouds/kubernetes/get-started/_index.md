@@ -1145,7 +1145,7 @@ To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_st
 
 ## Next steps
 
-Congrats! You've deployed your first project on AWS with Pulumi. Try a next step!
+Congrats! You've deployed your first project on Kubernetes with Pulumi. Try a next step!
 
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 - Explore how-to guides: These guides cover creating managed Kubernetes clusters across all major cloud providers: ([AWS](/registry/packages/kubernetes/how-to-guides/eks/), [Azure](/registry/packages/kubernetes/how-to-guides/aks/), [Google Cloud](/registry/packages/kubernetes/how-to-guides/gke/) as well as deploying app workloads on running Kubernetes clusters ([WordPress Helm Chart](/registry/packages/kubernetes/how-to-guides/wordpress-chart/), [Stateless App Deployment](/registry/packages/kubernetes/how-to-guides/stateless-app/)..

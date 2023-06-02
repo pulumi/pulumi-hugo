@@ -1114,7 +1114,7 @@ To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_st
 
 ## Next steps
 
-Congrats! You've deployed your first project on AWS with Pulumi. Try a next step!
+Congrats! You've deployed your first project on Azure with Pulumi. Try a next step!
 
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 - Explore how-to guides: [static websites](/registry/packages/azure-native/how-to-guides/azure-ts-static-website/), [virtual machines](/registry/packages/azure-native/how-to-guides/azure-ts-webserver/), [AKS clusters](/registry/packages/azure-native/how-to-guides/azure-ts-aks/), [container instances](/registry/packages/azure-native/how-to-guides/azure-ts-aci/), and [functions](/registry/packages/azure-native/how-to-guides/azure-ts-functions/).

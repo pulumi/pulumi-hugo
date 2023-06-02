@@ -1374,7 +1374,7 @@ To delete the stack itself, run [`pulumi stack rm`](/docs/cli/commands/pulumi_st
 
 ## Next steps
 
-Congrats! You've deployed your first project on AWS with Pulumi. Try a next step!
+Congrats! You've deployed your first project on Google Cloud with Pulumi. Try a next step!
 
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 - Explore how-to guides: [GKE clusters](/registry/packages/gcp/how-to-guides/gcp-ts-gke-hello-world/), [Cloud Run containers](/registry/packages/gcp/how-to-guides/gcp-ts-cloudrun/), and [Cloud Function HTTP endpoints](/registry/packages/gcp/how-to-guides/gcp-ts-functions/)..
