@@ -52,12 +52,11 @@ Next, install the required language runtime, if you have not already.
 
 ### Install language runtime
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
 Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via package manager](https://nodejs.org/en/download/package-manager/).
-
 {{% /choosable %}}
 
 {{% choosable language python %}}
@@ -79,6 +78,8 @@ Install [Node.js](https://nodejs.org/en/download/) or [Install Node.js via packa
 {{% choosable language "yaml" %}}
 {{< install-yaml >}}
 {{% /choosable %}}
+
+{{< /chooser >}}
 
 ### Configure Pulumi to access your AWS account
 
@@ -121,7 +122,7 @@ $ export AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_ACCESS_KEY>
 
 Let's create your first Pulumi project, stack, and program. Pulumi [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/) organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of  code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -179,6 +180,7 @@ $ pulumi new aws-yaml
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with basic scaffolding.
 
@@ -272,7 +274,7 @@ Let's review some of the generated project files:
 
 {{% /choosable %}}
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -475,6 +477,7 @@ outputs:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 ## Deploy stack
 
@@ -523,7 +526,7 @@ Duration: 5s
 
 The [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. Access your outputs from the CLI by running  `pulumi stack output [property-name]`.
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -580,12 +583,13 @@ $ pulumi stack output bucketName
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 ## Modify program
 
 Now that your S3 bucket is provisioned, let's add a file to it. First, from within your project directory, create a new file called `index.html` file along with some content:
 
-{{< chooser os "macos,linux,windows" / >}}
+{{< chooser os "macos,linux,windows" >}}
 
 {{% choosable os macos %}}
 
@@ -624,10 +628,11 @@ echo '<html>
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Now, open the program and add this file to the S3 bucket. To do this, you'll use Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -769,6 +774,7 @@ outputs:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 This bucket object is part of the `Bucket` that we deployed earlier because we _reference_ the bucket name in the properties of the bucket object.
 
@@ -890,7 +896,7 @@ Notice that your `index.html` file has been added to the bucket:
 
 Update the `Bucket` declaration to add a `website` property and make `index.html` the home page of the website:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -973,6 +979,7 @@ my-bucket:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 Lastly, you'll make a few adjustments to make these resources accessible on the Internet.
 
@@ -980,7 +987,7 @@ For the bucket itself, you'll need two new resources: a `BucketOwnershipControls
 
 For the `BucketObject`, you'll need an access-control (ACL) setting of `public-read` to allow the page to be accessed anonymously (e.g., in a browser) and a content type of `text/html` to tell AWS to serve the file as a web page.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1238,6 +1245,7 @@ outputs:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 ## Deploy the website
 
