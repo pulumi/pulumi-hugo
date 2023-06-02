@@ -143,7 +143,7 @@ $ pulumi new kubernetes-yaml
 {{% /choosable %}}
 {{< /chooser >}}
 
-First, you will be asked for a **project name** and **project description**. Select `ENTER` to accept the default values or specify new values.
+You will be asked for a **project name** and **project description**.
 
 ```
 This command will walk you through creating a new Pulumi project.
@@ -156,7 +156,7 @@ project description: (A minimal Kubernetes Pulumi program)
 Created project 'quickstart'
 ```
 
-Next, you will be asked for a **stack name**. You can Select `ENTER` to accept the default value of `dev`.
+Then you will be asked for a **stack name**.
 
 ```
 Please enter your desired stack name.

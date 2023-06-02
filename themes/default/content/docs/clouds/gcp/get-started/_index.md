@@ -151,10 +151,11 @@ $ pulumi new gcp-yaml
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with some basic scaffolding based on the cloud and language specified.
 
-First, you will be asked for a **project name** and **project description**. Select `ENTER` to accept the default values or specify new values.
+You will be asked for a **project name** and **project description**.
 
 ```
 This command will walk you through creating a new Pulumi project.
@@ -167,7 +168,7 @@ project description: (A minimal Google Cloud Pulumi program)
 Created project 'quickstart'
 ```
 
-Next, you will be asked for a **stack name**. Select `ENTER` to accept the default value of `dev`.
+Then you will be asked for a **stack name**.
 
 ```
 Please enter your desired stack name.
@@ -213,7 +214,6 @@ Let's review some of the generated project files:
 - <span>{{< langfile >}}</span> is the Pulumi program that defines your stack resources.
 
 {{% /choosable %}}
-{{< /chooser >}}
 
 Let's examine {{< langfile >}}.
 
