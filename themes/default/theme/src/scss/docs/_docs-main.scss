@@ -417,6 +417,38 @@ body.section-registry {
     div.table-of-contents {
         display: none;
 
+        div.package-card {
+            background: #fff;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0px 4px 4px rgba(220, 220, 220, 0.25);
+            border-radius: 4px;
+            padding: 18px;
+            display: flex;
+            gap: 18px;
+
+            div.version-info {
+                font-family: 'Inter';
+                font-weight: 400;
+                font-size: 12px;
+                color: #131314;
+            }
+
+            div.package-link {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 12px;
+                text-decoration-line: underline;
+                color: #4D5BD9;
+                display: flex;
+                gap: 8px;
+
+                a {
+                    display: flex;
+                    gap: 4px;
+                }
+            }
+        }
+
         div.content {
             display: flex;
             flex-direction: column;
@@ -471,6 +503,8 @@ body.section-registry {
         }
 
         @media (min-width: 1024px) {
+            display: flex;
+            gap: 24px;
             ul li.active a {
                 font-weight: 700;
 
