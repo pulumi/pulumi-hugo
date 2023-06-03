@@ -1004,7 +1004,7 @@ $ pulumi config set isMinikube false
 
 ## Deploy changes
 
-Now let's deploy our changes.
+Deploy your changes by running `pulumi up` again.
 
 ```bash
 $ pulumi up
@@ -1153,4 +1153,4 @@ Congrats! You've deployed your first project on Kubernetes with Pulumi. Try a ne
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 - Explore how-to guides: These guides cover creating managed Kubernetes clusters across all major cloud providers: ([AWS](/registry/packages/kubernetes/how-to-guides/eks/), [Azure](/registry/packages/kubernetes/how-to-guides/aks/), [Google Cloud](/registry/packages/kubernetes/how-to-guides/gke/) as well as deploying app workloads on running Kubernetes clusters ([WordPress Helm Chart](/registry/packages/kubernetes/how-to-guides/wordpress-chart/), [Stateless App Deployment](/registry/packages/kubernetes/how-to-guides/stateless-app/)..
 - Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
-- Read through the [latest blog posts](/blog/tag/kubernetes) about using Pulumi with AWS.
+- Read through the [latest blog posts](/blog/tag/kubernetes) about using Pulumi with Kubernetes.

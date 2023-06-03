@@ -484,7 +484,7 @@ Let's deploy the stack:
 $ pulumi up
 ```
 
-This command evaluates your program and determines the resource updates to make. First, a preview is shown that outlines the changes that will be made when you run the update:
+This command evaluates the program and determines what resources need updates. A preview is shown that outlines the changes that will be made when you run the update:
 
 ```
 Previewing update (dev):
@@ -520,8 +520,6 @@ Resources:
 
 Duration: 5s
 ```
-
-The [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. Access your outputs from the CLI by running  `pulumi stack output [property-name]`.
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 
@@ -584,7 +582,7 @@ $ pulumi stack output bucketName
 
 ## Modify program
 
-Now that your S3 bucket is provisioned, let's add a file to it. First, from within your project directory, create a new file called `index.html` file along with some content:
+Now that your S3 bucket is provisioned, let's add a file to it. In the project directory, create a new file called `index.html` along with some content:
 
 {{< chooser os "macos,linux,windows" >}}
 
@@ -627,7 +625,7 @@ echo '<html>
 {{% /choosable %}}
 {{< /chooser >}}
 
-Now, open the program and add this file to the S3 bucket. To do this, you'll use Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
+Open the program and add this file to the S3 bucket. This uses Pulumi's `FileAsset` resource to assign the content of the file to a new  `BucketObject`:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -1173,6 +1171,7 @@ index.html:
 ```
 
 {{% /choosable %}}
+{{< /chooser >}}
 
 The `BucketObject` includes the Pulumi resource _option_ [`dependsOn`](/docs/concepts/options/dependson/). This setting tells Pulumi that the `BucketObject` relies indirectly on the `BucketPublicAccessBlock`, which is responsible for enabling public access to its contents.
 
@@ -1242,9 +1241,8 @@ outputs:
 ```
 
 {{% /choosable %}}
-{{< /chooser >}}
 
-## Deploy the website
+## Deploy website
 
 Update your stack to deploy these changes to AWS:
 

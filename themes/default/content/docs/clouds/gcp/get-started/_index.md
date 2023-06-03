@@ -436,7 +436,7 @@ Let's deploy the stack:
 $ pulumi up
 ```
 
-This command evaluates your program and determines the resource updates to make. First, a preview is shown that outlines the changes that will be made when you run the update:
+This command evaluates the program and determines what resources need updates. A preview is shown that outlines the changes that will be made when you run the update:
 
 ```
 Previewing update (dev):
@@ -537,7 +537,7 @@ Running that command will print out the name of your bucket.
 
 ## Modify program
 
-Now that your storage bucket is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.
+Now that your storage bucket is provisioned, let's add an object to it. In the project directory, create a new `index.html` file along with some content.
 
 {{< chooser os "macos,linux,windows" >}}
 
@@ -712,7 +712,7 @@ Notice how you provide the bucket you created earlier as an input to your new `B
 
 ## Deploy changes
 
-Now let's deploy your changes.
+Deploy your changes by running `pulumi up` again.
 
 ```bash
 $ pulumi up
@@ -1384,4 +1384,4 @@ Congrats! You've deployed your first project on Google Cloud with Pulumi. Try a 
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 - Explore how-to guides: [GKE clusters](/registry/packages/gcp/how-to-guides/gcp-ts-gke-hello-world/), [Cloud Run containers](/registry/packages/gcp/how-to-guides/gcp-ts-cloudrun/), and [Cloud Function HTTP endpoints](/registry/packages/gcp/how-to-guides/gcp-ts-functions/)..
 - Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
-- Read through the [latest blog posts](/blog/tag/google-cloud) about using Pulumi with AWS.
+- Read through the [latest blog posts](/blog/tag/google-cloud) about using Pulumi with Google Cloud.

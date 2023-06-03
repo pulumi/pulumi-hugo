@@ -527,7 +527,7 @@ Let's go ahead and deploy your stack:
 $ pulumi up
 ```
 
-This command evaluates your program and determines the resource updates to make. First, a preview is shown that outlines the changes that will be made when you run the update:
+This command evaluates the program and determines what resources need updates. A preview is shown that outlines the changes that will be made when you run the update:
 
 ```
 Previewing update (dev):
@@ -566,8 +566,6 @@ Resources:
 
 Duration: 26s
 ```
-
-The [stack output](/docs/concepts/stack#outputs) can be seen in the `Outputs:` section of your update. Access your outputs from the CLI by running  `pulumi stack output [property-name]`.
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
 
@@ -623,7 +621,7 @@ Running that command will print out the storage account's primary key.
 
 ## Modify program
 
-Now that your storage account is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.
+Now that your storage account is provisioned, let's add an object to it. In the project directory, create a new `index.html` file with some content in it.
 
 {{< chooser os "macos,linux,windows" >}}
 
@@ -1118,4 +1116,4 @@ Congrats! You've deployed your first project on Azure with Pulumi. Try a next st
 - Dive into [Learn Pulumi](/learn/pulumi-fundamentals) for a comprehensive walkthrough of key Pulumi concepts in the context of a real-life application.
 - Explore how-to guides: [static websites](/registry/packages/azure-native/how-to-guides/azure-ts-static-website/), [virtual machines](/registry/packages/azure-native/how-to-guides/azure-ts-webserver/), [AKS clusters](/registry/packages/azure-native/how-to-guides/azure-ts-aks/), [container instances](/registry/packages/azure-native/how-to-guides/azure-ts-aci/), and [functions](/registry/packages/azure-native/how-to-guides/azure-ts-functions/).
 - Learn how Pulumi works from its architecture to key concepts, including [stacks](/docs/concepts/stack/), [state](/docs/concepts/state/), [configuration](/docs/concepts/config/), and [secrets](/docs/concepts/secrets/).
-- Read through the [latest blog posts](/blog/tag/azure) about using Pulumi with AWS.
+- Read through the [latest blog posts](/blog/tag/azure) about using Pulumi with Azure.
