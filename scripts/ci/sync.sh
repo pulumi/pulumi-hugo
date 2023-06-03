@@ -76,6 +76,12 @@ echo "$s3_website_url"
 aws s3 cp "$build_dir/latest-version" "${destination_bucket_uri}/latest-version" \
     --content-type "text/plain" --acl public-read --region "$(aws_region)" --metadata-directive REPLACE
 
+# Smoke test the deployed website. Specs are in ../cypress/integration.
+echo "Running tests..."
+
+echo "Running browser tests on $s3_website_url..."
+./scripts/run-browser-tests.sh "$s3_website_url"
+
 # At this point, we have a bucket that's suitable for deployment. As a result of this run,
 # we leave a file in the project root indicating the name of the bucket that was generated
 # and the associated commit SHA, and then we upload that file into the bucket as well, for
