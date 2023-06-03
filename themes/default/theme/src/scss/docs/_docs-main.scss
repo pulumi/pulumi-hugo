@@ -333,11 +333,11 @@ body.section-registry {
             }
 
             @media (min-width: 1024px) {
-                min-width: 240px;
+                width: 240px;
             }
 
             @media (min-width: 1280px) {
-                min-width: 340px;
+                width: 340px;
             }
         }
 
@@ -381,8 +381,7 @@ body.section-registry {
 
             .docs-table-of-contents {
                 margin-top: 38px;
-                margin-right: 16px;
-                padding: 16px 24px;
+                padding: 16px 0 16px 24px;
                 overflow-y: auto;
                 height: min-content;
                 position: sticky;
@@ -416,7 +415,7 @@ body.section-registry {
 .docs-list-main,
 body.section-registry {
     div.table-of-contents {
-        display: none;
+        display: flex;
 
         div.package-card {
             background: #fff;
@@ -427,8 +426,6 @@ body.section-registry {
             display: flex;
             flex-direction: column;
             gap: 18px;
-            max-width: 340px;
-            min-width: 0;
 
             img {
                 height: 24px;
