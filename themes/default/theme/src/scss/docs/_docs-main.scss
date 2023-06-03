@@ -390,6 +390,7 @@ body.section-registry {
                 display: block;
 
                 .table-of-contents {
+                    display: flex;
                     border: none;
                     margin: 0;
                     padding: 0;
@@ -424,7 +425,14 @@ body.section-registry {
             border-radius: 4px;
             padding: 18px;
             display: flex;
+            flex-direction: column;
             gap: 18px;
+            max-width: 340px;
+            min-width: 0;
+
+            img {
+                height: 24px;
+            }
 
             div.version-info {
                 font-family: 'Inter';
@@ -434,17 +442,21 @@ body.section-registry {
             }
 
             div.package-link {
-                font-family: 'Inter';
-                font-weight: 500;
-                font-size: 12px;
-                text-decoration-line: underline;
-                color: #4D5BD9;
                 display: flex;
                 gap: 8px;
 
                 a {
                     display: flex;
                     gap: 4px;
+                    font-family: 'Inter';
+                    font-weight: 500;
+                    font-size: 12px;
+                    color: #4D5BD9;
+                    align-items: center;
+
+                    span {
+                        text-decoration-line: underline;
+                    }
                 }
             }
         }
@@ -504,6 +516,7 @@ body.section-registry {
 
         @media (min-width: 1024px) {
             display: flex;
+            flex-direction: column;
             gap: 24px;
             ul li.active a {
                 font-weight: 700;
