@@ -431,7 +431,12 @@ body.section-registry {
                 height: 24px;
             }
 
-            div.version-info {
+            .note {
+                margin: 0;
+            }
+
+            div.version-info,
+            .note {
                 font-family: 'Inter';
                 font-weight: 400;
                 font-size: 12px;
