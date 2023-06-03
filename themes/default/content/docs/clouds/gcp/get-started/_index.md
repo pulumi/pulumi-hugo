@@ -38,7 +38,7 @@ aliases:
 
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage Google Cloud containers, serverless functions, and infrastructure using familiar programming languages.
 
-This tutorial takes you through the following steps to easily deploy a static website.
+This tutorial takes you through the steps to easily deploy a static website.
 
 ## Install Pulumi
 
@@ -152,12 +152,12 @@ $ pulumi new gcp-yaml
 {{% /choosable %}}
 {{< /chooser >}}
 
-The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with some basic scaffolding based on the cloud and language specified.
+The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a Pulumi project with basic scaffolding.
 
 You will be asked for a **project name** and **project description**.
 
 ```
-This command will walk you through creating a new Pulumi project.
+This command will walk you through creating a Pulumi project.
 
 Enter a value or leave blank to accept the (default), and press <ENTER>.
 Press ^C at any time to quit.
@@ -182,6 +182,8 @@ Finally, you will be prompted for a configuration value for the stack, specifica
 gcp:project: The Google Cloud project to deploy into: my-project
 Saved config
 ```
+
+After the command completes, the project and stack will be ready.
 
 ## Review project
 
@@ -712,7 +714,7 @@ Notice how you provide the bucket you created earlier as an input to your new `B
 
 ## Deploy changes
 
-Deploy your changes by running `pulumi up` again.
+Deploy the changes by running `pulumi up` again.
 
 ```bash
 $ pulumi up
@@ -862,7 +864,7 @@ const bucketObject = new gcp.storage.BucketObject("index.html", {
 });
 ```
 
-Finally, at the end of the program file, export the resulting bucket’s endpoint URL so you can easily access it:
+At the end of the program, export the bucket’s endpoint URL:
 
 ```javascript
 exports.bucketEndpoint = pulumi.concat("http://storage.googleapis.com/", bucket.name, "/", bucketObject.name);

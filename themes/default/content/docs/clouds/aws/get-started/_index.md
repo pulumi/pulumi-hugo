@@ -179,12 +179,12 @@ $ pulumi new aws-yaml
 {{% /choosable %}}
 {{< /chooser >}}
 
-The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with basic scaffolding.
+The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a Pulumi project with basic scaffolding.
 
 You will be asked for a **project name** and **project description**.
 
 ```
-This command will walk you through creating a new Pulumi project.
+This command will walk you through creating a Pulumi project.
 
 Enter a value or leave blank to accept the (default), and press <ENTER>.
 Press ^C at any time to quit.
@@ -210,29 +210,7 @@ aws:region: The AWS region to deploy into: (us-west-2)
 Saved config
 ```
 
-{{% choosable language "javascript,typescript" %}}
-
-After some dependency installations from `npm`, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
 After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language "csharp,fsharp,visualbasic" %}}
-
-After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
 
 ## Review project
 
@@ -777,7 +755,7 @@ We refer to this relationship as the `BucketObject` being a _child_ resource of 
 
 ## Deploy changes
 
-Now let's deploy your changes.
+Deploy the changes by running `pulumi up` again.
 
 ```bash
 $ pulumi up
@@ -1175,7 +1153,7 @@ index.html:
 
 The `BucketObject` includes the Pulumi resource _option_ [`dependsOn`](/docs/concepts/options/dependson/). This setting tells Pulumi that the `BucketObject` relies indirectly on the `BucketPublicAccessBlock`, which is responsible for enabling public access to its contents.
 
-At the end of the program, export the resulting bucket’s endpoint URL:
+At the end of the program, export the bucket’s endpoint URL:
 
 {{% choosable language javascript %}}
 

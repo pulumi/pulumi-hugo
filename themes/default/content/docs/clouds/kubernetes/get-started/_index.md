@@ -146,7 +146,7 @@ $ pulumi new kubernetes-yaml
 You will be asked for a **project name** and **project description**.
 
 ```
-This command will walk you through creating a new Pulumi project.
+This command will walk you through creating a Pulumi project.
 
 Enter a value or leave blank to accept the (default), and press <ENTER>.
 Press ^C at any time to quit.
@@ -484,7 +484,7 @@ Let's deploy the stack:
 $ pulumi up
 ```
 
-This command instructs Pulumi to determine the resources needed to create the stack. First, a preview is shown of the changes that will be made:
+This command evaluates the program and determines what resources need updates. A preview is shown that outlines the changes that will be made when you run the update:
 
 ```
 Previewing update (dev):
@@ -525,9 +525,7 @@ The name of the deployment that we exported is shown as a [stack output](/docs/c
 
 ## Modify program
 
-Now that we have an instance of our Pulumi program deployed, let's update it to do something a little more interesting.
-
-Replace the entire contents of {{< langfile >}} with the following:
+Now that we have an instance of our Pulumi program deployed, let's update it. Replace the contents of {{< langfile >}} with the following:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -1054,7 +1052,7 @@ Resources:
 Duration: 12s
 ```
 
-You can see we now have an `ip` [stack output](/docs/concepts/stack#outputs) that we can `curl` to get the output from the service.
+We now have an `ip` [stack output](/docs/concepts/stack#outputs) that we can `curl` to get the output from the service.
 
 > **Using Minikube:** Note that Minikube does not support type `LoadBalancer`. If you are deploying to Minikube, see the following example to run the `kubectl port-forward service/YOUR_SERVICE_NAME 8080:80` command to forward the cluster port to the local machine. Then, the service can be accessed via `curl http://localhost:8080`, which will get the same result as `curl $(pulumi stack output ip)` as in the environment without using Minikube.
 >

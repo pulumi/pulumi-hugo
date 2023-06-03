@@ -37,7 +37,7 @@ aliases:
 ---
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage Azure containers, serverless functions, and infrastructure using familiar programming languages.
 
-This tutorial takes you through the following steps to easily deploy a static website.
+This tutorial takes you through the steps to easily deploy a static website.
 
 ## Install Pulumi
 
@@ -156,12 +156,12 @@ $ pulumi new azure-yaml
 
 {{< /chooser >}}
 
-The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a new Pulumi project with some basic scaffolding based on the cloud and language specified.
+The [`pulumi new`](/docs/cli/commands/pulumi_new) command creates a Pulumi project with basic scaffolding.
 
 You will be asked for a **project name** and **project description**.
 
 ```
-This command will walk you through creating a new Pulumi project.
+This command will walk you through creating a Pulumi project.
 
 Enter a value or leave blank to accept the (default), and press <ENTER>.
 Press ^C at any time to quit.
@@ -187,41 +187,7 @@ azure-native:location: The Azure location to use: (WestUS2)
 Saved config
 ```
 
-{{% choosable language "typescript" %}}
-
-After some dependency installations from `npm`, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
 After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language "csharp,fsharp,visualbasic" %}}
-
-After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language java %}}
-
-After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-After the command completes, the project and stack will be ready.
-
-{{% /choosable %}}
 
 ## Review project
 
@@ -521,7 +487,7 @@ In this program, the location of the resource group is set in the configuration 
 
 ## Deploy stack
 
-Let's go ahead and deploy your stack:
+Let's deploy the stack:
 
 ```bash
 $ pulumi up
@@ -877,7 +843,7 @@ resources:
 
 {{% choosable language typescript %}}
 
-Finally, at the end of `index.ts`, export the resulting storage container's endpoint URL to stdout for easy access:
+At the end of the program, export the bucket’s endpoint URL:
 
 ```typescript
 // Web endpoint to the website
@@ -949,7 +915,7 @@ outputs:
 
 ## Deploy changes
 
-Deploy your changes by running `pulumi up` again.
+Deploy the changes by running `pulumi up` again.
 
 ```bash
 $ pulumi up
