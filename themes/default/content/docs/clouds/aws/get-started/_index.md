@@ -84,7 +84,7 @@ Pulumi requires cloud credentials to manage and provision resources. Use an IAM 
 
 If you have previously installed and configured the AWS CLI, Pulumi will respect and use your configuration settings.
 
-If you do not have the AWS CLI installed or plan on using Pulumi from within a CI/CD pipeline,[retrieve your access key ID and secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) and then set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables on your workstation.
+If you do not have the AWS CLI installed or plan on using Pulumi from within a CI/CD pipeline, [retrieve your access key ID and secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) and then set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables on your workstation:
 
 {{< chooser os "linux,macos,windows" >}}
 {{% choosable os linux %}}
