@@ -271,6 +271,7 @@ body.section-registry {
         .docs-main-content {
             min-width: 0;
             flex-shrink: 1;
+            width: 700px;
             max-width: 700px;
             min-width: 0;
             margin: 32px 24px 0 16px;
@@ -289,6 +290,7 @@ body.section-registry {
 
             &.registry-package-list {
                 max-width: 1064px;
+                width: 1064px;
             }
         }
 
