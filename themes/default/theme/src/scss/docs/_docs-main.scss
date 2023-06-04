@@ -278,6 +278,10 @@ body.section-registry {
                 max-width: 700px;
                 min-width: 0;
             }
+
+            &.registry-package-list {
+                max-width: 1064px;
+            }
         }
 
         .docs-table-of-contents {
