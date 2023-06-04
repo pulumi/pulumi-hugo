@@ -227,17 +227,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         expanded = !expanded
     })
-
-    // Moves the package card slightly down once the search bar
-    // starts to overlap it.
-    $(window).scroll(function () {
-        // 80 is the scroll position where the search bar starts
-        // to overlap the package card.
-        if ($(window).scrollTop() > 80) {
-            $(".package-card").css("margin-top","55px");
-        } else {
-            $(".package-card").css("margin-top","0px");
-        }
-    });
-
 })(document, jQuery);

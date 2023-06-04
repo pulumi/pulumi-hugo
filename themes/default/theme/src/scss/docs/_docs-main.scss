@@ -345,6 +345,7 @@ body.section-registry {
             display: flex;
 
             div.table-of-contents {
+                display: flex;
                 margin-bottom: 16px;
             }
         }
@@ -414,6 +415,39 @@ body.section-registry {
 
 .docs-list-main,
 body.section-registry {
+    div.package-card-top-of-page {
+        padding: 18px;
+        background: #F9F9F9;
+        border: 1px solid #DCDCDC;
+        box-shadow: 0px 4px 4px rgba(220, 220, 220, 0.25);
+        border-radius: 4px;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 12px;
+        color: #5a5a5a;
+
+        div.img-name-version {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+
+            img {
+                height: 24px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            display: none;
+        }
+    }
+
     div.table-of-contents {
         display: flex;
 
