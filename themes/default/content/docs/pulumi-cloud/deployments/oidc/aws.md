@@ -71,6 +71,7 @@ Resources:
 * OrgName: Enter the name of your organization.
 * ProjectName: Enter the name of your project. If you want to allow all projects, etner `*`.
 
+![cloudformation-stack-deploy](/images/docs/reference/console/cloudformation-stack-deploy.png)
 
 Make a note of the IAM role's ARN; it will be necessary to enable OIDC for your stack.
 
