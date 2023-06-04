@@ -153,6 +153,14 @@ body.section-registry {
                 display: none;
                 padding: 32px 0 0 0;
             }
+
+            h2 {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 14px;
+                color: #131314;
+            }
     
             @media (min-width: 1280px) {
                 width: 240px;
