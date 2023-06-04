@@ -154,12 +154,47 @@ body.section-registry {
                 padding: 32px 0 0 0;
             }
 
-            h2 {
+            h2,
+            ul h2 {
                 font-family: 'Inter';
                 font-weight: 500;
                 font-size: 16px;
                 line-height: 14px;
                 color: #131314;
+                margin-top: 22px;
+                margin-left: 14px;
+
+                &.az-packages-heading {
+                    margin-top: 6px;
+                }
+
+                &.api-docs-heading {
+                    margin-top: 24px;
+                }
+            }
+
+            a.all-packages {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 16px;
+                color: #2f3032;
+                display: flex;
+                margin: 0 16px 24px 0;
+                padding-bottom: 14px;
+                border-bottom: 1px solid #dcdcdc;
+            }
+
+            ul li a {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                span.count-badge {
+                    font-size: 11px;
+                    padding: 0px 4px;
+                    border: 1px solid #364098;
+                    border-radius: 6px;
+                }
             }
     
             @media (min-width: 1280px) {
@@ -276,6 +311,7 @@ body.section-registry {
             min-width: 0;
             margin: 32px 24px 0 16px;
             padding-bottom: 24px;
+            min-height: 100vh;
 
             @media (min-width: 1024px) {
                 max-width: 634px;
