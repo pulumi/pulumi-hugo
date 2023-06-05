@@ -485,12 +485,17 @@ body.section-registry {
 
 .docs-list-main,
 body.section-registry {
-    div.package-card-top-of-page {
+
+    div#accordion-package-card {
         padding: 18px;
         background: #f9f9f9;
         border: 1px solid #dcdcdc;
         box-shadow: 0px 4px 4px rgba(220, 220, 220, 0.25);
         border-radius: 4px;
+        margin-top: 24px;
+    }
+    
+    div.package-card-top-of-page {
         justify-content: space-between;
         align-items: center;
         display: flex;
@@ -498,7 +503,6 @@ body.section-registry {
         font-weight: 400;
         font-size: 12px;
         color: #5a5a5a;
-        margin-top: 24px;
 
         div.img-name-version {
             display: flex;
@@ -513,9 +517,93 @@ body.section-registry {
                 margin: 0;
             }
         }
+    }
+
+    div.table-of-contents div.package-card,
+    div#accordion-package-card div.package-card {
+        background: #fff;
+        border: 1px solid #f2f2f4;
+        border-radius: 4px;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 24px;
+
+        img {
+            height: 24px;
+        }
+
+        .note {
+            margin: 0;
+        }
+
+        div.version-info,
+        .note {
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 12px;
+            color: #131314;
+        }
+
+        div.package-link {
+            display: flex;
+            gap: 8px;
+
+            a {
+                display: flex;
+                gap: 4px;
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 12px;
+                color: #4D5BD9;
+                align-items: center;
+
+                span {
+                    text-decoration-line: underline;
+                }
+            }
+        }
+    }
+
+    div#accordion-package-card {
+        display: flex;
+
+        > div {
+            flex: 1;
+        }
+
+        div.package-card-top-of-page {
+            flex: 1;
+        }
 
         @media (min-width: 1024px) {
             display: none;
+        }
+    }
+
+    div#accordion-package-card {
+        div.accordion-content,
+        input,
+        label.hide,
+        input:checked ~ label.show  {
+            display: none;
+        }
+    
+        input:checked ~ div.accordion-content,
+        input:checked ~ label.hide {
+            display: flex;
+        }
+
+        div.package-card {
+            img {
+                display: none;
+            }
+            box-shadow: none;
+            margin-bottom: 0;
+            border: none;
+            background-color: #f9f9f9;
+            padding-left: 0;
         }
     }
 
@@ -526,50 +614,7 @@ body.section-registry {
             display: none;
 
             @media (min-width: 1024px) {
-                background: #fff;
-                border: 1px solid #f2f2f4;
-                box-shadow: 0 4px 4px hsla(0, 0%, 86%, .25);
-                border-radius: 4px;
-                padding: 18px;
                 display: flex;
-                flex-direction: column;
-                gap: 18px;
-                margin-bottom: 24px;
-
-                img {
-                    height: 24px;
-                }
-
-                .note {
-                    margin: 0;
-                }
-
-                div.version-info,
-                .note {
-                    font-family: 'Inter';
-                    font-weight: 400;
-                    font-size: 12px;
-                    color: #131314;
-                }
-
-                div.package-link {
-                    display: flex;
-                    gap: 8px;
-
-                    a {
-                        display: flex;
-                        gap: 4px;
-                        font-family: 'Inter';
-                        font-weight: 500;
-                        font-size: 12px;
-                        color: #4D5BD9;
-                        align-items: center;
-
-                        span {
-                            text-decoration-line: underline;
-                        }
-                    }
-                }
             }
         }
 

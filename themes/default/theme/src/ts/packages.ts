@@ -198,33 +198,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-(function (document, $) {
-    function rotateCaret(direction) {
-        if (direction === "up") {
-            $(".package-card-caret").removeClass("fa-chevron-circle-down")
-            $(".package-card-caret").addClass("fa-chevron-circle-up")
-        }
-        if (direction === "down") {
-            $(".package-card-caret").removeClass("fa-chevron-circle-up")
-            $(".package-card-caret").addClass("fa-chevron-circle-down")
-        }
-    }
-
-    // Controls the expanding and collapsing of the package card.
-    let expanded = true;
-    $(".package-card-compact").click(function() {
-        if(expanded) {
-            $(".package-card-expand").show()
-            $(".package-card-compact").removeClass("bg-gray-100")
-            $(".package-card-compact").addClass("package-card-compact-expanded")
-            rotateCaret("up")
-        } else {
-            $(".package-card-expand").hide()
-            $(".package-card-compact").addClass("bg-gray-100")
-            $(".package-card-compact").removeClass("package-card-compact-expanded")
-            rotateCaret("down")
-        }
-        expanded = !expanded
-    })
-})(document, jQuery);
