@@ -1,0 +1,1 @@
+[{"name":"AzureBlobFolder","type":"resource","link":"azureblobfolder"},{"name":"GoogleCloudFolder","type":"resource","link":"googlecloudfolder"},{"name":"Provider","type":"resource","link":"provider"},{"name":"S3BucketFolder","type":"resource","link":"s3bucketfolder"}]
