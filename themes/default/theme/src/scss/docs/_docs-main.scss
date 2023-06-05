@@ -164,13 +164,27 @@ body.section-registry {
                 margin-top: 22px;
                 margin-left: 14px;
 
-                &.az-packages-heading {
+                &.featured-packages-heading {
                     margin-top: 6px;
+                }
+
+                &.az-packages-heading {
+                    margin-top: 0;
                 }
 
                 &.api-docs-heading {
                     margin-top: 24px;
                 }
+            }
+
+            div.featured-packages {
+                margin-bottom: 26px;
+            }
+
+            div.featured-packages ul,
+            div.az-packages ul {
+                border-left: #e5e5e9 1px solid;
+                margin-left: 8px;
             }
 
             div.all-packages-icon-link {
