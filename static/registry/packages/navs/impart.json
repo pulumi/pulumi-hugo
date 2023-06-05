@@ -1,1 +1,7 @@
-[{"name":"Binding","type":"resource","link":"binding"},{"name":"Provider","type":"resource","link":"provider"},{"name":"RuleScript","type":"resource","link":"rulescript"},{"name":"Spec","type":"resource","link":"spec"},{"name":"GetSpec","type":"function","link":"getspec"}]
+[
+    { "name": "Binding", "type": "resource", "link": "binding" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "RuleScript", "type": "resource", "link": "rulescript" },
+    { "name": "Spec", "type": "resource", "link": "spec" },
+    { "name": "GetSpec", "type": "function", "link": "getspec" }
+]

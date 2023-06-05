@@ -1,1 +1,84 @@
-[{"name":"fabric","type":"module","link":"fabric/","children":[{"name":"Connection","type":"resource","link":"connection"},{"name":"ServiceProfile","type":"resource","link":"serviceprofile"},{"name":"getConnection","type":"function","link":"getconnection"},{"name":"getPort","type":"function","link":"getport"},{"name":"getPorts","type":"function","link":"getports"},{"name":"getServiceProfile","type":"function","link":"getserviceprofile"},{"name":"getServiceProfiles","type":"function","link":"getserviceprofiles"}]},{"name":"metal","type":"module","link":"metal/","children":[{"name":"BgpSession","type":"resource","link":"bgpsession"},{"name":"Device","type":"resource","link":"device"},{"name":"DeviceNetworkType","type":"resource","link":"devicenetworktype"},{"name":"Gateway","type":"resource","link":"gateway"},{"name":"Interconnection","type":"resource","link":"interconnection"},{"name":"IpAttachment","type":"resource","link":"ipattachment"},{"name":"Organization","type":"resource","link":"organization"},{"name":"OrganizationMember","type":"resource","link":"organizationmember"},{"name":"Port","type":"resource","link":"port"},{"name":"PortVlanAttachment","type":"resource","link":"portvlanattachment"},{"name":"Project","type":"resource","link":"project"},{"name":"ProjectApiKey","type":"resource","link":"projectapikey"},{"name":"ProjectSshKey","type":"resource","link":"projectsshkey"},{"name":"ReservedIpBlock","type":"resource","link":"reservedipblock"},{"name":"SpotMarketRequest","type":"resource","link":"spotmarketrequest"},{"name":"SshKey","type":"resource","link":"sshkey"},{"name":"UserApiKey","type":"resource","link":"userapikey"},{"name":"VirtualCircuit","type":"resource","link":"virtualcircuit"},{"name":"Vlan","type":"resource","link":"vlan"},{"name":"Vrf","type":"resource","link":"vrf"},{"name":"getDevice","type":"function","link":"getdevice"},{"name":"getDeviceBgpNeighbors","type":"function","link":"getdevicebgpneighbors"},{"name":"getFacility","type":"function","link":"getfacility"},{"name":"getGateway","type":"function","link":"getgateway"},{"name":"getHardwareReservation","type":"function","link":"gethardwarereservation"},{"name":"getInterconnection","type":"function","link":"getinterconnection"},{"name":"getIpBlockRanges","type":"function","link":"getipblockranges"},{"name":"getMetro","type":"function","link":"getmetro"},{"name":"getOperatingSystem","type":"function","link":"getoperatingsystem"},{"name":"getOrganization","type":"function","link":"getorganization"},{"name":"getPlans","type":"function","link":"getplans"},{"name":"getPort","type":"function","link":"getport"},{"name":"getPrecreatedIpBlock","type":"function","link":"getprecreatedipblock"},{"name":"getProject","type":"function","link":"getproject"},{"name":"getProjectSshKey","type":"function","link":"getprojectsshkey"},{"name":"getReservedIpBlock","type":"function","link":"getreservedipblock"},{"name":"getSpotMarketPrice","type":"function","link":"getspotmarketprice"},{"name":"getSpotMarketRequest","type":"function","link":"getspotmarketrequest"},{"name":"getVirtualCircuit","type":"function","link":"getvirtualcircuit"},{"name":"getVlan","type":"function","link":"getvlan"},{"name":"getVrf","type":"function","link":"getvrf"}]},{"name":"networkedge","type":"module","link":"networkedge/","children":[{"name":"AclTemplate","type":"resource","link":"acltemplate"},{"name":"Bgp","type":"resource","link":"bgp"},{"name":"Device","type":"resource","link":"device"},{"name":"DeviceLink","type":"resource","link":"devicelink"},{"name":"NetworkFile","type":"resource","link":"networkfile"},{"name":"SshKey","type":"resource","link":"sshkey"},{"name":"SshUser","type":"resource","link":"sshuser"},{"name":"getAccount","type":"function","link":"getaccount"},{"name":"getDevice","type":"function","link":"getdevice"},{"name":"getDevicePlatform","type":"function","link":"getdeviceplatform"},{"name":"getDeviceSoftware","type":"function","link":"getdevicesoftware"},{"name":"getDeviceType","type":"function","link":"getdevicetype"}]},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    {
+        "name": "fabric",
+        "type": "module",
+        "link": "fabric/",
+        "children": [
+            { "name": "Connection", "type": "resource", "link": "connection" },
+            { "name": "ServiceProfile", "type": "resource", "link": "serviceprofile" },
+            { "name": "getConnection", "type": "function", "link": "getconnection" },
+            { "name": "getPort", "type": "function", "link": "getport" },
+            { "name": "getPorts", "type": "function", "link": "getports" },
+            { "name": "getServiceProfile", "type": "function", "link": "getserviceprofile" },
+            { "name": "getServiceProfiles", "type": "function", "link": "getserviceprofiles" }
+        ]
+    },
+    {
+        "name": "metal",
+        "type": "module",
+        "link": "metal/",
+        "children": [
+            { "name": "BgpSession", "type": "resource", "link": "bgpsession" },
+            { "name": "Device", "type": "resource", "link": "device" },
+            { "name": "DeviceNetworkType", "type": "resource", "link": "devicenetworktype" },
+            { "name": "Gateway", "type": "resource", "link": "gateway" },
+            { "name": "Interconnection", "type": "resource", "link": "interconnection" },
+            { "name": "IpAttachment", "type": "resource", "link": "ipattachment" },
+            { "name": "Organization", "type": "resource", "link": "organization" },
+            { "name": "OrganizationMember", "type": "resource", "link": "organizationmember" },
+            { "name": "Port", "type": "resource", "link": "port" },
+            { "name": "PortVlanAttachment", "type": "resource", "link": "portvlanattachment" },
+            { "name": "Project", "type": "resource", "link": "project" },
+            { "name": "ProjectApiKey", "type": "resource", "link": "projectapikey" },
+            { "name": "ProjectSshKey", "type": "resource", "link": "projectsshkey" },
+            { "name": "ReservedIpBlock", "type": "resource", "link": "reservedipblock" },
+            { "name": "SpotMarketRequest", "type": "resource", "link": "spotmarketrequest" },
+            { "name": "SshKey", "type": "resource", "link": "sshkey" },
+            { "name": "UserApiKey", "type": "resource", "link": "userapikey" },
+            { "name": "VirtualCircuit", "type": "resource", "link": "virtualcircuit" },
+            { "name": "Vlan", "type": "resource", "link": "vlan" },
+            { "name": "Vrf", "type": "resource", "link": "vrf" },
+            { "name": "getDevice", "type": "function", "link": "getdevice" },
+            { "name": "getDeviceBgpNeighbors", "type": "function", "link": "getdevicebgpneighbors" },
+            { "name": "getFacility", "type": "function", "link": "getfacility" },
+            { "name": "getGateway", "type": "function", "link": "getgateway" },
+            { "name": "getHardwareReservation", "type": "function", "link": "gethardwarereservation" },
+            { "name": "getInterconnection", "type": "function", "link": "getinterconnection" },
+            { "name": "getIpBlockRanges", "type": "function", "link": "getipblockranges" },
+            { "name": "getMetro", "type": "function", "link": "getmetro" },
+            { "name": "getOperatingSystem", "type": "function", "link": "getoperatingsystem" },
+            { "name": "getOrganization", "type": "function", "link": "getorganization" },
+            { "name": "getPlans", "type": "function", "link": "getplans" },
+            { "name": "getPort", "type": "function", "link": "getport" },
+            { "name": "getPrecreatedIpBlock", "type": "function", "link": "getprecreatedipblock" },
+            { "name": "getProject", "type": "function", "link": "getproject" },
+            { "name": "getProjectSshKey", "type": "function", "link": "getprojectsshkey" },
+            { "name": "getReservedIpBlock", "type": "function", "link": "getreservedipblock" },
+            { "name": "getSpotMarketPrice", "type": "function", "link": "getspotmarketprice" },
+            { "name": "getSpotMarketRequest", "type": "function", "link": "getspotmarketrequest" },
+            { "name": "getVirtualCircuit", "type": "function", "link": "getvirtualcircuit" },
+            { "name": "getVlan", "type": "function", "link": "getvlan" },
+            { "name": "getVrf", "type": "function", "link": "getvrf" }
+        ]
+    },
+    {
+        "name": "networkedge",
+        "type": "module",
+        "link": "networkedge/",
+        "children": [
+            { "name": "AclTemplate", "type": "resource", "link": "acltemplate" },
+            { "name": "Bgp", "type": "resource", "link": "bgp" },
+            { "name": "Device", "type": "resource", "link": "device" },
+            { "name": "DeviceLink", "type": "resource", "link": "devicelink" },
+            { "name": "NetworkFile", "type": "resource", "link": "networkfile" },
+            { "name": "SshKey", "type": "resource", "link": "sshkey" },
+            { "name": "SshUser", "type": "resource", "link": "sshuser" },
+            { "name": "getAccount", "type": "function", "link": "getaccount" },
+            { "name": "getDevice", "type": "function", "link": "getdevice" },
+            { "name": "getDevicePlatform", "type": "function", "link": "getdeviceplatform" },
+            { "name": "getDeviceSoftware", "type": "function", "link": "getdevicesoftware" },
+            { "name": "getDeviceType", "type": "function", "link": "getdevicetype" }
+        ]
+    },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

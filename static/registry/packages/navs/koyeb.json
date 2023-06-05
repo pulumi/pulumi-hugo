@@ -1,1 +1,11 @@
-[{"name":"KoyebApp","type":"resource","link":"koyebapp"},{"name":"KoyebDomain","type":"resource","link":"koyebdomain"},{"name":"KoyebSecret","type":"resource","link":"koyebsecret"},{"name":"KoyebService","type":"resource","link":"koyebservice"},{"name":"Provider","type":"resource","link":"provider"},{"name":"getApp","type":"function","link":"getapp"},{"name":"getDomain","type":"function","link":"getdomain"},{"name":"getSecret","type":"function","link":"getsecret"},{"name":"getService","type":"function","link":"getservice"}]
+[
+    { "name": "KoyebApp", "type": "resource", "link": "koyebapp" },
+    { "name": "KoyebDomain", "type": "resource", "link": "koyebdomain" },
+    { "name": "KoyebSecret", "type": "resource", "link": "koyebsecret" },
+    { "name": "KoyebService", "type": "resource", "link": "koyebservice" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "getApp", "type": "function", "link": "getapp" },
+    { "name": "getDomain", "type": "function", "link": "getdomain" },
+    { "name": "getSecret", "type": "function", "link": "getsecret" },
+    { "name": "getService", "type": "function", "link": "getservice" }
+]

@@ -1,1 +1,4 @@
-[{"name":"IngressController","type":"resource","link":"ingresscontroller"},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    { "name": "IngressController", "type": "resource", "link": "ingresscontroller" },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

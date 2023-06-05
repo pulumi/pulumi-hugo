@@ -1,1 +1,81 @@
-[{"name":"cloud","type":"module","link":"cloud/","children":[{"name":"AwsGovcloudIntegrations","type":"resource","link":"awsgovcloudintegrations"},{"name":"AwsGovcloudLinkAccount","type":"resource","link":"awsgovcloudlinkaccount"},{"name":"AwsIntegrations","type":"resource","link":"awsintegrations"},{"name":"AwsLinkAccount","type":"resource","link":"awslinkaccount"},{"name":"AzureIntegrations","type":"resource","link":"azureintegrations"},{"name":"AzureLinkAccount","type":"resource","link":"azurelinkaccount"},{"name":"GcpIntegrations","type":"resource","link":"gcpintegrations"},{"name":"GcpLinkAccount","type":"resource","link":"gcplinkaccount"}]},{"name":"insights","type":"module","link":"insights/","children":[{"name":"Event","type":"resource","link":"event"}]},{"name":"plugins","type":"module","link":"plugins/","children":[{"name":"ApplicationSettings","type":"resource","link":"applicationsettings"},{"name":"Workload","type":"resource","link":"workload"}]},{"name":"synthetics","type":"module","link":"synthetics/","children":[{"name":"AlertCondition","type":"resource","link":"alertcondition"},{"name":"BrokenLinksMonitor","type":"resource","link":"brokenlinksmonitor"},{"name":"CertCheckMonitor","type":"resource","link":"certcheckmonitor"},{"name":"Monitor","type":"resource","link":"monitor"},{"name":"MultiLocationAlertCondition","type":"resource","link":"multilocationalertcondition"},{"name":"PrivateLocation","type":"resource","link":"privatelocation"},{"name":"ScriptMonitor","type":"resource","link":"scriptmonitor"},{"name":"SecureCredential","type":"resource","link":"securecredential"},{"name":"StepMonitor","type":"resource","link":"stepmonitor"},{"name":"getPrivateLocation","type":"function","link":"getprivatelocation"},{"name":"getSecureCredential","type":"function","link":"getsecurecredential"}]},{"name":"AccountManagement","type":"resource","link":"accountmanagement"},{"name":"AlertChannel","type":"resource","link":"alertchannel"},{"name":"AlertCondition","type":"resource","link":"alertcondition"},{"name":"AlertMutingRule","type":"resource","link":"alertmutingrule"},{"name":"AlertPolicy","type":"resource","link":"alertpolicy"},{"name":"AlertPolicyChannel","type":"resource","link":"alertpolicychannel"},{"name":"ApiAccessKey","type":"resource","link":"apiaccesskey"},{"name":"BrowserApplication","type":"resource","link":"browserapplication"},{"name":"DataPartitionRule","type":"resource","link":"datapartitionrule"},{"name":"EntityTags","type":"resource","link":"entitytags"},{"name":"EventsToMetricsRule","type":"resource","link":"eventstometricsrule"},{"name":"InfraAlertCondition","type":"resource","link":"infraalertcondition"},{"name":"LogParsingRule","type":"resource","link":"logparsingrule"},{"name":"NotificationChannel","type":"resource","link":"notificationchannel"},{"name":"NotificationDestination","type":"resource","link":"notificationdestination"},{"name":"NrqlAlertCondition","type":"resource","link":"nrqlalertcondition"},{"name":"NrqlDropRule","type":"resource","link":"nrqldroprule"},{"name":"ObfuscationExpression","type":"resource","link":"obfuscationexpression"},{"name":"ObfuscationRule","type":"resource","link":"obfuscationrule"},{"name":"OneDashboard","type":"resource","link":"onedashboard"},{"name":"OneDashboardJson","type":"resource","link":"onedashboardjson"},{"name":"OneDashboardRaw","type":"resource","link":"onedashboardraw"},{"name":"Provider","type":"resource","link":"provider"},{"name":"ServiceLevel","type":"resource","link":"servicelevel"},{"name":"Workflow","type":"resource","link":"workflow"},{"name":"getAccount","type":"function","link":"getaccount"},{"name":"getAlertChannel","type":"function","link":"getalertchannel"},{"name":"getAlertPolicy","type":"function","link":"getalertpolicy"},{"name":"getApplication","type":"function","link":"getapplication"},{"name":"getCloudAccount","type":"function","link":"getcloudaccount"},{"name":"getEntity","type":"function","link":"getentity"},{"name":"getKeyTransaction","type":"function","link":"getkeytransaction"},{"name":"getNotificationDestination","type":"function","link":"getnotificationdestination"},{"name":"getObfuscationExpression","type":"function","link":"getobfuscationexpression"},{"name":"getServiceLevelAlertHelper","type":"function","link":"getservicelevelalerthelper"},{"name":"getTestGrokPattern","type":"function","link":"gettestgrokpattern"}]
+[
+    {
+        "name": "cloud",
+        "type": "module",
+        "link": "cloud/",
+        "children": [
+            { "name": "AwsGovcloudIntegrations", "type": "resource", "link": "awsgovcloudintegrations" },
+            { "name": "AwsGovcloudLinkAccount", "type": "resource", "link": "awsgovcloudlinkaccount" },
+            { "name": "AwsIntegrations", "type": "resource", "link": "awsintegrations" },
+            { "name": "AwsLinkAccount", "type": "resource", "link": "awslinkaccount" },
+            { "name": "AzureIntegrations", "type": "resource", "link": "azureintegrations" },
+            { "name": "AzureLinkAccount", "type": "resource", "link": "azurelinkaccount" },
+            { "name": "GcpIntegrations", "type": "resource", "link": "gcpintegrations" },
+            { "name": "GcpLinkAccount", "type": "resource", "link": "gcplinkaccount" }
+        ]
+    },
+    { "name": "insights", "type": "module", "link": "insights/", "children": [{ "name": "Event", "type": "resource", "link": "event" }] },
+    {
+        "name": "plugins",
+        "type": "module",
+        "link": "plugins/",
+        "children": [
+            { "name": "ApplicationSettings", "type": "resource", "link": "applicationsettings" },
+            { "name": "Workload", "type": "resource", "link": "workload" }
+        ]
+    },
+    {
+        "name": "synthetics",
+        "type": "module",
+        "link": "synthetics/",
+        "children": [
+            { "name": "AlertCondition", "type": "resource", "link": "alertcondition" },
+            { "name": "BrokenLinksMonitor", "type": "resource", "link": "brokenlinksmonitor" },
+            { "name": "CertCheckMonitor", "type": "resource", "link": "certcheckmonitor" },
+            { "name": "Monitor", "type": "resource", "link": "monitor" },
+            { "name": "MultiLocationAlertCondition", "type": "resource", "link": "multilocationalertcondition" },
+            { "name": "PrivateLocation", "type": "resource", "link": "privatelocation" },
+            { "name": "ScriptMonitor", "type": "resource", "link": "scriptmonitor" },
+            { "name": "SecureCredential", "type": "resource", "link": "securecredential" },
+            { "name": "StepMonitor", "type": "resource", "link": "stepmonitor" },
+            { "name": "getPrivateLocation", "type": "function", "link": "getprivatelocation" },
+            { "name": "getSecureCredential", "type": "function", "link": "getsecurecredential" }
+        ]
+    },
+    { "name": "AccountManagement", "type": "resource", "link": "accountmanagement" },
+    { "name": "AlertChannel", "type": "resource", "link": "alertchannel" },
+    { "name": "AlertCondition", "type": "resource", "link": "alertcondition" },
+    { "name": "AlertMutingRule", "type": "resource", "link": "alertmutingrule" },
+    { "name": "AlertPolicy", "type": "resource", "link": "alertpolicy" },
+    { "name": "AlertPolicyChannel", "type": "resource", "link": "alertpolicychannel" },
+    { "name": "ApiAccessKey", "type": "resource", "link": "apiaccesskey" },
+    { "name": "BrowserApplication", "type": "resource", "link": "browserapplication" },
+    { "name": "DataPartitionRule", "type": "resource", "link": "datapartitionrule" },
+    { "name": "EntityTags", "type": "resource", "link": "entitytags" },
+    { "name": "EventsToMetricsRule", "type": "resource", "link": "eventstometricsrule" },
+    { "name": "InfraAlertCondition", "type": "resource", "link": "infraalertcondition" },
+    { "name": "LogParsingRule", "type": "resource", "link": "logparsingrule" },
+    { "name": "NotificationChannel", "type": "resource", "link": "notificationchannel" },
+    { "name": "NotificationDestination", "type": "resource", "link": "notificationdestination" },
+    { "name": "NrqlAlertCondition", "type": "resource", "link": "nrqlalertcondition" },
+    { "name": "NrqlDropRule", "type": "resource", "link": "nrqldroprule" },
+    { "name": "ObfuscationExpression", "type": "resource", "link": "obfuscationexpression" },
+    { "name": "ObfuscationRule", "type": "resource", "link": "obfuscationrule" },
+    { "name": "OneDashboard", "type": "resource", "link": "onedashboard" },
+    { "name": "OneDashboardJson", "type": "resource", "link": "onedashboardjson" },
+    { "name": "OneDashboardRaw", "type": "resource", "link": "onedashboardraw" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "ServiceLevel", "type": "resource", "link": "servicelevel" },
+    { "name": "Workflow", "type": "resource", "link": "workflow" },
+    { "name": "getAccount", "type": "function", "link": "getaccount" },
+    { "name": "getAlertChannel", "type": "function", "link": "getalertchannel" },
+    { "name": "getAlertPolicy", "type": "function", "link": "getalertpolicy" },
+    { "name": "getApplication", "type": "function", "link": "getapplication" },
+    { "name": "getCloudAccount", "type": "function", "link": "getcloudaccount" },
+    { "name": "getEntity", "type": "function", "link": "getentity" },
+    { "name": "getKeyTransaction", "type": "function", "link": "getkeytransaction" },
+    { "name": "getNotificationDestination", "type": "function", "link": "getnotificationdestination" },
+    { "name": "getObfuscationExpression", "type": "function", "link": "getobfuscationexpression" },
+    { "name": "getServiceLevelAlertHelper", "type": "function", "link": "getservicelevelalerthelper" },
+    { "name": "getTestGrokPattern", "type": "function", "link": "gettestgrokpattern" }
+]

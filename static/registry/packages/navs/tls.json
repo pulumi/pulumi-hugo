@@ -1,1 +1,9 @@
-[{"name":"CertRequest","type":"resource","link":"certrequest"},{"name":"LocallySignedCert","type":"resource","link":"locallysignedcert"},{"name":"PrivateKey","type":"resource","link":"privatekey"},{"name":"Provider","type":"resource","link":"provider"},{"name":"SelfSignedCert","type":"resource","link":"selfsignedcert"},{"name":"getCertificate","type":"function","link":"getcertificate"},{"name":"getPublicKey","type":"function","link":"getpublickey"}]
+[
+    { "name": "CertRequest", "type": "resource", "link": "certrequest" },
+    { "name": "LocallySignedCert", "type": "resource", "link": "locallysignedcert" },
+    { "name": "PrivateKey", "type": "resource", "link": "privatekey" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "SelfSignedCert", "type": "resource", "link": "selfsignedcert" },
+    { "name": "getCertificate", "type": "function", "link": "getcertificate" },
+    { "name": "getPublicKey", "type": "function", "link": "getpublickey" }
+]

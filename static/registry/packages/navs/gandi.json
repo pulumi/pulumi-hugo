@@ -1,1 +1,46 @@
-[{"name":"domains","type":"module","link":"domains/","children":[{"name":"DNSSecKey","type":"resource","link":"dnsseckey"},{"name":"Domain","type":"resource","link":"domain"},{"name":"GlueRecord","type":"resource","link":"gluerecord"},{"name":"Nameservers","type":"resource","link":"nameservers"},{"name":"getDomain","type":"function","link":"getdomain"},{"name":"getGlueRecord","type":"function","link":"getgluerecord"}]},{"name":"email","type":"module","link":"email/","children":[{"name":"Forwarding","type":"resource","link":"forwarding"},{"name":"Mailbox","type":"resource","link":"mailbox"},{"name":"getMailbox","type":"function","link":"getmailbox"}]},{"name":"livedns","type":"module","link":"livedns/","children":[{"name":"Domain","type":"resource","link":"domain"},{"name":"Record","type":"resource","link":"record"},{"name":"getDomain","type":"function","link":"getdomain"},{"name":"getDomainNameserver","type":"function","link":"getdomainnameserver"}]},{"name":"simplehosting","type":"module","link":"simplehosting/","children":[{"name":"Instance","type":"resource","link":"instance"},{"name":"VHost","type":"resource","link":"vhost"}]},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    {
+        "name": "domains",
+        "type": "module",
+        "link": "domains/",
+        "children": [
+            { "name": "DNSSecKey", "type": "resource", "link": "dnsseckey" },
+            { "name": "Domain", "type": "resource", "link": "domain" },
+            { "name": "GlueRecord", "type": "resource", "link": "gluerecord" },
+            { "name": "Nameservers", "type": "resource", "link": "nameservers" },
+            { "name": "getDomain", "type": "function", "link": "getdomain" },
+            { "name": "getGlueRecord", "type": "function", "link": "getgluerecord" }
+        ]
+    },
+    {
+        "name": "email",
+        "type": "module",
+        "link": "email/",
+        "children": [
+            { "name": "Forwarding", "type": "resource", "link": "forwarding" },
+            { "name": "Mailbox", "type": "resource", "link": "mailbox" },
+            { "name": "getMailbox", "type": "function", "link": "getmailbox" }
+        ]
+    },
+    {
+        "name": "livedns",
+        "type": "module",
+        "link": "livedns/",
+        "children": [
+            { "name": "Domain", "type": "resource", "link": "domain" },
+            { "name": "Record", "type": "resource", "link": "record" },
+            { "name": "getDomain", "type": "function", "link": "getdomain" },
+            { "name": "getDomainNameserver", "type": "function", "link": "getdomainnameserver" }
+        ]
+    },
+    {
+        "name": "simplehosting",
+        "type": "module",
+        "link": "simplehosting/",
+        "children": [
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "VHost", "type": "resource", "link": "vhost" }
+        ]
+    },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

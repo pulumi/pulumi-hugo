@@ -1,1 +1,55 @@
-[{"name":"firewall","type":"module","link":"firewall/","children":[{"name":"Group","type":"resource","link":"group"},{"name":"Rule","type":"resource","link":"rule"}]},{"name":"iam","type":"module","link":"iam/","children":[{"name":"Group","type":"resource","link":"group"},{"name":"User","type":"resource","link":"user"},{"name":"getGroup","type":"function","link":"getgroup"},{"name":"getUser","type":"function","link":"getuser"}]},{"name":"port","type":"module","link":"port/","children":[{"name":"Forward","type":"resource","link":"forward"},{"name":"Profile","type":"resource","link":"profile"},{"name":"getProfile","type":"function","link":"getprofile"}]},{"name":"setting","type":"module","link":"setting/","children":[{"name":"Mgmt","type":"resource","link":"mgmt"},{"name":"Radius","type":"resource","link":"radius"},{"name":"USG","type":"resource","link":"usg"}]},{"name":"Account","type":"resource","link":"account"},{"name":"Device","type":"resource","link":"device"},{"name":"DynamicDNS","type":"resource","link":"dynamicdns"},{"name":"Network","type":"resource","link":"network"},{"name":"Provider","type":"resource","link":"provider"},{"name":"RadiusProfile","type":"resource","link":"radiusprofile"},{"name":"Site","type":"resource","link":"site"},{"name":"StaticRoute","type":"resource","link":"staticroute"},{"name":"Wlan","type":"resource","link":"wlan"},{"name":"getAccount","type":"function","link":"getaccount"},{"name":"getApGroup","type":"function","link":"getapgroup"},{"name":"getNetwork","type":"function","link":"getnetwork"},{"name":"getRadiusProfile","type":"function","link":"getradiusprofile"}]
+[
+    {
+        "name": "firewall",
+        "type": "module",
+        "link": "firewall/",
+        "children": [
+            { "name": "Group", "type": "resource", "link": "group" },
+            { "name": "Rule", "type": "resource", "link": "rule" }
+        ]
+    },
+    {
+        "name": "iam",
+        "type": "module",
+        "link": "iam/",
+        "children": [
+            { "name": "Group", "type": "resource", "link": "group" },
+            { "name": "User", "type": "resource", "link": "user" },
+            { "name": "getGroup", "type": "function", "link": "getgroup" },
+            { "name": "getUser", "type": "function", "link": "getuser" }
+        ]
+    },
+    {
+        "name": "port",
+        "type": "module",
+        "link": "port/",
+        "children": [
+            { "name": "Forward", "type": "resource", "link": "forward" },
+            { "name": "Profile", "type": "resource", "link": "profile" },
+            { "name": "getProfile", "type": "function", "link": "getprofile" }
+        ]
+    },
+    {
+        "name": "setting",
+        "type": "module",
+        "link": "setting/",
+        "children": [
+            { "name": "Mgmt", "type": "resource", "link": "mgmt" },
+            { "name": "Radius", "type": "resource", "link": "radius" },
+            { "name": "USG", "type": "resource", "link": "usg" }
+        ]
+    },
+    { "name": "Account", "type": "resource", "link": "account" },
+    { "name": "Device", "type": "resource", "link": "device" },
+    { "name": "DynamicDNS", "type": "resource", "link": "dynamicdns" },
+    { "name": "Network", "type": "resource", "link": "network" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "RadiusProfile", "type": "resource", "link": "radiusprofile" },
+    { "name": "Site", "type": "resource", "link": "site" },
+    { "name": "StaticRoute", "type": "resource", "link": "staticroute" },
+    { "name": "Wlan", "type": "resource", "link": "wlan" },
+    { "name": "getAccount", "type": "function", "link": "getaccount" },
+    { "name": "getApGroup", "type": "function", "link": "getapgroup" },
+    { "name": "getNetwork", "type": "function", "link": "getnetwork" },
+    { "name": "getRadiusProfile", "type": "function", "link": "getradiusprofile" }
+]

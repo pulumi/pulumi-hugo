@@ -1,1 +1,5 @@
-[{"name":"Containerapp","type":"resource","link":"containerapp"},{"name":"Provider","type":"resource","link":"provider"},{"name":"Webapp","type":"resource","link":"webapp"}]
+[
+    { "name": "Containerapp", "type": "resource", "link": "containerapp" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "Webapp", "type": "resource", "link": "webapp" }
+]

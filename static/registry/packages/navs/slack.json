@@ -1,1 +1,8 @@
-[{"name":"Conversation","type":"resource","link":"conversation"},{"name":"Provider","type":"resource","link":"provider"},{"name":"Usergroup","type":"resource","link":"usergroup"},{"name":"getConversation","type":"function","link":"getconversation"},{"name":"getUser","type":"function","link":"getuser"},{"name":"getUsergroup","type":"function","link":"getusergroup"}]
+[
+    { "name": "Conversation", "type": "resource", "link": "conversation" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "Usergroup", "type": "resource", "link": "usergroup" },
+    { "name": "getConversation", "type": "function", "link": "getconversation" },
+    { "name": "getUser", "type": "function", "link": "getuser" },
+    { "name": "getUsergroup", "type": "function", "link": "getusergroup" }
+]

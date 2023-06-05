@@ -1,1 +1,4 @@
-[{"name":"MinifluxService","type":"resource","link":"minifluxservice"},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    { "name": "MinifluxService", "type": "resource", "link": "minifluxservice" },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

@@ -1,1 +1,142 @@
-[{"name":"Activation","type":"module","link":"activation/","children":[{"name":"ActivationStatus","type":"resource","link":"activationstatus"},{"name":"getActivationStatus","type":"function","link":"getactivationstatus"}]},{"name":"AdminRoles","type":"module","link":"adminroles/","children":[{"name":"getAdminRoles","type":"function","link":"getadminroles"}]},{"name":"AdminUsers","type":"module","link":"adminusers/","children":[{"name":"AdminUsers","type":"resource","link":"adminusers"},{"name":"getAdminUsers","type":"function","link":"getadminusers"}]},{"name":"AuthSettingsUrls","type":"module","link":"authsettingsurls/","children":[{"name":"AuthSettingsURLs","type":"resource","link":"authsettingsurls"},{"name":"getAuthSettingsURLs","type":"function","link":"getauthsettingsurls"}]},{"name":"DLP","type":"module","link":"dlp/","children":[{"name":"DLPDictionaries","type":"resource","link":"dlpdictionaries"},{"name":"DLPNotificationTemplates","type":"resource","link":"dlpnotificationtemplates"},{"name":"DLPWebRules","type":"resource","link":"dlpwebrules"},{"name":"getDLPDictionaries","type":"function","link":"getdlpdictionaries"},{"name":"getDLPEngines","type":"function","link":"getdlpengines"},{"name":"getDLPNotificationTemplates","type":"function","link":"getdlpnotificationtemplates"},{"name":"getDLPWebRules","type":"function","link":"getdlpwebrules"}]},{"name":"Departments","type":"module","link":"departments/","children":[{"name":"getDepartmentManagement","type":"function","link":"getdepartmentmanagement"}]},{"name":"DeviceGroups","type":"module","link":"devicegroups/","children":[{"name":"getDeviceGroups","type":"function","link":"getdevicegroups"}]},{"name":"Devices","type":"module","link":"devices/","children":[{"name":"getDevices","type":"function","link":"getdevices"}]},{"name":"Firewall","type":"module","link":"firewall/","children":[{"name":"FirewallFilteringApplicationGroups","type":"resource","link":"firewallfilteringapplicationgroups"},{"name":"FirewallFilteringDestinationGroups","type":"resource","link":"firewallfilteringdestinationgroups"},{"name":"FirewallFilteringNetworkServices","type":"resource","link":"firewallfilteringnetworkservices"},{"name":"FirewallFilteringRule","type":"resource","link":"firewallfilteringrule"},{"name":"FirewallFilteringServiceGroups","type":"resource","link":"firewallfilteringservicegroups"},{"name":"FirewallFilteringSourceGroups","type":"resource","link":"firewallfilteringsourcegroups"},{"name":"getFirewallFilteringApplication","type":"function","link":"getfirewallfilteringapplication"},{"name":"getFirewallFilteringApplicationGroups","type":"function","link":"getfirewallfilteringapplicationgroups"},{"name":"getFirewallFilteringDestinationGroups","type":"function","link":"getfirewallfilteringdestinationgroups"},{"name":"getFirewallFilteringNetworkServiceGroups","type":"function","link":"getfirewallfilteringnetworkservicegroups"},{"name":"getFirewallFilteringNetworkServices","type":"function","link":"getfirewallfilteringnetworkservices"},{"name":"getFirewallFilteringRule","type":"function","link":"getfirewallfilteringrule"},{"name":"getFirewallFilteringSourceIPGroups","type":"function","link":"getfirewallfilteringsourceipgroups"}]},{"name":"Groups","type":"module","link":"groups/","children":[{"name":"getGroupManagement","type":"function","link":"getgroupmanagement"}]},{"name":"LocationGroups","type":"module","link":"locationgroups/","children":[{"name":"getLocationGroups","type":"function","link":"getlocationgroups"}]},{"name":"LocationManagement","type":"module","link":"locationmanagement/","children":[{"name":"LocationManagement","type":"resource","link":"locationmanagement"},{"name":"getLocationManagement","type":"function","link":"getlocationmanagement"}]},{"name":"RuleLabels","type":"module","link":"rulelabels/","children":[{"name":"RuleLabels","type":"resource","link":"rulelabels"},{"name":"getRuleLabels","type":"function","link":"getrulelabels"}]},{"name":"SecuritySettings","type":"module","link":"securitysettings/","children":[{"name":"SecuritySettings","type":"resource","link":"securitysettings"},{"name":"getSecuritySettings","type":"function","link":"getsecuritysettings"}]},{"name":"TimeWindow","type":"module","link":"timewindow/","children":[{"name":"getTimeWindow","type":"function","link":"gettimewindow"}]},{"name":"TrafficForwarding","type":"module","link":"trafficforwarding/","children":[{"name":"TrafficForwardingGRETunnel","type":"resource","link":"trafficforwardinggretunnel"},{"name":"TrafficForwardingStaticIP","type":"resource","link":"trafficforwardingstaticip"},{"name":"TrafficForwardingVPNCredentials","type":"resource","link":"trafficforwardingvpncredentials"},{"name":"getTrafficForwardingGREInternalIPRange","type":"function","link":"gettrafficforwardinggreinternaliprange"},{"name":"getTrafficForwardingGRETunnel","type":"function","link":"gettrafficforwardinggretunnel"},{"name":"getTrafficForwardingGRETunnelInfo","type":"function","link":"gettrafficforwardinggretunnelinfo"},{"name":"getTrafficForwardingNodeVIPs","type":"function","link":"gettrafficforwardingnodevips"},{"name":"getTrafficForwardingStaticIP","type":"function","link":"gettrafficforwardingstaticip"},{"name":"getTrafficForwardingVIPRecommendedList","type":"function","link":"gettrafficforwardingviprecommendedlist"},{"name":"getTrafficForwardingVPNCredentials","type":"function","link":"gettrafficforwardingvpncredentials"}]},{"name":"URLCategory","type":"module","link":"urlcategory/","children":[{"name":"URLCategories","type":"resource","link":"urlcategories"},{"name":"getURLCategories","type":"function","link":"geturlcategories"}]},{"name":"URLFiltering","type":"module","link":"urlfiltering/","children":[{"name":"URLFilteringRules","type":"resource","link":"urlfilteringrules"},{"name":"getURLFilteringRules","type":"function","link":"geturlfilteringrules"}]},{"name":"Users","type":"module","link":"users/","children":[{"name":"UserManagement","type":"resource","link":"usermanagement"},{"name":"getUserManagement","type":"function","link":"getusermanagement"}]},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    {
+        "name": "Activation",
+        "type": "module",
+        "link": "activation/",
+        "children": [
+            { "name": "ActivationStatus", "type": "resource", "link": "activationstatus" },
+            { "name": "getActivationStatus", "type": "function", "link": "getactivationstatus" }
+        ]
+    },
+    { "name": "AdminRoles", "type": "module", "link": "adminroles/", "children": [{ "name": "getAdminRoles", "type": "function", "link": "getadminroles" }] },
+    {
+        "name": "AdminUsers",
+        "type": "module",
+        "link": "adminusers/",
+        "children": [
+            { "name": "AdminUsers", "type": "resource", "link": "adminusers" },
+            { "name": "getAdminUsers", "type": "function", "link": "getadminusers" }
+        ]
+    },
+    {
+        "name": "AuthSettingsUrls",
+        "type": "module",
+        "link": "authsettingsurls/",
+        "children": [
+            { "name": "AuthSettingsURLs", "type": "resource", "link": "authsettingsurls" },
+            { "name": "getAuthSettingsURLs", "type": "function", "link": "getauthsettingsurls" }
+        ]
+    },
+    {
+        "name": "DLP",
+        "type": "module",
+        "link": "dlp/",
+        "children": [
+            { "name": "DLPDictionaries", "type": "resource", "link": "dlpdictionaries" },
+            { "name": "DLPNotificationTemplates", "type": "resource", "link": "dlpnotificationtemplates" },
+            { "name": "DLPWebRules", "type": "resource", "link": "dlpwebrules" },
+            { "name": "getDLPDictionaries", "type": "function", "link": "getdlpdictionaries" },
+            { "name": "getDLPEngines", "type": "function", "link": "getdlpengines" },
+            { "name": "getDLPNotificationTemplates", "type": "function", "link": "getdlpnotificationtemplates" },
+            { "name": "getDLPWebRules", "type": "function", "link": "getdlpwebrules" }
+        ]
+    },
+    { "name": "Departments", "type": "module", "link": "departments/", "children": [{ "name": "getDepartmentManagement", "type": "function", "link": "getdepartmentmanagement" }] },
+    { "name": "DeviceGroups", "type": "module", "link": "devicegroups/", "children": [{ "name": "getDeviceGroups", "type": "function", "link": "getdevicegroups" }] },
+    { "name": "Devices", "type": "module", "link": "devices/", "children": [{ "name": "getDevices", "type": "function", "link": "getdevices" }] },
+    {
+        "name": "Firewall",
+        "type": "module",
+        "link": "firewall/",
+        "children": [
+            { "name": "FirewallFilteringApplicationGroups", "type": "resource", "link": "firewallfilteringapplicationgroups" },
+            { "name": "FirewallFilteringDestinationGroups", "type": "resource", "link": "firewallfilteringdestinationgroups" },
+            { "name": "FirewallFilteringNetworkServices", "type": "resource", "link": "firewallfilteringnetworkservices" },
+            { "name": "FirewallFilteringRule", "type": "resource", "link": "firewallfilteringrule" },
+            { "name": "FirewallFilteringServiceGroups", "type": "resource", "link": "firewallfilteringservicegroups" },
+            { "name": "FirewallFilteringSourceGroups", "type": "resource", "link": "firewallfilteringsourcegroups" },
+            { "name": "getFirewallFilteringApplication", "type": "function", "link": "getfirewallfilteringapplication" },
+            { "name": "getFirewallFilteringApplicationGroups", "type": "function", "link": "getfirewallfilteringapplicationgroups" },
+            { "name": "getFirewallFilteringDestinationGroups", "type": "function", "link": "getfirewallfilteringdestinationgroups" },
+            { "name": "getFirewallFilteringNetworkServiceGroups", "type": "function", "link": "getfirewallfilteringnetworkservicegroups" },
+            { "name": "getFirewallFilteringNetworkServices", "type": "function", "link": "getfirewallfilteringnetworkservices" },
+            { "name": "getFirewallFilteringRule", "type": "function", "link": "getfirewallfilteringrule" },
+            { "name": "getFirewallFilteringSourceIPGroups", "type": "function", "link": "getfirewallfilteringsourceipgroups" }
+        ]
+    },
+    { "name": "Groups", "type": "module", "link": "groups/", "children": [{ "name": "getGroupManagement", "type": "function", "link": "getgroupmanagement" }] },
+    { "name": "LocationGroups", "type": "module", "link": "locationgroups/", "children": [{ "name": "getLocationGroups", "type": "function", "link": "getlocationgroups" }] },
+    {
+        "name": "LocationManagement",
+        "type": "module",
+        "link": "locationmanagement/",
+        "children": [
+            { "name": "LocationManagement", "type": "resource", "link": "locationmanagement" },
+            { "name": "getLocationManagement", "type": "function", "link": "getlocationmanagement" }
+        ]
+    },
+    {
+        "name": "RuleLabels",
+        "type": "module",
+        "link": "rulelabels/",
+        "children": [
+            { "name": "RuleLabels", "type": "resource", "link": "rulelabels" },
+            { "name": "getRuleLabels", "type": "function", "link": "getrulelabels" }
+        ]
+    },
+    {
+        "name": "SecuritySettings",
+        "type": "module",
+        "link": "securitysettings/",
+        "children": [
+            { "name": "SecuritySettings", "type": "resource", "link": "securitysettings" },
+            { "name": "getSecuritySettings", "type": "function", "link": "getsecuritysettings" }
+        ]
+    },
+    { "name": "TimeWindow", "type": "module", "link": "timewindow/", "children": [{ "name": "getTimeWindow", "type": "function", "link": "gettimewindow" }] },
+    {
+        "name": "TrafficForwarding",
+        "type": "module",
+        "link": "trafficforwarding/",
+        "children": [
+            { "name": "TrafficForwardingGRETunnel", "type": "resource", "link": "trafficforwardinggretunnel" },
+            { "name": "TrafficForwardingStaticIP", "type": "resource", "link": "trafficforwardingstaticip" },
+            { "name": "TrafficForwardingVPNCredentials", "type": "resource", "link": "trafficforwardingvpncredentials" },
+            { "name": "getTrafficForwardingGREInternalIPRange", "type": "function", "link": "gettrafficforwardinggreinternaliprange" },
+            { "name": "getTrafficForwardingGRETunnel", "type": "function", "link": "gettrafficforwardinggretunnel" },
+            { "name": "getTrafficForwardingGRETunnelInfo", "type": "function", "link": "gettrafficforwardinggretunnelinfo" },
+            { "name": "getTrafficForwardingNodeVIPs", "type": "function", "link": "gettrafficforwardingnodevips" },
+            { "name": "getTrafficForwardingStaticIP", "type": "function", "link": "gettrafficforwardingstaticip" },
+            { "name": "getTrafficForwardingVIPRecommendedList", "type": "function", "link": "gettrafficforwardingviprecommendedlist" },
+            { "name": "getTrafficForwardingVPNCredentials", "type": "function", "link": "gettrafficforwardingvpncredentials" }
+        ]
+    },
+    {
+        "name": "URLCategory",
+        "type": "module",
+        "link": "urlcategory/",
+        "children": [
+            { "name": "URLCategories", "type": "resource", "link": "urlcategories" },
+            { "name": "getURLCategories", "type": "function", "link": "geturlcategories" }
+        ]
+    },
+    {
+        "name": "URLFiltering",
+        "type": "module",
+        "link": "urlfiltering/",
+        "children": [
+            { "name": "URLFilteringRules", "type": "resource", "link": "urlfilteringrules" },
+            { "name": "getURLFilteringRules", "type": "function", "link": "geturlfilteringrules" }
+        ]
+    },
+    {
+        "name": "Users",
+        "type": "module",
+        "link": "users/",
+        "children": [
+            { "name": "UserManagement", "type": "resource", "link": "usermanagement" },
+            { "name": "getUserManagement", "type": "function", "link": "getusermanagement" }
+        ]
+    },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

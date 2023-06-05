@@ -1,1 +1,19 @@
-[{"name":"Account","type":"resource","link":"account"},{"name":"AccountAttachment","type":"resource","link":"accountattachment"},{"name":"Node","type":"resource","link":"node"},{"name":"Provider","type":"resource","link":"provider"},{"name":"RemoteIdentity","type":"resource","link":"remoteidentity"},{"name":"Resource","type":"resource","link":"resource"},{"name":"Role","type":"resource","link":"role"},{"name":"SecretStore","type":"resource","link":"secretstore"},{"name":"getAccount","type":"function","link":"getaccount"},{"name":"getAccountAttachment","type":"function","link":"getaccountattachment"},{"name":"getNode","type":"function","link":"getnode"},{"name":"getRemoteIdentity","type":"function","link":"getremoteidentity"},{"name":"getRemoteIdentityGroup","type":"function","link":"getremoteidentitygroup"},{"name":"getResource","type":"function","link":"getresource"},{"name":"getRole","type":"function","link":"getrole"},{"name":"getSecretStore","type":"function","link":"getsecretstore"},{"name":"getSshCaPubkey","type":"function","link":"getsshcapubkey"}]
+[
+    { "name": "Account", "type": "resource", "link": "account" },
+    { "name": "AccountAttachment", "type": "resource", "link": "accountattachment" },
+    { "name": "Node", "type": "resource", "link": "node" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "RemoteIdentity", "type": "resource", "link": "remoteidentity" },
+    { "name": "Resource", "type": "resource", "link": "resource" },
+    { "name": "Role", "type": "resource", "link": "role" },
+    { "name": "SecretStore", "type": "resource", "link": "secretstore" },
+    { "name": "getAccount", "type": "function", "link": "getaccount" },
+    { "name": "getAccountAttachment", "type": "function", "link": "getaccountattachment" },
+    { "name": "getNode", "type": "function", "link": "getnode" },
+    { "name": "getRemoteIdentity", "type": "function", "link": "getremoteidentity" },
+    { "name": "getRemoteIdentityGroup", "type": "function", "link": "getremoteidentitygroup" },
+    { "name": "getResource", "type": "function", "link": "getresource" },
+    { "name": "getRole", "type": "function", "link": "getrole" },
+    { "name": "getSecretStore", "type": "function", "link": "getsecretstore" },
+    { "name": "getSshCaPubkey", "type": "function", "link": "getsshcapubkey" }
+]

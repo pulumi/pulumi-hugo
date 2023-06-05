@@ -1,1 +1,4 @@
-[{"name":"Provider","type":"resource","link":"provider"},{"name":"ReplicatedRegistry","type":"resource","link":"replicatedregistry"}]
+[
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "ReplicatedRegistry", "type": "resource", "link": "replicatedregistry" }
+]

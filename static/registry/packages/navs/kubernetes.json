@@ -1,1 +1,929 @@
-[{"name":"admissionregistration","type":"module","link":"admissionregistration/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"MutatingWebhookConfiguration","type":"resource","link":"mutatingwebhookconfiguration"},{"name":"MutatingWebhookConfigurationList","type":"resource","link":"mutatingwebhookconfigurationlist"},{"name":"MutatingWebhookConfigurationPatch","type":"resource","link":"mutatingwebhookconfigurationpatch"},{"name":"ValidatingWebhookConfiguration","type":"resource","link":"validatingwebhookconfiguration"},{"name":"ValidatingWebhookConfigurationList","type":"resource","link":"validatingwebhookconfigurationlist"},{"name":"ValidatingWebhookConfigurationPatch","type":"resource","link":"validatingwebhookconfigurationpatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"ValidatingAdmissionPolicy","type":"resource","link":"validatingadmissionpolicy"},{"name":"ValidatingAdmissionPolicyBinding","type":"resource","link":"validatingadmissionpolicybinding"},{"name":"ValidatingAdmissionPolicyBindingList","type":"resource","link":"validatingadmissionpolicybindinglist"},{"name":"ValidatingAdmissionPolicyBindingPatch","type":"resource","link":"validatingadmissionpolicybindingpatch"},{"name":"ValidatingAdmissionPolicyList","type":"resource","link":"validatingadmissionpolicylist"},{"name":"ValidatingAdmissionPolicyPatch","type":"resource","link":"validatingadmissionpolicypatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"MutatingWebhookConfiguration","type":"resource","link":"mutatingwebhookconfiguration"},{"name":"MutatingWebhookConfigurationList","type":"resource","link":"mutatingwebhookconfigurationlist"},{"name":"MutatingWebhookConfigurationPatch","type":"resource","link":"mutatingwebhookconfigurationpatch"},{"name":"ValidatingWebhookConfiguration","type":"resource","link":"validatingwebhookconfiguration"},{"name":"ValidatingWebhookConfigurationList","type":"resource","link":"validatingwebhookconfigurationlist"},{"name":"ValidatingWebhookConfigurationPatch","type":"resource","link":"validatingwebhookconfigurationpatch"}]}]},{"name":"apiextensions","type":"module","link":"apiextensions/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"CustomResourceDefinition","type":"resource","link":"customresourcedefinition"},{"name":"CustomResourceDefinitionList","type":"resource","link":"customresourcedefinitionlist"},{"name":"CustomResourceDefinitionPatch","type":"resource","link":"customresourcedefinitionpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"CustomResourceDefinition","type":"resource","link":"customresourcedefinition"},{"name":"CustomResourceDefinitionList","type":"resource","link":"customresourcedefinitionlist"},{"name":"CustomResourceDefinitionPatch","type":"resource","link":"customresourcedefinitionpatch"}]},{"name":"CustomResource","type":"resource","link":"customresource"},{"name":"CustomResourcePatch","type":"resource","link":"customresourcepatch"}]},{"name":"apiregistration","type":"module","link":"apiregistration/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"APIService","type":"resource","link":"apiservice"},{"name":"APIServiceList","type":"resource","link":"apiservicelist"},{"name":"APIServicePatch","type":"resource","link":"apiservicepatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"APIService","type":"resource","link":"apiservice"},{"name":"APIServiceList","type":"resource","link":"apiservicelist"},{"name":"APIServicePatch","type":"resource","link":"apiservicepatch"}]}]},{"name":"apps","type":"module","link":"apps/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"ControllerRevision","type":"resource","link":"controllerrevision"},{"name":"ControllerRevisionList","type":"resource","link":"controllerrevisionlist"},{"name":"ControllerRevisionPatch","type":"resource","link":"controllerrevisionpatch"},{"name":"DaemonSet","type":"resource","link":"daemonset"},{"name":"DaemonSetList","type":"resource","link":"daemonsetlist"},{"name":"DaemonSetPatch","type":"resource","link":"daemonsetpatch"},{"name":"Deployment","type":"resource","link":"deployment"},{"name":"DeploymentList","type":"resource","link":"deploymentlist"},{"name":"DeploymentPatch","type":"resource","link":"deploymentpatch"},{"name":"ReplicaSet","type":"resource","link":"replicaset"},{"name":"ReplicaSetList","type":"resource","link":"replicasetlist"},{"name":"ReplicaSetPatch","type":"resource","link":"replicasetpatch"},{"name":"StatefulSet","type":"resource","link":"statefulset"},{"name":"StatefulSetList","type":"resource","link":"statefulsetlist"},{"name":"StatefulSetPatch","type":"resource","link":"statefulsetpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"ControllerRevision","type":"resource","link":"controllerrevision"},{"name":"ControllerRevisionList","type":"resource","link":"controllerrevisionlist"},{"name":"ControllerRevisionPatch","type":"resource","link":"controllerrevisionpatch"},{"name":"Deployment","type":"resource","link":"deployment"},{"name":"DeploymentList","type":"resource","link":"deploymentlist"},{"name":"DeploymentPatch","type":"resource","link":"deploymentpatch"},{"name":"StatefulSet","type":"resource","link":"statefulset"},{"name":"StatefulSetList","type":"resource","link":"statefulsetlist"},{"name":"StatefulSetPatch","type":"resource","link":"statefulsetpatch"}]},{"name":"v1beta2","type":"module","link":"v1beta2/","children":[{"name":"ControllerRevision","type":"resource","link":"controllerrevision"},{"name":"ControllerRevisionList","type":"resource","link":"controllerrevisionlist"},{"name":"ControllerRevisionPatch","type":"resource","link":"controllerrevisionpatch"},{"name":"DaemonSet","type":"resource","link":"daemonset"},{"name":"DaemonSetList","type":"resource","link":"daemonsetlist"},{"name":"DaemonSetPatch","type":"resource","link":"daemonsetpatch"},{"name":"Deployment","type":"resource","link":"deployment"},{"name":"DeploymentList","type":"resource","link":"deploymentlist"},{"name":"DeploymentPatch","type":"resource","link":"deploymentpatch"},{"name":"ReplicaSet","type":"resource","link":"replicaset"},{"name":"ReplicaSetList","type":"resource","link":"replicasetlist"},{"name":"ReplicaSetPatch","type":"resource","link":"replicasetpatch"},{"name":"StatefulSet","type":"resource","link":"statefulset"},{"name":"StatefulSetList","type":"resource","link":"statefulsetlist"},{"name":"StatefulSetPatch","type":"resource","link":"statefulsetpatch"}]}]},{"name":"auditregistration","type":"module","link":"auditregistration/","children":[{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"AuditSink","type":"resource","link":"auditsink"},{"name":"AuditSinkList","type":"resource","link":"auditsinklist"},{"name":"AuditSinkPatch","type":"resource","link":"auditsinkpatch"}]}]},{"name":"autoscaling","type":"module","link":"autoscaling/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"HorizontalPodAutoscaler","type":"resource","link":"horizontalpodautoscaler"},{"name":"HorizontalPodAutoscalerList","type":"resource","link":"horizontalpodautoscalerlist"},{"name":"HorizontalPodAutoscalerPatch","type":"resource","link":"horizontalpodautoscalerpatch"}]},{"name":"v2","type":"module","link":"v2/","children":[{"name":"HorizontalPodAutoscaler","type":"resource","link":"horizontalpodautoscaler"},{"name":"HorizontalPodAutoscalerList","type":"resource","link":"horizontalpodautoscalerlist"},{"name":"HorizontalPodAutoscalerPatch","type":"resource","link":"horizontalpodautoscalerpatch"}]},{"name":"v2beta1","type":"module","link":"v2beta1/","children":[{"name":"HorizontalPodAutoscaler","type":"resource","link":"horizontalpodautoscaler"},{"name":"HorizontalPodAutoscalerList","type":"resource","link":"horizontalpodautoscalerlist"},{"name":"HorizontalPodAutoscalerPatch","type":"resource","link":"horizontalpodautoscalerpatch"}]},{"name":"v2beta2","type":"module","link":"v2beta2/","children":[{"name":"HorizontalPodAutoscaler","type":"resource","link":"horizontalpodautoscaler"},{"name":"HorizontalPodAutoscalerList","type":"resource","link":"horizontalpodautoscalerlist"},{"name":"HorizontalPodAutoscalerPatch","type":"resource","link":"horizontalpodautoscalerpatch"}]}]},{"name":"batch","type":"module","link":"batch/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"CronJob","type":"resource","link":"cronjob"},{"name":"CronJobList","type":"resource","link":"cronjoblist"},{"name":"CronJobPatch","type":"resource","link":"cronjobpatch"},{"name":"Job","type":"resource","link":"job"},{"name":"JobList","type":"resource","link":"joblist"},{"name":"JobPatch","type":"resource","link":"jobpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"CronJob","type":"resource","link":"cronjob"},{"name":"CronJobList","type":"resource","link":"cronjoblist"},{"name":"CronJobPatch","type":"resource","link":"cronjobpatch"}]},{"name":"v2alpha1","type":"module","link":"v2alpha1/","children":[{"name":"CronJob","type":"resource","link":"cronjob"},{"name":"CronJobList","type":"resource","link":"cronjoblist"},{"name":"CronJobPatch","type":"resource","link":"cronjobpatch"}]}]},{"name":"certificates","type":"module","link":"certificates/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"CertificateSigningRequest","type":"resource","link":"certificatesigningrequest"},{"name":"CertificateSigningRequestList","type":"resource","link":"certificatesigningrequestlist"},{"name":"CertificateSigningRequestPatch","type":"resource","link":"certificatesigningrequestpatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"ClusterTrustBundle","type":"resource","link":"clustertrustbundle"},{"name":"ClusterTrustBundleList","type":"resource","link":"clustertrustbundlelist"},{"name":"ClusterTrustBundlePatch","type":"resource","link":"clustertrustbundlepatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"CertificateSigningRequest","type":"resource","link":"certificatesigningrequest"},{"name":"CertificateSigningRequestList","type":"resource","link":"certificatesigningrequestlist"},{"name":"CertificateSigningRequestPatch","type":"resource","link":"certificatesigningrequestpatch"}]}]},{"name":"coordination","type":"module","link":"coordination/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"Lease","type":"resource","link":"lease"},{"name":"LeaseList","type":"resource","link":"leaselist"},{"name":"LeasePatch","type":"resource","link":"leasepatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"Lease","type":"resource","link":"lease"},{"name":"LeaseList","type":"resource","link":"leaselist"},{"name":"LeasePatch","type":"resource","link":"leasepatch"}]}]},{"name":"core","type":"module","link":"core/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"Binding","type":"resource","link":"binding"},{"name":"BindingPatch","type":"resource","link":"bindingpatch"},{"name":"ConfigMap","type":"resource","link":"configmap"},{"name":"ConfigMapList","type":"resource","link":"configmaplist"},{"name":"ConfigMapPatch","type":"resource","link":"configmappatch"},{"name":"Endpoints","type":"resource","link":"endpoints"},{"name":"EndpointsList","type":"resource","link":"endpointslist"},{"name":"EndpointsPatch","type":"resource","link":"endpointspatch"},{"name":"Event","type":"resource","link":"event"},{"name":"EventList","type":"resource","link":"eventlist"},{"name":"EventPatch","type":"resource","link":"eventpatch"},{"name":"LimitRange","type":"resource","link":"limitrange"},{"name":"LimitRangeList","type":"resource","link":"limitrangelist"},{"name":"LimitRangePatch","type":"resource","link":"limitrangepatch"},{"name":"Namespace","type":"resource","link":"namespace"},{"name":"NamespaceList","type":"resource","link":"namespacelist"},{"name":"NamespacePatch","type":"resource","link":"namespacepatch"},{"name":"Node","type":"resource","link":"node"},{"name":"NodeList","type":"resource","link":"nodelist"},{"name":"NodePatch","type":"resource","link":"nodepatch"},{"name":"PersistentVolume","type":"resource","link":"persistentvolume"},{"name":"PersistentVolumeClaim","type":"resource","link":"persistentvolumeclaim"},{"name":"PersistentVolumeClaimList","type":"resource","link":"persistentvolumeclaimlist"},{"name":"PersistentVolumeClaimPatch","type":"resource","link":"persistentvolumeclaimpatch"},{"name":"PersistentVolumeList","type":"resource","link":"persistentvolumelist"},{"name":"PersistentVolumePatch","type":"resource","link":"persistentvolumepatch"},{"name":"Pod","type":"resource","link":"pod"},{"name":"PodList","type":"resource","link":"podlist"},{"name":"PodPatch","type":"resource","link":"podpatch"},{"name":"PodTemplate","type":"resource","link":"podtemplate"},{"name":"PodTemplateList","type":"resource","link":"podtemplatelist"},{"name":"PodTemplatePatch","type":"resource","link":"podtemplatepatch"},{"name":"ReplicationController","type":"resource","link":"replicationcontroller"},{"name":"ReplicationControllerList","type":"resource","link":"replicationcontrollerlist"},{"name":"ReplicationControllerPatch","type":"resource","link":"replicationcontrollerpatch"},{"name":"ResourceQuota","type":"resource","link":"resourcequota"},{"name":"ResourceQuotaList","type":"resource","link":"resourcequotalist"},{"name":"ResourceQuotaPatch","type":"resource","link":"resourcequotapatch"},{"name":"Secret","type":"resource","link":"secret"},{"name":"SecretList","type":"resource","link":"secretlist"},{"name":"SecretPatch","type":"resource","link":"secretpatch"},{"name":"Service","type":"resource","link":"service"},{"name":"ServiceAccount","type":"resource","link":"serviceaccount"},{"name":"ServiceAccountList","type":"resource","link":"serviceaccountlist"},{"name":"ServiceAccountPatch","type":"resource","link":"serviceaccountpatch"},{"name":"ServiceList","type":"resource","link":"servicelist"},{"name":"ServicePatch","type":"resource","link":"servicepatch"}]}]},{"name":"discovery","type":"module","link":"discovery/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"EndpointSlice","type":"resource","link":"endpointslice"},{"name":"EndpointSliceList","type":"resource","link":"endpointslicelist"},{"name":"EndpointSlicePatch","type":"resource","link":"endpointslicepatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"EndpointSlice","type":"resource","link":"endpointslice"},{"name":"EndpointSliceList","type":"resource","link":"endpointslicelist"},{"name":"EndpointSlicePatch","type":"resource","link":"endpointslicepatch"}]}]},{"name":"events","type":"module","link":"events/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"Event","type":"resource","link":"event"},{"name":"EventList","type":"resource","link":"eventlist"},{"name":"EventPatch","type":"resource","link":"eventpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"Event","type":"resource","link":"event"},{"name":"EventList","type":"resource","link":"eventlist"},{"name":"EventPatch","type":"resource","link":"eventpatch"}]}]},{"name":"extensions","type":"module","link":"extensions/","children":[{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"DaemonSet","type":"resource","link":"daemonset"},{"name":"DaemonSetList","type":"resource","link":"daemonsetlist"},{"name":"DaemonSetPatch","type":"resource","link":"daemonsetpatch"},{"name":"Deployment","type":"resource","link":"deployment"},{"name":"DeploymentList","type":"resource","link":"deploymentlist"},{"name":"DeploymentPatch","type":"resource","link":"deploymentpatch"},{"name":"Ingress","type":"resource","link":"ingress"},{"name":"IngressList","type":"resource","link":"ingresslist"},{"name":"IngressPatch","type":"resource","link":"ingresspatch"},{"name":"NetworkPolicy","type":"resource","link":"networkpolicy"},{"name":"NetworkPolicyList","type":"resource","link":"networkpolicylist"},{"name":"NetworkPolicyPatch","type":"resource","link":"networkpolicypatch"},{"name":"PodSecurityPolicy","type":"resource","link":"podsecuritypolicy"},{"name":"PodSecurityPolicyList","type":"resource","link":"podsecuritypolicylist"},{"name":"PodSecurityPolicyPatch","type":"resource","link":"podsecuritypolicypatch"},{"name":"ReplicaSet","type":"resource","link":"replicaset"},{"name":"ReplicaSetList","type":"resource","link":"replicasetlist"},{"name":"ReplicaSetPatch","type":"resource","link":"replicasetpatch"}]}]},{"name":"flowcontrol","type":"module","link":"flowcontrol/","children":[{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"FlowSchema","type":"resource","link":"flowschema"},{"name":"FlowSchemaList","type":"resource","link":"flowschemalist"},{"name":"FlowSchemaPatch","type":"resource","link":"flowschemapatch"},{"name":"PriorityLevelConfiguration","type":"resource","link":"prioritylevelconfiguration"},{"name":"PriorityLevelConfigurationList","type":"resource","link":"prioritylevelconfigurationlist"},{"name":"PriorityLevelConfigurationPatch","type":"resource","link":"prioritylevelconfigurationpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"FlowSchema","type":"resource","link":"flowschema"},{"name":"FlowSchemaList","type":"resource","link":"flowschemalist"},{"name":"FlowSchemaPatch","type":"resource","link":"flowschemapatch"},{"name":"PriorityLevelConfiguration","type":"resource","link":"prioritylevelconfiguration"},{"name":"PriorityLevelConfigurationList","type":"resource","link":"prioritylevelconfigurationlist"},{"name":"PriorityLevelConfigurationPatch","type":"resource","link":"prioritylevelconfigurationpatch"}]},{"name":"v1beta2","type":"module","link":"v1beta2/","children":[{"name":"FlowSchema","type":"resource","link":"flowschema"},{"name":"FlowSchemaList","type":"resource","link":"flowschemalist"},{"name":"FlowSchemaPatch","type":"resource","link":"flowschemapatch"},{"name":"PriorityLevelConfiguration","type":"resource","link":"prioritylevelconfiguration"},{"name":"PriorityLevelConfigurationList","type":"resource","link":"prioritylevelconfigurationlist"},{"name":"PriorityLevelConfigurationPatch","type":"resource","link":"prioritylevelconfigurationpatch"}]},{"name":"v1beta3","type":"module","link":"v1beta3/","children":[{"name":"FlowSchema","type":"resource","link":"flowschema"},{"name":"FlowSchemaList","type":"resource","link":"flowschemalist"},{"name":"FlowSchemaPatch","type":"resource","link":"flowschemapatch"},{"name":"PriorityLevelConfiguration","type":"resource","link":"prioritylevelconfiguration"},{"name":"PriorityLevelConfigurationList","type":"resource","link":"prioritylevelconfigurationlist"},{"name":"PriorityLevelConfigurationPatch","type":"resource","link":"prioritylevelconfigurationpatch"}]}]},{"name":"helm","type":"module","link":"helm/","children":[{"name":"v2","type":"module","link":"v2/","children":[{"name":"Chart","type":"resource","link":"chart"}]},{"name":"v3","type":"module","link":"v3/","children":[{"name":"Chart","type":"resource","link":"chart"},{"name":"Release","type":"resource","link":"release"}]}]},{"name":"kustomize","type":"module","link":"kustomize/","children":[{"name":"Directory","type":"resource","link":"directory"}]},{"name":"meta","type":"module","link":"meta/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"Status","type":"resource","link":"status"},{"name":"StatusPatch","type":"resource","link":"statuspatch"}]}]},{"name":"networking","type":"module","link":"networking/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"Ingress","type":"resource","link":"ingress"},{"name":"IngressClass","type":"resource","link":"ingressclass"},{"name":"IngressClassList","type":"resource","link":"ingressclasslist"},{"name":"IngressClassPatch","type":"resource","link":"ingressclasspatch"},{"name":"IngressList","type":"resource","link":"ingresslist"},{"name":"IngressPatch","type":"resource","link":"ingresspatch"},{"name":"NetworkPolicy","type":"resource","link":"networkpolicy"},{"name":"NetworkPolicyList","type":"resource","link":"networkpolicylist"},{"name":"NetworkPolicyPatch","type":"resource","link":"networkpolicypatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"ClusterCIDR","type":"resource","link":"clustercidr"},{"name":"ClusterCIDRList","type":"resource","link":"clustercidrlist"},{"name":"ClusterCIDRPatch","type":"resource","link":"clustercidrpatch"},{"name":"IPAddress","type":"resource","link":"ipaddress"},{"name":"IPAddressList","type":"resource","link":"ipaddresslist"},{"name":"IPAddressPatch","type":"resource","link":"ipaddresspatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"Ingress","type":"resource","link":"ingress"},{"name":"IngressClass","type":"resource","link":"ingressclass"},{"name":"IngressClassList","type":"resource","link":"ingressclasslist"},{"name":"IngressClassPatch","type":"resource","link":"ingressclasspatch"},{"name":"IngressList","type":"resource","link":"ingresslist"},{"name":"IngressPatch","type":"resource","link":"ingresspatch"}]}]},{"name":"node","type":"module","link":"node/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"RuntimeClass","type":"resource","link":"runtimeclass"},{"name":"RuntimeClassList","type":"resource","link":"runtimeclasslist"},{"name":"RuntimeClassPatch","type":"resource","link":"runtimeclasspatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"RuntimeClass","type":"resource","link":"runtimeclass"},{"name":"RuntimeClassList","type":"resource","link":"runtimeclasslist"},{"name":"RuntimeClassPatch","type":"resource","link":"runtimeclasspatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"RuntimeClass","type":"resource","link":"runtimeclass"},{"name":"RuntimeClassList","type":"resource","link":"runtimeclasslist"},{"name":"RuntimeClassPatch","type":"resource","link":"runtimeclasspatch"}]}]},{"name":"policy","type":"module","link":"policy/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"PodDisruptionBudget","type":"resource","link":"poddisruptionbudget"},{"name":"PodDisruptionBudgetList","type":"resource","link":"poddisruptionbudgetlist"},{"name":"PodDisruptionBudgetPatch","type":"resource","link":"poddisruptionbudgetpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"PodDisruptionBudget","type":"resource","link":"poddisruptionbudget"},{"name":"PodDisruptionBudgetList","type":"resource","link":"poddisruptionbudgetlist"},{"name":"PodDisruptionBudgetPatch","type":"resource","link":"poddisruptionbudgetpatch"},{"name":"PodSecurityPolicy","type":"resource","link":"podsecuritypolicy"},{"name":"PodSecurityPolicyList","type":"resource","link":"podsecuritypolicylist"},{"name":"PodSecurityPolicyPatch","type":"resource","link":"podsecuritypolicypatch"}]}]},{"name":"rbac","type":"module","link":"rbac/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"ClusterRole","type":"resource","link":"clusterrole"},{"name":"ClusterRoleBinding","type":"resource","link":"clusterrolebinding"},{"name":"ClusterRoleBindingList","type":"resource","link":"clusterrolebindinglist"},{"name":"ClusterRoleBindingPatch","type":"resource","link":"clusterrolebindingpatch"},{"name":"ClusterRoleList","type":"resource","link":"clusterrolelist"},{"name":"ClusterRolePatch","type":"resource","link":"clusterrolepatch"},{"name":"Role","type":"resource","link":"role"},{"name":"RoleBinding","type":"resource","link":"rolebinding"},{"name":"RoleBindingList","type":"resource","link":"rolebindinglist"},{"name":"RoleBindingPatch","type":"resource","link":"rolebindingpatch"},{"name":"RoleList","type":"resource","link":"rolelist"},{"name":"RolePatch","type":"resource","link":"rolepatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"ClusterRole","type":"resource","link":"clusterrole"},{"name":"ClusterRoleBinding","type":"resource","link":"clusterrolebinding"},{"name":"ClusterRoleBindingList","type":"resource","link":"clusterrolebindinglist"},{"name":"ClusterRoleBindingPatch","type":"resource","link":"clusterrolebindingpatch"},{"name":"ClusterRoleList","type":"resource","link":"clusterrolelist"},{"name":"ClusterRolePatch","type":"resource","link":"clusterrolepatch"},{"name":"Role","type":"resource","link":"role"},{"name":"RoleBinding","type":"resource","link":"rolebinding"},{"name":"RoleBindingList","type":"resource","link":"rolebindinglist"},{"name":"RoleBindingPatch","type":"resource","link":"rolebindingpatch"},{"name":"RoleList","type":"resource","link":"rolelist"},{"name":"RolePatch","type":"resource","link":"rolepatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"ClusterRole","type":"resource","link":"clusterrole"},{"name":"ClusterRoleBinding","type":"resource","link":"clusterrolebinding"},{"name":"ClusterRoleBindingList","type":"resource","link":"clusterrolebindinglist"},{"name":"ClusterRoleBindingPatch","type":"resource","link":"clusterrolebindingpatch"},{"name":"ClusterRoleList","type":"resource","link":"clusterrolelist"},{"name":"ClusterRolePatch","type":"resource","link":"clusterrolepatch"},{"name":"Role","type":"resource","link":"role"},{"name":"RoleBinding","type":"resource","link":"rolebinding"},{"name":"RoleBindingList","type":"resource","link":"rolebindinglist"},{"name":"RoleBindingPatch","type":"resource","link":"rolebindingpatch"},{"name":"RoleList","type":"resource","link":"rolelist"},{"name":"RolePatch","type":"resource","link":"rolepatch"}]}]},{"name":"resource","type":"module","link":"resource/","children":[{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"PodScheduling","type":"resource","link":"podscheduling"},{"name":"PodSchedulingList","type":"resource","link":"podschedulinglist"},{"name":"PodSchedulingPatch","type":"resource","link":"podschedulingpatch"},{"name":"ResourceClaim","type":"resource","link":"resourceclaim"},{"name":"ResourceClaimList","type":"resource","link":"resourceclaimlist"},{"name":"ResourceClaimPatch","type":"resource","link":"resourceclaimpatch"},{"name":"ResourceClaimTemplate","type":"resource","link":"resourceclaimtemplate"},{"name":"ResourceClaimTemplateList","type":"resource","link":"resourceclaimtemplatelist"},{"name":"ResourceClaimTemplatePatch","type":"resource","link":"resourceclaimtemplatepatch"},{"name":"ResourceClass","type":"resource","link":"resourceclass"},{"name":"ResourceClassList","type":"resource","link":"resourceclasslist"},{"name":"ResourceClassPatch","type":"resource","link":"resourceclasspatch"}]},{"name":"v1alpha2","type":"module","link":"v1alpha2/","children":[{"name":"PodSchedulingContext","type":"resource","link":"podschedulingcontext"},{"name":"PodSchedulingContextList","type":"resource","link":"podschedulingcontextlist"},{"name":"PodSchedulingContextPatch","type":"resource","link":"podschedulingcontextpatch"},{"name":"ResourceClaim","type":"resource","link":"resourceclaim"},{"name":"ResourceClaimList","type":"resource","link":"resourceclaimlist"},{"name":"ResourceClaimPatch","type":"resource","link":"resourceclaimpatch"},{"name":"ResourceClaimTemplate","type":"resource","link":"resourceclaimtemplate"},{"name":"ResourceClaimTemplateList","type":"resource","link":"resourceclaimtemplatelist"},{"name":"ResourceClaimTemplatePatch","type":"resource","link":"resourceclaimtemplatepatch"},{"name":"ResourceClass","type":"resource","link":"resourceclass"},{"name":"ResourceClassList","type":"resource","link":"resourceclasslist"},{"name":"ResourceClassPatch","type":"resource","link":"resourceclasspatch"}]}]},{"name":"scheduling","type":"module","link":"scheduling/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"PriorityClass","type":"resource","link":"priorityclass"},{"name":"PriorityClassList","type":"resource","link":"priorityclasslist"},{"name":"PriorityClassPatch","type":"resource","link":"priorityclasspatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"PriorityClass","type":"resource","link":"priorityclass"},{"name":"PriorityClassList","type":"resource","link":"priorityclasslist"},{"name":"PriorityClassPatch","type":"resource","link":"priorityclasspatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"PriorityClass","type":"resource","link":"priorityclass"},{"name":"PriorityClassList","type":"resource","link":"priorityclasslist"},{"name":"PriorityClassPatch","type":"resource","link":"priorityclasspatch"}]}]},{"name":"settings","type":"module","link":"settings/","children":[{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"PodPreset","type":"resource","link":"podpreset"},{"name":"PodPresetList","type":"resource","link":"podpresetlist"},{"name":"PodPresetPatch","type":"resource","link":"podpresetpatch"}]}]},{"name":"storage","type":"module","link":"storage/","children":[{"name":"v1","type":"module","link":"v1/","children":[{"name":"CSIDriver","type":"resource","link":"csidriver"},{"name":"CSIDriverList","type":"resource","link":"csidriverlist"},{"name":"CSIDriverPatch","type":"resource","link":"csidriverpatch"},{"name":"CSINode","type":"resource","link":"csinode"},{"name":"CSINodeList","type":"resource","link":"csinodelist"},{"name":"CSINodePatch","type":"resource","link":"csinodepatch"},{"name":"CSIStorageCapacity","type":"resource","link":"csistoragecapacity"},{"name":"CSIStorageCapacityList","type":"resource","link":"csistoragecapacitylist"},{"name":"CSIStorageCapacityPatch","type":"resource","link":"csistoragecapacitypatch"},{"name":"StorageClass","type":"resource","link":"storageclass"},{"name":"StorageClassList","type":"resource","link":"storageclasslist"},{"name":"StorageClassPatch","type":"resource","link":"storageclasspatch"},{"name":"VolumeAttachment","type":"resource","link":"volumeattachment"},{"name":"VolumeAttachmentList","type":"resource","link":"volumeattachmentlist"},{"name":"VolumeAttachmentPatch","type":"resource","link":"volumeattachmentpatch"}]},{"name":"v1alpha1","type":"module","link":"v1alpha1/","children":[{"name":"VolumeAttachment","type":"resource","link":"volumeattachment"},{"name":"VolumeAttachmentList","type":"resource","link":"volumeattachmentlist"},{"name":"VolumeAttachmentPatch","type":"resource","link":"volumeattachmentpatch"}]},{"name":"v1beta1","type":"module","link":"v1beta1/","children":[{"name":"CSIDriver","type":"resource","link":"csidriver"},{"name":"CSIDriverList","type":"resource","link":"csidriverlist"},{"name":"CSIDriverPatch","type":"resource","link":"csidriverpatch"},{"name":"CSINode","type":"resource","link":"csinode"},{"name":"CSINodeList","type":"resource","link":"csinodelist"},{"name":"CSINodePatch","type":"resource","link":"csinodepatch"},{"name":"CSIStorageCapacity","type":"resource","link":"csistoragecapacity"},{"name":"CSIStorageCapacityList","type":"resource","link":"csistoragecapacitylist"},{"name":"CSIStorageCapacityPatch","type":"resource","link":"csistoragecapacitypatch"},{"name":"StorageClass","type":"resource","link":"storageclass"},{"name":"StorageClassList","type":"resource","link":"storageclasslist"},{"name":"StorageClassPatch","type":"resource","link":"storageclasspatch"},{"name":"VolumeAttachment","type":"resource","link":"volumeattachment"},{"name":"VolumeAttachmentList","type":"resource","link":"volumeattachmentlist"},{"name":"VolumeAttachmentPatch","type":"resource","link":"volumeattachmentpatch"}]}]},{"name":"yaml","type":"module","link":"yaml/","children":[{"name":"ConfigFile","type":"resource","link":"configfile"},{"name":"ConfigGroup","type":"resource","link":"configgroup"}]},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    {
+        "name": "admissionregistration",
+        "type": "module",
+        "link": "admissionregistration/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "MutatingWebhookConfiguration", "type": "resource", "link": "mutatingwebhookconfiguration" },
+                    { "name": "MutatingWebhookConfigurationList", "type": "resource", "link": "mutatingwebhookconfigurationlist" },
+                    { "name": "MutatingWebhookConfigurationPatch", "type": "resource", "link": "mutatingwebhookconfigurationpatch" },
+                    { "name": "ValidatingWebhookConfiguration", "type": "resource", "link": "validatingwebhookconfiguration" },
+                    { "name": "ValidatingWebhookConfigurationList", "type": "resource", "link": "validatingwebhookconfigurationlist" },
+                    { "name": "ValidatingWebhookConfigurationPatch", "type": "resource", "link": "validatingwebhookconfigurationpatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "ValidatingAdmissionPolicy", "type": "resource", "link": "validatingadmissionpolicy" },
+                    { "name": "ValidatingAdmissionPolicyBinding", "type": "resource", "link": "validatingadmissionpolicybinding" },
+                    { "name": "ValidatingAdmissionPolicyBindingList", "type": "resource", "link": "validatingadmissionpolicybindinglist" },
+                    { "name": "ValidatingAdmissionPolicyBindingPatch", "type": "resource", "link": "validatingadmissionpolicybindingpatch" },
+                    { "name": "ValidatingAdmissionPolicyList", "type": "resource", "link": "validatingadmissionpolicylist" },
+                    { "name": "ValidatingAdmissionPolicyPatch", "type": "resource", "link": "validatingadmissionpolicypatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "MutatingWebhookConfiguration", "type": "resource", "link": "mutatingwebhookconfiguration" },
+                    { "name": "MutatingWebhookConfigurationList", "type": "resource", "link": "mutatingwebhookconfigurationlist" },
+                    { "name": "MutatingWebhookConfigurationPatch", "type": "resource", "link": "mutatingwebhookconfigurationpatch" },
+                    { "name": "ValidatingWebhookConfiguration", "type": "resource", "link": "validatingwebhookconfiguration" },
+                    { "name": "ValidatingWebhookConfigurationList", "type": "resource", "link": "validatingwebhookconfigurationlist" },
+                    { "name": "ValidatingWebhookConfigurationPatch", "type": "resource", "link": "validatingwebhookconfigurationpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "apiextensions",
+        "type": "module",
+        "link": "apiextensions/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "CustomResourceDefinition", "type": "resource", "link": "customresourcedefinition" },
+                    { "name": "CustomResourceDefinitionList", "type": "resource", "link": "customresourcedefinitionlist" },
+                    { "name": "CustomResourceDefinitionPatch", "type": "resource", "link": "customresourcedefinitionpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "CustomResourceDefinition", "type": "resource", "link": "customresourcedefinition" },
+                    { "name": "CustomResourceDefinitionList", "type": "resource", "link": "customresourcedefinitionlist" },
+                    { "name": "CustomResourceDefinitionPatch", "type": "resource", "link": "customresourcedefinitionpatch" }
+                ]
+            },
+            { "name": "CustomResource", "type": "resource", "link": "customresource" },
+            { "name": "CustomResourcePatch", "type": "resource", "link": "customresourcepatch" }
+        ]
+    },
+    {
+        "name": "apiregistration",
+        "type": "module",
+        "link": "apiregistration/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "APIService", "type": "resource", "link": "apiservice" },
+                    { "name": "APIServiceList", "type": "resource", "link": "apiservicelist" },
+                    { "name": "APIServicePatch", "type": "resource", "link": "apiservicepatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "APIService", "type": "resource", "link": "apiservice" },
+                    { "name": "APIServiceList", "type": "resource", "link": "apiservicelist" },
+                    { "name": "APIServicePatch", "type": "resource", "link": "apiservicepatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "apps",
+        "type": "module",
+        "link": "apps/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "ControllerRevision", "type": "resource", "link": "controllerrevision" },
+                    { "name": "ControllerRevisionList", "type": "resource", "link": "controllerrevisionlist" },
+                    { "name": "ControllerRevisionPatch", "type": "resource", "link": "controllerrevisionpatch" },
+                    { "name": "DaemonSet", "type": "resource", "link": "daemonset" },
+                    { "name": "DaemonSetList", "type": "resource", "link": "daemonsetlist" },
+                    { "name": "DaemonSetPatch", "type": "resource", "link": "daemonsetpatch" },
+                    { "name": "Deployment", "type": "resource", "link": "deployment" },
+                    { "name": "DeploymentList", "type": "resource", "link": "deploymentlist" },
+                    { "name": "DeploymentPatch", "type": "resource", "link": "deploymentpatch" },
+                    { "name": "ReplicaSet", "type": "resource", "link": "replicaset" },
+                    { "name": "ReplicaSetList", "type": "resource", "link": "replicasetlist" },
+                    { "name": "ReplicaSetPatch", "type": "resource", "link": "replicasetpatch" },
+                    { "name": "StatefulSet", "type": "resource", "link": "statefulset" },
+                    { "name": "StatefulSetList", "type": "resource", "link": "statefulsetlist" },
+                    { "name": "StatefulSetPatch", "type": "resource", "link": "statefulsetpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "ControllerRevision", "type": "resource", "link": "controllerrevision" },
+                    { "name": "ControllerRevisionList", "type": "resource", "link": "controllerrevisionlist" },
+                    { "name": "ControllerRevisionPatch", "type": "resource", "link": "controllerrevisionpatch" },
+                    { "name": "Deployment", "type": "resource", "link": "deployment" },
+                    { "name": "DeploymentList", "type": "resource", "link": "deploymentlist" },
+                    { "name": "DeploymentPatch", "type": "resource", "link": "deploymentpatch" },
+                    { "name": "StatefulSet", "type": "resource", "link": "statefulset" },
+                    { "name": "StatefulSetList", "type": "resource", "link": "statefulsetlist" },
+                    { "name": "StatefulSetPatch", "type": "resource", "link": "statefulsetpatch" }
+                ]
+            },
+            {
+                "name": "v1beta2",
+                "type": "module",
+                "link": "v1beta2/",
+                "children": [
+                    { "name": "ControllerRevision", "type": "resource", "link": "controllerrevision" },
+                    { "name": "ControllerRevisionList", "type": "resource", "link": "controllerrevisionlist" },
+                    { "name": "ControllerRevisionPatch", "type": "resource", "link": "controllerrevisionpatch" },
+                    { "name": "DaemonSet", "type": "resource", "link": "daemonset" },
+                    { "name": "DaemonSetList", "type": "resource", "link": "daemonsetlist" },
+                    { "name": "DaemonSetPatch", "type": "resource", "link": "daemonsetpatch" },
+                    { "name": "Deployment", "type": "resource", "link": "deployment" },
+                    { "name": "DeploymentList", "type": "resource", "link": "deploymentlist" },
+                    { "name": "DeploymentPatch", "type": "resource", "link": "deploymentpatch" },
+                    { "name": "ReplicaSet", "type": "resource", "link": "replicaset" },
+                    { "name": "ReplicaSetList", "type": "resource", "link": "replicasetlist" },
+                    { "name": "ReplicaSetPatch", "type": "resource", "link": "replicasetpatch" },
+                    { "name": "StatefulSet", "type": "resource", "link": "statefulset" },
+                    { "name": "StatefulSetList", "type": "resource", "link": "statefulsetlist" },
+                    { "name": "StatefulSetPatch", "type": "resource", "link": "statefulsetpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "auditregistration",
+        "type": "module",
+        "link": "auditregistration/",
+        "children": [
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "AuditSink", "type": "resource", "link": "auditsink" },
+                    { "name": "AuditSinkList", "type": "resource", "link": "auditsinklist" },
+                    { "name": "AuditSinkPatch", "type": "resource", "link": "auditsinkpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "autoscaling",
+        "type": "module",
+        "link": "autoscaling/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "HorizontalPodAutoscaler", "type": "resource", "link": "horizontalpodautoscaler" },
+                    { "name": "HorizontalPodAutoscalerList", "type": "resource", "link": "horizontalpodautoscalerlist" },
+                    { "name": "HorizontalPodAutoscalerPatch", "type": "resource", "link": "horizontalpodautoscalerpatch" }
+                ]
+            },
+            {
+                "name": "v2",
+                "type": "module",
+                "link": "v2/",
+                "children": [
+                    { "name": "HorizontalPodAutoscaler", "type": "resource", "link": "horizontalpodautoscaler" },
+                    { "name": "HorizontalPodAutoscalerList", "type": "resource", "link": "horizontalpodautoscalerlist" },
+                    { "name": "HorizontalPodAutoscalerPatch", "type": "resource", "link": "horizontalpodautoscalerpatch" }
+                ]
+            },
+            {
+                "name": "v2beta1",
+                "type": "module",
+                "link": "v2beta1/",
+                "children": [
+                    { "name": "HorizontalPodAutoscaler", "type": "resource", "link": "horizontalpodautoscaler" },
+                    { "name": "HorizontalPodAutoscalerList", "type": "resource", "link": "horizontalpodautoscalerlist" },
+                    { "name": "HorizontalPodAutoscalerPatch", "type": "resource", "link": "horizontalpodautoscalerpatch" }
+                ]
+            },
+            {
+                "name": "v2beta2",
+                "type": "module",
+                "link": "v2beta2/",
+                "children": [
+                    { "name": "HorizontalPodAutoscaler", "type": "resource", "link": "horizontalpodautoscaler" },
+                    { "name": "HorizontalPodAutoscalerList", "type": "resource", "link": "horizontalpodautoscalerlist" },
+                    { "name": "HorizontalPodAutoscalerPatch", "type": "resource", "link": "horizontalpodautoscalerpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "batch",
+        "type": "module",
+        "link": "batch/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "CronJob", "type": "resource", "link": "cronjob" },
+                    { "name": "CronJobList", "type": "resource", "link": "cronjoblist" },
+                    { "name": "CronJobPatch", "type": "resource", "link": "cronjobpatch" },
+                    { "name": "Job", "type": "resource", "link": "job" },
+                    { "name": "JobList", "type": "resource", "link": "joblist" },
+                    { "name": "JobPatch", "type": "resource", "link": "jobpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "CronJob", "type": "resource", "link": "cronjob" },
+                    { "name": "CronJobList", "type": "resource", "link": "cronjoblist" },
+                    { "name": "CronJobPatch", "type": "resource", "link": "cronjobpatch" }
+                ]
+            },
+            {
+                "name": "v2alpha1",
+                "type": "module",
+                "link": "v2alpha1/",
+                "children": [
+                    { "name": "CronJob", "type": "resource", "link": "cronjob" },
+                    { "name": "CronJobList", "type": "resource", "link": "cronjoblist" },
+                    { "name": "CronJobPatch", "type": "resource", "link": "cronjobpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "certificates",
+        "type": "module",
+        "link": "certificates/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "CertificateSigningRequest", "type": "resource", "link": "certificatesigningrequest" },
+                    { "name": "CertificateSigningRequestList", "type": "resource", "link": "certificatesigningrequestlist" },
+                    { "name": "CertificateSigningRequestPatch", "type": "resource", "link": "certificatesigningrequestpatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "ClusterTrustBundle", "type": "resource", "link": "clustertrustbundle" },
+                    { "name": "ClusterTrustBundleList", "type": "resource", "link": "clustertrustbundlelist" },
+                    { "name": "ClusterTrustBundlePatch", "type": "resource", "link": "clustertrustbundlepatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "CertificateSigningRequest", "type": "resource", "link": "certificatesigningrequest" },
+                    { "name": "CertificateSigningRequestList", "type": "resource", "link": "certificatesigningrequestlist" },
+                    { "name": "CertificateSigningRequestPatch", "type": "resource", "link": "certificatesigningrequestpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "coordination",
+        "type": "module",
+        "link": "coordination/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "Lease", "type": "resource", "link": "lease" },
+                    { "name": "LeaseList", "type": "resource", "link": "leaselist" },
+                    { "name": "LeasePatch", "type": "resource", "link": "leasepatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "Lease", "type": "resource", "link": "lease" },
+                    { "name": "LeaseList", "type": "resource", "link": "leaselist" },
+                    { "name": "LeasePatch", "type": "resource", "link": "leasepatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "core",
+        "type": "module",
+        "link": "core/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "Binding", "type": "resource", "link": "binding" },
+                    { "name": "BindingPatch", "type": "resource", "link": "bindingpatch" },
+                    { "name": "ConfigMap", "type": "resource", "link": "configmap" },
+                    { "name": "ConfigMapList", "type": "resource", "link": "configmaplist" },
+                    { "name": "ConfigMapPatch", "type": "resource", "link": "configmappatch" },
+                    { "name": "Endpoints", "type": "resource", "link": "endpoints" },
+                    { "name": "EndpointsList", "type": "resource", "link": "endpointslist" },
+                    { "name": "EndpointsPatch", "type": "resource", "link": "endpointspatch" },
+                    { "name": "Event", "type": "resource", "link": "event" },
+                    { "name": "EventList", "type": "resource", "link": "eventlist" },
+                    { "name": "EventPatch", "type": "resource", "link": "eventpatch" },
+                    { "name": "LimitRange", "type": "resource", "link": "limitrange" },
+                    { "name": "LimitRangeList", "type": "resource", "link": "limitrangelist" },
+                    { "name": "LimitRangePatch", "type": "resource", "link": "limitrangepatch" },
+                    { "name": "Namespace", "type": "resource", "link": "namespace" },
+                    { "name": "NamespaceList", "type": "resource", "link": "namespacelist" },
+                    { "name": "NamespacePatch", "type": "resource", "link": "namespacepatch" },
+                    { "name": "Node", "type": "resource", "link": "node" },
+                    { "name": "NodeList", "type": "resource", "link": "nodelist" },
+                    { "name": "NodePatch", "type": "resource", "link": "nodepatch" },
+                    { "name": "PersistentVolume", "type": "resource", "link": "persistentvolume" },
+                    { "name": "PersistentVolumeClaim", "type": "resource", "link": "persistentvolumeclaim" },
+                    { "name": "PersistentVolumeClaimList", "type": "resource", "link": "persistentvolumeclaimlist" },
+                    { "name": "PersistentVolumeClaimPatch", "type": "resource", "link": "persistentvolumeclaimpatch" },
+                    { "name": "PersistentVolumeList", "type": "resource", "link": "persistentvolumelist" },
+                    { "name": "PersistentVolumePatch", "type": "resource", "link": "persistentvolumepatch" },
+                    { "name": "Pod", "type": "resource", "link": "pod" },
+                    { "name": "PodList", "type": "resource", "link": "podlist" },
+                    { "name": "PodPatch", "type": "resource", "link": "podpatch" },
+                    { "name": "PodTemplate", "type": "resource", "link": "podtemplate" },
+                    { "name": "PodTemplateList", "type": "resource", "link": "podtemplatelist" },
+                    { "name": "PodTemplatePatch", "type": "resource", "link": "podtemplatepatch" },
+                    { "name": "ReplicationController", "type": "resource", "link": "replicationcontroller" },
+                    { "name": "ReplicationControllerList", "type": "resource", "link": "replicationcontrollerlist" },
+                    { "name": "ReplicationControllerPatch", "type": "resource", "link": "replicationcontrollerpatch" },
+                    { "name": "ResourceQuota", "type": "resource", "link": "resourcequota" },
+                    { "name": "ResourceQuotaList", "type": "resource", "link": "resourcequotalist" },
+                    { "name": "ResourceQuotaPatch", "type": "resource", "link": "resourcequotapatch" },
+                    { "name": "Secret", "type": "resource", "link": "secret" },
+                    { "name": "SecretList", "type": "resource", "link": "secretlist" },
+                    { "name": "SecretPatch", "type": "resource", "link": "secretpatch" },
+                    { "name": "Service", "type": "resource", "link": "service" },
+                    { "name": "ServiceAccount", "type": "resource", "link": "serviceaccount" },
+                    { "name": "ServiceAccountList", "type": "resource", "link": "serviceaccountlist" },
+                    { "name": "ServiceAccountPatch", "type": "resource", "link": "serviceaccountpatch" },
+                    { "name": "ServiceList", "type": "resource", "link": "servicelist" },
+                    { "name": "ServicePatch", "type": "resource", "link": "servicepatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "discovery",
+        "type": "module",
+        "link": "discovery/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "EndpointSlice", "type": "resource", "link": "endpointslice" },
+                    { "name": "EndpointSliceList", "type": "resource", "link": "endpointslicelist" },
+                    { "name": "EndpointSlicePatch", "type": "resource", "link": "endpointslicepatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "EndpointSlice", "type": "resource", "link": "endpointslice" },
+                    { "name": "EndpointSliceList", "type": "resource", "link": "endpointslicelist" },
+                    { "name": "EndpointSlicePatch", "type": "resource", "link": "endpointslicepatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "events",
+        "type": "module",
+        "link": "events/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "Event", "type": "resource", "link": "event" },
+                    { "name": "EventList", "type": "resource", "link": "eventlist" },
+                    { "name": "EventPatch", "type": "resource", "link": "eventpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "Event", "type": "resource", "link": "event" },
+                    { "name": "EventList", "type": "resource", "link": "eventlist" },
+                    { "name": "EventPatch", "type": "resource", "link": "eventpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "extensions",
+        "type": "module",
+        "link": "extensions/",
+        "children": [
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "DaemonSet", "type": "resource", "link": "daemonset" },
+                    { "name": "DaemonSetList", "type": "resource", "link": "daemonsetlist" },
+                    { "name": "DaemonSetPatch", "type": "resource", "link": "daemonsetpatch" },
+                    { "name": "Deployment", "type": "resource", "link": "deployment" },
+                    { "name": "DeploymentList", "type": "resource", "link": "deploymentlist" },
+                    { "name": "DeploymentPatch", "type": "resource", "link": "deploymentpatch" },
+                    { "name": "Ingress", "type": "resource", "link": "ingress" },
+                    { "name": "IngressList", "type": "resource", "link": "ingresslist" },
+                    { "name": "IngressPatch", "type": "resource", "link": "ingresspatch" },
+                    { "name": "NetworkPolicy", "type": "resource", "link": "networkpolicy" },
+                    { "name": "NetworkPolicyList", "type": "resource", "link": "networkpolicylist" },
+                    { "name": "NetworkPolicyPatch", "type": "resource", "link": "networkpolicypatch" },
+                    { "name": "PodSecurityPolicy", "type": "resource", "link": "podsecuritypolicy" },
+                    { "name": "PodSecurityPolicyList", "type": "resource", "link": "podsecuritypolicylist" },
+                    { "name": "PodSecurityPolicyPatch", "type": "resource", "link": "podsecuritypolicypatch" },
+                    { "name": "ReplicaSet", "type": "resource", "link": "replicaset" },
+                    { "name": "ReplicaSetList", "type": "resource", "link": "replicasetlist" },
+                    { "name": "ReplicaSetPatch", "type": "resource", "link": "replicasetpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "flowcontrol",
+        "type": "module",
+        "link": "flowcontrol/",
+        "children": [
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "FlowSchema", "type": "resource", "link": "flowschema" },
+                    { "name": "FlowSchemaList", "type": "resource", "link": "flowschemalist" },
+                    { "name": "FlowSchemaPatch", "type": "resource", "link": "flowschemapatch" },
+                    { "name": "PriorityLevelConfiguration", "type": "resource", "link": "prioritylevelconfiguration" },
+                    { "name": "PriorityLevelConfigurationList", "type": "resource", "link": "prioritylevelconfigurationlist" },
+                    { "name": "PriorityLevelConfigurationPatch", "type": "resource", "link": "prioritylevelconfigurationpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "FlowSchema", "type": "resource", "link": "flowschema" },
+                    { "name": "FlowSchemaList", "type": "resource", "link": "flowschemalist" },
+                    { "name": "FlowSchemaPatch", "type": "resource", "link": "flowschemapatch" },
+                    { "name": "PriorityLevelConfiguration", "type": "resource", "link": "prioritylevelconfiguration" },
+                    { "name": "PriorityLevelConfigurationList", "type": "resource", "link": "prioritylevelconfigurationlist" },
+                    { "name": "PriorityLevelConfigurationPatch", "type": "resource", "link": "prioritylevelconfigurationpatch" }
+                ]
+            },
+            {
+                "name": "v1beta2",
+                "type": "module",
+                "link": "v1beta2/",
+                "children": [
+                    { "name": "FlowSchema", "type": "resource", "link": "flowschema" },
+                    { "name": "FlowSchemaList", "type": "resource", "link": "flowschemalist" },
+                    { "name": "FlowSchemaPatch", "type": "resource", "link": "flowschemapatch" },
+                    { "name": "PriorityLevelConfiguration", "type": "resource", "link": "prioritylevelconfiguration" },
+                    { "name": "PriorityLevelConfigurationList", "type": "resource", "link": "prioritylevelconfigurationlist" },
+                    { "name": "PriorityLevelConfigurationPatch", "type": "resource", "link": "prioritylevelconfigurationpatch" }
+                ]
+            },
+            {
+                "name": "v1beta3",
+                "type": "module",
+                "link": "v1beta3/",
+                "children": [
+                    { "name": "FlowSchema", "type": "resource", "link": "flowschema" },
+                    { "name": "FlowSchemaList", "type": "resource", "link": "flowschemalist" },
+                    { "name": "FlowSchemaPatch", "type": "resource", "link": "flowschemapatch" },
+                    { "name": "PriorityLevelConfiguration", "type": "resource", "link": "prioritylevelconfiguration" },
+                    { "name": "PriorityLevelConfigurationList", "type": "resource", "link": "prioritylevelconfigurationlist" },
+                    { "name": "PriorityLevelConfigurationPatch", "type": "resource", "link": "prioritylevelconfigurationpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "helm",
+        "type": "module",
+        "link": "helm/",
+        "children": [
+            { "name": "v2", "type": "module", "link": "v2/", "children": [{ "name": "Chart", "type": "resource", "link": "chart" }] },
+            {
+                "name": "v3",
+                "type": "module",
+                "link": "v3/",
+                "children": [
+                    { "name": "Chart", "type": "resource", "link": "chart" },
+                    { "name": "Release", "type": "resource", "link": "release" }
+                ]
+            }
+        ]
+    },
+    { "name": "kustomize", "type": "module", "link": "kustomize/", "children": [{ "name": "Directory", "type": "resource", "link": "directory" }] },
+    {
+        "name": "meta",
+        "type": "module",
+        "link": "meta/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "Status", "type": "resource", "link": "status" },
+                    { "name": "StatusPatch", "type": "resource", "link": "statuspatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "networking",
+        "type": "module",
+        "link": "networking/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "Ingress", "type": "resource", "link": "ingress" },
+                    { "name": "IngressClass", "type": "resource", "link": "ingressclass" },
+                    { "name": "IngressClassList", "type": "resource", "link": "ingressclasslist" },
+                    { "name": "IngressClassPatch", "type": "resource", "link": "ingressclasspatch" },
+                    { "name": "IngressList", "type": "resource", "link": "ingresslist" },
+                    { "name": "IngressPatch", "type": "resource", "link": "ingresspatch" },
+                    { "name": "NetworkPolicy", "type": "resource", "link": "networkpolicy" },
+                    { "name": "NetworkPolicyList", "type": "resource", "link": "networkpolicylist" },
+                    { "name": "NetworkPolicyPatch", "type": "resource", "link": "networkpolicypatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "ClusterCIDR", "type": "resource", "link": "clustercidr" },
+                    { "name": "ClusterCIDRList", "type": "resource", "link": "clustercidrlist" },
+                    { "name": "ClusterCIDRPatch", "type": "resource", "link": "clustercidrpatch" },
+                    { "name": "IPAddress", "type": "resource", "link": "ipaddress" },
+                    { "name": "IPAddressList", "type": "resource", "link": "ipaddresslist" },
+                    { "name": "IPAddressPatch", "type": "resource", "link": "ipaddresspatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "Ingress", "type": "resource", "link": "ingress" },
+                    { "name": "IngressClass", "type": "resource", "link": "ingressclass" },
+                    { "name": "IngressClassList", "type": "resource", "link": "ingressclasslist" },
+                    { "name": "IngressClassPatch", "type": "resource", "link": "ingressclasspatch" },
+                    { "name": "IngressList", "type": "resource", "link": "ingresslist" },
+                    { "name": "IngressPatch", "type": "resource", "link": "ingresspatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "node",
+        "type": "module",
+        "link": "node/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "RuntimeClass", "type": "resource", "link": "runtimeclass" },
+                    { "name": "RuntimeClassList", "type": "resource", "link": "runtimeclasslist" },
+                    { "name": "RuntimeClassPatch", "type": "resource", "link": "runtimeclasspatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "RuntimeClass", "type": "resource", "link": "runtimeclass" },
+                    { "name": "RuntimeClassList", "type": "resource", "link": "runtimeclasslist" },
+                    { "name": "RuntimeClassPatch", "type": "resource", "link": "runtimeclasspatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "RuntimeClass", "type": "resource", "link": "runtimeclass" },
+                    { "name": "RuntimeClassList", "type": "resource", "link": "runtimeclasslist" },
+                    { "name": "RuntimeClassPatch", "type": "resource", "link": "runtimeclasspatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "policy",
+        "type": "module",
+        "link": "policy/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "PodDisruptionBudget", "type": "resource", "link": "poddisruptionbudget" },
+                    { "name": "PodDisruptionBudgetList", "type": "resource", "link": "poddisruptionbudgetlist" },
+                    { "name": "PodDisruptionBudgetPatch", "type": "resource", "link": "poddisruptionbudgetpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "PodDisruptionBudget", "type": "resource", "link": "poddisruptionbudget" },
+                    { "name": "PodDisruptionBudgetList", "type": "resource", "link": "poddisruptionbudgetlist" },
+                    { "name": "PodDisruptionBudgetPatch", "type": "resource", "link": "poddisruptionbudgetpatch" },
+                    { "name": "PodSecurityPolicy", "type": "resource", "link": "podsecuritypolicy" },
+                    { "name": "PodSecurityPolicyList", "type": "resource", "link": "podsecuritypolicylist" },
+                    { "name": "PodSecurityPolicyPatch", "type": "resource", "link": "podsecuritypolicypatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "rbac",
+        "type": "module",
+        "link": "rbac/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "ClusterRole", "type": "resource", "link": "clusterrole" },
+                    { "name": "ClusterRoleBinding", "type": "resource", "link": "clusterrolebinding" },
+                    { "name": "ClusterRoleBindingList", "type": "resource", "link": "clusterrolebindinglist" },
+                    { "name": "ClusterRoleBindingPatch", "type": "resource", "link": "clusterrolebindingpatch" },
+                    { "name": "ClusterRoleList", "type": "resource", "link": "clusterrolelist" },
+                    { "name": "ClusterRolePatch", "type": "resource", "link": "clusterrolepatch" },
+                    { "name": "Role", "type": "resource", "link": "role" },
+                    { "name": "RoleBinding", "type": "resource", "link": "rolebinding" },
+                    { "name": "RoleBindingList", "type": "resource", "link": "rolebindinglist" },
+                    { "name": "RoleBindingPatch", "type": "resource", "link": "rolebindingpatch" },
+                    { "name": "RoleList", "type": "resource", "link": "rolelist" },
+                    { "name": "RolePatch", "type": "resource", "link": "rolepatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "ClusterRole", "type": "resource", "link": "clusterrole" },
+                    { "name": "ClusterRoleBinding", "type": "resource", "link": "clusterrolebinding" },
+                    { "name": "ClusterRoleBindingList", "type": "resource", "link": "clusterrolebindinglist" },
+                    { "name": "ClusterRoleBindingPatch", "type": "resource", "link": "clusterrolebindingpatch" },
+                    { "name": "ClusterRoleList", "type": "resource", "link": "clusterrolelist" },
+                    { "name": "ClusterRolePatch", "type": "resource", "link": "clusterrolepatch" },
+                    { "name": "Role", "type": "resource", "link": "role" },
+                    { "name": "RoleBinding", "type": "resource", "link": "rolebinding" },
+                    { "name": "RoleBindingList", "type": "resource", "link": "rolebindinglist" },
+                    { "name": "RoleBindingPatch", "type": "resource", "link": "rolebindingpatch" },
+                    { "name": "RoleList", "type": "resource", "link": "rolelist" },
+                    { "name": "RolePatch", "type": "resource", "link": "rolepatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "ClusterRole", "type": "resource", "link": "clusterrole" },
+                    { "name": "ClusterRoleBinding", "type": "resource", "link": "clusterrolebinding" },
+                    { "name": "ClusterRoleBindingList", "type": "resource", "link": "clusterrolebindinglist" },
+                    { "name": "ClusterRoleBindingPatch", "type": "resource", "link": "clusterrolebindingpatch" },
+                    { "name": "ClusterRoleList", "type": "resource", "link": "clusterrolelist" },
+                    { "name": "ClusterRolePatch", "type": "resource", "link": "clusterrolepatch" },
+                    { "name": "Role", "type": "resource", "link": "role" },
+                    { "name": "RoleBinding", "type": "resource", "link": "rolebinding" },
+                    { "name": "RoleBindingList", "type": "resource", "link": "rolebindinglist" },
+                    { "name": "RoleBindingPatch", "type": "resource", "link": "rolebindingpatch" },
+                    { "name": "RoleList", "type": "resource", "link": "rolelist" },
+                    { "name": "RolePatch", "type": "resource", "link": "rolepatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "resource",
+        "type": "module",
+        "link": "resource/",
+        "children": [
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "PodScheduling", "type": "resource", "link": "podscheduling" },
+                    { "name": "PodSchedulingList", "type": "resource", "link": "podschedulinglist" },
+                    { "name": "PodSchedulingPatch", "type": "resource", "link": "podschedulingpatch" },
+                    { "name": "ResourceClaim", "type": "resource", "link": "resourceclaim" },
+                    { "name": "ResourceClaimList", "type": "resource", "link": "resourceclaimlist" },
+                    { "name": "ResourceClaimPatch", "type": "resource", "link": "resourceclaimpatch" },
+                    { "name": "ResourceClaimTemplate", "type": "resource", "link": "resourceclaimtemplate" },
+                    { "name": "ResourceClaimTemplateList", "type": "resource", "link": "resourceclaimtemplatelist" },
+                    { "name": "ResourceClaimTemplatePatch", "type": "resource", "link": "resourceclaimtemplatepatch" },
+                    { "name": "ResourceClass", "type": "resource", "link": "resourceclass" },
+                    { "name": "ResourceClassList", "type": "resource", "link": "resourceclasslist" },
+                    { "name": "ResourceClassPatch", "type": "resource", "link": "resourceclasspatch" }
+                ]
+            },
+            {
+                "name": "v1alpha2",
+                "type": "module",
+                "link": "v1alpha2/",
+                "children": [
+                    { "name": "PodSchedulingContext", "type": "resource", "link": "podschedulingcontext" },
+                    { "name": "PodSchedulingContextList", "type": "resource", "link": "podschedulingcontextlist" },
+                    { "name": "PodSchedulingContextPatch", "type": "resource", "link": "podschedulingcontextpatch" },
+                    { "name": "ResourceClaim", "type": "resource", "link": "resourceclaim" },
+                    { "name": "ResourceClaimList", "type": "resource", "link": "resourceclaimlist" },
+                    { "name": "ResourceClaimPatch", "type": "resource", "link": "resourceclaimpatch" },
+                    { "name": "ResourceClaimTemplate", "type": "resource", "link": "resourceclaimtemplate" },
+                    { "name": "ResourceClaimTemplateList", "type": "resource", "link": "resourceclaimtemplatelist" },
+                    { "name": "ResourceClaimTemplatePatch", "type": "resource", "link": "resourceclaimtemplatepatch" },
+                    { "name": "ResourceClass", "type": "resource", "link": "resourceclass" },
+                    { "name": "ResourceClassList", "type": "resource", "link": "resourceclasslist" },
+                    { "name": "ResourceClassPatch", "type": "resource", "link": "resourceclasspatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "scheduling",
+        "type": "module",
+        "link": "scheduling/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "PriorityClass", "type": "resource", "link": "priorityclass" },
+                    { "name": "PriorityClassList", "type": "resource", "link": "priorityclasslist" },
+                    { "name": "PriorityClassPatch", "type": "resource", "link": "priorityclasspatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "PriorityClass", "type": "resource", "link": "priorityclass" },
+                    { "name": "PriorityClassList", "type": "resource", "link": "priorityclasslist" },
+                    { "name": "PriorityClassPatch", "type": "resource", "link": "priorityclasspatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "PriorityClass", "type": "resource", "link": "priorityclass" },
+                    { "name": "PriorityClassList", "type": "resource", "link": "priorityclasslist" },
+                    { "name": "PriorityClassPatch", "type": "resource", "link": "priorityclasspatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "settings",
+        "type": "module",
+        "link": "settings/",
+        "children": [
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "PodPreset", "type": "resource", "link": "podpreset" },
+                    { "name": "PodPresetList", "type": "resource", "link": "podpresetlist" },
+                    { "name": "PodPresetPatch", "type": "resource", "link": "podpresetpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "storage",
+        "type": "module",
+        "link": "storage/",
+        "children": [
+            {
+                "name": "v1",
+                "type": "module",
+                "link": "v1/",
+                "children": [
+                    { "name": "CSIDriver", "type": "resource", "link": "csidriver" },
+                    { "name": "CSIDriverList", "type": "resource", "link": "csidriverlist" },
+                    { "name": "CSIDriverPatch", "type": "resource", "link": "csidriverpatch" },
+                    { "name": "CSINode", "type": "resource", "link": "csinode" },
+                    { "name": "CSINodeList", "type": "resource", "link": "csinodelist" },
+                    { "name": "CSINodePatch", "type": "resource", "link": "csinodepatch" },
+                    { "name": "CSIStorageCapacity", "type": "resource", "link": "csistoragecapacity" },
+                    { "name": "CSIStorageCapacityList", "type": "resource", "link": "csistoragecapacitylist" },
+                    { "name": "CSIStorageCapacityPatch", "type": "resource", "link": "csistoragecapacitypatch" },
+                    { "name": "StorageClass", "type": "resource", "link": "storageclass" },
+                    { "name": "StorageClassList", "type": "resource", "link": "storageclasslist" },
+                    { "name": "StorageClassPatch", "type": "resource", "link": "storageclasspatch" },
+                    { "name": "VolumeAttachment", "type": "resource", "link": "volumeattachment" },
+                    { "name": "VolumeAttachmentList", "type": "resource", "link": "volumeattachmentlist" },
+                    { "name": "VolumeAttachmentPatch", "type": "resource", "link": "volumeattachmentpatch" }
+                ]
+            },
+            {
+                "name": "v1alpha1",
+                "type": "module",
+                "link": "v1alpha1/",
+                "children": [
+                    { "name": "VolumeAttachment", "type": "resource", "link": "volumeattachment" },
+                    { "name": "VolumeAttachmentList", "type": "resource", "link": "volumeattachmentlist" },
+                    { "name": "VolumeAttachmentPatch", "type": "resource", "link": "volumeattachmentpatch" }
+                ]
+            },
+            {
+                "name": "v1beta1",
+                "type": "module",
+                "link": "v1beta1/",
+                "children": [
+                    { "name": "CSIDriver", "type": "resource", "link": "csidriver" },
+                    { "name": "CSIDriverList", "type": "resource", "link": "csidriverlist" },
+                    { "name": "CSIDriverPatch", "type": "resource", "link": "csidriverpatch" },
+                    { "name": "CSINode", "type": "resource", "link": "csinode" },
+                    { "name": "CSINodeList", "type": "resource", "link": "csinodelist" },
+                    { "name": "CSINodePatch", "type": "resource", "link": "csinodepatch" },
+                    { "name": "CSIStorageCapacity", "type": "resource", "link": "csistoragecapacity" },
+                    { "name": "CSIStorageCapacityList", "type": "resource", "link": "csistoragecapacitylist" },
+                    { "name": "CSIStorageCapacityPatch", "type": "resource", "link": "csistoragecapacitypatch" },
+                    { "name": "StorageClass", "type": "resource", "link": "storageclass" },
+                    { "name": "StorageClassList", "type": "resource", "link": "storageclasslist" },
+                    { "name": "StorageClassPatch", "type": "resource", "link": "storageclasspatch" },
+                    { "name": "VolumeAttachment", "type": "resource", "link": "volumeattachment" },
+                    { "name": "VolumeAttachmentList", "type": "resource", "link": "volumeattachmentlist" },
+                    { "name": "VolumeAttachmentPatch", "type": "resource", "link": "volumeattachmentpatch" }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "yaml",
+        "type": "module",
+        "link": "yaml/",
+        "children": [
+            { "name": "ConfigFile", "type": "resource", "link": "configfile" },
+            { "name": "ConfigGroup", "type": "resource", "link": "configgroup" }
+        ]
+    },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

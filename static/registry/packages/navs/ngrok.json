@@ -1,1 +1,20 @@
-[{"name":"AgentIngress","type":"resource","link":"agentingress"},{"name":"ApiKey","type":"resource","link":"apikey"},{"name":"CertificateAuthority","type":"resource","link":"certificateauthority"},{"name":"Credential","type":"resource","link":"credential"},{"name":"EndpointConfiguration","type":"resource","link":"endpointconfiguration"},{"name":"EventDestination","type":"resource","link":"eventdestination"},{"name":"EventSubscription","type":"resource","link":"eventsubscription"},{"name":"IpPolicy","type":"resource","link":"ippolicy"},{"name":"IpPolicyRule","type":"resource","link":"ippolicyrule"},{"name":"IpRestriction","type":"resource","link":"iprestriction"},{"name":"Provider","type":"resource","link":"provider"},{"name":"ReservedAddress","type":"resource","link":"reservedaddress"},{"name":"ReservedDomain","type":"resource","link":"reserveddomain"},{"name":"SshCertificateAuthority","type":"resource","link":"sshcertificateauthority"},{"name":"SshCredential","type":"resource","link":"sshcredential"},{"name":"SshHostCertificate","type":"resource","link":"sshhostcertificate"},{"name":"SshUserCertificate","type":"resource","link":"sshusercertificate"},{"name":"TlsCertificate","type":"resource","link":"tlscertificate"}]
+[
+    { "name": "AgentIngress", "type": "resource", "link": "agentingress" },
+    { "name": "ApiKey", "type": "resource", "link": "apikey" },
+    { "name": "CertificateAuthority", "type": "resource", "link": "certificateauthority" },
+    { "name": "Credential", "type": "resource", "link": "credential" },
+    { "name": "EndpointConfiguration", "type": "resource", "link": "endpointconfiguration" },
+    { "name": "EventDestination", "type": "resource", "link": "eventdestination" },
+    { "name": "EventSubscription", "type": "resource", "link": "eventsubscription" },
+    { "name": "IpPolicy", "type": "resource", "link": "ippolicy" },
+    { "name": "IpPolicyRule", "type": "resource", "link": "ippolicyrule" },
+    { "name": "IpRestriction", "type": "resource", "link": "iprestriction" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "ReservedAddress", "type": "resource", "link": "reservedaddress" },
+    { "name": "ReservedDomain", "type": "resource", "link": "reserveddomain" },
+    { "name": "SshCertificateAuthority", "type": "resource", "link": "sshcertificateauthority" },
+    { "name": "SshCredential", "type": "resource", "link": "sshcredential" },
+    { "name": "SshHostCertificate", "type": "resource", "link": "sshhostcertificate" },
+    { "name": "SshUserCertificate", "type": "resource", "link": "sshusercertificate" },
+    { "name": "TlsCertificate", "type": "resource", "link": "tlscertificate" }
+]

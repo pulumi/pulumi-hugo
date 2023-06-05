@@ -1,1 +1,19 @@
-[{"name":"ActiveActiveSubscription","type":"resource","link":"activeactivesubscription"},{"name":"ActiveActiveSubscriptionDatabase","type":"resource","link":"activeactivesubscriptiondatabase"},{"name":"ActiveActiveSubscriptionPeering","type":"resource","link":"activeactivesubscriptionpeering"},{"name":"ActiveActiveSubscriptionRegions","type":"resource","link":"activeactivesubscriptionregions"},{"name":"CloudAccount","type":"resource","link":"cloudaccount"},{"name":"Provider","type":"resource","link":"provider"},{"name":"Subscription","type":"resource","link":"subscription"},{"name":"SubscriptionDatabase","type":"resource","link":"subscriptiondatabase"},{"name":"SubscriptionPeering","type":"resource","link":"subscriptionpeering"},{"name":"getCloudAccount","type":"function","link":"getcloudaccount"},{"name":"getDataPersistence","type":"function","link":"getdatapersistence"},{"name":"getDatabase","type":"function","link":"getdatabase"},{"name":"getDatabaseModules","type":"function","link":"getdatabasemodules"},{"name":"getPaymentMethod","type":"function","link":"getpaymentmethod"},{"name":"getRegions","type":"function","link":"getregions"},{"name":"getSubscription","type":"function","link":"getsubscription"},{"name":"getSubscriptionPeerings","type":"function","link":"getsubscriptionpeerings"}]
+[
+    { "name": "ActiveActiveSubscription", "type": "resource", "link": "activeactivesubscription" },
+    { "name": "ActiveActiveSubscriptionDatabase", "type": "resource", "link": "activeactivesubscriptiondatabase" },
+    { "name": "ActiveActiveSubscriptionPeering", "type": "resource", "link": "activeactivesubscriptionpeering" },
+    { "name": "ActiveActiveSubscriptionRegions", "type": "resource", "link": "activeactivesubscriptionregions" },
+    { "name": "CloudAccount", "type": "resource", "link": "cloudaccount" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "Subscription", "type": "resource", "link": "subscription" },
+    { "name": "SubscriptionDatabase", "type": "resource", "link": "subscriptiondatabase" },
+    { "name": "SubscriptionPeering", "type": "resource", "link": "subscriptionpeering" },
+    { "name": "getCloudAccount", "type": "function", "link": "getcloudaccount" },
+    { "name": "getDataPersistence", "type": "function", "link": "getdatapersistence" },
+    { "name": "getDatabase", "type": "function", "link": "getdatabase" },
+    { "name": "getDatabaseModules", "type": "function", "link": "getdatabasemodules" },
+    { "name": "getPaymentMethod", "type": "function", "link": "getpaymentmethod" },
+    { "name": "getRegions", "type": "function", "link": "getregions" },
+    { "name": "getSubscription", "type": "function", "link": "getsubscription" },
+    { "name": "getSubscriptionPeerings", "type": "function", "link": "getsubscriptionpeerings" }
+]

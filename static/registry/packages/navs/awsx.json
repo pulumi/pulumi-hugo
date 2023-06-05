@@ -1,1 +1,45 @@
-[{"name":"awsx","type":"module","link":"awsx/"},{"name":"cloudtrail","type":"module","link":"cloudtrail/","children":[{"name":"Trail","type":"resource","link":"trail"}]},{"name":"ec2","type":"module","link":"ec2/","children":[{"name":"DefaultVpc","type":"resource","link":"defaultvpc"},{"name":"Vpc","type":"resource","link":"vpc"},{"name":"getDefaultVpc","type":"function","link":"getdefaultvpc"}]},{"name":"ecr","type":"module","link":"ecr/","children":[{"name":"Image","type":"resource","link":"image"},{"name":"Repository","type":"resource","link":"repository"}]},{"name":"ecs","type":"module","link":"ecs/","children":[{"name":"EC2Service","type":"resource","link":"ec2service"},{"name":"EC2TaskDefinition","type":"resource","link":"ec2taskdefinition"},{"name":"FargateService","type":"resource","link":"fargateservice"},{"name":"FargateTaskDefinition","type":"resource","link":"fargatetaskdefinition"}]},{"name":"lb","type":"module","link":"lb/","children":[{"name":"ApplicationLoadBalancer","type":"resource","link":"applicationloadbalancer"},{"name":"NetworkLoadBalancer","type":"resource","link":"networkloadbalancer"},{"name":"TargetGroupAttachment","type":"resource","link":"targetgroupattachment"}]},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    { "name": "awsx", "type": "module", "link": "awsx/" },
+    { "name": "cloudtrail", "type": "module", "link": "cloudtrail/", "children": [{ "name": "Trail", "type": "resource", "link": "trail" }] },
+    {
+        "name": "ec2",
+        "type": "module",
+        "link": "ec2/",
+        "children": [
+            { "name": "DefaultVpc", "type": "resource", "link": "defaultvpc" },
+            { "name": "Vpc", "type": "resource", "link": "vpc" },
+            { "name": "getDefaultVpc", "type": "function", "link": "getdefaultvpc" }
+        ]
+    },
+    {
+        "name": "ecr",
+        "type": "module",
+        "link": "ecr/",
+        "children": [
+            { "name": "Image", "type": "resource", "link": "image" },
+            { "name": "Repository", "type": "resource", "link": "repository" }
+        ]
+    },
+    {
+        "name": "ecs",
+        "type": "module",
+        "link": "ecs/",
+        "children": [
+            { "name": "EC2Service", "type": "resource", "link": "ec2service" },
+            { "name": "EC2TaskDefinition", "type": "resource", "link": "ec2taskdefinition" },
+            { "name": "FargateService", "type": "resource", "link": "fargateservice" },
+            { "name": "FargateTaskDefinition", "type": "resource", "link": "fargatetaskdefinition" }
+        ]
+    },
+    {
+        "name": "lb",
+        "type": "module",
+        "link": "lb/",
+        "children": [
+            { "name": "ApplicationLoadBalancer", "type": "resource", "link": "applicationloadbalancer" },
+            { "name": "NetworkLoadBalancer", "type": "resource", "link": "networkloadbalancer" },
+            { "name": "TargetGroupAttachment", "type": "resource", "link": "targetgroupattachment" }
+        ]
+    },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

@@ -1,1 +1,1490 @@
-[{"name":"accessapproval","type":"module","link":"accessapproval/","children":[{"name":"getFolderServiceAccount","type":"function","link":"getfolderserviceaccount"},{"name":"getOrganizationServiceAccount","type":"function","link":"getorganizationserviceaccount"},{"name":"getProjectServiceAccount","type":"function","link":"getprojectserviceaccount"}]},{"name":"accesscontextmanager","type":"module","link":"accesscontextmanager/","children":[{"name":"AccessLevel","type":"resource","link":"accesslevel"},{"name":"AccessLevelCondition","type":"resource","link":"accesslevelcondition"},{"name":"AccessLevels","type":"resource","link":"accesslevels"},{"name":"AccessPolicy","type":"resource","link":"accesspolicy"},{"name":"AccessPolicyIamBinding","type":"resource","link":"accesspolicyiambinding"},{"name":"AccessPolicyIamMember","type":"resource","link":"accesspolicyiammember"},{"name":"AccessPolicyIamPolicy","type":"resource","link":"accesspolicyiampolicy"},{"name":"AuthorizedOrgsDesc","type":"resource","link":"authorizedorgsdesc"},{"name":"EgressPolicy","type":"resource","link":"egresspolicy"},{"name":"GcpUserAccessBinding","type":"resource","link":"gcpuseraccessbinding"},{"name":"IngressPolicy","type":"resource","link":"ingresspolicy"},{"name":"ServicePerimeter","type":"resource","link":"serviceperimeter"},{"name":"ServicePerimeterResource","type":"resource","link":"serviceperimeterresource"},{"name":"ServicePerimeters","type":"resource","link":"serviceperimeters"}]},{"name":"activedirectory","type":"module","link":"activedirectory/","children":[{"name":"Domain","type":"resource","link":"domain"},{"name":"DomainTrust","type":"resource","link":"domaintrust"},{"name":"Peering","type":"resource","link":"peering"}]},{"name":"alloydb","type":"module","link":"alloydb/","children":[{"name":"Backup","type":"resource","link":"backup"},{"name":"Cluster","type":"resource","link":"cluster"},{"name":"Instance","type":"resource","link":"instance"},{"name":"getLocations","type":"function","link":"getlocations"},{"name":"getSupportedDatabaseFlags","type":"function","link":"getsupporteddatabaseflags"}]},{"name":"apigateway","type":"module","link":"apigateway/","children":[{"name":"Api","type":"resource","link":"api"},{"name":"ApiConfig","type":"resource","link":"apiconfig"},{"name":"ApiConfigIamBinding","type":"resource","link":"apiconfigiambinding"},{"name":"ApiConfigIamMember","type":"resource","link":"apiconfigiammember"},{"name":"ApiConfigIamPolicy","type":"resource","link":"apiconfigiampolicy"},{"name":"ApiIamBinding","type":"resource","link":"apiiambinding"},{"name":"ApiIamMember","type":"resource","link":"apiiammember"},{"name":"ApiIamPolicy","type":"resource","link":"apiiampolicy"},{"name":"Gateway","type":"resource","link":"gateway"},{"name":"GatewayIamBinding","type":"resource","link":"gatewayiambinding"},{"name":"GatewayIamMember","type":"resource","link":"gatewayiammember"},{"name":"GatewayIamPolicy","type":"resource","link":"gatewayiampolicy"}]},{"name":"apigee","type":"module","link":"apigee/","children":[{"name":"AddonsConfig","type":"resource","link":"addonsconfig"},{"name":"EndpointAttachment","type":"resource","link":"endpointattachment"},{"name":"EnvGroup","type":"resource","link":"envgroup"},{"name":"EnvGroupAttachment","type":"resource","link":"envgroupattachment"},{"name":"EnvKeystore","type":"resource","link":"envkeystore"},{"name":"EnvReferences","type":"resource","link":"envreferences"},{"name":"Environment","type":"resource","link":"environment"},{"name":"EnvironmentIamBinding","type":"resource","link":"environmentiambinding"},{"name":"EnvironmentIamMember","type":"resource","link":"environmentiammember"},{"name":"EnvironmentIamPolicy","type":"resource","link":"environmentiampolicy"},{"name":"Flowhook","type":"resource","link":"flowhook"},{"name":"Instance","type":"resource","link":"instance"},{"name":"InstanceAttachment","type":"resource","link":"instanceattachment"},{"name":"KeystoresAliasesKeyCertFile","type":"resource","link":"keystoresaliaseskeycertfile"},{"name":"KeystoresAliasesPkcs12","type":"resource","link":"keystoresaliasespkcs12"},{"name":"KeystoresAliasesSelfSignedCert","type":"resource","link":"keystoresaliasesselfsignedcert"},{"name":"NatAddress","type":"resource","link":"nataddress"},{"name":"Organization","type":"resource","link":"organization"},{"name":"Sharedflow","type":"resource","link":"sharedflow"},{"name":"SharedflowDeployment","type":"resource","link":"sharedflowdeployment"},{"name":"SyncAuthorization","type":"resource","link":"syncauthorization"}]},{"name":"appengine","type":"module","link":"appengine/","children":[{"name":"Application","type":"resource","link":"application"},{"name":"ApplicationUrlDispatchRules","type":"resource","link":"applicationurldispatchrules"},{"name":"DomainMapping","type":"resource","link":"domainmapping"},{"name":"EngineSplitTraffic","type":"resource","link":"enginesplittraffic"},{"name":"FirewallRule","type":"resource","link":"firewallrule"},{"name":"FlexibleAppVersion","type":"resource","link":"flexibleappversion"},{"name":"ServiceNetworkSettings","type":"resource","link":"servicenetworksettings"},{"name":"StandardAppVersion","type":"resource","link":"standardappversion"},{"name":"getDefaultServiceAccount","type":"function","link":"getdefaultserviceaccount"}]},{"name":"artifactregistry","type":"module","link":"artifactregistry/","children":[{"name":"Repository","type":"resource","link":"repository"},{"name":"RepositoryIamBinding","type":"resource","link":"repositoryiambinding"},{"name":"RepositoryIamMember","type":"resource","link":"repositoryiammember"},{"name":"RepositoryIamPolicy","type":"resource","link":"repositoryiampolicy"},{"name":"getRepository","type":"function","link":"getrepository"}]},{"name":"assuredworkloads","type":"module","link":"assuredworkloads/","children":[{"name":"Workload","type":"resource","link":"workload"}]},{"name":"beyondcorp","type":"module","link":"beyondcorp/","children":[{"name":"AppConnection","type":"resource","link":"appconnection"},{"name":"AppConnector","type":"resource","link":"appconnector"},{"name":"AppGateway","type":"resource","link":"appgateway"},{"name":"getAppConnection","type":"function","link":"getappconnection"},{"name":"getAppConnector","type":"function","link":"getappconnector"},{"name":"getAppGateway","type":"function","link":"getappgateway"}]},{"name":"bigquery","type":"module","link":"bigquery/","children":[{"name":"AppProfile","type":"resource","link":"appprofile"},{"name":"CapacityCommitment","type":"resource","link":"capacitycommitment"},{"name":"Connection","type":"resource","link":"connection"},{"name":"ConnectionIamBinding","type":"resource","link":"connectioniambinding"},{"name":"ConnectionIamMember","type":"resource","link":"connectioniammember"},{"name":"ConnectionIamPolicy","type":"resource","link":"connectioniampolicy"},{"name":"DataTransferConfig","type":"resource","link":"datatransferconfig"},{"name":"Dataset","type":"resource","link":"dataset"},{"name":"DatasetAccess","type":"resource","link":"datasetaccess"},{"name":"DatasetIamBinding","type":"resource","link":"datasetiambinding"},{"name":"DatasetIamMember","type":"resource","link":"datasetiammember"},{"name":"DatasetIamPolicy","type":"resource","link":"datasetiampolicy"},{"name":"IamBinding","type":"resource","link":"iambinding"},{"name":"IamMember","type":"resource","link":"iammember"},{"name":"IamPolicy","type":"resource","link":"iampolicy"},{"name":"Job","type":"resource","link":"job"},{"name":"Reservation","type":"resource","link":"reservation"},{"name":"ReservationAssignment","type":"resource","link":"reservationassignment"},{"name":"Routine","type":"resource","link":"routine"},{"name":"Table","type":"resource","link":"table"},{"name":"getDefaultServiceAccount","type":"function","link":"getdefaultserviceaccount"}]},{"name":"bigqueryanalyticshub","type":"module","link":"bigqueryanalyticshub/","children":[{"name":"DataExchange","type":"resource","link":"dataexchange"},{"name":"DataExchangeIamBinding","type":"resource","link":"dataexchangeiambinding"},{"name":"DataExchangeIamMember","type":"resource","link":"dataexchangeiammember"},{"name":"DataExchangeIamPolicy","type":"resource","link":"dataexchangeiampolicy"},{"name":"Listing","type":"resource","link":"listing"},{"name":"ListingIamBinding","type":"resource","link":"listingiambinding"},{"name":"ListingIamMember","type":"resource","link":"listingiammember"},{"name":"ListingIamPolicy","type":"resource","link":"listingiampolicy"}]},{"name":"bigquerydatapolicy","type":"module","link":"bigquerydatapolicy/","children":[{"name":"DataPolicy","type":"resource","link":"datapolicy"},{"name":"DataPolicyIamBinding","type":"resource","link":"datapolicyiambinding"},{"name":"DataPolicyIamMember","type":"resource","link":"datapolicyiammember"},{"name":"DataPolicyIamPolicy","type":"resource","link":"datapolicyiampolicy"}]},{"name":"bigtable","type":"module","link":"bigtable/","children":[{"name":"GCPolicy","type":"resource","link":"gcpolicy"},{"name":"Instance","type":"resource","link":"instance"},{"name":"InstanceIamBinding","type":"resource","link":"instanceiambinding"},{"name":"InstanceIamMember","type":"resource","link":"instanceiammember"},{"name":"InstanceIamPolicy","type":"resource","link":"instanceiampolicy"},{"name":"Table","type":"resource","link":"table"},{"name":"TableIamBinding","type":"resource","link":"tableiambinding"},{"name":"TableIamMember","type":"resource","link":"tableiammember"},{"name":"TableIamPolicy","type":"resource","link":"tableiampolicy"}]},{"name":"billing","type":"module","link":"billing/","children":[{"name":"AccountIamBinding","type":"resource","link":"accountiambinding"},{"name":"AccountIamMember","type":"resource","link":"accountiammember"},{"name":"AccountIamPolicy","type":"resource","link":"accountiampolicy"},{"name":"Budget","type":"resource","link":"budget"},{"name":"SubAccount","type":"resource","link":"subaccount"}]},{"name":"binaryauthorization","type":"module","link":"binaryauthorization/","children":[{"name":"Attestor","type":"resource","link":"attestor"},{"name":"AttestorIamBinding","type":"resource","link":"attestoriambinding"},{"name":"AttestorIamMember","type":"resource","link":"attestoriammember"},{"name":"AttestorIamPolicy","type":"resource","link":"attestoriampolicy"},{"name":"Policy","type":"resource","link":"policy"}]},{"name":"certificateauthority","type":"module","link":"certificateauthority/","children":[{"name":"Authority","type":"resource","link":"authority"},{"name":"CaPool","type":"resource","link":"capool"},{"name":"CaPoolIamBinding","type":"resource","link":"capooliambinding"},{"name":"CaPoolIamMember","type":"resource","link":"capooliammember"},{"name":"CaPoolIamPolicy","type":"resource","link":"capooliampolicy"},{"name":"Certificate","type":"resource","link":"certificate"},{"name":"CertificateTemplate","type":"resource","link":"certificatetemplate"},{"name":"CertificateTemplateIamBinding","type":"resource","link":"certificatetemplateiambinding"},{"name":"CertificateTemplateIamMember","type":"resource","link":"certificatetemplateiammember"},{"name":"CertificateTemplateIamPolicy","type":"resource","link":"certificatetemplateiampolicy"},{"name":"getAuthority","type":"function","link":"getauthority"}]},{"name":"certificatemanager","type":"module","link":"certificatemanager/","children":[{"name":"Certificate","type":"resource","link":"certificate"},{"name":"CertificateMap","type":"resource","link":"certificatemap"},{"name":"CertificateMapEntry","type":"resource","link":"certificatemapentry"},{"name":"DnsAuthorization","type":"resource","link":"dnsauthorization"}]},{"name":"cloudasset","type":"module","link":"cloudasset/","children":[{"name":"FolderFeed","type":"resource","link":"folderfeed"},{"name":"OrganizationFeed","type":"resource","link":"organizationfeed"},{"name":"ProjectFeed","type":"resource","link":"projectfeed"},{"name":"getResourcesSearchAll","type":"function","link":"getresourcessearchall"}]},{"name":"cloudbuild","type":"module","link":"cloudbuild/","children":[{"name":"BitbucketServerConfig","type":"resource","link":"bitbucketserverconfig"},{"name":"Trigger","type":"resource","link":"trigger"},{"name":"WorkerPool","type":"resource","link":"workerpool"},{"name":"getTrigger","type":"function","link":"gettrigger"}]},{"name":"cloudbuildv2","type":"module","link":"cloudbuildv2/","children":[{"name":"Connection","type":"resource","link":"connection"},{"name":"ConnectionIAMBinding","type":"resource","link":"connectioniambinding"},{"name":"ConnectionIAMMember","type":"resource","link":"connectioniammember"},{"name":"ConnectionIAMPolicy","type":"resource","link":"connectioniampolicy"},{"name":"Repository","type":"resource","link":"repository"}]},{"name":"clouddeploy","type":"module","link":"clouddeploy/","children":[{"name":"DeliveryPipeline","type":"resource","link":"deliverypipeline"},{"name":"Target","type":"resource","link":"target"}]},{"name":"cloudfunctions","type":"module","link":"cloudfunctions/","children":[{"name":"Function","type":"resource","link":"function"},{"name":"FunctionIamBinding","type":"resource","link":"functioniambinding"},{"name":"FunctionIamMember","type":"resource","link":"functioniammember"},{"name":"FunctionIamPolicy","type":"resource","link":"functioniampolicy"},{"name":"getFunction","type":"function","link":"getfunction"}]},{"name":"cloudfunctionsv2","type":"module","link":"cloudfunctionsv2/","children":[{"name":"Function","type":"resource","link":"function"},{"name":"FunctionIamBinding","type":"resource","link":"functioniambinding"},{"name":"FunctionIamMember","type":"resource","link":"functioniammember"},{"name":"FunctionIamPolicy","type":"resource","link":"functioniampolicy"},{"name":"getFunction","type":"function","link":"getfunction"}]},{"name":"cloudidentity","type":"module","link":"cloudidentity/","children":[{"name":"Group","type":"resource","link":"group"},{"name":"GroupMembership","type":"resource","link":"groupmembership"},{"name":"getGroupMemberships","type":"function","link":"getgroupmemberships"},{"name":"getGroups","type":"function","link":"getgroups"}]},{"name":"cloudids","type":"module","link":"cloudids/","children":[{"name":"Endpoint","type":"resource","link":"endpoint"}]},{"name":"cloudrun","type":"module","link":"cloudrun/","children":[{"name":"DomainMapping","type":"resource","link":"domainmapping"},{"name":"IamBinding","type":"resource","link":"iambinding"},{"name":"IamMember","type":"resource","link":"iammember"},{"name":"IamPolicy","type":"resource","link":"iampolicy"},{"name":"Service","type":"resource","link":"service"},{"name":"getLocations","type":"function","link":"getlocations"},{"name":"getService","type":"function","link":"getservice"}]},{"name":"cloudrunv2","type":"module","link":"cloudrunv2/","children":[{"name":"Job","type":"resource","link":"job"},{"name":"JobIamBinding","type":"resource","link":"jobiambinding"},{"name":"JobIamMember","type":"resource","link":"jobiammember"},{"name":"JobIamPolicy","type":"resource","link":"jobiampolicy"},{"name":"Service","type":"resource","link":"service"},{"name":"ServiceIamBinding","type":"resource","link":"serviceiambinding"},{"name":"ServiceIamMember","type":"resource","link":"serviceiammember"},{"name":"ServiceIamPolicy","type":"resource","link":"serviceiampolicy"}]},{"name":"cloudscheduler","type":"module","link":"cloudscheduler/","children":[{"name":"Job","type":"resource","link":"job"}]},{"name":"cloudtasks","type":"module","link":"cloudtasks/","children":[{"name":"Queue","type":"resource","link":"queue"},{"name":"QueueIamBinding","type":"resource","link":"queueiambinding"},{"name":"QueueIamMember","type":"resource","link":"queueiammember"},{"name":"QueueIamPolicy","type":"resource","link":"queueiampolicy"}]},{"name":"composer","type":"module","link":"composer/","children":[{"name":"Environment","type":"resource","link":"environment"},{"name":"getEnvironment","type":"function","link":"getenvironment"},{"name":"getImageVersions","type":"function","link":"getimageversions"}]},{"name":"compute","type":"module","link":"compute/","children":[{"name":"Address","type":"resource","link":"address"},{"name":"AttachedDisk","type":"resource","link":"attacheddisk"},{"name":"Autoscalar","type":"resource","link":"autoscalar"},{"name":"Autoscaler","type":"resource","link":"autoscaler"},{"name":"BackendBucket","type":"resource","link":"backendbucket"},{"name":"BackendBucketIamBinding","type":"resource","link":"backendbucketiambinding"},{"name":"BackendBucketIamMember","type":"resource","link":"backendbucketiammember"},{"name":"BackendBucketIamPolicy","type":"resource","link":"backendbucketiampolicy"},{"name":"BackendBucketSignedUrlKey","type":"resource","link":"backendbucketsignedurlkey"},{"name":"BackendService","type":"resource","link":"backendservice"},{"name":"BackendServiceIamBinding","type":"resource","link":"backendserviceiambinding"},{"name":"BackendServiceIamMember","type":"resource","link":"backendserviceiammember"},{"name":"BackendServiceIamPolicy","type":"resource","link":"backendserviceiampolicy"},{"name":"BackendServiceSignedUrlKey","type":"resource","link":"backendservicesignedurlkey"},{"name":"Disk","type":"resource","link":"disk"},{"name":"DiskAsyncReplication","type":"resource","link":"diskasyncreplication"},{"name":"DiskIamBinding","type":"resource","link":"diskiambinding"},{"name":"DiskIamMember","type":"resource","link":"diskiammember"},{"name":"DiskIamPolicy","type":"resource","link":"diskiampolicy"},{"name":"DiskResourcePolicyAttachment","type":"resource","link":"diskresourcepolicyattachment"},{"name":"ExternalVpnGateway","type":"resource","link":"externalvpngateway"},{"name":"Firewall","type":"resource","link":"firewall"},{"name":"FirewallPolicy","type":"resource","link":"firewallpolicy"},{"name":"FirewallPolicyAssociation","type":"resource","link":"firewallpolicyassociation"},{"name":"FirewallPolicyRule","type":"resource","link":"firewallpolicyrule"},{"name":"ForwardingRule","type":"resource","link":"forwardingrule"},{"name":"GlobalAddress","type":"resource","link":"globaladdress"},{"name":"GlobalForwardingRule","type":"resource","link":"globalforwardingrule"},{"name":"GlobalNetworkEndpoint","type":"resource","link":"globalnetworkendpoint"},{"name":"GlobalNetworkEndpointGroup","type":"resource","link":"globalnetworkendpointgroup"},{"name":"HaVpnGateway","type":"resource","link":"havpngateway"},{"name":"HealthCheck","type":"resource","link":"healthcheck"},{"name":"HttpHealthCheck","type":"resource","link":"httphealthcheck"},{"name":"HttpsHealthCheck","type":"resource","link":"httpshealthcheck"},{"name":"Image","type":"resource","link":"image"},{"name":"ImageIamBinding","type":"resource","link":"imageiambinding"},{"name":"ImageIamMember","type":"resource","link":"imageiammember"},{"name":"ImageIamPolicy","type":"resource","link":"imageiampolicy"},{"name":"Instance","type":"resource","link":"instance"},{"name":"InstanceFromMachineImage","type":"resource","link":"instancefrommachineimage"},{"name":"InstanceFromTemplate","type":"resource","link":"instancefromtemplate"},{"name":"InstanceGroup","type":"resource","link":"instancegroup"},{"name":"InstanceGroupManager","type":"resource","link":"instancegroupmanager"},{"name":"InstanceGroupNamedPort","type":"resource","link":"instancegroupnamedport"},{"name":"InstanceIAMBinding","type":"resource","link":"instanceiambinding"},{"name":"InstanceIAMMember","type":"resource","link":"instanceiammember"},{"name":"InstanceIAMPolicy","type":"resource","link":"instanceiampolicy"},{"name":"InstanceTemplate","type":"resource","link":"instancetemplate"},{"name":"InterconnectAttachment","type":"resource","link":"interconnectattachment"},{"name":"MachineImage","type":"resource","link":"machineimage"},{"name":"MachineImageIamBinding","type":"resource","link":"machineimageiambinding"},{"name":"MachineImageIamMember","type":"resource","link":"machineimageiammember"},{"name":"MachineImageIamPolicy","type":"resource","link":"machineimageiampolicy"},{"name":"ManagedSslCertificate","type":"resource","link":"managedsslcertificate"},{"name":"MangedSslCertificate","type":"resource","link":"mangedsslcertificate"},{"name":"Network","type":"resource","link":"network"},{"name":"NetworkEndpoint","type":"resource","link":"networkendpoint"},{"name":"NetworkEndpointGroup","type":"resource","link":"networkendpointgroup"},{"name":"NetworkFirewallPolicy","type":"resource","link":"networkfirewallpolicy"},{"name":"NetworkFirewallPolicyAssociation","type":"resource","link":"networkfirewallpolicyassociation"},{"name":"NetworkFirewallPolicyRule","type":"resource","link":"networkfirewallpolicyrule"},{"name":"NetworkPeering","type":"resource","link":"networkpeering"},{"name":"NetworkPeeringRoutesConfig","type":"resource","link":"networkpeeringroutesconfig"},{"name":"NodeGroup","type":"resource","link":"nodegroup"},{"name":"NodeTemplate","type":"resource","link":"nodetemplate"},{"name":"OrganizationSecurityPolicy","type":"resource","link":"organizationsecuritypolicy"},{"name":"OrganizationSecurityPolicyAssociation","type":"resource","link":"organizationsecuritypolicyassociation"},{"name":"OrganizationSecurityPolicyRule","type":"resource","link":"organizationsecuritypolicyrule"},{"name":"PacketMirroring","type":"resource","link":"packetmirroring"},{"name":"PerInstanceConfig","type":"resource","link":"perinstanceconfig"},{"name":"ProjectDefaultNetworkTier","type":"resource","link":"projectdefaultnetworktier"},{"name":"ProjectMetadata","type":"resource","link":"projectmetadata"},{"name":"ProjectMetadataItem","type":"resource","link":"projectmetadataitem"},{"name":"PublicAdvertisedPrefix","type":"resource","link":"publicadvertisedprefix"},{"name":"PublicDelegatedPrefix","type":"resource","link":"publicdelegatedprefix"},{"name":"RegionAutoscaler","type":"resource","link":"regionautoscaler"},{"name":"RegionBackendService","type":"resource","link":"regionbackendservice"},{"name":"RegionBackendServiceIamBinding","type":"resource","link":"regionbackendserviceiambinding"},{"name":"RegionBackendServiceIamMember","type":"resource","link":"regionbackendserviceiammember"},{"name":"RegionBackendServiceIamPolicy","type":"resource","link":"regionbackendserviceiampolicy"},{"name":"RegionCommitment","type":"resource","link":"regioncommitment"},{"name":"RegionDisk","type":"resource","link":"regiondisk"},{"name":"RegionDiskIamBinding","type":"resource","link":"regiondiskiambinding"},{"name":"RegionDiskIamMember","type":"resource","link":"regiondiskiammember"},{"name":"RegionDiskIamPolicy","type":"resource","link":"regiondiskiampolicy"},{"name":"RegionDiskResourcePolicyAttachment","type":"resource","link":"regiondiskresourcepolicyattachment"},{"name":"RegionHealthCheck","type":"resource","link":"regionhealthcheck"},{"name":"RegionInstanceGroupManager","type":"resource","link":"regioninstancegroupmanager"},{"name":"RegionInstanceTemplate","type":"resource","link":"regioninstancetemplate"},{"name":"RegionNetworkEndpointGroup","type":"resource","link":"regionnetworkendpointgroup"},{"name":"RegionNetworkFirewallPolicy","type":"resource","link":"regionnetworkfirewallpolicy"},{"name":"RegionNetworkFirewallPolicyAssociation","type":"resource","link":"regionnetworkfirewallpolicyassociation"},{"name":"RegionNetworkFirewallPolicyRule","type":"resource","link":"regionnetworkfirewallpolicyrule"},{"name":"RegionPerInstanceConfig","type":"resource","link":"regionperinstanceconfig"},{"name":"RegionSslCertificate","type":"resource","link":"regionsslcertificate"},{"name":"RegionSslPolicy","type":"resource","link":"regionsslpolicy"},{"name":"RegionTargetHttpProxy","type":"resource","link":"regiontargethttpproxy"},{"name":"RegionTargetHttpsProxy","type":"resource","link":"regiontargethttpsproxy"},{"name":"RegionTargetTcpProxy","type":"resource","link":"regiontargettcpproxy"},{"name":"RegionUrlMap","type":"resource","link":"regionurlmap"},{"name":"Reservation","type":"resource","link":"reservation"},{"name":"ResourcePolicy","type":"resource","link":"resourcepolicy"},{"name":"Route","type":"resource","link":"route"},{"name":"Router","type":"resource","link":"router"},{"name":"RouterInterface","type":"resource","link":"routerinterface"},{"name":"RouterNat","type":"resource","link":"routernat"},{"name":"RouterPeer","type":"resource","link":"routerpeer"},{"name":"SSLCertificate","type":"resource","link":"sslcertificate"},{"name":"SSLPolicy","type":"resource","link":"sslpolicy"},{"name":"SecurityPolicy","type":"resource","link":"securitypolicy"},{"name":"SecurityScanConfig","type":"resource","link":"securityscanconfig"},{"name":"ServiceAttachment","type":"resource","link":"serviceattachment"},{"name":"SharedVPCHostProject","type":"resource","link":"sharedvpchostproject"},{"name":"SharedVPCServiceProject","type":"resource","link":"sharedvpcserviceproject"},{"name":"Snapshot","type":"resource","link":"snapshot"},{"name":"SnapshotIamBinding","type":"resource","link":"snapshotiambinding"},{"name":"SnapshotIamMember","type":"resource","link":"snapshotiammember"},{"name":"SnapshotIamPolicy","type":"resource","link":"snapshotiampolicy"},{"name":"Subnetwork","type":"resource","link":"subnetwork"},{"name":"SubnetworkIAMBinding","type":"resource","link":"subnetworkiambinding"},{"name":"SubnetworkIAMMember","type":"resource","link":"subnetworkiammember"},{"name":"SubnetworkIAMPolicy","type":"resource","link":"subnetworkiampolicy"},{"name":"TargetGrpcProxy","type":"resource","link":"targetgrpcproxy"},{"name":"TargetHttpProxy","type":"resource","link":"targethttpproxy"},{"name":"TargetHttpsProxy","type":"resource","link":"targethttpsproxy"},{"name":"TargetInstance","type":"resource","link":"targetinstance"},{"name":"TargetPool","type":"resource","link":"targetpool"},{"name":"TargetSSLProxy","type":"resource","link":"targetsslproxy"},{"name":"TargetTCPProxy","type":"resource","link":"targettcpproxy"},{"name":"URLMap","type":"resource","link":"urlmap"},{"name":"VPNGateway","type":"resource","link":"vpngateway"},{"name":"VPNTunnel","type":"resource","link":"vpntunnel"},{"name":"RouterStatus","type":"function","link":"routerstatus"},{"name":"getAddress","type":"function","link":"getaddress"},{"name":"getAddresses","type":"function","link":"getaddresses"},{"name":"getBackendBucket","type":"function","link":"getbackendbucket"},{"name":"getBackendService","type":"function","link":"getbackendservice"},{"name":"getCertificate","type":"function","link":"getcertificate"},{"name":"getDefaultServiceAccount","type":"function","link":"getdefaultserviceaccount"},{"name":"getDisk","type":"function","link":"getdisk"},{"name":"getForwardingRule","type":"function","link":"getforwardingrule"},{"name":"getGlobalAddress","type":"function","link":"getglobaladdress"},{"name":"getGlobalForwardingRule","type":"function","link":"getglobalforwardingrule"},{"name":"getHcVpnGateway","type":"function","link":"gethcvpngateway"},{"name":"getHealthCheck","type":"function","link":"gethealthcheck"},{"name":"getImage","type":"function","link":"getimage"},{"name":"getInstance","type":"function","link":"getinstance"},{"name":"getInstanceGroup","type":"function","link":"getinstancegroup"},{"name":"getInstanceGroupManager","type":"function","link":"getinstancegroupmanager"},{"name":"getInstanceSerialPort","type":"function","link":"getinstanceserialport"},{"name":"getInstanceTemplate","type":"function","link":"getinstancetemplate"},{"name":"getLBIPRanges","type":"function","link":"getlbipranges"},{"name":"getNetblockIPRanges","type":"function","link":"getnetblockipranges"},{"name":"getNetwork","type":"function","link":"getnetwork"},{"name":"getNetworkEndpointGroup","type":"function","link":"getnetworkendpointgroup"},{"name":"getNetworkPeering","type":"function","link":"getnetworkpeering"},{"name":"getNodeTypes","type":"function","link":"getnodetypes"},{"name":"getRegionInstanceGroup","type":"function","link":"getregioninstancegroup"},{"name":"getRegionInstanceTemplate","type":"function","link":"getregioninstancetemplate"},{"name":"getRegionNetworkEndpointGroup","type":"function","link":"getregionnetworkendpointgroup"},{"name":"getRegionSslCertificate","type":"function","link":"getregionsslcertificate"},{"name":"getRegions","type":"function","link":"getregions"},{"name":"getResourcePolicy","type":"function","link":"getresourcepolicy"},{"name":"getRouter","type":"function","link":"getrouter"},{"name":"getRouterNat","type":"function","link":"getrouternat"},{"name":"getRouterStatus","type":"function","link":"getrouterstatus"},{"name":"getSSLPolicy","type":"function","link":"getsslpolicy"},{"name":"getSnapshot","type":"function","link":"getsnapshot"},{"name":"getSubnetwork","type":"function","link":"getsubnetwork"},{"name":"getVPNGateway","type":"function","link":"getvpngateway"},{"name":"getZones","type":"function","link":"getzones"}]},{"name":"container","type":"module","link":"container/","children":[{"name":"AttachedCluster","type":"resource","link":"attachedcluster"},{"name":"AwsCluster","type":"resource","link":"awscluster"},{"name":"AwsNodePool","type":"resource","link":"awsnodepool"},{"name":"AzureClient","type":"resource","link":"azureclient"},{"name":"AzureCluster","type":"resource","link":"azurecluster"},{"name":"AzureNodePool","type":"resource","link":"azurenodepool"},{"name":"Cluster","type":"resource","link":"cluster"},{"name":"NodePool","type":"resource","link":"nodepool"},{"name":"Registry","type":"resource","link":"registry"},{"name":"getAttachedInstallManifest","type":"function","link":"getattachedinstallmanifest"},{"name":"getAttachedVersions","type":"function","link":"getattachedversions"},{"name":"getAwsVersions","type":"function","link":"getawsversions"},{"name":"getAzureVersions","type":"function","link":"getazureversions"},{"name":"getCluster","type":"function","link":"getcluster"},{"name":"getEngineVersions","type":"function","link":"getengineversions"},{"name":"getRegistryImage","type":"function","link":"getregistryimage"},{"name":"getRegistryRepository","type":"function","link":"getregistryrepository"}]},{"name":"containeranalysis","type":"module","link":"containeranalysis/","children":[{"name":"Note","type":"resource","link":"note"},{"name":"Occurence","type":"resource","link":"occurence"}]},{"name":"databasemigrationservice","type":"module","link":"databasemigrationservice/","children":[{"name":"ConnectionProfile","type":"resource","link":"connectionprofile"}]},{"name":"datacatalog","type":"module","link":"datacatalog/","children":[{"name":"Entry","type":"resource","link":"entry"},{"name":"EntryGroup","type":"resource","link":"entrygroup"},{"name":"EntryGroupIamBinding","type":"resource","link":"entrygroupiambinding"},{"name":"EntryGroupIamMember","type":"resource","link":"entrygroupiammember"},{"name":"EntryGroupIamPolicy","type":"resource","link":"entrygroupiampolicy"},{"name":"PolicyTag","type":"resource","link":"policytag"},{"name":"PolicyTagIamBinding","type":"resource","link":"policytagiambinding"},{"name":"PolicyTagIamMember","type":"resource","link":"policytagiammember"},{"name":"PolicyTagIamPolicy","type":"resource","link":"policytagiampolicy"},{"name":"Tag","type":"resource","link":"tag"},{"name":"TagTemplate","type":"resource","link":"tagtemplate"},{"name":"TagTemplateIamBinding","type":"resource","link":"tagtemplateiambinding"},{"name":"TagTemplateIamMember","type":"resource","link":"tagtemplateiammember"},{"name":"TagTemplateIamPolicy","type":"resource","link":"tagtemplateiampolicy"},{"name":"Taxonomy","type":"resource","link":"taxonomy"},{"name":"TaxonomyIamBinding","type":"resource","link":"taxonomyiambinding"},{"name":"TaxonomyIamMember","type":"resource","link":"taxonomyiammember"},{"name":"TaxonomyIamPolicy","type":"resource","link":"taxonomyiampolicy"}]},{"name":"dataflow","type":"module","link":"dataflow/","children":[{"name":"FlexTemplateJob","type":"resource","link":"flextemplatejob"},{"name":"Job","type":"resource","link":"job"}]},{"name":"dataform","type":"module","link":"dataform/","children":[{"name":"Repository","type":"resource","link":"repository"}]},{"name":"datafusion","type":"module","link":"datafusion/","children":[{"name":"Instance","type":"resource","link":"instance"}]},{"name":"dataloss","type":"module","link":"dataloss/","children":[{"name":"PreventionDeidentifyTemplate","type":"resource","link":"preventiondeidentifytemplate"},{"name":"PreventionInspectTemplate","type":"resource","link":"preventioninspecttemplate"},{"name":"PreventionJobTrigger","type":"resource","link":"preventionjobtrigger"},{"name":"PreventionStoredInfoType","type":"resource","link":"preventionstoredinfotype"}]},{"name":"dataplex","type":"module","link":"dataplex/","children":[{"name":"Asset","type":"resource","link":"asset"},{"name":"AssetIamBinding","type":"resource","link":"assetiambinding"},{"name":"AssetIamMember","type":"resource","link":"assetiammember"},{"name":"AssetIamPolicy","type":"resource","link":"assetiampolicy"},{"name":"Lake","type":"resource","link":"lake"},{"name":"LakeIamBinding","type":"resource","link":"lakeiambinding"},{"name":"LakeIamMember","type":"resource","link":"lakeiammember"},{"name":"LakeIamPolicy","type":"resource","link":"lakeiampolicy"},{"name":"Zone","type":"resource","link":"zone"},{"name":"ZoneIamBinding","type":"resource","link":"zoneiambinding"},{"name":"ZoneIamMember","type":"resource","link":"zoneiammember"},{"name":"ZoneIamPolicy","type":"resource","link":"zoneiampolicy"}]},{"name":"dataproc","type":"module","link":"dataproc/","children":[{"name":"AutoscalingPolicy","type":"resource","link":"autoscalingpolicy"},{"name":"AutoscalingPolicyIamBinding","type":"resource","link":"autoscalingpolicyiambinding"},{"name":"AutoscalingPolicyIamMember","type":"resource","link":"autoscalingpolicyiammember"},{"name":"AutoscalingPolicyIamPolicy","type":"resource","link":"autoscalingpolicyiampolicy"},{"name":"Cluster","type":"resource","link":"cluster"},{"name":"ClusterIAMBinding","type":"resource","link":"clusteriambinding"},{"name":"ClusterIAMMember","type":"resource","link":"clusteriammember"},{"name":"ClusterIAMPolicy","type":"resource","link":"clusteriampolicy"},{"name":"Job","type":"resource","link":"job"},{"name":"JobIAMBinding","type":"resource","link":"jobiambinding"},{"name":"JobIAMMember","type":"resource","link":"jobiammember"},{"name":"JobIAMPolicy","type":"resource","link":"jobiampolicy"},{"name":"MetastoreFederation","type":"resource","link":"metastorefederation"},{"name":"MetastoreFederationIamBinding","type":"resource","link":"metastorefederationiambinding"},{"name":"MetastoreFederationIamMember","type":"resource","link":"metastorefederationiammember"},{"name":"MetastoreFederationIamPolicy","type":"resource","link":"metastorefederationiampolicy"},{"name":"MetastoreService","type":"resource","link":"metastoreservice"},{"name":"MetastoreServiceIamBinding","type":"resource","link":"metastoreserviceiambinding"},{"name":"MetastoreServiceIamMember","type":"resource","link":"metastoreserviceiammember"},{"name":"MetastoreServiceIamPolicy","type":"resource","link":"metastoreserviceiampolicy"},{"name":"WorkflowTemplate","type":"resource","link":"workflowtemplate"}]},{"name":"datastore","type":"module","link":"datastore/","children":[{"name":"DataStoreIndex","type":"resource","link":"datastoreindex"}]},{"name":"datastream","type":"module","link":"datastream/","children":[{"name":"ConnectionProfile","type":"resource","link":"connectionprofile"},{"name":"PrivateConnection","type":"resource","link":"privateconnection"},{"name":"Stream","type":"resource","link":"stream"},{"name":"getStaticIps","type":"function","link":"getstaticips"}]},{"name":"deploymentmanager","type":"module","link":"deploymentmanager/","children":[{"name":"Deployment","type":"resource","link":"deployment"}]},{"name":"diagflow","type":"module","link":"diagflow/","children":[{"name":"Agent","type":"resource","link":"agent"},{"name":"CxAgent","type":"resource","link":"cxagent"},{"name":"CxEntityType","type":"resource","link":"cxentitytype"},{"name":"CxEnvironment","type":"resource","link":"cxenvironment"},{"name":"CxFlow","type":"resource","link":"cxflow"},{"name":"CxIntent","type":"resource","link":"cxintent"},{"name":"CxPage","type":"resource","link":"cxpage"},{"name":"CxVersion","type":"resource","link":"cxversion"},{"name":"CxWebhook","type":"resource","link":"cxwebhook"},{"name":"EntityType","type":"resource","link":"entitytype"},{"name":"Fulfillment","type":"resource","link":"fulfillment"},{"name":"Intent","type":"resource","link":"intent"}]},{"name":"dns","type":"module","link":"dns/","children":[{"name":"DnsManagedZoneIamBinding","type":"resource","link":"dnsmanagedzoneiambinding"},{"name":"DnsManagedZoneIamMember","type":"resource","link":"dnsmanagedzoneiammember"},{"name":"DnsManagedZoneIamPolicy","type":"resource","link":"dnsmanagedzoneiampolicy"},{"name":"ManagedZone","type":"resource","link":"managedzone"},{"name":"Policy","type":"resource","link":"policy"},{"name":"RecordSet","type":"resource","link":"recordset"},{"name":"ResponsePolicy","type":"resource","link":"responsepolicy"},{"name":"ResponsePolicyRule","type":"resource","link":"responsepolicyrule"},{"name":"getKeys","type":"function","link":"getkeys"},{"name":"getManagedZone","type":"function","link":"getmanagedzone"},{"name":"getRecordSet","type":"function","link":"getrecordset"}]},{"name":"endpoints","type":"module","link":"endpoints/","children":[{"name":"ConsumersIamBinding","type":"resource","link":"consumersiambinding"},{"name":"ConsumersIamMember","type":"resource","link":"consumersiammember"},{"name":"ConsumersIamPolicy","type":"resource","link":"consumersiampolicy"},{"name":"Service","type":"resource","link":"service"},{"name":"ServiceIamBinding","type":"resource","link":"serviceiambinding"},{"name":"ServiceIamMember","type":"resource","link":"serviceiammember"},{"name":"ServiceIamPolicy","type":"resource","link":"serviceiampolicy"}]},{"name":"essentialcontacts","type":"module","link":"essentialcontacts/","children":[{"name":"Contact","type":"resource","link":"contact"},{"name":"DocumentAiProcessor","type":"resource","link":"documentaiprocessor"},{"name":"DocumentAiProcessorDefaultVersion","type":"resource","link":"documentaiprocessordefaultversion"}]},{"name":"eventarc","type":"module","link":"eventarc/","children":[{"name":"Channel","type":"resource","link":"channel"},{"name":"GoogleChannelConfig","type":"resource","link":"googlechannelconfig"},{"name":"Trigger","type":"resource","link":"trigger"}]},{"name":"filestore","type":"module","link":"filestore/","children":[{"name":"Backup","type":"resource","link":"backup"},{"name":"Instance","type":"resource","link":"instance"},{"name":"Snapshot","type":"resource","link":"snapshot"}]},{"name":"firebase","type":"module","link":"firebase/","children":[{"name":"AndroidApp","type":"resource","link":"androidapp"},{"name":"AppleApp","type":"resource","link":"appleapp"},{"name":"DatabaseInstance","type":"resource","link":"databaseinstance"},{"name":"HostingChannel","type":"resource","link":"hostingchannel"},{"name":"HostingRelease","type":"resource","link":"hostingrelease"},{"name":"HostingSite","type":"resource","link":"hostingsite"},{"name":"HostingVersion","type":"resource","link":"hostingversion"},{"name":"Project","type":"resource","link":"project"},{"name":"ProjectLocation","type":"resource","link":"projectlocation"},{"name":"StorageBucket","type":"resource","link":"storagebucket"},{"name":"WebApp","type":"resource","link":"webapp"},{"name":"getAndroidApp","type":"function","link":"getandroidapp"},{"name":"getAndroidAppConfig","type":"function","link":"getandroidappconfig"},{"name":"getAppleApp","type":"function","link":"getappleapp"},{"name":"getAppleAppConfig","type":"function","link":"getappleappconfig"},{"name":"getHostingChannel","type":"function","link":"gethostingchannel"},{"name":"getWebApp","type":"function","link":"getwebapp"},{"name":"getWebAppConfig","type":"function","link":"getwebappconfig"}]},{"name":"firebaserules","type":"module","link":"firebaserules/","children":[{"name":"Release","type":"resource","link":"release"},{"name":"Ruleset","type":"resource","link":"ruleset"}]},{"name":"firestore","type":"module","link":"firestore/","children":[{"name":"Database","type":"resource","link":"database"},{"name":"Document","type":"resource","link":"document"},{"name":"Field","type":"resource","link":"field"},{"name":"Index","type":"resource","link":"--index"}]},{"name":"folder","type":"module","link":"folder/","children":[{"name":"AccessApprovalSettings","type":"resource","link":"accessapprovalsettings"},{"name":"IAMBinding","type":"resource","link":"iambinding"},{"name":"IAMMember","type":"resource","link":"iammember"},{"name":"IAMPolicy","type":"resource","link":"iampolicy"},{"name":"IamAuditConfig","type":"resource","link":"iamauditconfig"},{"name":"OrganizationPolicy","type":"resource","link":"organizationpolicy"},{"name":"getOrganizationPolicy","type":"function","link":"getorganizationpolicy"}]},{"name":"gameservices","type":"module","link":"gameservices/","children":[{"name":"GameServerCluster","type":"resource","link":"gameservercluster"},{"name":"GameServerConfig","type":"resource","link":"gameserverconfig"},{"name":"GameServerDeployment","type":"resource","link":"gameserverdeployment"},{"name":"GameServerDeploymentRollout","type":"resource","link":"gameserverdeploymentrollout"},{"name":"Realm","type":"resource","link":"realm"},{"name":"getGameServerDeploymentRollout","type":"function","link":"getgameserverdeploymentrollout"}]},{"name":"gkebackup","type":"module","link":"gkebackup/","children":[{"name":"BackupPlan","type":"resource","link":"backupplan"},{"name":"BackupPlanIamBinding","type":"resource","link":"backupplaniambinding"},{"name":"BackupPlanIamMember","type":"resource","link":"backupplaniammember"},{"name":"BackupPlanIamPolicy","type":"resource","link":"backupplaniampolicy"}]},{"name":"gkehub","type":"module","link":"gkehub/","children":[{"name":"Feature","type":"resource","link":"feature"},{"name":"FeatureMembership","type":"resource","link":"featuremembership"},{"name":"Membership","type":"resource","link":"membership"},{"name":"MembershipIamBinding","type":"resource","link":"membershipiambinding"},{"name":"MembershipIamMember","type":"resource","link":"membershipiammember"},{"name":"MembershipIamPolicy","type":"resource","link":"membershipiampolicy"}]},{"name":"gkeonprem","type":"module","link":"gkeonprem/","children":[{"name":"BareMetalCluster","type":"resource","link":"baremetalcluster"},{"name":"BareMetalNodePool","type":"resource","link":"baremetalnodepool"},{"name":"VMwareCluster","type":"resource","link":"vmwarecluster"},{"name":"VMwareNodePool","type":"resource","link":"vmwarenodepool"}]},{"name":"healthcare","type":"module","link":"healthcare/","children":[{"name":"ConsentStore","type":"resource","link":"consentstore"},{"name":"ConsentStoreIamBinding","type":"resource","link":"consentstoreiambinding"},{"name":"ConsentStoreIamMember","type":"resource","link":"consentstoreiammember"},{"name":"ConsentStoreIamPolicy","type":"resource","link":"consentstoreiampolicy"},{"name":"Dataset","type":"resource","link":"dataset"},{"name":"DatasetIamBinding","type":"resource","link":"datasetiambinding"},{"name":"DatasetIamMember","type":"resource","link":"datasetiammember"},{"name":"DatasetIamPolicy","type":"resource","link":"datasetiampolicy"},{"name":"DicomStore","type":"resource","link":"dicomstore"},{"name":"DicomStoreIamBinding","type":"resource","link":"dicomstoreiambinding"},{"name":"DicomStoreIamMember","type":"resource","link":"dicomstoreiammember"},{"name":"DicomStoreIamPolicy","type":"resource","link":"dicomstoreiampolicy"},{"name":"FhirStore","type":"resource","link":"fhirstore"},{"name":"FhirStoreIamBinding","type":"resource","link":"fhirstoreiambinding"},{"name":"FhirStoreIamMember","type":"resource","link":"fhirstoreiammember"},{"name":"FhirStoreIamPolicy","type":"resource","link":"fhirstoreiampolicy"},{"name":"Hl7Store","type":"resource","link":"hl7store"},{"name":"Hl7StoreIamBinding","type":"resource","link":"hl7storeiambinding"},{"name":"Hl7StoreIamMember","type":"resource","link":"hl7storeiammember"},{"name":"Hl7StoreIamPolicy","type":"resource","link":"hl7storeiampolicy"}]},{"name":"iam","type":"module","link":"iam/","children":[{"name":"AccessBoundaryPolicy","type":"resource","link":"accessboundarypolicy"},{"name":"DenyPolicy","type":"resource","link":"denypolicy"},{"name":"WorkforcePool","type":"resource","link":"workforcepool"},{"name":"WorkforcePoolProvider","type":"resource","link":"workforcepoolprovider"},{"name":"WorkloadIdentityPool","type":"resource","link":"workloadidentitypool"},{"name":"WorkloadIdentityPoolProvider","type":"resource","link":"workloadidentitypoolprovider"},{"name":"getRule","type":"function","link":"getrule"},{"name":"getTestablePermissions","type":"function","link":"gettestablepermissions"},{"name":"getWorkloadIdentityPool","type":"function","link":"getworkloadidentitypool"},{"name":"getWorkloadIdentityPoolProvider","type":"function","link":"getworkloadidentitypoolprovider"}]},{"name":"iap","type":"module","link":"iap/","children":[{"name":"AppEngineServiceIamBinding","type":"resource","link":"appengineserviceiambinding"},{"name":"AppEngineServiceIamMember","type":"resource","link":"appengineserviceiammember"},{"name":"AppEngineServiceIamPolicy","type":"resource","link":"appengineserviceiampolicy"},{"name":"AppEngineVersionIamBinding","type":"resource","link":"appengineversioniambinding"},{"name":"AppEngineVersionIamMember","type":"resource","link":"appengineversioniammember"},{"name":"AppEngineVersionIamPolicy","type":"resource","link":"appengineversioniampolicy"},{"name":"Brand","type":"resource","link":"brand"},{"name":"Client","type":"resource","link":"client"},{"name":"TunnelIamBinding","type":"resource","link":"tunneliambinding"},{"name":"TunnelIamMember","type":"resource","link":"tunneliammember"},{"name":"TunnelIamPolicy","type":"resource","link":"tunneliampolicy"},{"name":"TunnelInstanceIAMBinding","type":"resource","link":"tunnelinstanceiambinding"},{"name":"TunnelInstanceIAMMember","type":"resource","link":"tunnelinstanceiammember"},{"name":"TunnelInstanceIAMPolicy","type":"resource","link":"tunnelinstanceiampolicy"},{"name":"WebBackendServiceIamBinding","type":"resource","link":"webbackendserviceiambinding"},{"name":"WebBackendServiceIamMember","type":"resource","link":"webbackendserviceiammember"},{"name":"WebBackendServiceIamPolicy","type":"resource","link":"webbackendserviceiampolicy"},{"name":"WebIamBinding","type":"resource","link":"webiambinding"},{"name":"WebIamMember","type":"resource","link":"webiammember"},{"name":"WebIamPolicy","type":"resource","link":"webiampolicy"},{"name":"WebTypeAppEngingIamBinding","type":"resource","link":"webtypeappengingiambinding"},{"name":"WebTypeAppEngingIamMember","type":"resource","link":"webtypeappengingiammember"},{"name":"WebTypeAppEngingIamPolicy","type":"resource","link":"webtypeappengingiampolicy"},{"name":"WebTypeComputeIamBinding","type":"resource","link":"webtypecomputeiambinding"},{"name":"WebTypeComputeIamMember","type":"resource","link":"webtypecomputeiammember"},{"name":"WebTypeComputeIamPolicy","type":"resource","link":"webtypecomputeiampolicy"},{"name":"getClient","type":"function","link":"getclient"}]},{"name":"identityplatform","type":"module","link":"identityplatform/","children":[{"name":"Config","type":"resource","link":"config"},{"name":"DefaultSupportedIdpConfig","type":"resource","link":"defaultsupportedidpconfig"},{"name":"InboundSamlConfig","type":"resource","link":"inboundsamlconfig"},{"name":"OauthIdpConfig","type":"resource","link":"oauthidpconfig"},{"name":"ProjectDefaultConfig","type":"resource","link":"projectdefaultconfig"},{"name":"Tenant","type":"resource","link":"tenant"},{"name":"TenantDefaultSupportedIdpConfig","type":"resource","link":"tenantdefaultsupportedidpconfig"},{"name":"TenantInboundSamlConfig","type":"resource","link":"tenantinboundsamlconfig"},{"name":"TenantOauthIdpConfig","type":"resource","link":"tenantoauthidpconfig"}]},{"name":"iot","type":"module","link":"iot/","children":[{"name":"Device","type":"resource","link":"device"},{"name":"Registry","type":"resource","link":"registry"},{"name":"RegistryIamBinding","type":"resource","link":"registryiambinding"},{"name":"RegistryIamMember","type":"resource","link":"registryiammember"},{"name":"RegistryIamPolicy","type":"resource","link":"registryiampolicy"}]},{"name":"kms","type":"module","link":"kms/","children":[{"name":"CryptoKey","type":"resource","link":"cryptokey"},{"name":"CryptoKeyIAMBinding","type":"resource","link":"cryptokeyiambinding"},{"name":"CryptoKeyIAMMember","type":"resource","link":"cryptokeyiammember"},{"name":"CryptoKeyIAMPolicy","type":"resource","link":"cryptokeyiampolicy"},{"name":"CryptoKeyVersion","type":"resource","link":"cryptokeyversion"},{"name":"KeyRing","type":"resource","link":"keyring"},{"name":"KeyRingIAMBinding","type":"resource","link":"keyringiambinding"},{"name":"KeyRingIAMMember","type":"resource","link":"keyringiammember"},{"name":"KeyRingIAMPolicy","type":"resource","link":"keyringiampolicy"},{"name":"KeyRingImportJob","type":"resource","link":"keyringimportjob"},{"name":"Registry","type":"resource","link":"registry"},{"name":"SecretCiphertext","type":"resource","link":"secretciphertext"},{"name":"getKMSCryptoKey","type":"function","link":"getkmscryptokey"},{"name":"getKMSCryptoKeyVersion","type":"function","link":"getkmscryptokeyversion"},{"name":"getKMSKeyRing","type":"function","link":"getkmskeyring"},{"name":"getKMSSecret","type":"function","link":"getkmssecret"},{"name":"getKMSSecretAsymmetric","type":"function","link":"getkmssecretasymmetric"},{"name":"getKMSSecretCiphertext","type":"function","link":"getkmssecretciphertext"}]},{"name":"logging","type":"module","link":"logging/","children":[{"name":"BillingAccountBucketConfig","type":"resource","link":"billingaccountbucketconfig"},{"name":"BillingAccountExclusion","type":"resource","link":"billingaccountexclusion"},{"name":"BillingAccountSink","type":"resource","link":"billingaccountsink"},{"name":"FolderBucketConfig","type":"resource","link":"folderbucketconfig"},{"name":"FolderExclusion","type":"resource","link":"folderexclusion"},{"name":"FolderSink","type":"resource","link":"foldersink"},{"name":"LinkedDataset","type":"resource","link":"linkeddataset"},{"name":"LogView","type":"resource","link":"logview"},{"name":"Metric","type":"resource","link":"metric"},{"name":"OrganizationBucketConfig","type":"resource","link":"organizationbucketconfig"},{"name":"OrganizationExclusion","type":"resource","link":"organizationexclusion"},{"name":"OrganizationSink","type":"resource","link":"organizationsink"},{"name":"ProjectBucketConfig","type":"resource","link":"projectbucketconfig"},{"name":"ProjectExclusion","type":"resource","link":"projectexclusion"},{"name":"ProjectSink","type":"resource","link":"projectsink"},{"name":"getProjectCmekSettings","type":"function","link":"getprojectcmeksettings"},{"name":"getSink","type":"function","link":"getsink"}]},{"name":"memcache","type":"module","link":"memcache/","children":[{"name":"Instance","type":"resource","link":"instance"}]},{"name":"ml","type":"module","link":"ml/","children":[{"name":"EngineModel","type":"resource","link":"enginemodel"}]},{"name":"monitoring","type":"module","link":"monitoring/","children":[{"name":"AlertPolicy","type":"resource","link":"alertpolicy"},{"name":"CustomService","type":"resource","link":"customservice"},{"name":"Dashboard","type":"resource","link":"dashboard"},{"name":"GenericService","type":"resource","link":"genericservice"},{"name":"Group","type":"resource","link":"group"},{"name":"MetricDescriptor","type":"resource","link":"metricdescriptor"},{"name":"MonitoredProject","type":"resource","link":"monitoredproject"},{"name":"NotificationChannel","type":"resource","link":"notificationchannel"},{"name":"Slo","type":"resource","link":"slo"},{"name":"UptimeCheckConfig","type":"resource","link":"uptimecheckconfig"},{"name":"getAppEngineService","type":"function","link":"getappengineservice"},{"name":"getClusterIstioService","type":"function","link":"getclusteristioservice"},{"name":"getIstioCanonicalService","type":"function","link":"getistiocanonicalservice"},{"name":"getMeshIstioService","type":"function","link":"getmeshistioservice"},{"name":"getNotificationChannel","type":"function","link":"getnotificationchannel"},{"name":"getSecretVersion","type":"function","link":"getsecretversion"},{"name":"getUptimeCheckIPs","type":"function","link":"getuptimecheckips"}]},{"name":"networkconnectivity","type":"module","link":"networkconnectivity/","children":[{"name":"Hub","type":"resource","link":"hub"},{"name":"Spoke","type":"resource","link":"spoke"}]},{"name":"networkmanagement","type":"module","link":"networkmanagement/","children":[{"name":"ConnectivityTest","type":"resource","link":"connectivitytest"}]},{"name":"networksecurity","type":"module","link":"networksecurity/","children":[{"name":"AddressGroup","type":"resource","link":"addressgroup"},{"name":"AuthorizationPolicy","type":"resource","link":"authorizationpolicy"},{"name":"ClientTlsPolicy","type":"resource","link":"clienttlspolicy"},{"name":"GatewaySecurityPolicy","type":"resource","link":"gatewaysecuritypolicy"},{"name":"GatewaySecurityPolicyRule","type":"resource","link":"gatewaysecuritypolicyrule"},{"name":"ServerTlsPolicy","type":"resource","link":"servertlspolicy"},{"name":"TlsInspectionPolicy","type":"resource","link":"tlsinspectionpolicy"},{"name":"UrlList","type":"resource","link":"urllist"}]},{"name":"networkservices","type":"module","link":"networkservices/","children":[{"name":"EdgeCacheKeyset","type":"resource","link":"edgecachekeyset"},{"name":"EdgeCacheOrigin","type":"resource","link":"edgecacheorigin"},{"name":"EdgeCacheService","type":"resource","link":"edgecacheservice"},{"name":"EndpointPolicy","type":"resource","link":"endpointpolicy"},{"name":"Gateway","type":"resource","link":"gateway"},{"name":"GrpcRoute","type":"resource","link":"grpcroute"},{"name":"HttpRoute","type":"resource","link":"httproute"},{"name":"Mesh","type":"resource","link":"mesh"},{"name":"ServiceBinding","type":"resource","link":"servicebinding"},{"name":"TcpRoute","type":"resource","link":"tcproute"},{"name":"TlsRoute","type":"resource","link":"tlsroute"}]},{"name":"notebooks","type":"module","link":"notebooks/","children":[{"name":"Environment","type":"resource","link":"environment"},{"name":"Instance","type":"resource","link":"instance"},{"name":"InstanceIamBinding","type":"resource","link":"instanceiambinding"},{"name":"InstanceIamMember","type":"resource","link":"instanceiammember"},{"name":"InstanceIamPolicy","type":"resource","link":"instanceiampolicy"},{"name":"Location","type":"resource","link":"location"},{"name":"Runtime","type":"resource","link":"runtime"},{"name":"RuntimeIamBinding","type":"resource","link":"runtimeiambinding"},{"name":"RuntimeIamMember","type":"resource","link":"runtimeiammember"},{"name":"RuntimeIamPolicy","type":"resource","link":"runtimeiampolicy"}]},{"name":"organizations","type":"module","link":"organizations/","children":[{"name":"AccessApprovalSettings","type":"resource","link":"accessapprovalsettings"},{"name":"Folder","type":"resource","link":"folder"},{"name":"IAMBinding","type":"resource","link":"iambinding"},{"name":"IAMCustomRole","type":"resource","link":"iamcustomrole"},{"name":"IAMMember","type":"resource","link":"iammember"},{"name":"IAMPolicy","type":"resource","link":"iampolicy"},{"name":"IamAuditConfig","type":"resource","link":"iamauditconfig"},{"name":"Policy","type":"resource","link":"policy"},{"name":"Project","type":"resource","link":"project"},{"name":"getActiveFolder","type":"function","link":"getactivefolder"},{"name":"getBillingAccount","type":"function","link":"getbillingaccount"},{"name":"getClientConfig","type":"function","link":"getclientconfig"},{"name":"getClientOpenIdUserInfo","type":"function","link":"getclientopeniduserinfo"},{"name":"getFolder","type":"function","link":"getfolder"},{"name":"getFolders","type":"function","link":"getfolders"},{"name":"getIAMPolicy","type":"function","link":"getiampolicy"},{"name":"getOrganization","type":"function","link":"getorganization"},{"name":"getProject","type":"function","link":"getproject"}]},{"name":"orgpolicy","type":"module","link":"orgpolicy/","children":[{"name":"CustomConstraint","type":"resource","link":"customconstraint"},{"name":"Policy","type":"resource","link":"policy"}]},{"name":"osconfig","type":"module","link":"osconfig/","children":[{"name":"GuestPolicies","type":"resource","link":"guestpolicies"},{"name":"OsPolicyAssignment","type":"resource","link":"ospolicyassignment"},{"name":"PatchDeployment","type":"resource","link":"patchdeployment"}]},{"name":"oslogin","type":"module","link":"oslogin/","children":[{"name":"SshPublicKey","type":"resource","link":"sshpublickey"}]},{"name":"projects","type":"module","link":"projects/","children":[{"name":"AccessApprovalSettings","type":"resource","link":"accessapprovalsettings"},{"name":"ApiKey","type":"resource","link":"apikey"},{"name":"DefaultServiceAccounts","type":"resource","link":"defaultserviceaccounts"},{"name":"IAMAuditConfig","type":"resource","link":"iamauditconfig"},{"name":"IAMBinding","type":"resource","link":"iambinding"},{"name":"IAMCustomRole","type":"resource","link":"iamcustomrole"},{"name":"IAMMember","type":"resource","link":"iammember"},{"name":"IAMPolicy","type":"resource","link":"iampolicy"},{"name":"OrganizationPolicy","type":"resource","link":"organizationpolicy"},{"name":"Service","type":"resource","link":"service"},{"name":"ServiceIdentity","type":"resource","link":"serviceidentity"},{"name":"UsageExportBucket","type":"resource","link":"usageexportbucket"},{"name":"getOrganizationPolicy","type":"function","link":"getorganizationpolicy"},{"name":"getProject","type":"function","link":"getproject"},{"name":"getProjectService","type":"function","link":"getprojectservice"}]},{"name":"pubsub","type":"module","link":"pubsub/","children":[{"name":"LiteReservation","type":"resource","link":"litereservation"},{"name":"LiteSubscription","type":"resource","link":"litesubscription"},{"name":"LiteTopic","type":"resource","link":"litetopic"},{"name":"Schema","type":"resource","link":"schema"},{"name":"Subscription","type":"resource","link":"subscription"},{"name":"SubscriptionIAMBinding","type":"resource","link":"subscriptioniambinding"},{"name":"SubscriptionIAMMember","type":"resource","link":"subscriptioniammember"},{"name":"SubscriptionIAMPolicy","type":"resource","link":"subscriptioniampolicy"},{"name":"Topic","type":"resource","link":"topic"},{"name":"TopicIAMBinding","type":"resource","link":"topiciambinding"},{"name":"TopicIAMMember","type":"resource","link":"topiciammember"},{"name":"TopicIAMPolicy","type":"resource","link":"topiciampolicy"},{"name":"getSubscription","type":"function","link":"getsubscription"},{"name":"getTopic","type":"function","link":"gettopic"}]},{"name":"recaptcha","type":"module","link":"recaptcha/","children":[{"name":"EnterpriseKey","type":"resource","link":"enterprisekey"}]},{"name":"redis","type":"module","link":"redis/","children":[{"name":"Instance","type":"resource","link":"instance"},{"name":"getInstance","type":"function","link":"getinstance"}]},{"name":"resourcemanager","type":"module","link":"resourcemanager/","children":[{"name":"Lien","type":"resource","link":"lien"}]},{"name":"runtimeconfig","type":"module","link":"runtimeconfig/","children":[{"name":"Config","type":"resource","link":"config"},{"name":"ConfigIamBinding","type":"resource","link":"configiambinding"},{"name":"ConfigIamMember","type":"resource","link":"configiammember"},{"name":"ConfigIamPolicy","type":"resource","link":"configiampolicy"},{"name":"Variable","type":"resource","link":"variable"},{"name":"getConfig","type":"function","link":"getconfig"},{"name":"getVariable","type":"function","link":"getvariable"}]},{"name":"secretmanager","type":"module","link":"secretmanager/","children":[{"name":"Secret","type":"resource","link":"secret"},{"name":"SecretIamBinding","type":"resource","link":"secretiambinding"},{"name":"SecretIamMember","type":"resource","link":"secretiammember"},{"name":"SecretIamPolicy","type":"resource","link":"secretiampolicy"},{"name":"SecretVersion","type":"resource","link":"secretversion"},{"name":"getSecret","type":"function","link":"getsecret"},{"name":"getSecretVersion","type":"function","link":"getsecretversion"},{"name":"getSecretVersionAccess","type":"function","link":"getsecretversionaccess"}]},{"name":"securitycenter","type":"module","link":"securitycenter/","children":[{"name":"InstanceIamBinding","type":"resource","link":"instanceiambinding"},{"name":"InstanceIamMember","type":"resource","link":"instanceiammember"},{"name":"InstanceIamPolicy","type":"resource","link":"instanceiampolicy"},{"name":"MuteConfig","type":"resource","link":"muteconfig"},{"name":"NotificationConfig","type":"resource","link":"notificationconfig"},{"name":"Source","type":"resource","link":"source"},{"name":"SourceIamBinding","type":"resource","link":"sourceiambinding"},{"name":"SourceIamMember","type":"resource","link":"sourceiammember"},{"name":"SourceIamPolicy","type":"resource","link":"sourceiampolicy"}]},{"name":"serviceAccount","type":"module","link":"serviceaccount/","children":[{"name":"Account","type":"resource","link":"account"},{"name":"IAMBinding","type":"resource","link":"iambinding"},{"name":"IAMMember","type":"resource","link":"iammember"},{"name":"IAMPolicy","type":"resource","link":"iampolicy"},{"name":"Key","type":"resource","link":"key"},{"name":"getAccount","type":"function","link":"getaccount"},{"name":"getAccountAccessToken","type":"function","link":"getaccountaccesstoken"},{"name":"getAccountIdToken","type":"function","link":"getaccountidtoken"},{"name":"getAccountJwt","type":"function","link":"getaccountjwt"},{"name":"getAccountKey","type":"function","link":"getaccountkey"}]},{"name":"servicedirectory","type":"module","link":"servicedirectory/","children":[{"name":"Endpoint","type":"resource","link":"endpoint"},{"name":"Namespace","type":"resource","link":"namespace"},{"name":"NamespaceIamBinding","type":"resource","link":"namespaceiambinding"},{"name":"NamespaceIamMember","type":"resource","link":"namespaceiammember"},{"name":"NamespaceIamPolicy","type":"resource","link":"namespaceiampolicy"},{"name":"Service","type":"resource","link":"service"},{"name":"ServiceIamBinding","type":"resource","link":"serviceiambinding"},{"name":"ServiceIamMember","type":"resource","link":"serviceiammember"},{"name":"ServiceIamPolicy","type":"resource","link":"serviceiampolicy"}]},{"name":"servicenetworking","type":"module","link":"servicenetworking/","children":[{"name":"Connection","type":"resource","link":"connection"},{"name":"PeeredDnsDomain","type":"resource","link":"peereddnsdomain"},{"name":"getPeeredDnsDomain","type":"function","link":"getpeereddnsdomain"}]},{"name":"serviceusage","type":"module","link":"serviceusage/","children":[{"name":"ConsumerQuotaOverride","type":"resource","link":"consumerquotaoverride"}]},{"name":"sourcerepo","type":"module","link":"sourcerepo/","children":[{"name":"Repository","type":"resource","link":"repository"},{"name":"RepositoryIamBinding","type":"resource","link":"repositoryiambinding"},{"name":"RepositoryIamMember","type":"resource","link":"repositoryiammember"},{"name":"RepositoryIamPolicy","type":"resource","link":"repositoryiampolicy"},{"name":"getRepository","type":"function","link":"getrepository"}]},{"name":"spanner","type":"module","link":"spanner/","children":[{"name":"Database","type":"resource","link":"database"},{"name":"DatabaseIAMBinding","type":"resource","link":"databaseiambinding"},{"name":"DatabaseIAMMember","type":"resource","link":"databaseiammember"},{"name":"DatabaseIAMPolicy","type":"resource","link":"databaseiampolicy"},{"name":"Instance","type":"resource","link":"instance"},{"name":"InstanceIAMBinding","type":"resource","link":"instanceiambinding"},{"name":"InstanceIAMMember","type":"resource","link":"instanceiammember"},{"name":"InstanceIAMPolicy","type":"resource","link":"instanceiampolicy"},{"name":"getInstance","type":"function","link":"getinstance"}]},{"name":"sql","type":"module","link":"sql/","children":[{"name":"Database","type":"resource","link":"database"},{"name":"DatabaseInstance","type":"resource","link":"databaseinstance"},{"name":"SourceRepresentationInstance","type":"resource","link":"sourcerepresentationinstance"},{"name":"SslCert","type":"resource","link":"sslcert"},{"name":"User","type":"resource","link":"user"},{"name":"getBackupRun","type":"function","link":"getbackuprun"},{"name":"getCaCerts","type":"function","link":"getcacerts"},{"name":"getDatabase","type":"function","link":"getdatabase"},{"name":"getDatabaseInstance","type":"function","link":"getdatabaseinstance"},{"name":"getDatabaseInstances","type":"function","link":"getdatabaseinstances"},{"name":"getDatabases","type":"function","link":"getdatabases"},{"name":"getTiers","type":"function","link":"gettiers"}]},{"name":"storage","type":"module","link":"storage/","children":[{"name":"Bucket","type":"resource","link":"bucket"},{"name":"BucketACL","type":"resource","link":"bucketacl"},{"name":"BucketAccessControl","type":"resource","link":"bucketaccesscontrol"},{"name":"BucketIAMBinding","type":"resource","link":"bucketiambinding"},{"name":"BucketIAMMember","type":"resource","link":"bucketiammember"},{"name":"BucketIAMPolicy","type":"resource","link":"bucketiampolicy"},{"name":"BucketObject","type":"resource","link":"bucketobject"},{"name":"DefaultObjectACL","type":"resource","link":"defaultobjectacl"},{"name":"DefaultObjectAccessControl","type":"resource","link":"defaultobjectaccesscontrol"},{"name":"HmacKey","type":"resource","link":"hmackey"},{"name":"Notification","type":"resource","link":"notification"},{"name":"ObjectACL","type":"resource","link":"objectacl"},{"name":"ObjectAccessControl","type":"resource","link":"objectaccesscontrol"},{"name":"TransferAgentPool","type":"resource","link":"transferagentpool"},{"name":"TransferJob","type":"resource","link":"transferjob"},{"name":"getBucket","type":"function","link":"getbucket"},{"name":"getBucketObject","type":"function","link":"getbucketobject"},{"name":"getBucketObjectContent","type":"function","link":"getbucketobjectcontent"},{"name":"getObjectSignedUrl","type":"function","link":"getobjectsignedurl"},{"name":"getProjectServiceAccount","type":"function","link":"getprojectserviceaccount"},{"name":"getTransferProjectServiceAccount","type":"function","link":"gettransferprojectserviceaccount"},{"name":"getTransferProjectServieAccount","type":"function","link":"gettransferprojectservieaccount"}]},{"name":"tags","type":"module","link":"tags/","children":[{"name":"LocationTagBinding","type":"resource","link":"locationtagbinding"},{"name":"TagBinding","type":"resource","link":"tagbinding"},{"name":"TagKey","type":"resource","link":"tagkey"},{"name":"TagKeyIamBinding","type":"resource","link":"tagkeyiambinding"},{"name":"TagKeyIamMember","type":"resource","link":"tagkeyiammember"},{"name":"TagKeyIamPolicy","type":"resource","link":"tagkeyiampolicy"},{"name":"TagValue","type":"resource","link":"tagvalue"},{"name":"TagValueIamBinding","type":"resource","link":"tagvalueiambinding"},{"name":"TagValueIamMember","type":"resource","link":"tagvalueiammember"},{"name":"TagValueIamPolicy","type":"resource","link":"tagvalueiampolicy"},{"name":"getTagKey","type":"function","link":"gettagkey"},{"name":"getTagValue","type":"function","link":"gettagvalue"}]},{"name":"tpu","type":"module","link":"tpu/","children":[{"name":"Node","type":"resource","link":"node"},{"name":"getTensorflowVersions","type":"function","link":"gettensorflowversions"}]},{"name":"vertex","type":"module","link":"vertex/","children":[{"name":"AiDataset","type":"resource","link":"aidataset"},{"name":"AiEndpoint","type":"resource","link":"aiendpoint"},{"name":"AiFeatureStore","type":"resource","link":"aifeaturestore"},{"name":"AiFeatureStoreEntityType","type":"resource","link":"aifeaturestoreentitytype"},{"name":"AiFeatureStoreEntityTypeFeature","type":"resource","link":"aifeaturestoreentitytypefeature"},{"name":"AiFeatureStoreEntityTypeIamBinding","type":"resource","link":"aifeaturestoreentitytypeiambinding"},{"name":"AiFeatureStoreEntityTypeIamMember","type":"resource","link":"aifeaturestoreentitytypeiammember"},{"name":"AiFeatureStoreEntityTypeIamPolicy","type":"resource","link":"aifeaturestoreentitytypeiampolicy"},{"name":"AiFeatureStoreIamBinding","type":"resource","link":"aifeaturestoreiambinding"},{"name":"AiFeatureStoreIamMember","type":"resource","link":"aifeaturestoreiammember"},{"name":"AiFeatureStoreIamPolicy","type":"resource","link":"aifeaturestoreiampolicy"},{"name":"AiIndex","type":"resource","link":"aiindex"},{"name":"AiMetadataStore","type":"resource","link":"aimetadatastore"},{"name":"AiTensorboard","type":"resource","link":"aitensorboard"}]},{"name":"vpcaccess","type":"module","link":"vpcaccess/","children":[{"name":"Connector","type":"resource","link":"connector"},{"name":"getConnector","type":"function","link":"getconnector"}]},{"name":"workflows","type":"module","link":"workflows/","children":[{"name":"Workflow","type":"resource","link":"workflow"}]},{"name":"workstations","type":"module","link":"workstations/","children":[{"name":"Workstation","type":"resource","link":"workstation"},{"name":"WorkstationCluster","type":"resource","link":"workstationcluster"},{"name":"WorkstationConfig","type":"resource","link":"workstationconfig"},{"name":"WorkstationConfigIamBinding","type":"resource","link":"workstationconfigiambinding"},{"name":"WorkstationConfigIamMember","type":"resource","link":"workstationconfigiammember"},{"name":"WorkstationConfigIamPolicy","type":"resource","link":"workstationconfigiampolicy"},{"name":"WorkstationIamBinding","type":"resource","link":"workstationiambinding"},{"name":"WorkstationIamMember","type":"resource","link":"workstationiammember"},{"name":"WorkstationIamPolicy","type":"resource","link":"workstationiampolicy"}]},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    {
+        "name": "accessapproval",
+        "type": "module",
+        "link": "accessapproval/",
+        "children": [
+            { "name": "getFolderServiceAccount", "type": "function", "link": "getfolderserviceaccount" },
+            { "name": "getOrganizationServiceAccount", "type": "function", "link": "getorganizationserviceaccount" },
+            { "name": "getProjectServiceAccount", "type": "function", "link": "getprojectserviceaccount" }
+        ]
+    },
+    {
+        "name": "accesscontextmanager",
+        "type": "module",
+        "link": "accesscontextmanager/",
+        "children": [
+            { "name": "AccessLevel", "type": "resource", "link": "accesslevel" },
+            { "name": "AccessLevelCondition", "type": "resource", "link": "accesslevelcondition" },
+            { "name": "AccessLevels", "type": "resource", "link": "accesslevels" },
+            { "name": "AccessPolicy", "type": "resource", "link": "accesspolicy" },
+            { "name": "AccessPolicyIamBinding", "type": "resource", "link": "accesspolicyiambinding" },
+            { "name": "AccessPolicyIamMember", "type": "resource", "link": "accesspolicyiammember" },
+            { "name": "AccessPolicyIamPolicy", "type": "resource", "link": "accesspolicyiampolicy" },
+            { "name": "AuthorizedOrgsDesc", "type": "resource", "link": "authorizedorgsdesc" },
+            { "name": "EgressPolicy", "type": "resource", "link": "egresspolicy" },
+            { "name": "GcpUserAccessBinding", "type": "resource", "link": "gcpuseraccessbinding" },
+            { "name": "IngressPolicy", "type": "resource", "link": "ingresspolicy" },
+            { "name": "ServicePerimeter", "type": "resource", "link": "serviceperimeter" },
+            { "name": "ServicePerimeterResource", "type": "resource", "link": "serviceperimeterresource" },
+            { "name": "ServicePerimeters", "type": "resource", "link": "serviceperimeters" }
+        ]
+    },
+    {
+        "name": "activedirectory",
+        "type": "module",
+        "link": "activedirectory/",
+        "children": [
+            { "name": "Domain", "type": "resource", "link": "domain" },
+            { "name": "DomainTrust", "type": "resource", "link": "domaintrust" },
+            { "name": "Peering", "type": "resource", "link": "peering" }
+        ]
+    },
+    {
+        "name": "alloydb",
+        "type": "module",
+        "link": "alloydb/",
+        "children": [
+            { "name": "Backup", "type": "resource", "link": "backup" },
+            { "name": "Cluster", "type": "resource", "link": "cluster" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "getLocations", "type": "function", "link": "getlocations" },
+            { "name": "getSupportedDatabaseFlags", "type": "function", "link": "getsupporteddatabaseflags" }
+        ]
+    },
+    {
+        "name": "apigateway",
+        "type": "module",
+        "link": "apigateway/",
+        "children": [
+            { "name": "Api", "type": "resource", "link": "api" },
+            { "name": "ApiConfig", "type": "resource", "link": "apiconfig" },
+            { "name": "ApiConfigIamBinding", "type": "resource", "link": "apiconfigiambinding" },
+            { "name": "ApiConfigIamMember", "type": "resource", "link": "apiconfigiammember" },
+            { "name": "ApiConfigIamPolicy", "type": "resource", "link": "apiconfigiampolicy" },
+            { "name": "ApiIamBinding", "type": "resource", "link": "apiiambinding" },
+            { "name": "ApiIamMember", "type": "resource", "link": "apiiammember" },
+            { "name": "ApiIamPolicy", "type": "resource", "link": "apiiampolicy" },
+            { "name": "Gateway", "type": "resource", "link": "gateway" },
+            { "name": "GatewayIamBinding", "type": "resource", "link": "gatewayiambinding" },
+            { "name": "GatewayIamMember", "type": "resource", "link": "gatewayiammember" },
+            { "name": "GatewayIamPolicy", "type": "resource", "link": "gatewayiampolicy" }
+        ]
+    },
+    {
+        "name": "apigee",
+        "type": "module",
+        "link": "apigee/",
+        "children": [
+            { "name": "AddonsConfig", "type": "resource", "link": "addonsconfig" },
+            { "name": "EndpointAttachment", "type": "resource", "link": "endpointattachment" },
+            { "name": "EnvGroup", "type": "resource", "link": "envgroup" },
+            { "name": "EnvGroupAttachment", "type": "resource", "link": "envgroupattachment" },
+            { "name": "EnvKeystore", "type": "resource", "link": "envkeystore" },
+            { "name": "EnvReferences", "type": "resource", "link": "envreferences" },
+            { "name": "Environment", "type": "resource", "link": "environment" },
+            { "name": "EnvironmentIamBinding", "type": "resource", "link": "environmentiambinding" },
+            { "name": "EnvironmentIamMember", "type": "resource", "link": "environmentiammember" },
+            { "name": "EnvironmentIamPolicy", "type": "resource", "link": "environmentiampolicy" },
+            { "name": "Flowhook", "type": "resource", "link": "flowhook" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "InstanceAttachment", "type": "resource", "link": "instanceattachment" },
+            { "name": "KeystoresAliasesKeyCertFile", "type": "resource", "link": "keystoresaliaseskeycertfile" },
+            { "name": "KeystoresAliasesPkcs12", "type": "resource", "link": "keystoresaliasespkcs12" },
+            { "name": "KeystoresAliasesSelfSignedCert", "type": "resource", "link": "keystoresaliasesselfsignedcert" },
+            { "name": "NatAddress", "type": "resource", "link": "nataddress" },
+            { "name": "Organization", "type": "resource", "link": "organization" },
+            { "name": "Sharedflow", "type": "resource", "link": "sharedflow" },
+            { "name": "SharedflowDeployment", "type": "resource", "link": "sharedflowdeployment" },
+            { "name": "SyncAuthorization", "type": "resource", "link": "syncauthorization" }
+        ]
+    },
+    {
+        "name": "appengine",
+        "type": "module",
+        "link": "appengine/",
+        "children": [
+            { "name": "Application", "type": "resource", "link": "application" },
+            { "name": "ApplicationUrlDispatchRules", "type": "resource", "link": "applicationurldispatchrules" },
+            { "name": "DomainMapping", "type": "resource", "link": "domainmapping" },
+            { "name": "EngineSplitTraffic", "type": "resource", "link": "enginesplittraffic" },
+            { "name": "FirewallRule", "type": "resource", "link": "firewallrule" },
+            { "name": "FlexibleAppVersion", "type": "resource", "link": "flexibleappversion" },
+            { "name": "ServiceNetworkSettings", "type": "resource", "link": "servicenetworksettings" },
+            { "name": "StandardAppVersion", "type": "resource", "link": "standardappversion" },
+            { "name": "getDefaultServiceAccount", "type": "function", "link": "getdefaultserviceaccount" }
+        ]
+    },
+    {
+        "name": "artifactregistry",
+        "type": "module",
+        "link": "artifactregistry/",
+        "children": [
+            { "name": "Repository", "type": "resource", "link": "repository" },
+            { "name": "RepositoryIamBinding", "type": "resource", "link": "repositoryiambinding" },
+            { "name": "RepositoryIamMember", "type": "resource", "link": "repositoryiammember" },
+            { "name": "RepositoryIamPolicy", "type": "resource", "link": "repositoryiampolicy" },
+            { "name": "getRepository", "type": "function", "link": "getrepository" }
+        ]
+    },
+    { "name": "assuredworkloads", "type": "module", "link": "assuredworkloads/", "children": [{ "name": "Workload", "type": "resource", "link": "workload" }] },
+    {
+        "name": "beyondcorp",
+        "type": "module",
+        "link": "beyondcorp/",
+        "children": [
+            { "name": "AppConnection", "type": "resource", "link": "appconnection" },
+            { "name": "AppConnector", "type": "resource", "link": "appconnector" },
+            { "name": "AppGateway", "type": "resource", "link": "appgateway" },
+            { "name": "getAppConnection", "type": "function", "link": "getappconnection" },
+            { "name": "getAppConnector", "type": "function", "link": "getappconnector" },
+            { "name": "getAppGateway", "type": "function", "link": "getappgateway" }
+        ]
+    },
+    {
+        "name": "bigquery",
+        "type": "module",
+        "link": "bigquery/",
+        "children": [
+            { "name": "AppProfile", "type": "resource", "link": "appprofile" },
+            { "name": "CapacityCommitment", "type": "resource", "link": "capacitycommitment" },
+            { "name": "Connection", "type": "resource", "link": "connection" },
+            { "name": "ConnectionIamBinding", "type": "resource", "link": "connectioniambinding" },
+            { "name": "ConnectionIamMember", "type": "resource", "link": "connectioniammember" },
+            { "name": "ConnectionIamPolicy", "type": "resource", "link": "connectioniampolicy" },
+            { "name": "DataTransferConfig", "type": "resource", "link": "datatransferconfig" },
+            { "name": "Dataset", "type": "resource", "link": "dataset" },
+            { "name": "DatasetAccess", "type": "resource", "link": "datasetaccess" },
+            { "name": "DatasetIamBinding", "type": "resource", "link": "datasetiambinding" },
+            { "name": "DatasetIamMember", "type": "resource", "link": "datasetiammember" },
+            { "name": "DatasetIamPolicy", "type": "resource", "link": "datasetiampolicy" },
+            { "name": "IamBinding", "type": "resource", "link": "iambinding" },
+            { "name": "IamMember", "type": "resource", "link": "iammember" },
+            { "name": "IamPolicy", "type": "resource", "link": "iampolicy" },
+            { "name": "Job", "type": "resource", "link": "job" },
+            { "name": "Reservation", "type": "resource", "link": "reservation" },
+            { "name": "ReservationAssignment", "type": "resource", "link": "reservationassignment" },
+            { "name": "Routine", "type": "resource", "link": "routine" },
+            { "name": "Table", "type": "resource", "link": "table" },
+            { "name": "getDefaultServiceAccount", "type": "function", "link": "getdefaultserviceaccount" }
+        ]
+    },
+    {
+        "name": "bigqueryanalyticshub",
+        "type": "module",
+        "link": "bigqueryanalyticshub/",
+        "children": [
+            { "name": "DataExchange", "type": "resource", "link": "dataexchange" },
+            { "name": "DataExchangeIamBinding", "type": "resource", "link": "dataexchangeiambinding" },
+            { "name": "DataExchangeIamMember", "type": "resource", "link": "dataexchangeiammember" },
+            { "name": "DataExchangeIamPolicy", "type": "resource", "link": "dataexchangeiampolicy" },
+            { "name": "Listing", "type": "resource", "link": "listing" },
+            { "name": "ListingIamBinding", "type": "resource", "link": "listingiambinding" },
+            { "name": "ListingIamMember", "type": "resource", "link": "listingiammember" },
+            { "name": "ListingIamPolicy", "type": "resource", "link": "listingiampolicy" }
+        ]
+    },
+    {
+        "name": "bigquerydatapolicy",
+        "type": "module",
+        "link": "bigquerydatapolicy/",
+        "children": [
+            { "name": "DataPolicy", "type": "resource", "link": "datapolicy" },
+            { "name": "DataPolicyIamBinding", "type": "resource", "link": "datapolicyiambinding" },
+            { "name": "DataPolicyIamMember", "type": "resource", "link": "datapolicyiammember" },
+            { "name": "DataPolicyIamPolicy", "type": "resource", "link": "datapolicyiampolicy" }
+        ]
+    },
+    {
+        "name": "bigtable",
+        "type": "module",
+        "link": "bigtable/",
+        "children": [
+            { "name": "GCPolicy", "type": "resource", "link": "gcpolicy" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "InstanceIamBinding", "type": "resource", "link": "instanceiambinding" },
+            { "name": "InstanceIamMember", "type": "resource", "link": "instanceiammember" },
+            { "name": "InstanceIamPolicy", "type": "resource", "link": "instanceiampolicy" },
+            { "name": "Table", "type": "resource", "link": "table" },
+            { "name": "TableIamBinding", "type": "resource", "link": "tableiambinding" },
+            { "name": "TableIamMember", "type": "resource", "link": "tableiammember" },
+            { "name": "TableIamPolicy", "type": "resource", "link": "tableiampolicy" }
+        ]
+    },
+    {
+        "name": "billing",
+        "type": "module",
+        "link": "billing/",
+        "children": [
+            { "name": "AccountIamBinding", "type": "resource", "link": "accountiambinding" },
+            { "name": "AccountIamMember", "type": "resource", "link": "accountiammember" },
+            { "name": "AccountIamPolicy", "type": "resource", "link": "accountiampolicy" },
+            { "name": "Budget", "type": "resource", "link": "budget" },
+            { "name": "SubAccount", "type": "resource", "link": "subaccount" }
+        ]
+    },
+    {
+        "name": "binaryauthorization",
+        "type": "module",
+        "link": "binaryauthorization/",
+        "children": [
+            { "name": "Attestor", "type": "resource", "link": "attestor" },
+            { "name": "AttestorIamBinding", "type": "resource", "link": "attestoriambinding" },
+            { "name": "AttestorIamMember", "type": "resource", "link": "attestoriammember" },
+            { "name": "AttestorIamPolicy", "type": "resource", "link": "attestoriampolicy" },
+            { "name": "Policy", "type": "resource", "link": "policy" }
+        ]
+    },
+    {
+        "name": "certificateauthority",
+        "type": "module",
+        "link": "certificateauthority/",
+        "children": [
+            { "name": "Authority", "type": "resource", "link": "authority" },
+            { "name": "CaPool", "type": "resource", "link": "capool" },
+            { "name": "CaPoolIamBinding", "type": "resource", "link": "capooliambinding" },
+            { "name": "CaPoolIamMember", "type": "resource", "link": "capooliammember" },
+            { "name": "CaPoolIamPolicy", "type": "resource", "link": "capooliampolicy" },
+            { "name": "Certificate", "type": "resource", "link": "certificate" },
+            { "name": "CertificateTemplate", "type": "resource", "link": "certificatetemplate" },
+            { "name": "CertificateTemplateIamBinding", "type": "resource", "link": "certificatetemplateiambinding" },
+            { "name": "CertificateTemplateIamMember", "type": "resource", "link": "certificatetemplateiammember" },
+            { "name": "CertificateTemplateIamPolicy", "type": "resource", "link": "certificatetemplateiampolicy" },
+            { "name": "getAuthority", "type": "function", "link": "getauthority" }
+        ]
+    },
+    {
+        "name": "certificatemanager",
+        "type": "module",
+        "link": "certificatemanager/",
+        "children": [
+            { "name": "Certificate", "type": "resource", "link": "certificate" },
+            { "name": "CertificateMap", "type": "resource", "link": "certificatemap" },
+            { "name": "CertificateMapEntry", "type": "resource", "link": "certificatemapentry" },
+            { "name": "DnsAuthorization", "type": "resource", "link": "dnsauthorization" }
+        ]
+    },
+    {
+        "name": "cloudasset",
+        "type": "module",
+        "link": "cloudasset/",
+        "children": [
+            { "name": "FolderFeed", "type": "resource", "link": "folderfeed" },
+            { "name": "OrganizationFeed", "type": "resource", "link": "organizationfeed" },
+            { "name": "ProjectFeed", "type": "resource", "link": "projectfeed" },
+            { "name": "getResourcesSearchAll", "type": "function", "link": "getresourcessearchall" }
+        ]
+    },
+    {
+        "name": "cloudbuild",
+        "type": "module",
+        "link": "cloudbuild/",
+        "children": [
+            { "name": "BitbucketServerConfig", "type": "resource", "link": "bitbucketserverconfig" },
+            { "name": "Trigger", "type": "resource", "link": "trigger" },
+            { "name": "WorkerPool", "type": "resource", "link": "workerpool" },
+            { "name": "getTrigger", "type": "function", "link": "gettrigger" }
+        ]
+    },
+    {
+        "name": "cloudbuildv2",
+        "type": "module",
+        "link": "cloudbuildv2/",
+        "children": [
+            { "name": "Connection", "type": "resource", "link": "connection" },
+            { "name": "ConnectionIAMBinding", "type": "resource", "link": "connectioniambinding" },
+            { "name": "ConnectionIAMMember", "type": "resource", "link": "connectioniammember" },
+            { "name": "ConnectionIAMPolicy", "type": "resource", "link": "connectioniampolicy" },
+            { "name": "Repository", "type": "resource", "link": "repository" }
+        ]
+    },
+    {
+        "name": "clouddeploy",
+        "type": "module",
+        "link": "clouddeploy/",
+        "children": [
+            { "name": "DeliveryPipeline", "type": "resource", "link": "deliverypipeline" },
+            { "name": "Target", "type": "resource", "link": "target" }
+        ]
+    },
+    {
+        "name": "cloudfunctions",
+        "type": "module",
+        "link": "cloudfunctions/",
+        "children": [
+            { "name": "Function", "type": "resource", "link": "function" },
+            { "name": "FunctionIamBinding", "type": "resource", "link": "functioniambinding" },
+            { "name": "FunctionIamMember", "type": "resource", "link": "functioniammember" },
+            { "name": "FunctionIamPolicy", "type": "resource", "link": "functioniampolicy" },
+            { "name": "getFunction", "type": "function", "link": "getfunction" }
+        ]
+    },
+    {
+        "name": "cloudfunctionsv2",
+        "type": "module",
+        "link": "cloudfunctionsv2/",
+        "children": [
+            { "name": "Function", "type": "resource", "link": "function" },
+            { "name": "FunctionIamBinding", "type": "resource", "link": "functioniambinding" },
+            { "name": "FunctionIamMember", "type": "resource", "link": "functioniammember" },
+            { "name": "FunctionIamPolicy", "type": "resource", "link": "functioniampolicy" },
+            { "name": "getFunction", "type": "function", "link": "getfunction" }
+        ]
+    },
+    {
+        "name": "cloudidentity",
+        "type": "module",
+        "link": "cloudidentity/",
+        "children": [
+            { "name": "Group", "type": "resource", "link": "group" },
+            { "name": "GroupMembership", "type": "resource", "link": "groupmembership" },
+            { "name": "getGroupMemberships", "type": "function", "link": "getgroupmemberships" },
+            { "name": "getGroups", "type": "function", "link": "getgroups" }
+        ]
+    },
+    { "name": "cloudids", "type": "module", "link": "cloudids/", "children": [{ "name": "Endpoint", "type": "resource", "link": "endpoint" }] },
+    {
+        "name": "cloudrun",
+        "type": "module",
+        "link": "cloudrun/",
+        "children": [
+            { "name": "DomainMapping", "type": "resource", "link": "domainmapping" },
+            { "name": "IamBinding", "type": "resource", "link": "iambinding" },
+            { "name": "IamMember", "type": "resource", "link": "iammember" },
+            { "name": "IamPolicy", "type": "resource", "link": "iampolicy" },
+            { "name": "Service", "type": "resource", "link": "service" },
+            { "name": "getLocations", "type": "function", "link": "getlocations" },
+            { "name": "getService", "type": "function", "link": "getservice" }
+        ]
+    },
+    {
+        "name": "cloudrunv2",
+        "type": "module",
+        "link": "cloudrunv2/",
+        "children": [
+            { "name": "Job", "type": "resource", "link": "job" },
+            { "name": "JobIamBinding", "type": "resource", "link": "jobiambinding" },
+            { "name": "JobIamMember", "type": "resource", "link": "jobiammember" },
+            { "name": "JobIamPolicy", "type": "resource", "link": "jobiampolicy" },
+            { "name": "Service", "type": "resource", "link": "service" },
+            { "name": "ServiceIamBinding", "type": "resource", "link": "serviceiambinding" },
+            { "name": "ServiceIamMember", "type": "resource", "link": "serviceiammember" },
+            { "name": "ServiceIamPolicy", "type": "resource", "link": "serviceiampolicy" }
+        ]
+    },
+    { "name": "cloudscheduler", "type": "module", "link": "cloudscheduler/", "children": [{ "name": "Job", "type": "resource", "link": "job" }] },
+    {
+        "name": "cloudtasks",
+        "type": "module",
+        "link": "cloudtasks/",
+        "children": [
+            { "name": "Queue", "type": "resource", "link": "queue" },
+            { "name": "QueueIamBinding", "type": "resource", "link": "queueiambinding" },
+            { "name": "QueueIamMember", "type": "resource", "link": "queueiammember" },
+            { "name": "QueueIamPolicy", "type": "resource", "link": "queueiampolicy" }
+        ]
+    },
+    {
+        "name": "composer",
+        "type": "module",
+        "link": "composer/",
+        "children": [
+            { "name": "Environment", "type": "resource", "link": "environment" },
+            { "name": "getEnvironment", "type": "function", "link": "getenvironment" },
+            { "name": "getImageVersions", "type": "function", "link": "getimageversions" }
+        ]
+    },
+    {
+        "name": "compute",
+        "type": "module",
+        "link": "compute/",
+        "children": [
+            { "name": "Address", "type": "resource", "link": "address" },
+            { "name": "AttachedDisk", "type": "resource", "link": "attacheddisk" },
+            { "name": "Autoscalar", "type": "resource", "link": "autoscalar" },
+            { "name": "Autoscaler", "type": "resource", "link": "autoscaler" },
+            { "name": "BackendBucket", "type": "resource", "link": "backendbucket" },
+            { "name": "BackendBucketIamBinding", "type": "resource", "link": "backendbucketiambinding" },
+            { "name": "BackendBucketIamMember", "type": "resource", "link": "backendbucketiammember" },
+            { "name": "BackendBucketIamPolicy", "type": "resource", "link": "backendbucketiampolicy" },
+            { "name": "BackendBucketSignedUrlKey", "type": "resource", "link": "backendbucketsignedurlkey" },
+            { "name": "BackendService", "type": "resource", "link": "backendservice" },
+            { "name": "BackendServiceIamBinding", "type": "resource", "link": "backendserviceiambinding" },
+            { "name": "BackendServiceIamMember", "type": "resource", "link": "backendserviceiammember" },
+            { "name": "BackendServiceIamPolicy", "type": "resource", "link": "backendserviceiampolicy" },
+            { "name": "BackendServiceSignedUrlKey", "type": "resource", "link": "backendservicesignedurlkey" },
+            { "name": "Disk", "type": "resource", "link": "disk" },
+            { "name": "DiskAsyncReplication", "type": "resource", "link": "diskasyncreplication" },
+            { "name": "DiskIamBinding", "type": "resource", "link": "diskiambinding" },
+            { "name": "DiskIamMember", "type": "resource", "link": "diskiammember" },
+            { "name": "DiskIamPolicy", "type": "resource", "link": "diskiampolicy" },
+            { "name": "DiskResourcePolicyAttachment", "type": "resource", "link": "diskresourcepolicyattachment" },
+            { "name": "ExternalVpnGateway", "type": "resource", "link": "externalvpngateway" },
+            { "name": "Firewall", "type": "resource", "link": "firewall" },
+            { "name": "FirewallPolicy", "type": "resource", "link": "firewallpolicy" },
+            { "name": "FirewallPolicyAssociation", "type": "resource", "link": "firewallpolicyassociation" },
+            { "name": "FirewallPolicyRule", "type": "resource", "link": "firewallpolicyrule" },
+            { "name": "ForwardingRule", "type": "resource", "link": "forwardingrule" },
+            { "name": "GlobalAddress", "type": "resource", "link": "globaladdress" },
+            { "name": "GlobalForwardingRule", "type": "resource", "link": "globalforwardingrule" },
+            { "name": "GlobalNetworkEndpoint", "type": "resource", "link": "globalnetworkendpoint" },
+            { "name": "GlobalNetworkEndpointGroup", "type": "resource", "link": "globalnetworkendpointgroup" },
+            { "name": "HaVpnGateway", "type": "resource", "link": "havpngateway" },
+            { "name": "HealthCheck", "type": "resource", "link": "healthcheck" },
+            { "name": "HttpHealthCheck", "type": "resource", "link": "httphealthcheck" },
+            { "name": "HttpsHealthCheck", "type": "resource", "link": "httpshealthcheck" },
+            { "name": "Image", "type": "resource", "link": "image" },
+            { "name": "ImageIamBinding", "type": "resource", "link": "imageiambinding" },
+            { "name": "ImageIamMember", "type": "resource", "link": "imageiammember" },
+            { "name": "ImageIamPolicy", "type": "resource", "link": "imageiampolicy" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "InstanceFromMachineImage", "type": "resource", "link": "instancefrommachineimage" },
+            { "name": "InstanceFromTemplate", "type": "resource", "link": "instancefromtemplate" },
+            { "name": "InstanceGroup", "type": "resource", "link": "instancegroup" },
+            { "name": "InstanceGroupManager", "type": "resource", "link": "instancegroupmanager" },
+            { "name": "InstanceGroupNamedPort", "type": "resource", "link": "instancegroupnamedport" },
+            { "name": "InstanceIAMBinding", "type": "resource", "link": "instanceiambinding" },
+            { "name": "InstanceIAMMember", "type": "resource", "link": "instanceiammember" },
+            { "name": "InstanceIAMPolicy", "type": "resource", "link": "instanceiampolicy" },
+            { "name": "InstanceTemplate", "type": "resource", "link": "instancetemplate" },
+            { "name": "InterconnectAttachment", "type": "resource", "link": "interconnectattachment" },
+            { "name": "MachineImage", "type": "resource", "link": "machineimage" },
+            { "name": "MachineImageIamBinding", "type": "resource", "link": "machineimageiambinding" },
+            { "name": "MachineImageIamMember", "type": "resource", "link": "machineimageiammember" },
+            { "name": "MachineImageIamPolicy", "type": "resource", "link": "machineimageiampolicy" },
+            { "name": "ManagedSslCertificate", "type": "resource", "link": "managedsslcertificate" },
+            { "name": "MangedSslCertificate", "type": "resource", "link": "mangedsslcertificate" },
+            { "name": "Network", "type": "resource", "link": "network" },
+            { "name": "NetworkEndpoint", "type": "resource", "link": "networkendpoint" },
+            { "name": "NetworkEndpointGroup", "type": "resource", "link": "networkendpointgroup" },
+            { "name": "NetworkFirewallPolicy", "type": "resource", "link": "networkfirewallpolicy" },
+            { "name": "NetworkFirewallPolicyAssociation", "type": "resource", "link": "networkfirewallpolicyassociation" },
+            { "name": "NetworkFirewallPolicyRule", "type": "resource", "link": "networkfirewallpolicyrule" },
+            { "name": "NetworkPeering", "type": "resource", "link": "networkpeering" },
+            { "name": "NetworkPeeringRoutesConfig", "type": "resource", "link": "networkpeeringroutesconfig" },
+            { "name": "NodeGroup", "type": "resource", "link": "nodegroup" },
+            { "name": "NodeTemplate", "type": "resource", "link": "nodetemplate" },
+            { "name": "OrganizationSecurityPolicy", "type": "resource", "link": "organizationsecuritypolicy" },
+            { "name": "OrganizationSecurityPolicyAssociation", "type": "resource", "link": "organizationsecuritypolicyassociation" },
+            { "name": "OrganizationSecurityPolicyRule", "type": "resource", "link": "organizationsecuritypolicyrule" },
+            { "name": "PacketMirroring", "type": "resource", "link": "packetmirroring" },
+            { "name": "PerInstanceConfig", "type": "resource", "link": "perinstanceconfig" },
+            { "name": "ProjectDefaultNetworkTier", "type": "resource", "link": "projectdefaultnetworktier" },
+            { "name": "ProjectMetadata", "type": "resource", "link": "projectmetadata" },
+            { "name": "ProjectMetadataItem", "type": "resource", "link": "projectmetadataitem" },
+            { "name": "PublicAdvertisedPrefix", "type": "resource", "link": "publicadvertisedprefix" },
+            { "name": "PublicDelegatedPrefix", "type": "resource", "link": "publicdelegatedprefix" },
+            { "name": "RegionAutoscaler", "type": "resource", "link": "regionautoscaler" },
+            { "name": "RegionBackendService", "type": "resource", "link": "regionbackendservice" },
+            { "name": "RegionBackendServiceIamBinding", "type": "resource", "link": "regionbackendserviceiambinding" },
+            { "name": "RegionBackendServiceIamMember", "type": "resource", "link": "regionbackendserviceiammember" },
+            { "name": "RegionBackendServiceIamPolicy", "type": "resource", "link": "regionbackendserviceiampolicy" },
+            { "name": "RegionCommitment", "type": "resource", "link": "regioncommitment" },
+            { "name": "RegionDisk", "type": "resource", "link": "regiondisk" },
+            { "name": "RegionDiskIamBinding", "type": "resource", "link": "regiondiskiambinding" },
+            { "name": "RegionDiskIamMember", "type": "resource", "link": "regiondiskiammember" },
+            { "name": "RegionDiskIamPolicy", "type": "resource", "link": "regiondiskiampolicy" },
+            { "name": "RegionDiskResourcePolicyAttachment", "type": "resource", "link": "regiondiskresourcepolicyattachment" },
+            { "name": "RegionHealthCheck", "type": "resource", "link": "regionhealthcheck" },
+            { "name": "RegionInstanceGroupManager", "type": "resource", "link": "regioninstancegroupmanager" },
+            { "name": "RegionInstanceTemplate", "type": "resource", "link": "regioninstancetemplate" },
+            { "name": "RegionNetworkEndpointGroup", "type": "resource", "link": "regionnetworkendpointgroup" },
+            { "name": "RegionNetworkFirewallPolicy", "type": "resource", "link": "regionnetworkfirewallpolicy" },
+            { "name": "RegionNetworkFirewallPolicyAssociation", "type": "resource", "link": "regionnetworkfirewallpolicyassociation" },
+            { "name": "RegionNetworkFirewallPolicyRule", "type": "resource", "link": "regionnetworkfirewallpolicyrule" },
+            { "name": "RegionPerInstanceConfig", "type": "resource", "link": "regionperinstanceconfig" },
+            { "name": "RegionSslCertificate", "type": "resource", "link": "regionsslcertificate" },
+            { "name": "RegionSslPolicy", "type": "resource", "link": "regionsslpolicy" },
+            { "name": "RegionTargetHttpProxy", "type": "resource", "link": "regiontargethttpproxy" },
+            { "name": "RegionTargetHttpsProxy", "type": "resource", "link": "regiontargethttpsproxy" },
+            { "name": "RegionTargetTcpProxy", "type": "resource", "link": "regiontargettcpproxy" },
+            { "name": "RegionUrlMap", "type": "resource", "link": "regionurlmap" },
+            { "name": "Reservation", "type": "resource", "link": "reservation" },
+            { "name": "ResourcePolicy", "type": "resource", "link": "resourcepolicy" },
+            { "name": "Route", "type": "resource", "link": "route" },
+            { "name": "Router", "type": "resource", "link": "router" },
+            { "name": "RouterInterface", "type": "resource", "link": "routerinterface" },
+            { "name": "RouterNat", "type": "resource", "link": "routernat" },
+            { "name": "RouterPeer", "type": "resource", "link": "routerpeer" },
+            { "name": "SSLCertificate", "type": "resource", "link": "sslcertificate" },
+            { "name": "SSLPolicy", "type": "resource", "link": "sslpolicy" },
+            { "name": "SecurityPolicy", "type": "resource", "link": "securitypolicy" },
+            { "name": "SecurityScanConfig", "type": "resource", "link": "securityscanconfig" },
+            { "name": "ServiceAttachment", "type": "resource", "link": "serviceattachment" },
+            { "name": "SharedVPCHostProject", "type": "resource", "link": "sharedvpchostproject" },
+            { "name": "SharedVPCServiceProject", "type": "resource", "link": "sharedvpcserviceproject" },
+            { "name": "Snapshot", "type": "resource", "link": "snapshot" },
+            { "name": "SnapshotIamBinding", "type": "resource", "link": "snapshotiambinding" },
+            { "name": "SnapshotIamMember", "type": "resource", "link": "snapshotiammember" },
+            { "name": "SnapshotIamPolicy", "type": "resource", "link": "snapshotiampolicy" },
+            { "name": "Subnetwork", "type": "resource", "link": "subnetwork" },
+            { "name": "SubnetworkIAMBinding", "type": "resource", "link": "subnetworkiambinding" },
+            { "name": "SubnetworkIAMMember", "type": "resource", "link": "subnetworkiammember" },
+            { "name": "SubnetworkIAMPolicy", "type": "resource", "link": "subnetworkiampolicy" },
+            { "name": "TargetGrpcProxy", "type": "resource", "link": "targetgrpcproxy" },
+            { "name": "TargetHttpProxy", "type": "resource", "link": "targethttpproxy" },
+            { "name": "TargetHttpsProxy", "type": "resource", "link": "targethttpsproxy" },
+            { "name": "TargetInstance", "type": "resource", "link": "targetinstance" },
+            { "name": "TargetPool", "type": "resource", "link": "targetpool" },
+            { "name": "TargetSSLProxy", "type": "resource", "link": "targetsslproxy" },
+            { "name": "TargetTCPProxy", "type": "resource", "link": "targettcpproxy" },
+            { "name": "URLMap", "type": "resource", "link": "urlmap" },
+            { "name": "VPNGateway", "type": "resource", "link": "vpngateway" },
+            { "name": "VPNTunnel", "type": "resource", "link": "vpntunnel" },
+            { "name": "RouterStatus", "type": "function", "link": "routerstatus" },
+            { "name": "getAddress", "type": "function", "link": "getaddress" },
+            { "name": "getAddresses", "type": "function", "link": "getaddresses" },
+            { "name": "getBackendBucket", "type": "function", "link": "getbackendbucket" },
+            { "name": "getBackendService", "type": "function", "link": "getbackendservice" },
+            { "name": "getCertificate", "type": "function", "link": "getcertificate" },
+            { "name": "getDefaultServiceAccount", "type": "function", "link": "getdefaultserviceaccount" },
+            { "name": "getDisk", "type": "function", "link": "getdisk" },
+            { "name": "getForwardingRule", "type": "function", "link": "getforwardingrule" },
+            { "name": "getGlobalAddress", "type": "function", "link": "getglobaladdress" },
+            { "name": "getGlobalForwardingRule", "type": "function", "link": "getglobalforwardingrule" },
+            { "name": "getHcVpnGateway", "type": "function", "link": "gethcvpngateway" },
+            { "name": "getHealthCheck", "type": "function", "link": "gethealthcheck" },
+            { "name": "getImage", "type": "function", "link": "getimage" },
+            { "name": "getInstance", "type": "function", "link": "getinstance" },
+            { "name": "getInstanceGroup", "type": "function", "link": "getinstancegroup" },
+            { "name": "getInstanceGroupManager", "type": "function", "link": "getinstancegroupmanager" },
+            { "name": "getInstanceSerialPort", "type": "function", "link": "getinstanceserialport" },
+            { "name": "getInstanceTemplate", "type": "function", "link": "getinstancetemplate" },
+            { "name": "getLBIPRanges", "type": "function", "link": "getlbipranges" },
+            { "name": "getNetblockIPRanges", "type": "function", "link": "getnetblockipranges" },
+            { "name": "getNetwork", "type": "function", "link": "getnetwork" },
+            { "name": "getNetworkEndpointGroup", "type": "function", "link": "getnetworkendpointgroup" },
+            { "name": "getNetworkPeering", "type": "function", "link": "getnetworkpeering" },
+            { "name": "getNodeTypes", "type": "function", "link": "getnodetypes" },
+            { "name": "getRegionInstanceGroup", "type": "function", "link": "getregioninstancegroup" },
+            { "name": "getRegionInstanceTemplate", "type": "function", "link": "getregioninstancetemplate" },
+            { "name": "getRegionNetworkEndpointGroup", "type": "function", "link": "getregionnetworkendpointgroup" },
+            { "name": "getRegionSslCertificate", "type": "function", "link": "getregionsslcertificate" },
+            { "name": "getRegions", "type": "function", "link": "getregions" },
+            { "name": "getResourcePolicy", "type": "function", "link": "getresourcepolicy" },
+            { "name": "getRouter", "type": "function", "link": "getrouter" },
+            { "name": "getRouterNat", "type": "function", "link": "getrouternat" },
+            { "name": "getRouterStatus", "type": "function", "link": "getrouterstatus" },
+            { "name": "getSSLPolicy", "type": "function", "link": "getsslpolicy" },
+            { "name": "getSnapshot", "type": "function", "link": "getsnapshot" },
+            { "name": "getSubnetwork", "type": "function", "link": "getsubnetwork" },
+            { "name": "getVPNGateway", "type": "function", "link": "getvpngateway" },
+            { "name": "getZones", "type": "function", "link": "getzones" }
+        ]
+    },
+    {
+        "name": "container",
+        "type": "module",
+        "link": "container/",
+        "children": [
+            { "name": "AttachedCluster", "type": "resource", "link": "attachedcluster" },
+            { "name": "AwsCluster", "type": "resource", "link": "awscluster" },
+            { "name": "AwsNodePool", "type": "resource", "link": "awsnodepool" },
+            { "name": "AzureClient", "type": "resource", "link": "azureclient" },
+            { "name": "AzureCluster", "type": "resource", "link": "azurecluster" },
+            { "name": "AzureNodePool", "type": "resource", "link": "azurenodepool" },
+            { "name": "Cluster", "type": "resource", "link": "cluster" },
+            { "name": "NodePool", "type": "resource", "link": "nodepool" },
+            { "name": "Registry", "type": "resource", "link": "registry" },
+            { "name": "getAttachedInstallManifest", "type": "function", "link": "getattachedinstallmanifest" },
+            { "name": "getAttachedVersions", "type": "function", "link": "getattachedversions" },
+            { "name": "getAwsVersions", "type": "function", "link": "getawsversions" },
+            { "name": "getAzureVersions", "type": "function", "link": "getazureversions" },
+            { "name": "getCluster", "type": "function", "link": "getcluster" },
+            { "name": "getEngineVersions", "type": "function", "link": "getengineversions" },
+            { "name": "getRegistryImage", "type": "function", "link": "getregistryimage" },
+            { "name": "getRegistryRepository", "type": "function", "link": "getregistryrepository" }
+        ]
+    },
+    {
+        "name": "containeranalysis",
+        "type": "module",
+        "link": "containeranalysis/",
+        "children": [
+            { "name": "Note", "type": "resource", "link": "note" },
+            { "name": "Occurence", "type": "resource", "link": "occurence" }
+        ]
+    },
+    {
+        "name": "databasemigrationservice",
+        "type": "module",
+        "link": "databasemigrationservice/",
+        "children": [{ "name": "ConnectionProfile", "type": "resource", "link": "connectionprofile" }]
+    },
+    {
+        "name": "datacatalog",
+        "type": "module",
+        "link": "datacatalog/",
+        "children": [
+            { "name": "Entry", "type": "resource", "link": "entry" },
+            { "name": "EntryGroup", "type": "resource", "link": "entrygroup" },
+            { "name": "EntryGroupIamBinding", "type": "resource", "link": "entrygroupiambinding" },
+            { "name": "EntryGroupIamMember", "type": "resource", "link": "entrygroupiammember" },
+            { "name": "EntryGroupIamPolicy", "type": "resource", "link": "entrygroupiampolicy" },
+            { "name": "PolicyTag", "type": "resource", "link": "policytag" },
+            { "name": "PolicyTagIamBinding", "type": "resource", "link": "policytagiambinding" },
+            { "name": "PolicyTagIamMember", "type": "resource", "link": "policytagiammember" },
+            { "name": "PolicyTagIamPolicy", "type": "resource", "link": "policytagiampolicy" },
+            { "name": "Tag", "type": "resource", "link": "tag" },
+            { "name": "TagTemplate", "type": "resource", "link": "tagtemplate" },
+            { "name": "TagTemplateIamBinding", "type": "resource", "link": "tagtemplateiambinding" },
+            { "name": "TagTemplateIamMember", "type": "resource", "link": "tagtemplateiammember" },
+            { "name": "TagTemplateIamPolicy", "type": "resource", "link": "tagtemplateiampolicy" },
+            { "name": "Taxonomy", "type": "resource", "link": "taxonomy" },
+            { "name": "TaxonomyIamBinding", "type": "resource", "link": "taxonomyiambinding" },
+            { "name": "TaxonomyIamMember", "type": "resource", "link": "taxonomyiammember" },
+            { "name": "TaxonomyIamPolicy", "type": "resource", "link": "taxonomyiampolicy" }
+        ]
+    },
+    {
+        "name": "dataflow",
+        "type": "module",
+        "link": "dataflow/",
+        "children": [
+            { "name": "FlexTemplateJob", "type": "resource", "link": "flextemplatejob" },
+            { "name": "Job", "type": "resource", "link": "job" }
+        ]
+    },
+    { "name": "dataform", "type": "module", "link": "dataform/", "children": [{ "name": "Repository", "type": "resource", "link": "repository" }] },
+    { "name": "datafusion", "type": "module", "link": "datafusion/", "children": [{ "name": "Instance", "type": "resource", "link": "instance" }] },
+    {
+        "name": "dataloss",
+        "type": "module",
+        "link": "dataloss/",
+        "children": [
+            { "name": "PreventionDeidentifyTemplate", "type": "resource", "link": "preventiondeidentifytemplate" },
+            { "name": "PreventionInspectTemplate", "type": "resource", "link": "preventioninspecttemplate" },
+            { "name": "PreventionJobTrigger", "type": "resource", "link": "preventionjobtrigger" },
+            { "name": "PreventionStoredInfoType", "type": "resource", "link": "preventionstoredinfotype" }
+        ]
+    },
+    {
+        "name": "dataplex",
+        "type": "module",
+        "link": "dataplex/",
+        "children": [
+            { "name": "Asset", "type": "resource", "link": "asset" },
+            { "name": "AssetIamBinding", "type": "resource", "link": "assetiambinding" },
+            { "name": "AssetIamMember", "type": "resource", "link": "assetiammember" },
+            { "name": "AssetIamPolicy", "type": "resource", "link": "assetiampolicy" },
+            { "name": "Lake", "type": "resource", "link": "lake" },
+            { "name": "LakeIamBinding", "type": "resource", "link": "lakeiambinding" },
+            { "name": "LakeIamMember", "type": "resource", "link": "lakeiammember" },
+            { "name": "LakeIamPolicy", "type": "resource", "link": "lakeiampolicy" },
+            { "name": "Zone", "type": "resource", "link": "zone" },
+            { "name": "ZoneIamBinding", "type": "resource", "link": "zoneiambinding" },
+            { "name": "ZoneIamMember", "type": "resource", "link": "zoneiammember" },
+            { "name": "ZoneIamPolicy", "type": "resource", "link": "zoneiampolicy" }
+        ]
+    },
+    {
+        "name": "dataproc",
+        "type": "module",
+        "link": "dataproc/",
+        "children": [
+            { "name": "AutoscalingPolicy", "type": "resource", "link": "autoscalingpolicy" },
+            { "name": "AutoscalingPolicyIamBinding", "type": "resource", "link": "autoscalingpolicyiambinding" },
+            { "name": "AutoscalingPolicyIamMember", "type": "resource", "link": "autoscalingpolicyiammember" },
+            { "name": "AutoscalingPolicyIamPolicy", "type": "resource", "link": "autoscalingpolicyiampolicy" },
+            { "name": "Cluster", "type": "resource", "link": "cluster" },
+            { "name": "ClusterIAMBinding", "type": "resource", "link": "clusteriambinding" },
+            { "name": "ClusterIAMMember", "type": "resource", "link": "clusteriammember" },
+            { "name": "ClusterIAMPolicy", "type": "resource", "link": "clusteriampolicy" },
+            { "name": "Job", "type": "resource", "link": "job" },
+            { "name": "JobIAMBinding", "type": "resource", "link": "jobiambinding" },
+            { "name": "JobIAMMember", "type": "resource", "link": "jobiammember" },
+            { "name": "JobIAMPolicy", "type": "resource", "link": "jobiampolicy" },
+            { "name": "MetastoreFederation", "type": "resource", "link": "metastorefederation" },
+            { "name": "MetastoreFederationIamBinding", "type": "resource", "link": "metastorefederationiambinding" },
+            { "name": "MetastoreFederationIamMember", "type": "resource", "link": "metastorefederationiammember" },
+            { "name": "MetastoreFederationIamPolicy", "type": "resource", "link": "metastorefederationiampolicy" },
+            { "name": "MetastoreService", "type": "resource", "link": "metastoreservice" },
+            { "name": "MetastoreServiceIamBinding", "type": "resource", "link": "metastoreserviceiambinding" },
+            { "name": "MetastoreServiceIamMember", "type": "resource", "link": "metastoreserviceiammember" },
+            { "name": "MetastoreServiceIamPolicy", "type": "resource", "link": "metastoreserviceiampolicy" },
+            { "name": "WorkflowTemplate", "type": "resource", "link": "workflowtemplate" }
+        ]
+    },
+    { "name": "datastore", "type": "module", "link": "datastore/", "children": [{ "name": "DataStoreIndex", "type": "resource", "link": "datastoreindex" }] },
+    {
+        "name": "datastream",
+        "type": "module",
+        "link": "datastream/",
+        "children": [
+            { "name": "ConnectionProfile", "type": "resource", "link": "connectionprofile" },
+            { "name": "PrivateConnection", "type": "resource", "link": "privateconnection" },
+            { "name": "Stream", "type": "resource", "link": "stream" },
+            { "name": "getStaticIps", "type": "function", "link": "getstaticips" }
+        ]
+    },
+    { "name": "deploymentmanager", "type": "module", "link": "deploymentmanager/", "children": [{ "name": "Deployment", "type": "resource", "link": "deployment" }] },
+    {
+        "name": "diagflow",
+        "type": "module",
+        "link": "diagflow/",
+        "children": [
+            { "name": "Agent", "type": "resource", "link": "agent" },
+            { "name": "CxAgent", "type": "resource", "link": "cxagent" },
+            { "name": "CxEntityType", "type": "resource", "link": "cxentitytype" },
+            { "name": "CxEnvironment", "type": "resource", "link": "cxenvironment" },
+            { "name": "CxFlow", "type": "resource", "link": "cxflow" },
+            { "name": "CxIntent", "type": "resource", "link": "cxintent" },
+            { "name": "CxPage", "type": "resource", "link": "cxpage" },
+            { "name": "CxVersion", "type": "resource", "link": "cxversion" },
+            { "name": "CxWebhook", "type": "resource", "link": "cxwebhook" },
+            { "name": "EntityType", "type": "resource", "link": "entitytype" },
+            { "name": "Fulfillment", "type": "resource", "link": "fulfillment" },
+            { "name": "Intent", "type": "resource", "link": "intent" }
+        ]
+    },
+    {
+        "name": "dns",
+        "type": "module",
+        "link": "dns/",
+        "children": [
+            { "name": "DnsManagedZoneIamBinding", "type": "resource", "link": "dnsmanagedzoneiambinding" },
+            { "name": "DnsManagedZoneIamMember", "type": "resource", "link": "dnsmanagedzoneiammember" },
+            { "name": "DnsManagedZoneIamPolicy", "type": "resource", "link": "dnsmanagedzoneiampolicy" },
+            { "name": "ManagedZone", "type": "resource", "link": "managedzone" },
+            { "name": "Policy", "type": "resource", "link": "policy" },
+            { "name": "RecordSet", "type": "resource", "link": "recordset" },
+            { "name": "ResponsePolicy", "type": "resource", "link": "responsepolicy" },
+            { "name": "ResponsePolicyRule", "type": "resource", "link": "responsepolicyrule" },
+            { "name": "getKeys", "type": "function", "link": "getkeys" },
+            { "name": "getManagedZone", "type": "function", "link": "getmanagedzone" },
+            { "name": "getRecordSet", "type": "function", "link": "getrecordset" }
+        ]
+    },
+    {
+        "name": "endpoints",
+        "type": "module",
+        "link": "endpoints/",
+        "children": [
+            { "name": "ConsumersIamBinding", "type": "resource", "link": "consumersiambinding" },
+            { "name": "ConsumersIamMember", "type": "resource", "link": "consumersiammember" },
+            { "name": "ConsumersIamPolicy", "type": "resource", "link": "consumersiampolicy" },
+            { "name": "Service", "type": "resource", "link": "service" },
+            { "name": "ServiceIamBinding", "type": "resource", "link": "serviceiambinding" },
+            { "name": "ServiceIamMember", "type": "resource", "link": "serviceiammember" },
+            { "name": "ServiceIamPolicy", "type": "resource", "link": "serviceiampolicy" }
+        ]
+    },
+    {
+        "name": "essentialcontacts",
+        "type": "module",
+        "link": "essentialcontacts/",
+        "children": [
+            { "name": "Contact", "type": "resource", "link": "contact" },
+            { "name": "DocumentAiProcessor", "type": "resource", "link": "documentaiprocessor" },
+            { "name": "DocumentAiProcessorDefaultVersion", "type": "resource", "link": "documentaiprocessordefaultversion" }
+        ]
+    },
+    {
+        "name": "eventarc",
+        "type": "module",
+        "link": "eventarc/",
+        "children": [
+            { "name": "Channel", "type": "resource", "link": "channel" },
+            { "name": "GoogleChannelConfig", "type": "resource", "link": "googlechannelconfig" },
+            { "name": "Trigger", "type": "resource", "link": "trigger" }
+        ]
+    },
+    {
+        "name": "filestore",
+        "type": "module",
+        "link": "filestore/",
+        "children": [
+            { "name": "Backup", "type": "resource", "link": "backup" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "Snapshot", "type": "resource", "link": "snapshot" }
+        ]
+    },
+    {
+        "name": "firebase",
+        "type": "module",
+        "link": "firebase/",
+        "children": [
+            { "name": "AndroidApp", "type": "resource", "link": "androidapp" },
+            { "name": "AppleApp", "type": "resource", "link": "appleapp" },
+            { "name": "DatabaseInstance", "type": "resource", "link": "databaseinstance" },
+            { "name": "HostingChannel", "type": "resource", "link": "hostingchannel" },
+            { "name": "HostingRelease", "type": "resource", "link": "hostingrelease" },
+            { "name": "HostingSite", "type": "resource", "link": "hostingsite" },
+            { "name": "HostingVersion", "type": "resource", "link": "hostingversion" },
+            { "name": "Project", "type": "resource", "link": "project" },
+            { "name": "ProjectLocation", "type": "resource", "link": "projectlocation" },
+            { "name": "StorageBucket", "type": "resource", "link": "storagebucket" },
+            { "name": "WebApp", "type": "resource", "link": "webapp" },
+            { "name": "getAndroidApp", "type": "function", "link": "getandroidapp" },
+            { "name": "getAndroidAppConfig", "type": "function", "link": "getandroidappconfig" },
+            { "name": "getAppleApp", "type": "function", "link": "getappleapp" },
+            { "name": "getAppleAppConfig", "type": "function", "link": "getappleappconfig" },
+            { "name": "getHostingChannel", "type": "function", "link": "gethostingchannel" },
+            { "name": "getWebApp", "type": "function", "link": "getwebapp" },
+            { "name": "getWebAppConfig", "type": "function", "link": "getwebappconfig" }
+        ]
+    },
+    {
+        "name": "firebaserules",
+        "type": "module",
+        "link": "firebaserules/",
+        "children": [
+            { "name": "Release", "type": "resource", "link": "release" },
+            { "name": "Ruleset", "type": "resource", "link": "ruleset" }
+        ]
+    },
+    {
+        "name": "firestore",
+        "type": "module",
+        "link": "firestore/",
+        "children": [
+            { "name": "Database", "type": "resource", "link": "database" },
+            { "name": "Document", "type": "resource", "link": "document" },
+            { "name": "Field", "type": "resource", "link": "field" },
+            { "name": "Index", "type": "resource", "link": "--index" }
+        ]
+    },
+    {
+        "name": "folder",
+        "type": "module",
+        "link": "folder/",
+        "children": [
+            { "name": "AccessApprovalSettings", "type": "resource", "link": "accessapprovalsettings" },
+            { "name": "IAMBinding", "type": "resource", "link": "iambinding" },
+            { "name": "IAMMember", "type": "resource", "link": "iammember" },
+            { "name": "IAMPolicy", "type": "resource", "link": "iampolicy" },
+            { "name": "IamAuditConfig", "type": "resource", "link": "iamauditconfig" },
+            { "name": "OrganizationPolicy", "type": "resource", "link": "organizationpolicy" },
+            { "name": "getOrganizationPolicy", "type": "function", "link": "getorganizationpolicy" }
+        ]
+    },
+    {
+        "name": "gameservices",
+        "type": "module",
+        "link": "gameservices/",
+        "children": [
+            { "name": "GameServerCluster", "type": "resource", "link": "gameservercluster" },
+            { "name": "GameServerConfig", "type": "resource", "link": "gameserverconfig" },
+            { "name": "GameServerDeployment", "type": "resource", "link": "gameserverdeployment" },
+            { "name": "GameServerDeploymentRollout", "type": "resource", "link": "gameserverdeploymentrollout" },
+            { "name": "Realm", "type": "resource", "link": "realm" },
+            { "name": "getGameServerDeploymentRollout", "type": "function", "link": "getgameserverdeploymentrollout" }
+        ]
+    },
+    {
+        "name": "gkebackup",
+        "type": "module",
+        "link": "gkebackup/",
+        "children": [
+            { "name": "BackupPlan", "type": "resource", "link": "backupplan" },
+            { "name": "BackupPlanIamBinding", "type": "resource", "link": "backupplaniambinding" },
+            { "name": "BackupPlanIamMember", "type": "resource", "link": "backupplaniammember" },
+            { "name": "BackupPlanIamPolicy", "type": "resource", "link": "backupplaniampolicy" }
+        ]
+    },
+    {
+        "name": "gkehub",
+        "type": "module",
+        "link": "gkehub/",
+        "children": [
+            { "name": "Feature", "type": "resource", "link": "feature" },
+            { "name": "FeatureMembership", "type": "resource", "link": "featuremembership" },
+            { "name": "Membership", "type": "resource", "link": "membership" },
+            { "name": "MembershipIamBinding", "type": "resource", "link": "membershipiambinding" },
+            { "name": "MembershipIamMember", "type": "resource", "link": "membershipiammember" },
+            { "name": "MembershipIamPolicy", "type": "resource", "link": "membershipiampolicy" }
+        ]
+    },
+    {
+        "name": "gkeonprem",
+        "type": "module",
+        "link": "gkeonprem/",
+        "children": [
+            { "name": "BareMetalCluster", "type": "resource", "link": "baremetalcluster" },
+            { "name": "BareMetalNodePool", "type": "resource", "link": "baremetalnodepool" },
+            { "name": "VMwareCluster", "type": "resource", "link": "vmwarecluster" },
+            { "name": "VMwareNodePool", "type": "resource", "link": "vmwarenodepool" }
+        ]
+    },
+    {
+        "name": "healthcare",
+        "type": "module",
+        "link": "healthcare/",
+        "children": [
+            { "name": "ConsentStore", "type": "resource", "link": "consentstore" },
+            { "name": "ConsentStoreIamBinding", "type": "resource", "link": "consentstoreiambinding" },
+            { "name": "ConsentStoreIamMember", "type": "resource", "link": "consentstoreiammember" },
+            { "name": "ConsentStoreIamPolicy", "type": "resource", "link": "consentstoreiampolicy" },
+            { "name": "Dataset", "type": "resource", "link": "dataset" },
+            { "name": "DatasetIamBinding", "type": "resource", "link": "datasetiambinding" },
+            { "name": "DatasetIamMember", "type": "resource", "link": "datasetiammember" },
+            { "name": "DatasetIamPolicy", "type": "resource", "link": "datasetiampolicy" },
+            { "name": "DicomStore", "type": "resource", "link": "dicomstore" },
+            { "name": "DicomStoreIamBinding", "type": "resource", "link": "dicomstoreiambinding" },
+            { "name": "DicomStoreIamMember", "type": "resource", "link": "dicomstoreiammember" },
+            { "name": "DicomStoreIamPolicy", "type": "resource", "link": "dicomstoreiampolicy" },
+            { "name": "FhirStore", "type": "resource", "link": "fhirstore" },
+            { "name": "FhirStoreIamBinding", "type": "resource", "link": "fhirstoreiambinding" },
+            { "name": "FhirStoreIamMember", "type": "resource", "link": "fhirstoreiammember" },
+            { "name": "FhirStoreIamPolicy", "type": "resource", "link": "fhirstoreiampolicy" },
+            { "name": "Hl7Store", "type": "resource", "link": "hl7store" },
+            { "name": "Hl7StoreIamBinding", "type": "resource", "link": "hl7storeiambinding" },
+            { "name": "Hl7StoreIamMember", "type": "resource", "link": "hl7storeiammember" },
+            { "name": "Hl7StoreIamPolicy", "type": "resource", "link": "hl7storeiampolicy" }
+        ]
+    },
+    {
+        "name": "iam",
+        "type": "module",
+        "link": "iam/",
+        "children": [
+            { "name": "AccessBoundaryPolicy", "type": "resource", "link": "accessboundarypolicy" },
+            { "name": "DenyPolicy", "type": "resource", "link": "denypolicy" },
+            { "name": "WorkforcePool", "type": "resource", "link": "workforcepool" },
+            { "name": "WorkforcePoolProvider", "type": "resource", "link": "workforcepoolprovider" },
+            { "name": "WorkloadIdentityPool", "type": "resource", "link": "workloadidentitypool" },
+            { "name": "WorkloadIdentityPoolProvider", "type": "resource", "link": "workloadidentitypoolprovider" },
+            { "name": "getRule", "type": "function", "link": "getrule" },
+            { "name": "getTestablePermissions", "type": "function", "link": "gettestablepermissions" },
+            { "name": "getWorkloadIdentityPool", "type": "function", "link": "getworkloadidentitypool" },
+            { "name": "getWorkloadIdentityPoolProvider", "type": "function", "link": "getworkloadidentitypoolprovider" }
+        ]
+    },
+    {
+        "name": "iap",
+        "type": "module",
+        "link": "iap/",
+        "children": [
+            { "name": "AppEngineServiceIamBinding", "type": "resource", "link": "appengineserviceiambinding" },
+            { "name": "AppEngineServiceIamMember", "type": "resource", "link": "appengineserviceiammember" },
+            { "name": "AppEngineServiceIamPolicy", "type": "resource", "link": "appengineserviceiampolicy" },
+            { "name": "AppEngineVersionIamBinding", "type": "resource", "link": "appengineversioniambinding" },
+            { "name": "AppEngineVersionIamMember", "type": "resource", "link": "appengineversioniammember" },
+            { "name": "AppEngineVersionIamPolicy", "type": "resource", "link": "appengineversioniampolicy" },
+            { "name": "Brand", "type": "resource", "link": "brand" },
+            { "name": "Client", "type": "resource", "link": "client" },
+            { "name": "TunnelIamBinding", "type": "resource", "link": "tunneliambinding" },
+            { "name": "TunnelIamMember", "type": "resource", "link": "tunneliammember" },
+            { "name": "TunnelIamPolicy", "type": "resource", "link": "tunneliampolicy" },
+            { "name": "TunnelInstanceIAMBinding", "type": "resource", "link": "tunnelinstanceiambinding" },
+            { "name": "TunnelInstanceIAMMember", "type": "resource", "link": "tunnelinstanceiammember" },
+            { "name": "TunnelInstanceIAMPolicy", "type": "resource", "link": "tunnelinstanceiampolicy" },
+            { "name": "WebBackendServiceIamBinding", "type": "resource", "link": "webbackendserviceiambinding" },
+            { "name": "WebBackendServiceIamMember", "type": "resource", "link": "webbackendserviceiammember" },
+            { "name": "WebBackendServiceIamPolicy", "type": "resource", "link": "webbackendserviceiampolicy" },
+            { "name": "WebIamBinding", "type": "resource", "link": "webiambinding" },
+            { "name": "WebIamMember", "type": "resource", "link": "webiammember" },
+            { "name": "WebIamPolicy", "type": "resource", "link": "webiampolicy" },
+            { "name": "WebTypeAppEngingIamBinding", "type": "resource", "link": "webtypeappengingiambinding" },
+            { "name": "WebTypeAppEngingIamMember", "type": "resource", "link": "webtypeappengingiammember" },
+            { "name": "WebTypeAppEngingIamPolicy", "type": "resource", "link": "webtypeappengingiampolicy" },
+            { "name": "WebTypeComputeIamBinding", "type": "resource", "link": "webtypecomputeiambinding" },
+            { "name": "WebTypeComputeIamMember", "type": "resource", "link": "webtypecomputeiammember" },
+            { "name": "WebTypeComputeIamPolicy", "type": "resource", "link": "webtypecomputeiampolicy" },
+            { "name": "getClient", "type": "function", "link": "getclient" }
+        ]
+    },
+    {
+        "name": "identityplatform",
+        "type": "module",
+        "link": "identityplatform/",
+        "children": [
+            { "name": "Config", "type": "resource", "link": "config" },
+            { "name": "DefaultSupportedIdpConfig", "type": "resource", "link": "defaultsupportedidpconfig" },
+            { "name": "InboundSamlConfig", "type": "resource", "link": "inboundsamlconfig" },
+            { "name": "OauthIdpConfig", "type": "resource", "link": "oauthidpconfig" },
+            { "name": "ProjectDefaultConfig", "type": "resource", "link": "projectdefaultconfig" },
+            { "name": "Tenant", "type": "resource", "link": "tenant" },
+            { "name": "TenantDefaultSupportedIdpConfig", "type": "resource", "link": "tenantdefaultsupportedidpconfig" },
+            { "name": "TenantInboundSamlConfig", "type": "resource", "link": "tenantinboundsamlconfig" },
+            { "name": "TenantOauthIdpConfig", "type": "resource", "link": "tenantoauthidpconfig" }
+        ]
+    },
+    {
+        "name": "iot",
+        "type": "module",
+        "link": "iot/",
+        "children": [
+            { "name": "Device", "type": "resource", "link": "device" },
+            { "name": "Registry", "type": "resource", "link": "registry" },
+            { "name": "RegistryIamBinding", "type": "resource", "link": "registryiambinding" },
+            { "name": "RegistryIamMember", "type": "resource", "link": "registryiammember" },
+            { "name": "RegistryIamPolicy", "type": "resource", "link": "registryiampolicy" }
+        ]
+    },
+    {
+        "name": "kms",
+        "type": "module",
+        "link": "kms/",
+        "children": [
+            { "name": "CryptoKey", "type": "resource", "link": "cryptokey" },
+            { "name": "CryptoKeyIAMBinding", "type": "resource", "link": "cryptokeyiambinding" },
+            { "name": "CryptoKeyIAMMember", "type": "resource", "link": "cryptokeyiammember" },
+            { "name": "CryptoKeyIAMPolicy", "type": "resource", "link": "cryptokeyiampolicy" },
+            { "name": "CryptoKeyVersion", "type": "resource", "link": "cryptokeyversion" },
+            { "name": "KeyRing", "type": "resource", "link": "keyring" },
+            { "name": "KeyRingIAMBinding", "type": "resource", "link": "keyringiambinding" },
+            { "name": "KeyRingIAMMember", "type": "resource", "link": "keyringiammember" },
+            { "name": "KeyRingIAMPolicy", "type": "resource", "link": "keyringiampolicy" },
+            { "name": "KeyRingImportJob", "type": "resource", "link": "keyringimportjob" },
+            { "name": "Registry", "type": "resource", "link": "registry" },
+            { "name": "SecretCiphertext", "type": "resource", "link": "secretciphertext" },
+            { "name": "getKMSCryptoKey", "type": "function", "link": "getkmscryptokey" },
+            { "name": "getKMSCryptoKeyVersion", "type": "function", "link": "getkmscryptokeyversion" },
+            { "name": "getKMSKeyRing", "type": "function", "link": "getkmskeyring" },
+            { "name": "getKMSSecret", "type": "function", "link": "getkmssecret" },
+            { "name": "getKMSSecretAsymmetric", "type": "function", "link": "getkmssecretasymmetric" },
+            { "name": "getKMSSecretCiphertext", "type": "function", "link": "getkmssecretciphertext" }
+        ]
+    },
+    {
+        "name": "logging",
+        "type": "module",
+        "link": "logging/",
+        "children": [
+            { "name": "BillingAccountBucketConfig", "type": "resource", "link": "billingaccountbucketconfig" },
+            { "name": "BillingAccountExclusion", "type": "resource", "link": "billingaccountexclusion" },
+            { "name": "BillingAccountSink", "type": "resource", "link": "billingaccountsink" },
+            { "name": "FolderBucketConfig", "type": "resource", "link": "folderbucketconfig" },
+            { "name": "FolderExclusion", "type": "resource", "link": "folderexclusion" },
+            { "name": "FolderSink", "type": "resource", "link": "foldersink" },
+            { "name": "LinkedDataset", "type": "resource", "link": "linkeddataset" },
+            { "name": "LogView", "type": "resource", "link": "logview" },
+            { "name": "Metric", "type": "resource", "link": "metric" },
+            { "name": "OrganizationBucketConfig", "type": "resource", "link": "organizationbucketconfig" },
+            { "name": "OrganizationExclusion", "type": "resource", "link": "organizationexclusion" },
+            { "name": "OrganizationSink", "type": "resource", "link": "organizationsink" },
+            { "name": "ProjectBucketConfig", "type": "resource", "link": "projectbucketconfig" },
+            { "name": "ProjectExclusion", "type": "resource", "link": "projectexclusion" },
+            { "name": "ProjectSink", "type": "resource", "link": "projectsink" },
+            { "name": "getProjectCmekSettings", "type": "function", "link": "getprojectcmeksettings" },
+            { "name": "getSink", "type": "function", "link": "getsink" }
+        ]
+    },
+    { "name": "memcache", "type": "module", "link": "memcache/", "children": [{ "name": "Instance", "type": "resource", "link": "instance" }] },
+    { "name": "ml", "type": "module", "link": "ml/", "children": [{ "name": "EngineModel", "type": "resource", "link": "enginemodel" }] },
+    {
+        "name": "monitoring",
+        "type": "module",
+        "link": "monitoring/",
+        "children": [
+            { "name": "AlertPolicy", "type": "resource", "link": "alertpolicy" },
+            { "name": "CustomService", "type": "resource", "link": "customservice" },
+            { "name": "Dashboard", "type": "resource", "link": "dashboard" },
+            { "name": "GenericService", "type": "resource", "link": "genericservice" },
+            { "name": "Group", "type": "resource", "link": "group" },
+            { "name": "MetricDescriptor", "type": "resource", "link": "metricdescriptor" },
+            { "name": "MonitoredProject", "type": "resource", "link": "monitoredproject" },
+            { "name": "NotificationChannel", "type": "resource", "link": "notificationchannel" },
+            { "name": "Slo", "type": "resource", "link": "slo" },
+            { "name": "UptimeCheckConfig", "type": "resource", "link": "uptimecheckconfig" },
+            { "name": "getAppEngineService", "type": "function", "link": "getappengineservice" },
+            { "name": "getClusterIstioService", "type": "function", "link": "getclusteristioservice" },
+            { "name": "getIstioCanonicalService", "type": "function", "link": "getistiocanonicalservice" },
+            { "name": "getMeshIstioService", "type": "function", "link": "getmeshistioservice" },
+            { "name": "getNotificationChannel", "type": "function", "link": "getnotificationchannel" },
+            { "name": "getSecretVersion", "type": "function", "link": "getsecretversion" },
+            { "name": "getUptimeCheckIPs", "type": "function", "link": "getuptimecheckips" }
+        ]
+    },
+    {
+        "name": "networkconnectivity",
+        "type": "module",
+        "link": "networkconnectivity/",
+        "children": [
+            { "name": "Hub", "type": "resource", "link": "hub" },
+            { "name": "Spoke", "type": "resource", "link": "spoke" }
+        ]
+    },
+    { "name": "networkmanagement", "type": "module", "link": "networkmanagement/", "children": [{ "name": "ConnectivityTest", "type": "resource", "link": "connectivitytest" }] },
+    {
+        "name": "networksecurity",
+        "type": "module",
+        "link": "networksecurity/",
+        "children": [
+            { "name": "AddressGroup", "type": "resource", "link": "addressgroup" },
+            { "name": "AuthorizationPolicy", "type": "resource", "link": "authorizationpolicy" },
+            { "name": "ClientTlsPolicy", "type": "resource", "link": "clienttlspolicy" },
+            { "name": "GatewaySecurityPolicy", "type": "resource", "link": "gatewaysecuritypolicy" },
+            { "name": "GatewaySecurityPolicyRule", "type": "resource", "link": "gatewaysecuritypolicyrule" },
+            { "name": "ServerTlsPolicy", "type": "resource", "link": "servertlspolicy" },
+            { "name": "TlsInspectionPolicy", "type": "resource", "link": "tlsinspectionpolicy" },
+            { "name": "UrlList", "type": "resource", "link": "urllist" }
+        ]
+    },
+    {
+        "name": "networkservices",
+        "type": "module",
+        "link": "networkservices/",
+        "children": [
+            { "name": "EdgeCacheKeyset", "type": "resource", "link": "edgecachekeyset" },
+            { "name": "EdgeCacheOrigin", "type": "resource", "link": "edgecacheorigin" },
+            { "name": "EdgeCacheService", "type": "resource", "link": "edgecacheservice" },
+            { "name": "EndpointPolicy", "type": "resource", "link": "endpointpolicy" },
+            { "name": "Gateway", "type": "resource", "link": "gateway" },
+            { "name": "GrpcRoute", "type": "resource", "link": "grpcroute" },
+            { "name": "HttpRoute", "type": "resource", "link": "httproute" },
+            { "name": "Mesh", "type": "resource", "link": "mesh" },
+            { "name": "ServiceBinding", "type": "resource", "link": "servicebinding" },
+            { "name": "TcpRoute", "type": "resource", "link": "tcproute" },
+            { "name": "TlsRoute", "type": "resource", "link": "tlsroute" }
+        ]
+    },
+    {
+        "name": "notebooks",
+        "type": "module",
+        "link": "notebooks/",
+        "children": [
+            { "name": "Environment", "type": "resource", "link": "environment" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "InstanceIamBinding", "type": "resource", "link": "instanceiambinding" },
+            { "name": "InstanceIamMember", "type": "resource", "link": "instanceiammember" },
+            { "name": "InstanceIamPolicy", "type": "resource", "link": "instanceiampolicy" },
+            { "name": "Location", "type": "resource", "link": "location" },
+            { "name": "Runtime", "type": "resource", "link": "runtime" },
+            { "name": "RuntimeIamBinding", "type": "resource", "link": "runtimeiambinding" },
+            { "name": "RuntimeIamMember", "type": "resource", "link": "runtimeiammember" },
+            { "name": "RuntimeIamPolicy", "type": "resource", "link": "runtimeiampolicy" }
+        ]
+    },
+    {
+        "name": "organizations",
+        "type": "module",
+        "link": "organizations/",
+        "children": [
+            { "name": "AccessApprovalSettings", "type": "resource", "link": "accessapprovalsettings" },
+            { "name": "Folder", "type": "resource", "link": "folder" },
+            { "name": "IAMBinding", "type": "resource", "link": "iambinding" },
+            { "name": "IAMCustomRole", "type": "resource", "link": "iamcustomrole" },
+            { "name": "IAMMember", "type": "resource", "link": "iammember" },
+            { "name": "IAMPolicy", "type": "resource", "link": "iampolicy" },
+            { "name": "IamAuditConfig", "type": "resource", "link": "iamauditconfig" },
+            { "name": "Policy", "type": "resource", "link": "policy" },
+            { "name": "Project", "type": "resource", "link": "project" },
+            { "name": "getActiveFolder", "type": "function", "link": "getactivefolder" },
+            { "name": "getBillingAccount", "type": "function", "link": "getbillingaccount" },
+            { "name": "getClientConfig", "type": "function", "link": "getclientconfig" },
+            { "name": "getClientOpenIdUserInfo", "type": "function", "link": "getclientopeniduserinfo" },
+            { "name": "getFolder", "type": "function", "link": "getfolder" },
+            { "name": "getFolders", "type": "function", "link": "getfolders" },
+            { "name": "getIAMPolicy", "type": "function", "link": "getiampolicy" },
+            { "name": "getOrganization", "type": "function", "link": "getorganization" },
+            { "name": "getProject", "type": "function", "link": "getproject" }
+        ]
+    },
+    {
+        "name": "orgpolicy",
+        "type": "module",
+        "link": "orgpolicy/",
+        "children": [
+            { "name": "CustomConstraint", "type": "resource", "link": "customconstraint" },
+            { "name": "Policy", "type": "resource", "link": "policy" }
+        ]
+    },
+    {
+        "name": "osconfig",
+        "type": "module",
+        "link": "osconfig/",
+        "children": [
+            { "name": "GuestPolicies", "type": "resource", "link": "guestpolicies" },
+            { "name": "OsPolicyAssignment", "type": "resource", "link": "ospolicyassignment" },
+            { "name": "PatchDeployment", "type": "resource", "link": "patchdeployment" }
+        ]
+    },
+    { "name": "oslogin", "type": "module", "link": "oslogin/", "children": [{ "name": "SshPublicKey", "type": "resource", "link": "sshpublickey" }] },
+    {
+        "name": "projects",
+        "type": "module",
+        "link": "projects/",
+        "children": [
+            { "name": "AccessApprovalSettings", "type": "resource", "link": "accessapprovalsettings" },
+            { "name": "ApiKey", "type": "resource", "link": "apikey" },
+            { "name": "DefaultServiceAccounts", "type": "resource", "link": "defaultserviceaccounts" },
+            { "name": "IAMAuditConfig", "type": "resource", "link": "iamauditconfig" },
+            { "name": "IAMBinding", "type": "resource", "link": "iambinding" },
+            { "name": "IAMCustomRole", "type": "resource", "link": "iamcustomrole" },
+            { "name": "IAMMember", "type": "resource", "link": "iammember" },
+            { "name": "IAMPolicy", "type": "resource", "link": "iampolicy" },
+            { "name": "OrganizationPolicy", "type": "resource", "link": "organizationpolicy" },
+            { "name": "Service", "type": "resource", "link": "service" },
+            { "name": "ServiceIdentity", "type": "resource", "link": "serviceidentity" },
+            { "name": "UsageExportBucket", "type": "resource", "link": "usageexportbucket" },
+            { "name": "getOrganizationPolicy", "type": "function", "link": "getorganizationpolicy" },
+            { "name": "getProject", "type": "function", "link": "getproject" },
+            { "name": "getProjectService", "type": "function", "link": "getprojectservice" }
+        ]
+    },
+    {
+        "name": "pubsub",
+        "type": "module",
+        "link": "pubsub/",
+        "children": [
+            { "name": "LiteReservation", "type": "resource", "link": "litereservation" },
+            { "name": "LiteSubscription", "type": "resource", "link": "litesubscription" },
+            { "name": "LiteTopic", "type": "resource", "link": "litetopic" },
+            { "name": "Schema", "type": "resource", "link": "schema" },
+            { "name": "Subscription", "type": "resource", "link": "subscription" },
+            { "name": "SubscriptionIAMBinding", "type": "resource", "link": "subscriptioniambinding" },
+            { "name": "SubscriptionIAMMember", "type": "resource", "link": "subscriptioniammember" },
+            { "name": "SubscriptionIAMPolicy", "type": "resource", "link": "subscriptioniampolicy" },
+            { "name": "Topic", "type": "resource", "link": "topic" },
+            { "name": "TopicIAMBinding", "type": "resource", "link": "topiciambinding" },
+            { "name": "TopicIAMMember", "type": "resource", "link": "topiciammember" },
+            { "name": "TopicIAMPolicy", "type": "resource", "link": "topiciampolicy" },
+            { "name": "getSubscription", "type": "function", "link": "getsubscription" },
+            { "name": "getTopic", "type": "function", "link": "gettopic" }
+        ]
+    },
+    { "name": "recaptcha", "type": "module", "link": "recaptcha/", "children": [{ "name": "EnterpriseKey", "type": "resource", "link": "enterprisekey" }] },
+    {
+        "name": "redis",
+        "type": "module",
+        "link": "redis/",
+        "children": [
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "getInstance", "type": "function", "link": "getinstance" }
+        ]
+    },
+    { "name": "resourcemanager", "type": "module", "link": "resourcemanager/", "children": [{ "name": "Lien", "type": "resource", "link": "lien" }] },
+    {
+        "name": "runtimeconfig",
+        "type": "module",
+        "link": "runtimeconfig/",
+        "children": [
+            { "name": "Config", "type": "resource", "link": "config" },
+            { "name": "ConfigIamBinding", "type": "resource", "link": "configiambinding" },
+            { "name": "ConfigIamMember", "type": "resource", "link": "configiammember" },
+            { "name": "ConfigIamPolicy", "type": "resource", "link": "configiampolicy" },
+            { "name": "Variable", "type": "resource", "link": "variable" },
+            { "name": "getConfig", "type": "function", "link": "getconfig" },
+            { "name": "getVariable", "type": "function", "link": "getvariable" }
+        ]
+    },
+    {
+        "name": "secretmanager",
+        "type": "module",
+        "link": "secretmanager/",
+        "children": [
+            { "name": "Secret", "type": "resource", "link": "secret" },
+            { "name": "SecretIamBinding", "type": "resource", "link": "secretiambinding" },
+            { "name": "SecretIamMember", "type": "resource", "link": "secretiammember" },
+            { "name": "SecretIamPolicy", "type": "resource", "link": "secretiampolicy" },
+            { "name": "SecretVersion", "type": "resource", "link": "secretversion" },
+            { "name": "getSecret", "type": "function", "link": "getsecret" },
+            { "name": "getSecretVersion", "type": "function", "link": "getsecretversion" },
+            { "name": "getSecretVersionAccess", "type": "function", "link": "getsecretversionaccess" }
+        ]
+    },
+    {
+        "name": "securitycenter",
+        "type": "module",
+        "link": "securitycenter/",
+        "children": [
+            { "name": "InstanceIamBinding", "type": "resource", "link": "instanceiambinding" },
+            { "name": "InstanceIamMember", "type": "resource", "link": "instanceiammember" },
+            { "name": "InstanceIamPolicy", "type": "resource", "link": "instanceiampolicy" },
+            { "name": "MuteConfig", "type": "resource", "link": "muteconfig" },
+            { "name": "NotificationConfig", "type": "resource", "link": "notificationconfig" },
+            { "name": "Source", "type": "resource", "link": "source" },
+            { "name": "SourceIamBinding", "type": "resource", "link": "sourceiambinding" },
+            { "name": "SourceIamMember", "type": "resource", "link": "sourceiammember" },
+            { "name": "SourceIamPolicy", "type": "resource", "link": "sourceiampolicy" }
+        ]
+    },
+    {
+        "name": "serviceAccount",
+        "type": "module",
+        "link": "serviceaccount/",
+        "children": [
+            { "name": "Account", "type": "resource", "link": "account" },
+            { "name": "IAMBinding", "type": "resource", "link": "iambinding" },
+            { "name": "IAMMember", "type": "resource", "link": "iammember" },
+            { "name": "IAMPolicy", "type": "resource", "link": "iampolicy" },
+            { "name": "Key", "type": "resource", "link": "key" },
+            { "name": "getAccount", "type": "function", "link": "getaccount" },
+            { "name": "getAccountAccessToken", "type": "function", "link": "getaccountaccesstoken" },
+            { "name": "getAccountIdToken", "type": "function", "link": "getaccountidtoken" },
+            { "name": "getAccountJwt", "type": "function", "link": "getaccountjwt" },
+            { "name": "getAccountKey", "type": "function", "link": "getaccountkey" }
+        ]
+    },
+    {
+        "name": "servicedirectory",
+        "type": "module",
+        "link": "servicedirectory/",
+        "children": [
+            { "name": "Endpoint", "type": "resource", "link": "endpoint" },
+            { "name": "Namespace", "type": "resource", "link": "namespace" },
+            { "name": "NamespaceIamBinding", "type": "resource", "link": "namespaceiambinding" },
+            { "name": "NamespaceIamMember", "type": "resource", "link": "namespaceiammember" },
+            { "name": "NamespaceIamPolicy", "type": "resource", "link": "namespaceiampolicy" },
+            { "name": "Service", "type": "resource", "link": "service" },
+            { "name": "ServiceIamBinding", "type": "resource", "link": "serviceiambinding" },
+            { "name": "ServiceIamMember", "type": "resource", "link": "serviceiammember" },
+            { "name": "ServiceIamPolicy", "type": "resource", "link": "serviceiampolicy" }
+        ]
+    },
+    {
+        "name": "servicenetworking",
+        "type": "module",
+        "link": "servicenetworking/",
+        "children": [
+            { "name": "Connection", "type": "resource", "link": "connection" },
+            { "name": "PeeredDnsDomain", "type": "resource", "link": "peereddnsdomain" },
+            { "name": "getPeeredDnsDomain", "type": "function", "link": "getpeereddnsdomain" }
+        ]
+    },
+    { "name": "serviceusage", "type": "module", "link": "serviceusage/", "children": [{ "name": "ConsumerQuotaOverride", "type": "resource", "link": "consumerquotaoverride" }] },
+    {
+        "name": "sourcerepo",
+        "type": "module",
+        "link": "sourcerepo/",
+        "children": [
+            { "name": "Repository", "type": "resource", "link": "repository" },
+            { "name": "RepositoryIamBinding", "type": "resource", "link": "repositoryiambinding" },
+            { "name": "RepositoryIamMember", "type": "resource", "link": "repositoryiammember" },
+            { "name": "RepositoryIamPolicy", "type": "resource", "link": "repositoryiampolicy" },
+            { "name": "getRepository", "type": "function", "link": "getrepository" }
+        ]
+    },
+    {
+        "name": "spanner",
+        "type": "module",
+        "link": "spanner/",
+        "children": [
+            { "name": "Database", "type": "resource", "link": "database" },
+            { "name": "DatabaseIAMBinding", "type": "resource", "link": "databaseiambinding" },
+            { "name": "DatabaseIAMMember", "type": "resource", "link": "databaseiammember" },
+            { "name": "DatabaseIAMPolicy", "type": "resource", "link": "databaseiampolicy" },
+            { "name": "Instance", "type": "resource", "link": "instance" },
+            { "name": "InstanceIAMBinding", "type": "resource", "link": "instanceiambinding" },
+            { "name": "InstanceIAMMember", "type": "resource", "link": "instanceiammember" },
+            { "name": "InstanceIAMPolicy", "type": "resource", "link": "instanceiampolicy" },
+            { "name": "getInstance", "type": "function", "link": "getinstance" }
+        ]
+    },
+    {
+        "name": "sql",
+        "type": "module",
+        "link": "sql/",
+        "children": [
+            { "name": "Database", "type": "resource", "link": "database" },
+            { "name": "DatabaseInstance", "type": "resource", "link": "databaseinstance" },
+            { "name": "SourceRepresentationInstance", "type": "resource", "link": "sourcerepresentationinstance" },
+            { "name": "SslCert", "type": "resource", "link": "sslcert" },
+            { "name": "User", "type": "resource", "link": "user" },
+            { "name": "getBackupRun", "type": "function", "link": "getbackuprun" },
+            { "name": "getCaCerts", "type": "function", "link": "getcacerts" },
+            { "name": "getDatabase", "type": "function", "link": "getdatabase" },
+            { "name": "getDatabaseInstance", "type": "function", "link": "getdatabaseinstance" },
+            { "name": "getDatabaseInstances", "type": "function", "link": "getdatabaseinstances" },
+            { "name": "getDatabases", "type": "function", "link": "getdatabases" },
+            { "name": "getTiers", "type": "function", "link": "gettiers" }
+        ]
+    },
+    {
+        "name": "storage",
+        "type": "module",
+        "link": "storage/",
+        "children": [
+            { "name": "Bucket", "type": "resource", "link": "bucket" },
+            { "name": "BucketACL", "type": "resource", "link": "bucketacl" },
+            { "name": "BucketAccessControl", "type": "resource", "link": "bucketaccesscontrol" },
+            { "name": "BucketIAMBinding", "type": "resource", "link": "bucketiambinding" },
+            { "name": "BucketIAMMember", "type": "resource", "link": "bucketiammember" },
+            { "name": "BucketIAMPolicy", "type": "resource", "link": "bucketiampolicy" },
+            { "name": "BucketObject", "type": "resource", "link": "bucketobject" },
+            { "name": "DefaultObjectACL", "type": "resource", "link": "defaultobjectacl" },
+            { "name": "DefaultObjectAccessControl", "type": "resource", "link": "defaultobjectaccesscontrol" },
+            { "name": "HmacKey", "type": "resource", "link": "hmackey" },
+            { "name": "Notification", "type": "resource", "link": "notification" },
+            { "name": "ObjectACL", "type": "resource", "link": "objectacl" },
+            { "name": "ObjectAccessControl", "type": "resource", "link": "objectaccesscontrol" },
+            { "name": "TransferAgentPool", "type": "resource", "link": "transferagentpool" },
+            { "name": "TransferJob", "type": "resource", "link": "transferjob" },
+            { "name": "getBucket", "type": "function", "link": "getbucket" },
+            { "name": "getBucketObject", "type": "function", "link": "getbucketobject" },
+            { "name": "getBucketObjectContent", "type": "function", "link": "getbucketobjectcontent" },
+            { "name": "getObjectSignedUrl", "type": "function", "link": "getobjectsignedurl" },
+            { "name": "getProjectServiceAccount", "type": "function", "link": "getprojectserviceaccount" },
+            { "name": "getTransferProjectServiceAccount", "type": "function", "link": "gettransferprojectserviceaccount" },
+            { "name": "getTransferProjectServieAccount", "type": "function", "link": "gettransferprojectservieaccount" }
+        ]
+    },
+    {
+        "name": "tags",
+        "type": "module",
+        "link": "tags/",
+        "children": [
+            { "name": "LocationTagBinding", "type": "resource", "link": "locationtagbinding" },
+            { "name": "TagBinding", "type": "resource", "link": "tagbinding" },
+            { "name": "TagKey", "type": "resource", "link": "tagkey" },
+            { "name": "TagKeyIamBinding", "type": "resource", "link": "tagkeyiambinding" },
+            { "name": "TagKeyIamMember", "type": "resource", "link": "tagkeyiammember" },
+            { "name": "TagKeyIamPolicy", "type": "resource", "link": "tagkeyiampolicy" },
+            { "name": "TagValue", "type": "resource", "link": "tagvalue" },
+            { "name": "TagValueIamBinding", "type": "resource", "link": "tagvalueiambinding" },
+            { "name": "TagValueIamMember", "type": "resource", "link": "tagvalueiammember" },
+            { "name": "TagValueIamPolicy", "type": "resource", "link": "tagvalueiampolicy" },
+            { "name": "getTagKey", "type": "function", "link": "gettagkey" },
+            { "name": "getTagValue", "type": "function", "link": "gettagvalue" }
+        ]
+    },
+    {
+        "name": "tpu",
+        "type": "module",
+        "link": "tpu/",
+        "children": [
+            { "name": "Node", "type": "resource", "link": "node" },
+            { "name": "getTensorflowVersions", "type": "function", "link": "gettensorflowversions" }
+        ]
+    },
+    {
+        "name": "vertex",
+        "type": "module",
+        "link": "vertex/",
+        "children": [
+            { "name": "AiDataset", "type": "resource", "link": "aidataset" },
+            { "name": "AiEndpoint", "type": "resource", "link": "aiendpoint" },
+            { "name": "AiFeatureStore", "type": "resource", "link": "aifeaturestore" },
+            { "name": "AiFeatureStoreEntityType", "type": "resource", "link": "aifeaturestoreentitytype" },
+            { "name": "AiFeatureStoreEntityTypeFeature", "type": "resource", "link": "aifeaturestoreentitytypefeature" },
+            { "name": "AiFeatureStoreEntityTypeIamBinding", "type": "resource", "link": "aifeaturestoreentitytypeiambinding" },
+            { "name": "AiFeatureStoreEntityTypeIamMember", "type": "resource", "link": "aifeaturestoreentitytypeiammember" },
+            { "name": "AiFeatureStoreEntityTypeIamPolicy", "type": "resource", "link": "aifeaturestoreentitytypeiampolicy" },
+            { "name": "AiFeatureStoreIamBinding", "type": "resource", "link": "aifeaturestoreiambinding" },
+            { "name": "AiFeatureStoreIamMember", "type": "resource", "link": "aifeaturestoreiammember" },
+            { "name": "AiFeatureStoreIamPolicy", "type": "resource", "link": "aifeaturestoreiampolicy" },
+            { "name": "AiIndex", "type": "resource", "link": "aiindex" },
+            { "name": "AiMetadataStore", "type": "resource", "link": "aimetadatastore" },
+            { "name": "AiTensorboard", "type": "resource", "link": "aitensorboard" }
+        ]
+    },
+    {
+        "name": "vpcaccess",
+        "type": "module",
+        "link": "vpcaccess/",
+        "children": [
+            { "name": "Connector", "type": "resource", "link": "connector" },
+            { "name": "getConnector", "type": "function", "link": "getconnector" }
+        ]
+    },
+    { "name": "workflows", "type": "module", "link": "workflows/", "children": [{ "name": "Workflow", "type": "resource", "link": "workflow" }] },
+    {
+        "name": "workstations",
+        "type": "module",
+        "link": "workstations/",
+        "children": [
+            { "name": "Workstation", "type": "resource", "link": "workstation" },
+            { "name": "WorkstationCluster", "type": "resource", "link": "workstationcluster" },
+            { "name": "WorkstationConfig", "type": "resource", "link": "workstationconfig" },
+            { "name": "WorkstationConfigIamBinding", "type": "resource", "link": "workstationconfigiambinding" },
+            { "name": "WorkstationConfigIamMember", "type": "resource", "link": "workstationconfigiammember" },
+            { "name": "WorkstationConfigIamPolicy", "type": "resource", "link": "workstationconfigiampolicy" },
+            { "name": "WorkstationIamBinding", "type": "resource", "link": "workstationiambinding" },
+            { "name": "WorkstationIamMember", "type": "resource", "link": "workstationiammember" },
+            { "name": "WorkstationIamPolicy", "type": "resource", "link": "workstationiampolicy" }
+        ]
+    },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

@@ -1,1 +1,11 @@
-[{"name":"AccessToken","type":"resource","link":"accesstoken"},{"name":"DeploymentSettings","type":"resource","link":"deploymentsettings"},{"name":"OrgAccessToken","type":"resource","link":"orgaccesstoken"},{"name":"Provider","type":"resource","link":"provider"},{"name":"StackTag","type":"resource","link":"stacktag"},{"name":"Team","type":"resource","link":"team"},{"name":"TeamAccessToken","type":"resource","link":"teamaccesstoken"},{"name":"TeamStackPermission","type":"resource","link":"teamstackpermission"},{"name":"Webhook","type":"resource","link":"webhook"}]
+[
+    { "name": "AccessToken", "type": "resource", "link": "accesstoken" },
+    { "name": "DeploymentSettings", "type": "resource", "link": "deploymentsettings" },
+    { "name": "OrgAccessToken", "type": "resource", "link": "orgaccesstoken" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "StackTag", "type": "resource", "link": "stacktag" },
+    { "name": "Team", "type": "resource", "link": "team" },
+    { "name": "TeamAccessToken", "type": "resource", "link": "teamaccesstoken" },
+    { "name": "TeamStackPermission", "type": "resource", "link": "teamstackpermission" },
+    { "name": "Webhook", "type": "resource", "link": "webhook" }
+]

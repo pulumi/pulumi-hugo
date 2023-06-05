@@ -1,1 +1,7 @@
-[{"name":"Acl","type":"resource","link":"acl"},{"name":"Provider","type":"resource","link":"provider"},{"name":"Quota","type":"resource","link":"quota"},{"name":"Topic","type":"resource","link":"topic"},{"name":"getTopic","type":"function","link":"gettopic"}]
+[
+    { "name": "Acl", "type": "resource", "link": "acl" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "Quota", "type": "resource", "link": "quota" },
+    { "name": "Topic", "type": "resource", "link": "topic" },
+    { "name": "getTopic", "type": "function", "link": "gettopic" }
+]

@@ -1,1 +1,4 @@
-[{"name":"CoreDNS","type":"resource","link":"coredns"},{"name":"Provider","type":"resource","link":"provider"}]
+[
+    { "name": "CoreDNS", "type": "resource", "link": "coredns" },
+    { "name": "Provider", "type": "resource", "link": "provider" }
+]

@@ -1,1 +1,19 @@
-[{"name":"IamGroup","type":"resource","link":"iamgroup"},{"name":"IamGroupMembership","type":"resource","link":"iamgroupmembership"},{"name":"IamGroupPolicy","type":"resource","link":"iamgrouppolicy"},{"name":"IamGroupPolicyAttachment","type":"resource","link":"iamgrouppolicyattachment"},{"name":"IamGroupUserAttachment","type":"resource","link":"iamgroupuserattachment"},{"name":"IamPolicy","type":"resource","link":"iampolicy"},{"name":"IamServiceAccount","type":"resource","link":"iamserviceaccount"},{"name":"IamUser","type":"resource","link":"iamuser"},{"name":"IamUserPolicyAttachment","type":"resource","link":"iamuserpolicyattachment"},{"name":"IlmPolicy","type":"resource","link":"ilmpolicy"},{"name":"Provider","type":"resource","link":"provider"},{"name":"S3Bucket","type":"resource","link":"s3bucket"},{"name":"S3BucketNotification","type":"resource","link":"s3bucketnotification"},{"name":"S3BucketPolicy","type":"resource","link":"s3bucketpolicy"},{"name":"S3BucketVersioning","type":"resource","link":"s3bucketversioning"},{"name":"S3Object","type":"resource","link":"s3object"},{"name":"getIamPolicyDocument","type":"function","link":"getiampolicydocument"}]
+[
+    { "name": "IamGroup", "type": "resource", "link": "iamgroup" },
+    { "name": "IamGroupMembership", "type": "resource", "link": "iamgroupmembership" },
+    { "name": "IamGroupPolicy", "type": "resource", "link": "iamgrouppolicy" },
+    { "name": "IamGroupPolicyAttachment", "type": "resource", "link": "iamgrouppolicyattachment" },
+    { "name": "IamGroupUserAttachment", "type": "resource", "link": "iamgroupuserattachment" },
+    { "name": "IamPolicy", "type": "resource", "link": "iampolicy" },
+    { "name": "IamServiceAccount", "type": "resource", "link": "iamserviceaccount" },
+    { "name": "IamUser", "type": "resource", "link": "iamuser" },
+    { "name": "IamUserPolicyAttachment", "type": "resource", "link": "iamuserpolicyattachment" },
+    { "name": "IlmPolicy", "type": "resource", "link": "ilmpolicy" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "S3Bucket", "type": "resource", "link": "s3bucket" },
+    { "name": "S3BucketNotification", "type": "resource", "link": "s3bucketnotification" },
+    { "name": "S3BucketPolicy", "type": "resource", "link": "s3bucketpolicy" },
+    { "name": "S3BucketVersioning", "type": "resource", "link": "s3bucketversioning" },
+    { "name": "S3Object", "type": "resource", "link": "s3object" },
+    { "name": "getIamPolicyDocument", "type": "function", "link": "getiampolicydocument" }
+]

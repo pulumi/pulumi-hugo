@@ -1,1 +1,4 @@
-[{"name":"Provider","type":"resource","link":"provider"},{"name":"Website","type":"resource","link":"website"}]
+[
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "Website", "type": "resource", "link": "website" }
+]

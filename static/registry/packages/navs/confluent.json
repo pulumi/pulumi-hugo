@@ -1,1 +1,11 @@
-[{"name":"ApiKey","type":"resource","link":"apikey"},{"name":"ConfluentEnvironment","type":"resource","link":"confluentenvironment"},{"name":"Connector","type":"resource","link":"connector"},{"name":"KafkaCluster","type":"resource","link":"kafkacluster"},{"name":"Provider","type":"resource","link":"provider"},{"name":"SchemaRegistry","type":"resource","link":"schemaregistry"},{"name":"ServiceAccount","type":"resource","link":"serviceaccount"},{"name":"getEnvironment","type":"function","link":"getenvironment"},{"name":"getServiceAccount","type":"function","link":"getserviceaccount"}]
+[
+    { "name": "ApiKey", "type": "resource", "link": "apikey" },
+    { "name": "ConfluentEnvironment", "type": "resource", "link": "confluentenvironment" },
+    { "name": "Connector", "type": "resource", "link": "connector" },
+    { "name": "KafkaCluster", "type": "resource", "link": "kafkacluster" },
+    { "name": "Provider", "type": "resource", "link": "provider" },
+    { "name": "SchemaRegistry", "type": "resource", "link": "schemaregistry" },
+    { "name": "ServiceAccount", "type": "resource", "link": "serviceaccount" },
+    { "name": "getEnvironment", "type": "function", "link": "getenvironment" },
+    { "name": "getServiceAccount", "type": "function", "link": "getserviceaccount" }
+]
