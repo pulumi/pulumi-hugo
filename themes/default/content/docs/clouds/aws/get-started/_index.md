@@ -34,14 +34,14 @@ aliases:
 - /docs/get-started/aws/next-steps/
 - /docs/quickstart/aws/review-project/
 - /docs/get-started/aws/review-project/
-- /clouds/aws/get-started/begin/
-- /clouds/aws/get-started/create-project/
-- /clouds/aws/get-started/deploy-changes/
-- /clouds/aws/get-started/deploy-stack/
-- /clouds/aws/get-started/destroy-stack/
-- /clouds/aws/get-started/modify-program/
-- /clouds/aws/get-started/next-steps/
-- /clouds/aws/get-started/review-project/
+- /docs/clouds/aws/get-started/begin/
+- /docs/clouds/aws/get-started/create-project/
+- /docs/clouds/aws/get-started/deploy-changes/
+- /docs/clouds/aws/get-started/deploy-stack/
+- /docs/clouds/aws/get-started/destroy-stack/
+- /docs/clouds/aws/get-started/modify-program/
+- /docs/clouds/aws/get-started/next-steps/
+- /docs/clouds/aws/get-started/review-project/
 ---
 
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage AWS containers, serverless functions, and infrastructure using familiar programming languages.
