@@ -173,15 +173,21 @@ body.section-registry {
                 }
             }
 
-            a.all-packages {
-                font-family: 'Inter';
-                font-weight: 500;
-                font-size: 16px;
-                color: #2f3032;
+            div.all-packages-icon-link {
                 display: flex;
+                flex-direction: row;
+                align-items: center;
                 margin: 0 16px 24px 0;
                 padding-bottom: 14px;
                 border-bottom: 1px solid #dcdcdc;
+                gap: 8px;
+
+                a.all-packages {
+                    font-family: 'Inter';
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: #2f3032;
+                }
             }
 
             ul li a {
