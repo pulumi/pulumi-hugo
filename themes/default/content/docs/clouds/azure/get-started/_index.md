@@ -34,6 +34,14 @@ aliases:
 - /docs/get-started/azure/destroy-stack/
 - /docs/quickstart/azure/next-steps/
 - /docs/get-started/azure/next-steps/
+- /clouds/azure/get-started/begin/
+- /clouds/azure/get-started/create-project/
+- /clouds/azure/get-started/deploy-changes/
+- /clouds/azure/get-started/deploy-stack/
+- /clouds/azure/get-started/destroy-stack/
+- /clouds/azure/get-started/modify-program/
+- /clouds/azure/get-started/next-steps/
+- /clouds/azure/get-started/review-project/
 ---
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage Azure containers, serverless functions, and infrastructure using familiar programming languages.
 
