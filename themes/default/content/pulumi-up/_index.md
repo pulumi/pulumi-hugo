@@ -242,20 +242,20 @@ schedule:
       - Self-service Infrastructure
       - Team productivity
       Tim will also share how his team leveraged the Pulumi platform to build a cloud-agnostic toolset for developers.
-    time: "11:30 AM PT"
+    time: "10:30 AM PT"
   - title: Using Monorepos to Level-up your Infrastructure as Code and Software Delivery
     description: |
       The way you structure your Pulumi projects and stacks in GitHub repositories can impact how well your organization ships infrastructure, especially when there are multiple teams of developers collaborating. Join Tyler as he shares best practices for using monorepos with Pulumi and how this pattern has supported his platform engineering team in delivering more efficient infrastructure deployments and updates, increased code sharing & reuse, and better collaboration.
-    time: "11:50 AM PT"
+    time: "10:50 AM PT"
   - title: Lessons Learned from Writing Thousands of Lines of IaC
     description: |
       Immutable architecture is the backbone of infrastructure as code, to ensure production environments cannot be changed during runtime.  While this has the benefits of its inherent safety measures, this can also be restrictive.  This talk will focus on some of the fundamentals of immutable architecture, best practices and recommended design patterns to work around its limitations, as well as what you most certainly should not be doing when running immutable architecture.
 
       This will be demonstrated through a real-world example of using Pulumi to deploy a single-tenant SaaS in an automated pipeline, typical challenges encountered, and what was learned on the way.
-    time: "12:10 PM PT"
+    time: "11:10 AM PT"
   - title: "Panel: AI and the Future of Cloud Development"
     description: 
-    time: "12:30 PM PT"
+    time: "11:30 AM PT"
 
 registration:
     items:
