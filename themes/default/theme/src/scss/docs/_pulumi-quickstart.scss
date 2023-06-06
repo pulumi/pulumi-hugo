@@ -1,29 +1,29 @@
 .docs-list-main .docs-main-content-wrapper .docs-main-content {
     section.pulumi-quickstart {
+        input[type="radio"] {
+            display: none;
+        }
+
         input[type="radio"] + div.content {
             display: none;
         }
 
-        div.install {
-            input[type="radio"]:checked + div.content {
-                display: flex;
-            }
-
-            input[type="radio"] {
-                display: none;
-            }
+        div.credentials div.content {
+            display: none;
         }
 
-        div.credentials {
+        div.install input[type="radio"]:checked + div.content {
+            display: flex;
+            flex-direction: column;
+        }
 
+        div.credentials input[type="checkbox"]:checked ~ input[type="radio"]:checked + div.content {
+            display: flex;
+            flex-direction: column;
         }
 
         labels {
             display: flex;
-        }
-
-        div.credentials div.content {
-            display: none;
         }
     }
 }
