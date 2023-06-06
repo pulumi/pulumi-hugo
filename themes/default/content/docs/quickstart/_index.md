@@ -5,7 +5,7 @@ title: Quickstart
 h1: Pulumi quickstart
 pulumi_quickstart: true
 menu:
-  getstarted:
+  quickstart:
     name: Overview
     weight: 2
 aliases:
@@ -46,15 +46,15 @@ steps:
     typescript:
       content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li><li><code>index.ts</code> is the Pulumi program that defines your stack resources.</li></ul>
     python:
-      content: 
+      content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li><li><code>main.py</code> is the Pulumi program that defines your stack resources.</li></ul>
     go:
-      content:
+      content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li><li><code>main.go</code> is the Pulumi program that defines your stack resources.</li></ul>
     dot-net:
-      content:
+      content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li><li><code>program.cs</code> is the Pulumi program that defines your stack resources.</li></ul>
     java:
-      content:
+      content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li><li><code>src/main/java/myproject</code> defines the project’s Java package root.</li><li><code>app.java</code> is the Pulumi program that defines your stack resources.</li></ul>
     yaml:
-      content: 
+      content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li></ul>
 - step: Deploy your infrastructure!
   command: pulumi up
   accordion:
