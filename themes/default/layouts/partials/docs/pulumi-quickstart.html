@@ -8,17 +8,34 @@
 
     <div>
         <div class="labels osx">
-            <label for="os-osx-radio">OSX</label>
-            <label for="os-windows-radio">Windows</label>
-            <label for="os-linux-radio">Linux</label>
+            <label class="radio-label" for="os-osx-radio">OSX</label>
+            <label class="radio-label" for="os-windows-radio">Windows</label>
+            <label class="radio-label" for="os-linux-radio">Linux</label>
         </div>
 
         <div class="labels cloud">
-            <label for="cloud-aws-radio">AWS</label>
-            <label for="cloud-azure-radio">Azure</label>
-            <label for="cloud-google-cloud-radio">Google Cloud</label>
-            <label for="cloud-kubernetes-radio">Kubernetes</label>
+            <label class="radio-label" for="cloud-aws-radio">AWS</label>
+            <label class="radio-label" for="cloud-azure-radio">Azure</label>
+            <label class="radio-label" for="cloud-google-cloud-radio">Google Cloud</label>
+            <label class="radio-label" for="cloud-kubernetes-radio">Kubernetes</label>
             <label id="credentials-checkbox" for="credentials-checkbox">{{ $credentials.checkbox_label }}</label>
+        </div>
+
+        <div class="labels language">
+            <label class="radio-label" for="language-typescript-radio">TypeScript</label>
+            <label class="radio-label" for="language-python-radio">Python</label>
+            <label class="radio-label" for="language-go-radio">Go</label>
+            <label class="radio-label" for="language-csharp-radio">C#</label>
+            <label class="radio-label" for="language-java-radio">Java</label>
+            <label class="radio-label" for="language-yaml-radio">YAML</label>
+        </div>
+
+        <div class="labels template">
+            <label class="radio-label" for="template-starter-radio">Starter</label>
+            <label class="radio-label" for="template-container-service-radio">Container service</label>
+            <label class="radio-label" for="template-serverless-app-radio">Serverless app</label>
+            <label class="radio-label" for="template-static-website-radio">Static website</label>
+            <label class="radio-label" for="template-virtual-machine-radio">Virtual machine</label>
         </div>
 
         <div class="install">
