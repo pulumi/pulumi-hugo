@@ -1,5 +1,50 @@
 .docs-list-main .docs-main-content-wrapper .docs-main-content {
     section.pulumi-quickstart {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h2 {
+            &.accordion-heading {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 16px;
+                color: #131314;
+            }
+
+            &.step-heading {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 16px;
+                color: #131314;
+            }
+        }
+
+        p.intro {
+            margin-top: 0;
+        }
+
+        div.content.code-block code {
+            display: flex;
+            width: fit-content;
+            padding: 12px;
+            background: #1F2557;
+            border-radius: 4px;
+            font-family: 'Iosevka';
+            font-weight: 400;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .customize-accordion {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #bebfc9;
+            border-radius: 4px;
+            padding: 16px 24px;
+        }
+
         input[type="radio"] {
             display: none;
         }
@@ -24,6 +69,54 @@
 
         labels {
             display: flex;
+        }
+
+        div.customize-section {
+            display: flex;
+            gap: 36px;
+
+            p {
+                display: flex;
+                flex-basis: 88px;
+                flex-grow: 0;
+                flex-shrink: 0;
+                text-align: right;
+                justify-content: right;
+                font-family: 'Inter';
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 200%;
+                color: #131314;
+            }
+
+            div.labels {
+                display: flex;
+                gap: 8px;
+                margin: 12px 0;
+                flex-wrap: wrap;
+            
+                label.radio-label {
+                    font-family: 'Inter';
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #5F6065;
+                    text-align: center;
+                    padding: 8px 12px;
+                    background: #f2f2f4;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background: #e5e5e9;
+                    }
+                }
+
+                label.checkbox-label {
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #5f6065;
+                }
+            }
         }
     }
 }

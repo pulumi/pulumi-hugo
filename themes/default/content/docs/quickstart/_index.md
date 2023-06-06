@@ -15,6 +15,8 @@ aliases:
 - /docs/tour/
 - /docs/get-started/
 intro: Quickstart your Pulumi experience by learning how to install Pulumi, set up your cloud credentials, and run your first update.
+customize:
+  heading: Customize instructions
 steps:
   install:
     heading: Install the Pulumi CLI
