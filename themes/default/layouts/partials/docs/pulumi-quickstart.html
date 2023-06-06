@@ -1,1 +1,32 @@
-<section class="content pulumi-quickstart"></section>
+<section class="content pulumi-quickstart">
+    {{ $steps := .Params.steps }}
+    <div class="install-pulumi">
+        {{ $install := $steps.install }}
+        <h2>{{ $install.heading }}</h2>
+        <div>
+            <div class="labels">
+                <label for="os-osx-radio" class="filter-label featured">OSX</label>
+                <label for="os-windows-radio" class="filter-label personal">Windows</label>
+                <label for="os-linux-radio" class="filter-label tech">Linux</label>
+            </div>
+            <div>
+                <input type="radio" id="os-osx-radio" name="os-filter" checked />
+                <div class="content install-osx">
+                    {{ $install.command.osx }}
+                </div>
+            </div>
+            <div>
+                <input type="radio" id="os-windows-radio" name="os-filter" />
+                <div class="content install-windows">
+                    {{ $install.command.windows }}
+                </div>
+            </div>
+            <div>
+                <input type="radio" id="os-linux-radio" name="os-filter" />
+                <div class="content install-linux">
+                    {{ $install.command.linux }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

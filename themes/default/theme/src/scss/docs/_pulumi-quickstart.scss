@@ -1,5 +1,21 @@
 .docs-list-main .docs-main-content-wrapper .docs-main-content {
     section.pulumi-quickstart {
         background-color: aquamarine;
+
+        input[type="radio"] + div.content {
+            display: none;
+        }
+
+        input[type="radio"]:checked + div.content {
+            display: flex;
+        }
+
+        input {
+            display: none;
+        }
+
+        labels {
+            display: flex;
+        }
     }
 }
