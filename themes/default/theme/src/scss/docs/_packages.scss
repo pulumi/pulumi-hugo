@@ -145,6 +145,19 @@
     }
 }
 
+div.packages {
+    section.featured-packages,
+    section.all-packages {
+        h2 {
+            font-family: Gilroy;
+            font-weight: 400;
+            font-size: 30px;
+            color: #131314;
+            margin-top: 16px;
+        }
+    }
+}
+
 div.packages section.featured-packages {
     display: flex;
     flex-direction: column;

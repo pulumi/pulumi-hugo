@@ -160,7 +160,7 @@ body.section-registry {
                 font-weight: 500;
                 font-size: 16px;
                 line-height: 14px;
-                color: #131314;
+                color: #5f6065;
                 margin-top: 22px;
                 margin-left: 14px;
 
@@ -188,19 +188,18 @@ body.section-registry {
             }
 
             div.all-packages-icon-link {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin: 0 16px 24px 0;
-                padding-bottom: 14px;
-                border-bottom: 1px solid #dcdcdc;
-                gap: 8px;
-
                 a.all-packages {
                     font-family: 'Inter';
                     font-weight: 500;
                     font-size: 16px;
                     color: #2f3032;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin: 0 16px 24px 0;
+                    padding-bottom: 14px;
+                    border-bottom: 1px solid #dcdcdc;
+                    gap: 8px;
                 }
             }
 
@@ -452,7 +451,7 @@ body.section-registry {
 
             .docs-table-of-contents {
                 margin-top: 38px;
-                padding: 16px 0 16px 24px;
+                padding: 16px 0 16px 0;
                 overflow-y: auto;
                 height: min-content;
                 position: sticky;
