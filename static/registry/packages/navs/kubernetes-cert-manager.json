@@ -1,4 +1,0 @@
-[
-    { "name": "CertManager", "type": "resource", "link": "certmanager" },
-    { "name": "Provider", "type": "resource", "link": "provider" }
-]

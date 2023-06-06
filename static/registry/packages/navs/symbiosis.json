@@ -1,7 +1,0 @@
-[
-    { "name": "Cluster", "type": "resource", "link": "cluster" },
-    { "name": "ClusterServiceAccount", "type": "resource", "link": "clusterserviceaccount" },
-    { "name": "NodePool", "type": "resource", "link": "nodepool" },
-    { "name": "Provider", "type": "resource", "link": "provider" },
-    { "name": "TeamMember", "type": "resource", "link": "teammember" }
-]

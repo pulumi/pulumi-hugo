@@ -1,6 +1,0 @@
-[
-    { "name": "Offset", "type": "resource", "link": "offset" },
-    { "name": "Provider", "type": "resource", "link": "provider" },
-    { "name": "Rotating", "type": "resource", "link": "rotating" },
-    { "name": "Static", "type": "resource", "link": "static" }
-]

@@ -1,5 +1,0 @@
-[
-    { "name": "Config", "type": "resource", "link": "config" },
-    { "name": "Provider", "type": "resource", "link": "provider" },
-    { "name": "getConfig", "type": "function", "link": "getconfig" }
-]

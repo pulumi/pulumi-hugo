@@ -1,8 +1,0 @@
-[
-    { "name": "Provider", "type": "resource", "link": "provider" },
-    { "name": "Resource", "type": "resource", "link": "resource" },
-    { "name": "ResourceAction", "type": "resource", "link": "resourceaction" },
-    { "name": "UpdateResource", "type": "resource", "link": "updateresource" },
-    { "name": "getResource", "type": "function", "link": "getresource" },
-    { "name": "getResourceAction", "type": "function", "link": "getresourceaction" }
-]

@@ -1,4 +1,0 @@
-[
-    { "name": "Deployment", "type": "resource", "link": "deployment" },
-    { "name": "Provider", "type": "resource", "link": "provider" }
-]
