@@ -1,21 +1,29 @@
 .docs-list-main .docs-main-content-wrapper .docs-main-content {
     section.pulumi-quickstart {
-        background-color: aquamarine;
-
         input[type="radio"] + div.content {
             display: none;
         }
 
-        input[type="radio"]:checked + div.content {
-            display: flex;
+        div.install {
+            input[type="radio"]:checked + div.content {
+                display: flex;
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
         }
 
-        input {
-            display: none;
+        div.credentials {
+
         }
 
         labels {
             display: flex;
+        }
+
+        div.credentials div.content {
+            display: none;
         }
     }
 }

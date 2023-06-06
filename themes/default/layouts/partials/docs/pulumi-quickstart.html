@@ -1,31 +1,63 @@
+{{ $steps := .Params.steps }}
+{{ $install := $steps.install }}
+{{ $credentials := $steps.credentials }}
+
+
 <section class="content pulumi-quickstart">
-    {{ $steps := .Params.steps }}
-    <div class="install-pulumi">
-        {{ $install := $steps.install }}
-        <h2>{{ $install.heading }}</h2>
-        <div>
-            <div class="labels">
-                <label for="os-osx-radio" class="filter-label featured">OSX</label>
-                <label for="os-windows-radio" class="filter-label personal">Windows</label>
-                <label for="os-linux-radio" class="filter-label tech">Linux</label>
+    <p>{{ .Params.intro }}</p>
+
+    <div>
+        <div class="labels osx">
+            <label for="os-osx-radio">OSX</label>
+            <label for="os-windows-radio">Windows</label>
+            <label for="os-linux-radio">Linux</label>
+        </div>
+
+        <div class="labels cloud">
+            <label for="cloud-aws-radio">AWS</label>
+            <label for="cloud-azure-radio">Azure</label>
+            <label for="cloud-google-cloud-radio">Google Cloud</label>
+            <label for="cloud-kubernetes-linux-radio">Kubernetes</label>
+            <label for="cloud-credentials"></label>
+            <input type="checkbox" id="credentials-checkbox" name="credentials-checkbox" />
+            <label for="credentials-checkbox">{{ $credentials.checkbox_label }}</label>
+        </div>
+
+        <div class="install">
+            {{ $install := $steps.install }}
+            <h2>{{ $install.heading }}</h2>
+            <input type="radio" id="os-osx-radio" name="os-filter" checked />
+            <div class="content install-osx">
+                {{ $install.command.osx }}
             </div>
-            <div>
-                <input type="radio" id="os-osx-radio" name="os-filter" checked />
-                <div class="content install-osx">
-                    {{ $install.command.osx }}
-                </div>
+
+            <input type="radio" id="os-windows-radio" name="os-filter" />
+            <div class="content install-windows">
+                {{ $install.command.windows }}
             </div>
-            <div>
-                <input type="radio" id="os-windows-radio" name="os-filter" />
-                <div class="content install-windows">
-                    {{ $install.command.windows }}
-                </div>
+
+            <input type="radio" id="os-linux-radio" name="os-filter" />
+            <div class="content install-linux">
+                {{ $install.command.linux }}
             </div>
-            <div>
-                <input type="radio" id="os-linux-radio" name="os-filter" />
-                <div class="content install-linux">
-                    {{ $install.command.linux }}
-                </div>
+        </div>
+
+        <div class="credentials">
+            <div class="content aws">
+                <h2>{{ $credentials.aws.heading }}</h2>
+                <p>{{ $credentials.aws.content | safeHTML }}</p>
+            </div>
+            <div class="content azure">
+                <h2>{{ $credentials.azure.heading }}</h2>
+                <p>{{ $credentials.azure.content | safeHTML }}</p>
+            </div>
+            <div class="content google-cloud">
+                <h2>{{ $credentials.google_cloud.heading }}</h2>
+                <p>{{ $credentials.google_cloud.content | safeHTML }}</p>
+            </div>
+            <div class="content kubernetes">
+                <h2>{{ $credentials.kubernetes.heading }}</h2>
+                <p>{{ $credentials.kubernetes.content | safeHTML }}</p>
             </div>
         </div>
     </div>
