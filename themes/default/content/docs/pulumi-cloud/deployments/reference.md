@@ -226,3 +226,11 @@ By default, the deployment executor will attempt to install dependencies for you
 This is enabled by skipping the default dependency installation step (under Advanced Settings in the UI), and setting a few pre-run commands and environment variables.
 
 ![Pulumi UI - Node Version](../ui-node-version.png)
+
+### Building Docker images for another architecture
+
+By default, the deployment executor will only build Docker images for the x86_64 architecture, if you need to build images for another architecture (e.g. linux/arm64), you can add the architecture as a pre-run command such as:
+
+```
+docker run --privileged --rm tonistiigi/binfmt --install arm64
+```
