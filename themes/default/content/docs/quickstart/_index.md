@@ -49,7 +49,7 @@ steps:
     accordion:
       heading: Learn about projects, stacks, and templates
       intro: <p>Pulumi <a href="/docs/concepts/projects/" target="_blank">projects</a> and <a href="/docs/concepts/stack/" target="_blank">stacks</a> organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.</p><p>The following files are generated when a new project is created:</p>
-      closing: <p><code>pulumi new</code> uses a template to quickly deploy and modify common architectures.</p>
+      closing: <p><code>pulumi new</code> uses a <a href="/templates/" target="_blank">template</a> to quickly deploy and modify common architectures.</p>
       typescript:
         content: <ul><li><code>Pulumi.yaml</code> defines the project.</li><li><code>Pulumi.dev.yaml</code> contains <a href="/docs/concepts/config/" target="_blank">configuration</a> values for the stack you just initialized.</li><li><code>index.ts</code> is the Pulumi program that defines your stack resources.</li></ul>
       python:
