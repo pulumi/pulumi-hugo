@@ -82,6 +82,7 @@ steps:
   credentials:
     clouds:
       - cloud: aws
+        default: true
         heading: Set up AWS credentials
         content: <p>Pulumi requires cloud credentials to manage and provision resources. Use an IAM user account that has programmatic access with rights to deploy and manage resources.</p><p>If you have previously installed and configured the AWS CLI, Pulumi will respect and use your configuration settings.</p><p>If you do not have the AWS CLI installed or plan on using Pulumi from within a CI/CD pipeline, <a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys" target="_blank">retrieve your access key ID and secret access key</a> and then set the <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> environment variables on your workstation.</p>
       - cloud: azure
@@ -93,6 +94,7 @@ steps:
       - cloud: kubernetes
         heading: Set up Kubernetes credentials
         content: "<p>Like <code>kubectl</code>, Pulumi will look for a kubeconfig file in the following locations:</p><ul><li>The environment variable: <code>$KUBECONFIG</code>,<li>Or in current user’s default kubeconfig directory: <code>~/.kube/config</code></li></ul><p>Verify the cluster is configured and up by running <code>kubectl get pods</code>.</p>"
+  directory:
     heading: Create a directory and move into it
     command: mkdir first-project && cd first-project
   template:

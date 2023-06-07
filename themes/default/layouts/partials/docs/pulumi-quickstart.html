@@ -93,7 +93,7 @@
         </li>
         <li id="credentials-step" class="credentials step">
             {{ range $index, $cloud := $credentials.clouds }}
-                <input type="radio" id="cloud-{{ $cloud.cloud }}-radio" name="credentials-radio" value="{{ $cloud.cloud }}" checked />
+                <input type="radio" id="cloud-{{ $cloud.cloud }}-radio" name="credentials-radio" value="{{ $cloud.cloud }}" {{ if $cloud.default }}checked{{ end }} />
                 <div class="content {{ $cloud }}">
                     <h2 class="step-heading">{{ $cloud.heading }}</h2>
                     <p>{{ $cloud.content | safeHTML }}</p>
