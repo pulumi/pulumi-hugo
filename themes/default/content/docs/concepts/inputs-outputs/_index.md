@@ -37,7 +37,6 @@ const myId = new random.RandomId("mine", {
 {{% /choosable %}}
 {{% choosable language python %}}
 
-
 ```python
 my_id = random.RandomId("mine",
     byte_length=8 # byte_length is an input
@@ -78,6 +77,7 @@ var myId = new RandomId("mine", RandomIdArgs.builder()
     .build());
 
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
@@ -101,7 +101,7 @@ const key = new tls.PrivateKey("my-private-key", {
 
 ```typescript
 const key = new tls.PrivateKey("my-private-key", {
-    algorithm: "ECDSA", // 
+    algorithm: "ECDSA", //
 });
 
 ```
@@ -146,6 +146,7 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 ```java
 // TODO
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
@@ -179,15 +180,12 @@ const example = new aws.rds.Instance("example", {
     username: "someone",
     password: password.result, // We pass the output from password as an input
 });
-
-
 ```
 
 {{% /choosable %}}
 {{% choosable language python %}}
 
 ```python
-
 password = random.RandomPassword(
     "password",
     length=16,
@@ -202,14 +200,12 @@ example = aws.rds.Instance(
     username="someone",
     password=password.result, # We pass the output from password as an input
 )
-
 ```
 
 {{% /choosable %}}
 {{% choosable language go %}}
 
 ```go
-
 password, err := random.NewRandomPassword(ctx, "password", &random.RandomPasswordArgs{
 	Length:          pulumi.Int(16),
 	Special:         pulumi.Bool(true),
@@ -228,7 +224,6 @@ _, err = rds.NewInstance(ctx, "example", &rds.InstanceArgs{
 if err != nil {
 	return err
 }
-
 ```
 
 {{% /choosable %}}
@@ -256,13 +251,13 @@ var example = new Aws.Rds.Instance("example", new()
 {{% choosable language java %}}
 
 ```java
-var password = new RandomPassword("password", RandomPasswordArgs.builder()        
+var password = new RandomPassword("password", RandomPasswordArgs.builder()
     .length(16)
     .special(true)
     .overrideSpecial("!#$%&*()-_=+[]{}<>:?")
     .build());
 
-var example = new Instance("example", InstanceArgs.builder()        
+var example = new Instance("example", InstanceArgs.builder()
     .instanceClass("db.t3.micro")
     .allocatedStorage(64)
     .engine("mysql")
@@ -270,6 +265,7 @@ var example = new Instance("example", InstanceArgs.builder()
     .password(password.result()) // We pass the output from password as an input
     .build());
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
@@ -826,7 +822,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 
 ## Working with Outputs and Strings {#outputs-and-strings}
 
-Outputs that resolve to strings cannot be used directly in operations such as string concatenation until the output has been resolved. In these scenarios, you'll need to resolve the values using {{< pulumi-apply >}}. 
+Outputs that resolve to strings cannot be used directly in operations such as string concatenation until the output has been resolved. In these scenarios, you'll need to resolve the values using {{< pulumi-apply >}}.
 
 For example, say you want to create a URL from `hostname` and `port` output values. You can do this using `apply` and `all`.
 
@@ -1170,7 +1166,7 @@ var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", new BucketPolicy
                 },
             },
         };
-        
+
         return JsonSerializer.Serialize(policy);
     }),
 }, new CustomResourceOptions { Parent = bucket });
