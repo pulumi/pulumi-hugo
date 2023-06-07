@@ -123,7 +123,7 @@
                 </div>
             </div>
         </li>
-        <li class="credentials step">
+        <li id="credentials-step" class="credentials step">
             <input type="radio" id="cloud-aws-radio" name="credentials-radio" value="aws" checked />
             <div class="content aws">
                 <h2 class="step-heading">{{ $credentials.aws.heading }}</h2>
@@ -204,6 +204,15 @@
                                 $(`label[for^="${labelGroup}-"]`).removeClass("selected");
                                 $(this).addClass("selected");
                             });
+                        });
+
+                        $('input[id="credentials-checkbox"').change(function () {
+                            console.log("credentials checkbox changed");
+                            if ($(this).is(":checked")) {
+                                $("#credentials-step").css("display", "flex");
+                            } else {
+                                $("#credentials-step").css("display", "none");
+                            }
                         });
                     });
                 </script>

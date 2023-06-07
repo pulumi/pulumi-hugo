@@ -236,12 +236,13 @@
     
                 &.credentials {
                     display: none;
+
+                    input[type="radio"]:checked + div.content {
+                        display: flex;
+                        flex-direction: column;
+                    }
                 }
         
-                &.credentials input[type="checkbox"]:checked ~ input[type="radio"]:checked + div.content {
-                    display: flex;
-                    flex-direction: column;
-                }
 
                 &::before {
                     counter-increment: steps-counter;
