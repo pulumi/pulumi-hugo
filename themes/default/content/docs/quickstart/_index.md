@@ -92,8 +92,7 @@ steps:
         content: <p>Pulumi requires cloud credentials to manage and provision resources. You must use an IAM user or service account that has programmatic access with rights to deploy and manage your Google Cloud resources.</p><p>When developing locally, we recommend that you install the <a href="https://cloud.google.com/sdk/install" target="_blank">Google Cloud SDK</a> and then <a href="https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_user_account" target="_blank">authorize access with a user account</a>. Next, Pulumi requires default application credentials to interact with your Google Cloud resources, so run auth application-default login command to obtain those credentials.</p><p>To configure Pulumi to interact with your Google Cloud project, set it with the pulumi config command using the project’s ID. You may also set your Google Cloud Project via environment variable.</p>
       - cloud: kubernetes
         heading: Set up Kubernetes credentials
-        content: Lorem ipsum
-  directory:
+        content: "<p>Like <code>kubectl</code>, Pulumi will look for a kubeconfig file in the following locations:</p><ul><li>The environment variable: <code>$KUBECONFIG</code>,<li>Or in current user’s default kubeconfig directory: <code>~/.kube/config</code></li></ul><p>Verify the cluster is configured and up by running <code>kubectl get pods</code>.</p>"
     heading: Create a directory and move into it
     command: mkdir first-project && cd first-project
   template:
