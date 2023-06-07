@@ -32,11 +32,11 @@ All resources in Pulumi accept values that describe the way the resource behaves
 const myId = new random.RandomId("mine", {
     byteLength: 8, // byte_length is an input
 });
-
 ```
 
 {{% /choosable %}}
 {{% choosable language python %}}
+
 
 ```python
 my_id = random.RandomId("mine",
