@@ -96,7 +96,7 @@
                 <input type="radio" id="cloud-{{ $cloud.cloud }}-radio" name="credentials-radio" value="{{ $cloud.cloud }}" {{ if $cloud.default }}checked{{ end }} />
                 <div class="content {{ $cloud }}">
                     <h2 class="step-heading">{{ $cloud.heading }}</h2>
-                    <p>{{ $cloud.content | safeHTML }}</p>
+                    {{ $cloud.content | safeHTML }}
                 </div>
             {{ end }}
         </li>
