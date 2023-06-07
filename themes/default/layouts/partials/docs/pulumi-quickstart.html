@@ -74,25 +74,80 @@
 
     <div class="credentials">
         <input type="checkbox" id="credentials-checkbox" name="credentials-checkbox" />
-        <input type="radio" id="cloud-aws-radio" name="credentials-radio" checked />
+        <input type="radio" id="cloud-aws-radio" name="credentials-radio" value="aws" checked />
         <div class="content aws">
             <h2 class="step-heading">{{ $credentials.aws.heading }}</h2>
             <p>{{ $credentials.aws.content | safeHTML }}</p>
         </div>
-        <input type="radio" id="cloud-azure-radio" name="credentials-radio" />
+        <input type="radio" id="cloud-azure-radio" name="credentials-radio" value="azure" />
         <div class="content azure">
             <h2 class="step-heading">{{ $credentials.azure.heading }}</h2>
             <p>{{ $credentials.azure.content | safeHTML }}</p>
         </div>
-        <input type="radio" id="cloud-google-cloud-radio" name="credentials-radio" />
+        <input type="radio" id="cloud-google-cloud-radio" name="credentials-radio" value="gcp" />
         <div class="content google-cloud">
             <h2 class="step-heading">{{ $credentials.google_cloud.heading }}</h2>
             <p>{{ $credentials.google_cloud.content | safeHTML }}</p>
         </div>
-        <input type="radio" id="cloud-kubernetes-radio" name="credentials-radio" />
+        <input type="radio" id="cloud-kubernetes-radio" name="credentials-radio" value="kubernetes" />
         <div class="content kubernetes">
             <h2 class="step-heading">{{ $credentials.kubernetes.heading }}</h2>
             <p>{{ $credentials.kubernetes.content | safeHTML }}</p>
+        </div>
+    </div>
+
+    <div>
+        {{ $directory := $steps.directory }}
+        <h2 class="step-heading">{{ $directory.heading }}</h2>
+        <div class="content code-block">
+            <code>{{ $directory.command }}</code>
+        </div>
+    </div>
+
+    <div class="templates">
+        {{ $template := $steps.template }}
+        <h2 class="step-heading">{{ $template.heading }}</h2>
+
+        <!-- language radio group -->
+        <input type="radio" name="language-radio" id="language-typescript-radio" value="typescript" checked />
+        <input type="radio" name="language-radio" id="language-python-radio" value="python" />
+        <input type="radio" name="language-radio" id="language-go-radio" value="go" />
+        <input type="radio" name="language-radio" id="language-csharp-radio" value="csharp" />
+        <input type="radio" name="language-radio" id="language-java-radio" value="java" />
+        <input type="radio" name="language-radio" id="language-yaml-radio" value="yaml" />
+
+        <!-- template radio group -->
+        <input type="radio" id="template-starter-radio" name="templates-radio" value="" checked />
+        <input type="radio" id="template-container-service-radio" name="templates-radio" value="container" />
+        <input type="radio" id="template-serverless-app-radio" name="templates-radio" value="serverless" />
+        <input type="radio" id="template-static-website-radio" name="templates-radio" value="static-website" />
+        <input type="radio" id="template-virtual-machine-radio" name="templates-radio" value="vm" />
+
+        <!-- controls code rendering based on the selected combination of cloud, language, and template. -->
+        <script>
+            $(document).ready(function () {
+                $('input[name="language-radio"], input[name="credentials-radio"], input[name="templates-radio"]').change(function () {
+                    if ($(this).is(":checked")) {
+                        const selectedValue = $(this).val();
+                        console.log("Selected value:", selectedValue);
+                        const cloud = $('input[name="credentials-radio"]:checked').val();
+                        const language = $('input[name="language-radio"]:checked').val();
+                        const template = $('input[name="templates-radio"]:checked').val();
+                        $("#template-command").html(`pulumi new ${template ? template + "-" : ""}${cloud}-${language}`);
+                    }
+                });
+            });
+        </script>
+        <div class="content code-block">
+            <code id="template-command">pulumi new aws-typescript</code>
+        </div>
+    </div>
+
+    <div>
+        {{ $deploy := $steps.deploy }}
+        <h2 class="step-heading">{{ $deploy.heading }}</h2>
+        <div class="content code-block">
+            <code>{{ $deploy.command }}</code>
         </div>
     </div>
 </section>
