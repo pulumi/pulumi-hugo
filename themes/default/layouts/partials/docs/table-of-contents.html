@@ -54,11 +54,11 @@
     <!-- Only show "Edit this Page" for pages that are not generated. -->
     {{ $isCLICommand := hasPrefix .Path "docs/cli/commands" }}
     {{ $isAPIDoc := and (hasPrefix .Path "docs/reference/pkg/") (ne .Path "docs/reference/pkg/_index.md") }}
-    {{ $repoURL := "https://github.com/pulumi/pulumi-hugo" }}
-    {{ if (hasPrefix .Path "registry/") }}
-        {{ $repoURL = "https://github.com/pulumi/registry" }}
-    {{ end }}
     {{ if not (or $isCLICommand $isAPIDoc $.Page.Params.no_edit_this_page) }}
+        {{ $repoURL := "https://github.com/pulumi/pulumi-hugo" }}
+        {{ if (hasPrefix .Path "registry/") }}
+            {{ $repoURL = "https://github.com/pulumi/registry" }}
+        {{ end }}
         <li>
             <a
                 data-track="edit-page"
