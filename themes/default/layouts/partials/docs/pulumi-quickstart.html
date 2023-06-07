@@ -147,6 +147,8 @@
                                 const language = $('input[name="language-radio"]:checked').val();
                                 const template = $('input[name="templates-radio"]:checked').val();
                                 $("#template-command").html(`pulumi new ${template ? template + "-" : ""}${cloud}-${language}`);
+                                $("[id^=template-content]").css("display", "none");
+                                $(`#template-content-${language}`).css("display", "block");
                             }
                         });
 
@@ -166,6 +168,9 @@
                                 $("#credentials-step").css("display", "none");
                             }
                         });
+
+                        $("[id^=template-content]").css("display", "none");
+                        $("#template-content-typescript").css("display", "block");
                     });
                 </script>
                 <div class="content code-block template highlight">
@@ -200,7 +205,11 @@
                     <div class="accordion-content">
                         <div class="content">
                             {{ $template.accordion.intro | safeHTML }}
-                            {{ $template.accordion.content.typescript | safeHTML }}
+                            {{ range $lang, $content := $template.accordion.content }}
+                                <div id="template-content-{{ $lang }}">
+                                    {{ $content | safeHTML }}
+                                </div>
+                            {{ end }}
                             {{ $template.accordion.closing | safeHTML }}
                         </div>
                     </div>
