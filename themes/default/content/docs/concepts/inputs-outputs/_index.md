@@ -153,7 +153,7 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 {{% notes %}}
 _Raw value_ in this document is used to describe a standard string, boolean, integer or other typed value in your language of choice. _Raw value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
 
-An {{< pulumi-output >}} value can resolve to a _raw value_. For more information on this, see (#apply).
+An {{< pulumi-output >}} value can resolve to a _raw value_. For more information on this, see [apply](#apply).
 {{% /notes %}}
 
 However, in most Pulumi programs, the inputs to a resource will reference values from another resource
