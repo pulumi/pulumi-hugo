@@ -1746,4 +1746,3 @@ Notice in that example how the JSON string is being built _inside_ the `apply` c
 
 - Resolve the bucket ARN from the cloud provider
 - Then, build the JSON string with the "raw" value.
-
