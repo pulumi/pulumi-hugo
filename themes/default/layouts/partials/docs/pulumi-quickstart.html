@@ -42,7 +42,7 @@
                         </div>
                         <div class="checkbox">
                             <input type="checkbox" id="credentials-checkbox" name="credentials-checkbox" />
-                            <label class="checkbox-label" id="credentials-checkbox" for="credentials-checkbox">{{ $credentials.checkbox_label }}</label>
+                            <label class="checkbox-label" id="credentials-checkbox" for="credentials-checkbox">{{ $customize.options.credentials_label }}</label>
                         </div>
                     </div>
                 </div>
@@ -73,72 +73,32 @@
             {{ $install := $steps.install }}
             <div class="content-block">
                 <h2 id="step-one" class="step-heading">{{ $install.heading }}</h2>
-                <input type="radio" id="os-osx-radio" name="os-radio" checked />
-                <div class="content code-block install-osx highlight">
-                    <pre class="chroma"><code>{{ $install.command.osx }}</code></pre>
-                    <div class="copy-button-container">
-                        <pulumi-tooltip>
-                            <span class="tooltip-target">
-                                <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                            </span>
-                            <span class="tooltip-content" role="tooltip">
-                                <span slot="content">Copy</span>
-                            </span>
-                        </pulumi-tooltip>
+                {{ range $os, $command := $install.command }}
+                    <input type="radio" id="os-{{ $os }}-radio" name="os-radio" checked />
+                    <div class="content code-block install-osx highlight">
+                        <pre class="chroma"><code>{{ $command }}</code></pre>
+                        <div class="copy-button-container">
+                            <pulumi-tooltip>
+                                <span class="tooltip-target">
+                                    <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
+                                </span>
+                                <span class="tooltip-content" role="tooltip">
+                                    <span slot="content">Copy</span>
+                                </span>
+                            </pulumi-tooltip>
+                        </div>
                     </div>
-                </div>
-                <input type="radio" id="os-windows-radio" name="os-radio" />
-                <div class="content code-block install-windows highlight">
-                    <pre class="chroma"><code>{{ $install.command.windows }}</code></pre>
-                    <div class="copy-button-container">
-                        <pulumi-tooltip>
-                            <span class="tooltip-target">
-                                <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                            </span>
-                            <span class="tooltip-content" role="tooltip">
-                                <span slot="content">Copy</span>
-                            </span>
-                        </pulumi-tooltip>
-                    </div>
-                </div>
-
-                <input type="radio" id="os-linux-radio" name="os-radio" />
-                <div class="content code-block install-linux highlight">
-                    <pre class="chroma"><code>{{ $install.command.linux }}</code></pre>
-                    <div class="copy-button-container">
-                        <pulumi-tooltip>
-                            <span class="tooltip-target">
-                                <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                            </span>
-                            <span class="tooltip-content" role="tooltip">
-                                <span slot="content">Copy</span>
-                            </span>
-                        </pulumi-tooltip>
-                    </div>
-                </div>
+                {{ end }}
             </div>
         </li>
         <li id="credentials-step" class="credentials step">
-            <input type="radio" id="cloud-aws-radio" name="credentials-radio" value="aws" checked />
-            <div class="content aws">
-                <h2 class="step-heading">{{ $credentials.aws.heading }}</h2>
-                <p>{{ $credentials.aws.content | safeHTML }}</p>
-            </div>
-            <input type="radio" id="cloud-azure-radio" name="credentials-radio" value="azure" />
-            <div class="content azure">
-                <h2 class="step-heading">{{ $credentials.azure.heading }}</h2>
-                <p>{{ $credentials.azure.content | safeHTML }}</p>
-            </div>
-            <input type="radio" id="cloud-google-cloud-radio" name="credentials-radio" value="gcp" />
-            <div class="content google-cloud">
-                <h2 class="step-heading">{{ $credentials.google_cloud.heading }}</h2>
-                <p>{{ $credentials.google_cloud.content | safeHTML }}</p>
-            </div>
-            <input type="radio" id="cloud-kubernetes-radio" name="credentials-radio" value="kubernetes" />
-            <div class="content kubernetes">
-                <h2 class="step-heading">{{ $credentials.kubernetes.heading }}</h2>
-                <p>{{ $credentials.kubernetes.content | safeHTML }}</p>
-            </div>
+            {{ range $index, $cloud := $credentials.clouds }}
+                <input type="radio" id="cloud-{{ $cloud.cloud }}-radio" name="credentials-radio" value="{{ $cloud.cloud }}" checked />
+                <div class="content {{ $cloud }}">
+                    <h2 class="step-heading">{{ $cloud.heading }}</h2>
+                    <p>{{ $cloud.content | safeHTML }}</p>
+                </div>
+            {{ end }}
         </li>
         <li class="directory step">
             <div class="content">
