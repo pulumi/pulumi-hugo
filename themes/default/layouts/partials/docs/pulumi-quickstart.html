@@ -197,6 +197,14 @@
                                 $("#template-command").html(`pulumi new ${template ? template + "-" : ""}${cloud}-${language}`);
                             }
                         });
+
+                        const labelGroups = ["os", "cloud", "language", "template"];
+                        labelGroups.forEach(labelGroup => {
+                            $(`label[for^="${labelGroup}-"]`).click(function () {
+                                $(`label[for^="${labelGroup}-"]`).removeClass("selected");
+                                $(this).addClass("selected");
+                            });
+                        });
                     });
                 </script>
                 <div class="content code-block template highlight">
