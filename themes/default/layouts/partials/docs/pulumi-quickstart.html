@@ -6,54 +6,69 @@
 <section class="content pulumi-quickstart">
     <p class="intro">{{ .Params.intro }}</p>
 
-    <div class="customize-accordion">
-        <h2 id="accordion-heading" class="accordion-heading">{{ .Params.customize.heading }}</h2>
-
-        <div class="customize-section osx">
-            <p>OS</p>
-            <div class="labels">
-                <label class="radio-label" for="os-osx-radio">OSX</label>
-                <label class="radio-label" for="os-windows-radio">Windows</label>
-                <label class="radio-label" for="os-linux-radio">Linux</label>
+    <div id="accordion-quickstart-customize">
+        <input type="checkbox" id="accordion-checkbox-quickstart-customize" checked />
+        <label for="accordion-checkbox-quickstart-customize" class="show">
+            <div class="heading">
+                <h2 id="accordion-heading" class="accordion-heading">{{ .Params.customize.heading }}</h2>
+                <div class="icon icon-18-18 customize-expand-more-18-18"></div>
             </div>
-        </div>
-
-        <div class="customize-section cloud">
-            <p>Cloud</p>
-            <div class="labels-and-checkbox">
-                <div class="labels">
-                    <label class="radio-label" for="cloud-aws-radio">AWS</label>
-                    <label class="radio-label" for="cloud-azure-radio">Azure</label>
-                    <label class="radio-label" for="cloud-google-cloud-radio">Google Cloud</label>
-                    <label class="radio-label" for="cloud-kubernetes-radio">Kubernetes</label>
+        </label>
+        <label for="accordion-checkbox-quickstart-customize" class="hide">
+            <div class="heading">
+                <h2 id="accordion-heading" class="accordion-heading">{{ .Params.customize.heading }}</h2>
+                <div class="icon icon-18-18 customize-expand-less-18-18"></div>
+            </div>
+        </label>
+        <div class="accordion-content">
+            <div class="content">
+                <div class="customize-section osx">
+                    <p>OS</p>
+                    <div class="labels">
+                        <label class="radio-label" for="os-osx-radio">OSX</label>
+                        <label class="radio-label" for="os-windows-radio">Windows</label>
+                        <label class="radio-label" for="os-linux-radio">Linux</label>
+                    </div>
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="credentials-checkbox" name="credentials-checkbox" />
-                    <label class="checkbox-label" id="credentials-checkbox" for="credentials-checkbox">{{ $credentials.checkbox_label }}</label>
+
+                <div class="customize-section cloud">
+                    <p>Cloud</p>
+                    <div class="labels-and-checkbox">
+                        <div class="labels">
+                            <label class="radio-label" for="cloud-aws-radio">AWS</label>
+                            <label class="radio-label" for="cloud-azure-radio">Azure</label>
+                            <label class="radio-label" for="cloud-google-cloud-radio">Google Cloud</label>
+                            <label class="radio-label" for="cloud-kubernetes-radio">Kubernetes</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="credentials-checkbox" name="credentials-checkbox" />
+                            <label class="checkbox-label" id="credentials-checkbox" for="credentials-checkbox">{{ $credentials.checkbox_label }}</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="customize-section language">
-            <p>Language</p>
-            <div class="labels">
-                <label class="radio-label" for="language-typescript-radio">TypeScript</label>
-                <label class="radio-label" for="language-python-radio">Python</label>
-                <label class="radio-label" for="language-go-radio">Go</label>
-                <label class="radio-label" for="language-csharp-radio">C#</label>
-                <label class="radio-label" for="language-java-radio">Java</label>
-                <label class="radio-label" for="language-yaml-radio">YAML</label>
-            </div>
-        </div>
+                <div class="customize-section language">
+                    <p>Language</p>
+                    <div class="labels">
+                        <label class="radio-label" for="language-typescript-radio">TypeScript</label>
+                        <label class="radio-label" for="language-python-radio">Python</label>
+                        <label class="radio-label" for="language-go-radio">Go</label>
+                        <label class="radio-label" for="language-csharp-radio">C#</label>
+                        <label class="radio-label" for="language-java-radio">Java</label>
+                        <label class="radio-label" for="language-yaml-radio">YAML</label>
+                    </div>
+                </div>
 
-        <div class="customize-section template">
-            <p>Template</p>
-            <div class="labels">
-                <label class="radio-label" for="template-starter-radio">Starter</label>
-                <label class="radio-label" for="template-container-service-radio">Container service</label>
-                <label class="radio-label" for="template-serverless-app-radio">Serverless app</label>
-                <label class="radio-label" for="template-static-website-radio">Static website</label>
-                <label class="radio-label" for="template-virtual-machine-radio">Virtual machine</label>
+                <div class="customize-section template">
+                    <p>Template</p>
+                    <div class="labels">
+                        <label class="radio-label" for="template-starter-radio">Starter</label>
+                        <label class="radio-label" for="template-container-service-radio">Container service</label>
+                        <label class="radio-label" for="template-serverless-app-radio">Serverless app</label>
+                        <label class="radio-label" for="template-static-website-radio">Static website</label>
+                        <label class="radio-label" for="template-virtual-machine-radio">Virtual machine</label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

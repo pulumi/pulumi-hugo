@@ -4,6 +4,50 @@
         flex-direction: column;
         gap: 24px;
 
+        div#accordion-quickstart-customize {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #bebfc9;
+            border-radius: 4px;
+            padding: 16px 24px;
+
+            div.accordion-content,
+            input,
+            label.hide,
+            input:checked ~ label.show  {
+                display: none;
+            }
+        
+            input:checked ~ div.accordion-content,
+            input:checked ~ label.hide {
+                display: flex;
+            }
+
+            div.heading {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex: 1;
+
+                h2 {
+                    margin-bottom: 0;
+                }
+            }
+
+            label.hide div.heading {
+                padding-bottom: 8px;
+                margin-bottom: 24px;
+                border-bottom: 1px solid #e5e5e9;
+            }
+
+            label.show div.heading {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding: 0;
+            }
+        }
+
         div.checkbox {
             margin-bottom: 14px;
         }
@@ -25,7 +69,7 @@
         }
 
         p.intro {
-            margin-top: 0;
+            margin: 0;
         }
 
         ol li.step div.content pre {
@@ -71,15 +115,6 @@
             .chroma {
                 margin: 0 ;
             }
-        }
-
-        .customize-accordion {
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            border: 1px solid #bebfc9;
-            border-radius: 4px;
-            padding: 16px 24px;
         }
 
         input[type="radio"] {
