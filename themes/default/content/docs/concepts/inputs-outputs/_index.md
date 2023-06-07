@@ -15,7 +15,7 @@ aliases:
 
 ## Inputs
 
-testAll resources in Pulumi accept values that describe the way the resource behaves. We call these values *inputs*.
+All resources in Pulumi accept values that describe the way the resource behaves. We call these values *inputs*.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 
