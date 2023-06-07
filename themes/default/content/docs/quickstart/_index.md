@@ -17,6 +17,56 @@ aliases:
 intro: Quickstart your Pulumi experience by learning how to install Pulumi, set up your cloud credentials, and run your first update.
 customize:
   heading: Customize instructions
+  options:
+    os:
+      - id: osx
+        displayName: macOs
+        default: true
+      - id: windows
+        displayName: Windows
+      - id: linux
+        displayName: Linux
+    clouds:
+      - id: aws
+        displayName: AWS
+        default: true
+      - id: azure
+        displayName: Azure
+      - id: gcp
+        displayName: Google Cloud
+      - id: kubernetes
+        displayName: Kubernetes
+    languages:
+      - id: typescript
+        displayName: TypeScript
+        default: true
+      - id: python
+        displayName: Python
+      - id: go
+        displayName: Go
+      - id: csharp
+        displayName: "C#"
+      - id: java
+        displayName: Java
+      - id: yaml
+        displayName: YAML
+    templates:
+      - id: starter
+        displayName: Starter
+        cmdPrefix: ""
+        default: true
+      - id: container-service
+        displayName: Container service
+        cmdPrefix: container
+      - id: serverless-app
+        displayName: Serverless app
+        cmdPrefix: serverless
+      - id: static-website
+        displayName: Static website
+        cmdPrefix: static-website
+      - id: virtual-machine
+        displayName: Virtual machine
+        cmdPrefix: vm
 steps:
   install:
     heading: Install the Pulumi CLI
