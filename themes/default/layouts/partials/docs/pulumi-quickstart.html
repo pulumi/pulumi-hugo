@@ -57,7 +57,15 @@
                 </div>
 
                 <div class="customize-section template">
-                    <p>Template</p>
+                    <p>
+                        Template
+                        <pulumi-tooltip>
+                            <span class="tooltip-target">
+                                <i class="far fa-question-circle"></i>
+                            </span>
+                            <span slot="content">Templates quickly deploy and modify common architectures. If you’re unsure which template to use, select "starter."</span>
+                        </pulumi-tooltip>
+                    </p>
                     <div class="labels">
                         {{ range $index, $temp := $customize.options.templates }}
                             <label class="radio-label {{ if $temp.default }}selected{{ end }}" for="template-{{ $temp.id }}-radio">{{ $temp.displayName }}</label>

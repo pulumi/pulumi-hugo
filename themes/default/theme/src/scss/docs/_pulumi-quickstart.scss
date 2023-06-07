@@ -136,6 +136,7 @@
                 gap: 36px;
     
                 p {
+                    align-items: baseline;
                     display: flex;
                     flex-basis: 88px;
                     flex-grow: 0;
@@ -148,6 +149,9 @@
                     color: #131314;
                     vertical-align: top;
                     margin: 14px 0;
+                    i {
+                        margin-left: 4px;
+                    }
                 }
 
                 label {
