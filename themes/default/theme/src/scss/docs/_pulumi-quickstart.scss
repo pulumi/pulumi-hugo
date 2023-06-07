@@ -4,6 +4,38 @@
         flex-direction: column;
         gap: 24px;
 
+        h2 {
+            &.accordion-heading {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 16px;
+                color: #131314;
+            }
+
+            &.step-heading {
+                font-family: 'Inter';
+                font-weight: 500;
+                font-size: 16px;
+                color: #131314;
+            }
+        }
+
+        labels {
+            display: flex;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"] + div.content {
+            display: none;
+        }
+
+        p.intro {
+            margin: 0;
+        }
+
         div#accordion-quickstart-customize {
             display: flex;
             flex-direction: column;
@@ -13,14 +45,14 @@
             padding: 16px 24px;
 
             div.accordion-content,
-            input,
+            input#accordion-checkbox-quickstart-customize,
             label.hide,
-            input:checked ~ label.show  {
+            input#accordion-checkbox-quickstart-customize:checked ~ label.show  {
                 display: none;
             }
         
-            input:checked ~ div.accordion-content,
-            input:checked ~ label.hide {
+            input#accordion-checkbox-quickstart-customize:checked ~ div.accordion-content,
+            input#accordion-checkbox-quickstart-customize:checked ~ label.hide {
                 display: flex;
             }
 
@@ -46,34 +78,137 @@
                 margin-bottom: 0;
                 padding: 0;
             }
-        }
 
-        div.checkbox {
-            margin-bottom: 14px;
-        }
-
-        h2 {
-            &.accordion-heading {
-                font-family: 'Inter';
-                font-weight: 500;
-                font-size: 16px;
-                color: #131314;
+            div.customize-section {
+                display: flex;
+                gap: 36px;
+    
+                p {
+                    display: flex;
+                    flex-basis: 88px;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    text-align: right;
+                    justify-content: right;
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #131314;
+                    vertical-align: top;
+                    margin: 14px 0;
+                }
+    
+                div.labels {
+                    display: flex;
+                    gap: 8px;
+                    margin: 12px 0;
+                    flex-wrap: wrap;
+                
+                    label.radio-label {
+                        font-family: 'Inter';
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 14px;
+                        color: #5F6065;
+                        text-align: center;
+                        padding: 6px 12px;
+                        background: #f2f2f4;
+                        border-radius: 4px;
+                        justify-content: center;
+                        height: 26px;
+                        display: flex;
+    
+                        &:hover {
+                            background: #e5e5e9;
+                        }
+                    }
+                }
+    
+                label.checkbox-label {
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #5f6065;
+                }
             }
 
-            &.step-heading {
-                font-family: 'Inter';
-                font-weight: 500;
-                font-size: 16px;
-                color: #131314;
+            div.customize-section.cloud .checkbox {
+                margin-bottom: 14px;
             }
         }
 
-        p.intro {
-            margin: 0;
-        }
+        ol.steps-counter {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: steps-counter;
+            display: flex;
+            gap: 36px;
+            flex-direction: column;
 
-        ol li.step div.content pre {
-            padding: 0;
+            li {
+                display: flex;
+                flex-direction: row;
+                gap: 24px;
+                margin: 0;
+
+                &.step div.content pre {
+                    padding: 0;
+                }
+
+                &.install {
+                    input[type="radio"]:checked + div.content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 18px;
+        
+                        h2.step-heading {
+                            margin: 0 0 18px 0;
+                        }
+                    }
+                }
+    
+                &.credentials {
+                    display: none;
+                }
+        
+                &.credentials input[type="checkbox"]:checked ~ input[type="radio"]:checked + div.content {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                &::before {
+                    counter-increment: steps-counter;
+                    content: counter(steps-counter);
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    font-family: 'Gilroy';
+                    font-weight: 600;
+                    font-size: 16px;
+                    text-align: center;
+                    color: #5f6065;
+                }
+    
+                &.install::before {
+                    background: #fffaed;
+                }
+    
+                &.credentials::before {
+                    background: #fef1f2;
+                }
+    
+                &.directory::before {
+                    background: #f8edf3;
+                }
+    
+                &.template::before {
+                    background: #f3ebf4;
+                }
+    
+                &.deploy::before {
+                    background: #f2eff9;
+                }
+            }
         }
 
         div.content.code-block {
@@ -83,11 +218,9 @@
                 right: -42px;
                 padding: 8px 18px 8px 16px;
 
-                pulumi-tooltip {
-                    i {
-                        font-size: 16px;
-                        color: #fff;
-                    }
+                pulumi-tooltip i {
+                    font-size: 16px;
+                    color: #fff;
                 }
             }
 
@@ -114,142 +247,6 @@
 
             .chroma {
                 margin: 0 ;
-            }
-        }
-
-        input[type="radio"] {
-            display: none;
-        }
-
-        input[type="radio"] + div.content {
-            display: none;
-        }
-
-        li.credentials {
-            display: none;
-        }
-
-        ol.steps-counter {
-            list-style: none;
-            padding-left: 0;
-            counter-reset: steps-counter;
-            display: flex;
-            gap: 36px;
-            flex-direction: column;
-        }
-
-        .steps-counter li::before {
-            counter-increment: steps-counter;
-            content: counter(steps-counter);
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            font-family: 'Gilroy';
-            font-weight: 600;
-            font-size: 16px;
-            text-align: center;
-            color: #5F6065;
-        }
-
-        .steps-counter li.install::before {
-            background: #fffaed;
-        }
-
-        .steps-counter li.credentials::before {
-            background: #fef1f2;
-        }
-
-        .steps-counter li.directory::before {
-            background: #f8edf3;
-        }
-
-        .steps-counter li.template::before {
-            background: #f3ebf4;
-        }
-
-        .steps-counter li.deploy::before {
-            background: #f2eff9;
-        }
-
-
-        li {
-            display: flex;
-            flex-direction: row;
-            gap: 24px;
-            margin: 0;
-        }
-
-        li.install {
-            input[type="radio"]:checked + div.content {
-                display: flex;
-                flex-direction: column;
-                gap: 18px;
-
-                h2.step-heading {
-                    margin: 0 0 18px 0;
-                }
-            }
-        }
-
-        li.credentials input[type="checkbox"]:checked ~ input[type="radio"]:checked + div.content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        labels {
-            display: flex;
-        }
-
-        div.customize-section {
-            display: flex;
-            gap: 36px;
-
-            p {
-                display: flex;
-                flex-basis: 88px;
-                flex-grow: 0;
-                flex-shrink: 0;
-                text-align: right;
-                justify-content: right;
-                font-family: 'Inter';
-                font-weight: 400;
-                font-size: 14px;
-                color: #131314;
-                vertical-align: top;
-                margin: 14px 0;
-            }
-
-            div.labels {
-                display: flex;
-                gap: 8px;
-                margin: 12px 0;
-                flex-wrap: wrap;
-            
-                label.radio-label {
-                    font-family: 'Inter';
-                    font-weight: 500;
-                    font-size: 14px;
-                    line-height: 14px;
-                    color: #5F6065;
-                    text-align: center;
-                    padding: 6px 12px;
-                    background: #f2f2f4;
-                    border-radius: 4px;
-                    justify-content: center;
-                    height: 26px;
-                    display: flex;
-
-                    &:hover {
-                        background: #e5e5e9;
-                    }
-                }
-
-                label.checkbox-label {
-                    font-family: 'Inter';
-                    font-weight: 400;
-                    font-size: 14px;
-                    color: #5f6065;
-                }
             }
         }
     }
