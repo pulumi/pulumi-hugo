@@ -212,7 +212,7 @@
             gap: 36px;
             flex-direction: column;
 
-            li {
+            > li {
                 display: flex;
                 flex-direction: row;
                 gap: 24px;
