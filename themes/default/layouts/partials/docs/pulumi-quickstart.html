@@ -169,8 +169,28 @@
                             }
                         });
 
-                        $("[id^=template-content]").css("display", "none");
-                        $("#template-content-typescript").css("display", "block");
+                        function setOS() {
+                            const userAgent = navigator.userAgent;
+                            let os = "osx";
+                            if (userAgent.indexOf("Win") !== -1) {
+                                os = "windows";
+                            } else if (userAgent.indexOf("Mac") !== -1) {
+                                os = "osx";
+                            } else if (userAgent.indexOf("Linux") !== -1) {
+                                os = "linux";
+                            }
+                            $(`#os-${os}-radio`).prop("checked", true);
+                            $(`label[for^="os-"]`).removeClass("selected");
+                            $(`label[for="os-${os}-radio"]`).addClass("selected");
+                        }
+
+                        function initQuickStart() {
+                            $("[id^=template-content]").css("display", "none");
+                            $("#template-content-typescript").css("display", "block");
+                            setOS();
+                        }
+
+                        initQuickStart();
                     });
                 </script>
                 <div class="content code-block template highlight">
