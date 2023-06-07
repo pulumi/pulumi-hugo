@@ -228,27 +228,27 @@
                             </span>
                         </pulumi-tooltip>
                     </div>
-                    <div id="accordion-template-learn-more">
-                        <input type="checkbox" id="accordion-checkbox-template-learn-more" />
-                        <label for="accordion-checkbox-template-learn-more" class="show">
-                            <div class="heading">
-                                <div class="icon icon-16-16 lightbulb-16-16"></div>
-                                <h2 class="accordion-heading no-anchor">{{ $template.accordion.heading }}</h2>
-                                <div class="icon icon-18-18 customize-expand-more-18-18"></div>
-                            </div>
-                        </label>
-                        <label for="accordion-checkbox-template-learn-more" class="hide">
-                            <div class="heading">
-                                <div class="icon icon-16-16 lightbulb-16-16"></div>
-                                <h2 class="accordion-heading no-anchor">{{ $template.accordion.heading }}</h2>
-                                <div class="icon icon-18-18 customize-expand-less-18-18"></div>
-                            </div>
-                        </label>
-                        <div class="accordion-content">
-                            <div class="content">
-                                {{ $template.accordion.intro | safeHTML }}
-                                {{ $template.accordion.closing | safeHTML }}
-                            </div>
+                </div>
+                <div id="accordion-template-learn-more">
+                    <input type="checkbox" id="accordion-checkbox-template-learn-more" />
+                    <label for="accordion-checkbox-template-learn-more" class="show">
+                        <div class="heading">
+                            <div class="icon icon-16-16 lightbulb-16-16"></div>
+                            <h2 class="accordion-heading no-anchor">{{ $template.accordion.heading }}</h2>
+                            <div class="icon icon-18-18 customize-expand-more-18-18"></div>
+                        </div>
+                    </label>
+                    <label for="accordion-checkbox-template-learn-more" class="hide">
+                        <div class="heading">
+                            <div class="icon icon-16-16 lightbulb-16-16"></div>
+                            <h2 class="accordion-heading no-anchor">{{ $template.accordion.heading }}</h2>
+                            <div class="icon icon-18-18 customize-expand-less-18-18"></div>
+                        </div>
+                    </label>
+                    <div class="accordion-content">
+                        <div class="content">
+                            {{ $template.accordion.intro | safeHTML }}
+                            {{ $template.accordion.closing | safeHTML }}
                         </div>
                     </div>
                 </div>
