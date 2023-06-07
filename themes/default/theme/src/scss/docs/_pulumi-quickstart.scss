@@ -113,6 +113,7 @@
                         text-align: center;
                         padding: 6px 12px;
                         background: #f2f2f4;
+                        border: 1px solid #f2f2f4;
                         border-radius: 4px;
                         justify-content: center;
                         height: 26px;
@@ -120,6 +121,16 @@
     
                         &:hover {
                             background: #e5e5e9;
+                        }
+                    }
+
+                    label.selected {
+                        background: #edeffb;
+                        border: 1px solid #a6adec;
+                        color: #131314;
+
+                        &:hover {
+                            background: #CACEF4;
                         }
                     }
                 }
