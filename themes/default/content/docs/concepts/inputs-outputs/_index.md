@@ -83,7 +83,7 @@ var myId = new RandomId("mine", RandomIdArgs.builder()
 
 _Inputs_ are generally representations of the parameters to the underlying API call of any resource that Pulumi is managing.
 
-The simplest way to create a resource with its required _inputs_ is to use a "raw value" (A raw value as described in this document is a standard string, boolean, integer or other type you can use generally in your language of choice):
+The simplest way to create a resource with its required _inputs_ is to use a _raw value_.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 
@@ -101,7 +101,7 @@ const key = new tls.PrivateKey("my-private-key", {
 
 ```typescript
 const key = new tls.PrivateKey("my-private-key", {
-    algorithm: "ECDSA", //
+    algorithm: "ECDSA", // ECDSA is a raw value
 });
 
 ```
@@ -150,6 +150,12 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 {{% /choosable %}}
 {{< /chooser >}}
 
+{{% notes %}}
+_Raw value_ in this document is used to describe a standard string, boolean, integer or other typed value in your language of choice. _Raw value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
+
+An {{< pulumi-output >}} value can resolve to a _raw value_. For more information on this, see (#apply).
+{{% /notes %}}
+
 However, in most Pulumi programs, the inputs to a resource will reference values from another resource
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
@@ -157,10 +163,7 @@ However, in most Pulumi programs, the inputs to a resource will reference values
 {{% choosable language javascript %}}
 
 ```javascript
-const key = new tls.PrivateKey("my-private-key", {
-    algorithm: "ECDSA", // ECDSA is a raw value
-});
-
+// TODO
 ```
 
 {{% /choosable %}}
@@ -418,7 +421,7 @@ During some program executions, `apply` doesn’t run. For example, it won’t r
 
 ## All
 
-If you have multiple outputs and need to join them, the `all` function acts like an `apply` over many resources. This function joins over an entire list of outputs. It waits for all of them to become available and then provides them to the supplied callback. This function can be used to compute an entirely new output value, such as by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses them. Just like with `apply`, the result of [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all) is itself an Output<T>.
+If you have multiple outputs and need to join them, the `all` function acts like an `apply` over many resources, allowing you to resolve multiple outputs before performing an operation. `all` waits for all output values to become available and then provides them to the supplied callback. This function can be used to compute an entirely new output value, such as by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses them. Just like with `apply`, the result of [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all) is itself an Output<T>.
 
 For example, let’s use a server and a database name to create a database connection string:
 
@@ -902,7 +905,7 @@ var url = Output.tuple(hostname, port)
 
 {{< /chooser >}}
 
-However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs—internally hiding all of the messiness required to join them together:
+However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs - internally hiding all of the messiness required to join them together:
 
 {{% choosable language javascript %}}
 
@@ -1601,6 +1604,7 @@ A concrete example of this can be seen in the following code:
 {{% choosable language typescript %}}
 
 ```typescript
+// NOTE: This example is not correct
 const contentBucket = new aws.s3.Bucket("content-bucket", {
   acl: "private",
   website: {
@@ -1634,6 +1638,7 @@ const bucketPolicy = new aws.s3.BucketPolicy("cloudfront-bucket-policy", {
 {{% choosable language python %}}
 
 ```python
+# NOTE: This example is not correct
 bucket = aws.s3.Bucket(
     "cloudfront",
     acl="private",
@@ -1671,13 +1676,55 @@ bucket_policy = aws.s3.BucketPolicy(
 
 ```go
 
+// NOTE: This example is not correct
+bucket, err := s3.NewBucket(ctx, "content-bucket", &s3.BucketArgs{
+	Acl: pulumi.String("private"),
+	Website: &s3.BucketWebsiteArgs{
+		IndexDocument: pulumi.String("index.html"),
+		ErrorDocument: pulumi.String("404.html"),
+	},
+})
+if err != nil {
+	return err
+}
+
+_, err = s3.NewBucketPolicy(ctx, "cloudfront-bucket-policy", &s3.BucketPolicyArgs{
+	Bucket: bucket.ID(),
+	Policy: json.Marshal(map[string]interface{}{
+				"Version": "2012-10-17",
+				"Statement": []map[string]interface{}{
+					{
+						"Sid":    "CloudfrontAllow",
+						"Effect": "Allow",
+						"Principal": map[string]interface{}{
+							"AWS": iamArn,
+						},
+						"Action":   "s3:GetObject",
+						"Resource": bucket.Arn.ApplyT(arn []interface{} (pulumi.StringOutput)),
+					},
+				},
+			})
+		}),
+if err != nil {
+	return err
+}
 ```
 
 {{% /choosable %}}
 {{% choosable language csharp %}}
 
 ```csharp
+var bucket = new Bucket("content-bucket", new BucketArgs
+{
+    Acl = "private",
+    Website = new BucketWebsiteArgs
+    {
+        IndexDocument = "index.html",
+        ErrorDocument = "404.html",
+    },
+});
 
+// TODO incorrect bucket policy build
 ```
 
 {{% /choosable %}}
@@ -1693,77 +1740,10 @@ bucket_policy = aws.s3.BucketPolicy(
 
 Notice how the `apply` call is being used inside the JSON string. In this scenario, the `apply` call is happening during the build of the JSON string, which is too early in the Pulumi lifecycle. The value of the bucket ARN has not yet been resolved from the cloud provider API, so the JSON string cannot be built yet.
 
-The correct way of handling this scenario is to resolve the bucket ARN, _then_ build the JSON string. In practice, this looks like this:
+The correct way of handling this scenario is to resolve the bucket ARN, _then_ build the JSON string. You can see an example of this in the (#outputs-and-json) section.
 
-{{< chooser language "typescript,python,go,csharp,java" >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-```
-
-{{% /choosable %}}
-{{% choosable language python %}}
-
-```python
-bucket = aws.s3.Bucket(
-    "cloudfront",
-    acl="private",
-    website=aws.s3.BucketWebsiteArgs(
-        index_document="index.html", error_document="404.html"
-    ),
-)
-
-bucket_policy = aws.s3.BucketPolicy(
-    "cloudfrontAccess",
-    bucket=bucket.bucket,
-    policy=bucket.arn.apply(lambda arn: json.dumps(
-            {
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Sid": "CloudfrontAllow",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": "*",
-                        },
-                        "Action": "s3:GetObject",
-                        "Resource": arn,
-                    }
-                ],
-            }
-        )
-    ),
-    opts=pulumi.ResourceOptions(parent=bucket)
-)
-```
-
-{{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
-
-Notice here how the JSON string is being built _inside_ the `apply` call to Pulumi. In logical order, this happens as:
+Notice in that example how the JSON string is being built _inside_ the `apply` call to Pulumi. In logical order, this happens as:
 
 - Resolve the bucket ARN from the cloud provider
 - Then, build the JSON string with the "raw" value.
+
