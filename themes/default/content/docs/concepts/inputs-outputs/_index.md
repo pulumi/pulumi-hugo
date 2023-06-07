@@ -1582,6 +1582,8 @@ public static Output<List<String>> split(Output<String> str) {
 
 ## Common Pitfalls
 
+### String Interpolation
+
 When working with outputs and apply, you may see an error message like so:
 
 ```
@@ -1597,7 +1599,7 @@ A concrete example of this can be seen in the following code:
 {{% choosable language javascript %}}
 
 ```javascript
-
+// TODO
 ```
 
 {{% /choosable %}}
@@ -1731,7 +1733,7 @@ var bucket = new Bucket("content-bucket", new BucketArgs
 {{% choosable language java %}}
 
 ```java
-
+// TODO
 ```
 
 {{% /choosable %}}
@@ -1746,3 +1748,87 @@ Notice in that example how the JSON string is being built _inside_ the `apply` c
 
 - Resolve the bucket ARN from the cloud provider
 - Then, build the JSON string with the "raw" value.
+
+### Resource Names
+
+When creating multiple resources, it can be tempting to use the output of one resource as the name to another:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+
+```
+
+{{% /choosable %}}
+{{% choosable language typescript %}}
+
+```typescript
+// NOTE: This example is not correct
+const bucket = new aws.s3.Bucket("my-bucket", {});
+
+const bucketPolicy = new aws.s3.BucketPolicy(bucket.name, {
+  // rest of bucket arguments go here
+});
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+# NOTE: This example is not correct
+bucket = aws.s3.Bucket("my-bucket",)
+
+bucket_policy = aws.s3.BucketPolicy(
+    bucket.name,
+   # rest of bucket arguments go here
+)
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+
+// NOTE: This example is not correct
+bucket, err := s3.NewBucket(ctx, "my-bucket", &s3.BucketArgs{})
+if err != nil {
+	return err
+}
+
+_, err = s3.NewBucketPolicy(ctx, bucket.Name, &s3.BucketPolicyArgs{
+	Bucket: bucket.ID(),
+	// rest of bucket arguments go here
+})
+if err != nil {
+	return err
+}
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```csharp
+var bucket = new Bucket("my-bucket", new BucketArgs{});
+
+// TODO incorrect bucket policy build
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+// TODO
+```
+
+{{% /choosable %}}
+{{< /chooser >}}
+
+However, this pattern isn't possible because resource names need to be available and known at runtime in order to construct the URN of the resource.
+
+If you really wish to pass an output from one resource as the resource name of another resource, you will need to use a {{< pulumi-apply >}}.
+
+{{% notes %}}
+This will lead to previews being inaccurate. Resources created inside an apply will only appear in the Pulumi output after an `up` operation is run, and is therefore strongly discouraged.
+{{% /notes %}}
