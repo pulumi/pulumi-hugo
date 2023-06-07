@@ -13,16 +13,31 @@ aliases:
 
 ---
 
-Resource properties are treated specially in Pulumi, both for purposes of input and output.
+## Inputs
 
-All resource arguments accept *inputs*. Inputs are values of type {{< pulumi-input >}}, a type that permits either a raw value of a given type (such as string, integer, boolean, list, map, and so on), an asynchronously computed value (i.e., a `Promise` or `Task`), or an output read from another resource’s properties.
+All resources in Pulumi accept values that describe the way the resource behaves. We call these values *inputs*.
 
-All resource properties on the instance object itself are *outputs*. Outputs are values of type {{< pulumi-output >}}, which behave very much like [promises](https://en.wikipedia.org/wiki/Futures_and_promises). This is necessary because outputs are not fully known until the infrastructure resource has actually completed provisioning, which happens asynchronously. Outputs are also how Pulumi tracks dependencies between resources.
+// example
 
-Outputs, therefore, represent two things:
+_Inputs_ are generally representations of the parameters to the underlying API call of any resource that Pulumi is managing.
 
-- The eventual raw value of the output
-- The dependency on the source(s) of the output value
+The simplest way to create a resource with its required _inputs_ is to use a "raw value".
+
+// example
+
+However, in most Pulumi programs, the inputs to a resource will reference values from another resource
+
+// example
+
+In this case, Pulumi is taking the _output_ from one resource and using it as the _input_ to another resources
+
+## Outputs
+
+All resources created by Pulumi will have properties which are returned from the cloud provider API. These values are *outputs*.
+
+// example 
+
+Outputs are values of type {{< pulumi-output >}}, which behave very much like [promises](https://en.wikipedia.org/wiki/Futures_and_promises) or [monads](https://en.wikipedia.org/wiki/Monad_(functional_programming)). This is necessary because outputs are not fully known until the infrastructure resource has actually completed provisioning, which happens *asynchronously*. Outputs are also how Pulumi tracks dependencies between resources. When an output from one resource has been returned from the cloud provider API, Pulumi can link the two resources together and pass it as the input to another resource.
 
 Pulumi automatically captures dependencies when you pass an output from one resource as an input to another resource. Capturing these dependencies ensures that the physical infrastructure resources are not created or updated until all their dependencies are available and up-to-date.
 
@@ -1056,3 +1071,176 @@ public static Output<List<String>> split(Output<String> str) {
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+## Common Pitfalls
+
+When working with outputs and apply, you may see an error message like so:
+
+```
+Calling __str__ on an Output[T] is not supported. To get the value of an Output[T] as an Output[str] consider: 1. o.apply(lambda v: f"prefix{v}suffix") See https://pulumi.io/help/outputs for more details.
+```
+
+The reason this is happening is because the _Output_ value is being used before it has been resolved by from the API.
+
+A concrete example of this can be seen in the following code:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+
+```
+
+{{% /choosable %}}
+{{% choosable language typescript %}}
+
+```typescript
+
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+bucket = aws.s3.Bucket(
+    "cloudfront",
+    acl="private",
+    website=aws.s3.BucketWebsiteArgs(
+        index_document="index.html", error_document="404.html"
+    ),
+)
+
+bucket_policy = aws.s3.BucketPolicy(
+    "cloudfrontAccess",
+    bucket=bucket.bucket,
+    policy=json.dumps(
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "CloudfrontAllow",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "*",
+                        },
+                        "Action": "s3:GetObject",
+                        "Resource": bucket.arn.apply(lambda arn: arn),
+                    }
+                ],
+            }
+        )
+    ),
+    opts=pulumi.ResourceOptions(parent=bucket)
+)
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```csharp
+
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+Notice how the `apply` call is being used inside the JSON string. In this scenario, the `apply` call is happening during the build of the JSON string, which is too early in the Pulumi lifecycle. The value of the bucket ARN has not yet been resolved from the cloud provider API, so the JSON string cannot be built yet.
+
+The correct way of handling this scenario is to resolve the bucket ARN, _then_ build the JSON string. In practice, this looks like this:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+
+```
+
+{{% /choosable %}}
+{{% choosable language typescript %}}
+
+```typescript
+
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+bucket = aws.s3.Bucket(
+    "cloudfront",
+    acl="private",
+    website=aws.s3.BucketWebsiteArgs(
+        index_document="index.html", error_document="404.html"
+    ),
+)
+
+bucket_policy = aws.s3.BucketPolicy(
+    "cloudfrontAccess",
+    bucket=bucket.bucket,
+    policy=bucket.arn.apply(lambda arn: json.dumps(
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "CloudfrontAllow",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "*",
+                        },
+                        "Action": "s3:GetObject",
+                        "Resource": arn,
+                    }
+                ],
+            }
+        )
+    ),
+    opts=pulumi.ResourceOptions(parent=bucket)
+)
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```csharp
+
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+Notice here how the JSON string is being built _inside_ the `apply` call to Pulumi. In logical order, this happens as:
+
+- Resolve the bucket ARN from the cloud provider
+- Then, build the JSON string with the "raw" value.
