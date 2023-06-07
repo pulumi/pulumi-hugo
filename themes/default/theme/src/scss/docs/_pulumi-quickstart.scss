@@ -36,6 +36,51 @@
             margin: 0;
         }
 
+        div.template {
+            display: flex;
+            flex-grow: 0;
+        }
+
+        div#accordion-template-learn-more,
+        div#accordion-deploy-learn-more {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            div.heading {
+                display: flex;
+                margin-top: 16px;
+                align-items: center;
+                gap: 12px;
+                cursor: pointer;
+
+                h2 {
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #5f6065;
+                    margin: 0;
+                }
+            }
+
+            div.accordion-content,
+            input#accordion-checkbox-template-learn-more,
+            input#accordion-checkbox-deploy-learn-more,
+            label.hide,
+            input#accordion-checkbox-template-learn-more:checked ~ label.show,
+            input#accordion-checkbox-deploy-learn-more:checked ~ label.show {
+                display: none;
+            }
+        
+            input#accordion-checkbox-template-learn-more:checked ~ div.accordion-content,
+            input#accordion-checkbox-template-learn-more:checked ~ label.hide,
+            input#accordion-checkbox-deploy-learn-more:checked ~ div.accordion-content,
+            input#accordion-checkbox-deploy-learn-more:checked ~ label.hide {
+                display: flex;
+            }
+        }
+
         div#accordion-quickstart-customize {
             display: flex;
             flex-direction: column;
@@ -46,8 +91,10 @@
 
             div.accordion-content,
             input#accordion-checkbox-quickstart-customize,
+            input#accordion-checkbox-template-learn-more,
             label.hide,
-            input#accordion-checkbox-quickstart-customize:checked ~ label.show  {
+            input#accordion-checkbox-quickstart-customize:checked ~ label.show,
+            input#accordion-checkbox-template-learn-more ~ label.show {
                 display: none;
             }
         
@@ -61,6 +108,7 @@
                 align-items: center;
                 justify-content: space-between;
                 flex: 1;
+                cursor: pointer;
 
                 h2 {
                     margin-bottom: 0;
@@ -96,6 +144,10 @@
                     color: #131314;
                     vertical-align: top;
                     margin: 14px 0;
+                }
+
+                label {
+                    cursor: pointer;
                 }
     
                 div.labels {
@@ -198,6 +250,7 @@
                     font-size: 16px;
                     text-align: center;
                     color: #5f6065;
+                    flex-shrink: 0;
                 }
     
                 &.install::before {

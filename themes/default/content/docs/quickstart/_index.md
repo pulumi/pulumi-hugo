@@ -47,7 +47,7 @@ steps:
   template:
     heading: Use your first template
     accordion:
-      title: Learn about projects, stacks, and templates
+      heading: Learn about projects, stacks, and templates
       intro: <p>Pulumi <a href="/docs/concepts/projects/" target="_blank">projects</a> and <a href="/docs/concepts/stack/" target="_blank">stacks</a> organize Pulumi code. Projects are similar to GitHub repos and stacks are an instance of code with separate configuration. Projects can have multiple stacks for different development environments or for different cloud configurations.</p><p>The following files are generated when a new project is created:</p>
       closing: <p><code>pulumi new</code> uses a template to quickly deploy and modify common architectures.</p>
       typescript:
@@ -66,6 +66,6 @@ steps:
     heading: Deploy your infrastructure!
     command: pulumi up
     accordion:
-      title: Learn what happens during a deployment
+      heading: Learn what happens during a deployment
       content: Pulumi evaluates the program and determines what resources need updates. By default pulumi runs a preview that outline the changes that will be made when you run the deployment. Pulumi computes the minimally disruptive change to achieve the desired state described by the program.
 ---
