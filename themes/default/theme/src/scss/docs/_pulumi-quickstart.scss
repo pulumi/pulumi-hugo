@@ -288,11 +288,11 @@
             width: fit-content;
             div.copy-button-container {
                 top: -1px;
-                right: -42px;
+                right: -36px;
                 padding: 8px 18px 8px 16px;
 
                 pulumi-tooltip i {
-                    font-size: 16px;
+                    font-size: 14px;
                     color: #fff;
                 }
             }
@@ -310,7 +310,7 @@
                 border-radius: 4px;
                 font-family: 'Iosevka';
                 font-weight: 400;
-                font-size: 16px;
+                font-size: 14px;
             }
 
             code::selection {
