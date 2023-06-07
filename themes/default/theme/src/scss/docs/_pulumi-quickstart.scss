@@ -64,6 +64,10 @@
                 }
             }
 
+            div.content p:first-of-type {
+                margin-top: 0;
+            }
+
             div.accordion-content,
             input#accordion-checkbox-template-learn-more,
             input#accordion-checkbox-deploy-learn-more,
