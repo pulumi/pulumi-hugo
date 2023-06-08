@@ -118,15 +118,9 @@ function normalizeText(lang, text) {
 }
 
 function addCopyButton(e) {
-    var tooltipText = "Copy";
     var buttonHtml =
         '<div class="copy-button-container">' +
-        "    <pulumi-tooltip>" +
-        '        <button class="copy-button">Copy <i class="far fa-copy copy"></i></button>' +
-        '        <span slot="content">' +
-        tooltipText +
-        "</span>" +
-        "    </pulumi-tooltip>" +
+        '   <button class="copy-button">Copy <i class="far fa-copy copy"></i></button>' +
         "</div>";
 
     e.append(buttonHtml).on("click", "button.copy-button", function () {
@@ -146,16 +140,24 @@ function addCopyButton(e) {
         // Remove focus from the button.
         $b.blur();
 
+        const tthtml = `
+        <pulumi-tooltip>
+            <button class="copy-button">Copy <i class="far fa-copy copy"></i></button>
+            <span slot="content">
+                Copied!
+            </span>
+         </pulumi-tooltip>`
+
         // Show a "Copied!" tooltip for a second.
         var $tooltip = $b.closest("pulumi-tooltip");
-        var $tooltipContent = $tooltip.find("[slot='content']");
+        $b.parent().html(tthtml);
+        // var $tooltipContent = $tooltip.find("[slot='content']");
         var tooltipEl = $tooltip.get(0);
 
-        $tooltipContent.text("Copied!");
         tooltipEl.show().then(() => {
-            setTimeout(function () {
-                tooltipEl.hide().then(() => $tooltipContent.text(tooltipText));
-            }, 1000);
+            // setTimeout(function () {
+            //     tooltipEl.hide().then(() => $tooltipContent.text());
+            // }, 1000);
         });
     });
 }
