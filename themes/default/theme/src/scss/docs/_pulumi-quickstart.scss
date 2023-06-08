@@ -307,14 +307,18 @@
             }
         }
 
-        div.learn-more {
+        a.next-steps {
+            display: none;
             border-radius: 4px;
             padding: 12px 24px 12px 24px;
             border: 1px solid #A6ADEC;
             background-color: linear-gradient(120.76deg, #F6F7FD 0%, #FFFFFF 22.11%, #FFFFFF 79.52%, #F6F7FD 100%), #FFFFFF;
+            margin-top: 32px;
+            cursor: pointer;
+            
             .header {
                 display: flex;
-                align-items: baseline;
+                align-items: center;
                 gap: 12px;
                 
                 h2 {
@@ -326,10 +330,7 @@
                     margin: 0px;
                 }
                 
-                img {
-                    width: 32px;
-                    cursor: pointer;
-                }
+                
 
                 p {
                     font-family: 'Gilroy';
@@ -339,6 +340,33 @@
 
 
             }
+
+            &.aws {
+                // it's the default.
+                display: block;
+                img {
+                    width: 32px;
+                }
+            }
+
+            &.azure {
+                img {
+                    width: 56px;
+                }
+            }
+
+            &.gcp {
+                img {
+                    width: 100px;
+                }
+            }
+
+            &.kubernetes {
+                img {
+                    width: 100px;
+                }
+            }
+
         }
     }
 }

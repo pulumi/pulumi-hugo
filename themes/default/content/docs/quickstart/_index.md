@@ -116,8 +116,23 @@ steps:
     accordion:
       heading: Learn what happens during a deployment
       content: Pulumi evaluates the program and determines what resources need updates. By default pulumi runs a preview that outline the changes that will be made when you run the deployment. Pulumi computes the minimally disruptive change to achieve the desired state described by the program.
-learn_more:
+next_steps:
   heading: Learn more
-  content: Learn how to modify a program with Pulumi’s Get started tutorial for AWS.
-  link: https://www.pulumi.com/docs/clouds/aws/get-started/
+  content:
+    - cloud: aws
+      content: Learn how to modify a program with Pulumi’s Get started tutorial for AWS.
+      logo: /logos/tech/aws.svg
+      link: https://www.pulumi.com/docs/clouds/aws/get-started/#modify-program
+    - cloud: azure
+      content: Learn how to modify a program with Pulumi’s Get started tutorial for Azure.
+      logo: /logos/tech/azure.svg
+      link: https://www.pulumi.com/docs/clouds/azure/get-started/#modify-program
+    - cloud: gcp
+      content: Learn how to modify a program with Pulumi’s Get started tutorial for Google Cloud.
+      logo: /logos/tech/gcp.svg
+      link: https://www.pulumi.com/docs/clouds/gcp/get-started/#modify-program
+    - cloud: kubernetes
+      content: Learn how to modify a program with Pulumi’s Get started tutorial for Kubernetes.
+      logo: /logos/tech/k8s.svg
+      link: https://www.pulumi.com/docs/clouds/kubernetes/get-started/#modify-program
 ---

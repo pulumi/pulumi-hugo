@@ -130,13 +130,14 @@
                         $('input[name="language-radio"], input[name="credentials-radio"], input[name="templates-radio"]').change(function () {
                             if ($(this).is(":checked")) {
                                 const selectedValue = $(this).val();
-                                console.log("Selected value:", selectedValue);
                                 const cloud = $('input[name="credentials-radio"]:checked').val();
                                 const language = $('input[name="language-radio"]:checked').val();
                                 const template = $('input[name="templates-radio"]:checked').val();
                                 $("#template-command").html(`pulumi new ${template ? template + "-" : ""}${cloud}-${language}`);
                                 $("[id^=template-content]").css("display", "none");
                                 $(`#template-content-${language}`).css("display", "block");
+                                $("[id^=next-steps-]").css("display", "none");
+                                $(`#next-steps-${cloud}`).css("display", "block");
                             }
                         });
 
@@ -246,13 +247,15 @@
             </div>
         </li>
     </ol>
-    {{ $learnMore := .Params.learn_more }}
-    <div class="learn-more">
-        <div class="header">
-            <div class="icon icon-16-16 lightbulb-16-16"></div>
-            <h2 class="step-heading">{{ $learnMore.heading }}</h2>
-            <span><img src="/logos/tech/aws.svg" alt="aws logo" /></span>
-        </div>
-        <p>{{ $learnMore.content }}</p>
-    </div>
+    {{ $nextSteps := .Params.next_steps }}
+    {{ range $index, $cloud := $nextSteps.content }}
+        <a id="next-steps-{{ $cloud.cloud }}" class="next-steps {{ $cloud.cloud }}" href="{{ $cloud.link }}">
+            <div class="header">
+                <div class="icon icon-16-16 lightbulb-16-16"></div>
+                <h2>Learn more</h2>
+                <img src="{{ $cloud.logo }}" alt="aws logo" />
+            </div>
+            <p>{{ $cloud.content }}</p>
+        </a>
+    {{ end }}
 </section>
