@@ -93,7 +93,7 @@ The converted code is generated in the specified `pulumi` output directory. With
     <pulumi-choosable type="language" value="python"><code>vault.py</code></pulumi-choosable>
     <pulumi-choosable type="language" value="go"><code>vault.go</code></pulumi-choosable>
     <pulumi-choosable type="language" value="csharp"><code>vault.cs</code></pulumi-choosable>
-  </pulumi-chooser> contains the `Vault` component, converted from the Terraform module.
+  </pulumi-chooser> contains the <code>Vault</code> component, converted from the Terraform module.
 
 The latter file contains some TODOs emitted by the converter that must be addressed by the user.
 
