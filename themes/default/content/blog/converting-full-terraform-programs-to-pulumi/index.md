@@ -83,7 +83,7 @@ $ pulumi convert --from terraform --language csharp --out pulumi
 {{% /choosable %}}
 {{< /chooser >}}
 
-TODO screenshot/gif of conversion running
+![pulumi convert](pulumi-convert-from-terraform.gif)
 
 The converted code is generated in the specified `pulumi` output directory. With this program, there are two primary generated files:
 
