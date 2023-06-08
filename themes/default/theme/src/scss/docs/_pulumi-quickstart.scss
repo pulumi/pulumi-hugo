@@ -316,6 +316,10 @@
             margin-top: 32px;
             cursor: pointer;
             
+            &:hover {
+                background: #F5F6FD;
+            }
+
             .header {
                 display: flex;
                 align-items: center;
