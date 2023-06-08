@@ -116,4 +116,8 @@ steps:
     accordion:
       heading: Learn what happens during a deployment
       content: Pulumi evaluates the program and determines what resources need updates. By default pulumi runs a preview that outline the changes that will be made when you run the deployment. Pulumi computes the minimally disruptive change to achieve the desired state described by the program.
+learn_more:
+  heading: Learn more
+  content: Learn how to modify a program with Pulumi’s Get started tutorial for AWS.
+  link: https://www.pulumi.com/docs/clouds/aws/get-started/
 ---

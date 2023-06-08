@@ -246,4 +246,13 @@
             </div>
         </li>
     </ol>
+    {{ $learnMore := .Params.learn_more }}
+    <div class="learn-more">
+        <div class="header">
+            <div class="icon icon-16-16 lightbulb-16-16"></div>
+            <h2 class="step-heading">{{ $learnMore.heading }}</h2>
+            <span><img src="/logos/tech/aws.svg" alt="aws logo" /></span>
+        </div>
+        <p>{{ $learnMore.content }}</p>
+    </div>
 </section>
