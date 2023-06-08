@@ -905,7 +905,7 @@ var url = Output.tuple(hostname, port)
 
 {{< /chooser >}}
 
-However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs - internally hiding all of the messiness required to join them together:
+However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs. These interpolation methods wrap [all](#all) and [apply](#apply) with an interface that resembles your language's native string formatting functions.
 
 {{% choosable language javascript %}}
 
