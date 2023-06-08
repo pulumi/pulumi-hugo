@@ -4,7 +4,7 @@ meta_desc: An overview of the Pulumi CLI and common commands used to deploy clou
 title: Pulumi CLI
 h1: Pulumi CLI overview
 no_on_this_page: true
-meta_image: /images/docs/docs-meta.png
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   cli:
     name: Overview

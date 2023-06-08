@@ -4,7 +4,7 @@ meta_desc: This page contains an overview of core concepts when using Automation
 title: Concepts
 h1: Automation API concepts & terminology
 weight: 2
-meta_image: /images/docs/docs-meta.png
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   usingpulumi:
     parent: automation-api

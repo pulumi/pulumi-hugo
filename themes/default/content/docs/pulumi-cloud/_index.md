@@ -4,7 +4,7 @@ meta_desc: Pulumi Cloud is a secure cloud service for individuals and teams usin
 title: Pulumi Cloud
 h1: Pulumi Cloud overview
 no_on_this_page: true
-meta_image: /images/docs/docs-meta.png
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     name: Overview
