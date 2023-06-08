@@ -71,7 +71,7 @@
     {{ $twitter_card_type := "summary" }}
 
     {{ if .Params.meta_image }}
-        {{ if and (in "blog templates" .Section) (not (eq .RelPermalink "/blog")) }}
+        {{ if and (in "blog templates" .Section) (not (eq Page.RelPermalink "/blog")) }}
             {{ $image = (.Resources.GetMatch .Params.meta_image).RelPermalink }}
         {{ else }}
             {{ $image = .Params.meta_image }}
