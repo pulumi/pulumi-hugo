@@ -290,31 +290,11 @@
 
         div.content.code-block {
             width: fit-content;
-            div.copy-button-container {
-                top: -1px;
-                right: -36px;
-                padding: 8px 18px 8px 16px;
-
-                pulumi-tooltip i {
-                    font-size: 14px;
-                    color: #fff;
-                }
-            }
-
-            div.copy-button-container,
-            code {
-                background: #1f2557;
-            }
 
             code {
                 display: flex;
                 width: fit-content;
-                padding: 12px;
-                color:#fff;
-                border-radius: 4px;
-                font-family: 'Iosevka';
-                font-weight: 400;
-                font-size: 14px;
+                padding: 12px 80px 12px 12px
             }
 
             code::selection {

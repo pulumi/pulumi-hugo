@@ -83,18 +83,8 @@
                 <h2 id="step-one" class="step-heading">{{ $install.heading }}</h2>
                 {{ range $os, $command := $install.command }}
                     <input type="radio" id="os-{{ $os }}-radio" name="os-radio" checked />
-                    <div class="content code-block install-osx highlight">
+                    <div class="content code-block install-osx  highlight">
                         <pre class="chroma"><code>{{ $command }}</code></pre>
-                        <div class="copy-button-container">
-                            <pulumi-tooltip>
-                                <span class="tooltip-target">
-                                    <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                                </span>
-                                <span class="tooltip-content" role="tooltip">
-                                    <span slot="content">Copy</span>
-                                </span>
-                            </pulumi-tooltip>
-                        </div>
                     </div>
                 {{ end }}
             </div>
@@ -114,16 +104,6 @@
                 <h2 id="step-three" class="step-heading">{{ $directory.heading }}</h2>
                 <div class="content code-block directory highlight">
                     <pre class="chroma"><code>{{ $directory.command }}</code></pre>
-                    <div class="copy-button-container">
-                        <pulumi-tooltip>
-                            <span class="tooltip-target">
-                                <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                            </span>
-                            <span class="tooltip-content" role="tooltip">
-                                <span slot="content">Copy</span>
-                            </span>
-                        </pulumi-tooltip>
-                    </div>
                 </div>
             </div>
         </li>
@@ -203,16 +183,6 @@
                 </script>
                 <div class="content code-block template highlight">
                     <pre class="chroma"><code id="template-command">pulumi new aws-typescript</code></pre>
-                    <div class="copy-button-container">
-                        <pulumi-tooltip>
-                            <span class="tooltip-target">
-                                <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                            </span>
-                            <span class="tooltip-content" role="tooltip">
-                                <span slot="content">Copy</span>
-                            </span>
-                        </pulumi-tooltip>
-                    </div>
                 </div>
                 <div id="accordion-template-learn-more">
                     <input type="checkbox" id="accordion-checkbox-template-learn-more" />
@@ -250,16 +220,6 @@
                 <h2 id="step-five" class="step-heading">{{ $deploy.heading }}</h2>
                 <div class="content code-block deploy highlight">
                     <pre class="chroma"><code>{{ $deploy.command }}</code></pre>
-                    <div class="copy-button-container">
-                        <pulumi-tooltip>
-                            <span class="tooltip-target">
-                                <button class="copy-button"><i class="far fa-copy copy text-xl"></i></button>
-                            </span>
-                            <span class="tooltip-content" role="tooltip">
-                                <span slot="content">Copy</span>
-                            </span>
-                        </pulumi-tooltip>
-                    </div>
                 </div>
                 <div id="accordion-deploy-learn-more">
                     <input type="checkbox" id="accordion-checkbox-deploy-learn-more" />
