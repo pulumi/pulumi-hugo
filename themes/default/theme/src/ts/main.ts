@@ -21,6 +21,7 @@ import "./developer-advocates";
 import "./toc";
 import "./ai";
 import "./docs-main";
+import "./get-started";
 
 // Register all Stencil components.
 defineCustomElements();
