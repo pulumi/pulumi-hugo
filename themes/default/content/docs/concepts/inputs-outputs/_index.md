@@ -83,7 +83,7 @@ var myId = new RandomId("mine", RandomIdArgs.builder()
 
 _Inputs_ are generally representations of the parameters to the underlying API call of any resource that Pulumi is managing.
 
-The simplest way to create a resource with its required _inputs_ is to use a _raw value_.
+The simplest way to create a resource with its required _inputs_ is to use a _plain value_.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 
@@ -91,7 +91,7 @@ The simplest way to create a resource with its required _inputs_ is to use a _ra
 
 ```javascript
 const key = new tls.PrivateKey("my-private-key", {
-    algorithm: "ECDSA", // ECDSA is a raw value
+    algorithm: "ECDSA", // ECDSA is a plain value
 });
 
 ```
@@ -101,7 +101,7 @@ const key = new tls.PrivateKey("my-private-key", {
 
 ```typescript
 const key = new tls.PrivateKey("my-private-key", {
-    algorithm: "ECDSA", // ECDSA is a raw value
+    algorithm: "ECDSA", // ECDSA is a plain value
 });
 
 ```
@@ -111,7 +111,7 @@ const key = new tls.PrivateKey("my-private-key", {
 
 ```python
 key = tls.PrivateKey("my-private-key",
-  algorithm="ECDSA", # ECDSA is a raw value
+  algorithm="ECDSA", # ECDSA is a plain value
 )
 
 ```
@@ -122,7 +122,7 @@ key = tls.PrivateKey("my-private-key",
 ```go
 
 key, err := tls.NewPrivateKey(ctx, "my-private-key", &tls.PrivateKeyArgs{
-	Algorithm:  pulumi.String("ECDSA"), // ECDSA is a raw value
+	Algorithm:  pulumi.String("ECDSA"), // ECDSA is a plain value
 })
 if err != nil {
 	return err
@@ -136,7 +136,7 @@ if err != nil {
 
 ```csharp
 var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
-    Algorithm = "ECDSA", // ECDSA is a raw value
+    Algorithm = "ECDSA", // ECDSA is a plain value
 });
 ```
 
@@ -151,9 +151,9 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 {{< /chooser >}}
 
 {{% notes %}}
-_Raw value_ in this document is used to describe a standard string, boolean, integer or other typed value in your language of choice. _Raw value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
+_Plain value_ in this document is used to describe a standard string, boolean, integer or other typed value or data structure in your language of choice. _Plain_ value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
 
-An {{< pulumi-output >}} value can resolve to a _raw value_. For more information, see [apply](#apply).
+An {{< pulumi-output >}} value can resolve to a _plain value_. For more information, see [apply](#apply).
 {{% /notes %}}
 
 However, in most Pulumi programs, the inputs to a resource will reference values from another resource:
@@ -282,15 +282,15 @@ Outputs are values of type {{< pulumi-output >}}, which behave very much like [p
 
 Pulumi automatically captures dependencies when you pass an output from one resource as an input to another resource. Capturing these dependencies ensures that the physical infrastructure resources are not created or updated until all their dependencies are available and up-to-date.
 
-Because outputs are asynchronous, their actual raw values are not immediately available. If you need to access an output’s raw value—for example, to compute a derived, new value, or because you want to log it—you have these options:
+Because outputs are asynchronous, their actual plain values are not immediately available. If you need to access an output’s plain value—for example, to compute a derived, new value, or because you want to log it—you have these options:
 
-- [Apply](#apply): a callback that receives the raw value, and computes a new output
+- [Apply](#apply): a callback that receives the plain value, and computes a new output
 - [Lifting](#lifting): directly read properties off an output value
 - [Interpolation](#outputs-and-strings): concatenate string outputs with other strings directly
 
 ## Apply
 
-To access the raw (or _resolved_) value of an output, use {{< pulumi-apply >}}. This method accepts a callback that will be invoked with the raw value, once that value is available.
+To access the _plain_ (or _resolved_) value of an output, use {{< pulumi-apply >}}. This method accepts a callback that will be invoked with the plain value, once that value is available.
 
 This example will wait for the value to be returned from the API and print it to stdout
 
@@ -352,7 +352,7 @@ var myPet = new Pulumi.Random.RandomPet("my-pet", new(){});
 
 {{< /chooser >}}
 
-You can use this same process to create new output values to pass as inputs to another resource, for example, the following code creates an HTTPS URL from the DNS name (the raw value) of a virtual machine:
+You can use this same process to create new output values to pass as inputs to another resource, for example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -525,7 +525,7 @@ variables:
 
 {{< /chooser >}}
 
-Notice that [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all) works by returning an output that represents the combination of multiple outputs so that, within the callback, the raw values are available inside of a tuple.
+Notice that [Output.all](/docs/reference/pkg/python/pulumi#pulumi.Output.all) works by returning an output that represents the combination of multiple outputs so that, within the callback, the plain values are available inside of a tuple.
 
 ## Accessing Nested Properties of an Output by Lifting {#lifting}
 
@@ -1511,7 +1511,7 @@ For more details [view the .NET documentation](/docs/reference/pkg/dotnet/Pulumi
 
 ## Convert Input to Output through Interpolation
 
-It is possible to turn an {{< pulumi-input >}} into an {{< pulumi-output >}} value. Resource arguments already accept outputs as input values however, in some cases you need to know that a value is definitely an {{< pulumi-output >}} at runtime. Knowing this can be helpful because, since {{< pulumi-input >}} values have many possible representations—a raw value, a promise, or an output—you would normally need to handle all possible cases. By first transforming that value into an {{< pulumi-output >}}, you can treat it uniformly instead.
+It is possible to turn an {{< pulumi-input >}} into an {{< pulumi-output >}} value. Resource arguments already accept outputs as input values however, in some cases you need to know that a value is definitely an {{< pulumi-output >}} at runtime. Knowing this can be helpful because, since {{< pulumi-input >}} values have many possible representations—a plain value, a promise, or an output—you would normally need to handle all possible cases. By first transforming that value into an {{< pulumi-output >}}, you can treat it uniformly instead.
 
 For example, this code transforms an {{< pulumi-input >}} into an {{< pulumi-output >}} so that it can use the `apply` function:
 
@@ -1747,7 +1747,7 @@ The correct way of handling this scenario is to resolve the bucket ARN, _then_ b
 Notice in that example how the JSON string is being built _inside_ the `apply` call to Pulumi. In logical order, this happens as:
 
 - Resolve the bucket ARN from the cloud provider
-- Then, build the JSON string with the "raw" value.
+- Then, build the JSON string with the "plain" value.
 
 ### Resource Names
 
