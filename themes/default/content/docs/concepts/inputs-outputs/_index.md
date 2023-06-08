@@ -272,7 +272,7 @@ var example = new Instance("example", InstanceArgs.builder()
 {{% /choosable %}}
 {{< /chooser >}}
 
-In this case, Pulumi is taking the _output_ from one resource and using it as the _input_ to another resources
+In this case, Pulumi is taking the _output_ from one resource and using it as the _input_ to another resource.
 
 ## Outputs
 
