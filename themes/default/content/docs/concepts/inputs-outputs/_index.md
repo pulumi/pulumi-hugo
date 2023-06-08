@@ -156,7 +156,7 @@ _Raw value_ in this document is used to describe a standard string, boolean, int
 An {{< pulumi-output >}} value can resolve to a _raw value_. For more information, see [apply](#apply).
 {{% /notes %}}
 
-However, in most Pulumi programs, the inputs to a resource will reference values from another resource
+However, in most Pulumi programs, the inputs to a resource will reference values from another resource:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 
