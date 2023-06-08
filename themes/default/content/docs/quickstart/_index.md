@@ -120,19 +120,19 @@ next_steps:
   heading: Learn more
   content:
     - cloud: aws
-      content: Learn how to modify a program with Pulumi’s Get started tutorial for AWS.
+      body: Learn how to modify a program with Pulumi’s Get started tutorial for AWS.
       logo: /logos/tech/aws.svg
       link: https://www.pulumi.com/docs/clouds/aws/get-started/#modify-program
     - cloud: azure
-      content: Learn how to modify a program with Pulumi’s Get started tutorial for Azure.
+      body: Learn how to modify a program with Pulumi’s Get started tutorial for Azure.
       logo: /logos/tech/azure.svg
       link: https://www.pulumi.com/docs/clouds/azure/get-started/#modify-program
     - cloud: gcp
-      content: Learn how to modify a program with Pulumi’s Get started tutorial for Google Cloud.
+      body: Learn how to modify a program with Pulumi’s Get started tutorial for Google Cloud.
       logo: /logos/tech/gcp.svg
       link: https://www.pulumi.com/docs/clouds/gcp/get-started/#modify-program
     - cloud: kubernetes
-      content: Learn how to modify a program with Pulumi’s Get started tutorial for Kubernetes.
+      body: Learn how to modify a program with Pulumi’s Get started tutorial for Kubernetes.
       logo: /logos/tech/k8s.svg
       link: https://www.pulumi.com/docs/clouds/kubernetes/get-started/#modify-program
 ---
