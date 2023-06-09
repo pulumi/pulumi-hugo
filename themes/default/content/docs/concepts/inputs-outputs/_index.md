@@ -153,7 +153,7 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 {{% notes %}}
 _Plain value_ in this document is used to describe a standard string, boolean, integer or other typed value or data structure in your language of choice. _Plain value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
 
-An {{< pulumi-output >}} value can resolve to a _plain value_. For more information, see [apply](#apply).
+Once an {{< pulumi-output >}} value has returned (generally from an API) to Pulumi, it can be used as a _plain value_. For more information, see [apply](#apply).
 {{% /notes %}}
 
 However, in most Pulumi programs, the inputs to a resource will reference values from another resource:
@@ -290,7 +290,7 @@ Because outputs are asynchronous, their actual plain values are not immediately 
 
 ## Apply
 
-To access the _plain_ (or _resolved_) value of an output, use {{< pulumi-apply >}}. This method accepts a callback that will be invoked with the plain value, once that value is available.
+To access the _plain_ (or returned) value of an output, use {{< pulumi-apply >}}. This method accepts a callback that will be invoked with the plain value, once that value is available.
 
 This example will wait for the value to be returned from the API and print it to stdout
 
@@ -413,7 +413,7 @@ variables:
 
 {{< /chooser >}}
 
-The result of the call to {{< pulumi-apply >}} is a new Output<T>. So in this example, the url variable is also an {{< pulumi-output >}}. It will resolve to the new value returned from the callback, and carries the dependencies of the original Output<T>. If the callback itself returns an Output<T>, the dependencies of that output are also kept in the resulting Output<T>.
+The result of the call to {{< pulumi-apply >}} is a new Output<T>. So in this example, the url variable is also an {{< pulumi-output >}}. It will wait for the new value to be returned from the callback, and carries the dependencies of the original Output<T>. If the callback itself returns an Output<T>, the dependencies of that output are also kept in the resulting Output<T>.
 
 {{% notes %}}
 During some program executions, `apply` doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
@@ -825,7 +825,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 
 ## Working with Outputs and Strings {#outputs-and-strings}
 
-Outputs that resolve to strings cannot be used directly in operations such as string concatenation until the output has been resolved. In these scenarios, you'll need to resolve the values using {{< pulumi-apply >}}.
+Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using {{< pulumi-apply >}}.
 
 For example, say you want to create a URL from `hostname` and `port` output values. You can do this using `apply` and `all`.
 
@@ -973,7 +973,7 @@ You can use string interpolation to export a stack output, provide a dynamically
 
 ## Working with Outputs and JSON {#outputs-and-json}
 
-Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _resolve_ the output, _then_ build the JSON string:
+Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string:
 
 {{< chooser language "typescript,python,go,csharp" >}}
 {{% choosable language typescript %}}
@@ -1590,7 +1590,7 @@ When working with outputs and apply, you may see an error message like so:
 Calling __str__ on an Output[T] is not supported. To get the value of an Output[T] as an Output[str] consider: 1. o.apply(lambda v: f"prefix{v}suffix") See https://pulumi.io/help/outputs for more details.
 ```
 
-The reason this is happening is because the _Output_ value is being used before it has been resolved by from the API.
+The reason this is happening is because the _Output_ value is being used before it has returned ans is available from the API.
 
 A concrete example of this can be seen in the following code:
 
@@ -1740,13 +1740,13 @@ var bucket = new Bucket("content-bucket", new BucketArgs
 
 {{< /chooser >}}
 
-Notice how the `apply` call is being used inside the JSON string. In this scenario, the `apply` call is happening during the build of the JSON string, which is too early in the Pulumi lifecycle. The value of the bucket ARN has not yet been resolved from the cloud provider API, so the JSON string cannot be built yet.
+Notice how the `apply` call is being used inside the JSON string. In this scenario, the `apply` call is happening during the build of the JSON string, which is too early in the Pulumi lifecycle. The value of the bucket ARN has not yet been returned from the cloud provider API, so the JSON string cannot be built yet.
 
-The correct way of handling this scenario is to resolve the bucket ARN, _then_ build the JSON string. You can see an example of this in the (#outputs-and-json) section.
+The correct way of handling this scenario is to wait for the bucket ARN to return, _then_ build the JSON string. You can see an example of this in the (#outputs-and-json) section.
 
 Notice in that example how the JSON string is being built _inside_ the `apply` call to Pulumi. In logical order, this happens as:
 
-- Resolve the bucket ARN from the cloud provider
+- Wait for the the bucket ARN to be returned from the cloud provider
 - Then, build the JSON string with the "plain" value.
 
 ### Resource Names
@@ -1832,3 +1832,11 @@ If you really wish to pass an output from one resource as the resource name of a
 {{% notes %}}
 This will lead to previews being inaccurate. Resources created inside an apply will only appear in the Pulumi output after an `up` operation is run, and is therefore strongly discouraged.
 {{% /notes %}}
+
+### JavaScript Promises
+
+If you're familiar with JavaScript, you might already be familiar with the mechanism of [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+Pulumi Output values are similar in some ways to JavaScript Promises, in that they are values that are not necessarily known until a future event. With that in mind, it can be tempting to try and use `Promise.resolve()` and to think of Outputs like Promises.
+
+However, Pulumi Outputs do not behave in the same way as JavaScript Promises. As such, it's not possible to block execution of a Pulumi program until a promise is resolved and you should not use JavaScript Promise mechanisms to handle Pulumi Outputs.
