@@ -144,7 +144,7 @@
 
                                 // starter is the only template that exists for Java
                                 if (language === "java") {
-                                    $('label[for^="template"][for$="radio"]').each(function () {
+                                    $('label[for^="template"]').each(function () {
                                         // if the template is not a starter template, hide it
                                         if (!$(this).attr("for").includes("starter")) {
                                             $(this).removeClass("selected");
