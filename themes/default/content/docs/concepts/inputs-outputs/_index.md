@@ -30,7 +30,7 @@ All resources in Pulumi accept values that describe the way the resource behaves
 
 ```typescript
 const myId = new random.RandomId("mine", {
-    byteLength: 8, // byte_length is an input
+    byteLength: 8, // byteLength is an input
 });
 ```
 
