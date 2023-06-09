@@ -1,13 +1,8 @@
 ---
 title: "Converting Full Terraform Programs to Pulumi"
 date: 2023-06-12
+meta_desc: Learn how to convert whole Terraform programs to Pulumi using the new Terraform converter
 
-# Use the meta_desc property to provide a brief summary
-# (one or two sentences) of the content of the post,
-# which is useful for targeting search results or social-media previews.
-# This field is required or the build will fail the linter test.
-# Max length is 160 characters.
-meta_desc: TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 meta_image: meta.png
 
@@ -18,11 +13,11 @@ tags:
     - migration
 ---
 
-Today, we're excited to announce support for converting full Terraform projects to Pulumi via the `pulumi convert` command in the Pulumi CLI. The new Terraform converter includes support for Terraform modules, all core features of Terraform 1.4, and the majority of Terraform built-in functions. Let's dig in to learn more about the new converter and how to use it.
+Today, we're excited to announce support for converting whole Terraform projects to Pulumi via the `pulumi convert` command in the Pulumi CLI. The new Terraform converter includes support for Terraform modules, all core features of Terraform 1.4, and the majority of Terraform built-in functions. Let's dig in to learn more about the new converter and how to use it.
 
 <!--more-->
 
-Historically, we have offered the [tf2pulumi](https://github.com/pulumi/tf2pulumi) tool to convert snippets of Terraform to Pulumi. With today's announcement, we are extending this tooling to support converting the vast majority of complete Terraform projects. There's no longer a separate tool to download. You can run the new converter directly from the Pulumi CLI with the `pulumi convert --from terraform` command to convert Terraform to Pulumi TypeScript, Python, Go, or C#.
+Historically, we have offered a separate [tf2pulumi](https://github.com/pulumi/tf2pulumi) tool to convert snippets of Terraform to Pulumi. Today we're announcing a new converter that supports converting the vast majority of complete Terraform projects, including modules. There's no longer a separate tool to download -- you can run the new converter directly from the Pulumi CLI with the `pulumi convert --from terraform` command to convert Terraform to Pulumi TypeScript, Python, Go, or C#.
 
 ## Supported Terraform Features
 
@@ -33,11 +28,16 @@ The following major features are supported:
 * Almost all HCL2 expression syntax
 * Almost all Terraform meta-arguments are supported
 
-In cases where features are not directly convertible, the `pulumi convert` command succeeds but generates a TODO for the user to fill in manually. When there is missing support, in most cases, the converter is still able to do the majority of the conversion work, leaving a small number of items to address manually.
+In cases where the converter does not yet support a feature, the `pulumi convert` command succeeds but generates a TODO in the form of a call to a <pulumi-chooser type="language" options="typescript,python,go,csharp" option-style="none" class="inline">
+    <pulumi-choosable type="language" value="typescript"><code>notImplemented</code></pulumi-choosable>
+    <pulumi-choosable type="language" value="python"><code>not_implemented</code></pulumi-choosable>
+    <pulumi-choosable type="language" value="go"><code>notImplemented</code></pulumi-choosable>
+    <pulumi-choosable type="language" value="csharp"><code>NotImplemented</code></pulumi-choosable>
+</pulumi-chooser> function that will need to be filled in manually. For most projects, the converter should be able to convert 90-95% of the code without any TODOs, with only a small percentage of items to address manually, significantly reducing migration time compared to doing an entire migration by hand. We are actively improving the converter, adding support for missing features and improving the overall quality of the converted code to reduce the amount of manual fix-ups required.
 
-## Converting a Real-World Program
+## Converting a Real World Program
 
-Let's walk through converting a Terraform codebase to Pulumi. [Avant Terraform Vault Setup](https://github.com/avantoss/vault-infra) is an open source project we found that provides a high-availability installation of Vault using a variety of managed AWS services. It defines a fairly complex installation with dozens of AWS resources in over 1,000 lines of Terraform HCL, including the main program and a vault module. Let's convert it to Pulumi.
+Let's walk through converting a Terraform codebase to Pulumi. [Avant Terraform Vault Setup](https://github.com/avantoss/vault-infra) is an open source project that provides a high-availability installation of Vault using a variety of managed AWS services. It defines a fairly complex installation with dozens of AWS resources in over 1,000 lines of Terraform HCL, including the main program and a Vault module. Let's convert it to Pulumi.
 
 First, clone the repo and `cd` into the directory containing the Terraform project:
 
@@ -173,8 +173,10 @@ var alb = new Aws.Lb.LoadBalancer($"{name}-alb", new()
 
 There are some other TODOs for missing `merge` and `template_file` support, which also need to be filled in. After addressing these and some other tweaks to make the code compile, we can now run the Pulumi program with `pulumi up` to provision the Vault installation with Pulumi.
 
-The converter has saved us a ton of time compared to doing the migration entirely by hand!
+JVP: TODO: Show how to fix `merge` and `template_file`.
 
-## Wrapping Up
+The converter has saved us a ton of time, converting over 1,000 lines of Terraform to a modern Pulumi language, with only a small number of manual fix-ups. From here, we can leverage our IDE and compiler to further refactor and improve the code, one of the many benefits of Pulumi!
 
-The new conversion support makes it easy to modernize your legacy IaC to take advantage of the benefits of Pulumi's deployment engine, programming model, and developer productivity! We are actively working on improving the new Terraform converter -- reducing the number of emitted TODOs and improving the overall quality of the generated code. If you have existing Terraform code that you need to migrate, give the new converter a try, and [let us know](https://github.com/pulumi/pulumi/issues/new/choose) if you run into any issues.
+## Get Started
+
+Support for the new `pulumi convert --from terraform` command is available today in [Pulumi v3.71.0](/docs/install/). Give the new converter a try and [let us know](https://github.com/pulumi/pulumi/issues/new/choose) if you run into any issues. We are actively fixing issues, reducing the number of TODOs, and improving the overall quality of the generated code.
