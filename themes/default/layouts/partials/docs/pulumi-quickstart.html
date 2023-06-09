@@ -126,23 +126,45 @@
 
                 <script>
                     $(document).ready(function () {
+                        // respond to changes to the languages, clouds, and templates selections
                         $('input[name="language-radio"], input[name="credentials-radio"], input[name="templates-radio"]').change(function () {
                             if ($(this).is(":checked")) {
                                 const selectedValue = $(this).val();
                                 const cloud = $('input[name="credentials-radio"]:checked').val();
                                 const language = $('input[name="language-radio"]:checked').val();
                                 const template = $('input[name="templates-radio"]:checked').val();
-                                console.log("template", template);
                                 $("#template-command").html(`pulumi new ${template ? template + "-" : ""}${cloud}-${language}`);
                                 $("[id^=template-content]").css("display", "none");
                                 $(`#template-content-${language}`).css("display", "block");
                                 $("[id^=next-steps-]").css("display", "none");
+
                                 if (!template) {
                                     $(`#next-steps-${cloud}`).css("display", "block");
+                                }
+
+                                // starter is the only template that exists for Java
+                                if (language === "java") {
+                                    $('label[for^="template"][for$="radio"]').each(function () {
+                                        // if the template is not a starter template, hide it
+                                        if (!$(this).attr("for").includes("starter")) {
+                                            $(this).removeClass("selected");
+                                            $(this).css("display", "none");
+                                        } else {
+                                            // auto select the starter template when user switches to Java
+                                            $(this).addClass("selected");
+                                            $("#template-starter-radio").prop("checked", true);
+                                            $("#template-command").html(`pulumi new ${cloud}-${language}`);
+                                        }
+                                    });
+                                } else {
+                                    $('label[for^="template"][for$="radio"]').each(function () {
+                                        $(this).css("display", "block");
+                                    });
                                 }
                             }
                         });
 
+                        // respond to changes to the os selection.
                         const labelGroups = ["os", "cloud", "language", "template"];
                         labelGroups.forEach(labelGroup => {
                             $(`label[for^="${labelGroup}-"]`).click(function () {
@@ -151,8 +173,8 @@
                             });
                         });
 
+                        // respond to changes to credentials checkbox
                         $('input[id="credentials-checkbox"').change(function () {
-                            console.log("credentials checkbox changed");
                             if ($(this).is(":checked")) {
                                 $("#credentials-step").css("display", "flex");
                             } else {
@@ -160,6 +182,7 @@
                             }
                         });
 
+                        // set the os to the user's operating system
                         function setOS() {
                             const userAgent = navigator.userAgent;
                             let os = "osx";
@@ -175,6 +198,7 @@
                             $(`label[for="os-${os}-radio"]`).addClass("selected");
                         }
 
+                        // init the quickstart config section
                         function initQuickStart() {
                             $("[id^=template-content]").css("display", "none");
                             $("#template-content-typescript").css("display", "block");
