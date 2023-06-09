@@ -151,7 +151,7 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 {{< /chooser >}}
 
 {{% notes %}}
-_Plain value_ in this document is used to describe a standard string, boolean, integer or other typed value or data structure in your language of choice. _Plain_ value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
+_Plain value_ in this document is used to describe a standard string, boolean, integer or other typed value or data structure in your language of choice. _Plain value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
 
 An {{< pulumi-output >}} value can resolve to a _plain value_. For more information, see [apply](#apply).
 {{% /notes %}}
