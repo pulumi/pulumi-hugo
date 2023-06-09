@@ -9,10 +9,6 @@ date: 2023-06-12
 # Max length is 160 characters.
 meta_desc: TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
-# The meta_image appears in social-media previews and on the blog home page.
-# A placeholder image representing the recommended format, dimensions and aspect ratio
-# has been provided for you.
-# TODO
 meta_image: meta.png
 
 authors:
