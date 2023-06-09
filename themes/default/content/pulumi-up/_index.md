@@ -270,7 +270,7 @@ schedule:
       time: "10:50 AM PT"
     - title: "Panel: AI and the Future of Cloud Development"
       description: |
-        AI/ML are sweeping across nearly every tech vertical at a rapid pace. GitHub rocked the developer world last year by introducing Copilot, and OpenAI’s release of GPT-4 has captured the attention of the entire industry. This panel will discuss questions like “Where is the software development & infrastructure industry headed next with the rise of AI?” and “How will I benefit (or not) in a world where AI is more capable than ever”?
+        Prepare yourself for the future of cloud development! Amanda Silver, CVP Developer Tools at Microsoft, Beyang Liu, Co-Founder & CTO at  Sourcegraph and Luke Hoban, CTO at Pulumi, explore the transformative impact of AI on the cloud infrastructure and software engineering industries. This panel will discuss questions like “Where is the software development & infrastructure industry headed next with the rise of AI?” and “How will I benefit (or not) in a world where AI is more capable than ever.”
       time: "11:10 AM PT"
 
 registration:
