@@ -17,6 +17,7 @@
                 font-weight: 500;
                 font-size: 16px;
                 color: #131314;
+                margin: 0;
             }
         }
 
@@ -38,7 +39,6 @@
 
         div.template {
             display: flex;
-            flex-grow: 0;
         }
 
         div#accordion-template-learn-more,
@@ -50,7 +50,6 @@
 
             div.heading {
                 display: flex;
-                margin-top: 16px;
                 align-items: center;
                 gap: 12px;
                 cursor: pointer;
@@ -222,10 +221,6 @@
                 gap: 24px;
                 margin: 0;
 
-                &.step div.content pre {
-                    padding: 0;
-                }
-
                 &.install {
                     input[type="radio"]:checked + div.content {
                         display: flex;
@@ -250,7 +245,15 @@
                         margin-bottom: 0;
                     }
                 }
-        
+                div.code-block {
+                    width: fit-content;
+
+                    pre.chroma {
+                        padding-right: 16px;
+                        flex: none;
+                    }
+                }
+            
 
                 &::before {
                     counter-increment: steps-counter;
@@ -285,25 +288,6 @@
                 &.deploy::before {
                     background: #f2eff9;
                 }
-            }
-        }
-
-        div.content.code-block {
-            width: fit-content;
-
-            code {
-                display: flex;
-                width: fit-content;
-                padding: 12px 80px 12px 12px
-            }
-
-            code::selection {
-                color:#131314;
-                background: #A6ADEC;
-            }
-
-            .chroma {
-                margin: 0 ;
             }
         }
 
