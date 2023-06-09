@@ -219,7 +219,8 @@ schedule:
   subheading: Get inspired! Dive into the stories and experiences of innovators and experts, from Startup Founders to Industry Leaders.
   items:
     - title: Opening Keynote, followed by new product launches and demos
-      description: 
+      description: |
+        Hear from Joe Duffy, co-founder and CEO of Pulumi, about the latest announcements in Pulumi and Infrastructure as Code. Watch demos by Luke Hoban, CTO & co-founder, Meagan Cojocar, Principal Product manager, and Evan Boyle, Engineering Manager.
       time: "8:00 AM PT"
 
     - title: Keeping your Infrastructure Code DRY
@@ -268,7 +269,8 @@ schedule:
         This will be demonstrated through a real-world example of using Pulumi to deploy a single-tenant SaaS in an automated pipeline, typical challenges encountered, and what was learned on the way.
       time: "10:50 AM PT"
     - title: "Panel: AI and the Future of Cloud Development"
-      description: 
+      description: |
+        AI/ML are sweeping across nearly every tech vertical at a rapid pace. GitHub rocked the developer world last year by introducing Copilot, and OpenAI’s release of GPT-4 has captured the attention of the entire industry. This panel will discuss questions like “Where is the software development & infrastructure industry headed next with the rise of AI?” and “How will I benefit (or not) in a world where AI is more capable than ever”?
       time: "11:10 AM PT"
 
 registration:

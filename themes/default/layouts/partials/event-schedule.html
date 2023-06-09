@@ -16,7 +16,7 @@ schedule tile color adjustable through "tile-color"
 <section id="schedule" class="bg-{{ .bg_color }} event-schedule" style="background-color: {{ .background_color }}">
     <div class="container mx-auto py-16 px-6 lg:px-0">
         <h2 class="text-center">{{ .schedule.heading }}</h2>
-        <p class="text-center mb-8">{{ .schedule.subheading }}/p></p>
+        <p class="text-center mb-8">{{ .schedule.subheading }}</p>
         <div class="schedule mx-auto w-full lg:w-2/3">
             {{ range $index, $item := .schedule.items }}
                 <div class="flex flex-row mt-4">
