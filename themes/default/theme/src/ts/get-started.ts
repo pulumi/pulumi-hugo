@@ -7,11 +7,14 @@
             const cloud = $('input[name="credentials-radio"]:checked').val();
             const language = $('input[name="language-radio"]:checked').val();
             const template = $('input[name="templates-radio"]:checked').val();
+            console.log("template", template)
             $("#template-command").html(`pulumi new ${template ? template + "-" : ""}${cloud}-${language}`);
             $("[id^=template-content]").css("display", "none");
             $(`#template-content-${language}`).css("display", "block");
             $("[id^=next-steps-]").css("display", "none");
-            $(`#next-steps-${cloud}`).css("display", "block");
+            if (!template) {
+                $(`#next-steps-${cloud}`).css("display", "block");
+            }
         }
     });
 
