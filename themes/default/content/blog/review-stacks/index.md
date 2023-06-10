@@ -11,7 +11,7 @@ tags:
     - pulumi deployments
     - automation api
     - deployments
-	- review stacks
+    - review stacks
 ---
 
 At Pulumi, our engineering team writes a ton of code. We have hundreds of repositories with programs managing thousands of stacks and tens of thousands of cloud resources. These tools and services power production workloads, internal tools, business intelligence and process, and more. When you’re an engineer looking to work in one of these repositories, making a code change is usually the easy part. The hard part is figuring out how to get a tight dev loop going. Are there instructions in the README for running locally? A docker compose file? Can I figure out what config and upstream stack references are required to stand up a fresh dev stack? We make it incredibly easy to build in the cloud and write prolific amounts of code, and with that comes a need to standardize our development process.
@@ -57,10 +57,6 @@ curl -i -XPOST -H "Content-Type: application/json" -H "Authorization: token $PUL
     }
 }'
 ```
-
-### Console UI
-
-![Pulumi Cloud Console Configuration](console.png)
 
 ### Pulumi Cloud Resource Provider
 
