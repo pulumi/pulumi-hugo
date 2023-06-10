@@ -26,7 +26,7 @@ Review Stacks manage the full lifecycle of your cloud development environment in
 
 ![Pull Request Check Integration](check.png)
 
-Pulumi customers already using review stacks find that it saves their developers time. Having a standardized process for development environments and change management makes it easier to onboard new developers, and load-balance teammates onto unfamiliar projects and codebases. It also makes it substantially easier for developers to work on multiple feature branches and bug fixes at the same time, as they don’t have to worry about manually maintaining and juggling development environments. 
+Pulumi customers already using review stacks find that it saves their developers time. Having a standardized process for development environments and change management makes it easier to onboard new developers, and load-balance teammates onto unfamiliar projects and codebases. It also makes it substantially easier for developers to work on multiple feature branches and bug fixes at the same time, as they don’t have to worry about manually maintaining and juggling development environments.
 
 “Pulumi allows every engineer to build and update infrastructure instead of only our infrastructure team, which enables us to ship faster than if we were using a domain-specific language,” said Aaron Gibralter, head of engineering, Mighty. “With Pulumi Deployments, we could easily set up a standardized CI/CD infrastructure workflow for every engineer that immediately makes them productive. Review Stacks automates the work of managing our own ephemeral infrastructure and makes our lives easier.”
 
@@ -42,7 +42,7 @@ Configuring Review Stacks is a simple three-step process:
 2. Configure Deployment Settings for the stack - this specifies how to acquire source code, cloud credentials and more when deploying via Pulumi Deployments
 3. Set the `pullRequestTemplate` Deployment Setting to true - this indicates that all pull requests against this stack’s branch should reference this stack as a Review Stack template.
 
-You can use an existing stack as a Review Stack template, as long as it has Pulumi Deployment settings configured. This will cause Review Stacks to get deployed into the same cloud account. If you want to separate the cloud resources in your production stack from the resources created via Review Stacks then you can create a separate stack and template that references a different cloud account (AWS, Azure, GCP, etc). 
+You can use an existing stack as a Review Stack template, as long as it has Pulumi Deployment settings configured. This will cause Review Stacks to get deployed into the same cloud account. If you want to separate the cloud resources in your production stack from the resources created via Review Stacks then you can create a separate stack and template that references a different cloud account (AWS, Azure, GCP, etc).
 
 Review Stacks and Deployment Settings can be configured via the Pulumi Cloud console, the Pulumi Cloud REST API, or within a Pulumi Program using the Pulumi Cloud Resource Provider.
 
