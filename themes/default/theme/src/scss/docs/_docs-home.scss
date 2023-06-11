@@ -40,27 +40,35 @@ section.docs-home {
             max-width: 436px;
         }
 
-        div.buttons {
+        div.link-buttons {
             display: flex;
             gap: 8px;
 
-            button {
+            a {
                 padding: 5px 16px;
                 border-radius: 4px;
-                border: 1px #4d5bd9 solid;
-                background: #fff;
+                border: 1px map-get($brand, "blue") solid;
+                background: $white;
                 font-family: 'Inter';
                 font-weight: 400;
                 font-size: 14px;
-                color: #fff;
+                color: $white;
 
-                &.docs-primary-btn {
-                    background: #4d5bd9;
-                    color: #fff;
+                &.docs-primary-link-btn {
+                    background: map-get($brand, "blue");
+                    color: $white;
+
+                    &:hover {
+                        background: map-get($brand, "blue-darker");
+                    }
                 }
 
-                &.docs-secondary-btn {
-                    color: #4d5bd9;
+                &.docs-secondary-link-btn {
+                    color: map-get($brand, "blue");
+
+                    &:hover {
+                        background: map-get($blue, 200);
+                    }
                 }
             }
         }
@@ -71,6 +79,12 @@ section.docs-home {
         font-weight: 500;
         font-size: 24px;
         color: #131314;
+    }
+
+    div.docs-home-section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
     }
 
     div.blue-sparkle {
@@ -94,7 +108,7 @@ section.docs-home {
         }
     }
 
-    div.full-width-card {
+    a.full-width-card {
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -115,11 +129,44 @@ section.docs-home {
                 top: -1px;
             }
         }
+
+        &:hover {
+            background: #f9f9f9;
+            border: 1px solid #bebfc9;
+        }
     }
 
-    div.docs-home-section {
+    div.grid {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 12px;
+        flex-direction: row;
+
+        a.cloud {
+            flex: 1;
+            flex-basis: 344px;
+            border: 1px solid #E5E5E9;
+            filter: drop-shadow(0px 2px 24px rgba(95, 96, 101, 0.14));
+
+            div.cloud-icon {
+                padding: 24px 0px;  
+                background: #f9f9f9;   
+                border-bottom: 1px solid #e5e5e9;
+                border-radius: 4px 4px 0px 0px;
+                display: flex;
+                justify-content: center;
+            }
+
+            div.cloud-label {
+                padding: 12px;
+                background: #fff;
+                border-radius: 0px 0px 4px 4px;
+                font-family: 'Inter';
+                font-weight: 400;
+                font-size: 18px;
+                color: #131314;
+            }
+        }
+
     }
 }
