@@ -30,9 +30,9 @@
                 </div>
 
                 {{ if .Params.cloud_overview }}
-                    {{ partial "docs/cloud-overview.html" . }}
+                    {{ partial "docs/docs/cloud-overview.html" . }}
                 {{ else if .Params.pulumi_quickstart }}
-                    {{ partial "docs/pulumi-quickstart.html" . }}
+                    {{ partial "docs/docs/pulumi-quickstart.html" . }}
                 {{ end }}
 
 
@@ -46,7 +46,7 @@
 
                 {{ partial "docs/feedback.html" . }}
 
-                {{ partial "right-nav-ad.html" }}
+                {{ partial "docs/right-nav-ad.html" }}
             </div>
         </div>
     </div>
