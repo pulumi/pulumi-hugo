@@ -27,7 +27,8 @@ The following example shows automatic deployment of stacks with the following de
     │   └── f
     └── c
 
-Whenever a node in the graph is updated, all downstream nodes will be automatically updated via a webhook triggering Pulumi Deployments.
+Whenever a node in the graph is updated, all downstream nodes will be automatically updated
+via a webhook triggering Pulumi Deployments.
 ```
 
 ![Dependent Stacks Updating Automatically via Pulumi Deployments](auto-deploy.gif)
