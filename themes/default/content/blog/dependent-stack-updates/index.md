@@ -11,8 +11,8 @@ tags:
     - pulumi deployments
     - automation api
     - deployments
-	- stack references
-	- webhooks
+    - stack references
+    - webhooks
 ---
 
 As infrastructure projects grow in size and complexity, you need to decompose infrastructure into smaller stacks to limit the blast radius of errors, extract and reference common layers like networking, and to limit access to sensitive components. This comes with a coordination cost as you now need to figure out how to detect and propagate changes to downstream stacks in your dependency graph. Today we’re announcing two features that can help you manage this complexity by automatically updating dependent stacks.
