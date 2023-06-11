@@ -489,4 +489,4 @@ If you are using Go, the following example can be used to [Programmatically Impo
 
 ### Example Conversion
 
-For an example of a full end-to-end conversion, including some improvements made possible after the conversion is finished, see the blog post, [From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/).
+For an example of a full conversion, see the [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) blog post.
