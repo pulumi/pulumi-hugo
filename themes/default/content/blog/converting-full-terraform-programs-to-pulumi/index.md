@@ -177,6 +177,14 @@ After addressing the remaining TODOs and some other tweaks so that the code comp
 
 The converter has saved us a ton of time, converting over 1,000 lines of Terraform to a modern Pulumi language, with only a small number of manual fix-ups required. From here, we can leverage our IDE and compiler to further refactor and improve the code, one of the many benefits of Pulumi!
 
+## Importing State
+
+It's great that the new converter can migrate Terraform projects to Pulumi for new deployments, but what if you want to import existing resource states from a `.tfstate` file to avoid unnecessarily recreating your infrastructure?
+
+If you're using TypeScript or Go, there is some additional code that can be added to your converted Pulumi program to import resource states from a `.tfstate` file. See the [Importing Resources](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#importing-resources) reference documentation for more details.
+
+We're working to make this even more seamless with built-in support for importing state from `.tfstate` files in a future update coming soon.
+
 ## Get Started
 
 Support for the new `pulumi convert --from terraform` command is now available in v3.71.0 of the Pulumi CLI. [Download](/docs/install/) the latest Pulumi CLI and give the new converter a try today. If you run into any issues, please [let us know](https://github.com/pulumi/pulumi/issues/new/choose) or reach out in the [Pulumi Community Slack](https://slack.pulumi.com) with any questions!
