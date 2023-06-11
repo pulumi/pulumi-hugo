@@ -485,6 +485,8 @@ $ pulumi config set importFromStatefile ./terraform.tfstate
 
 After doing this, the first `pulumi up` for a new stack with this configuration variable set will import instead of create all of the resources defined in the code. Once imported, the existing resources in your cloud provider can now be managed by Pulumi going forward. See the [Importing Infrastructure User Guide](/docs/using-pulumi/adopting-pulumi/import/) for more details on importing existing resources.
 
+If you are using Go, the following example can be used to [Programmatically Import Resources from an Existing Terraform State File](https://github.com/pulumi/tf2pulumi/tree/master/misc/import-go). Similar to the steps above for TypeScript, there are a set of files in that repo for Go that can be copied into your new stack's directory to allowing importing from a `.tfstate` file.
+
 ### Example Conversion
 
 For an example of a full end-to-end conversion, including some improvements made possible after the conversion is finished, see the blog post, [From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/).
