@@ -20,13 +20,14 @@ section.docs-home {
     }
 
     div.header {
-        background-image: url("/images/docs/docs-home-header-background.svg");
+        background-image: url("/images/docs/docs-home-header-background-mobile.svg");
         height: 197px;
         background-position: right 0;
         display: flex;
         flex-direction: column;
         gap: 14px;
         padding: 28px 0 21px 24px;
+        flex: 1;
 
         h1 {
             font-family: 'Gilroy';
@@ -38,6 +39,20 @@ section.docs-home {
 
         p {
             max-width: 436px;
+        }
+
+        @media (min-width: 768px) {
+            background-image: url("/images/docs/docs-home-header-background-tablet.svg");
+            p {
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            background-image: url("/images/docs/docs-home-header-background-desktop.svg");
+            p {
+                font-size: 16px;
+            }
         }
 
         div.link-buttons {
