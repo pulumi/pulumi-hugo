@@ -32,6 +32,8 @@ Pulumi customers already using review stacks find that it saves their developers
 
 Review Stacks also provide an avenue for optimizing cloud costs. Rather than keeping development infrastructure running 24/7, Review Stacks only exist as long as an engineer works on a feature. Since review stacks are flexible and built on Pulumi IaC, it is also possible to configure Review Stacks to deploy to multi-tenant environments that share development infrastructure to further streamline costs.
 
+“At GitHub, we are constantly seeking to improve the developer experience and our partner ecosystem plays a big role in that.” said Matthew Manning, Senior Business Development Manager for GitHub Actions, “We’re excited to support the launch of Pulumi Review Stacks with GitHub because it makes it easier for teams to review and test their products before shipping.”
+
 ## Configuring Review Stacks
 
 Configuring Review Stacks is a simple three-step process:
