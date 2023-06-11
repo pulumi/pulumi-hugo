@@ -119,7 +119,7 @@ export const a = new autodeploy.AutoDeployer("auto-deployer-a", {
 });
 ```
 
-Just declare an `AutoDeployer` resource for each stack, and any `downstream` stacks will automatically be updated whenever a stack in it’s dependency chain is updated.
+Just declare an `AutoDeployer` resource for each stack, and any `downstream` stacks will automatically be updated whenever a stack in its dependency chain is updated.
 
 ## Scale Infrastructure with Software
 
