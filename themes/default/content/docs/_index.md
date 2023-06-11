@@ -3,9 +3,6 @@ title: Documentation
 linktitle: Docs
 meta_desc: Learn how to create, deploy, and manage infrastructure on any cloud using Pulumi's open source infrastructure as code SDK.
 meta_image: /images/docs/meta-images/docs-meta.png
-menu:
-  header:
-    weight: 3
 aliases:
 - /docs/reference/
 notitle: true
