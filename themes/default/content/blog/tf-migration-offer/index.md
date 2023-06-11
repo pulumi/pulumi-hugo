@@ -1,7 +1,7 @@
 ---
 title: "Terraform Migration Offer"
 date: 2023-06-12T20:05:11Z
-meta_desc: The Terraform Migration Offers provides Terraform workspace migrations as part of Pulumi Enterprise and Business Critical onboarding. 
+meta_desc: The Terraform Migration Offer provides Terraform workspace migrations as part of Pulumi Enterprise and Business Critical onboarding. 
 meta_image: meta.png
 authors:
     - joe-duffy
