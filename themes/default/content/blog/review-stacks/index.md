@@ -32,8 +32,6 @@ Pulumi customers already using review stacks find that it saves their developers
 
 Review Stacks also provide an avenue for optimizing cloud costs. Rather than keeping development infrastructure running 24/7, Review Stacks only exist as long as an engineer works on a feature. Since review stacks are flexible and built on Pulumi IaC, it is also possible to configure Review Stacks to deploy to multi-tenant environments that share development infrastructure to further streamline costs.
 
-“I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments,” said Santosh Dornal, head of software test & DevOps, Alkira. “I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
-
 ## Configuring Review Stacks
 
 Configuring Review Stacks is a simple three-step process:
