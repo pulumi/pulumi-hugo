@@ -30,7 +30,7 @@ Several common use cases are supported via the new `pulumi convert --from terraf
 The following major features are supported:
 
 * Variables, outputs, resources, and data sources
-* Terraform Modules are converted to Pulumi components
+* Terraform modules are converted to Pulumi components
 * Almost all HCL2 expression syntax
 
 In cases where the converter does not yet support a feature, the `pulumi convert` command succeeds but generates a TODO in the form of a call to a <pulumi-chooser type="language" options="typescript,python,go,csharp" option-style="none" class="inline">
