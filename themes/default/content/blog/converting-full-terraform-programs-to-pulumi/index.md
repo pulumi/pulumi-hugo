@@ -2,13 +2,9 @@
 title: "Converting Full Terraform Programs to Pulumi"
 date: 2023-06-12
 meta_desc: Learn how to convert whole Terraform programs to Pulumi using the new Terraform converter
-
-
 meta_image: meta.png
-
 authors:
     - justin-vanpatten
-
 tags:
     - migration
 ---
