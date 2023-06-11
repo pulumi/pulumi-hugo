@@ -14,18 +14,24 @@
     </div>
 
     {{ range .Params.sections }}
-        {{ if eq .type "grid" }}
-            <div class="docs-home-section grid">
-                {{ range .clouds }}
-                    <a class="cloud" href="{{ .link }}">
-                        <div>
-                            <div class="cloud-icon">
-                                <div class="icon {{ .icon }}"></div>
-                            </div>
-                            <div class="cloud-label">{{ .label }}</div>
-                        </div>
-                    </a>
+        {{ if eq .type "cards-logo-label-link" }}
+            <div class="docs-home-section">
+                <h2 id="{{ anchorize .heading }}">{{ .heading }}</h2>
+                {{ if .description }}
+                    {{ .description | safeHTML }}
                 {{ end }}
+                <div class="cards-logo-label-link {{ anchorize .heading }}">
+                    {{ range .cards }}
+                        <a href="{{ .link }}">
+                            <div>
+                                <div class="card-icon">
+                                    <div class="icon {{ .icon }}"></div>
+                                </div>
+                                <div class="label">{{ .label }}</div>
+                            </div>
+                        </a>
+                    {{ end }}
+                </div>
             </div>
         {{ else if eq .type "full-width-cards" }}
             <div class="docs-home-section">

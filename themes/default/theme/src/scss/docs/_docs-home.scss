@@ -16,7 +16,7 @@ section.docs-home {
         font-family: 'Gilroy';
         font-weight: 500;
         font-size: 21px;
-        color: #131314;
+        color: map-get($gray, 950);
     }
 
     div.header {
@@ -67,7 +67,7 @@ section.docs-home {
                     color: map-get($brand, "blue");
 
                     &:hover {
-                        background: map-get($blue, 200);
+                        background: map-get($blue, 100);
                     }
                 }
             }
@@ -78,7 +78,7 @@ section.docs-home {
         font-family: 'Gilroy';
         font-weight: 500;
         font-size: 24px;
-        color: #131314;
+        color: map-get($gray, 950);
     }
 
     div.docs-home-section {
@@ -92,7 +92,7 @@ section.docs-home {
         display: flex;
         flex-direction: column;
         gap: 0;
-        background: #edeffb;
+        background: map-get($blue, 100);
         border-radius: 4px;
 
         .heading {
@@ -113,8 +113,8 @@ section.docs-home {
         flex-direction: column;
         gap: 12px;
         padding: 24px;
-        background: #fff;
-        border: 1px solid #e5e5e9;
+        background: $white;
+        border: 1px solid map-get($gray, 150);
         box-shadow: 0px 2px 24px rgba(95, 96, 101, 0.14);
         border-radius: 4px;
 
@@ -123,7 +123,7 @@ section.docs-home {
             align-items: center;
             gap: 12px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #e5e5e9;
+            border-bottom: 1px solid map-get($gray, 150);
 
             div.icon {
                 top: -1px;
@@ -131,42 +131,71 @@ section.docs-home {
         }
 
         &:hover {
-            background: #f9f9f9;
-            border: 1px solid #bebfc9;
+            background: map-get($gray, 100);
+            border: 1px solid map-get($gray, 350);
         }
     }
 
-    div.grid {
+    div.cards-logo-label-link {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
         flex-direction: row;
 
-        a.cloud {
-            flex: 1;
+        &.clouds a {
             flex-basis: 344px;
+
+            div.label {
+                padding: 12px;
+            }
+        }
+
+        &.languages a {
+            flex-basis: 150px;
+
+            @media (min-width: 1368px) {
+                flex-basis: 106px;
+            }
+
+            div.card-icon {
+                padding: 12px 0px;
+            }
+            div.label {
+                padding: 8px 12px;
+            }
+        }
+
+        a {
+            flex: 1;
             border: 1px solid #E5E5E9;
             filter: drop-shadow(0px 2px 24px rgba(95, 96, 101, 0.14));
+            border-radius: 4px;
 
-            div.cloud-icon {
-                padding: 24px 0px;  
-                background: #f9f9f9;   
-                border-bottom: 1px solid #e5e5e9;
+            div.card-icon {
+                background: map-get($gray, 100); 
+                border-bottom: 1px solid map-get($gray, 150);
                 border-radius: 4px 4px 0px 0px;
                 display: flex;
                 justify-content: center;
+                padding: 24px 0px;  
             }
 
-            div.cloud-label {
-                padding: 12px;
-                background: #fff;
+            div.label {
+                background: $white;
                 border-radius: 0px 0px 4px 4px;
                 font-family: 'Inter';
                 font-weight: 400;
                 font-size: 18px;
-                color: #131314;
+                color: map-get($gray, 950);
+            }
+
+            &:hover {
+                border: 1px solid map-get($gray, 350);
             }
         }
+    }
 
+    div.docs-home-section h2#clouds + p {
+        margin-bottom: 12px !important;
     }
 }

@@ -20,10 +20,10 @@ link_buttons:
     label: Install
     link: /docs/install/
 sections:
-- type: grid
+- type: cards-logo-label-link
   heading: Clouds
-  description: Pulumi supports AWS, Azure, Google Cloud, Kubernetes, and [120+ packages](/registry/).
-  clouds:
+  description: <p>Pulumi supports AWS, Azure, Google Cloud, Kubernetes, and <a href="/registry/">120+ packages</a>.</p>
+  cards:
   - label: AWS & Pulumi
     icon: aws-40
     link: /docs/clouds/aws/
@@ -54,26 +54,27 @@ sections:
 - type: blue-sparkle
   heading: Why Pulumi?
   description: Pulumi enables developers to deploy infrastructure in any cloud environment with one common approach. Leverage familiar languages to make the most of abstractions and reuse while enjoying access in your favorite IDEs, and testing tools!
-- heading: Languages
+- type: cards-logo-label-link
+  heading: Languages
   description: Build infrastructure intuitively on any cloud using familiar languages.
   cards:
-  - heading: Node.js
-    icon:
+  - label: Node.js
+    icon: icon-32-32 node-color-32-32
     link: /docs/languages-sdks/javascript/
-  - heading: Python
-    icon:
+  - label: Python
+    icon: icon-32-32 python-color-32-32
     link: /docs/languages-sdks/python/
-  - heading: Go
-    icon:
+  - label: Go
+    icon: icon-32-32 go-color-32-32
     link: /docs/languages-sdks/go/
-  - heading: .NET
-    icon:
+  - label: .NET
+    icon: icon-32-32 dotnet-color-32-32
     link: /docs/languages-sdks/dotnet/
-  - heading: Java
-    icon:
+  - label: Java
+    icon: icon-32-32 java-color-32-32
     link: /docs/languages-sdks/java/
-  - heading: YAML
-    icon:
+  - label: YAML
+    icon: icon-32-32 yaml-color-32-32
     link: /docs/languages-sdks/yaml/
 - type: full-width-cards
   heading: Reference
