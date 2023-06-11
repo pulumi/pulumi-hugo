@@ -1,0 +1,84 @@
+section.docs-home {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h1, h2, p {
+        margin: 0;
+    }
+
+    div.header {
+        background-image: url("/images/docs/docs-home-header-background.svg");
+        height: 197px;
+        background-position: right 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 28px 0 21px 24px;
+
+        h1 {
+            font-family: 'Gilroy';
+            font-size: 36px;
+            line-height: 36px;
+            color: #2f3032;
+            margin: 0;
+        }
+
+        p {
+            max-width: 436px;
+        }
+
+        div.buttons {
+            display: flex;
+            gap: 8px;
+
+            button {
+                padding: 5px 16px;
+                border-radius: 4px;
+                border: 1px #4d5bd9 solid;
+                background: #fff;
+                font-family: 'Inter';
+                font-weight: 400;
+                font-size: 14px;
+                color: #fff;
+
+                &.docs-primary-btn {
+                    background: #4d5bd9;
+                    color: #fff;
+                }
+
+                &.docs-secondary-btn {
+                    color: #4d5bd9;
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-family: 'Gilroy';
+        font-weight: 500;
+        font-size: 24px;
+        color: #131314;
+    }
+
+    div.blue-sparkle {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: #edeffb;
+        border-radius: 4px;
+
+        .heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        div.sparkle {
+            background-image: url("/images/docs/sparkle.svg");
+            width: 48px;
+            height: 40px;
+        }
+    }
+}

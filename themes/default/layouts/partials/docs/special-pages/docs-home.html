@@ -1,0 +1,27 @@
+{{ $primary_button := .Params.buttons.primary }}
+{{ $secondary_button := .Params.buttons.secondary }}
+
+
+<section class="content docs-home">
+    <div class="header">
+        {{ $h1 := split .Params.h1 " " }}
+        <h1>{{ index $h1 0 }}<strong> {{ index $h1 1 }}</strong></h1>
+        {{ .Params.description | safeHTML }}
+        <div class="buttons">
+            <button class="docs-primary-btn">{{ $primary_button.label }}</button>
+            <button class="docs-secondary-btn">{{ $secondary_button.label }}</button>
+        </div>
+    </div>
+
+    {{ range .Params.sections }}
+        {{ if eq .type "blue-sparkle" }}
+            <div class="blue-sparkle">
+                <div class="heading">
+                    <h2>{{ .heading }}</h2>
+                    <div class="sparkle"></div>
+                </div>
+                <p>{{ .description }}</p>
+            </div>
+        {{ end }}
+    {{ end }}
+</section>

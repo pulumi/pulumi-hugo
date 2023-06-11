@@ -8,8 +8,10 @@ menu:
     weight: 3
 aliases:
 - /docs/reference/
+notitle: true
+docs_home: true
 h1: Pulumi Docs
-description: Pulumi is an [open source](https://github.com/pulumi/pulumi) infrastructure as code tool for creating, deploying, and managing cloud infrastructure.
+description: <p>Pulumi is an <a href="https://github.com/pulumi/pulumi" target="_blank">open source</a> infrastructure as code tool for creating, deploying, and managing cloud infrastructure.</p>
 buttons:
   primary:
     label: Quickstart
@@ -44,7 +46,8 @@ sections:
   - heading: Adopting Pulumi
     description: Migrate any infrastructure to Pulumi with comprehensive guides.
     link: /docs/using-pulumi/adopting-pulumi/
-- heading: Why Pulumi?
+- type: blue-sparkle
+  heading: Why Pulumi?
   description: Pulumi enables developers to deploy infrastructure in any cloud environment with one common approach. Leverage familiar languages to make the most of abstractions and reuse. Also enjoy access in your favorite IDEs, and testing tools!
 - heading: Languages
   description: Build infrastructure intuitively on any cloud using familiar languages.
