@@ -122,7 +122,7 @@ Just declare an `AutoDeployer` resource for each stack, and any `downstream` sta
 
 ## Scale Infrastructure with Software
 
-At Pulumi, we build tools to help you scale your infrastructure footprint with software instead of just humans. Deployment Webhook Destinations and `pulumi-auto-deploy` give you the tools to keep all of your dependent infrastructure up to date with automation instead of manual runbooks and human-driven operations. 
+At Pulumi, we build tools to help you scale your infrastructure footprint with software instead of just humans. Deployment Webhook Destinations and `pulumi-auto-deploy` give you the tools to keep all of your dependent infrastructure up to date with automation instead of manual runbooks and human-driven operations.
 
 Check out these resources to get started today:
 
