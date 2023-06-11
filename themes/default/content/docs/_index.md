@@ -35,15 +35,19 @@ sections:
   - label: Kubernetes
     icon:
     link: /docs/clouds/kubernetes/
-- heading: Featured docs
+- type: full-width-cards
+  heading: Featured docs
   cards:
-  - heading: Concepts
+  - icon:
+    heading: Concepts
     description: Dive deeper into what Pulumi is and how it works.
     link: /docs/concepts/
-  - heading: Pulumi Cloud
+  - icon:
+    heading: Pulumi Cloud
     description: Learn about Pulumi’s secure cloud service for individuals and teams.
     link: /docs/pulumi-cloud/
-  - heading: Adopting Pulumi
+  - icon:
+    heading: Adopting Pulumi
     description: Migrate any infrastructure to Pulumi with comprehensive guides.
     link: /docs/using-pulumi/adopting-pulumi/
 - type: blue-sparkle
@@ -70,15 +74,18 @@ sections:
   - heading: YAML
     icon:
     link: /docs/languages-sdks/yaml/
-- heading: Reference
+- type: full-width-cards
+  heading: Reference
   cards:
-    - heading: Pulumi Cloud REST API docs
+    - icon:
+      heading: Pulumi Cloud REST API docs
       description: Leverage automation with the Pulumi Cloud REST API.
       link: /docs/pulumi-cloud/cloud-rest-api/
-    - heading: Pulumi CLI docs
+    - icon:
+      heading: Pulumi CLI docs
       description: Browse the complete documentation of available CLI commands.
       link: /docs/cli/
-- heading: Have questions?
-  description: "For questions or feedback, reach out on [community Slack channel](https://slack.pulumi.com),
-[GitHub](https://github.com/pulumi), or email [support@pulumi.com](mailto:support@pulumi.com)."
+- type: flat
+  heading: Have questions?
+  description: <p>For questions or feedback, reach out on <a href="https://slack.pulumi.com" target="_blank">community Slack</a>, <a href="https://github.com/pulumi" target="_blank">GitHub</a>, or <a href="/support/">contact support</a>.</p>
 ---

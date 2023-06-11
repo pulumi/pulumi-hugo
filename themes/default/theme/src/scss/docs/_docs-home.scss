@@ -3,8 +3,20 @@ section.docs-home {
     flex-direction: column;
     gap: 24px;
 
-    h1, h2, p {
-        margin: 0;
+    h1, h2, h3, p {
+        margin: 0 !important;
+        margin-top: 0;
+    }
+
+    h2 {
+        margin-bottom: 12px;
+    }
+
+    h3 {
+        font-family: 'Gilroy';
+        font-weight: 500;
+        font-size: 21px;
+        color: #131314;
     }
 
     div.header {
@@ -65,7 +77,7 @@ section.docs-home {
         padding: 24px;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 0;
         background: #edeffb;
         border-radius: 4px;
 
@@ -80,5 +92,34 @@ section.docs-home {
             width: 48px;
             height: 40px;
         }
+    }
+
+    div.full-width-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px;
+        background: #fff;
+        border: 1px solid #e5e5e9;
+        box-shadow: 0px 2px 24px rgba(95, 96, 101, 0.14);
+        border-radius: 4px;
+
+        div.icon-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e9;
+
+            div.icon {
+                top: -1px;
+            }
+        }
+    }
+
+    div.docs-home-section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
     }
 }

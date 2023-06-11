@@ -14,13 +14,31 @@
     </div>
 
     {{ range .Params.sections }}
-        {{ if eq .type "blue-sparkle" }}
-            <div class="blue-sparkle">
+        {{ if eq .type "full-width-cards" }}
+            <div class="docs-home-section">
+                <h2>{{ .heading }}</h2>
+                {{ range .cards }}
+                    <div class="full-width-card">
+                        <div class="icon-heading">
+                            <div class="icon icon-21-21 recycle-gray-21-21"></div>
+                            <h3>{{ .heading }}</h3>
+                        </div>
+                        <p>{{ .description }}</p>
+                    </div>
+                {{ end }}
+            </div>
+        {{ else if eq .type "blue-sparkle" }}
+            <div class="blue-sparkle docs-home-section">
                 <div class="heading">
                     <h2>{{ .heading }}</h2>
                     <div class="sparkle"></div>
                 </div>
                 <p>{{ .description }}</p>
+            </div>
+        {{ else if eq .type "flat" }}
+            <div class="docs-home-section">
+                <h2>{{ .heading }}</h2>
+                {{ .description | safeHTML }}
             </div>
         {{ end }}
     {{ end }}
