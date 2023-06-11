@@ -179,4 +179,4 @@ The converter has saved us a ton of time, converting over 1,000 lines of Terrafo
 
 ## Get Started
 
-Support for the new `pulumi convert --from terraform` command is available today in v3.71.0 of the Pulumi CLI. [Download](/docs/install/) the latest Pulumi CLI and give the new converter a try today. If you run into any issues, please [let us know](https://github.com/pulumi/pulumi/issues/new/choose) or reach out in the [Pulumi Community Slack](https://slack.pulumi.com) with any questions!
+Support for the new `pulumi convert --from terraform` command is now available in v3.71.0 of the Pulumi CLI. [Download](/docs/install/) the latest Pulumi CLI and give the new converter a try today. If you run into any issues, please [let us know](https://github.com/pulumi/pulumi/issues/new/choose) or reach out in the [Pulumi Community Slack](https://slack.pulumi.com) with any questions!
