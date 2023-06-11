@@ -22,7 +22,9 @@ All resources in Pulumi accept values that describe the way the resource behaves
 {{% choosable language javascript %}}
 
 ```javascript
-// TODO
+const myId = new random.RandomId("mine", {
+    byteLength: 8, // byteLength is an input
+});
 ```
 
 {{% /choosable %}}
@@ -76,6 +78,18 @@ var myId = new RandomId("mine", RandomIdArgs.builder()
     .byteLength(8) // byteLength is an input
     .build());
 
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  myId:
+    type: random:randomId
+    properties:
+      byteLength: 8 // byteLenght is an input
 ```
 
 {{% /choosable %}}
@@ -144,7 +158,10 @@ var key = new PrivateKey("my-private-key", new PrivateKeyArgs{
 {{% choosable language java %}}
 
 ```java
-// TODO
+var key = new PrivateKey("my-private-key", PrivateKeyArgs.builder()
+    .algorithm("ECDSA") // ECDSA is a plain value
+    .build()
+)
 ```
 
 {{% /choosable %}}
@@ -163,14 +180,24 @@ However, in most Pulumi programs, the inputs to a resource will reference values
 {{% choosable language javascript %}}
 
 ```javascript
-// TODO
+let password = new random.RandomPassword("password", {
+    length: 16,
+    special: true,
+    overrideSpecial: "!#$%&*()-_=+[]{}<>:?",
+});
+let example = new aws.rds.Instance("example", {
+    instanceClass: "db.t3.micro",
+    allocatedStorage: 64,
+    engine: "mysql",
+    username: "someone",
+    password: password.result, // We pass the output from password as an input
+});
 ```
 
 {{% /choosable %}}
 {{% choosable language typescript %}}
 
 ```typescript
-
 const password = new random.RandomPassword("password", {
     length: 16,
     special: true,
@@ -299,7 +326,8 @@ This example will wait for the value to be returned from the API and print it to
 {{% choosable language javascript %}}
 
 ```javascript
-// TODO
+let myPet = new random.RandomPet("my-pet")
+myPet.id.apply(id => console.log(`Hello, {id}!`))
 ```
 
 {{% /choosable %}}
