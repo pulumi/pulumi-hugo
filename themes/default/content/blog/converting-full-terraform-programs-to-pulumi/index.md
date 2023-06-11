@@ -13,11 +13,21 @@ tags:
     - migration
 ---
 
-Today, we're excited to announce support for converting whole Terraform projects to Pulumi via the `pulumi convert` command in the Pulumi CLI. The new Terraform converter includes support for Terraform modules, core features of Terraform 1.4, and the majority of Terraform built-in functions, converting to Pulumi TypeScript, Python, Go, or C#. The new converter can significantly reduce the amount of time it takes to migrate Terraform to Pulumi. Let's dig in to learn more about the new converter and how to use it.
+Over the last 2 years, we've seen an increasing trend of cloud development teams migrating to Pulumi from Terraform. These teams often have experience with and meaningful investment in Terraform, but have also typically run into limits of expressivity, productivity, scalability or reliability with their existing tools. One of the first questions we hear when they decide to move to Pulumi is "how will I migrate my existing Terraform projects over?".
+
+Today, we're excited to announce new support for converting whole Terraform projects to Pulumi via the `pulumi convert` command in the Pulumi CLI. The new Terraform converter includes support for Terraform modules, core features of Terraform 1.4, and the majority of Terraform built-in functions, converting to Pulumi TypeScript, Python, Go, or C#. The new converter can significantly reduce the amount of time it takes to migrate Terraform to Pulumi. Let's dig in to learn more about the new converter and how to use it.
 
 <!--more-->
 
 Historically, we have offered a separate [tf2pulumi](https://github.com/pulumi/tf2pulumi) tool to convert small snippets of Terraform to Pulumi. The new converter is no longer a separate tool. As of [v3.71.0](/docs/install/), you can run the new converter directly from the Pulumi CLI with the `pulumi convert --from terraform` command. And you can convert more than small snippets -- the new converter supports converting full Terraform programs.
+
+The new support in `pulumi convert` builds upon Pulumi's [CrossCode](/crosscode/) foundations for providing universal infrastructure as code support across a wide variety of programming languages and converstion tooling between them. It also introduces a new concept of `converter` plugin in the Pulumi engine, which allows conversion tools from other Infrastructure as Code platforms to be integrated into the same `pulumi convert` experience in the future, both as part of the core project, as well as by other ecosystem partners and contributors.
+
+Several common use cases are supported via the new `pulumi convert --from terraform` support in the Pulumi CLI:
+
+* Converting your organization's existing Terraform projects to Pulumi
+* Converting your organization's existing Terraform modules to Pulumi, to be consumed as part of existing Pulumi projects
+* Converting 3rd party open source Terraform modules or projects which address a use case you want to incorporate into your existing Pulumi projects
 
 ## Supported Terraform Features
 
@@ -80,7 +90,7 @@ $ pulumi convert --from terraform --language csharp --out pulumi
 
 ![pulumi convert](pulumi-convert-from-terraform.gif)
 
-The converted code is generated in the specified `pulumi` output directory. There are two primary files generated from this program's conversion:
+The converted code is generated in the specified `pulumi` output directory. A complete Pulumi project is generated, including two primary code files specific to this this program's conversion:
 
 * {{< langfile >}} contains the converted code for the main program
 * <pulumi-chooser type="language" options="typescript,python,go,csharp" option-style="none" class="inline">
@@ -129,7 +139,7 @@ Name = NotImplemented("replace(var.name_prefix,\"_\",\"-\")"),
 {{% /choosable %}}
 {{< /chooser >}}
 
-We can fill in an implementation.
+We can fill in an implementation.  Note that we get to use the full expressiveness of the native and familiar string manipulation libraries in our target programming language, instead of the relatively constrained options of the Terraform DSL.
 
 {{< chooser language "typescript,python,go,csharp" >}}
 {{% choosable language typescript %}}
@@ -519,6 +529,5 @@ The converter has saved us a ton of time, converting over 1,000 lines of Terrafo
 
 ## Get Started
 
-Support for the new `pulumi convert --from terraform` command is available today in v3.71.0 of the Pulumi CLI. We are actively addressing issues, adding support for missing features, and improving the quality of the converted code, to further reduce the amount of manual fix-ups required when doing a migration.
+Support for the new `pulumi convert --from terraform` command is available today in v3.71.0 of the Pulumi CLI. [Download](/docs/install/) the latest Pulumi CLI and give the new converter a try today. If you run into any issues, please [let us know](https://github.com/pulumi/pulumi/issues/new/choose) or reach out in the [Pulumi Community Slack](https://slack.pulumi.com) with any questions!
 
-[Download](/docs/install/) the latest Pulumi CLI and give the new converter a try today. If you run into any issues, please [let us know](https://github.com/pulumi/pulumi/issues/new/choose)!
