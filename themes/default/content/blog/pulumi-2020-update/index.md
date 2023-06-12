@@ -73,6 +73,10 @@ We continue to make progress on our multi-language library architecture. This wi
 
 Our [`tf2pulumi` tool](https://github.com/pulumi/tf2pulumi), which converts any Terraform HCL to Pulumi code, is currently getting a fresh coat of paint. Look for HCL2 support and Python code-generation soon.
 
+{{% notes type="info" %}}
+Note: The `tf2pulumi` tool has been replaced with the `pulumi convert --from terraform` command in v3.71.0 or later of the Pulumi CLI. See [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) for details on the new converter.
+{{% /notes %}}
+
 We've made some significant performance improvements and have others still in the works. Recent changes have reduced overall network bandwidth used by an average update in some cases by 100x, as well as reducing startup times by multiple seconds. The net result is that you'll see fewer delays during updates and an overall snappier CLI experience.
 
 ## Next Steps

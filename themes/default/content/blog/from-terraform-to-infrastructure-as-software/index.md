@@ -231,6 +231,10 @@ translation automatically for you. This is a great place to get started
 -- and from there we can then refactor the resulting program gradually
 to leverage languages better.
 
+{{% notes type="info" %}}
+Note: The `tf2pulumi` tool has been replaced with the `pulumi convert --from terraform` command in v3.71.0 or later of the Pulumi CLI. See [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) for details on the new converter.
+{{% /notes %}}
+
 The first step is to create a Pulumi project.
 [Download Pulumi here](/docs/install/), and then run:
 
