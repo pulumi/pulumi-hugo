@@ -48,7 +48,7 @@ It's impossible to highlight everything, but here are some of our favorite miles
 * **Convert** your existing infrastructure so that it comes under the control of Pulumi. This includes [adopting existing cloud resources](/blog/adopting-existing-cloud-resources-into-pulumi/), no matter how they were provisioned (even if done manually by pointing and clicking in your cloud's UI), as well as the [tf2pulumi](/blog/from-terraform-to-infrastructure-as-software/) tool, which converts existing HCL programs to Pulumi, preserving your existing Terraform project and code structure.
 
 {{% notes type="info" %}}
-Note: The `tf2pulumi` tool has been replaced with the `pulumi convert --from terraform` command in v3.71.0 or later of the Pulumi CLI. See [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) for details on the new converter.
+As of Pulumi CLI v3.71.0, `tf2pulumi` has been replaced with `pulumi convert --from terraform`. [Converting Full Terraform Programs to Pulumi blog](/blog/converting-full-terraform-programs-to-pulumi/) has more details.
 {{% /notes %}}
 
 **Support for large-scale projects.** As we've seen bigger and bigger Pulumi projects, we have put together [guidance](/blog/continuous-delivery-with-gitlab-and-pulumi-on-amazon-eks/) for multi-project approaches. This includes adding [the ability for stacks to reference one another](/blog/architect-aws-application-infra-with-pulumi-stack-references/), an essential building block when, for instance, one project depends on a piece of infrastructure provisioned by another project.
