@@ -62,6 +62,10 @@ After deciding on Pulumi, Jacob and his team built a system based on a “develo
 
 First, the platform team [migrated](/tf2pulumi/) its infrastructure from Terraform to Pulumi. This included Kubernetes resources, Google Cloud resources, GitHub repos, DataDog, CloudFlare, Confluent for Kafka, Consul, and Vault. This enabled them to build, deploy, and manage all of their cloud and SaaS resources from a single platform, using Go as their language of choice.
 
+{{% notes type="info" %}}
+Note: The `tf2pulumi` tool has been replaced with the `pulumi convert --from terraform` command in v3.71.0 or later of the Pulumi CLI. See [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) for details on the new converter.
+{{% /notes %}}
+
 <img class="block mx-auto md:max-w-4xl my-8" src="/images/case-studies/greenpark-sports-monorepo-diagram.png">
 <p class="text-sm italic text-center">GreenPark Sports uses a monorepo to manage its infrastructure code.</p>
 
