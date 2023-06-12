@@ -27,6 +27,7 @@ meta_image: meta.png
 # Create a file for yourself if you don't already have one.
 authors:
     - meagan-cojocar
+    - bryce-lampe
 
 # At least one tag is required.
 # Lowercase, hyphen-delimited is recommended.
@@ -39,12 +40,13 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-When we launched Resource Search for Pulumi Cloud in April we extended the capability of Pulumi Cloud beyond just managing infrastructure as code to managing your cloud footprint. Today, I'm excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Pulumi Property Search enables you to search on a wide array of resource properties, everything from instance type, to database version, to region and availability zone to if resources are open to the internet.
-Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any other provider. Pulumi Cloud Resource Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
+When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in April we extended the capability of Pulumi Cloud beyond just managing infrastructure as code to managing your cloud footprint. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Pulumi Property Search enables you to search on a wide array of resource properties, everything from instance type, to database version, to region and availability zone, to if resources are open to the internet.
 
 <!--more-->
 
-### See it in action!
+Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any other provider. Pulumi Cloud Resource Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
+
+### See it in action
 
 ![Searching on resource properties in the Pulumi Cloud console](properties.gif)
 
@@ -60,9 +62,11 @@ Since launching Resource Search, a majority of Pulumi customers have used it, ma
 
 ## Example queries
 
+Before Property Search using just Resource Search you were able to find resources by their name, type, URN, parent, the team they are in and so on, but today any property on your resource will be indexed by Pulumi Cloud and searchable after each update. Let's walk through some examples of the types of queries you can now perform.
+
 ### AI Assist & properties
 
-Our AI Assist functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, remembering exactly what the property values are can be challenging. AI Assist is going to step in so that you don’t have to.
+Our [AI Assist](/product/private-previews) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, remembering exactly what the property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
 
 Here is a list of example queries we have seen customers use:
 
@@ -73,18 +77,23 @@ Here is a list of example queries we have seen customers use:
 - show me virtual machines in all clouds
 - all resources in us east 1
 
-![Placeholder Image](meta.png)
-
 ### Search syntax
+
+Properties can be used in your queries by using a `.` prefix. For example, if you want to see all resources with an Instance Type property, you type in the search bar `.instanceType:`. If you want to only look at a specific value, you can search for the value behind the colon. In this case our query would become `.instanceType:m5.xlarge`.
+
+![Picture of .instanceType:m5.xlarge query in the dashboard](instance_type.png)
+
+Here are some query examples we have seen customers use:
 
 - `project:pulumi-service stack:staging .instanceType:`
 - `type:aws:rds/cluster:Cluster .engine:aurora .engineVersion:8`
 - `type:aws:s3/bucket:Bucket stack:production .acl:public-read`
 - `team:data package:snowflake .availabilityZone:us-west-2a`
+- `vpc created:2023-06-12 .tags.Enviornment:production`
 
 ### Use the REST API
 
-Now you have all this data at your fingertips, but searching isn’t the only thing you can do with it. You can also export it to perform analytics: whether that is something simple like opening it in a spreadsheet or if you want to regularly ingest it to your data warehouse. You can download a CSV from the console or get the data using the Data Export API.
+Now you have all this data at your fingertips, but searching isn’t the only thing you can do with it. You can also export it to perform analytics: whether that is something simple like opening it in a spreadsheet or if you want to regularly ingest it to your data warehouse. You can download a CSV from the console or get the data using the [Data Export API](/docs/pulumi-cloud/cloud-rest-api/#data-export).
 
 But the value of Resource Search and Property Search are not limited to what you do in the console and for analytics. You can also leverage the [Resource Search API](/docs/pulumi-cloud/cloud-rest-api/#resource-search) to create automation and workflows off of search results.
 
@@ -139,7 +148,7 @@ headers = {
   'Authorization': 'token pul-abc123'
 }
 
-r = requests.get('https://api.pulumi.com/api/orgs/{org}/search/resources', headers = headers)
+r = requests.get('https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=".instanceType"', headers = headers)
 
 print(r.json())
 
