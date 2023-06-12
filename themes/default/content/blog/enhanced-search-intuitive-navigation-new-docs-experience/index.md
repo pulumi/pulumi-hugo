@@ -42,7 +42,7 @@ The [Pulumi concept docs](/docs/concepts/) are where you can dive into Pulumi co
 
 ## Packages
 
-The [package documentation](/docs/registry/) is where to find config and API documentation for Pulumi supported clouds, version control, databases, & infrastructure, monitoring, and networking tools. We support 119 providers today, and we add new providers every week!
+The [package documentation](/docs/registry/) is where to find config and API documentation for Pulumi supported clouds, version control systems, databases, & infrastructure, monitoring, and networking tools. We support 119 providers today, and we add new providers every week!
 
 ![Pulumi api packages](imgs/packages.png)
 
