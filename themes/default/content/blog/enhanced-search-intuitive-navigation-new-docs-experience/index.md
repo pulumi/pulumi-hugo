@@ -24,13 +24,13 @@ Let's showcase a few types of Pulumi documentation:
 
 ## Quickstart experience
 
-The [Pulumi quickstart](/docs/quickstart/) experience  is for new users to get up and running quickly.
+The [Pulumi quickstart](/docs/quickstart/) experience is for people new to Pulumi to get up and running quickly.
 
 ![Pulumi docs quickstart experience](imgs/quickstart.png)
 
 ## Cloud get started tutorials
 
-The [Pulumi cloud get started tutorials](/docs/clouds/) are for users who want a detailed walkthrough the first time they use Pulumi.
+The [Pulumi cloud get started tutorials](/docs/clouds/) are for people who want a detailed walkthrough the first time they use Pulumi.
 
 ![Pulumi cloud get started tutorials](imgs/get-started.png)
 
