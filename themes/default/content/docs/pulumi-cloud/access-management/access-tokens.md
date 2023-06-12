@@ -14,7 +14,7 @@ aliases:
 - /docs/intro/pulumi-cloud/organization-access-tokens/
 - /docs/intro/pulumi-service/team-access-tokens/
 - /docs/intro/pulumi-cloud/team-access-tokens/
-- docs/pulumi-cloud/access-management/organization-access-tokens/
+- /docs/pulumi-cloud/access-management/organization-access-tokens/
 - /docs/pulumi-cloud/access-management/team-access-tokens/
 ---
 
