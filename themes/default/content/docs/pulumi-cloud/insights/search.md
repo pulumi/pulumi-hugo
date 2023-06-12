@@ -300,7 +300,7 @@ If we want to refine this to resources with _some_ tags but no `"stack"` tag spe
 
 > .tags: -.tags.stack:
 
-Existence queries do not return resources where the property is an empty object (`{}`), array (`[]`), or `null`. In other words, a resource with an output of `{"tags": {}}` would not be captured by the `.tag:` existence query above.
+Existence queries do not return resources where the property is an empty object (`{}`), array (`[]`), or `null`. A resource with an output of `{"tags": {}}` would not be captured by an existence query for `.tags:`.
 
 ## Advanced Filtering
 
