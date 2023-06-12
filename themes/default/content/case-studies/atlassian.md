@@ -69,7 +69,7 @@ Mike chose Python to build cloud infrastructure since Bitbucket developers alrea
 Instead of discarding all the code written with the old tool, Mike used [Pulumi's conversion tool](/tf2pulumi) to assist with the transition. Mike says, “I knew that Pulumi provided an automatic conversion tool, and that helped a lot. I spent one day using the automatic conversion tool and then just spent some time making sure everything looked right. In two days, I was all set.”
 
 {{% notes type="info" %}}
-Note: The `tf2pulumi` tool has been replaced with the `pulumi convert --from terraform` command in v3.71.0 or later of the Pulumi CLI. See [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) for details on the new converter.
+As of Pulumi CLI v3.71.0, `tf2pulumi` has been replaced with `pulumi convert --from terraform`. [Converting Full Terraform Programs to Pulumi blog](/blog/converting-full-terraform-programs-to-pulumi/) has more details.
 {{% /notes %}}
 
 As an example of how Pulumi made formerly complex tasks straightforward, Mike says, “With the old tool, spinning up our databases meant we had to have about 20 blocks of code and do a lot of copy and pasting. But with Pulumi, it's Python. So you have a for statement and then you define the names of the databases you want. It's five lines of code. If you want to add a new database, add one line, and you're good to go.”

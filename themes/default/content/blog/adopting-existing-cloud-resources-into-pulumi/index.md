@@ -84,7 +84,7 @@ For our "existing" infrastructure, we'll use a small Azure deployment of a Virtu
 Next, we'll create a Pulumi program to describe the same infrastructure that exists in Azure.  We could write this by hand, but since we used Terraform to define the original infrastructure, we also have the option to use [`tf2pulumi`](https://github.com/pulumi/tf2pulumi) to automatically convert our `.tf` files to Pulumi.
 
 {{% notes type="info" %}}
-Note: The `tf2pulumi` tool has been replaced with the `pulumi convert --from terraform` command in v3.71.0 or later of the Pulumi CLI. See [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) for details on the new converter.
+As of Pulumi CLI v3.71.0, `tf2pulumi` has been replaced with `pulumi convert --from terraform`. [Converting Full Terraform Programs to Pulumi blog](/blog/converting-full-terraform-programs-to-pulumi/) has more details.
 {{% /notes %}}
 
 ```bash
