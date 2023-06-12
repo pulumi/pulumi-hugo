@@ -30,19 +30,19 @@ The [Pulumi quickstart](/docs/quickstart/) experience is for people new to Pulum
 
 ## Cloud get started tutorials
 
-The [Pulumi cloud get started tutorials](/docs/clouds/) are for people who want a detailed walkthrough the first time they use Pulumi.
+The [Pulumi cloud get started tutorials](/docs/clouds/) are for people who want a more detailed walkthrough when using Pulumi for the first time.
 
 ![Pulumi cloud get started tutorials](imgs/get-started.png)
 
 ## Concept docs
 
-The [Pulumi concept docs](/docs/concepts/) are where you can dive into Pulumi concepts, how they work together, and how to effectively use them to ship infrastructure.
+The [Pulumi concept docs](/docs/concepts/) are where you can dive into Pulumi concepts. Learn how they work together and how to effectively use them to ship infrastructure.
 
 ![Pulumi concept docs](imgs/concepts.png)
 
 ## Packages
 
-The [package documentation](/docs/registry/) is where to find configuration and API documentation for Pulumi supported clouds, version control systems, databases, & infrastructure, monitoring, and networking tools. We support 119 providers today, and we add new providers every week!
+The [package documentation](/docs/registry/) is where to find configuration and API documentation for Pulumi supported clouds, version control systems, databases, infrastructure monitoring, and networking tools. We support 119 providers today, and we add new providers every week!
 
 ![Pulumi api packages](imgs/packages.png)
 
