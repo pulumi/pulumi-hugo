@@ -16,7 +16,7 @@ tags:
 Engineers spend a lot of their valuable time searching documentation for answers. At Pulumi, we believe in exceptional documentation experiences that help people using Pulumi find what they need quickly and use it successfully. Today, we are announcing a set of improved Pulumi documentation experiences that collectively make it easier than ever to discover, learn and build cloud infrastructure with Pulumi.
 <!--more-->
 
-The improvements we've introduced to the Pulumi documentation experience focus on three areas - search, navigation and discoverability.  Together, they help every user of the Pulumi documentation find the answers they are looking for quickly, so that they can solve their infrastructure as code use case and leverage Pulumi effectively in their projects. These changes also introduce new design patterns and user experience elements that are being used across various previously independent parts of the Pulumi documentation experience, bringing these together as part of a more cohesive developer experience.
+The improvements we've introduced to the Pulumi documentation experience focus on three areas - search, navigation and discoverability.  Together, they help every user of the Pulumi documentation find the answers they are looking for quickly, so they can solve their infrastructure as code use case and leverage Pulumi effectively in their projects. These changes also introduce new design patterns and user experience elements across previously independent parts of the Pulumi documentation experience, creating a more cohesive developer experience.
 
 ## Search
 
@@ -26,7 +26,7 @@ As of today, you can quickly and easily search for documentation across all of t
 
 ## Unified navigation
 
-We have unified navigation across both docs and packages and expect to add more content types to Pulumi Docs over the rest of the year. Enjoy easily switching between documentation types and having your left navigation and table of contents navigation remain consistent.
+We have unified navigation across both docs and packages and expect to add more content types to Pulumi Docs over the rest of the year. Enjoy easily switching between documentation types while having your left navigation and table of contents navigation remain consistent.
 
 ![Pulumi docs navigation](imgs/navigation.png)
 
