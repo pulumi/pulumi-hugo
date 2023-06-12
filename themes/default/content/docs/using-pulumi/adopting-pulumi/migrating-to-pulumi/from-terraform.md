@@ -465,6 +465,21 @@ $ pulumi convert --from terraform --language csharp
 
 This will generate a Pulumi program that when run with `pulumi up` will deploy the infrastructure originally described by the Terraform project. Note that if your infrastructure references files or directories with paths relative to the location of the Terraform project, you will most likely need to update these paths such that they are relative to the generated {{< langfile >}} file.
 
+### Supported Terraform Features
+
+The following major features are supported:
+
+* Variables, outputs, resources, and data sources
+* Terraform modules are converted to Pulumi components
+* Almost all HCL2 expression syntax
+
+In cases where the converter does not yet support a feature, the `pulumi convert` command succeeds but generates a TODO in the form of a call to a <pulumi-chooser type="language" options="typescript,python,go,csharp" option-style="none" class="inline">
+    <pulumi-choosable type="language" value="typescript"><code>notImplemented</code></pulumi-choosable>
+    <pulumi-choosable type="language" value="python"><code>not_implemented</code></pulumi-choosable>
+    <pulumi-choosable type="language" value="go"><code>notImplemented</code></pulumi-choosable>
+    <pulumi-choosable type="language" value="csharp"><code>NotImplemented</code></pulumi-choosable>
+</pulumi-chooser> function that will need to be filled in manually. For most projects, the converter should be able to convert 90-95% of the code without any TODOs, with only a small percentage of items to address manually, significantly reducing migration time compared to doing an entire migration by hand. We are actively improving the converter by adding support for missing features and improving the overall quality of the converted code to reduce the amount of manual fix-ups required.
+
 ### Importing Resources
 
 That command converted the static HCL source code to Pulumi code. What if you want to import existing resource states from a `.tfstate` file, however, to avoid unnecessarily recreating your infrastructure?
