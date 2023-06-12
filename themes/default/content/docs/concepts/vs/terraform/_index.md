@@ -152,7 +152,7 @@ In the event you’d like to add new providers, or understand how this integrati
 
 The Pulumi CLI can be used to convert Terraform HCL to Pulumi via `pulumi convert --from terraform`. To learn more, see [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) in our Adopting Pulumi user guide.
 
-For an example of how to do a Terraform-to-Pulumi conversion, see our article, [From Terraform to Infrastructure as Software](/blog/from-terraform-to-infrastructure-as-software/).
+For an example of how to do a Terraform-to-Pulumi conversion, see our article, [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/).
 
 #### Using Pulumi and Terraform Side-by-Side {#providers-side-by-side}
 
