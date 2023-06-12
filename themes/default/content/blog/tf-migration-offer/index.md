@@ -16,4 +16,4 @@ That said, many enterprises we work with have a lot of code to convert and not m
 
 The Terraform Migration Offer makes it easy to get onto Pulumi without becoming experts in migrating code and state. Contact us to take advantage of the offer today!
 
-{{< blog/cta-button "Redeem Offer" "/contact/?form=sales" "_blank" >}}
+{{< blog/cta-button "Redeem Offer" "/contact/?form=tf-migration" "_blank" >}}
