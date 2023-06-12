@@ -46,4 +46,10 @@ The [package documentation](/docs/registry/) is where to find configuration and 
 
 ![Pulumi api packages](imgs/packages.png)
 
+## Search
+
+As of today, you can quickly and easily search for documentation across all of these types, and we will lead you to the documentation you are looking for to solve your problem. The new search clearly groups documentation by _Docs_ and _Packages_ with clear breadcrumbs to quickly get you to the right place.
+
+![Pulumi docs search](imgs/search.png)
+
 Head to [Pulumi docs](/docs/), learn something new, and send us your feedback!
