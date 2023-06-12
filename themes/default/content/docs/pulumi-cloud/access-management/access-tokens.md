@@ -8,7 +8,7 @@ menu:
   pulumicloud:
     parent: access-management
     weight: 2
-    identifier: pulumi-cloud-org-access-tokens
+    identifier: pulumi-cloud-access-tokens
 aliases:
 - /docs/intro/pulumi-service/organization-access-tokens/
 - /docs/intro/pulumi-cloud/organization-access-tokens/
