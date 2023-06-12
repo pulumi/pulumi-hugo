@@ -69,7 +69,7 @@ const computeWebhook = new service.Webhook("computeWebhook", {
 
 ## Expressing Stack Dependencies with pulumi-auto-deploy
 
-We’ve also shipped a new Pulumi package called [`pulumi-auto-deploy`](github.com/pulumi/pulumi-auto-deploy). It let’s you simply express dependencies between stacks, and takes care of creating and updating the necessary Deployment Webhooks under the hood.
+We’ve also shipped a new Pulumi package called [`pulumi-auto-deploy`](github.com/pulumi/pulumi-auto-deploy). It lets you simply express dependencies between stacks, and takes care of creating and updating the necessary Deployment Webhooks under the hood.
 
 ```ts
 import * as autodeploy from "@pulumi/auto-deploy";
