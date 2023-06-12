@@ -248,7 +248,7 @@ Ranges can also be one-sided. For example, to query everything modified after Ja
 
 > modified:>=2023-01-01
 
-### Properties
+### Property Queries
 
 {{% notes "info" %}}
 Property search is only available to organizations using the Enterprise and Business Critical editions.
@@ -260,20 +260,24 @@ Property search allows you to query resources by their inputs and outputs.
 
 A property query is similar to a field query but it is triggered by a leading `.` followed by a _property path_:
 
-> .<property path>:<value?>
+> .\<property path>:<value?>
+
 For example:
 
 > .instanceType:t3.large
-The specific syntax for property names matches the syntax used elsewhere in Pulumi, for example with [`ignoreChanges`](concepts/resources/options/ignorechanges). This makes it possible to refer to property values nested inside arrays or objects, or values with special characters.
 
-For example, to query for a key containing spaces inside of our `tags` output we can write:
+The specific syntax for property names matches the syntax used elsewhere in Pulumi, for example with [`ignoreChanges`](../../../concepts/options/ignorechanges). This makes it possible to refer to property values nested inside arrays or objects, or values with special characters.
+
+For example, to query for a key containing spaces inside of an output object named `tags` we can write:
 
 > .tags["name containing space"]:value
+
 Matching behavior is similar to field queries. Matching is non-exact by default, and surrounding a term with double quotes triggers exact matching.
 
 For example:
 
 - A query for `.instanceType:t3` will return resources with any `instanceType` containing "t3".
+
 - A query for `.instanceType:"t3.large"` will return resources with an `instanceType` matching "t3.large" exactly.
 
 In some cases a resource might have outputs that differ from its inputs, or inputs that are not also outputs. Precedence is given to outputs first when querying.
@@ -285,14 +289,18 @@ Omitting a value from a field name results in an existence query that returns al
 For example, to find all resources with a team defined, regardless of what that team is, you can write:
 
 > team:
+
 Existence queries can be combined with negation to achieve non-existence queries. These can also be combined with properties.
 
 For example, you would normally write something like `.tags.stack:production` to find resources with an output like `{"tags": {"stack": "production"}}`, but we can also find resources with _any_ tags:
 
 > .tags:
+
 If we want to refine this to resources with _some_ tags but no `"stack"` tag specifically, we can can write a query like so:
 
 > .tags: -.tags.stack:
+
+Existence queries do not return resources where the property is an empty object (`{}`), array (`[]`), or `null`. In other words, a resource with an output of `{"tags": {}}` would not be captured by the `.tag:` existence query above.
 
 ## Advanced Filtering
 
