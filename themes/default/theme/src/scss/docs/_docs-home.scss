@@ -155,10 +155,14 @@ section.docs-home {
         flex-direction: row;
 
         &.clouds a {
-            flex-basis: 344px;
+            flex-basis: 100%;
 
             div.label {
                 padding: 12px;
+            }
+
+            @media (min-width: 768px) {
+                flex-basis: 49%;
             }
         }
 
