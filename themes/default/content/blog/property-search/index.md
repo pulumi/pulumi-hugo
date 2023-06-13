@@ -7,7 +7,7 @@ allow_long_title: true
 # but excluded from production builds.
 # Use the time and timezone-offset portions of of this value
 # to schedule posts for publishing later.
-date: 2023-06-13T09:00:08-07:00
+date: 2023-06-13
 
 # Use the meta_desc property to provide a brief summary
 # (one or two sentences) of the content of the post,
