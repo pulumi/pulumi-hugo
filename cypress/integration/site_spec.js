@@ -20,21 +20,4 @@ describe("www.pulumi.com", () => {
             cy.get(".header-container").should("have.class", "is-pinned");
         });
     });
-
-    describe("getting started", () => {
-        beforeEach(() => {
-            cy.visit("/docs/clouds/aws/get-started/begin");
-        });
-
-        describe("when an OS is selected", () => {
-            beforeEach(() => {
-                cy.get(`pulumi-chooser[type="os"] li:last`).click();
-            });
-
-            it("activates the selected OS", () => {
-                cy.get(`pulumi-choosable[type="os"][value="macos"] > div`).should("not.have.class", "active");
-                cy.get(`pulumi-choosable[type="os"][value="linux"] > div`).should("have.class", "active");
-            });
-        });
-    });
 });

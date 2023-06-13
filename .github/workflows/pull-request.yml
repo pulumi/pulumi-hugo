@@ -2,7 +2,7 @@ name: Pull request
 on:
   pull_request:
     branches:
-      # - master
+      - master
       - ced/tuesday-night
 jobs:
   preview:
@@ -36,8 +36,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
 
       - name: Install Pulumi CLI
@@ -49,8 +49,8 @@ jobs:
           CDN_PULUMI_URN: ${{ vars.CDN_PULUMI_URN }}
           GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          # ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
-          # ALGOLIA_APP_SEARCH_KEY: ${{ vars.ALGOLIA_APP_SEARCH_KEY }}
+          ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
+          ALGOLIA_APP_SEARCH_KEY: ${{ vars.ALGOLIA_APP_SEARCH_KEY }}
           DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
           PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}

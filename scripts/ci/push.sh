@@ -15,6 +15,7 @@ aws sts get-caller-identity
 
 ./scripts/ci/ci-login.sh
 ./scripts/ci/build.sh preview
-./scripts/ci/sync.sh preview
+./scripts/ci/sync.sh update
+node ./scripts/await-in-progress.js
 ./scripts/ci/run-pulumi.sh update
 
