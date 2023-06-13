@@ -3,6 +3,7 @@ title_tag: "Set Up A Jenkins Pipeline | CI/CD"
 meta_desc: This document will help you setup a Jenkins Pipeline to deploy a sample app to Azure using Pulumi.
 title: Jenkins
 h1: Pulumi CI/CD & Jenkins Pipelines
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     usingpulumi:
         parent: cont_delivery
@@ -24,7 +25,7 @@ altered to fit into any existing type of deployment setup.
 - A working installation of a recent version of Jenkins.
 - An account in the [Pulumi Cloud](https://app.pulumi.com).
 - The [latest version of Pulumi](/docs/install/).
-- Setup a new project and [stack](/docs/concepts/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/cli/commands/pulumi_new)
+- Setup a new project and [stack](/docs/concepts/) using one of our [Get Started](/docs/quickstart/) guides or by running [`pulumi new`](/docs/cli/commands/pulumi_new)
 and choosing one of the many templates that are available.
 - A bare repo and set the remote URL to be your GitHub project.
 

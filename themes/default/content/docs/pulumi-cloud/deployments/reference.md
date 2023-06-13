@@ -3,6 +3,7 @@ title_tag: "Using Pulumi Deployments"
 meta_desc: Reference documentation for configuring and using Pulumi Deployments
 title: "Using deployments"
 h1: "Using Pulumi Deployments"
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     parent: deployments
@@ -141,6 +142,12 @@ A deployment may be triggered at the simple click of a button in the Pulumi Cons
 ### GitHub Push to Deploy
 
 Once you have the GitHub application installed in your Pulumi organization, you can choose to have deployments run a `pulumi preview` when Pull Requests are opened against a target branch, or `pulumi up` when a commit is pushed to a branch.
+
+{{% notes type="info" %}}
+
+The `pulumi preview` on Pull Request capability requires that the Github user creating the Pull Request has their Github Organization Visibility set to `Public`.
+
+{{% /notes %}}
 
 ![Pulumi UI - Push to Deploy](../ui-push-to-deploy.png)
 

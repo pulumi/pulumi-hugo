@@ -3,6 +3,7 @@ title_tag: "Download & Install Pulumi"
 meta_desc: This page contains detailed instructions for downloading and installing Pulumi.
 title: "Download & install"
 h1: Download & install Pulumi
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   install:
     name: Overview
@@ -450,7 +451,6 @@ If a new version of Pulumi is available, the CLI produces the following example 
 ```
 warning: A new version of Pulumi is available. To upgrade from version '2.17.26' to '{{< latest-version >}}', run
    $ curl -sSL https://get.pulumi.com | sh
-
 or visit https://pulumi.com/docs/reference/install/ for manual instructions and release notes.
 ```
 
@@ -461,7 +461,6 @@ or visit https://pulumi.com/docs/reference/install/ for manual instructions and 
 ```
 warning: A new version of Pulumi is available. To upgrade from version '2.17.26' to '{{< latest-version >}}', run
    $ curl -sSL https://get.pulumi.com | sh
-
 or visit https://pulumi.com/docs/reference/install/ for manual instructions and release notes.
 ```
 
@@ -472,7 +471,6 @@ or visit https://pulumi.com/docs/reference/install/ for manual instructions and 
 ```
 warning: A new version of Pulumi is available. To upgrade from version '2.17.26' to '{{< latest-version >}}', run
    > "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/install.ps1'))"
-
 or visit https://pulumi.com/docs/reference/install/ for manual instructions and release notes.
 ```
 

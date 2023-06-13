@@ -391,7 +391,7 @@ var imageName = repo.RepositoryUrl;
 
 #### Learn More About ECR
 
-ECR offers many additional options not shown here. This includes configuring advanced IAM permissions, enabling image vulnerability scanning, managing the lifetime of images so that older, unused images are deleted based on configured policies, encrypting images, and more. For details on these advanced capabilities and more, refer to [Pulumi's ECR user guide](https://www.pulumi.com/docs/clouds/aws/guides/ecr/), [Pulumi's ECR API reference](https://www.pulumi.com/docs/reference/pkg/aws/ecr/repository/), or [Amazon's product documentation](https://aws.amazon.com/ecr/).
+ECR offers many additional options not shown here. This includes configuring advanced IAM permissions, enabling image vulnerability scanning, managing the lifetime of images so that older, unused images are deleted based on configured policies, encrypting images, and more. For details on these advanced capabilities and more, refer to [Pulumi's ECR user guide](https://www.pulumi.com/docs/clouds/aws/guides/ecr/), [Pulumi's ECR API reference](/registry/packages/aws/api-docs/ecr/repository/), or [Amazon's product documentation](https://aws.amazon.com/ecr/).
 
 > To view another cloud provider's registry details, [select a new cloud in the switcher above](#prepare-a-container-registry).
 
@@ -882,7 +882,7 @@ var registryInfo = new Docker.ImageRegistry
 
 #### Learn More About ACR
 
-ACR offers advanced functionality not shown here, including configuring retention policies, storage account details, and geo-replication options. For more details on these and more, see Pulumi's [Azure-Native](https://www.pulumi.com/docs/reference/pkg/azure-native/containerregistry/registry/) or [Azure](https://www.pulumi.com/docs/reference/pkg/azure/containerservice/registry/) API documentation, or [Azure's product page](https://azure.microsoft.com/en-us/services/container-registry/).
+ACR offers advanced functionality not shown here, including configuring retention policies, storage account details, and geo-replication options. For more details on these and more, see Pulumi's [Azure-Native](/registry/packages/azure-native/api-docs/containerregistry/registry/) or [Azure](/registry/packages/azure/api-docs/containerservice/registry/) API documentation, or [Azure's product page](https://azure.microsoft.com/en-us/services/container-registry/).
 
 > To view another cloud provider's registry details, [select a new cloud in the switcher above](#prepare-a-container-registry).
 
@@ -1496,7 +1496,7 @@ var registryInfo = Output.All(
 
 #### Learn More About DigitalOcean Container Registry
 
-Each DigitalOcean account may have just a single registry, so you are likely to want to provision that in a separate stack for most "real world" examples. Also, this project uses the lowest subscription tier, `"starter"`, which is inexpensive but quite limited (you may only store a single repository of images). If you would like to use an advanced tier or configure any other options, please refer to [Pulumi's DigitalOcean API](https://www.pulumi.com/docs/reference/pkg/digitalocean/containerregistry/) or [DigitalOcean's product](https://www.digitalocean.com/products/container-registry/) documentation.
+Each DigitalOcean account may have just a single registry, so you are likely to want to provision that in a separate stack for most "real world" examples. Also, this project uses the lowest subscription tier, `"starter"`, which is inexpensive but quite limited (you may only store a single repository of images). If you would like to use an advanced tier or configure any other options, please refer to [Pulumi's DigitalOcean API](https://www.pulumi.com/registry/packages/digitalocean/api-docs/containerregistry/) or [DigitalOcean's product](https://www.digitalocean.com/products/container-registry/) documentation.
 
 > To view another cloud provider's registry details, [select a new cloud in the switcher above](#prepare-a-container-registry).
 
@@ -2255,4 +2255,4 @@ All of these steps were manually run from a CLI; however, a natural next step is
 
 Although we've shown a very simple set of infrastructure resources, it would be natural to extend these examples by provisioning other ancillary services that your application needs, including databases, pub/sub topics, queues, metrics and dashboards, and more. Using an infrastructure as code approach to building, publishing, and consuming your container images means you can incrementally add on such infrastructure to the base code shown above and reference them from your containers easily with automatic dependency tracking.
 
-The [complete examples](https://github.com/pulumi/pulumi-docker/tree/master/examples/) in this article are available on GitHub. Pulumi is open source and free to get started with &mdash; [give it a try, and get up and running with infrastructure as code for your containers today](/docs/get-started/)!
+The [complete examples](https://github.com/pulumi/pulumi-docker/tree/master/examples/) in this article are available on GitHub. Pulumi is open source and free to get started with &mdash; [give it a try, and get up and running with infrastructure as code for your containers today](/docs/quickstart/)!

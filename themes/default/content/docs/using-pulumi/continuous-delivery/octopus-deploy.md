@@ -3,6 +3,7 @@ title_tag: "Integrate Octopus Deploy | CI/CD"
 meta_desc: This page gives an overview of how to integrate Octopus Deploy with a Pulumi program.
 title: Octopus Deploy
 h1: Pulumi CI/CD & Octopus Deploy
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     usingpulumi:
         parent: cont_delivery
@@ -18,7 +19,7 @@ aliases:
 - A working installation of Octopus or a hosted instance from [https://octopus.com](https://octopus.com).
 - An account in the [Pulumi Cloud](https://app.pulumi.com).
 - The [latest version of Pulumi](/docs/install/).
-- Setup a new project and [stack](/docs/concepts/stack/) using one of our [Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/cli/commands/pulumi_new)
+- Setup a new project and [stack](/docs/concepts/stack/) using one of our [Get Started](/docs/quickstart/) guides or by running [`pulumi new`](/docs/cli/commands/pulumi_new)
 and choosing one of the many templates that are available.
 - Optionally, also create a CI pipeline from a source control repository of your choice to be the source of packages. You will learn more about packages and how to create them later in this guide.
 

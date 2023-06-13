@@ -97,6 +97,52 @@ stories:
       description: |
         Gain valuable insights into immutable architecture, best practices, and recommended design patterns.
 
+workshops:
+  - title: Platform Engineering with AWS Proton and Pulumi
+    url: /resources/platform-with-aws-proton-and-pulumi/
+    description: |
+      In this workshop, you will learn how to enable self-service infrastructure for your organization using AWS Proton and Pulumi.
+    date: March 16, 2023
+
+  - title: Kubernetes on Google Cloud with Pulumi
+    url: /resources/kubernetes-on-google-cloud/
+    description: |
+      In this workshop, you will learn how to deploy a Kubernetes cluster
+      on Google Cloud and run containerized applications on the cluster.
+    date: March 22, 2023
+
+  - title: Getting Started with Infrastructure as Code on AWS
+    url: /resources/getting-started-with-iac-pulumi-aws/
+    description: |
+      This workshop is designed to help new users become familiar with the
+      core concepts needed to effectively deploy resources on AWS using Pulumi.
+    date: April 6, 2023
+
+  - title: Getting Started with Kubernetes on AWS
+    url: /resources/getting-started-with-kubernetes-aws/
+    description: |
+      In this workshop, you will learn the fundamentals of setting up EKS
+      clusters on AWS through guided exercises using Pulumi.
+    date: April 26, 2023
+
+  - title: Introduction to Redis and Pulumi
+    url: /resources/introduction-to-redis-and-pulumi/
+    description: |
+      Join the Redis and Pulumi team to learn how to deploy Redis Cloud resources on any cloud using any programming language with Pulumi.
+    date: July 13, 2023
+
+  - title: From Zero to Production in Kubernetes
+    url: /resources/from-zero-to-production-in-kubernetes/
+    description: |
+      Explore how to leverage the power of Python with Pulumi, an infrastructure as code platform to define and manage your Kubernetes deployments.
+    date:  July 20, 2023
+  
+  - title: Deploying a Kubernetes Cluster on Equinix Metal
+    url: /resources/deploying-a-kubernetes-cluster-on-equinix-metal/
+    description: |
+      In this code-centric session, you will learn how to manage Equinix Metal resources using Pulumi and the new Equinix Pulumi provider.
+    date: September 13, 2023
+
 personas:
   groups:
     - items:
@@ -221,18 +267,21 @@ schedule:
   - title: Keeping your Infrastructure Code DRY
     description: |
       Sam Cogan, Solution Architect at Willis Towers Watson, will show how you can build a library of reusable modules that you can reuse over and over in your IaC projects. This is not just about boilerplate code, but real, usable modules that provide value to your whole team, help you comply with standards, and build infrastructure faster.
-    time: "9:00 AM PT"
+    time: "8:40 AM PT"
   - title: How a Bank Modernized its Software Engineering with Infrastructure as Code Automation
     description: |
        At financial institutions, data privacy and security aren't just best practices, they're Federal requirements. Join Dennis as he shares how Washington Trust Bank has modernized its software development and infrastructure practices since migrating to Azure and adopting infrastructure as code. He will cover how his team enables developers with infrastructure components, prevents developers from deploying forbidden resources with CrossGuard policies, and uses automation to save time and effort.
-    time: "9:20 AM PT"
+    time: "9:00 AM PT"
   - title: Creating a ‘Cloud-Aware’ Code Solution
     description: |
        Ala will share how Pulumi enables a new category of “cloud-aware” developer tools that leverage familiar programming languages and can lower barriers to entry to deploying cloud infrastructure for small teams that lack dedicated infrastructure experts. He’ll show how developers can easily create infrastructure from code using familiar languages and without having expertise with a given cloud provider. This enables rapid iteration on cloud applications for early-stage teams who are prototyping and iterating on new products.
-    time: "9:40 AM PT"
+    time: "9:20 AM PT"
   - title: Creating Infrastructure Automation Magic with Code
     description: |
       What happens when you combine the expressiveness and flexibility of programming with infrastructure as code automation? Magic. Join Matt as he demonstrates how Starburst uses Pulumi Automation API to increase the speed and accuracy of infrastructure operations (like blue-green deployments with Kubernetes clusters) with code. He will explain how Automation API has reduced complicated, unwieldy tasks into simpler tasks that are completely managed by code.
+    time: "9:40 AM PT"
+  - title: Break
+    description:
     time: "10:00 AM PT"
   - title: Engineering a Multi-cloud Platform
     description: |
@@ -242,20 +291,20 @@ schedule:
       - Self-service Infrastructure
       - Team productivity
       Tim will also share how his team leveraged the Pulumi platform to build a cloud-agnostic toolset for developers.
-    time: "11:30 AM PT"
+    time: "10:10 AM PT"
   - title: Using Monorepos to Level-up your Infrastructure as Code and Software Delivery
     description: |
       The way you structure your Pulumi projects and stacks in GitHub repositories can impact how well your organization ships infrastructure, especially when there are multiple teams of developers collaborating. Join Tyler as he shares best practices for using monorepos with Pulumi and how this pattern has supported his platform engineering team in delivering more efficient infrastructure deployments and updates, increased code sharing & reuse, and better collaboration.
-    time: "11:50 AM PT"
+    time: "10:30 AM PT"
   - title: Lessons Learned from Writing Thousands of Lines of IaC
     description: |
       Immutable architecture is the backbone of infrastructure as code, to ensure production environments cannot be changed during runtime.  While this has the benefits of its inherent safety measures, this can also be restrictive.  This talk will focus on some of the fundamentals of immutable architecture, best practices and recommended design patterns to work around its limitations, as well as what you most certainly should not be doing when running immutable architecture.
 
       This will be demonstrated through a real-world example of using Pulumi to deploy a single-tenant SaaS in an automated pipeline, typical challenges encountered, and what was learned on the way.
-    time: "12:10 PM PT"
+    time: "10:50 AM PT"
   - title: "Panel: AI and the Future of Cloud Development"
     description: 
-    time: "12:30 PM PT"
+    time: "11:10 AM PT"
 
 registration:
     items:
