@@ -2812,7 +2812,7 @@ Attempting to set this on an unsupported subscription results in a 402 status co
 |--------|----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Successful search.                                                                              | [ResourceSearchResult](#resourcesearchresult) |
 | 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad request. Not safe to retry.                                                                 | None                                          |
-| 402    | Unsupported Query                                                          | Not safe to retry. You attempted to use functionality not included in your Pulumi subscription. | None                                          |
+| 402    | Unsupported Query                                                          | You attempted to use functionality not included in your Pulumi subscription. Not safe to retry. | None                                       |
 | 422    | [Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)   | Unprocessable query. Not safe to retry.                                                         | None                                          |
 | 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Server error. Safe to retry.                                                                    | None                                          |
 
@@ -3023,11 +3023,13 @@ created,custom,delete,id,modified,module,name,package,parent_urn,pending,project
 
 ### Responses
 
-| Status | Meaning                                                                    | Description                     | Schema                                     |
-|--------|----------------------------------------------------------------------------|---------------------------------|--------------------------------------------|
-| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Successful export.              | [CSV](/docs/pulumi-cloud/insights/export/) |
-| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad request. Not safe to retry. | None                                       |
-| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Server error. Safe to retry.    | None                                       |
+| Status | Meaning                                                                    | Description                                                                                     | Schema                                     |
+|--------|----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------|
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Successful export.                                                                              | [CSV](/docs/pulumi-cloud/insights/export/) |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad request. Not safe to retry.                                                                 | None                                       |
+| 402    | Unsupported Query                                                          | You attempted to use functionality not included in your Pulumi subscription. Not safe to retry. | None                                       |
+| 422    | [Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)   | Unprocessable query. Not safe to retry.                                                         | None                                       |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Server error. Safe to retry.                                                                    | None                                       |
 
 ## Schemas
 
@@ -3104,6 +3106,7 @@ An individual resource.
   "parent.urn": "string",
   "pending": "creating",
   "project": "string",
+  "properties": {},
   "protected": true,
   "provider.urn": "string",
   "stack": "string",
