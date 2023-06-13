@@ -40,7 +40,7 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in April we extended the capability of Pulumi Cloud beyond just managing infrastructure as code to managing your cloud footprint. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Pulumi Property Search enables you to search on a wide array of resource properties, everything from instance type, to database version, to region and availability zone, to if resources are open to the internet.
+When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in April we extended the capability of Pulumi Cloud beyond just managing infrastructure as code to managing your cloud footprint. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Pulumi Property Search enables you to search on a wide array of resource properties, everything from instance type, to database version, to region and availability zone, to whether resources are open to the internet.
 
 <!--more-->
 
@@ -62,7 +62,7 @@ Since launching Resource Search, a majority of Pulumi customers have used it, ma
 
 ## Example queries
 
-Before Property Search using just Resource Search you were able to find resources by their name, type, URN, parent, the team they are in and so on, but today any property on your resource will be indexed by Pulumi Cloud and searchable after each update. Let's walk through some examples of the types of queries you can now perform.
+Before Property Search, using just Resource Search, you were able to find resources by their name, type, URN, parent, the team they are in, and so on... but today, any property on your resource will be indexed by Pulumi Cloud and searchable after each stack update. Let's walk through some examples of the types of queries you can now perform.
 
 ### AI Assist & properties
 
