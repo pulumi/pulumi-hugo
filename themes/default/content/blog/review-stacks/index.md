@@ -14,7 +14,7 @@ tags:
     - review stacks
 ---
 
-Today we’re excited to announce Review Stacks -- dedicated cloud environments that get created automatically every time a pull request is opened, all powered by Pulumi Deployments. Open a pull request, and Pulumi Deployments will stand up a stack with your changes and the Pulumi GitHub App will add a PR comment with the outputs from your deployment. It has never been simpler to pick up an unfamiliar codebase, make changes to **both** application *and* infrastructure code, and share a live environment for review with your teammates.
+Today we’re excited to announce Review Stacks -- dedicated cloud environments that get created automatically every time a pull request is opened, all powered by Pulumi Deployments. Open a pull request, and Pulumi Deployments will stand up a stack with your changes and the Pulumi GitHub App will add a PR comment with the outputs from your deployment. Merge the PR and Pulumi Deployments will destroy the stack and free up the associated resources. It has never been simpler to pick up an unfamiliar codebase, make changes to **both** application *and* infrastructure code, and share a live environment for review with your teammates.
 
 ![Review Stacks Comment](comment.png)
 
@@ -38,7 +38,7 @@ Review Stacks also provide an avenue for optimizing cloud costs. Rather than kee
 
 Configuring Review Stacks is a simple three-step process:
 
-1. Create a new stack and `Pulumi.<stack>.yaml` configuration file - this config will be copied into every review stack that gets created, and can even be modified within a PR
+1. Create a new stack and `Pulumi.pr.yaml` configuration file - this config will be copied into every review stack that gets created, and can even be modified within a PR
 2. Configure Deployment Settings for the stack - this specifies how to acquire source code, cloud credentials and more when deploying via Pulumi Deployments
 3. Set the `pullRequestTemplate` Deployment Setting to true - this indicates that all pull requests against this stack’s branch should reference this stack as a Review Stack template.
 
