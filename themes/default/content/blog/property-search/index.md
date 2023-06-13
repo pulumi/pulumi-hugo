@@ -1,5 +1,5 @@
 ---
-title: "Enhanced Search Capabilities with Property Search on Pulumi Cloud"
+title: "Property Search: Enhanced Search Capabilities on Pulumi Cloud"
 allow_long_title: true
 # The date represents the post's publish date,
 # and by default corresponds with the date this file was generated.
@@ -66,7 +66,7 @@ Before Property Search using just Resource Search you were able to find resource
 
 ### AI Assist & properties
 
-Our [AI Assist](/product/private-previews) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, remembering exactly what the property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
+Our [AI Assist](/product/private-previews) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, and remembering exactly how to search for property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
 
 Here is a list of example queries we have seen customers use:
 
@@ -79,9 +79,9 @@ Here is a list of example queries we have seen customers use:
 
 ### Search syntax
 
-Properties can be used in your queries by using a `.` prefix. For example, if you want to see all resources with an Instance Type property, you type in the search bar `.instanceType:`. If you want to only look at a specific value, you can search for the value behind the colon. In this case our query would become `.instanceType:m5.xlarge`.
+Properties can be used in your queries by using a `.` prefix. For example, if you want to see all resources with an Instance Type property, you type in the search bar `.instanceType:`. If you want to only look at a specific value, you can search for the value behind the colon. In this case our query would become `.instanceType:t3.large`.
 
-![Picture of .instanceType:m5.xlarge query in the dashboard](instance_type.png)
+![Picture of .instanceType:t3.large query in the dashboard](instance_type.png)
 
 Here are some query examples we have seen customers use:
 
@@ -89,7 +89,7 @@ Here are some query examples we have seen customers use:
 - `type:aws:rds/cluster:Cluster .engine:aurora .engineVersion:8`
 - `type:aws:s3/bucket:Bucket stack:production .acl:public-read`
 - `team:data package:snowflake .availabilityZone:us-west-2a`
-- `vpc created:2023-06-12 .tags.Enviornment:production`
+- `vpc created:2023-06-12 .tags.Environment:production`
 
 ### Use the REST API
 
