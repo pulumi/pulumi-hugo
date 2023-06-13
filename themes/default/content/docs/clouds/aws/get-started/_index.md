@@ -1,9 +1,8 @@
 ---
-title_tag: Pulumi & AWS get started tutorial
-title: Get started tutorial
-h1: Pulumi & AWS get started tutorial
-meta_desc: This page provides a tutorial on how to get started with AWS & Pulumi.
-meta_image: /images/docs/meta-images/docs-clouds-aws-meta-image.png
+title_tag: Get started with Pulumi & AWS
+title: Get started
+h1: Get started with Pulumi & AWS
+meta_desc: This page provides a guide on how to get started with AWS & Pulumi.
 menu:
   clouds:
     parent: aws
@@ -35,14 +34,7 @@ aliases:
 - /docs/get-started/aws/next-steps/
 - /docs/quickstart/aws/review-project/
 - /docs/get-started/aws/review-project/
-- /docs/clouds/aws/get-started/begin/
-- /docs/clouds/aws/get-started/create-project/
-- /docs/clouds/aws/get-started/deploy-changes/
-- /docs/clouds/aws/get-started/deploy-stack/
-- /docs/clouds/aws/get-started/destroy-stack/
-- /docs/clouds/aws/get-started/modify-program/
-- /docs/clouds/aws/get-started/next-steps/
-- /docs/clouds/aws/get-started/review-project/
+- /clouds/aws/get-started/destroy-stack/
 ---
 
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage AWS containers, serverless functions, and infrastructure using familiar programming languages.

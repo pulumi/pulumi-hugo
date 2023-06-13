@@ -4,7 +4,6 @@ meta_desc: Integrate the results of Pulumi stack previews to GitLab Merge Reques
            will show you any potential infrastructure changes on Merge Requests.
 title: GitLab integration
 h1: Pulumi CI/CD & GitLab integration
-meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     usingpulumi:
         parent: cont_delivery

@@ -30,4 +30,4 @@ Pulumi is bringing management of your Snowflake resources into the same place as
 - Rotate keys
 
 You can check out the details in the official [Snowflake Provider documentation
-](/registry/packages/snowflake/api-docs/provider/), with references for Python, Go, TypeScript, and C#!
+](https://www.pulumi.com/docs/reference/pkg/snowflake/provider/), with references for Python, Go, TypeScript, and C#!

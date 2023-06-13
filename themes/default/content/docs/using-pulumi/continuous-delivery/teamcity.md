@@ -3,7 +3,6 @@ title_tag: "Using JetBrains TeamCity | CI/CD"
 meta_desc: "This page provides an overview of how to use Pulumi with JetBrains TeamCity."
 title: JetBrains TeamCity
 h1: Pulumi CI/CD & JetBrains TeamCity
-meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     usingpulumi:
         parent: cont_delivery
@@ -20,7 +19,7 @@ This page details how to use [JetBrains TeamCity](https://www.jetbrains.com/team
 - An account in the [Pulumi Cloud](https://app.pulumi.com).
 - [Latest version of Pulumi](/docs/install/).
 - Setup a new project and [stack](/docs/concepts/stack/) using one of our
-[Get Started](/docs/quickstart/) guides or by running [`pulumi new`](/docs/cli/commands/pulumi_new)
+[Get Started](/docs/get-started/) guides or by running [`pulumi new`](/docs/cli/commands/pulumi_new)
 and choosing one of the many templates that are available.
 
 ## Sample Project

@@ -4,7 +4,6 @@ title: VPC
 h1: AWS Virtual Private Cloud (VPC)
 meta_desc: Pulumi Crosswalk for AWS provides simple, out of the box VPC functionality that follows widely accepted best
            practices.
-meta_image: /images/docs/meta-images/docs-clouds-aws-meta-image.png
 menu:
   clouds:
     parent: aws-guides

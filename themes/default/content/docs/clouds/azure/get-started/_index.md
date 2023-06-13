@@ -1,9 +1,8 @@
 ---
 title_tag: Get Started with Azure
-meta_desc: This page provides an overview and tutorial on how to get started with Azure.
-title: Get started tutorial
-h1: Pulumi & Azure get started tutorial
-meta_image: /images/docs/meta-images/docs-clouds-azure-meta-image.png
+meta_desc: This page provides an overview and guide on how to get started with Azure.
+title: Get started
+h1: Get started with Pulumi & Azure
 menu:
   clouds:
     parent: azure
@@ -35,14 +34,6 @@ aliases:
 - /docs/get-started/azure/destroy-stack/
 - /docs/quickstart/azure/next-steps/
 - /docs/get-started/azure/next-steps/
-- /docs/clouds/azure/get-started/begin/
-- /docs/clouds/azure/get-started/create-project/
-- /docs/clouds/azure/get-started/deploy-changes/
-- /docs/clouds/azure/get-started/deploy-stack/
-- /docs/clouds/azure/get-started/destroy-stack/
-- /docs/clouds/azure/get-started/modify-program/
-- /docs/clouds/azure/get-started/next-steps/
-- /docs/clouds/azure/get-started/review-project/
 ---
 Pulumi's infrastructure-as-code SDK helps you create, deploy, and manage Azure containers, serverless functions, and infrastructure using familiar programming languages.
 

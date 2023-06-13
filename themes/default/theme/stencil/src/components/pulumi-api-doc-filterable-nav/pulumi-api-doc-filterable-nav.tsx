@@ -257,6 +257,7 @@ export class PulumiApiDocFilterableNav {
     render() {
         return (
             <section class="api-doc-nav">
+                <h3 class="navigation-header">API Navigation</h3>
                 {this.isLoading ? this.getLoadingState() : this.getFilterAndNavTree()}
             </section>
         );

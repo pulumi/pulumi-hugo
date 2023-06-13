@@ -3,7 +3,6 @@ title_tag: "Migrating to Pulumi"
 meta_desc: Migrate from an existing infrastructure management solution to Pulumi.
 title: "Migrate from..."
 h1: Migrating from other solutions to Pulumi
-meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   usingpulumi:
     identifier: migrating

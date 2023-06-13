@@ -4,7 +4,6 @@ meta_desc: This page contains a getting started guide for Automation API.
 title: Get started
 h1: Get started with Automation API
 weight: 1
-meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     usingpulumi:
         parent: automation-api

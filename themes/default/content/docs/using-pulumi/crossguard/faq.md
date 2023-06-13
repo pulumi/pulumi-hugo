@@ -4,7 +4,6 @@ meta_desc: This page contains Frequently Asked Questions about Pulumi CrossGuard
 title: FAQ
 h1: Policy as code FAQ
 weight: 5
-meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   usingpulumi:
     parent: crossguard

@@ -5,7 +5,6 @@ meta_desc: Pulumi CrossGuard is a product that provides gated deployments via Po
 title: Get started
 h1: Get started with Pulumi policy as code
 weight: 1
-meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   usingpulumi:
     parent: crossguard
