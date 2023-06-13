@@ -48,11 +48,6 @@ Including property names and values in your resource searches enables you to sea
 
 Pulumi Resource Search, including the ability to search on property data, is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Support for querying on property data is available in the [Enterprise and Business Critical editions](/pricing) of Pulumi Cloud.
 
-### See it in action
-
-Watch how we can search for MySQL 5.7 database instances, a resource property, in natural language and get a query response.
-![Searching on resource properties in the Pulumi Cloud console](properties_3.gif)
-
 ## Feature Overview
 
 Cloud resources come with various properties that define their behavior, performance, location, and more. You can now use Pulumi Resource Search to search based on these properties in addition to other resource metadata across 100+ clouds. Whether you're trying to find resources running in a specific region, instances with a particular tag, or databases running a certain engine version, searching over properties with Pulumi Cloud streamlines and simplifies your tasks.
