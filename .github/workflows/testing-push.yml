@@ -33,6 +33,14 @@ jobs:
           hugo-version: "0.96.0"
           extended: true
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::571684982431:role/ContinuousDelivery
+          role-session-name: docs-deploy
+          role-duration-seconds: 7200
+          aws-region: us-west-2
+
       - name: Check out branch
         uses: actions/checkout@v2
         with:
@@ -43,12 +51,7 @@ jobs:
           make ensure build-assets
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
+
       - name: Build site
         run: make ci-push
         env:
@@ -57,8 +60,8 @@ jobs:
           PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME}}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
+          # AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
+          # AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
 
   # notify:
   #   if: failure()
