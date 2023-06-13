@@ -40,7 +40,7 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in April we extended the capability of Pulumi Cloud beyond just managing infrastructure as code to managing your cloud footprint. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Pulumi Property Search enables you to search on a wide array of resource properties, everything from instance type, to database version, to region and availability zone, to if resources are open to the internet.
+When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in April we extended the capability of Pulumi Cloud beyond just managing infrastructure as code to managing your cloud footprint. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Pulumi Property Search enables you to search on a wide array of resource properties, everything from instance type, to database version, to region and availability zone, to whether resources are open to the internet.
 
 <!--more-->
 
