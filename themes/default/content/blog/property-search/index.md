@@ -265,7 +265,7 @@ System.out.println(response.toString());
 
 ## Wrapping it all up
 
-We are excited to be unveiling Pulumi Property Search today and can’t wait to see what new capabilities it unlocks for your organization. As always, submit any feedback on the feature in the [Pulumi Cloud Requests](https://github.com/pulumi/pulumi-cloud-requests/issues/new?assignees=&labels=kind%2Fenhancement&projects=&template=feature-request.md) repository.
+We are excited to be extending Pulumi Resource Search with access to search over every property of your resources. We can’t wait to see what new capabilities it unlocks for your organization. As always, submit any feedback on the feature in the [Pulumi Cloud Requests](https://github.com/pulumi/pulumi-cloud-requests/issues/new?assignees=&labels=kind%2Fenhancement&projects=&template=feature-request.md) repository.
 
 [Login to Pulumi Cloud](https://app.pulumi.com)
 
