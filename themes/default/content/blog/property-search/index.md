@@ -71,7 +71,7 @@ Before Property Search, using just Resource Search, you were able to find resour
 
 Our [AI Assist](/docs/pulumi-cloud/insights/search/#ai-assist) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, and remembering exactly how to search for property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
 
-Here is a list of example queries we have seen customers use:
+Here is a list of example natural language queries we have seen customers use and the AI Assist output:
 
 | Natural language                              | Query result                                                                                               |
 |-----------------------------------------------|------------------------------------------------------------------------------------------------------------|
