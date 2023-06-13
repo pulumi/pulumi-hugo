@@ -62,7 +62,7 @@ Since launching Resource Search, a majority of Pulumi customers have used it, ma
 
 ## Example queries
 
-Before Property Search using just Resource Search you were able to find resources by their name, type, URN, parent, the team they are in and so on, but today any property on your resource will be indexed by Pulumi Cloud and searchable after each update. Let's walk through some examples of the types of queries you can now perform.
+Before Property Search, using just Resource Search, you were able to find resources by their name, type, URN, parent, the team they are in, and so on... but today, any property on your resource will be indexed by Pulumi Cloud and searchable after each stack update. Let's walk through some examples of the types of queries you can now perform.
 
 ### AI Assist & properties
 
