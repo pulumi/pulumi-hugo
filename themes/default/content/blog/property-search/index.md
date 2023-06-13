@@ -49,7 +49,7 @@ Pulumi Resource Search, including the ability to search on property data, is app
 ### See it in action
 
 Watch how we can search for MySQL 5.7 database instances, a resource property, in natural language and get a query response.
-![Searching on resource properties in the Pulumi Cloud console](properties.gif)
+![Searching on resource properties in the Pulumi Cloud console](properties_2.gif)
 
 ## Feature Overview
 
