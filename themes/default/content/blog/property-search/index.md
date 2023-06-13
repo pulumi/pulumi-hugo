@@ -40,16 +40,18 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-Two months ago we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) to offer multi-cloud resource search and analytics across every cloud environment in your organization. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties. Including property names and values in your resource searches enables you to search on an even richer variety of dimensions, everything from instance type, to database version, to region and availability zone, to whether resources are open to the internet.  By searching on property data, in addition to overall resource metadata, you can craft expressive queries that serve key compliance, operational and diagnostic use cases.
+Two months ago we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) to offer multi-cloud resource search and analytics across every cloud environment in your organization. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties.
 
 <!--more-->
+
+Including property names and values in your resource searches enables you to search on an even richer variety of dimensions, everything from instance type, to database version, to region and availability zone, to whether resources are open to the internet.  By searching on property data, in addition to overall resource metadata, you can craft expressive queries that serve key compliance, operational and diagnostic use cases.
 
 Pulumi Resource Search, including the ability to search on property data, is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Support for querying on property data is available in the [Enterprise and Business Critical editions](/pricing) of Pulumi Cloud.
 
 ### See it in action
 
 Watch how we can search for MySQL 5.7 database instances, a resource property, in natural language and get a query response.
-![Searching on resource properties in the Pulumi Cloud console](properties_2.gif)
+![Searching on resource properties in the Pulumi Cloud console](properties_3.gif)
 
 ## Feature Overview
 
