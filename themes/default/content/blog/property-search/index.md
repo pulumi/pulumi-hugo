@@ -1,5 +1,5 @@
 ---
-title: "Property Search: Enhanced Search Capabilities on Pulumi Cloud"
+title: "Property Search: Enhanced Resource Search in Pulumi Cloud"
 allow_long_title: true
 # The date represents the post's publish date,
 # and by default corresponds with the date this file was generated.
