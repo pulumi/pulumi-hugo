@@ -44,7 +44,7 @@ When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in Ap
 
 <!--more-->
 
-Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any other provider. Pulumi Cloud Resource Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
+Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Pulumi Cloud Resource Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
 
 ### See it in action
 
