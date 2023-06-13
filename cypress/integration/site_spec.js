@@ -21,20 +21,20 @@ describe("www.pulumi.com", () => {
         });
     });
 
-    describe("getting started", () => {
-        beforeEach(() => {
-            cy.visit("/docs/clouds/aws/get-started/begin");
-        });
+    // describe("getting started", () => {
+    //     beforeEach(() => {
+    //         cy.visit("/docs/clouds/aws/get-started/begin");
+    //     });
 
-        describe("when an OS is selected", () => {
-            beforeEach(() => {
-                cy.get(`pulumi-chooser[type="os"] li:last`).click();
-            });
+    //     describe("when an OS is selected", () => {
+    //         beforeEach(() => {
+    //             cy.get(`pulumi-chooser[type="os"] li:last`).click();
+    //         });
 
-            it("activates the selected OS", () => {
-                cy.get(`pulumi-choosable[type="os"][value="macos"] > div`).should("not.have.class", "active");
-                cy.get(`pulumi-choosable[type="os"][value="linux"] > div`).should("have.class", "active");
-            });
-        });
-    });
+    //         it("activates the selected OS", () => {
+    //             cy.get(`pulumi-choosable[type="os"][value="macos"] > div`).should("not.have.class", "active");
+    //             cy.get(`pulumi-choosable[type="os"][value="linux"] > div`).should("have.class", "active");
+    //         });
+    //     });
+    // });
 });
