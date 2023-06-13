@@ -48,6 +48,7 @@ Pulumi Resource Search, including the ability to search on property data, is app
 
 ### See it in action
 
+Watch how we can search for MySQL 5.7 database instances, a resource property, in natural language and get a query response.
 ![Searching on resource properties in the Pulumi Cloud console](properties.gif)
 
 ## Feature Overview
@@ -68,7 +69,7 @@ Before Property Search, using just Resource Search, you were able to find resour
 
 ### AI Assist & properties
 
-Our [AI Assist](/product/private-previews) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, and remembering exactly how to search for property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
+Our [AI Assist](/docs/pulumi-cloud/insights/search/#ai-assist) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, and remembering exactly how to search for property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
 
 Here is a list of example queries we have seen customers use:
 
