@@ -57,9 +57,7 @@ Cloud resources come with various properties that define their behavior, perform
 
 Using the new feature is simple and straightforward. Go to the Pulumi console, navigate to the search bar, and start typing the property you're interested in. For example, if you're searching for all AWS RDS instances running MySQL with a particular engine version, simply type `.engineVersion:5.7` and press enter.
 
-The ability to search for resources based on their properties is a powerful tool for optimizing cloud resource management. It provides deeper insights into your infrastructure and aids in identifying resources that are misconfigured, out-of-date, or not adhering to your organization's best practices. Essentially, it's a significant step towards more proactive, informed, and efficient management of your cloud environment.
-
-Since launching Resource Search, a majority of Pulumi customers have used it, making it the most quickly adopted Pulumi feature. One of these customers is Alkria, a company that reinvents networking for the cloud era with global unified network infrastructure delivered as-a-service. 
+The ability to search for resources based on their properties is a powerful tool for optimizing cloud resource management. It provides deeper insights into your infrastructure and aids in identifying resources that are misconfigured, out-of-date, or not adhering to your organization's best practices. Essentially, it's a significant step towards more proactive, informed, and efficient management of your cloud environment.Customers like Alkira, a company that reinvents networking for the cloud era, have found it to be a significant step towards more proactive, informed, and efficient management of the cloud.
 
 > “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments,” said Santosh Dornal, Head of Software Test & DevOps, Alkira. “I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
 
@@ -69,7 +67,7 @@ Before Property Search, using just Resource Search, you were able to find resour
 
 ### AI Assist & properties
 
-Our [AI Assist](/docs/pulumi-cloud/insights/search/#ai-assist) functionality allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This functionality becomes even more valuable with property search. Resources can have dozens of properties, and remembering exactly how to search for property values are can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
+Pulumi [AI Assist](/docs/pulumi-cloud/insights/search/#ai-assist) allows you to use natural language to search for resources. AI Assist works by converting natural language to a query in our search syntax. This becomes even more valuable with property search. Resources can have dozens of properties, and remembering exactly how to search for property values can be challenging, especially when they change depending on the provider. AI Assist is going to step in so that you don’t have to remember everything.
 
 Here is a list of example natural language queries we have seen customers use and the AI Assist output:
 
