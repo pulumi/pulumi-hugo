@@ -44,7 +44,7 @@ When we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) in Ap
 
 <!--more-->
 
-Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Pulumi Cloud Resource Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
+Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Pulumi Cloud Property Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
 
 ### See it in action
 
@@ -58,7 +58,7 @@ Using the new feature is simple and straightforward. Go to the Pulumi console, n
 
 The ability to search for resources based on their properties is a powerful tool for optimizing cloud resource management. It provides deeper insights into your infrastructure and aids in identifying resources that are misconfigured, out-of-date, or not adhering to your organization's best practices. Essentially, it's a significant step towards more proactive, informed, and efficient management of your cloud environment.
 
-Since launching Resource Search, a majority of Pulumi customers have used it, making it the most quickly adopted Pulumi feature. One of these customers is Alkria, a company that reinvents networking for the cloud era with global unified network infrastructure delivered as-a-service. “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments,” said Santosh Dornal, head of software test & DevOps, Alkira. “I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
+Since launching Resource Search, a majority of Pulumi customers have used it, making it the most quickly adopted Pulumi feature. One of these customers is Alkria, a company that reinvents networking for the cloud era with global unified network infrastructure delivered as-a-service. “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments,” said Santosh Dornal, Head of Software Test & DevOps, Alkira. “I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
 
 ## Example queries
 
@@ -70,18 +70,21 @@ Our [AI Assist](/product/private-previews) functionality allows you to use natur
 
 Here is a list of example queries we have seen customers use:
 
-- resources tagged with stack production
-- my aurora engines running MySQL engine version 5
-- s3 buckets read write in production
-- buckets objects in all clouds
-- show me virtual machines in all clouds
-- all resources in us east 1
+| Natural language                              | Query result                                                                                               |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| resources tagged with stack production        | `.tags.stack:production`                                                                                   |
+| resources without a tag in production         | `-tags: stack:production`                                                                                  |
+| aurora engines running MySQL engine version 5 | `type:"aws:rds/cluster:Cluster" .engine:aurora .engineVersion:5`                                           |
+| s3 buckets read write in production           | `type:"aws:s3/bucket:Bucket" stack:production .acl:public-read-write`                                      |
+| buckets objects in all clouds                 | `type:"aws:s3/bucket:Bucket" OR type:"google:storage/bucket:Bucket" OR type:"azure:storage:BlobContainer"` |
+| all resources in us east 1                    | `region:"us-east-1"`                                                                                       |
+| resources with a private ip                   | `.privateIpAddress:`                                                                                       |
 
 ### Search syntax
 
 Properties can be used in your queries by using a `.` prefix. For example, if you want to see all resources with an Instance Type property, you type in the search bar `.instanceType:`. If you want to only look at a specific value, you can search for the value behind the colon. In this case our query would become `.instanceType:t3.large`.
 
-![Picture of .instanceType:t3.large query in the dashboard](instance_type.png)
+![Picture of .instanceType:t3.large query in the console](instance_type.png)
 
 Here are some query examples we have seen customers use:
 
@@ -93,9 +96,9 @@ Here are some query examples we have seen customers use:
 
 ### Use the REST API
 
-Now you have all this data at your fingertips, but searching isn’t the only thing you can do with it. You can also export it to perform analytics: whether that is something simple like opening it in a spreadsheet or if you want to regularly ingest it to your data warehouse. You can download a CSV from the console or get the data using the [Data Export API](/docs/pulumi-cloud/cloud-rest-api/#data-export).
+In addition to searching for resources you can also export them to perform analytics: whether that is something simple like opening it in a spreadsheet or something more sophisticated, like if you want to regularly ingest it to your data warehouse. You can download a CSV from the console or get the data using the [Data Export API](/docs/pulumi-cloud/cloud-rest-api/#data-export).
 
-But the value of Resource Search and Property Search are not limited to what you do in the console and for analytics. You can also leverage the [Resource Search API](/docs/pulumi-cloud/cloud-rest-api/#resource-search) to create automation and workflows off of search results.
+But the value of Resource Search and Property Search are not limited to what you do in the console and for analytics. You can also leverage the [Resource Search API](/docs/pulumi-cloud/cloud-rest-api/#resource-search) to create automation and workflows from search results.
 
 {{< chooser language "javascript,typescript,python,go" >}}
 
@@ -108,7 +111,7 @@ const headers = {
 };
 
 const body = await (
-  await fetch("https://api.pulumi.com/api/orgs/{org}/search/resources", {
+  await fetch("https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=.instanceType", {
     method: "GET",
     headers: headers,
   })
@@ -128,7 +131,7 @@ const headers = {
 };
 
 const body = await(
-  await fetch("https://api.pulumi.com/api/orgs/{org}/search/resources", {
+  await fetch("https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=.instanceType", {
     method: "GET",
     headers: headers,
   }),
@@ -148,7 +151,7 @@ headers = {
   'Authorization': 'token pul-abc123'
 }
 
-r = requests.get('https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=".instanceType"', headers = headers)
+r = requests.get('https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=.instanceType', headers = headers)
 
 print(r.json())
 
@@ -173,7 +176,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.pulumi.com/api/orgs/{org}/search/resources", data)
+    req, err := http.NewRequest("GET", "https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=.instanceType", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -207,7 +210,7 @@ public class HttpExample
 
     public async Task MakeGetRequest()
     {
-      string url = "https://api.pulumi.com/api/orgs/{org}/search/resources";
+      string url = "https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=.instanceType";
       var result = await GetAsync(url);
     }
 
@@ -240,7 +243,7 @@ public class HttpExample
 {{% choosable language java %}}
 
 ```java
-URL obj = new URL("https://api.pulumi.com/api/orgs/{org}/search/resources");
+URL obj = new URL("https://api.pulumi.com/api/orgs/{org}/search/resources?properties=true?query=.instanceType");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
