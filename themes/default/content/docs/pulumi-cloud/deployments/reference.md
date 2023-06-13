@@ -7,7 +7,7 @@ meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     parent: deployments
-    weight: 2
+    weight: 1
 aliases:
   - /docs/intro/deployments/reference/
 ---

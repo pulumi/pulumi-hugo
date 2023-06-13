@@ -1,13 +1,13 @@
 ---
 title_tag: "Platform Automation with Pulumi Deployments"
 meta_desc: Examples of common cloud deployment platforms built with Pulumi Deployments
-title: "Automation"
+title: "Platform Automation"
 h1: "Platform automation"
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     parent: deployments
-    weight: 1
+    weight: 4
 aliases:
   - /docs/intro/deployments/platform/
 ---
