@@ -266,7 +266,7 @@ For example:
 
 > .instanceType:t3.large
 
-The specific syntax for property names matches the syntax used elsewhere in Pulumi, for example with [`ignoreChanges`](../../../concepts/options/ignorechanges). This makes it possible to refer to property values nested inside arrays or objects, or values with special characters.
+The specific syntax for property names matches the syntax used elsewhere in Pulumi, for example with [`ignoreChanges`](/docs/concepts/options/ignorechanges/). This makes it possible to refer to property values nested inside arrays or objects, or values with special characters.
 
 For example, to query for a key containing spaces inside of an output object named `tags` we can write:
 
