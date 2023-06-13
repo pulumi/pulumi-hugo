@@ -44,7 +44,7 @@ Two months ago we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insig
 
 <!--more-->
 
-Property Search is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Pulumi Cloud Property Search is available on the Enterprise and Business Critical editions of Pulumi Cloud.
+Pulumi Resource Search, including the ability to search on property data, is applicable across all cloud resources, whether they reside in AWS, Google Cloud, Azure, or any of Pulumi's 100+ cloud providers. Support for querying on property data is available in the [Enterprise and Business Critical editions](/pricing) of Pulumi Cloud.
 
 ### See it in action
 
@@ -58,7 +58,9 @@ Using the new feature is simple and straightforward. Go to the Pulumi console, n
 
 The ability to search for resources based on their properties is a powerful tool for optimizing cloud resource management. It provides deeper insights into your infrastructure and aids in identifying resources that are misconfigured, out-of-date, or not adhering to your organization's best practices. Essentially, it's a significant step towards more proactive, informed, and efficient management of your cloud environment.
 
-Since launching Resource Search, a majority of Pulumi customers have used it, making it the most quickly adopted Pulumi feature. One of these customers is Alkria, a company that reinvents networking for the cloud era with global unified network infrastructure delivered as-a-service. “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments,” said Santosh Dornal, Head of Software Test & DevOps, Alkira. “I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
+Since launching Resource Search, a majority of Pulumi customers have used it, making it the most quickly adopted Pulumi feature. One of these customers is Alkria, a company that reinvents networking for the cloud era with global unified network infrastructure delivered as-a-service. 
+
+> “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments,” said Santosh Dornal, Head of Software Test & DevOps, Alkira. “I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
 
 ## Example queries
 
@@ -98,7 +100,7 @@ Here are some query examples we have seen customers use:
 
 In addition to searching for resources you can also export them to perform analytics: whether that is something simple like opening it in a spreadsheet or something more sophisticated, like if you want to regularly ingest it to your data warehouse. You can download a CSV from the console or get the data using the [Data Export API](/docs/pulumi-cloud/cloud-rest-api/#data-export).
 
-But the value of Resource Search and Property Search are not limited to what you do in the console and for analytics. You can also leverage the [Resource Search API](/docs/pulumi-cloud/cloud-rest-api/#resource-search) to create automation and workflows from search results.
+But the value of Resource Search is not limited to what you do in the console and for analytics. You can also leverage the [Resource Search API](/docs/pulumi-cloud/cloud-rest-api/#resource-search) to create automation and workflows off of search results. Find below details on how to use the API.
 
 {{< chooser language "javascript,typescript,python,go" >}}
 
