@@ -272,7 +272,7 @@ For example, to query for a key containing spaces inside of an output object nam
 
 > .tags["name containing spaces"]:value
 
-To query properties nested within arrays, the index can be omitted from the property path or `[*]` can be used. Querying a specific array index (like `[0]`) is not supported. An output of `{"foo": [{"bar": "baz"]}` can be queried with
+To query properties nested within arrays, the index can be omitted from the property path or `[*]` can be used. Querying a specific array index (like `[0]`) is not supported. An output of `{"foo": [{"bar": "baz"]}` can be queried with:
 
 > .foo[*].bar:baz
 
