@@ -53,7 +53,7 @@ Watch how we can search for MySQL 5.7 database instances, a resource property, i
 
 ## Feature Overview
 
-Cloud resources, regardless of the provider, come with various properties that define their behavior, performance, location, and more. You can now use Pulumi Resource Search to search resources based on these properties in addition to other resource metadata. Whether you're trying to find resources running in a specific region, instances with a particular tag, or databases running a certain engine version, searching over properties with Pulumi Cloud streamlines and simplifies your tasks.
+Cloud resources come with various properties that define their behavior, performance, location, and more. You can now use Pulumi Resource Search to search based on these properties in addition to other resource metadata across 100+ clouds. Whether you're trying to find resources running in a specific region, instances with a particular tag, or databases running a certain engine version, searching over properties with Pulumi Cloud streamlines and simplifies your tasks.
 
 Using the new feature is simple and straightforward. Go to the Pulumi console, navigate to the search bar, and start typing the property you're interested in. For example, if you're searching for all AWS RDS instances running MySQL with a particular engine version, simply type `.engineVersion:5.7` and press enter.
 
