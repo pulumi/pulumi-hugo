@@ -1,7 +1,7 @@
 ---
 title_tag: "Using Pulumi Deployments"
 meta_desc: Reference documentation for configuring and using Pulumi Deployments
-title: "Using deployments"
+title: "Using Deployments"
 h1: "Using Pulumi Deployments"
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
