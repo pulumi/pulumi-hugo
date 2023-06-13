@@ -270,7 +270,15 @@ The specific syntax for property names matches the syntax used elsewhere in Pulu
 
 For example, to query for a key containing spaces inside of an output object named `tags` we can write:
 
-> .tags["name containing space"]:value
+> .tags["name containing spaces"]:value
+
+To query properties nested within arrays, the index can be omitted from the property path or `[*]` can be used. Querying a specific array index (like `[0]`) is not supported. An output of `{"foo": [{"bar": "baz"]}` can be queried with
+
+> .foo[*].bar:baz
+
+Or, equivalently:
+
+> .foo.bar:baz
 
 Matching behavior is similar to field queries. Matching is non-exact by default, and surrounding a term with double quotes triggers exact matching.
 
