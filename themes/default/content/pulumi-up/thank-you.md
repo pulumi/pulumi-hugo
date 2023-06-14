@@ -53,7 +53,7 @@ workshops:
     date: August 2, 2023
   
   - title: Advanced Kubernetes Platforms on Google Cloud with Pulumi
-    url: /resources/kubernetes-platforms-on-google-cloud
+    url: /resources/kubernetes-platforms-on-google-cloud/
     description: |
       In this workshop, we’ll explore how to deliver and scale a Kubernetes platform on Google Cloud.
     date: August 10, 2023
