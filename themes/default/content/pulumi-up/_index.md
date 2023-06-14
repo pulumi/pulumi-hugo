@@ -111,7 +111,7 @@ workshops:
     date:  July 20, 2023
 
   - title: Getting Started with Azure Infrastructure as Code and Review Stacks
-    url: /resources/azure-github-workshop
+    url: /resources/azure-github-workshop/
     description: |
       In this workshop, we’ll explore the new Azure Native v2 provider and Pulumi Review Stacks on GitHub
     date: July 27, 2023
