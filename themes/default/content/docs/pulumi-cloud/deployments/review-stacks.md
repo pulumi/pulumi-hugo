@@ -78,11 +78,11 @@ const deploymentSettings = new pulumiservice.DeploymentSettings("deploymentSetti
 
 ## Common Patterns
 
-Review Stacks are powerec by Pulumi IaC, and as a result offer a high degree of flexibility by way of configuration, and even multiple Pulumi Programs. Here we outline a few common patterns.
+Review Stacks are powered by Pulumi IaC, and as a result offer a high degree of flexibility by way of configuration, and even multiple Pulumi Programs. Here we outline a few common patterns.
 
 ### Utilizing Config
 
-Each pull request template stack has a corresponding Pulumi config file that can be check into source control. By convention this file is called `Pulumi.pr.yaml` and you can even modify these configuration values as a part of your pull request and the new configuration will be used to deploy your Review Stack.
+Each pull request template stack has a corresponding Pulumi config file that can be checked into source control. By convention this file is called `Pulumi.pr.yaml` and you can even modify these configuration values as a part of your pull request and the new configuration will be used to deploy your Review Stack.
 
 Review Stack config can be used to customize your deployment environment. For instance, you may want to downsize the size of VMs and number of containers deployed to your review stack.
 
@@ -214,7 +214,7 @@ const productionSettings = new pulumiservice.DeploymentSettings("productionSetti
 const sharedKubernetesSettings = new pulumiservice.DeploymentSettings("sharedKubernetesSettings", {
 	organization: pulumi.getOrganization(),
 	project: "your project",
-	stack: "production",
+	stack: "kubernetes-shared-cluster",
 	github: {
 		deployCommits: true,
 		previewPullRequests: true,
