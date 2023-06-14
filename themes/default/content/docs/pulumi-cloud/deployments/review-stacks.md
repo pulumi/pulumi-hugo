@@ -18,7 +18,7 @@ Review Stacks enable you to iterate on both application code changes and infrast
 
 ## Configuring Review Stacks
 
-Review Stacks are powered by Pulumi Deployments, and require that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings).
+Review Stacks are powered by Pulumi Deployments, and require that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings). Review Stacks are configured at the branch level. If you utilize multiple branches for your development and release process, you will need to configure a Review Stack template for each one.
 
 Configuring Review Stacks is a simple three-step process:
 
@@ -282,8 +282,7 @@ const prSettings = new pulumiservice.DeploymentSettings("prSettings", {
 		repository: "pulumi/deployment-automation",
         // use this template when migrations haven't changed
         paths: [
-                "api/*",
-                "!migrations/*",
+            "!migrations/*",
         ],
 	},
 	sourceContext: {
@@ -305,7 +304,7 @@ const prMigrationSettings = new pulumiservice.DeploymentSettings("prMigrationSet
 		repository: "pulumi/deployment-automation",
         // use this template when migrations have changed in the PR contents
         paths: [
-                "migrations/*",
+            "migrations/*",
         ],
 	},
 	sourceContext: {
