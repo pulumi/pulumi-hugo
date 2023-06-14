@@ -12,7 +12,7 @@ aliases:
   - /docs/intro/deployments/versus/
 ---
 
-Pulumi Deployments is a cloud automation platform. It can serve as a CI/CD system, but it has the flexibility to do much more. How does it compare to something like GitHub Actions, GitLab CI, or Terraform Enterprise? 
+Pulumi Deployments is a cloud automation platform. It can serve as a CI/CD system, but it has the flexibility to do much more. How does it compare to something like GitHub Actions, GitLab CI, or Terraform Enterprise?
 
 Pulumi Deployments is purpose-built for infrastructure. It provides both a "platform in a box" that let's your team get up and running quickly with features like [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks) in addition to a powerful API that you can build on top of to power custom infrastructure workflows. Pulumi Deployments has the flexibility to handle more than just source control events - something that CI/CD systems typically focus on exclusively. Other systems assume that the primary mechanism for a workflow run is a git commit. That assumption may be true in the domain of application development, but it falls apart when working in the domain of cloud infrastructure automation.
 
