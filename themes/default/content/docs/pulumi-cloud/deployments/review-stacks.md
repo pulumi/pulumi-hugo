@@ -18,7 +18,7 @@ Review Stacks enable you to iterate on both application code changes and infrast
 
 ## Configuring Review Stacks
 
-Review Stacks are powered by Pulumi Deployments, and require that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings). 
+Review Stacks are powered by Pulumi Deployments, and require that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings).
 
 Configuring Review Stacks is a simple three-step process:
 
@@ -76,11 +76,11 @@ const deploymentSettings = new pulumiservice.DeploymentSettings("deploymentSetti
 });
 ```
 
-# Common Patterns
+## Common Patterns
 
 Review Stacks are powerec by Pulumi IaC, and as a result offer a high degree of flexibility by way of configuration, and even multiple Pulumi Programs. Here we outline a few common patterns.
 
-## Utilizing Config
+### Utilizing Config
 
 Each pull request template stack has a corresponding Pulumi config file that can be check into source control. By convention this file is called `Pulumi.pr.yaml` and you can even modify these configuration values as a part of your pull request and the new configuration will be used to deploy your Review Stack.
 
@@ -108,7 +108,7 @@ config:
 
 You can use Review Stack config in other creative ways, for instance to configure stacks to utilize shared development resources such as VPCs or databases rather than having a dedicated database per Review Stack. This can be useful to both optimize costs, and speed up deployment times.
 
-## Single Stack
+### Single Stack
 
 You can configure a single stack with `git push` to Deploy, pull request previews, and Review Stacks. This is the simplest, lowest configuration approach, but results in your Review Stacks getting created in the same cloud account as your primary or production stack. It also means that the same configuration will be used for your production and review stacks, meaning that patterns like downsizing Review Stacks won't be possible.
 
@@ -134,11 +134,11 @@ const deploymentSettings = new pulumiservice.DeploymentSettings("deploymentSetti
 });
 ```
 
-## Separate Stacks
+### Separate Stacks
 
 If you need your Review Stacks to differ from your production stack in either configuration or Deployment Settings, creating a separate stack and template is necessary. This enables you to configure your Review Stacks for instance to deploy into a separate cloud account.
 
-First you will need to `pulumi stack init` to create a `pr` stack, set any necessary config values, and commit this file to source control. 
+First you will need to `pulumi stack init` to create a `pr` stack, set any necessary config values, and commit this file to source control.
 
 ```ts
 const productionSettings = new pulumiservice.DeploymentSettings("productionSettings", {
@@ -185,7 +185,7 @@ const prSettings = new pulumiservice.DeploymentSettings("prSettings", {
 
 ```
 
-## Customizing Behavior with Multiple Pulumi Programs
+### Customizing Behavior with Multiple Pulumi Programs
 
 Sometimes you want your Review Stack to differ substantially from the stack that gets deployed to production. You might want to use multi-tenant development infrastructure for Review Stacks to both reduce the cost of development infrastructure, and also speed up Review Stack deployment times. Sometimes this can be accomplished with config alone, but occassionaly it can be useful to write separate Pulumi Programs for the review stack. One common pattern for this is:
 
@@ -249,7 +249,7 @@ const prSettings = new pulumiservice.DeploymentSettings("prSettings", {
 
 ```
 
-## Customizing Behavior with Path Filters
+### Customizing Behavior with Path Filters
 
 Sometimes you want to vary the behavior of a Review Stack based on what kind of code changed. For instance, changes to the `migrations` folder should trigger a migrations container to be built and run, but otherwise we want to skip this step as it adds a few extra minutes to our deployment times. This can be accomplished by using path filters in combination with multiple Review Stack templates. When the pull request is opened, Pulumi Deployments will evaluate the code changes and select which template to use based on matches against the path filters. This allows you to customize Deployment Settings, config, or Pulumi Program, based on what code changes were made.
 
