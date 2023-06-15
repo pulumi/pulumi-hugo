@@ -1935,7 +1935,7 @@ var bucketPolicy = new BucketPolicy(bucket.Name, new BucketPolicyArgs
 
 ```java
 var bucket = new Bucket("my-bucket")
-var bucketPolicy = new BucketPolicy(bucket.bucket(), 
+var bucketPolicy = new BucketPolicy(bucket.bucket(),
     BucketPolicyArgs.builder()
     // the rest of the bucket policy arguments go here);
 ```
