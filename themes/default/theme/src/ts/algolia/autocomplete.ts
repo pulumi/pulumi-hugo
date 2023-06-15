@@ -226,14 +226,15 @@ function initAutocomplete(el: HTMLElement) {
                         </div>
                     `;
                 },
-                noResults: ({ html, state }) => {
+                noResults: ({ html, state, setCollections }) => {
                     if (!state.query) {
                         return;
                     }
 
                     return html`
-                        <img src="/images/search/no-results.svg"/>
+                        <p><img src="/images/search/no-results.svg"/></p>
                         <p>We couldn't find any results for <mark>${ state.query }</mark>.</p>
+                        <p>Try again using fewer or more general keywords.</p>
                     `;
                 },
             },
