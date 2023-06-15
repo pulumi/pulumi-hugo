@@ -59,8 +59,8 @@
                             <span>↵ to select</span>
                             <span>esc to close</span>
                         </div>
-                    `,noResults:({html:e,state:t,setCollections:n})=>{if(t.query)return e`
+                    `,noResults:({html:e,state:t})=>{if(t.query)return e`
                         <p><img src="/images/search/no-results.svg"/></p>
                         <p>We couldn't find any results for <mark>${t.query}</mark>.</p>
-                        <p>Try again using fewer or more general keywords.</p>
+                        <p>Try a more general term or use fewer keywords.</p>
                     `}}}}(e,0,r)),pp(o)},insights:!0,plugins:[up(wp)]})}var Cp;window.addEventListener("DOMContentLoaded",(()=>{const e=document.querySelector("#search");e&&Sp(e)})),"undefined"!=typeof customElements&&[So,Co,Do,_o,Eo,ko,xo,Oo,$o,To,Ao,Po,jo,Io,Fo,Lo,Mo,No,Bo,Ro,zo,qo,Uo,Ho,Wo,Vo,Go,Ko,Yo,Jo,Xo,Qo,Zo,es,ts,ns,rs,is].forEach((e=>{customElements.get(e.is)||customElements.define(e.is,e,Cp)}))})()})();

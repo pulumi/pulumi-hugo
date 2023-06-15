@@ -226,7 +226,7 @@ function initAutocomplete(el: HTMLElement) {
                         </div>
                     `;
                 },
-                noResults: ({ html, state, setCollections }) => {
+                noResults: ({ html, state }) => {
                     if (!state.query) {
                         return;
                     }
