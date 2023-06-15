@@ -17,4 +17,3 @@ aliases:
 {{< cloud-intro "Google Cloud" >}}
 
 {{< get-started-stepper >}}
-
