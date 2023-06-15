@@ -180,7 +180,7 @@ Create a `./content` director in the `./app` directory and add the HTML file bel
 Now that setup is complete you project directory should look similar to this:
 
 ```bash
-quickstart/
+get-started/
 ├── Pulumi.dev.yaml
 ├── Pulumi.yaml
 ├── app
