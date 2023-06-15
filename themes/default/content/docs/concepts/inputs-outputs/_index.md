@@ -373,7 +373,13 @@ myPet.Id.Apply(id => { Console.WriteLine($"Hello, {id}!"); return id; });
 {{% choosable language java %}}
 
 ```java
-final 
+var myId = new RandomPet("my-pet", RandomPetArgs.builder()
+    .build());
+
+myId.id().applyValue(i -> {
+    System.out.println("Hello," + i + "!");
+    return null;
+});
 ```
 
 {{% /choosable %}}
@@ -1772,6 +1778,7 @@ if err != nil {
 {{% choosable language csharp %}}
 
 ```csharp
+// NOTE: this example is not correct
 var bucket = new Bucket("content-bucket", new BucketArgs
 {
     Acl = "private",
@@ -1810,7 +1817,29 @@ var bucket = new Bucket("content-bucket", new BucketArgs
 {{% choosable language java %}}
 
 ```java
-// TODO
+// NOTE: this example is not correct
+var bucket = new Bucket("my-bucket", BucketArgs.builder()
+    .acl("private")
+    .website(BucketWebsiteArgs.builder()
+        .indexDocument("index.html")
+        .errorDocument("404.html")
+        .build())
+    .build());
+
+var policy = new JSONObject();
+            policy.put("Version", "2012-10-17");
+            policy.put("Statement", new JSONArray(new JSONObject[] {
+                new JSONObject()
+                    .put("Effect", "Allow")
+                    .put("Principal", "*")
+                    .put("Action", "s3:GetObject")
+                    .put("Resource", bucket.apply.arn(arn -> arn) + "/*")
+            }));
+
+            var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", BucketPolicyArgs.builder()
+                    .bucket(bucket.id())
+                    .policy(policy)
+                    .build());
 ```
 
 {{% /choosable %}}
@@ -1835,7 +1864,11 @@ When creating multiple resources, it can be tempting to use the output of one re
 {{% choosable language javascript %}}
 
 ```javascript
+const bucket = new aws.s3.Bucket("my-bucket", {});
 
+const bucketPolicy = new aws.s3.BucketPolicy(bucket.name, {
+  // rest of bucket policy arguments go here
+});
 ```
 
 {{% /choosable %}}
@@ -1846,7 +1879,7 @@ When creating multiple resources, it can be tempting to use the output of one re
 const bucket = new aws.s3.Bucket("my-bucket", {});
 
 const bucketPolicy = new aws.s3.BucketPolicy(bucket.name, {
-  // rest of bucket arguments go here
+  // rest of bucket policy arguments go here
 });
 ```
 
@@ -1859,7 +1892,7 @@ bucket = aws.s3.Bucket("my-bucket",)
 
 bucket_policy = aws.s3.BucketPolicy(
     bucket.name,
-   # rest of bucket arguments go here
+   # rest of bucket policy arguments go here
 )
 ```
 
@@ -1876,7 +1909,7 @@ if err != nil {
 
 _, err = s3.NewBucketPolicy(ctx, bucket.Name, &s3.BucketPolicyArgs{
 	Bucket: bucket.ID(),
-	// rest of bucket arguments go here
+	// rest of bucket policy arguments go here
 })
 if err != nil {
 	return err
@@ -1889,10 +1922,10 @@ if err != nil {
 ```csharp
 var bucket = new Bucket("my-bucket", new BucketArgs{});
 
-var bucketPolicy = new Bucket(bucket.Name, new BucketPolicyArgs
+var bucketPolicy = new BucketPolicy(bucket.Name, new BucketPolicyArgs
 {
     Bucket = bucket.Id,
-    // rest of the bucket arguments go here
+    // rest of the bucket policy arguments go here
 })
 ```
 
@@ -1900,7 +1933,10 @@ var bucketPolicy = new Bucket(bucket.Name, new BucketPolicyArgs
 {{% choosable language java %}}
 
 ```java
-// TODO
+var bucket = new Bucket("my-bucket")
+var bucketPolicy = new BucketPolicy(bucket.bucket(), 
+    BucketPolicyArgs.builder()
+    // the rest of the bucket policy arguments go here);
 ```
 
 {{% /choosable %}}
