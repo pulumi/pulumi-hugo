@@ -1958,3 +1958,4 @@ If you're familiar with JavaScript, you might already be familiar with the mecha
 Pulumi Output values are similar in some ways to JavaScript Promises, in that they are values that are not necessarily known until a future event. With that in mind, it can be tempting to try and use `Promise.resolve()` and to think of Outputs like Promises.
 
 However, Pulumi Outputs do not behave in the same way as JavaScript Promises. As such, it's not possible to block execution of a Pulumi program until a promise is resolved and you should not use JavaScript Promise mechanisms to handle Pulumi Outputs.
+
