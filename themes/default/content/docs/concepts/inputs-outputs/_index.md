@@ -1635,6 +1635,7 @@ The following code is an example of what NOT to do. Please do not copy this code
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 
 {{% choosable language javascript %}}
+
 ```javascript
 // NOTE: This example is not correct
 let contentBucket = new aws.s3.Bucket("content-bucket", {
