@@ -17,7 +17,7 @@ aliases:
 
 All resources in Pulumi accept values that describe the way the resource behaves. We call these values *inputs*.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -89,7 +89,7 @@ resources:
   myId:
     type: random:randomId
     properties:
-      byteLength: 8 // byteLenght is an input
+      byteLength: 8 # byteLength is an input
 ```
 
 {{% /choosable %}}
@@ -99,7 +99,7 @@ _Inputs_ are generally representations of the parameters to the underlying API c
 
 The simplest way to create a resource with its required _inputs_ is to use a _plain value_.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
@@ -162,6 +162,18 @@ var key = new PrivateKey("my-private-key", PrivateKeyArgs.builder()
     .algorithm("ECDSA") // ECDSA is a plain value
     .build()
 )
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+resources:
+  key:
+    type: tls:PrivateKey
+    properties:
+      algorithm: "ECDSA" # ECDSA is a plain value
 ```
 
 {{% /choosable %}}
