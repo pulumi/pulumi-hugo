@@ -234,7 +234,7 @@ function initAutocomplete(el: HTMLElement) {
                     return html`
                         <p><img src="/images/search/no-results.svg"/></p>
                         <p>We couldn't find any results for <mark>${ state.query }</mark>.</p>
-                        <p>Try again using fewer or more general keywords.</p>
+                        <p>Try a more general term or use fewer keywords.</p>
                     `;
                 },
             },
