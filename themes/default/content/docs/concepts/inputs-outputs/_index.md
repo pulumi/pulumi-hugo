@@ -366,14 +366,14 @@ myPet.ID().ApplyT(func(id string) error {
 
 ```csharp
 var myPet = new Pulumi.Random.RandomPet("my-pet", new(){});
-   myPet.Id.Apply(id => { Console.WriteLine($"Hello, {id}!"); return id; });
+myPet.Id.Apply(id => { Console.WriteLine($"Hello, {id}!"); return id; });
 ```
 
 {{% /choosable %}}
 {{% choosable language java %}}
 
 ```java
-// TODO
+final 
 ```
 
 {{% /choosable %}}
@@ -1622,12 +1622,41 @@ The reason this is happening is because the _Output_ value is being used before 
 
 A concrete example of this can be seen in the following code:
 
+{{% notes %}}
+The following code is an example of what NOT to do. Please do not copy this code into your Pulumi program
+{{% /notes %}}
+
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 
 {{% choosable language javascript %}}
-
 ```javascript
-// TODO
+// NOTE: This example is not correct
+let contentBucket = new aws.s3.Bucket("content-bucket", {
+  acl: "private",
+  website: {
+    indexDocument: "index.html",
+    errorDocument: "index.html",
+  },
+  forceDestroy: true,
+});
+
+let bucketPolicy = new aws.s3.BucketPolicy("cloudfront-bucket-policy", {
+  bucket: contentBucket.bucket,
+  policy: JSON.stringify({
+        Version: "2012-10-17",
+        Statement: [
+          {
+            Sid: "CloudfrontAllow",
+            Effect: "Allow",
+            Principal: {
+              AWS: iamArn,
+            },
+            Action: "s3:GetObject",
+            Resource: bucket.arn.apply(arn => arn),
+          },
+        ],
+      })
+});
 ```
 
 {{% /choosable %}}
@@ -1660,7 +1689,6 @@ const bucketPolicy = new aws.s3.BucketPolicy("cloudfront-bucket-policy", {
           },
         ],
       })
-    ),
 });
 ```
 
@@ -1754,7 +1782,28 @@ var bucket = new Bucket("content-bucket", new BucketArgs
     },
 });
 
-// TODO incorrect bucket policy build
+ var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", new BucketPolicyArgs
+    {
+        Bucket = bucket.Id,
+        Policy = JsonSerializer.Serialize(new
+        {
+            Version = "2012-10-17",
+            Statement = new[]
+             {
+                new
+                {
+                    Sid = "CloudfrontAllow",
+                    Effect = "Allow",
+                    Principal = new
+                    {
+                        AWS = "*"
+                    },
+                    Action = "s3:GetObject",
+                    Resource = bucket.Arn.Apply(arn => $"{arn}/*"),
+                }
+            }
+        })
+    });
 ```
 
 {{% /choosable %}}
@@ -1840,7 +1889,11 @@ if err != nil {
 ```csharp
 var bucket = new Bucket("my-bucket", new BucketArgs{});
 
-// TODO incorrect bucket policy build
+var bucketPolicy = new Bucket(bucket.Name, new BucketPolicyArgs
+{
+    Bucket = bucket.Id,
+    // rest of the bucket arguments go here
+})
 ```
 
 {{% /choosable %}}
