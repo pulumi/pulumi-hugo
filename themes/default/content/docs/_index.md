@@ -12,7 +12,7 @@ description: <p>Pulumi is an <a href="https://github.com/pulumi/pulumi" target="
 link_buttons:
   primary:
     label: Quickstart
-    link: /docs/get-started/
+    link: /docs/quickstart/
   secondary:
     label: Install
     link: /docs/install/
