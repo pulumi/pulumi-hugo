@@ -243,7 +243,11 @@ Pulumi Deployments can be used to automatically deploy dependent stacks via Depl
 1. [Deployment Webhook Destinations](/docs/pulumi-cloud/webhooks/#deployment-webhooks)
 2. [The Pulumi Auto Deploy Package](/registry/packages/auto-deploy)
 
+Either method requires that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings).
+
 #### Deployment Webhook Destinations
+
+[Deployment Webhook Destinations](/docs/pulumi-cloud/webhooks/#deployment-webhooks) allow you to pick one or more event types on a stack (i.e. `update succeeded`, or `refresh failed`) and automatically deliver an event to a destination - in this case the Create Deployment API for another Stack.
 
 {{< chooser language "typescript,python,go,csharp,yaml" >}}
 
@@ -436,6 +440,8 @@ resources:
 {{< /chooser >}}
 
 #### Pulumi Auto Deploy
+
+[`Pulumi Auto Deploy`](/registry/packages/auto-deploy) lets you simply express dependencies between stacks, and takes care of creating and updating the necessary Deployment Webhooks under the hood.
 
 {{< chooser language "typescript,python,go,csharp,yaml" >}}
 

@@ -1,6 +1,6 @@
 ---
 title: "Dependent Stack Updates with Pulumi Deployments"
-date: 2023-06-15
+date: 2023-06-20
 meta_desc: Automatically keep dependent stacks up to date with Deployment Webhook Destinations and the pulumi-auto-deploy package.
 meta_image: meta.png
 authors:
@@ -40,7 +40,7 @@ via a webhook triggering Pulumi Deployments.
 
 ## Deployment Webhook Destinations
 
-Pulumi Webhooks allow you to pick one or more event types on a stack (i.e. `update completed`, or `refresh failed`) and automatically deliver an event to a destination such a slack channel or a webserver you’ve deployed with custom code. Now you can choose Pulumi Deployments as a webhook destination. When an update completes on the parent stack, a deployment will automatically be triggered on the destination stack. This makes it easy to keep dependent stacks up to date. For instance, you can use Deployment Webhook Destinations to configure every successful update on your `networking` stack to trigger downstream updates on your `database` and `compute` stacks.
+Pulumi Webhooks allow you to pick one or more event types on a stack (i.e. `update succeeded`, or `refresh failed`) and automatically deliver an event to a destination such a slack channel or a webserver you’ve deployed with custom code. Now you can choose Pulumi Deployments as a webhook destination. When an update completes on the parent stack, a deployment will automatically be triggered on the destination stack. This makes it easy to keep dependent stacks up to date. For instance, you can use Deployment Webhook Destinations to configure every successful update on your `networking` stack to trigger downstream updates on your `database` and `compute` stacks.
 
 {{< chooser language "typescript,python,go,csharp,yaml" >}}
 
@@ -232,9 +232,9 @@ resources:
 
 {{< /chooser >}}
 
-## Expressing Stack Dependencies with pulumi-auto-deploy
+## Expressing Stack Dependencies with Pulumi Auto Deploy
 
-We’ve also shipped a new Pulumi package called [`pulumi-auto-deploy`](github.com/pulumi/pulumi-auto-deploy). It lets you simply express dependencies between stacks, and takes care of creating and updating the necessary Deployment Webhooks under the hood.
+We’ve also shipped a new Pulumi package called [`Pulumi Auto Deploy`](/registry/packages/auto-deploy). It lets you simply express dependencies between stacks, and takes care of creating and updating the necessary Deployment Webhooks under the hood.
 
 {{< chooser language "typescript,python,go,csharp,yaml" >}}
 
