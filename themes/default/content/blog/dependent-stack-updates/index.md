@@ -81,7 +81,7 @@ using System.Linq;
 using Pulumi;
 using PulumiService = Pulumi.PulumiService;
 
-return await Deployment.RunAsync(() => 
+return await Deployment.RunAsync(() =>
 {
     var databaseWebhook = new PulumiService.Webhook("databaseWebhook", new()
     {
@@ -253,7 +253,7 @@ import * as pulumi from "@pulumi/pulumi";
     │   ├── e
     │   └── f
     └── c
- * Whenever a node in the graph is updated, 
+ * Whenever a node in the graph is updated,
  * all downstream nodes will be automatically updated via a webhook triggering Pulumi Deployments.
  */
 
@@ -322,11 +322,11 @@ using AutoDeploy = Pulumi.AutoDeploy;
     │   ├── e
     │   └── f
     └── c
- * Whenever a node in the graph is updated, 
+ * Whenever a node in the graph is updated,
  * all downstream nodes will be automatically updated via a webhook triggering Pulumi Deployments.
  */
 
-return await Deployment.RunAsync(() => 
+return await Deployment.RunAsync(() =>
 {
     var projectVar = "dependency-example";
 
@@ -409,7 +409,7 @@ The following example configures automatic deployment of stacks with the followi
     │   ├── e
     │   └── f
     └── c
-Whenever a node in the graph is updated, 
+Whenever a node in the graph is updated,
 all downstream nodes will be automatically updated via a webhook triggering Pulumi Deployments.
 '''
 
