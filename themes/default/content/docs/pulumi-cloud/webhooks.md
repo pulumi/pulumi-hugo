@@ -144,7 +144,7 @@ class PulumiServiceWebhook: Stack
 7. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
 8. Choose between receiving all events or only receiving specific events using the filters menu.
 
-![Stack webhooks form](ui-webhooks.png)
+![Stack webhooks form](../ui-webhooks.png)
 
 ## Event Filtering
 
