@@ -51,20 +51,18 @@ async function waitForInProgressRuns() {
         }),
     );
 
-    
     if (recentDocs.length > 0 || recentHugo.length > 0) {
         const currentDocsRun = docsRuns.find(run => run.id === currentRunID);
-    
+
         // Sort in-progress runs descendingly, excluding the current one.
         const recentDocs = docsRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
-    
+
         console.log(`Found ${recentDocs.length} other ${workflowName} job(s) running on branch ${branch}.`);
-    
+
         const recentHugo = hugoRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
-    
+
         console.log(`Found ${recentHugo.length} other ${workflowName} job(s) running on branch ${branch}.`);
 
-        
         const [mostRecent] = [...recentDocs, ...recentHugo];
         console.log(`Waiting for ${mostRecent.html_url} to complete before continuing.`);
         await Promise.resolve(setTimeout(waitForInProgressRuns, 60000)); // One minute.
