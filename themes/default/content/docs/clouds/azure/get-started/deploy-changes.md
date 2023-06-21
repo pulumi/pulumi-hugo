@@ -115,7 +115,7 @@ $ curl $(pulumi stack output staticEndpoint)
 
 {{% /choosable %}}
 
-And you should see:
+And in a few moments, you should see:
 
 ```bash
 <html>
