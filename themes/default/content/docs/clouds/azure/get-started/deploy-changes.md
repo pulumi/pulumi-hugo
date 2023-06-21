@@ -38,8 +38,8 @@ Resources:
     3 unchanged
 
 Do you want to perform this update?
-  yes
-> no
+> yes
+  no
   details
 ```
 
