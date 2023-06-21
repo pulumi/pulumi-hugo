@@ -23,9 +23,9 @@ clone_docs_infrastructure() {
     git checkout
     yarn install
     # temporarily here until merging docs updates into master
-    curl -o infrastructure/Pulumi.www-testing.yaml -L "https://raw.githubusercontent.com/pulumi/docs/2ae7440d4e83cfc7e1302420207ad514a9631c00/infrastructure/Pulumi.www-testing.yaml"
-    curl -o infrastructure/index.ts -L "https://raw.githubusercontent.com/pulumi/docs/2ae7440d4e83cfc7e1302420207ad514a9631c00/infrastructure/index.ts"
-    curl -o infrastructure/lambdaEdge.ts -L "https://raw.githubusercontent.com/pulumi/docs/2ae7440d4e83cfc7e1302420207ad514a9631c00/infrastructure/lambdaEdge.ts"
+    curl -o infrastructure/Pulumi.www-testing.yaml -L "https://raw.githubusercontent.com/pulumi/docs/b83121c58ba66f5b53a1a8d36945a9d47c91f674/infrastructure/Pulumi.www-testing.yaml"
+    curl -o infrastructure/index.ts -L "https://raw.githubusercontent.com/pulumi/docs/b83121c58ba66f5b53a1a8d36945a9d47c91f674/infrastructure/index.ts"
+    curl -o infrastructure/lambdaEdge.ts -L "https://raw.githubusercontent.com/pulumi/docs/b83121c58ba66f5b53a1a8d36945a9d47c91f674/infrastructure/lambdaEdge.ts"
     mv infrastructure ../
     popd
 }
