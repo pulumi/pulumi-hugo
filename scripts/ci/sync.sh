@@ -68,6 +68,9 @@ aws s3 sync "$build_dir" "$destination_bucket_uri" --acl public-read --delete --
 echo "Syncing CSS files to the CSS bucket"
 aws s3 cp "${build_dir}/css/" "s3://${cssBucket}/css/" --acl public-read  --content-type "text/css" --region "us-west-2" --recursive
 
+# echo "Syncing JS files to the bundles bucket"
+# aws s3 cp "${build_dir}/js/" "s3://${bundleBucket}/js/" --acl public-read  --content-type "text/javascript" --region "$(aws_region)" --recursive
+
 echo "Sync complete."
 s3_website_url="http://${destination_bucket}.s3-website.$(aws_region).amazonaws.com"
 echo "$s3_website_url"
