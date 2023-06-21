@@ -7,13 +7,12 @@ const { Octokit } = require("@octokit/rest");
 // prevent the current workflow from continuing).
 // Inspired by https://github.com/softprops/turnstyle.
 async function waitForInProgressRuns() {
-
     // See https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables
     // for an explanation of each of these variables.
     const githubToken = process.env.GITHUB_TOKEN;
     const currentRunID = parseInt(process.env.GITHUB_RUN_ID, 10);
     const workflowName = process.env.GITHUB_WORKFLOW;
-    const [ owner, repo ] = process.env.GITHUB_REPOSITORY.split("/");
+    const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
     const hugoRepo = "pulumi-hugo";
     const docsRepo = "docs";
     const branch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF.replace("refs/heads/", "");
@@ -32,43 +31,39 @@ async function waitForInProgressRuns() {
 
     // Fetch a paginated list of in-progress runs of the current workflow in docs.
     const docsRuns = await octokit.paginate(
-      octokit.rest.actions.listWorkflowRuns.endpoint.merge({
-        owner,
-        repo: docsRepo,
-        branch: "sean/testing-out-separate-builds",
-        workflow_id: docs_workflow_id,
-        status,
-      })
+        octokit.rest.actions.listWorkflowRuns.endpoint.merge({
+            owner,
+            repo: docsRepo,
+            branch: "sean/testing-out-separate-builds",
+            workflow_id: docs_workflow_id,
+            status,
+        }),
     );
 
     // Fetch a paginated list of in-progress runs of the current workflow in pulumi-hugo.
     const hugoRuns = await octokit.paginate(
         octokit.rest.actions.listWorkflowRuns.endpoint.merge({
-          owner,
-          repo: hugoRepo,
-          branch,
-          workflow_id: hugo_workflow_id,
-          status,
-        })
+            owner,
+            repo: hugoRepo,
+            branch,
+            workflow_id: hugo_workflow_id,
+            status,
+        }),
     );
 
     const currentDocsRun = docsRuns.find(run => run.id === currentRunID);
 
     // Sort in-progress runs descendingly, excluding the current one.
-    const recentDocs = docsRuns
-        .sort((a, b) => b.id - a.id)
-        .filter(run => run.run_started_at < currentDocsRun.created_at);
+    const recentDocs = docsRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
 
     console.log(`Found ${recentDocs.length} other ${workflowName} job(s) running on branch ${branch}.`);
 
-    const recentHugo = hugoRuns
-        .sort((a, b) => b.id - a.id)
-        .filter(run => run.run_started_at < currentDocsRun.created_at);
+    const recentHugo = hugoRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
 
     console.log(`Found ${recentHugo.length} other ${workflowName} job(s) running on branch ${branch}.`);
 
     if (recentDocs.length > 0 || recentHugo.length > 0) {
-        const [ mostRecent ] = [...recentDocs, ...recentHugo];
+        const [mostRecent] = [...recentDocs, ...recentHugo];
         console.log(`Waiting for ${mostRecent.html_url} to complete before continuing.`);
         await Promise.resolve(setTimeout(waitForInProgressRuns, 60000)); // One minute.
     } else {
@@ -80,7 +75,7 @@ async function waitForInProgressRuns() {
 // process to exit nonzero. Since we want this script to fail loudly when something goes
 // wrong, we listen for unhandledRejection events and rethrow, exiting 1.
 // https://nodejs.org/api/process.html#process_event_unhandledrejection
-process.on("unhandledRejection", (error) => {
+process.on("unhandledRejection", error => {
     throw error;
 });
 
