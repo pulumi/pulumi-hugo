@@ -12,7 +12,7 @@ jobs:
       GOPATH: ${{ github.workspace }}/go
     name: Build and deploy preview
     runs-on: ubuntu-latest
-    environment: testing
+    environment: ci
     steps:
       - name: Install Node
         uses: actions/setup-node@v1
@@ -46,12 +46,8 @@ jobs:
       - name: Build and deploy preview
         run: make ci-pull-request
         env:
-          CDN_PULUMI_URN: ${{ vars.CDN_PULUMI_URN }}
           GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
           ALGOLIA_APP_SEARCH_KEY: ${{ vars.ALGOLIA_APP_SEARCH_KEY }}
           DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
-          PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
