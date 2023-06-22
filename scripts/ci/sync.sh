@@ -36,7 +36,7 @@ destination_bucket_uri="s3://${destination_bucket}"
 
 # We host the CSS files in a separate bucket that `/css`` routes to to enable managing the bundles
 # generated from both the docs and registry repos.
-cssBucket=$(pulumi -C infrastructure stack output cssS3BucketName)
+bundleBucket=$(pulumi -C infrastructure stack output bundlesS3BucketName)
 
 echo "destination bucket: ${destination_bucket}"
 echo "destination bucket uri: ${destination_bucket_uri}"
@@ -66,10 +66,10 @@ aws s3 sync "$build_dir" "$destination_bucket_uri" --acl public-read --delete --
 
 # Upload the CSS bundle files to the CSS bucket.
 echo "Syncing CSS files to the CSS bucket"
-aws s3 cp "${build_dir}/css/" "s3://${cssBucket}/css/" --acl public-read  --content-type "text/css" --region "us-west-2" --recursive
+aws s3 cp "${build_dir}/css/" "s3://${bundleBucket}/css/" --acl public-read  --content-type "text/css" --region "$(aws_region)" --recursive
 
-# echo "Syncing JS files to the bundles bucket"
-# aws s3 cp "${build_dir}/js/" "s3://${bundleBucket}/js/" --acl public-read  --content-type "text/javascript" --region "$(aws_region)" --recursive
+echo "Syncing JS files to the bundles bucket"
+aws s3 cp "${build_dir}/js/" "s3://${bundleBucket}/js/" --acl public-read  --content-type "text/javascript" --region "$(aws_region)" --recursive
 
 echo "Sync complete."
 s3_website_url="http://${destination_bucket}.s3-website.$(aws_region).amazonaws.com"
