@@ -52,6 +52,7 @@ async function waitForInProgressRuns() {
     );
 
     const recentDocs = docsRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
+    const recentHugo = hugoRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
 
     if (recentDocs.length > 0 || recentHugo.length > 0) {
         const currentDocsRun = docsRuns.find(run => run.id === currentRunID);
@@ -60,7 +61,6 @@ async function waitForInProgressRuns() {
 
         console.log(`Found ${recentDocs.length} other ${workflowName} job(s) running on branch ${branch}.`);
 
-        const recentHugo = hugoRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
 
         console.log(`Found ${recentHugo.length} other ${workflowName} job(s) running on branch ${branch}.`);
 
