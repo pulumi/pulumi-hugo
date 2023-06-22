@@ -34,7 +34,7 @@ async function waitForInProgressRuns() {
         octokit.rest.actions.listWorkflowRuns.endpoint.merge({
             owner,
             repo: docsRepo,
-            branch: "sean/testing-out-separate-builds",
+            branch,
             workflow_id: docs_workflow_id,
             status,
         }),
@@ -50,7 +50,7 @@ async function waitForInProgressRuns() {
             status,
         }),
     );
-    
+
     const recentDocs = docsRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentDocsRun.created_at);
 
     if (recentDocs.length > 0 || recentHugo.length > 0) {
