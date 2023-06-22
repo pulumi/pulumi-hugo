@@ -50,17 +50,15 @@ async function waitForInProgressRuns() {
             status,
         }),
     );
-    
+
     const currentHugoRun = hugoRuns.find(run => run.id === currentRunID);
     const recentDocs = docsRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentHugoRun.created_at);
     const recentHugo = hugoRuns.sort((a, b) => b.id - a.id).filter(run => run.run_started_at < currentHugoRun.created_at);
 
     if (recentDocs.length > 0 || recentHugo.length > 0) {
-
         // Sort in-progress runs descendingly, excluding the current one.
 
         console.log(`Found ${recentDocs.length} other ${workflowName} job(s) running on branch ${branch}.`);
-
 
         console.log(`Found ${recentHugo.length} other ${workflowName} job(s) running on branch ${branch}.`);
 
