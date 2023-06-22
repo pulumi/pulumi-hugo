@@ -64,10 +64,11 @@ aws s3 website $destination_bucket_uri --index-document index.html --error-docum
 echo "Synchronizing to $destination_bucket_uri..."
 aws s3 sync "$build_dir" "$destination_bucket_uri" --acl public-read --delete --quiet --region "$(aws_region)"
 
-# Upload the CSS bundle files to the CSS bucket.
+# Upload the CSS bundle files to the bundles bucket.
 echo "Syncing CSS files to the CSS bucket"
 aws s3 cp "${build_dir}/css/" "s3://${bundleBucket}/css/" --acl public-read  --content-type "text/css" --region "$(aws_region)" --recursive
 
+# Upload the JS bundle files to the bundles bucket.
 echo "Syncing JS files to the bundles bucket"
 aws s3 cp "${build_dir}/js/" "s3://${bundleBucket}/js/" --acl public-read  --content-type "text/javascript" --region "$(aws_region)" --recursive
 
