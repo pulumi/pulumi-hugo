@@ -63,22 +63,20 @@ jobs:
           PULUMI_STACK_NAME: ${{ vars.PULUMI_STACK_NAME}}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           DEPLOYMENT_ENVIRONMENT: ${{ vars.DEPLOYMENT_ENVIRONMENT }}
-          # AWS_ACCESS_KEY_ID: ${{ secrets.CI_TEST_AWS_ACCESS_KEY_ID }}
-          # AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_TEST_AWS_SECRET_ACCESS_KEY }}
           ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
           ALGOLIA_APP_SEARCH_KEY: ${{ vars.ALGOLIA_APP_SEARCH_KEY }}
-  # notify:
-  #   if: failure()
-  #   name: Send slack notification
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
-  #   steps:
-  #     - name: Slack Notification
-  #       uses: docker://sholung/action-slack-notify:v2.3.0
-  #       env:
-  #         SLACK_CHANNEL: docs-ops-test
-  #         SLACK_COLOR: "#F54242"
-  #         SLACK_MESSAGE: "build failure in pulumi-hugo repo :meow_sad:"
-  #         SLACK_USERNAME: hugobot
-  #         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-  #         SLACK_ICON: https://www.pulumi.com/logos/brand/avatar-on-white.png
+  notify:
+    if: failure()
+    name: Send slack notification
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Slack Notification
+        uses: docker://sholung/action-slack-notify:v2.3.0
+        env:
+          SLACK_CHANNEL: docs-ops-test
+          SLACK_COLOR: "#F54242"
+          SLACK_MESSAGE: "build failure in pulumi-hugo repo :meow_sad:"
+          SLACK_USERNAME: hugobot
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_ICON: https://www.pulumi.com/logos/brand/avatar-on-white.png
