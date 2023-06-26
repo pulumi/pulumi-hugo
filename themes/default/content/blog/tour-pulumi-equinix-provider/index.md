@@ -40,7 +40,7 @@ The codebase gives an excellent example of one of Pulumi's most compelling featu
 1. [Command](https://www.pulumi.com/registry/packages/command/), which is used to synchronize cluster joining operations and to read the kubeconfig from the control plane.
 1. [Random](https://www.pulumi.com/registry/packages/random/), which is used to generate a token for nodes to join the control plane.
 
-Before running the Pulumi program, you'll need to [configure your Equinix credentials](https://www.pulumi.com/registry/packages/equinix/installation-configuration/#credentials). Once that's done, you can run the following commands to deploy the cluster:
+Before running the Pulumi program, ensure you've [configured your Equinix credentials](https://www.pulumi.com/registry/packages/equinix/installation-configuration/#credentials). Additionally, if you wish to customize specific aspects of the deployment, you can set the template [configuration values](https://github.com/equinix-labs/pulumi-equinix-kubernetes-cluster/#configuration-variables). Once that's done, execute the following commands to deploy the cluster:
 
 {{% chooser language "typescript,python" / %}}
 
@@ -66,7 +66,7 @@ pulumi up
 
 {{% /choosable %}}
 
-When the commands complete, you'll have a working cluster. From there, you can write the cluster's Kubeconfig to a file and set it as your default file:
+After executing the commands, the process will require approximately 5 minutes to finish, resulting in a fully operational cluster. From there, you can write the cluster's Kubeconfig to a file and set it as your default file:
 
 ```bash
 pulumi stack output kubeconfig --show-secrets > kubeconfig.yml
