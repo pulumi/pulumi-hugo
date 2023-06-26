@@ -2735,15 +2735,16 @@ Search for resources belonging to the given organization.
 
 | Name       | In    | Type          | Required | Description                                                                                                                              |
 |------------|-------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| org        | path  | string        | true     | Name of the organization to search.                                                                                                      |
-| query      | query | string        | false    | The search query to execute. If omitted all resources are returned (subject to any pagination limits).                                   |
-| sort       | query | array[string] | false    | Results are returned sorted by this field value.                                                                                         |
-| asc        | query | boolean       | false    | Whether to return results in ascending or descending sort order.                                                                         |
-| size       | query | integer       | false    | How many results to return at a time.                                                                                                    |
-| page       | query | number        | false    | The page of results to return.                                                                                                           |
-| continue   | query | string        | false    | A continuation token for pagination.                                                                                                     |
-| facet      | query | array[string] | false    | If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values. |
-| properties | query | boolean       | false    | Whether to include resource properties in results. Not supported for all subscriptions.                                                  |
+| org        | path  | string           | true     | Name of the organization to search.                                                                                                      |
+| query      | query | string           | false    | The search query to execute. If omitted all resources are returned (subject to any pagination limits).                                   |
+| sort       | query | array[string]    | false    | Results are returned sorted by this field value.                                                                                         |
+| asc        | query | boolean          | false    | Whether to return results in ascending or descending sort order.                                                                         |
+| size       | query | integer          | false    | How many results to return at a time.                                                                                                    |
+| paginate   | query | "cursor", "page" | false    | If requesting multiple pages of results, the pagination method to use.
+| page       | query | number           | false    | The page of results to return.                                                                                                           |
+| cursor     | query | string           | false    | A continuation token for pagination.                                                                                                     |
+| facet      | query | array[string]    | false    | If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values. |
+| properties | query | boolean          | false    | Whether to include resource properties in results. Not supported for all subscriptions.                                                  |
 
 #### Detailed descriptions
 
@@ -2759,17 +2760,23 @@ If omitted, results are sorted according to their search relevance. If there is 
 
 If specified more than once, the first parameter is the primary sort order and subsequent parameters control additional sorting criteria.
 
+Special consideration needs to be given if using this in tandem with the **cursor** parameter, see below.
+
 Allowed values: created, custom, delete, id, modified, module, name, package, parent.urn, pending, project, protected, provider.urn, stack, type, urn.
 
 **asc**: Whether to return results in ascending or descending sort order.
 
 **size**: How many results to return at a time.
 
-**page**: The page of results to return.
-The page parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the "continue" parameter should be used instead.
+**paginate**: The pagination metho
 
-**continue**: A continuation token for pagination.
+**page**: The page of results to return.
+The page parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the "cursor" parameter should be used instead.
+
+**cursor**: A continuation token for pagination.
 Only available on Enterprise plans.
+
+Undefined behavior can occur if the query results are impacted during pagination, for example as the result of a completed stack update. This also means that sort results must be deterministic to result in expected results, as cursor pagination respects sorting.
 
 **facet**: If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values.
 
