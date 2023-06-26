@@ -2768,7 +2768,8 @@ Allowed values: created, custom, delete, id, modified, module, name, package, pa
 
 **size**: How many results to return at a time.
 
-**paginate**: The pagination metho
+**paginate**: If requesting multiple pages of results, the pagination method to use. Should be "cursor" or "page"
+This tells the API that you would like to receive a continuation token for paging additional results.
 
 **page**: The page of results to return.
 The page parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the "cursor" parameter should be used instead.
@@ -2776,7 +2777,9 @@ The page parameter can only be used to fetch up 10,000 resources. If a query mat
 **cursor**: A continuation token for pagination.
 Only available on Enterprise plans.
 
-Undefined behavior can occur if the query results are impacted during pagination, for example as the result of a completed stack update. This also means that sort results must be deterministic to result in expected results, as cursor pagination respects sorting.
+To receive a cursor from the API, you need to issue a `paginate="cursor"` query parameter with your initial request. This informs the API that it should return a cursor as part of the JSON response.
+
+Undefined behavior can occur if the query results are impacted during pagination, for example as the result of a completed stack update. This also means that sort order must be deterministic to yield expected results, as cursor pagination respects sorting.
 
 **facet**: If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values.
 
@@ -2829,7 +2832,7 @@ Attempting to set this on an unsupported subscription results in a 402 status co
   "pagination": {
     "previous": "string",
     "next": "string",
-    "continue": "string"
+    "cursor": "string"
   }
 }
 ```
