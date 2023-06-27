@@ -33,6 +33,12 @@ Detailed documentation for the Equinix provider can be found in the [Pulumi Regi
 
 In order to demonstrate the power and utility of Pulumi and the Equinix provider, Equinix Labs has produced a codebase that [creates a Kubernetes cluster on Equinix Metal](https://github.com/equinix-labs/pulumi-equinix-kubernetes-cluster/). The codebase is available in both [TypeScript](https://github.com/equinix-labs/pulumi-equinix-kubernetes-cluster/tree/main/nodejs) and [Python](https://github.com/equinix-labs/pulumi-equinix-kubernetes-cluster/tree/main/python).
 
+{{% notes type="info" %}}
+For an overview of how Pulumi works along with a guided tour of the codebase and deploying a workload onto the Kubernetes cluster, check out [Pulumi's presentation at Equinix Demo Day 2023](https://youtu.be/-siv1ga0l_o). (Pulumi's presentation begins at 3:30:00 below, or click the preceding link to jump directly to Pulumi's presentation on YouTube.):
+
+{{< youtube "-siv1ga0l_o?t=12576&rel=0" >}}
+{{% /notes %}}
+
 The codebase gives an excellent example of one of Pulumi's most compelling features: the ability to manage and orchestrate many different kinds of resources in real programming languages with a single tool. In addition to the Equinix provider which is used to manage the bare metal compute resources, the codebase also uses the following providers:
 
 1. [Cloud-init](https://www.pulumi.com/registry/packages/cloudinit/), to run initialization scripts that install the necessary services to run Kubernetes on the bare metal instances once they are spun up. Much of this work is accomplished via [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/). For an even deeper dive on the services installed on the control plane and worker nodes respectively, see [Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way).
@@ -150,14 +156,10 @@ Our cluster as configured will not be able to run stateful workloads due to the 
 
 ## Learning more
 
-If you're interested in learning more about how to manage Equinix resources with Pulumi, check out [Pulumi's presentation at Equinix Demo Day 2023](https://youtu.be/-siv1ga0l_o) where we do a deeper dive into the basics of how Pulumi works and how to provision a Kubernetes cluster using Equinix Metal:
+## Conclusion
 
-{{< youtube "-siv1ga0l_o?feature=share&t=12576&rel=0" >}}
+The Pulumi Equinix provider offers developers an intuitive and efficient way to interact with Equinix resources. By combining the power of Pulumi's infrastructure-as-code tooling and ecosystem along with the utility of Equinix's service offerings, you can create and manage networking and bare metal compute resources using a single tool, freeing practitioners from manual configuration so they can focus on value-driving innovation.
 
 {{% notes type="info" %}}
 If you enjoyed this content we'd love it if you joined us (the authors of this post) on September 13, 2023 for a live hour-long workshop on [Deploying a Kubernetes Cluster on Equinix Metal](https://www.pulumi.com/resources/deploying-a-kubernetes-cluster-on-equinix-metal/).
 {{% /notes %}}
-
-## Conclusion
-
-The Pulumi Equinix provider offers developers an intuitive and efficient way to interact with Equinix resources. By combining the power of Pulumi's infrastructure-as-code tooling and ecosystem along with the utility of Equinix's service offerings, you can create and manage networking and bare metal compute resources using a single tool, freeing practitioners from manual configuration so they can focus on value-driving innovation.
