@@ -34,6 +34,9 @@ fi
 destination_bucket="$(origin_bucket_prefix)-$(build_identifier)"
 destination_bucket_uri="s3://${destination_bucket}"
 
+echo "destination bucket: ${destination_bucket}"
+echo "destination bucket uri: ${destination_bucket_uri}"
+
 # Make the bucket. If this fails, there are two explanations, given the way we're naming
 # our buckets: either a previous run failed at some point after creating the bucket, in
 # which case we should simply proceed (to repopulate it), or the bucket was somehow
@@ -57,6 +60,20 @@ aws s3 website $destination_bucket_uri --index-document index.html --error-docum
 echo "Synchronizing to $destination_bucket_uri..."
 aws s3 sync "$build_dir" "$destination_bucket_uri" --acl public-read --delete --quiet --region "$(aws_region)"
 
+
+if [[ "$1" == "update" ]]; then
+    # We host the bundle files in a separate bucket that `/css` and `/js` routes to to enable managing the bundles
+    # generated from both the docs and registry repos.
+    bundleBucket=$(pulumi -C infrastructure stack output bundlesS3BucketName)
+    # Upload the CSS bundle files to the bundles bucket.
+    echo "Syncing CSS files to the CSS bucket"
+    aws s3 cp "${build_dir}/css/" "s3://${bundleBucket}/css/" --acl public-read  --content-type "text/css" --region "$(aws_region)" --recursive
+    # Upload the JS bundle files to the bundles bucket.
+    echo "Syncing JS files to the bundles bucket"
+    aws s3 cp "${build_dir}/js/" "s3://${bundleBucket}/js/" --acl public-read  --content-type "text/javascript" --region "$(aws_region)" --recursive
+fi
+
+
 echo "Sync complete."
 s3_website_url="http://${destination_bucket}.s3-website.$(aws_region).amazonaws.com"
 echo "$s3_website_url"
@@ -64,6 +81,12 @@ echo "$s3_website_url"
 # Set the content-type of latest-version explicitly. (Otherwise, it'll be set as binary/octet-stream.)
 aws s3 cp "$build_dir/latest-version" "${destination_bucket_uri}/latest-version" \
     --content-type "text/plain" --acl public-read --region "$(aws_region)" --metadata-directive REPLACE
+
+# Smoke test the deployed website. Specs are in ../cypress/integration.
+echo "Running tests..."
+
+echo "Running browser tests on $s3_website_url..."
+./scripts/run-browser-tests.sh "$s3_website_url"
 
 # At this point, we have a bucket that's suitable for deployment. As a result of this run,
 # we leave a file in the project root indicating the name of the bucket that was generated
@@ -76,13 +99,16 @@ aws s3 cp "$build_dir/latest-version" "${destination_bucket_uri}/latest-version"
 # Coupled with the locking we get from the Pulumi Service, using a local file is a safe
 # way to ensure we're deploying what we just finished building and testing.
 echo "Writing result metadata."
+pulumi -C infrastructure stack select ${PULUMI_STACK_NAME}
+registry_bucket=$(pulumi -C infrastructure stack output registryS3BucketName)
 metadata='{
     "timestamp": %s,
     "commit": "%s",
     "bucket": "%s",
+    "registryBucket": "%s",
     "url": "%s"
 }'
-printf "$metadata" "$(current_time_in_ms)" "$(git_sha)" "$destination_bucket" "$s3_website_url" > "$metadata_file"
+printf "$metadata" "$(current_time_in_ms)" "$(git_sha)" "$destination_bucket" "$registry_bucket" "$s3_website_url" > "$metadata_file"
 
 # Copy the file to the destination bucket, for future reference.
 aws s3 cp "$metadata_file" "${destination_bucket_uri}/metadata.json" --region "$(aws_region)" --acl public-read
@@ -91,9 +117,11 @@ aws s3 cp "$metadata_file" "${destination_bucket_uri}/metadata.json" --region "$
 set_bucket_for_commit "$(git_sha)" "$destination_bucket" "$(aws_region)"
 
 # Finally, post a comment to the PR that directs the user to the resulting bucket URL.
-pr_comment_api_url="$(cat "$GITHUB_EVENT_PATH" | jq -r ".pull_request._links.comments.href")"
-post_github_pr_comment \
-    "Your site preview for commit $(git_sha_short) is ready! :tada:\n\n${s3_website_url}." \
-    $pr_comment_api_url
+if [[ "$1" == "preview" ]]; then
+    pr_comment_api_url="$(cat "$GITHUB_EVENT_PATH" | jq -r ".pull_request._links.comments.href")"
+    post_github_pr_comment \
+        "Your site preview for commit $(git_sha_short) is ready! :tada:\n\n${s3_website_url}." \
+        $pr_comment_api_url
+fi
 
 echo "Done! The bucket website is now built and available at ${s3_website_url}."

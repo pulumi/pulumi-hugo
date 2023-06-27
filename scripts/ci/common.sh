@@ -15,6 +15,21 @@ aws_region() {
     echo "us-west-2"
 }
 
+clone_docs_infrastructure() {
+    git clone "https://github.com/pulumi/docs.git" --no-checkout docsrepo --depth 1
+    pushd docsrepo
+    git sparse-checkout init --cone
+    git sparse-checkout set infrastructure
+    git checkout
+    yarn install
+    # temporarily here until merging docs updates into master
+    curl -o infrastructure/Pulumi.www-testing.yaml -L "https://raw.githubusercontent.com/pulumi/docs/b83121c58ba66f5b53a1a8d36945a9d47c91f674/infrastructure/Pulumi.www-testing.yaml"
+    curl -o infrastructure/index.ts -L "https://raw.githubusercontent.com/pulumi/docs/b83121c58ba66f5b53a1a8d36945a9d47c91f674/infrastructure/index.ts"
+    curl -o infrastructure/lambdaEdge.ts -L "https://raw.githubusercontent.com/pulumi/docs/b83121c58ba66f5b53a1a8d36945a9d47c91f674/infrastructure/lambdaEdge.ts"
+    mv infrastructure ../
+    popd
+}
+
 # Posts a message to Slack. Requires a valid access token is available in $SLACK_ACCESS_TOKEN.
 # Usage: post_to_slack <channel> <message>
 post_to_slack() {
@@ -67,7 +82,7 @@ current_time_in_ms() {
 }
 
 origin_bucket_prefix() {
-    echo "$(repo_name)-origin"
+    echo "${DEPLOYMENT_ENVIRONMENT}-$(repo_name)-origin"
 }
 
 # Returns the name of the metadata file we expect to exist locally before running Pulumi.

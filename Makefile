@@ -45,6 +45,10 @@ build-assets:
 ci-pull-request: ensure lint
 	./scripts/ci/pull-request.sh
 
+.PHONY: ci-push
+ci-push: ensure lint
+	./scripts/ci/push.sh
+
 .PHONY: ci-pull-request-closed
 ci-pull-request-closed:
 	./scripts/ci/pull-request-closed.sh
