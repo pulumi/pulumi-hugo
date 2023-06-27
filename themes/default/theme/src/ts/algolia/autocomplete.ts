@@ -115,8 +115,11 @@ function initAutocomplete(el: HTMLElement) {
             // Tells the autocomplete control which URL to use for navigation (specifically keyboard navigation).
             // https://www.algolia.com/doc/ui-libraries/autocomplete/core-concepts/sources/#param-getitemurl
             getItemUrl: ({ item }) => {
-                const url = new URL([document.location.origin, item.href].join(""));
-                return url.toString();
+                if (item.href.startsWith("http")) {
+                    return item.href;
+                }
+
+                return new URL([document.location.origin, item.href].join("")).toString();
             },
 
             // Templates are the snippets of HTML to use for rendering the autocomplete panel's header,
