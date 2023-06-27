@@ -15,6 +15,10 @@ Equinix recently released their self-maintained, fully-supported Pulumi provider
 
 <!--more-->
 
+{{% notes type="info" %}}
+Join Pulumi and Equinix on September 13, 2023, for a live workshop: [Deploying a Kubernetes Cluster on Equinix Metal](https://www.pulumi.com/resources/deploying-a-kubernetes-cluster-on-equinix-metal/).
+{{% /notes %}}
+
 ## Introducing the Equinix Provider
 
 The Equinix provider can manage resources for:
@@ -24,10 +28,6 @@ The Equinix provider can manage resources for:
 - [Equinix Network Edge](https://www.equinix.com/products/digital-infrastructure-services/network-edge), which enables organizations to deploy virtual network functions (VNFs) (like virtual firewall devices) in a centralized point, greatly simplifying network traffic management for multi- and hybrid cloud scenarios.
 
 Detailed documentation for the Equinix provider can be found in the [Pulumi Registry](https://www.pulumi.com/registry/) along with 130+ (at the time of writing) other providers that can be used to manage cloud and SaaS resources.
-
-{{% notes type="info" %}}
-**Note:** The Equinix provider effectively replaces the now-deprecated [Equinix Metal provider](https://www.pulumi.com/registry/packages/equinix-metal/). To migrate your Pulumi resources to the new provider, use the [`pulumi import`](https://www.pulumi.com/docs/cli/commands/pulumi_import/) command.
-{{% /notes %}}
 
 ## Creating a Kubernetes cluster on Equinix Metal
 
@@ -159,7 +159,3 @@ Our cluster as configured will not be able to run stateful workloads due to the 
 ## Conclusion
 
 The Pulumi Equinix provider offers developers an intuitive and efficient way to interact with Equinix resources. By combining the power of Pulumi's infrastructure-as-code tooling and ecosystem along with the utility of Equinix's service offerings, you can create and manage networking and bare metal compute resources using a single tool, freeing practitioners from manual configuration so they can focus on value-driving innovation.
-
-{{% notes type="info" %}}
-If you enjoyed this content we'd love it if you joined us (the authors of this post) on September 13, 2023 for a live hour-long workshop on [Deploying a Kubernetes Cluster on Equinix Metal](https://www.pulumi.com/resources/deploying-a-kubernetes-cluster-on-equinix-metal/).
-{{% /notes %}}
