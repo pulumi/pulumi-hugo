@@ -2760,7 +2760,7 @@ If omitted, results are sorted according to their search relevance. If there is 
 
 If specified more than once, the first parameter is the primary sort order and subsequent parameters control additional sorting criteria.
 
-Special consideration needs to be given if using this in tandem with the **cursor** parameter, see below.
+Special consideration needs to be given if using this in tandem with the `cursor` parameter, see below.
 
 Allowed values: created, custom, delete, id, modified, module, name, package, parent.urn, pending, project, protected, provider.urn, stack, type, urn.
 
