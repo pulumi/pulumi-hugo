@@ -2740,7 +2740,7 @@ Search for resources belonging to the given organization.
 | sort       | query | array[string]    | false    | Results are returned sorted by this field value.                                                                                         |
 | asc        | query | boolean          | false    | Whether to return results in ascending or descending sort order.                                                                         |
 | size       | query | integer          | false    | How many results to return at a time.                                                                                                    |
-| paginate   | query | "cursor", "page" | false    | If requesting multiple pages of results, the pagination method to use.
+| paginate   | query | string | false    | If requesting multiple pages of results, the pagination method to use. Valid values are "cursor" and "page", defaults to "page".
 | page       | query | number           | false    | The page of results to return.                                                                                                           |
 | cursor     | query | string           | false    | A continuation token for pagination.                                                                                                     |
 | facet      | query | array[string]    | false    | If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values. |
