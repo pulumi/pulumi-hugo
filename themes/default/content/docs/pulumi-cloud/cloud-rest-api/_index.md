@@ -2768,8 +2768,7 @@ Allowed values: created, custom, delete, id, modified, module, name, package, pa
 
 **size**: How many results to return at a time.
 
-**paginate**: If requesting multiple pages of results, the pagination method to use. Should be "cursor" or "page"
-This tells the API that you would like to receive a continuation token for paging additional results.
+**paginate**: (Optional) The pagination method for retrieving multiple pages of results. One of `page` (default) for an ordered list of the first 10k results, or `cursor` for iterating through the entire unordered list of results.
 
 **page**: The page of results to return.
 The page parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the "cursor" parameter should be used instead.
