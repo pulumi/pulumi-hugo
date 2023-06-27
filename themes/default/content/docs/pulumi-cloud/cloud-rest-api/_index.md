@@ -2737,7 +2737,7 @@ Search for resources belonging to the given organization.
 |------------|-------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------|
 | org        | path  | string        | true     | Name of the organization to search.                                                                                                      |
 | query      | query | string        | false    | The search query to execute. If omitted all resources are returned (subject to any pagination limits).                                   |
-| sort       | query | array[string] | false    | Results are returned sorted by this field value.                                                                                         |
+| sort       | query | array[string] | false    | The field(s) by which to sort.
 | asc        | query | boolean       | false    | Whether to return results in ascending or descending sort order.                                                                         |
 | size       | query | integer       | false    | How many results to return at a time.                                                                                                    |
 | paginate   | query | string        | false    | If requesting multiple pages of results, the pagination method to use. Valid values are "cursor" and "page", defaults to "page".
@@ -2760,7 +2760,7 @@ If omitted, results are sorted according to their search relevance. If there is 
 
 If specified more than once, the first parameter is the primary sort order and subsequent parameters control additional sorting criteria.
 
-Special consideration needs to be given if using this in tandem with the **cursor** parameter, see below.
+Special consideration needs to be given if using this in tandem with the `cursor` parameter, see below.
 
 Allowed values: created, custom, delete, id, modified, module, name, package, parent.urn, pending, project, protected, provider.urn, stack, type, urn.
 
@@ -2771,7 +2771,7 @@ Allowed values: created, custom, delete, id, modified, module, name, package, pa
 **paginate**: (Optional) The pagination method for retrieving multiple pages of results. One of `page` (default) for an ordered list of the first 10k results, or `cursor` for iterating through the entire unordered list of results.
 
 **page**: The page of results to return.
-The page parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the "cursor" parameter should be used instead.
+The `page` parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the `cursor` parameter should be used instead.
 
 **cursor**: A continuation token for pagination.
 Only available on Enterprise plans.
