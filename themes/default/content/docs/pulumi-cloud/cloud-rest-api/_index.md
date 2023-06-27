@@ -2772,7 +2772,7 @@ Allowed values: created, custom, delete, id, modified, module, name, package, pa
 This tells the API that you would like to receive a continuation token for paging additional results.
 
 **page**: The page of results to return.
-The page parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the "cursor" parameter should be used instead.
+The `page` parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the `cursor` parameter should be used instead.
 
 **cursor**: A continuation token for pagination.
 Only available on Enterprise plans.
