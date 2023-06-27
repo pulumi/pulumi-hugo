@@ -2737,7 +2737,7 @@ Search for resources belonging to the given organization.
 |------------|-------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------|
 | org        | path  | string           | true     | Name of the organization to search.                                                                                                      |
 | query      | query | string           | false    | The search query to execute. If omitted all resources are returned (subject to any pagination limits).                                   |
-| sort       | query | array[string]    | false    | Results are returned sorted by this field value.                                                                                         |
+| sort       | query | array[string]    | false    | The field(s) by which to sort results.                                                                                          |
 | asc        | query | boolean          | false    | Whether to return results in ascending or descending sort order.                                                                         |
 | size       | query | integer          | false    | How many results to return at a time.                                                                                                    |
 | paginate   | query | "cursor", "page" | false    | If requesting multiple pages of results, the pagination method to use.
