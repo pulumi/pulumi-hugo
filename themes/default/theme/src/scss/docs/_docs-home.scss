@@ -44,11 +44,12 @@ section.docs-home {
                 max-width: 436px;
             }
         }
-
+        
         @media (min-width: 1280px) {
             background-image: url("/images/docs/docs-home-header-background-desktop.svg");
             p {
                 font-size: 16px;
+                max-width: 100%;
             }
         }
 
