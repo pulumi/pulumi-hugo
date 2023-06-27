@@ -40,6 +40,23 @@
             @apply m-0;
         }
     }
+
+    .content-width-controls {
+        width: 20px;
+        padding: 3px;
+
+        .expand-content {
+            display: none;
+        }
+        .collapse-content {
+            display: none;
+        }
+        @media (min-width: 1526px) {
+            .expand-content {
+                display: block;
+            }
+        }
+    }
 }
 
 .search-header {

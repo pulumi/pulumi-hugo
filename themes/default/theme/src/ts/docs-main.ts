@@ -40,6 +40,25 @@ $(window).on("load", function() {
         }
 
     });
+
+    let expandContentButton = $("#expand-content-button")
+    let collapseContentButton = $("#collapse-content-button")
+    expandContentButton.on("click", function () {
+        $(".docs-main-content").addClass("docs-content-width-expanded");
+        $(".docs-main-content").removeClass("docs-content-width-collapsed");
+        expandContentButton.css("display", "none");
+        collapseContentButton.css("display", "block");
+        console.log("clicked");
+    });
+
+    collapseContentButton.on("click", function () {
+        $(".docs-main-content").removeClass("docs-content-width-expanded");
+        $(".docs-main-content").addClass("docs-content-width-collapsed");
+        collapseContentButton.css("display", "none");
+        expandContentButton.css("display", "block");
+        console.log("clicked");
+    });
+
 })(document, jQuery);
 
 function setDocsMainNavPosition() {

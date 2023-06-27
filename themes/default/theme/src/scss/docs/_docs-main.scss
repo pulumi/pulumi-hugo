@@ -322,6 +322,18 @@ body.section-registry {
         position: relative;
         min-width: 0;
 
+        .docs-content-width-expanded {
+            @media (min-width: 1526px) {
+                max-width: 1200px !important;
+            }
+        }
+
+        .docs-content-width-collapsed {
+            @media (min-width: 1526px) {
+                max-width: 700px !important;
+            }
+        }
+
         .docs-main-content {
             min-width: 0;
             flex-shrink: 1;
@@ -340,7 +352,7 @@ body.section-registry {
     
             @media (min-width: 1280px) {
                 margin-left: 24px;
-                max-width: 1200px;
+                max-width: 700px;
                 min-width: 0;
             }
 
