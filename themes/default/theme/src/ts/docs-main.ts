@@ -1,3 +1,5 @@
+import {LocalStorageService} from "./state";
+
 let docsMainNavToggleWrapper = $(".docs-main-nav-toggle-wrapper");
 let docsNavToggleIcon = $(".docs-nav-toggle-icon");
 
@@ -19,7 +21,7 @@ $(window).on("load", function() {
 
 (function (document, $) {
     let docsToggle = $(".docs-nav-toggle");
-
+    
     docsToggle.on("click", function () {
         docsMainNavToggleWrapper.toggleClass("docs-nav-show");
         docsMainNavToggleWrapper.toggleClass("docs-nav-hide");
@@ -30,7 +32,7 @@ $(window).on("load", function() {
 
     let packageCardCheckbox = $("#accordion-checkbox-package-card");
     let packageCardBackground = $("#accordion-package-card");
-
+    
     packageCardCheckbox.on("change", function () {
         if (packageCardCheckbox.is(":checked")) {
             packageCardBackground.css("background", "#fff");
@@ -41,23 +43,46 @@ $(window).on("load", function() {
 
     });
 
-    let expandContentButton = $("#expand-content-button")
+    
     let collapseContentButton = $("#collapse-content-button")
-    expandContentButton.on("click", function () {
+    let expandContentButton = $("#expand-content-button")
+    // const contentWidthState = new LocalStorageService("content-width-state");
+    // loadContentWidthState();
+    
+
+    // function loadContentWidthState() {
+        //     let contentWidth = contentWidthState.getKey("content-width");
+        //     if (contentWidth === "expanded") {
+            //         expandContentWidth()
+            //     } else if (contentWidth === "collapsed") {
+                //         collapseContentWidth()
+    //     }
+    // }
+    
+    function expandContentWidth() {
         $(".docs-main-content").addClass("docs-content-width-expanded");
         $(".docs-main-content").removeClass("docs-content-width-collapsed");
+        $("#docs-home-banner").find("p").addClass("wider");
+        $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop-wide.svg")`);
         expandContentButton.css("display", "none");
         collapseContentButton.css("display", "block");
+        // contentWidthState.updateKey("content-width", "expanded");
         console.log("clicked");
-    });
+    }
 
-    collapseContentButton.on("click", function () {
+    function collapseContentWidth() {
         $(".docs-main-content").removeClass("docs-content-width-expanded");
         $(".docs-main-content").addClass("docs-content-width-collapsed");
+        $("#docs-home-banner").find("p").removeClass("wider");
+        $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop.svg")`);
         collapseContentButton.css("display", "none");
         expandContentButton.css("display", "block");
+        // contentWidthState.updateKey("content-width", "collapsed");
         console.log("clicked");
-    });
+    }
+
+    expandContentButton.on("click", expandContentWidth);
+    collapseContentButton.on("click", collapseContentWidth);
 
 })(document, jQuery);
 
