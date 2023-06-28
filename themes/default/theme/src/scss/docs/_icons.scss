@@ -238,10 +238,18 @@ div.grad-cap-18-18 {
 }
 
 div.width-expand-18-18 {
+    &:hover {
+        filter: unset;
+    }
+    filter: invert(22%) sepia(6%) saturate(94%) hue-rotate(201deg) brightness(94%) contrast(86%);
     background: url(/images/docs/icons/width-expand.svg);
 }
 
 div.width-collapse-18-18 {
+    &:hover {
+        filter: unset;
+    }
+    filter: invert(22%) sepia(6%) saturate(94%) hue-rotate(201deg) brightness(94%) contrast(86%);
     background: url(/images/docs/icons/width-collapse.svg);
 }
 
