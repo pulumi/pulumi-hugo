@@ -48,13 +48,14 @@
         cursor: pointer;
         .expand-content {
             display: none;
+            @media (min-width: 1526px) {
+                display: block;
+            }
         }
         .collapse-content {
             display: none;
-        }
-        @media (min-width: 1526px) {
-            .expand-content {
-                display: block;
+            @media (min-width: 1526px) {
+                display: none;
             }
         }
     }

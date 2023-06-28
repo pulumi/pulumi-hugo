@@ -64,8 +64,8 @@ $(window).on("load", function() {
         $(".docs-main-content").removeClass("docs-content-width-collapsed");
         $("#docs-home-banner").find("p").addClass("wider");
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop-wide.svg")`);
-        expandContentButton.css("display", "none");
         collapseContentButton.css("display", "block");
+        expandContentButton.css("display", "none");
         // contentWidthState.updateKey("content-width", "expanded");
         console.log("clicked");
     }
