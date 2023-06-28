@@ -316,7 +316,7 @@ body.section-registry {
     .docs-main-content-wrapper {
         display: flex;
         gap: 0;
-        justify-content: space-around;
+        justify-content: center;
         flex-grow: 2;
         height: fit-content;
         position: relative;
@@ -325,6 +325,9 @@ body.section-registry {
         .docs-content-width-expanded {
             @media (min-width: 1526px) {
                 max-width: 1200px !important;
+                &.expand-registry {
+                    max-width: 1000px !important;
+                }
             }
         }
 
