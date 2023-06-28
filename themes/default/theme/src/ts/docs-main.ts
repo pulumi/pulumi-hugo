@@ -64,8 +64,10 @@ $(window).on("load", function() {
         $(".docs-main-content").removeClass("docs-content-width-collapsed");
         $("#docs-home-banner").find("p").addClass("wider");
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop-wide.svg")`);
-        collapseContentButton.css("display", "block");
-        expandContentButton.css("display", "none");
+        // collapseContentButton.css("display", "block");
+        // expandContentButton.css("display", "none");
+        collapseContentButton.removeClass("hide");
+        expandContentButton.addClass("hide");
         // contentWidthState.updateKey("content-width", "expanded");
         console.log("clicked");
     }
@@ -75,8 +77,11 @@ $(window).on("load", function() {
         $(".docs-main-content").addClass("docs-content-width-collapsed");
         $("#docs-home-banner").find("p").removeClass("wider");
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop.svg")`);
-        collapseContentButton.css("display", "none");
-        expandContentButton.css("display", "block");
+        // collapseContentButton.css("display", "none");
+        // expandContentButton.css("display", "block");
+        collapseContentButton.addClass("hide");
+        expandContentButton.removeClass("hide");
+        // contentWidthState.updateKey("conten
         // contentWidthState.updateKey("content-width", "collapsed");
         console.log("clicked");
     }

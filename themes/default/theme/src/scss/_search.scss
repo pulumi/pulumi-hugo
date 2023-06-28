@@ -51,10 +51,16 @@
             @media (min-width: 1526px) {
                 display: block;
             }
+            &.hide {
+                display: none;
+            }
         }
         .collapse-content {
             display: none;
             @media (min-width: 1526px) {
+                display: block;
+            }
+            &.hide {
                 display: none;
             }
         }
