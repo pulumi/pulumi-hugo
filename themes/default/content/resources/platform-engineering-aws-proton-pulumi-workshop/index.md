@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Platform Engineering with AWS Proton and Pulumi | Workshop"
-title: "Platform Engineering with AWS Proton and Pulumi | Worksho..."
+title: "Platform Engineering with AWS Proton and Pulumi |..."
 meta_desc: |
     Learn how to enable self-service infrastructure for your organization using AWS Proton and Pulumi. The workshop will briefly introduce Pulumi, an i...
 url_slug: platform-engineering-aws-proton-pulumi-workshop

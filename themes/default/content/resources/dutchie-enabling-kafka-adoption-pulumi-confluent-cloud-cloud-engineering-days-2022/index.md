@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Dutchie - Enabling Kafka Adoption with Pulumi and Confluent Cloud | Cloud Engineering Days 2022"
-title: "Dutchie - Enabling Kafka Adoption with Pulumi and Conflue..."
+title: "Dutchie - Enabling Kafka Adoption with Pulumi and..."
 meta_desc: |
     Event streaming technology can be transformative but often difficult to adopt. In this talk, Collin James, Engineering Leader and Software Architec...
 url_slug: dutchie-enabling-kafka-adoption-pulumi-confluent-cloud-cloud-engineering-days-2022

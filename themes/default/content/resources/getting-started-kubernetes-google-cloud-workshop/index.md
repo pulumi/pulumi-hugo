@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Getting Started with Kubernetes on Google Cloud | Workshop"
-title: "Getting Started with Kubernetes on Google Cloud | Worksho..."
+title: "Getting Started with Kubernetes on Google Cloud |..."
 meta_desc: |
     Learn how to deploy a Kubernetes cluster on Google Cloud and run containerized applications on the cluster. The workshop will briefly introduce Pul...
 url_slug: getting-started-kubernetes-google-cloud-workshop

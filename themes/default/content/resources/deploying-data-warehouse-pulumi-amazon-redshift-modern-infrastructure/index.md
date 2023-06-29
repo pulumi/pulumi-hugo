@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Deploying a Data Warehouse with Pulumi and Amazon Redshift | Modern Infrastructure"
-title: "Deploying a Data Warehouse with Pulumi and Amazon Redshif..."
+title: "Deploying a Data Warehouse with Pulumi and Amazon..."
 meta_desc: |
     Learn how to create a Data Warehouse with Pulumi and Amazon Redshift. We'll write a Pulumi program that provisions a single-node Redshift cluster i...
 url_slug: deploying-data-warehouse-pulumi-amazon-redshift-modern-infrastructure

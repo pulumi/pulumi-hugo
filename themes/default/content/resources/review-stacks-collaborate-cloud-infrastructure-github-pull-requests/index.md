@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Review Stacks - Collaborate on Cloud Infrastructure in GitHub Pull Requests"
-title: "Review Stacks - Collaborate on Cloud Infrastructure in Gi..."
+title: "Review Stacks - Collaborate on Cloud Infrastructure in..."
 meta_desc: |
     Pulumi Review Stacks - the first tool for pull request environments that deploys infrastructure and application code.
 url_slug: review-stacks-collaborate-cloud-infrastructure-github-pull-requests

@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Keeping your Infrastructure Code DRY (Don't Repeat Yourself) | PulumiUP 2023"
-title: "Keeping your Infrastructure Code DRY (Don't Repeat Yourse..."
+title: "Keeping your Infrastructure Code DRY (Don't Repeat..."
 meta_desc: |
     Sam Cogan, Solution Architect at Willis Towers Watson, will show how you can build a library of reusable modules that you can repeatedly reuse in y...
 url_slug: keeping-your-infrastructure-code-dry-dont-repeat-yourself-pulumiup-2023

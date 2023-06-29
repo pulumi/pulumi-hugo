@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Altana AI - Creating Business Logic Interfaces with Automation API | Cloud Engineering Days 2022"
-title: "Altana AI - Creating Business Logic Interfaces with Autom..."
+title: "Altana AI - Creating Business Logic Interfaces with..."
 meta_desc: |
     After automating infrastructure with Pulumi, how do you operationalize it? Dan Swartz, Altana's Principal Software Engineer, discusses how Pulumi's...
 url_slug: altana-ai-creating-business-logic-interfaces-automation-api-cloud-engineering-days-2022

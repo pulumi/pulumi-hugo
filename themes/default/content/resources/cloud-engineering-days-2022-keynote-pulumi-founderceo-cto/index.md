@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Cloud Engineering Days 2022 | Keynote with Pulumi Founder/CEO and CTO"
-title: "Cloud Engineering Days 2022 | Keynote with Pulumi Founder..."
+title: "Cloud Engineering Days 2022 | Keynote with Pulumi..."
 meta_desc: |
     Joe Duffy and Luke Hoban kick off Cloud Engineering Days with exciting new Pulumi announcements.
 url_slug: cloud-engineering-days-2022-keynote-pulumi-founderceo-cto

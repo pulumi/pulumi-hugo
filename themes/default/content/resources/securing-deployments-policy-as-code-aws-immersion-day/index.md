@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Securing Deployments with Policy as Code | AWS Immersion Day"
-title: "Securing Deployments with Policy as Code | AWS Immersion ..."
+title: "Securing Deployments with Policy as Code | AWS Immersion..."
 meta_desc: |
     Poorly configured cloud infrastructure can be an unwelcome source of security, reliability, and cost issues. In this session, the Pulumi team will ...
 url_slug: securing-deployments-policy-as-code-aws-immersion-day

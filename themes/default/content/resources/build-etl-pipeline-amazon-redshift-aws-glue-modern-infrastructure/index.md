@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Build an ETL pipeline with Amazon Redshift and AWS Glue | Modern Infrastructure"
-title: "Build an ETL pipeline with Amazon Redshift and AWS Glue |..."
+title: "Build an ETL pipeline with Amazon Redshift and AWS Glue..."
 meta_desc: |
     Learn how to combine AWS Glue and Amazon Redshift to build a fully-automated ETL pipeline with Pulumi. We'll use three components to complete our E...
 url_slug: build-etl-pipeline-amazon-redshift-aws-glue-modern-infrastructure

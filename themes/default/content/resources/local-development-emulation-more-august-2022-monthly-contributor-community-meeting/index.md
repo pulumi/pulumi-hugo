@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Local development emulation and more | August 2022 | Monthly Contributor Community Meeting"
-title: "Local development emulation and more | August 2022 | Mont..."
+title: "Local development emulation and more | August 2022 |..."
 meta_desc: |
     The August 2022 monthly #oss contributor community meeting for Pulumi and the Pulumiverse!
 url_slug: local-development-emulation-more-august-2022-monthly-contributor-community-meeting

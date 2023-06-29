@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Modern Infrastructure: Pulumi Architecture Templates for AWS, Azure, Google Cloud and Kubernetes"
-title: "Modern Infrastructure: Pulumi Architecture Templates for ..."
+title: "Modern Infrastructure: Pulumi Architecture Templates for..."
 meta_desc: |
     Introducing Pulumi Architecture Templates! Stand up the building blocks of your application's infrastructure with a single command in the CLI. No h...
 url_slug: modern-infrastructure-pulumi-architecture-templates-aws-azure-google-cloud-kubernetes

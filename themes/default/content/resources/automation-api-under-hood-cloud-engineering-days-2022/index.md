@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Automation API Under the Hood | Cloud Engineering Days 2022"
-title: "Automation API Under the Hood | Cloud Engineering Days 20..."
+title: "Automation API Under the Hood | Cloud Engineering Days..."
 meta_desc: |
     Evan Boyle and Casey Huang give you a guided tour of the Pulumi Automation API and Pulumi Deployments.
 url_slug: automation-api-under-hood-cloud-engineering-days-2022

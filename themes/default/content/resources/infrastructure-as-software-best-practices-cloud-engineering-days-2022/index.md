@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Infrastructure as Software Best Practices | Cloud Engineering Days 2022"
-title: "Infrastructure as Software Best Practices | Cloud Enginee..."
+title: "Infrastructure as Software Best Practices | Cloud..."
 meta_desc: |
     Infrastructure as Code best practices are about applying software engineering practices. In this talk,
 url_slug: infrastructure-as-software-best-practices-cloud-engineering-days-2022

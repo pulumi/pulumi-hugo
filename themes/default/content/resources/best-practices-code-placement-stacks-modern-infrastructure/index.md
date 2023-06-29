@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Best Practices:  Code Placement and Stacks | Modern Infrastructure"
-title: "Best Practices:  Code Placement and Stacks | Modern Infra..."
+title: "Best Practices:  Code Placement and Stacks | Modern..."
 meta_desc: |
     The first in a series of videos, we'll use a fictional company named Zephyr to explore common questions that users ask when working with Pulumi. Ze...
 url_slug: best-practices-code-placement-stacks-modern-infrastructure

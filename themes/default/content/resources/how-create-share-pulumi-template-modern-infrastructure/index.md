@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "How to Create and Share a Pulumi Template | Modern Infrastructure"
-title: "How to Create and Share a Pulumi Template | Modern Infras..."
+title: "How to Create and Share a Pulumi Template | Modern..."
 meta_desc: |
     Pulumi Architecture Templates are a great way to quickly get a new project up and running. They’ve already grown quite popular with our users, and ...
 url_slug: how-create-share-pulumi-template-modern-infrastructure

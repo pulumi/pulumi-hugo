@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Examining Serverless Templates for AWS, Google Cloud (GCP), and Azure | Modern Infrastructure"
-title: "Examining Serverless Templates for AWS, Google Cloud (GCP..."
+title: "Examining Serverless Templates for AWS, Google Cloud..."
 meta_desc: |
     Introducing Pulumi Serverless Templates for AWS, Google Cloud (GCP), and Azure! Stand up the building blocks of your application's infrastructure w...
 url_slug: examining-serverless-templates-aws-google-cloud-gcp-azure-modern-infrastructure

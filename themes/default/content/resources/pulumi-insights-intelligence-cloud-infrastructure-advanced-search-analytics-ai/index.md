@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Pulumi Insights: Intelligence for Cloud Infrastructure with Advanced Search, Analytics and AI"
-title: "Pulumi Insights: Intelligence for Cloud Infrastructure wi..."
+title: "Pulumi Insights: Intelligence for Cloud Infrastructure..."
 meta_desc: |
     Pulumi Insights has arrived and brings an enormous productivity enhancement to infrastructure as code. Born from partnering with our community and ...
 url_slug: pulumi-insights-intelligence-cloud-infrastructure-advanced-search-analytics-ai

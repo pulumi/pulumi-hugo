@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Fauna - Building a Global Data Platform at Scale | Cloud Engineering Days 2022"
-title: "Fauna - Building a Global Data Platform at Scale | Cloud ..."
+title: "Fauna - Building a Global Data Platform at Scale | Cloud..."
 meta_desc: |
     At Fauna, availability is a top priority. It informs how we build everything, including our infrastructure. I'll discuss how we balance complexity ...
 url_slug: fauna-building-global-data-platform-scale-cloud-engineering-days-2022

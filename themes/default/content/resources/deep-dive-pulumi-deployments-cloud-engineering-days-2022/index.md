@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Deep Dive on Pulumi Deployments | Cloud Engineering Days 2022"
-title: "Deep Dive on Pulumi Deployments | Cloud Engineering Days ..."
+title: "Deep Dive on Pulumi Deployments | Cloud Engineering Days..."
 meta_desc: |
     Meagan Cojocar and Bryce Lampe introduce Pulumi Deployments and other features. Learn more about Pulumi deployments at https://www.pulumi.com/blog/...
 url_slug: deep-dive-pulumi-deployments-cloud-engineering-days-2022

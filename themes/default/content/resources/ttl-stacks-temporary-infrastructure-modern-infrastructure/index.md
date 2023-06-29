@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "TTL Stacks and Temporary Infrastructure | Modern Infrastructure"
-title: "TTL Stacks and Temporary Infrastructure | Modern Infrastr..."
+title: "TTL Stacks and Temporary Infrastructure | Modern..."
 meta_desc: |
     Infrastructure waste is a common problem. It’s too easy to leave development infrastructure running accidentally and end up with a huge bill. Many ...
 url_slug: ttl-stacks-temporary-infrastructure-modern-infrastructure

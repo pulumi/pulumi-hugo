@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Getting Started with Pulumi Insights: AI, Search and Analytics | Workshops"
-title: "Getting Started with Pulumi Insights: AI, Search and Anal..."
+title: "Getting Started with Pulumi Insights: AI, Search and..."
 meta_desc: |
     Pulumi makes deploying cloud resources faster and simpler at scale. As teams deploy resources across many cloud providers and SaaS platforms they g...
 url_slug: getting-started-pulumi-insights-ai-search-analytics-workshops

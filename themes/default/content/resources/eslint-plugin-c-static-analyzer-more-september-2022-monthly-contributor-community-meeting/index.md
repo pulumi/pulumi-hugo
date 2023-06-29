@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "eslint plugin, C# static analyzer and more | September 2022 | Monthly Contributor Community Meeting"
-title: "eslint plugin, C# static analyzer and more | September 20..."
+title: "eslint plugin, C# static analyzer and more | September..."
 meta_desc: |
     The September 2022 monthly #oss contributor community meeting for Pulumi and the Pulumiverse!
 url_slug: eslint-plugin-c-static-analyzer-more-september-2022-monthly-contributor-community-meeting

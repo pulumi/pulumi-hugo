@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Panther - Migrating from CloudFormation to Pulumi | Cloud Engineering Days 2022"
-title: "Panther - Migrating from CloudFormation to Pulumi | Cloud..."
+title: "Panther - Migrating from CloudFormation to Pulumi |..."
 meta_desc: |
     Dennis Webb, Staff Software Engineer at Panther, describes best practices and his team's journey to move their infrastructure code from CloudFormat...
 url_slug: panther-migrating-from-cloudformation-pulumi-cloud-engineering-days-2022

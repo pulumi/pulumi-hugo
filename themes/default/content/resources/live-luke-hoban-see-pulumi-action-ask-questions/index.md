@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Live With Luke Hoban: See Pulumi In Action And Ask Questions"
-title: "Live With Luke Hoban: See Pulumi In Action And Ask Questi..."
+title: "Live With Luke Hoban: See Pulumi In Action And Ask..."
 meta_desc: |
     Luke Hoban, CTO of Pulumi, hosted the Livestream on Pulumi Insights, featuring a Pulumi AI and Resource Search demo with an interactive Q&A session...
 url_slug: live-luke-hoban-see-pulumi-action-ask-questions

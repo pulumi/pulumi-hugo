@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Pulumi Docker Provider 4.0: Build Images Up To 50x Faster | Modern Infrastructure"
-title: "Pulumi Docker Provider 4.0: Build Images Up To 50x Faster..."
+title: "Pulumi Docker Provider 4.0: Build Images Up To 50x..."
 meta_desc: |
     The Pulumi Docker Provider has been a top Pulumi provider since it launched in 2018. It can be used to provision any of the resources available in ...
 url_slug: pulumi-docker-provider-40-build-images-up-50x-faster-modern-infrastructure

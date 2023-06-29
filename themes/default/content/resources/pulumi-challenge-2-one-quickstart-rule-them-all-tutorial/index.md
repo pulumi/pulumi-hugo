@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Pulumi Challenge 2: One Quickstart to Rule them All Tutorial"
-title: "Pulumi Challenge 2: One Quickstart to Rule them All Tutor..."
+title: "Pulumi Challenge 2: One Quickstart to Rule them All..."
 meta_desc: |
     Introducing the 2nd Pulumi Challenge! You can take the challenge at: https://pulumip.us/1-Quickstart
 url_slug: pulumi-challenge-2-one-quickstart-rule-them-all-tutorial

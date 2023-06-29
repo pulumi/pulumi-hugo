@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Create a Confluent Kafka Cluster with Pulumi  | Modern Infrastructure"
-title: "Create a Confluent Kafka Cluster with Pulumi  | Modern In..."
+title: "Create a Confluent Kafka Cluster with Pulumi  | Modern..."
 meta_desc: |
     Create a Confluent Kafka cluster using Pulumi. You'll use the Confluent Cloud Pulumi provider and Pulumi to create a Kafka cluster, topic, and cust...
 url_slug: create-confluent-kafka-cluster-pulumi-modern-infrastructure

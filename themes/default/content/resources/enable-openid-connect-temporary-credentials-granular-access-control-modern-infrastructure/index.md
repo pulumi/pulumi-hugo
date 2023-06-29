@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Enable OpenID Connect: Temporary Credentials & Granular Access Control | Modern Infrastructure"
-title: "Enable OpenID Connect: Temporary Credentials & Granular A..."
+title: "Enable OpenID Connect: Temporary Credentials & Granular..."
 meta_desc: |
     You can use OpenID Connect (OIDC) for temporary cloud credentials when using Pulumi Deployments. The main benefits of using the OIDC integration fo...
 url_slug: enable-openid-connect-temporary-credentials-granular-access-control-modern-infrastructure

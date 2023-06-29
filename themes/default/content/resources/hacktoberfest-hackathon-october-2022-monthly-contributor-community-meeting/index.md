@@ -3,7 +3,7 @@ preview_image:
 hero:
   image: /icons/containers.svg
   title: "Hacktoberfest and Hackathon | October 2022 | Monthly Contributor Community Meeting"
-title: "Hacktoberfest and Hackathon | October 2022 | Monthly Cont..."
+title: "Hacktoberfest and Hackathon | October 2022 | Monthly..."
 meta_desc: |
     The October 2022 monthly #oss contributor community meeting for Pulumi and the Pulumiverse!
 url_slug: hacktoberfest-hackathon-october-2022-monthly-contributor-community-meeting
