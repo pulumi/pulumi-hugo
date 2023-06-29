@@ -1,0 +1,28 @@
+---
+preview_image:
+hero:
+  image: /icons/containers.svg
+  title: "Pulumi Challenge 2: One Quickstart to Rule them All Tutorial"
+title: "Pulumi Challenge 2: One Quickstart to Rule them All Tutor..."
+meta_desc: |
+    Introducing the 2nd Pulumi Challenge! You can take the challenge at: https://pulumip.us/1-Quickstart
+url_slug: pulumi-challenge-2-one-quickstart-rule-them-all-tutorial
+featured: false
+pre_recorded: true
+pulumi_tv: false
+unlisted: false
+gated: false
+type: webinars
+external: false
+no_getting_started: true
+block_external_search_index: false
+main:
+  title: "Pulumi Challenge 2: One Quickstart to Rule them All Tutorial"
+  description: |
+    Introducing the 2nd Pulumi Challenge! You can take the challenge at: https://pulumip.us/1-Quickstart We’ll walk you through building a serverless application with AWS API Gateway and Lambda. Thanks to the use of Pulumi Architecture Templates, you don’t even have to write the code yourself! You’ll also learn about Policy Packs with Pulumi, allowing you to gate deployments with security or business logic policies. As a reward for completion, we’ll send you a limited edition prize!  Missed the first challenge? Check it out here: https://youtu.be/NU7uOy273jQ
+  sortable_date: 2022-10-03T15:13:05Z
+  youtube_url: https://www.youtube.com/embed/_mzJncJPbKE
+transcript: |
+    Hey, everybody. My name is Kat Cosgrove and welcome to another Pulumi challenge. If you've never tried the Pulumi challenge before, these are a series of small self-contained tutorials, a little bit more in depth than what you might see on the blog or a little bit weirder than what you might see on the blog. Each one of them is trying to teach you something about a way to use Pulumi. And more importantly, we give you some free stuff in the process for this month. We're going to be going through the new Pulumi architecture templates. We'll be standing up a small application on Aws API Gateway and LAMBDA. And the best part is that you don't actually have to write any of the code yourself, the architecture templates handle it for you. We'll also go into policy packs a little bit to learn about enforcing security or business logic rules against your gated deployments. And that's how we're gonna send you some swag. So let's get into it. I'll walk you through one. So here we go. Starting off. The first thing we need to do is create a new directory to work out of and navigate into it. There we go, quick start challenge. And then we are going to spin up a new server list template. Just run Pulumi new serverless Aws Python. You can just select all of the defaults here and it'll go ahead and install a bunch of dependencies for you. Takes just a few seconds. There we go. And we've created several files here. Let's take a look at them in our main dot Pie. We've got a little bit happening here. We're creating an IM role, a Lambda function and our API gateway. And here is the handler for our function. It's just returning the date time and here is the little website that stands up for you. So let's actually deploy this run Pulumi up and you're gonna see it start to create a bunch of assets for you. This is your Pulumi preview. Uh It's just a heads up about what's going to be created if you select. Yes. So we've selected. Yes. And things are starting to go. This is usually pretty quick. It does depend on what you're deploying, but in this case, it's only gonna take a few seconds here. There we go. Or a three bucket or IM roll roll policy, the API gateway. And here we go. And you see, it's given us this little URL output that we've asked for in our code stood up by the architecture template. Let's go see what's there and there it is displaying the current time constantly updating. Cool, but we can make this better, we can do more. These are very extensible. So let's create a policy pack, create a new directory and CD into it. And then we're going to create a new policy by just running Pulumi new uh policy for Aws Python. It is going to do the same thing again. Create a bunch of files for us, install all of our dependencies for us and our new policy pack is ready to go. So let's take a look, see what's going on in here, several files once again. And we've got this main dot Pie, we're going to replace this. I've copied the code over here. It's included for you on the actual page for the challenge. So you don't have to type all of this out, don't worry about it, but this is what's submitting our swag and it's enforcing the actual content of the swag dot JSON. We'll create later what's in it and the uh actual types. So let's go back up a directory and create our swag dot Json. So you can get some free stuff. We just need to give it a little bit of information. So the policy expects a few things. Pulumi challenge swag. And we need a name. My name is Kat Cosgrove. We need an email address. I'll use my work email. If I can type here we go and an address for us to send you something. I'm using a fake one because this is a test and your size. Uh one of SML and XL. Here we go. We also need to make sure that our requirements are updated in our actual Pulumi program. So we're gonna go ahead and grab the version of Pulumi policy and that policy also relies on the requests package. So we're gonna add those and run a Pulumi preview. Tell it, we're going to be using a policy pack in the policy directory and that the config for the policy pack is swag dot Jason and it barfed because I forgot to install all of those dependencies. So do make sure that you install your dependencies. Let's get those installed correctly. There we go. And now it's gone all done. We'll get you some swag. Not bad. Huh? Thanks for watching. Come back for the next one.
+
+---
