@@ -40,6 +40,8 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pMEIX7LmXYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Two months ago we launched [Resource Search for Pulumi Cloud](/blog/pulumi-insights) to offer multi-cloud resource search and analytics across every cloud environment in your organization. Today, we're excited to announce that we are taking this a step further and exposing a much larger set of data to search over: resource properties.
 
 <!--more-->
