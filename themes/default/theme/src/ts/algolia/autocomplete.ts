@@ -312,9 +312,9 @@ function initAutocomplete(el: HTMLElement) {
 }
 
 // Wait until the DOM is ready before looking for any autocomplete controls on the page.
-window.addEventListener("DOMContentLoaded", () => {
-    const el = document.querySelector(autocompleteContainer) as HTMLElement;
-    if (el) {
-        initAutocomplete(el);
-    }
-});
+// window.addEventListener("DOMContentLoaded", () => {
+//     const el = document.querySelector(autocompleteContainer) as HTMLElement;
+//     if (el) {
+//         initAutocomplete(el);
+//     }
+// });
