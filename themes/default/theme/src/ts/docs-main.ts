@@ -19,7 +19,7 @@ $(window).on("load", function() {
 
 (function (document, $) {
     let docsToggle = $(".docs-nav-toggle");
-    
+
     docsToggle.on("click", function () {
         docsMainNavToggleWrapper.toggleClass("docs-nav-show");
         docsMainNavToggleWrapper.toggleClass("docs-nav-hide");
@@ -38,10 +38,19 @@ $(window).on("load", function() {
         else {
             packageCardBackground.css("background", "#f9f9f9");
         }
-
+        
     });
-
     
+
+    function loadContentWidthState() {
+        const contentWidthState = JSON.parse(window.localStorage.getItem("content-width-state") || "{}");
+        if (contentWidthState["content-width"] === "expanded") {
+            expandContentWidth();
+        } else {
+            collapseContentWidth();
+        }
+    }
+
     let collapseContentButton = $("#collapse-content-button")
     let expandContentButton = $("#expand-content-button")
     
@@ -50,28 +59,26 @@ $(window).on("load", function() {
         if (window.location.pathname.startsWith("/registry")) {
             $(".docs-main-content").addClass("expand-registry");
         }
-        // $(".docs-main-content").removeClass("docs-content-width-collapsed");
         $("#docs-home-banner").find("p").addClass("wider");
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop-wide.svg")`);
         collapseContentButton.removeClass("hide");
         expandContentButton.addClass("hide");
-        // contentWidthState.updateKey("content-width", "expanded");
+        window.localStorage.setItem("content-width-state", JSON.stringify({ "content-width": "expanded" }));
     }
 
     function collapseContentWidth() {
         $(".docs-main-content").removeClass("docs-content-width-expanded");
-        // $(".docs-main-content").addClass("docs-content-width-collapsed");
         $("#docs-home-banner").find("p").removeClass("wider");
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop.svg")`);
         collapseContentButton.addClass("hide");
         expandContentButton.removeClass("hide");
-        // contentWidthState.updateKey("conten
-        // contentWidthState.updateKey("content-width", "collapsed");
+        window.localStorage.setItem("content-width-state", JSON.stringify({ "content-width": "collaped" }));
     }
 
     expandContentButton.on("click", expandContentWidth);
     collapseContentButton.on("click", collapseContentWidth);
 
+    loadContentWidthState();
 })(document, jQuery);
 
 function setDocsMainNavPosition() {
