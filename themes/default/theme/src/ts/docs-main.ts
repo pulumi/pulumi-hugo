@@ -30,7 +30,7 @@ $(window).on("load", function() {
 
     let packageCardCheckbox = $("#accordion-checkbox-package-card");
     let packageCardBackground = $("#accordion-package-card");
-    
+
     packageCardCheckbox.on("change", function () {
         if (packageCardCheckbox.is(":checked")) {
             packageCardBackground.css("background", "#fff");
@@ -38,13 +38,13 @@ $(window).on("load", function() {
         else {
             packageCardBackground.css("background", "#f9f9f9");
         }
-        
+    
     });
     
 
     function loadContentWidthState() {
-        const contentWidthState = JSON.parse(window.localStorage.getItem("content-width-state") || "{}");
-        if (contentWidthState["content-width"] === "expanded") {
+        const contentWidthState = window.localStorage.getItem("content-width-state");
+        if (contentWidthState === "expanded") {
             expandContentWidth();
         } else {
             collapseContentWidth();
@@ -63,7 +63,7 @@ $(window).on("load", function() {
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop-wide.svg")`);
         collapseContentButton.removeClass("hide");
         expandContentButton.addClass("hide");
-        window.localStorage.setItem("content-width-state", JSON.stringify({ "content-width": "expanded" }));
+        window.localStorage.setItem("content-width-state", "expanded");
     }
 
     function collapseContentWidth() {
@@ -72,7 +72,7 @@ $(window).on("load", function() {
         $("#docs-home-banner").css("background-image", `url("/images/docs/docs-home-header-background-desktop.svg")`);
         collapseContentButton.addClass("hide");
         expandContentButton.removeClass("hide");
-        window.localStorage.setItem("content-width-state", JSON.stringify({ "content-width": "collaped" }));
+        window.localStorage.setItem("content-width-state", "collaped");
     }
 
     expandContentButton.on("click", expandContentWidth);
