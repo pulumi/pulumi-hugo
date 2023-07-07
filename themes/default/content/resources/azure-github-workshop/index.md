@@ -3,6 +3,7 @@
 title: "Getting Started with Azure IaC and Review Stacks"
 title_tag: "Getting Started with Azure IaC and Review Stacks (July 2023 Workshop)"
 meta_desc: "In this workshop, we’ll explore the new Azure Native v2 provider and Pulumi Review Stacks on GitHub"
+meta_image:"/images/resources/Azure-IaC-Review-Stacks.png"
 
 # A featured webinar will display first in the list.
 featured: false
