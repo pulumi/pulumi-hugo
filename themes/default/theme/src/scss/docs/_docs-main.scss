@@ -423,7 +423,7 @@ body.section-registry {
             }
 
             @media (min-width: 1280px) {
-                width: 340px;
+                min-width: 340px;
             }
         }
 
@@ -474,12 +474,12 @@ body.section-registry {
                 position: sticky;
                 top: 94px;
                 display: block;
+                margin-right: 10px;
 
                 .table-of-contents {
                     display: flex;
                     border: none;
                     margin: 0;
-                    margin-right: 10px;
                     padding: 0;
                 }
 
