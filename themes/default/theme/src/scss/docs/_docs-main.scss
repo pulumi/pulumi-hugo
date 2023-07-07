@@ -326,7 +326,8 @@ body.section-registry {
             @media (min-width: 1526px) {
                 max-width: 1200px !important;
                 &.expand-registry {
-                    max-width: 1000px !important;
+                    width: 100%;
+                    max-width: 1200px !important;
                 }
             }
         }
@@ -478,6 +479,7 @@ body.section-registry {
                     display: flex;
                     border: none;
                     margin: 0;
+                    margin-right: 10px;
                     padding: 0;
                 }
 
