@@ -43,8 +43,8 @@ Both organization and team token activities produce audit log events which are a
 | List webhook deliveries | | ✅ | ✅ |
 | **Stack tags** | **Personal** | **Team** | **Organization** |
 | Get stack tags | ✅ | ✅ | ✅ |
-| Set stack yag | ✅ | ✅ | ✅ |
-| Delete stack yag | ✅ | ✅ | ✅ |
+| Set stack tag | ✅ | ✅ | ✅ |
+| Delete stack tag | ✅ | ✅ | ✅ |
 | **Stack updates** | **Personal** | **Team** | **Organization** |
 | List stack updates | ✅ | ✅ | ✅ |
 | Get update status | ✅ | ✅ | ✅ |
