@@ -2760,25 +2760,19 @@ If omitted, results are sorted according to their search relevance. If there is 
 
 If specified more than once, the first parameter is the primary sort order and subsequent parameters control additional sorting criteria.
 
-Special consideration needs to be given if using this in tandem with the `cursor` parameter, see below.
-
 Allowed values: created, custom, delete, id, modified, module, name, package, parent.urn, pending, project, protected, provider.urn, stack, type, urn.
 
 **asc**: Whether to return results in ascending or descending sort order.
 
 **size**: How many results to return at a time.
 
-**paginate**: (Optional) The pagination method for retrieving multiple pages of results. One of `page` (default) for an ordered list of the first 10k results, or `cursor` for iterating through the entire unordered list of results.
-
 **page**: The page of results to return.
 The `page` parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the `cursor` parameter should be used instead.
+Paginating with the `page` parameter is not transactional. Stack updates that complete while paginating can affect the ordering of returned results.
 
 **cursor**: A continuation token for pagination.
 Only available on Enterprise plans.
-
-To receive a cursor from the API, you need to issue a `paginate="cursor"` query parameter with your initial request. This informs the API that it should return a cursor as part of the JSON response.
-
-Undefined behavior can occur if the query results are impacted during pagination, for example as the result of a completed stack update. This also means that sort order must be deterministic to yield expected results, as cursor pagination respects sorting.
+Paginating with the `cursor` parameter is not transactional. Stack updates that complete while paginating can affect the ordering of returned results.
 
 **facet**: If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values.
 
