@@ -2769,7 +2769,7 @@ Allowed values: created, custom, delete, id, modified, module, name, package, pa
 The `page` parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the `cursor` parameter should be used instead.
 Paginating with the `page` parameter is not transactional. The order of results can be impacted if a stack update completes while paginating.
 
-**cursor**: A continuation token for pagination.
+**cursor**: A continuation token for pagination that allows fetching more than 10,000 resources.
 Only available on Enterprise plans.
 Paginating with the `cursor` parameter is not transactional. The order of results can be impacted if a stack update completes while paginating.
 
