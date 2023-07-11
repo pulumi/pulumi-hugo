@@ -2740,7 +2740,6 @@ Search for resources belonging to the given organization.
 | sort       | query | array[string] | false    | The field(s) by which to sort.
 | asc        | query | boolean       | false    | Whether to return results in ascending or descending sort order.                                                                         |
 | size       | query | integer       | false    | How many results to return at a time.                                                                                                    |
-| paginate   | query | string        | false    | If requesting multiple pages of results, the pagination method to use. Valid values are "cursor" and "page", defaults to "page".
 | page       | query | number        | false    | The page of results to return.                                                                                                           |
 | cursor     | query | string        | false    | A continuation token for pagination.                                                                                                     |
 | facet      | query | array[string] | false    | If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values. |
@@ -2768,11 +2767,11 @@ Allowed values: created, custom, delete, id, modified, module, name, package, pa
 
 **page**: The page of results to return.
 The `page` parameter can only be used to fetch up 10,000 resources. If a query matches more than 10,000 resources, the `cursor` parameter should be used instead.
-Paginating with the `page` parameter is not transactional. Stack updates that complete while paginating can affect the ordering of returned results.
+Paginating with the `page` parameter is not transactional. The order of results can be impacted if a stack update completes while paginating.
 
 **cursor**: A continuation token for pagination.
 Only available on Enterprise plans.
-Paginating with the `cursor` parameter is not transactional. Stack updates that complete while paginating can affect the ordering of returned results.
+Paginating with the `cursor` parameter is not transactional. The order of results can be impacted if a stack update completes while paginating.
 
 **facet**: If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values.
 
