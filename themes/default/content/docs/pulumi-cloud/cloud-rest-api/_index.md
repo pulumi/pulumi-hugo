@@ -2762,6 +2762,7 @@ If specified more than once, the first parameter is the primary sort order and s
 Allowed values: created, custom, delete, id, modified, module, name, package, parent.urn, pending, project, protected, provider.urn, stack, type, urn.
 
 **asc**: Whether to return results in ascending or descending sort order.
+Results are returned in descending order by default.
 
 **size**: How many results to return at a time.
 
