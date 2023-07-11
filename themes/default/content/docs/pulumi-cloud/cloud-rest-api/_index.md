@@ -2737,11 +2737,11 @@ Search for resources belonging to the given organization.
 |------------|-------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------|
 | org        | path  | string        | true     | Name of the organization to search.                                                                                                      |
 | query      | query | string        | false    | The search query to execute. If omitted all resources are returned (subject to any pagination limits).                                   |
-| sort       | query | array[string] | false    | The field(s) by which to sort.
+| sort       | query | array[string] | false    | The field(s) by which to sort.                                                                                                           |
 | asc        | query | boolean       | false    | Whether to return results in ascending or descending sort order.                                                                         |
 | size       | query | integer       | false    | How many results to return at a time.                                                                                                    |
 | page       | query | number        | false    | The page of results to return.                                                                                                           |
-| cursor     | query | string        | false    | A continuation token for pagination.                                                                                                     |
+| cursor     | query | string        | false    | A continuation token for pagination that allows fetching more than 10,000 resources.                                                     |
 | facet      | query | array[string] | false    | If provided, an aggregation will be returned with the top-5 values for the given facet, along with how many resources have those values. |
 | properties | query | boolean       | false    | Whether to include resource properties in results. Not supported for all subscriptions.                                                  |
 
