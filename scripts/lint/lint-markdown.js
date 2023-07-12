@@ -111,6 +111,9 @@ function searchForMarkdown(paths) {
         if (file.indexOf("/content/docs/reference/pkg") > -1) {
             continue;
         }
+        if (file.indexOf("/content/examples") > -1) {
+            continue;
+        }
 
         // If the path is a directory we want to add the contents of the directory
         // to the list.

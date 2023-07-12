@@ -1,0 +1,83 @@
+---
+title: "Web Server Using Azure Virtual Machine"
+meta_desc: ""
+metadata:
+  id: azure-cs-webserver
+  title: "Web Server Using Azure Virtual Machine"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-webserver
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
+
+summary: "This example from Pulumi demonstrates how to deploy a Web Server in Azure using Python, Pulumi, and Azure APIs. It uses Azure Cloud Services to host the Web Server and provides a configuration consisting of an ASP.NET website with an associated Storage Account. The provided Python program uses Pulumi&#x27;s Azure SDK to create and configure the service, making it easier for developers to deploy and configure web application in the cloud. This example serves as a useful use case for quickly deploying a Web Server on Azure, with the ability to easily configure and manage application components."
+---
+
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/classic-azure-cs-webserver/README.md)
+
+# Web Server Using Azure Virtual Machine
+
+This example deploys an Azure Virtual Machine and starts a HTTP server on it.
+
+## Deploying the App
+
+To deploy your infrastructure, follow the below steps.
+
+### Prerequisites
+
+1. [Install Pulumi](https://www.pulumi.com/docs/get-started/install/)
+2. [Install .NET Core 3.0+](https://dotnet.microsoft.com/download)
+
+### Steps
+
+1.  Login to Azure CLI (you will be prompted to do this during deployment if you forget this step):
+
+    ```
+    $ az login
+    ```
+
+1. Set an appropriate Azure location like:
+
+    ```
+    $ pulumi config set azure:location westus
+    ```
+
+1. Run `pulumi up` to preview and deploy the changes:
+
+1.  Run `pulumi up` to preview and deploy changes:
+
+    ```
+    $ pulumi up
+    Previewing changes:
+    ...
+
+    Performing changes:
+    ...
+
+    7 resources created
+    ```
+
+1. Get the IP address of the newly-created instance from the stack's outputs:
+
+    ```
+    $ pulumi stack output IpAddress
+    137.117.15.111
+    ```
+
+1. Check to see that your server is now running:
+
+    ```
+    $ curl http://$(pulumi stack output IpAddress)
+    Hello, World!
+    ```
+
+1. From there, feel free to experiment. Simply making edits and running `pulumi up` will incrementally update your stack.
+
+1. Once you've finished experimenting, tear down your stack's resources by destroying and removing it:
+
+    ```bash
+    $ pulumi destroy --yes
+    $ pulumi stack rm --yes
+    ```
+

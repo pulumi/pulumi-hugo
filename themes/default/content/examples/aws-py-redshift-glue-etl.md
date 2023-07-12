@@ -1,0 +1,73 @@
+---
+title: "ETL pipeline with Amazon Redshift and AWS Glue"
+meta_desc: ""
+metadata:
+  id: aws-py-redshift-glue-etl
+  title: "ETL pipeline with Amazon Redshift and AWS Glue"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/aws-py-redshift-glue-etl
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
+
+summary: "This Pulumi example demonstrates how to set up an ETL pipeline on AWS using the Python programming language. It creates an Amazon Redshift data warehouse and an AWS Glue ETL job to transfer data between two S3 buckets. It demonstrates a cloud computing use case of integrating a data warehouse with an ETL pipeline to transport data."
+---
+
+# ETL pipeline with Amazon Redshift and AWS Glue
+
+[![Deploy with Pulumi](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/tree/master/aws-py-redshift-glue-etl)
+
+This example creates an ETL pipeline using Amazon Redshift and AWS Glue. The pipeline extracts data from an S3 bucket with a Glue crawler, transforms it with a Python script wrapped in a Glue job, and loads it into a Redshift database deployed in a VPC.
+
+## Prerequisites
+
+1. [Install Pulumi](https://www.pulumi.com/docs/get-started/install/).
+1. [Install Python](https://www.pulumi.com/docs/intro/languages/python/).
+1. Configure your [AWS credentials](https://www.pulumi.com/docs/intro/cloud-providers/aws/setup/).
+
+### Deploying the App
+
+1. Clone this repo, change to this directory, then create a new [stack](https://www.pulumi.com/docs/intro/concepts/stack/) for the project:
+
+    ```bash
+    pulumi stack init
+    ```
+
+1. Specify an AWS region to deploy into:
+
+    ```bash
+    pulumi config set aws:region us-west-2
+    ```
+
+1. Install Python dependencies and run Pulumi:
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+
+    pulumi up
+    ```
+
+1. In a few moments, the Redshift cluster and Glue components will be up and running and the S3 bucket name emitted as a Pulumi [stack output](https://www.pulumi.com/docs/intro/concepts/stack/#outputs).
+
+    ```bash
+    ...
+    Outputs:
+        dataBucketName: "events-56e424a"
+    ```
+
+1. Upload the included sample data file to S3 to verify the automation works as expected:
+
+    ```bash
+    aws s3 cp events-1.txt s3://$(pulumi stack output dataBucketName)
+    ```
+
+1. When you're ready, destroy your stack and remove it:
+
+    ```bash
+    pulumi destroy --yes
+    pulumi stack rm --yes
+    ```
+

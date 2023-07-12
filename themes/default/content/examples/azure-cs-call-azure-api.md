@@ -1,0 +1,62 @@
+---
+title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
+meta_desc: ""
+metadata:
+  id: azure-cs-call-azure-api
+  title: "Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK"
+  description: ""
+  url: https://github.com/pulumi/examples/tree/master/azure-cs-call-azure-api
+  runtime: 
+  lastUpdate: 
+  duration: 
+  resources: []
+
+summary: "This example demonstrates a basic scenario of calling an Azure API using Pulumi, a cloud-native programming platform. It is a Node.js project that can be used to manage resources on the Microsoft Azure cloud provider. This example shows how to create an Azure service principal, enable an API and assign the service principal permissions to get data from an API. Additionally, it shows how this API can be used to retrieve data from an Azure service like Azure Storage. This example serves as a starting point for users to learn how to interact with Azure APIs using Pulumi."
+---
+
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/azure-cs-call-azure-api/README.md)
+
+# Demo of Integrating the native Azure Pulumi provider with the Microsoft Azure SDK
+
+The native Azure Pulumi provider exposes the entire resource model of Azure Resource Manager. Each resource can be created, updated, deleted, or refreshed (read).
+
+However, Azure API has many endpoints that don't map to our resource model. For examples, finding resources given some filter criteria is not supported directly.
+
+You can easily integrate an Azure SDK call or a raw HTTP request inside your Pulumi program using the same programming language. We provide a helper function `Authorization.GetClientToken()` that returns a valid authentication token for the same login context that the Pulumi provider is using.
+
+This example demonstrates how to use such integration to lookup a role definition ID based on its name and scope. It then creates a role assignment for the resulting definition to allow pulling container images from a registry.
+
+## Running the App
+
+1.  Create a new stack:
+
+    ```
+    $ pulumi stack init dev
+    ```
+
+1.  Login to Azure CLI (you will be prompted to do this during deployment if you forget this step):
+
+    ```
+    $ az login
+    ```
+
+1. Set the Azure region location to use:
+    
+    ```
+    $ pulumi config set azure-native:location westus2
+    ```
+  
+1.  Run `pulumi up` to preview and deploy changes:
+
+    ``` 
+    $ pulumi up
+    Previewing changes:
+    ...
+
+    Performing changes:
+    ...
+    Resources:
+        ~ 1 updated
+        3 unchanged
+    ```
+

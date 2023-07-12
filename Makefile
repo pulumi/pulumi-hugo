@@ -69,3 +69,7 @@ new-learn-topic:
 .PHONY: new-template
 new-template:
 	./scripts/content/new-template.sh
+
+.PHONY: examples
+examples:
+	node scripts/examples/generate.js

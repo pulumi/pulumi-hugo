@@ -1,0 +1,51 @@
+---
+title: "AWS Step Functions"
+meta_desc: "Basic example of AWS Step Functions"
+metadata:
+  id: stepfunctions
+  title: "AWS Step Functions"
+  description: "Basic example of AWS Step Functions"
+  url: https://github.com/pulumi/examples/tree/master/stepfunctions
+  runtime: nodejs
+  lastUpdate: 1683412716000
+  duration: 39000
+  resources:
+  - pulumi:pulumi:Stack
+  - pulumi:providers:aws
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:iam/rolePolicy:RolePolicy
+  - aws:lambda/function:Function
+  - aws:lambda/function:Function
+  - aws:sfn/stateMachine:StateMachine
+
+summary: "This Pulumi example deploys a Step Functions state machine using the AWS provider. It is written in TypeScript and demonstrates the use of Step Functions for orchestrating a distributed workflow across multiple AWS services. The example creates an Amazon SES service to send emails, as well as an S3 bucket for storing attachments and a Lambda function to execute a task. This example is well-suited to automating and simplifying distributed cloud computing tasks."
+---
+
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-stepfunctions/README.md)
+
+# AWS Step Functions
+
+A basic example that demonstrates using AWS Step Functions with a Lambda function.
+
+This example also utilizes our [Stack Readme](https://www.pulumi.com/docs/intro/pulumi-cloud/projects-and-stacks/#stack-readme) feature. You can view the stack readme by going to the console by running `pulumi console` and selecting the README tab. See the [`stack-readme-ts`](https://github.com/pulumi/examples/tree/master/stack-readme-ts) example for a more detailed example.
+
+```
+# Create and configure a new stack
+$ pulumi stack init stepfunctions-dev
+$ pulumi config set aws:region us-east-2
+
+# Install dependencies
+$ npm install
+
+# Preview and run the deployment
+$ pulumi up
+
+# Start execution using the AWS CLI (or from the console at https://console.aws.amazon.com/states)
+$ aws stepfunctions start-execution --state-machine-arn $(pulumi stack output stateMachineArn)
+
+# Remove the app
+$ pulumi destroy
+```
+

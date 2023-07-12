@@ -1,0 +1,105 @@
+---
+title: "Easy container example"
+meta_desc: "NGINX container example"
+metadata:
+  id: aws-ts-containers
+  title: "Easy container example"
+  description: "NGINX container example"
+  url: https://github.com/pulumi/examples/tree/master/aws-ts-containers
+  runtime: nodejs
+  lastUpdate: 1683413302000
+  duration: 228000
+  resources:
+  - pulumi:pulumi:Stack
+  - pulumi:providers:awsx
+  - awsx:lb:ApplicationLoadBalancer
+  - pulumi:providers:aws
+  - pulumi:providers:aws
+  - aws:lb/targetGroup:TargetGroup
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ecs/cluster:Cluster
+  - aws:lb/loadBalancer:LoadBalancer
+  - aws:lb/listener:Listener
+  - awsx:ecr:Repository
+  - pulumi:providers:pulumi
+  - aws:ecr/repository:Repository
+  - aws:ecr/lifecyclePolicy:LifecyclePolicy
+  - awsx:ecr:Image
+  - awsx:ecs:FargateService
+  - awsx:ecs:FargateTaskDefinition
+  - aws:cloudwatch/logGroup:LogGroup
+  - aws:iam/role:Role
+  - aws:iam/role:Role
+  - aws:iam/rolePolicyAttachment:RolePolicyAttachment
+  - aws:ecs/taskDefinition:TaskDefinition
+  - aws:ec2/securityGroup:SecurityGroup
+  - aws:ecs/service:Service
+
+summary: "This Pulumi example provides a demonstration of how to use TypeScript to orchestrate a multi-container application on AWS. It sets up an Amazon Elastic Container Service (ECS) cluster to deploy Docker containers, and an Amazon Elastic Container Registry (ECR) to store the application artifacts. The example is written in TypeScript and uses AWS to provide a cloud-based computing use case. It demonstrates an effective way to spin up a multi-container application in the cloud."
+---
+
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/aws-ts-containers/README.md)
+
+# Easy container example
+
+Companion to the tutorial [Provision containers on AWS](https://www.pulumi.com/docs/tutorials/aws/ecs-fargate/).
+
+## Prerequisites
+
+To run this example, make sure [Docker](https://docs.docker.com/engine/installation/) is installed and running.
+
+## Running the App
+
+Note: some values in this example will be different from run to run.  These values are indicated
+with `***`.
+
+1.  Create a new stack:
+
+    ```
+    $ pulumi stack init containers-dev
+    ```
+
+1.  Configure Pulumi to use an AWS region that supports Fargate. This is currently only available in `us-east-1`, `us-east-2`, `us-west-2`, and `eu-west-1`:
+
+    ```
+    $ pulumi config set aws:region us-west-2
+    ```
+
+1.  Restore NPM modules via `npm install` or `yarn install`.
+
+1.  Preview and deploy the app via `pulumi up`. The preview will take a few minutes, as it builds a Docker container. A total of 19 resources are created.
+
+    ```
+    $ pulumi up
+    ```
+
+1.  View the endpoint URL, and run curl:
+
+    ```bash
+    $ pulumi stack output
+    Current stack outputs (1)
+        OUTPUT                  VALUE
+        hostname                http://***.elb.us-west-2.amazonaws.com
+
+    $ curl $(pulumi stack output hostname)
+    <html>
+        <head><meta charset="UTF-8">
+        <title>Hello, Pulumi!</title></head>
+    <body>
+        <p>Hello, S3!</p>
+        <p>Made with ❤️ with <a href="https://pulumi.com">Pulumi</a></p>
+    </body></html>
+    ```
+
+1.  To view the runtime logs from the container, use the `pulumi logs` command. To get a log stream, use `pulumi logs --follow`.
+
+    ```
+    $ pulumi logs --follow
+    Collecting logs for stack aws-ts-containers-dev since 2018-05-22T14:25:46.000-07:00.
+    2018-05-22T15:33:22.057-07:00[                  pulumi-nginx] 172.31.13.248 - - [22/May/2018:22:33:22 +0000] "GET / HTTP/1.1" 200 189 "-" "curl/7.54.0" "-"
+    ```
+
+## Clean up
+
+To clean up resources, run `pulumi destroy` and answer the confirmation question at the prompt.
+
