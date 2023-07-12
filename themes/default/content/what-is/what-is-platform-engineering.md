@@ -14,7 +14,7 @@ page_title: What is Platform Engineering?
 
 Platform engineering is a set of modern engineering practices where infrastructure teams build shared tools and services to help development teams develop, deploy, and operate cloud infrastructure on a self-service basis. This includes cloud infrastructure, container orchestration platforms, databases, networking, monitoring, code repositories, and deployment pipelines.
 
-Platform teams use a customer-driven mindset where they treat the applications developers that they serve as customers that must be understood and won over through products that solve their problems. The product is infrastructure tooling that development teams use to provision and manage standardized infrastructure for their applications and services. Typically, these tools have built-in guardrails that enforce best practices and security standards without impeding developers’ agility and workflow.
+Platform teams use a customer-driven mindset where they treat the application developers that they serve as customers that must be understood and won over through products that solve their problems. The products these teams offer are infrastructure tools and building blocks that development teams use to provision and manage standardized infrastructure for their applications and services. Typically, these tools have built-in guardrails that enforce best practices and security standards without impeding developers’ agility and workflow.
 
 The responsibilities of a platform engineer may include the following:
 
