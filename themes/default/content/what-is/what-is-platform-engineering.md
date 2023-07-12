@@ -18,7 +18,7 @@ Platform teams use a customer-driven mindset where they treat the application de
 
 The responsibilities of a platform engineer may include the following:
 
-* Serving development teams with self-service infrastructure tooling and golden paths to production
+* Providing development teams with self-service infrastructure tooling and golden paths to production
 
 * Defining and creating standardized cloud architectures used by development teams, typically using an [infrastructure as code framework](/what-is/what-is-infrastructure-as-code/)
 
