@@ -369,7 +369,6 @@ body.section-registry {
         .docs-table-of-contents {
             max-width: 700px;
             min-width: 0;
-            height: 90vh;
             display: flex;
 
             .table-of-contents {
@@ -471,7 +470,7 @@ body.section-registry {
                 margin-top: 38px;
                 padding: 16px 0 16px 0;
                 overflow-y: auto;
-                height: min-content;
+                height: 90vh;
                 position: sticky;
                 top: 94px;
                 display: block;
