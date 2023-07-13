@@ -247,7 +247,7 @@
             width: 20.25rem;
             height: 20.25rem;
             right: -1.5rem;
-            top: 6.125rem;
+            top: 12.125rem;
         }
     }
 
@@ -312,7 +312,7 @@
             width: 20.25rem;
             height: 20.25rem;
             right: -1.5rem;
-            top: 6.125rem;
+            top: 12.125rem;
         }
     }
 
@@ -396,7 +396,7 @@
                 @apply absolute top-0 left-0;
             }
         }
-        
+
         .circle-left {
             @apply rounded-full absolute bg-salmon-600;
             width: 20.25rem;
@@ -989,7 +989,7 @@
             right: 6rem;
             top: 20rem;
         }
-    
+
         .circle-left {
             @apply rounded-full absolute bg-salmon-600;
             width: 14rem;
@@ -1007,7 +1007,7 @@
             right: -4.5rem;
             top: 0.75rem;
         }
-    
+
         .circle-center {
             @apply rounded-full absolute bg-salmon-600;
             width: 7rem;
@@ -1015,7 +1015,7 @@
             right: 27rem;
             top: -3.5rem;
         }
-    
+
         .circle-bottom {
             @apply rounded-full absolute bg-yellow-600;
             width: 21.25rem;
