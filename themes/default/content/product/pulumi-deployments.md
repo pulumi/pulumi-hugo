@@ -7,7 +7,7 @@ meta_desc: Pulumi Deployments is a new feature that automates the execution of P
 overview:
     title: The fastest way to go from code to cloud
     description: |
-        [Pulumi Deployments](/docs/pulumi-cloud/deployments/) is a new feature that automates the execution of your Pulumi programs in a secure, hosted environment. Deploy any stack with a click of a button, `git push`, or API call. Available in preview today.
+        [Pulumi Deployments](/docs/pulumi-cloud/deployments/) lets you deploy infrastructure to any cloud using GitHub pull requests or simple API calls. You don't have to install and configure the Pulumi CLI because Pulumi Deployments executes Pulumi commands in [Pulumi Cloud](/product/pulumi-cloud/). Available now in preview.
 
 quotes:
     items:
@@ -26,7 +26,7 @@ quotes:
 benefits:
     title: How will Pulumi Deployments benefit me?
     description: |
-        Pulumi Deployments accelerates your rate of infrastructure deployments by executing `pulumi up` commands remotely whenever you click a button, push to a GitHub branch, or call the Deployments REST API. Instead of using the CLI, you can use a managed service to run your Pulumi programs which enables you to automate cloud deployments at scale. Pulumi Deployments is based on the same technology as [Pulumi Automation API](/docs/using-pulumi/automation-api/), which lets organizations manage more than ten times the cloud infrastructure resources per engineer when compared to other infrastructure as code tools.
+        Pulumi Deployments makes it easier for you and engineers on your team to collaborate on infrastructure changes and deploy changes automatically through your existing GitHub pull request workflow. There is minimal setup and you can standardize your deployment workflow through GitHub and Pulumi. In addition, you can build your own custom deployment workflows with Automation API code and offload the deployment workload to Pulumi Deployments instead of running it locally with the Pulumi CLI. Pulumi Deployments is based on the same technology as [Pulumi Automation API](/docs/using-pulumi/automation-api/), which lets organizations manage more than ten times the cloud infrastructure resources per engineer when compared to other infrastructure as code tools.
 
 preview:
   youtube_url: https://www.youtube.com/embed/v48U7CNWutc
@@ -38,15 +38,15 @@ options:
         - icon: git-merged
           icon_color: purple
           title: Git Push to Deploy
-          description: Deploy infrastructure with each push to a GitHub branch, using pull request workflows to trigger deployments.
+          description: Deploy infrastructure with each [push to a GitHub branch](/docs/pulumi-cloud/deployments/reference/#github-push-to-deploy), using pull requests to review changes in ephemeral [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks/) before deploying them.
         - icon: upload-to-cloud
           icon_color: salmon
           title: Deploy with Pulumi
-          description: Deploy infrastructure with a click of a button from the Pulumi Service console. Supports update, preview, refresh, and destroy commands.
+          description: Deploy infrastructure with a click of a button from the Pulumi Cloud console. Run update, preview, refresh, and destroy commands.
         - icon: code-window
           icon_color: blue
           title: REST API
-          description: Deploy infrastructure by calling the Pulumi Service REST API. You can also use the REST API from Automation API code.
+          description: Deploy infrastructure by calling the Pulumi Service REST API. You can also use the API to run [Remote Automation API](/docs/pulumi-cloud/deployments/reference/#rest-api) code.
 
 form:
     hubspot_form_id: 35baf46c-fd6e-4321-a75f-fc9319e31efb
