@@ -1,13 +1,10 @@
----
-title: "Programming Model"
-url: /docs/reference/programming-model
-block_external_search_index: true
----
+const path = document.location.pathname;
 
-<script>
-    // The following list maps the headings that previously appeared on this page to their new locations.
+if (path === "/docs/intro/concepts/programming-model/" || path === "/docs/reference/programming-model/") {
+
+    // The following list maps the headings that previously appeared on these pages to their new locations.
     // We use this list to determine whether we can redirect visitors from the old content to the new.
-    var redirects = {
+    let redirects = {
         "#additionalsecretoutputs": "/docs/concepts/resources/#additionalsecretoutputs",
         "#aliases": "/docs/concepts/resources/#aliases",
         "#all": "/docs/concepts/inputs-outputs/#all",
@@ -48,13 +45,4 @@ block_external_search_index: true
     if (redirect) {
         location.href = redirect;
     }
-</script>
-
-<!--
-    Including a fallback redirect lets search engines know the content has moved, and
-    waiting a few seconds before redirecting gives the script a chance to locate
-    a matching anchor.
--->
-<meta http-equiv="refresh" content="4; url=/docs/concepts">
-
-This content has moved. Redirecting to [Pulumi Concepts](/docs/concepts)....
+}
