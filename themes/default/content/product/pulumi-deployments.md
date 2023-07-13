@@ -26,14 +26,14 @@ quotes:
 benefits:
     title: How will Pulumi Deployments benefit me?
     description: |
-        Pulumi Deployments makes it easier for you and engineers on your team to collaborate on infrastructure changes and deploy changes automatically through your existing GitHub pull request workflow. There is minimal setup and you can standardize your deployment workflow through GitHub and Pulumi. In addition, you can build your own custom deployment workflows with Automation API code and offload the deployment workload to Pulumi Deployments instead of running it locally with the Pulumi CLI. Pulumi Deployments is based on the same technology as [Pulumi Automation API](/docs/using-pulumi/automation-api/), which lets organizations manage more than ten times the cloud infrastructure resources per engineer when compared to other infrastructure as code tools.
+        Pulumi Deployments makes it easier for you and engineers on your team to collaborate on infrastructure changes and deploy changes automatically through your existing GitHub pull request workflow. There is minimal setup and you can standardize your deployment workflow through GitHub and Pulumi. In addition, you can build your own custom deployment workflows with [Automation API](/docs/using-pulumi/automation-api/) code and offload the deployment workload to Pulumi Deployments instead of running it locally with the Pulumi CLI. Pulumi Deployments is based on the same technology as [Pulumi Automation API](/docs/using-pulumi/automation-api/).
 
 preview:
   youtube_url: https://www.youtube.com/embed/v48U7CNWutc
 
 options:
     title: How can I use Pulumi Deployments today?
-    description: Pulumi Deployments supports three main scenarios during the preview. More scenarios are planned in our roadmap and we are accepting feedback from customers to shape the future of this feature.
+    description:
     items:
         - icon: git-merged
           icon_color: purple
@@ -41,7 +41,7 @@ options:
           description: Deploy infrastructure with each [push to a GitHub branch](/docs/pulumi-cloud/deployments/reference/#github-push-to-deploy), using pull requests to review changes in ephemeral [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks/) before deploying them.
         - icon: upload-to-cloud
           icon_color: salmon
-          title: Deploy with Pulumi
+          title: Click to Deploy
           description: Deploy infrastructure with a click of a button from the Pulumi Cloud console. Run update, preview, refresh, and destroy commands.
         - icon: code-window
           icon_color: blue
