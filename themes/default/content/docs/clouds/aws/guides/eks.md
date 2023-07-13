@@ -1311,7 +1311,7 @@ assume_role_policy = json.dumps({
     "Statement": [{
         "Action": "sts:AssumeRole",
         "Effect": "Allow",
-        "Sid": None,
+        "Sid": "",
         "Principal": {
             "Service": "ec2.amazonaws.com",
         },
