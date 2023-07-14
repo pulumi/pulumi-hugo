@@ -21,7 +21,7 @@ quotes:
           name: Santosh Dornal
           name_title: Head of Software Test & DevOps at Alkira
           quote: |
-            “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi’s IaC platform and features like Pulumi Insights and Deployments. I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
+            “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi. I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
 
 benefits:
     title: How will Pulumi Deployments benefit me?
