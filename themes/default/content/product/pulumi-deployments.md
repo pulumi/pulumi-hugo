@@ -15,7 +15,7 @@ quotes:
           name: Aaron Gibralter
           name_title: Head of Engineering at Mighty
           quote: |
-            “Pulumi allows every engineer to build and update infrastructure instead of only our infrastructure team, which enables us to ship faster than if we were using a domain-specific language. With Pulumi Deployments, we could easily set up a standardized CI/CD infrastructure workflow for every engineer that immediately makes them productive. We’re eager to adopt Review Stacks because it will automate the work of managing our own ephemeral infrastructure and make our lives easier.”
+            “Pulumi allows every engineer to build and update infrastructure instead of only our infrastructure team. With Pulumi Deployments, we could easily set up a standardized CI/CD infrastructure workflow for every engineer that immediately makes them productive.”
 
         - company: alkira
           name: Santosh Dornal
