@@ -245,6 +245,35 @@
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.snowflake) }}
     </section>
 
+    <!-- Search every cloud -->
+    <section class="my-12 lg:py-12 px-6 lg:px-0 relative">
+        <div class="shape-background home-background-salmon-left">
+            <div class="shape-container flex flex-row-reverse">
+                <div class="dot-background-container self-end">
+                    <div class="dot-background-overlay"></div>
+                    <div class="dot-background no-animate"></div>
+                </div>
+                <div class="circle-left"></div>
+                <div class="circle-right"></div>
+            </div>
+        </div>
+
+        <div class="container mx-auto flex flex-col lg:flex-row">
+            <div class="w-full lg:w-1/2 lg:mr-32 z-10 px-8">
+                <h3>{{ .Params.search.title }}</h3>
+                <p class="text-lg">{{ .Params.search.description | markdownify }}</p>
+                <div class="mt-8">
+                    <span class="text-lg text-gray-600">Learn more: </span>
+                    <a href="/product/pulumi-insights" class="underline text-lg text-blue-600">Pulumi Insights<i class="fa fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
+                <img src="{{ .Params.search.image }}" alt="{{ .Params.search.alt }}" />
+            </div>
+        </div>
+    </section>
+
     <!-- Built by engineers + tweets -->
     <section class="mt-8 mb-16 lg:mb-24 relative flex flex-col">
         <div class="container mx-auto px-3 overflow-hidden lg:overflow-visible">
@@ -323,43 +352,14 @@
         </div>
     </section>
 
-    <!-- Search every cloud -->
-    <section class="my-12 lg:py-12 px-6 lg:px-0 relative">
-        <div class="shape-background home-background-yellow-left">
-            <div class="shape-container flex flex-row-reverse">
-                <div class="dot-background-container self-end">
-                    <div class="dot-background-overlay"></div>
-                    <div class="dot-background no-animate"></div>
-                </div>
-                <div class="circle-left"></div>
-                <div class="circle-right"></div>
-            </div>
-        </div>
-
-        <div class="container mx-auto flex flex-col lg:flex-row">
-            <div class="w-full lg:w-1/2 lg:mr-32 z-10 px-8">
-                <h3>{{ .Params.search.title }}</h3>
-                <p class="text-lg">{{ .Params.search.description | markdownify }}</p>
-                <div class="mt-8">
-                    <span class="text-lg text-gray-600">Learn more: </span>
-                    <a href="/product/pulumi-insights" class="underline text-lg text-blue-600">Pulumi Insights<i class="fa fa-arrow-right ml-2"></i></a>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-                <img src="{{ .Params.search.image }}" alt="{{ .Params.search.alt }}" />
-            </div>
-        </div>
-    </section>
-
     <!-- CTAs -->
     <section class="container mx-auto">
-        <div class="w-full lg:w-2/3 mx-auto mb-16 bg-violet-600 rounded-xl shadow p-16 flex flex-col items-center justify-center">
-            <h2 class="text-white font-light">Ready to deploy your first stack?</h2>
-            <p class="text-white text-xl description">See what Pulumi can do for you.</p>
+        <div class="w-full lg:w-2/3 mx-auto mb-16 p-16 flex flex-col items-center justify-center">
+            <h2 class="font-light">Ready to deploy your first stack?</h2>
+            <p class="text-xl description">Let's accomplish your goals together.</p>
             <div class="mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
-                <a class="btn-secondary mr-0 md:mr-4 mb-3 md:mb-0" href="https://app.pulumi.com/signup">{{ .Params.hero.cta_text }}</a>
-                <a class="btn-secondary-home-action" href="{{ relref . "/docs/install" }}">Download Open Source</a>
+                <a class="btn-primary mr-0 md:mr-4 mb-3 md:mb-0" href="https://app.pulumi.com/signup">{{ .Params.hero.cta_text }}</a>
+                <a class="btn-secondary" href="{{ relref . "/docs/install" }}">Download Open Source</a>
             </div>
         </div>
     </section>
