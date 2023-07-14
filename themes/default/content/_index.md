@@ -63,6 +63,7 @@ customer_logos:
       link: /case-studies/panther-labs
     - name: univision
     - name: washington-trust
+    - name: nubank
 
 customer_quotes:
   panther:
