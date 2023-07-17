@@ -41,5 +41,6 @@ title: Getting Started with Infrastructure as Code on AWS
 title_tag: "Getting Started with IaC on AWS"
 meta_desc: This workshop is designed to help new users become familiar with the
   core concepts needed to effectively deploy resources on AWS using Pulumi.
+meta_image: "/images/resources/getting-starter-aws-golang-engin.png"
 url_slug: getting-started-with-iac-pulumi-aws
 ---
