@@ -12,9 +12,9 @@ tags:
     - go
 ---
 
-This is the sixth post in our series of blog posts focused on infrastructure as code (IaC) recommended practices. So far in this series, you've seen how Zephyr Archaeotech Emporium---the fictional company at the center of this series---uses Pulumi to manage their online retail store. You read how Zephyr's initial use of Pulumi changed to incorporate the use of short-lived per-developer stacks. Later, as Zephyr continued to grow, you saw how Zephyr restructured their Pulumi projects and stacks, incorporated the use of Stack References, and used Pulumi Cloud's role-based access control (RBAC) functionality to control access to their stacks. This post focuses on how Zephyr takes advantage of Pulumi's Automation API to bring an even greater level of orchestration to the stacks that represent their online store.<!--more-->
+Welcome to the sixth post in our series of blog posts focused on infrastructure as code (IaC) recommended practices. So far in this series, you've seen how Zephyr Archaeotech Emporium---the fictional company at the center of this series---uses Pulumi to manage their online retail store. You read how Zephyr's initial use of Pulumi changed to incorporate the use of short-lived per-developer stacks. Later, as Zephyr continued to grow, you saw how Zephyr restructured their Pulumi projects and stacks, incorporated the use of Stack References, and used Pulumi Cloud's role-based access control (RBAC) functionality to control access to their stacks. This post focuses on how Zephyr takes advantage of Pulumi's Automation API to bring an even greater level of orchestration to the stacks that represent their online store.<!--more-->
 
-The ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application. You've seen these recommended practices emerge over the course of the series---not all immediately, and not all right away. Structuring the blog series in this way is a deliberate decision; many recommended practices are "point in time" recommendations: they are context-dependent and the recommendations for any given company, like Zephyr, may change as the company and its needs change.
+The ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application. These practices have unfolded organically, as a direct response to Zephyr's evolving needs. The aim is to demonstrate that recommended practices (or best practices) are not set in stone, but are rather "point in time" recommendations that adapt as your company grows.
 
 For ease of navigation, here are links to all the blog posts in the series (any entries listed below that aren't linked haven't yet been published; this list will get updated as new posts go live):
 
@@ -32,7 +32,7 @@ For ease of navigation, here are links to all the blog posts in the series (any 
 Over the course of this series, you've seen how Zephyr's use of Pulumi has grown and changed. For the sake of completeness, here's a quick recap:
 
 * Zephyr started with a single project in a single repository, with two stacks (one for production and one for testing). _(Details are available in [the first blog post](/blog/iac-recommended-practices-code-organization-and-stacks/) in the series.)_
-* To unlock developer velocity, Zephyr quickly added per-developer stacks. _(You can read about per-developer stacks in [the second post](/blog/iac-recommended-practices-developer-stacks-and-git-branches/) in the series.)_
+* To unlock developer velocity, Zephyr quickly added per-developer stacks. _(You can read about per-developer stacks in [the second post](/blog/iac-recommended-practices-developer-stacks-git-branches/) in the series.)_
 * As Zephyr grew and expanded, their single Pulumi project grew into three different Pulumi projects: one for base infrastructure, one for their Kubernetes platform, and one for the online store application. _(The [third post in the series](/blog/iac-recommended-practices-structuring-pulumi-projects/) describes the reasoning for adopting multiple projects.)_
 * Accompanying the switch to multiple projects, Zephyr implemented stack references (to pass information between stacks in different projects) and role-based access control (RBAC) to the stacks in Pulumi Cloud. _(Refer back to [the fourth post](/blog/iac-recommended-practices-using-stack-references/) and [the fifth post](/blog/iac-recommended-practices-rbac-and-security/) in the series for more details on each of these areas.)_
 
@@ -74,7 +74,7 @@ Let's take a look at Zephyr's initial foray into using Pulumi Automation API.
 ## Digging into Zephyr's Automation API Program
 
 {{% notes type="info" %}}
-You can view the Pulumi Automation API program that Zephyr wrote in the `local-source` directory of the `pulumi/zephyr-automation` repository on GitHub.
+You can view the Pulumi Automation API program that Zephyr wrote in the `local-source` directory of [the `pulumi/zephyr-automation` repository](https://github.com/pulumi/zephyr-automation/) on GitHub.
 {{% /notes %}}
 
 Zephyr's team decided to write their Pulumi Automation API program in Golang. One of the first things you'll note about the Pulumi Automation API program is that it looks more like a "regular" Go program than a typical Pulumi Go program.
@@ -99,7 +99,7 @@ func main() {
 
 The easiest way to understand this difference is to consider the way each program is invoked. A Pulumi Go program is invoked by the `pulumi` CLI. In contrast, a Pulumi Automation API program written in Go is executed by running `go run main.go`.
 
-The Zephyr Automation API program starts out with checking for a command-line argument to indicate the desired mode of the operation---should it be creating/updating resources, or destroying resources? In a standard Pulumi Go program, this would be determined by the invocation of the `pulumi` CLI (for example, did you run `pulumi up` or `pulumi destroy`). Here, though, that falls to the user to check:
+The Zephyr Automation API program [starts out](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L34-L40) with checking for a command-line argument to indicate the desired mode of the operation---should it be creating/updating resources, or destroying resources? In a standard Pulumi Go program, this would be determined by the invocation of the `pulumi` CLI (for example, did you run `pulumi up` or `pulumi destroy`). Here, though, that falls to the user to check:
 
 ```go
 	// Determine mode of operation; default is to refresh/update
@@ -112,7 +112,7 @@ The Zephyr Automation API program starts out with checking for a command-line ar
 	}
 ```
 
-Next, the program reads some configuration data from a YAML configuration file; this configuration data includes things like the relative file system location of the Pulumi programs that this Automation API program is going to execute:
+Next, the program [reads some configuration data](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L42-L53) from a YAML configuration file; this configuration data includes things like the relative file system location of the Pulumi programs that this Automation API program is going to execute:
 
 ```go
 	// Get configuration data
@@ -131,7 +131,7 @@ Next, the program reads some configuration data from a YAML configuration file; 
 
 Separating configuration from code in this manner allows you to use the language's existing ability to create binary executables that can be easily distributed to your teams. For example, Zephyr has the option of running `go build` to create a binary executable for distribution to internal teams.
 
-From there, the Automation API program gets into setting up the stacks it will use:
+From there, the Automation API program gets into [setting up the stacks](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L58-L92) it will use:
 
 ```go
 	// Set up base stack
@@ -144,22 +144,22 @@ From there, the Automation API program gets into setting up the stacks it will u
 	fmt.Printf("Successfully created/selected %s stack\n", env.BaseProject.Nickname)
 ```
 
-In this particular program, Zephyr decided to start with what's known as a _local workspace._ (You can read a bit more about workspaces in the context of  Pulumi Automation API [in the docs](/docs/using-pulumi/automation-api/getting-started-automation-api/#associate-with-a-stack).) This is reflected in the use of the `UpsertStackLocalSource` method shown above, which will create or select a stack for a Pulumi program found in a local filesystem location.
+In this particular program, Zephyr decided to start with a _local workspace._ (You can read a bit more about workspaces in the context of  Pulumi Automation API [in the docs](/docs/using-pulumi/automation-api/getting-started-automation-api/#associate-with-a-stack).) This is reflected in the use of the `UpsertStackLocalSource` method shown above, which will create or select a stack for a Pulumi program found in a local filesystem location.
 
-Users could also use `UpsertStackInlineSource`, which embeds the Pulumi program into the Automation API program as a function. There are trade-offs to each approach:
+Users can also use `UpsertStackInlineSource`, which embeds the Pulumi program into the Automation API program as a function. There are trade-offs to each approach:
 
 * Using local source (i.e., the Pulumi program is stored outside of the Automation API program) has the benefit of allowing users to independently revise the Pulumi program or the Automation API program; this may be the ideal approach where organizations have separate teams that will create, manage, or maintain the Automation API programs. In Zephyr's case, where there is a platform team, this made a lot of sense for them.
 * Using inline source (where the Pulumi program is embedded in the Automation API program) may be a better fit when there is a single team managing or maintaining both the Pulumi program(s) as well as the Automation API program(s), or when---for whatever reason---these programs should not be revised independently of one another.
 
 After all four stacks---base, platform, data, and app---have been set up for use within the Pulumi Automation API program, then comes the "real work": performing operations on those stacks. To reduce duplicate code, the Zephyr program makes use of three functions:
 
-1. The `refreshStack` function (starting on line 199 of `main.go`) performs the equivalent of a `pulumi refresh` against a stack.
-2. The `updateStack` function (starting on line 218 of `main.go`) performs an update against the stack. This is like running `pulumi up` against a stack.
-3. Finally, the `deleteStack` function (starting on line 236 of `main.go`) destroys the resources in a stack. This equates to running `pulumi destroy` against a stack.
+1. The `refreshStack` function (starting on [line 199](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L199-L216) of `main.go`) performs the equivalent of a `pulumi refresh` against a stack.
+2. The `updateStack` function (starting on [line 218](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L218-L234) of `main.go`) performs an update against the stack. This is like running `pulumi up` against a stack.
+3. Finally, the `deleteStack` function (starting on [line 236](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L236-L252) of `main.go`) destroys the resources in a stack. This equates to running `pulumi destroy` against a stack.
 
-Using these functions, lines 94 through 197 perform the key task of taking action to stand up or tear down the Zephyr online store and all associated infrastructure. If the user passes the parameter "destroy" on the command line (meaning the Pulumi Automation API program is invoked using `go run main.go destroy`), then it will tear down the stacks. Otherwise, the Pulumi Automation API program will perform a refresh and then an update---much the same way that the `pulumi` CLI itself behaves.
+Using these functions, [lines 94 through 197](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L94-L197) perform the key task of taking action to stand up or tear down the Zephyr online store and all associated infrastructure. If the user passes the parameter "destroy" on the command line (meaning the Pulumi Automation API program is invoked using `go run main.go destroy`), then it will tear down the stacks. Otherwise, the Pulumi Automation API program will perform a refresh and then an update---much the same way that the `pulumi` CLI itself behaves.
 
-Along the way, you can see the Pulumi Automation API program passing configuration values to the stacks being orchestrated (this is lines 177 through 182, for example):
+Along the way, you can see the Pulumi Automation API program passing configuration values to the stacks being orchestrated (this is [lines 177 through 182](https://github.com/pulumi/zephyr-automation/blob/main/local-source/main.go#L177-L182), for example):
 
 ```go
 	// Set config values for app stack
@@ -184,7 +184,7 @@ In the end, using Automation API enabled Zephyr's platform team to simplify the 
 The post discussed the following recommended practices when using Pulumi Automation API:
 
 * **Use the Automation API to orchestrate operations on multiple stacks.** In cases where you've split Pulumi projects (per the recommendations in [the post on structuring Pulumi projects](/blog/iac-recommended-practices-structuring-pulumi-projects/)), you've introduced a potential opportunity for using Automation API to orchestrate operations. This is a great counter-balance to offset the relative increase in complexity that comes from breaking large Pulumi projects into smaller, more focused Pulumi projects.
-* **Separate configuration from code.** This is already a generally-accepted recommendation in most programming circles, and it applies to Automation API programs as well. Doing so enables you to, if you wish, distribute binary artifacts to teams instead of requiring them to execute the source code of your Automation API programs.
+* **Separate configuration from code.** This is already a generally-accepted recommendation in most programming circles, and it applies to Automation API programs as well. Doing so enables you, if you wish, to distribute binary artifacts to teams instead of requiring them to execute the source code of your Automation API programs.
 * **Use local source to decouple Automation API programs from Pulumi programs when separate teams are involved.** When separate teams are creating, managing, or maintaining the Automation API programs and the Pulumi programs, using local source instead of inline source enables the teams to operate somewhat independently.
 * **When there is a single team managing both Automation API programs and Pulumi programs, use inline source.** This is also true when, perhaps due to compliance or regulatory concerns, the Automation API program should be more tightly coupled to the Pulumi programs it is automating.
 
