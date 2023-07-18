@@ -39,15 +39,15 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-Starting today, you can restore previously deleted stacks in the Pulumi Cloud console. We have had a number of requests from our customers to be able to recover stacks that have been deleted. The common use cases to need to recover a deleted stack are either because the stack was accidentally deleted or the stack was intentionally deleted but they want to restore and preserve the activity history on the stack and just remove its resources.
+Starting today, you can restore previously deleted stacks in the Pulumi Cloud console. We've had a number of requests from customers to recover stacks that have been deleted. The common use cases to need to recover a deleted stack are either because the stack was accidentally deleted or the stack was intentionally deleted but, later on, they want to restore and preserve the activity history on the stack and just remove its resources.
 
 <!--more-->
 
-Most customers use `pulumi destory` to delete all the resources in a stack but leave the stack itself. But in some cases customers might use `pulumi stack rm --force` which forces the deletion of the stack but leaves behind its resources which are no longer managed by the stack. In the case of a force deleted stack, restoring it allows customers to be able to either maintain the stack or properly destroy its contents. Using the new Pulumi Cloud Restore Stacks feature, the last 10 deleted stacks in an organization can be restored by any organization admin.
+Customers typically use `pulumi destory` to delete the resources in a stack but leave the stack itself. But in some cases customers might use `pulumi stack rm --force` which forces the deletion of the stack but leaves behind resources which are no longer managed by the stack. In the case of a force deleted stack, restoring it allows customers to be able to either maintain the stack or properly destroy its contents. Using the new Pulumi Cloud Restore Stacks feature, the last 10 deleted stacks in an organization can be restored by an organization admin.
 
 Watch it in action!
 ![Walking through the Restore Stacks experience](restore_stacks.gif)
 
-It's that simple, you how have a trash bin for your stacks.
+And tada: you how have a trash bin for your stacks.
 
 Keep the feedback coming!
