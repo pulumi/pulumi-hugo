@@ -47,9 +47,12 @@ Customers often use `pulumi destory` to delete the resources in a stack but leav
 
 Using the new Pulumi Cloud restore stacks feature, the last 10 deleted stacks in an organization can be restored by an organization admin.
 
-Watch it in action!
+### See it in action
+
 ![Walking through the restore stacks experience](https://www.pulumi.com/uploads/restore-stacks.gif)
 
-And tada: you how have a trash bin for your stacks! To recover a deleted stack navigate to the Stacks page. Next to the Create Project button there is a three dot menu to transfer stacks and restore stacks. Click on restore stacks to navigate to your recently deleted stacks.
+And tada 🎉, you how have a trash bin for your stacks! To recover a deleted stack navigate to the Stacks page. Next to the Create Project button there is a three dot menu to transfer stacks and restore stacks. Click on restore stacks to navigate to your recently deleted stacks.
 
-Keep the feedback coming!
+### Keep the feedback coming
+
+As always, submit any feedback on the feature in the [Pulumi Cloud Requests](https://github.com/pulumi/pulumi-cloud-requests/issues/new/choose) repository.
