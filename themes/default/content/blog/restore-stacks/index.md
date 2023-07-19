@@ -46,7 +46,7 @@ Starting today, you can restore previously deleted stacks in the Pulumi Cloud co
 Customers typically use `pulumi destory` to delete the resources in a stack but leave the stack itself. But in some cases customers might use `pulumi stack rm --force` which forces the deletion of the stack but leaves behind resources which are no longer managed by the stack. In the case of a force deleted stack, restoring it allows customers to be able to either maintain the stack or properly destroy its contents. Using the new Pulumi Cloud Restore Stacks feature, the last 10 deleted stacks in an organization can be restored by an organization admin.
 
 Watch it in action!
-![Walking through the Restore Stacks experience](restore_stacks.gif)
+![Walking through the Restore Stacks experience](https://www.pulumi.com/uploads/restore-stacks.gif)
 
 And tada: you how have a trash bin for your stacks.
 
