@@ -43,7 +43,7 @@ Starting today, you can restore previously deleted stacks in the Pulumi Cloud co
 
 <!--more-->
 
-Customers often use `pulumi destory` to delete the resources in a stack but leave the state file. If they want to delete the state file they use `pulumi stack rm`. Customers might also use `pulumi stack rm --force`, which forces the deletion of the state file but leaves behind its resources and in doing so you lose the ability to manage those resources going forward. There are cases where a force delete is a valid choice, but at Pulumi we sometimes receive customer support tickets when someone runs `pulumi stack rm --force` accidentally. One of the benefits of using Pulumi Cloud is that it maintains state file versions enabling Pulumi to be able to restore deleted stacks. Starting today we have built this recovery process into the product, allowing customers to self-serve restore their stacks from a deleted state.
+Customers often use `pulumi destroy` to delete the resources in a stack but leave the state file. If they want to delete the state file they use `pulumi stack rm`. Customers might also use `pulumi stack rm --force`, which forces the deletion of the state file but leaves behind its resources and in doing so you lose the ability to manage those resources going forward. There are cases where a force delete is a valid choice, but at Pulumi we sometimes receive customer support tickets when someone runs `pulumi stack rm --force` accidentally. One of the benefits of using Pulumi Cloud is that it maintains state file versions enabling Pulumi to be able to restore deleted state files. Starting today we have built this recovery process into the product, allowing customers to self-serve restoration of deleted state files.
 
 ### See it in action
 
