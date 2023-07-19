@@ -39,19 +39,17 @@ tags:
 # and please remove these comments before submitting for review.
 ---
 
-Starting today, you can restore previously deleted stacks in the Pulumi Cloud console. We've had a number of requests from customers to recover stacks that have been deleted. The common use cases to need to recover a deleted stack are either because the stack was accidentally deleted or the stack was intentionally deleted but, later on, they want to restore and preserve the activity history on the stack and just remove its resources.
+Starting today, you can restore previously deleted stacks in the Pulumi Cloud console. We've had a number of requests from customers to recover stacks, either because the stack was accidentally deleted or the stack was intentionally deleted but, later on, they want to restore and preserve the activity history on the stack and just remove its resources.
 
 <!--more-->
 
 Customers often use `pulumi destory` to delete the resources in a stack but leave the state file. If they want to delete the state file they use `pulumi stack rm`. Customers might also use `pulumi stack rm --force`, which forces the deletion of the state file but leaves behind its resources and in doing so you lose the ability to manage those resources going forward. There are cases where a force delete is a valid choice, but at Pulumi we sometimes receive customer support tickets when someone runs `pulumi stack rm --force` accidentally. One of the benefits of using Pulumi Cloud is that it maintains state file versions enabling Pulumi to be able to restore deleted stacks. Starting today we have built this recovery process into the product, allowing customers to self-serve restore their stacks from a deleted state.
 
-Using the new Pulumi Cloud restore stacks feature, the last 10 deleted stacks in an organization can be restored by an organization admin.
-
 ### See it in action
 
 ![Walking through the restore stacks experience](https://www.pulumi.com/uploads/restore-stacks.gif)
 
-And tada 🎉, you how have a trash bin for your stacks! To recover a deleted stack navigate to the Stacks page. Next to the Create Project button there is a three dot menu to transfer stacks and restore stacks. Click on restore stacks to navigate to your recently deleted stacks.
+And tada 🎉, you how have a trash bin for your stacks! To recover a deleted stack, organization admins should navigate to the Stacks page. Next to the Create Project button there is a three dot menu to transfer stacks and restore stacks. Click on restore stacks to navigate to your recently deleted stacks. The last 10 deleted stacks in an organization can be restored, if you need a stack restored that is older, contact support.
 
 ### Keep the feedback coming
 
