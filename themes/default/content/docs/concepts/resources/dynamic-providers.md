@@ -655,18 +655,18 @@ exports.setAuth = function(token) { auth = token; }
 
 const githubLabelProvider = {
     async create(inputs) {
-        const ocktokit = new Ocktokit({auth});
-        const label = await ocktokit.issues.createLabel(inputs);
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.createLabel(inputs);
         return { id: label.data.id.toString(), outs: label.data };
     },
     async update(id, olds, news) {
-        const ocktokit = new Ocktokit({auth});
-        const label = await ocktokit.issues.updateLabel({ ...news, current_name: olds.name });
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.updateLabel({ ...news, current_name: olds.name });
         return { outs: label.data };
     },
     async delete(id, props) {
-        const ocktokit = new Ocktokit({auth});
-        await ocktokit.issues.deleteLabel(props);
+        const octokit = new Octokit({auth});
+        await octokit.issues.deleteLabel(props);
     }
 }
 
@@ -708,8 +708,8 @@ interface LabelInputs {
 
 const githubLabelProvider: pulumi.dynamic.ResourceProvider = {
     async create(inputs: LabelInputs) {
-        const ocktokit = new Octokit({auth});
-        const label = await ocktokit.issues.createLabel({
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.createLabel({
             owner: inputs.owner,
             repo: inputs.repo,
             name: inputs.name,
@@ -718,8 +718,8 @@ const githubLabelProvider: pulumi.dynamic.ResourceProvider = {
         return { id: label.data.id.toString(), outs: label.data };
     },
     async update(id: string, olds: LabelInputs, news: LabelInputs) {
-        const ocktokit = new Octokit({auth});
-        const label = await ocktokit.issues.updateLabel({
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.updateLabel({
             owner: news.owner,
             repo: news.repo,
             current_name: olds.name,
@@ -730,8 +730,8 @@ const githubLabelProvider: pulumi.dynamic.ResourceProvider = {
     },
 
     async delete(id: string, props: LabelInputs) {
-        const ocktokit = new Octokit({auth});
-        await ocktokit.issues.deleteLabel({owner: props.owner, repo: props.repo, name: props.name});
+        const octokit = new Octokit({auth});
+        await octokit.issues.deleteLabel({owner: props.owner, repo: props.repo, name: props.name});
     }
 }
 
