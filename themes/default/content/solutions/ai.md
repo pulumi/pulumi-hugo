@@ -12,7 +12,7 @@ overview:
         Pulumi makes it easy to provision, scale, and manage artificial intelligence (AI) and machine learning (ML) infrastructure across any cloud. You can use standard programming languages, like Python, to write infrastructure as code (IaC) programs that automate the infrastructure for your data pipelines, model training clusters, and backend services. Pulumi eliminates the silos between infrastructure and data science teams, allowing you to get to market faster. 
 
 benefits:
-    title: The Pulumi Value
+    title: Why Pulumi?
     benefits:
       items:
         - title: Easy and Intuitive
@@ -35,7 +35,7 @@ benefits:
 
 
 customer_logos:
-  title: Organizations manaaging AI and ML infrastructure with Pulumi
+  title: Organizations managing AI and ML infrastructure with Pulumi
   logos:
     - name: cto-ai
     - name: levitate-ai
