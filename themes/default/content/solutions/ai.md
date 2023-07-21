@@ -1,0 +1,57 @@
+---
+title: Artificial Intelligence and Machine Learning 
+meta_desc: Spin up AI infrastructure in any cloud using any programming language
+
+type: page
+layout: ai-solutions
+
+overview:
+    title: AI Infrastructure at Any Scale
+    image: /images/solutions/shared-services-platform/ssp-main-diagram.svg
+    description: |
+        Pulumi makes it easy to provision, scale, and manage artificial intelligence (AI) and machine learning (ML) infrastructure across any cloud. You can use standard programming languages, like Python, to write infrastructure as code (IaC) programs that automate the infrastructure for your data pipelines, model training clusters, and backend services. Pulumi eliminates the silos between infrastructure and data science teams, allowing you to get to market faster. 
+
+benefits:
+    title: The Pulumi Value
+    benefits:
+      items:
+        - title: Easy and Intuitive
+          icon: code
+          icon_color: yellow
+          description: |
+            Easy to author IaC with standard programming languages like Python. 
+
+        - title: Ship Faster with Guardrails
+          icon: global
+          icon_color: yellow
+          description: |
+            Eliminate infrastructure engineering and data scientist silos.
+
+        - title: Total Visibility & Control
+          icon: puzzle
+          icon_color: yellow
+          description: |
+            Always know and enforce what's going on in your organization. 
+
+
+customer_logos:
+  title: Organizations manaaging AI and ML infrastructure with Pulumi
+  logos:
+    - name: cto-ai
+    - name: levitate-ai
+    - name: banana
+    - name: modal
+    - name: pinecone
+    - name: ozette
+    - name: outmind-ai
+    - name: synthesis-ai
+    - name: relational-ai
+    - name: taranis
+
+get_started:
+    get_started:
+        title: Get Started
+        description: |
+          Schedule some time with our customer engineering team, and we will help you scale your AI infrastructure with Pulumi.
+        cta_text: Schedule now
+---
