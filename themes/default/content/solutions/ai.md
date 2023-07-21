@@ -8,7 +8,7 @@ layout: ai-solutions
 overview:
     title: Scale AI Infrastructure using Python
     description: |
-        Pulumi makes it easy to provision, scale, and manage artificial intelligence (AI) and machine learning (ML) infrastructure across any cloud. You can use standard programming languages, like Python, to write infrastructure as code (IaC) programs that automate the infrastructure for your data pipelines, model training clusters, and backend services. Pulumi eliminates the silos between infrastructure and data science teams, allowing you to get to market faster. 
+        Pulumi streamlines provisioning, scaling, and management of artificial intelligence (AI) and machine learning (ML) infrastructure across any cloud. Using familiar programming languages, including Python, develop your infrastructure as code (IaC) to automate data pipelines, model training clusters, and backend services. Pulumi dissolves the barriers between infrastructure and data science teams, accelerating your time to market.
 
 benefits:
     title: Why Pulumi?
