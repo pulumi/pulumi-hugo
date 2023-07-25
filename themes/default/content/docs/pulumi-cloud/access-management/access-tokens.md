@@ -109,6 +109,7 @@ Navigate to your organization and then:
 The token must have a name that is unique among all organization and team access tokens in the organization., including deleted tokens. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised. Any other organization admin can delete this token; it is not owned by the admin which created it. Creation of organization access tokens is logged as an audit log event.
 
 #### Admin organization access tokens
+
 Admin organization access tokens (admin tokens) are a specialized type of token that grants full administrator permissions within an organization. They provide unrestricted access to perform administrative operations on Pulumi resources throughout the entire organization. Namelly, these can be used to manage Policy-as-Code, org membership, and export audit logs. Admin tokens cannot be used to generate or delete additional organization tokens.
 
 To create an admin organization access token, select the `Admin` option when creating an organization token, following the steps above.
