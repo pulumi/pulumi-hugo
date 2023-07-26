@@ -297,7 +297,7 @@ To transfer an individual stack:
 To transfer stacks in bulk:
 
 1. Navigate to the **Stacks** page.
-2. Select the three dot menu beside **Create Project**.
+2. Select the three dot menu beside **Create project**.
 3. Choose **Transfer stacks** from the dropdown.
 4. Choose the **Transfer destination** from the dropdown.
 5. Tick the stacks you'd like to transfer and select **Transfer stacks**.
