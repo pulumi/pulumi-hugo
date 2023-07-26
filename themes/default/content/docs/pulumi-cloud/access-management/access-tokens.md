@@ -109,8 +109,9 @@ Navigate to your organization and then:
 The token must have a name that is unique among all organization and team access tokens in the organization., including deleted tokens. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised. Any other organization admin can delete this token; it is not owned by the admin which created it. Creation of organization access tokens is logged as an audit log event.
 
 #### Admin organization access tokens
+
 {{% notes type="warning" %}}
-Admin organization access tokens have elevated permissions, please use them with caution. 
+Admin organization access tokens have elevated permissions, please use them with caution.
 {{% /notes %}}
 Admin organization access tokens (or admin tokens) are organization tokens with elevated, administrator-level privileges. Admin tokens allow automated processes to perform any operation supported for organization administrators except for the creation or deletion of other organization tokens.
 
