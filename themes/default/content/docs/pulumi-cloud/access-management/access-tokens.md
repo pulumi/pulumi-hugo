@@ -114,7 +114,7 @@ Admin organization access tokens (or admin tokens) are organization tokens with 
 
 To create an admin organization access token, select the `Admin` option when creating an organization token, following the steps above.
 
-Exercise caution and limit the use of admin organization tokens to scenarios where they are absolutely necessary. Avoid unnecessary sharing and adhere to the principle of least privilege. Admin tokens can be deleted from the **Access Tokens** page within your organization settings following the process below.
+Exercise caution and limit the use of admin organization access tokens to scenarios where they are absolutely necessary. Avoid unnecessary sharing and adhere to the principle of least privilege. Admin tokens can be deleted from the **Access Tokens** page within your organization settings following the process below.
 
 ### Viewing organization access tokens
 
