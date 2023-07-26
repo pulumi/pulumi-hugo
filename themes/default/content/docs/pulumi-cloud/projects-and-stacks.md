@@ -315,7 +315,7 @@ To delete a stack:
 ## Restoring a Stack
 {{% notes type="info" %}}
 The ability to restore a deleted stack is limited to Enterprise and Business Critical Editions. {{% /notes %}}
-Restoring a stack allows you to recover a previously deleted stack, either because it was accidentally deleted or because you want to restore its history. The last 10 stacks deleted in your organization can be restored by an organization admin.
+Restoring a stack allows you to recover a previously deleted stack, either because it was accidentally deleted or because you want to restore its history. The last 10 stacks deleted in your organization can be restored by an organization admin. Stacks can only be restored if deleted within the last year.
 
 To restore a stack:
 
