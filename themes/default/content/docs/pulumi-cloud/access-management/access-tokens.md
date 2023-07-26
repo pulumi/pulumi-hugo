@@ -110,7 +110,7 @@ The token must have a name that is unique among all organization and team access
 
 #### Admin organization access tokens
 
-Admin organization access tokens (or admin tokens) are organization tokens with elevated, administrator-level privileges. Admin tokens allow automated processes to perform any operation supported for organization administrators except for the creation or deletion of other organization tokens. 
+Admin organization access tokens (or admin tokens) are organization tokens with elevated, administrator-level privileges. Admin tokens allow automated processes to perform any operation supported for organization administrators except for the creation or deletion of other organization tokens.
 
 To create an admin organization access token, select the `Admin` option when creating an organization token, following the steps above.
 
