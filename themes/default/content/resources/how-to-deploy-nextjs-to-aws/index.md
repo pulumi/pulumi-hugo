@@ -1,7 +1,7 @@
 ---
 title: "How to deploy Next.js to AWS"
 allow_long_title: true
-meta_desc: "Guide on how to deploy a Next.js application to AWS. Intended for developers who need to understand the deployment process, from setting up the AWS services to configuring and managing a Next.js application on AWS as part of routine deployment tasks."
+meta_desc: "Use Pulumi to deploy Next.js apps to AWS with our guide. Ideal for developers managing Next.js setups and routine deployments on AWS"
 type: ai-answers
 date: 2023-07-24
 ---

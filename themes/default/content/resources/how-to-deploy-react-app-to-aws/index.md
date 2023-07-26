@@ -1,7 +1,7 @@
 ---
 title: "how to deploy React app to AWS"
 allow_long_title: true
-meta_desc: "Step-by-step guide for developers on how to deploy a React application to AWS. This tutorial covers the essentials of setting up, configuring, and managing a React application on AWS, useful for regular deployment activities."
+meta_desc: "Use Pulumi to quickly deploy React apps to AWS with our step-by-step guide. Ideal for developers conducting regular AWS deployments."
 type: ai-answers
 date: 2023-07-24
 ---

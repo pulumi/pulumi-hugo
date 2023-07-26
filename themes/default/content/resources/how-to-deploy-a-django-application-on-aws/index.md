@@ -1,7 +1,7 @@
 ---
 title: "How to host a Django application on AWS"
 allow_long_title: true
-meta_desc: "Master the practical skills needed to host a Django application on AWS with this comprehensive guide. Ideal for developers and DevOps professionals, this tutorial provides a step-by-step walkthrough for deploying your Python-based web applications in an AWS environment, improving scalability and performance."
+meta_desc: "Deploy Django on AWS with our pulumi example. Ideal for developers and DevOps, improve scalability and performance of Python web apps."
 type: ai-answers
 date: 2023-07-24
 ---

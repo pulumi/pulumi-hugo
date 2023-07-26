@@ -1,7 +1,7 @@
 ---
 title: "How to setup an AWS API gateway to listen for webhook events"
 allow_long_title: true
-meta_desc: "Discover step-by-step how to set up an API Gateway to listen for webhook events in our comprehensive tutorial. Learn to use TypeScript and AWS services to handle real-time webhook events efficiently. Start enhancing your app's functionality today!"
+meta_desc: "Use Pulumi to set up an API Gateway for webhooks with our guide. Learn efficient handling of real-time events using TypeScript and AWS."
 type: ai-answers
 date: 2023-07-24
 ---

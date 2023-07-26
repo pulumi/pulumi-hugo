@@ -1,7 +1,7 @@
 ---
 title: "How to use Snowflake with Python in AWS Lambda"
 allow_long_title: true
-meta_desc: "Get hands-on with this practical guide on using Snowflake in AWS Lambda with Python. Explore step-by-step how to set up the Snowflake Python SDK in AWS Lambda, making your data processing tasks more efficient. Perfect for developers or data engineers needing to integrate Snowflake into their serverless workloads."
+meta_desc: "Use Pulumi with Snowflake and AWS Lambda with Python via our guide. Perfect for developers integrating Snowflake into serverless workloads."
 type: ai-answers
 date: 2023-07-24
 ---

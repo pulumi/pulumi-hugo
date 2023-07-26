@@ -1,7 +1,7 @@
 ---
 title: "How to deploy Apache Kafka on Amazon MSK"
 allow_long_title: true
-meta_desc: "Learn how to deploy Apache Kafka on Amazon MSK. This tutorial provides instructions for developers and DevOps professionals to effectively set up, configure, and manage Apache Kafka clusters using Amazon MSK as part of their daily operations."
+meta_desc: "Learn about Apache Kafka deployment on Amazon MSK with our Pulumi example. Perfect for DevOps and developers managing Kafka clusters daily."
 type: ai-answers
 date: 2023-07-24
 ---

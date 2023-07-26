@@ -1,7 +1,7 @@
 ---
 title: "How to configure multiple apps with one load balancer in Kubernetes"
 allow_long_title: true
-meta_desc: "Improve your DevOps efficiency with our comprehensive guide on configuring multiple applications with a single load balancer in Kubernetes. This hands-on tutorial equips you with practical skills for better management of services and enhanced traffic distribution in your Kubernetes deployments."
+meta_desc: "Use this Pulumi guide to configure multiple apps via a single Kubernetes load balancer. Enhance service management and traffic distribution."
 type: ai-answers
 date: 2023-07-24
 ---

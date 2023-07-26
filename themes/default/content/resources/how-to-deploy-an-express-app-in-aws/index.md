@@ -1,7 +1,7 @@
 ---
 title: "How to deploy an Express app to AWS"
 allow_long_title: true
-meta_desc: "Step-by-step instructions on how to deploy Express.js applications to AWS. Ideal for developers aiming to understand the process of setting up, configuring, and managing their Express.js applications on the AWS platform as part of their daily development tasks."
+meta_desc: "Use Pulumi to deploy Express.js apps on AWS with our step-by-step guide. Ideal for developers managing daily Express.js tasks on AWS."
 type: ai-answers
 date: 2023-07-24
 ---
