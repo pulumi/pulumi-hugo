@@ -1,5 +1,5 @@
 ---
-title: "how to deploy React app to AWS"
+title: "How to deploy React app to AWS"
 allow_long_title: true
 meta_desc: "Use Pulumi to quickly deploy React apps to AWS with our step-by-step guide. Ideal for developers conducting regular AWS deployments."
 type: ai-answers
