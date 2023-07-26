@@ -321,7 +321,7 @@ To restore a stack:
 1. Navigate to the **Stacks** page.
 2. Select the three dot menu beside **Create project**.
 3. Choose **Restore deleted stacks** from the dropdown.
-4. Use the three dot menu on the stack you want to restore and select **Restore stack**
+4. Use the three dot menu on the stack you want to restore and select **Restore stack**.
 
 ## Related Blogs
 
