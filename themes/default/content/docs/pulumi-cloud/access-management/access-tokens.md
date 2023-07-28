@@ -60,10 +60,12 @@ Both organization and team token activities produce audit log events which are a
 | Update team membership | | | | ✅ |
 | Grant stack access to team | | | | ✅ |
 | Remove stack access from team | | | | ✅ |
+| Create team token | ✅ | | | ✅ |
+| Delete team token | ✅ | | | ✅ |
 | Update member role | | | | ✅ |
 | List access tokens | | | | ✅ |
-| Create access token | | | | ✅ |
-| Delete access token | | | | ✅ |
+| Create access token | | | | |
+| Delete access token | | | | |
 | List webhooks | | | ✅ | ✅ |
 | Create webhook | | | ✅ | ✅ |
 | Get webhook | | | ✅ | ✅ |
