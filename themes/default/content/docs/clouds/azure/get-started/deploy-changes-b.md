@@ -3,6 +3,7 @@ title_tag: Deploy the Changes | Azure
 meta_desc: Learn how to deploy changes to an Azure project in this guide.
 title: Deploy changes
 h1: "Pulumi & Azure: Deploy changes"
+block_external_search_index: true
 ---
 
 Deploy your changes by using `pulumi up` again.

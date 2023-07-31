@@ -3,6 +3,7 @@ title_tag: Deploy the Stack | Google Cloud
 meta_desc: This page provides an overview of how to deploy changes to a Google Cloud project.
 title: Deploy stack
 h1: "Pulumi & Google Cloud: Deploy stack"
+block_external_search_index: true
 ---
 
 ### Configure Pulumi to access your Google Cloud account

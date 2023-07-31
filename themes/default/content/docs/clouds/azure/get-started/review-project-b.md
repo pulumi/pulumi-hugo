@@ -3,6 +3,7 @@ title_tag: Review the New Project | Azure
 meta_desc: This page provides an overview on how to a review a new Azure project.
 title: Review project
 h1: "Pulumi & Azure: Review project"
+block_external_search_index: true
 ---
 
 Let's review some of the generated project files:

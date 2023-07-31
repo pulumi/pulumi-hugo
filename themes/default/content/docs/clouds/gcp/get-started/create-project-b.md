@@ -3,6 +3,7 @@ title_tag: Create a New Project | Google Cloud
 meta_desc: This page provides an overview of how to create a new Google Cloud + Pulumi project.
 title: Create project
 h1: "Pulumi & Google Cloud: Create project"
+block_external_search_index: true
 ---
 
 Now that you have set up your environment by installing Pulumi and installed your preferred language runtime, let's create your first Pulumi program.

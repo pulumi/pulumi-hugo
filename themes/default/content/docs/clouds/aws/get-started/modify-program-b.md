@@ -3,6 +3,7 @@ title_tag: Modify the Program | AWS
 title: Modify program
 h1: "Pulumi & AWS: Modify program"
 meta_desc: This page provides an overview on how to update an AWS project from a Pulumi program.
+block_external_search_index: true
 ---
 
 Now that your S3 bucket is provisioned, let's add a file to it. First, from within your project directory, create a new file called `index.html` file along with some content:

@@ -3,6 +3,7 @@ title_tag: Deploy the Stack | Kubernetes
 meta_desc: This page provides an overview of how to deploy a Kubernetes project as a Pulumi Stack.
 title: Deploy stack
 h1: "Pulumi & Kubernetes: Deploy stack"
+block_external_search_index: true
 ---
 
 ### Configure Kubernetes

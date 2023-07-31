@@ -3,6 +3,7 @@ title_tag: Modify the Program | Kubernetes
 meta_desc: This page provides an overview on how to update Kubernetes project from a Pulumi program.
 title: Modify program
 h1: "Pulumi & Kubernetes: Modify program"
+block_external_search_index: true
 ---
 
 Now that we have an instance of our Pulumi program deployed, let's update it to do something a little more interesting.

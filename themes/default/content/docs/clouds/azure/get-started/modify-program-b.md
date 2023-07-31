@@ -3,6 +3,7 @@ title_tag: Modify the Program | Azure
 meta_desc: This page provides an overview on how to update an Azure project from a Pulumi program.
 title: Modify program
 h1: "Pulumi & Azure: Modify program"
+block_external_search_index: true
 ---
 
 Now that your storage account is provisioned, let's add an object to it. First, from within your project directory, create a new `index.html` file with some content in it.

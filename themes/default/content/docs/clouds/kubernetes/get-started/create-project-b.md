@@ -3,6 +3,7 @@ title_tag: Create a New Project | Kubernetes
 meta_desc: This page provides an overview of how to create a new Kubernetes + Pulumi project.
 title: Create project
 h1: "Pulumi & Kubernetes: Create project"
+block_external_search_index: true
 ---
 
 Now that you have set up your environment let's create your first Pulumi program.

@@ -3,6 +3,7 @@ title_tag: Review the New Project | Kubernetes
 meta_desc: This page provides an overview on how to review a new Kubernetes project.
 title: Review project
 h1: "Pulumi & Kubernetes: Review project"
+block_external_search_index: true
 ---
 
 Let's review some of the generated project files:

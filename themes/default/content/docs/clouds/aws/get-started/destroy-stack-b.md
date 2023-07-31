@@ -3,6 +3,7 @@ title_tag: Destroy the Stack | AWS
 title: Destroy stack
 h1: "Pulumi & AWS: Destroy stack"
 meta_desc: This page provides an overview of how to destroy a Pulumi stack of an AWS project.
+block_external_search_index: true
 ---
 
 Now that you've seen how to deploy changes to our program, let's clean up and tear down the resources that are part of your stack.

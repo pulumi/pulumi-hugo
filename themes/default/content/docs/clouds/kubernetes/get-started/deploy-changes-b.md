@@ -3,6 +3,7 @@ title_tag: Deploy the Changes | Kubernetes
 meta_desc: This page provides an overview of how deploy changes to a Kubernetes project.
 title: Deploy changes
 h1: "Pulumi & Kubernetes: Deploy changes"
+block_external_search_index: true
 ---
 
 Now let's deploy our changes.

@@ -3,6 +3,7 @@ title_tag: Deploy the Stack | Azure
 meta_desc: Learn how to deploy your stack to an Azure project in this guide.
 title: Deploy stack
 h1: "Pulumi & Azure: Deploy stack"
+block_external_search_index: true
 ---
 
 ### Configure Pulumi to access your Microsoft Azure account

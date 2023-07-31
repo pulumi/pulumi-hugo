@@ -3,6 +3,7 @@ title_tag: Create a New Project | Azure
 meta_desc: This page provides an overview of how to create a new Azure + Pulumi project.
 title: Create project
 h1: "Pulumi & Azure: Create project"
+block_external_search_index: true
 ---
 
 Now that you have set up your environment by installing Pulumi and installed your preferred language runtime, let's create your first Pulumi program.

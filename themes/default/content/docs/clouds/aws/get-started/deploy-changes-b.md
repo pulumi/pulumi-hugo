@@ -3,6 +3,7 @@ title_tag: Deploy the Changes | AWS
 title: Deploy changes
 h1: "Pulumi & AWS: Deploy changes"
 meta_desc: Learn how to deploy changes to an AWS project in this guide.
+block_external_search_index: true
 ---
 
 Now let's deploy your changes.
