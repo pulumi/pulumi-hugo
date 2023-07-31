@@ -1,27 +1,21 @@
 ---
 title: "Benchmarking Python Performance"
-date: 2023-04-10
-
-# Use the meta_desc property to provide a brief summary
-# (one or two sentences) of the content of the post,
-# which is useful for targeting search results or social-media previews.
-# This field is required or the build will fail the linter test.
-# Max length is 160 characters.
-meta_desc:
+date: 2023-07-31
+meta_desc: "Benchmarking and improving the performance of Pulumi Python programs."
 meta_image: meta.png
 
 authors:
     - robbie-mckinstry
 
-# At least one tag is required.
-# Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
+    - performance
+    - platform
+    - engineering
 ---
 
-This is the second post in a series about performance optimizations we’ve made
-to the Pulumi CLI. Over the last six months at Pulumi, the Platform Team has
-been working on a project we call “Amazing Performance.” You can read more
+This is the second post in a series about performance optimizations we've made
+to the Pulumi CLI and SDKs. In this post, we'll go deep on a performance
+improvement we made for Pulumi Python programs. You can read more
 about Amazing Performance in
 [the first post in the series](https://www.pulumi.com/blog/amazing-performance/).
 
@@ -69,7 +63,7 @@ which we can pass to the `FloatingIp`. This idea extends inductively for
 arbitrary programs – before any resource can be run, we must resolve the
 `Outputs` of all of its arguments. To do this, Pulumi builds a dependency graph
 between all resources in your program. Then, it walks the graph topologically
-to schedule provisioning operations. 
+to schedule provisioning operations.
 
 Provisioning operations that are not dependent on each other can be executed
 in parallel, and Pulumi defaults to unbounded parallelism, but users can
@@ -93,10 +87,10 @@ for i in range(100):
 
 In this program, we can create 200 resources in parallel because none of them
 take inputs from other resources. This program should be entirely
-network-bound because Pulumi can issue all 200 API calls in parallel and wait 
+network-bound because Pulumi can issue all 200 API calls in parallel and wait
 for AWS to provision the instances.
-[We discovered](https://github.com/pulumi/pulumi/issues/11116), however, 
-that it did not! Strangely, API calls were issued in an initial batch of 20; 
+[We discovered](https://github.com/pulumi/pulumi/issues/11116), however,
+that it did not! Strangely, API calls were issued in an initial batch of 20;
 as one completed, another would start.
 
 The culprit was the Python default future executor,
@@ -131,10 +125,10 @@ We also made an effort to run the experiments on a quiet machine connected
 to power. For all experiment groups, `--parallel` was unset, translating to
 unbounded parallelism.
 
-Before between samples, we ran `pulumi destroy –yes` to ensure a fresh 
+Before between samples, we ran `pulumi destroy –yes` to ensure a fresh
 environment. Hyperfine measures shell startup time and subtracts the value
 before final measurements are recorded to more precisely represent the true
-cost of execution. All groups collected 20 samples each. We also discard 
+cost of execution. All groups collected 20 samples each. We also discard
 `stderr` and `stdout` to reduce noise associated with logging to a tty, but
 we do record the status code of each command so can show they executed successfully.
 
