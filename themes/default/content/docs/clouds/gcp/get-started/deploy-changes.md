@@ -155,7 +155,7 @@ const bucketIAMBinding = new gcp.storage.BucketIAMBinding("my-bucket-IAMBinding"
 });
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```javascript
 const bucketMember = new gcp.storage.BucketIAMMember("bucketIAMMember", {
@@ -209,7 +209,7 @@ const bucketIAMBinding = new gcp.storage.BucketIAMBinding("my-bucket-IAMBinding"
 });
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```typescript
 const bucketMember = new gcp.storage.BucketIAMMember("bucketIAMMember", {
@@ -262,7 +262,7 @@ bucketIAMBinding = storage.BucketIAMBinding('my-bucket-IAMBinding',
 )
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```python
 bucket_iam_member = storage.BucketIAMMember(
@@ -325,7 +325,7 @@ if err != nil {
 }
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```go
 bucketMember, err := storage.NewBucketIAMMember(ctx, "bucketIAMMember", &storage.BucketIAMMemberArgs{
@@ -394,7 +394,7 @@ var bucketIAMBinding = new BucketIAMBinding("my-bucket-IAMBinding", new BucketIA
 });
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```csharp
 var bucketMember = new BucketIAMMember("bucketIAMMember", new BucketIAMMemberArgs
@@ -478,7 +478,7 @@ public class App {
             // Create an S3 Bucket object ...
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```java
 var binding = new BucketIAMMember("bucketIAMMember",
@@ -555,7 +555,7 @@ resources:
       members: ["allUsers"]
 ```
 
-We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email. 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
 
 ```yaml
 bucket_iam_member:
