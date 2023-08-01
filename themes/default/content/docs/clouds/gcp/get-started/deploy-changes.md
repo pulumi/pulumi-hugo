@@ -137,6 +137,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```javascript
 const bucket = new gcp.storage.Bucket("my-bucket", {
+    location: "US",
     website: {
         mainPageSuffix: "index.html"
     },
@@ -190,6 +191,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```typescript
 const bucket = new gcp.storage.Bucket("my-bucket", {
+    location: "US",
     website: {
         mainPageSuffix: "index.html"
     },
@@ -243,6 +245,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```python
 bucket = storage.Bucket('my-bucket',
+    location="US",
     website=storage.BucketWebsiteArgs(
         main_page_suffix='index.html'),
     uniform_bucket_level_access=True,
@@ -296,6 +299,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```go
 bucket, err := storage.NewBucket(ctx, "my-bucket", &storage.BucketArgs{
+    Location: pulumi.String("US"),
     Website: storage.BucketWebsiteArgs{
         MainPageSuffix: pulumi.String("index.html"),
     },
@@ -370,6 +374,7 @@ using Pulumi.Gcp.Storage.Inputs;
 ```csharp
 var bucket = new Bucket("my-bucket", new BucketArgs
 {
+    Location = "US",
     Website = new BucketWebsiteArgs
     {
         MainPageSuffix = "index.html"
