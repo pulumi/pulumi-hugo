@@ -129,6 +129,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```javascript
 const bucket = new gcp.storage.Bucket("my-bucket", {
+    location: "US",
     website: {
         mainPageSuffix: "index.html"
     },
@@ -143,6 +144,16 @@ const bucketIAMBinding = new gcp.storage.BucketIAMBinding("my-bucket-IAMBinding"
     bucket: bucket.name,
     role: "roles/storage.objectViewer",
     members: ["allUsers"]
+});
+```
+
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```javascript
+const bucketMember = new gcp.storage.BucketIAMMember("bucketIAMMember", {
+    bucket: bucket.name,
+    role: "roles/storage.objectViewer",
+    member: "user:youruser@email.com",
 });
 ```
 
@@ -172,6 +183,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```typescript
 const bucket = new gcp.storage.Bucket("my-bucket", {
+    location: "US",
     website: {
         mainPageSuffix: "index.html"
     },
@@ -186,6 +198,16 @@ const bucketIAMBinding = new gcp.storage.BucketIAMBinding("my-bucket-IAMBinding"
     bucket: bucket.name,
     role: "roles/storage.objectViewer",
     members: ["allUsers"]
+});
+```
+
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```typescript
+const bucketMember = new gcp.storage.BucketIAMMember("bucketIAMMember", {
+    bucket: bucket.name,
+    role: "roles/storage.objectViewer",
+    member: "user:youruser@email.com",
 });
 ```
 
@@ -215,6 +237,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```python
 bucket = storage.Bucket('my-bucket',
+    location="US",
     website=storage.BucketWebsiteArgs(
         main_page_suffix='index.html'),
     uniform_bucket_level_access=True,
@@ -228,6 +251,17 @@ bucketIAMBinding = storage.BucketIAMBinding('my-bucket-IAMBinding',
     bucket=bucket.name,
     role="roles/storage.objectViewer",
     members=["allUsers"]
+)
+```
+
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```python
+bucket_iam_member = storage.BucketIAMMember(
+    "bucketIAMMember",
+    bucket=bucket.name,
+    role="roles/storage.objectViewer",
+    member="user:youruser@email.com",
 )
 ```
 
@@ -257,6 +291,7 @@ First, set the `website` property on your bucket. And, to align with Google Clou
 
 ```go
 bucket, err := storage.NewBucket(ctx, "my-bucket", &storage.BucketArgs{
+    Location: pulumi.String("US"),
     Website: storage.BucketWebsiteArgs{
         MainPageSuffix: pulumi.String("index.html"),
     },
@@ -276,6 +311,19 @@ _, err = storage.NewBucketIAMBinding(ctx, "my-bucket-IAMBinding", &storage.Bucke
     Members: pulumi.StringArray{
         pulumi.String("allUsers"),
     },
+})
+if err != nil {
+    return err
+}
+```
+
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```go
+bucketMember, err := storage.NewBucketIAMMember(ctx, "bucketIAMMember", &storage.BucketIAMMemberArgs{
+    Bucket: bucket.Name,
+    Role:   pulumi.String("roles/storage.objectViewer"),
+    Member: pulumi.String("user:youruser@email.com"),
 })
 if err != nil {
     return err
@@ -318,6 +366,7 @@ using Pulumi.Gcp.Storage.Inputs;
 ```csharp
 var bucket = new Bucket("my-bucket", new BucketArgs
 {
+    Location = "US",
     Website = new BucketWebsiteArgs
     {
         MainPageSuffix = "index.html"
@@ -334,6 +383,17 @@ var bucketIAMBinding = new BucketIAMBinding("my-bucket-IAMBinding", new BucketIA
     Bucket = bucket.Name,
     Role = "roles/storage.objectViewer",
     Members = "allUsers"
+});
+```
+
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```csharp
+var bucketMember = new BucketIAMMember("bucketIAMMember", new BucketIAMMemberArgs
+{
+    Bucket = bucket.Name,
+    Role = "roles/storage.objectViewer",
+    Member = "user:youruser@email.com"
 });
 ```
 
@@ -410,6 +470,17 @@ public class App {
             // Create an S3 Bucket object ...
 ```
 
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```java
+var binding = new BucketIAMMember("bucketIAMMember",
+BucketIAMMemberArgs.builder()
+        .bucket(bucket.name())
+        .role("roles/storage.objectViewer")
+        .member("user:youruser@email.com")
+        .build());
+```
+
 Also, change the content type of your index.html object so that it is served as HTML.
 
 ```java
@@ -474,6 +545,17 @@ resources:
       bucket: ${my-bucket.name}
       role: "roles/storage.objectViewer"
       members: ["allUsers"]
+```
+
+We need to give your account access to view the bucket it must change. Make sure to replace `youruser@email.com` with an actual user's email.
+
+```yaml
+bucket_iam_member:
+    type: gcp:storage:BucketIAMMember
+    properties:
+      bucket: ${my-bucket.name}
+      role: "roles/storage.objectViewer"
+      member: "user:youruser@email.com"
 ```
 
 Also, change the content type of your `index.html` object so that it is served as HTML.
