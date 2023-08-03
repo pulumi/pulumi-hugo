@@ -56,7 +56,11 @@ The Infrastructure as Code approach would allow them to automate building and de
 
 ## Background
 
-The main challenge was managing Azure infrastructure in an efficient and secure way that kept pace with the rapid growth of the bank. Previously, they ran on-premise infrastructure and deployed with BAT and Powershell scripts. Now, they had migrated to Azure and wanted to increase development speed through CI/CD for cloud infrastructure. In addition, the security and reliability of cloud resources was a paramount concern. They needed a way for the infrastructure team and information security team to work together on implementing security best practices for infrastructure, including how to prevent insecure resources from being provisioned. The bank decided to adopt IaC to create reliable and rapid deployments while ensuring that their cloud infrastructure stayed compliant and secure.
+The main challenge was managing Azure infrastructure in an efficient and secure way that kept pace with the bank's rapid growth. Previously, they ran on-premise infrastructure and deployed with BAT and Powershell scripts. Now, they had migrated to Azure and wanted to increase development speed through CI/CD for cloud infrastructure. 
+
+In addition, cloud resources' security and reliability were paramount. They needed a way for the infrastructure and information security teams to work together to implement security best practices for infrastructure, including how to prevent insecure resources from being provisioned. 
+
+The bank decided to adopt IaC to create reliable and rapid deployments while ensuring that its cloud infrastructure stayed compliant and secure.
 
 ## Why Washington Trust Bank Chose Pulumi
 
