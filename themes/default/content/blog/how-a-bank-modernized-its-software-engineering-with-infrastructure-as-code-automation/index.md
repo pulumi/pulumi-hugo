@@ -33,7 +33,7 @@ authors:
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - azure
-    - typescript
+    - fintech
     - case-studies
     - enterprise
     - crossguard
