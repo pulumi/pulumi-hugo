@@ -70,8 +70,10 @@ Further, Pulumi gave the bank total confidence in being able to rapidly recover 
 
 [Pulumi CrossGuard](/docs/using-pulumi/crossguard/) adds an extra layer of security and control and is used in conjunction with Azure Policies, which are used for auditing purposes. CrossGuard prevents the deployment of undesired, insecure, or expensive resources during the preview and deployment stage, thus preventing developers from even reaching Azure to provision resources. Custom error messages give developers context as to why their deployment was not allowed. [Pulumi Cloud Policy Packs](/docs/using-pulumi/crossguard/configuration/) allow them to group and deploy many policies at once. The Policy Packs prevent specified resources from being deployed into staging and live environments. For example, one policy requires all SQL databases to use TLS 1.2 by default and another makes sure all storage buckets have public access disabled by default. These capabilities helped bolster the security of the bank's cloud infrastructure.
 
-## Summary
+## Financial services cloud modernization with Pulumi 
 
-Pulumi played a vital role in transforming Washington Trust Bank's cloud infrastructure management, increasing its developers' productivity, and enhancing the security and reliability of its cloud infrastructure.
+The DevOps and development teams at Washington Trust Bank rely on Pulumi as a key tool in their cloud modernization, while maintaining high security and quality standards. Pulumi played a vital role in streamlining their cloud infrastructure management, enabling their developers to be more productive, and improving the security and reliability of its cloud infrastructure.
+
+[Sign up for a free account](https://app.pulumi.com/signup) to try deploying infrastructure on any cloud, or [register for an upcoming workshop](https://www.pulumi.com/resources/#upcoming) to learn more about how Pulumi can help you ship cloud infrastructure faster and more safely.
 
 [Go to more case studies](/case-studies/)
