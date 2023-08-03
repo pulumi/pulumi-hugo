@@ -50,7 +50,7 @@ This blog post summarizes a presentation by Dennis Sauvé at [PulumiUP 2023](/pu
 
 As an FDIC-governed financial institution, it is imperative for the bank to maintain secure, reliable, and compliant cloud resources to protect clients’ personal data. On the other hand, it also aimed to create more agile development teams as it modernized its software development and infrastructure. [Dennis Sauvé](https://github.com/dengsauve), the bank's first DevOps Engineer, recognized [Infrastructure as Code (IaC)](/what-is/what-is-infrastructure-as-code/) as the solution to these challenges. 
 
-The Infrastructure as Code approach would allow them to automate building and deploying their cloud infrastructure, eliminate infrastructure provisioning as a bottleneck, and empower developers to self-service infrastructure and increase productivity.
+Embracing an Infrastructure as Code approach would allow them to automate building and deploying their cloud infrastructure, eliminate infrastructure provisioning as a bottleneck, and empower developers to self-service infrastructure and increase productivity.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q63ZaX340M4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
