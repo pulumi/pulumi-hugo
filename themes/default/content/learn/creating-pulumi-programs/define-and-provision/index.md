@@ -23,7 +23,7 @@ In this tutorial, we'll demonstrate how to create a simple Nginx web server. You
 
 Let's get started!
 
-## Create a Web Server
+## Create a Virtual Machine
 
 The first step is to create a virtual machine resource that will be used to host the web server. The specific details of how to create your virtual machine differ by cloud provider. Select your cloud provider below to see the corresponding details:
 
@@ -154,9 +154,10 @@ import pulumi_aws as aws
 
 user_data = """
 #!/bin/bash
-
-# Install Nginx
-sudo amazon-linux-extras install nginx1
+sudo yum update -y
+sudo amazon-linux-extras install nginx1 -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
 """
 
 # [Step 1: Create an EC2 instance.]
@@ -176,11 +177,13 @@ Here we have defined a resource of type `aws.ec2.Instance`. All resources have a
 
 Aside from names, resources have properties and options.
 
-**Properties** are used to specify what type of resource to create. They can be required or optional depending on the specifications of the provider, and properties are often resource-specific. The properties inside our `aws.ec2.Instance` resource are
+**Properties** are used to specify what type of resource to create. They can be required or optional depending on the specifications of the provider, and properties are often resource-specific. The properties inside our `aws.ec2.Instance` resource are:
 
-- `instance_type` - tells the AWS provider to create an EC2 instance of type/size `t2.micro`
-- `ami` - tells the provider to create the instance using the `ami-0e00e602389e469a3` machine image
-- `user_data` - tells the provider to initialize the instance with the user data script we have defined
+| Property | Description |
+|--------------|-------------|
+| **instance_type** | tells the AWS provider to create an EC2 instance of type/size `t2.micro` |
+| **ami** | tells the provider to create the instance using the `ami-0e00e602389e469a3` machine image |
+| **user_data** | tells the provider to initialize the instance with the script we have defined |
 
 **Options** let you control certain aspects of a resource For example, you can show explicit dependencies, use a custom provider configuration, or import an existing infrastructure. We do not have any options defined for this resource, but you can learn more about options in the [Pulumi documentation](/docs/concepts/options).
 
@@ -188,7 +191,7 @@ Aside from names, resources have properties and options.
 
 Now let's run the `pulumi up` command to deploy the resource we just defined in our project.
 
-> To view another cloud provider's details, [select a new cloud in the switcher above](#create-a-web-server).
+> To view another cloud provider's details, [select a new cloud in the switcher above](#create-a-virtual-machine).
 
 {{% /choosable %}}
 
@@ -196,7 +199,7 @@ Now let's run the `pulumi up` command to deploy the resource we just defined in 
 
 PLACEHOLDER
 
-> To view another cloud provider's details, [select a new cloud in the switcher above](#create-a-web-server).
+> To view another cloud provider's details, [select a new cloud in the switcher above](#create-a-virtual-machine).
 
 {{% /choosable %}}
 
@@ -204,7 +207,7 @@ PLACEHOLDER
 
 PLACEHOLDER
 
-> To view another cloud provider's details, [select a new cloud in the switcher above](#create-a-web-server).
+> To view another cloud provider's details, [select a new cloud in the switcher above](#create-a-virtual-machine).
 
 {{% /choosable %}}
 
