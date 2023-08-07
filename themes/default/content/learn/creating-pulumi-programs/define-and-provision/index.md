@@ -149,6 +149,32 @@ We will now define our EC2 instance resource below.
 
 {{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
 
+{{< choosable language javascript >}}
+
+```javascript
+const aws = require("@pulumi/aws");
+const pulumi = require("@pulumi/pulumi");
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{< /choosable >}}
+
+{{< choosable language typescript >}}
+
+```typescript
+import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{< /choosable >}}
+
 {{< choosable language python >}}
 
 ```python
@@ -173,6 +199,63 @@ server = aws.ec2.Instance(
 )
 
 pulumi.export('publicIp', server.public_ip)
+```
+
+{{< /choosable >}}
+
+{{< choosable language go >}}
+
+```go
+package main
+
+import (
+    "encoding/base64"
+    "errors"
+    "strings"
+
+    "github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+    "github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        // [Step 1: Create an EC2 instance.]
+
+        // [Step 2: Create a security group.]
+
+        return nil
+    })
+}
+```
+
+{{< /choosable >}}
+
+{{< choosable language csharp >}}
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using Pulumi;
+using Pulumi.Aws.Ec2;
+
+class Program
+{
+    static Task<int> Main() => Deployment.RunAsync(async () => {
+        // [Step 1: Create an EC2 instance.]
+
+        // [Step 2: Create a security group.]
+    }
+}
+```
+
+{{< /choosable >}}
+
+{{< choosable language yaml >}}
+
+```yaml
+TBD
 ```
 
 {{< /choosable >}}
@@ -232,6 +315,31 @@ In this section, you will use Pulumi documentation to configure the security gro
 An updated version of the project code has been provided below as a starting point.
 
 {{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
+{{< choosable language javascript >}}
+
+```javascript
+const aws = require("@pulumi/aws");
+const pulumi = require("@pulumi/pulumi");
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{< /choosable >}}
+
+{{< choosable language typescript >}}
+
+```typescript
+import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{< /choosable >}}
 
 {{< choosable language python >}}
 
@@ -265,6 +373,63 @@ pulumi.export('publicIp', server.public_ip)
 
 {{< /choosable >}}
 
+{{< choosable language go >}}
+
+```go
+package main
+
+import (
+    "encoding/base64"
+    "errors"
+    "strings"
+
+    "github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+    "github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        // [Step 1: Create an EC2 instance.]
+
+        // [Step 2: Create a security group.]
+
+        return nil
+    })
+}
+```
+
+{{< /choosable >}}
+
+{{< choosable language csharp >}}
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using Pulumi;
+using Pulumi.Aws.Ec2;
+
+class Program
+{
+    static Task<int> Main() => Deployment.RunAsync(async () => {
+        // [Step 1: Create an EC2 instance.]
+
+        // [Step 2: Create a security group.]
+    }
+}
+```
+
+{{< /choosable >}}
+
+{{< choosable language yaml >}}
+
+```yaml
+TBD
+```
+
+{{< /choosable >}}
+
 Use the following steps as a guide for adding the Security Group resource:
 
 - Navigate to the [AWS Registry documentation page](https://www.pulumi.com/registry/packages/aws/)
@@ -278,6 +443,31 @@ Once you have completed these steps, navigate to your instance IP address again.
 
 {{< details "Click here to view the complete project code" >}}
 {{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
+{{< choosable language javascript >}}
+
+```javascript
+const aws = require("@pulumi/aws");
+const pulumi = require("@pulumi/pulumi");
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{< /choosable >}}
+
+{{< choosable language typescript >}}
+
+```typescript
+import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{< /choosable >}}
 
 {{< choosable language python >}}
 
