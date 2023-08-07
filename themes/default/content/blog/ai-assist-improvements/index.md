@@ -41,7 +41,7 @@ tags:
 Pulumi Cloud [Resource Search](/docs/pulumi-cloud/insights/search) AI assist functionality is now generally available to all organizations! In addition we have shipped some improvements to the feature to make it easier to use and more discoverable: a toggle on the search bar, suggested queries and an "I'm Feeling Lucky" button to generate a random query for you.
 
 <!--more-->
-See it in action in the gif below!
+See it in action below!
 
 ![Walking through the new AI assist experience](https://www.pulumi.com/uploads/feeling-lucky.gif)
 
