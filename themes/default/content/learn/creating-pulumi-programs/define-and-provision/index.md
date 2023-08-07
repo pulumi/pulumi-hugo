@@ -39,7 +39,7 @@ Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that 
 
 #### Create a New Project
 
-To start, [create a new project](/docs/clouds/aws/get-started/create-project/) and [ensure it is configured to use your AWS account](/registry/packages/aws/installation-configuration/).
+To start, [create a new project](/docs/clouds/aws/get-started/create-project/) and [ensure it is configured to use your AWS account](https://www.pulumi.com/registry/packages/aws/api-docs/ec2/instance/).
 
 Then use the follow code snippet to scaffold your project with the required imports and overall program structure that we will fill in as we go along:
 
