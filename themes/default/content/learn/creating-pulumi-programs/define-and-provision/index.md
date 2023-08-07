@@ -227,9 +227,9 @@ The public IP address of your instance has been provided for you as an output, a
 
 ## Create a Security Group
 
-In this section, you will use Pulumi documentation to configure the security group on your own. The security group must allow web traffic on port 80 in order for us to access
+In this section, you will use Pulumi documentation to configure the security group on your own. The security group must allow web traffic on port 80 in order for you to access your web server.
 
-An updated version of our project code has been provided below as a starting point.
+An updated version of the project code has been provided below as a starting point.
 
 {{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
 
@@ -273,7 +273,7 @@ Use the following steps as a guide for adding the Security Group resource:
 - Configure the security group to allow traffic on port 80
 - Preview and deploy your updated project code
 
-Once you have completed these steps, navigate to your instance IP address again. You should now be greeted with a "Welcome to nginx" home page message that indicates your web server is running and publically accessible.
+Once you have completed these steps, navigate to your instance IP address again. You should now be greeted with a "Welcome to nginx!" home page message that indicates your web server is running and publically accessible.
 > Note: If your web server is still timing out, make sure you are accessing your web server's IP address via HTTP and not HTTPS.
 
 {{< details "Click here to view the complete project code" >}}
