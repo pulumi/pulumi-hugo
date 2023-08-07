@@ -38,17 +38,16 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-Pulumi Cloud Resource Search AI assist functionality is now generally available to all organizations! In addition we have shipped some improvements to the feature to make it easier to use and more discoverable: a toggle on the search bar, suggested queries and an "I'm Feeling Lucky" button to generate a random query for you. See it in action in the gif below!
+Pulumi Cloud Resource Search AI assist functionality is now generally available to all organizations! In addition we have shipped some improvements to the feature to make it easier to use and more discoverable: a toggle on the search bar, suggested queries and an "I'm Feeling Lucky" button to generate a random query for you.
+
+<!--more-->
+See it in action in the gif below!
 
 ![Walking through the new AI assist experience](https://www.pulumi.com/uploads/feeling-lucky.gif)
 
 ### AI Assist is Generally Available
 
-Resource Search AI assist is a way to search your Pulumi organization using natural language. We launched it in a [private beta in April](/blog/pulumi-insights) this year. Previously only customers who requested private beta access have been able to leverage natural language resource search, starting today customers on any edition of Pulumi Cloud, AI assist is generally available.
-
-<!--more-->
-
-You can provide a plain English (or Spanish, or French, or Japanese!) request, to express queries where you might not know the exact syntax, type tokens, or package names. AI Assist makes it easier to gain insight over infrastructure, using queries like:
+Resource Search AI assist is a way to search your Pulumi organization using natural language. We launched it in a [private beta in April](/blog/pulumi-insights) this year. Previously only customers who requested private beta access have been able to leverage natural language resource search, starting today customers on any edition of Pulumi Cloud, AI assist is generally available. You can provide a plain English (or Spanish, or French, or Japanese!) request, to express queries where you might not know the exact syntax, type tokens, or package names. AI Assist makes it easier to gain insight over infrastructure, using queries like:
 
 1. `show me all s3 buckets not tagged in production`
 2. `show azure and azure native security groups`
