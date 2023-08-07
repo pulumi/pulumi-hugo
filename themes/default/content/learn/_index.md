@@ -27,9 +27,9 @@ overview: |
     <h2 class="learn-h2">Welcome to Learn Pulumi!</h2>
 
     Learn all the concepts of Pulumi, along with best practices and  
-    architectural patterns.
-
-    Each tutorial will step you through core Pulumi concepts.  
+    architectural patterns. Each tutorial will step you through  
+    core Pulumi concepts.  
+    
     These learning pathways assume that you are familiar with  
     the basics of the Pulumi workflow. If you are new to Pulumi,  
     complete the [Get Started series](/docs/get-started) to get comfortable with   
