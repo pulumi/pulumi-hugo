@@ -67,8 +67,6 @@
                                 {{ end }}
                             </ul>
                         {{ end }}
-                        <h4>Prerequisites</h4>
-                        <div>This course will be taught using Pulumi Cloud. To follow along, sign up for your free account: <a class="text-blue-700 font-semibold underline hover:cursor-pointer" href="https://app.pulumi.com/signup">https://app.pulumi.com/signup</a></div>
                     {{ end }}
                 </div>
                 <div id="webinarRegistrationForm" class="mt-10 md:mt-0 md:w-1/2 md:mx-8 bg-gray-200 rounded p-6">
@@ -115,15 +113,17 @@
                         <p class="description text-gray-600">
                             {{ .description | markdownify }}
                         </p>
-                        <h4>Presenters</h4>
-                        <ul class="list-none p-0">
-                            {{ range .presenters }}
-                                <li class="mb-4">
-                                    <div class="text-purple">{{ .name }}</div>
-                                    <div class="text-sm">{{ .role }}</div>
-                                </li>
-                            {{ end }}
-                        </ul>
+                        {{ if .presenters }}
+                            <h4>Presenters</h4>
+                            <ul class="list-none p-0">
+                                {{ range .presenters }}
+                                    <li class="mb-4">
+                                        <div class="text-purple">{{ .name }}</div>
+                                        <div class="text-sm">{{ .role }}</div>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        {{ end }}
                         {{ if isset . "learn" }}
                             <h4>What you will learn:</h4>
                             <ul class="text-gray-600">
@@ -144,53 +144,56 @@
         </div>
     </section>
 
-    <section id="gettingStartedList" class="px-4">
-        <div class="container mx-auto max-w-6xl pb-16">
-            <div class="{{ if .Params.gated }}md:mx-8{{ end }}">
-                <h4 class="text-orange">Get Started with Pulumi</h4>
-                <ul class="text-gray-600">
-                    {{ if .Params.aws_only }}
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/docs/clouds/aws/get-started" }}">Create an AWS S3 Bucket</a></strong> then modify the bucket to host a
-                            static website.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/registry/packages/aws" }}">Learn how to use Pulumi's AWS Classic Provider</a></strong
-                            >. It uses the AWS SDK to manage and provision resources.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="https://aws.amazon.com/marketplace/pp/prodview-dwn22batkhsyg">Get Pulumi Enterprise Edition</a></strong> for AWS on AWS
-                            Marketplace.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/docs/install" }}">Download Pulumi</a></strong
-                            >, a free open source infrastructure as code tool.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/learn" }}">Learn all the concepts of Pulumi</a></strong> with step-by-step tutorials.
-                        </li>
-                    {{ else }}
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/docs/clouds/aws/get-started" }}">Create an AWS S3 Bucket</a></strong> then modify the bucket to host a
-                            static website.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/docs/clouds/azure/get-started" }}">Create an Azure Resource Group and Storage Account</a></strong
-                            >, then export the storage account’s connection string.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/docs/clouds/gcp/get-started" }}">Create a Google Cloud Storage Bucket</a></strong> and apply labels to that
-                            bucket.
-                        </li>
-                        <li>
-                            <strong><a class="link" href="{{ relref . "/docs/clouds/kubernetes/get-started" }}">Create a Kubernetes NGINX deployment</a></strong> and add a config
-                            value for MiniKube deployments.
-                        </li>
-                    {{ end }}
-                </ul>
+    {{ if .Params.no_getting_started }}
+    {{ else }}
+        <section id="gettingStartedList" class="px-4">
+            <div class="container mx-auto max-w-6xl pb-16">
+                <div class="{{ if .Params.gated }}md:mx-8{{ end }}">
+                    <h4 class="text-orange">Get Started with Pulumi</h4>
+                    <ul class="text-gray-600">
+                        {{ if .Params.aws_only }}
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/docs/clouds/aws/get-started" }}">Create an AWS S3 Bucket</a></strong> then modify the bucket to host a
+                                static website.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/registry/packages/aws" }}">Learn how to use Pulumi's AWS Classic Provider</a></strong
+                                >. It uses the AWS SDK to manage and provision resources.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="https://aws.amazon.com/marketplace/pp/prodview-dwn22batkhsyg">Get Pulumi Enterprise Edition</a></strong> for AWS on
+                                AWS Marketplace.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/docs/install" }}">Download Pulumi</a></strong
+                                >, a free open source infrastructure as code tool.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/learn" }}">Learn all the concepts of Pulumi</a></strong> with step-by-step tutorials.
+                            </li>
+                        {{ else }}
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/docs/clouds/aws/get-started" }}">Create an AWS S3 Bucket</a></strong> then modify the bucket to host a
+                                static website.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/docs/clouds/azure/get-started" }}">Create an Azure Resource Group and Storage Account</a></strong
+                                >, then export the storage account’s connection string.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/docs/clouds/gcp/get-started" }}">Create a Google Cloud Storage Bucket</a></strong> and apply labels to
+                                that bucket.
+                            </li>
+                            <li>
+                                <strong><a class="link" href="{{ relref . "/docs/clouds/kubernetes/get-started" }}">Create a Kubernetes NGINX deployment</a></strong> and add a
+                                config value for MiniKube deployments.
+                            </li>
+                        {{ end }}
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {{ end }}
 
     {{ partial "learnmore-contactus.html" . }}
 {{ end }}
