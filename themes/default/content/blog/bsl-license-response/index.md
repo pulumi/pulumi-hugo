@@ -8,8 +8,6 @@ date: "2023-08-11"
 meta_image: "pulumi_hearts_opensource.png"
 ---
 
-# Pulumi 💜s Open Source
-
 Pulumi stands with the open source community.
 
 We are unaffected by HashiCorp relicensing their software yesterday, and express profound support for many of our cloud friends who have been affected.
