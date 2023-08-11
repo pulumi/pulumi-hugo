@@ -22,12 +22,4 @@ body.section-signup {
         }
         content: "Try Pulumi"
     }
-
-    @media only screen and (min-device-width: 1024px) {
-        footer {
-            position: absolute;
-            width: 100%;
-            bottom: 0px;
-        }
-    }
 }
