@@ -6,7 +6,7 @@ hero:
 title: "Best Practices for Infrastructure as Code"
 meta_desc: |
     A talk from the Pulumi 1.0 launch event, presented by Christian Theilemann, Senior Software Engineer at Solvvy.
-url_slug: best-practices-infrastructure-as-code-launch-event
+url_slug: best-practices-infrastructure-as-code
 featured: false
 pre_recorded: true
 pulumi_tv: false

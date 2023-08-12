@@ -6,7 +6,7 @@ hero:
 title: "Azure Cosmos DB and Pulumi Pulumi 1.0 launch event"
 meta_desc: |
     A talk from the Pulumi 1.0 launch event, presented by Mikhail Shilkov, Microsoft Azure MVP.
-url_slug: azure-cosmos-db-pulumi-launch-event
+url_slug: azure-cosmos-db-pulumi
 featured: false
 pre_recorded: true
 pulumi_tv: false

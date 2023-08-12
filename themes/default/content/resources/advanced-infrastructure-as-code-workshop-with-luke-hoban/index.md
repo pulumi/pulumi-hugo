@@ -6,7 +6,7 @@ hero:
 title: "Advanced Infrastructure as Code - Workshop with Luke Hoban"
 meta_desc: |
     In this workshop, Pulumi experts cover advanced infrastructure as code topics including authoring components, multi-stack architectures, and testing
-url_slug: advanced-infrastructure-as-code-workshop-luke-hoban
+url_slug: advanced-infrastructure-as-code-workshop-with-luke-hoban
 featured: false
 pre_recorded: true
 pulumi_tv: false

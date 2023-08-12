@@ -6,7 +6,7 @@ hero:
 title: "Best Practices:  Code Placement and Stacks"
 meta_desc: |
     The first in a series of videos, we'll use a fictional company named Zephyr to explore common questions that users ask when working with Pulumi.
-url_slug: best-practices-code-placement-stacks-modern-infrastructure
+url_slug: best-practices-code-placement-stacks
 featured: false
 pre_recorded: true
 pulumi_tv: false
@@ -20,8 +20,8 @@ main:
   title: "Best Practices:  Code Placement and Stacks"
   description: |
     The first in a series of videos, we'll use a fictional company named Zephyr to explore common questions that users ask when working with Pulumi. Zephyr wants to increase development velocity and flexibly scale different aspects of its online store. The demo will show deploying Zephyr's application, their online store.
-     ► Read the related blog article: https://www.pulumi.com/blog/iac-recommended-practices-code-organization-and-stacks/  
-     ✅Get Started with Pulumi: https://pulumip.us/Get-Started 
+     ► Read the related blog article: https://www.pulumi.com/blog/iac-recommended-practices-code-organization-and-stacks/
+     ✅Get Started with Pulumi: https://pulumip.us/Get-Started
      ✅ Create a Pulumi account. It's free: https://pulumip.us/Sign-Up-OpenSource
   sortable_date: 2023-02-22T17:00:38Z
   youtube_url: https://www.youtube.com/embed/rDs_Dzl36vw
