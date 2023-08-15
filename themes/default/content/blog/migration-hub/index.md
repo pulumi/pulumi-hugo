@@ -119,6 +119,16 @@ complexity.
 In each of these cases, the customer evaluated Pulumi against alternative infrastructure as code solutions, but
 ultimately chose Pulumi due to the aforementioned benefits.
 
+## Special Offers
+
+In addition to migration services, Pulumi offers two programs to help get up and running quickly:
+
+* [Open Source]({{< relref "/pricing/open-source-free-tier" >}}): Any open source foundation or project can use
+  Pulumi Team Edition free of charge.
+
+* [Startup Discount]({{< relref "/pulumi-for-startups" >}}): Any early stage startup gets $10,000 free credits and
+  access to Pulumi Enterprise.
+
 ## Get Started Today
 
 Migrating from an existing solution can seem like a daunting task, but with Pulumi's new Migration Hub and Expert
