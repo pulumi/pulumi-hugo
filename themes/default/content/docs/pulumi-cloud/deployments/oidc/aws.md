@@ -20,30 +20,85 @@ This document outlines the steps required to configure Pulumi Deployments to use
 
 * You must be an admin of your Pulumi organization.
 
-## Adding the identity provider to AWS
+## How to set up by manual
+
+Create OIDC provider and IAM role from AWS Management Console.
+
+### Adding the identity provider to AWS
 
 To add the Pulumi Cloud as an OIDC provider for IAM, see the [relevant AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
 * For the provider URL, use `https://api.pulumi.com/oidc`
 * For the audience, use the name of your organization
 
-## Configuring the IAM Role and Trust Policy
+### Configuring the IAM Role and Trust Policy
 
 To configure the role and trust in IAM, see the AWS documentation for [creating a role for web identity or OpenID connect federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create).
 
 * For the identity provider, choose the provider you created above
 * For the audience, choose the name of your organization
 
-For more granular access control, edit the trust policy to add the `sub` claim to the policy's conditions with an appropriate patter. In the following example, the role may only be assigned by stacks within the "Core" project:
+For more granular access control, edit the trust policy to add the `sub` claim to the policy's conditions with an appropriate patter. In the following example, the role may only be assigned by stacks:
 
 ```json
 "Condition": {
   "StringLike": {
     "api.pulumi.com/oidc:aud": "<organization name>",
-    "api.pulumi.com/oidc:sub": "pulumi:deploy:org:<organization name>:project:Core:*"
+    "api.pulumi.com/oidc:sub": "pulumi:deploy:org:<organization name>:project:<project name>:*"
   }
 }
 ```
+
+## How to set up by CloudFormation
+It is possible to create OIDC provider and IAM role to deploy the below CloudFormation Stack.
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "OIDC for Pulumi"
+
+Parameters:
+  OrgName:
+    Type: String
+    Description: the name of your Pulumi Organization
+  ProjectName:
+    Type: String
+    Description: If you want to allow all projects, etner *. 
+
+Resources:
+  IAMOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://api.pulumi.com/oidc
+      ClientIdList:
+        - !Ref OrgName
+      ThumbprintList:
+        - 9e99a48a9960b14926bb7f3b02e22da2b0ab7280
+  IAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Path: /
+      RoleName: OpenID-PulumiCloud
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref IAMOIDCProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringLike:
+                api.pulumi.com/oidc:sub: !Sub pulumi:deploy:org:${OrgName}:project:${ProjectName}:*
+                api.pulumi.com/oidc:aud: !Ref OrgName
+      MaxSessionDuration: 3600
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+```
+
+### Parameters
+* OrgName: Enter the name of your organization.
+* ProjectName: Enter the name of your project. If you want to allow all projects, etner `*`.
+
+![cloudformation-stack-deploy](/images/docs/reference/console/cloudformation-stack-deploy.png)
 
 Make a note of the IAM role's ARN; it will be necessary to enable OIDC for your stack.
 
