@@ -70,10 +70,17 @@
                                                     <a href="{{ $item.selfServeUrl }}">Self-Serve Migration &rarr;</a>
                                                 </p>
                                             </li>
-                                            <li class="mb-8">
+                                            <li class="my-2">
                                                 <p>
                                                     {{ if $item.selfServeWebUrl }}
                                                         <a href="{{ $item.selfServeWebUrl }}">Online Migration Tool &rarr;</a>
+                                                    {{ end }}
+                                                </p>
+                                            </li>
+                                            <li class="mb-8">
+                                                <p>
+                                                    {{ if $item.comparisonUrl }}
+                                                        <a href="{{ $item.comparisonUrl }}">Compare Features &rarr;</a>
                                                     {{ end }}
                                                 </p>
                                             </li>
