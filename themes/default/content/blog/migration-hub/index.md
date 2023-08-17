@@ -4,7 +4,7 @@ allow_long_title: True
 authors: ["joe-duffy"]
 tags: ["opensource", "license", "apache", "bsl"]
 meta_desc: "Introducing the Pulumi Migration Hub, your one stop shopping for migrating to Pulumi. It's never been so easy to adopt Pulumi."
-date: "2023-08-16"
+date: "2023-08-17"
 meta_image: "migration_hub.png"
 ---
 
