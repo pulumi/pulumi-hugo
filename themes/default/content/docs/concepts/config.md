@@ -604,8 +604,8 @@ every `pulumi up` or `pulumi refresh` action.
     team: Ops
 ```
 
-Pulumi CLI only creates or updates tags which are listed in the config. If you remove a tag from the stack config, it is not removed from the stack in Pulumi Cloud.
+Pulumi CLI only creates or updates tags which are listed in the config. If you remove a tag from the stack config, you have to remove it from the stack in Pulumi Cloud manually.
 
-The config sample about will be applied on the stack and become visible on Pulumi Cloud in the `Tags` section of your stack.
+The config sample above will be applied on the stack and become visible on Pulumi Cloud in the `Tags` section of your stack.
 
 ![Tags applied by Pulumi CLI](/images/docs/concepts/stack-config-tags.png)
