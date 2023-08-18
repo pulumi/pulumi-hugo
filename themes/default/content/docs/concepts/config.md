@@ -592,3 +592,20 @@ pulumi:disable-default-providers:
   - aws
   - kubernetes
 ```
+
+### `pulumi:tags`
+
+A list of [stack tags](/docs/concepts/stack/#stack-tags) which are read by the Pulumi CLI and automatically applied on the stack at
+every `pulumi up` or `pulumi refresh` action.
+
+```yaml
+  pulumi:tags:
+    company: "Some LLC"
+    team: Ops
+```
+
+Pulumi CLI only creates or updates tags which are listed in the config. If you remove a tag from the stack config, it is not removed from the stack in Pulumi Cloud.
+
+The config sample about will be applied on the stack and become visible on Pulumi Cloud in the `Tags` section of your stack.
+
+![Tags applied by Pulumi CLI](/images/docs/concepts/stack-config-tags.png)
