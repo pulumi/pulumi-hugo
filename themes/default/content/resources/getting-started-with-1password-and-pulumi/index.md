@@ -58,7 +58,7 @@ main:
     datetime: ""
     # Description of the webinar.
     description: |
-      Software developers need to secure their workflows to prevent the accidental exposure of API keys and other secrets. 1Password is known as a capable password manager, but 1Password Developer Tools also provide a set of capabilities to secure secrets throughout the software development lifecycle. 
+      Software developers need to secure their workflows to prevent the accidental exposure of API keys and other secrets. 1Password is known as a capable password manager, but [1Password Developer Tools](https://developer.1password.com/) also provide a set of capabilities to secure secrets throughout the software development lifecycle. 
 
       In this session, Sr. Software Engineer Jillian Morgan digs into how to use the 1Password CLI to manage secrets in a Pulumi workflow. Join Pulumi and 1Password for a short walkthrough of this powerful new feature and get your questions answered by the experts.
 
