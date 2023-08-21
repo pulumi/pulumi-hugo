@@ -45,9 +45,9 @@
             <div class="large-container mx-auto">
                 <div class="w-full flex flex-wrap justify-center items-stretch">
                     {{ range $item := .Params.migrations }}
-                        <div class="w-full lg:w-1/4 my-8 lg:my-0">
+                        <div class="w-full md:w-1/2 lg:w-1/4 my-8 lg:my-0">
                             <div class="w-full h-full px-4">
-                                <div class="h-full flex flex-col card p-6 bg-white relative">
+                                <div class="h-full flex flex-col card py-6 px-4 bg-white relative">
                                     <p class="text-center mt-0 font-semibold text-black text-xl">{{ $item.title }}</p>
 
                                     <div class="flex flex-col flex-grow items-center justify-center pb-2">
@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="my-4 text-center">
+                                    <div class="mt-4 text-center">
                                         <ul class="list-none p-0">
                                             <li class="my-2">
                                                 <p>
@@ -86,7 +86,9 @@
                                             </li>
                                             <li class="my-2">
                                                 <p>
-                                                    <a href="/contact?form=tf2pulumi" class="btn-primary">Contact Expert Services</a>
+                                                    <a href="/contact?form=tf2pulumi" class="btn btn-primary">
+                                                        Contact Expert Services
+                                                    </a>
                                                 </p>
                                             </li>
                                         </ul>
@@ -112,7 +114,7 @@
             <div class="large-container mx-auto">
                 <div class="w-full flex flex-wrap justify-center items-stretch">
                     {{ range $item := .Params.case_studies.items }}
-                        <div class="w-full lg:w-1/4 my-8 lg:my-0">
+                        <div class="w-full md:w-1/2 lg:w-1/4 my-8 lg:my-0">
                             <div class="w-full h-full px-4">
                                 <div class="h-full flex flex-col card p-6 bg-white relative">
                                     <p class="text-left mt-0 italic font-semibold text-black">{{ $item.quote | markdownify }}</p>
@@ -123,7 +125,11 @@
                                     </div>
 
                                     <div class="my-4 text-center">
-                                        <a href="{{ $item.link }}" class="btn-secondary">Read Case Study</a>
+                                        <p>
+                                            <a href="{{ $item.link }}" class="btn btn-secondary">
+                                                Read Case Study
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

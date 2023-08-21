@@ -13,7 +13,7 @@ capabilities:
       description: |
         Import infrastructure no matter how it was provisioned, click-ops included. Or use tools to convert your
         HashiCorp Terraform, AWS CloudFormation, Azure Resource Manager (ARM) templates, or Kubernetes YAML.
-    - title: Let Us Help -- Expert Services
+    - title: Let Us Help — Expert Services
       icon: eye
       icon_color: yellow
       description: |
@@ -23,7 +23,7 @@ capabilities:
       icon: cycle
       icon_color: blue
       description: |
-        Get complementary migration and training services as part of your Pulumi Enterprise or Business Critical
+        Get complimentary migration and training services as part of your Pulumi Enterprise or Business Critical
         onboarding. We will help you hit the ground running and are prepared to scale up based on your needs.
 
 migrations:
@@ -43,7 +43,7 @@ migrations:
       selfServeWebUrl: /migrate/arm2pulumi
       comparisonUrl: /docs/concepts/vs/cloud-templates
     - title: Infrastructure source not listed?
-      summary: Don't worry, we've got you covered; please get in touch!
+      summary: Don't worry, we've got you covered. Please get in touch!
       selfServeUrl: /docs/using-pulumi/adopting-pulumi
       comparisonUrl: /docs/concepts/vs
 
