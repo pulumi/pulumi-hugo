@@ -80,7 +80,7 @@ Terraform provides [infrastructure as code](/what-is/what-is-infrastructure-as-c
 
 ## Pulumi vs. Terraform: Similarities {#similarities}
 
-Terraform and Pulumi have some similarities in that you can create, deploy and manage infrastructure as code on any cloud. Terraform has adopted a Business Source License model, while Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and is [free to use](/docs/get-started/). Both Terraform and Pulumi offer a desired state infrastructure as code model where the code represents the desired infrastructure state and the deployment engine compares this desired state with the stack’s current state and determines what resources need to be created, updated or deleted.  Both Terraform and Pulumi support many cloud providers, including [AWS](/aws/), [Azure](/azure/), and [Google Cloud](/gcp/), plus other services like CloudFlare, Digital Ocean, and more. Thanks to integration with Terraform providers, Pulumi is also able to support a superset of the providers that Terraform currently offers.
+Terraform and Pulumi have some similarities in that you can create, deploy and manage infrastructure as code on any cloud. Terraform is a free, source available infrastructure as code tool from HashiCorp, while Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and is [free to use](/docs/get-started/). Both Terraform and Pulumi offer a desired state infrastructure as code model where the code represents the desired infrastructure state and the deployment engine compares this desired state with the stack’s current state and determines what resources need to be created, updated or deleted.  Both Terraform and Pulumi support many cloud providers, including [AWS](/aws/), [Azure](/azure/), and [Google Cloud](/gcp/), plus other services like CloudFlare, Digital Ocean, and more. Thanks to integration with Terraform providers, Pulumi is also able to support a superset of the providers that Terraform currently offers.
 
 ## Pulumi vs. Terraform: Key Differences {#differences}
 
@@ -92,11 +92,11 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | ------- | ------ | --------- |
 | [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F#, Java, YAML | HashiCorp Configuration Language (HCL) |
 | [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
+| [OSS License](#license) | Apache License 2.0 | Business Source License 1.1 |
 | [State Management](#state) | Managed through Pulumi Cloud by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
 | [Provider Support](#providers) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
 | [Cloud Native Support](#cloud-native) | Richly typed. Includes CRDs & in-cluster operator support for GitOps delivery. | Core API typed. Generic support for CRD. |
 | [Dynamic Provider Support](#dynamic-providers) | Yes | No |
-| [OSS License](#license) | Apache License 2.0 | Business Source License 1.1 |
 | [Infrastructure Reuse and Modularity](#reuse) | Flexible. Reuse functions, classes, packages, and Pulumi components. | Constrained. Can only reuse Terraform modules. |
 | [Testing and Validation](#testing) | Unit, property, and integration testing. Supports popular test frameworks. | Integration testing only |
 | [Modes of Execution](#modes) | Run CLI commands or initiate commands programmatically with Automation API. | Run CLI commands or perform remote runs with SaaS offering. |
