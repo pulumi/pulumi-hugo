@@ -72,4 +72,4 @@ Adopting Pulumi and its Automation API provided several benefits that made Starb
 
 [Sign up for a free account](https://app.pulumi.com/signup) to try deploying infrastructure on any cloud with [Pulumi Deployments](/docs/pulumi-cloud/deployments/), or [register for an upcoming workshop](https://www.pulumi.com/resources/#upcoming) to learn more about how Pulumi can help you ship cloud infrastructure faster and more safely.
 
-[Go to more case studies](/case-studies/)
+[Go to more case studies &rarr;](/case-studies/)
