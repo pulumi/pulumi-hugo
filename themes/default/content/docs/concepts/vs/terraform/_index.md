@@ -33,7 +33,7 @@ Pulumi’s universal infrastructure as code platform helps teams tame the cloud�
 
 ## What is Terraform?
 
-Terraform provides open-source [infrastructure as code](/what-is/what-is-infrastructure-as-code/) software for cloud service management with a consistent CLI workflow. Terraform allows you to write, plan, and apply changes to deliver infrastructure as code.
+Terraform provides [infrastructure as code](/what-is/what-is-infrastructure-as-code/) software for cloud service management with a consistent CLI workflow. Terraform allows you to write, plan, and apply changes to deliver infrastructure as code.
 
 <div class="rounded shadow-md" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
     <iframe
@@ -80,7 +80,7 @@ Terraform provides open-source [infrastructure as code](/what-is/what-is-infrast
 
 ## Pulumi vs. Terraform: Similarities {#similarities}
 
-Terraform and Pulumi have some similarities in that you can create, deploy and manage infrastructure as code on any cloud. Like Terraform, Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and is [free to use](/docs/get-started/). Both Terraform and Pulumi offer a desired state infrastructure as code model where the code represents the desired infrastructure state and the deployment engine compares this desired state with the stack’s current state and determines what resources need to be created, updated or deleted.  Both Terraform and Pulumi support many cloud providers, including [AWS](/aws/), [Azure](/azure/), and [Google Cloud](/gcp/), plus other services like CloudFlare, Digital Ocean, and more. Thanks to integration with Terraform providers, Pulumi is also able to support a superset of the providers that Terraform currently offers.
+Terraform and Pulumi have some similarities in that you can create, deploy and manage infrastructure as code on any cloud. Terraform has adopted a Business Source License model, while Pulumi is [open source on GitHub](https://github.com/pulumi/pulumi) and is [free to use](/docs/get-started/). Both Terraform and Pulumi offer a desired state infrastructure as code model where the code represents the desired infrastructure state and the deployment engine compares this desired state with the stack’s current state and determines what resources need to be created, updated or deleted.  Both Terraform and Pulumi support many cloud providers, including [AWS](/aws/), [Azure](/azure/), and [Google Cloud](/gcp/), plus other services like CloudFlare, Digital Ocean, and more. Thanks to integration with Terraform providers, Pulumi is also able to support a superset of the providers that Terraform currently offers.
 
 ## Pulumi vs. Terraform: Key Differences {#differences}
 
