@@ -472,7 +472,7 @@ export class MyResource extends pulumi.dynamic.Resource {
     public readonly myNumberOutput!: pulumi.Output<number>;
 
     constructor(name: string, props: MyResourceInputs, opts?: pulumi.CustomResourceOptions) {
-        super(myprovider, name, { myStringOutput: undefined, myNumberOutput: undefined, ...props }, opts);
+        super(MyResourceProvider, name, { myStringOutput: undefined, myNumberOutput: undefined, ...props }, opts);
     }
 }
 ```
