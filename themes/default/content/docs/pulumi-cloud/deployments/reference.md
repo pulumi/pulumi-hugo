@@ -216,7 +216,7 @@ By default, there are a set of environment variables set by the process automati
 
 These can be extended by configuring custom environment variables:
 
-![Pulumi UI - Path Filters](../ui-custom-env-variables.png)
+![Pulumi UI - Environment Variables](../ui-custom-env-variables.png)
 
 ### Path Filtering
 
