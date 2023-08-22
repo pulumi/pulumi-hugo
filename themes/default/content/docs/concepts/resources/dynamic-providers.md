@@ -223,7 +223,7 @@ class MyResourceProvider implements pulumi.dynamic.ResourceProvider {
 
 class MyResource extends pulumi.dynamic.Resource {
     constructor(name: string, props: MyResourceInputs, opts?: pulumi.CustomResourceOptions) {
-        super(myprovider, name, props, opts);
+        super(MyResourceProvider, name, props, opts);
     }
 }
 ```
