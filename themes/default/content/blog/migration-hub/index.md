@@ -8,11 +8,12 @@ date: "2023-08-17"
 meta_image: "migration_hub.png"
 ---
 
-Today we are launching Pulumi's new Migration Hub, a comprehensive guide to help you seamlessly adopt Pulumi no
-matter where you are coming from, whether that's Terraform, CloudFormation, ... or even manually provisioned resources
-not yet governed by an infrastructure as code solution. Our new Expert Services group is ready to roll up their sleeves
-to help you adopt Pulumi faster. The Migration Hub also features many commercial offers for open source foundations,
-startups, and complementary migration, to minimize switching costs and risks. It's never been easier to adopt Pulumi.
+Today we are launching Pulumi's new [Migration Hub]({{< relref "/migrate" >}}), a comprehensive guide to help you
+seamlessly adopt Pulumi no matter where you are coming from, whether that's Terraform, CloudFormation, ... or even
+manually provisioned resources not yet governed by an infrastructure as code solution. Our new Expert Services group is
+ready to roll up their sleeves to help you adopt Pulumi faster. The Migration Hub also features many commercial offers
+for open source foundations, startups, and complementary migration, to minimize switching costs and risks. It's never
+been easier to adopt Pulumi.
 
 <!--more-->
 
