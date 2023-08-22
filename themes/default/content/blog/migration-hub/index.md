@@ -22,7 +22,7 @@ half the time, these end users have an existing infrastructure as code solution 
 The other half of the time, infrastructure may have been created in the cloud console ("click-ops"), using a cloud CLI,
 or some other manual provisioning tool, but now needs to become repeatable and scalable using infrastructure as code.
 
-The most common reasons teams prefer Pulumi include
+The most common reasons teams prefer Pulumi include:
 
 * Best-in-class productivity
 * Accessible to the entire organization, thanks to industry standard languages
@@ -55,7 +55,7 @@ Pulumi also offers conversion tools for other popular infrastructure as code sol
 [HashiCorp Terraform]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform" >}}),
 [AWS CloudFormation]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws" >}}),
 [Azure Resource Manager (ARM)]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws" >}}), or
-[Kubernetes YAML]([{{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-kubernetes" >}}).
+[Kubernetes YAML]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-kubernetes" >}}).
 
 Although the time to migrate existing infrastructure varies wildly based on the size and complexity of your scenario,
 migrating a single cloud environment can often take as little as a few hours.
