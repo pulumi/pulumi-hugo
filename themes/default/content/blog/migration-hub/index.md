@@ -8,10 +8,11 @@ date: "2023-08-17"
 meta_image: "migration_hub.png"
 ---
 
-Today we are launching Pulumi's new Migration Hub, a comprehensive guide to help you more seamlessly adopt Pulumi no
+Today we are launching Pulumi's new Migration Hub, a comprehensive guide to help you seamlessly adopt Pulumi no
 matter where you are coming from, whether that's Terraform, CloudFormation, ... or even manually provisioned resources
-not yet governed by an infrastructure as code solution. The Migration Hub also features many commercial offers for
-open source foundations, startups, and complementary migration services, to minimize switching costs and risks.
+not yet governed by an infrastructure as code solution. Our new Expert Services group is ready to roll up their sleeves
+to help you adopt Pulumi faster. The Migration Hub also features many commercial offers for open source foundations,
+startups, and complementary migration, to minimize switching costs and risks. It's never been easier to adopt Pulumi.
 
 <!--more-->
 
@@ -40,9 +41,11 @@ wishes to build atop it.
 
 ## Migration
 
-Of course, if you have existing infrastructure, there may be existing effort to adopt Pulumi, even if you'd like to.
-That might include converting existing infrastructure as code, or even just adopting existing cloud resources
-so they're under Pulumi's control. There are two major approaches.
+Of course, it's one thing to choose Pulumi, but another thing entirely to adopt it and get all of your infrastructure
+under its management, especially if you have existing infrastructure. That might include converting existing code, or
+even just importing existing manually provisioned cloud resources.
+
+There are two major approaches to this challenge.
 
 ### Self-Serve Migration
 
@@ -58,21 +61,24 @@ Pulumi also offers conversion tools for other popular infrastructure as code sol
 [Kubernetes YAML]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-kubernetes" >}}).
 
 Although the time to migrate existing infrastructure varies wildly based on the size and complexity of your scenario,
-migrating a single cloud environment can often take as little as a few hours.
+migrating a single cloud environment can often take as little as a few hours. And thanks to Pulumi being multi-language
+at its core, these tools will support you the same no matter which language you choose, JavaScript, TypeScript, Python,
+Go, C#, Java, and YAML alike.
 
 To learn more about performing your own migration, please
 [read this user guide]({{< relref "/docs/using-pulumi/adopting-pulumi" >}}).
 
 ### Let Us Help You Out with Expert Services!
 
-Although self-serve is an option, there can often still be uncertainty around it.
+Although self-serve is an option, there can often still be uncertainty around this approach.
 
 It may not be clear how much time a full migration will take, leaving the possibility that you'll be left with multiple
-infrastructure as code solutions -- either temporarily or even permanently. We also often hear that skilling
-yourself up on a one-time migration activity takes away from critical time spent on business initiatives. Both of these
-add friction, risk, and uncertainty to the Pulumi adoption decision.
+infrastructure as code solutions -- either temporarily or even permanently. Although the tools are a huge help, they
+don't always get you 100% of the way there. We also often hear that skilling yourself up on a one-time migration
+activity takes away from critical time spent on business initiatives.
 
-For all these reasons, we are here to help you out!
+All of this adds friction, risk, and uncertainty to the Pulumi adoption decision. The last thing we want is for the
+one-time migration to prevent you from adopting Pulumi. Thankfully, we are here to help!
 
 _Today we are announcing the formation of Pulumi's **Expert Services** group_. This team of industry and
 infrastructure as code experts is on standby and ready to roll up their sleeves to help you with migration,
@@ -83,7 +89,7 @@ _Today we are also announcing an extension to
 [our **Terraform Migration Offer**]({{< relref "/blog/tf-migration-offer" >}})_, in which we will bundle migration of
 your Terraform projects with your [Pulumi Enterprise or Business Critical]({{< relref "/pricing" >}}) subscription.
 Today we are excited to announce that this same package is now available for all migration efforts, including AWS
-CloudFormation, Azure Resource Manager (ARM), or even infrastructure that was manually provisioned. We are also prepared
+CloudFormation, Azure Resource Manager (ARM), ..., or even infrastructure that was manually provisioned. We are also prepared
 to scale up from there depending on your needs.
 
 ## Success Stories
@@ -128,6 +134,16 @@ In addition to migration services, Pulumi offers two programs to help get up and
 
 * [Startup Discount]({{< relref "/pulumi-for-startups" >}}): Any early stage startup gets $10,000 free credits and
   access to Pulumi Enterprise.
+
+## Calling All Partners!
+
+As Pulumi's market adoption has skyrocketed, we've begun to build out our official partner program. Although
+we don't have anything major to announce (yet), we'd love to talk to you if infrastructure as code is an important
+part of your own customers' needs. That includes ISV product integrations, global and regional systems integrators and
+consultants, and more. Note that Pulumi is already available in the
+[AWS](https://aws.amazon.com/marketplace/pp/prodview-dwn22batkhsyg) and
+[Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pulumicorporation1618431130005.pulumi_e1)
+marketplaces. If you are interested in discussing a partnership, please [contact us]({{< relref "/contact" >}}).
 
 ## Get Started Today
 

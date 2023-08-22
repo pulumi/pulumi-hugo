@@ -67,4 +67,18 @@ case_studies:
           quote: |
             Washington Trust Bank modernized their cloud practices, increasing velocity with added confidence.
 
+offers:
+    - title: Startup Offer
+      icon: rocketship
+      icon_color: blue
+      link: /pulumi-for-startups
+      description: |
+        Early stage startups get $10K of Pulumi Enterprise for free.
+    - title: Open Source Offer
+      icon: puzzle
+      icon_color: salmon
+      link: /pricing/open-source-free-tier
+      description: |
+        Open source projects and foundations get Pulumi for free.
+
 ---

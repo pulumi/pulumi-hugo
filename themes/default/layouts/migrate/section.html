@@ -102,6 +102,34 @@
         </div>
     </section>
 
+    <section id="offers" class="relative my-8">
+        <div class="shape-background product-stats-section">
+            <div class="shape-container">
+                <div class="dot-background-container">
+                    <div class="dot-background-overlay"></div>
+                    <div class="dot-background no-animate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto bg-white">
+            <div class="flex flex-col lg:flex-row lg:flex-wrap">
+                {{ range $offer := .Params.offers }}
+                    <div class="w-full lg:w-1/2 px-8 mt-8 lg:mb-0 text-center">
+                        {{ partial "color-icon.html" (dict "icon" $offer.icon "icon_color" $offer.icon_color) }}
+                        <h5>{{ $offer.title }}</h5>
+                        <p class="key-feature-description">{{ $offer.description | markdownify }}</p>
+                        <p>
+                            <a href="{{ $offer.link }}" class="inline-block btn-secondary">
+                                Learn More
+                            </a>
+                        </p>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
     <section id="case-studies" class="w-full my-32 relative">
         <div class="shape-background cloud-engineering-case-studies-section">
             <div class="shape-container">
