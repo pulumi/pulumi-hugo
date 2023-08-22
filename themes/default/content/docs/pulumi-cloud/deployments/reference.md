@@ -214,7 +214,7 @@ By default, there are a set of environment variables set by the process automati
 - `PULUMI_CI_PROJECT`: Current project name
 - `PULUMI_CI_STACK`: Current stack name
 
-This can be extended by configuring custom environment variables:
+These can be extended by configuring custom environment variables:
 
 ![Pulumi UI - Path Filters](../ui-custom-env-variables.png)
 
