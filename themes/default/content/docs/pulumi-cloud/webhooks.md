@@ -128,21 +128,23 @@ class PulumiServiceWebhook: Stack
 
 1. Navigate to **Settings** > **Webhooks**.
 2. Select **Create webhook**.
-3. Select between a slack-formatted or generic JSON webhooks.
+3. Select between a Slack, Microsoft Teams, or generic JSON webhooks.
 4. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
-5. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
-6. Choose between receiving all events or only receiving specific events using the filters menu.
+5. If you selected `Microsoft Teams`, you will be prompted to provide a Microsoft Teams webhook URL and a display name.
+6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
+7. Choose between receiving all events or only receiving specific events using the filters menu.
 
 #### Create a Stack Webhook
 
 1. Navigate to the stack.
 2. Then navigate to **Settings** > **Webhooks**
 3. Select **Create webhook**.
-4. Select between a slack-formatted, Deployment, or generic JSON webhooks.
+4. Select between a Slack, Microsoft Teams, Deployment, or generic JSON webhooks.
 5. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
-6. If you selected `Deployment`, you will need to specify the Stack to deploy in the format `project/stack`.
-7. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
-8. Choose between receiving all events or only receiving specific events using the filters menu.
+6. If you selected `Microsoft Teams`, you will be prompted to provide a Microsoft Teams webhook URL and a display name.
+7. If you selected `Deployment`, you will need to specify the Stack to deploy in the format `project/stack`.
+8. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
+9. Choose between receiving all events or only receiving specific events using the filters menu.
 
 ![Stack webhooks form](../ui-webhooks.png)
 
