@@ -133,5 +133,5 @@ In addition to migration services, Pulumi offers two programs to help get up and
 
 Migrating from an existing solution can seem like a daunting task, but with Pulumi's new Migration Hub and Expert
 Services, it has never been easier to adopt Pulumi than it is today. To learn more, visit the
-[Migration Hub]({{< relref "/migrate" >}}) or simply [Contact Us]({{< relref "/contact" >}}) -- we would love to hear
+[Migration Hub]({{< relref "/migrate" >}}) or simply [contact us]({{< relref "/contact" >}}) -- we would love to hear
 from you.
