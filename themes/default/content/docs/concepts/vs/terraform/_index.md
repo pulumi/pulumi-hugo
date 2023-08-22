@@ -29,7 +29,7 @@ Choosing the right cloud engineering platform is critical. We want you to have t
 
 ## What is Pulumi?
 
-Pulumi’s universal infrastructure as code platform helps teams tame the cloud’s complexity using the world’s most popular programming languages (TypeScript, Go, .NET, Python, and Java) and markup languages (YAML, CUE).
+Pulumi is an open source infrastructure as code platform that helps teams tame the cloud’s complexity using the world’s most popular programming languages (TypeScript, Go, .NET, Python, and Java) and markup languages (YAML, CUE).
 
 ## What is Terraform?
 
