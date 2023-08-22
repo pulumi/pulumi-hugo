@@ -25,7 +25,7 @@ aliases:
     }
 </style>
 
-Choosing the right cloud engineering platform is critical. We want you to have the best information possible to pick the solution that fits your needs.
+Choosing the right infrastructure as code platform is critical. We want you to have the best information possible to pick the solution that fits your needs.
 
 ## What is Pulumi?
 
