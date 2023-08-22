@@ -2,7 +2,7 @@
 title: "Pulumi adoption made easy with the new Migration Hub"
 allow_long_title: True
 authors: ["joe-duffy"]
-tags: ["opensource", "license", "apache", "bsl"]
+tags: ["opensource", "migration", "import"]
 meta_desc: "Introducing the Pulumi Migration Hub, your one stop shopping for migrating to Pulumi. It's never been so easy to adopt Pulumi."
 date: "2023-08-17"
 meta_image: "migration_hub.png"
@@ -54,7 +54,7 @@ which can import any existing infrastructure no matter how it was originally cre
 Pulumi also offers conversion tools for other popular infrastructure as code solutions, including
 [HashiCorp Terraform]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform" >}}),
 [AWS CloudFormation]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws" >}}),
-[Azure Resource Manager (ARM)]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-aws" >}}), or
+[Azure Resource Manager (ARM)]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-azure" >}}), or
 [Kubernetes YAML]({{< relref "/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-kubernetes" >}}).
 
 Although the time to migrate existing infrastructure varies wildly based on the size and complexity of your scenario,

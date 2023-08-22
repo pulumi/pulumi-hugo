@@ -111,7 +111,7 @@ get_started:
           link_text: Request Free Trial
 
         - title: Migration Hub
-          link: /migration-hub
+          link: /migrate
           link_text: Learn More
 
         - title: Enterprise Whitepaper
