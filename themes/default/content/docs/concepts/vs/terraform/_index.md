@@ -110,7 +110,9 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Transformations](#transformations) | Yes | No |
 | [Import Code from other IaC Tools](#converting) | Yes | No |
 
-Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) guide. If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/concepts/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
+Getting started with Pulumi is easy. If you have experience with Terraform and already have HCL, you can convert it to Pulumi. Follow our [Converting Terraform HCL to Pulumi](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/#converting-terraform-hcl-to-pulumi) guide. If you want help migrating your Terraform to Pulumi, our [Expert Services](/migrate) team can help you with migration and training. As part of Pulumi Enterprise and Business Critical Editions, [Terraform workspace migrations](/blog/tf-migration-offer) are bundled as part of the onboarding process. 
+
+If you would like a reference on Terraform terminology or command equivalents in Pulumi, see [Terminology and Command Equivalence](/docs/concepts/vs/terraform/terminology/) table. If you would like to see how other Pulumi customers have migrated from Terraform to Pulumi, see the [Atlassian case study](/case-studies/atlassian/) and the [Green Park Sports case study](/case-studies/greenpark-sports/). If you would like to deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
 
