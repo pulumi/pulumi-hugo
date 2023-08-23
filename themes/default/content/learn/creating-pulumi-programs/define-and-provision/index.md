@@ -319,4 +319,9 @@ import * as pulumi from "@pulumi/pulumi";
 
 ## Next Steps
 
-Next up, we're going to explore how to get information out of a stack and consume it in another place in our Pulumi program.
+In this tutorial, you made an EC2 instance configured as an Nginx webserver and made it publically available by referencing the Pulumi Registry to define the security group. You also reviewed resource properties and example usage.
+
+To learn more about creating resources in Pulumi, take a look at the following resources:
+
+- Learn more about inputs and outputs in the [Using Inputs and Outputs](/learn/creating-pulumi-programs/inputs-and-outputs/) tutorial.
+- Learn more about [resource names](https://www.pulumi.com/docs/concepts/resources/names/), [options](https://www.pulumi.com/docs/concepts/options/), and [providers](https://www.pulumi.com/docs/concepts/resources/providers/) in the Pulumi documentation.
