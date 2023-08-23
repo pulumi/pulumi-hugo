@@ -227,7 +227,7 @@ Transformations, which are unique to Pulumi, allow you to programmatically set o
 
 ### Terminology and Commands
 
-If you’re familiar with Terraform, learning Pulumi terminology and commands is simple. Many of the existing Terraform vocabulary and commands that you already know have direct equivalents in Pulumi. To learn more, see [Pulumi terms & command equivalents](/docs/concepts/vs/terraform/terminology/) in the Resource documentation to find a list of common Terraform terms and CLI commands along with their Pulumi equivalents.
+If you’re familiar with Terraform, learning Pulumi terminology and commands is simple. Many of the existing Terraform vocabulary and commands that you already know have direct equivalents in Pulumi. To learn more, see [Pulumi terms & command equivalents](/docs/concepts/vs/terraform/terminology/) for a list of common Terraform terms and CLI commands along with their Pulumi equivalents.
 
 ### Import Code from Other IaC Tools {#converting}
 
