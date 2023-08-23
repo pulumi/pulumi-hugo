@@ -29,11 +29,11 @@ Pulumi and Terraform are both infrastructure as code technologies that have simi
 
 ## What is Pulumi?
 
-Pulumi is an open source infrastructure as code platform that helps teams tame the cloud’s complexity using the world’s most popular programming languages (TypeScript, Go, .NET, Python, and Java) and markup languages (YAML, CUE).
+Pulumi is an open source [infrastructure as code](/what-is/what-is-infrastructure-as-code/) platform that helps teams tame the cloud’s complexity using the world’s most popular programming languages (TypeScript, Go, .NET, Python, and Java) and markup languages (YAML, CUE).
 
 ## What is Terraform?
 
-Terraform provides [infrastructure as code](/what-is/what-is-infrastructure-as-code/) software for cloud service management with a consistent CLI workflow. Terraform allows you to write, plan, and apply changes to deliver infrastructure as code.
+Terraform provides infrastructure as code software for cloud service management with a consistent CLI workflow. Terraform allows you to write, plan, and apply changes to deliver infrastructure as code.
 
 <div class="rounded shadow-md" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
     <iframe
