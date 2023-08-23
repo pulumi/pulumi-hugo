@@ -13,11 +13,12 @@ authors:
     - torian-crane
 tags:
     - resources
+    - aws
 ---
 
 {{< youtube 6f8KF6UGN7g >}}
 
-In Pulumi, [resources](/docs/concepts/resources) represent the fundamental units that make up your infrastructure, such as a virtual machines, networks, storage, and databases. A resource is used to define and manage an infrastructure object in your Pulumi configuration.
+In Pulumi, [resources](/docs/concepts/resources) represent the fundamental units that make up your infrastructure, such as virtual machines, networks, storage, and databases. A resource is used to define and manage an infrastructure object in your Pulumi configuration.
 
 In this tutorial, we'll demonstrate how to create a simple Nginx web server. You will then refer to documentation in the Pulumi Registry to create a security group resource to make the application publically accessible.
 
@@ -25,40 +26,11 @@ Let's get started!
 
 ## Create a Virtual Machine
 
-The first step is to create a virtual machine resource that will be used to host the web server. The specific details of how to create your virtual machine differ by cloud provider. Select your cloud provider below to see the corresponding details:
+The first step is to create a virtual machine resource that will be used to host the web server. The specific details of how to create your virtual machine differ by cloud provider. For the purposes of this tutorial, we will be creating our resources in AWS in the `us-east-1` region.
 
-{{% chooser cloud "aws,azure,gcp" / %}}
+{{< chooser language "typescript,python,yaml" / >}}
 
-{{% choosable cloud aws %}}
-
-<p></p>
-
-### Amazon Elastic Compute Cloud (EC2)
-
-Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that makes it straightforward to run applications in your AWS account. In AWS, a virtual server is referred to as an "instance". These instances can host a variety of operating systems, tools, and applications, each configured according to your specific requirements.
-
-#### Create a New Project
-
-To start, [create a new project](/docs/clouds/aws/get-started/create-project/) and [ensure it is configured to use your AWS account](https://www.pulumi.com/registry/packages/aws/api-docs/ec2/instance/).
-
-Then use the following code snippet to scaffold your project with the required imports and overall program structure that we will fill in as we go along:
-
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
-
-{{< choosable language javascript >}}
-
-```javascript
-const aws = require("@pulumi/aws");
-const pulumi = require("@pulumi/pulumi");
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
-```
-
-{{< /choosable >}}
-
-{{< choosable language typescript >}}
+{{% choosable language typescript %}}
 
 ```typescript
 import * as aws from "@pulumi/aws";
@@ -69,9 +41,9 @@ import * as pulumi from "@pulumi/pulumi";
 // [Step 2: Create a security group.]
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language python >}}
+{{% choosable language python %}}
 
 ```python
 import pulumi
@@ -82,87 +54,25 @@ import pulumi_aws as aws
 # [Step 2: Create a security group.]
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language go >}}
-
-```go
-package main
-
-import (
-    "encoding/base64"
-    "errors"
-    "strings"
-
-    "github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
-    "github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-)
-
-func main() {
-    pulumi.Run(func(ctx *pulumi.Context) error {
-        // [Step 1: Create an EC2 instance.]
-
-        // [Step 2: Create a security group.]
-
-        return nil
-    })
-}
-```
-
-{{< /choosable >}}
-
-{{< choosable language csharp >}}
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Pulumi;
-using Pulumi.Aws.Ec2;
-
-class Program
-{
-    static Task<int> Main() => Deployment.RunAsync(async () => {
-        // [Step 1: Create an EC2 instance.]
-
-        // [Step 2: Create a security group.]
-    }
-}
-```
-
-{{< /choosable >}}
-
-{{< choosable language yaml >}}
+{{% choosable language yaml %}}
 
 ```yaml
 TBD
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-#### Define an EC2 Instance
+### Define an EC2 Instance
 
 The Pulumi Registry provides the documentation for all of the Pulumi providers and their associated resources. Open the [`aws.ec2.Instance` documentation page](/registry/packages/aws/api-docs/ec2/instance) to view a description of this resource, example usage, the resource definition, and supported properties.
 
 We will now define our EC2 instance resource below.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
+{{< chooser language "typescript,python,yaml" / >}}
 
-{{< choosable language javascript >}}
-
-```javascript
-const aws = require("@pulumi/aws");
-const pulumi = require("@pulumi/pulumi");
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
-```
-
-{{< /choosable >}}
-
-{{< choosable language typescript >}}
+{{% choosable language typescript %}}
 
 ```typescript
 import * as aws from "@pulumi/aws";
@@ -173,9 +83,9 @@ import * as pulumi from "@pulumi/pulumi";
 // [Step 2: Create a security group.]
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language python >}}
+{{% choosable language python %}}
 
 ```python
 import pulumi
@@ -201,66 +111,23 @@ server = aws.ec2.Instance(
 pulumi.export('publicIp', server.public_ip)
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language go >}}
-
-```go
-package main
-
-import (
-    "encoding/base64"
-    "errors"
-    "strings"
-
-    "github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
-    "github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-)
-
-func main() {
-    pulumi.Run(func(ctx *pulumi.Context) error {
-        // [Step 1: Create an EC2 instance.]
-
-        // [Step 2: Create a security group.]
-
-        return nil
-    })
-}
-```
-
-{{< /choosable >}}
-
-{{< choosable language csharp >}}
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Pulumi;
-using Pulumi.Aws.Ec2;
-
-class Program
-{
-    static Task<int> Main() => Deployment.RunAsync(async () => {
-        // [Step 1: Create an EC2 instance.]
-
-        // [Step 2: Create a security group.]
-    }
-}
-```
-
-{{< /choosable >}}
-
-{{< choosable language yaml >}}
+{{% choosable language yaml %}}
 
 ```yaml
 TBD
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-All resources have a required `name` argument which much be unique across resources of the same kind in a stack. In the above example, the unique name for our `aws.ec2.Instance` resource is **"webserver-www"**.
+All resources have a required [`name`](https://www.pulumi.com/docs/concepts/resources/names/) argument. Each resource has both a [logical name](https://www.pulumi.com/docs/concepts/resources/names/#logicalname) and a [physical name](https://www.pulumi.com/docs/concepts/resources/names/#autonaming).
+
+The logical name is how the resource is known inside Pulumi. This is the value provided to the required `name` argument.
+
+The physical name is the name used for the resource in the cloud provider that a Pulumi program is deploying to. It is a combination of the logical name plus a random suffix which helps to prevent resource naming collisions.
+
+In the above example, the logical name for our `aws.ec2.Instance` resource is **"webserver-www"**, and the physical name might typically look something like **"webserver-www-d7c2fa0"**
 
 In addition to names, resources have properties and options.
 
@@ -276,7 +143,7 @@ The properties inside our `aws.ec2.Instance` resource are:
 
 **Options** let you control certain aspects of a resource (such as showing explicit dependencies or importing existing infrastructure). We do not have any options defined for this resource, but you can learn more about options in the [Pulumi documentation](/docs/concepts/options).
 
-#### Deploy your EC2 Instance
+### Deploy your EC2 Instance
 
 Now let's run the `pulumi up` command to preview and deploy the resource we just defined in our project.
 
@@ -314,21 +181,9 @@ In this section, you will use Pulumi documentation to configure the security gro
 
 An updated version of the project code has been provided below as a starting point.
 
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
-{{< choosable language javascript >}}
+{{< chooser language "typescript,python,yaml" / >}}
 
-```javascript
-const aws = require("@pulumi/aws");
-const pulumi = require("@pulumi/pulumi");
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
-```
-
-{{< /choosable >}}
-
-{{< choosable language typescript >}}
+{{% choosable language typescript %}}
 
 ```typescript
 import * as aws from "@pulumi/aws";
@@ -339,9 +194,9 @@ import * as pulumi from "@pulumi/pulumi";
 // [Step 2: Create a security group.]
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language python >}}
+{{% choosable language python %}}
 
 ```python
 import pulumi
@@ -371,64 +226,15 @@ security_group = # TO-DO
 pulumi.export('publicIp', server.public_ip)
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language go >}}
-
-```go
-package main
-
-import (
-    "encoding/base64"
-    "errors"
-    "strings"
-
-    "github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
-    "github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-)
-
-func main() {
-    pulumi.Run(func(ctx *pulumi.Context) error {
-        // [Step 1: Create an EC2 instance.]
-
-        // [Step 2: Create a security group.]
-
-        return nil
-    })
-}
-```
-
-{{< /choosable >}}
-
-{{< choosable language csharp >}}
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Pulumi;
-using Pulumi.Aws.Ec2;
-
-class Program
-{
-    static Task<int> Main() => Deployment.RunAsync(async () => {
-        // [Step 1: Create an EC2 instance.]
-
-        // [Step 2: Create a security group.]
-    }
-}
-```
-
-{{< /choosable >}}
-
-{{< choosable language yaml >}}
+{{% choosable language yaml %}}
 
 ```yaml
 TBD
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
 Use the following steps as a guide for adding the Security Group resource:
 
@@ -442,21 +248,10 @@ Once you have completed these steps, navigate to your instance IP address again.
 > Note: If your web server is still timing out, make sure you are accessing your web server's IP address via HTTP and not HTTPS.
 
 {{< details "Click here to view the complete project code" >}}
-{{< chooser language "javascript,typescript,python,go,csharp,yaml" / >}}
-{{< choosable language javascript >}}
 
-```javascript
-const aws = require("@pulumi/aws");
-const pulumi = require("@pulumi/pulumi");
+{{< chooser language "typescript,python,yaml" / >}}
 
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
-```
-
-{{< /choosable >}}
-
-{{< choosable language typescript >}}
+{{% choosable language typescript %}}
 
 ```typescript
 import * as aws from "@pulumi/aws";
@@ -467,9 +262,9 @@ import * as pulumi from "@pulumi/pulumi";
 // [Step 2: Create a security group.]
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
 
-{{< choosable language python >}}
+{{% choosable language python %}}
 
 ```python
 import pulumi
@@ -505,23 +300,22 @@ security_group = aws.ec2.SecurityGroup(
 pulumi.export('publicIp', server.public_ip)
 ```
 
-{{< /choosable >}}
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
+
+// [Step 1: Create an EC2 instance.]
+
+// [Step 2: Create a security group.]
+```
+
+{{% /choosable %}}
 
 {{< /details >}}
-
-{{% /choosable %}}
-
-{{% choosable cloud azure %}}
-
-PLACEHOLDER
-
-{{% /choosable %}}
-
-{{% choosable cloud gcp %}}
-
-PLACEHOLDER
-
-{{% /choosable %}}
 
 ## Next Steps
 
