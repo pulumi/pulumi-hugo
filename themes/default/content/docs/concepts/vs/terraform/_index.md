@@ -25,7 +25,7 @@ aliases:
     }
 </style>
 
-Pulumi and Terraform are both infrastructure as code technologies. Pulumi is open source and offers the flexibility to use any programming language for managing infrastructure. This makes it widely accessible to developers and devops engineers from any background. Terraform requires the use of a proprietary domain-specific language (DSL) and is not open source. In this comprehensive guide, we'll explore the key differences, similarities, and real-world scenarios, mapping Terraform concepts to Pulumi to help you choose the right infrastructure as code platform.
+Pulumi and Terraform are both infrastructure as code technologies that have similarities but many fundamental differences. For example, Pulumi is open source and offers the flexibility to use any programming language for managing infrastructure. This makes Pulumi widely accessible to developers and DevOps engineers from any background. However, Terraform requires a proprietary domain-specific language (DSL) and is not open source. In this comprehensive guide, we'll explore their key differences, similarities, and real-world scenarios, mapping Terraform concepts to Pulumi to help you choose the right infrastructure as code platform to meet your needs.
 
 ## What is Pulumi?
 
@@ -93,7 +93,6 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [OSS License](#license) | Yes, Apache License 2.0 | No, Business Source License 1.1 |
 | [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F#, Java, YAML | HashiCorp Configuration Language (HCL) |
 | [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
-| [OSS License](#license) | Yes, Apache License 2.0 | No, Business Source License 1.1 |
 | [State Management](#state) | Managed through Pulumi Cloud by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
 | [Provider Support](#providers) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
 | [Cloud Native Support](#cloud-native) | Richly typed. Includes CRDs & in-cluster operator support for GitOps delivery. | Core API typed. Generic support for CRD. |
