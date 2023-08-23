@@ -1,60 +1,99 @@
-{{ define "hero" }}
-    {{ partial "hero" (dict "title" "Learn Pulumi") }}
-{{ end }}
-
 {{ define "main" }}
     {{ $modules := where (where .Site.Pages ".Type" "learn") ".Layout" "module" }}
 
-
-    <div class="p-0">
-        <div class="pt-8 pb-64 mx-4 md:mx-0">
-            <section id="overview" class="container mx-auto">
-                <div class="flex flex-wrap">
-                    <!-- <div class="w-full lg:w-1/2 p-6 text-center"> -->
-                    <div class="w-full p-6 text-center">
-                        <p class="text-2xl text-left pt-8 text-gray-600">{{ .Params.overview | markdownify }}</p>
-                    </div>
-
-                    <!-- <div class="w-full lg:w-1/2 p-6"> -->
-                    <!-- <img src="/images/learn/learn-progression.svg" alt="Pulumi Learn Progression" /> -->
-                    <!-- </div> -->
-                </div>
-            </section>
-
-            <section id="modules">
-                <div class="container mx-auto lg:pt-4">
-                    <h2>Pathways</h2>
-
-                    <div class="md:flex md:flex-wrap pt-8">
+    <div class="docs-list-main">
+        <div class="docs-main-nav-toggle-wrapper">
+            <div class="docs-main-nav-wrapper">
+                <div id="docs-main-nav" class="docs-main-nav">
+                    <nav class="main-nav">
                         {{ range sort $modules ".Params.index" }}
-                            <div class="md:px-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
-                                <div class="flex flex-col rounded-xl mb-8 border border-gray-200 card">
-                                    <div>
-                                        {{ if .Params.meta_image }}
-                                            <a class="block" href="{{ .RelPermalink }}">
-                                                <img class="rounded-t" src="{{ (.Resources.GetMatch .Params.meta_image).RelPermalink }}" alt="{{ .Title }}" />
-                                            </a>
-                                        {{ end }}
-                                    </div>
-                                    <div class="py-8 px-4 bg-white rounded-b">
-                                        <h2>
-                                            <a href="{{ .RelPermalink }}" class="text-blue-700 hover:text-blue-600 transition-all">
-                                                {{ .Title }}
-                                            </a>
-                                        </h2>
-                                        <p class="text-gray-800 my-4">
-                                            {{ .Description }}
-                                        </p>
-                                        <div class="my-6">
-                                            {{ partial "learn/summary" (dict "module" .) }}
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="no-anchor toc-header">
+                                <a href="{{ .RelPermalink }}" class="text-blue-700 hover:text-blue-600 transition-all">
+                                    {{ .Title }}
+                                </a>
                             </div>
                         {{ end }}
-                    </div>
+                    </nav>
                 </div>
-            </section>
+            </div>
+            <div class="docs-nav-toggle">
+                <div class="docs-nav-toggle-icon icon icon-24-24"></div>
+            </div>
+        </div>
+
+        <div class="docs-main-content-wrapper">
+            <div class="docs-main-content">
+                {{ partial "docs/breadcrumb.html" . }}
+
+
+                <div class="special-h1">
+                    {{ if and (.Params.h1) (not .Params.notitle) }}
+                        <h1>{{ .Params.h1 }}</h1>
+                    {{ else if and (ne .Title "") (not .Params.notitle) }}
+                        <h1>{{ .Title }}</h1>
+                    {{ end }}
+                    <div class="h1-gradient"></div>
+                </div>
+
+                <div class="docs-table-of-contents docs-toc-mobile">
+                    {{ partial "docs/table-of-contents.html" . }}
+                </div>
+
+
+                <section class="docs-content">
+
+                    <section id="modules">
+                        <div class="container mx-auto">
+                            <div>
+                                <div class="mb-8">
+                                    {{ .Content }}
+                                </div>
+
+                                <ol class="list-none p-0 md:grid md:gap-4 md:grid-cols-2">
+                                    {{ range sort $modules ".Params.index" }}
+                                        <li class="m-0">
+                                            <div class="flex flex-col rounded-xl border border-gray-200 card">
+                                                <div>
+                                                    {{ if .Params.meta_image }}
+                                                        <a class="block" href="{{ .RelPermalink }}">
+                                                            <img class="rounded-t" src="{{ (.Resources.GetMatch .Params.meta_image).RelPermalink }}" alt="{{ .Title }}" />
+                                                        </a>
+                                                    {{ end }}
+                                                </div>
+                                                <div class="py-8 px-6 bg-white rounded-b">
+                                                    <h2>
+                                                        <a href="{{ .RelPermalink }}" class="text-blue-700 hover:text-blue-600 transition-all">
+                                                            {{ .Title }}
+                                                        </a>
+                                                    </h2>
+                                                    <p class="text-gray-800 my-4">
+                                                        {{ .Description }}
+                                                    </p>
+                                                    <div class="mt-6 mb-0">
+                                                        {{ partial "learn/summary" (dict "module" .) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {{ end }}
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+
+            <div class="docs-table-of-contents docs-toc-desktop">
+                {{ partial "docs/table-of-contents.html" . }}
+
+                {{ partial "docs/feedback.html" . }}
+
+                {{ partial "docs/right-nav-ad.html" }}
+            </div>
         </div>
     </div>
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "docs/footer.html" . }}
 {{ end }}

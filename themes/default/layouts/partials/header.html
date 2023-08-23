@@ -1,8 +1,8 @@
-{{ if hasPrefix .RelPermalink "/docs/" }}
+{{ if or (hasPrefix .RelPermalink "/docs/") (hasPrefix .RelPermalink "/learn/") }}
     {{ partial "docs-top-nav" . }}
     <div class="header-container docs-hero">
         <span class="hide-on-pinned"> </span>
-        {{ .Scratch.Set "mode" "docs" }}
+        {{ .Scratch.Set "mode" .Section }}
         {{ partial "docs/search.html" . }}
     </div>
 {{ else }}

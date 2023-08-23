@@ -2,33 +2,67 @@
     {{ $modulePath := path.Split (path.Dir .Path) }}
     {{ $module := .GetPage (path.Dir (string $modulePath)) }}
 
-
-    <div class="container mx-auto flex items-start px-4 md:px-0">
-        <div class="md:w-3/12 my-8 sticky-sidebar md:pr-8">
-            <nav>
-                {{ partial "learn/topics" (dict "context" . "topic" . "module" $module "mode" "sidebar") }}
-            </nav>
-            {{ partial "learn/topic-links" (dict "context" .) }}
-        </div>
-        <div class="md:w-7/12 my-8">
-            <header class="container mx-auto">
-                {{ partial "docs/breadcrumb.html" . }}
-                <h1>{{ .Title }}</h1>
-            </header>
-            <section class="container mx-auto my-8">
-                {{ .Content }}
-            </section>
-            {{ partial "learn/topics-next-prev" (dict "context" . "topic" . "module" $module) }}
-            <div>
-                {{ partial "docs/feedback.html" . }}
+    <div class="docs-list-main">
+        <div class="docs-main-nav-toggle-wrapper">
+            <div class="docs-main-nav-wrapper">
+                <div id="docs-main-nav" class="docs-main-nav">
+                    <nav class="main-nav">
+                        <nav>
+                            {{ partial "learn/topics" (dict "context" . "topic" . "module" $module "mode" "sidebar") }}
+                        </nav>
+                        {{ partial "learn/topic-links" (dict "context" .) }}
+                    </nav>
+                </div>
+            </div>
+            <div class="docs-nav-toggle">
+                <div class="docs-nav-toggle-icon icon icon-24-24"></div>
             </div>
         </div>
 
-        <div class="md:w-2/12 md:ml-8 m8-8 ">
-            <!-- TODO: Move feedback here once wiring is complete -->
-            <!-- <div>
+        <div class="docs-main-content-wrapper">
+            <div class="docs-main-content">
+                {{ partial "docs/breadcrumb.html" . }}
+
+
+                <h1>{{ .Title }}</h1>
+
+                {{ if .Params.description }}
+                    <p class="text-xl my-8">
+                        {{ .Params.description }}
+                    </p>
+                {{ end }}
+
+                <div class="docs-table-of-contents docs-toc-mobile">
+                    {{ partial "docs/table-of-contents.html" . }}
+                </div>
+
+                <section class="docs-content">
+                    {{ partial "learn/media" (dict "context" .) }}
+                    <section class="container mx-auto my-8 px-4">
+                        {{ .Content }}
+                    </section>
+                    <section class="container mx-auto my-8">
+                        {{ .Content }}
+                    </section>
+                    {{ partial "learn/topics-next-prev" (dict "context" . "topic" . "module" $module) }}
+                    <div>
+                        {{ partial "docs/feedback.html" . }}
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="docs-table-of-contents docs-toc-desktop">
+                {{ partial "docs/table-of-contents.html" . }}
+
                 {{ partial "docs/feedback.html" . }}
-            </div> -->
+
+                {{ partial "docs/right-nav-ad.html" }}
+            </div>
         </div>
     </div>
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "docs/footer.html" . }}
 {{ end }}
