@@ -28,50 +28,52 @@ Personal access tokens map to the permissions of a user, organization access tok
 
 Both organization and team token activities produce audit log events which are accessible from the **Audit Logs** page. All audit log events surface the token’s unique name, and in the event of audit log export, the token’s UUID as well.
 
-| Action | Personal | Team | Organization |
-| - | - | - | - |
-| **Stacks** | **Personal** | **Team** | **Organization** |
-| List stacks | ✅ | ✅ | ✅ |
-| Get stack | ✅ | ✅ | ✅ |
-| Get stack state | ✅ | ✅ | ✅ |
-| Transfer stack | | | |
-| Delete stack | ✅ | ✅ | ✅ |
-| List webhooks | | ✅ | ✅ |
-| Create webhook | | ✅ | ✅ |
-| Get webhook | | ✅ | ✅ |
-| Ping webhook | | ✅ | ✅ |
-| List webhook deliveries | | ✅ | ✅ |
-| **Stack tags** | **Personal** | **Team** | **Organization** |
-| Get stack tags | ✅ | ✅ | ✅ |
-| Set stack tag | ✅ | ✅ | ✅ |
-| Delete stack tag | ✅ | ✅ | ✅ |
-| **Stack updates** | **Personal** | **Team** | **Organization** |
-| List stack updates | ✅ | ✅ | ✅ |
-| Get update status | ✅ | ✅ | ✅ |
-| List update events | ✅ | ✅ | ✅ |
-| List previews | ✅ | ✅ | ✅ |
-| **Organizations** | **Personal** | **Team** | **Organization** |
-| List users | | ✅ | ✅ |
-| Add user to organization | | | |
-| Remove user from organization | | | |
-| List teams | | ✅ | ✅ |
-| Create team | | | ✅ |
-| Delete team | | | ✅ |
-| Update team membership | | | |
-| Grant stack access to team | | | |
-| Remove stack access from team | | | |
-| Update member role | | | |
-| List access tokens | | | |
-| Create access token | | | |
-| Delete access token | | | |
-| List webhooks | | | ✅ |
-| Create webhook | | | ✅ |
-| Get webhook | | | ✅ |
-| Ping webhook | | | ✅ |
-| List webhooks deliveries | | | ✅ |
-| **Audit logs** | **Personal** | **Team** | **Organization** |
-| Get audit log events (JSON) | | | |
-| Export audit log events (CSV or CEF) | | | |
+| Action | Personal | Team | Organization | Admin |
+| - | - | - | - | - |
+| **Stacks** | **Personal** | **Team** | **Organization** | **Admin** |
+| List stacks | ✅ | ✅ | ✅ | ✅ |
+| Get stack | ✅ | ✅ | ✅ | ✅ |
+| Get stack state | ✅ | ✅ | ✅ |✅ |
+| Transfer stack | | | | ✅ |
+| Delete stack | ✅ | ✅ | ✅ | ✅ |
+| List webhooks | | ✅ | ✅ | ✅ |
+| Create webhook | | ✅ | ✅ | ✅ |
+| Get webhook | | ✅ | ✅ | ✅ |
+| Ping webhook | | ✅ | ✅ | ✅ |
+| List webhook deliveries | | ✅ | ✅ | ✅ |
+| **Stack tags** | **Personal** | **Team** | **Organization** | **Admin** |
+| Get stack tags | ✅ | ✅ | ✅ | ✅ |
+| Set stack tag | ✅ | ✅ | ✅ | ✅ |
+| Delete stack tag | ✅ | ✅ | ✅ | ✅ |
+| **Stack updates** | **Personal** | **Team** | **Organization** | **Admin** |
+| List stack updates | ✅ | ✅ | ✅ | ✅ |
+| Get update status | ✅ | ✅ | ✅ | ✅ |
+| List update events | ✅ | ✅ | ✅ | ✅ |
+| List previews | ✅ | ✅ | ✅ | ✅ |
+| **Organizations** | **Personal** | **Team** | **Organization** | **Admin** |
+| List users | | ✅ | ✅ | ✅ |
+| Add user to organization | | | | ✅ |
+| Remove user from organization | | | | ✅ |
+| List teams | | ✅ | ✅ | ✅ |
+| Create team | | | ✅ | ✅ |
+| Delete team | | | ✅ | ✅ |
+| Update team membership | | | | ✅ |
+| Grant stack access to team | | | | ✅ |
+| Remove stack access from team | | | | ✅ |
+| Create team token |  | | | ✅ |
+| Delete team token |  | | | ✅ |
+| Update member role | | | | ✅ |
+| List access tokens | | | | ✅ |
+| Create access token | | | | |
+| Delete access token | | | | |
+| List webhooks | | | ✅ | ✅ |
+| Create webhook | | | ✅ | ✅ |
+| Get webhook | | | ✅ | ✅ |
+| Ping webhook | | | ✅ | ✅ |
+| List webhooks deliveries | | | ✅ | ✅ |
+| **Audit logs** | **Personal** | **Team** | **Organization** | **Admin** |
+| Get audit log events (JSON) | | | | ✅ |
+| Export audit log events (CSV or CEF) | | | | ✅ |
 
 ## Personal access tokens
 
@@ -107,6 +109,17 @@ Navigate to your organization and then:
 1. Select **Create token**.
 
 The token must have a name that is unique among all organization and team access tokens in the organization., including deleted tokens. This allows tokens taking operations on behalf of your organization to be identifiable in the event that one is compromised. Any other organization admin can delete this token; it is not owned by the admin which created it. Creation of organization access tokens is logged as an audit log event.
+
+#### Admin organization access tokens
+
+{{% notes type="warning" %}}
+Admin organization access tokens have elevated permissions, please use them with caution.
+{{% /notes %}}
+Admin organization access tokens (or admin tokens) are organization tokens with elevated, administrator-level privileges. Admin tokens allow automated processes to perform any operation supported for organization administrators except for the creation or deletion of other organization tokens.
+
+To create an admin organization access token, select the `Admin` option when creating an organization token, following the steps above.
+
+Exercise caution and limit the use of admin organization access tokens to scenarios where they are absolutely necessary. Avoid unnecessary sharing and adhere to the principle of least privilege. Admin tokens can be deleted from the **Access Tokens** page within your organization settings following the process below.
 
 ### Viewing organization access tokens
 

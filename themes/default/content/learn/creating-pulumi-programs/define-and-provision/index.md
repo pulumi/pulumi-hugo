@@ -8,12 +8,13 @@ description: Learn how to define infrastructure with Pulumi resources.
 meta_desc: Learn what a resource is, how resources work within Pulumi, and how to create, update, and delete resources in this tutorial.
 index: 1
 estimated_time: 10
-meta_image: meta.png
 authors:
     - torian-crane
 tags:
     - resources
     - aws
+    - python
+    - nginx
 ---
 
 {{< youtube 6f8KF6UGN7g >}}
@@ -21,6 +22,19 @@ tags:
 In Pulumi, [resources](/docs/concepts/resources) represent the fundamental units that make up your infrastructure, such as virtual machines, networks, storage, and databases. A resource is used to define and manage an infrastructure object in your Pulumi configuration.
 
 In this tutorial, we'll demonstrate how to create a simple Nginx web server. You will then refer to documentation in the Pulumi Registry to create a security group resource to make the application publically accessible.
+
+## Pre-Requisites
+
+This tutorial assumes that you are familiar with the basics of the Pulumi workflow. If you are new to Pulumi, complete the [Get Started series](/docs/get-started) first.
+
+Additionally, you will need the following tools to complete this tutorial:
+
+- A [Pulumi account and token](/docs/pulumi-cloud/accounts#access-tokens)
+- The [Pulumi CLI](/docs/cli/)
+- An [Amazon Web Services](https://aws.amazon.com/) account
+- One of the following languages installed:
+    - Node.js version 14 or later (for Typescript/Javascript)
+    - Python version 3.7 or later
 
 Let's get started!
 
@@ -236,6 +250,18 @@ TBD
 
 {{% /choosable %}}
 
+You may have noticed that the placeholder code for the security group resource has been moved above the code for the EC2 instance resource. This was done intentionally to accommodate for [creation and deletion](/docs/concepts/how-pulumi-works/#creation-and-deletion-order) order in Pulumi.
+
+If we place the security group resource definition after the EC2 instance and try to deploy our program, it will fail. This is because the security group resource must exist first before we can tell our EC2 instance to use it.
+
+{{% notes type="info" %}}
+
+You can also create explicit depencies that will ensure that resource creation, update, and deletion operations are executed in the correct order, regardless of the order that resources are defined in your code.
+
+You can find more information about [creating depenencies](/docs/concepts/options/dependson/) in the Pulumi documentation.
+
+{{% /notes %}}
+
 Use the following steps as a guide for adding the Security Group resource:
 
 - Navigate to the [AWS Registry documentation page](https://www.pulumi.com/registry/packages/aws/)
@@ -244,16 +270,6 @@ Use the following steps as a guide for adding the Security Group resource:
 - Configure the security group to allow traffic on port 80
 - Update the EC2 instance resource to use the security group
 - Preview and deploy your updated project code
-
-{{% notes type="info" %}}
-
-You may have noticed that the placeholder code for the security group resource has been moved above the code for the EC2 instance resource. This was done intentionally to accommodate for [creation and deletion](/docs/concepts/how-pulumi-works/#creation-and-deletion-order) order in Pulumi.
-
-If we place the security group resource definition after the EC2 instance and try to deploy our program, it will fail. This is because the security group resource must exist first before we can tell our EC2 instance to use it.
-
-You can also [create explicit depencies](/docs/concepts/options/dependson/) that will ensure that resource creation, update, and deletion operations are executed in the correct order.
-
-{{% /notes %}
 
 Once you have completed these steps, navigate to your instance IP address again. You should now be greeted with a "Welcome to nginx!" home page message that indicates your web server is running and publically accessible.
 > Note: If your web server is still timing out, make sure you are accessing your web server's IP address via HTTP and not HTTPS.

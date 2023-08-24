@@ -1,6 +1,6 @@
 ---
 title_tag: "Learn Pulumi: Key Concepts, Tutorials, Best Practices"
-title: Learn Pulumi
+title: Tutorials
 description: |
     Courses, tutorials, examples, and more to help you get the most out of
     Pulumi.
@@ -26,14 +26,12 @@ tutorials:
 overview: |
     <h2 class="learn-h2">Welcome to Learn Pulumi!</h2>
 
-    Learn all the concepts of Pulumi, along with best practices and  
-    architectural patterns. Each tutorial will step you through  
-    core Pulumi concepts.  
-    
-    These learning pathways assume that you are familiar with  
-    the basics of the Pulumi workflow. If you are new to Pulumi,  
-    complete the [Get Started series](/docs/get-started) to get comfortable with   
-    the basics. Then try one of the below pathways to explore more!  
+    Learn all the concepts of Pulumi, along with best practices and
+    architectural patterns.
+
+    Each tutorial will step you through exploring Pulumi and completing a
+    project. Start with Pulumi Fundamentals to get comfortable with
+    vocabulary, then try another pathway to explore more!
 ---
 
-Ipsum lorem
+Learn all the concepts of Pulumi, along with best practices and architectural patterns.

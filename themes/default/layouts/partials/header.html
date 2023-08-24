@@ -1,8 +1,8 @@
-{{ if hasPrefix .RelPermalink "/docs/" }}
+{{ if or (hasPrefix .RelPermalink "/docs/") (hasPrefix .RelPermalink "/learn/") }}
     {{ partial "docs-top-nav" . }}
     <div class="header-container docs-hero">
         <span class="hide-on-pinned"> </span>
-        {{ .Scratch.Set "mode" "docs" }}
+        {{ .Scratch.Set "mode" .Section }}
         {{ partial "docs/search.html" . }}
     </div>
 {{ else }}
@@ -332,6 +332,15 @@
                                                 </a>
                                             </div>
                                         </li>
+                                        <li>
+                                            <div class="list-title">
+                                                <a href="{{ relref . "/what-is" }}">
+                                                    <i class="fas fa-book-reader fa-fw"></i>
+                                                    What is ...?
+                                                    <div class="list-sub-title">Dive into topics in and around the IaC universe</div>
+                                                </a>
+                                            </div>
+                                        </li>
                                     </div>
                                 </ul>
                             </div>
@@ -450,6 +459,9 @@
                                     <li>
                                         <a href="{{ relref . "/community" }}"> <i class="fas fa-users fa-fw"></i> Community </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ relref . "/what-is" }}"> <i class="fas fa-users fa-fw"></i> What is ...? </a>
+                                    </li>
                                 </div>
                             </div>
                         </ul>
@@ -471,7 +483,7 @@
                     </ul>
 
                     <div class="cta-container">
-                        <a class="header-btn-primary" data-track="header-get-started" href="https://app.pulumi.com/signup" title="Sign up for Pulumi Cloud"> Get Started </a>
+                        <a class="header-btn-primary" data-track="header-get-started" href="/docs/get-started" title="Sign up for Pulumi Cloud"> Get Started </a>
                     </div>
                 </div>
             </header>

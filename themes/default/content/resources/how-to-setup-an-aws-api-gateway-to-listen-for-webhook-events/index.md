@@ -1,7 +1,7 @@
 ---
-title: How do I set up an Amazon API Gateway to listen for webhook events?
+title: "How to setup an AWS API gateway to listen for webhook events"
 allow_long_title: true
-meta_desc: Discover step-by-step how to set up an API Gateway to listen for webhook events in our comprehensive tutorial.
+meta_desc: "Use Pulumi to set up an API Gateway for webhooks with our guide. Learn efficient handling of real-time events using TypeScript and AWS."
 type: ai-answers
 date: 2023-07-24
 ---
@@ -195,7 +195,7 @@ using Pulumi;
 using Aws = Pulumi.Aws;
 
 class MyStack : Stack
-{
+{    
     public MyStack()
     {
         // an AWS Lambda function
@@ -239,7 +239,7 @@ class MyStack extends Stack {
         super(new StackOptions());
 
         Function myLambda = ... // Create or import your lambda resource here
-
+        
  httpApi = new Api("myApi", new ApiArgs()
             .setProtocolType("HTTP")
             .setTarget(myLambda.getArn()));
@@ -298,9 +298,11 @@ resources:
         source: myHttpApiRoute.id
       integrationId:
         source: myHttpApiIntegration.id
-```
 
+
+```
 {{% /choosable %}}
+
 
 This code triggers the webhookHandler Lambda function when a POST request is made to the /webhook route of the API Gateway. The response from the API is a 200 status code and a message saying "Webhook received".
 

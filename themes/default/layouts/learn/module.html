@@ -1,7 +1,22 @@
 {{ define "main" }}
-    <div class="container mx-auto flex items-start">
-        <div class="w-8/12 mx-auto">
-            <header class="container mx-auto my-8 px-4">
+    <div class="docs-list-main">
+        <div class="docs-main-nav-toggle-wrapper">
+            <div class="docs-main-nav-wrapper">
+                <div id="docs-main-nav" class="docs-main-nav">
+                    <nav class="main-nav">
+                        <nav>
+                            {{ partial "learn/topics" (dict "context" . "module" . "mode" "sidebar") }}
+                        </nav>
+                    </nav>
+                </div>
+            </div>
+            <div class="docs-nav-toggle">
+                <div class="docs-nav-toggle-icon icon icon-24-24"></div>
+            </div>
+        </div>
+
+        <div class="docs-main-content-wrapper">
+            <div class="docs-main-content">
                 {{ partial "docs/breadcrumb.html" . }}
 
 
@@ -12,37 +27,57 @@
                         {{ .Params.description }}
                     </p>
                 {{ end }}
-            </header>
-            {{ partial "learn/media" (dict "context" .) }}
-            <section class="container mx-auto my-8 px-4">
-                {{ .Content }}
-            </section>
-            <section class="container mx-auto px-4">
-                <div class="md:flex">
-                    <div class="md:w-2/3">
-                        <h4 class="mb-4">In this pathway, you'll learn:</h4>
-                        <ul class="list-none p-0">
-                            {{ range .Params.youll_learn }}
-                                <li>
-                                    <i class="fas fa-check text-green-500 mr-2"></i>
-                                    <span>{{ . }}</span>
-                                </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                    <div class="md:w-1/3">
-                        <div class="rounded bg-gray-100 py-4 px-6 border-gray-300">
-                            {{ partial "learn/summary" (dict "module" .) }}
+
+                <div class="docs-table-of-contents docs-toc-mobile">
+                    {{ partial "docs/table-of-contents.html" . }}
+                </div>
+
+                <section class="docs-content">
+                    {{ partial "learn/media" (dict "context" .) }}
+                    <section class="container mx-auto my-8 px-4">
+                        {{ .Content }}
+                    </section>
+                    <section class="container mx-auto px-4">
+                        <div class="md:flex">
+                            <div class="md:w-2/3">
+                                <h4 class="mb-4">In this collection, you'll learn:</h4>
+                                <ul class="list-none p-0">
+                                    {{ range .Params.youll_learn }}
+                                        <li>
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>{{ . }}</span>
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            <div class="md:w-1/3">
+                                <div class="rounded bg-gray-100 py-4 px-6 border-gray-300">
+                                    {{ partial "learn/summary" (dict "module" .) }}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section class="container mx-auto py-8 px-4">
-                <h4 class="mb-4">Tutorials</h4>
-                <div class="p-0 mb-12">
-                    {{ partial "learn/topics" (dict "context" . "module" .) }}
-                </div>
-            </section>
+                    </section>
+                    <section class="container mx-auto py-8 px-4">
+                        <h4 class="mb-4">Tutorials</h4>
+                        <div class="p-0 mb-12">
+                            {{ partial "learn/topics" (dict "context" . "module" .) }}
+                        </div>
+                    </section>
+
+                </section>
+            </div>
+
+            <div class="docs-table-of-contents docs-toc-desktop">
+                {{ partial "docs/table-of-contents.html" . }}
+
+                {{ partial "docs/feedback.html" . }}
+
+                {{ partial "docs/right-nav-ad.html" }}
+            </div>
         </div>
     </div>
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "docs/footer.html" . }}
 {{ end }}

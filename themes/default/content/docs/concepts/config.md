@@ -95,7 +95,7 @@ $ pulumi new aws-typescript --config="aws:region=us-west-2"
 
 Configuration values can be retrieved for a given stack using either {{< pulumi-config-get >}} or {{< pulumi-config-require >}}. Using {{< pulumi-config-get >}} will return {{< language-null >}} if the configuration value was not provided, and {{< pulumi-config-require >}} will raise an exception with a helpful error message to prevent the deployment from continuing until the variable has been set using the CLI.
 
-For potentially-secret config, use {{< pulumi-config-getsecret >}} or {{< pulumi-config-requiresecret >}}, which will return the config value as an `Output` which carries both the value and the secret-ness of the config value so that it will be encrypted whenver serialized (see [secrets](/docs/concepts/secrets/) for more on managing secret values).
+For potentially-secret config, use {{< pulumi-config-getsecret >}} or {{< pulumi-config-requiresecret >}}, which will return the config value as an `Output` which carries both the value and the secret-ness of the config value so that it will be encrypted whenever serialized (see [secrets](/docs/concepts/secrets/) for more on managing secret values).
 
 Configuration methods operate on a particular namespace, which by default is the name of the current project. Passing an empty constructor to {{< pulumi-config >}}, as in the following example, sets it up to read values set without an explicit namespace (e.g., `pulumi config set name Joe`):
 
@@ -509,7 +509,7 @@ Project level configuration is defined inside the project folder's `Pulumi.yaml`
 At this time, the `pulumi config set` command does not support project level configuration. Therefore the configuration values are entered directly in the `Pulumi.yaml` file. Also, project level configuration only supports clear text configuration. Support for [pulumi config](https://github.com/pulumi/pulumi/issues/12041) and [project-level secrets](https://github.com/pulumi/pulumi/issues/11549) and other features are planned.
 {{% /notes %}}
 
-Project level configuration supports both simple and structured configuraion as described in the sections above. However, structured config needs to include a `value` keyword. The following example shows what the project level configuration (inside `Pulumi.yaml`) looks like based on the examples shown above.
+Project level configuration supports both simple and structured configuration as described in the sections above. However, structured config needs to include a `value` keyword. The following example shows what the project level configuration (inside `Pulumi.yaml`) looks like based on the examples shown above.
 
 ```
 config:
@@ -588,7 +588,26 @@ packages.
 In the following example, the default providers for [aws](/registry/packages/aws/) and [kubernetes](/registry/packages/kubernetes/) are disabled.
 
 ```yaml
-pulumi:disable-default-providers:
-  - aws
-  - kubernetes
+config:
+  pulumi:disable-default-providers:
+    - aws
+    - kubernetes
 ```
+
+### `pulumi:tags`
+
+A list of [stack tags](/docs/concepts/stack/#stack-tags) which are read by the Pulumi CLI and automatically applied on the stack at
+every `pulumi up` or `pulumi refresh` action.
+
+```yaml
+config:
+  pulumi:tags:
+    company: "Some LLC"
+    team: Ops
+```
+
+Pulumi CLI only creates or updates tags which are listed in the config. If you remove a tag from the stack config, you have to remove it from the stack in Pulumi Cloud manually.
+
+Stack tags applied by Pulumi CLI are listed in the `Tags` section of the Overview tab:
+
+![Tags applied by Pulumi CLI](/images/docs/concepts/stack-config-tags.png)

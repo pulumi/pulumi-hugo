@@ -4,76 +4,30 @@ title: "Using Inputs and Output"
 layout: topic
 date: 2021-09-20T08:33:14-05:00
 draft: false
-description: Learn a bit more about stacks as part of using Pulumi.
-meta_desc: Learn what a stack is, how stacks work within Pulumi, and how to create, list, and select stacks in this tutorial.
+description: Learn more about using inputs and outputs in Pulumi.
+meta_desc: Learn what inputs and outputs are and how to use them in Pulumi.
 index: 2
 estimated_time: 10
 meta_image: meta.png
 authors:
-    - matt-stratton
+    - torian-crane
 tags:
-    - stacks
+    - aws
+    - fundamentals
+    - resources
 ---
 
-Every Pulumi program is deployed to a stack. A stack is an isolated,
-independently [configurable](/docs/concepts/config/)
-instance of a Pulumi program. Stacks are commonly used to denote different
-phases of development (such as `development`, `staging`, and `production`) or
-feature branches (such as `feature-x-dev`).
+All resources in Pulumi accept values that describe the way the resource behaves. We call these values inputs.
 
-A project can have as many stacks as you need. By default, Pulumi creates a
-stack for you when you start a new project using the `pulumi new` command.
+## Placeholder Title
 
-## Create a stack
+Placeholder text.
 
-To create a new stack, we use the command `pulumi stack init name`. This
-command creates an empty stack `name` and sets it as the _active_ stack.
-The project that the stack is associated with is determined by finding the
-nearest `Pulumi.yaml` file.
+## Next Steps
 
-The stack name must be unique within a project. Stack names may only contain
-alphanumeric characters, hyphens, underscores, or periods.
+In this tutorial, you ...
 
-Let's create a new stack in our project, for our staging environment:
+To learn more about creating resources in Pulumi, take a look at the following resources:
 
-```bash
-$ pulumi stack init staging
-```
-
-## Listing stacks
-
-We have a couple of stacks in our project now&mdash;but how do we know which
-ones we have? If we run the command `pulumi stack ls`, it will tell us!
-
-```bash
-$ pulumi stack ls
-NAME      LAST UPDATE    RESOURCE COUNT  URL
-dev       2 minutes ago  10              https://app.pulumi.com/***/my-first-app/dev
-staging*  n/a            n/a             https://app.pulumi.com/***/my-first-app/staging
-```
-
-Notice that the `staging` stack has an `*` after its name; this asterisk marks
-this stack as the active stack (i.e., the stack that all our commands will run
-on).
-
-## Selecting stacks
-
-When we run a Pulumi command (such as `config`, `up`, or `destroy`), the command
-operates on the *active* stack. But what if we want to change which stack is
-active? For this task, we use the `pulumi stack select` command:
-
-```bash
-$ pulumi stack select dev
-
-$ pulumi stack ls
-NAME     LAST UPDATE    RESOURCE COUNT  URL
-dev*     3 minutes ago  10              https://app.pulumi.com/***/my-first-app/dev
-staging  n/a            n/a             https://app.pulumi.com/***/my-first-app/staging
-
-```
-
-Notice that `dev` is now the active stack.
-
-Next up, we're going to explore how to get information out of a stack to use in
-other places, like elsewhere in our program or in general spots like your
-browser.
+- Learn more about [inputs and outputs](https://www.pulumi.com/docs/concepts/inputs-outputs/) in the Pulumi documentation.
+- Learn more about [resource options](https://www.pulumi.com/docs/concepts/options/), and [providers](https://www.pulumi.com/docs/concepts/resources/providers/) in the Pulumi documentation.
