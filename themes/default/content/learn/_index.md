@@ -35,5 +35,3 @@ overview: |
 ---
 
 Learn all the concepts of Pulumi, along with best practices and architectural patterns.
-
-Each tutorial will step you through exploring Pulumi and completing a project. Start with Pulumi Fundamentals to get comfortable with vocabulary, then try another pathway to explore more!

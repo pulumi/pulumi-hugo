@@ -41,9 +41,6 @@
                     <section class="container mx-auto my-8 px-4">
                         {{ .Content }}
                     </section>
-                    <section class="container mx-auto my-8">
-                        {{ .Content }}
-                    </section>
                     {{ partial "learn/topics-next-prev" (dict "context" . "topic" . "module" $module) }}
                     <div>
                         {{ partial "docs/feedback.html" . }}
