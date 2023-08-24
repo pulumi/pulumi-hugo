@@ -211,6 +211,9 @@ sudo systemctl enable nginx
 sudo systemctl start nginx
 """
 
+# [Step 2: Create a security group.]
+security_group = # TO-DO
+
 # [Step 1: Create an EC2 instance.]
 server = aws.ec2.Instance(
     'webserver-www',
@@ -219,9 +222,6 @@ server = aws.ec2.Instance(
     user_data=user_data,
     vpc_security_group_ids=[security_group.id], # Security group property and reference
 )
-
-# [Step 2: Create a security group.]
-security_group = # TO-DO
 
 pulumi.export('publicIp', server.public_ip)
 ```
@@ -242,7 +242,18 @@ Use the following steps as a guide for adding the Security Group resource:
 - Search for the EC2 Security Group resource
 - Define the EC2 Security Group resource in your project code
 - Configure the security group to allow traffic on port 80
+- Update the EC2 instance resource to use the security group
 - Preview and deploy your updated project code
+
+{{% notes type="info" %}}
+
+You may have noticed that the placeholder code for the security group resource has been moved above the code for the EC2 instance resource. This was done intentionally to accommodate for [creation and deletion](/docs/concepts/how-pulumi-works/#creation-and-deletion-order) order in Pulumi. 
+
+If we place the security group resource definition after the EC2 instance and try to deploy our program, it will fail. This is because the security group resource must exist first before we can tell our EC2 instance to use it. 
+
+You can also [create explicit depencies](/docs/concepts/options/dependson/) that will ensure that resource creation, update, and deletion operations are executed in the correct order.
+
+{{% /notes %}
 
 Once you have completed these steps, navigate to your instance IP address again. You should now be greeted with a "Welcome to nginx!" home page message that indicates your web server is running and publically accessible.
 > Note: If your web server is still timing out, make sure you are accessing your web server's IP address via HTTP and not HTTPS.
