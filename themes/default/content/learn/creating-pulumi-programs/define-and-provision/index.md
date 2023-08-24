@@ -247,9 +247,9 @@ Use the following steps as a guide for adding the Security Group resource:
 
 {{% notes type="info" %}}
 
-You may have noticed that the placeholder code for the security group resource has been moved above the code for the EC2 instance resource. This was done intentionally to accommodate for [creation and deletion](/docs/concepts/how-pulumi-works/#creation-and-deletion-order) order in Pulumi. 
+You may have noticed that the placeholder code for the security group resource has been moved above the code for the EC2 instance resource. This was done intentionally to accommodate for [creation and deletion](/docs/concepts/how-pulumi-works/#creation-and-deletion-order) order in Pulumi.
 
-If we place the security group resource definition after the EC2 instance and try to deploy our program, it will fail. This is because the security group resource must exist first before we can tell our EC2 instance to use it. 
+If we place the security group resource definition after the EC2 instance and try to deploy our program, it will fail. This is because the security group resource must exist first before we can tell our EC2 instance to use it.
 
 You can also [create explicit depencies](/docs/concepts/options/dependson/) that will ensure that resource creation, update, and deletion operations are executed in the correct order.
 
