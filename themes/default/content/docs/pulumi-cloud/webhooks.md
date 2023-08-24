@@ -128,23 +128,23 @@ class PulumiServiceWebhook: Stack
 
 1. Navigate to **Settings** > **Webhooks**.
 2. Select **Create webhook**.
-3. Select between a Slack, Microsoft Teams, or generic JSON webhooks.
-4. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
-5. If you selected `Microsoft Teams`, you will be prompted to provide a Microsoft Teams webhook URL and a display name.
-6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
-7. Choose between receiving all events or only receiving specific events using the filters menu.
+3. Under Destination, choose **Webhook**, **Slack**, **Microsoft Teams**."
+    1. For generic JSON webhooks, provide a display name, payload URL, and optionally a secret.
+    2. For Slack webhooks, provide a Slack webhook URL and a display name.
+    3. For Microsoft Teams webhooks, provide a Microsoft Teams webhook URL and a display name.
+4. Choose between receiving all events or only receiving specific events using the filters menu.
 
 #### Create a Stack Webhook
 
 1. Navigate to the stack.
-2. Then navigate to **Settings** > **Webhooks**
+2. Navigate to **Settings** > **Webhooks**
 3. Select **Create webhook**.
-4. Select between a Slack, Microsoft Teams, Deployment, or generic JSON webhooks.
-5. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
-6. If you selected `Microsoft Teams`, you will be prompted to provide a Microsoft Teams webhook URL and a display name.
-7. If you selected `Deployment`, you will need to specify the Stack to deploy in the format `project/stack`.
-8. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
-9. Choose between receiving all events or only receiving specific events using the filters menu.
+4. Under Destination, choose **Webhook**, **Slack**, **Microsoft Teams**, or **Deployment**."
+   1. For generic JSON webhooks, provide a display name, payload URL, and optionally a secret.
+   2. For Slack webhooks, provide a Slack webhook URL and a display name.
+   3. For Microsoft Teams webhooks, provide a Microsoft Teams webhook URL and a display name.
+   4. For Deployment webhooks, provide the stack to deploy in the format `project/stack`.
+5. Choose between receiving all events or only specific events using the filters menu.
 
 ![Stack webhooks form](../ui-webhooks.png)
 
@@ -178,7 +178,7 @@ formatted events.
 
 ### Slack Webhooks
 
-Webhooks formatted for Slack allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
+Slack Webhooks allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
 into your Slack workspace by simply providing a [Slack incoming webhook URL](https://api.slack.com/messaging/webhooks)
 and optionally choosing which events you want delivered using [event filters](#event-filtering).
 
@@ -189,13 +189,13 @@ follow the link below to quickly get started with a pre-defined Slack app manife
 
 ### Microsoft Teams Webhooks
 
-Webhooks formatted for Microsoft Teams allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
+Microsoft Teams Webhooks allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
 into your Microsoft Teams workspace by simply providing a [Microsoft Teams incoming webhook URL](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
 and optionally choosing which events you want delivered using [event filters](#event-filtering).
 
 ### Deployment Webhooks
 
-The Deployments webhook destination lets you trigger updates on other stacks via [Pulumi Deployments](/docs/pulumi-cloud/deployments/), usually in response to `update_succeeded` events. This enables you to keep dependent stacks up to date automatically which is often necessary when using [stack references](/docs/concepts/stack/#stackreferences).
+The Deployment webhook destination lets you trigger updates on other stacks via [Pulumi Deployments](/docs/pulumi-cloud/deployments/), usually in response to `update_succeeded` events. This enables you to keep dependent stacks up to date automatically which is often necessary when using [stack references](/docs/concepts/stack/#stackreferences).
 
 Deployment webhooks require that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings).
 
