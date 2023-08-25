@@ -230,7 +230,7 @@ As with any other deployment setting, the path filters may be set via the Pulumi
 
 ### Skip intermediate deployments
 
-When streams of multiple deployments are pushed, they will be executed sequentially until the backlog is completed. In some scenarios, this is not desired as it slows down the execution when they are actually accumulative. By enabling the `Skip intermediate deployments` setting, Pulumi will skip all the consecutive deployments of the same type and will execute only the last one of the serie.
+By default, when multiple deployments are pushed, they will be executed sequentially until the backlog is completed. In some cases, you may wish to only execute the most recent deployment since the changes are accumulative. By enabling the `Skip intermediate deployments` setting, Pulumi will skip all intermediary deployments of the same type and will execute only the latest.
 
 ![Pulumi UI - Skip intermediate deployments](../ui-skip-intermediate-deployments.png)
 
