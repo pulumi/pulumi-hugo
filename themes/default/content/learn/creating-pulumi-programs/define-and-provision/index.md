@@ -17,7 +17,7 @@ tags:
     - nginx
 ---
 
-{{< youtube 6f8KF6UGN7g >}}
+{{< youtube oq94DSPMmlY >}}
 
 In Pulumi, [resources](/docs/concepts/resources) represent the fundamental units that make up your infrastructure, such as virtual machines, networks, storage, and databases. A resource is used to define and manage an infrastructure object in your Pulumi configuration.
 
