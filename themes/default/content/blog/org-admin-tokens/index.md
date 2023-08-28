@@ -47,7 +47,7 @@ Organization Access Tokens have member level permissions, meaning they can be us
 
 ### See it in action!
 
-![Gif of creating an Admin token](/uploads/admintoken.gif)
+![Gif of creating an Admin token](https://www.pulumi.com/uploads/admintoken.gif)
 
 ### Increased Privileges
 
