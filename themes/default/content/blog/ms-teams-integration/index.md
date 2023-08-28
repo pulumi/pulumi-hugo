@@ -13,7 +13,7 @@ tags:
     - pulumi-cloud
 ---
 
-Getting your deployment notifications into Microsft Teams is now easier than ever on Pulumi Cloud.
+Getting your Pulumi notifications into Microsft Teams is now easier than ever.
 
 <!--more-->
 
