@@ -271,9 +271,9 @@ Several schema types contain a `language` field which is a map from a supported 
 
 Language-specific information for a package.
 
-{{% chooser language "javjavascript,typescript,python,go,csharp,java" / %}}
+{{% chooser language "javascript,typescript,python,go,csharp,java" / %}}
 
-{{% choosable language javascript,typescript %}}
+{{% choosable language "javascript,typescript" %}}
 
 For `javascript, typescript`:
 
