@@ -17,7 +17,7 @@ Getting your deployment notifications into Microsft Teams is now easier than eve
 
 <!--more-->
 
-Teams using Pulumi Cloud have been setting up Microsft Teams notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Slack integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves. We have also expanded the types of event notifications and the filtering options on both Pulumi Cloud Webhooks and for the Slack integration.
+Teams using Pulumi Cloud have been setting up Microsft Teams notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Microsoft Teams integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves.
 
 Pulumi Cloud Webhooks, including the Microsoft Teams integration, are available to all Pulumi Cloud organizations.
 
@@ -27,15 +27,12 @@ Pulumi Cloud Webhooks, including the Microsoft Teams integration, are available 
 
 Pulumi Microsft Teams notifications enable central visibility for your team. In addition to getting the notification of a successful or failed update, you will have links to take you directly to the stack and directly to the update itself. You can see what Pulumi operation was being run, which user initiated it and the number of resouces changed and unaffected. All of this information in one place lets you spend less time context switching and more time collaborating.
 
-### Setting up the Slack Integration
+### Setting up the Microsoft Teams Integration
 
-Before today Pulumi customers used Pulumi Cloud Webhooks to set up generic JSON webhooks. When events occur, we send a HTTP POST request to any registered listeners. Webhooks can then be used to send notifications to an app (like Microsoft Teams), start running automated tests, or even to update another stack! We have now built support for Microsft Teams formatted webhooks, which allow you to quickly enable notifications about your Pulumi stacks and organizations into your Microsft Teams workspace by simply providing a [incoming webhook URL](TODO).
+Before today Pulumi customers used Pulumi Cloud Webhooks to set up generic JSON webhooks. When events occur, we send a HTTP POST request to any registered listeners. Webhooks can then be used to send notifications to an app (like Microsoft Teams), start running automated tests, or even to update another stack! We have now built support for Microsft Teams formatted webhooks, which allow you to quickly enable notifications about your Pulumi stacks and organizations into your Microsft Teams workspace by simply providing a [incoming webhook URL](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook).
 
-TODO: You can either create your own Slack app (or use an existing one you may already have installed in your workspace) or you can use the link below to quickly get started with a predefined Slack app manifest.
 
-{{< blog/cta-button "Create a Slack app from manifest" "https://api.slack.com/apps?new_app=1&manifest_yaml=display_information%3A%0A%20%20name%3A%20pulumi-slack-notifications%0A%20%20description%3A%20Funnel%20Pulumi%20webhooks%20to%20Slack%0A%20%20background_color%3A%20%22%238a3391%22%0Afeatures%3A%0A%20%20bot_user%3A%0A%20%20%20%20display_name%3A%20pulumi-slack-notifications%0A%20%20%20%20always_online%3A%20false%0Aoauth_config%3A%0A%20%20scopes%3A%0A%20%20%20%20bot%3A%0A%20%20%20%20%20%20-%20incoming-webhook%0Asettings%3A%0A%20%20org_deploy_enabled%3A%20false%0A%20%20socket_mode_enabled%3A%20false%0A%20%20token_rotation_enabled%3A%20false" "_blank" >}}
-
-By following these steps, which can also be found in [our webhooks documentation](/docs/pulumi-cloud/webhooks), in a few clicks you will have a Slack incoming webhook URL which you can use to set up a webhook in [Pulumi Cloud](https://app.pulumi.com), as shown in the GIF below.
+By following these steps, which can also be found in [our webhooks documentation](/docs/pulumi-cloud/webhooks), in a few clicks you will have a Microsoft Teams incoming webhook URL which you can use to set up a webhook in [Pulumi Cloud](https://app.pulumi.com), as shown in the GIF below.
 
 ![Setting it up in the UI](webhooks_2.gif)
 
@@ -43,7 +40,7 @@ There are Pulumi customers with hundreds to thousands of stacks, making setting 
 
 ### Pulumi Cloud REST API
 
-Create a webhook via the Pulumi Cloud REST API formatted for Slack, as shown in the example below.
+Create a webhook via the Pulumi Cloud REST API formatted for Microsoft Teams, as shown in the example below.
 
 ```bash
 
@@ -53,13 +50,13 @@ curl \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
   --data '{
-      "organizationName":"{organization}",
-      "projectName":"{project}",
-      "stackName":"{stack}",
-      "displayName":"#some-slack-channel",
-      "payloadUrl":"https://hooks.slack.com/services/...",
-      "format": "slack",
-      "active":true
+      "organizationName": "{organization}",
+      "projectName": "{project}",
+      "stackName": "{stack}",
+      "displayName": "my-display-name",
+      "payloadUrl": "https://xxxxx.webhook.office.com/xxxxxxxxx",
+      "format": "ms_teams",
+      "active": true
   }' \
   https://api.pulumi.com/api/orgs/{organization}/{project}/{stack}/hooks
 ```
@@ -80,10 +77,10 @@ const orgName = "my-org";
 
 const orgWebhook = new Webhook("org-webhook", {
     active: true,
-    displayName: "#my-org-activity-channel",
+    displayName: "my-teams-channel",
     organizationName: orgName,
-    payloadUrl: "https://hooks.slack.com/services/...",
-    format: WebhookFormat.Slack,
+    payloadUrl: "https://xxxxx.webhook.office.com/xxxxxxxxx",
+    format: WebhookFormat.MicrosoftTeams,
     filters: [
         WebhookFilters.StackCreated,
         WebhookFilters.StackDeleted,
@@ -94,12 +91,12 @@ const orgWebhook = new Webhook("org-webhook", {
 
 const stackWebhook = new Webhook("stack-webhook", {
     active: true,
-    displayName: "#my-stack-activity-channel",
+    displayName: "my-teams-channel",
     organizationName: orgName,
     projectName: pulumi.getProject(),
     stackName: pulumi.getStack(),
-    payloadUrl: "https://hooks.slack.com/services/...",
-    format: WebhookFormat.Slack,
+    payloadUrl: "https://xxxxx.webhook.office.com/xxxxxxxxx",
+    format: WebhookFormat.MicrosoftTeams,
 });
 
 export const orgWebhookName = orgWebhook.name;
@@ -122,10 +119,10 @@ resources:
     type: pulumiservice:index:Webhook
     properties:
       active: true
-      displayName: "#my-org-activity-channel"
+      displayName: my-teams-channel
       organizationName: my-org
-      payloadUrl: "https://hooks.slack.com/services/..."
-      format: slack
+      payloadUrl: "https://xxxxx.webhook.office.com/xxxxxxxxx"
+      format: ms_teams
       filters:
         - stack_created
         - stack_deleted
@@ -135,12 +132,12 @@ resources:
     type: pulumiservice:index:Webhook
     properties:
       active: true
-      displayName: "#my-stack-activity-channel"
+      displayName: my-teams-channel
       organizationName: my-org
       projectName: webhook-examples
       stackName: dev
-      payloadUrl: "https://hooks.slack.com/services/..."
-      format: slack
+      payloadUrl: "https://xxxxx.webhook.office.com/xxxxxxxxx"
+      format: ms_teams
 
 outputs:
   # export the name of the webhooks
@@ -158,10 +155,10 @@ import pulumi_pulumiservice as pulumiservice
 
 org_webhook = pulumiservice.Webhook("orgWebhook",
     active=True,
-    display_name="#my-org-activity-channel",
+    display_name="my-teams-channel",
     organization_name="my-org",
-    payload_url="https://hooks.slack.com/services/...",
-    format=pulumiservice.WebhookFormat.SLACK,
+    payload_url="https://xxxxx.webhook.office.com/xxxxxxxxx",
+    format=pulumiservice.WebhookFormat.MICROSOFT_TEAMS,
     filters=[
         pulumiservice.WebhookFilters.STACK_CREATED,
         pulumiservice.WebhookFilters.STACK_DELETED,
@@ -171,12 +168,12 @@ org_webhook = pulumiservice.Webhook("orgWebhook",
 
 stack_webhook = pulumiservice.Webhook("stackWebhook",
     active=True,
-    display_name="#my-stack-activity-channel",
+    display_name="my-teams-channel",
     organization_name="my-org",
     project_name="webhook-examples",
     stack_name="dev",
-    payload_url="https://hooks.slack.com/services/...",
-    format=pulumiservice.WebhookFormat.SLACK)
+    payload_url="https://xxxxx.webhook.office.com/xxxxxxxxx",
+    format=pulumiservice.WebhookFormat.MICROSOFT_TEAMS)
 
 pulumi.export("orgWebhookName", org_webhook.name)
 pulumi.export("stackWebhookName", stack_webhook.name)
@@ -198,10 +195,10 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		orgWebhook, err := pulumiservice.NewWebhook(ctx, "orgWebhook", &pulumiservice.WebhookArgs{
 			Active:           pulumi.Bool(true),
-			DisplayName:      pulumi.String("#my-org-activity-channel"),
+			DisplayName:      pulumi.String("my-teams-channel"),
 			OrganizationName: pulumi.String("my-org"),
-			PayloadUrl:       pulumi.String("https://hooks.slack.com/services/..."),
-			Format:           pulumiservice.WebhookFormatSlack,
+			PayloadUrl:       pulumi.String("https://xxxxx.webhook.office.com/xxxxxxxxx"),
+			Format:           pulumiservice.WebhookFormatMicrosoftTeams,
 			Filters: pulumiservice.WebhookFiltersArray{
 				pulumiservice.WebhookFiltersStackCreated,
 				pulumiservice.WebhookFiltersStackDeleted,
@@ -214,12 +211,12 @@ func main() {
 		}
 		stackWebhook, err := pulumiservice.NewWebhook(ctx, "stackWebhook", &pulumiservice.WebhookArgs{
 			Active:           pulumi.Bool(true),
-			DisplayName:      pulumi.String("#my-stack-activity-channel"),
+			DisplayName:      pulumi.String("my-teams-channel"),
 			OrganizationName: pulumi.String("my-org"),
 			ProjectName:      pulumi.String("webhook-examples"),
 			StackName:        pulumi.String("dev"),
-			PayloadUrl:       pulumi.String("https://hooks.slack.com/services/..."),
-			Format:           pulumiservice.WebhookFormatSlack,
+			PayloadUrl:       pulumi.String("https://xxxxx.webhook.office.com/xxxxxxxxx"),
+			Format:           pulumiservice.WebhookFormatMicrosoftTeams,
 		})
 		if err != nil {
 			return err
@@ -246,10 +243,10 @@ return await Deployment.RunAsync(() =>
     var orgWebhook = new PulumiService.Webhook("orgWebhook", new()
     {
         Active = true,
-        DisplayName = "#my-org-activity-channel",
+        DisplayName = "my-teams-channel",
         OrganizationName = "my-org",
-        PayloadUrl = "https://hooks.slack.com/services/...",
-        Format = PulumiService.WebhookFormat.Slack,
+        PayloadUrl = "https://xxxxx.webhook.office.com/xxxxxxxxx",
+        Format = PulumiService.WebhookFormat.MicrosoftTeams,
         Filters = new[]
         {
             PulumiService.WebhookFilters.StackCreated,
@@ -262,12 +259,12 @@ return await Deployment.RunAsync(() =>
     var stackWebhook = new PulumiService.Webhook("stackWebhook", new()
     {
         Active = true,
-        DisplayName = "#my-stack-activity-channel",
+        DisplayName = "my-teams-channel",
         OrganizationName = "my-org",
         ProjectName = "webhook-examples",
         StackName = "dev",
-        PayloadUrl = "https://hooks.slack.com/services/...",
-        Format = PulumiService.WebhookFormat.Slack,
+        PayloadUrl = "https://xxxxx.webhook.office.com/xxxxxxxxx",
+        Format = PulumiService.WebhookFormat.MicrosoftTeams,
     });
 
     return new Dictionary<string, object?>
@@ -305,10 +302,10 @@ public class App {
     public static void stack(Context ctx) {
         var orgWebhook = new Webhook("orgWebhook", WebhookArgs.builder()
             .active(true)
-            .displayName("#my-org-activity-channel")
+            .displayName("my-teams-channel")
             .organizationName("my-org")
-            .payloadUrl("https://hooks.slack.com/services/...")
-            .format("slack")
+            .payloadUrl("https://xxxxx.webhook.office.com/xxxxxxxxx")
+            .format("ms_teams")
             .filters(
                 "stack_created",
                 "stack_deleted",
@@ -318,12 +315,12 @@ public class App {
 
         var stackWebhook = new Webhook("stackWebhook", WebhookArgs.builder()
             .active(true)
-            .displayName("#my-stack-activity-channel")
+            .displayName("my-teams-channel")
             .organizationName("my-org")
             .projectName("webhook-examples")
             .stackName("dev")
-            .payloadUrl("https://hooks.slack.com/services/...")
-            .format("slack")
+            .payloadUrl("https://xxxxx.webhook.office.com/xxxxxxxxx")
+            .format("ms_teams")
             .build());
 
         ctx.export("orgWebhookName", orgWebhook.name());
