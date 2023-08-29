@@ -25,7 +25,7 @@ Pulumi Cloud Webhooks, including the Microsoft Teams integration, are available 
 
 ![Example of the notifications in Microsoft Teams](ms_teams.png)
 
-Pulumi Microsft Teams notifications enable central visibility for your team. In addition to getting the notification of a successful or failed update, you will have links to take you directly to the stack and directly to the update itself. You can see what Pulumi operation was being run, which user initiated it and the number of resouces changed and unaffected. All of this information in one place lets you spend less time context switching and more time collaborating.
+Pulumi Microsoft Teams notifications enable central visibility for your team. In addition to getting the notification of a successful or failed update, you will have links to take you directly to the stack and directly to the update itself. You can see what Pulumi operation was being run, which user initiated it and the number of resouces changed and unaffected. All of this information in one place lets you spend less time context switching and more time collaborating.
 
 ### Setting up the Microsoft Teams Integration
 
