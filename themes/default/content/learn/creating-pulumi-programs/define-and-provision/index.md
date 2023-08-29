@@ -38,12 +38,7 @@ The first step is to create a virtual machine resource that will be used to host
 {{% choosable language typescript %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
+{{< loadcode "code/typescript/baseline.txt" >}}
 ```
 
 {{% /choosable %}}
@@ -59,7 +54,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language yaml %}}
 
 ```yaml
-TBD
+{{< loadcode "code/yaml/baseline.yaml" >}}
 ```
 
 {{% /choosable %}}
@@ -75,12 +70,7 @@ We will now define our EC2 instance resource below.
 {{% choosable language typescript %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
+{{< loadcode "code/typescript/create-ec2.txt" >}}
 ```
 
 {{% /choosable %}}
@@ -96,7 +86,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language yaml %}}
 
 ```yaml
-TBD
+{{< loadcode "code/yaml/create-ec2.yaml" >}}
 ```
 
 {{% /choosable %}}
@@ -166,12 +156,7 @@ An updated version of the project code has been provided below as a starting poi
 {{% choosable language typescript %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
+{{< loadcode "code/typescript/updated-baseline.txt" >}}
 ```
 
 {{% /choosable %}}
@@ -187,7 +172,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language yaml %}}
 
 ```yaml
-TBD
+{{< loadcode "code/yaml/updated-baseline.yaml" >}}
 ```
 
 {{% /choosable %}}
@@ -223,12 +208,7 @@ Once you have completed these steps, navigate to your instance IP address again.
 {{% choosable language typescript %}}
 
 ```typescript
-import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
+{{< loadcode "code/typescript/create-sg.txt" >}}
 ```
 
 {{% /choosable %}}
@@ -244,12 +224,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language yaml %}}
 
 ```yaml
-import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-
-// [Step 1: Create an EC2 instance.]
-
-// [Step 2: Create a security group.]
+{{< loadcode "code/yaml/create-sg.yaml" >}}
 ```
 
 {{% /choosable %}}
