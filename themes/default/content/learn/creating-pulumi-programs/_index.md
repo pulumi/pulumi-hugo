@@ -11,6 +11,7 @@ index: 1
 meta_image: practice.png
 youll_learn:
     - Defining and provisioning infrastructure
+    - Using inputs and outputs
 tags:
     - fundamentals
     - aws

@@ -21,11 +21,19 @@ tags:
 
 All resources in Pulumi accept values that describe the way the resource behaves. We call these values inputs.
 
+## Pre-Requisites
+
+{{< tutorials/prereqs-aws >}}
+
 ## Understanding Outputs
 
 A stack can export values as stack outputs. These outputs are shown during an update, can be easily retrieved with the Pulumi CLI, and are displayed in the Pulumi Cloud. They can be used for important values like resource IDs, computed IP addresses, and DNS names.
 
-To export values from a stack, use the following definition in the top-level of the entrypoint for your project:
+To export values from a stack, use the following definition in your project:
+
+## Clean Up
+
+{{< cleanup >}}
 
 ## Next Steps
 

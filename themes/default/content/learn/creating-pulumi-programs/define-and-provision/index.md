@@ -25,16 +25,7 @@ In this tutorial, we'll demonstrate how to create a simple Nginx web server. You
 
 ## Pre-Requisites
 
-This tutorial assumes that you are familiar with the basics of the Pulumi workflow. If you are new to Pulumi, complete the [Get Started series](/docs/get-started) first.
-
-Additionally, you will need the following tools to complete this tutorial:
-
-- A [Pulumi account and token](/docs/pulumi-cloud/accounts#access-tokens)
-- The [Pulumi CLI](/docs/cli/)
-- An [Amazon Web Services](https://aws.amazon.com/) account
-- One of the following languages installed:
-    - Node.js version 14 or later (for Typescript/Javascript)
-    - Python version 3.7 or later
+{{< tutorials/prereqs-aws >}}
 
 Let's get started!
 
@@ -60,12 +51,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language python %}}
 
 ```python
-import pulumi
-import pulumi_aws as aws
-
-# [Step 1: Create an EC2 instance.]
-
-# [Step 2: Create a security group.]
+{{< loadcode "code/python/baseline.py" >}}
 ```
 
 {{% /choosable %}}
@@ -102,27 +88,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language python %}}
 
 ```python
-import pulumi
-import pulumi_aws as aws
-
-user_data = """
-#!/bin/bash
-sudo yum update -y
-sudo yum upgrade -y
-sudo amazon-linux-extras install nginx1 -y
-sudo systemctl enable nginx
-sudo systemctl start nginx
-"""
-
-# [Step 1: Create an EC2 instance.]
-server = aws.ec2.Instance(
-    'webserver-www',
-    instance_type="t2.micro",
-    ami="ami-09538990a0c4fe9be", # Amazon Linux 2 AMI for us-east-1 region
-    user_data=user_data
-)
-
-pulumi.export('publicIp', server.public_ip)
+{{< loadcode "code/python/create-ec2.py" >}}
 ```
 
 {{% /choosable %}}
@@ -213,31 +179,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language python %}}
 
 ```python
-import pulumi
-import pulumi_aws as aws
-
-user_data = """
-#!/bin/bash
-sudo yum update -y
-sudo yum upgrade -y
-sudo amazon-linux-extras install nginx1 -y
-sudo systemctl enable nginx
-sudo systemctl start nginx
-"""
-
-# [Step 2: Create a security group.]
-security_group = # TO-DO
-
-# [Step 1: Create an EC2 instance.]
-server = aws.ec2.Instance(
-    'webserver-www',
-    instance_type="t2.micro",
-    ami="ami-09538990a0c4fe9be",
-    user_data=user_data,
-    vpc_security_group_ids=[security_group.id], # Security group property and reference
-)
-
-pulumi.export('publicIp', server.public_ip)
+{{< loadcode "code/python/updated-baseline.py" >}}
 ```
 
 {{% /choosable %}}
@@ -294,37 +236,7 @@ import * as pulumi from "@pulumi/pulumi";
 {{% choosable language python %}}
 
 ```python
-import pulumi
-import pulumi_aws as aws
-
-user_data = """
-#!/bin/bash
-sudo yum update -y
-sudo yum upgrade -y
-sudo amazon-linux-extras install nginx1 -y
-sudo systemctl enable nginx
-sudo systemctl start nginx
-"""
-
-# [Step 1: Create an EC2 instance.]
-server = aws.ec2.Instance(
-    'webserver-www',
-    instance_type="t2.micro",
-    ami="ami-09538990a0c4fe9be",
-    user_data=user_data,
-    vpc_security_group_ids=[security_group.id], # Security group property and reference
-)
-
-# [Step 2: Create a security group.]
-security_group = aws.ec2.SecurityGroup(
-    'webserver-secgrp',
-    description='Enable HTTP access',
-    ingress=[
-        { 'protocol': 'tcp', 'from_port': 80, 'to_port': 80, 'cidr_blocks': ['0.0.0.0/0'] }
-    ]
-)
-
-pulumi.export('publicIp', server.public_ip)
+{{< loadcode "code/python/create-sg.py" >}}
 ```
 
 {{% /choosable %}}
@@ -343,6 +255,10 @@ import * as pulumi from "@pulumi/pulumi";
 {{% /choosable %}}
 
 {{< /details >}}
+
+## Clean Up
+
+{{< cleanup >}}
 
 ## Next Steps
 
