@@ -17,7 +17,7 @@ Getting your Pulumi notifications into Microsft Teams is now easier than ever.
 
 <!--more-->
 
-Teams using Pulumi Cloud have been setting up Microsft Teams notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Microsoft Teams integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves.
+Teams using Pulumi Cloud have been setting up Microsoft Teams notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Microsoft Teams integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves.
 
 Pulumi Cloud Webhooks, including the Microsoft Teams integration, are available to all Pulumi Cloud organizations.
 
