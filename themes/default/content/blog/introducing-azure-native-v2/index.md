@@ -154,6 +154,7 @@ The Pulumi Azure Native Provider 2.0 is available today for Pulumi programs usin
 Try out the Pulumi Azure Native Provider 2.0 today and take the next step in your journey with infrastructure as code on Microsoft Azure!
 
 ## Getting Started
+
 Try Infrastructure as Code on Azure by following this quick [getting started guide](/docs/clouds/azure/get-started/).
 
 [Join](/resources/azure-github-workshop/) Pulumi, Azure, and GitHub on Tuesday, September 19, 2023 for a [live workshop](/resources/azure-github-workshop/) on getting started with infrastructure as code on azure. You'll learn how to use the Azure Native Provider and set up an automated deployment workflow through GitHub.
