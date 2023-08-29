@@ -2,7 +2,7 @@
 title: "Announcing Microsoft Teams Webhook Integration for Pulumi Cloud"
 allow_long_title: true
 date: 2023-08-28
-meta_desc: Pulumi Cloud now has an easy to set up Microsoft Teas webhooks integration.
+meta_desc: Pulumi Cloud now has an easy to set up Microsoft Teams webhooks integration.
 
 meta_image: meta.png
 authors:
