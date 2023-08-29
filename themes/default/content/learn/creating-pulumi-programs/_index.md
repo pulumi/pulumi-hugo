@@ -10,7 +10,7 @@ meta_desc: Learn how to use Pulumi to build, configure, and deploy real cloud re
 index: 1
 meta_image: practice.png
 youll_learn:
-    - Defining and provisioning infrastructure
+    - Defining and provisioning resources
 tags:
     - fundamentals
     - aws
