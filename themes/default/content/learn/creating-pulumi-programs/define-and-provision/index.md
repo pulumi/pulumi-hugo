@@ -27,8 +27,6 @@ In this tutorial, we'll demonstrate how to create a simple Nginx web server. You
 
 {{< tutorials/prereqs-aws >}}
 
-Let's get started!
-
 ## Create a Virtual Machine
 
 The first step is to create a virtual machine resource that will be used to host the web server. The specific details of how to create your virtual machine differ by cloud provider. For the purposes of this tutorial, we will be creating our resources in AWS in the `us-east-1` region.
