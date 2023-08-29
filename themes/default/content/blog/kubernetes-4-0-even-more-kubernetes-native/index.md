@@ -23,6 +23,9 @@ Since the very earliest days of the Pulumi project, Kubernetes has been a core p
 Today, we are excited to release the next major version of our Kubernetes provider - [Pulumi Kubernetes 4.0](/registry/packages/kubernetes/).
 
 <!--more-->
+{{% notes type="info" %}}
+Join us for a free, on-demand webinar with Pulumi and the CNCF to learn how to use Pulumi's Kubernetes Provider and other open-source tools to build internal developer platforms. [Register &rarr;](https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-on-demand-webinar-how-to-start-building-a-self-service-infrastructure-platform-on-kubernetes/)
+{{% /notes %}}
 
 Pulumi Kubernetes 4.0 uses Kubernetes Server-Side Apply by default, supports upserting on all resources, and enables new Patch resources for every resource type in the provider.  It also brings improved diffs, removes dependence on kubectl annotations, and provides simpler access to outputs in the Python, Go and Java SDKs, supporting any self-hosted or managed Kubernetes cluster with version 1.13 or newer.
 
@@ -215,6 +218,12 @@ As part of this work, we removed the use of the `kubectl.kubernetes.io/last-appl
 
 ## Migrating to Kubernetes 4.0
 
-You can migrate your existing Pulumi Kubernetes projects to 4.0 today, or start a new project targeting 4.0 with any of the Pulumi templates.  
+You can migrate your existing Pulumi Kubernetes projects to 4.0 today, or start a new project targeting 4.0 with any of the Pulumi templates.
 
 For users migrating to 4.0, check out the [v4 Provider Migration Guide](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/v4-migration/) with full details of the additional changes in this release.
+
+## Getting Started
+
+Try Infrastructure as Code for Kubernetes by following this quick [getting started guide](/docs/clouds/kubernetes/get-started/).
+
+Join us for a free, on-demand webinar with Pulumi and the CNCF to learn how to use Pulumi's Kubernetes Provider and other open-source tools to build internal developer platforms. [Register &rarr;](https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-on-demand-webinar-how-to-start-building-a-self-service-infrastructure-platform-on-kubernetes/)
