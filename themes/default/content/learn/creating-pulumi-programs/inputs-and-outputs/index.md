@@ -65,6 +65,34 @@ These outputs are shown during an update, can be easily retrieved with the Pulum
 
 ### Create an S3 Bucket Resource
 
+Next, we will define a simple S3 bucket as shown below.
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/create-s3-bucket.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/create-s3-bucket.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/create-s3-bucket.yaml" >}}
+```
+
+{{% /choosable %}}
+
 
 
 ## Understanding Inputs
@@ -83,7 +111,7 @@ To reference values from another stack, create an instance of the StackReference
 
 ### Read the Contents of the S3 Bucket
 
-TBD
+Use docs to make custom IAM role for Lambda function and give it only read permissions (test their ability to use apply)
 
 ## Clean Up
 
