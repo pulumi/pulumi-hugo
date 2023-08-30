@@ -1,5 +1,5 @@
 ---
-title: "Azure Native 2.0 for Infrastructure as Code on Azure"
+title: "Azure Native Provider 2.0: Streamlined, Expanded, and More Powerful than Ever"
 allow_long_title: true
 
 date: 2023-06-14T14:00:00-04:00
