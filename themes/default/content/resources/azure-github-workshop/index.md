@@ -71,7 +71,7 @@ main:
     datetime: "7/27/2023 8:00am - 9:30am PDT"
     # Description of the webinar.
     description: |
-        When managing cloud infrastructure, it’s important to establish a build-test-release process for your team. In this session, experts from the Azure, GitHub, and Pulumi teams will show you how to use Pulumi’s [Azure Native v2 provider]() and your favorite programming languages to stand up new projects on Azure quickly. Then, we’ll show you how Pulumi’s new Review Stacks feature creates a temporary cloud environment for every Pull Request in GitHub automatically – making it easier than ever to validate both infrastructure and app code before release.
+        When managing cloud infrastructure, it’s important to establish a build-test-release process for your team. In this session, experts from the Azure, GitHub, and Pulumi teams will show you how to use Pulumi’s [Azure Native v2 provider](/blog/introducing-azure-native-v2/) and your favorite programming languages to stand up new projects on Azure quickly. Then, we’ll show you how Pulumi’s new Review Stacks feature creates a temporary cloud environment for every Pull Request in GitHub automatically – making it easier than ever to validate both infrastructure and app code before release.
 
     # The webinar presenters
     presenters:
