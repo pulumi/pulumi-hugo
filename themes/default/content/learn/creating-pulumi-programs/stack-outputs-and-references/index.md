@@ -97,35 +97,11 @@ The first resource we will define in our project is a simple S3 bucket as shown 
 
 The next resource we will create is a Lambda function with function code that will write a file to our S3 bucket. We will also include an IAM role for the Lambda to use when executing its function.
 
-To start, let's create a new folder in our project named `s3_writer`. Inside of this folder, we'll create a file named `lambda_function.py` and populate it with the following code:
-
-{{< chooser language "typescript,python,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-{{< loadcode "code/lambda-code.py" >}}
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
+To start, let's create a new folder in our project named `s3_writer`. Inside of this folder, we'll create a file named `lambda_function.py` and populate it with code that will write a simple `.txt` file to our bucket.
 
 ```python
 {{< loadcode "code/lambda-code.py" >}}
 ```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-{{< loadcode "code/lambda-code.py" >}}
-```
-
-{{% /choosable %}}
-
-This code will write a simple `.txt` file to our bucket.
 
 Now, we can add the [Lambda function resource definition](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/) and its corresponding [IAM role](https://www.pulumi.com/registry/packages/aws/api-docs/iam/role/) to our project file.
 
@@ -155,7 +131,6 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 
 {{% /choosable %}}
 
-
 ### Export the Lambda ARN
 
 Now that we have our project resources defined, we can use the `pulumi.export("<output-name>", <output-value>)` function to export values from our program. It takes two arguments:
@@ -167,7 +142,7 @@ Now that we have our project resources defined, we can use the `pulumi.export("<
 
 To demonstrate how this works, let's export the name of our Lambda function. The [Pulumi documentation](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/#outputs) provides more information about what properties are available to export for each resource.
 
-Referencing this, we can update our code to the following:
+We can reference our Lambda function name via the `id` property, and we'll update our code to reflect that as shown below:
 
 {{< chooser language "typescript,python,yaml" / >}}
 
@@ -197,6 +172,47 @@ Referencing this, we can update our code to the following:
 ### Deploy your Project Resources
 
 Now let’s run the `pulumi up` command to preview and deploy the resources we've just defined in our project.
+
+```bash
+Previewing update (dev):
+
+     Type                      Name                     Plan
+ +   pulumi:pulumi:Stack     inputs-outputs-dev         create     
+ +   ├─ aws:iam:Role         s3-writer-role             create     
+ +   ├─ aws:s3:Bucket        my-bucket                  create     
+ +   └─ aws:lambda:Function  s3-writer-lambda-function  create    
+
+Outputs:
+    lambdaName: output<string>
+
+Resources:
+    + 4 to create
+
+Do you want to perform this update? yes
+Updating (dev):
+
+     Type                      Name                     Status
+ +   pulumi:pulumi:Stack     inputs-outputs-dev         created (18s)     
+ +   ├─ aws:iam:Role         s3-writer-role             created (1s)      
+ +   ├─ aws:s3:Bucket        my-bucket                  created (1s)      
+ +   └─ aws:lambda:Function  s3-writer-lambda-function  created (13s)   
+
+Outputs:
+    lambdaName: "s3-writer-lambda-function-981d4fa"
+
+Resources:
+    + 4 created
+
+Duration: 20s
+```
+
+Now that our resources are deployed, let's kick off our Lambda to S3 file writing process.
+
+The first thing we will do is validate that our S3 bucket is empty.
+
+Then, we will trigger our Lambda function with a sample event object.
+
+Now let's check our S3 bucket again. This time, we should see a `.txt` file.
 
 ## Using Stack References
 
