@@ -20,7 +20,7 @@ tags:
 
 Since the very earliest days of the Pulumi project, Kubernetes has been a core part of the Pulumi platform.  The initial Pulumi Kubernetes provider supported the entire API surface area of the Kubernetes platform, derived directly and automatically from the Kubernetes OpenAPI specifications, and available to all of Pulumi's familiar programming languages.  Since then, we have offered day one support for every new Kubernetes version, added support for Helm, YAML, Kustomize and CRDs, added tools for converting to Pulumi (kube2pulumi and crd2pulumi) and delivered the Pulumi Kubernetes Operator.  During that same time, Kubernetes usage has continued to expand within the ecosystem and among Pulumi users, with the Kubernetes provider growing from the fourth most used to the second most used provider on the platform.
 
-Today, we are excited to release the next major version of our Kubernetes provider - [Pulumi Kubernetes 4.0](/registry/packages/kubernetes/).
+We are excited to release the next major version of our Kubernetes provider - [Pulumi Kubernetes 4.0](/registry/packages/kubernetes/).
 
 <!--more-->
 {{% notes type="info" %}}
