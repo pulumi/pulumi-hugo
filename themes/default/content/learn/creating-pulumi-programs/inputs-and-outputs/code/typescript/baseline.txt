@@ -4,5 +4,3 @@ import * as pulumi from "@pulumi/pulumi";
 // [Step 1: Create an EC2 instance.]
 
 // [Step 2: Create a security group.]
-
-// [Step 3: List the contents of the S3 bucket.]
