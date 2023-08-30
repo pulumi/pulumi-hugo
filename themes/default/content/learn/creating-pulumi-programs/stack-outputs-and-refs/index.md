@@ -93,7 +93,7 @@ Next, we will define a simple S3 bucket as shown below.
 
 {{% /choosable %}}
 
-The `pulumi.export()` function
+The `pulumi.export()` function is what we will use to output values from our program.
 
 We will take the output of our S3 resource and use it as an input to another resource in the next step.
 
