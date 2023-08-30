@@ -31,6 +31,16 @@ In this tutorial, we'll demonstrate how to create a simple Nginx web server. You
 
 The first step is to create a virtual machine resource that will be used to host the web server. The specific details of how to create your virtual machine differ by cloud provider. For the purposes of this tutorial, we will be creating our resources in AWS in the `us-east-1` region.
 
+### Amazon Elastic Compute Cloud (EC2)
+
+Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that makes it straightforward to run applications in your AWS account. In AWS, a virtual server is referred to as an "instance". These instances can host a variety of operating systems, tools, and applications, each configured according to your specific requirements.
+
+#### Create a New Project
+
+To start, [create a new project](/docs/clouds/aws/get-started/create-project/) and [ensure it is configured to use your AWS account](/registry/packages/aws/installation-configuration/).
+
+Then use the follow code snippet to scaffold your project with the required imports and overall program structure that we will fill in as we go along:
+
 {{< chooser language "typescript,python,yaml" / >}}
 
 {{% choosable language typescript %}}
