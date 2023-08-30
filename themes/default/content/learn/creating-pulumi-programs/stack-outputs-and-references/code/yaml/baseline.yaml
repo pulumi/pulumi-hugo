@@ -1,0 +1,9 @@
+name: nginx-server
+runtime: yaml
+description: A program to create an Nginx server on AWS
+resources:
+  # [Step 1: Create an S3 bucket.]
+
+  # [Step 2: Create a Lambda function.]
+  
+  # [Step 3: Create an export.]

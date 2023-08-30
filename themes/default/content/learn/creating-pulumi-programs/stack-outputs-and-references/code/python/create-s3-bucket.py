@@ -6,3 +6,6 @@ bucket = aws.s3.Bucket('my-bucket')
 
 # [Step 2: Create a Lambda function.]
 # TO-DO
+
+# [Step 3: Create an export.]
+# TO-DO
