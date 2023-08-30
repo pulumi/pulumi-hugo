@@ -125,7 +125,7 @@ To start, let's create a new folder in our project named `s3_writer`. Inside of 
 
 {{% /choosable %}}
 
-This code will write simple `.txt` file to our bucket.
+This code will write a simple `.txt` file to our bucket.
 
 Now, we can add the [Lambda function resource definition](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/) and its corresponding [IAM role](https://www.pulumi.com/registry/packages/aws/api-docs/iam/role/) to our project file.
 
@@ -193,6 +193,10 @@ Referencing this, we can update our code to the following:
 {{< loadcode "code/yaml/add-export.yaml" >}}
 ```
 {{% /choosable %}}
+
+### Deploy your Project Resources
+
+Now let’s run the `pulumi up` command to preview and deploy the resources we've just defined in our project.
 
 ## Using Stack References
 
