@@ -165,6 +165,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 ```yaml
 {{< loadcode "code/yaml/add-export.yaml" >}}
 ```
+
 {{% /choosable %}}
 
 ### Deploy your Project Resources
