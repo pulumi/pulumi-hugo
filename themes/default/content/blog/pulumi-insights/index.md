@@ -11,6 +11,7 @@ tags:
     - pulumi-releases
     - ai
     - llm
+    - data-and-analytics
 ---
 
 We've seen incredible acceleration of cloud adoption over the past 5 years. Pulumi’s flagship open source IaC solution gives engineers great tools to scale up their cloud infrastructure using the same programming languages and tools they already know and love. As a result, thousands of companies of every size and scale have adopted Pulumi as a lynchpin of their cloud infrastructure strategy.
