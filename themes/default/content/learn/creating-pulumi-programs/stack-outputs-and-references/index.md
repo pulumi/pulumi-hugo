@@ -175,7 +175,7 @@ Now let’s run the `pulumi up` command to preview and deploy the resources we'v
 Previewing update (dev):
 
      Type                      Name                     Plan
- +   pulumi:pulumi:Stack     inputs-outputs-dev         create     
+ +   pulumi:pulumi:Stack     my-first-app-dev           create     
  +   ├─ aws:iam:Role         s3-writer-role             create     
  +   ├─ aws:s3:Bucket        my-bucket                  create     
  +   └─ aws:lambda:Function  s3-writer-lambda-function  create    
@@ -191,7 +191,7 @@ Do you want to perform this update? yes
 Updating (dev):
 
      Type                      Name                     Status
- +   pulumi:pulumi:Stack     inputs-outputs-dev         created (18s)     
+ +   pulumi:pulumi:Stack     my-first-app-dev           created (18s)     
  +   ├─ aws:iam:Role         s3-writer-role             created (1s)      
  +   ├─ aws:s3:Bucket        my-bucket                  created (1s)      
  +   └─ aws:lambda:Function  s3-writer-lambda-function  created (13s)   
@@ -205,6 +205,7 @@ Resources:
 
 Duration: 20s
 ```
+
 We can see that the outputs we've created have been provided as a part of the update details. We'll access these outputs via the CLI in the next steps of the tutorial.
 
 ### Access Outputs via the CLI
@@ -347,14 +348,10 @@ To check that our stack reference is working, let's run `pulumi up`.
 Previewing update (dev):
 
      Type                      Name                     Plan
- +   pulumi:pulumi:Stack     inputs-outputs-dev         create     
- +   ├─ aws:iam:Role         s3-writer-role             create     
- +   ├─ aws:s3:Bucket        my-bucket                  create     
- +   └─ aws:lambda:Function  s3-writer-lambda-function  create    
+ +   pulumi:pulumi:Stack  my-second-app-dev             create     
 
 Outputs:
-    lambdaName: output<string>
-    bucketName: output<string>
+    firstProgramLambdaName: output<string>
 
 Resources:
     + 4 to create
@@ -445,82 +442,3 @@ Use the following steps as a guide for adding the scheduling functionality:
 - Define the Schedule resource in your Scheduler project code
 - [Configure the Schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-create-scheduled-rule-schedule) to trigger the Lambda function once every minute
 - Preview and deploy your updated project code
-
-Once you have completed these stesp, run the `list-objects-v2` command again. You should now see a number of `.txt` files in your S3 bucket.
-
-Here is the complete code for exporting the Lambda function ARN.
-
-{{< chooser language "typescript,python,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-{{< loadcode "code/typescript/create-lambda-arn-export.txt" >}}
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-{{< loadcode "code/python/create-lambda-arn-export.py" >}}
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-{{< loadcode "code/yaml/create-lambda-arn-export.yaml" >}}
-```
-
-{{% /choosable %}}
-
-Here is the complete code for creating the EventBridge Scheduler:
-
-{{< chooser language "typescript,python,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-{{< loadcode "code/typescript/create-eb-scheduler.txt" >}}
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-{{< loadcode "code/python/create-eb-scheduler.py" >}}
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-{{< loadcode "code/yaml/create-eb-scheduler.yaml" >}}
-```
-
-{{% /choosable %}}
-
-## Clean Up
-
-{{< cleanup >}}
-
-{{% notes type="warning" %}}
-
-Make sure to empty the contents of your S3 bucket before deleting the resources or the deletion will fail.
-
-{{% /notes %}}
-
-## Next Steps
-
-In this tutorial, you created a Lambda function that writes a file to an S3 bucket. You also referenced the documentation to create an EventBridge Scheduler that would run the Lambda function on a scheduled basis.
-
-You exported Lambda properties into stack outputs, and referenced those outputs across stacks using stack references.
-
-To learn more about creating and managing resources in Pulumi, take a look at the following resources:
-
-- Learn more about [stacks ouputs and references](https://www.pulumi.com/docs/concepts/stack/#stackreferences) in the Pulumi documentation.
-- Learn more about [Pulumi inputs and outputs](https://www.pulumi.com/docs/concepts/inputs-outputs/) in the Pulumi documentation.
