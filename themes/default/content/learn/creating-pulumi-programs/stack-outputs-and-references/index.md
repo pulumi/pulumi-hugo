@@ -2,13 +2,12 @@
 title_tag: Stack Outputs and References | Learn Pulumi
 title: "Stack Outputs and References"
 layout: topic
-date: 2021-09-20T08:33:14-05:00
+date: "2023-08-31"
 draft: false
 description: Learn more about exporting and referencing stack outputs in Pulumi.
 meta_desc: Learn more about exporting and referencing stack outputs in Pulumi.
 index: 2
 estimated_time: 10
-meta_image: meta.png
 authors:
     - torian-crane
 tags:
@@ -17,6 +16,7 @@ tags:
     - resources
     - stack-outputs
     - stack-references
+    - python
 ---
 
 One of Pulumi's powerful features is the ability to work with inputs and outputs. This enables developers to model dependencies between resources and even stacks.
