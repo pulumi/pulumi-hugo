@@ -51,4 +51,4 @@ lambda_event = aws.lambda_.Permission("lambda_trigger_event",
 )
 
 # [Step 3: Create an export.]
-# TO-DO
+pulumi.export("lambdaArn", lambda_function.arn)

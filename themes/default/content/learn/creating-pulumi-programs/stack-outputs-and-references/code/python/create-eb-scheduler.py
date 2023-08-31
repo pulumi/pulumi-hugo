@@ -1,12 +1,10 @@
 import pulumi
 import pulumi_aws as aws
+import json
 
-stack_ref = # TO-DO
+stack_ref = pulumi.StackReference("v-torian-pulumi-corp/inputs-outputs/dev")
+lambda_arn = stack_ref.get_output("lambdaArn")
 
-lambda_arn = # TO-DO
-
-
-# Gives the EventBridge Scheduler the ability to execute the Lambda function
 scheduler_role = aws.iam.Role("scheduler_role",
     assume_role_policy="""{
         "Version": "2012-10-17",
@@ -36,4 +34,16 @@ scheduler_role = aws.iam.Role("scheduler_role",
     ]
 )
 
-scheduler = # TO-DO
+scheduler = aws.scheduler.Schedule("scheduler",
+    flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
+        mode="OFF",
+    ),
+    schedule_expression="rate(1 minutes)",
+    target=aws.scheduler.ScheduleTargetArgs(
+        arn=lambda_arn,
+        role_arn=scheduler_role.arn,
+    )
+)
+
+pulumi.export("roleArn", scheduler_role.arn)
+pulumi.export("lambdaArn", lambda_arn)
