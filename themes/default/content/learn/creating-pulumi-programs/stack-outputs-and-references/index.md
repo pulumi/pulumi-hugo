@@ -131,7 +131,7 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 
 {{% /choosable %}}
 
-### Export the Lambda ARN
+### Export Resource Values
 
 Now that we have our project resources defined, we can use the `pulumi.export("<output-name>", <output-value>)` function to export values from our program. It takes two arguments:
 
@@ -140,9 +140,9 @@ Now that we have our project resources defined, we can use the `pulumi.export("<
 | output-name | This is the name we will use to identify our output value |
 | output-value | This is the actual value of our output |
 
-To demonstrate how this works, let's export the name of our Lambda function. The [Pulumi documentation](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/#outputs) provides more information about what properties are available to export for each resource.
+To demonstrate how this works, let's export the names of our Lambda function and S3 bucket. The [Pulumi documentation](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/#outputs) provides more information about what properties are available to export for each resource.
 
-We can reference our Lambda function name via the `id` property, and we'll update our code to reflect that as shown below:
+We can reference both our Lambda function name and bucket name via their `id` property, and we'll update our code to reflect that as shown below:
 
 {{< chooser language "typescript,python,yaml" / >}}
 
@@ -184,6 +184,7 @@ Previewing update (dev):
 
 Outputs:
     lambdaName: output<string>
+    bucketName: output<string>
 
 Resources:
     + 4 to create
@@ -199,26 +200,82 @@ Updating (dev):
 
 Outputs:
     lambdaName: "s3-writer-lambda-function-981d4fa"
+    bucketName: "my-bucket-4fb1589"
 
 Resources:
     + 4 created
 
 Duration: 20s
 ```
+We can see that the outputs we've created have been provided as a part of the update process. We'll access these outputs via the CLI in the next steps of the tutorial.
+
+### Access Outputs via the CLI
 
 Now that our resources are deployed, let's kick off our Lambda to S3 file writing process.
 
-The first thing we will do is validate that our S3 bucket is empty.
+The first thing we will do is validate that our S3 bucket is empty. We can use the following [AWS CLI command](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html) to list all of the objects in our bucket:
 
-Then, we will trigger our Lambda function with a sample event object.
+```bash
+aws s3api list-objects-v2 --bucket <bucket_name>
+```
 
-Now let's check our S3 bucket again. This time, we should see a `.txt` file.
+We will want to replace `<bucket_name>` with the actual name of our S3 bucket. While we can manually provide the name of our bucket, we can also programmatically reference our bucket name via the stack outputs.
+
+We'll do this by using [`pulumi stack output`](https://www.pulumi.com/docs/concepts/stack/#outputs) command and provide the name of our output as shown below:
+
+```bash
+aws s3api list-objects-v2 --bucket $(pulumi stack output bucketName)
+```
+
+Right now, our bucket is empty, so the response of this command should look like the following:
+
+```bash
+{
+    "RequestCharged": null
+}
+```
+
+Now, let's trigger our Lambda functionso that it will write a new file to the bucket. We will use the [`aws lambda invoke` command](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html) and pass our Lambda function name to the `--function-name` option as shown below:
+
+```bash
+aws lambda invoke \
+    --function-name $(pulumi stack output lambdaName) \
+    --invocation-type Event \
+    --cli-binary-format raw-in-base64-out \
+    --payload '{ "test": "test" }' \
+    response.json && cat response.json
+    
+{
+    "StatusCode": 202
+}
+```
+
+We can verify the outcome of this function execution by running the same `list-objects-v2` from before to check our S3 bucket. This time, we should see output similar to the following:
+
+```bash
+{
+    "Contents": [
+        {
+            "Key": "2023-08-3107:53:28.137776_test_file.txt",
+            "LastModified": "2023-08-31T07:53:29+00:00",
+            "ETag": "\"f794802bfd4a70851294ba192d382c11\"",
+            "Size": 13,
+            "StorageClass": "STANDARD"
+        }
+    ],
+    "RequestCharged": null
+}
+```
+
+We can now see the `.txt` file that was written to this bucket in the `Key` field of the response object.
+
+We have seen how we can reference our output values from the CLI. Now let's take a look at how we can do the same from within another stack.
 
 ## Using Stack References
 
-Stack references allow you to access the outputs of one stack from another stack. Inter-Stack Dependencies allow one stack to reference the outputs of another stack.
+Stack references allow you to access the outputs of one stack from another stack. This enables developers to create resources even when there are inter-stack dependencies.
 
-To reference values from another stack, create an instance of the StackReference type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name:
+To reference values from another stack, we will need to create an instance of the StackReference type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name:
 
 ### Log the Name of the Lambda Function
 

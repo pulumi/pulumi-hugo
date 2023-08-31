@@ -42,3 +42,4 @@ lambda_function = aws.lambda_.Function(
 
 # [Step 3: Create an export.]
 pulumi.export("lambdaName", lambda_function.id)
+pulumi.export("bucketName", bucket.id)
