@@ -235,7 +235,7 @@ Right now, our bucket is empty, so the response of this command should look like
 }
 ```
 
-Now, let's trigger our Lambda functionso that it will write a new file to the bucket. We will use the [`aws lambda invoke` command](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html) and pass our Lambda function name to the `--function-name` option as shown below:
+Now, let's trigger our Lambda function so that it will write a new file to the bucket. We will use the [`aws lambda invoke`](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html) command and pass our Lambda function name to the `--function-name` option as shown below:
 
 ```bash
 aws lambda invoke \
@@ -250,7 +250,7 @@ aws lambda invoke \
 }
 ```
 
-We can verify the outcome of this function execution by running the same `list-objects-v2` from before to check our S3 bucket. This time, we should see output similar to the following:
+We can verify the outcome of this function execution by running the same `list-objects-v2` command from before to check our S3 bucket. This time, we should see output similar to the following:
 
 ```bash
 {
@@ -267,7 +267,7 @@ We can verify the outcome of this function execution by running the same `list-o
 }
 ```
 
-We can now see the `.txt` file that was written to this bucket in the `Key` field of the response object.
+The `.txt` file in the `Key` field of the response object indicates that our Lambda function ran successfully.
 
 We have seen how we can reference our output values from the CLI. Now let's take a look at how we can do the same from within another stack.
 
@@ -275,11 +275,122 @@ We have seen how we can reference our output values from the CLI. Now let's take
 
 Stack references allow you to access the outputs of one stack from another stack. This enables developers to create resources even when there are inter-stack dependencies.
 
-To reference values from another stack, we will need to create an instance of the StackReference type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name:
+For this section, we are going to create a new Pulumi program that will access the stack output values from our existing program.
 
-### Log the Name of the Lambda Function
+### Create a New Project
 
-(TBD: This is to show how to reference an output across stacks)
+Let's start by making our new Pulumi program in a new directory:
+
+```bash
+mkdir my-second-app && cd my-second-app
+pulumi new <your-language-here> -y
+```
+
+### Reference the Name of the Lambda Function
+
+We now need to add the code that will reference the values from our first program. 
+
+First, we'll start by adding the `pulumi.StackReference()` function to create the cross-stack reference. We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
+
+For example, if the name of our organization is `my-org`, the name of our first program is `my-first-program`, and the name of our stack is `dev`, then our fully qualified name will be `my-org/my-first-program/dev`:
+
+A stack reference will look like the following in our code:
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/add-stack-reference.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/add-stack-reference.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/add-stack-reference.yaml" >}}
+```
+{{% /choosable %}}
+
+{{% notes type="info" %}}
+
+Make sure that the fully qualified name in the example above are populated with the values that are specific to your Pulumi organization, project, and stack.
+
+{{% /notes %}}
+
+We will now create an export that will output the value of the Lambda function name from our first program. This is to demonstrate how to retrieve output values from another stack for use in your program.
+
+Let's update our code with the following:
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/add-second-export.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/add-second-export.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/add-second-export.yaml" >}}
+```
+{{% /choosable %}}
+
+To check that our stack reference is working, let's run `pulumi up`.
+
+```bash
+Previewing update (dev):
+
+     Type                      Name                     Plan
+ +   pulumi:pulumi:Stack     inputs-outputs-dev         create     
+ +   ├─ aws:iam:Role         s3-writer-role             create     
+ +   ├─ aws:s3:Bucket        my-bucket                  create     
+ +   └─ aws:lambda:Function  s3-writer-lambda-function  create    
+
+Outputs:
+    lambdaName: output<string>
+    bucketName: output<string>
+
+Resources:
+    + 4 to create
+
+Do you want to perform this update? yes
+Updating (dev):
+
+     Type                      Name                     Status
+ +   pulumi:pulumi:Stack  my-second-app-dev             created (2s)    
+ +   ├─ aws:iam:Role         s3-writer-role             created (1s)      
+ +   ├─ aws:s3:Bucket        my-bucket                  created (1s)      
+ +   └─ aws:lambda:Function  s3-writer-lambda-function  created (13s)   
+
+Outputs:
+    firstProgramLambdaName: "s3-writer-lambda-function-981d4fa"
+
+Resources:
+    + 1 created
+
+Duration: 3s
+```
 
 ### Run the Lambda Function on a Schedule
 
