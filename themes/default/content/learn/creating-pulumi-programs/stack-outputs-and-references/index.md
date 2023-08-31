@@ -21,7 +21,7 @@ tags:
 
 One of Pulumi's powerful features is the ability to work with inputs and outputs. This enables developers to model dependencies between resources and even stacks.
 
-In this tutorial, we'll demonstrate how to export values from a stack by creating a simple AWS Lambda Function that will write a file to an S3 bucket. You will then create an EventBridge Scheduler resource in a new stack that will run the Lambda function from the first stack on a scheduled basis. 
+In this tutorial, we'll demonstrate how to export values from a stack by creating a simple AWS Lambda Function that will write a file to an S3 bucket. You will then create an EventBridge Scheduler resource in a new stack that will run the Lambda function from the first stack on a scheduled basis.
 
 ## Pre-Requisites
 
@@ -175,10 +175,10 @@ Now let’s run the `pulumi up` command to preview and deploy the resources we'v
 Previewing update (dev):
 
      Type                      Name                     Plan
- +   pulumi:pulumi:Stack     my-first-app-dev           create     
- +   ├─ aws:iam:Role         s3-writer-role             create     
- +   ├─ aws:s3:Bucket        my-bucket                  create     
- +   └─ aws:lambda:Function  s3-writer-lambda-function  create    
+ +   pulumi:pulumi:Stack     my-first-app-dev           create
+ +   ├─ aws:iam:Role         s3-writer-role             create
+ +   ├─ aws:s3:Bucket        my-bucket                  create
+ +   └─ aws:lambda:Function  s3-writer-lambda-function  create
 
 Outputs:
     lambdaName: output<string>
@@ -191,10 +191,10 @@ Do you want to perform this update? yes
 Updating (dev):
 
      Type                      Name                     Status
- +   pulumi:pulumi:Stack     my-first-app-dev           created (18s)     
- +   ├─ aws:iam:Role         s3-writer-role             created (1s)      
- +   ├─ aws:s3:Bucket        my-bucket                  created (1s)      
- +   └─ aws:lambda:Function  s3-writer-lambda-function  created (13s)   
+ +   pulumi:pulumi:Stack     my-first-app-dev           created (18s)
+ +   ├─ aws:iam:Role         s3-writer-role             created (1s)
+ +   ├─ aws:s3:Bucket        my-bucket                  created (1s)
+ +   └─ aws:lambda:Function  s3-writer-lambda-function  created (13s)
 
 Outputs:
     lambdaName: "s3-writer-lambda-function-981d4fa"
@@ -274,7 +274,7 @@ For this section, we are going to create a new Pulumi program that will access t
 
 ### Reference the Name of the Lambda Function
 
-Let's start by making a new Pulumi program in a new directory. In this new program, we need to add the code that will reference the values from our first program. 
+Let's start by making a new Pulumi program in a new directory. In this new program, we need to add the code that will reference the values from our first program.
 
 First, we'll start by adding the `pulumi.StackReference()` function to create the cross-stack reference. We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
 
@@ -305,6 +305,7 @@ A stack reference will look like the following in our code:
 ```yaml
 {{< loadcode "code/yaml/add-stack-reference.yaml" >}}
 ```
+
 {{% /choosable %}}
 
 {{% notes type="info" %}}
@@ -340,6 +341,7 @@ Let's update our code with the following:
 ```yaml
 {{< loadcode "code/yaml/add-second-export.yaml" >}}
 ```
+
 {{% /choosable %}}
 
 To check that our stack reference is working, let's run `pulumi up`.
@@ -348,7 +350,7 @@ To check that our stack reference is working, let's run `pulumi up`.
 Previewing update (dev):
 
      Type                      Name                     Plan
- +   pulumi:pulumi:Stack  my-second-app-dev             create     
+ +   pulumi:pulumi:Stack  my-second-app-dev             create
 
 Outputs:
     firstProgramLambdaName: output<string>
@@ -360,7 +362,7 @@ Do you want to perform this update? yes
 Updating (dev):
 
      Type                      Name                     Status
- +   pulumi:pulumi:Stack  my-second-app-dev             created (2s)    
+ +   pulumi:pulumi:Stack  my-second-app-dev             created (2s)
 
 Outputs:
     firstProgramLambdaName: "s3-writer-lambda-function-981d4fa"
@@ -404,6 +406,7 @@ An updated version of the Lambda Function project code has been provided below a
 ```yaml
 {{< loadcode "code/yaml/updated-baseline-lambda.yaml" >}}
 ```
+
 {{% /choosable %}}
 
 Some baseline code for the Scheduler project has also been provided below:
@@ -431,6 +434,7 @@ Some baseline code for the Scheduler project has also been provided below:
 ```yaml
 {{< loadcode "code/yaml/updated-baseline-scheduler.yaml" >}}
 ```
+
 {{% /choosable %}}
 
 Use the following steps as a guide for adding the scheduling functionality:
