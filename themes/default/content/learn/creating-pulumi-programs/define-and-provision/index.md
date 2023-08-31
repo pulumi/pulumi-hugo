@@ -2,7 +2,7 @@
 title_tag: Defining and Provisioning Resources | Learn Pulumi
 title: "Defining and Provisioning Resources"
 layout: topic
-date: "2023-08-05"
+date: "2023-08-31"
 draft: false
 description: Learn how to define infrastructure with Pulumi resources.
 meta_desc: Learn what a resource is, how resources work within Pulumi, and how to create, update, and delete resources in this tutorial.
@@ -44,7 +44,7 @@ Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that 
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/baseline.txt" >}}
+{{% loadcode "code/typescript/baseline.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -52,7 +52,7 @@ Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that 
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/baseline.py" >}}
+{{% loadcode "code/python/baseline.py" %}}
 ```
 
 {{% /choosable %}}
@@ -60,7 +60,7 @@ Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that 
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/baseline.yaml" >}}
+{{% loadcode "code/yaml/baseline.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -76,7 +76,7 @@ We will now define our EC2 instance resource below.
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/create-ec2.txt" >}}
+{{% loadcode "code/typescript/create-ec2.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -84,7 +84,7 @@ We will now define our EC2 instance resource below.
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/create-ec2.py" >}}
+{{% loadcode "code/python/create-ec2.py" %}}
 ```
 
 {{% /choosable %}}
@@ -92,7 +92,7 @@ We will now define our EC2 instance resource below.
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/create-ec2.yaml" >}}
+{{% loadcode "code/yaml/create-ec2.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -162,7 +162,7 @@ An updated version of the project code has been provided below as a starting poi
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/updated-baseline.txt" >}}
+{{% loadcode "code/typescript/updated-baseline.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -170,7 +170,7 @@ An updated version of the project code has been provided below as a starting poi
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/updated-baseline.py" >}}
+{{% loadcode "code/python/updated-baseline.py" %}}
 ```
 
 {{% /choosable %}}
@@ -178,7 +178,7 @@ An updated version of the project code has been provided below as a starting poi
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/updated-baseline.yaml" >}}
+{{% loadcode "code/yaml/updated-baseline.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -206,7 +206,7 @@ Once you have completed these steps, navigate to your instance IP address again.
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/create-sg.txt" >}}
+{{% loadcode "code/typescript/create-sg.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -214,7 +214,7 @@ Once you have completed these steps, navigate to your instance IP address again.
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/create-sg.py" >}}
+{{% loadcode "code/python/create-sg.py" %}}
 ```
 
 {{% /choosable %}}
@@ -222,7 +222,7 @@ Once you have completed these steps, navigate to your instance IP address again.
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/create-sg.yaml" >}}
+{{% loadcode "code/yaml/create-sg.yaml" %}}
 ```
 
 {{% /choosable %}}

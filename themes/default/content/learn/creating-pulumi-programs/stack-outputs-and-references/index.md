@@ -8,6 +8,7 @@ description: Learn more about exporting and referencing stack outputs in Pulumi.
 meta_desc: Learn more about exporting and referencing stack outputs in Pulumi.
 index: 2
 estimated_time: 10
+meta_image: meta.png
 authors:
     - torian-crane
 tags:
@@ -16,7 +17,6 @@ tags:
     - resources
     - stack-outputs
     - stack-references
-    - python
 ---
 
 One of Pulumi's powerful features is the ability to work with inputs and outputs. This enables developers to model dependencies between resources and even stacks.
@@ -31,7 +31,7 @@ In this tutorial, we'll demonstrate how to export values from a stack by creatin
 
 Every Pulumi resource has outputs, which are properties of that resource whose values are generated during deployment. We can export these values as stack outputs, and they can be used for important values like resource IDs, computed IP addresses, and DNS names.
 
-These outputs are shown during an update, can be easily retrieved with the Pulumi CLI, and are displayed in the Pulumi Cloud. For the purposes of this tutorial, we will primarily be working from the CLI.  
+These outputs are shown during an update, can be easily retrieved with the Pulumi CLI, and are displayed in the Pulumi Cloud. For the purposes of this tutorial, we will primarily be working from the CLI.
 
 ### Create a New Project
 
@@ -42,7 +42,7 @@ These outputs are shown during an update, can be easily retrieved with the Pulum
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/baseline.txt" >}}
+{{% loadcode "code/typescript/baseline.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -50,7 +50,7 @@ These outputs are shown during an update, can be easily retrieved with the Pulum
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/baseline.py" >}}
+{{% loadcode "code/python/baseline.py" %}}
 ```
 
 {{% /choosable %}}
@@ -58,7 +58,7 @@ These outputs are shown during an update, can be easily retrieved with the Pulum
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/baseline.yaml" >}}
+{{% loadcode "code/yaml/baseline.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -72,7 +72,7 @@ The first resource we will define in our project is a simple S3 bucket as shown 
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/create-s3-bucket.txt" >}}
+{{% loadcode "code/typescript/create-s3-bucket.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -80,7 +80,7 @@ The first resource we will define in our project is a simple S3 bucket as shown 
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/create-s3-bucket.py" >}}
+{{% loadcode "code/python/create-s3-bucket.py" %}}
 ```
 
 {{% /choosable %}}
@@ -88,7 +88,7 @@ The first resource we will define in our project is a simple S3 bucket as shown 
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/create-s3-bucket.yaml" >}}
+{{% loadcode "code/yaml/create-s3-bucket.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -98,7 +98,7 @@ The next resource we will create is a Lambda function with function code that wi
 To start, let's create a new folder in our project named `s3_writer`. Inside of this folder, we'll create a file named `lambda_function.py` and populate it with code that will write a simple `.txt` file to our bucket.
 
 ```python
-{{< loadcode "code/lambda-code.py" >}}
+{{% loadcode "code/lambda-code.py" %}}
 ```
 
 Now, we can add the [Lambda function resource definition](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/) and its corresponding [IAM role](https://www.pulumi.com/registry/packages/aws/api-docs/iam/role/) to our project file.
@@ -108,7 +108,7 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/create-lambda-function.txt" >}}
+{{% loadcode "code/typescript/create-lambda-function.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -116,7 +116,7 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/create-lambda-function.py" >}}
+{{% loadcode "code/python/create-lambda-function.py" %}}
 ```
 
 {{% /choosable %}}
@@ -124,7 +124,7 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/create-lambda-function.yaml" >}}
+{{% loadcode "code/yaml/create-lambda-function.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -147,7 +147,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/add-export.txt" >}}
+{{% loadcode "code/typescript/add-export.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -155,7 +155,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/add-export.py" >}}
+{{% loadcode "code/python/add-export.py" %}}
 ```
 
 {{% /choosable %}}
@@ -163,7 +163,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/add-export.yaml" >}}
+{{% loadcode "code/yaml/add-export.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -288,7 +288,7 @@ A stack reference will look like the following in our code:
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/add-stack-reference.txt" >}}
+{{% loadcode "code/typescript/add-stack-reference.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -296,7 +296,7 @@ A stack reference will look like the following in our code:
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/add-stack-reference.py" >}}
+{{% loadcode "code/python/add-stack-reference.py" %}}
 ```
 
 {{% /choosable %}}
@@ -304,7 +304,7 @@ A stack reference will look like the following in our code:
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/add-stack-reference.yaml" >}}
+{{% loadcode "code/yaml/add-stack-reference.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -324,7 +324,7 @@ Let's update our code with the following:
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/add-second-export.txt" >}}
+{{% loadcode "code/typescript/add-second-export.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -332,7 +332,7 @@ Let's update our code with the following:
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/add-second-export.py" >}}
+{{% loadcode "code/python/add-second-export.py" %}}
 ```
 
 {{% /choosable %}}
@@ -340,7 +340,7 @@ Let's update our code with the following:
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/add-second-export.yaml" >}}
+{{% loadcode "code/yaml/add-second-export.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -389,7 +389,7 @@ An updated version of the Lambda Function project code has been provided below a
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/updated-baseline-lambda.txt" >}}
+{{% loadcode "code/typescript/updated-baseline-lambda.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -397,7 +397,7 @@ An updated version of the Lambda Function project code has been provided below a
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/updated-baseline-lambda.py" >}}
+{{% loadcode "code/python/updated-baseline-lambda.py" %}}
 ```
 
 {{% /choosable %}}
@@ -405,7 +405,7 @@ An updated version of the Lambda Function project code has been provided below a
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/updated-baseline-lambda.yaml" >}}
+{{% loadcode "code/yaml/updated-baseline-lambda.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -417,7 +417,7 @@ Some baseline code for the Scheduler project has also been provided below:
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/updated-baseline-scheduler.txt" >}}
+{{% loadcode "code/typescript/updated-baseline-scheduler.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -425,7 +425,7 @@ Some baseline code for the Scheduler project has also been provided below:
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/updated-baseline-scheduler.py" >}}
+{{% loadcode "code/python/updated-baseline-scheduler.py" %}}
 ```
 
 {{% /choosable %}}
@@ -433,7 +433,7 @@ Some baseline code for the Scheduler project has also been provided below:
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/updated-baseline-scheduler.yaml" >}}
+{{% loadcode "code/yaml/updated-baseline-scheduler.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -459,7 +459,7 @@ Once you have completed these stesp, run the `list-objects-v2` command again. Yo
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/create-lambda-arn-export.txt" >}}
+{{% loadcode "code/typescript/create-lambda-arn-export.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -467,7 +467,7 @@ Once you have completed these stesp, run the `list-objects-v2` command again. Yo
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/create-lambda-arn-export.py" >}}
+{{% loadcode "code/python/create-lambda-arn-export.py" %}}
 ```
 
 {{% /choosable %}}
@@ -475,7 +475,7 @@ Once you have completed these stesp, run the `list-objects-v2` command again. Yo
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/create-lambda-arn-export.yaml" >}}
+{{% loadcode "code/yaml/create-lambda-arn-export.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -489,7 +489,7 @@ Once you have completed these stesp, run the `list-objects-v2` command again. Yo
 {{% choosable language typescript %}}
 
 ```typescript
-{{< loadcode "code/typescript/create-eb-scheduler.txt" >}}
+{{% loadcode "code/typescript/create-eb-scheduler.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -497,7 +497,7 @@ Once you have completed these stesp, run the `list-objects-v2` command again. Yo
 {{% choosable language python %}}
 
 ```python
-{{< loadcode "code/python/create-eb-scheduler.py" >}}
+{{% loadcode "code/python/create-eb-scheduler.py" %}}
 ```
 
 {{% /choosable %}}
@@ -505,7 +505,7 @@ Once you have completed these stesp, run the `list-objects-v2` command again. Yo
 {{% choosable language yaml %}}
 
 ```yaml
-{{< loadcode "code/yaml/create-eb-scheduler.yaml" >}}
+{{% loadcode "code/yaml/create-eb-scheduler.yaml" %}}
 ```
 
 {{% /choosable %}}
