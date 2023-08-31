@@ -11,6 +11,7 @@ index: 1
 meta_image: practice.png
 youll_learn:
     - Defining and provisioning resources
+    - Using stack outputs and stack references
 tags:
     - fundamentals
     - aws
