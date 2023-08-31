@@ -63,7 +63,7 @@ These outputs are shown during an update, can be easily retrieved with the Pulum
 
 {{% /choosable %}}
 
-### Create an S3 Bucket Resource
+### Create Project Resources
 
 The first resource we will define in our project is a simple S3 bucket as shown below.
 
@@ -92,8 +92,6 @@ The first resource we will define in our project is a simple S3 bucket as shown 
 ```
 
 {{% /choosable %}}
-
-### Create a Lambda Function
 
 The next resource we will create is a Lambda function with function code that will write a file to our S3 bucket. We will also include an IAM role for the Lambda to use when executing its function.
 
@@ -207,7 +205,7 @@ Resources:
 
 Duration: 20s
 ```
-We can see that the outputs we've created have been provided as a part of the update process. We'll access these outputs via the CLI in the next steps of the tutorial.
+We can see that the outputs we've created have been provided as a part of the update details. We'll access these outputs via the CLI in the next steps of the tutorial.
 
 ### Access Outputs via the CLI
 
@@ -243,11 +241,7 @@ aws lambda invoke \
     --invocation-type Event \
     --cli-binary-format raw-in-base64-out \
     --payload '{ "test": "test" }' \
-    response.json && cat response.json
-    
-{
-    "StatusCode": 202
-}
+    response.json
 ```
 
 We can verify the outcome of this function execution by running the same `list-objects-v2` command from before to check our S3 bucket. This time, we should see output similar to the following:
@@ -277,18 +271,9 @@ Stack references allow you to access the outputs of one stack from another stack
 
 For this section, we are going to create a new Pulumi program that will access the stack output values from our existing program.
 
-### Create a New Project
-
-Let's start by making our new Pulumi program in a new directory:
-
-```bash
-mkdir my-second-app && cd my-second-app
-pulumi new <your-language-here> -y
-```
-
 ### Reference the Name of the Lambda Function
 
-We now need to add the code that will reference the values from our first program. 
+Let's start by making a new Pulumi program in a new directory. In this new program, we need to add the code that will reference the values from our first program. 
 
 First, we'll start by adding the `pulumi.StackReference()` function to create the cross-stack reference. We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
 
@@ -323,7 +308,7 @@ A stack reference will look like the following in our code:
 
 {{% notes type="info" %}}
 
-Make sure that the fully qualified name in the example above are populated with the values that are specific to your Pulumi organization, project, and stack.
+Make sure that the fully qualified name in the example above is populated with the values that are specific to your Pulumi organization, project, and stack.
 
 {{% /notes %}}
 
@@ -379,9 +364,6 @@ Updating (dev):
 
      Type                      Name                     Status
  +   pulumi:pulumi:Stack  my-second-app-dev             created (2s)    
- +   ├─ aws:iam:Role         s3-writer-role             created (1s)      
- +   ├─ aws:s3:Bucket        my-bucket                  created (1s)      
- +   └─ aws:lambda:Function  s3-writer-lambda-function  created (13s)   
 
 Outputs:
     firstProgramLambdaName: "s3-writer-lambda-function-981d4fa"
@@ -392,10 +374,77 @@ Resources:
 Duration: 3s
 ```
 
+We can see our cross stack reference successfully outputted in the update details.
+
 ### Run the Lambda Function on a Schedule
 
-Try it Yourself: Make an eventbridge to trigger the Lambda on a schedule? test stack reference
+In this section, you will use Pulumi documentation to create an Eventbridge Scheduler resource in one stack that will trigger the Lambda function in another stack on a scheduled basis.
 
+The scheduler should trigger the Lambda function to run once every minute.
+
+An updated version of the Lambda Function project code has been provided below as a starting point.
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/updated-baseline-lambda.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/updated-baseline-lambda.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/updated-baseline-lambda.yaml" >}}
+```
+{{% /choosable %}}
+
+Some baseline code for the Scheduler project has also been provided below:
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/updated-baseline-scheduler.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/updated-baseline-scheduler.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/updated-baseline-scheduler.yaml" >}}
+```
+{{% /choosable %}}
+
+Use the following steps as a guide for adding the scheduling functionality:
+
+- Export the Lambda function ARN from the Lambda project
+- Create a stack reference for the Lambda function ARN in your Scheduler project code
+- Navigate to the [AWS Registry documentation page](https://www.pulumi.com/registry/packages/aws/)
+- Search for the Scheduler Schedule resource
+- Define the Schedule resource in your Scheduler project code
+- [Configure the Schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-create-scheduled-rule-schedule) to trigger the Lambda function once every minute
+- Preview and deploy your updated project code
 
 ## Clean Up
 
