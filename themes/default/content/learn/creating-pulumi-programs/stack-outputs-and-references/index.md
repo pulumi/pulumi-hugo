@@ -442,3 +442,90 @@ Use the following steps as a guide for adding the scheduling functionality:
 - Define the Schedule resource in your Scheduler project code
 - [Configure the Schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-create-scheduled-rule-schedule) to trigger the Lambda function once every minute
 - Preview and deploy your updated project code
+
+Once you have completed these stesp, run the `list-objects-v2` command again. You should now see a number of `.txt` files in your S3 bucket.
+
+{{< details "Click here to view the complete project code" >}}
+
+{{< details "Here is the complete code for exporting the Lambda function ARN." >}}
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/create-lambda-arn-export.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/create-lambda-arn-export.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/create-lambda-arn-export.yaml" >}}
+```
+
+{{% /choosable %}}
+
+{{< /details >}}
+
+{{< details "Here is the complete code for creating the EventBridge Scheduler." >}}
+
+{{< chooser language "typescript,python,yaml" / >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< loadcode "code/typescript/create-eb-scheduler.txt" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< loadcode "code/python/create-eb-scheduler.py" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+{{< loadcode "code/yaml/create-eb-scheduler.yaml" >}}
+```
+
+{{% /choosable %}}
+
+{{< /details >}}
+
+{{< /details >}}
+
+## Clean Up
+
+{{< cleanup >}}
+
+{{% notes type="warning" %}}
+
+Make sure to empty the contents of your S3 bucket before deleting the resources or the deletion will fail.
+
+{{% /notes %}}
+
+## Next Steps
+
+In this tutorial, you created a Lambda function that writes a file to an S3 bucket. You also referenced the documentation to create an EventBridge Scheduler that would run the Lambda function on a scheduled basis.
+
+You exported Lambda properties into stack outputs, and referenced those outputs across stacks using stack references.
+
+To learn more about creating and managing resources in Pulumi, take a look at the following resources:
+
+- Learn more about [stacks ouputs and references](https://www.pulumi.com/docs/concepts/stack/#stackreferences) in the Pulumi documentation.
+- Learn more about [Pulumi inputs and outputs](https://www.pulumi.com/docs/concepts/inputs-outputs/) in the Pulumi documentation.
