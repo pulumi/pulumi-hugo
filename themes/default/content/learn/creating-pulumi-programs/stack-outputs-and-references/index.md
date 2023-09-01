@@ -131,12 +131,12 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 
 ### Export Resource Values
 
-Now that we have our project resources defined, we can use the `pulumi.export("<output-name>", <output-value>)` function to export values from our program. It takes two arguments:
+Now that we have our project resources defined, we can [export the values](https://www.pulumi.com/docs/concepts/stack/#outputs) of various resource properties from our program. When defining these exports in our program, we'll need to provide two arguments:
 
 | Argument | Description |
 |--------------|-------------|
-| output-name | This is the name we will use to identify our output value |
-| output-value | This is the actual value of our output |
+| Output name | This is the name we will use to identify our output value |
+| Output value | This is the actual value of our output |
 
 To demonstrate how this works, let's export the names of our Lambda function and S3 bucket. The [Pulumi documentation](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/#outputs) provides more information about what properties are available to export for each resource.
 
@@ -147,7 +147,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 {{% choosable language typescript %}}
 
 ```typescript
-{{% loadcode "code/typescript/add-export.txt" %}}
+{{% loadcode "code/typescript/add-lambda-s3-export.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -155,7 +155,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 {{% choosable language python %}}
 
 ```python
-{{% loadcode "code/python/add-export.py" %}}
+{{% loadcode "code/python/add-lambda-s3-export.py" %}}
 ```
 
 {{% /choosable %}}
@@ -163,7 +163,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 {{% choosable language yaml %}}
 
 ```yaml
-{{% loadcode "code/yaml/add-export.yaml" %}}
+{{% loadcode "code/yaml/add-lambda-s3-export.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -277,7 +277,7 @@ For this section, we are going to create a new Pulumi program that will access t
 
 Let's start by making a new Pulumi program in a new directory. In this new program, we need to add the code that will reference the values from our first program.
 
-First, we'll start by adding the `pulumi.StackReference()` function to create the cross-stack reference. We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
+First, we'll start by adding Pulumi's [Stack Reference functionionality](https://www.pulumi.com/docs/concepts/stack/#stackreferences) to create the cross-stack reference. We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
 
 For example, if the name of our organization is `my-org`, the name of our first program is `my-first-program`, and the name of our stack is `dev`, then our fully qualified name will be `my-org/my-first-program/dev`:
 
@@ -324,7 +324,7 @@ Let's update our code with the following:
 {{% choosable language typescript %}}
 
 ```typescript
-{{% loadcode "code/typescript/add-second-export.txt" %}}
+{{% loadcode "code/typescript/add-stack-ref-export.txt" %}}
 ```
 
 {{% /choosable %}}
@@ -332,7 +332,7 @@ Let's update our code with the following:
 {{% choosable language python %}}
 
 ```python
-{{% loadcode "code/python/add-second-export.py" %}}
+{{% loadcode "code/python/add-stack-ref-export.py" %}}
 ```
 
 {{% /choosable %}}
@@ -340,7 +340,7 @@ Let's update our code with the following:
 {{% choosable language yaml %}}
 
 ```yaml
-{{% loadcode "code/yaml/add-second-export.yaml" %}}
+{{% loadcode "code/yaml/add-stack-ref-export.yaml" %}}
 ```
 
 {{% /choosable %}}
@@ -448,7 +448,7 @@ Use the following steps as a guide for adding the scheduling functionality:
 - [Configure the Schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-create-scheduled-rule-schedule) to trigger the Lambda function once every minute
 - Preview and deploy your updated project code
 
-Once you have completed these stesp, run the `list-objects-v2` command again. You should now see a number of `.txt` files in your S3 bucket.
+Once you have completed these steps, wait a few minutes and then run the `list-objects-v2` command again. You should then see a number of `.txt` files in your S3 bucket.
 
 {{< details "Click here to view the complete project code" >}}
 

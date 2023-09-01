@@ -2,7 +2,7 @@ import pulumi
 import pulumi_aws as aws
 import json
 
-stack_ref = pulumi.StackReference("v-torian-pulumi-corp/inputs-outputs/dev")
+stack_ref = pulumi.StackReference("my-org/my-first-program/dev")
 lambda_arn = stack_ref.get_output("lambdaArn")
 
 scheduler_role = aws.iam.Role("scheduler_role",

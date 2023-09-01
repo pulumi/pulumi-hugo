@@ -1,9 +1,46 @@
-name: nginx-server
+name: s3-writer
 runtime: yaml
-description: A program to create an Nginx server on AWS
+description: A program to create an EventBridge Scheduler in AWS.
+
 resources:
-  # [Step 1: Create an S3 bucket.]
+  stack-ref:
+    type: pulumi:pulumi:StackReference
+    properties:
+      name: my-org/my-first-program/dev
 
-  # [Step 2: Create a Lambda function.]
+  scheduler-role:
+    type: aws:iam:Role
+    properties:
+      assumeRolePolicy: |
+        { 
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "scheduler.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        }
+      inlinePolicies:
+        - name: "my-inline-policy"
+          policy:
+            fn::toJSON:
+              Version: 2012-10-17
+              Statement:
+                - Action:
+                    - lambda:*
+                  Effect: Allow
+                  Resource: "*"
 
-  # [Step 3: Create an export.]
+  scheduler:
+    type: aws:scheduler:Schedule
+    properties:
+      flexibleTimeWindow:
+        mode: OFF
+      scheduleExpression: rate(1 minutes)
+      target:
+        arn: ${stack-ref.outputs["lambdaArn"]}
+        roleArn: ${scheduler-role.arn}

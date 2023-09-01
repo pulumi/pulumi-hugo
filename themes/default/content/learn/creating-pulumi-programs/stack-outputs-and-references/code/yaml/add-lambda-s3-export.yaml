@@ -44,4 +44,8 @@ resources:
       environment:
         variables:
           BUCKET_NAME: ${my-bucket.id}
+
 # [Step 3: Create an export.]
+outputs:
+  lambdaName: ${lambda-function.id}
+  bucketName: ${my-bucket.id}
