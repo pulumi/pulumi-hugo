@@ -59,7 +59,7 @@ Sam likes Pulumi’s support for familiar programming languages, in particular C
 
 ## “Shifting left” for infrastructure
 
-"Shift Left" isn't just a strategy for Sam, it's a philosophy. Historically, developers would handle application development, provide specifications, and hand off to operations for infrastructure deployment – a process that could introduce delays and knowledge gaps. Sam states that shiftling left encourages developers to be involved in the infrastructure development process from the start, ensuring they have a comprehensive understanding of both the application and its required environment. This early involvement can preempt potential issues, resulting in more streamlined and efficient development and deployment processes.
+"Shift Left" isn't just a strategy for Sam, it's a philosophy. Historically, developers would handle application development, provide specifications, and hand off to operations for infrastructure deployment – a process that could introduce delays and knowledge gaps. Sam states that shifting left encourages developers to be involved in the infrastructure development process from the start, ensuring they have a comprehensive understanding of both the application and its required environment. This early involvement can preempt potential issues, resulting in more streamlined and efficient development and deployment processes.
 
 ## How Sam uses Pulumi to test infrastructure code
 
@@ -69,7 +69,7 @@ Unit testing validates individual software components, ensuring they function co
 
 #### Sam’s Approach to Unit Testing with Pulumi
 
-Pulumi's ability to enable rigorous unit testing of infrastructure has proved invaluable. By using familiar tools like XUnit and Visual Studio IDE, developers can seamlessly test and validate their infrastructure code, including component resources. This ensures that the real-world deployment of these components works. One example includes validating specific parameters like the number of rules in an IP allow list or checking Azure Network Security Group rules. This testing increases the integrity and compliance of their infrastructure.
+Pulumi's ability to enable rigorous unit testing of infrastructure has proved invaluable. By using familiar tools like XUnit, NUnit, and Visual Studio IDE, developers can seamlessly test and validate their infrastructure code, including component resources. This ensures that the real-world deployment of these components works. One example includes validating specific parameters like the number of rules in an IP allow list or checking Azure Network Security Group rules. This testing increases the integrity and compliance of their infrastructure.
 
 ### Policy Testing
 
