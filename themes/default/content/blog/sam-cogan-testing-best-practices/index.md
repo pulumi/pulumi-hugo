@@ -45,6 +45,8 @@ tags:
 
 [Sam Cogan](https://github.com/sam-cogan) is Solutions Architect at [WTW](https://www.wtwco.com/en-us), with a background in IT and experience in software development. A highly visible member of the community, he is both a Microsoft Azure MVP and Puluminary. Sam’s core duties include the development of a resilient platform that supports customer-facing applications and working with DevOps teams on standardizing deployments and using infrastructure as code. Sam's team prioritizes crafting reusable components that adhere to security and compliance standards.
 
+<img src="sam-cogan.jpg" alt="Sam Cogan" width="250">
+
 <!--more-->
 
 ## Challenge
