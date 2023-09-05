@@ -44,4 +44,6 @@ resources:
       environment:
         variables:
           BUCKET_NAME: ${my-bucket.id}
-# [Step 3: Create an export.]
+
+  # [Step 3: Create an export.]
+  # TO-DO

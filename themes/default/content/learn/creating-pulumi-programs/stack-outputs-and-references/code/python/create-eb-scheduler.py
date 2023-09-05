@@ -44,6 +44,3 @@ scheduler = aws.scheduler.Schedule("scheduler",
         role_arn=scheduler_role.arn,
     )
 )
-
-pulumi.export("roleArn", scheduler_role.arn)
-pulumi.export("lambdaArn", lambda_arn)

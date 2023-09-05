@@ -1,8 +1,6 @@
-import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
-// [Step 1: Create an S3 bucket.]
+const stackRef = new pulumi.StackReference("my-org/my-first-program/dev");
 
-// [Step 2: Create a Lambda function.]
-
-// [Step 3: Create an export.]
+// Add an export to output the value of the Lambda function name using the stack reference above
+export const firstProgramLambdaName = stackRef.getOutput("lambdaName");
