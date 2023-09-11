@@ -13,11 +13,9 @@ tags:
     - pulumi-cloud
 ---
 
-Getting your Pulumi notifications into Microsft Teams is now easier than ever.
+Getting your Pulumi notifications into Microsoft Teams is now easier than ever. Teams using Pulumi Cloud have previously been setting up Microsoft Teams notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Microsoft Teams integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves.
 
 <!--more-->
-
-Teams using Pulumi Cloud have been setting up Microsoft Teams notifications for their stacks using Pulumi Cloud Webhooks. Webhooks can attach to a Pulumi organization or a Pulumi stack. Starting today, customers can set up a Microsoft Teams integration, for organization or stack notifications, with fewer steps and without needing to host the infrastructure themselves.
 
 Pulumi Cloud Webhooks, including the Microsoft Teams integration, are available to all Pulumi Cloud organizations.
 
@@ -25,16 +23,15 @@ Pulumi Cloud Webhooks, including the Microsoft Teams integration, are available 
 
 ![Example of the notifications in Microsoft Teams](ms_teams.png)
 
-Pulumi Microsoft Teams notifications enable central visibility for your team. In addition to getting the notification of a successful or failed update, you will have links to take you directly to the stack and directly to the update itself. You can see what Pulumi operation was being run, which user initiated it and the number of resouces changed and unaffected. All of this information in one place lets you spend less time context switching and more time collaborating.
+Pulumi Microsoft Teams notifications enable central visibility for your team. In addition to getting the notification of a successful or failed update, you will have links to take you directly to the stack and directly to the update itself. You can see which Pulumi operation was being run, which user initiated it and the number of resources changed and unaffected. All of this information in one place lets you spend less time context switching and more time collaborating.
 
 ### Setting up the Microsoft Teams Integration
 
 Before today, Pulumi customers used Pulumi Cloud Webhooks to set up generic JSON webhooks. When events occur, we send a HTTP POST request to any registered listeners. Webhooks can then be used to send notifications to an app (like Microsoft Teams), start running automated tests, or even to update another stack! We have now built support for Microsoft Teams formatted webhooks, which allow you to quickly enable notifications about your Pulumi stacks and organizations into your Microsoft Teams workspace by simply providing a [incoming webhook URL](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook).
 
-
 By following these steps, which can also be found in [our webhooks documentation](/docs/pulumi-cloud/webhooks), in a few clicks you will have a Microsoft Teams incoming webhook URL which you can use to set up a webhook in [Pulumi Cloud](https://app.pulumi.com), as shown in the GIF below.
 
-![Setting it up in the UI](webhooks_2.gif)
+![Setting it up in the UI](https://www.pulumi.com/uploads/teams.gif)
 
 There are Pulumi customers with hundreds to thousands of stacks, making setting up webhooks for each via the UI a time consuming task. In order to enable Pulumi notifications at scale, we have added Pulumi Cloud REST API endpoints for creating webhooks as well as [Pulumi Service Provider](https://www.pulumi.com/registry/packages/pulumiservice) support.
 
