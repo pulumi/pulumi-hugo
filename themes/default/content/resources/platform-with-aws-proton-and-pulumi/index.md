@@ -28,12 +28,12 @@ main:
     effectively handle real-world use cases. We will guide you through using AWS
     Proton and Pulumi with diagrams and a series of labs to help accelerate your
     organization's platform engineering efforts.
-  sortable_date: 2023-10-12T16:00:00.000Z
+  sortable_date: 2023-10-12T09:00:00-07:00
   youtube_url: # https://www.youtube.com/embed/4cHN4wIrN7Y
 event_data:
   name: Platform Engineering with AWS Proton and Pulumi
-  start_date: 2023-10-12T16:00:00.000Z
-  end_date: 2023-10-12T16:00:00.000Z
+  start_date: 2023-10-12T09:00:00-07:00
+  end_date: 2023-10-12T10:30:00-07:00
   url: https://www.pulumi.com/resources/platform-with-aws-proton-and-pulumi
   description: |
     In this workshop, you will learn how to enable self-service
