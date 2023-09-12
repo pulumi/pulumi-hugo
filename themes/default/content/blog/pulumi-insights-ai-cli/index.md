@@ -36,7 +36,7 @@ Notice that AI Assist comes up with the same query and runs it to get the same r
 
 ![org search ai](./orgsearchai.png)
 
-These queries can also include complex queries which rely on looking at properties of resources, such as their tags.  For example:
+These queries can also include complex logic which relies on looking at properties of resources, such as their tags.  For example:
 
 ```
 pulumi org search ai -q "All untagged lambda functions with memory > 2 GB"
@@ -54,13 +54,13 @@ And of course, you can jump straight into the console to drill down even further
 
 ## Pulumi AI in the CLI
 
-We've also added our first step integrating Pulumi AI into the CLI.  With the `pulumi ai web` command, you can type a query in the CLI and have it launch a question into a browser window.
+We've also taken our first step towards integrating Pulumi AI into the CLI.  With the `pulumi ai web` command, you can type a query in the CLI and have it launch a question into a browser window.
 
 ```
 pulumi ai web "deploy metabase on AWS with a managed postgres database"
 ```
 
-Which launches me to [this conversation](/ai/conversations/7a4fc573-c34f-4aa7-be3a-448605f98d12?autoSubmit=true&language=TypeScript&prompt=deploy+metabase+on+AWS+in+a+container+with+a+managed+postgres+database), which walks through all the steps required to accomplish this task.
+This opens a browser to [this conversation](/ai/conversations/7a4fc573-c34f-4aa7-be3a-448605f98d12?autoSubmit=true&language=TypeScript&prompt=deploy+metabase+on+AWS+in+a+container+with+a+managed+postgres+database), which walks through all the steps required to accomplish this task.
 
 ![pulumi ai](./pulumiaiweb.gif)
 
