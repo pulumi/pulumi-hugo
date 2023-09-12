@@ -48,7 +48,7 @@ AI Assist determines it should run the query `type:"aws:lambda:Function" .memory
 
 The combination of rich query syntax, AI Assist and property search makes it easy and exciting to interactively find the information you are looking for about resources in your stack.
 
-And of coure, you can jump straight into the console to drill down even further into your data.
+And of course, you can jump straight into the console to drill down even further into your data.
 
 ![org search ai](./consolesearch.png)
 
@@ -66,7 +66,7 @@ Which launches me to [this conversation](/ai/conversations/7a4fc573-c34f-4aa7-be
 
 ## Conclusion
 
-With these new CLI commands, Pulumi Insights is available at your fingertips in the `pulumi` CLI.  These are just the first steps to bring search and AI into the CLI, expect to see much more in the coming months.  To learn more about the various Pulumi Insights features discussed here - check out the resources below:
+With these new CLI commands, Pulumi Insights is available at your fingertips in the `pulumi` CLI.  These are just the first steps to bring search and AI into the CLI, expect to see much more in the coming months.  To learn more about the various Pulumi Insights features discussed here, check out the resources below:
 
 * [Pulumi Insights](/docs/pulumi-cloud/insights/)
 * [Pulumi AI](/ai)
