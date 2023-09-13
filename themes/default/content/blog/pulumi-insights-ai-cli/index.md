@@ -21,7 +21,7 @@ This release is the latest of a long list of improvements and enhancement to Pul
 With the new `pulumi org search` command, you can search across all of the infrastructure managed by your organization (or individual account) using the same rich search syntax supported by Pulumi Resource Search in the Pulumi Console.
 
 ```bash
-pulumi org search -q "type:aws:kinesis/stream:Stream modified:>=09/01/2023"
+pulumi org search -q "type:aws:kinesis/stream:Stream modified:>=09/01/2023" --org my-org
 ```
 
 ![org search](./orgsearch.png)
@@ -29,7 +29,7 @@ pulumi org search -q "type:aws:kinesis/stream:Stream modified:>=09/01/2023"
 If you don't know the exact search syntax for what you want to ask, you can use AI Assist, which was [recently opened up](/blog/ai-assist-improvements/) to all Pulumi organizations.  Just use `pulumi org search ai` instead!
 
 ```bash
-pulumi org search ai -q "all Kinesis streams modified since September 1st 2023"
+pulumi org search ai -q "all Kinesis streams modified since September 1st 2023"  --org my-org
 ```
 
 Notice that AI Assist comes up with the same query and runs it to get the same results we saw above.
@@ -39,7 +39,7 @@ Notice that AI Assist comes up with the same query and runs it to get the same r
 These queries can also include complex logic which relies on looking at properties of resources, such as their tags.  For example:
 
 ```bash
-pulumi org search ai -q "All untagged lambda functions with memory > 2 GB"
+pulumi org search ai -q "All untagged lambda functions with memory > 2 GB" --org my-org
 ```
 
 AI Assist determines it should run the query `type:"aws:lambda:Function" .memorySize:>2048 -.tags:` and shows the results of that query:
