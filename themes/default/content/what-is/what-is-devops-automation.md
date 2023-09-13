@@ -28,6 +28,9 @@ customer_logos:
       - supabase
       - ro
 ---
+
+Discover the transformative power of DevOps automation through real-world examples. Learn essential best practices like version control and modular design, and find out how Pulumi is reshaping modern Infrastructure as Code solutions.
+
 ## A Guide to DevOps Automation: Benefits and Best Practices
 
 In DevOps, automation is everything. The principle is straightforward: automate end-to-end, starting from code creation on a developer's workstation to its deployment and ongoing monitoring of your applications and services in production.
