@@ -3,7 +3,7 @@ date: 2023-09-13
 title: "Deploying Your AI/ML Chatbot Frontend To Vercel Using Pulumi"
 allow_long_title: true
 meta_desc: "Learn how to effortlessly deploy your AI/ML chatbot frontend to Vercel using Pulumi and Python to take your AI DevOps skills to the next level"
-meta_image: meta.png
+meta_image: "ai-chatbot-frontend-to-vercel-vue.png"
 authors:
     - adora-nwodo
 tags:
