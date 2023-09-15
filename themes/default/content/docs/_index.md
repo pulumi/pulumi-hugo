@@ -18,7 +18,7 @@ link_buttons:
     link: /docs/install/
 sections:
 - type: cards-logo-label-link
-  heading: Clouds
+  heading: Sky
   description: <p>Pulumi supports AWS, Azure, Google Cloud, Kubernetes, and <a href="/registry/">120+ packages</a>.</p>
   cards:
   - label: AWS & Pulumi
