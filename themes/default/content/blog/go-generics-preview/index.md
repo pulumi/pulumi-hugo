@@ -2,7 +2,7 @@
 title: "Using Go Generics with Pulumi"
 date: 2023-09-19
 draft: false
-meta_desc: "TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO"
+meta_desc: "Try out a preview of using Go generics with Pulumi"
 meta_image: meta.png
 authors:
     - zaid-ajaj
@@ -12,7 +12,7 @@ tags:
     - aws
 ---
 
-Support for generics was added to the Go programming language in version 1.18, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to introduce generics in Pulumi's Go SDKs, having recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited announce the availability of a preview of support for Go generics. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
+Support for generics was added to the Go programming language in version 1.18, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to introduce generics in Pulumi's Go SDKs, having recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited to announce a preview of support for Go generics in our our core Go SDK and AWS Go SDK. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
 
 <!--more-->
 
@@ -79,7 +79,9 @@ intOutput := pulumix.Apply(stringOutput, func(v string) int {
 
 This is checked at compile-time: if you mistakenly specified an incorrect type, it will be caught at compile-time rather than panicking at runtime.
 
-> Note: We recommend using Go 1.21 or later, which has improved type inference for generics, allowing you to write the call to `Apply` above without having to explicitly specify generic type parameters.
+{{% notes type="info" %}}
+We recommend using Go 1.21 or later, which has improved type inference for generics, allowing you to write the call to `Apply` above without having to explicitly specify generic type parameters.
+{{% /notes %}}
 
 ## Adopting Generics in Your Pulumi Programs
 
@@ -301,9 +303,11 @@ func main() {
 }
 ```
 
-To start using the generics-based version of the S3 module from AWS, you need to change the import from `"https://github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"` to `"https://github.com/pulumi/pulumi-aws/sdk/v6/go/aws/x/s3"` (notice the `x` after `aws/`), then change input values to use `pulumi.Ptr` instead of `pulumi.String`.
+To start using the generics-based version of the S3 module from AWS, you need to change the import from `"https://github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"` to `"https://github.com/pulumi/pulumi-aws/sdk/v6/go/aws/x/s3"` (notice the `x` after `aws/`), then change input values to use `pulumix.Ptr` instead of `pulumi.String`.
 
-You'll also need to update your `go.mod` to refer to branch. TODO: add instructions for this.
+{{% notes type="info" %}}
+Rather than passing values as `pulumi.String("foo")` and `pulumi.Int(42)`, with generics, you can simply use `pulumix.Val("foo")` and `pulumix.Val(42)`. Similarly, you can use the `pulumix.Ptr` function for pointer values.
+{{% /notes %}}
 
 ```go
 package main
@@ -331,6 +335,13 @@ func main() {
 		return nil
 	})
 }
+```
+
+You'll also need to update your `go.mod` to use the preview branch of the Pulumi AWS Go SDK that includes the `x` subpackage with generic APIs. Run the following:
+
+```
+go get github.com/pulumi/pulumi-aws/sdk/v6@generics
+go mod tidy
 ```
 
 The changes look minimal, except the fact that the inputs of `s3.BucketArgs` and the outputs of `Bucket` are now fully generics-based. Here is the `Bucket` type you get from `NewBucket`:
