@@ -12,7 +12,7 @@ tags:
     - aws
 ---
 
-Support for generics was added to the Go programming language in version 1.18, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to introduce generics in Pulumi's Go SDKs, having recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited to announce a preview of support for Go generics in our our core Go SDK and AWS Go SDK. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
+Support for generics was added to the Go programming language in version 1.18, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to introduce generics in Pulumi's Go SDKs, having recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited to announce preview support for Go generics in our core and AWS Go SDKs. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
 
 <!--more-->
 
