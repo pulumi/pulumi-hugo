@@ -1,6 +1,6 @@
 ---
 title: "Using Go Generics with Pulumi"
-date: 2023-09-19
+date: 2023-09-20
 draft: false
 meta_desc: "Try out a preview of using Go generics with Pulumi"
 meta_image: meta.png
@@ -12,15 +12,14 @@ tags:
     - aws
 ---
 
-Support for generics was added to the Go programming language in version 1.18, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to introduce generics in Pulumi's Go SDKs, having recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited to announce preview support for Go generics in our core and AWS Go SDKs. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
+Pulumi loves Go, it's what powers Pulumi. We've kept a close eye on the design and development of support for generics in the Go programming language over the years, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to improve Pulumi's Go SDKs with generics and recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited to announce preview support for Go generics in our core and AWS Go SDKs. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
 
 ```go
-// Given
 var a pulumi.IntOutput
 var b pulumi.StringOutput
 
-// Before (could panic at runtime if you got it wrong)
-o := pulumi.All(a, b).ApplyT(func(vs []interface{}) string { // could panic if passed the wrong callback signature
+// Before (could panic at runtime if you got something wrong)
+o := pulumi.All(a, b).ApplyT(func(vs []interface{}) string { // could panic
     a := vs[0].(int) // could panic
     b := vs[1].(string) // could panic
     return strconv.Itoa(a) + b
@@ -357,7 +356,7 @@ func main() {
 
 You'll also need to update your `go.mod` to use the preview branch of the Pulumi AWS Go SDK that includes the `x` subpackage with generic APIs. Run the following:
 
-```
+```sh
 go get github.com/pulumi/pulumi-aws/sdk/v6@generics
 go mod tidy
 ```
@@ -390,13 +389,13 @@ type BucketArgs struct {
 
 ## Authoring Generics-based Go SDKs
 
-For Pulumi package authors, it is possible to start generating Go SDKs for your providers that include the generics-based variant under the `x` subpackage. By default, this is not enabled so you will have to explicitly opt into it using a specific option in the go language section of your Pulumi schema. The new option is called `"generics"` and it has three possible values:
+For Pulumi package authors, it is possible to start generating Go SDKs for your providers that include the generics-based variant under the `x` subpackage using v3.84.0 of Pulumi. By default, this is not enabled so you will have to explicitly opt-in to it using a specific option in the go language section of your Pulumi schema. The new option is called `"generics"` and it has three possible values:
 
 - `"none"` is the default value when the option is not set. This doesn’t generate the generics-based variant
 - `"side-by-side"` is the option we are using for our select providers which generates the variant under the x subdirectory.
 - `"generics-only"` if you want your provider to only emit generics-based APIs. Since this is a preview feature, things might still be rough around the edges, so use this option with caution as fixes in the SDK-generation code might result in breaking changes in your APIs.
 
-Here is how this looks like in JSON:
+Here is how this looks in JSON:
 
 ```json
 {
