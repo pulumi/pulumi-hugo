@@ -14,6 +14,24 @@ tags:
 
 Support for generics was added to the Go programming language in version 1.18, a feature that allows developers to write type-safe, concise, and reusable code. We've been exploring what it'd look like to introduce generics in Pulumi's Go SDKs, having recently published a public [RFC](https://github.com/pulumi/pulumi/discussions/13057) detailing our plans. We've been making progress on the implementation and are excited to announce preview support for Go generics in our core and AWS Go SDKs. If you're using Go with Pulumi, we'd love for you to give it a try and share your feedback!
 
+```go
+// Given
+var a pulumi.IntOutput
+var b pulumi.StringOutput
+
+// Before (could panic at runtime if you got it wrong)
+o := pulumi.All(a, b).ApplyT(func(vs []interface{}) string { // could panic if passed the wrong callback signature
+    a := vs[0].(int) // could panic
+    b := vs[1].(string) // could panic
+    return strconv.Itoa(a) + b
+}).(pulumi.StringOutput) // could panic
+
+// After (compile-time type-safety)
+o := pulumix.Apply2(a, b, func(a int, b string) string {
+    return strconv.Itoa(a) + b
+})
+```
+
 <!--more-->
 
 ## Why Generics?
