@@ -3,6 +3,7 @@ title_tag: "Pulumi Insights Overview"
 meta_desc: Pulumi Insights provides advanced search, analytics, and AI for your infrastructure as code.
 title: Insights
 h1: Pulumi Insights
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     identifier: insights
@@ -28,6 +29,8 @@ It provides:
 - **Resource Search AI Assist**: (experimental) Use natural language processing to help craft search queries to explore your data.
 
 ## Resource Search
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pMEIX7LmXYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Resource Search can be accessed directly from the Pulumi Cloud dashboard or from the side navigation by navigating to **Resources**.
 
@@ -75,7 +78,7 @@ Selecting **Clear filters** will remove all previously selected filters.
 
 {{% notes "info" %}}
 This feature is only available to organizations using the Enterprise and Business Critical editions.
-If you don't see it in your organization, [contact sales](/contact?form=sales).
+If you don't see it in your organization, [contact us](/contact?form=sales).
 {{% /notes %}}
 
 Organizations with Data Export enabled are able to export all resources matching a particular query in CSV format.

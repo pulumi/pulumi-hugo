@@ -3,6 +3,7 @@ title_tag: "Dynamic Resource Providers"
 meta_desc: Dynamic resource providers are providers that can be written inside your Pulumi program. Learn how to use dynamic providers and use cases for them.
 title: Dynamic providers
 h1: Dynamic resource providers
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
     parent: resources
@@ -222,7 +223,7 @@ class MyResourceProvider implements pulumi.dynamic.ResourceProvider {
 
 class MyResource extends pulumi.dynamic.Resource {
     constructor(name: string, props: MyResourceInputs, opts?: pulumi.CustomResourceOptions) {
-        super(myprovider, name, props, opts);
+        super(new MyResourceProvider(), name, props, opts);
     }
 }
 ```
@@ -471,7 +472,7 @@ export class MyResource extends pulumi.dynamic.Resource {
     public readonly myNumberOutput!: pulumi.Output<number>;
 
     constructor(name: string, props: MyResourceInputs, opts?: pulumi.CustomResourceOptions) {
-        super(myprovider, name, { myStringOutput: undefined, myNumberOutput: undefined, ...props }, opts);
+        super(new MyResourceProvider(), name, { myStringOutput: undefined, myNumberOutput: undefined, ...props }, opts);
     }
 }
 ```
@@ -654,18 +655,18 @@ exports.setAuth = function(token) { auth = token; }
 
 const githubLabelProvider = {
     async create(inputs) {
-        const ocktokit = new Ocktokit({auth});
-        const label = await ocktokit.issues.createLabel(inputs);
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.createLabel(inputs);
         return { id: label.data.id.toString(), outs: label.data };
     },
     async update(id, olds, news) {
-        const ocktokit = new Ocktokit({auth});
-        const label = await ocktokit.issues.updateLabel({ ...news, current_name: olds.name });
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.updateLabel({ ...news, current_name: olds.name });
         return { outs: label.data };
     },
     async delete(id, props) {
-        const ocktokit = new Ocktokit({auth});
-        await ocktokit.issues.deleteLabel(props);
+        const octokit = new Octokit({auth});
+        await octokit.issues.deleteLabel(props);
     }
 }
 
@@ -683,7 +684,7 @@ exports.Label = Label;
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as Ocktokit from "@octokit/rest";
+import { Octokit } from "@octokit/rest";
 
 // Set this value before creating an instance to configure the authentication token to use for deployments
 let auth = "token invalid";
@@ -707,18 +708,30 @@ interface LabelInputs {
 
 const githubLabelProvider: pulumi.dynamic.ResourceProvider = {
     async create(inputs: LabelInputs) {
-        const ocktokit = new Ocktokit({auth});
-        const label = await ocktokit.issues.createLabel(inputs);
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.createLabel({
+            owner: inputs.owner,
+            repo: inputs.repo,
+            name: inputs.name,
+            color: inputs.color
+        });
         return { id: label.data.id.toString(), outs: label.data };
     },
-    async update(id, olds: LabelInputs, news: LabelInputs) {
-        const ocktokit = new Ocktokit({auth});
-        const label = await ocktokit.issues.updateLabel({ ...news, current_name: olds.name });
-        return { outs: label.data };
+    async update(id: string, olds: LabelInputs, news: LabelInputs) {
+        const octokit = new Octokit({auth});
+        const label = await octokit.issues.updateLabel({
+            owner: news.owner,
+            repo: news.repo,
+            current_name: olds.name,
+            name: news.name,
+            color: news.color
+        });
+        return {outs: label.data};
     },
-    async delete(id, props: LabelInputs) {
-        const ocktokit = new Ocktokit({auth});
-        await ocktokit.issues.deleteLabel(props);
+
+    async delete(id: string, props: LabelInputs) {
+        const octokit = new Octokit({auth});
+        await octokit.issues.deleteLabel({owner: props.owner, repo: props.repo, name: props.name});
     }
 }
 

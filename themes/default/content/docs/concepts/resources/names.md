@@ -3,6 +3,7 @@ title_tag: "Resource Names"
 meta_desc: A resource in Pulumi has a logical name (in Pulumi) and a physical name (in the cloud provider). Learn more about resource names and how to use them here.
 title: Names
 h1: Resource names
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
     parent: resources
@@ -16,6 +17,12 @@ Each resource in Pulumi has a [logical name](#logicalname) and a [physical name]
 Pulumi [auto-names](#autonaming) most resources by default, using the logical name and a random suffix to construct a unique physical name for a resource.  Users can provide explicit names to override this default.
 
 Each resource also has a [Uniform Resource Name (URN)](#urns) which is a unique name derived from both the logical name of the resource and the type of the resource and, in the case of components, its parents.
+
+{{% notes type="warning" %}}
+
+Be careful when you change a resource’s name because changing the name of a resource will create a new resource and delete the old/original resource. If you’d like to rename a resource without destroying the old one, refer to the [aliases](/docs/concepts/options/aliases/) resource option.
+
+{{% /notes %}}
 
 ## Logical Names {#logicalname}
 
@@ -322,10 +329,6 @@ error: Duplicate resource URN 'urn:pulumi:production::acmecorp-website::custom:r
 
 Any change to the URN of a resource causes the old and new resources to be treated as unrelated—the new one will be created (since it was not in the prior state) and the old one will be deleted (since it is not in the new desired state). This behavior happens when you change the `name` used to construct the resource or the structure of a resource’s parent hierarchy.
 
-Both of these operations will lead to a different URN, and thus require the `create` and `delete` operations instead of an `update` or `replace` operation that you would use for an existing resource. In other words, be careful when you change a resource’s name.
-
-{{% notes "info" %}}
-If you’d like to rename a resource without destroying the old one, refer to the [aliases](/docs/concepts/options/aliases/) resource option.
-{{% /notes %}}
+Both of these operations will lead to a different URN, and thus require the `create` and `delete` operations instead of an `update` or `replace` operation that you would use for an existing resource.
 
 Resources constructed as children of a component resource should ensure their names are unique across multiple instances of the component resource. In general, the name of the component resource instance itself (the `name` parameter passed into the component resource constructor) should be used as part of the name of the child resources.

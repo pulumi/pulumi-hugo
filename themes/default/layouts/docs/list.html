@@ -29,12 +29,14 @@
                     {{ partial "docs/table-of-contents.html" . }}
                 </div>
 
-                {{ if .Params.cloud_overview }}
-                    {{ partial "docs/cloud-overview.html" . }}
+                {{ if .Params.docs_home }}
+                    {{ partial "docs/special-pages/docs-home.html" . }}
+                {{ else if .Params.cloud_overview }}
+                    {{ partial "docs/special-pages/cloud-overview.html" . }}
                 {{ end }}
 
 
-                <section class="docs-content" data-swiftype-index="true">
+                <section class="docs-content">
                     {{ .Content }}
                 </section>
             </div>
@@ -44,7 +46,7 @@
 
                 {{ partial "docs/feedback.html" . }}
 
-                {{ partial "right-nav-ad.html" }}
+                {{ partial "docs/right-nav-ad.html" }}
             </div>
         </div>
     </div>

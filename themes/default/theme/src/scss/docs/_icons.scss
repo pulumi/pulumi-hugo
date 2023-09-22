@@ -41,6 +41,12 @@ div.icon-24-24 {
     background-size: 24px 24px;
 }
 
+div.icon-32-32 {
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+}
+
 div.icon-35-35 {
     width: 35px;
     height: 35px;
@@ -173,6 +179,18 @@ div.expand-more-18-18 {
     mask-image: url(/images/docs/icons/expand-more-18-18.svg);
 }
 
+div.customize-expand-more-18-18 {
+    background: url(/images/docs/icons/customize-expand-more-18-18.svg);
+    -webkit-mask-image: url(/images/docs/icons/customize-expand-more-18-18.svg);
+    mask-image: url(/images/docs/icons/customize-expand-more-18-18.svg);
+}
+
+div.customize-expand-less-18-18 {
+    background: url(/images/docs/icons/customize-expand-less-18-18.svg);
+    -webkit-mask-image: url(/images/docs/icons/customize-expand-less-18-18.svg);
+    mask-image: url(/images/docs/icons/customize-expand-less-18-18.svg);
+}
+
 div.icon-on-this-page {
     background: url(/icons/on-this-page.svg);
     -webkit-mask-image: url(/icons/on-this-page.svg);
@@ -209,4 +227,102 @@ div.icon-pulumi-logo {
 
 div.arrow-back-gray-14-14 {
     background: url(/images/docs/icons/arrow-back-gray-14-14.svg);
+}
+
+div.lightbulb-16-16 {
+    background: url(/images/docs/icons/lightbulb-16-16.svg);
+}
+
+div.grad-cap-18-18 {
+    background: url(/images/docs/icons/grad-cap-18-18.svg);
+}
+
+div.width-expand-18-18 {
+    &:hover {
+        filter: unset;
+    }
+    // gray 800 equivalent.
+    filter: invert(22%) sepia(6%) saturate(94%) hue-rotate(201deg) brightness(94%) contrast(86%);
+    background: url(/images/docs/icons/width-expand.svg);
+}
+
+div.width-collapse-18-18 {
+    &:hover {
+        filter: unset;
+    }
+    // gray 800 equivalent.
+    filter: invert(22%) sepia(6%) saturate(94%) hue-rotate(201deg) brightness(94%) contrast(86%);
+    background: url(/images/docs/icons/width-collapse.svg);
+}
+
+div.swap-blue-21-21 {
+    background: url(/images/docs/icons/swap-blue-21-21.svg);
+}
+
+div.terminal-blue-21-21 {
+    background: url(/images/docs/icons/terminal-blue-21-21.svg);
+}
+
+div.lightbulb-blue-21-21 {
+    background: url(/images/docs/icons/lightbulb-blue-21-21.svg);
+}
+
+div.code-tree-blue-21-21 {
+    background: url(/images/docs/icons/code-tree-blue-21-21.svg);
+}
+
+div.cloud-blue-21-21 {
+    background: url(/images/docs/icons/cloud-blue-21-21.svg);
+}
+
+div.aws-40 {
+    background: url(/images/docs/icons/clouds/aws-40.svg);
+    width: 68px;
+    height: 40px;
+    background-size: 68px 40px;
+}
+
+div.azure-40 {
+    background: url(/images/docs/icons/clouds/azure-40.svg);
+    width: 130px;
+    height: 40px;
+    background-size: 130px 40px;
+}
+
+div.google-cloud-40 {
+    background: url(/images/docs/icons/clouds/google-cloud-40.svg);
+    width: 253px;
+    height: 40px;
+    background-size: 253px 40px;
+}
+
+div.kubernetes-40 {
+    background: url(/images/docs/icons/clouds/kubernetes-40.svg);
+    width: 234px;
+    height: 40px;
+    background-size: 234px 40px;
+}
+
+div.dotnet-color-32-32 {
+    background: url(/images/docs/icons/languages/dotnet-color-32-32.svg);
+}
+
+div.go-color-32-32 {
+    background: url(/images/docs/icons/languages/go-color-32-32.svg);
+}
+
+div.java-color-32-32 {
+    background: url(/images/docs/icons/languages/java-color-32-32.svg);
+}
+
+div.node-color-32-32 {
+    background: url(/images/docs/icons/languages/node-color-32-32.svg);
+}
+
+div.python-color-32-32 {
+    background: url(/images/docs/icons/languages/python-color-32-32.svg);
+}
+
+div.yaml-color-32-32 {
+    background: url(/images/docs/icons/languages/yaml-color-32-32.svg);
 }

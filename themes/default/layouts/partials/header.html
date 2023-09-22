@@ -2,30 +2,14 @@
     {{ partial "docs-top-nav" . }}
     <div class="header-container docs-hero">
         <span class="hide-on-pinned"> </span>
-        <script>
-            (function (w, d, t, u, n, s, e) {
-                w["SwiftypeObject"] = n;
-                w[n] =
-                    w[n] ||
-                    function () {
-                        (w[n].q = w[n].q || []).push(arguments);
-                    };
-                s = d.createElement(t);
-                e = d.getElementsByTagName(t)[0];
-                s.async = 1;
-                s.src = u;
-                e.parentNode.insertBefore(s, e);
-            })(window, document, "script", "//s.swiftypecdn.com/install/v2/st.js", "_st");
-
-            _st("install", "xxxQB1LC9DE212h8eJmh", "2.0.0");
-        </script>
         {{ .Scratch.Set "mode" "docs" }}
         {{ partial "docs/search.html" . }}
     </div>
 {{ else }}
     <nav class="top-nav-bar transition-all">
         <div class="top-nav-container lg:container lg:px-4 justify-end">
-            <ul class="hidden w-full lg:flex lg:w-1/2 justify-end items-center order-first lg:order-last">
+            {{ partial "banner" . }}
+            <ul class="hidden w-full lg:flex justify-end items-center order-first lg:order-last">
                 <li class="github-widget mr-8">
                     <a
                         data-track="header-github-pulumi"
@@ -56,7 +40,7 @@
                     </a>
                 </li>
                 <li class="mr-8">
-                    <a data-track="header-ai" href="{{ relref . "/ai" }}">
+                    <a data-track="header-ai" href="/ai">
                         <i class="fas fa-robot mr-0.5"></i>
                         Pulumi AI
                     </a>
@@ -72,7 +56,7 @@
     </nav>
 
     <div class="header-container">
-        <nav class="lg:container lg:mx-auto lg:px-4">
+        <nav class="lg:container lg:mx-auto lg:px-4 py-3">
             <header>
                 <div class="flex flex-col lg:flex-row">
                     <div class="logo-container">
@@ -348,6 +332,15 @@
                                                 </a>
                                             </div>
                                         </li>
+                                        <li>
+                                            <div class="list-title">
+                                                <a href="{{ relref . "/what-is" }}">
+                                                    <i class="fas fa-book-reader fa-fw"></i>
+                                                    What is ...?
+                                                    <div class="list-sub-title">Dive into topics in and around the IaC universe</div>
+                                                </a>
+                                            </div>
+                                        </li>
                                     </div>
                                 </ul>
                             </div>
@@ -466,6 +459,9 @@
                                     <li>
                                         <a href="{{ relref . "/community" }}"> <i class="fas fa-users fa-fw"></i> Community </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ relref . "/what-is" }}"> <i class="fas fa-users fa-fw"></i> What is ...? </a>
+                                    </li>
                                 </div>
                             </div>
                         </ul>
@@ -475,19 +471,19 @@
                                 <a href="https://slack.pulumi.com/">Slack</a>
                                 <a href="{{ relref . "/docs" }}">Docs</a>
                                 <a href="{{ relref . "/registry" }}">Registry</a>
-                                <a href="{{ relref . "/ai" }}">Pulumi AI</a>
+                                <a href="/ai">Pulumi AI</a>
                                 <a href="https://app.pulumi.com/">
                                     {{ partial "top-nav-user-toggle" }}
                                 </a>
                             </div>
                             <div class="text-center bg-violet-600 text-white get-started">
-                                <a class="block" data-track="header-get-started-mobile" href="https://app.pulumi.com/signup" title="Sign up for Pulumi Cloud"> Try Pulumi Cloud </a>
+                                <a class="block" data-track="header-get-started-mobile" href="https://app.pulumi.com/signup" title="Sign up for Pulumi Cloud"> Get Started </a>
                             </div>
                         </div>
                     </ul>
 
                     <div class="cta-container">
-                        <a class="header-btn-primary" data-track="header-get-started" href="https://app.pulumi.com/signup" title="Sign up for Pulumi Cloud"> Try Pulumi Cloud </a>
+                        <a class="header-btn-primary" data-track="header-get-started" href="/docs/get-started" title="Sign up for Pulumi Cloud"> Get Started </a>
                     </div>
                 </div>
             </header>

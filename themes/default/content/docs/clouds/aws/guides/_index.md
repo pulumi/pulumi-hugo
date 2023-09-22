@@ -3,6 +3,7 @@ title_tag: "Crosswalk for AWS Guides"
 title: Guides
 h1: AWS Guides
 meta_desc: Pulumi Crosswalk for AWS supports a simplified approach to defining and deploying cloud infrastructure.
+meta_image: /images/docs/meta-images/docs-clouds-aws-meta-image.png
 menu:
   clouds:
     identifier: aws-guides
@@ -338,7 +339,7 @@ Watch this video to dive into an Amazon ECS and Fargate code example that concep
 ## Getting Started
 
 To get started with Pulumi Crosswalk for AWS, [download and install Pulumi](/docs/install/), and [configure it to work with your AWS account](/registry/packages/aws/installation-configuration/). Afterwards,
-[try the Getting Started tutorial](/registry/packages/aws/how-to-guides/ecs-fargate/) or select one of the
+[try the tutorial for Running Containers on ECS Fargate](/registry/packages/aws/how-to-guides/ecs-fargate/) or select one of the
 relevant User Guides to get started:
 
 ### Containers

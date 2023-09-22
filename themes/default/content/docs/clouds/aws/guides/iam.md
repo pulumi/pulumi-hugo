@@ -4,6 +4,7 @@ title: IAM
 h1: AWS Identity & Access Management (IAM)
 meta_desc: Pulumi Crosswalk for AWS adds strongly typed IAM resource classes, for creating, updating, and
            otherwise managing AWS users, groups, and roles securely.
+meta_image: /images/docs/meta-images/docs-clouds-aws-meta-image.png
 menu:
   clouds:
     parent: aws-guides
@@ -81,7 +82,6 @@ const policy: aws.iam.PolicyDocument = {
                Service: "ec2.amazonaws.com"
             },
             Effect: "Allow",
-            Sid: "",
         },
     ],
 };
@@ -585,7 +585,6 @@ const role = new aws.iam.Role("my-role", {
                 Service: "ec2.amazonaws.com"
             },
             Effect: "Allow",
-            Sid: "",
         }]
     },
 });
@@ -612,7 +611,6 @@ role = aws.iam.Role('my-role',
                 'Service': 'ec2.amazonaws.com'
             },
             'Effect': 'Allow',
-            'Sid': '',
         }],
     }),
 )
@@ -644,8 +642,7 @@ func main() {
 		"Principal": {
 			"Service": "ec2.amazonaws.com"
 		},
-		"Effect": "Allow",
-		"Sid": ""
+		"Effect": "Allow"
 	}]
 }
 `),
@@ -689,8 +686,7 @@ class MyStack : Stack
         ""Principal"": {
             ""Service"": ""ec2.amazonaws.com""
         },
-        ""Effect"": ""Allow"",
-        ""Sid"": """"
+        ""Effect"": ""Allow""
     }]
 }
 ",

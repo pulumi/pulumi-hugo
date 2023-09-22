@@ -14,7 +14,7 @@ We build the Pulumi website statically with Hugo, manage our Node.js dependencie
 
 * [Go](https://golang.org/) (>= 1.15)
 * [Hugo](https://gohugo.io) (>= 0.92)
-* [Node.js](https://nodejs.org/en/) (>= 1.14)
+* [Node.js](https://nodejs.org/en/) (>= 18)
 * [Yarn](https://classic.yarnpkg.com/en/) (1.x)
 
 ### VS Code devcontainer
@@ -121,6 +121,47 @@ The behavior in this case is no different than if you'd allowed the job to run o
 
 Interested in writing a blog post? See the [blogging README](BLOGGING.md) for details.
 
+## Search
+
+We use [Algolia](https://www.algolia.com/) for search, and we update the Algolia search index [on every deployment](https://github.com/pulumi/docs/blob/master/scripts/ci-push.sh#L13) of the website. Whether you're adding a new page or updating an existing one, your changes will be reflected in search results within a few seconds of release.
+
+### Creating findable content
+
+We currently index every page of the website, including the blog and the Registry. However, we do not index all of the content of every page &mdash; we only index certain properties of the page. These include:
+
+* Page titles (specifically the `title` and `h1` frontmatter params)
+* Page descriptions (specifically the `meta_desc` param)
+* Second-level headings (e.g., those prefixed with `##` in Markdown files)
+* Keywords, if any (via the `search.keywords` param)
+* Authors, if any (via the `authors` param)
+* Tags, if any (via the `tags` param)
+
+Because of this, it's important to be thoughtful about the terms you use for these fields, especially titles, keywords, descriptions, and H2 headings. If you want your content to be findable by specific terms, you must make sure those terms exist in one or more of the fields listed above.
+
+For example, if you were writing a guide to building an ETL pipeline with Redshift, and you wanted to make sure the page would be surfaced for queries like `redshift data warehouse etl`, you might construct the page's frontmatter in the following way:
+
+```yaml
+title: Build an ETL pipeline with Redshift and AWS Glue
+meta_desc: Learn how to combine AWS Glue and Amazon Redshift to build a fully-automated ETL pipeline with Pulumi.
+search:
+    keywords:
+        - data warehouse
+```
+
+In this case, the optional `search.keywords` field is included to cover the terms `data warehouse`, as those terms don't exist in the page's title or description. If it weren't, queries for `data warehouse` would fail to match this particular page.
+
+Certain fields also rank higher than others in terms of their overall relevance. (Titles and keywords, for example, are considered more relevant than descriptions.) For a full list of these rankings, along with all of the rules we apply to the search index, see the [search app in pulumi/docs](https://github.com/pulumi/docs/blob/master/scripts/search/settings.js).
+
+### Keeping pages out of search results
+
+To keep a page from showing up in search results (including on Google, etc.), use the `block_external_search_index` frontmatter parameter:
+
+```yaml
+title: My page
+...
+block_external_search_index: true
+```
+
 ## Style Guide
 
 We try and align Pulumi documentation to the [Pulumi Docs Style Guide](STYLE-GUIDE.md).
@@ -128,31 +169,3 @@ We try and align Pulumi documentation to the [Pulumi Docs Style Guide](STYLE-GUI
 ## Shortcodes and web components
 
 We use number of Hugo shortcodes and web components in our pages. You can read more about many of them in the [components README](https://github.com/pulumi/theme/tree/master/stencil).
-
-## Search and Swiftype
-
-Swiftype is how we manage our search experience for docs and Registry.  The [Swiftype docs](https://swiftype.com/documentation/site-search/site_search) have a lot of useful information.  A few items to keep in mind if you are updating search results or behavior:
-
-### Swiftype console
-
-Visit the [Swiftype console](https://app.swiftype.com/) for information specific to our search implementation: the date and time of the most recent crawl, any customizations we have done of result rankings for specific search terms, synonyms we have set for specific search terms, or weighting of custom meta tags.
-
-### Result rankings
-
-[Swiftype rankings](https://swiftype.com/documentation/site-search/guides/result-rankings) let us manually customize how results appear for any query.  Using the console, you can enter a query, and pin certain results to the top or delete results.
-
-
-### Fields, meta tags, and weights
-
-Fields are the set of places where the crawler extracts content from our pages.   There are a set of default fields (title, body, etc).  We can add fields by [adding custom meta tags](https://swiftype.com/documentation/site-search/crawler-configuration/meta-tags), either in the head or the body of a document.  It's worth noting that these are different than SEO meta tags, and the crawler does not capture those meta tags. Once a custom field is added and has been re-crawled (about a day after code has been merged), we can use the field to adjust results using weights.
-
-[Swiftype weights](https://swiftype.com/documentation/site-search/guides/weights) are a way for us to impact search result relevance, by telling the engine that matches in a certain field of the document matter more than matches elsewhere.  In the Swiftype console, we can adjust the weights of any field.  By giving a certain field more weight, we can affect the ranking of search results.
-
-### Synonyms
-
-[Swiftype synonyms](https://swiftype.com/documentation/site-search/guides/synonyms) allow us to connect common search terms to each other.  If we know some users refer to a provider as “ReallyAwesome,” but our docs use the name “RA”, we can set those as synonyms in our Swiftype console.  This will ensure that users get the same set of results using either term, and that those results are relevant regardless of which name we use in our docs.
-
-
-### UI and Layout
-
-Swiftype is opinionated about the layout of search results, search behavior, and the UI styling of the search box.  Within the Swiftype console, we can [customize elements](https://swiftype.com/documentation/site-search/guides/design-and-customization) such as the style of search results, the result count per page, or text colors.  In order to override the search input styles (text color, border styles, etc) we need to directly update our styles for the `st-default-search-input` class.

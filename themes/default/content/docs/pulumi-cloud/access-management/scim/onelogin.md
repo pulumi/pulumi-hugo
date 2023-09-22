@@ -3,6 +3,7 @@ title_tag: Configuring OneLogin | SCIM
 meta_desc: This page describes how to support SCIM 2.0 functionality between Pulumi and OneLogin.
 title: OneLogin
 h1: "SCIM: Configuring OneLogin"
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     pulumicloud:
         identifier: onelogin-scim
@@ -125,7 +126,7 @@ Navigate to the SCIM application in OneLogin.
    * *Conditions*: leave blank so that the rule applies to all users.
    * *Actions*: Set Groups ... Map from OneLogin ... For each role ... with value that matches your team name (e.g. `AlphaTeam`)
    * Save the rule.
-    ![Application Rule](/images/docs/guides/scim/onelogin-application-rule.png)
+    ![Application Rule](/images/docs/reference/service/scim/onelogin/application-rule.png)
 
 1. Save the Application updates.
 

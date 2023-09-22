@@ -4,8 +4,8 @@
 
     <div class="banner-image flex justify-center">
         <div class="text-center py-16">
-            <img src="/images/pulumiup-2023/logo.png" alt="Pulumi UP" class="mx-auto mt-16" />
-            <h3 class="yellow-header-text mt-0">June 15, 2023</h3>
+            <img src="/images/pulumiup-2023/logo.svg" alt="Pulumi UP, virtual, free" class="mx-auto mt-16 h-40" />
+            <h3 class="yellow-header-text">June 15, 2023</h3>
             <div class="banner-description mx-auto mb-12 w-1/2">
                 <h4>The Global Infrastructure as Code Conference</h4>
                 <p>
@@ -13,27 +13,11 @@
                     development, and software engineering.
                 </p>
             </div>
-            <event-session-registration-modal
-                modal-title="Register for PulumiUP"
-                button-text="Register Now"
-                button-class="btn-secondary"
-                event-sessions="{{ .Params.registration.items | jsonify }}"
-            >
-            </event-session-registration-modal>
+            <a class="btn-primary btn-primary-blue-bg" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlqkEzXbjUvE_CoEmBkT9Xoe" target="_blank">Watch On-Demand</a>
         </div>
     </div>
 
-    <section id="countdown" class="pt-12 mb-16">
-        <pulumi-date-countdown-circles
-            date-string="{{ .Params.event_date }}"
-            value-label-class="block font-normal"
-            container-class="flex flex-wrap justify-center items-center"
-            text-class="px-3 text-4xl m-0"
-        >
-        </pulumi-date-countdown-circles>
-    </section>
-
-    <div class="below-banner-description mx-auto px-8 my-8 w-full flex-col">
+    <div class="below-banner-description mx-auto px-8 my-10 w-full flex-col">
         <h4>The Global Infrastructure as Code Conference</h4>
         <p>
             Join us virtually for a half-day of technical talks, best practices, and demos about the latest innovations in Infrastructure as Code, cloud application development,
@@ -68,13 +52,7 @@
                 {{ end }}
             </div>
             <h6 class="py-4">Be a part of shaping the future of cloud infrastructure!</h6>
-            <event-session-registration-modal
-                modal-title="Register for PulumiUP"
-                button-text="Register Now"
-                button-class="btn-primary"
-                event-sessions="{{ .Params.registration.items | jsonify }}"
-            >
-            </event-session-registration-modal>
+            <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlqkEzXbjUvE_CoEmBkT9Xoe" target="_blank">Watch On-Demand</a>
         </div>
     </section>
 
@@ -99,14 +77,14 @@
         </div>
     </section>
 
-    <section id="dev-stories" class="yellow-blue-gradient">
+    <section id="dev-stories" style="background: linear-gradient(180deg, #7BDEFF, #DBF4E4 100%);">
         <div class="container mx-auto px-4 pb-16 text-center">
             <h2>DevStories and Demos</h2>
             <p class="text-lg">
                 PulumiUP isn't just another developer conference. Our brilliant speakers are engineers like you, who tackled challenges, successfully implemented solutions, and
                 some even founded their own companies. Listen to their stories, their ideas, be inspired and learn from the best.
             </p>
-            <div class="container flex flex-wrap">
+            <div class="container flex flex-wrap justify-center">
                 {{ range .Params.stories }}
                     <div class="p-2 w-full lg:w-1/2">
                         <div class="card mx-auto h-full bg-white p-4 flex">
@@ -125,13 +103,33 @@
                 {{ end }}
             </div>
             <h6 class="py-4">Don't miss out on this opportunity to improve your knowledge and skills in cloud infrastructure.</h6>
-            <event-session-registration-modal
-                modal-title="Register for PulumiUP"
-                button-text="Register Now"
-                button-class="btn-primary"
-                event-sessions="{{ .Params.registration.items | jsonify }}"
-            >
-            </event-session-registration-modal>
+            <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlqkEzXbjUvE_CoEmBkT9Xoe" target="_blank">Watch On-Demand</a>
+        </div>
+    </section>
+
+    <section id="workshops" style="background: linear-gradient(180deg, #DBF4E4 0%, #7BDEFF 100%);">
+        <div class="container mx-auto py-16">
+            <h2 class="px-4 pb-8">Workshops</h2>
+
+            <div class="flex flex-wrap justify-center items-stretch">
+                {{ range .Params.workshops }}
+                    <div class="w-full lg:w-1/2 p-3">
+                        <div class="card bg-white p-6 text-black h-full">
+                            <h5>{{ .title }}</h5>
+                            <span class="my-0 py-1 inline-block mr-3 text-gray-600">
+                                <i class="fas fa-calendar mr-2"></i>
+                                {{ .date }}
+                            </span>
+                            <p>{{ .description }}</p>
+                            <div class="my-8">
+                                <a href="{{ .url }}" class="btn-secondary">
+                                    <span class="text-violet-600">Register Now &#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
         </div>
     </section>
 
@@ -142,13 +140,7 @@
                 <div class="w-full lg:w-1/2 p-4 text-left">
                     {{ .Params.why_attend.description | markdownify }}
                     <div class="my-12 flex justify-center lg:justify-start">
-                        <event-session-registration-modal
-                            modal-title="Register for PulumiUP"
-                            button-text="Register Now"
-                            button-class="btn-primary"
-                            event-sessions="{{ .Params.registration.items | jsonify }}"
-                        >
-                        </event-session-registration-modal>
+                        <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlqkEzXbjUvE_CoEmBkT9Xoe" target="_blank">Watch On-Demand</a>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 px-8">
@@ -167,31 +159,8 @@
         </div>
     </section>
 
-    <section id="schedule" class="light-blue-background">
-        <div class="container mx-auto py-16 px-6 lg:px-0">
-            <h2 class="text-center">Schedule At A Glance</h2>
-            <p class="text-center mb-8">Get inspired! Dive into the stories and experiences of innovators and experts, from Startup Founders to Industry Leaders.</p>
-            <div class="mx-auto w-full lg:w-1/2 grid gap-2 lg:gap-4 grid-cols-3 lg:grid-cols-6">
-                {{ range .Params.schedule }}
-                    <div class="bg-white rounded-md col-span-1 px-2 flex items-center justify-center">
-                        <p class="text-xs">{{ .time }}</p>
-                    </div>
-                    <div class="bg-white rounded-md col-span-2 lg:col-span-5 px-2 flex items-center">
-                        <p class="text-xs">{{ .title }}</p>
-                    </div>
-                {{ end }}
-            </div>
-            <div class="mt-12 flex justify-center">
-                <event-session-registration-modal
-                    modal-title="Register for PulumiUP"
-                    button-text="Register Now"
-                    button-class="btn-primary btn-primary-blue-bg"
-                    event-sessions="{{ .Params.registration.items | jsonify }}"
-                >
-                </event-session-registration-modal>
-            </div>
-        </div>
-    </section>
+    {{ partial "event-schedule.html" (dict "schedule" .Params.schedule "background_color" "#7bdeff") }}
+
 
     <section id="speakers" class="relative mb-8">
         <div class="dot-background-container">
@@ -218,13 +187,7 @@
                 </ul>
             </div>
             <div class="my-16 flex justify-center">
-                <event-session-registration-modal
-                    modal-title="Register for PulumiUP"
-                    button-text="Register Now"
-                    button-class="btn-primary btn-primary-blue-bg"
-                    event-sessions="{{ .Params.registration.items | jsonify }}"
-                >
-                </event-session-registration-modal>
+                <a class="btn-primary btn-primary-blue-bg" href="https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlqkEzXbjUvE_CoEmBkT9Xoe" target="_blank">Watch On-Demand</a>
             </div>
         </div>
     </section>

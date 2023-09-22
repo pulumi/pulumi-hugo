@@ -3,6 +3,7 @@ title_tag: Configure OpenID Connect for AWS | OIDC
 meta_desc: This page describes how to configure OIDC token exchange in AWS for use with Pulumi Deployments
 title: AWS
 h1: Configuring OpenID Connect for AWS
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     pulumicloud:
         parent: deployments-oidc
@@ -33,7 +34,7 @@ To configure the role and trust in IAM, see the AWS documentation for [creating 
 * For the identity provider, choose the provider you created above
 * For the audience, choose the name of your organization
 
-For more granular access control, edit the trust policy to add the `sub` claim to the policy's conditions with an appropriate patter. In the following example, the role may only be assigned by stacks within the "Core" project:
+For more granular access control, edit the trust policy to add the `sub` claim to the policy's conditions with an appropriate pattern. In the following example, the role may only be assigned by stacks within the "Core" project:
 
 ```json
 "Condition": {

@@ -3,10 +3,11 @@ title_tag: "Pulumi Deployments REST API Documentation"
 meta_desc: Documentation for the Pulumi Deployments REST API including configuring settings and OIDC
 title: "REST API docs"
 h1: Pulumi Deployments REST API docs
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     parent: deployments
-    weight: 7
+    weight: 3
 aliases:
 - /docs/reference/deployments-rest-api/
 - /docs/intro/deployments/api/
@@ -321,6 +322,7 @@ The GitHub block describes settings for Pulumi Deployments' GitHub integration.
 * **repository** (string): The GitHub repository that contains the Pulumi program to deploy.
 * **deployCommits** (boolean): True to run `update` deployments for each commit pushed to the configured branch.
 * **previewPullRequests** (boolean): True to run `preview` deployments for each pull request that targets the configured branch.
+* **pullRequestTemplate** (boolean): True to enable [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks) for this branch, and use this stack as a template.
 * **paths** (Optional[list[string]]): A list of path filters that determine whether or not a commit or pull request should trigger a deployment based on the paths affected by the commit or pull request. Path
   filters may use the `*` and `**` elements to match a single path component or any number of path components, respectively. If a path filter begins with a `!`, it excludes matching paths rather than including
   matching paths. If all filters are excludes, there is an implicit `**` filter. A deployment will run if any non-excluded file is modified. Note that the list of changed paths returned by GitHub is limited to
@@ -328,24 +330,26 @@ The GitHub block describes settings for Pulumi Deployments' GitHub integration.
 
 #### Examples
 
-##### Use GitHub integration for push-to-deploy and PR previews with path filters
+##### Use GitHub integration for push-to-deploy, PR previews, and Review Stacks with path filters
 
 ```json
 {
   "repository": "pulumi/deploy-demos",
   "deployCommits": true,
   "previewPullRequests": true,
+  "pullRequestTemplate": false,
   "paths": [ "pulumi-programs/bucket-time/**", "!pulumi/programs/bucket-time/README.md" ]
 }
 ```
 
-##### Use GitHub integration but disable push-to-deploy
+##### Use GitHub integration but disable push-to-deploy and Review Stacks
 
 ```json
 {
   "repository": "pulumi/deploy-demos",
   "deployCommits": false,
   "previewPullRequests": true,
+  "pullRequestTemplate": false,
   "paths": [ "pulumi-programs/bucket-time/**", "!pulumi/programs/bucket-time/README.md" ]
 }
 ```
@@ -417,7 +421,7 @@ The final settings for the stack are calculated by merging the settings present 
     * Remove all properties that are explicitly set to `null` in the patch value
     * Merge all non-`null` properties from the patch value that exist in the current property value
     * Add all non-`null` properties from the patch value that do not exist in the current property value
-* For other propertries, replace the current value with the the patch value
+* For other propertries, replace the current value with the patch value
 
 For example, if the current settings for a stack are:
 

@@ -3,6 +3,7 @@ title_tag: Local-Docker Install | Self-Hosting Pulumi
 meta_desc: Installer and installation instructions for deploying the self-hosted Pulumi Cloud in docker.
 title: Local-Docker
 h1: Pulumi Cloud self-hosted local-Docker install
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     pulumicloud:
         parent: deployment-options
@@ -21,9 +22,9 @@ The customer is required to provide and manage the following:
   * At least 2 CPU cores,
   * At least 8 GB memory,
   * At least 20GB SSD storage space.
-* MySQL 5.6 database with
+* MySQL 8.0 database with
   * At least 20GB SSD storage space,
-  * A database suer with the folling grants:
+  * A database user with the folling grants:
     * `GRANT ALL PRIVILEGES ON 'pulumi'.* TO 'pulumi'@'%'`
     * `GRANT CREATE USER ON *.* TO 'pulumi'@'%' WITH GRANT OPTION`
 * Object storage (e.g. Minio) with

@@ -3,6 +3,7 @@ title_tag: "YAML | Languages & SDKs"
 meta_desc: An overview of how to use Pulumi YAML for infrastructure as code on any cloud (AWS, Azure, Google Cloud, Kubernetes, etc.).
 title: YAML
 h1: Pulumi & YAML
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   languages:
     identifier: yaml-language
@@ -28,20 +29,39 @@ All you need to use Pulumi YAML is the [Pulumi CLI](/docs/install/).
 ```yaml
 name: simple-yaml
 runtime: yaml
+config:
+  message:
+    default: Hello, world!
+    type: string
 resources:
   my-bucket:
     type: aws:s3:Bucket
     properties:
       website:
         indexDocument: index.html
+  ownership-controls:
+    type: aws:s3:BucketOwnershipControls
+    properties:
+      bucket: ${my-bucket.id}
+      rule:
+        objectOwnership: ObjectWriter
+  public-access-block:
+    type: aws:s3:BucketPublicAccessBlock
+    properties:
+      bucket: ${my-bucket.id}
+      blockPublicAcls: false
   index.html:
     type: aws:s3:BucketObject
     properties:
       bucket: ${my-bucket}
       source:
-        Fn::StringAsset: <h1>Hello, world!</h1>
+        fn::stringAsset: <h1>${message}</h1>
       acl: public-read
       contentType: text/html
+    options:
+      dependsOn:
+        - ${ownership-controls}
+        - ${public-access-block}
 outputs:
   bucketEndpoint: http://${my-bucket.websiteEndpoint}
 ```

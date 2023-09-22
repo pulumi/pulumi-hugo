@@ -3,6 +3,7 @@ title_tag: "How Pulumi Works"
 meta_desc: This page provides an overview of how Pulumi works and interacts with different Cloud Providers like AWS, Azure, Kubernetes, and more.
 title: "How Pulumi works"
 h1: "How Pulumi works"
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
     weight: 11
@@ -14,7 +15,6 @@ aliases:
 - /docs/tour/programs-resources/
 - /docs/tour/programs-stacks/
 - /docs/intro/concepts/how-pulumi-works/
-- /docs/intro/concepts/programming-model/
 ---
 
 Pulumi uses a desired state model for managing infrastructure. A Pulumi program is executed by a _language host_ to compute a desired state for a stack's infrastructure. The _deployment engine_ compares this desired state with the stack's current state and determines what resources need to be created, updated or deleted. The engine uses a set of _resource providers_ (such as [AWS](/docs/clouds/aws/get-started/), [Azure](/docs/clouds/azure/get-started/), [Kubernetes](/docs/clouds/kubernetes/get-started/), and so on) in order to manage the individual resources.  As it operates, the engine updates the _state_ of your infrastructure with information about all resources that have been provisioned as well as any pending operations.
@@ -29,7 +29,7 @@ In the next section, we will describe each of these components and see how they 
 
 The _language host_ is responsible for running a Pulumi program and setting up an environment where it can register resources with the _deployment engine_.  The language host is made up of two different pieces:
 
-1. A language executor, which is a binary named `pulumi-language-<language-name>`, that Pulumi uses to launch the runtime for the the language your program is written in (e.g. Node or Python). This binary is distributed with the Pulumi CLI.
+1. A language executor, which is a binary named `pulumi-language-<language-name>`, that Pulumi uses to launch the runtime for the language your program is written in (e.g. Node or Python). This binary is distributed with the Pulumi CLI.
 2. A language runtime, which is responsible for preparing your program to be executed and observes its execution in order to detect resource registrations.  When a resource is _registered_ (via `new Resource()` in JavaScript or `Resource(...)` in Python), the language runtime communicates the registration request back to the _deployment engine_. The language runtime is distributed as a regular package, just like any other code that might depend on your program.  For example, the Node runtime is contained in the [`@pulumi/pulumi`](https://www.npmjs.com/package/@pulumi/pulumi) package available on npm, and the Python runtime is contained in the [`pulumi`](https://pypi.org/project/pulumi/) package available on PyPI.
 
 ## Deployment Engine

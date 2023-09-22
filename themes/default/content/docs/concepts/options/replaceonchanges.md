@@ -3,6 +3,7 @@ title_tag: "replaceOnChanges | Resource Options"
 meta_desc: The replaceOnChanges resource option indicates that changes to properties on a resource should force a replacement instead of an in-place update.
 title: "replaceOnChanges"
 h1: "Resource option: replaceOnChanges"
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
     identifier: replaceOnChanges
@@ -82,7 +83,11 @@ var widget = new Pulumi.Kubernetes.ApiExtensions.CustomResource("widget", new Wi
     {
         Input = "something",
     }
-}, pulumi.ReplaceOnChanges([]string{"spec.input"}));
+},
+new CustomResourceOptions
+{
+    ReplaceOnChanges = { "spec.input" },
+});
 ```
 
 {{% /choosable %}}
@@ -117,7 +122,7 @@ The property paths provided as input to `replaceOnChanges` can each describe a s
 - `*`: any property change
 - `spec`: any change to the `spec` property or any of its children
 - `spec[0]`: any change to the first element of the array in the `spec` property or any of its children
-- `spec[*].item`: any change to the `item` property of any element of the array in the `spec` prroperty or any of the `item` property's children
+- `spec[*].item`: any change to the `item` property of any element of the array in the `spec` property or any of the `item` property's children
 
 {{% notes "info" %}}
 The property paths passed to `replaceOnChanges` should always be the "camelCase" version of the property name, as used in the core Pulumi resource model.

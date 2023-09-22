@@ -1,4 +1,16 @@
 [[awards]]
+title = "Fastest-Growing Companies in America"
+featured = true
+img = "/logos/press/awards/inc-5000.png"
+url = "https://www.inc.com/inc5000/2023"
+
+[[awards]]
+title = "Redpoint InfraRed 100, 2023"
+featured = true
+img = "/logos/press/awards/infrared-100.png"
+url = "https://www.redpoint.com/infrared/100/"
+
+[[awards]]
 title = "Top Open Source Startups, 2023"
 featured = true
 img = "/logos/press/awards/traxcn-logo.png"

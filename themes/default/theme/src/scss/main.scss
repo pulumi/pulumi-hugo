@@ -6,6 +6,7 @@
 
 @import "about";
 @import "accordion";
+@import "algolia";
 @import "animation";
 @import "api-nodejs";
 @import "api-python";
@@ -26,11 +27,13 @@
 @import "docs/docs-main";
 @import "docs/docs-top-nav";
 @import "docs/main-nav";
+@import "docs/docs-home";
 @import "customer-logo";
 @import "marketing/developer-advocates";
 @import "docs/footer";
 @import "docs/icons";
 @import "event-list";
+@import "event-schedule";
 @import "fonts";
 @import "footer";
 @import "glossary";
@@ -52,6 +55,8 @@
 @import "section-nav";
 @import "marketing/self-hosted";
 @import "marketing/shape-backgrounds";
+@import "marketing/signup";
+@import "marketing/workshop-signup";
 @import "marketing/slot-machine";
 @import "docs/registry";
 @import "tables";
@@ -73,7 +78,6 @@
 @import "components/swiper";
 @import "components/slot-machine";
 @import "components/pulumi-tertiary-nav";
-@import "components/ai";
 @import "components/user-toggle";
 @import "components/tabs";
 

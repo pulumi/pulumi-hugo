@@ -4,6 +4,7 @@ title: EKS
 h1: AWS Elastic Kubernetes Service (EKS)
 meta_desc: Pulumi Crosswalk for AWS simplifies the creation, configuration, and management of EKS clusters
            offering a single programming model and deployment workflow.
+meta_image: /images/docs/meta-images/docs-clouds-aws-meta-image.png
 menu:
   clouds:
     parent: aws-guides
@@ -1310,7 +1311,6 @@ assume_role_policy = json.dumps({
     "Statement": [{
         "Action": "sts:AssumeRole",
         "Effect": "Allow",
-        "Sid": None,
         "Principal": {
             "Service": "ec2.amazonaws.com",
         },

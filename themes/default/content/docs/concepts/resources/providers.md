@@ -3,6 +3,7 @@ title_tag: "Resource Providers"
 meta_desc: A resource provider handles communications with a cloud service to create, read, update, and delete the resources you define in your Pulumi programs.
 title: Providers
 h1: Resource providers
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
     parent: resources
@@ -111,6 +112,10 @@ It creates a single EC2 instance in the us-west-2 region.
 ## Explicit Provider Configuration
 
 While the default provider configuration may be appropriate for the majority of Pulumi programs, some programs may have special requirements. One example is a program that needs to deploy to multiple AWS regions simultaneously. Another example is a program that needs to deploy to a Kubernetes cluster, created earlier in the program, which requires explicitly creating, configuring, and referencing providers. This is typically done by instantiating the relevant package’s `Provider` type and passing in the options for each `Resource` that needs to use it. For example, the following configuration and program creates an ACM certificate in the `us-east-1` region and a load balancer listener in the `us-west-2` region.
+
+{{% notes type="info" %}}
+**Note:** This example for AWS does not apply to Azure which provides access to all regions regardless of the default region defined in your Pulumi program. That means you don't need to explicitly create and configure providers for each region when working with Azure. You can simply specify the region in the resource definition itself.
+{{% /notes %}}
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" >}}
 

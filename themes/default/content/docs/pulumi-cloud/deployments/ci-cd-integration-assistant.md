@@ -3,10 +3,11 @@ title_tag: "Pulumi Cloud: CI/CD Integration Assistant"
 meta_desc: The CI/CD integration assistant helps you integrate Pulumi into CI/CD systems for automatically deploying stacks. Learn more about the assistant here.
 title: "CI/CD assistant"
 h1: "CI/CD integration assistant"
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     parent: deployments
-    weight: 4
+    weight: 10000
 aliases:
 - /docs/intro/console/extensions/
 - /docs/intro/console/extensions/ci-cd-integration-assistant/

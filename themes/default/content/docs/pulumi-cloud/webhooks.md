@@ -3,6 +3,7 @@ title_tag: "Pulumi Cloud Webhooks"
 meta_desc: Pulumi Webhooks allow you to notify external services of events happening within your Pulumi organization. Learn how to create and manage webhooks here.
 title: "Webhooks"
 h1: Pulumi Cloud webhooks
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
     weight: 8
@@ -30,41 +31,122 @@ notification, start running integration tests, or even update additional stacks.
 Webhooks can be used for pretty much anything you want, and are the foundation
 of most _ChatOps_ workflows.
 
-## Management
+## Overview
 
 Webhooks can be attached to either a stack or an organization. Stack webhooks
 will be notified of events specific to the stack. Organization
 webhooks will be notified for events happening within each of the organization's
 stacks.
 
-The Webhooks management page is on the Stack or Organization Settings tab.
+The Webhooks page is under the Stack or Organization Settings tab.
 
 ![Organization webhooks](/images/docs/reference/service/webhooks/org-webhooks.png)
 
 ### Create a Webhook
 
-Pulumi Webhooks may be created through the UI using the steps outlined below, or by using the
-[Webhook resource](https://www.pulumi.com/registry/packages/pulumiservice/api-docs/webhook/) from the Pulumi provider,
+Pulumi Webhooks may be created through the UI using the steps outlined below, by using the
+[Webhook resource](https://www.pulumi.com/registry/packages/pulumiservice/api-docs/webhook/) from the Pulumi provider
 or by [using the API](/docs/pulumi-cloud/cloud-rest-api/#create-webhook) directly.
+
+{{< chooser language "typescript,python,go,csharp" >}}
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as pulumiservice from "@pulumi/pulumiservice";
+const webhook = new pulumiservice.Webhook("example-webhook", {
+    active: true,
+    displayName: "webhook example",
+    organizationName: "example",
+    payloadUrl: "https://example.com/webhook",
+});
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_service
+webhook = pulumi_service.Webhook("example-webhook",
+    active: True,
+    display_name: "webhook example",
+    organization_name: "example",
+    payload_url: "https://example.com/webhook",
+)
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+import (
+	"fmt"
+	"github.com/pulumi/pulumi-pulumiservice/sdk/go/pulumiservice"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		webhook, err := pulumiservice.NewWebhook(ctx, "example-webhook", &pulumiservice.WebhookArgs{
+			Active:           pulumi.Bool(true),
+			DisplayName:      pulumi.String("example webhook"),
+			OrganizationName: pulumi.String("example"),
+			PayloadURL:       pulumi.String("https://example.com/webhook"),
+		}, nil)
+		if err != nil {
+			return fmt.Errorf("error creating webhook: %v", err)
+		}
+		return nil
+	})
+}
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+using Pulumi.PulumiService;
+class PulumiServiceWebhook: Stack
+{
+    public PulumiServiceWebhook()
+    {
+        var webhook = new Webhook("example-webhook", new WebhookArgs{
+            Active = true,
+            DisplayName = "example webhook",
+            OrganizationName = "example",
+            PayloadUrl = "https://example.com/webhook"
+        })
+    }
+}
+```
+
+{{% /choosable %}}
+{{< /chooser >}}
 
 #### Create an Organization Webhook
 
 1. Navigate to **Settings** > **Webhooks**.
 2. Select **Create webhook**.
-3. Select between a slack-formatted or generic JSON webhooks.
-4. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
-5. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
-6. Choose between receiving all events or only receiving specific events using the filters menu.
+3. Under Destination, choose **Webhook**, **Slack**, **Microsoft Teams**."
+    1. For generic JSON webhooks, provide a display name, payload URL, and optionally a secret.
+    2. For Slack webhooks, provide a Slack webhook URL and a display name.
+    3. For Microsoft Teams webhooks, provide a Microsoft Teams webhook URL and a display name.
+4. Choose between receiving all events or only receiving specific events using the filters menu.
 
 #### Create a Stack Webhook
 
 1. Navigate to the stack.
-2. Then navigate to **Settings** > **Webhooks**
+2. Navigate to **Settings** > **Webhooks**
 3. Select **Create webhook**.
-4. Select between a slack-formatted webhook or generic JSON webhooks.
-5. If you selected `Slack`, you will be prompted to provide a Slack webhook URL and a display name.
-6. If you selected `Webhook`, provide a display name, payload URL, and optionally a secret.
-7. Choose between receiving all events or only receiving specific events using the filters menu.
+4. Under Destination, choose **Webhook**, **Slack**, **Microsoft Teams**, or **Deployment**."
+   1. For generic JSON webhooks, provide a display name, payload URL, and optionally a secret.
+   2. For Slack webhooks, provide a Slack webhook URL and a display name.
+   3. For Microsoft Teams webhooks, provide a Microsoft Teams webhook URL and a display name.
+   4. For Deployment webhooks, provide the stack to deploy in the format `project/stack`.
+5. Choose between receiving all events or only specific events using the filters menu.
+
+![Stack webhooks form](../ui-webhooks.png)
 
 ## Event Filtering
 
@@ -94,9 +176,9 @@ The following table describes the various event filters available and the contex
 When creating a webhook, you can choose between the generic JSON webhook payload or `slack`
 formatted events.
 
-### Slack-formatted Webhooks
+### Slack Webhooks
 
-Slack-formatted webhooks allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
+Slack Webhooks allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
 into your Slack workspace by simply providing a [Slack incoming webhook URL](https://api.slack.com/messaging/webhooks)
 and optionally choosing which events you want delivered using [event filters](#event-filtering).
 
@@ -104,6 +186,18 @@ You can either create your own Slack app (or use an existing one you may already
 follow the link below to quickly get started with a pre-defined Slack app manifest.
 
 <div class="btn btn-secondary"><a target="_blank" href="https://api.slack.com/apps?new_app=1&manifest_yaml=display_information%3A%0A%20%20name%3A%20pulumi-slack-notifications%0A%20%20description%3A%20Funnel%20Pulumi%20webhooks%20to%20Slack%0A%20%20background_color%3A%20%22%238a3391%22%0Afeatures%3A%0A%20%20bot_user%3A%0A%20%20%20%20display_name%3A%20pulumi-slack-notifications%0A%20%20%20%20always_online%3A%20false%0Aoauth_config%3A%0A%20%20scopes%3A%0A%20%20%20%20bot%3A%0A%20%20%20%20%20%20-%20incoming-webhook%0Asettings%3A%0A%20%20org_deploy_enabled%3A%20false%0A%20%20socket_mode_enabled%3A%20false%0A%20%20token_rotation_enabled%3A%20false" class="tile h-full">Create a Slack app from manifest</a></div>
+
+### Microsoft Teams Webhooks
+
+Microsoft Teams Webhooks allow you to seamlessly integrate notifications about your Pulumi stacks and organizations
+into your Microsoft Teams workspace by simply providing a [Microsoft Teams incoming webhook URL](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
+and optionally choosing which events you want delivered using [event filters](#event-filtering).
+
+### Deployment Webhooks
+
+The Deployment webhook destination lets you trigger updates on other stacks via [Pulumi Deployments](/docs/pulumi-cloud/deployments/), usually in response to `update_succeeded` events. This enables you to keep dependent stacks up to date automatically which is often necessary when using [stack references](/docs/concepts/stack/#stackreferences).
+
+Deployment webhooks require that your stacks are configured with [Deployment Settings](/docs/pulumi-cloud/deployments/reference/#deployment-settings).
 
 ### Generic JSON Webhooks
 

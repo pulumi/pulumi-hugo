@@ -3,12 +3,14 @@ title_tag: "Java | Languages & SDKs"
 meta_desc: An overview of how to use the Java language with Pulumi for infrastructure as code on any cloud (AWS, Azure, Google Cloud, Kubernetes, etc.).
 title: Java
 h1: Pulumi & Java
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     languages:
         identifier: java
         weight: 5
 aliases:
 - /docs/intro/languages/java/
+- /java/
 ---
 
 <img src="/logos/tech/java.svg" align="right" width="90" style="padding:8px; margin-top: -64px">
@@ -41,7 +43,7 @@ $ pulumi new java
 {{% notes "info" %}}
 To write a Pulumi Java program using Gradle
 
-```
+```bash
 $ mkdir myproject && cd myproject
 $ pulumi new java-gradle
 ```
