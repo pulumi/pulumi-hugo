@@ -8,7 +8,7 @@ menu:
   concepts:
     identifier: version
     parent: options
-    weight: 15
+    weight: 16
 aliases:
 - /docs/intro/concepts/resources/options/version/
 ---
