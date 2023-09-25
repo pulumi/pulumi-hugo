@@ -11,7 +11,7 @@ menu:
     weight: 5
 ---
 
-A resource may be deleted automatically when another resource is deleted. The other resource can be seen as a container resource. When such a container resource is deleted, 
+A resource may be deleted automatically when another resource is deleted. The other resource can be seen as a container resource.
 
 {{% notes "info" %}}
 This resource option was introduced in [Pulumi v3.46.1](https://github.com/pulumi/pulumi/releases/tag/v3.46.1). For this option to function correctly, you need this minimum version for *both* the Pulumi CLI and the core Pulumi SDK.
@@ -149,15 +149,15 @@ This resource option is not yet implemented for Java. You can follow up the [imp
 {{% /notes %}}
 
 ```java
-var jdoeUser = new User("jdoeUser", UserArgs.builder()        
+var jdoeUser = new User("jdoeUser", UserArgs.builder()
     .user("johndoe")
     .plaintextPassword(password)
     .build());
 
-var jdoeGrant = new Grant("jdoeGrant", GrantArgs.builder()        
+var jdoeGrant = new Grant("jdoeGrant", GrantArgs.builder()
     .database(tempDb.name())
     .user(jdoeUser.user())
-    .privileges(            
+    .privileges(
         "SELECT",
         "UPDATE")
     .build(),
