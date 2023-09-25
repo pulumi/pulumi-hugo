@@ -43,4 +43,5 @@ const lambdaEvent = new aws.lambda.Permission("lambda-trigger-event", {
 });
 
 // [Step 3: Create an export.]
+export const bucketName = bucket.id
 export const lambdaArn = lambdaFunction.arn

@@ -61,4 +61,5 @@ resources:
 
 # [Step 3: Create an export.]
 outputs:
+  bucketName: ${my-bucket.id}
   lambdaArn: ${lambda-function.arn}

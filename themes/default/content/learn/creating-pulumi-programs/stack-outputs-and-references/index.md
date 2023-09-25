@@ -19,9 +19,11 @@ tags:
     - stack-references
 ---
 
-One of Pulumi's powerful features is the ability to work with inputs and outputs. This enables developers to model dependencies between resources and even stacks.
+In this tutorial, you will learn how to work with stack outputs, specifically how to export values from a stack and how to reference those values from another stack.
 
-In this tutorial, we'll demonstrate how to export values from a stack by creating a simple AWS Lambda Function that will write a file to an S3 bucket. You will then create an EventBridge Scheduler resource in a new stack that will run the Lambda function from the first stack on a scheduled basis.
+You will do this by creating a simple AWS Lambda Function that will write a file to an S3 bucket.
+
+You will then create an EventBridge Scheduler resource in a new stack that will run the Lambda function from the first stack on a scheduled basis.
 
 ## Pre-Requisites
 
@@ -93,7 +95,7 @@ The first resource we will define in our project is a simple S3 bucket as shown 
 
 {{% /choosable %}}
 
-The next resource we will create is a Lambda function with function code that will write a file to our S3 bucket. We will also include an IAM role for the Lambda to use when executing its function.
+The next resource we will add is a Lambda function with function code that will write a simple `.txt` file to our S3 bucket. We will also add an IAM role that will [grant our Lambda function permission](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) to access AWS services and resources.
 
 To start, let's create a new folder in our project named `s3_writer`. Inside of this folder, we'll create a file named `lambda_function.py` and populate it with code that will write a simple `.txt` file to our bucket.
 
@@ -101,7 +103,7 @@ To start, let's create a new folder in our project named `s3_writer`. Inside of 
 {{% loadcode "code/lambda-code.py" %}}
 ```
 
-Now, we can add the [Lambda function resource definition](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/) and its corresponding [IAM role](https://www.pulumi.com/registry/packages/aws/api-docs/iam/role/) to our project file.
+Now, we can add the [Lambda function resource definition](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/) and its corresponding [IAM role](https://www.pulumi.com/registry/packages/aws/api-docs/iam/role/) to our main project file.
 
 {{< chooser language "typescript,python,yaml" / >}}
 
@@ -131,11 +133,11 @@ Now, we can add the [Lambda function resource definition](https://www.pulumi.com
 
 ### Export Resource Values
 
-Now that we have our project resources defined, we can [export the values](https://www.pulumi.com/docs/concepts/stack/#outputs) of various resource properties from our program. When defining these exports in our program, we'll need to provide two arguments:
+Now that we have our project resources defined, we can [export the values](https://www.pulumi.com/docs/concepts/stack/#outputs) of various resource properties from our program. When defining these exports, we'll need to provide two arguments:
 
 | Argument | Description |
 |--------------|-------------|
-| Output name | This is the name we will use to identify our output value |
+| Output name | This is the name we will use as the identifier of our output value |
 | Output value | This is the actual value of our output |
 
 To demonstrate how this works, let's export the names of our Lambda function and S3 bucket. The [Pulumi documentation](https://www.pulumi.com/registry/packages/aws/api-docs/lambda/function/#outputs) provides more information about what properties are available to export for each resource.
@@ -170,7 +172,7 @@ We can reference both our Lambda function name and bucket name via their `id` pr
 
 ### Deploy your Project Resources
 
-Now let’s run the `pulumi up` command to preview and deploy the resources we've just defined in our project.
+Now let’s save our file and run the `pulumi up` command to preview and deploy the resources we've just defined in our project.
 
 ```bash
 Previewing update (dev):
@@ -221,7 +223,7 @@ aws s3api list-objects-v2 --bucket <bucket_name>
 
 We will want to replace `<bucket_name>` with the actual name of our S3 bucket. While we can manually provide the name of our bucket, we can also programmatically reference our bucket name via the stack outputs.
 
-We'll do this by using [`pulumi stack output`](https://www.pulumi.com/docs/concepts/stack/#outputs) command and provide the name of our output as shown below:
+We'll do this by using the [`pulumi stack output`](https://www.pulumi.com/docs/concepts/stack/#outputs) command and provide the name of our desired output as shown below:
 
 ```bash
 aws s3api list-objects-v2 --bucket $(pulumi stack output bucketName)
@@ -246,7 +248,7 @@ aws lambda invoke \
     response.json
 ```
 
-We can verify the outcome of this function execution by running the same `list-objects-v2` command from before to check our S3 bucket. This time, we should see output similar to the following:
+We can verify the outcome of this function execution by running the same `list-objects-v2` command from before to check the contents of our S3 bucket. This time, we should see output similar to the following:
 
 ```bash
 {
@@ -277,11 +279,11 @@ For this section, we are going to create a new Pulumi program that will access t
 
 Let's start by making a new Pulumi program in a new directory. In this new program, we need to add the code that will reference the values from our first program.
 
-First, we'll start by adding Pulumi's [Stack Reference functionionality](https://www.pulumi.com/docs/concepts/stack/#stackreferences) to create the cross-stack reference. We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
+This an be done using Pulumi's [Stack Reference functionality](https://www.pulumi.com/docs/concepts/stack/#stackreferences). We'll need to pass in the fully qualified name of the stack as an argument. This name is comprised of the [organization](https://www.pulumi.com/docs/pulumi-cloud/organizations/), project, and stack names in the format of `<organization>/<project>/<stack>`
 
-For example, if the name of our organization is `my-org`, the name of our first program is `my-first-program`, and the name of our stack is `dev`, then our fully qualified name will be `my-org/my-first-program/dev`:
+For example, if the name of our organization is `my-org`, the name of our first program is `my-first-program`, and the name of our stack is `dev`, then our fully qualified name will be `my-org/my-first-program/dev`.
 
-A stack reference will look like the following in our code:
+With that being said, a stack reference will look like the following in our code:
 
 {{< chooser language "typescript,python,yaml" / >}}
 
@@ -316,6 +318,8 @@ Make sure that the fully qualified name in the example above is populated with t
 {{% /notes %}}
 
 We will now create an export that will output the value of the Lambda function name from our first program. This is to demonstrate how to retrieve output values from another stack for use in your program.
+
+For the value of our export, we can retrieve it by taking our `stack_ref` variable and using a Stack Reference function called `get_output()` against it.
 
 Let's update our code with the following:
 
@@ -374,7 +378,7 @@ Resources:
 Duration: 3s
 ```
 
-We can see our cross stack reference successfully outputted in the update details.
+We can see the name of our Lambda function from our first program successfully outputted in the update details of our second program.
 
 ### Run the Lambda Function on a Schedule
 
