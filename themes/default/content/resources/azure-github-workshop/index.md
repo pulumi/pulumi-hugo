@@ -38,7 +38,7 @@ block_external_search_index: false
 event_data:
   name: Pulumi - Getting Started with Azure IaC and Pulumi Deployments
   start_date: 2023-10-25T09:00:00.000-07:00
-  end_date: 2023-10-25T010:00:00.000-07:00
+  end_date: 2023-10-25T10:00:00.000-07:00
   url: "https://www.pulumi.com/resources/azure-github-workshop"
   description: |
     When managing cloud infrastructure, it’s important to establish a build-test-release process for your team. In this session, you will learn how to use Pulumi’s [Azure Native v2 provider](/blog/introducing-azure-native-v2/) and your favorite programming languages to stand up new projects on Azure quickly. Then, we’ll show you how Pulumi Deployments make it easier than ever to validate both infrastructure and app code before release.
