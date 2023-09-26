@@ -1,6 +1,6 @@
 ---
 title: "Converting Bicep code to Pulumi"
-date: 2023-09-24
+date: 2023-09-27
 draft: false
 meta_desc: In this article, we will look at a new language converter that takes Bicep code and converts it to any of supported Pulumi languages. 
 meta_image: meta.png
@@ -24,7 +24,7 @@ pulumi plugin install converter bicep --server github://api.github.com/Zaid-Ajaj
 ```
 This command will install the plugin from the latest GitHub release of the [repository](https://github.com/Zaid-Ajaj/pulumi-converter-bicep).
 
-Once installed, you can use to convert Bicep code to Pulumi. For example, let's say we have the following Bicep code in a file called `example.bicep` that deploys a storage account:
+Once installed, you can use it to convert Bicep code to Pulumi. For example, let's say we have the following Bicep code in a file called `example.bicep` which deploys a storage account:
 
 ```bicep
 resource storage 'Microsoft.Storage/storageAccounts@2022-09-01' = {
@@ -37,7 +37,7 @@ resource storage 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-Navigate to the directory where the file is located and run the following command the language of you choice. For example to generate TypeScript code from the Bicep code above, run:
+Navigate to the directory where the file is located and run the following command. For example to generate TypeScript code from the Bicep code above, run:
 
 ```bash
 pulumi convert --from bicep --language typescript --out output -- --entry example.bicep
@@ -253,7 +253,7 @@ Currently the converter supports most of the features of Bicep such as parameter
 
 ## How does it work?
 
-The converter plugin is a native binary built using dotnet in [F#](https://dotnet.microsoft.com/en-us/languages/fsharp) and new Pulumi Converter SDK. Using the core [Pulumi](https://www.nuget.org/packages/Pulumi) nuget package, we shipped an API that allows you to easily build converter plugins that can be used with the Pulumi CLI.
+The converter plugin is a native binary built using dotnet in [F#](https://dotnet.microsoft.com/en-us/languages/fsharp) and new Pulumi Converter SDK. Using the core [Pulumi](https://www.nuget.org/packages/Pulumi) nuget package, we shipped an API that allows you to easily build converter plugins that can extend the functionality of `pulumi convert`.
 
 Building a language converter plugin involes taking the source language, in this case Bicep, and converting it to the our internal Pulumi Configuration Language or PCL for short. The converter implements a function of the following shape:
 ```fsharp
@@ -263,9 +263,13 @@ let convertProgram (request: ConvertProgramRequest): ConvertProgramResponse =
     let args = request.Args
     // conversion logic here
 ```
-In our case, we read the Bicep code from the in the source directory, convert it to PCL and write out the PCL code in the target directory. The Pulumi CrossCode takes care of the rest of the work of generating the target language code from the PCL code so that we don't have to worry about it.
+In our case, we read the Bicep code from the in the source directory, convert it to PCL and write out the PCL code in the target directory. Then, Pulumi uses the built-in program generation facilities to take care of the rest of the work of generating the target language code from the PCL code so that we don't have to worry about language-specific details. The converter only knows how to generates PCL.
 
-To build the actual transformation from Bicep to PCL, I made use the of [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) package available for dotnet which allowed me to parse the Bicep code and generate an typed Abstract Syntax Tree (AST) from the bicep code. Building an AST from the source language allows us to easily traverse the tree, analyze it and symbolically rewrite pieces of it. Working at the AST level allows us to test source code transformation using structure rather than text. Once we have obtained the Bicep AST, we transform it into a Pulumi AST that represents a PCL program. Finally we print out the Pulumi AST to a string and write it to the target directory. 
+To build the actual transformation from Bicep to PCL, I made use the of the [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) package available for dotnet which allowed me to parse the Bicep code and generate a typed Abstract Syntax Tree (AST) from the bicep code. Building an AST from the source language allows us to easily traverse the tree, analyze it and symbolically rewrite pieces of it. Working at the AST level alse makes it easy to test source code transformation using structure rather than text. Once we have obtained the Bicep AST, we transform it into a Pulumi AST that represents a PCL program. Finally we print out the Pulumi AST to a string and write it to the target directory. 
+
+If you are curious about the specification of the AST that represents Bicep programs, head over to [this file](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/src/Converter/BicepParser.fs) from the source code. You will find types such as `BicepProgram` and `BicepSyntax` that model almost every aspect of Bicep code. 
+
+As for the AST of PCL programs, you can find the type definitions [here](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/src/Converter/PulumiTypes.fs).
 
 The F# language is great for almost everything but is especially amazing for writing language converters because of its powerful pattern matching capabilities, and the ability to write code in a functional style. Many of us working at Pulumi are big fans of F#!
 
@@ -287,11 +291,9 @@ You can learn more on the implementation of these functions from the source code
 
 ## Bonus converter: ARM to Pulumi
 
-Those who are familiar with the Bicep CLI, they know that it has a built-in decompiler that converts ARM templates to Bicep. I thought it would be fun to build another converter that takes ARM templates to Pulumi but without writing any conversion logic for it. 
+Those who are familiar with the Bicep CLI, know that it has a built-in _decompiler_ that converts ARM templates to Bicep. I thought it would be fun to build another converter that takes ARM templates to Pulumi but without writing any conversion logic for it. Instead, I would decompile the ARM template to Bicep, then use the logic from the Bicep converter to generate the final PCL code. Luckily for me, the decompiler code is embedded in the nuget package [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) so I didn't to rely on the existence of the Bicep CLI to decompile the ARM template.
 
-Instead, I would decompile the ARM template to Bicep, then use the logic from the Bicep converter to generate the final PCL code. Luckily for me, the decompiler code is embedded in the nuget package [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) so I didn't to rely on the existence of the Bicep CLI to decompile the ARM template.
-
-From all of this, I created another converter: `pulumi-converter-arm` that works exactly like the Bicep converter but takes ARM templates as input. Here is an example of converting an ARM template to TypeScript. Head over to the [repository](https://github.com/Zaid-Ajaj/pulumi-converter-arm) to learn more about how to install it and how to use it.
+From all of this, I created another converter: `pulumi-converter-arm` that works exactly like the Bicep converter but takes ARM templates as input. Head over to the [repository](https://github.com/Zaid-Ajaj/pulumi-converter-arm) to learn more about how to install it and how to use it.
 
 ## Building your own Pulumi language converter
 
@@ -331,9 +333,9 @@ convertProgram
 ```
 This will spin up a gRPC server that implements the `Converter` contract and will serve it on a random port assigned during startup. The Pulumi converter SDK automatically implements gRPC reflection which allows tools such as [Postman](https://www.postman.com/) to discover the available gRPC services and methods and send example requests to them. See [Postman with gRPC](https://blog.postman.com/postman-now-supports-grpc/). 
 
-## Publishing the converter plugins
+## Publishing converter plugins
 
-The easier way to make your converter plugin available to others is to publish it on GitHub releases. The Pulumi CLI expects a naming convention `pulumi-converter-<language>` and will automatically download the plugin from the latest GitHub release of the repository when given the `--server` flag during `pulumi plugin install converter <language> --server <url>`.
+The easiest way to make your converter plugin available to others is to publish it on GitHub releases. The Pulumi CLI expects a naming convention `pulumi-converter-<language>` and will automatically download the plugin from the latest GitHub release of the repository when given the `--server` flag during `pulumi plugin install converter <language> --server <url>`.
 
 Converter plugins written in dotnet are simple console applications that are compiled to native binaries for each target platform. To see how this is done, refer to this [createAndPublishArtifacts](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/build/Program.fs#L197) function written for the Bicep converter that does the heavy lifting of building the native binaries for each platform and publishing them to GitHub releases. 
 
