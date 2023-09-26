@@ -8,7 +8,6 @@ description: Learn more about exporting and referencing stack outputs in Pulumi.
 meta_desc: Learn more about exporting and referencing stack outputs in Pulumi.
 index: 2
 estimated_time: 10
-meta_image: meta.png
 authors:
     - torian-crane
 tags:
@@ -17,13 +16,19 @@ tags:
     - resources
     - stack-outputs
     - stack-references
+    - python
+    - tutorial
 ---
+
+{{< youtube S-KfMsh78H8 >}}
+
+<br>
 
 In this tutorial, you will learn how to work with stack outputs, specifically how to export values from a stack and how to reference those values from another stack.
 
 You will do this by creating a simple AWS Lambda Function that will write a file to an S3 bucket.
 
-You will then create an EventBridge Scheduler resource in a new stack that will run the Lambda function from the first stack on a scheduled basis.
+You will also create an EventBridge Scheduler resource in a new stack that will run the Lambda function from the first stack on a scheduled basis.
 
 ## Pre-Requisites
 
