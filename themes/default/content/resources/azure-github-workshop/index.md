@@ -3,7 +3,7 @@
 title: "Getting Started with Azure IaC and Pulumi Deployments"
 title_tag: "Getting Started with Azure IaC and Pulumi Deployments"
 meta_desc: "In this workshop, we’ll explore the new Azure Native v2 provider and how Pulumi Deployments make it easier to validate both infrastructure and app code before release."
-meta_image: "/images/resources/azure-iac-review-stacks.png"
+meta_image: "/images/resources/azure-deployments2.png"
 
 # A featured webinar will display first in the list.
 featured: false
