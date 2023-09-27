@@ -249,6 +249,8 @@ variables:
 {{% /choosable %}}
 {{< /chooser >}}
 
+Notice how the in the original Bicep code, we reference the location of the _implicit_ resource group via `resourceGroup().location`. When the converter generates code for the target language, it replaces this _implicit_ resource group with an explicit one by parameterizing the program by a resource group name and using that resource group when deploying the resources.
+
 ## Early days for the converter
 
 Currently the converter supports most of the features of Bicep such as parameters, variables, modules, resources, outputs and a number of built-in functions. That said, the converter plugin is still in its early days and it's not yet tested against many real-world Bicep programs. I am actively working on improving it and making it support most of the Bicep language features. The source code is available on this [GitHub repository](https://github.com/Zaid-Ajaj/pulumi-converter-bicep). If you find any issues or have any feedback, please open an issue on the repository.
@@ -269,11 +271,9 @@ let convertProgram (request: ConvertProgramRequest): ConvertProgramResponse =
 
 In our case, we read the Bicep code from the in the source directory, convert it to PCL and write out the PCL code in the target directory. Then, Pulumi uses the built-in program generation facilities to take care of the rest of the work of generating the target language code from the PCL code so that we don't have to worry about language-specific details. The converter only knows how to generates PCL.
 
-To build the actual transformation from Bicep to PCL, I made use the of the [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) package available for dotnet which allowed me to parse the Bicep code and generate a typed Abstract Syntax Tree (AST) from the bicep code. Building an AST from the source language allows us to easily traverse the tree, analyze it and symbolically rewrite pieces of it. Working at the AST level alse makes it easy to test source code transformation using structure rather than text. Once we have obtained the Bicep AST, we transform it into a Pulumi AST that represents a PCL program. Finally we print out the Pulumi AST to a string and write it to the target directory.
+To build the actual transformation from Bicep to PCL, I made use the of the [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) package available for dotnet which allowed me to parse the Bicep code and generate a typed Abstract Syntax Tree (AST) from it. Building an AST from the source language allows us to easily traverse the tree, analyze it and symbolically rewrite pieces of it. Working at the AST level alse makes it easy to test source code transformation using structure rather than text. Once we have obtained the Bicep AST, we transform it into a Pulumi AST that represents a PCL program. Finally we print out the Pulumi AST to a string and write it to the target directory.
 
-If you are curious about the specification of the AST that represents Bicep programs, head over to [this file](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/src/Converter/BicepParser.fs) from the source code. You will find types such as `BicepProgram` and `BicepSyntax` that model almost every aspect of Bicep code.
-
-As for the AST of PCL programs, you can find the type definitions [here](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/src/Converter/PulumiTypes.fs).
+If you are curious about the specification of the AST that represents Bicep programs, head over to [this file](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/src/Converter/BicepParser.fs) from the source code. You will find types such as `BicepProgram` and `BicepSyntax` that model almost every aspect of Bicep code. As for the AST of PCL programs, you can find the type definitions [here](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/src/Converter/PulumiTypes.fs).
 
 The F# language is great for almost everything but is especially amazing for writing language converters because of its powerful pattern matching capabilities, and the ability to write code in a functional style. Many of us working at Pulumi are big fans of F#!
 
@@ -295,9 +295,11 @@ You can learn more on the implementation of these functions from the source code
 
 ## Bonus converter: ARM to Pulumi
 
-Those who are familiar with the Bicep CLI, know that it has a built-in _decompiler_ that converts ARM templates to Bicep. I thought it would be fun to build another converter that takes ARM templates to Pulumi but without writing any conversion logic for it. Instead, I would decompile the ARM template to Bicep, then use the logic from the Bicep converter to generate the final PCL code. Luckily for me, the decompiler code is embedded in the nuget package [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) so I didn't to rely on the existence of the Bicep CLI to decompile the ARM template.
+Those who are familiar with the Bicep CLI, know that it has a built-in _decompiler_ that converts ARM templates to Bicep. I thought it would be fun to build another converter that takes ARM templates to Pulumi but without writing any conversion logic for it. Instead, I would decompile the ARM template to Bicep, then use the logic from the Bicep converter to generate the final PCL code. Fortunately, the decompiler code is embedded in the nuget package [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) so we don't have to rely on the existence of the Bicep CLI in order to make this converter work.
 
-From all of this, I created another converter: `pulumi-converter-arm` that works exactly like the Bicep converter but takes ARM templates as input. Head over to the [repository](https://github.com/Zaid-Ajaj/pulumi-converter-arm) to learn more about how to install it and how to use it.
+From all of this, I created another converter `pulumi-converter-arm` that works exactly like the Bicep converter but takes ARM templates as input. Head over to the [repository](https://github.com/Zaid-Ajaj/pulumi-converter-arm) to learn more about how to install it and how to use it.
+
+Depending on how well this ARM converter does its job, we might consider deprecating [arm2pulumi](https://www.pulumi.com/arm2pulumi/) in favor of it. However we first need to test it against more templates and iron out the rough edges. It would be the ideal situation because there are virtually zero maintenance costs, any improvements to the Bicep converter would automatically get picked up here. Also improvements to the decompiler from the [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) nuget package would benefit the converter as well.
 
 ## Building your own Pulumi language converter
 
