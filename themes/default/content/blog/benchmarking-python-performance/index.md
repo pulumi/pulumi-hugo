@@ -196,7 +196,7 @@ but it is also now marginally faster than its Node.js competitor.
 It's rare to have a small PR result in such a massive performance increase,
 but when it happens, we want to shout it from the rooftops. This change, which
 shipped last year in v3.44.3, does not require Python users to opt-in; their programs
-should just be faster. This patch has closed the gap with the Node.js runtime.
+are now faster. This patch has closed the gap with the Node.js runtime.
 Users can now expect highly parallel Pulumi programs to run in a similar
 amount of time between either language.
 
