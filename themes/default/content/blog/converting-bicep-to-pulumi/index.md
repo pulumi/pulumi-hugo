@@ -269,7 +269,7 @@ let convertProgram (request: ConvertProgramRequest): ConvertProgramResponse =
     // conversion logic here
 ```
 
-In our case, we read the Bicep code from the in the source directory, convert it to PCL and write out the PCL code in the target directory. Then, Pulumi uses the built-in program generation facilities to take care of the rest of the work of generating the target language code from the PCL code so that we don't have to worry about language-specific details. The converter only knows how to generates PCL.
+In our case, we read the Bicep code from the in the source directory, convert it to PCL and write out the PCL code in the target directory. Then, Pulumi uses the built-in program generation facilities to take care of the rest of the work of generating the target language code from the PCL code so that we don't have to worry about language-specific details. The converter only needs to know how to generate PCL.
 
 To build the actual transformation from Bicep to PCL, I made use the of the [Azure.Bicep.Core](https://www.nuget.org/packages/Azure.Bicep.Core) package available for dotnet which allowed me to parse the Bicep code and generate a typed Abstract Syntax Tree (AST) from it. Building an AST from the source language allows us to easily traverse the tree, analyze it and symbolically rewrite pieces of it. Working at the AST level alse makes it easy to test source code transformation using structure rather than text. Once we have obtained the Bicep AST, we transform it into a Pulumi AST that represents a PCL program. Finally we print out the Pulumi AST to a string and write it to the target directory.
 
@@ -344,7 +344,7 @@ This will spin up a gRPC server that implements the `Converter` contract and wil
 
 ## Publishing converter plugins
 
-The easiest way to make your converter plugin available to others is to publish it on GitHub releases. The Pulumi CLI expects a naming convention `pulumi-converter-<language>` and will automatically download the plugin from the latest GitHub release of the repository when given the `--server` flag during `pulumi plugin install converter <language> --server <url>`.
+The easiest way to make your converter plugin available to others is to publish it on GitHub releases. The Pulumi CLI expects a naming convention `pulumi-converter-<name>` and will automatically download the plugin from the latest GitHub release of the repository when given the `--server` flag during `pulumi plugin install converter <name> --server <url>`.
 
 Converter plugins written in dotnet are simple console applications that are compiled to native binaries for each target platform. To see how this is done, refer to this [createAndPublishArtifacts](https://github.com/Zaid-Ajaj/pulumi-converter-bicep/blob/master/build/Program.fs#L197) function written for the Bicep converter that does the heavy lifting of building the native binaries for each platform and publishing them to GitHub releases.
 
