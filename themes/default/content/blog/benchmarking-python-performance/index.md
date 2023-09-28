@@ -1,10 +1,11 @@
 ---
 title: "Benchmarking Python Performance"
-date: 2023-07-31
+date: 2023-09-28
 meta_desc: "Benchmarking and improving the performance of Pulumi Python programs."
 meta_image: meta.png
 
 authors:
+    - justin-vanpatten
     - robbie-mckinstry
 
 tags:
@@ -21,13 +22,13 @@ about Amazing Performance in
 
 <!--more-->
 
-We recently took a hard look at the performance of Python programs when we
+Late last year, we took a hard look at the performance of Python programs when we
 realized they weren't performing up to our expectations. We uncovered a major
 bug limiting Python performance, and we ran a number of rigorous experiments
 to evaluate just how performant Pulumi Python programs are after the bug had
 been repaired. The results indicate Pulumi Python programs are significantly
 faster than they were, and now Pulumi Python has reached performance parity
-with Pulumi Node!
+with Pulumi Node.js!
 
 ## The Bug
 
@@ -36,30 +37,27 @@ between the resources in your program. In every Pulumi program, some resources
 have all their input arguments available at the time of their construction.
 In contrast, other resources may depend on `Outputs` from other resources.
 
-For example, consider a sample program where we expose a compute instance
-publicly using a floating IP:
+For example, consider a sample program where we create two AWS S3 buckets, where
+one bucket is used to store logs for the other bucket:
 
-```javascript
-import * as pulumi from "@pulumi/pulumi";
-import * as digitalocean from "@pulumi/digitalocean";
+```python
+import pulumi
+import pulumi_aws as aws
 
-const myDroplet = new digitalocean.Droplet("MyDroplet", {
-    size: "s-1vcpu-1gb",
-    image: "ubuntu-18-04-x64",
-    region: "sgp1",
-    ipv6: true,
-    privateNetworking: true,
-});
-const myFloatingIp = new digitalocean.FloatingIp("MyFloatingIp", {
-    dropletId: foobarDroplet.id,
-    region: foobarDroplet.region,
-});
+log_bucket = aws.s3.Bucket("logBucket", acl="log-delivery-write")
+
+bucket = aws.s3.Bucket("bucket",
+    acl="private",
+    loggings=[aws.s3.BucketLoggingArgs(
+        target_bucket=log_bucket.id,
+        target_prefix="log/",
+    )])
 ```
 
-Because the `FloatingIp` takes an input an `Output` typed value from
-`myDroplet`, we can't create the `FloatingIP` until after the `Droplet`
-is created. We have to create the `Droplet` first to compute the `Droplet`'s ID,
-which we can pass to the `FloatingIp`. This idea extends inductively for
+Because `bucket` takes an `Output` from `log_bucket` as an input,
+we can't create the `bucket` until after the `log_bucket`
+is created. We have to create the `log_bucket` first to compute its ID,
+which we can pass to `bucket`. This idea extends inductively for
 arbitrary programs – before any resource can be run, we must resolve the
 `Outputs` of all of its arguments. To do this, Pulumi builds a dependency graph
 between all resources in your program. Then, it walks the graph topologically
@@ -93,11 +91,13 @@ for AWS to provision the instances.
 that it did not! Strangely, API calls were issued in an initial batch of 20;
 as one completed, another would start.
 
+## The Fix
+
 The culprit was the Python default future executor,
 [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor).
 We observed that benchmark was run on a four-core computer, and in Python 3.5
-to Python 3.7, the number of max workers is five times the number of cores, or 20.
-In (Python 3.8, this number was changed to `min(32, os.cpu_count() + 4)`.) We
+to Python 3.7, the number of max workers is five times the number of cores, or 20
+(in Python 3.8, this number was changed to `min(32, os.cpu_count() + 4)`). We
 realized we shouldn't be using the default `ThreadExecutor`, and instead we
 should provide a `ThreadExecutor` with an adjusted number of `max_workers`
 based on the configured parallelism value. That way, when users run
@@ -119,7 +119,7 @@ our indicator of performance.
 
 The experiments ran overnight on a 2021 MacBook Pro with 32GB RAM, the M1 chip,
 and 10 cores. Experimental code is
-[available on GitHub](https://github.com/RobbieMcKinstry/python-concurrency-experiments/tags),
+[available on GitHub](https://github.com/pulumi/python-concurrency-experiments/tags),
 and release tags pin the version of the code used for each experiment.
 We also made an effort to run the experiments on a quiet machine connected
 to power. For all experiment groups, `--parallel` was unset, translating to
@@ -185,32 +185,32 @@ the patch to the Python runtime. Here are the result.
 | **Python**     | 70.975 s | 0.909 s                |
 | **TypeScript** | 73.741 s | 1.574 s                |
 
-**Summary:** The **Python Group performed the best and ran 1.04 ± 0.03 times
+**Summary:** The **Python Group** performed the best and ran 1.04 ± 0.03 times
 faster than the **TypeScript Group**. This accounts for a 4% difference in
 performance. A second T-Test indicated statical significance
 (p = 1.4e-07, α=0.05). Not only did Python close the gap with TypeScript,
-but it is also now marginally faster than its NodeJS competitor.
+but it is also now marginally faster than its Node.js competitor.
 
 ## Conclusion
 
 It's rare to have a small PR result in such a massive performance increase,
 but when it happens, we want to shout it from the rooftops. This change, which
-shipped in v3.44.3, does not require Python users to opt-in; their programs
-should just be faster. This patch has closed the gap with the NodeJS runtime.
+shipped last year in v3.44.3, does not require Python users to opt-in; their programs
+should just be faster. This patch has closed the gap with the Node.js runtime.
 Users can now expect highly parallel Pulumi programs to run in a similar
 amount of time between either language.
 
 ## Artifacts
 
 You can check out the artifacts of the experiments
-[on GitHub](https://github.com/RobbieMcKinstry/python-concurrency-experiments/tags),
+[on GitHub](https://github.com/pulumi/python-concurrency-experiments/tags),
 including the source code.
 
-Here are some handly links:
+Here are some useful links:
 
-* [The GitHub repository](https://github.com/RobbieMcKinstry/python-concurrency-experiments/tags)
-* [Artifacts from the first experiment](https://github.com/RobbieMcKinstry/python-concurrency-experiments/releases/tag/parallelism), "Control vs. Fix" or "Pre- and Post-patch".
+* [The GitHub repository](https://github.com/pulumi/python-concurrency-experiments/tags)
+* [Artifacts from the first experiment](https://github.com/pulumi/python-concurrency-experiments/releases/tag/parallelism), "Control vs. Fix" or "Pre- and Post-patch".
 * [More statistics](https://app.warp.dev/block/F6KkbWHvDVWLwtYFKq08Q2) about the first experiment.
-* [Artifacts from the second experiment](https://github.com/RobbieMcKinstry/python-concurrency-experiments/releases/tag/TypeScript-vs-Python)
+* [Artifacts from the second experiment](https://github.com/pulumi/python-concurrency-experiments/releases/tag/TypeScript-vs-Python)
 * [More statistics](https://app.warp.dev/block/gspCIKn10y9bEvZDMWHe4Q) about the second experiment.
 * [Pulumi Internals](https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/)
