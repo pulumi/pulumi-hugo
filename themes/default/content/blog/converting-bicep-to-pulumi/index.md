@@ -1,6 +1,6 @@
 ---
 title: "Converting Bicep code to Pulumi"
-date: 2023-09-27
+date: 2023-09-29
 draft: false
 meta_desc: In this article, we will look at a new language converter that takes Bicep code and converts it to any of supported Pulumi languages. 
 meta_image: meta.png
