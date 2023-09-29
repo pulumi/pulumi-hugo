@@ -1,6 +1,6 @@
 ---
 # Name of the webinar.
-title: GopherCon
+title: Generative AI, Apps, and DevOps | AI/ML Talks
 meta_desc: We are heading to GopherCon 2023. Meet us in-person at the Marriott Marquis in San Diego, or request a virtual 1:1 with one of our experts.
 
 # A featured webinar will display first in the list.
