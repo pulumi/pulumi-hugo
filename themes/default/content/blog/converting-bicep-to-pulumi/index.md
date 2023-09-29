@@ -323,7 +323,7 @@ service Converter {
 
 Now, learning how to setup gRPC servers and implement the `Converter` contract is not an easy task unless you are familiar with it. For .NET, we shipped the _experimental_ Pulumi converter SDK to the main Pulumi nuget package that makes it extremely easy to build converter plugins.
 
-A bare-bones converter plugin which does nothing looks this in F#:
+A bare-bones converter plugin which does nothing looks like this in F#:
 
 ```fsharp
 open Pulumi.Experimental.Converter
