@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: AI, Friend or Foe | AI Talks for DevOps
-meta_desc: We are heading to GopherCon 2023. Meet us in-person at the Marriott Marquis in San Diego, or request a virtual 1:1 with one of our experts.
+meta_desc: Join us on November 8 in San Francisco for panel discussions about the impact of AI in DevOps and software development.
 
 # A featured webinar will display first in the list.
 featured: false
