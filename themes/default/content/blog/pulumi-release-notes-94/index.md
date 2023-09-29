@@ -48,39 +48,72 @@ We've had an exciting quarter at Pulumi, shipping all kinds of improvements from
 
 Pulumi Cloud [Resource Search AI assist](https://www.pulumi.com/blog/ai-assist-improvements/) is now generally available to all organizations, offering natural language search capabilities. This feature allows you to query their infrastructure with plain language requests. Suggested queries and an "I'm Feeling Lucky" button are now available to simplify the search process and provide insights into Resource Search functionality.
 
+![AI Assist](aiassist.png)
+
 ### Pulumi Insights and AI in the CLI
 
 We've integrated Pulumi Insights, including AI and Resource Search, into the pulumi CLI. Now, you can harness [the power of AI and resource search](https://www.pulumi.com/blog/pulumi-insights-ai-cli/) directly in your terminal. This update also includes features like AI Assist for resource search and fine-grained resource property search, making these tools easily accessible via the pulumi CLI.
 
+```bash
+pulumi org search ai -q "all Kinesis streams modified since September 1st 2023"
+```
+
+```bash
+pulumi ai web "deploy metabase on AWS with a managed postgres database"
+```
+
 ## Pulumi Cloud
+
+### Slack and Deployment Notifications
+
+We've made several improvements to our Pulumi Cloud Webhooks to enhance deployment notifications and response times. Now, you can easily [integrate Slack with Pulumi](https://www.pulumi.com/blog/slack-integration/) Cloud for organization or stack notifications without hosting their infrastructure. This integration provides centralized visibility, allowing teams to quickly access stack and update details, operation information, and user activity, streamlining collaboration and reducing context switching. Event notifications and filtering options have been expanded for both Pulumi Cloud Webhooks and the Slack integration, making deployment monitoring more efficient and accessible. These enhancements are available to all Pulumi Cloud organizations.
+
+![Slack](slack.png)
+
 
 ### Microsoft Teams Webhook Integration
 
 Setting up Microsoft Teams notifications is now easier than ever with support for Microsoft Teams formatted webhooks. You can quickly enable notifications about your Pulumi stacks and organizations in your Microsoft Teams workspace by providing an incoming webhook URL. New REST API endpoints and a Service Provider are available, allowing for efficient webhook creation at scale. These improvements enhance ChatOps workflows and provide better visibility into infrastructure changes while maintaining support for generic webhooks. For more details and how to get started, check out [this blog post](https://www.pulumi.com/blog/ms-teams-integration/).
 
+![Microsoft Teams Webhooks](teamswebhook.png)
+
 ### Admin Organization Access Tokens in Pulumi Cloud
 
 The introduction of Admin permission scope for [Organization Access Tokens](https://www.pulumi.com/blog/org-admin-tokens/) provides elevated privileges for users who need them. These tokens enable actions like transferring stacks, modifying user access, team management, and more, previously restricted with regular Organization Access Tokens. Admin Organization Access Tokens cater to programmatic use cases that require higher-level permissions while maintaining a member's usual permissions. This enhancement expands the utility of Organization Access Tokens for Enterprise and Business Critical customers, and is available during the 14-day trial period as well.
+
+![Admin Tokens](admintoken.png)
 
 ### Restore Stacks
 
 Pulumi Cloud now offers the capability to [restore previously deleted stacks](https://www.pulumi.com/blog/restore-stacks/), a feature requested by many users. This addition enables users to recover stacks that were either mistakenly deleted or intentionally removed while retaining their activity history. This self-service recovery option can be conveniently accessed via the Pulumi Cloud console by navigating to the Stacks page, locating the "restore stacks" function, and selecting the stacks they wish to recover. Up to the last 10 deleted stacks can be restored, and older ones can be retrieved through support.
 
-### Dependent Stack Updates with Pulumi Deployments
-
-Pulumi Deployments has two new features to help manage complex infrastructure projects more easily. The Deployment Webhook Destinations allow automatic triggering of updates in dependent stacks when changes occur in the parent stack. We've also added the Pulumi Auto Deploy Package to simplify the way you express stack dependencies, automating the creation and updating of Deployment Webhooks. For all the details and to get started, visit the [blog post](https://www.pulumi.com/blog/dependent-stack-updates/), [auto deploy package](https://www.pulumi.com/registry/packages/auto-deploy/) registry page, and [Pulumi Deployments](https://www.pulumi.com/docs/pulumi-cloud/deployments/) documentation.
+![Restore Stacks](restorestack.png)
 
 ### Review Stacks
 
 New to Pulumi Deployments are [Review Stacks](https://www.pulumi.com/blog/review-stacks/), ephemeral cloud environments created automatically when a pull request is opened. These environments enable developers to make changes to both application and infrastructure code simultaneously, streamlining the development process. Review Stacks comment with the outputs from the deployment, making it easier to review code changes and collaborate with teammates. Review Stacks help optimize cloud costs by only existing as long as necessary during feature development. Configuring Review Stacks is a simple process that enhances development efficiency and collaboration among teams. Find more information in the [Review Stacks documentation](https://www.pulumi.com/docs/pulumi-cloud/deployments/review-stacks/).
 
+![Review Stacks](comment.png)
+
 ### Property Search
 
 Resource Search for Pulumi Cloud capabilities have been enhanced by allowing users to search over resource properties in addition to metadata, across over 100 cloud providers. The [Property Search](https://www.pulumi.com/blog/property-search/) feature provides deeper insights into cloud infrastructure, enabling users to search based on specific property names and values, such as instance type, region, or database version. This new feature is available in the Enterprise and Business Critical editions of Pulumi Cloud and aims to streamline resource management, compliance, and diagnostics, ultimately enhancing efficiency and collaboration in cloud environments.
 
-### Slack and Deployment Notifications
+| Natural language                              | Query result                                                                                               |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| resources tagged with stack production        | `.tags.stack:production`                                                                                   |
+| resources without a tag in production         | `-tags: stack:production`                                                                                  |
+| aurora engines running MySQL engine version 5 | `type:"aws:rds/cluster:Cluster" .engine:aurora .engineVersion:5`                                           |
+| s3 buckets read write in production           | `type:"aws:s3/bucket:Bucket" stack:production .acl:public-read-write`                                      |
+| buckets objects in all clouds                 | `type:"aws:s3/bucket:Bucket" OR type:"google:storage/bucket:Bucket" OR type:"azure:storage:BlobContainer"` |
+| all resources in us east 1                    | `region:"us-east-1"`                                                                                       |
+| resources with a private ip                   | `.privateIpAddress:`                                                                                       |
 
-We've made several improvements to our Pulumi Cloud Webhooks to enhance deployment notifications and response times. Now, you can easily [integrate Slack with Pulumi](https://www.pulumi.com/blog/slack-integration/) Cloud for organization or stack notifications without hosting their infrastructure. This integration provides centralized visibility, allowing teams to quickly access stack and update details, operation information, and user activity, streamlining collaboration and reducing context switching. Event notifications and filtering options have been expanded for both Pulumi Cloud Webhooks and the Slack integration, making deployment monitoring more efficient and accessible. These enhancements are available to all Pulumi Cloud organizations.
+
+### Dependent Stack Updates with Pulumi Deployments
+
+Pulumi Deployments has two new features to help manage complex infrastructure projects more easily. The Deployment Webhook Destinations allow automatic triggering of updates in dependent stacks when changes occur in the parent stack. We've also added the Pulumi Auto Deploy Package to simplify the way you express stack dependencies, automating the creation and updating of Deployment Webhooks. For all the details and to get started, visit the [blog post](https://www.pulumi.com/blog/dependent-stack-updates/), [auto deploy package](https://www.pulumi.com/registry/packages/auto-deploy/) registry page, and [Pulumi Deployments](https://www.pulumi.com/docs/pulumi-cloud/deployments/) documentation.
+
 
 ## Core
 
@@ -88,9 +121,60 @@ We've made several improvements to our Pulumi Cloud Webhooks to enhance deployme
 
 We've implemented Go generics in our SDKs, enabling type safety and reducing excessive code generation.  This means you can write more reliable and maintainable infrastructure code with reduced chances of panics, leading to more robust cloud infrastructure deployments. For a deeper dive into this feature and how to get started, explore this [blog post](https://www.pulumi.com/blog/go-generics-preview/).
 
+```go
+// Given
+var a pulumi.IntOutput
+var b pulumi.StringOutput
+
+// Before (could panic at runtime if you got something wrong)
+o := pulumi.All(a, b).ApplyT(func(vs []interface{}) string { // could panic
+    a := vs[0].(int) // could panic
+    b := vs[1].(string) // could panic
+    return strconv.Itoa(a) + b
+}).(pulumi.StringOutput) // could panic
+
+// After (compile-time type-safety)
+o := pulumix.Apply2(a, b, func(a int, b string) string {
+    return strconv.Itoa(a) + b
+})
+```
+
 ### Pulumi Convert
 
 The introduction of `pulumi convert` in the Pulumi CLI simplifies the migration process for teams transitioning from Terraform to Pulumi. This feature allows you to [convert entire Terraform projects](https://www.pulumi.com/blog/converting-full-terraform-programs-to-pulumi/) into Pulumi, including support for modules, core Terraform 1.4 features, and most Terraform built-in functions. Starting from Pulumi CLI version 3.71.0, you can directly access this converter, streamlining the conversion of full Terraform programs. This enhancement builds upon our CrossCode foundations, enabling universal infrastructure as code support and introducing the concept of converter plugins for future integrations. This feature supports various use cases, such as migrating existing Terraform projects and modules to Pulumi, enhancing our commitment to providing versatile solutions for infrastructure as code.
+
+
+{{< chooser language "typescript,python,go,csharp" >}}
+{{% choosable language typescript %}}
+
+```bash
+$ pulumi convert --from terraform --language typescript --out pulumi
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```bash
+$ pulumi convert --from terraform --language python --out pulumi
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```bash
+$ pulumi convert --from terraform --language go --out pulumi
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+
+```bash
+$ pulumi convert --from terraform --language csharp --out pulumi
+```
+
+{{% /choosable %}}
+{{< /chooser >}}
+
 
 ## Providers and Packages
 
@@ -98,13 +182,17 @@ The introduction of `pulumi convert` in the Pulumi CLI simplifies the migration 
 
 The 6.0 release of the [Pulumi AWS Classic](https://www.pulumi.com/registry/packages/aws/) provider introduces essential enhancements and updates to one of the most extensively used providers in the Pulumi ecosystem. These improvements encompass TF Plugin Framework support, the inclusion of new resources and functions, significant SDK size optimizations for faster downloads and improved developer experiences, resolutions to top-upvoted issues, and removal of deprecated resources. To dig deeper into these changes, check out the [migration guide](https://www.pulumi.com/registry/packages/aws/how-to-guides/6-0-migration/) and [blog post](https://www.pulumi.com/blog/announcing-6-0-of-the-pulumi-aws-classic-provider/).
 
-### Kubernetes 4.0
-
-[Pulumi Kubernetes 4.0](https://www.pulumi.com/registry/packages/kubernetes/) brings new enhancements in managing Kubernetes resources. It embraces Kubernetes Server-Side Apply as the default mode, enabling features like upserting and Patch resources. Improved diffs remove the dependence on kubectl annotations, and provide simpler access to outputs in the Python, Go and Java SDKs, supporting any self-hosted or managed Kubernetes cluster with version 1.13 or newer. You can migrate existing projects or start new ones with Kubernetes 4.0 for superior Kubernetes resource management. Find more information in the [blog post](https://www.pulumi.com/blog/kubernetes-4-0-even-more-kubernetes-native/) and [migration guide](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/v4-migration/).
+![](aws_api.png)
 
 ### Azure Native 2.0
 
 The [Pulumi Azure Native provider](https://www.pulumi.com/registry/packages/azure-native/) 2.0 has been shipped with enhanced performance and usability, making it easier to manage Azure resources efficiently. Key features include a significant reduction in SDK size for faster development, refreshed default module versions for access to the latest Azure features, expanded top-level default module coverage, title case consistency, simplified user-assigned identity inputs, and more. Visit the [blog post](https://www.pulumi.com/blog/introducing-azure-native-v2/) and [migration guide](https://www.pulumi.com/registry/packages/azure-native/from-v1-to-v2/) to learn more.
+
+![Azure Native 2.0](azurev2-diagrams.png)
+
+### Kubernetes 4.0
+
+[Pulumi Kubernetes 4.0](https://www.pulumi.com/registry/packages/kubernetes/) brings new enhancements in managing Kubernetes resources. It embraces Kubernetes Server-Side Apply as the default mode, enabling features like upserting and Patch resources. Improved diffs remove the dependence on kubectl annotations, and provide simpler access to outputs in the Python, Go and Java SDKs, supporting any self-hosted or managed Kubernetes cluster with version 1.13 or newer. You can migrate existing projects or start new ones with Kubernetes 4.0 for superior Kubernetes resource management. Find more information in the [blog post](https://www.pulumi.com/blog/kubernetes-4-0-even-more-kubernetes-native/) and [migration guide](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/v4-migration/).
 
 ### OIDC Support for Azure
 
