@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: AI, Friend or Foe | AI Talks for DevOps
-meta_desc: Join us on November 8 in San Francisco for panel discussions about the impact of AI in DevOps and software development.
+meta_desc: Join us to explore how AI impacts DevOps and how we build, deploy, and manage infrastructure and software applications. [in person | San Francisco]
 
 # A featured webinar will display first in the list.
 featured: false
