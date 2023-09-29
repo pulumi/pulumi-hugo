@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
 title: Generative AI, Apps, and DevOps | AI/ML Talks
-meta_desc: Join us on Oct 19 at the Pulumi HQ (Seattle) - Dive into Generative AI, Apps, and DevOps through Lighting Talks and a workshop by experts in AI/ML.
+meta_desc: Dive into Generative AI, Apps, and DevOps through Lighting Talks and a workshop by experts in AI/ML [in person | Seattle]
 
 # A featured webinar will display first in the list.
 featured: false
