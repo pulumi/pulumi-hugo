@@ -34,7 +34,7 @@ block_external_search_index: true
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: "https://info.pulumi.com/gophercon-2023"
+url_slug: "https://info.pulumi.com/ai-talks-for-devops-software-developers"
 
 # The content of the hero section.
 hero:
