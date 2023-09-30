@@ -1,8 +1,8 @@
 ---
-title: "Pulumi and Redis Cloud: Enabling Real-Time Data for Modern Apps"
-date: 2023-09-10
+title: "Pulumi and Redis Cloud: Real-Time Data for Modern Apps"
+date: 2023-10-01
 meta_desc: Learn how to use Pulumi to provision fully managed Redis Enterprise Cloud clusters and connect them to your AWS workloads.
-meta_image: redis-enterprise-cloud.png
+meta_image: redis-enterprise-cloud-pulumi.png
 authors:
     - josh-kodroff
 tags:
@@ -20,7 +20,7 @@ The full code for this example is available at <https://github.com/pulumi/exampl
 
 ## About Redis Enterprise Cloud
 
-Redis Enterprise Cloud is a database as-a-service (DBaaS) that provides managed Redis clusters. Redis Enterprise Cloud clusters can be accessed via network peering in AWS or Google Cloud, or over the internet. The [Redis Cloud provider](https://www.pulumi.com/registry/packages/rediscloud/) allows you to manage Redis Enterprise Cloud resources in Pulumi programs.
+[Redis Enterprise Cloud](https://redis.com/redis-enterprise-cloud/overview/) is a fully managed database as-a-service (DBaaS) that provides managed Redis clusters. Redis Enterprise Cloud clusters can be accessed via network peering in AWS or Google Cloud, or over the internet. The [Redis Cloud provider](https://www.pulumi.com/registry/packages/rediscloud/) allows you to manage Redis Enterprise Cloud resources in Pulumi programs.
 
 ## Architecture
 
@@ -65,7 +65,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as rediscloud from "@rediscloud/pulumi-rediscloud";
 
 const card = rediscloud.getPaymentMethodOutput({
-  cardType: "<YOUR-CARD-TYPE>" // e.g. "Visa" (capitatlization matters here),
+  cardType: "<YOUR-CARD-TYPE>" // e.g. "Visa" (capitalization matters here),
   lastFourNumbers: "1234",
 });
 
@@ -186,7 +186,7 @@ pulumi up
 
 ## Creating an EC2 Instance to Test
 
-To test the architecture, create an EC2 instance running Amazon Linux 2 and enable SSM Systems Manager to allow you easy access to a shell prompt without having to worry about SSH keys. From the shell prompt, you will run the [Redis CLI](https://redis.io/docs/ui/cli/) to prove that network connectivity is working as expected.
+To test the architecture, create an EC2 instance running Amazon Linux 2 and enable [AWS SSM Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) to allow you easy access to a shell prompt without having to worry about SSH keys. From the shell prompt, you will run the [Redis CLI](https://redis.io/docs/ui/cli/) to prove that network connectivity is working as expected.
 
 First, create a Security Group to allow all egress traffic. This will allow connectivity to Redis, SSM Systems Manager, and HTTP/S to update the underlying operating system and install dependencies:
 
