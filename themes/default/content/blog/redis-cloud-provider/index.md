@@ -36,7 +36,7 @@ The following diagram shows the major components of the architecture:
 
 ![Architecture diagram of an AWS VPC across 3 availability zones, connected to Redis Enterprise Cloud via VPC peering](architecture.png)
 
-## First Steps, Redis Enterprise Cloud Resources and Peering
+## Project Initialization and Redis Enterprise Cloud Resources
 
 {{% notes type="info" %}}
 Before you begin this tutorial, you will need to add a payment method in the [Redis Cloud console](https://app.redislabs.com/).
