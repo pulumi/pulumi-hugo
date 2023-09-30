@@ -77,7 +77,7 @@ const subscription = new rediscloud.Subscription("redis-subscription", {
     regions: [
       {
         region: "us-east-1",
-        // This CIDR block must not conflict with the CIDR block of the AWS 
+        // This CIDR block must not conflict with the CIDR block of the AWS
         // VPC to which you wish to connect:
         networkingDeploymentCidr: "10.0.0.0/24",
         // We use a single AZ here to minimize the cost incurred from running
