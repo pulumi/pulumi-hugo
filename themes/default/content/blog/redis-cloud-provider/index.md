@@ -54,7 +54,7 @@ Then, add a reference to the Redis Cloud provider:
 npm i @rediscloud/pulumi-rediscloud
 ```
 
-Then, in your `index.ts` file, add use the `getPaymentMethodOutput` function to obtain your payment information, and use the resulting card ID to create a Redis Subscription:
+Then, in your `index.ts` file, add use the [`getPaymentMethodOutput`](https://www.pulumi.com/registry/packages/rediscloud/api-docs/getpaymentmethod/) function to obtain your payment information, and use the resulting card ID to create a Redis Subscription:
 
 {{% notes type="info" %}}
 The Redis Cloud provider does not support Fixed subscriptions. You'll need to create a Flexible subscription in order to use the provider to manage resources with Pulumi.
@@ -81,7 +81,8 @@ const subscription = new rediscloud.Subscription("redis-subscription", {
         // VPC to which you wish to connect:
         networkingDeploymentCidr: "10.0.0.0/24",
         // We use a single AZ here to minimize the cost incurred from running
-        // this example:
+        // this example. For a production workload, consider multiple availability
+        // zones:
         multipleAvailabilityZones: false,
         preferredAvailabilityZones: ["use1-az1"],
       },
