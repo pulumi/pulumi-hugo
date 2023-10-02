@@ -20,7 +20,7 @@ The full code for this example is available at <https://github.com/pulumi/exampl
 
 ## About Redis Enterprise Cloud
 
-[Redis Enterprise Cloud](https://redis.com/redis-enterprise-cloud/overview/) is a fully managed database as-a-service (DBaaS) that provides managed Redis clusters. Redis Enterprise Cloud clusters can be accessed via network peering in AWS or Google Cloud, or over the internet. The [Redis Cloud provider](https://www.pulumi.com/registry/packages/rediscloud/) allows you to manage Redis Enterprise Cloud resources in Pulumi programs.
+[Redis Enterprise Cloud](https://redis.com/redis-enterprise-cloud/overview/) is a fully managed database as-a-service (DBaaS) provider that offers managed Redis clusters. Redis Enterprise Cloud clusters can be accessed via network peering in AWS or Google Cloud, or over the internet. The [Redis Cloud provider](https://www.pulumi.com/registry/packages/rediscloud/) allows you to manage Redis Enterprise Cloud resources in Pulumi programs.
 
 ## Architecture
 
