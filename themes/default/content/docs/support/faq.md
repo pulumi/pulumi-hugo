@@ -97,6 +97,7 @@ Should your network have egress limitations, please ensure you allowlist the sub
 
 These IP addresses and URL are the external facing addresses of the Pulumi Cloud SaaS and should be added to your allowlist to allow traffic from your network to reach our services. 
 
+
 ## Resource names
 
 ### Why do resource names have random hex character suffixes?
