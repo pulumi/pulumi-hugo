@@ -48,7 +48,7 @@ meta_image: /images/challenge/challenge_cta.png
 
 We will first create a project in the Pulumi Service console. Navigate to [app.pulumi.com](https://app.pulumi.com/) and sign in. Select Stacks on the left navigation, and select the "Create project" button. Then select the cloud you want to deploy to, the language you want to use, and a template. Please select one of the templates other than the starter. Select next and provide in your project details:  project name, stack name, and configuration values for the template. Select Create project, and you will be brought to the Overview page of your new stack.
 
-![alt_text](/images/challenge/Step1.gif "create new project")
+![alt_text](https://www.pulumi.com/uploads/Step1.gif "create new project")
 
 ### Step 2. Pull Down Your Project Locally
 
