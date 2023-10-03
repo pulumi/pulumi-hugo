@@ -66,7 +66,7 @@ Return to the Pulumi Service console, select the Settings tab, and then select D
 
 Select the Actions button, then select "Update", and Deploy to start a deployment. You will be brought over to the Activity tab. Select the new Deployment, and you will be presented with Deployment logs showing you the details of the deployment.
 
-![alt_text](/images/challenge/Step4.gif "deploy stack")
+![alt_text](https://www.pulumi.com/uploads/Step4.gif "deploy stack")
 
 ### Step 5. Validate Endpoints
 
