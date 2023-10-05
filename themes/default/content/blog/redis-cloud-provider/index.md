@@ -63,7 +63,10 @@ npm i @rediscloud/pulumi-rediscloud
 Then, in your `index.ts` file, add use the [`getPaymentMethodOutput`](https://www.pulumi.com/registry/packages/rediscloud/api-docs/getpaymentmethod/) function to obtain your payment information, and use the resulting card ID to create a Redis Subscription:
 
 {{% notes type="info" %}}
-The Redis Cloud provider does not support Fixed subscriptions. You'll need to create a Flexible subscription in order to use the provider to manage resources with Pulumi.
+Please note the following:
+
+1. The Redis Cloud provider does not support Fixed subscriptions. You'll need to create a Flexible subscription in order to use the provider to manage resources with Pulumi.
+2. The snippet below uses hard-coded values for things like payment info or CIDR blocks for simplicity. In a multi-stack Pulumi program, these should be refactored to configurable values.
 {{% /notes %}}
 
 ```typescript
