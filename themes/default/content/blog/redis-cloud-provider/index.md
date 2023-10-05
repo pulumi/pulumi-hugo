@@ -30,7 +30,7 @@ Some of Redis Enterprise Cloud's key features include:
 
 ## Architecture
 
-The architecture you'll build will include:
+One of the most common scenarios for using Redis Enterprise Cloud is to run a workload in a hyperscaler (like AWS or Google Cloud), and then to establish a low-latency connection between your workload and your managed Redis cluster via network peering. In this post, you'll create an architecture for a sample AWS workload. The architecture you'll build will include:
 
 * A Redis Enterprise Cloud database cluster.
 * An AWS VPC across 3 Availability Zones, with public and private subnets.
