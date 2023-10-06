@@ -9,7 +9,7 @@ authors:
 tags:
 - backstage
 - developer-portals
-    - features
+- features
 
 ---
 
