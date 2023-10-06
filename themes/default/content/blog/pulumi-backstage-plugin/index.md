@@ -7,6 +7,8 @@ meta_image: meta.png
 authors:
     - engin-diri
 tags:
+- backstage
+- developer-portals
     - features
 
 ---
