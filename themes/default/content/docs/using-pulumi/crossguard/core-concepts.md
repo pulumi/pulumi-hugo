@@ -243,7 +243,7 @@ const s3NoPublicRead: ResourceValidationPolicy = {
 {{% choosable language python %}}
 
 ```python
-def s3_no_public_read(args: ResourceValidationArgs):
+def s3_no_public_read_remediator(args: ResourceValidationArgs):
     if args.resource_type == "aws:s3/bucket:Bucket" and "acl" in args.props:
         acl = args.props["acl"]
         if acl == "public-read" or acl == "public-read-write":
@@ -255,7 +255,7 @@ s3_no_public_read = ResourceValidationPolicy(
     name="s3-no-public-read",
     description="Prohibits setting the publicRead or publicReadWrite permission on AWS S3 buckets.",
     enforcement_level=EnforcementLevel.REMEDIATE,
-    remediate=s3_no_public_read,
+    remediate=s3_no_public_read_remediator,
 )
 ```
 
@@ -278,7 +278,7 @@ This can be done simply by specifying both a `validate` and a `remediate` on the
 {{% choosable language typescript %}}
 
 ```typescript
-const s3NoPublicRead: ResourceValidationPolicy = {
+const s3NoPublicReadPolicy: ResourceValidationPolicy = {
     name: "s3-no-public-read",
     description: "Prohibits setting the publicRead or publicReadWrite permission on AWS S3 buckets.",
     enforcementLevel: "remediate",
@@ -298,7 +298,7 @@ const s3NoPublicRead: ResourceValidationPolicy = {
 {{% choosable language python %}}
 
 ```python
-def s3_no_public_read(args: ResourceValidationArgs, report_violation: ReportViolation):
+def s3_no_public_read_validator(args: ResourceValidationArgs, report_violation: ReportViolation):
     if args.resource_type == "aws:s3/bucket:Bucket" and "acl" in args.props:
         acl = args.props["acl"]
         if acl == "public-read" or acl == "public-read-write":
@@ -313,7 +313,7 @@ s3_no_public_read = ResourceValidationPolicy(
     name="s3-no-public-read",
     description="Prohibits setting the publicRead or publicReadWrite permission on AWS S3 buckets.",
     enforcement_level=EnforcementLevel.MANDATORY,
-    validate_remediate=s3_no_public_read,
+    validate_remediate=s3_no_public_read_validator,
 )
 ```
 
@@ -324,6 +324,64 @@ s3_no_public_read = ResourceValidationPolicy(
 #### Dealing with Unknowns
 
 Because resource policies run during previews before resources are actually physically created, there may be [unknown values](/docs/concepts/inputs-outputs) in the resource state. In this case, the validation and/or remediation for a policy will be skipped during preview, and a warning is emitted. The validation and/or remediation will be reapplied during the subsequent update. This is suboptimal because during an update, it will potentially fail part-way through the update, unlike the preview which stops any action from taking place. That said, at least the policy will be run before the final state for a resource in violation of policy is used.
+
+#### Dealing with Secrets
+
+In the context of a policy's execution, all [secrets](/docs/concepts/secrets) will be seen as plaintext. As such, you should only ever run policy packs that you trust!
+
+Policy remediations go to great lengths to preserve input secretness. Any resource property that was secret when passed to a remediation will remain secret after the remediation runs, even if its value has been replaced.
+
+It is also possible to explicitly mark new things as secret using the `Secret` class in the Policy SDK. For example:
+
+{{< chooser language "typescript,python" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import {
+    remediateResourceOfType,
+    ResourceValidationPolicy,
+    Secret,
+} from "@pulumi/policy";
+
+const rdsDefaultPassword: ResourceValidationPolicy = {
+    name: "rds-has-default-password",
+    description: "Ensures RDS instances have a default, secure password.",
+    enforcementLevel: "remediate",
+    remediateResource: remediateResourceOfType(aws.rds.Instance, (db, args) => {
+        if (!db.password) {
+            db.password = new Secret("<lookup from secure source>");
+            return db;
+        }
+    }),
+};
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+
+```python
+from pulumi_policy import ResourceValidationPolicy, Secret
+
+def rds_default_password_remediator(args: ResourceValidationArgs):
+    if args.resource_type == "aws:rds/instance:Instance" and
+            "password" not in args.props:
+        args.props["password"] = Secret("<lookup from secure source>")
+        return args.props
+
+rds_default_password = ResourceValidationPolicy(
+    name="rds-has-default-password",
+    description="Ensures RDS instances have a default, secure password.",
+    enforcement_level=EnforcementLevel.REMEDIATE,
+    remediate=rds_default_password_remediator,
+)
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+In this example, the `password` property will be encrypted using the stack's secrets manager.
 
 ### Stack Policies
 
