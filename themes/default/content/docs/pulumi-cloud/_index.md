@@ -54,12 +54,11 @@ Collaborate with other developers and coordinate on updates. Provide fine-graine
 * [Stack Permissions](/docs/pulumi-cloud/projects-and-stacks#stack-permissions)
 * [Project and Stack Management](/docs/pulumi-cloud/projects-and-stacks/)
 
-### Pulumi Environments, Secrets and Configuration (ESC)
+### Pulumi ESC (Environments, Secrets, and Configuration)
 
-Pulumi ESC Environments allow teams to tackle configuration complexity at scale, alleviating maintenance and operational burden and reducing costly mistakes, and creating a more secure by default posture.
-
-* [Pulumi ESC](/docs/using-pulumi/esc/)
-* [Pulumi ESC Syntax Reference](/docs/using-pulumi/esc/reference/)
+* [Pulumi ESC](/docs/pulumi-cloud/esc/)
+* [Environments](/docs/concepts/environments/)
+* [Dynamic Providers](/docs/pulumi-cloud/esc/providers/)
 
 ### CI/CD integrations and extensions
 
@@ -75,12 +74,6 @@ Integrate Pulumi with your current continuous delivery pipeline. Build your own 
 
 * [Pulumi Deployments](/docs/pulumi-cloud/deployments/)
 * [Deploy with Pulumi Button](/docs/pulumi-cloud/pulumi-button)
-
-### Pulumi ESC (Environments, Secrets, and Configuration)
-
-* [Pulumi ESC](/docs/pulumi-cloud/esc/)
-* [Environments](/docs/concepts/environments/)
-* [Dynamic Providers](/docs/pulumi-cloud/esc/providers/)
 
 ### Insights and Analytics
 
