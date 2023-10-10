@@ -1,0 +1,6 @@
+{{ $filename := .Get 0 }}
+{{ with readFile $filename }}
+    {{ . | markdownify }}
+{{ else }}
+    Error reading file {{ $filename }}
+{{ end }}

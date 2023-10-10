@@ -1,0 +1,66 @@
+In this section, we will walk through the steps to configure the Pulumi Cloud as an OIDC provider for AWS.  OIDC in AWS uses a web identity provider to assume an IAM role. Access to the IAM role is authorized using a trust policy that validates the contents of the OIDC token issued by the Pulumi Cloud.
+
+### Adding the identity provider to AWS
+
+To start, follow the steps in the [AWS Documentation for Creating an OIDC Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) to create an identity provider. When configuring the provider, make sure to do the following:
+
+- For "Provider URL", use the value of "Issuer URL" as provided in the general Pulumi configuration table
+- For "Audience", provide the name of your Pulumi organization
+
+<br>
+
+![Image of creating a provider in the AWS Console](./esc-oidc-aws-create-idp.png)
+
+### Configuring the AWS IAM Role and Trust Policy
+
+Once you have created your identity provider, you will need to create an IAM role and assign it to the provider. To configure the IAM role and trust policy, reference the AWS documentation for [creating a role for web identity or OpenID connect federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create).
+
+When configuring the trust policy, make sure to do the following:
+
+- For the identity provider, choose the provider you created above
+- For the audience, choose the name of your organization
+
+The trust policy will look something like the following:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::616138583583:oidc-provider/api.pulumi.com/oidc"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "api.pulumi.com/oidc:aud": "<organization-name>"
+                }
+            }
+        }
+    ]
+}
+```
+
+You can configure more granular access control by adding the `sub` claim to the trust policy’s conditions with an appropriate pattern. In the following example, the role may only be assumed by the specific environment that you designate.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::616138583583:oidc-provider/api.pulumi.com/oidc"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "api.pulumi.com/oidc:aud": "<organization-name>",
+                    "api.pulumi.com/oidc:sub": "pulumi:environments:org:<pulumi-org>:env:<environment-name>"
+                }
+            }
+        }
+    ]
+}
+```
