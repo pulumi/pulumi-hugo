@@ -75,6 +75,12 @@ Integrate Pulumi with your current continuous delivery pipeline. Build your own 
 * [Pulumi Deployments](/docs/pulumi-cloud/deployments/)
 * [Deploy with Pulumi Button](/docs/pulumi-cloud/pulumi-button)
 
+### Building developer portals
+
+* [Organization Templates](/docs/pulumi-cloud/developer-portals/templates)
+* [New Project Wizard](/docs/pulumi-cloud/developer-portals/new-project-wizard)
+* [Pulumi Backstage Plugin](/docs/pulumi-cloud/developer-portals/backstage)
+
 ### Insights and Analytics
 
 * [Pulumi Insights: Resource Search, Data Export](/docs/intro/insights)

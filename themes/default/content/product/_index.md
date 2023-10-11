@@ -39,13 +39,13 @@ key_features_above:
                 color: salmon
               - title: Write Policy as Code
                 description: |
-                    Write Policy as Code in programming languages to enforce best practices with [Crossguard](/crossguard/).
+                    Write Policy as Code in programming languages to enforce best practices with [CrossGuard](/crossguard/).
                 icon: shield
                 color: blue
-        - title: One source of truth for your Secrets and Configurations
-          sub_title: "Pulumi ESC: Environments, Secrets and Configurations"
+        - title: One source of truth for your Secrets and Configuration
+          sub_title: "Pulumi ESC: Environments, Secrets and Configuration"
           description:
-            Centralized environments, secrets, and configurations management for cloud applications and infrastructure. Define environments as collections of secrets and configurations, which can be pulled from any source and locked down with RBAC, versioning and audit controls.
+            Centralized environments, secrets, and configuration management for cloud applications and infrastructure. Define environments as collections of configuration and secrets, which can be pulled from any source and locked down with RBAC, versioning and audit controls.
           image: "/images/product/pulumi-iac-code.png"
           button:
             text: "Learn more about Pulumi ESC"
@@ -53,12 +53,12 @@ key_features_above:
           features:
               - title: Frictionless Security
                 description: |
-                    Easy-to-use single source of truth for all configurations with guardrails. Seamlessly adopt short-lived dynamic secrets.
+                    Easy-to-use single source of truth for all configuration and secrets with guardrails. Seamlessly adopt short-lived dynamic secrets.
                 icon: lock
                 color: purple
               - title: Improve Developer Efficiency
                 description: |
-                    Never have downtime over changed configurations. Change once and have it updated everywhere. 
+                    Never have downtime over changed configuration. Change once and have it updated everywhere. 
                 icon: lightning
                 color: yellow
               - title: Control Access and Compliance
@@ -224,21 +224,30 @@ key_features:
             text: "Learn more about Pulumi Cloud"
             link: "/product/pulumi-service/"
           features:
-              - title: State & secrets
+              - title: Pulumi IaC
                 description: |
-                    Securely store state with built-in secrets manager or bring your own KMS.
-              - title: Deployments service
+                    Utilize open-source IaC in TypeScript, Python, Go, C#, Java and YAML. Build and distribute reusable components for 150+ cloud & SaaS providers.
+              - title: Automate deployment workflows
                 description: |
-                    Automate execution of IaC programs in a secure, [hosted environment](/product/pulumi-deployments/) and from GitHub.
+                    Orchestrate secure deployment workflows through GitHub or an API.
               - title: Search and analytics
                 description: |
                     View resources from any cloud in one place. Search for resources across clouds with simple queries and filters.
+              - title: Pulumi Automation API
+                description: |
+                    Build custom deployment and CI/CD workflows that integrate with Pulumi Developer Portal, custom portals, or CLIs.
+              - title: Developer portals
+                description: |
+                    Create internal developer portals to distribute infrastructure templates using Pulumi or the Backstage-plugin.
+              - title: State & secrets
+                description: |
+                    Securely store state with built-in secrets manager or bring your own KMS.
               - title: Identity and access control
                 description: |
                     Manage teams with SCIM, SAML SSO, GitHub, GitLab, or Atlassian. Set permissions and access tokens.
               - title: Policy enforcement
                 description: |
-                    Create policy packs and enforce them server-side across your team’s deployments.
+                    Build policy packs from 150 policies or write your own. Leverage compliance-ready policies for any cloud to increase compliance posture and remediation policies to correct violations.
               - title: Audit logs
                 description: |
                     Track and store user actions and change history with option to export logs.
