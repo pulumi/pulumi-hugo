@@ -20,8 +20,10 @@ The below Pulumi-specific configuration details will be applicable across all pr
 | Name | Value |
 |----------|----------|
 | Issuer URL | https://api.pulumi.com/oidc   |
-| Subject Claim | `pulumi:environments:org:<pulumi-org>:env:<environment-name>`   |
+| Subject Claim | `pulumi:environments:org:<your-pulumi-org>:env:<your-environment-name>`   |
 | Audience | This refers to the name of your Pulumi organization   |
+
+Make a note of these values before following the steps of your chosen provider.
 
 ### Prerequisites
 

@@ -1,1 +1,29 @@
-Placeholder for Azure content
+OIDC in Azure uses workload identity federation to access Azure resources via a Microsoft Entra Application. Access to the temporary credentials is authorized using federated credentials that validate the contents of the OIDC token issued by the Pulumi Cloud.
+
+### Create the Application and Service Principal
+
+To start, follow the steps in the [Azure Documentation for Creating a Microsoft Entra Application and Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). After the application and service principal have been created, take note of the following:
+
+- Application (client) ID
+- Directory (tenant) ID
+
+These values will be necessary when validating your OIDC configuration in your environment.
+
+<br>
+
+![Image of creating an App registration in Microsoft Entra](./esc-oidc-azure-create-app.png)
+
+### Add the Federated Credentials
+
+Navigate to the “Certificates & secrets” pane using the sidebar. Then, select the “Federated credentials” tab and click on the “Add credential” button.
+
+![Image of Creating new Federated credentials in Azure](./esc-oidc-azure-create-fed-creds.gif)
+
+In the wizard, select “Other Issuer” as the “Federated credential scenario”.
+
+Finally, fill in the “Issuer”, “Subject Identifier”, “Name”, and “Audience” fields in the form.
+
+- Issuer: The value of "Issuer URL" as provided in the general Pulumi configuration table
+- Subject Identifier: The value of "Subject Claim" from the same table
+“Name” is an arbitrary name for the credential
+“Audience” must be the name of your Pulumi organization

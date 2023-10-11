@@ -1,4 +1,4 @@
-In this section, we will walk through the steps to configure the Pulumi Cloud as an OIDC provider for AWS.  OIDC in AWS uses a web identity provider to assume an IAM role. Access to the IAM role is authorized using a trust policy that validates the contents of the OIDC token issued by the Pulumi Cloud.
+OIDC in AWS uses a web identity provider to assume an IAM role. Access to the IAM role is authorized using a trust policy that validates the contents of the OIDC token issued by the Pulumi Cloud.
 
 ### Add the identity provider to AWS
 
@@ -56,8 +56,8 @@ You can configure more granular access control by adding the `sub` claim to the 
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
                 "StringEquals": {
-                    "api.pulumi.com/oidc:aud": "<pulumi-organization-name>",
-                    "api.pulumi.com/oidc:sub": "pulumi:environments:org:<pulumi-org>:env:<environment-name>"
+                    "api.pulumi.com/oidc:aud": "<your-pulumi-org>",
+                    "api.pulumi.com/oidc:sub": "pulumi:environments:org:<your-pulumi-org>:env:<your-environment-name>"
                 }
             }
         }
