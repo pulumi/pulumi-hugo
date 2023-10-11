@@ -14,7 +14,7 @@ benefits:
         - icon: lock
           icon_color: purple
           title: Frictionless Security
-          description: Easy-to-use single source of truth for all configuration with guardrails. Seamlessly adopt short-lived dynamic secrets.
+          description: Easy-to-use single source of truth for all configuration and secrets with guardrails. Seamlessly adopt short-lived dynamic secrets.
         - icon: lightning
           icon_color: yellow
           title: Improve Developer Efficiency
@@ -27,7 +27,7 @@ benefits:
 diagram:
     items:
         - number: 1
-          description: Pulumi ESC enables you to define environments, which are collections of secrets and configuration. Each environment can be composed from multiple environments.
+          description: Pulumi ESC enables you to define environments, which contain collections of secrets and configuration. Each environment can be composed from multiple environments.
         - number: 2
           description: Pulumi ESC supports a variety of configuration and secrets sources, and it has an extensible plugin model that allows third-party sources. 
         - number: 3
@@ -38,9 +38,9 @@ diagram:
 screenshot:
     items:
         - title: Composable
-          description: Define environments that are collections of secrets and configuration. Compose environments together from multiple other environments to allow easy inheritance of shared configuration,  eliminating “copy and paste errors”.
+          description: Environments contain collections of secrets and configuration. Compose environments together from multiple other environments to allow easy inheritance of shared configuration, eliminating “copy and paste errors”.
         - title: Traceable
-          description: Never lose track of where configuration are being used and where. Trace the downstream impact of any configuration to see if the impact matches your expectations. 
+          description: Never lose track of where configurations are being used and where. Trace the downstream impact of any configuration to see if the impact matches your expectations. 
         - title: Versionable
           description: Enforce least-privileged access through role-based access controls. All changes are fully logged for auditing.
 ---

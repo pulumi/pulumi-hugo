@@ -45,7 +45,7 @@ key_features_above:
         - title: One source of truth for your Secrets and Configuration
           sub_title: "Pulumi ESC: Environments, Secrets and Configuration"
           description:
-            Centralized environments, secrets, and configuration management for cloud applications and infrastructure. Define environments as collections of secrets and configuration, which can be pulled from any source and locked down with RBAC, versioning and audit controls.
+            Centralized environments, secrets, and configuration management for cloud applications and infrastructure. Define environments as collections of configuration and secrets, which can be pulled from any source and locked down with RBAC, versioning and audit controls.
           image: "/images/product/pulumi-iac-code.png"
           button:
             text: "Learn more about Pulumi ESC"
@@ -53,7 +53,7 @@ key_features_above:
           features:
               - title: Frictionless Security
                 description: |
-                    Easy-to-use single source of truth for all configuration with guardrails. Seamlessly adopt short-lived dynamic secrets.
+                    Easy-to-use single source of truth for all configuration and secrets with guardrails. Seamlessly adopt short-lived dynamic secrets.
                 icon: lock
                 color: purple
               - title: Improve Developer Efficiency
