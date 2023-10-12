@@ -63,8 +63,11 @@ Many of our customers are building their own developer portals on top of [Pulumi
 ### Key Benefits
 
 **Ease of Deployment**: With this new functionality, you can quickly find and deploy the services you need, reducing the time and complexity of managing your cloud infrastructure. As a developer, if you are looking for a platform team sanctioned way to deploy a Kubernetes cluster, instead of chasing it down you can head to Pulumi Cloud, find the golden template and deploy it.
+
 **Enhanced Distribution**: As a platform team member, share templates and configurations with your developers to ensure consistency and collaboration across your organization. It's as simple as adding the template to a repo and selecting that repo in Pulumi Cloud. Now all of your developers have access to it when they go to create new infrastructure.
+
 **Combination with Other Features**: The new template experience seamlessly integrates with your existing Pulumi workflows, providing a unified experience across your infrastructure management. Increase your developer productivity by using this suite of features in combination with Pulumi ESC. Attach an Environment to your template to have it come with configuration and secret values. Once the templates are deployed they will show in the Pulumi Cloud console use [Policies](/docs/using-pulumi/crossguard) over it, set up [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks) on the new stack to get ephemeral environments tied to PRs, find the resources that were deployed with [Resource Search](/docs/pulumi-cloud/insights/search), and all the other Pulumi Cloud features.
+
 **Extensibility**: You can leverage the out of the box New Project Wizard Experience or build developer portals with Pulumi yourself using any combination of: the Pulumi Backstage Plugin, `pulumi new` public and private templates, the Pulumi Backstage Plugin, Automation API, Pulumi Deployments, or the Pulumi Cloud REST API.
 
 ## Getting Started
