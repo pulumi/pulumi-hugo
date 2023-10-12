@@ -106,7 +106,7 @@ template:
       secret: true
 ```
 
-The above snippet includes an aws:region configuration value with a default value of us-west-2, as well as a myAccessToken secret without a default value.
+The above snippet includes an `aws:region` configuration value with a default value of `us-west-2`, as well as a `myAccessToken` secret without a default value.
 
 ### Pulumi & Backstage
 
