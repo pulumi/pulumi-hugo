@@ -51,7 +51,7 @@ Creating and distributing templates to ensure best practice cloud engineering fo
 
 ## Introduction to Developer Portals with Pulumi
 
-![New Project Wizard GIF](./npw.gif)
+{{< video title="The New Project Wizard in Pulumi Cloud" src="https://www.pulumi.com/uploads/npw.mp4" controls="false" autoplay="true" loop="true" >}}
 
 Many of our customers are building their own developer portals on top of [Pulumi Automation API](https://www.pulumi.com/docs/using-pulumi/automation-api/) and [Pulumi Deployments](https://www.pulumi.com/docs/pulumi-cloud/deployments), but we also wanted to offer options for teams that cannot (or do not want to) build a custom solution. The suite of tools for building internal developer portals include:
 
