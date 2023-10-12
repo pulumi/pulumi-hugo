@@ -43,11 +43,11 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-At Pulumi, we work with organizations that range from a few platform team members to entire departments for managing infrastructure. Many organizations, like [Mercedes-Benz](https://www.pulumi.com/case-studies/mercedes-benz/), have built internal developer platforms on top of Pulumi to enable developers to self-serve infrastructure templates, and partners like [AWS Proton](https://www.pulumi.com/blog/aws-proton-pulumi/) and [Port](https://www.getport.io/blog/using-pulumi-with-an-internal-developer-portal) have built integrations with Pulumi to enable self-service scenarios.
-
-Creating and distributing templates to ensure best practice cloud engineering for developers self-serving can be difficult to manage at scale. We are thrilled to have announced yesterday the launch of our new suite of tools to build internal developer portals with Pulumi, a result of working directly with our customers to understand their problems and how Pulumi can solve it.
+At Pulumi, we work with organizations that range from a few platform team members to entire departments for managing infrastructure. Many organizations, like [Mercedes-Benz](https://www.pulumi.com/case-studies/mercedes-benz/), have built internal developer platforms on top of Pulumi to enable developers to self-serve infrastructure templates, and partners like [AWS Proton](https://www.pulumi.com/blog/aws-proton-pulumi/) and [Port](https://www.getport.io/blog/using-pulumi-with-an-internal-developer-portal) have built integrations with Pulumi to enable self-service scenarios. We are thrilled to have [announced yesterday](/blog/developer-portal-platform-teams) the launch of our new suite of tools to build internal developer portals with Pulumi, a result of working directly with our customers to understand their problems and how Pulumi can solve it.
 
 <!--more-->
+
+Pulumi launched [Pulumi Templates](/templates) last year, out of the box templates based for common architectures, such as serverless templates, container service templates and Kubernetes cluster templates. The introduction of these templates allows Pulumi customers to go from 0 to 1 much quicker, but as they scale their IaC complexity a need for custom templates arises. To address this, we are expending into managing custom templates as a self-service provisioning experience.
 
 ## Introduction to Developer Portals with Pulumi
 
@@ -66,7 +66,7 @@ Many of our customers are building their own developer portals on top of [Pulumi
 
 **Enhanced Distribution**: As a platform team member, share templates and configurations with your developers to ensure consistency and collaboration across your organization. It's as simple as adding the template to a repo and selecting that repo in Pulumi Cloud. Now all of your developers have access to it when they go to create new infrastructure.
 
-**Combination with Other Features**: The new template experience seamlessly integrates with your existing Pulumi workflows, providing a unified experience across your infrastructure management. Increase your developer productivity by using this suite of features in combination with Pulumi ESC. Attach an Environment to your template to have it come with configuration and secret values. Once the templates are deployed they will show in the Pulumi Cloud console use [Policies](/docs/using-pulumi/crossguard) over it, set up [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks) on the new stack to get ephemeral environments tied to PRs, find the resources that were deployed with [Resource Search](/docs/pulumi-cloud/insights/search), and all the other Pulumi Cloud features.
+**Combination with Other Features**: The new template experience seamlessly integrates with your existing Pulumi workflows, providing a unified experience across your infrastructure management. Increase your developer productivity by using this suite of features in combination with [Pulumi ESC](/docs/pulumi-cloud/esc). Attach an Environment to your template to have it come with configuration and secret values. Once the templates are deployed they will show in the Pulumi Cloud console use [Policies](/docs/using-pulumi/crossguard) over it, set up [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks) on the new stack to get ephemeral environments tied to PRs, find the resources that were deployed with [Resource Search](/docs/pulumi-cloud/insights/search), and all the other Pulumi Cloud features.
 
 **Extensibility**: You can leverage the out of the box New Project Wizard Experience or build developer portals with Pulumi yourself using any combination of: the Pulumi Backstage Plugin, `pulumi new` public and private templates, the Pulumi Backstage Plugin, Automation API, Pulumi Deployments, or the Pulumi Cloud REST API.
 
@@ -74,9 +74,9 @@ Many of our customers are building their own developer portals on top of [Pulumi
 
 ### New Project Wizard
 
-The new project wizard allows anyone in your organization to pick a template they want to install, create the repo or directory for it, and walk through configuring the deployment of that template. We’ve added support for configuring [Pulumi Deployments](/docs/pulumi-cloud/deployments/get-started/#new-project-wizard), meaning any template can be deployed without needing the Pulumi CLI locally, or any other CI/CD configuration. Follow these steps to be up and running with your infrastructure in a few clicks:
+The New Project Wizard allows anyone in your organization to pick a template they want to install, create the repo or directory for it, and walk through configuring the deployment of that template. We’ve added support for configuring [Pulumi Deployments](/docs/pulumi-cloud/deployments/get-started/#new-project-wizard), meaning any template can be deployed without needing the Pulumi CLI locally, or any other CI/CD configuration. Follow these steps to be up and running with your infrastructure in a few clicks:
 
-- Navigate to the “New Project” tab. Select “Use a template” if you’d like to create a fully featured project, or select “Use a starter” if you want to create a bare-bones project with only the minimal necessary boilerplate file structure and Pulumi code.
+- You can either 1/ use the UI or 2/ use Deploy with Pulumi buttons. If using the UI, navigate to the “New Project” tab. Select “Use a template” if you’d like to create a fully featured project, or select “Use a starter” if you want to create a bare-bones project with only the minimal necessary boilerplate file structure and Pulumi code. If you are using [Deploy with Pulumi buttons](/docs/pulumi-cloud/pulumi-button), you can embed a button on your templates inside GitHub to enable point-and-click deployment of those templates.
 - In order to use templates you will need to authorize Pulumi with GitHub so that it can clone private repositories as template sources and commit new code for your projects. Click the “Authorize GitHub” button and accept the required permissions if you would like to use templates.
 - On the next screen select your deployment method. You may need to install the Pulumi GitHub app if you haven’t already to use Pulumi Deployments.
 - You’ll now be prompted to enter some information about the project you’re about to create: the project and stack name, the configuration details specific to that template, the repo to use when committing your new project code, and optionally the Environment you want to use. Environments enable you to use a bundle of pre-configured secrets and configuration values without needing to re-specify all of them during project creation.
@@ -110,9 +110,10 @@ The above snippet includes an aws:region configuration value with a default valu
 
 ### Pulumi & Backstage
 
-We’ve seen many developer portal technologies rapidly growing in popularity over the last few years. In particular, we’ve seen Pulumi users adopting [Backstage](https://backstage.io) and as a result we built the Pulumi Backstage Plugin to address the needs of organizations using Backstage and Pulumi together. There are now two ways to use Pulumi from within Backstage:
-Pulumi Scaffolder Backend Module
-Pulumi Backstage Plugin
+We’ve seen many developer portal technologies rapidly growing in popularity over the last few years. In particular, we’ve seen Pulumi users adopting [Backstage](https://backstage.io) and as a result we built the Pulumi Backstage Plugin to address the needs of organizations using Backstage and Pulumi together. There are now two ways to use Pulumi from within Backstage, you can leverage both or just one or the other:
+
+1. Pulumi Scaffolder Backend Module
+2. Pulumi Backstage Plugin
 
 **Pulumi Scaffolder Backend Module**: The Pulumi Scaffolder Backend Module extends the scaffolding with two new actions: Pulumi New and Pulumi Up. The Pulumi New action is a custom action that allows you to create a new Pulumi project from a template using the `pulumi new` Pulumi CLI command. The Pulumi Up Action is a custom action that allows you to run the `pulumi up` command, which creates or updates resources in a stack.
 
