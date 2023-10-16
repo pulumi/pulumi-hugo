@@ -47,7 +47,7 @@ At Pulumi, we work with organizations that range from a few platform team member
 
 <!--more-->
 
-Pulumi launched [Pulumi Templates](/templates) last year, out of the box templates based for common architectures, such as serverless templates, container service templates and Kubernetes cluster templates. The introduction of these templates allows Pulumi customers to go from 0 to 1 much quicker, but as they scale their IaC complexity a need for custom templates arises. To address this, we are expending into managing custom templates as a self-service provisioning experience.
+Pulumi launched [Pulumi Templates](/templates) last year, out of the box templates based for common architectures, such as serverless templates, container service templates and Kubernetes cluster templates. The introduction of these templates allows Pulumi customers to go from 0 to 1 much quicker, but as they scale their IaC complexity a need for custom templates arises. To address this, we are expanding into managing custom templates as a self-service provisioning experience.
 
 ## Introduction to Developer Portals with Pulumi
 
