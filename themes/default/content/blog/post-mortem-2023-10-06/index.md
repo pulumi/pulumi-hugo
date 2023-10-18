@@ -28,7 +28,6 @@ meta_image: meta.png
 # `id` properties of the team member files at /data/team/team. Create a file for
 # yourself if you don't already have one.
 authors:
-    - joe-duffy
     - casey-huang
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
@@ -44,11 +43,11 @@ At Pulumi, we understand that Pulumi Cloud plays an important role in how our cu
 
 <!--more-->
 
-On October 6th at approximately 17:15 UTC we shipped a database migration modifying foreign keys on a table to our production environment, clearing it for release after testing in several non-production environments and a few rounds of peer review. Unfortunately, the pre-production testing was not an adequate substitute to test the behavior of the migration when running on our production dataset under full traffic load.
+On October 6th at approximately 17:15 UTC we shipped a database migration modifying foreign keys on a table to our production environment, clearing it for release after testing in several non-production environments and a few rounds of peer review. However, the pre-production testing was not an adequate substitute to test the behavior of the migration when running on our production dataset under full traffic load.
 
 Adding foreign key constraints to a table can be done “in place” [with an asterisk](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html#online-ddl-foreign-key-operations). Testing and review missed that we weren’t abiding by that asterisk. The resulting table copy operation caused by the bad migration held a lock for a significant amount of time, and caused a query pileup that starved our database of all available connections.
 
-We are careful not to make changes to high traffic tables on the core API path responsible for handling updates and storing state. When we’ve needed to update these tables in the past, we were heedful in standing up new tables; duplicating writes; and cutting over to new tables without downtime.
+This is the first time in six years that Pulumi has seen an outage of this scale. We are careful not to make changes to high traffic tables on the core API path responsible for handling updates and storing state. When we’ve needed to update these tables in the past, we were heedful in standing up new tables; duplicating writes; and cutting over to new tables without downtime.
 
 During the review process, we had categorized the migration as low risk, as the affected table is low traffic relative to our other workloads (<0.2% of the traffic of our busiest table). We learned through this incident that we've arrived at a scale where a block on even a relatively low-traffic table is enough to cause writes into this table to block the entire connection pool and starve the rest of the database and API workloads.
 
