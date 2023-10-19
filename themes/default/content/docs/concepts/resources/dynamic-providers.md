@@ -14,7 +14,7 @@ aliases:
 
 There are three types of resource providers. The first are the standard resource providers. These resource providers are built and maintained by Pulumi. There is a second kind, called a dynamic resource provider, which we will discuss here. These resource providers run only in the context of your program. They are not shareable. The third type of resource provider is shareable. You write it yourself and then you can distribute it so that others can use it.
 
-Dynamic resource providers can be written in any language you choose. Because they are not shareable, dynamic resource providers do not need a plugin.
+Dynamic resource providers can be written in Typescript, Javascript and Python. Because they are not shareable, dynamic resource providers do not need a plugin.
 
 There are several reasons why you might want to write a dynamic resource provider. Here are some of them:
 
@@ -27,7 +27,7 @@ To continue with our WordPress example, you would probably want to create new bl
 
 Dynamic providers are defined by first implementing the `pulumi.dynamic.ResourceProvider` interface. This interface supports all CRUD operations, but only the create function is required. A minimal implementation might look like this:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "javascript,typescript,python" >}}
 
 {{% choosable language javascript %}}
 
@@ -50,7 +50,6 @@ const myProvider: pulumi.dynamic.ResourceProvider = {
 }
 ```
 
-{{% /choosable %}}
 {{% choosable language python %}}
 
 ```python
@@ -62,40 +61,12 @@ class MyProvider(ResourceProvider):
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are currently not supported in Go.
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
 
 {{< /chooser >}}
 
 This dynamic resource provider is then used to create a new kind of custom resource by inheriting from the `pulumi.dynamic.Resource` base class, which is a subclass of `pulumi.CustomResource`:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "javascript,typescript,python" >}}
 
 {{% choosable language javascript %}}
 
@@ -131,36 +102,6 @@ class MyResource(Resource):
          super().__init__(MyProvider(), name, props, opts)
 ```
 
-{{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are currently not supported in Go.
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
-
 {{< /chooser >}}
 
 We can now create instances of the new `MyResource` resource type in our program with `new MyResource("name", args)`, just like we would any custom resource. Pulumi understands how to use the custom provider logic appropriately.
@@ -168,11 +109,11 @@ We can now create instances of the new `MyResource` resource type in our program
 Specifically:
 
 1. If Pulumi determines the resource has not yet been created, it will call the create method on the resource provider interface.
-1. If another Pulumi deployment happens and the resource already exists, Pulumi will call the diff method to determine whether a change can be made in place or whether a replacement is needed.
-1. If a replacement is needed, Pulumi will call create for the new resource and then call delete for the old resource.
-1. If no replacement is needed, Pulumi will call update.
-1. In all cases, Pulumi first calls the check method with the resource arguments to give the provider a chance to verify that the arguments are valid.
-1. If Pulumi needs to read an existing resource without managing it directly, it will call read.
+2. If another Pulumi deployment happens and the resource already exists, Pulumi will call the diff method to determine whether a change can be made in place or whether a replacement is needed.
+3. If a replacement is needed, Pulumi will call create for the new resource and then call delete for the old resource.
+4. If no replacement is needed, Pulumi will call update.
+5. In all cases, Pulumi first calls the check method with the resource arguments to give the provider a chance to verify that the arguments are valid.
+6. If Pulumi needs to read an existing resource without managing it directly, it will call read.
 
 See below for details on each of these functions.
 
@@ -190,7 +131,7 @@ Implementing the `pulumi.dynamic.ResourceProvider` interface requires implementi
 
 Though the input properties passed to a `pulumi.dynamic.Resource` instance will usually be [Input values](/docs/concepts/inputs-outputs/), the dynamic provider’s functions are invoked with the fully resolved input values in order to compose well with Pulumi resources. Strong typing for the inputs to your provider’s functions can help clarify this. You can achieve this by creating a second interface with the same properties as your resource’s inputs, but with fully unwrapped types.
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python" >}}
 
 {{% choosable language typescript %}}
 
@@ -271,34 +212,6 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are currently not supported in Go.
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -347,7 +260,7 @@ The inputs to your `pulumi.dynamic.ResourceProvider`’s functions come from sub
 
 For example, `props`, in the `MyResource` class shown below, defines the inputs to the resource provider functions:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "javascript,typescript,python" >}}
 
 {{% choosable language javascript %}}
 
@@ -397,34 +310,6 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are currently not supported in Go.
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -440,7 +325,7 @@ If you need to access the outputs of your custom resource outside it with strong
 
 The name of the class member must match the names of the output properties as returned by the `create` function.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "javascript,typescript,python" >}}
 
 {{% choosable language javascript %}}
 
@@ -501,34 +386,6 @@ class MyResource(Resource):
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are not yet supported in Go.
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
 
 {{< /chooser >}}
 
@@ -540,7 +397,7 @@ This example generates a random number using a dynamic provider. It highlights u
 
 Implementing this example requires that we have a provider and resource type:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "javascript,typescript,python" >}}
 
 {{% choosable language javascript %}}
 
@@ -603,36 +460,6 @@ class Random(Resource):
 ```
 
 {{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are currently not supported in Go.
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
-
 {{< /chooser >}}
 
 Now, with this, we can construct new `Random` resource instances, and Pulumi will drive the right calls at the right time.
@@ -641,7 +468,7 @@ Now, with this, we can construct new `Random` resource instances, and Pulumi wil
 
 This example highlights how to make REST API calls to a backing provider to perform CRUD operations. In this case, the backing provider is the GitHub API. Because the resource provider method implementations will be serialized and used in a different process, we keep all the work to initialize the REST client and to make calls to it, local to each function.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "javascript,typescript,python" >}}
 
 {{% choosable language javascript %}}
 
@@ -797,35 +624,6 @@ label = GithubLabel("foo", GithubLabelArgs("lukehoban", "todo", "mylabel", "d94f
 
 export("label_color", label.color)
 export("label_url", label.url)
-```
-
-{{% /choosable %}}
-{{% choosable language go %}}
-
-```go
-// Dynamic Providers are not currently supported in Go.
-```
-
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-// Dynamic Providers are currently not supported in .NET.
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-# Dynamic Providers are not supported in YAML.
-```
-
-{{% /choosable %}}
-
-{{% choosable language java %}}
-
-```java
-// Dynamic Providers are currently not supported in Java.
 ```
 
 {{% /choosable %}}
