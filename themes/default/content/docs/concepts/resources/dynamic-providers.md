@@ -102,6 +102,7 @@ class MyResource(Resource):
          super().__init__(MyProvider(), name, props, opts)
 ```
 
+{{% /choosable %}}
 {{< /chooser >}}
 
 We can now create instances of the new `MyResource` resource type in our program with `new MyResource("name", args)`, just like we would any custom resource. Pulumi understands how to use the custom provider logic appropriately.
