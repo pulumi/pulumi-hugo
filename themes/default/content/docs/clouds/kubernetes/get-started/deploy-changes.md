@@ -79,7 +79,7 @@ View the `ip` of the nginx service using `kubectl get services`
 Send a request to nginx to verify it is running by replacing `<IP_ADDRESS>` with the IP address that you find for the service under `EXTERNAL_IP`.
 
 ```bash
-curl <IP_ADDRESS>
+curl <IP_ADDRESS>:8080
 ```
 
 The output is similar to:
