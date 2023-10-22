@@ -117,10 +117,7 @@ import pulumi
 from pulumi_kubernetes.apps.v1 import Deployment
 from pulumi_kubernetes.core.v1 import Service
 
-# Minikube does not implement services of type `LoadBalancer`; require the user to specify if we're
-# running on minikube, and if so, create only services of type ClusterIP.
 config = pulumi.Config()
-is_minikube = config.require_bool("isMinikube")
 
 app_name = "nginx"
 app_labels = { "app": app_name }
@@ -132,7 +129,8 @@ deployment = Deployment(
         "replicas": 1,
         "template": {
             "metadata": { "labels": app_labels },
-            "spec": { "containers": [{ "name": app_name, "image": "nginx" }] }
+            "spec": { "containers": [{ "name": app_name, "image": "nginx"
+}] }
         }
     })
 
@@ -143,18 +141,15 @@ frontend = Service(
         "labels": deployment.spec["template"]["metadata"]["labels"],
     },
     spec={
-        "type": "ClusterIP" if is_minikube else "LoadBalancer",
-        "ports": [{ "port": 80, "target_port": 80, "protocol": "TCP" }],
+        "type": "LoadBalancer",
+        "ports": [{ "port": 8080, "target_port": 80, "protocol": "TCP" }],
         "selector": app_labels,
     })
 
 # When "done", this will print the public IP.
 result = None
-if is_minikube:
-    result = frontend.spec.apply(lambda v: v["cluster_ip"] if "cluster_ip" in v else None)
-else:
-    ingress = frontend.status.load_balancer.apply(lambda v: v["ingress"][0] if "ingress" in v else "output<string>")
-    result = ingress.apply(lambda v: v["ip"] if v and "ip" in v else (v["hostname"] if v and "hostname" in v else "output<string>"))
+ingress = frontend.status.load_balancer.apply(lambda v: v["ingress"][0] if "ingress" in v else "output<string>")
+result = ingress.apply(lambda v: v["ip"] if v and "ip" in v else (v["hostname"] if v and "hostname" in v else "output<string>"))
 
 pulumi.export("ip", result)
 ```
@@ -478,29 +473,27 @@ resources:
       metadata:
         labels: ${appLabels}
       spec:
-        type: ClusterIP
+        type: LoadBalancer
         selector: ${appLabels}
         ports:
-          - port: 80
+          - port: 8080
             targetPort: 80
             protocol: TCP
 
 outputs:
-  ip: ${service.spec.clusterIP}
+  ip: ${service.spec.loadBalancerIP}
 ```
 
 {{% /choosable %}}
 
-Our program now creates a service to access the NGINX deployment, and requires a new [config](/docs/concepts/config/) value to indicate whether the program is being deployed to Minikube or not.
+This program now creates a service to access the NGINX deployment.
 
-The configuration value can be set for the stack using `pulumi config set isMinikube <true|false>` command.
+Ensure that you are able to access your Kubernetes cluster by using `kubectl get nodes`.
 
-If you are currently using Minikube, set `isMinikube` to `true`, otherwise, set `isMinikube` to `false` as shown in the following command.
+{{% notes type="warning" %}}
+If you are deploying the stack on a minikube ensure that you run `minikube tunnel` in a separate terminal. For more information, see [LoadBalancer access](https://minikube.sigs.k8s.io/docs/handbook/accessing/#loadbalancer-access).
+{{% /notes %}}
 
-```bash
-$ pulumi config set isMinikube false
-```
-
-Next, we'll deploy the changes.
+Next, deploy the changes.
 
 {{< get-started-stepper >}}
