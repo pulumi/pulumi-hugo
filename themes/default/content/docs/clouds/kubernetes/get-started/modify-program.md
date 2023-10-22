@@ -23,44 +23,61 @@ Replace the entire contents of {{< langfile >}} with the following:
 {{% choosable language javascript %}}
 
 ```javascript
-"use strict";
 const pulumi = require("@pulumi/pulumi");
 const k8s = require("@pulumi/kubernetes");
 
-// Minikube does not implement services of type `LoadBalancer`; require the user to specify if we're
-// running on minikube, and if so, create only services of type ClusterIP.
-const config = new pulumi.Config();
-const isMinikube = config.requireBoolean("isMinikube");
+let name = "nginx";
 
-const appName = "nginx";
-const appLabels = { app: appName };
-const deployment = new k8s.apps.v1.Deployment(appName, {
+// Create a Kubernetes Deployment for the nginx
+let appDeployment = new k8s.apps.v1.Deployment(name, {
+    metadata: {
+        labels: {
+            app: name
+        }
+    },
     spec: {
-        selector: { matchLabels: appLabels },
+        selector: {
+            matchLabels: {
+                app: name
+            }
+        },
         replicas: 1,
         template: {
-            metadata: { labels: appLabels },
-            spec: { containers: [{ name: appName, image: "nginx" }] }
+            metadata: {
+                labels: {
+                    app: name
+                }
+            },
+            spec: {
+                containers: [{
+                    name: name,
+                    image: "nginx"
+                }]
+            }
         }
     }
 });
 
-// Allocate an IP to the Deployment.
-const frontend = new k8s.core.v1.Service(appName, {
-    metadata: { labels: deployment.spec.template.metadata.labels },
+// Expose the nginx deployment with a Kubernetes Service
+let appService = new k8s.core.v1.Service(name, {
+    metadata: {
+        labels: appDeployment.metadata.labels
+    },
     spec: {
-        type: isMinikube ? "ClusterIP" : "LoadBalancer",
-        ports: [{ port: 80, targetPort: 80, protocol: "TCP" }],
-        selector: appLabels
+        ports: [{ 
+            name: "http",
+            port: 80, 
+            targetPort: 8080, 
+            protocol: "TCP"
+        }],
+        selector: appDeployment.spec.template.metadata.labels,
+        type: "LoadBalancer"
     }
 });
 
-// When "done", this will print the public IP.
-exports.ip = isMinikube
-    ? frontend.spec.clusterIP
-    : frontend.status.loadBalancer.apply(
-          (lb) => lb.ingress[0].ip || lb.ingress[0].hostname
-      );
+// Export the Service's IP address. Keep in mind that the IP address may not be immediately 
+// available, depending on the service provider.
+exports.serviceIP = appService.status.loadBalancer.ingress[0]['ip'];
 ```
 
 {{% /choosable %}}
