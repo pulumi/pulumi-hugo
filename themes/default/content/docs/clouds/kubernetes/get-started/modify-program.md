@@ -72,38 +72,44 @@ import * as k8s from "@pulumi/kubernetes";
 
 const appName = "nginx";
 
-// Create a deployment for our application.
 const appLabels = { app: appName };
-const deployment = new k8s.apps.v1.Deployment("nginx-deployment", {
-    metadata: { labels: appLabels },
-    spec: {
-        replicas: 1,
-        selector: { matchLabels: appLabels },
-        template: {
-            metadata: { labels: appLabels },
-            spec: {
-                containers: [{
-                    name: appName,
-                    image: "nginx:1.14-alpine"
-                }]
+
+// Create a Kubernetes deployment of the nginx server
+const deployment = new k8s.apps.v1.Deployment(`${appName}-dep`, {
+  metadata: {labels: appLabels},
+  spec: {
+    replicas: 2,
+    selector: {matchLabels: appLabels},
+    template: {
+      metadata: {labels: appLabels},
+      spec: {
+        containers: [
+          {
+            name: appName, 
+            image: "nginx:latest",
+            resources: {
+              requests: { memory: "2Gi" },
+              limits: { memory: "2Gi" }
             }
-        }
-    }
+          }
+        ],
+      },
+    },
+  },
 });
 
-// Expose the deployment as a service.
-const service = new k8s.core.v1.Service("nginx-service", {
-    metadata: { labels: appLabels },
-    spec: {
-        type: "LoadBalancer",
-        ports: [{ port: 8080, targetPort: 80 }],
-        selector: appLabels,
-    }
+// Create a Kubernetes service to expose the nginx server deployment
+const service = new k8s.core.v1.Service(`${appName}-svc`, {
+  metadata: {labels: deployment.metadata.labels},
+  spec: {
+    type: "LoadBalancer",
+    ports: [{port: 8080, targetPort: 80}], // nginx listens on port 80 by default
+    selector: appLabels,
+  },
 });
 
-// Export the URL for the service.
-export const serviceUrl = service.status.loadBalancer.ingress[0].hostname;
-
+// Export the LoadBalancer IP for the service.
+export const lbIp = service.status.loadBalancer.ingress[0].ip;
 ```
 
 {{% /choosable %}}
