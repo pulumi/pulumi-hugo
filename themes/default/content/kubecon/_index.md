@@ -12,10 +12,10 @@ links:
           description: Join Nutanix, Outshift, Pulumi, and Tailscale for an evening of food, drinks, music, and networking.<br/><b>Limited Spots Remaining</b><br/>November 8, 6:00pm CST at AceBounce.
           action: Reserve your spot
           link: https://page.gitlab.com/event-nov08-devapps-and-brews-kubeconna.html?utm_medium=referral&utm_campaign=20231108_kubeconna2023_in-person_ancillaryevent&utm_budget=corp&utm_partnerid=0018X000038R0APQA0
-        - heading: Join a Workshop
-          description: Our workshops are live, and 100% open source. Choose from fundamental to advanced topics. They are hands-on and code source is provided.
-          action: Check Upcoming workshops
-          link: /resources#upcoming
+        - heading: Request a Demo
+          description: See how Pulumi can help you ship infrastructure faster, and manage Kubernetes clusters at scale on all major cloud providers. Ready for a change?
+          action: Talk with an Engineer
+          link: /request-a-demo/
 
 workshops:
     items:
