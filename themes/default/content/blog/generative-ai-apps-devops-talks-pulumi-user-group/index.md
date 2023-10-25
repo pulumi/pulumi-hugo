@@ -2,7 +2,7 @@
 title: "Unlocking the Benefits of LangChain AI for Dev, Sec and Ops"
 date: 2023-10-26
 meta_desc: "Learn LLMs and GenAI using LangChain AI, with key lessons for DevOps broken down into Development, Operations, and Security."
-meta_image: meta.png
+meta_image: langchain-ai-gen-ai-workshop-llm-devops.png
 authors:
     - sara-huddleston
     - kat-morgan
