@@ -129,7 +129,7 @@ AI and ML are rapidly becoming a necessity, which can greatly enhance and benefi
 
 - [The Real AI challenge is Cloud, not Code!](https://www.pulumi.com/blog/mlops-the-ai-challenge-is-cloud-not-code/)
 - [Deploy AI Models on Amazon SageMaker using Pulumi Python IaC](https://www.pulumi.com/blog/mlops-huggingface-llm-aws-sagemaker-python/)
-- [Deploying Your AI/ML Chatbot Frontend To Vercel Using Pulumi] (https://www.pulumi.com/blog/deploy-ai-ml-vercel-app/)
+- [Deploying Your AI/ML Chatbot Frontend To Vercel Using Pulumi](https://www.pulumi.com/blog/deploy-ai-ml-vercel-app/)
 
 ---
 
