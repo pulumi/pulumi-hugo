@@ -12,6 +12,7 @@ tags:
    - ai
    - devops
    - langchain
+   - ml
 ---
 
 The emergence of DevOps revolutionized software development. Now, with AI powered tools like LangChain, these transformations are being accelerated. Unsurprisingly, our distinguished speaker at the launch of Pulumi's in-person AI Talks, Patrick Debois, who coined the term "DevOps," has recently tuned into LLM and GenAI Ops using the Langchain framework.
@@ -29,6 +30,8 @@ The landscape of AI development is rapidly evolving, and LangChain is packed wit
 The LangChain platform hosts a diverse collection of APIs seamlessly integrated into applications. This enables developers to incorporate advanced language processing functionalities without the need for laborious construction from scratch.
 
 ## LangChain Accelerating DevOps
+
+![Patrick Debois at the Seattle Pulumi User Group, with a monitor showing OpenAI LangChain and code in python](./pulumi-user-group-pug-london-sam-cogan.png "Patrick Debois presenting the workshop Dev, Sec & Ops meet LangChain")
 
 LangChain can streamline the integration of large language models and data sources. By helping bring in AI capabilities, DevOps can revolutionize software development life cycles by making it easier for teams to handle challenges while optimizing resource allocation and usage through their cutting-edge, AI-powered solutions. This makes the [automation of manual processes easier](https://www.pulumi.com/docs/using-pulumi/automation-api/) and the development of new resources far more accessible with faster utilization rates by leveraging artificial intelligence. Significantly important as "[Developer Velocity and Productivity](https://www.pulumi.com/product/internal-developer-platforms/)" become business performance metrics across various industries.
 
@@ -81,13 +84,23 @@ You can see the breakdown of the lessons per role below, and find the code examp
 
 ## Real-World Applications of LangChain AI in DevOps
 
-LangChain AI has practical applications in DevOps, particularly related to chatbots, question-answering systems, and natural language processing tasks, all powered by AI tools. As Chase stated, the most beneficial use of this technology is for “chat over your documents”; it displays AI's power within DevOps.
+![Vector similarity search in a RAG application](./langchain-vector-similarity-search-in-a-rag-application.png "Vector similarity search in a RAG application. Credit to LangChain and Neo4J team")
+
+_Vector similarity search in a RAG application. Credit to LangChain and Neo4J team_
+
+LangChain AI has practical applications in DevOps, particularly related to question-answering using documents as context, extraction, evaluation, and natural language processing tasks, all powered by AI tools. An interesting scenario is implementing [a knowledge graph based RAG application with LangChain](https://blog.langchain.dev/using-a-knowledge-graph-to-implement-a-devops-rag-application/) to support the DevOps team.
 
 ChatGPT based on LLMs enabled with these AI tools is one of the foremost implementations at present. Tracking capabilities through LangChain enables developers to determine which prompts are more effective, thus supporting what artificial intelligence offers when integrated into development operations.
 
 ## Monitoring and Anomaly Detection with LangChain AI
 
+![Monitoring LLM performance with LangChain and LangKit](./monitoring-llm-langchain-whylabs.png "Monitoring LLM performance with LangChain and LangKit. Credit to WhyLabs")
+
+_Monitoring LLM performance with LangChain and LangKit. Credit to WhyLabs_
+
 LangChain AI provides an efficient approach to DevOps through continuous monitoring and anomaly detection. With the help of AI tools, teams are empowered to both improve code quality and protect against security threats such as DDoS attacks or unauthorized access. Data analysis is also employed for continuous surveillance that allows any issues to be quickly identified and repaired to ensure application performance standards remain high while safeguarding product quality overall. Such solutions showcase how beneficial AI tools can really be when utilized in development operations regarding data, codes, and security-related matters, along with improved functionality performance levels.
+
+Also important is monitoring large language models to ensure LLM performance and relevance in production. Our customer [WhyLabs](https://www.pulumi.com/case-studies/whylabs/) has a great article showing the significance of [monitoring LLMs performance with LangChain and how to get started](https://whylabs.ai/blog/posts/monitoring-llm-performance-with-langchain-and-langkit) with monitoring.
 
 ## Future: AI, Apps, and DevOps
 
@@ -110,6 +123,8 @@ AI-enabled tools are hugely beneficial in managing security and to detect anomal
 DevSecOps can foster collaboration between developers, security, and operations and still enhance security and compliance best practices using Artificial Intelligence (AI) and Machine Learning techniques.
 
 ## Leveraging Machine Learning in DevOps
+
+![MLOps (Machine Learning Operations) meets DevOps Infinity Loop as part of the software development lifecycle](./ml-dev-ops-cycle.png "MLOps (Machine Learning Operations) meets DevOps Infinity Loop")
 
 Applying Machine Learning in DevOps is a game-changer, bringing automation and anomaly detection to the production environment and promote better team coordination. ML models can evaluate past outcomes from compilation/builds plus performance metrics within an operation so that developers may leverage these insights when writing code accordingly with machine learning algorithms, allowing them to identify vulnerabilities or issues faster through root cause analysis while ameliorating system security against outside attacks like hackers or DDOS activity thus boosting overall system productivity thanks to AI implementation into existing processes.
 
