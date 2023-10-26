@@ -69,11 +69,13 @@
     </section>
 
     <!-- Code and ship faster -->
-    <section class="mb-8 p-6 lg:px-0 relative bg-violet-200 shadow">
-        <div class="home-page-build-section-background"></div>
+    <section class="mb-8 p-6 lg:px-0 relative">
+        <div class="home-page-build-section-background">
+            <div class="home-page-build-section-image"></div>
+        </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-gray-100 shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
                 <div class="text-center">
                     <h3>{{ .Params.code_faster.title }}</h3>
                     <p class="text-lg">{{ .Params.code_faster.description | markdownify }}</p>
@@ -120,17 +122,19 @@
     </section>
 
     <!-- Panther quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.panther) }}
     </section>
 
 
     <!-- Tame configuration and secrets sprawl -->
-    <section class="py-12 lg:my-12 px-6 lg:px-0 relative shadow">
-        <div class="home-page-manage-section-background bg-yellow-200"></div>
+    <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
+        <div class="home-page-manage-section-background">
+            <div class="home-page-manage-section-image"></div>
+        </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-gray-100 shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.secrets.title }}</h3>
                     <p class="text-lg">{{ .Params.secrets.description | markdownify }}</p>
@@ -148,16 +152,18 @@
     </section>
 
     <!-- Starburst quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.starburst) }}
     </section>
 
     <!-- Embed IaC Anywhere -->
-    <section class="py-12 lg:my-12 px-6 lg:px-0 relative shadow">
-        <div class="home-page-cloud-section-background bg-blue-200"></div>
+    <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
+        <div class="home-page-cloud-section-background">
+            <div class="home-page-cloud-section-image"></div>
+        </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-gray-100 shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.embed.title }}</h3>
                     <p class="text-lg">{{ .Params.embed.description | markdownify }}</p>
@@ -175,16 +181,18 @@
     </section>
 
     <!-- Snowflake quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.snowflake) }}
     </section>
 
     <!-- Boost productivity with AI -->
     <section class="py-12 lg:my-12 px-6 lg:px-0 relative shadow">
-        <div class="home-page-science-section-background bg-purple-200"></div>
+        <div class="home-page-science-section-background">
+            <div class="home-page-science-section-image"></div>
+        </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-gray-100 shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.ai.title }}</h3>
                     <p class="text-lg">{{ .Params.ai.description | markdownify }}</p>

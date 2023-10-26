@@ -8,9 +8,9 @@ type: page
 layout: home-b
 
 hero:
-  title: [ "Open source cloud tools for", "developers and operators" ]
+  title: [ "Open source", "Infrastructure as Code" ]
   description: |
-    Manage your infrastructure, secrets, and configurations in one place.
+    Build, manage, and scale your infrastructure,<br />secrets, and configurations in one place.
   cta_text: Get Started
   cta_link: /docs/get-started/
   secondary_cta_text: Talk to a human

@@ -859,7 +859,14 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-image:url("/images/home/construction.svg");
+  background:#805ac3;
+  background:linear-gradient(0deg, #805ac3 0%, #805ac3 10%, white 85%)
+}
+
+.home-page-build-section-background .home-page-build-section-image{
+  height: 100%;
+  width: 100%;
+  background-image:url("/images/home/hexagons.svg");
   background-repeat:no-repeat;
   background-size:cover
 }
@@ -871,7 +878,14 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-image:url("/images/home/directions.svg");
+  background:#f7bf2a;
+  background:linear-gradient(0deg, #f7bf2a 0%, #f7bf2a 10%, white 85%)
+}
+
+.home-page-manage-section-background .home-page-manage-section-image{
+  height: 100%;
+  width: 100%;
+  background-image:url("/images/home/circuits.svg");
   background-repeat:no-repeat;
   background-size:cover
 }
@@ -883,7 +897,14 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-image:url("/images/home/clouds.svg");
+  background:#4d5bd9;
+  background:linear-gradient(0deg, #4d5bd9 0%, #4d5bd9 10%, white 85%)
+}
+
+.home-page-cloud-section-background .home-page-cloud-section-image{
+  height: 100%;
+  width: 100%;
+  background-image:url("/images/home/ship-wheel.svg");
   background-repeat:no-repeat;
   background-size:cover
 }
@@ -895,6 +916,13 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background:#bd4c85;
+  background:linear-gradient(0deg, #bd4c85 0%, #bd4c85 10%, white 85%)
+}
+
+.home-page-science-section-background .home-page-science-section-image{
+  height: 100%;
+  width: 100%;
   background-image:url("/images/home/science.svg");
   background-repeat:no-repeat;
   background-size:cover
