@@ -17,7 +17,7 @@ tags:
 
 The emergence of DevOps revolutionized software development. Now, with AI powered tools like LangChain, these transformations are being accelerated. Unsurprisingly, our distinguished speaker at the launch of Pulumi's in-person AI Talks, Patrick Debois, who coined the term "DevOps," has recently tuned into LLM and GenAI Ops using the Langchain framework.
 
-This article unwraps the topics addressed during our "Generative AI, Apps, and DevOps | AI/ML Talks" event in Seattle, focusing on Langchain and GenAI for DevOps. You'll be able to [watch Patrick Debois teach LangChain to learn LLMs and GenAI](#how-to-use-langchain-to-learn-llms-and-genai-for-dev-sec-ops), with code examples and lessons that are easily understood by traditional software engineering.
+This article unwraps the topics addressed during our "Generative AI, Apps, and DevOps | AI/ML Talks" event in Seattle, focusing on Langchain and GenAI for DevOps. You'll be able to watch Patrick Debois teach LangChain to learn LLMs and GenAI, with code examples and lessons that are easily understood by traditional software engineering.
 
 ## What is LangChain used for?
 
