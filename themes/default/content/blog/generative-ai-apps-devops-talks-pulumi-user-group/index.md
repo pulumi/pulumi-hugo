@@ -31,7 +31,7 @@ The LangChain platform hosts a diverse collection of APIs seamlessly integrated 
 
 ## LangChain Accelerating DevOps
 
-![Patrick Debois at the Seattle Pulumi User Group, with a monitor showing OpenAI LangChain and code in python](./pulumi-user-group-pug-london-sam-cogan.png "Patrick Debois presenting the workshop Dev, Sec & Ops meet LangChain")
+![Patrick Debois at the Seattle Pulumi User Group, with a monitor showing OpenAI LangChain and code in python](./patrick-debois-langchain-ai-workshop.png "Patrick Debois presenting the workshop Dev, Sec & Ops meet LangChain")
 
 LangChain can streamline the integration of large language models and data sources. By helping bring in AI capabilities, DevOps can revolutionize software development life cycles by making it easier for teams to handle challenges while optimizing resource allocation and usage through their cutting-edge, AI-powered solutions. This makes the [automation of manual processes easier](https://www.pulumi.com/docs/using-pulumi/automation-api/) and the development of new resources far more accessible with faster utilization rates by leveraging artificial intelligence. Significantly important as "[Developer Velocity and Productivity](https://www.pulumi.com/product/internal-developer-platforms/)" become business performance metrics across various industries.
 
