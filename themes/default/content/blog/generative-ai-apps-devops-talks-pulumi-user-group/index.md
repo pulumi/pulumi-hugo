@@ -21,7 +21,7 @@ This article unwraps the topics addressed during our "Generative AI, Apps, and D
 
 ## What is LangChain used for?
 
-LangChain is an open-source Python framework that enables developers to build powerful generative AI powered applications, leveraging AI models like OpenAI’s GPT, Google’s BERT, and Meta’s LLaMA. Used to create retrieval augmented chatbots or other quality enhanced personal assistants (using ChatGPT), generate question-answering (GQA), summarization, understand code, interact with APIs, data cleansing, and more.
+LangChain is an open-source Python framework designed to empower developers to construct robust generative AI applications. It facilitates the integration of advanced AI models such as OpenAI’s GPT, Google’s BERT, and Meta’s LLaMA. This versatile tool finds application in developing retrieval-augmented chatbots and other personalized assistants, utilizing technologies like ChatGPT. Furthermore, it enables tasks such as question-answering (GQA), summarization, code comprehension, API interactions, data cleansing, and much more.
 
 ## Why is LangChain becoming popular?
 
