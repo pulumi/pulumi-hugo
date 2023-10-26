@@ -102,7 +102,7 @@ LangChain AI provides an efficient approach to DevOps through continuous monitor
 
 LangChain's AI-driven anomaly detection capabilities are pivotal in identifying deviations from expected behavior in the monitored data. By analyzing historical data patterns, LangChain can learn the normal behavior of the system and its components. When the system encounters an unusual event or behavior, LangChain can promptly detect it as an anomaly. These anomalies could be security threats, performance bottlenecks, code quality, or any irregularities within the system.
 
-Also important is monitoring large language models to ensure LLM performance and relevance in production. Our customer [WhyLabs](https://www.pulumi.com/case-studies/whylabs/) has a great article showing the significance of [monitoring LLMs performance with LangChain and how to get started](https://whylabs.ai/blog/posts/monitoring-llm-performance-with-langchain-and-langkit) with monitoring.
+Keep in mind that monitoring LLM performance is important to ensure you can rely on the model's accuracy and relevance in real-world applications. Our customer [WhyLabs](https://www.pulumi.com/case-studies/whylabs/) has a great article showing the significance of [monitoring LLMs performance with LangChain and how to get started](https://whylabs.ai/blog/posts/monitoring-llm-performance-with-langchain-and-langkit) with monitoring.
 
 ## Future: AI, Apps, and DevOps
 
