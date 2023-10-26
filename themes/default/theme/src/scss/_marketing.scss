@@ -148,3 +148,35 @@ body {
         }
     }
 }
+
+.home-page-build-section-background {
+    @apply w-full h-full overflow-hidden absolute top-0 left-0;
+
+    background-image: url("/images/home/construction.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-page-manage-section-background {
+    @apply w-full h-full overflow-hidden absolute top-0 left-0;
+
+    background-image: url("/images/home/directions.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-page-cloud-section-background {
+    @apply w-full h-full overflow-hidden absolute top-0 left-0;
+
+    background-image: url("/images/home/clouds.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-page-science-section-background {
+    @apply w-full h-full overflow-hidden absolute top-0 left-0;
+
+    background-image: url("/images/home/science.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

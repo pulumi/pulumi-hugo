@@ -852,6 +852,54 @@ body .btn-secondary-home-action:focus{
   }
 }
 
+.home-page-build-section-background{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image:url("/images/home/construction.svg");
+  background-repeat:no-repeat;
+  background-size:cover
+}
+
+.home-page-manage-section-background{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image:url("/images/home/directions.svg");
+  background-repeat:no-repeat;
+  background-size:cover
+}
+
+.home-page-cloud-section-background{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image:url("/images/home/clouds.svg");
+  background-repeat:no-repeat;
+  background-size:cover
+}
+
+.home-page-science-section-background{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image:url("/images/home/science.svg");
+  background-repeat:no-repeat;
+  background-size:cover
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
