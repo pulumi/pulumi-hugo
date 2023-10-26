@@ -10,7 +10,7 @@
 
                     <p class="text-center leading-7">{{ .Params.hero.description | markdownify }}</p>
 
-                    <div class="overlay-middle mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
+                    <div class="relative z-10 overlay-middle mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
                         <a class="home-hero-btn-primary mr-0 md:mr-4 mb-3 md:mb-0" href="{{ .Params.hero.cta_link }}">{{ .Params.hero.cta_text }}</a>
                         <a class="btn-secondary home-hero-btn-secondary rounded-full cursor-pointer" href="{{ .Params.hero.secondary_cta_link }}">{{ .Params.hero.secondary_cta_text }}</a>
                     </div>
@@ -139,8 +139,8 @@
                     <h3>{{ .Params.secrets.title }}</h3>
                     <p class="text-lg">{{ .Params.secrets.description | markdownify }}</p>
                     <div class="mt-8">
-                        <span class="text-lg text-gray-600">Learn more: </span>
-                        <a href="/product/esc" class="underline text-lg text-blue-600">Pulumi ESC<i class="fa fa-arrow-right ml-2"></i></a>
+                        <span class="text-lg">Learn more: </span>
+                        <a href="/product/esc" class="underline text-lg">Pulumi ESC<i class="fa fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
 
@@ -194,7 +194,7 @@
         </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="w-full lg:w-2/3 mx-auto">
+            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.ai.title }}</h3>
                     <p class="text-lg">{{ .Params.ai.description | markdownify }}</p>
@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="flex items-center justify-center mt-8 w-full">
-                    <div class="card bg-white shadow-xl p-6 w-full">
+                    <div class="w-full">
                         <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
                             <pulumi-choosable type="language" class="highlight" value="typescript">
                                 <img

@@ -863,8 +863,8 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background:#805ac3;
-  background:linear-gradient(0deg, #805ac3 0%, #805ac3 10%, white 85%)
+  background:#fff;
+  background:linear-gradient(180deg, white 0%, #d5b5d7 30%, #d0add3 50%, #d5b5d7 70%, white 100%)
 }
 
 .home-page-build-section-background .home-page-build-section-image{
@@ -872,7 +872,8 @@ body .btn-secondary-home-action:focus{
   width: 100%;
   background-image:url("/images/home/hexagons.svg");
   background-repeat:no-repeat;
-  background-size:cover
+  background-size:cover;
+  opacity:.5
 }
 
 .home-page-manage-section-background{
@@ -882,8 +883,8 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background:#f7bf2a;
-  background:linear-gradient(0deg, #f7bf2a 0%, #f7bf2a 10%, white 85%)
+  background:#fff;
+  background:linear-gradient(180deg, white 0%, #fce5aa 30%, #fad97f 50%, #fce5aa 70%, white 100%)
 }
 
 .home-page-manage-section-background .home-page-manage-section-image{
@@ -891,7 +892,8 @@ body .btn-secondary-home-action:focus{
   width: 100%;
   background-image:url("/images/home/circuits.svg");
   background-repeat:no-repeat;
-  background-size:cover
+  background-size:cover;
+  opacity:.3
 }
 
 .home-page-cloud-section-background{
@@ -901,8 +903,8 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background:#4d5bd9;
-  background:linear-gradient(0deg, #4d5bd9 0%, #4d5bd9 10%, white 85%)
+  background:#fff;
+  background:linear-gradient(180deg, white 0%, #dbdef7 30%, #b8bdf0 50%, #dbdef7 70%, white 100%)
 }
 
 .home-page-cloud-section-background .home-page-cloud-section-image{
@@ -910,7 +912,8 @@ body .btn-secondary-home-action:focus{
   width: 100%;
   background-image:url("/images/home/ship-wheel.svg");
   background-repeat:no-repeat;
-  background-size:cover
+  background-size:cover;
+  opacity:.6
 }
 
 .home-page-science-section-background{
@@ -919,17 +922,16 @@ body .btn-secondary-home-action:focus{
   left: 0px;
   height: 100%;
   width: 100%;
-  overflow: hidden;
-  background:#bd4c85;
-  background:linear-gradient(0deg, #bd4c85 0%, #bd4c85 10%, white 85%)
+  overflow: hidden
 }
 
 .home-page-science-section-background .home-page-science-section-image{
   height: 100%;
   width: 100%;
-  background-image:url("/images/home/science.svg");
+  background-image:url("/images/home/dots.svg");
   background-repeat:no-repeat;
-  background-size:cover
+  background-size:cover;
+  opacity:.7
 }
 
 @media (min-width: 640px) {
