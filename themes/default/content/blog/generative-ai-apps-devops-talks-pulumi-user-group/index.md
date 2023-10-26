@@ -150,9 +150,9 @@ AI and ML are rapidly becoming a necessity, which can greatly enhance and benefi
 
 ### Who is Parick Debois?
 
-Patrick Debois is a highly accomplished technologist whose expertise spans the domains of Development (Dev), Security (Sec), and Operations (Ops). Renowned for his proficiency in assimilating cutting-edge concepts, he adeptly steers teams and counsels businesses, ranging from fledgling startups to established enterprises, on their transformative journeys. Acknowledged as a respected confidant within the developer, security, and operations communities, Patrick is presently deeply engrossed in the realm of Artificial Intelligence and Machine Learning, continually pushing the boundaries of his technical acumen.
+Patrick Debois is a highly accomplished technologist whose expertise spans the domains of Development (Dev), Security (Sec), and Operations (Ops). Acknowledged as a respected confidant within the developer, security, and operations communities, Patrick is presently deeply engrossed in the realm of Artificial Intelligence and Machine Learning, continually pushing the boundaries of his technical acumen.
 
-While Patrick’s technical prowess is extensive, his genuine regard for people is equally profound. He possesses a rare talent for bridging diverse perspectives effortlessly transitioning between managerial roles and individual contributor levels. This distinctive skill set led him to organize the inaugural DevOpsDays in 2009. He is credited with coining "DevOps" and co-authoring the renowned DevOps Handbook. In the past, Patrick has collaborated with esteemed technology organizations such as Atlassian and Snyk. Currently, he wears dual hats as the Vice President of Engineering and a Distinguished Engineer at Showpad, showcasing his remarkable leadership and technical prowess.
+He was the organizer of the inaugural DevOpsDays in 2009. He is credited with coining "DevOps" and co-authoring the renowned DevOps Handbook. In the past, Patrick has collaborated with esteemed technology organizations such as [Atlassian](https://www.pulumi.com/case-studies/atlassian/) and Snyk. Currently, he wears dual hats as the Vice President of Engineering and a Distinguished Engineer at Showpad.
 
 ### Is LangChain Free?
 
