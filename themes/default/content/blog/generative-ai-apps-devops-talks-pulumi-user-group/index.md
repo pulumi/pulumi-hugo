@@ -150,8 +150,6 @@ AI and ML are rapidly becoming a necessity, which can greatly enhance and benefi
 
 ---
 
-&nbsp;
-
 ## Frequently Asked Questions
 
 ### Who is Parick Debois?
