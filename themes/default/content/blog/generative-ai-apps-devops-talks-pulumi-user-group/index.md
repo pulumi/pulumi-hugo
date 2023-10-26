@@ -41,7 +41,7 @@ The features included in LangChain include chain interface memory functions for 
 
 Patrick teaches in the way he would like to be taught. The workshop mainly uses the Langchain framework and basic Python knowledge. OpenAI will also need to be installed. You'll learn essential skills in multiple use cases, applying Langchain for LLM application Development.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q63ZaX340M4?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iIl1bQnVwEs?si=SBD0wpx_ATOg1wkW?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 You can see the breakdown of the lessons per role below, and find the code examples on this repo: [https://github.com/jedi4ever/learning-llms-and-genai-for-dev-sec-ops/tree/main](https://github.com/jedi4ever/learning-llms-and-genai-for-dev-sec-ops/tree/main)
 
