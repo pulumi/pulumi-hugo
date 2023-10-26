@@ -144,7 +144,7 @@ AI and ML are rapidly becoming a necessity, which can greatly enhance and benefi
 
 ## Frequently Asked Questions
 
-### Who is Parick Debois?
+### Who is Patrick Debois?
 
 Patrick Debois is a highly accomplished technologist whose expertise spans the domains of Development (Dev), Security (Sec), and Operations (Ops). Acknowledged as a respected confidant within the developer, security, and operations communities, Patrick is presently deeply engrossed in the realm of Artificial Intelligence and Machine Learning, continually pushing the boundaries of his technical acumen.
 
