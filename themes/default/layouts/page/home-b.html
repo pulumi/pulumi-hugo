@@ -69,13 +69,13 @@
     </section>
 
     <!-- Code and ship faster -->
-    <section class="mb-8 p-6 lg:px-0 relative">
+    <section class="mb-8 p-6 lg:px-0 relative home-page-section">
         <div class="home-page-build-section-background">
             <div class="home-page-build-section-image"></div>
         </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="w-full lg:w-2/3 mx-auto">
                 <div class="text-center">
                     <h3>{{ .Params.code_faster.title }}</h3>
                     <p class="text-lg">{{ .Params.code_faster.description | markdownify }}</p>
@@ -84,35 +84,35 @@
                         <p>{{ $item.description | markdownify }}</p>
                     {{ end }}
                 </div>
-                <div class="block p-6">
+                <div class="card bg-white shadow-xl p-6 block">
                     <div>
                         <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
                             <pulumi-choosable type="language" class="highlight" value="typescript">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/typescript.svg"
                                     alt="Pulumi code being written in TypeScript showing autocomplete for creating a new S3 bucket"
                                 />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="python">
-                                <img class="mx-auto" src="/images/home/python.svg" alt="Pulumi code being written in Python showing autocomplete for creating a new S3 bucket" />
+                                <img class="mx-auto w-full" src="/images/home/python.svg" alt="Pulumi code being written in Python showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="go">
-                                <img class="mx-auto" src="/images/home/go.svg" alt="Pulumi code being written in GO showing autocomplete for creating a new S3 bucket" />
+                                <img class="mx-auto w-full" src="/images/home/go.svg" alt="Pulumi code being written in GO showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="csharp">
-                                <img class="mx-auto" src="/images/home/c-sharp.svg" alt="Pulumi code being written in C# showing autocomplete for creating a new S3 bucket" />
+                                <img class="mx-auto w-full" src="/images/home/c-sharp.svg" alt="Pulumi code being written in C# showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="java">
-                                <img class="mx-auto" src="/images/home/java.svg" alt="Pulumi code being written in Java showing autocomplete for creating a new S3 bucket" />
+                                <img class="mx-auto w-full" src="/images/home/java.svg" alt="Pulumi code being written in Java showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
 
                             <pulumi-choosable type="language" class="highlight" value="yaml">
-                                <img class="mx-auto" src="/images/home/yaml.svg" alt="Pulumi code being written in YAML showing autocomplete for creating a new S3 bucket" />
+                                <img class="mx-auto w-full" src="/images/home/yaml.svg" alt="Pulumi code being written in YAML showing autocomplete for creating a new S3 bucket" />
                             </pulumi-choosable>
                         </pulumi-chooser>
                     </div>
@@ -128,13 +128,13 @@
 
 
     <!-- Tame configuration and secrets sprawl -->
-    <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
+    <section class="py-12 lg:my-12 px-6 lg:px-0 relative home-page-section">
         <div class="home-page-manage-section-background">
             <div class="home-page-manage-section-image"></div>
         </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.secrets.title }}</h3>
                     <p class="text-lg">{{ .Params.secrets.description | markdownify }}</p>
@@ -157,24 +157,26 @@
     </section>
 
     <!-- Embed IaC Anywhere -->
-    <section class="py-12 lg:my-12 px-6 lg:px-0 relative">
+    <section class="py-12 lg:my-12 px-6 lg:px-0 relative home-page-section">
         <div class="home-page-cloud-section-background">
             <div class="home-page-cloud-section-image"></div>
         </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.embed.title }}</h3>
-                    <p class="text-lg">{{ .Params.embed.description | markdownify }}</p>
+                    <div class="text-lg text-black">{{ .Params.embed.description | markdownify }}</div>
                     <div class="mt-8">
-                        <span class="text-lg text-gray-600">Learn more: </span>
-                        <a href="/blog/developer-portal-platform-teams/" class="underline text-lg text-blue-600">Pulumi For Platfrom Teams<i class="fa fa-arrow-right ml-2"></i></a>
+                        <span class="text-lg">Learn more: </span>
+                        <a href="/blog/developer-portal-platform-teams/" class="underline text-lg">Pulumi For Platfrom Teams<i class="fa fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-center mt-8 px-8">
-                    <img src="{{ .Params.embed.image }}" alt="{{ .Params.embed.alt }}" />
+                    <div class="card bg-white shadow-xl p-6">
+                        <img src="{{ .Params.embed.image }}" alt="{{ .Params.embed.alt }}" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,28 +188,28 @@
     </section>
 
     <!-- Boost productivity with AI -->
-    <section class="py-12 lg:my-12 px-6 lg:px-0 relative shadow">
+    <section class="py-12 lg:my-12 px-6 lg:px-0 relative home-page-section">
         <div class="home-page-science-section-background">
             <div class="home-page-science-section-image"></div>
         </div>
 
         <div class="container mx-auto z-10 relative">
-            <div class="card bg-white shadow-xl p-6 w-full lg:w-2/3 mx-auto">
+            <div class="w-full lg:w-2/3 mx-auto">
                 <div class="z-10 px-8">
                     <h3>{{ .Params.ai.title }}</h3>
                     <p class="text-lg">{{ .Params.ai.description | markdownify }}</p>
                     <div class="mt-8">
-                        <span class="text-lg text-gray-600">Try it out: </span>
-                        <a href="/ai" class="underline text-lg text-blue-600">Pulumi AI<i class="fa fa-arrow-right ml-2"></i></a>
+                        <span class="text-lg">Try it out: </span>
+                        <a href="/ai/" class="underline text-lg">Pulumi AI<i class="fa fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-center mt-8">
-                    <div>
+                <div class="flex items-center justify-center mt-8 w-full">
+                    <div class="card bg-white shadow-xl p-6 w-full">
                         <pulumi-chooser type="language" options="typescript,python,go,csharp,java,yaml">
                             <pulumi-choosable type="language" class="highlight" value="typescript">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/ai-ts.svg"
                                     alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in TypeScript"
                                 />
@@ -215,7 +217,7 @@
 
                             <pulumi-choosable type="language" class="highlight" value="python">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/ai-python.svg"
                                     alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in Python"
                                 />
@@ -223,7 +225,7 @@
 
                             <pulumi-choosable type="language" class="highlight" value="go">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/ai-go.svg"
                                     alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in GO"
                                 />
@@ -231,7 +233,7 @@
 
                             <pulumi-choosable type="language" class="highlight" value="csharp">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/ai-csharp.svg"
                                     alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in C#"
                                 />
@@ -239,7 +241,7 @@
 
                             <pulumi-choosable type="language" class="highlight" value="java">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/ai-java.svg"
                                     alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in Java"
                                 />
@@ -247,7 +249,7 @@
 
                             <pulumi-choosable type="language" class="highlight" value="yaml">
                                 <img
-                                    class="mx-auto"
+                                    class="mx-auto w-full"
                                     src="/images/home/ai-yaml.svg"
                                     alt="AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code in YAML"
                                 />

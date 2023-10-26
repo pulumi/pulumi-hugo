@@ -22,7 +22,7 @@ code_faster:
     Author infrastructure code using programming languages you know and love. Write statements to define infrastructure using your IDE with autocomplete, type checking, and documentation.
 
 ai:
-  title: Boost productivity with AI
+  title: Advice on demand
   image: /images/home/ai-graphic.svg
   alt: AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code
   description: |

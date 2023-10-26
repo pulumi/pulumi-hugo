@@ -149,6 +149,10 @@ body {
     }
 }
 
+.home-page-section p {
+    color: black !important;
+}
+
 .home-page-build-section-background {
     @apply w-full h-full overflow-hidden absolute top-0 left-0;
 

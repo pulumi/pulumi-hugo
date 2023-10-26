@@ -852,6 +852,10 @@ body .btn-secondary-home-action:focus{
   }
 }
 
+.home-page-section p{
+  color:#000 !important
+}
+
 .home-page-build-section-background{
   position: absolute;
   top: 0px;
