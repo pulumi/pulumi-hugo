@@ -262,9 +262,9 @@
     </section>
 
     <!-- Built by engineers + tweets -->
-    <section class="mt-8 mb-16 lg:mb-48 relative flex flex-col">
+    <section class="mt-16 mb-36 relative flex flex-col">
         <div class="container mx-auto px-3 overflow-hidden lg:overflow-visible">
-            <div class="w-full bg-salmon-600 rounded-xl shadow p-16 lg:pb-56 align-top">
+            <div class="w-full bg-violet-600 rounded-xl shadow p-16 lg:pb-56 align-top">
                 <h2 class="text-white text-center">Built by engineers for engineers. Open source.</h2>
                 <div class="flex flex-col lg:flex-row items-center justify-center mb-4">
                     <a class="text-white text-lg bold underline flex self-start lg:self-auto mt-4 lg:mt-0 mx-auto lg:mx-0 lg:pr-1" href="https://slack.pulumi.com/"
@@ -340,13 +340,24 @@
     </section>
 
     <!-- CTAs -->
-    <section class="container mx-auto">
-        <div class="w-full lg:w-2/3 mx-auto mb-16 bg-violet-600 rounded-xl shadow p-16 flex flex-col items-center justify-center">
-            <h2 class="text-white font-light">Ready to deploy your first stack?</h2>
-            <p class="text-white text-xl description">See what Pulumi can do for you.</p>
-            <div class="mt-8 flex text-center justify-center items-center flex-col mx-auto lg:mx-0 md:flex-row">
-                <a class="btn-secondary mr-0 md:mr-4 mb-3 md:mb-0" href="https://app.pulumi.com/signup">{{ .Params.hero.cta_text }}</a>
-                <a class="btn-secondary-home-action" href="{{ relref . "/docs/install" }}">Download Open Source</a>
+    <section class="container mx-auto my-24">
+        <div class="flex justify-center">
+            <div class="card ready-cta w-full rounded-xl p-1 gradient">
+                <div class="flex justify-center rounded-xl bg-purple-100">
+                    <div class="p-8 md:p-16 lg:pt-28 lg:pb-28 inline-flex flex-col items-center">
+                        <h2 class="mb-12 text-center">Ready to try Pulumi?</h2>
+                        <div class="flex flex-col lg:flex-row self-stretch items-center lg:justify-between">
+                            <div class="flex flex-col justify-center align-center text-center lg:ml-14 lg:mr-4 mb-14 lg:mb-0 z-0">
+                                <a href="/docs/get-started/" class="btn-primary py-3">Get Started</a>
+                                <p class="text-xs pt-1 my-0">Follow the step-by-step guide</p>
+                            </div>
+                            <div class="flex flex-col justify-center align-center text-center lg:mr-14 lg:ml-4">
+                                <a href="docs/install/" class="btn-secondary py-3 px-6 whitespace-nowrap">Download Open Source</a>
+                                <p class="text-xs pt-1 my-0">Download our open source SDK</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
