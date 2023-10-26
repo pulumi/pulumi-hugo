@@ -436,7 +436,7 @@ mongo_image = docker.RemoteImage("mongo_image",
 
 {{% choosable language go %}}
 
-Add this code at the bottom of your program, just before the last return nil statement:
+Add this code at the bottom of your program, just before the last `return nil` statement:
 
 ```go
 // Pull the frontend image
