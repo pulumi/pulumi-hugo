@@ -863,8 +863,10 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background:#fff;
-  background:linear-gradient(180deg, white 0%, #d5b5d7 30%, #d0add3 50%, #d5b5d7 70%, white 100%)
+  --tw-bg-opacity: 1;
+  background-color: rgba(230, 222, 243, var(--tw-bg-opacity));
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
 
 .home-page-build-section-background .home-page-build-section-image{
@@ -883,8 +885,10 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background:#fff;
-  background:linear-gradient(180deg, white 0%, #fce5aa 30%, #fad97f 50%, #fce5aa 70%, white 100%)
+  --tw-bg-opacity: 1;
+  background-color: rgba(253, 242, 212, var(--tw-bg-opacity));
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
 
 .home-page-manage-section-background .home-page-manage-section-image{
@@ -893,7 +897,7 @@ body .btn-secondary-home-action:focus{
   background-image:url("/images/home/circuits.svg");
   background-repeat:no-repeat;
   background-size:cover;
-  opacity:.3
+  opacity:.5
 }
 
 .home-page-cloud-section-background{
@@ -903,8 +907,10 @@ body .btn-secondary-home-action:focus{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background:#fff;
-  background:linear-gradient(180deg, white 0%, #dbdef7 30%, #b8bdf0 50%, #dbdef7 70%, white 100%)
+  --tw-bg-opacity: 1;
+  background-color: rgba(219, 222, 247, var(--tw-bg-opacity));
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
 
 .home-page-cloud-section-background .home-page-cloud-section-image{
@@ -922,16 +928,20 @@ body .btn-secondary-home-action:focus{
   left: 0px;
   height: 100%;
   width: 100%;
-  overflow: hidden
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgba(47, 48, 50, var(--tw-bg-opacity));
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
 
 .home-page-science-section-background .home-page-science-section-image{
   height: 100%;
   width: 100%;
-  background-image:url("/images/home/dots.svg");
+  background-image:url("/images/home/science.svg");
   background-repeat:no-repeat;
   background-size:cover;
-  opacity:.7
+  opacity:.2
 }
 
 @media (min-width: 640px) {

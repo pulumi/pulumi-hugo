@@ -22,7 +22,7 @@ code_faster:
     Author infrastructure code using programming languages you know and love. Write statements to define infrastructure using your IDE with autocomplete, type checking, and documentation.
 
 ai:
-  title: Advice on demand
+  title: Advice on demand with Pulumi AI
   image: /images/home/ai-graphic.svg
   alt: AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code
   description: |
@@ -40,7 +40,7 @@ embed:
     Pulumi’s infrastructure and policy as code engine fosters collaboration between your developers, security, and operation teams through common, popular programming languages.
 
 secrets:
-  title: Manage configuration and secrets with well-defined Environments
+  title: Manage configuration and secrets with modular Environments
   image: /blog/environments-secrets-configurations-management/esc.gif
   alt: a screenshot of Pulumi ESC
   description: |
