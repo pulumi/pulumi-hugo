@@ -16,7 +16,7 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-1/2 p-6 flex justify-center align-center">
+                <div class="hidden lg:block lg:w-1/2 p-6 flex justify-center align-center">
                     <img src="/images/home/dancing-music.svg" />
                 </div>
             </div>
@@ -122,7 +122,7 @@
     </section>
 
     <!-- Panther quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16 px-6">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.panther) }}
     </section>
 
@@ -152,7 +152,7 @@
     </section>
 
     <!-- Starburst quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16 px-6">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.starburst) }}
     </section>
 
@@ -183,7 +183,7 @@
     </section>
 
     <!-- Snowflake quote -->
-    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16">
+    <section class="w-full md:w-2/3 lg:w-1/2 mx-auto mt-16 px-6">
         {{ partial "home/quote.html" (dict "quote" .Params.customer_quotes.snowflake) }}
     </section>
 
@@ -340,7 +340,7 @@
     </section>
 
     <!-- CTAs -->
-    <section class="container mx-auto my-24">
+    <section class="container mx-auto my-24 px-6">
         <div class="flex justify-center">
             <div class="card ready-cta w-full rounded-xl p-1 gradient">
                 <div class="flex justify-center rounded-xl bg-purple-100">

@@ -51,7 +51,12 @@
 }
 
 .home-page-hero {
-    @apply relative w-full h-96;
+    @apply relative w-full;
+    min-height: 24rem;
+
+    @screen lg {
+        @apply h-96;
+    }
 
     .home-page-hero-background {
         @apply w-full h-full overflow-hidden;
