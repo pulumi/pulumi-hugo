@@ -22,7 +22,7 @@ code_faster:
     Author infrastructure code using programming languages you know and love. Write statements to define infrastructure using your IDE with autocomplete, type checking, and documentation.
 
 ai:
-  title: Advice on demand with Pulumi AI
+  title: Code on demand with Pulumi AI
   image: /images/home/ai-graphic.svg
   alt: AI prompted to 'Give me an AWS static website behind a CloudFront CDN' and outputting Pulumi code
   description: |
@@ -35,7 +35,7 @@ embed:
   image: /blog/developer-portal-platform-teams/platform-teams.png
   alt: a flowchart with arrows going from Automation API program to Infrasctucture as Code programs to Pulumi Engine deploys stacks
   description: |
-    Internal developer portals (IDPs) enable your developers to quickly provision security-compliant infrastructure, boost productivity with pre-configured architectures, automate testing, and deployments adhering to organizational standards.
+    Internal developer portals (IDPs) enable your developers to quickly provision security-compliant infrastructure, boost productivity with pre-configured architectures and automate testing and deployments, adhering to organizational standards.
 
     Pulumi’s infrastructure and policy as code engine fosters collaboration between your developers, security, and operation teams through common, popular programming languages.
 
