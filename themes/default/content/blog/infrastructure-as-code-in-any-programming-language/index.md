@@ -1,7 +1,7 @@
 ---
 title: "Infrastructure as Code in Any Programming Language"
 canonical_url: https://thenewstack.io/infrastructure-as-code-in-any-programming-language/
-date: 2023-10-30T22:36:29Z
+date: 2023-10-31T22:36:29Z
 draft: false
 meta_desc: Not every engineer has a deep infrastructure background and yet needs to get more hands-on with it these days. That’s where Infrastructure as Code can help.
 
