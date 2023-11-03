@@ -9,7 +9,7 @@ layout: reinvent
 links:
     items:
         - heading: RSVP to re:Invent Happy Hour
-          description: Join Honeycomb and Jeli for an evening of light fare, libations, and conversations.<br><b>Limited Spots Remaining</b><br/>November 29, 7:00pm PT at minus5 ICEBAR.
+          description: Join Pulumi, Honeycomb, and Jeli for an evening of light fare, libations, and conversations.<br><b>Limited Spots Remaining</b><br/>November 29, 7:00pm PT at minus5 ICEBAR.
           action: Reserve your spot
           link: https://www.eventbrite.com/e/aws-reinvent-happy-hour-tickets-748706831287?aff=AWSPulumi
         - heading: Request a Demo
