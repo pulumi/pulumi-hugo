@@ -1,6 +1,6 @@
 ---
 title: "Modern Serverless Architecture Design"
-date: 2023-10-30T20:40:47Z
+date: 2023-11-03
 draft: false
 meta_desc: "Learn about the concept of serverless architecture and the different considerations to make when building out your serverless application."
 meta_image: meta.png
@@ -15,15 +15,16 @@ tags:
 
 ---
 
-Serverless architectures have gained more popularity in the recent years because they make it easier for software developers to focus on application development without the additional operation overhead. With Pulumi, you can deploy and manage your serverless infrastructure and this article shows you how to do this with Azure.
+Serverless architectures have become popular because they make it easier for software developers to focus on application development without the additional operation overhead. With Pulumi, you can deploy and manage your serverless infrastructure and this article shows you how to do this with Azure.
 
 Before we go into the specifics of serverless architecture design with Pulumi on azure, let's go
 through the basics of serverless - this is important for the rest of the article.
 
 ## What is Serverless Architecture
 
-Serverless architecture is a cloud computing model that simplifies the management of infrastructure. This allows software developers to focus on writing code without worrying
-about server provisioning, scaling or maintenance. The idea behind it is functions as a service (FaaS), in which the environment dynamically scales in response to demand and code is executed in response to events. In the serverless architecture, developers focus on writing and deploying code in the form of serverless functions, which are executed in response to specific events or triggers.
+Serverless architecture is a cloud computing model that simplifies the management of infrastructure. This allows software developers to focus on writing code without worrying about server provisioning, scaling or maintenance. The idea behind it is functions as a service (FaaS), in which the environment dynamically scales in response to demand and code is executed in response to events. In the serverless architecture, developers focus on writing and deploying code in the form of serverless functions, which are executed in response to specific events or triggers.
+
+Using serverless eliminates the responsibilities of operational management, which streamlines the development process. This means you don;t have to set up complex security mechanisms or firewalls. In addition, serverless computing abstracts away all operational complexities, saving you from the complexities of operating system patching and guaranteeing a simplified and trouble-free development process.
 
 Key characteristics of serverless architecture include:
 
