@@ -99,7 +99,7 @@ In both cases, we end up with a fully managed Kubernetes cluster that is ready t
 
 All of these examples had one thing in common: The Infrastructure as Code program’s job is to declare individual resource objects, their properties and how they relate to each other. That was true no matter the scenario, the cloud or the language we have chosen. Once the program has done that, the Infrastructure as Code tool takes care of the rest.
 
-The code that declares all of this is something Pulumi calls a **project**, and each instance of said project that is configured and ready to deploy — each “environment,” if you will — is called a **stack**.
+Pulumi uses the term **project** to refer to the code that declares all of this, and each instance of said project that is configured and ready to deploy — each “environment,” if you will — is called a **stack**.
 
 ![Pulumi Stacks](/images/docs/pulumi-programming-model-diagram.svg)
 
