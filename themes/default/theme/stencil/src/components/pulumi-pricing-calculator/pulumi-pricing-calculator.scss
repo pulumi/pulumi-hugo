@@ -1,0 +1,269 @@
+@import "../../../../src/scss/colors";
+
+h3 {
+    text-align: center;
+    color: #000;
+font-family: "Gilroy";
+font-size: 48px;
+font-weight: 500;
+}
+
+.edition {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-family: "Inter";
+    font-weight: 600;
+    margin-bottom: 60px;
+    margin-top: 60px;
+
+    .options {
+        margin-left: 20%;
+    }
+
+    .title {
+            font-size: 16px;
+    display: flex;
+    align-items: center;
+    }
+
+    button {
+        color: gray;
+        font-size: 24px;
+        font-family: "Gilroy";
+        font-weight: 500;
+
+        &:first-of-type {
+            margin-right: 60px;
+        }
+
+        &.active {
+            color: black;
+            border-bottom: 2px solid blue;
+        }
+
+    }
+}
+
+.content {
+    display: flex;
+    gap: 60px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+
+}
+
+    .field {
+        margin-bottom: 36px;
+
+        .title {
+            color: gray;
+            font-family: "Gilroy";
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            .description {
+                width: 400px;
+                font-family: "Inter";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+            }
+
+            .input {
+                width: 140px;
+                padding: 8px 12px;
+                border-radius: 4px;
+                border: 1px solid gray;
+                height: 48px;
+
+                input {
+                    all: unset;
+                    width: 80%;
+                }
+
+                .percent {
+                    color: lightgray;
+                }
+            }
+        }
+    }
+
+.outputs {
+    width: 50%;
+    max-width: 530px;
+
+    border-radius: 12px;
+    border-top: 8px solid orange;
+
+    background: #FFF;
+
+    box-shadow: 0px 6px 36px 0px rgba(0, 0, 0, 0.14);
+    display: flex;
+    padding: 36px;
+    flex-direction: column;
+    align-items: flex-start;
+        gap: 36px;
+
+
+    .duration {
+        display: flex;
+    align-self: center;
+
+        button {
+            display: flex;
+            padding: 8px 12px;
+            align-items: flex-start;
+            color:  #8E8F97;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            border: 1px solid gray;
+
+                &:first-of-type {
+                    border-radius: 4px 0px 0px 4px;
+                }
+                &:last-of-type {
+                    border-radius: 0px 4px 4px 0px;
+                }
+
+                &.active {
+                    color: black;
+                    background-color: darkgray;
+                }
+            }
+
+    }
+
+        .items, .deployment-total {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: gray;
+            font-family: "Inter";
+            font-size: 16px;
+            font-weight: 400;
+            width: 100%;
+
+        .item {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .divider {
+        width: 100%;
+        border-bottom: 1px solid gray;
+    }
+
+    .deployment-total {
+        display: none;
+        &.visible {
+            display: flex;
+        }
+
+        .subtitle {
+            font-weight: 600;
+        }
+
+        .item {
+            margin-left: 16px;
+        }
+
+    }
+
+    .total {
+        display: flex;
+        width: 100%;
+        color: purple;
+        font-family: "Inter";
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+
+        justify-content: end;
+        gap: 4px;
+
+    }
+
+
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.deployments {
+    border-radius: 4px;
+    border: 1px solid  #805AC3;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 24px;
+
+    icon {
+        color: purple;
+        height: 24px;
+        width: 24px;
+    }
+
+
+    .default {
+            display: flex;
+                align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+            .details {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-family: "Inter";
+            font-size: 18px;
+            color: darkgray;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-family: "Inter";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+        }        
+    }
+
+    }
+
+
+    .field {
+        margin-top: 60px;
+        display: none;
+        margin-bottom: 0px;
+        flex-direction: column;
+        &.visible {
+            display: flex;
+        }
+    }
+
+}
