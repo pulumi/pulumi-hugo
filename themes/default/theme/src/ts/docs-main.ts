@@ -79,6 +79,26 @@ $(window).on("load", function() {
     collapseContentButton.on("click", collapseContentWidth);
 
     loadContentWidthState();
+    
+    let toggleState = false;
+    $(".heading-toggle").on("click", function() {
+        console.log("Div with id 'more-learnings' clicked!");
+        
+        toggleState = toggleArrow(toggleState);
+        $(".learnings-list").toggle();
+    });
+
+    function toggleArrow(toggleState) {
+        if (toggleState)  {
+            $(".toggle-arrow").addClass("keyboard-arrow-up-gray");
+            $(".toggle-arrow").removeClass("keyboard-arrow-down-gray");
+        } else {
+            $(".toggle-arrow").addClass("keyboard-arrow-down-gray");
+            $(".toggle-arrow").removeClass("keyboard-arrow-up-gray");
+        }
+        return !toggleState;
+    }
+
 })(document, jQuery);
 
 function setDocsMainNavPosition() {
