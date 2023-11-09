@@ -33,6 +33,8 @@
                     {{ partial "docs/special-pages/docs-home.html" . }}
                 {{ else if .Params.cloud_overview }}
                     {{ partial "docs/special-pages/cloud-overview.html" . }}
+                {{ else if .Params.api_hackathon }}
+                    {{ partial "docs/special-pages/api-hackathon.html" . }}
                 {{ end }}
 
 
