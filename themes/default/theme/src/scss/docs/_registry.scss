@@ -33,3 +33,28 @@ a.pulumi-ai-badge {
         }
     }
 }
+
+.more-learnings {
+    .heading {
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            flex-grow: 1;
+        }
+    }
+    .item {
+        display: flex;
+        flex-direction: row;
+        padding-top: 12px;
+        .description {
+            font-size: 14px;
+            color: #364098;
+            flex-grow: 1;
+        }
+        .content-badge {
+            display: flex;
+            flex-direction: row;
+            font-size: 12px;
+        }
+    }
+}
