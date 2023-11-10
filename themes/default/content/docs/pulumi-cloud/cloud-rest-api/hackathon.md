@@ -2,7 +2,7 @@
 title_tag: "API documentation"
 meta_desc: Code generated API documentation for 2023 hackathon
 title: OpenAPI Hackathon
-h1: OpenAPI Hackathon
+h1: Hackathon API Documentation Example Using GitHub Spec
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   pulumicloud:
