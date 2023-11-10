@@ -74,10 +74,12 @@ export class PulumiPricingCalculator {
   getTotal() {
     if (this.deploymentsExpanded) {
         const deploymentCost = ((this.deploymentMinutes - this.getFreeDeploymentMinutes()) * this.getCostPerDeploymentMinute());
-        return ((this.getEstimatedCredits() - this.getFreeCredits()) * this.getCostPerCredit()) + (deploymentCost > 0 ? deploymentCost : 0);
+        const cost = ((this.getEstimatedCredits() - this.getFreeCredits()) * this.getCostPerCredit()) + (deploymentCost > 0 ? deploymentCost : 0);
+        return cost > 0 ? cost : 0;
 
     } else {
-            return (this.getEstimatedCredits() - this.getFreeCredits()) * this.getCostPerCredit();
+            const cost =  (this.getEstimatedCredits() - this.getFreeCredits()) * this.getCostPerCredit();
+            return cost > 0 ? cost : 0;
 
     }
   }
@@ -97,11 +99,14 @@ export class PulumiPricingCalculator {
         this.deploymentMinutes = val === "" ? 0 : parseInt(val)
     }
 
+    formatNumber(num: number) {
+        return new Intl.NumberFormat().format(Math.round(num));
+    }
 
 
   render() {
     return (
-      <div>
+      <div class="calculator">
                 <h3>Cost estimator</h3>
         <div class="edition">
             <div class="title">Choose a Pulumi Cloud Edition</div> 
@@ -134,20 +139,23 @@ export class PulumiPricingCalculator {
                         </div>
                         {/* <!-- KMTODO percentage
                         KMTODO slider --> */}
+                        <div class="utilization">
                         <div class="input">
                         <input type="number" min="1" max="100" onInput={event => this.updateUtilization(event as any)} value={this.utilization}></input><span class="percent">%</span>
                         </div>
+                         <input type="range" min="1" max="100" step="1" onInput={event => this.updateUtilization(event as any)} value={this.utilization} class="range purple" />
+                         </div>
                     </div>
                 </div>
 
-                <div class="deployments">
+                <div class={this.deploymentsExpanded ? "deployments" : "deployments collapsed"}>
                     <div class="default">
                     <i class="fas fa-rocket"></i>
                     <div class="details">
                         <div class="title">Add on Pulumi Deployments</div>
                         <div class="subtitle">Run deployments remotely with a button, Git push, or REST API</div>
                     </div>
-                    <button onClick={() => this.updateDeploymentsExpanded()}><i class={this.deploymentsExpanded ? "fas fa-plus" : "fas fa-minus"}></i></button>
+                    <button onClick={() => this.updateDeploymentsExpanded()}><i class={this.deploymentsExpanded ? "fas fa-minus" : "fas fa-plus"}></i></button>
                     </div>
                     
                 
@@ -165,26 +173,30 @@ export class PulumiPricingCalculator {
                 </div>
             </div>
             <div class="outputs">
+                 <div class="gradient"></div>
+
+                <div class="contents">
                 <div class="duration">
                     <button class={ this.duration === 'day' ? 'active' : null} onClick={() => this.updateDuration("day")}>Per day</button>
                     <button  class={ this.duration === 'month' ? 'active' : null} onClick={() => this.updateDuration("month")}>Per month</button>
                 </div>
                 <div class="items">
-                    <div class="item"><span>Estimated credits per month</span><span>{ this.getEstimatedCredits()}</span></div>
-                    <div class="item"><span>Free credits included</span><span>{this.getFreeCredits()}</span></div>
+                    <div class="item"><span>Estimated credits per month</span><span>{ this.formatNumber(this.getEstimatedCredits())}</span></div>
+                    <div class="item"><span>Free credits included</span><span>{this.formatNumber(this.getFreeCredits())}</span></div>
                     <div class="item"><span>Cost per credit</span><span>${this.getCostPerCredit()}</span></div>
 
                     <div class={ this.deploymentsExpanded ? "deployment-total visible" : "deployment-total"}>
                         <div class="subtitle">Deployments</div>
-                    <div class="item"><span>Deployment minutes included</span><span>{this.getFreeDeploymentMinutes()}</span></div>
+                    <div class="item"><span>Deployment minutes included</span><span>{this.formatNumber(this.getFreeDeploymentMinutes())}</span></div>
                     <div class="item"><span>Cost per deployment minute</span><span>${this.getCostPerDeploymentMinute()}</span></div>
                     </div>
                 </div>
                 <div class="divider"></div>
                 <div class="total">
-                    <span>${this.getTotal()}</span>
+                    <span>${this.formatNumber(this.getTotal())}</span>
                     <span>/</span>
                     <span>{this.duration === "day" ? "day" : "mo"}</span>
+                </div>
                 </div>
             </div>
         </div>
