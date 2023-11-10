@@ -87,7 +87,7 @@ Consequently, organizations may experience swifter deployments, reduced errors, 
 
 DevOps significantly impacts all stages of the development and operations lifecycle. It has helped break silos and optimize to increase developer velocity and productivity, creating a positive impact on the ops side.
 
-AI assists DevOps teams to refine their operations by detecting inefficiencies and triggering warnings as soon as issues appear. This technology also enables real-time observation of systems and applications, permitting prompt actions from the operations personnel, resulting in minimized downtime.
+AI assists DevOps teams to refine their operations by detecting inefficiencies and triggering warnings as soon as issues appear. This technology also enables real-time observation of systems and applications, permitting prompt actions from operations personnel and minimizing downtime.
 
 AI-driven automation can also help the software development process with code generation. The Operations teams from both departments quickly pinpoint any issues in their workflows while speeding up decision-making processes.
 
@@ -109,7 +109,7 @@ A DevOps team can leverage Artificial Intelligence (AI) in several ways to enhan
 
 ### Code Generation and Learning
 
-AI can be a powerful tool to make the development process much smoother. It can help engineers focus on what matters instead of searching for documentation on websites, on developer forums, or search engines for answers to help solve specific problems. The perfect code snippet is often hard to find or may not even exist.
+AI can be a powerful tool to make the development process much smoother. It can help engineers focus on what matters instead of searching for documentation on websites, developer forums, or search engines for answers to help solve specific problems. The perfect code snippet is often hard to find or may not even exist.
 
 Generative AI, known as large language models (LLM), can help developers and DevOps engineers quickly discover, learn, and, for example, use new cloud infrastructure APIs.
 
@@ -125,7 +125,7 @@ Often, to answer key questions about their business, such as “Which team has t
 
 > ***“I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights [Resource Search] makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs”*** - *Santosh Dornal, Head of Software Test & DevOps, Alkira.*
 
-When using Pulumi Cloud, you can leverage AI Assist. You can provide a plain English (Spanish, French, or Japanese) request to express queries where you might not know the exact syntax, type tokens, or package names. AI Assist makes it easier by providing answers to queries like:
+When using Pulumi Cloud, you can leverage [AI Assist](https://www.pulumi.com/blog/ai-assist-improvements/). You can provide a plain English (Spanish, French, or Japanese) request to express queries where you might not know the exact syntax, type tokens, or package names. AI Assist makes it easier by providing answers to queries like:
 
 - show me all s3 buckets not tagged in production
 - show azure and azure native security groups
