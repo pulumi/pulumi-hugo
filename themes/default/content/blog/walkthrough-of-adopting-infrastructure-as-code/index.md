@@ -15,7 +15,7 @@ tags:
 
 *This is the second of a three-part series originally published on The New Stack.*
 
-Following the first piece in this series, [Infrastructure as Code in Any Programming Language](/blog/infrastructure-as-code-in-any-programming-language/), this walkthrough will show what it takes to get up and running with Infrastructure as Code. Everything we show will be done with Pulumi’s free and open source Infrastructure as Code SDK, which you can [download here](/docs/install/). You can also sign up for Pulumi Cloud [here](https://app.pulumi.com/signup). After discussing the basics of how to get going, we’ll then dive into some advanced use cases to show what you can do from there.
+Following the first piece in this series, [Infrastructure as Code in Any Programming Language](/blog/infrastructure-as-code-in-any-programming-language/), this walkthrough will show what it takes to get up and running with Infrastructure as Code. Everything we show will be done with Pulumi’s [free and open source Infrastructure as Code SDK](/docs/install/). You can also sign up for [Pulumi Cloud](https://app.pulumi.com/signup). After discussing the basics of how to get going, we’ll then dive into some advanced use cases to show what you can do from there.
 
 ## Migrating to Infrastructure as Code
 
