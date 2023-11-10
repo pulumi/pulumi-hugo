@@ -14,7 +14,7 @@ tags:
 
 ---
 
-Serverless architectures have become popular because they make it easier for software developers to focus on application development without the additional operation overhead. With Pulumi, you can deploy and manage your serverless infrastructure and this article shows you different architectural design considerations for your serverless application.
+Serverless architectures are popular because they make it easier for software developers to focus on application development without additional operation overhead. With Pulumi, you can deploy and manage your serverless infrastructure, and this article shows you different architectural design considerations for your serverless application.
 
 Before we go into the specifics of serverless architecture design, let's go through the basics of serverless - this is important for the rest of the article.
 
@@ -40,7 +40,7 @@ The serverless architecture model is in line with current tech trends such as cl
 
 The design of the serverless function is important for the success of your application. When mapping out the architectural design for your serverless function, you should consider some of the following:
 
-- **Function Logic**: A serverless function should have a well-defined purpose and focus on a specific task. If a function has multiple responsibilities, consider breaking it into smaller, more focused functions. In the same code shown below, we have two functions `date` and `weather` and it is clear what their responsibilities are.
+- **Use well-defined and focused functions**: A serverless function should have a well-defined purpose and focus on a specific task. If a function has multiple responsibilities, consider breaking it into smaller, more focused functions. In the same code shown below, we have two functions `date` and `weather` and it is clear what their responsibilities are.
 
     ``` go
     // The 'date' function that returns the current date
@@ -82,12 +82,12 @@ The design of the serverless function is important for the success of your appli
 	})
     ```
 
-- **Statelessness**: Serverless functions should be stateless. This encourages scalability and fault tolerance since every serverless function call should be able to function on its own, regardless of previous or subsequent calls. The recommended practise for managing data that has to be persistent beyond the span of one function execution is to store it externally in reliable data storage systems like object stores or databases. In doing so, serverless applications maintain the clear separation between function logic and stateful data management while guaranteeing data durability, consistency, and adaptability to changing workloads. The stateless nature of HTTP is an important aspect that makes serverless computing a good fit for many HTTP-based use cases. In a stateless protocol like HTTP, each request from a client to a server is treated independently, with no connection or context maintained between requests. This aligns well with the design philosophy of serverless computing, where each function execution is isolated and stateless Serverless platforms are designed to handle short-lived, stateless functions that respond to individual HTTP requests, making them well-suited for web applications, microservices, and API endpoints.
+- **Embrace stateless serverless platforms**: Serverless functions should be stateless. This encourages scalability and fault tolerance since every serverless function call should be able to function on its own, regardless of previous or subsequent calls. The recommended practise for managing data that has to be persistent beyond the span of one function execution is to store it externally in reliable data storage systems like object stores or databases. In doing so, serverless applications maintain the clear separation between function logic and stateful data management while guaranteeing data durability, consistency, and adaptability to changing workloads. The stateless nature of HTTP is an important aspect that makes serverless computing a good fit for many HTTP-based use cases. In a stateless protocol like HTTP, each request from a client to a server is treated independently, with no connection or context maintained between requests. This aligns well with the design philosophy of serverless computing, where each function execution is isolated and stateless Serverless platforms are designed to handle short-lived, stateless functions that respond to individual HTTP requests, making them well-suited for web applications, microservices, and API endpoints.
 
 > Figure 1. Resources needed in a serverless architecture
 ![serverless-resources](./serverless-resources.png)
 
-- **Function triggers**: When dealing with serverless functions you should choose the Right trigger that best suits your use case. Common triggers include HTTP requests, message queues, database changes, and timers. In our application, we used an HTTP trigger for our two functions.
+- **Choose the right trigger**: When dealing with serverless functions you should choose the right trigger that best suits your use case. Common triggers include HTTP requests, message queues, database changes, and timers. In our application, we used an HTTP trigger for our two functions.
 
     ``` go
     // The 'date' function that returns the current date
@@ -101,7 +101,7 @@ The design of the serverless function is important for the success of your appli
 	})
     ```
 
-- **Scalability**: Serverless doesn't mean "no server" otherwise, where will the code actually run? The meaning of serverless is "less server." When event density rises, the majority of serverless platforms offer a set of options to manage how the infrastructure should scale. There are several options available to you, and the technique you use will depend on the function. Serverless Functions offer auto-scaling, allowing your application to seamlessly handle increased workloads.  By designing your serverless functions with scalability in mind, you can maintain optimal performance even during traffic spikes, delivering a responsive and reliable experience to your users.
+- **Design with scalability in mind**: Serverless doesn't mean "no server" otherwise, where will the code actually run? The meaning of serverless is "less server." When event density rises, the majority of serverless platforms offer a set of options to manage how the infrastructure should scale. There are several options available to you, and the scaling technique you use will depend on the function. Serverless functions offer auto-scaling, allowing your application to seamlessly handle increased workloads.  By designing your serverless functions with scalability in mind, you can maintain optimal performance even during traffic spikes, delivering a responsive and reliable experience to your users.
 
 - **Avoid making direct cross-service references**: In your serverless architecture, there are times when functions depend on other functions. This typically happens a lot in distributed systems. For example in an e-commerce service, the checkout function could depend on the payment function. However, it's advised that services avoid making direct references to one another in order to prevent hard coupling that can cause issues later. A significant amount of reworking may be required if direct references for a service need to be changed. Using message services, such as queues or topics, to facilitate service-to-service communication is a good way to handle this. This decoupling enhances flexibility, scalability, and resilience, as well as simplifies testing and debugging. It also promotes security by allowing access control. When you use a more decoupled architecture, serverless systems can evolve independently and adapt to changing requirements, making them more robust and maintainable over time.
 
