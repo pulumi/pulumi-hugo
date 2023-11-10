@@ -8,13 +8,15 @@
                 <input type="checkbox" id="accordion-checkbox-table-of-contents" />
                 <label for="accordion-checkbox-table-of-contents" class="show">
                     <div class="heading">
-                        <div class="icon-heading-wrapper">
+                        <div style="cursor: pointer;" class="toggle-toc icon-heading-wrapper flex w-full flex-row mr-5">
                             <div class="icon icon-12-12 icon-on-this-page"></div>
-                            <h2 class="no-anchor">On this page</h2>
+                            <h2 class="no-anchor flex-grow">On this page</h2>
+                            <div class="toggle-arrow-toc icon icon-16-16 keyboard-arrow-up-gray"></div>
                         </div>
                         <div class="icon icon-18-18 expand-more-18-18"></div>
                     </div>
                 </label>
+                <hr class="mr-5"/>
                 <label for="accordion-checkbox-table-of-contents" class="hide">
                     <div class="heading">
                         <div class="icon-heading-wrapper">
@@ -29,21 +31,6 @@
                         <ul class="table-of-contents-list">
                             {{/* This will be populated dynamically with all H2s and H3s on the page; see ts/misc.ts */}}
                         </ul>
-                        {{ if strings.Contains $.Page.Permalink "registry/packages" }}
-                            {{ $path := (split .Page.Params.title_tag ".") }}
-                            {{- if eq (len $path) 3 -}}
-                                {{ $packageName := index $path 0 }}
-                                {{ $moduleName := index $path 1 }}
-                                {{ $resourceName := index $path 2 }}
-                                <div class="mt-6">
-                                    <pulumi-resource-links
-                                        package-name="{{ $packageName }}"
-                                        module-name="{{ $moduleName }}"
-                                        resource-name="{{ $resourceName }}"
-                                    ></pulumi-resource-links>
-                                </div>
-                            {{ end }}
-                        {{ end }}
                         {{ if strings.Contains $.Page.Permalink "registry/packages/aws" }}
                         <div class="mt-6">
                             <div class="more-learnings">
@@ -69,6 +56,21 @@
                                 </div>
                             </div>
                         </div>
+                        {{ end }}
+                        {{ if strings.Contains $.Page.Permalink "registry/packages" }}
+                            {{ $path := (split .Page.Params.title_tag ".") }}
+                            {{- if eq (len $path) 3 -}}
+                                {{ $packageName := index $path 0 }}
+                                {{ $moduleName := index $path 1 }}
+                                {{ $resourceName := index $path 2 }}
+                                <div class="mt-6">
+                                    <pulumi-resource-links
+                                        package-name="{{ $packageName }}"
+                                        module-name="{{ $moduleName }}"
+                                        resource-name="{{ $resourceName }}"
+                                    ></pulumi-resource-links>
+                                </div>
+                            {{ end }}
                         {{ end }}
                     </div>
                 </div>
