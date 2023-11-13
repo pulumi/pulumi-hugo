@@ -44,7 +44,7 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-The integration of artificial intelligence (AI) with DevOps signals a new era in software development. DevOps possesses unique characteristics and needs that make it exceptionally compatible with AI augmentation. Given that code fundamentally relies on language, and large language models (LLMs) serve as the core of GPT functionality, these models are particularly well-suited for tasks such as code generation. The biggest problem is trust. This article unwraps the topics addressed during our “AI: Friends or For | AI Talks for DevOps” event in San Francisco.
+The integration of artificial intelligence (AI) with DevOps signals a new era in software development. DevOps possesses unique characteristics and needs that make it exceptionally compatible with AI augmentation. Given that code fundamentally relies on language, and large language models (LLMs) serve as the core of GPT functionality, these models are particularly well-suited for tasks such as code generation. This article unwraps the topics addressed during our “AI: Friends or For | AI Talks for DevOps” event in San Francisco.
 
 <!--more-->
 
