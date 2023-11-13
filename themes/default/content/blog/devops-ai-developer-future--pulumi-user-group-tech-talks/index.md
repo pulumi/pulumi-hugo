@@ -237,7 +237,7 @@ AI in DevOps can transform software development by making workflows more efficie
 
 ### Can AI replace DevOps?
 
-DevOps has not been taken over by AI yet. Rather, its use has made a difference in code quality and accelerated certain processes. Improvements to the quality of coding have been seen as one of the main benefits brought on through integration with Artificial Intelligence.
+DevOps has not been taken over by AI yet. Rather, its use has made a difference in code quality and accelerated certain processes. Improvements to the quality of coding have been seen as one of the main benefits brought on through integration with artificial intelligence.
 
 ### What is an example of AI in DevOps?
 
