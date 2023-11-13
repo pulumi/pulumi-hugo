@@ -93,7 +93,7 @@ DevOps significantly impacts all stages of the development and operations lifecy
 
 AI assists DevOps teams to refine their operations by detecting inefficiencies and triggering warnings as soon as issues appear. This technology also enables real-time observation of systems and applications, permitting prompt actions from operations personnel and minimizing downtime.
 
-AI-driven automation can also help the software development process with code generation. The Operations teams from both departments quickly pinpoint any issues in their workflows while speeding up decision-making processes.
+AI-driven automation can also help the software development process with code generation. The operations teams from both departments quickly pinpoint any issues in their workflows while speeding up decision-making processes.
 
 In the long term, the AI may use cloud credentials to create and autonomously automate deployment and management and perform DevOps tasks on behalf of the DevOps or platform engineering team. In the near term, it is used to assist humans, from DevOps professionals to developers.
 
