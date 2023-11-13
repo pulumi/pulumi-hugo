@@ -225,7 +225,7 @@ Navigating these challenges requires a thoughtful and strategic approach, focusi
 
 ## Conclusion
 
-AI in DevOps can transform software development by making workflows more efficient, monitoring and security stronger, and overall effectiveness increased. Organizations that embrace AI/ML aim for better collaboration between teams, automating and intelligently managing infrastructure, reducing time-to-market, and increasing developer productivity and cost savings due to streamlining processes within their development lifecycle. AI and ML knowledge will become necessary skills expected to be applied to enhance and benefit the Development, Security, and Operation teams as a whole. Follow the Pulumi Python + AI/ML series to upskill and get ahead:
+AI in DevOps can transform software development by making workflows more efficient, monitoring and security stronger, and overall effectiveness increased. Organizations that embrace AI/ML aim for better collaboration between teams, automating and intelligently managing infrastructure, reducing time-to-market, and increasing developer productivity and cost savings due to streamlining processes within their development lifecycle. AI and ML knowledge will become necessary skills expected to be applied to enhance and benefit the development, security, and operation teams as a whole. Follow the Pulumi Python + AI/ML series to upskill and get ahead:
 
 - [The Real AI challenge is Cloud, not Code!](https://www.pulumi.com/blog/mlops-the-ai-challenge-is-cloud-not-code/)
 - [Deploy AI Models on Amazon SageMaker using Pulumi Python IaC](https://www.pulumi.com/blog/mlops-huggingface-llm-aws-sagemaker-python/)
