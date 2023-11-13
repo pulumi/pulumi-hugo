@@ -147,7 +147,7 @@ AI can be valuable not just in anomaly detection but also in remediation, which 
 
 Consider the [unfortunate incident at GitLab](https://techcrunch.com/2017/02/01/gitlab-suffers-major-backup-failure-after-data-deletion-incident/), marked by a disastrous sequence of events resulting in the loss of segments of production databases and substantial user data.
 
-{{< youtube "tLdRBsuvVKc&t?rel=0" >}}
+{{< youtube "tLdRBsuvVKc?si=brUXETRY4Rew7954?rel=0" >}}
 
 In this scenario, AI could have swiftly pinpointed the root cause and proposed a rapid solution, potentially mitigating the extent of damage before it escalated.
 
