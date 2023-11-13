@@ -119,7 +119,7 @@ A DevOps team can leverage AI in several ways to enhance efficiency, automation,
 
 AI can be a powerful tool to make the development process much smoother. It can help engineers focus on what matters instead of searching for documentation on websites, developer forums, or search engines for answers to help solve specific problems. The perfect code snippet is often hard to find or may not even exist.
 
-Generative AI, known as large language models (LLM), can help developers and DevOps engineers quickly discover, learn, and, for example, use new cloud infrastructure APIs.
+Generative AI, powered by LLMs, can help developers and DevOps engineers quickly discover, learn, and, for example, use new cloud infrastructure APIs.
 
 {{< figure alt="Pulumi AI response to Run metabase in Azure, using TypeScript" src="https://www.pulumi.com/blog/pulumi-ai/run-metabase-in-azure.png" width=90%  caption="Pulumi AI response to Run metabase in Azure, using TypeScript" >}}
 
