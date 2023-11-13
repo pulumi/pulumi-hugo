@@ -1,5 +1,5 @@
 ---
-title: "AI Talks for DevOps - AI: Friend or Foe ?"
+title: "AI in DevOps | AI Talks for DevOps Overview"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
@@ -22,13 +22,14 @@ meta_desc: AI-driven Development is Here - Watch the discussion on AI in DevOps 
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
 # ratio has been provided for you.
-meta_image: meta.png
+meta_image: ai-in-devops-meta-image.png
 
 # At least one author is required. The values in this list correspond with the
 # `id` properties of the team member files at /data/team/team. Create a file for
 # yourself if you don't already have one.
 authors:
     - sara-huddleston
+    - scott-lowe
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -37,6 +38,7 @@ tags:
     - ai
     - ml
     - community
+    - platform_engineering
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
 # for details, and please remove these comments before submitting for review.
@@ -48,20 +50,20 @@ The integration of artificial intelligence (AI) with DevOps signals a new era in
 
 This article unwraps the topics addressed during our “AI: Friends or For | AI Talks for DevOps” event in San Francisco. Watch the discussion between Luke Hoban, Pulumi's CTO and cofounder of TypeScript, and Nana from TechWorld of Nana, moderated by community engineer Adora Nwodo, on How AI will impact the Future of DevOps.
 
-## On this article:
+## On this AI in DevOps article:
 
-- How will AI Impact the Future of DevOps
-- What is DevOps in AI
-- What is AI in DevOps
-- How AI is Currently Used in DevOps
-- How can a DevOps team take advantage of Artificial Intelligence
-- Top 5 Skills for DevOps Engineers in the AI era
-- How to Overcome AI for DevOps Challenges
-- Frequently Asked Questions
+- [How will AI Impact the Future of DevOps](https://www.pulumi.com/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-will-ai-impact-the-future-of-devops)
+- [What is DevOps in AI](/#what-is-devops-in-ai)
+- [What is AI in DevOps](/#what-is-ai-in-devops)
+- [How AI is Currently Used in DevOps](/#how-ai-is-currently-used-in-devops)
+- [How can a DevOps team take advantage of Artificial Intelligence](/#how-can-a-devops-team-take-advantage-of-artificial-intelligence)
+- [Top 5 Skills for DevOps Engineers in the AI era](/#top-5-skills-for-devops-engineers-in-the-ai-era)
+- [How to Overcome AI for DevOps Challenges](/#how-to-overcome-ai-for-devops-challenges)
+- [Frequently Asked Questions](/#frequently-asked-questions)
 
 ## How will AI Impact the Future of DevOps
 
-In the Fireside chat, Luke Hoban expressed his enthusiasm for incorporating AI into DevOps, emphasizing its potential utilization by both DevOps professionals and the development team. In contrast, Nana adopted a more cautious stance, drawing attention to potential risks, particularly regarding reliability.
+In the Fireside chat, Luke Hoban expressed his enthusiasm for incorporating AI into DevOps, emphasizing its potential utilization by both DevOps professionals and the development team. In contrast, Nana Janashia, [TechWorld with Nana](https://www.youtube.com/@TechWorldwithNana), adopted a more cautious stance, drawing attention to potential risks, particularly regarding reliability.
 
 {{< youtube "i09F14yc0l4?rel=0" >}}
 
@@ -85,11 +87,17 @@ Consequently, organizations may experience swifter deployments, reduced errors, 
 
 ## How AI is Currently Used in DevOps
 
+{{< figure alt="Luke Hoban at the San Francisco Pulumi Group meetup discussing the usage of AI, during the AI Talks for DevOps" src="./luke-nana-adora-discussing-devop-ai.png" caption="Luke Hoban at the San Francisco Pulumi Group meetup discussing the usage of AI, during the AI Talks for DevOps" width=100% >}}
+
 DevOps significantly impacts all stages of the development and operations lifecycle. It has helped break silos and optimize to increase developer velocity and productivity, creating a positive impact on the ops side.
 
 AI assists DevOps teams to refine their operations by detecting inefficiencies and triggering warnings as soon as issues appear. This technology also enables real-time observation of systems and applications, permitting prompt actions from operations personnel and minimizing downtime.
 
 AI-driven automation can also help the software development process with code generation. The Operations teams from both departments quickly pinpoint any issues in their workflows while speeding up decision-making processes.
+
+In the long term, the AI may use cloud credentials to create and autonomously automate deployment and management and perform DevOps tasks on behalf of the DevOps or platform engineering team. In the near term, it is used to assist humans, from DevOps professionals to developers.
+
+> ***“In the near term, AI usage in DevOps is about how do you keep the human in the loop, how do you use it as a learning tool, as a code generation tool, and for auditing to provide actionable notifications, all of which are still very human-dependent. There is so much more it can be used for. Currently, it's a tool serving humans. But it is fascinating to imagine it in the future when it can be trusted to be an autonomous agent.”*** - *Luke Hoban, CTO of Pulumi and co-creator of TypeScript*
 
 So, how does this technology bring about these advancements? Two main ways are by streamlining development tasks and improving monitoring and security protocols.
 
@@ -163,6 +171,8 @@ Implementing AI algorithms or AI tools that analyze usage patterns can assist in
 
 ## Top 5 Skills for DevOps Engineers in the AI Era
 
+{{< figure alt="Pulumi AI response to Run metabase in Azure, using TypeScript" src="https://www.pulumi.com/blog/pulumi-ai/run-metabase-in-azure.png" width=90%  caption="Pulumi AI response to Run metabase in Azure, using TypeScript" >}}
+
 DevOps engineers must open new skills, mainly in cloud services, data, and AI/ML.
 
 1. **Programming Languages**: Although DevOps don't usually need to know general programming languages in-depth, they should know what is most used by application teams. It's a nice-to-have to find errors in CI/CD pipelines and fix them themselves as needed, but it is a must-have if the goal is to work MLOps.
@@ -171,9 +181,11 @@ DevOps engineers must open new skills, mainly in cloud services, data, and AI/ML
 
 3. **Continuous Integration and Delivery**: CI/CD is mandatory knowledge, and it must be understood in detail to predict data preparation code, AI/ML code, CI/CD code, and infrastructure-related code.
 
-4. **Custom containers**: You are expected to understand Docker and/or Kubernetes concepts and best practices.
+4. **Custom containers**: As a DevOps professional, you are expected to understand Docker and/or Kubernetes concepts and best practices.
 
-5. **Pipeline Orchestration**:
+5. **Orchestration**: This is the holy grail of Ops and your key to unlocking AI.
+
+{{< youtube "UfQeX-8HRmI?rel=0" >}}
 
 ## How to Overcome AI for DevOps Challenges
 
@@ -213,7 +225,11 @@ Navigating these challenges requires a thoughtful and strategic approach, focusi
 
 ## Conclusion
 
-AI in DevOps can transform software development by making workflows more efficient, monitoring and security stronger, and overall effectiveness increased. Organizations that embrace AI/ML aim for better collaboration between teams, automating and intelligently managing infrastructure, reducing time-to-market, and increasing developer productivity and cost savings due to streamlining processes within their development lifecycle. Through AI-driven techniques, organizations can drastically improve how they securely create successful projects for future success.
+AI in DevOps can transform software development by making workflows more efficient, monitoring and security stronger, and overall effectiveness increased. Organizations that embrace AI/ML aim for better collaboration between teams, automating and intelligently managing infrastructure, reducing time-to-market, and increasing developer productivity and cost savings due to streamlining processes within their development lifecycle. AI and ML knowledge will become necessary skills expected to be applied to enhance and benefit the Development, Security, and Operation teams as a whole. Follow the Pulumi Python + AI/ML series to upskill and get ahead:
+
+- [The Real AI challenge is Cloud, not Code!](https://www.pulumi.com/blog/mlops-the-ai-challenge-is-cloud-not-code/)
+- [Deploy AI Models on Amazon SageMaker using Pulumi Python IaC](https://www.pulumi.com/blog/mlops-huggingface-llm-aws-sagemaker-python/)
+- [Deploying Your AI/ML Chatbot Frontend To Vercel Using Pulumi](https://www.pulumi.com/blog/deploy-ai-ml-vercel-app/)
 
 ---
 
@@ -225,7 +241,7 @@ DevOps has not been taken over by AI yet. Rather, its use has made a difference 
 
 ### What is an example of AI in DevOps?
 
-AI can be utilized to make DevOps processes more efficient by creating test cases and pipelines, assessing infrastructure configurations for security concerns, and deploying applications. This technology takes the form of machine learning algorithms, natural language processing systems, computer vision capabilities, chatbot programs, and virtual assistants. All are designed with one goal in mind – optimization of operations within development teams.
+AI can be utilized to make DevOps processes more efficient by creating test cases and pipelines, assessing infrastructure configurations for security concerns, and deploying applications. This technology includes machine learning algorithms, natural language processing systems, computer vision capabilities, chatbot programs, and virtual assistants. All are designed with one goal in mind – optimization of operations within development teams.
 
 ### What is the future of DevOps?
 
