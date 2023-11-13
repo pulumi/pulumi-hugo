@@ -48,7 +48,7 @@ The integration of artificial intelligence (AI) with DevOps signals a new era in
 
 <!--more-->
 
-This article unwraps the topics addressed during our “AI: Friends or For | AI Talks for DevOps” event in San Francisco. Watch the discussion between Luke Hoban, Pulumi's CTO and cofounder of TypeScript, and Nana from TechWorld of Nana, moderated by community engineer Adora Nwodo, on How AI will impact the Future of DevOps.
+Watch the discussion between Luke Hoban, Pulumi's CTO and cofounder of TypeScript, and Nana from TechWorld of Nana, moderated by community engineer Adora Nwodo.
 
 ## On this AI in DevOps article:
 
