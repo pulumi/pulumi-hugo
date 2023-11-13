@@ -71,7 +71,7 @@ In the Fireside chat, Luke Hoban expressed his enthusiasm for incorporating AI i
 
 When considering the adoption of AI and AI engineering, such as prompt engineering and other specific disciplines, AI engineers rely heavily on the cloud. Many AI-based systems are built around cloud-native tools, practices, and managed services.
 
-The extensive use of Cloud-native Primitives means that AI is fundamentally a cloud adoption story. Consequently, established DevOps and Infrastructure as Code tooling and best practices play an important role in AI engineering, in what is being done, and in leveraging its use.
+The extensive use of cloud-native primitives means that AI is fundamentally a cloud adoption story. Consequently, established DevOps and infrastructure as code tooling and best practices play an important role in AI engineering, in what is being done, and in leveraging its use.
 
 ## What is AI in DevOps
 
