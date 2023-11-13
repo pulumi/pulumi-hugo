@@ -113,7 +113,7 @@ The usage of AI significantly boosts DevOps monitoring and security. With the as
 
 ## How can a DevOps team take advantage of AI
 
-A DevOps team can leverage Artificial Intelligence (AI) in several ways to enhance efficiency, automation, and overall productivity. Here are some key strategies for a DevOps team to leverage AI:
+A DevOps team can leverage AI in several ways to enhance efficiency, automation, and overall productivity. Here are some key strategies for a DevOps team to leverage AI:
 
 ### Code Generation and Learning
 
