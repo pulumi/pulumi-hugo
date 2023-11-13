@@ -56,7 +56,7 @@ Watch the discussion between Luke Hoban, Pulumi's CTO and cofounder of TypeScrip
 - [What is DevOps in AI](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#what-is-devops-in-ai)
 - [What is AI in DevOps](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#what-is-ai-in-devops)
 - [How AI is Currently Used in DevOps](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-ai-is-currently-used-in-devops)
-- [How can a DevOps team take advantage of Artificial Intelligence](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-can-a-devops-team-take-advantage-of-artificial-intelligence)
+- [How Can a DevOps Team Take Advantage of Artificial Intelligence](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-can-a-devops-team-take-advantage-of-artificial-intelligence)
 - [Top 5 Skills for DevOps Engineers in the AI era](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#top-5-skills-for-devops-engineers-in-the-ai-era)
 - [How to Overcome AI for DevOps Challenges](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-to-overcome-ai-for-devops-challenges)
 - [Frequently Asked Questions](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#frequently-asked-questions)
@@ -111,7 +111,7 @@ For instance, AI can identify any slowdowns during progress and recommend improv
 
 The usage of AI significantly boosts DevOps monitoring and security. With the assistance of AI tools, operations teams can use machine learning algorithms to examine a massive amount of data to protect their applications from potential risks and enhance reliability. These algorithmic solutions provide valuable advice for development personnel, which helps strengthen protection measures while optimizing performance simultaneously.
 
-## How can a DevOps team take advantage of AI
+## How Can a DevOps Team Take Advantage of Artificial Intelligence
 
 A DevOps team can leverage AI in several ways to enhance efficiency, automation, and overall productivity. Here are some key strategies for a DevOps team to leverage AI:
 
