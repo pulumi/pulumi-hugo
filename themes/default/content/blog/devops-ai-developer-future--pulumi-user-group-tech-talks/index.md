@@ -129,7 +129,7 @@ You can see it in practice [using Pulumi AI](https://www.pulumi.com/blog/pulumi-
 
 Platform and developer teams are spinning up resources across many cloud accounts within multiple cloud providers. It can be almost impossible to aggregate and search your infrastructure across these accounts since every cloud and every account is (by design!) a walled garden.
 
-Often, to answer key questions about their business, such as “Which team has the largest cloud footprint?”, teams need to combine data across various clouds, cloud accounts, and SaaS tools. This prevents organizations from getting quick answers to operational questions and barriers to building aggregations to derive insights. AI can provide actionable insights over infrastructure with NLP queries.
+Often, to answer key questions about their business, such as “Which team has the largest cloud footprint?”, teams need to combine data across various clouds, cloud accounts, and SaaS tools. This prevents organizations from getting quick answers to operational questions and barriers to building aggregations to derive insights. AI can provide actionable insights over infrastructure with natural language processing (NLP) queries.
 
 > ***“I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights [Resource Search] makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs”*** - *Santosh Dornal, Head of Software Test & DevOps, Alkira.*
 
