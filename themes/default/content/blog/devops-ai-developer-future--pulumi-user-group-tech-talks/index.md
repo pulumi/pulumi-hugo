@@ -52,14 +52,14 @@ This article unwraps the topics addressed during our “AI: Friends or For | AI 
 
 ## On this AI in DevOps article:
 
-- [How will AI Impact the Future of DevOps](https://www.pulumi.com/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-will-ai-impact-the-future-of-devops)
-- [What is DevOps in AI](/#what-is-devops-in-ai)
-- [What is AI in DevOps](/#what-is-ai-in-devops)
-- [How AI is Currently Used in DevOps](/#how-ai-is-currently-used-in-devops)
-- [How can a DevOps team take advantage of Artificial Intelligence](/#how-can-a-devops-team-take-advantage-of-artificial-intelligence)
-- [Top 5 Skills for DevOps Engineers in the AI era](/#top-5-skills-for-devops-engineers-in-the-ai-era)
-- [How to Overcome AI for DevOps Challenges](/#how-to-overcome-ai-for-devops-challenges)
-- [Frequently Asked Questions](/#frequently-asked-questions)
+- [How will AI Impact the Future of DevOps](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-will-ai-impact-the-future-of-devops)
+- [What is DevOps in AI](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#what-is-devops-in-ai)
+- [What is AI in DevOps](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#what-is-ai-in-devops)
+- [How AI is Currently Used in DevOps](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-ai-is-currently-used-in-devops)
+- [How can a DevOps team take advantage of Artificial Intelligence](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-can-a-devops-team-take-advantage-of-artificial-intelligence)
+- [Top 5 Skills for DevOps Engineers in the AI era](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#top-5-skills-for-devops-engineers-in-the-ai-era)
+- [How to Overcome AI for DevOps Challenges](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#how-to-overcome-ai-for-devops-challenges)
+- [Frequently Asked Questions](/blog/devops-ai-developer-future--pulumi-user-group-tech-talks/#frequently-asked-questions)
 
 ## How will AI Impact the Future of DevOps
 
