@@ -171,7 +171,7 @@ Implementing AI algorithms or AI tools that analyze usage patterns can assist in
 
 ## Top 5 Skills for DevOps Engineers in the AI Era
 
-{{< figure alt="Pulumi AI response to Run metabase in Azure, using TypeScript" src="https://www.pulumi.com/blog/pulumi-ai/run-metabase-in-azure.png" width=90%  caption="Pulumi AI response to Run metabase in Azure, using TypeScript" >}}
+{{< figure alt="Adora Nwodo with Nana discussing skills that DevOps engineers will need to learn to make AI work" src="./adora-nana-talking-angle.png" caption="Adora Nwodo with Nana discussing skills that DevOps engineers will need to learn to make AI work" width=100% >}}
 
 DevOps engineers must open new skills, mainly in cloud services, data, and AI/ML.
 
