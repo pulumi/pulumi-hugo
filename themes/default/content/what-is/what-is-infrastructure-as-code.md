@@ -2,31 +2,8 @@
 title: What Is Infrastructure as Code?
 meta_desc: |
     Understand what is infrastructure as code, along with the main benefits and importance for modern application development.
-
 type: what-is
 page_title: What is Infrastructure as Code?
-
-customer_logos:
-  title: Leading engineering organizations are building with Pulumi
-  logos:
-    - items:
-      - snowflake
-      - tableau
-      - atlassian
-      - fauna
-      - ware2go
-    - items:
-      - mindbody
-      - sourcegraph
-      - fenergo
-      - skai
-      - lemonade
-    - items:
-      - clearsale
-      - angellist
-      - webflow
-      - supabase
-      - ro
 ---
 
 Infrastructure as code (IaC) is an approach to automating the provisioning and management of infrastructure. At its heart, **infrastructure as code is about bringing software engineering principles, approaches, and tools into the cloud infrastructure space.**
@@ -44,7 +21,7 @@ Let's start with examing why infrastructure as code is important.
 
 ## Why is Infrastructure as Code Important?
 
-Infrastructure as code is important because of three significant trends, all of them happening at the same time.
+IaC is important because of three significant trends, all of them happening at the same time.
 
 ### The Transition to the Cloud
 
@@ -62,7 +39,7 @@ All these cloud environments can be provisioned or managed via APIs, and, as a r
 
 ### Cloud Modernization
 
-The second trend is cloud modernization. At first glance this may seem redundant with the first trend, which is the ongoing transition to the cloud. However, after organizations transition to the cloud, they tend to look for opportunities to maximize the value they get from their cloud environment. This frequently involves adopting technologies such as serverless, containers and Kubernetes. In some cases, cloud modernization involves using managed services to offload some of the heavy lifting to the cloud provider. In other cases, cloud modernization means more use of ephemeral, stateless workloads that exist only for a short while, and then need to be decommissioned. When applied correctly, all these approaches enable teams to deliver value more quickly. These technologies and services generally require a more granular management of infrastructure. Stitching together all the primitives that the cloud provider offers into solutions that serve the business is a great fit for infrastructure as code.
+The second trend is cloud modernization. At first glance this may seem redundant with the first trend, which is the ongoing transition to the cloud. However, after organizations transition to the cloud, they tend to look for opportunities to maximize the value they get from their cloud environment. This frequently involves adopting technologies such as serverless, containers and Kubernetes. In some cases, cloud modernization involves using managed services to offload some of the heavy lifting to the cloud provider. In other cases, cloud modernization means more use of ephemeral, stateless workloads that exist only for a short while, and then need to be decommissioned. When applied correctly, all these approaches enable teams to deliver value more quickly. These technologies and services generally require a more granular management of infrastructure. Stitching together all the primitives that the cloud provider offers into solutions that serve the business is a great fit for IaC.
 
 ### Frequent Infrastructure Changes
 
@@ -74,7 +51,7 @@ For teams managing tens or hundreds of cloud resources that change once every fe
 
 The key elements of infrastructure as code are the same key elements you'd find in the majority of software engineering environments. These include:
 
-1. **An infrastructure as code mechanism:** For all practical purposes, in order to do infrastructure as code you need a tool or engine that is responsible for translating the infrastructure as code instructions into something the cloud provider APIs understand and can use. Infrastructure as code tools may be provided by and limited to a single cloud provider (AWS Cloudformation is one example), or may support multiple cloud providers. Tools may be limited to supporting YAML or JSON; may require the use of a specialized and proprietary domain-specific language (DSL); or may support the use of general purpose programming languages such as TypeScript/JavaScript, C#, Go, Python, and Java.
+1. **An infrastructure as code mechanism:** For all practical purposes, in order to do infrastructure as code you need a tool or engine that is responsible for translating the IaC instructions into something the cloud provider APIs understand and can use. Infrastructure as code tools may be provided by and limited to a single cloud provider (AWS Cloudformation is one example), or may support multiple cloud providers. Tools may be limited to supporting YAML or JSON; may require the use of a specialized and proprietary domain-specific language (DSL); or may support the use of general purpose programming languages such as TypeScript/JavaScript, C#, Go, Python, and Java.
 1. **Version control:** When infrastructure is described as code, it can be checked into source control, versioned and code-reviewed using existing software engineering practices. Version control systems, like [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), or [BitBucket](https://bitbucket.org/), enable you to see _what_ changes were made, _when_ the changes were made, and _who_ made the changes.
 1. **Tests:** As any critical system grows in complexity, people can start to feel nervous about making changes. With infrastructure as code, teams can write tests for their infrastructure to ensure its correctness. They can encode policies so that all provisioned infrastructure and its configurations [are compliant](/docs/using-pulumi/testing/property-testing/). Once they're tested, infrastructure components can be reusable pieces of code that capture best practices and that can be shared across teams. No more reinventing the wheel.
 1. **CI/CD pipelines:** Assuming the infrastructure as code tool supports the functionality (most do), changes to infrastructure---found in changes to the code that defines the infrastructure---can be deployed using existing CI/CD tools, much in the same way CI/CD pipelines automatically build and deploy other forms of software.
@@ -83,14 +60,14 @@ The key elements of infrastructure as code are the same key elements you'd find 
 
 Infrastructure as code tames the complexity of cloud infrastructure because it uses the same software engineering principles, approaches, and tools that have enabled other software-based systems to scale up. Here are some of the benefits infrastructure as code provides.
 
-* **Repeatability and Consistency**: Infrastructure that is defined via infrastructure as code can be deployed in a highly repeatable fashion. Do you need a development environment that is a high fidelity copy of the production environment? Or do you need to ensure that infrastructure is deployed the same across multiple regions? This is easily accomplished with infrastructure as code.
+* **Repeatability and Consistency**: Infrastructure that is defined via IaC can be deployed in a highly repeatable fashion. Do you need a development environment that is a high fidelity copy of the production environment? Or do you need to ensure that infrastructure is deployed the same across multiple regions? This is easily accomplished with infrastructure as code.
 * **Accountability**: Changes to the infrastructure can be easily tracked via the use of version control with your infrastructure as code files.
 * **Improved Productivity**: Most developers have an integrated development environment (IDE) that they use all the time. When infrastructure is code, you can take advantage of all the features that an IDE offers, such as autocompletion and the ability to look up methods and their parameters.
 * **Better Alignment Among Teams**: Infrastructure as code enables infrastructure teams and software development teams to adopt DevOps principles and work together more closely. When infrastructure is code and is integrated into your company's software lifecycle, there's a common language and a common set of practices that stakeholders already understand. That common understanding fosters cross-team collaboration, which is fundamental to DevOps.
 
 ## How Do I Get Started with Infrastructure as Code?
 
-Bringing infrastructure as code into a startup or a company with many greenfield applications may not be difficult. For most companies, however, it's not so straightforward. Many companies, both large and small, have a lot of infrastructure that was created by "pointing and clicking" in the console of a cloud provider. Perhaps, over time, someone wrote a run book or created a wiki that describes how to use a cloud provider's console to perform some common task. Maybe even there are Bash or PowerShell scripts, used to manage infrastructure, that are floating around that only one or two people know about (and possibly aren't even being maintained!). What do you do if that's your situation?
+Bringing IaC into a startup or a company with many greenfield applications may not be difficult. For most companies, however, it's not so straightforward. Many companies, both large and small, have a lot of infrastructure that was created by "pointing and clicking" in the console of a cloud provider. Perhaps, over time, someone wrote a run book or created a wiki that describes how to use a cloud provider's console to perform some common task. Maybe even there are Bash or PowerShell scripts, used to manage infrastructure, that are floating around that only one or two people know about (and possibly aren't even being maintained!). What do you do if that's your situation?
 
 Here are steps you can take to get started adopting infrastructure as code.
 
