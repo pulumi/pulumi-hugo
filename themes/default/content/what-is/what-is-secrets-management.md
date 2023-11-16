@@ -1,8 +1,7 @@
 ---
 title: What Is Secrets Management?
 meta_desc: |
-    Understand what is infrastructure as code, along with the main benefits and importance
-    for modern application development.
+    Understand secrets management, the importance of secrets management, and how secrets management relates to infrastructure as code and configuration management
 type: what-is
 page_title: What is secrets management?
 ---
