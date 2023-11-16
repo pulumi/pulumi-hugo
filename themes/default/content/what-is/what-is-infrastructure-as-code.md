@@ -10,7 +10,7 @@ Infrastructure as code (IaC) is an approach to automating the provisioning and m
 
 Before infrastructure as code, infrastructure was (and in some cases still is!) provisioned in a variety of ways, such as by pointing and clicking in a user interface (UI), by running commands via a command-line interface (CLI), by running batch scripts, or by using configuration management tools that may not have been designed with cloud infrastructure in mind. Each of these methods falls short in some way; interactive methods involving a UI or a CLI often create problems with repeatability and consistency while batch scripts or configuration management tools may be unable to declaratively manage infrastructure. Today, modern approaches use platforms, such as [Pulumi](/), which embrace and support the full software engineering lifecycle.
 
-In this article, we'll touch on three key aspects regarding infrastructure as code:
+In this article, we'll touch on four key questions regarding infrastructure as code:
 
 * Why is infrastructure as code important?
 * What are the key elements of infrastructure as code?
