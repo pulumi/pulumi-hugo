@@ -3,71 +3,56 @@ title: What Is Secrets Management?
 meta_desc: |
     Understand what is infrastructure as code, along with the main benefits and importance
     for modern application development.
-
 type: what-is
 page_title: What is secrets management?
-
-customer_logos:
-  title: Leading engineering organizations are building with Pulumi
-  logos:
-    - items:
-      - snowflake
-      - tableau
-      - atlassian
-      - fauna
-      - ware2go
-    - items:
-      - mindbody
-      - sourcegraph
-      - fenergo
-      - skai
-      - lemonade
-    - items:
-      - clearsale
-      - angellist
-      - webflow
-      - supabase
-      - ro
 ---
 
-In the vast digital landscape of today's interconnected world, the security of sensitive information is of utmost importance. Imagine a world where personal data, passwords, and confidential details are guarded like treasures, shielded from prying eyes and potential threats. This is where secrets management comes into play – an essential aspect of safeguarding valuable information in the digital realm.
+Secrets management refers to the **secure storage, distribution, and protection of sensitive information**, also known as "secrets." These secrets can include passwords, privileged accounts, API keys, cryptographic keys, and other confidential data crucial for the functioning of applications, systems, and networks. The goal of secrets management is to prevent unauthorized access, reduce the risk of data breaches, and ensure the confidentiality of sensitive information.
 
-Understanding Secrets Management:
+In today's interconnected world, the security of sensitive information is of utmost importance. Security breaches---sometimes occurring due to a failure to keep sensitive information secure---can have significant repercussions for a company, its customers, and its reputation. This is why secrets management is so important and such an important part of every company's information technology (IT) toolset.
 
-Secrets management refers to the secure storage, distribution, and protection of sensitive information, also known as "secrets." These secrets can include passwords, API keys, cryptographic keys, and other confidential data crucial for the functioning of applications, systems, and networks. The goal of secrets management is to prevent unauthorized access, reduce the risk of data breaches, and ensure the confidentiality of sensitive information.
+This article addresses several questions that help more fully explain secrets management:
 
-Products Offering Secrets Management Functionality:
+* What are the different elements of secrets management?
+* What are some products that help with secrets management?
+* What benefits does secrets management provide?
+* How does secrets management relate to infrastructure as code and configuration management?
 
-Several tools and platforms are designed specifically to facilitate secrets management. Let's explore a few notable ones:
+## What are the Different Elements of Secrets Management?
 
-1. **HashiCorp Vault:**
-   - HashiCorp Vault is a popular open-source tool that provides a centralized platform for managing and controlling access to secrets.
-   - It supports dynamic secret generation, encryption as a service, and comprehensive access policies.
+As part of securing the storage, distribution, and protection of sensitive information, there are a few different elements or aspects of secrets management:
 
-2. **AWS Secrets Manager:**
-   - As part of the Amazon Web Services (AWS) ecosystem, AWS Secrets Manager is a fully managed service designed to protect and manage sensitive information used by applications.
+1. **Secret storage and retrieval**: The first element is probably the most obvious---the storage and retrieval of secrets. This includes ensuring secrets are encrypted when stored, decrypting them upon request, and controlling access to all these operations via appropriate access controls.
+1. **Secret generation**: Some secrets management solutions also offer the ability to dynamically generate secrets, whether those secrets are cryptographic key material (such as TLS private keys) or other secrets.
+1. **Auditing and access control**: All access to secrets in the secrets management solution should be controlled via access controls (typically some form of role-based access control, or RBAC) and appropriately audited.
 
-3. **Azure Key Vault:**
-   - Microsoft's Azure Key Vault is a cloud service that safeguards cryptographic keys, secrets, and certificates used by cloud applications and services.
+## What are Some Products for Secrets Management?
 
-Benefits of Secrets Management:
+Several tools and platforms are designed specifically to facilitate secrets management. Let's explore a few notable ones.
 
-1. **Enhanced Security:**
-   - Secrets management enhances the security posture of organizations by ensuring that sensitive information is stored in a secure and controlled environment, reducing the risk of unauthorized access.
+* **HashiCorp Vault**: HashiCorp Vault is a popular open-source tool that provides a centralized platform for managing and controlling access to secrets. It supports dynamic secret generation, encryption as a service, and comprehensive access policies.
+* **AWS Secrets Manager**: As part of the Amazon Web Services (AWS) ecosystem, AWS Secrets Manager is a fully managed service designed to protect and manage sensitive information used by applications.
+* **Azure Key Vault**: Microsoft's Azure Key Vault is a cloud service that safeguards cryptographic keys, secrets, and certificates used by cloud applications and services.
+* **Google Cloud Secret Manager**: Google Cloud's Secret Manager offers a secure storage system for API keys, passwords, certificates, and other sensitive data.
+* **Pulumi ESC**: Pulumi's Environments, Secrets, and Configuration (ESC) product offers a platform for storing and controlling access to secrets. Pulumi ESC can also dynamically obtain credentials via OIDC providers and manage configuration information as well as secrets.
 
-2. **Centralized Control:**
-   - With a centralized platform for secrets management, organizations can enforce access policies, monitor usage, and maintain control over who can access critical information.
+## What Benefits does Secrets Management Provide?
 
-3. **Automated Rotation of Secrets:**
-   - Many secrets management tools offer automated rotation of passwords and keys, reducing the likelihood of security breaches caused by outdated or compromised credentials.
+Some of the benefits of secrets management include:
 
-4. **Auditability:**
-   - Secrets management solutions often include robust audit trails, allowing organizations to track and review who accessed specific secrets and when, aiding in compliance and accountability.
+* **Centralized control**: With a centralized platform for secrets management, organizations can enforce access policies, monitor usage, and maintain control over who can access or modify critical information.
+* **Removal of hard-coded secrets**: It's no longer necessary to embed hard-coded secrets in application code, CI/CD pipelines, Kubernetes manifests, and infrastructure as code or configuration management documents. Instead, secrets can be fetched dynamically from the secrets management solution.
+* **Automated rotation of secrets**: Many secrets management tools offer automated rotation of passwords and keys, reducing the likelihood of security breaches caused by outdated or compromised credentials.
+* **Auditability**: Secrets management solutions often include robust audit trails, allowing organizations to track and review who accessed specific secrets and when, aiding in compliance and accountability.
 
-Conclusion:
+Ultimately, all these benefits add up to enhanced security---secrets management enhances the security posture of organizations by addressing key vectors by which sensitive information can be leaked or compromised.
 
-Secrets management is a critical component in the digital age, where the protection of sensitive information is paramount. With tools like HashiCorp Vault, AWS Secrets Manager, and Azure Key Vault, organizations can fortify their defenses against potential cyber threats, ensuring a safer and more secure digital environment. As we navigate the complexities of the online world, understanding and implementing secrets management practices become integral to safeguarding the secrets that keep our digital lives running smoothly.
+## How does Secrets Management Relate to Infrastructure as Code or Configuration Management?
 
-## Learn More
+Companies embracing [infrastructure as code](/what-is/what-is-infrastructure-as-code/) and/or [configuration management](/what-is/what-is-configuration-management/) will benefit greatly from also using secrets management. With secrets management in place and integrated with the infrastructure as code or configuration management tooling, companies can avoid hard-coded secrets and instead dynamically retrieve the secrets from the secrets management solution. In some cases, infrastructure as code tooling can integrate with the secrets management solution to include secrets as part of the IaC definitions (consider [Pulumi's Vault provider](/registry/packages/vault/), for example).
 
-Pulumi offers a truly modern approach to infrastructure as code. With Pulumi, you can create, deploy, and manage infrastructure on any cloud using the programming languages and tools you already know. [Get started today](/docs/get-started/).
+## Conclusion
+
+Secrets management is a important component in the fight to protect sensitive information. Using secrets management solutions, organizations can control and audit access to secrets, automate secret rotation, and eliminate hard-coded secrets in applications and configuration files.
+
+Pulumi ESC offers an innovative approach to secrets management. With Pulumi ESC, you can centralize OIDC dynamic credentials, secrets, and configuration data---not just for Pulumi infrastructure as code (IaC) but for a wide variety of tools. [Get started today](/docs/pulumi-cloud/esc/get-started/).
