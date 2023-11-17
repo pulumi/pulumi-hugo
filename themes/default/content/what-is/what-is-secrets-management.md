@@ -1,9 +1,9 @@
 ---
-title: What Is Secrets Management?
+title: What is Secrets Management?
 meta_desc: |
     Understand secrets management, the importance of secrets management, and how secrets management relates to infrastructure as code and configuration management
 type: what-is
-page_title: What is secrets management?
+page_title: "What is Secrets Management?"
 ---
 
 Secrets management refers to the **secure storage, distribution, and protection of sensitive information**, also known as "secrets." These secrets can include passwords, privileged accounts, API keys, cryptographic keys, and other confidential data crucial for the functioning of applications, systems, and networks. The goal of secrets management is to prevent unauthorized access, reduce the risk of data breaches, and ensure the confidentiality of sensitive information.
@@ -17,7 +17,7 @@ This article addresses several questions that help more fully explain secrets ma
 * What benefits does secrets management provide?
 * How does secrets management relate to infrastructure as code and configuration management?
 
-## What are the Different Elements of Secrets Management?
+## What are the different elements of secrets management?
 
 As part of securing the storage, distribution, and protection of sensitive information, there are a few different elements or aspects of secrets management:
 
@@ -25,7 +25,7 @@ As part of securing the storage, distribution, and protection of sensitive infor
 1. **Secret generation**: Some secrets management solutions also offer the ability to dynamically generate secrets, whether those secrets are cryptographic key material (such as TLS private keys) or other secrets.
 1. **Auditing and access control**: All access to secrets in the secrets management solution should be controlled via access controls (typically some form of role-based access control, or RBAC) and appropriately audited.
 
-## What are Some Products for Secrets Management?
+## What are some products for secrets management?
 
 Several tools and platforms are designed specifically to facilitate secrets management. Let's explore a few notable ones.
 
@@ -35,7 +35,9 @@ Several tools and platforms are designed specifically to facilitate secrets mana
 * **Google Cloud Secret Manager**: Google Cloud's Secret Manager offers a secure storage system for API keys, passwords, certificates, and other sensitive data.
 * **Pulumi ESC**: Pulumi's Environments, Secrets, and Configuration (ESC) product offers a platform for storing and controlling access to secrets. Pulumi ESC can also dynamically obtain credentials via OIDC providers and manage configuration information as well as secrets.
 
-## What Benefits does Secrets Management Provide?
+Additionally, both Kubernetes and Docker offer limited, built-in secrets management functionality in the form of [Kubernetes Secrets](/what-is/what-are-kubernetes-secrets/) and [Docker Secrets](/what-is/what-are-docker-secrets/), respectively.
+
+## What benefits does secrets management provide?
 
 Some of the benefits of secrets management include:
 
@@ -46,7 +48,7 @@ Some of the benefits of secrets management include:
 
 Ultimately, all these benefits add up to enhanced security---secrets management enhances the security posture of organizations by addressing key vectors by which sensitive information can be leaked or compromised.
 
-## How does Secrets Management Relate to Infrastructure as Code or Configuration Management?
+## How does secrets management relate to infrastructure as code or configuration management?
 
 Companies embracing [infrastructure as code](/what-is/what-is-infrastructure-as-code/) and/or [configuration management](/what-is/what-is-configuration-management/) will benefit greatly from also using secrets management. With secrets management in place and integrated with the infrastructure as code or configuration management tooling, companies can avoid hard-coded secrets and instead dynamically retrieve the secrets from the secrets management solution. In some cases, infrastructure as code tooling can integrate with the secrets management solution to include secrets as part of the IaC definitions (consider [Pulumi's Vault provider](/registry/packages/vault/), for example).
 
