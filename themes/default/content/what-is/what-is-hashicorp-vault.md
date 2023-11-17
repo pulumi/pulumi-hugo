@@ -36,7 +36,7 @@ Replace `myvalue=s3cr3t` with the key-value pair you wish to store as a secret.
 
 {{< notes type="info" >}}
 
-The commands provided in this article include `<key>=<value>` parameters to pass secrets to Vault directly through the CLI. Be aware that executing these commands can leave sensitive data in your shell's unencrypted history. Consult the [Static Secrets: Key/Value Secrets Engine tutorial](https://www.vaultproject.io/docs/secrets/kv/kv-v2) for best practices in production scnarios.
+The commands provided in this article include `<key>=<value>` parameters to pass secrets to Vault directly through the CLI. Be aware that executing these commands can leave sensitive data in your shell's unencrypted history. Consult the [Static Secrets: Key/Value Secrets Engine tutorial](https://www.vaultproject.io/docs/secrets/kv/kv-v2) for best practices in production scenarios.
 
 {{< /notes >}}
 
