@@ -13,8 +13,6 @@ In this article, we'll cover the key features of [HashiCorp Vault](https://www.h
 
 ### Key Features of HashiCorp Vault?
 
-Docker Configs are a resource in Docker for storing non-sensitive information such as configuration files, separate from a service's image or running containers within [Docker Swarm](https://docs.docker.com/engine/swarm/) environments. This enables keeping Docker images as generic as possible without the need for bind-mounting configuration files into containers or using environment variables. Unlike [Docker Secrets](/what-is/what-are-docker-secrets), Docker Configs are not encrypted at rest and are directly mounted into the container's filesystem.
-
 - **Secure Secret Storage**: Vault has the capability to store a wide range of key/value secrets. Before these secrets are written to persistent storage, Vault encrypts them, ensuring that direct access to the raw storage does not compromise the secrets. Vault supports various storage backends, including disk storage, Consul, among others, for versatile secret storage solutions.
 - **Dynamic Secrets**: Vault can generate secrets on-demand for specific systems (like databases or cloud platforms). These secrets are generated dynamically for each request and can be automatically revoked, reducing the risk associated with static secrets.
 - **Data Encryption**: Vault provides encryption as a service, allowing users to encrypt and decrypt data without storing it in Vault. This is useful for applications that need to encrypt data but don’t want to handle the intricacies of key management.
