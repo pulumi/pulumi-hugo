@@ -50,8 +50,6 @@ Use the `vault kv get` command to retrieve your secret:
 vault kv get secret/hello
 ```
 
-### Step 3: Review the Output
-
 The output will display the secret stored at the specified path:
 
 ```plaintext
