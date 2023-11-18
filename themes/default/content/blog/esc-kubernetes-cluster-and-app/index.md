@@ -47,7 +47,7 @@ and then use `kubectl` to check on the deployed application.
 
 ## Create a Kubernetes Cluster
 
-First, we create a Kubernetes cluster using the [pulumi-eks](https://www.pulumi.com/registry/packages/eks/) component.
+First, we create a Kubernetes cluster using the [pulumi-eks](/registry/packages/eks) component.
 
 ```yaml
 name: eks-yaml
@@ -235,7 +235,7 @@ resources:
 ```
 
 Again, we need to set some configuration before we deploy this stack. In this case, we need a `kubeconfig` to allow
-the `pulumi-kubernetes` provider to connect to our EKS cluster. Let's create another Pulumi ESC environment called
+the [pulumi-kubernetes](/registry/packages/kubernetes) provider to connect to our EKS cluster. Let's create another Pulumi ESC environment called
 "kubernetes-cluster" to handle this:
 
 ```yaml
