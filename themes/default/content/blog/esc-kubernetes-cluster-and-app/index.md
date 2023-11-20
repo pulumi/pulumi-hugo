@@ -105,7 +105,7 @@ using System.Linq;
 using Pulumi;
 using Eks = Pulumi.Eks;
 
-return await Deployment.RunAsync(() => 
+return await Deployment.RunAsync(() =>
 {
     var eksCluster = new Eks.Cluster("eks-cluster");
 
@@ -490,14 +490,14 @@ using System.Linq;
 using Pulumi;
 using Kubernetes = Pulumi.Kubernetes;
 
-return await Deployment.RunAsync(() => 
+return await Deployment.RunAsync(() =>
 {
     var nginxDeployment = new Kubernetes.Apps.V1.Deployment("nginx-deployment", new()
     {
         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
         {
             Name = "nginx",
-            Labels = 
+            Labels =
             {
                 { "app", "nginx" },
             },
@@ -507,7 +507,7 @@ return await Deployment.RunAsync(() =>
             Replicas = 3,
             Selector = new Kubernetes.Types.Inputs.Meta.V1.LabelSelectorArgs
             {
-                MatchLabels = 
+                MatchLabels =
                 {
                     { "app", "nginx" },
                 },
@@ -516,7 +516,7 @@ return await Deployment.RunAsync(() =>
             {
                 Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
                 {
-                    Labels = 
+                    Labels =
                     {
                         { "app", "nginx" },
                     },
@@ -552,7 +552,7 @@ return await Deployment.RunAsync(() =>
         Spec = new Kubernetes.Types.Inputs.Core.V1.ServiceSpecArgs
         {
             Type = "LoadBalancer",
-            Selector = 
+            Selector =
             {
                 { "app", "nginx" },
             },
@@ -597,7 +597,7 @@ public class App {
     }
 
     public static void stack(Context ctx) {
-        var nginxDeployment = new Deployment("nginxDeployment", DeploymentArgs.builder()        
+        var nginxDeployment = new Deployment("nginxDeployment", DeploymentArgs.builder()
             .metadata(ObjectMetaArgs.builder()
                 .name("nginx")
                 .labels(Map.of("app", "nginx"))
@@ -624,7 +624,7 @@ public class App {
                 .build())
             .build());
 
-        var nginxService = new Service("nginxService", ServiceArgs.builder()        
+        var nginxService = new Service("nginxService", ServiceArgs.builder()
             .metadata(ObjectMetaArgs.builder()
                 .name("nginx")
                 .build())
