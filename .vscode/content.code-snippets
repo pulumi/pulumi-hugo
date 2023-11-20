@@ -1,0 +1,47 @@
+{
+    "Chooser": {
+        "prefix": "chooser"
+        "description": "Insert a chooser block for Pulumi code snippets",
+        "body": [
+"{{< chooser language \"typescript,python,go,csharp,java,yaml\" >}}",
+"",
+"{{% choosable language typescript %}}",
+"```ts",
+"${1}",
+"```",
+"{{% /choosable %}}",
+"",
+"{{% choosable language python %}}",
+"```python",
+"${2}",
+"```",
+"{{% /choosable %}}",
+"",
+"{{% choosable language go %}}",
+"```go",
+"${3}",
+"```",
+"{{% /choosable %}}",
+"",
+"{{% choosable language csharp %}}",
+"```csharp",
+"${4}",
+"```",
+"{{% /choosable %}}",
+"",
+"{{% choosable language java %}}",
+"```java",
+"${5}",
+"```",
+"{{% /choosable %}}",
+"",
+"{{% choosable language yaml %}}",
+"```yaml",
+"${6}",
+"```",
+"{{% /choosable %}}",
+"",
+"{{< /chooser >}}"
+        ]
+    }
+}
