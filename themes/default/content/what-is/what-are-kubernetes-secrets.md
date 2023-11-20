@@ -20,38 +20,38 @@ Manual secrets management is prone to introducing errors and poses high-lift ope
 
 Kubernetes Secrets are fundamental to the cloud-native stack. It provides a secure and standardized means to manage sensitive information like credentials, tokens, or API keys within our cloud apps so these don't have to be passed around in plain text.
 
-### Key Features
+### Key features
 
 Securing sensitive data in Kubernetes Secrets is essential for various reasons:
 
-- **Managed Lifecycle:** Secrets can be created, updated, and removed without restarting containers, ensuring seamless management.
-- **Easy Integration:** Applications can access secrets as environment variables or mounted files.
-- **Dynamic Updates:** Secrets can be updated without redeploying your applications.
-- **Role-Based Access Control (RBAC):** You can control who can access and modify secrets.
-- **Enable Auditing** When required for compliance
+- **Managed lifecycle:** Secrets can be created, updated, and removed without restarting containers, ensuring seamless management.
+- **Easy integration:** Applications can access secrets as environment variables or mounted files.
+- **Dynamic updates:** Secrets can be updated without redeploying your applications.
+- **Role-based access control (RBAC):** You can control who can access and modify secrets.
+- **Enable auditing** When required for compliance.
 
-## Kubernetes Secrets Best Practices
+## Kubernetes Secrets best practices
 
-- **Use Namespacing:** Organize your secrets within namespaces to control access and limit exposure.
-- **[Encrypt Sensitive Data](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/):** Ensure that secrets are encrypted at rest and in transit. Secret resources stored within etcd need to be encrypted at rest as this is not the default.
-- **[Implement Access Control](https://kubernetes.io/docs/reference/access-authn-authz/authorization/):** Leverage Kubernetes RBAC to restrict access to secrets.
-- **Regularly Rotate Secrets:** Periodically update your secrets to enhance security.
+- **Use namespacing:** Organize your secrets within namespaces to control access and limit exposure.
+- **[Encrypt sensitive data](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/):** Ensure that secrets are encrypted at rest and in transit. Secret resources stored within etcd need to be encrypted at rest as this is not the default.
+- **[Implement access control](https://kubernetes.io/docs/reference/access-authn-authz/authorization/):** Leverage Kubernetes RBAC to restrict access to secrets.
+- **Regularly rotate secrets:** Periodically update your secrets to enhance security.
 
 For more details visit the [Kubernetes Secrets security checklist](https://kubernetes.io/docs/concepts/security/security-checklist/#secrets ) and the [Kubernetes Good Practices guidelines](https://kubernetes.io/docs/concepts/security/secrets-good-practices/)
 
 ## Using Kubernetes Secrets
 
-One crucial aspect of securing applications is managing sensitive data. We will delve into the use of Kubernetes Secrets by following the lifecycle of database credentials. In particular, you'll learn how to perform the basic CRUD (Create, Read, Update, Delete) operations against a Secret.
+One crucial aspect of securing applications is managing sensitive data. We will delve into the use of Kubernetes Secrets by following the lifecycle of database credentials. In particular, you'll learn how to perform the basic CRUD (Create, Read, Update, Delete) operations against a secret.
 
 ### Prerequisites
 
-To use Kubernetes Secrets, a Kubernetes Cluster, and the [kubectl](https://kubernetes.io/docs/reference/kubectl/) CLI are required.
+To use Kubernetes Secrets, a Kubernetes cluster, and the [kubectl](https://kubernetes.io/docs/reference/kubectl/) CLI are required.
 
-Consider using [minikube](https://minikube.sigs.k8s.io/docs/start/) as a starting option to getting a local Kubernetes Cluster installed. Alternatively, you can use [Pulumi](https://www.pulumi.com/kubernetes/) to deploy a Kubernetes Cluster in [Azure](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/aks/), [GCP](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/gke/), or [AWS](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/eks/).
+Consider using [minikube](https://minikube.sigs.k8s.io/docs/start/) as a starting option to getting a local Kubernetes cluster installed. Alternatively, you can use [Pulumi](https://www.pulumi.com/kubernetes/) to deploy a Kubernetes cluster in [Azure](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/aks/), [GCP](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/gke/), or [AWS](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/eks/).
 
-Let's look at a practical example of how to create, read, update, and delete a Kubernetes Secret via the `kubectl` CLI.
+Let's look at a practical example of how to create, read, update, and delete a Kubernetes secret via the `kubectl` CLI.
 
-### Creating a Kubernetes Secret
+### Creating a Kubernetes secret
 
 1. Define a new secret resource called `shhhhhh` that contains a user and a password. These are saved in the `dbcreds.yaml` file.
 
@@ -83,7 +83,7 @@ Let's look at a practical example of how to create, read, update, and delete a K
     $ kubectl describe secrets shhhhhh  
     ```
 
-### Reading a Kubernetes Secret
+### Reading a Kubernetes secret
 
 1. Run the following `kubectl` command along with the name of the secret.
 
@@ -104,7 +104,7 @@ Let's look at a practical example of how to create, read, update, and delete a K
 
     Recall that the values are stored as base64 thus we have to decode them to read the actual value. Hence the `base64 -d`.
 
-### Updating a Kubernetes Secret
+### Updating a Kubernetes secret
 
 In this example, we update the password of our secret so that it's a tad harder and does not match the username.
 
@@ -247,24 +247,24 @@ In the below example, we have MongoDB in the backend provisioned via helm. It wa
     $ kubectl delete pod mongo-conn-test  --namespace mongodb
     ```
 
-### Challenges and Considerations
+### Challenges and considerations
 
 While Kubernetes Secrets provide a way to store and manage sensitive information, such as passwords, API keys, and tokens, there are some challenges and considerations associated with their use. Here are some common challenges:
 
-- **Base64 Encoding:** Kubernetes Secrets are often base64-encoded, but this is **not** encryption; it's just encoding. Anyone with access to the cluster can easily decode the values. Hence, the recommended best practice is to enable encryption in transit and at rest.
-- **Access Controls Complexity:** Access control to secrets is limited to namespace level. If you need to share secrets across namespaces or have more granular access control, you might need to implement additional solutions or consider external secret management tools.
-- **Limited Versioning:** Kubernetes Secrets don't have built-in support for versioning. If you need to manage different versions of a secret, you may need to implement a naming convention or use an external tool for versioned secret management.
-- **No Audit Trail:** Kubernetes doesn't provide a built-in audit trail for changes to Secrets. This lack of visibility can make it challenging to track who accessed or modified a secret and when. External auditing tools or additional configurations may be necessary.
-- **Difficulty in Key Rotation:** Kubernetes Secrets do not provide a built-in mechanism for key rotation. If you need to regularly rotate keys or secrets, you'll need to implement a custom solution or use an external tool.
-- **Limited Secret Types:** Kubernetes Secrets are primarily designed for simple key-value pairs. If you need to manage more complex data structures or different types of secrets, you may need to consider external solutions or custom resources.
-- **Difficulty in Synchronizing with External Systems:** If you have secrets managed outside of Kubernetes (e.g., in a password manager or a different secret store), synchronizing them with Kubernetes Secrets might require custom scripts or external tools.
+- **Base64 encoding:** Kubernetes Secrets are often base64-encoded, but this is **not** encryption; it's just encoding. Anyone with access to the cluster can easily decode the values. Hence, the recommended best practice is to enable encryption in transit and at rest.
+- **Access controls complexity:** Access control to secrets is limited to namespace level. If you need to share secrets across namespaces or have more granular access control, you might need to implement additional solutions or consider external secret management tools.
+- **Limited versioning:** Kubernetes Secrets don't have built-in support for versioning. If you need to manage different versions of a secret, you may need to implement a naming convention or use an external tool for versioned secret management.
+- **No audit trail:** Kubernetes doesn't provide a built-in audit trail for changes to Secrets. This lack of visibility can make it challenging to track who accessed or modified a secret and when. External auditing tools or additional configurations may be necessary.
+- **Difficulty in key rotation:** Kubernetes Secrets do not provide a built-in mechanism for key rotation. If you need to regularly rotate keys or secrets, you'll need to implement a custom solution or use an external tool.
+- **Limited secret types:** Kubernetes Secrets are primarily designed for simple key-value pairs. If you need to manage more complex data structures or different types of secrets, you may need to consider external solutions or custom resources.
+- **Difficulty in synchronizing with external systems:** If you have secrets managed outside of Kubernetes (e.g., in a password manager or a different secret store), synchronizing them with Kubernetes Secrets might require custom scripts or external tools.
 
 To address these challenges, you may consider using external secret management tools like [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets), or other solutions that provide enhanced security features and more flexible secret management capabilities.
 
 ### Conclusion
 
-Kubernetes secrets are crucial to many applications and we must have a solution to the lifecycle of these. Kubernetes Secrets is the native way to manage secrets. By following best practices and using Kubernetes secrets, you can ensure the security of your applications and sensitive data.
+Kubernetes secrets are crucial to many applications and we must have a solution to the lifecycle of these. Kubernetes Secrets is the native way to manage secrets. By following best practices and using Kubernetes Secrets, you can ensure the security of your applications and sensitive data.
 
-Now that you're equipped with the knowledge of Kubernetes Secrets, take your cloud infrastructure management to the next level with Pulumi Advanced Secrets Management. Discover how to efficiently manage sensitive data and secrets in your cloud applications. Dive into Pulumi's [Secrets Management guide](/blog/managing-secrets-with-pulumi/) for in-depth information on encrypting specific values for added security and ensuring that these values never appear in plain text in your state file​.
+Now that you're equipped with the knowledge of Kubernetes Secrets, take your cloud infrastructure management to the next level with Pulumi Advanced Secrets Management. Discover how to efficiently manage sensitive data and secrets in your cloud applications. Dive into Pulumi's [Secrets management guide](/blog/managing-secrets-with-pulumi/) for in-depth information on encrypting specific values for added security and ensuring that these values never appear in plain text in your state file​.
 
 Our [community on Slack](https://slack.pulumi.com/) is always open for discussions, questions, and sharing experiences. Join us there and become part of our growing community of cloud professionals!
