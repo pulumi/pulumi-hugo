@@ -49,16 +49,113 @@ and then use `kubectl` to check on the deployed application.
 
 First, we create a Kubernetes cluster using the [pulumi-eks](/registry/packages/eks) component.
 
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language typescript %}}
+
+```ts
+import * as pulumi from "@pulumi/pulumi";
+import * as eks from "@pulumi/eks";
+
+const eksCluster = new eks.Cluster("eks-cluster", {});
+export const kubeconfig = eksCluster.kubeconfig;
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_eks as eks
+
+eks_cluster = eks.Cluster("eks-cluster")
+pulumi.export("kubeconfig", eks_cluster.kubeconfig)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+import (
+	"github.com/pulumi/pulumi-eks/sdk/go/eks"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		eksCluster, err := eks.NewCluster(ctx, "eks-cluster", nil)
+		if err != nil {
+			return err
+		}
+		ctx.Export("kubeconfig", eksCluster.Kubeconfig)
+		return nil
+	})
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using Eks = Pulumi.Eks;
+
+return await Deployment.RunAsync(() => 
+{
+    var eksCluster = new Eks.Cluster("eks-cluster");
+
+    return new Dictionary<string, object?>
+    {
+        ["kubeconfig"] = eksCluster.Kubeconfig,
+    };
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.eks.Cluster;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var eksCluster = new Cluster("eksCluster");
+
+        ctx.export("kubeconfig", eksCluster.kubeconfig());
+    }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
 ```yaml
 name: eks-yaml
-runtime: yaml
-description: EKS Kubernets Cluster
+runtime: nodejs
+description: EKS Kubernetes Cluster
 resources:
   eks-cluster:
     type: eks:Cluster
 outputs:
   kubeconfig: ${eks-cluster.kubeconfig}
 ```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 This component includes an output value for the cluster's kubeconfig that we can use to connect to the cluster. However,
 before we create the cluster, we need to configure AWS credentials so that Pulumi can deploy the requested changes.
@@ -193,6 +290,362 @@ Now, we want to deploy an application to our new EKS cluster. While we could hav
 cluster, it is generally better to follow the [separation of concerns principle](/blog/iac-recommended-practices-structuring-pulumi-projects), and manage applications separately from
 the underlying infrastructure. To achieve this goal, we create a new application stack with the following program:
 
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language typescript %}}
+
+```ts
+import * as pulumi from "@pulumi/pulumi";
+import * as kubernetes from "@pulumi/kubernetes";
+
+const nginxDeployment = new kubernetes.apps.v1.Deployment("nginx-deployment", {
+    metadata: {
+        name: "nginx",
+        labels: {
+            app: "nginx",
+        },
+    },
+    spec: {
+        replicas: 3,
+        selector: {
+            matchLabels: {
+                app: "nginx",
+            },
+        },
+        template: {
+            metadata: {
+                labels: {
+                    app: "nginx",
+                },
+            },
+            spec: {
+                containers: [{
+                    name: "nginx",
+                    image: "nginx",
+                    ports: [{
+                        containerPort: 80,
+                    }],
+                }],
+            },
+        },
+    },
+});
+const nginxService = new kubernetes.core.v1.Service("nginx-service", {
+    metadata: {
+        name: "nginx",
+    },
+    spec: {
+        type: "LoadBalancer",
+        selector: {
+            app: "nginx",
+        },
+        ports: [{
+            protocol: "TCP",
+            port: 80,
+        }],
+    },
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_kubernetes as kubernetes
+
+nginx_deployment = kubernetes.apps.v1.Deployment("nginx-deployment",
+    metadata=kubernetes.meta.v1.ObjectMetaArgs(
+        name="nginx",
+        labels={
+            "app": "nginx",
+        },
+    ),
+    spec=kubernetes.apps.v1.DeploymentSpecArgs(
+        replicas=3,
+        selector=kubernetes.meta.v1.LabelSelectorArgs(
+            match_labels={
+                "app": "nginx",
+            },
+        ),
+        template=kubernetes.core.v1.PodTemplateSpecArgs(
+            metadata=kubernetes.meta.v1.ObjectMetaArgs(
+                labels={
+                    "app": "nginx",
+                },
+            ),
+            spec=kubernetes.core.v1.PodSpecArgs(
+                containers=[kubernetes.core.v1.ContainerArgs(
+                    name="nginx",
+                    image="nginx",
+                    ports=[kubernetes.core.v1.ContainerPortArgs(
+                        container_port=80,
+                    )],
+                )],
+            ),
+        ),
+    ))
+nginx_service = kubernetes.core.v1.Service("nginx-service",
+    metadata=kubernetes.meta.v1.ObjectMetaArgs(
+        name="nginx",
+    ),
+    spec=kubernetes.core.v1.ServiceSpecArgs(
+        type="LoadBalancer",
+        selector={
+            "app": "nginx",
+        },
+        ports=[kubernetes.core.v1.ServicePortArgs(
+            protocol="TCP",
+            port=80,
+        )],
+    ))
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+import (
+	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/apps/v1"
+	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/core/v1"
+	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/meta/v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := appsv1.NewDeployment(ctx, "nginx-deployment", &appsv1.DeploymentArgs{
+			Metadata: &metav1.ObjectMetaArgs{
+				Name: pulumi.String("nginx"),
+				Labels: pulumi.StringMap{
+					"app": pulumi.String("nginx"),
+				},
+			},
+			Spec: &appsv1.DeploymentSpecArgs{
+				Replicas: pulumi.Int(3),
+				Selector: &metav1.LabelSelectorArgs{
+					MatchLabels: pulumi.StringMap{
+						"app": pulumi.String("nginx"),
+					},
+				},
+				Template: &corev1.PodTemplateSpecArgs{
+					Metadata: &metav1.ObjectMetaArgs{
+						Labels: pulumi.StringMap{
+							"app": pulumi.String("nginx"),
+						},
+					},
+					Spec: &corev1.PodSpecArgs{
+						Containers: corev1.ContainerArray{
+							&corev1.ContainerArgs{
+								Name:  pulumi.String("nginx"),
+								Image: pulumi.String("nginx"),
+								Ports: corev1.ContainerPortArray{
+									&corev1.ContainerPortArgs{
+										ContainerPort: pulumi.Int(80),
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
+		_, err = corev1.NewService(ctx, "nginx-service", &corev1.ServiceArgs{
+			Metadata: &metav1.ObjectMetaArgs{
+				Name: pulumi.String("nginx"),
+			},
+			Spec: &corev1.ServiceSpecArgs{
+				Type: pulumi.String("LoadBalancer"),
+				Selector: pulumi.StringMap{
+					"app": pulumi.String("nginx"),
+				},
+				Ports: corev1.ServicePortArray{
+					&corev1.ServicePortArgs{
+						Protocol: pulumi.String("TCP"),
+						Port:     pulumi.Int(80),
+					},
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using Kubernetes = Pulumi.Kubernetes;
+
+return await Deployment.RunAsync(() => 
+{
+    var nginxDeployment = new Kubernetes.Apps.V1.Deployment("nginx-deployment", new()
+    {
+        Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+        {
+            Name = "nginx",
+            Labels = 
+            {
+                { "app", "nginx" },
+            },
+        },
+        Spec = new Kubernetes.Types.Inputs.Apps.V1.DeploymentSpecArgs
+        {
+            Replicas = 3,
+            Selector = new Kubernetes.Types.Inputs.Meta.V1.LabelSelectorArgs
+            {
+                MatchLabels = 
+                {
+                    { "app", "nginx" },
+                },
+            },
+            Template = new Kubernetes.Types.Inputs.Core.V1.PodTemplateSpecArgs
+            {
+                Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+                {
+                    Labels = 
+                    {
+                        { "app", "nginx" },
+                    },
+                },
+                Spec = new Kubernetes.Types.Inputs.Core.V1.PodSpecArgs
+                {
+                    Containers = new[]
+                    {
+                        new Kubernetes.Types.Inputs.Core.V1.ContainerArgs
+                        {
+                            Name = "nginx",
+                            Image = "nginx",
+                            Ports = new[]
+                            {
+                                new Kubernetes.Types.Inputs.Core.V1.ContainerPortArgs
+                                {
+                                    ContainerPortValue = 80,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    });
+
+    var nginxService = new Kubernetes.Core.V1.Service("nginx-service", new()
+    {
+        Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+        {
+            Name = "nginx",
+        },
+        Spec = new Kubernetes.Types.Inputs.Core.V1.ServiceSpecArgs
+        {
+            Type = "LoadBalancer",
+            Selector = 
+            {
+                { "app", "nginx" },
+            },
+            Ports = new[]
+            {
+                new Kubernetes.Types.Inputs.Core.V1.ServicePortArgs
+                {
+                    Protocol = "TCP",
+                    Port = 80,
+                },
+            },
+        },
+    });
+
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+import java.security.Provider.Service;
+import java.util.Map;
+
+import javax.naming.Context;
+
+import com.pulumi.Pulumi;
+import com.pulumi.kubernetes.apps_v1.Deployment;
+import com.pulumi.kubernetes.apps_v1.DeploymentArgs;
+import com.pulumi.kubernetes.apps_v1.inputs.DeploymentSpecArgs;
+import com.pulumi.kubernetes.core_v1.ServiceArgs;
+import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
+import com.pulumi.kubernetes.core_v1.inputs.PodTemplateSpecArgs;
+import com.pulumi.kubernetes.core_v1.inputs.ServiceSpecArgs;
+import com.pulumi.kubernetes.meta_v1.inputs.LabelSelectorArgs;
+import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+        var nginxDeployment = new Deployment("nginxDeployment", DeploymentArgs.builder()        
+            .metadata(ObjectMetaArgs.builder()
+                .name("nginx")
+                .labels(Map.of("app", "nginx"))
+                .build())
+            .spec(DeploymentSpecArgs.builder()
+                .replicas(3)
+                .selector(LabelSelectorArgs.builder()
+                    .matchLabels(Map.of("app", "nginx"))
+                    .build())
+                .template(PodTemplateSpecArgs.builder()
+                    .metadata(ObjectMetaArgs.builder()
+                        .labels(Map.of("app", "nginx"))
+                        .build())
+                    .spec(PodSpecArgs.builder()
+                        .containers(ContainerArgs.builder()
+                            .name("nginx")
+                            .image("nginx")
+                            .ports(ContainerPortArgs.builder()
+                                .containerPort(80)
+                                .build())
+                            .build())
+                        .build())
+                    .build())
+                .build())
+            .build());
+
+        var nginxService = new Service("nginxService", ServiceArgs.builder()        
+            .metadata(ObjectMetaArgs.builder()
+                .name("nginx")
+                .build())
+            .spec(ServiceSpecArgs.builder()
+                .type("LoadBalancer")
+                .selector(Map.of("app", "nginx"))
+                .ports(ServicePortArgs.builder()
+                    .protocol("TCP")
+                    .port(80)
+                    .build())
+                .build())
+            .build());
+
+    }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
 ```yaml
 name: yaml-example
 runtime: yaml
@@ -233,6 +686,10 @@ resources:
         - protocol: TCP
           port: 80
 ```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 Again, we need to set some configuration before we deploy this stack. In this case, we need a `kubeconfig` to allow
 the [pulumi-kubernetes](/registry/packages/kubernetes) provider to connect to our EKS cluster. Let's create another Pulumi ESC environment called
