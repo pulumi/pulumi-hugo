@@ -7,7 +7,7 @@ title: "Secure your Kubernetes toolchain with Pulumi ESC and OIDC"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2023-11-17T14:05:53-07:00
+date: 2023-11-21:05:53-07:00
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
@@ -45,6 +45,8 @@ Keeping long-lived kubeconfig around on disk is insecure and error-prone. You ne
 With Pulumi and ESC, we provide an automated workflow that generates a kubeconfig on-the-fly for every command using short-term credentials issued via OIDC.
 This makes it easy for your team to connect to a given Kubernetes environment, and it works well with Kubernetes tools
 such as `kubectl` and the Pulumi Kubernetes provider. Let's take a look.
+
+<!--more-->
 
 In this post, we will create a Kubernetes cluster, deploy an application to the created cluster,
 and then use `kubectl` to check on the deployed application. Pulumi gives you great flexibility to [factor your infrastructure into reusable parts](/docs/using-pulumi/organizing-projects-stacks), and we'll do that here. With ESC, we'll define an environment that provides
@@ -296,6 +298,8 @@ Let's create another Pulumi ESC environment called `eks-sandbox` to encapsulate 
 needed to connect to the EKS cluster.
 
 ```yaml
+imports:
+  - aws-sandbox
 values:
   stacks:
     fn::open::pulumi-stacks:
@@ -797,7 +801,7 @@ values:
 
 Pulumi ESC makes it easier than ever to tame infrastructure complexity. For this demo, we created two reusable
 ESC environments to configure AWS and Kubernetes credentials, created an EKS cluster, deployed a load-balanced
-application to the cluster, and configured our local toolchain to connect to the cluster in just 71 lines of YAML.
+application to the cluster, and configured our local toolchain to connect to the cluster.
 Since we factored the shared configuration into ESC environments, it is easy to extend this example to deploy additional
 AWS or Kubernetes resources. Pulumi ESC supports dynamic credentials using OIDC across AWS, Azure, and Google Cloud, with
 additional providers on the roadmap. Check out the following links to learn more about Pulumi ESC today!
