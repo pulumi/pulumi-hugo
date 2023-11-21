@@ -41,7 +41,7 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-Keeping long-lived kubeconfig around on disk is insecure and error-prone. You need a secure workflow that removes tedium. 
+Keeping long-lived kubeconfig around on disk is insecure and error-prone. You need a secure workflow that removes tedium.
 With Pulumi and ESC, we provide an automated workflow that generates a kubeconfig on-the-fly for every command using short-term credentials issued via OIDC.
 This makes it easy for your team to connect to a given Kubernetes environment, and it works well with Kubernetes tools
 such as `kubectl` and the Pulumi Kubernetes provider. Let's take a look.
@@ -291,6 +291,7 @@ Duration: 9m38s
 ```
 
 ## Connect to the cluster
+
 Let's create another Pulumi ESC environment called `eks-sandbox` to encapsulate the configuration
 needed to connect to the EKS cluster.
 
@@ -770,11 +771,15 @@ ESC environments can be used with the `pulumi` CLI using the [pulumi env](/docs/
 the new standalone [esc CLI](/docs/esc-cli).
 {{% /notes %}}
 
-## How it Works
+## Export Files
+
 As we see in the ESC environment definition named `eks-sandbox`, there's a `files` section (under `values`)
 for defining values that are automatically exported as temporary files when you run the environment. You can use
 this feature to generate configuration files to support your preferred tools. Pulumi exports each key-value pair
 as a temporary file containing the actual value, and an associated environment variable pointing to it.
+
+Earlier we exported an environment variable named `KUBECONFIG` with a dynamic value based on a stack output.
+Here's a similar example:
 
 ```yaml
 values:
