@@ -7,7 +7,7 @@ type: what-is
 page_title: "What are CircleCI secrets?"
 ---
 
-[CircleCI](https://circleci.com/) is an agile Continuous Integration/Continuous Deployment (CI/CD) platform. It aims to automate software development processes for faster, reliable releases. CircleCI secrets empower developers to safeguard critical data while streamlining workflows.
+[CircleCI](https://circleci.com/) is an agile Continuous Integration/Continuous Deployment (CI/CD) platform. It aims to automate software development processes for faster, more reliable releases. CircleCI secrets empower developers to safeguard critical data while streamlining workflows.
 
 ## What are CircleCI secrets?
 
@@ -138,9 +138,9 @@ Addressing these challenges and considerations requires a thoughtful approach to
 Here are five best practices for managing CircleCI secrets:
 
 - **Context-Based management:**  Organize your secrets using [Contexts](https://circleci.com/docs/contexts/) in CircleCI. Group related secrets together in a context, making it easier to manage access controls and permissions. This practice ensures that only authorized personnel have access to specific sets of secrets based on their roles or responsibilities. Note that OIDC can eliminate the need to store long-lived secrets in CircleCI. Learn how to use OIDC with [Pulumi ESC](https://www.pulumi.com/product/esc/) to connect to AWS, GCP, ECR, and more.
-- **Fine-Grained access controls:**  Set up fine-grained access controls and permissions for each context to restrict who can manage and utilize the secrets within that context. By carefully assigning permissions, you reduce the risk of unauthorized access to sensitive information, enhancing the overall security of your CI/CD process.
+- **Fine-grained access controls:**  Set up fine-grained access controls and permissions for each context to restrict who can manage and utilize the secrets within that context. By carefully assigning permissions, you reduce the risk of unauthorized access to sensitive information, enhancing the overall security of your CI/CD process.
 - **Avoid hardcoding secrets in configuration files:**  Refrain from hardcoding secret values directly in your configuration files. Instead, reference secrets using the `$SECRET_NAME` syntax. This approach keeps sensitive information separate from the codebase, minimizing the risk of accidental exposure and making it easier to update or rotate secrets without modifying the code.
-- **Rotate secrets:** Implement a regular rotation schedule for your secrets, especially for long-lived API keys or credentials. CircleCI provides an easy way to update secrets without modifying the configuration files. Regularly rotating secrets helps mitigate the impact of potential security breaches and ensures that compromised credentials are promptly replaced.
+- **Rotate secrets:** Implement a regular rotation schedule for your secrets, especially for long-lived API keys or credentials. CircleCI provides an easy way to update secrets without modifying the configuration files. Regularly rotating secrets help mitigate the impact of potential security breaches and ensure that compromised credentials are promptly replaced.
 - **Auditing and monitoring:** Implement auditing and monitoring mechanisms to track changes and usage of secrets within your CI/CD pipeline. CircleCI provides tools and logs that enable you to monitor when and how secrets are accessed. Regularly review these logs to identify any suspicious activities and promptly address potential security incidents.
 
 Check out [more security recommendations](https://circleci.com/docs/security-recommendations/) provided by CircleCI.
