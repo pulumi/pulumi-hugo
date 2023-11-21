@@ -126,7 +126,7 @@ public class App {
 {{% choosable language yaml %}}
 
 ```yaml
-name: eks-yaml
+name: eks-cluster
 runtime: nodejs
 description: EKS Kubernetes Cluster
 resources:
@@ -182,7 +182,7 @@ pulumi up --skip-preview
 Updating (demo)
 
      Type                                   Name                                           Status
- +   pulumi:pulumi:Stack                    eks-yaml-demo                                  created (577s)
+ +   pulumi:pulumi:Stack                    eks-cluster-demo                               created (577s)
  +   └─ eks:index:Cluster                   eks-cluster                                    created (561s)
  +      ├─ eks:index:ServiceRole            eks-cluster-eksRole                            created (2s)
  +      │  ├─ aws:iam:Role                  eks-cluster-eksRole-role                       created (0.78s)
@@ -280,7 +280,7 @@ values:
     fn::open::pulumi-stacks:
       stacks:
         eks-cluster:
-          stack: eks-yaml/demo
+          stack: eks-cluster/demo
   kubeconfig: {'fn::toJSON': "${stacks.eks-cluster.kubeconfig}"}
   pulumiConfig:
     kubernetes:kubeconfig: ${kubeconfig}
@@ -289,7 +289,7 @@ values:
 ```
 
 This ESC environment uses another ESC provider to reference outputs from Pulumi stacks in your organization. In this case,
-we specify that we want to read outputs from the `eks-yaml/demo` stack, and then export the `kubeconfig` output from that
+we specify that we want to read outputs from the `eks-cluster/demo` stack, and then export the `kubeconfig` output from that
 stack as `pulumiConfig` and `files`. As we saw on the cluster environment, `pulumiConfig` sets configuration for Pulumi
 providers, so this allows us to run our stack and deploy the application to our cluster.
 
