@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes Cluster and App with Pulumi ESC"
+title: "Secure your Kubernetes toolchain with Pulumi ESC and OIDC"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
@@ -17,7 +17,8 @@ draft: false
 # of the content of the post, which is useful for targeting search results or
 # social-media previews. This field is required or the build will fail the
 # linter test. Max length is 160 characters.
-meta_desc: Use Pulumi ESC to manage configuration for a Kubernetes cluster.
+meta_desc: >-
+  With Pulumi and ESC, we provide an automated workflow that generates a kubeconfig on the fly for every command using short term credentials issued via OIDC.
 
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
@@ -29,6 +30,7 @@ meta_image: meta.png
 # yourself if you don't already have one.
 authors:
     - levi-blackstone
+    - eron-wright
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -39,11 +41,15 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-Pulumi gives you great flexibility to [factor your infrastructure into reusable parts](/docs/using-pulumi/organizing-projects-stacks).
-One of the challenges in factoring code is managing the shared configuration that needs to pass between the subcomponents. [Pulumi ESC](/product/esc/)
-simplifies this problem by providing a common place for Pulumi Infrastructure as Code (IaC) programs and other cloud tools
-to share configuration and secrets. In this post, we will create a Kubernetes cluster, deploy an application to the created cluster,
-and then use `kubectl` to check on the deployed application.
+Keeping long-lived kubeconfig around on disk is insecure and error-prone. You need a secure workflow that removes tedium. 
+With Pulumi and ESC, we provide an automated workflow that generates a kubeconfig on-the-fly for every command using short-term credentials issued via OIDC.
+This makes it easy for your team to connect to a given Kubernetes environment, and it works well with Kubernetes tools
+such as `kubectl` and the Pulumi Kubernetes provider. Let's take a look.
+
+In this post, we will create a Kubernetes cluster, deploy an application to the created cluster,
+and then use `kubectl` to check on the deployed application. Pulumi gives you great flexibility to [factor your infrastructure into reusable parts](/docs/using-pulumi/organizing-projects-stacks), and we'll do that here. With ESC, we'll define an environment that provides
+access to an AWS account, and use that environment to create the cluster. Then we'll define an environment that encapsulates
+the kubeconfig needed to connect to that cluster.
 
 ## Create a Kubernetes Cluster
 
@@ -160,7 +166,7 @@ outputs:
 This component includes an output value for the cluster's kubeconfig that we can use to connect to the cluster. However,
 before we create the cluster, we need to configure AWS credentials so that Pulumi can deploy the requested changes.
 While it is possible to set this configuration directly on the stack, let's see how it can be done with Pulumi ESC. First,
-we create the following ESC environment (the "aws" environment):
+we create the following ESC environment (the `aws-sandbox` environment):
 
 ```yaml
 values:
@@ -183,11 +189,11 @@ Notice that this environment uses the `aws-login` ESC provider to [dynamically l
 These credentials are then exposed as environment variables for consumers of this environment. We also set the AWS region
 in the `pulumiConfig` section to configure the region for `pulumi` to manage resources with the `pulumi-aws` provider.
 
-To use this ESC environment for our cluster, we set the following configuration for our stack:
+To have Pulumi use this ESC environment when deploying the cluster, we set the following configuration for our stack:
 
 ```yaml
 environment:
-  - aws
+  - aws-sandbox
 ```
 
 The `environment` key accepts a list of ESC environments to import. When the stack is updated, `pulumi` automatically
@@ -282,6 +288,38 @@ Resources:
     + 27 created
 
 Duration: 9m38s
+```
+
+## Connect to the cluster
+Let's create another Pulumi ESC environment called `eks-sandbox` to encapsulate the configuration
+needed to connect to the EKS cluster.
+
+```yaml
+values:
+  stacks:
+    fn::open::pulumi-stacks:
+      stacks:
+        eks-cluster:
+          stack: eks-yaml/demo
+  kubeconfig: {'fn::toJSON': "${stacks.eks-cluster.kubeconfig}"}
+  pulumiConfig:
+    kubernetes:kubeconfig: ${kubeconfig}
+  files:
+    KUBECONFIG: ${kubeconfig}
+```
+
+This ESC environment uses another ESC provider to reference outputs from Pulumi stacks in your organization. In this case,
+we specify that we want to read outputs from the `eks-yaml/demo` stack, and then export the `kubeconfig` output from that
+stack as `pulumiConfig` and `files`. As we saw on the cluster environment, `pulumiConfig` sets configuration for Pulumi
+providers, so this allows us to run our stack and deploy the application to our cluster.
+
+Since the `eks-sandbox` environment defines a `KUBECONFIG` variable that `kubectl` understands, we can run `kubectl` in the context of this environment like this:
+
+```
+$ pulumi env run eks-sandbox -- kubectl cluster-info
+
+Kubernetes control plane is running at https://2F3303BF9E03F8D61099AAB5ED6F31A4.gr7.us-west-2.eks.amazonaws.com
+CoreDNS is running at https://2F3303BF9E03F8D61099AAB5ED6F31A4.gr7.us-west-2.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
 
 ## Deploy an application to the cluster
@@ -691,37 +729,17 @@ resources:
 
 {{< /chooser >}}
 
-Again, we need to set some configuration before we deploy this stack. In this case, we need a `kubeconfig` to allow
-the [pulumi-kubernetes](/registry/packages/kubernetes) provider to connect to our EKS cluster. Let's create another Pulumi ESC environment called
-"kubernetes-cluster" to handle this:
+We need to set some configuration before we deploy this stack. In this case, we need a `kubeconfig` to allow
+the [pulumi-kubernetes](/registry/packages/kubernetes) provider to connect to our EKS cluster.
 
-```yaml
-values:
-  stacks:
-    fn::open::pulumi-stacks:
-      stacks:
-        eks-cluster:
-          stack: eks-yaml/demo
-  kubeconfig: {'fn::toJSON': "${stacks.eks-cluster.kubeconfig}"}
-  pulumiConfig:
-    kubernetes:kubeconfig: ${kubeconfig}
-  files:
-    KUBECONFIG: ${kubeconfig}
-```
-
-This ESC environment uses another ESC provider to reference outputs from Pulumi stacks in your organization. In this case,
-we specify that we want to read outputs from the `eks-yaml/demo` stack, and then export the `kubeconfig` output from that
-stack as `pulumiConfig` and `files`. As we saw on the cluster environment, `pulumiConfig` sets configuration for Pulumi
-providers, so this allows us to run our stack and deploy the application to our cluster.
-
-We import this environment with the following stack configuration:
+We import the `eks-sandbox` environment with the following stack configuration:
 
 ```yaml
 environment:
-  - kubernetes-cluster
+  - eks-sandbox
 ```
 
-We update our stack, and see that our application has been deployed to the cluster.
+Now we update our stack, and see that our application has been deployed to the cluster.
 
 ```
 pulumi up --skip-preview
@@ -738,17 +756,10 @@ Resources:
 Duration: 13s
 ```
 
-Now that the application is deployed, we might want to check some things on the cluster using `kubectl`. To do this, we
-can set the `KUBECONFIG` environment variable to the path of a cluster configuration file. Since we configured this
-in our ESC environment, we can run `kubectl` in the context of this environment like this:
+Now that the application is deployed, let's take a look using `kubectl`:
 
 ```
-$ pulumi env run k8s -- kubectl cluster-info
-
-Kubernetes control plane is running at https://2F3303BF9E03F8D61099AAB5ED6F31A4.gr7.us-west-2.eks.amazonaws.com
-CoreDNS is running at https://2F3303BF9E03F8D61099AAB5ED6F31A4.gr7.us-west-2.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-
-$ esc run kubernetes-cluster -- kubectl get deploy
+$ esc run eks-sandbox -- kubectl get deployments
 
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   3/3     3            3           103s
@@ -758,6 +769,24 @@ nginx   3/3     3            3           103s
 ESC environments can be used with the `pulumi` CLI using the [pulumi env](/docs/cli/commands/pulumi_env) command, or with
 the new standalone [esc CLI](/docs/esc-cli).
 {{% /notes %}}
+
+## How it Works
+As we see in the ESC environment definition named `eks-sandbox`, there's a `files` section (under `values`)
+for defining values that are automatically exported as temporary files when you run the environment. You can use
+this feature to generate configuration files to support your preferred tools. Pulumi exports each key-value pair
+as a temporary file containing the actual value, and an associated environment variable pointing to it.
+
+```yaml
+values:
+  files:
+    KUBECONFIG: |
+      apiVersion: v1
+      kind: Config
+      clusters:
+      - cluster:
+          server: https://127.0.0.1:6443
+        name: docker-desktop
+```
 
 ## Conclusion
 
