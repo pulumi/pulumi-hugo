@@ -758,7 +758,7 @@ this feature to generate configuration files to support your preferred tools. Pu
 as a temporary file containing the actual value, and an associated environment variable pointing to it.
 
 Earlier we exported an environment variable named `KUBECONFIG` with a dynamic value based on a stack output.
-Here's a similar example:
+Here's a similar example with the configuration declared statically:
 
 ```yaml
 values:
