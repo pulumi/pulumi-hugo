@@ -81,8 +81,8 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: c39c7789-2dbd-4516-acd2-860ceeb7f12d
-    salesforce_campaign_id: 701Du000000Bkp6IAC
+    hubspot_form_id: dd3c952a-f4c6-4c3a-bac5-6e9675ddb72b
+    salesforce_campaign_id: 701Du000000BqlcIAC
 
 aws_only: false
 ---
