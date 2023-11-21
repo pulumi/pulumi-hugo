@@ -293,6 +293,8 @@ we specify that we want to read outputs from the `eks-cluster/demo` stack, and t
 stack as `pulumiConfig` and `files`. As we saw on the cluster environment, `pulumiConfig` sets configuration for Pulumi
 providers, so this allows us to run our stack and deploy the application to our cluster.
 
+We import the `aws-sandbox` environment defined earlier, to provide the user with AWS credentials to authenticate to the EKS cluster.
+
 Since the `eks-sandbox` environment defines a `KUBECONFIG` variable that `kubectl` understands, we can run `kubectl` in the context of this environment like this:
 
 ```
@@ -719,7 +721,8 @@ environment:
   - eks-sandbox
 ```
 
-Now we update our stack, and see that our application has been deployed to the cluster.
+Now we update our stack, and see that our application gets deployed to the cluster,
+without needing to manually configure any credentials -- ESC automatically injects them for us!
 
 ```
 pulumi up --skip-preview
@@ -746,7 +749,7 @@ nginx   3/3     3            3           103s
 ```
 
 {{% notes type="info" %}}
-ESC environments can be used with the `pulumi` CLI using the [pulumi env](/docs/cli/commands/pulumi_env) command, or with
+ESC environments can be used with the `pulumi` CLI using the [pulumi env](/docs/cli/commands/pulumi_env/) command, or with
 the new standalone [esc CLI](/docs/esc-cli).
 {{% /notes %}}
 
