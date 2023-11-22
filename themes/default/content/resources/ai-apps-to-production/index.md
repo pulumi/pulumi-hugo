@@ -60,7 +60,7 @@ main:
     datetime: 
     # Description of the webinar.
     description: |
-        What does it take to go from an idea in a notebook to an application handling real-world traffic? In this workshop, the Pinecone and Pulumi teams will explore the infrastructure and service architecture you need to scale AI apps in production. You will learn how to create and manage containerized microservices running on Amazon ECS, the networking and message queue infrastructure connecting the microservices, and the data stores powering the AI app such as Pinecone and Amazon RDS Postgres.
+        What does it take to go from an idea in a notebook to an application handling real-world traffic? In this workshop, the Pinecone and Pulumi teams will explore the infrastructure and service architecture you need to scale AI apps in production. We will delve into deploying high-volume AI systems through scalable microservices, efficient data processing, and seamless synchronization between user interfaces and databases. We will examine the nuances of containerization for enhanced portability and Infrastructure as Code (IaC) for streamlined cloud deployments. The workshop will also discuss industry best practices in scalability and security for production-grade AI systems in a cloud-native landscape.
 
         This workshop is designed to help AI developers and engineers build and scale AI infrastructure. We will guide you through the Pulumi platform with diagrams and a series of labs to help accelerate your AI apps.
 
