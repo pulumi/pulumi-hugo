@@ -73,7 +73,7 @@ main:
     
     learn:
         - The basics of infrastructure as code and the Pulumi programming model
-        - How to provision, update, and destroy AWS resources
+        - How to provision, update, and destroy AWS resources (Amazon ECS clusters, networking infrastructure, messaging queues, and Amazon RDS Postgres databases)
         - How to create and manage Pinecone indexes
 
     # A bullet point list containing what the user will learn during the webinar.
