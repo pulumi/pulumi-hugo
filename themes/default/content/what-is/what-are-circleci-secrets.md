@@ -1,7 +1,7 @@
 ---
 title: What are CircleCI secrets?
 meta_desc: |
-     Learn more about what CircleCI Secrets are and how to use them.
+     Learn more about secrets management within CircleCI.
 
 type: what-is
 page_title: "What are CircleCI secrets?"
@@ -15,13 +15,12 @@ CircleCI secrets are sensitive pieces of information that are necessary for buil
 
 ### Key features
 
-- **Enhanced security:** provides a secure vault to store and manage sensitive data, reducing the risk of exposure and unauthorized access.
-- **Simplified configuration:**  centralizes your configuration files, eliminating the need to embed sensitive details directly into your codebase. This not only streamlines your configuration process but also enhances code maintainability.
-- **Effortless integration:** integrates into existing CI/CD workflows. The straightforward implementation ensures a smooth transition, minimizing disruption to development pipelines.
-- **Version control integration:** integrates with version control systems, allowing you to maintain version history for your configuration files without exposing sensitive data.
-- **Dynamic environment variables:** reference as environment variables. This flexibility enables you to adapt your processes to different environments and scenarios effortlessly.
+- **Seamless pipeline integration:** CircleCI secrets seamlessly integrate into all workflows, eliminating the need for complex setup. This built-in solution ensures automatic retrieval and management of credentials throughout the build, test, and deployment phases.
+- **Environment variable flexibility:** CircleCI secrets can be easily referenced as environment variables across workflows. This flexibility allows a single codebase to cater to various development environments, including Dev, QA, pre-prod, etc.
+- **Centralized version control:** CircleCI centralizes configuration files with secret references in the `.circleci` home directory. This approach removes the necessity of embedding sensitive data directly into your application. Safely commit CircleCI configurations alongside the application code for streamlined version control.
+- **Native CircleCI tools for secrets management:** The [CircleCI CLI](https://github.com/CircleCI-Public/circleci-cli) and [CircleCI-Env-Inspector](https://github.com/CircleCI-Public/CircleCI-Env-Inspector) provide seamless support for secrets management. This includes the ability to effortlessly create, rotate, audit, and generate reports—all without the hassle of installing additional complex systems.
 
-## Getting Started with CircleCI Secrets
+## Getting Started with CircleCI secrets
 
 ### Define a CircleCI secret via the CLI
 
@@ -127,9 +126,9 @@ Remember to adjust the job names, workflow structure, and secret references acco
 
 Using CircleCI secrets comes with certain challenges and considerations that organizations should be aware of to ensure a secure and efficient CI/CD pipeline.
 
-- **Management of Secrets Overhead:**  As the number of secrets and contexts grows, managing them effectively can become challenging. Teams need to keep track of which secrets are used where and by whom. It's important to establish clear naming conventions and documentation for secrets and contexts. Also, regularly review and audit secrets to ensure they are up-to-date and properly managed. Consider automating the rotation process to reduce the manual effort required.
-- **Access Control Complexity:** Setting up fine-grained access controls is crucial, but it can become complex as teams and projects scale. Defining and maintaining access permissions for different roles and responsibilities can be challenging. Regularly review and update access controls as team structures evolve. Clearly define roles and responsibilities to determine who needs access to specific secrets. Consider using role-based access control (RBAC) principles to simplify and organize permissions.
-- **Integration with External Secret Management Systems:**  Organizations may already have established processes for secrets management using external tools, and integrating these with CircleCI secrets can be complex. Evaluate whether integrating with an external secrets management system is necessary for your organization. If required, explore solutions that seamlessly integrate with CircleCI and provide a unified approach to secrets management. Ensure that the chosen solution aligns with your security and compliance requirements.
+- **Management of secrets overhead:**  As the number of secrets and contexts grows, managing them effectively can become challenging. Teams need to keep track of which secrets are used where and by whom. It's important to establish clear naming conventions and documentation for secrets and contexts. Also, regularly review and audit secrets to ensure they are up-to-date and properly managed. Consider automating the rotation process to reduce the manual effort required.
+- **Access control complexity:** Setting up fine-grained access controls is crucial, but it can become complex as teams and projects scale. Defining and maintaining access permissions for different roles and responsibilities can be challenging. Regularly review and update access controls as team structures evolve. Clearly define roles and responsibilities to determine who needs access to specific secrets. Consider using role-based access control (RBAC) principles to simplify and organize permissions.
+- **Integration with external secret management systems:**  Organizations may already have established processes for secrets management using external tools, and integrating these with CircleCI secrets can be complex. Evaluate whether integrating with an external secrets management system is necessary for your organization. If required, explore solutions that seamlessly integrate with CircleCI and provide a unified approach to secrets management. Ensure that the chosen solution aligns with your security and compliance requirements.
 
 Addressing these challenges and considerations requires a thoughtful approach to secrets management, clear communication within the development team, and a commitment to maintaining security best practices throughout the CI/CD pipeline. Regular reviews and updates to your secret management strategy will help ensure a secure and efficient development process.
 
