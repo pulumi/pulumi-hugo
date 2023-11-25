@@ -4,6 +4,24 @@ div.icon {
     text-indent: -9999px;
 }
 
+div.icon-11-11 {
+    width: 11px;
+    height: 11px;
+    background-size: 11px 11px;
+}
+
+div.icon-10-10 {
+    width: 10px;
+    height: 10px;
+    background-size: 10px 10px;
+}
+
+div.icon-7-7 {
+    width: 7px;
+    height: 10px;
+    background-size: 10px 7px;
+}
+
 div.icon-12-12 {
     width: 12px;
     height: 12px;
@@ -325,4 +343,20 @@ div.python-color-32-32 {
 
 div.yaml-color-32-32 {
     background: url(/images/docs/icons/languages/yaml-color-32-32.svg);
+}
+
+div.calendar-10-10 {
+    background: url(/images/docs/icons/calendar.svg);
+}
+
+div.blog-10-10 {
+    background: url(/images/docs/icons/blog.svg);
+}
+
+div.bulb-10-10 {
+    background: url(/images/docs/icons/bulb-10-10.svg);
+}
+
+div.tutorials-12-12 {
+    background: url(/images/docs/icons/tutorials.svg);
 }

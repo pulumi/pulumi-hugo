@@ -8,9 +8,9 @@
                 <input type="checkbox" id="accordion-checkbox-table-of-contents" />
                 <label for="accordion-checkbox-table-of-contents" class="show">
                     <div class="heading">
-                        <div class="icon-heading-wrapper">
+                        <div class=" icon-heading-wrapper flex w-full flex-row mr-5">
                             <div class="icon icon-12-12 icon-on-this-page"></div>
-                            <h2 class="no-anchor">On this page</h2>
+                            <h2 class="no-anchor flex-grow">On this page</h2>
                         </div>
                         <div class="icon icon-18-18 expand-more-18-18"></div>
                     </div>
@@ -29,6 +29,32 @@
                         <ul class="table-of-contents-list">
                             {{/* This will be populated dynamically with all H2s and H3s on the page; see ts/misc.ts */}}
                         </ul>
+                        {{ if strings.Contains $.Page.Permalink "registry/packages/aws" }}
+                        <div class="mt-6">
+                            <div class="more-learnings">
+                                <div class="heading-toggle flex flex-row items-center pr-5">
+                                    <div class="icon icon-7-7 bulb-10-10 ml-2 mr-2"></div>
+                                    <div class="text-base font-semibold title">Learn more</div>
+                                    <div class="toggle-arrow icon icon-16-16 keyboard-arrow-up-gray"></div>
+                                </div>
+                                <hr class="mr-5"/>
+                                <div class="learnings-list">
+                                    <div class="item">   
+                                        <a href="/docs/using-pulumi/stack-outputs-and-references/" class="description">Stack Outputs & References</a>
+                                        <div class="content-badge"><div class="icon icon-12-12 tutorials-12-12 mr-2"></div><div>Tutorial</div></div>
+                                    </div>
+                                    <div class="item">   
+                                        <a href="/resources/intro-to-aws-typescript/" class="description">Intro to AWS in TypeScript</a>
+                                        <div class="content-badge items-center"><div class="icon icon-11-11 calendar-10-10 mr-2"></div><div>Workshop</div></div>
+                                    </div>
+                                    <div class="item">   
+                                        <a href="/blog/esc-env-run-aws/" class="description">Dynamic Credentials for Every AWS CLI Command</a>
+                                        <div class="content-badge"><div class="icon icon-10-10 blog-10-10 mr-2"></div><div>Blog</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{ end }}
                         {{ if strings.Contains $.Page.Permalink "registry/packages" }}
                             {{ $path := (split .Page.Params.title_tag ".") }}
                             {{- if eq (len $path) 3 -}}
