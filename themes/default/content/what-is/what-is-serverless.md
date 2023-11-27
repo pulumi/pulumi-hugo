@@ -1,59 +1,45 @@
 ---
-title: What is Serverless?
+title: "What is Serverless?"
 meta_desc: |
-    Understand what is serverless, along with some of the benefits of using serverless architectures for modern application development.
+    Understand serverless architectures, along with some of the benefits of using serverless architectures for modern application development
 type: what-is
-page_title: What is Serverless?
-customer_logos:
-  title: Leading engineering organizations are building with Pulumi
-  logos:
-    - items:
-      - snowflake
-      - tableau
-      - atlassian
-      - fauna
-      - ware2go
-    - items:
-      - mindbody
-      - sourcegraph
-      - fenergo
-      - skai
-      - lemonade
-    - items:
-      - clearsale
-      - angellist
-      - webflow
-      - supabase
-      - ro
+page_title: "What is Serverless?"
 ---
 
-Serverless architectures are popular because they make it easier for software developers to focus on application development without additional operation overhead. With Pulumi, you can deploy and manage your serverless infrastructure, and this article shows you different architectural design considerations for your serverless application.
+Serverless architectures have gained and continue to gain significant traction in modern application development. Despite its name, serverless doesn't mean servers are absent; instead, it represents a paradigm shift in how applications are built, deployed, and scaled in the cloud.
 
-Before we go into the specifics of serverless architecture design, let's go through the basics of serverless - this is important for the rest of the article.
+## What is serverless?
 
-## What is Serverless Architecture
+_Serverless_ refers to a cloud computing execution model where cloud providers manage the infrastructure automatically, abstracting away the complexity of server management from developers. In a serverless architecture, developers focus solely on writing code for individual functions or services without concerning themselves with server provisioning, scaling, or maintenance.
 
-Serverless architecture is a cloud computing model that simplifies the management of infrastructure. This allows software developers to focus on writing code without worrying about server provisioning, scaling or maintenance. The idea behind it is functions as a service (FaaS), in which the environment dynamically scales in response to demand and code is executed in response to events. In the serverless architecture, developers focus on writing and deploying code in the form of serverless functions, which are executed in response to specific events or triggers.
+## How does serverless relate to functions-as-a-service (FaaS)?
 
-Different cloud providers have their different serverless offerings. Azure has Azure Functions, AWS has Lambda, and Google Cloud has Google Cloud Functions. These are serverless platforms that allow developers to build event-driven functions that respond to various triggers. In addition to these major players, other cloud providers like Oracle and IBM also offer their own serverless solutions, creating a diverse ecosystem of options for developers to choose from. These serverless platforms enable software developers to build and deploy applications that respond to triggers, such as HTTP requests, database changes, and more, while abstracting away the complexities of infrastructure management.
+The term _functions as a service_ (typically abbreviated as FaaS) focuses specifically on the serverless execution of functions in response to events. FaaS is a subset of serverless, emphasizing the granular, event-driven nature of the architecture. _Serverless_, on the other hand, encompasses the entire architecture, including FaaS. It emphasizes the abstracted, managed nature of the infrastructure.
 
-Using serverless eliminates the responsibilities of operational management, which streamlines the development process. This means you don't have to set up complex security mechanisms or firewalls. In addition, serverless computing abstracts away all operational complexities, saving you from the complexities of operating system patching and guaranteeing a simplified and trouble-free development process.
+Some FaaS platforms used in serverless architectures include:
 
-Key characteristics of serverless architecture include:
+* [AWS Lambda](https://aws.amazon.com/lambda/)
+* [Azure Functions](https://azure.microsoft.com/en-us/products/functions/)
+* [Google Cloud Functions](https://cloud.google.com/functions/)
+* [Netlify Functions](https://functions.netlify.com/)
+* [Cloudflare Workers](https://workers.cloudflare.com/)
 
-- Event-Driven: Serverless functions are triggered by events in the system. These events could be HTTP requests, messages in a queue, or changes to a data store.
+## What is event-driven architecture, and is it different than serverless?
 
-- Auto-Scaling: With serverless, resources automatically scale up or down to match the workload so you don't use infrastructure beyond what you actually need.
+_Event-driven architecture_ describes the broader architectural pattern where functions respond to events. Serverless architectures are event-driven architectures. While often associated with serverless, event-driven architectures can exist independently, involving both serverless and traditional infrastructure.
 
-- Pay-as-You-Go: You are charged only for the actual compute resources you use during code execution.
+## What are some of the benefits of serverless?
 
-The serverless architecture model is in line with current tech trends such as cloud-native development and DevOps, by allowing developers to focus on code development and pushing faster releases.
+Adopting a serverless architecture can offer a number of benefits:
 
-## Serverless Function Design
+1. **Cost-efficiency**: With serverless, you pay only for the computing resources used during the execution of functions, making it a cost-effective solution, especially for sporadically used applications.
+1. **Autoscaling**: Serverless platforms automatically scale based on demand, ensuring optimal resource utilization without the need for manual intervention.
+1. **Reduced operational overhead:** Developers can focus on writing code and building features instead of managing servers, leading to increased productivity and faster time-to-market.
+1. **Facilitates a microservices architecture:** Serverless facilitates the development of microservices, allowing developers to break down applications into smaller, manageable components that can be individually developed, deployed, and scaled.
 
-The design of the serverless function is important for the success of your application. When mapping out the architectural design for your serverless function, you should consider some of the following:
+## What are some considerations for designing my serverless application?
 
-- **Use well-defined and focused functions**: A serverless function should have a well-defined purpose and focus on a specific task. If a function has multiple responsibilities, consider breaking it into smaller, more focused functions. In the same code shown below, we have two functions `date` and `weather` and it is clear what their responsibilities are.
+1. **Use well-defined and focused functions**: A serverless function should have a well-defined purpose and focus on a specific task. If a function has multiple responsibilities, consider breaking it into smaller, more focused functions. In the code shown below, we have two functions `date` and `weather` and it is clear what their responsibilities are.
 
     ``` go
     // The 'date' function that returns the current date
@@ -95,12 +81,13 @@ The design of the serverless function is important for the success of your appli
 	})
     ```
 
-- **Embrace stateless serverless platforms**: Serverless functions should be stateless. This encourages scalability and fault tolerance since every serverless function call should be able to function on its own, regardless of previous or subsequent calls. The recommended practise for managing data that has to be persistent beyond the span of one function execution is to store it externally in reliable data storage systems like object stores or databases. In doing so, serverless applications maintain the clear separation between function logic and stateful data management while guaranteeing data durability, consistency, and adaptability to changing workloads. The stateless nature of HTTP is an important aspect that makes serverless computing a good fit for many HTTP-based use cases. In a stateless protocol like HTTP, each request from a client to a server is treated independently, with no connection or context maintained between requests. This aligns well with the design philosophy of serverless computing, where each function execution is isolated and stateless Serverless platforms are designed to handle short-lived, stateless functions that respond to individual HTTP requests, making them well-suited for web applications, microservices, and API endpoints.
+1. **Embrace statelessness**: Serverless functions should be stateless. This encourages scalability and fault tolerance since every serverless function call should be able to function on its own, regardless of previous or subsequent calls. The recommended practise for managing data that has to be persistent beyond the span of one function execution is to store it externally in reliable data storage systems like object stores or databases:
 
-> Figure 1. Resources needed in a serverless architecture
-![serverless-resources](./serverless-resources.png)
+	![serverless-resources](./serverless-resources.png)
 
-- **Choose the right trigger**: When dealing with serverless functions you should choose the right trigger that best suits your use case. Common triggers include HTTP requests, message queues, database changes, and timers. In our application, we used an HTTP trigger for our two functions.
+	In doing so, serverless applications maintain the clear separation between function logic and stateful data management while guaranteeing data durability, consistency, and adaptability to changing workloads. The stateless nature of HTTP is an important aspect that makes serverless computing a good fit for many HTTP-based use cases. In a stateless protocol like HTTP, each request from a client to a server is treated independently, with no connection or context maintained between requests. This aligns well with the design philosophy of serverless computing, where each function execution is isolated and stateless.
+
+1. **Choose the right trigger**: When dealing with serverless functions you should choose the trigger that best suits your use case. Common triggers include HTTP requests, message queues, database changes, and timers. In our application, we used an HTTP trigger for our two functions.
 
     ``` go
     // The 'date' function that returns the current date
@@ -114,20 +101,12 @@ The design of the serverless function is important for the success of your appli
 	})
     ```
 
-- **Design with scalability in mind**: Serverless doesn't mean "no server" otherwise, where will the code actually run? The meaning of serverless is "less server." When event density rises, the majority of serverless platforms offer a set of options to manage how the infrastructure should scale. There are several options available to you, and the scaling technique you use will depend on the function. Serverless functions offer auto-scaling, allowing your application to seamlessly handle increased workloads.  By designing your serverless functions with scalability in mind, you can maintain optimal performance even during traffic spikes, delivering a responsive and reliable experience to your users.
+1. **Avoid making direct cross-service references**: In your serverless architecture, there are times when functions depend on other functions. This typically happens a lot in distributed systems. For example in an e-commerce service, the checkout function could depend on the payment function. However, it's advised that services avoid making direct references to one another in order to prevent hard coupling that can cause issues later. A significant amount of reworking may be required if direct references for a service need to be changed. Using message services, such as queues or topics, to facilitate service-to-service communication is a good way to handle this. This decoupling enhances flexibility, scalability, and resilience, as well as simplifies testing and debugging. It also promotes security by allowing access control. When you use a more decoupled architecture, serverless systems can evolve independently and adapt to changing requirements, making them more robust and maintainable over time.
 
-- **Avoid making direct cross-service references**: In your serverless architecture, there are times when functions depend on other functions. This typically happens a lot in distributed systems. For example in an e-commerce service, the checkout function could depend on the payment function. However, it's advised that services avoid making direct references to one another in order to prevent hard coupling that can cause issues later. A significant amount of reworking may be required if direct references for a service need to be changed. Using message services, such as queues or topics, to facilitate service-to-service communication is a good way to handle this. This decoupling enhances flexibility, scalability, and resilience, as well as simplifies testing and debugging. It also promotes security by allowing access control. When you use a more decoupled architecture, serverless systems can evolve independently and adapt to changing requirements, making them more robust and maintainable over time.
+## Conclusion
 
-To create serverless infrastructure for an application that should have distinct function logic, statelessness, message queue triggers, auto scaling, and service to service communication, you can identify all the cloud resources needed for your infrastructure and use Pulumi to declare and manage those resources. The interesting thing about Pulumi's code-driven infrastructure provisioning is that you can manage all your serverless infrastructure in one place which makes development faster, and treating IaC code like regular code also gives you the ability to track changes to infrastructure over time.
+Serverless architectures empower developers to build scalable, cost-effective applications without the burden of managing servers. By understanding its components, associated cloud services, and benefits, technical professionals can leverage serverless to streamline development processes and create more agile, responsive applications in the cloud.
 
-To learn more about using Pulumi to deploy serverless applications, check out this [blog post](https://www.pulumi.com/blog/easy-serverless-apps-and-infrastructure-real-events-real-code/) written by Joe Duffy.
+Pulumi's code-driven approach to infrastructure as code aligns well with serverless architectures, allowing developers to use the same tools for writing their serverless functions and their infrastructure definitions. To learn more about using Pulumi to deploy serverless applications, check out [this blog post](https://www.pulumi.com/blog/easy-serverless-apps-and-infrastructure-real-events-real-code/).
 
-If you've joined us to learn about serverless applications, we'd love to hear your story. How did it work out for you?
-
-Our journey doesn't end here; there's a lot more you can do with serverless apps when you throw Pulumi into the mix. We invite you to share your thoughts, ideas, and suggestions, and we can't wait to see what you build!
-
-Join us in the [Pulumi Community Slack](https://slack.pulumi.com) to decide what challenge we tackle next!
-
-## Learn More
-
-Pulumi offers a truly modern approach to infrastructure as code. With Pulumi, you can create, deploy, and manage infrastructure on any cloud using the programming languages and tools you already know. [Get started today](/docs/get-started/).
+Our [community on Slack](https://slack.pulumi.com/) is always open for discussions, questions, and sharing experiences. Join us there to share your experience with using Pulumi for serverless applications, or to ask questions about how Pulumi can streamline your serverless application deployments. Become part of our growing community of cloud professionals!
