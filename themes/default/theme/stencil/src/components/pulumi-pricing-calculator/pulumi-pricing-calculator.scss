@@ -1,5 +1,8 @@
 @import "../../../../src/scss/colors";
 .calculator {
+    margin-right: 36px;
+    margin-left: 36px;
+
     h3 {
         text-align: center;
         color: #000;
@@ -9,45 +12,15 @@
     }
 
     .edition {
-        display: flex;
-        width: 100%;
-        border-bottom: 1px solid gray;
-        font-family: "Inter";
-        font-weight: 600;
-        margin-bottom: 60px;
-        margin-top: 60px;
-
-        .options {
-            margin-left: 20%;
-        }
-
-        .title {
-            color: #2F3032;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        button {
-            color: #BEBFC9;
-            font-size: 24px;
-            font-family: "Gilroy";
-            font-weight: 500;
-
-            &:first-of-type {
-                margin-right: 60px;
-            }
-
-            &.active {
-                 color: #131314;
-
-                border-bottom: 4px solid #4D5BD9;
-            }
-        }
+        text-align: center;
+        font-family: "Gilroy";
+        font-size: 28px;
+        margin-bottom: 8px;
     }
 
     .content {
         display: flex;
+        flex-direction: row;
         gap: 60px;
     }
 
@@ -69,6 +42,7 @@
 
         .details {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
             .description {
                 width: 400px;
@@ -76,14 +50,18 @@
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
-                color: #2F3032;
+                color: #2f3032;
+            }
+
+            .utilization {
+                margin-top: 0px;
             }
 
             .input {
                 width: 140px;
                 padding: 8px 12px;
                 border-radius: 4px;
-                border: 1px solid #BEBFC9;
+                border: 1px solid #bebfc9;
                 height: 48px;
 
                 input {
@@ -101,25 +79,30 @@
     .outputs {
         width: 50%;
         max-width: 530px;
-
         border-radius: 12px;
-
         background: #fff;
-
         box-shadow: 0px 6px 36px 0px rgba(0, 0, 0, 0.14);
 
-
         .contents {
-        display: flex;
-        padding: 36px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 36px;
+            display: flex;
+            padding: 36px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 36px;
         }
+
         .gradient {
             border-radius: 12px 12px 0px 0px;
             height: 8px;
-            background: linear-gradient(90deg, #f7bf2a 0%, #f26e7e 18.23%, #be5188 38.02%, #8a3391 53.65%, #805ac3 74.48%, #7682f4 100%);
+            background: linear-gradient(
+                90deg,
+                #f7bf2a 0%,
+                #f26e7e 18.23%,
+                #be5188 38.02%,
+                #8a3391 53.65%,
+                #805ac3 74.48%,
+                #7682f4 100%
+            );
         }
 
         .duration {
@@ -130,12 +113,12 @@
                 display: flex;
                 padding: 8px 12px;
                 align-items: flex-start;
-                color: #8E8F97;
+                color: #8e8f97;
                 font-family: Inter;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 500;
-                border: 1px solid #8E8F97;
+                border: 1px solid #8e8f97;
 
                 &:first-of-type {
                     border-radius: 4px 0px 0px 4px;
@@ -146,8 +129,8 @@
 
                 &.active {
                     color: #131314;
-                    background-color: #F2EFF9;
-                    border: 1px solid #805AC3;
+                    background-color: #f2eff9;
+                    border: 1px solid #805ac3;
                 }
             }
         }
@@ -157,7 +140,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            color: #2F3032;
+            color: #2f3032;
             font-family: "Inter";
             font-size: 16px;
             font-weight: 400;
@@ -166,17 +149,19 @@
             .item {
                 flex-grow: 1;
                 display: flex;
+                gap: 36px;
                 justify-content: space-between;
             }
         }
 
         .divider {
             width: 100%;
-            border-bottom: 1px solid #BEBFC9;
+            border-bottom: 1px solid #bebfc9;
         }
 
         .deployment-total {
             display: none;
+
             &.visible {
                 display: flex;
             }
@@ -193,39 +178,37 @@
         .total {
             display: flex;
             width: 100%;
-            color: #805AC3;
+            color: #805ac3;
             font-family: "Inter";
             font-size: 30px;
             font-style: normal;
             font-weight: 700;
-
             justify-content: end;
             gap: 4px;
         }
     }
 
-    /* Chrome, Safari, Edge, Opera */
+    // Remove number incrementer from input
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
 
-    /* Firefox */
     input[type="number"] {
         -moz-appearance: textfield;
     }
 
     .deployments {
         border-radius: 4px;
-        border: 1px solid #805AC3;
+        border: 1px solid #805ac3;
         display: flex;
         flex-direction: column;
         width: 100%;
         padding: 24px;
 
         i {
-            color: #805AC3;
+            color: #805ac3;
             height: 24px;
             width: 24px;
             font-size: 24px;
@@ -233,7 +216,7 @@
 
         &.collapsed {
             &:hover {
-                background: rgba(242, 239, 249, 0.50);
+                background: rgba(242, 239, 249, 0.5);
             }
         }
 
@@ -246,8 +229,7 @@
                 flex-grow: 1;
                 display: flex;
                 flex-direction: column;
-                color: #2F3032;
-
+                color: #2f3032;
 
                 .title {
                     font-family: "Inter";
@@ -270,6 +252,7 @@
             display: none;
             margin-bottom: 0px;
             flex-direction: column;
+
             &.visible {
                 display: flex;
             }
@@ -278,40 +261,89 @@
 }
 
 .range {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: auto;
-  display: block;
-  margin-top: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 140px;
+    // margin: auto;
+    display: block;
+    margin-top: 16px;
 }
 
+// Custom percentage slider appearance
 input[type="range"]::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  border-radius:10px;
-  background: #4776e6; /* fallback for old browsers */
-  background: linear-gradient(90deg, #F7BF2A 0%, #F26E7E 18.23%, #BE5188 38.02%, #8A3391 53.65%, #805AC3 74.48%, #7682F4 100%);
-  height: 7.5px;
+    -webkit-appearance: none;
+    border-radius: 10px;
+    background: #4776e6; /* fallback for old browsers */
+    background: linear-gradient(
+        90deg,
+        #f7bf2a 0%,
+        #f26e7e 18.23%,
+        #be5188 38.02%,
+        #8a3391 53.65%,
+        #805ac3 74.48%,
+        #7682f4 100%
+    );
+    height: 7.5px;
 }
 
 input[type="range"]:focus {
-  outline: none;
+    outline: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 2px solid;
-  border-radius: 50%;
-  height:16px;
-  width: 16px;
-  bottom: 4px;
-  position: relative;
-  background-color: rgba(242, 239, 249, 0.50);;
-  cursor: -webkit-grab;
-
-  -webkit-transition: border 1000ms ease;
-  transition: border 1000ms ease;
+    -webkit-appearance: none;
+    border: 2px solid;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    bottom: 4px;
+    position: relative;
+    background-color: rgba(242, 239, 249, 0.5);
+    cursor: -webkit-grab;
+    -webkit-transition: border 1000ms ease;
+    transition: border 1000ms ease;
 }
 
 .range.purple::-webkit-slider-thumb {
-  border-color: #805AC3;
+    border-color: #805ac3;
+}
+
+
+@media(max-width: 1080px) {
+    .calculator .field {
+        .details {
+            flex-direction: column;
+
+            .input {
+                margin-top: 16px;
+            }
+        }
+    }
+}
+
+@media(max-width: 1024px) {
+    .calculator {
+        .content {
+            flex-direction: column;
+        }
+        .outputs {
+            width: 100%;
+            max-width: 1200px;
+        }
+    }
+}
+
+@media(max-width: 640px) {
+    .calculator .field .details {
+        .description {
+            width: 100%
+        }
+        .input {
+            width: 100%;
+        }
+    }
+
+    .range {
+        width: 100%;
+    }
 }
