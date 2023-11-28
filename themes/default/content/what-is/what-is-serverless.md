@@ -24,9 +24,9 @@ Some FaaS platforms used in serverless architectures include:
 * [Netlify Functions](https://functions.netlify.com/)
 * [Cloudflare Workers](https://workers.cloudflare.com/)
 
-## What is event-driven architecture, and is it different than serverless?
+## What is an event-driven architecture, and is it different than serverless?
 
-_Event-driven architecture_ describes the broader architectural pattern where functions respond to events. Serverless architectures are event-driven architectures. While often associated with serverless, event-driven architectures can exist independently, involving both serverless and traditional infrastructure.
+_Event-driven architecture_ describes the broader architectural pattern where different components of an application respond to events. These events can be distributed among application components using mechanisms like message queues, publish-subscribe services, or event buses. **Serverless architectures are event-driven architectures.** While often associated with serverless, event-driven architectures can exist independently, involving both serverless and traditional infrastructure. In other words, while all serverless architectures are event-driven architectures, not all event-driven architectures are serverless architectures.
 
 ## What are some of the benefits of serverless?
 
@@ -107,6 +107,6 @@ Adopting a serverless architecture can offer a number of benefits:
 
 Serverless architectures empower developers to build scalable, cost-effective applications without the burden of managing servers. By understanding its components, associated cloud services, and benefits, technical professionals can leverage serverless to streamline development processes and create more agile, responsive applications in the cloud.
 
-Pulumi's code-driven approach to infrastructure as code aligns well with serverless architectures, allowing developers to use the same tools for writing their serverless functions and their infrastructure definitions. To learn more about using Pulumi to deploy serverless applications, check out [this blog post](https://www.pulumi.com/blog/easy-serverless-apps-and-infrastructure-real-events-real-code/).
+Pulumi's code-driven approach to infrastructure as code aligns well with serverless architectures, allowing developers to use the same tools for writing their serverless functions and their infrastructure definitions. [This set of Pulumi architecture templates](https://www.pulumi.com/templates/serverless-application/) make it easy to deploy a serverless application using Pulumi---check it out!
 
 Our [community on Slack](https://slack.pulumi.com/) is always open for discussions, questions, and sharing experiences. Join us there to share your experience with using Pulumi for serverless applications, or to ask questions about how Pulumi can streamline your serverless application deployments. Become part of our growing community of cloud professionals!
