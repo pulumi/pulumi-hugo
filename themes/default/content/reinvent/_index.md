@@ -15,7 +15,7 @@ links:
         - heading: Request a Demo
           description: See how Pulumi can help you ship infrastructure faster, and manage your AWS resources at scale. Ready for a change?
           action: Talk with an Engineer
-          link: /request-a-demo/
+          link: https://info.pulumi.com/aws-reinvent-meeting/
 
 workshops:
     items:
@@ -33,6 +33,11 @@ workshops:
         date: December 14, 2023
         description: The Pinecone and Pulumi teams will explore the infrastructure and service architecture you need to scale AI apps in production.
         link: /resources/ai-apps-to-production/
+        action: Register Now
+      - title: Scaling AI Apps
+        date: January 24, 2024
+        description: How do you build and scale the infrastructure and service architectures for AI apps?
+        link: /resources/scaling-ai-apps/
         action: Register Now
       - title: Serverless Architecture on AWS
         date:
