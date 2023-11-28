@@ -15,7 +15,7 @@
         text-align: center;
         font-family: "Gilroy";
         font-size: 28px;
-        margin-bottom: 8px;
+        margin-bottom: 36px;
     }
 
     .content {
@@ -185,6 +185,30 @@
             font-weight: 700;
             justify-content: end;
             gap: 4px;
+
+            .contact {
+                display: none;
+            }
+
+            &.over-max {
+                justify-content: space-between;
+                .contact {
+                    align-self: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 600;
+                    color: #131314;
+                    a {
+                        color: $brand-blue;
+                        margin-right: 4px;
+                    }
+                }
+                
+                .blurred {
+                    filter: blur(16px);
+                }
+            }
         }
     }
 
@@ -309,7 +333,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 
-@media(max-width: 1080px) {
+@media(max-width: 1280px) {
     .calculator .field {
         .details {
             flex-direction: column;

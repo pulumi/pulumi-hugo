@@ -48,6 +48,14 @@ export class PulumiPricingCalculator {
     }
   }
 
+  getEstimatedDeploymentMinutes() {
+    if (this.duration === "month") {
+        return this.deploymentMinutes * 30;
+    } else {
+        return this.deploymentMinutes;
+    }
+  }
+
   updateDeploymentsExpanded() {
     this.deploymentsExpanded = !this.deploymentsExpanded
   }
@@ -66,7 +74,7 @@ export class PulumiPricingCalculator {
 
   getTotal() {
     if (this.deploymentsExpanded) {
-        const deploymentCost = ((this.deploymentMinutes - this.getFreeDeploymentMinutes()) * this.getCostPerDeploymentMinute());
+        const deploymentCost = ((this.getEstimatedDeploymentMinutes() - this.getFreeDeploymentMinutes()) * this.getCostPerDeploymentMinute());
         const cost = ((this.getEstimatedCredits() - this.getFreeCredits()) * this.getCostPerCredit()) + (deploymentCost > 0 ? deploymentCost : 0);
         return cost > 0 ? cost : 0;
     } else {
@@ -75,12 +83,12 @@ export class PulumiPricingCalculator {
     }
   }
 
+  isTotalOverMax() {
+    return this.getTotal() > 1670 && this.duration === "month" || this.getTotal() > 55 && this.duration === "day";
+  }
+
   showFormattedTotal() {
-    if (this.getTotal() > 1670 && this.duration === "month" || this.getTotal() > 55 && this.duration === "day") {
-        return "Contact sales for bulk discounts"
-    } else {
-        return `$${this.formatNumber(this.getTotal())} / ${this.duration === "day" ? "day" : "mo"}`
-    }
+    return `$${this.formatNumber(this.getTotal())} / ${this.duration === "day" ? "day" : "mo"}`
   }
 
   updateResourceCount(event: CustomEvent) {
@@ -182,7 +190,7 @@ export class PulumiPricingCalculator {
                         this.updateDuration("month")}>Per month</button>
                 </div>
                 <div class="items">
-                    <div class="item"><span>Estimated credits per month</span><span>{
+                    <div class="item"><span>Estimated credits per {this.duration}</span><span>{
                             this.formatNumber(this.getEstimatedCredits())}</span></div>
                     <div class="item"><span>Free credits
                             included</span><span>{this.formatNumber(this.getFreeCredits())}</span></div>
@@ -190,6 +198,8 @@ export class PulumiPricingCalculator {
 
                     <div class={ this.deploymentsExpanded ? "deployment-total visible" : "deployment-total" }>
                         <div class="subtitle">Deployments</div>
+                        <div class="item"><span>Estimated deployment minutes per {this.duration}</span><span>{
+                            this.formatNumber(this.getEstimatedDeploymentMinutes())}</span></div>
                         <div class="item"><span>Deployment minutes
                                 included</span><span>{this.formatNumber(this.getFreeDeploymentMinutes())}</span></div>
                         <div class="item"><span>Cost per deployment
@@ -197,8 +207,9 @@ export class PulumiPricingCalculator {
                     </div>
                 </div>
                 <div class="divider"></div>
-                <div class="total">
-                    <span>{this.showFormattedTotal()}</span>
+                <div class={this.isTotalOverMax() ? 'total over-max' : 'total'}>
+                    <span class="contact"><a href="/contact/?form=sales">Contact sales</a>for bulk discounts</span>
+                    <span class={this.isTotalOverMax() ? 'blurred' : ''}>{this.showFormattedTotal()}</span>
                 </div>
             </div>
           </div>
