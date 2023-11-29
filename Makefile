@@ -27,6 +27,10 @@ format:
 build:
 	./scripts/build.sh
 
+.PHONY: test
+test:
+	./scripts/test.sh
+
 .PHONY: ci-build-full-site
 ci-build-full-site:
 	./scripts/ci/build-full-site.sh
