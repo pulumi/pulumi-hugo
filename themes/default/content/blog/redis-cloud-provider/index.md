@@ -15,7 +15,7 @@ Redis Enterprise Cloud makes apps faster by providing an in-memory database that
 <!--more-->
 
 {{% notes type="info" %}}
-The full code for this example is available at <https://github.com/pulumi/examples/tree/master/rediscloud-aws-ts>. The full code differs slightly from the example below in that it has some parameterization that makes the code more portable, whereas in this post we show hardcoded values for simplicity.
+The full code for this example is available at <https://github.com/pulumi/examples/tree/master/redis-cloud-aws-ts>. The full code differs slightly from the example below in that it has some parameterization that makes the code more portable, whereas in this post we show hardcoded values for simplicity.
 {{% /notes %}}
 
 ## About Redis Enterprise Cloud
