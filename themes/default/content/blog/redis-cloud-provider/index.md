@@ -1,6 +1,6 @@
 ---
 title: "Pulumi and Redis Cloud: Real-Time Data for Modern Apps"
-date: 2023-10-01
+date: 2023-11-28
 meta_desc: Learn how to use Pulumi to provision fully managed Redis Enterprise Cloud clusters and connect them to your AWS workloads.
 meta_image: redis-enterprise-cloud-pulumi.png
 authors:
