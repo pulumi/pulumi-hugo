@@ -48,7 +48,7 @@ Just input the number of resources in all your cloud accounts and the percentage
 
 {{< blog/cta-button "Calculate Pulumi Cloud Costs" "/pricing/b" "_blank" >}}
 
-[Screenshot of the pricing calculator](pricing_calc.png)
+![Screenshot of the pricing calculator](pricing_calc.png)
 
 What inputs are required:
 
