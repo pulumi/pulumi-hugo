@@ -22,7 +22,7 @@ meta_desc: Pulumi Cloud Adds Multi-factor Authentication improving Pulumi custom
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
 # ratio has been provided for you.
-meta_image: mfa.png
+meta_image: meta.png
 
 # At least one author is required. The values in this list correspond with the
 # `id` properties of the team member files at /data/team/team. Create a file for
@@ -38,27 +38,27 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-We are excited to announce that all users of Pulumi Cloud can now secure their account with Multi-Factor Authentication (MFA). By requiring an additional verification step during the login process, MFA shields against unauthorized access, reducing the risk of breaches. This feature aligns with our commitment to providing robust security measures for our users. As an Organization Admin, you can further protect your organization by your members enabling MFA.
+We are excited to announce that all users of Pulumi Cloud can now secure their account with multi-factor authentication (MFA). By requiring an additional verification step during the login process, MFA shields against unauthorized access, reducing the risk of breaches. This feature aligns with our commitment to providing robust security measures for our users. As an organization administrator, you can further protect your organization by having your members enable MFA.
 <!--more-->
 
 ### How to set it up
 
-Lets walk through the steps to enable MFA on your account:
+Let's walk through the steps to enable MFA on your account:
 
 1. Click on your account avatar in the top right corner
 2. Navigate to Account Settings
 3. Scroll to the MFA section
 4. Press Enroll
-![Screenshot of enrolling in MFA](mfa-enroll.png)
+    ![Screenshot of enrolling in MFA](mfa-enroll.png)
 5. Use your authenticator application of choice to scan the QR code or paste the code
-6. When you next login you will be prompted for a passcode
-![Screenshot of login experience with MFA enabled](sign-in-mfa.png)
+6. On your next login, you will be prompted for a passcode:
+    ![Screenshot of login experience with MFA enabled](sign-in-mfa.png)
 
-You are enrolled! When signing in you will now be asked for a one time passcode.
+You are enrolled! When signing in you will now be asked for a one-time passcode.
 
 ### Limitations
 
-Initially, MFA in Pulumi Cloud will support TOTP (time-based one-time passwords) and it will only be available for Pulumi Cloud backed users. Users authenticating with a third party (such as GitHub or GitLab) will need to use MFA through those providers at this time. Some other future improvements we are considering and will prioritize based on feedback we hear from customers are extending support for WebAuthN/passkeys, Duo, SMS/Email OTP and admins enforcing MFA for their entire organization.
+Initially, MFA in Pulumi Cloud will support TOTP (time-based one-time passwords) and it will only be available for Pulumi Cloud-backed users. Users authenticating with a third party (such as GitHub or GitLab) will need to use MFA through those providers at this time. Some other future improvements we are considering and will prioritize based on feedback we hear from customers are extending support for WebAuthN/passkeys, Duo, SMS/Email OTP and admins enforcing MFA for their entire organization.
 
 ### Wrapping it up
 
