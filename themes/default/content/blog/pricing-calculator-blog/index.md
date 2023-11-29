@@ -56,7 +56,7 @@ What inputs are required:
 - Utilization
 - Deployment minutes (optional)
 
-The outputs then given:
+The pricing calculator then provides:
 
 - Estimated cost per month or day
 - Free credits included
