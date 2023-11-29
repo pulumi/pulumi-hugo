@@ -49,10 +49,10 @@ Lets walk through the steps to enable MFA on your account:
 2. Navigate to Account Settings
 3. Scroll to the MFA section
 4. Press Enroll
-[Screenshot of enrolling in MFA](mfa-enroll.png)
+![Screenshot of enrolling in MFA](mfa-enroll.png)
 5. Use your authenticator application of choice to scan the QR code or paste the code
 6. When you next login you will be prompted for a passcode
-[Screenshot of login experience with MFA enabled](sign-in-mfa.png)
+![Screenshot of login experience with MFA enabled](sign-in-mfa.png)
 
 You are enrolled! When signing in you will now be asked for a one time passcode.
 
