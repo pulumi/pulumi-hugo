@@ -45,7 +45,6 @@ To create a new ECR repository, allocate an instance of the `awsx.ecr.Repository
 {{% choosable language "javascript" %}}
 
 ```javascript
-"use strict";
 const awsx = require("@pulumi/awsx");
 
 const repo = new awsx.ecr.Repository("repo");
@@ -263,7 +262,7 @@ entirely from code. This lets you version and deploy container changes easily al
 
 In the following example, creating an `Image` resource will build an image from the "./app" directory (relative to our project and containing Dockerfile), and publish it to our ECR repository provisioned above.
 
-{{< example-program path="awsx-ecr-image" >}}
+{{< example path="awsx-ecr-image" languages="javascript,typescript,python,go,csharp,java,yaml" >}}
 
 As we run `pulumi up`, we will see Docker build output in the Pulumi CLI display. If there is an error, it'll
 be printed in the diagnostics section, but otherwise the resulting image name is printed:
@@ -312,7 +311,7 @@ defaults to `latest`). The container instances require IAM permissions which are
 
 To use your private repository from an ECS task definition, reference it like so:
 
-{{< example-program path="awsx-load-balanced-fargate-ecr" >}}
+{{< example path="load-balanced-fargate-ecr" languages="javascript,typescript,python,go,csharp,java,yaml" >}}
 
 For information about ECS, refer to the [Pulumi Crosswalk for AWS ECS documentation](/docs/clouds/aws/guides/ecs/). For
 information about consuming ECR images from ECS services specifically, see
@@ -322,7 +321,7 @@ information about consuming ECR images from ECS services specifically, see
 
 To use your private repository from a Kubernetes service, such as one using EKS, reference it like so:
 
-{{< example-program path="awsx-ecr-eks-deployment-service" >}}
+{{< example path="awsx-ecr-eks-deployment-service" languages="javascript,typescript,python,go,csharp,java,yaml" >}}
 
 For information about EKS, refer to the [Pulumi Crosswalk for AWS EKS documentation](/docs/clouds/aws/guides/eks/).
 
