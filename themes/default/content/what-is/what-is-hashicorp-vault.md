@@ -81,4 +81,4 @@ Vault's role in each of these architectures is to provide the foundation of secu
 
 - **Advanced configuration management**: Discover how to efficiently manage configuration data in your cloud applications. Dive into Pulumi's [Configuration Management docs](/docs/concepts/config/) for in-depth information on creating and managing configuration across stacks and projects.
 
-Our [community on Slack](https://slack.pulumi.com/) is always open for discussions, questions, and sharing experiences. Join us there and become part of our growing community of cloud professionals!
+Our [community on Slack](https://slack.pulumi.com/) is always open for discussions, questions, and sharing experiences. Join us there and become part of our growing community of cloud professionals.
