@@ -18,6 +18,10 @@ The Pulumi Google Cloud Classic provider can be used to provision any of the clo
 
 <!--more-->
 
+{{% notes type="info" %}}
+Join Pulumi on Thursday, November 30, 2023 for a live workshop on [getting started with serverless apps on Google Cloud Run](/resources/serverless-apps-with-google-cloud-run-and-pulumi/), which will feature the new GCP 7.0 provider.
+{{% /notes %}}
+
 If you are new to Pulumi and would like to get started with the Google Cloud provider, visit any of these pages to jump right in!
 
 - [Getting Started](https://www.pulumi.com/docs/clouds/gcp/get-started/) - A guided walkthrough for creating your first project
@@ -64,7 +68,7 @@ Version 6.0 of the Google Cloud provider introduced support for several new modu
 - [VMware Engine](https://www.pulumi.com/registry/packages/gcp/api-docs/vmwareengine/)
 - [Workstations](https://www.pulumi.com/registry/packages/gcp/api-docs/workstations/)
 
-If you haven't used these modules yet, now is a great time to try them out! Check out the [Pulumi Registry](https://www.pulumi.com/docs/intro/cloud-providers/google-cloud/) for more information on how to get started or ask [Pulumi AI](https://www.pulumi.com/ai) to create a new project for you.
+If you haven't used these modules yet, now is a great time to try them out! Check out the [Pulumi Registry](https://www.pulumi.com/registry/packages/gcp/) for more information on how to get started or ask [Pulumi AI](https://www.pulumi.com/ai) to create a new project for you.
 
 ## What's New in 7.0
 
