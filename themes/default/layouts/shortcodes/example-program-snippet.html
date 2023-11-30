@@ -38,7 +38,7 @@
     {{- $toEnd := after (sub (int $from) 1) $lines -}}
     {{- $lineCount := add (sub (int $to) (int $from)) 1 -}}
     {{- $toTo := first $lineCount $toEnd -}}
-    {{- delimit $toTo "\n" -}}
+    {{- delimit $toTo "\n" | safeHTML -}}
 {{- else -}}
-    {{- $file -}}
+    {{- $file | safeHTML -}}
 {{- end -}}
