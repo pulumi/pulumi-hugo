@@ -1,4 +1,4 @@
-module awsx-vpc-fargate-service-go
+module awsx-vpc-fargate-service-yaml
 
 go 1.21
 

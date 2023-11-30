@@ -1,4 +1,4 @@
-module awsx-ecr-image-go
+module repo-go
 
 go 1.21
 
