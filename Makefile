@@ -29,7 +29,11 @@ build:
 
 .PHONY: test
 test:
-	./scripts/test.sh
+	./scripts/test.sh preview
+
+.PHONY: test-full
+test-full:
+	./scripts/test.sh update
 
 .PHONY: ci-build-full-site
 ci-build-full-site:
