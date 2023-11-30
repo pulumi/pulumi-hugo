@@ -84,9 +84,9 @@ prompt_for_example_description
 
 generate_example
 echo
-echo "Done! ✨ Your new projects are now available at ${examples_dir}/${example_name}". To
-include it in any Markdown file (blog post, doc, whatever), use the '{{< example-program >}}'
-shortcode:
+echo "Done! ✨ Your new projects are now available at ${examples_dir}/${example_name}. To
+include them in any Markdown file (blog post, doc, whatever), use the '{{< example-program >}}'
+shortcode thusly:
 
 {{< example-program path=\"${example_name}\">}}
 
