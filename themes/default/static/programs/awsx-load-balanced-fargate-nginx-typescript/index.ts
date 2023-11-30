@@ -16,10 +16,12 @@ const service = new awsx.ecs.FargateService("service", {
             cpu: 128,
             memory: 512,
             essential: true,
-            portMappings: [{
-                containerPort: 80,
-                targetGroup: lb.defaultTargetGroup,
-            }],
+            portMappings: [
+                {
+                    containerPort: 80,
+                    targetGroup: lb.defaultTargetGroup,
+                },
+            ],
         },
     },
 });
