@@ -23,6 +23,12 @@ pushd themes/default/static/programs
     for dir in */; do
         project="$(basename $dir)"
 
+        # Optionally test only selected examples by setting an ONLY_TEST="<example-path>"
+        # environment variable (e.g., ONLY_TEST="awsx-ecr-repository").
+        if [[ ! -z "$ONLY_TEST" && "$dir" != "$ONLY_TEST"* ]]; then
+            continue
+        fi
+
         echo "***"
         echo "* $project"
         echo "***"
@@ -43,6 +49,12 @@ pushd themes/default/static/programs
         elif [[ "$project" == "awsx-load-balanced-fargate-ecr-java" ]]; then
             continue
         elif [[ "$project" == "awsx-load-balanced-fargate-nginx-java" ]]; then
+            continue
+        fi
+
+        # Java web listener example fails to preview:
+        # Error converting 'java.util.Collections$UnmodifiableRandomAccessList' to 'TypeShape{type=interface java.util.List, parameters=[TypeShape{type=class com.pulumi.aws.lb.outputs.TargetGroupTargetHealthState, parameters=[]}]}'.
+        if [[ "$project" == "awsx-elb-web-listener-java" ]]; then
             continue
         fi
 
