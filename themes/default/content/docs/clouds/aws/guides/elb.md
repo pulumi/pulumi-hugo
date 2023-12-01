@@ -129,36 +129,7 @@ the number of and placement of VMs. Refer to the API docs for
 Your ECS service can use ELB to distribute traffic evenly across each of your service's tasks. To target an ECS service
 with your load balancer, pass the listener in your task definition's `portMappings`:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Create a new ECS cluster. This will use the default VPC; to override, pass in a VPC manually.
-const cluster = new awsx.ecs.Cluster("my-cluster");
-
-// Create an ALB associated with the default VPC for this region and listen for HTTP on port 80.
-const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic");
-const listener = alb.createListener("web-listener", { port: 80 });
-
-// Create a new ECS service using the 'nginx' image. Supply the listener we just created
-// in the `portMappings` section. This will both properly connect the service and launched
-// instances to the target group. Although we show FargateService, EC2Service works too.
-const nginx = new awsx.ecs.FargateService("nginx-task", {
-    cluster,
-    taskDefinitionArgs: {
-        containers: {
-            nginx: {
-                image: "nginx",
-                memory: 128,
-                portMappings: [ listener ],
-            },
-        },
-    },
-    desiredCount: 2,
-});
-
-// Export the resulting URL so that it's easy to access.
-export const endpoint = listener.endpoint.hostname;
-```
+{{< example-program path="awsx-load-balanced-fargate-nginx" >}}
 
 > [Pulumi Crosswalk for AWS ECS](/docs/clouds/aws/guides/ecs/) -- those classes in the `awsx.ecs` package -- will automatically create the
 > right ingress and egress rules. If you are using raw `aws.ecs`, you will need to manually manage the security group
