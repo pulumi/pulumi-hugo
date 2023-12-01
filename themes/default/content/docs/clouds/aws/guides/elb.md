@@ -163,7 +163,7 @@ documentation.
 
 ## Listening on Private Subnets
 
-By default, your load balancer will use the VPC's public subnets. This listens for traffic coming from the Internet.
+By default, your load balancer will created as _internet-facing_, meaning it'll use the VPC's public subnets and listen for traffic coming from the Internet.
 If you want to instead keep your load balancer private, servicing traffic inside of your VPC over its private subnets,
 set the `internal` property to `true`:
 
@@ -175,25 +175,12 @@ For complete control, you can elect instead to pass in an explicit list of subne
 
 Each region contains [a default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html) for your
 account. The load balancers created above will use it automatically, in addition to its default public or private
-subnets, depending on whether you've overridden the default of public using `external`.
+subnets, depending on whether you've overridden the default of public using `internal`.
 
-If you'd like to create a load balancer for a custom VPC, pass the `vpc` property:
+If you'd like to create a load balancer for a custom VPC, provision (or look up) the VPC, then use the `subnetIds`
+property of the load balancer to associate it with the VPC's public or private subnet:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Allocate (or get) a custom VPC:
-const vpc = new awsx.ec2.Vpc("web-vpc", { ... });
-
-// Creates an ALB associated with our custom VPC.
-const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic", { vpc });
-
-// Listen to HTTP traffic on port 80.
-const listener = alb.createListener("web-listener", { port: 80 });
-
-// Export the resulting URL so that it's easy to access.
-export const endpoint = listener.endpoint;
-```
+{{< example-program path="awsx-elb-vpc" >}}
 
 For more information on creating and configuring VPCs, refer to [Pulumi Crosswalk for AWS VPC](/docs/clouds/aws/guides/vpc/).
 
