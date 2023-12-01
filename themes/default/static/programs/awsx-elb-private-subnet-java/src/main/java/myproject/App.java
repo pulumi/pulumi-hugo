@@ -13,6 +13,9 @@ public class App {
                 .listener(ListenerArgs.builder()
                     .port(80)
                     .build())
+
+                // Configure the load balancer as internal rather than internet-facing.
+                .internal(true)
                 .build());
 
             // Export the resulting URL so that it's easy to access.

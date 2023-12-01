@@ -165,20 +165,9 @@ documentation.
 
 By default, your load balancer will use the VPC's public subnets. This listens for traffic coming from the Internet.
 If you want to instead keep your load balancer private, servicing traffic inside of your VPC over its private subnets,
-set the `external` property to `false`:
+set the `internal` property to `true`:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Creates an ALB associated with the default VPC for this region, using its private subnets.
-const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic", { external: false });
-
-// Listen to HTTP traffic on port 80.
-const listener = alb.createListener("web-listener", { port: 80 });
-
-// Export the resulting URL so that it's easy to access.
-export const endpoint = listener.endpoint;
-```
+{{< example-program path="awsx-elb-private-subnet">}}
 
 For complete control, you can elect instead to pass in an explicit list of subnets using the `subnets` property.
 

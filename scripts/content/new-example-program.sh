@@ -49,10 +49,12 @@ generate_example() {
     for language in "${languages[@]}"; do
         example_dir="${examples_dir}/${example_name}-${language}"
 
+        rm -rf "${example_dir}"
         mkdir -p "${example_dir}"
 
         pushd "$example_dir"
             pulumi new "${cloud}-${language}" --description="${example_description}" --yes --force --generate-only
+            pulumi install
         popd
     done
 

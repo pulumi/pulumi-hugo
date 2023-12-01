@@ -11,6 +11,9 @@ return await Deployment.RunAsync(() =>
         {
             Port = 80,
         },
+
+        // Configure the load balancer as internal rather than internet-facing.
+        Internal =   true,
    });
 
     // Export the resulting URL so that it's easy to access.

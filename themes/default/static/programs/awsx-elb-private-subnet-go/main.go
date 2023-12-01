@@ -12,6 +12,9 @@ func main() {
 			Listener: &lb.ListenerArgs{
 				Port: pulumi.Int(80),
 			},
+
+			// Configure the load balancer as internal rather than internet-facing.
+			Internal: pulumi.Bool(true),
 		})
 		if err != nil {
 			return err

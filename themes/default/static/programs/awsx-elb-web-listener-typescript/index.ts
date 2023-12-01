@@ -1,6 +1,6 @@
 import * as awsx from "@pulumi/awsx";
 
-// Create a load balancer in the default VPC and listen on port 80.
+// Create a load balancer in the default VPC listening on port 80.
 const alb = new awsx.lb.ApplicationLoadBalancer("lb", {
     listener: {
         port: 80,

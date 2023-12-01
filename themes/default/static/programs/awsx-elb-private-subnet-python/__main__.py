@@ -8,6 +8,9 @@ alb = awsx.lb.ApplicationLoadBalancer(
         listener=awsx.lb.ListenerArgs(
             port=80,
         ),
+
+        # Configure the load balancer as internal rather than internet-facing.
+        internal=True,
     ),
 )
 
