@@ -61,18 +61,7 @@ Each kind of load balancer is represented by a class in the `awsx.lb` module:
 To create a new load balancer, allocate an instance of its class. In addition to creating the load balancer itself, we
 must also create a _listener_ to let traffic reach it:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Create an ALB associated with the default VPC for this region.
-const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic");
-
-// Listen to HTTP traffic on port 80.
-const listener = alb.createListener("web-listener", { port: 80 });
-
-// Export the resulting URL so that it's easy to access.
-export const endpoint = listener.endpoint;
-```
+{{< example-program path="awsx-elb-web-listener">}}
 
 This load balancer listens on port 80, in our account's per-region default VPC, using its public subnets, thereby
 exposing it to the Internet. See below for instructions on how to
@@ -85,8 +74,6 @@ There are a number of additional properties you may set:
 
 * `enableDeletionProtection`: Set to `true` to disable deletion of the resource. This can be helpful to avoid
   accidentally deleting a long-lived, but auto-generated, load balancer URL.
-
-* `enableCrossZoneLoadBalancing`: Set to `true` to enable your NLB to load balance across availability zones.
 
 * `idleTimeout`: The time in seconds a connection is permitted to be idle before being severed. The default is `60`.
 
