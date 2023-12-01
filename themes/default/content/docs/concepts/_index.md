@@ -1,8 +1,8 @@
 ---
-title_tag: Pulumi Concepts
-meta_desc: Learn about the basic overall structure and major components of Pulumi here, along with an example of how to create an AWS EC2 security group.
+title_tag: What is Pulumi?
+meta_desc: Learn about what Pulumi is and the basic overall structure and major components and a quick start for using Pulumi.
 title: Concepts
-h1: Pulumi concepts
+h1: What is Pulumi?
 no_on_this_page: true
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
@@ -15,11 +15,40 @@ aliases:
 - /docs/intro/concepts/
 ---
 
-Pulumi is a modern [infrastructure as code](/what-is/what-is-infrastructure-as-code/) platform. It leverages existing programming languages---TypeScript, JavaScript, Python, Go, .NET, Java, and markup languages like YAML---and their native ecosystem to interact with cloud resources through the Pulumi SDK. A downloadable CLI, runtime, libraries, and a hosted service work together to deliver a robust way of provisioning, updating, and managing cloud infrastructure.
+Pulumi is a modern [infrastructure as code](/what-is/what-is-infrastructure-as-code/) platform. It leverages existing programming languages---TypeScript, JavaScript, Python, Go, .NET, Java, and markup languages like YAML---and their native ecosystem to interact with cloud resources through the Pulumi SDK. A [downloadable CLI](/docs/install/), runtime, libraries, and a hosted service work together to deliver a robust way of provisioning, updating, and managing cloud infrastructure.
 
 > If this is your first time using Pulumi, you likely want to begin with [the Getting Started guide](/docs/get-started/) for your cloud of choice. It will walk you through an [AWS](/docs/clouds/aws/get-started/), [Azure](/docs/clouds/azure/get-started/), [Google Cloud](/docs/clouds/gcp/get-started/), or [Kubernetes](/docs/clouds/kubernetes/get-started/) deployment from start to finish.
 
-## Pulumi overview {#overview}
+## What is Pulumi?
+
+Pulumi is an [infrastructure as code](/what-is/what-is-infrastructure-as-code/) platform that allows you to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
+
+Pulumi is free, [open source](https://github.com/pulumi/pulumi), and optionally pairs with the [Pulumi Cloud](https://www.pulumi.com/docs/pulumi-cloud/) to make managing infrastructure secure, reliable, and hassle-free.
+
+## Pulumi supported languages and SDKs
+
+Pulumi is a multi-language infrastructure as code tool. Each language is as capable as the other and supports the entire surface area of all of the clouds available in Pulumi Registry.
+Pulumi works with several programming and markup languages, including:
+
+- [TypeScript & JavaScript (Node.js)](https://www.pulumi.com/docs/languages-sdks/javascript/)
+- [Python](https://www.pulumi.com/docs/languages-sdks/python/)
+- [Go](https://www.pulumi.com/docs/languages-sdks/go/)
+- [C#, VB, F# (.NET)](https://www.pulumi.com/docs/languages-sdks/dotnet/)
+- [Java](https://www.pulumi.com/docs/languages-sdks/java/)
+- [YAML] (https://www.pulumi.com/docs/languages-sdks/yaml/)
+
+> If your favorite language isn’t listed, it may be on its way soon. [Pulumi is open source](https://github.com/pulumi/pulumi), and it is possible to [add your own language](https://www.pulumi.com/docs/support/faq/#how-can-i-add-support-for-my-favorite-language). For additional language questions, visit [Pulumi's languages and SDK docs](https://www.pulumi.com/docs/languages-sdks/).
+
+
+
+## How does Pulumi work?
+The Pulumi platform comprises several components:
+
+- **Software development kit (SDK)**: Pulumi Software Development Kit (SDK) provides bindings for each type of resource that the provider can manage. This provides the necessary tools and libraries for defining and managing cloud resources on any cloud and with any provider.
+
+- **Command-Line interface (CLI)**: Pulumi is controlled primarily using the command line interface [(CLI)](https://www.pulumi.com/docs/cli/). It works in conjunction with the [Pulumi Cloud](https://www.pulumi.com/docs/pulumi-cloud/) to deploy changes to your cloud apps and infrastructure. It keeps a history of who updated what in your team and when. This CLI has been designed for great inner loop productivity, in addition to continuous integration and delivery scenarios.
+
+- **Deployment engine** The deployment engine is responsible for computing the set of operations needed to drive the current state of your infrastructure into the desired state expressed by your program. 
 
 This diagram illustrates the structure and major components of Pulumi.
 
