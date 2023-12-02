@@ -6,6 +6,7 @@ description: |
 meta_desc: |
     Build and deploy a serverless app on AWS using Pulumi Architecture Templates and a single command!
 meta_image: /images/challenge/challenge_cta.png
+draft: true
 ---
 
 <div class="flex flex-wrap md:mt-12">
