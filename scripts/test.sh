@@ -52,9 +52,11 @@ pushd themes/default/static/programs
             continue
         fi
 
-        # Java web listener example fails to preview:
         # Error converting 'java.util.Collections$UnmodifiableRandomAccessList' to 'TypeShape{type=interface java.util.List, parameters=[TypeShape{type=class com.pulumi.aws.lb.outputs.TargetGroupTargetHealthState, parameters=[]}]}'.
+        # https://github.com/pulumi/pulumi-java/issues/1276
         if [[ "$project" == "awsx-elb-web-listener-java" ]]; then
+            continue
+        elif [[ "$project" == "awsx-elb-multi-listener-redirect-java" ]]; then
             continue
         fi
 

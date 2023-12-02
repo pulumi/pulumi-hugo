@@ -7,6 +7,7 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
+
 		// Create a load balancer in the default VPC listening on port 80.
 		alb, err := lb.NewApplicationLoadBalancer(ctx, "lb", &lb.ApplicationLoadBalancerArgs{
 			Listener: &lb.ListenerArgs{

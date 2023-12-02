@@ -192,7 +192,7 @@ need. However, target groups and listeners are more powerful than this and have 
 Let's review the core concepts involved in both NLB and ALB style load balancers:
 
 * A _load balancer_ serves as the single point of contact for clients. The load balancer distributes incoming
-  application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This increases
+  application traffic across multiple targets, such as EC2 instances, in multiple availability zones. This increases
   the availability of your application. You add one or more listeners to your load balancer.
 
 * A [_listener_](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html) checks
@@ -213,14 +213,8 @@ This includes creating target groups automatically that leverage the same inboun
 
 ### Manually Configuring Listeners
 
-A listener may be created as shown earlier (by calling `createListener` on a load balancer), from a target group if
-we want to automatically associate that as its default action (by calling `createListener` on a target group), or
-by allocating a `NetworkTargetGroup` or `ApplicationTargetGroup` explicitly.
-
-During the creation of a listener, there are numerous options available. The `createListener` functions will attempt
-to choose smart defaults based on the scenario of creating the listener against a load balancer or target group.
-
-These options include:
+During the creation of a listener, the `listener` property will attempt to choose smart defaults based on the scenario
+of creating the listener against a load balancer or target group, but there are several configuration options available. These include:
 
 * `protocol`: NLBs support `TCP`, `TLS`, `HTTP`, and `HTTPS`, while ALBs support `HTTP` and `HTTPS`. If not specified,
   NLBs default to `TCP` and ALBs will select `HTTP` or `HTTPS` based on the port supplied.
@@ -230,60 +224,42 @@ These options include:
   [Create an HTTPS Listener for Your Application Load Balancer](
   https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) for more information.
 
-* `defaultAction` and `defaultActions`: Configure the rules and actions to take in response to traffic reaching your
+* `defaultActions`: Configure the rules and actions to take in response to traffic reaching your
   load balancer. By default, that entails forwarding traffic to a target group. However, additional options are
-  available via the `ListenerDefaultActionArgs` type. You may provide multiple rules, each with a priority.
+  available via the `ListenerDefaultAction` type. You may provide multiple rules:
 
     * `authenticateCognito`: Enable Cognito authentication for access through your load balancer. For more
-      information, see [Authenticate Users Using and Application Load Balancer](
-      https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html).
+      information, see [Authenticate Users Using and Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html).
 
     * `authenticateOidc`: Authenticate access through your load balancer using an OpenID Connect (OIDC) compliant
       identity provider.
 
     * `fixedResponse`: Return a custom HTTP response, rather than forwarding traffic. For details, see
-      [Fixed-Response Actions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#fixed-response-actions)
+      [Fixed-Response Actions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#fixed-response-actions).
 
     * `redirect`: Redirect from one URL to another. For details, see
-      [Redirect Actions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions)
+      [Redirect Actions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions).
 
-As an example of a custom action, the following load balancer ensures all HTTP traffic is redirected to HTTPS:
+As an example of a custom action, the following load balancer redirects HTTP traffic on port 80 to port 8080 by defining two listeners, one configured to redirect to the other:
 
-```typescript
-import * as awsx from "@pulumi/awsx";
+{{< example-program path="awsx-elb-multi-listener-redirect" >}}
 
-// Create an ALB. One listener on port 80 redirects to port 443, while the 443 listener passes traffic through.
-const alb = new awsx.lb.NetworkLoadBalancer("web-traffic");
-const httpListener = alb.createListener("http-listener", {
-    port: 80,
-    protocol: "HTTP",
-    defaultAction: {
-        type: "redirect",
-        redirect: {
-            protocol: "HTTPS",
-            port: "443",
-            statusCode: "HTTP_301",
-        },
-    },
-});
-const target = alb.createTargetGroup("web-target", { ... });
-const httpsListener = target.createListener("http-listener", { port: 443, ... });
-// attach the target to something that can serve traffic.
+```bash
+$ curl -I "http://$(pulumi stack output endpoint):8080"
 
-// Export the resulting URL so that it's easy to access.
-export const endpoint = listener.endpoint;
+HTTP/1.1 301 Moved Permanently
+Location: http://lb-692829a-1197942792.us-west-2.elb.amazonaws.com:8081/
 ```
 
-For more information on listener rules, refer to the [AWS documentation about listeners](
-https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#rule-action-types).
+For more information on listener rules, refer to the [AWS documentation about listeners](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#rule-action-types).
 
 ### Manually Configuring Target Groups
 
 A target group is automatically created for each listener that doesn't override the default action. This group
 can then be used to load balance any number of targets, including EC2 instances, ECS services, or arbitrary IPs.
 
-To create a target group manually, call `createTargetGroup` on the load balancer, or allocate a
-`NetworkTargetGroup` or `ApplicationTargetGroup` by hand. When doing so, the following additional options are available:
+You can also create a target group manually, either by defining a `defaultTargetGroup` on the load balancer directly or by allocating a
+`TargetGroupAttachment` resource. When doing so, the following additional options are available:
 
 * `deregistrationDelay`: The amount of time for ELB to wait before changing the state of a load balancer from
   draining to unused. The range is 0-3600 seconds, and the default is 300. This is the period of time in which
