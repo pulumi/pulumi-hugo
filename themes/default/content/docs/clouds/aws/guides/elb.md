@@ -106,10 +106,10 @@ Here is an example that creates an EC2 instance per availability zone, running a
 After deploying this using `pulumi up`, we will have a fully functional endpoint:
 
 ```bash
-$ for i in {1..5}; do curl http://$(pulumi stack output endpoint); done
+$ for i in {1..5} ; do curl "http://$(pulumi stack output endpoint)" ; done
 Hello World, from Server 1!
 Hello World, from Server 1!
-Hello World, from Server 2!
+Hello World, from Server 3!
 Hello World, from Server 2!
 Hello World, from Server 1!
 ```

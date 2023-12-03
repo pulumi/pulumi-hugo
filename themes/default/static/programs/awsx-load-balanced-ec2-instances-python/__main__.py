@@ -1,10 +1,1 @@
-"""An AWS Python Pulumi program"""
-
-import pulumi
-from pulumi_aws import s3
-
-# Create an AWS resource (S3 Bucket)
-bucket = s3.Bucket('my-bucket')
-
-# Export the name of the bucket
-pulumi.export('bucket_name', bucket.id)
+# https://www.pulumi.com/ai/conversations/7de5d1a5-77fc-4b78-9469-e1eb6370dd58

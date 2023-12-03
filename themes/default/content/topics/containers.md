@@ -11,29 +11,7 @@ hero:
         Pulumi supports managing clusters and their associated infrastructure,
         whether it is Kubernetes, Amazon ECS, Azure ACI, or Google GKE. Build
         and deploy application containers to private registies, all in one
-        programming model.
-
-
-        Any code, any cloud, any language.
-    code: |
-        // Deploy Nginx to AWS Fargate
-        import * as awsx from "@pulumi/awsx";
-
-        let web = new awsx.elb.ApplicationLoadBalancer(
-            "net-lb", { external: true }).
-            createListener("web", { port: 80, external: true });
-
-        let appService = new awsx.ecs.FargateService("nginx-svc", {
-            taskDefinitionArgs: {
-                container: {
-                    image: "nginx",
-                    portMappings: [ web ],
-                },
-            },
-            desiredCount: 5,
-        });
-
-        export let url = web.endpoint.hostname;
+        programming model. Any code, any cloud, any language.
 
 sections:
     - id: what-is-container-management
@@ -53,56 +31,16 @@ examples:
           In this example, Pulumi defines and uses a new Amazon ECS Fargate cluster, and creates
           a load balanced service running the standard Nginx image from the Docker Hub. The same
           experience is available on other clouds and Pulumi can pull from any container registry.
-      code: |
-          // Deploy Nginx to AWS Fargate
-          import * as awsx from "@pulumi/awsx";
-
-          let web = new awsx.elb.ApplicationLoadBalancer(
-              "net-lb", { external: true }).
-              createListener("web", { port: 80, external: true });
-
-          let appService = new awsx.ecs.FargateService("nginx-svc", {
-              taskDefinitionArgs: {
-                  container: {
-                      image: "nginx",
-                      portMappings: [ web ],
-                  },
-              },
-              desiredCount: 5,
-          });
-
-          export let url = web.endpoint.hostname;
+      path: awsx-load-balanced-fargate-nginx
       cta:
           url: /docs/quickstart
           label: GET STARTED
 
     - title: Deploying with a custom build
       body: >
-          This example uses a trivial Dockerfile that derives from the <code>nginx</code> base image and copies the
-          <code>./www</code> directory into the nginx HTML target so that it will be served up.
-      code: |
-          // Using a custom build based on Nginx
-          import * as awsx from "@pulumi/awsx";
-
-          let web = new awsx.elb.ApplicationLoadBalancer(
-              "net-lb", { external: true }).
-              createListener("web", { port: 80, external: true });
-
-          const appService = new awsx.ecs.FargateService("nginx-svc", {
-              taskDefinitionArgs: {
-                  container: {
-                      image: awsx.ecs.Image.fromPath("app-img", "./www");
-                      portMappings: [ web ],
-                  },
-              },
-              desiredCount: 5,
-          });
-
-          export const url = web.endpoint.hostname;
-
-          // Dockerfile
-          FROM nginx
-          COPY ./www /usr/share/nginx/html
+          This example builds a container image from a Dockerfile at <code>./app</code> and deploys
+          it behind a load balancer with ECS Fargate.
+      path: awsx-load-balanced-fargate-ecr
       cta:
           url: /docs/quickstart
           label: GET STARTED
@@ -112,27 +50,7 @@ examples:
           Pulumi can provision Kubernetes clusters &mdash; in this example, an AWS EKS cluster &mdash;
           in addition to deploying application-level configuration, using a standard set of languages,
           abstractions, and tools.
-      code: |
-          import * as awsx from "@pulumi/awsx";
-          import * as eks from "@pulumi/eks";
-
-          // Create a VPC for our cluster.
-          const vpc = new awsx.ec2.Vpc("vpc", {});
-
-          // Create the EKS cluster itself.
-          const cluster = new eks.Cluster("cluster", {
-              vpcId: vpc.id,
-              subnetIds: vpc.publicSubnetIds,
-              instanceType: "t2.medium",
-              desiredCapacity: 4,
-              minSize: 3,
-              maxSize: 5,
-              storageClasses: "gp2",
-              deployDashboard: true,
-          });
-
-          // Export the cluster's kubeconfig.
-          export const kubeconfig = cluster.kubeconfig;
+      path: aws-eks-cluster
       cta:
           url: /docs/quickstart
           label: GET STARTED

@@ -45,6 +45,7 @@ prompt_for_example_description() {
 
 generate_example() {
     languages=(javascript typescript python go csharp java yaml)
+    echo
 
     for language in "${languages[@]}"; do
         example_dir="${examples_dir}/${example_name}-${language}"
@@ -52,10 +53,11 @@ generate_example() {
         rm -rf "${example_dir}"
         mkdir -p "${example_dir}"
 
-        pushd "$example_dir"
-            pulumi new "${cloud}-${language}" --description="${example_description}" --yes --force --generate-only
-            pulumi install
-        popd
+        pushd "$example_dir" > /dev/null
+            echo "Creating ${example_dir} ..."
+            pulumi new "${cloud}-${language}" --description="${example_description}" --yes --force --generate-only > /dev/null
+            pulumi install > /dev/null
+        popd > /dev/null
     done
 
     unsuffix_gomods
@@ -86,7 +88,7 @@ prompt_for_example_description
 
 generate_example
 echo
-echo "Done! ✨ Your new projects are now available at ${examples_dir}/${example_name}. To
+echo "✨ Done! Your new projects are now available at ${examples_dir}/${example_name}. To
 include them in any Markdown file (blog post, doc, whatever), use the '{{< example-program >}}'
 shortcode thusly:
 

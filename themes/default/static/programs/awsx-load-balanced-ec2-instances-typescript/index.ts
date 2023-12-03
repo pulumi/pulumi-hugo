@@ -1,10 +1,10 @@
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
-import * as pulumi from "@pulumi/pulumi";
 
+// Get the default VPC for the current region.
 const vpc = new awsx.ec2.DefaultVpc("default-vpc");
 
-// Create a security group to allow egress out of the VPC.
+// Create a security group to allow traffic to and from the virtual machine.
 const securityGroup = new aws.ec2.SecurityGroup("web-sg", {
     vpcId: vpc.vpcId,
     ingress: [
@@ -25,38 +25,35 @@ const securityGroup = new aws.ec2.SecurityGroup("web-sg", {
     ],
 });
 
-// Creates an ALB associated with the default VPC for this region listening on port 80.
+// Create an ALB in the default VPC listening on port 80.
 const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic", {
     listener: {
         port: 80,
     },
-    securityGroups: [securityGroup.id],
+    securityGroups: [securityGroup.id], // Is this actually right? It works -- but is it correct?
 });
 
 vpc.publicSubnetIds.apply(subnetIds => {
-    const ami = aws.ec2
-        .getAmi({
-            filters: [
-                {
-                    name: "name",
-                    values: ["amzn2-ami-hvm-*"],
-                },
-            ],
-            owners: ["amazon"],
-            mostRecent: true,
-        })
-        .then(result => result.id);
 
+    // Get the latest Amazon Linux 2 AMI.
+    const ami = aws.ec2.getAmiOutput({
+        filters: [{ name: "name", values: ["amzn2-ami-hvm-*"] }],
+        owners: ["amazon"],
+        mostRecent: true,
+    });
+
+    // In each VPC subnet, create an EC2 instance and attach it to the ALB.
     subnetIds.forEach((subnetId, i) => {
         const vm = new aws.ec2.Instance(`web-${i}`, {
+            ami: ami.id,
             instanceType: "t2.micro",
-            ami,
             subnetId,
             vpcSecurityGroupIds: alb.loadBalancer.securityGroups,
-            userData: `#!/bin/bash
-echo "Hello World, from Server ${i + 1}!" > index.html
-nohup python -m SimpleHTTPServer 80 &
-`,
+            userData: [
+                `#!/bin/bash`,
+                `echo "Hello World, from Server ${i + 1}!" > index.html`,
+                `nohup python -m SimpleHTTPServer 80 &`,
+            ].join("\n"),
         });
 
         const attachment = new awsx.lb.TargetGroupAttachment(`attachment-${i}`, {
@@ -66,4 +63,5 @@ nohup python -m SimpleHTTPServer 80 &
     });
 });
 
-export const endpoint = pulumi.interpolate`http://${alb.loadBalancer.dnsName}`;
+// Export the resulting URL so that it's easy to access.
+export const endpoint = alb.loadBalancer.dnsName;

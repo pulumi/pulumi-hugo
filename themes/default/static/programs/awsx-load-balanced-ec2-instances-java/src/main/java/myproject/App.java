@@ -12,3 +12,5 @@ public class App {
         });
     }
 }
+
+// https://www.pulumi.com/ai/conversations/2e9ff068-6c87-4ae6-bb91-0b46a2545e90

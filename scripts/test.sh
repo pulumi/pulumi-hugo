@@ -11,9 +11,13 @@ pulumi whoami -v
 #
 
 # Delete install artifacts (but leave any existing go.mod files in place so we can use them.)
-find ./themes/default/static/programs/* -name 'node_modules' | xargs rm -rf
-find ./themes/default/static/programs/* -name 'go.sum' | xargs rm -f
-find ./themes/default/static/programs/* -name 'package-lock.json' | xargs rm -f
+find ./themes/default/static/programs/* -type d -maxdepth 1 -name "node_modules" | xargs rm -rf
+find ./themes/default/static/programs/* -type d -maxdepth 1 -name "venv" | xargs rm -rf
+find ./themes/default/static/programs/* -type d -maxdepth 1 -name "__pycache__" | xargs rm -rf
+find ./themes/default/static/programs/* -type d -maxdepth 1 -name "bin" | xargs rm -rf
+find ./themes/default/static/programs/* -type d -maxdepth 1 -name "obj" | xargs rm -rf
+find ./themes/default/static/programs/* -type d -maxdepth 1 -name "target" | xargs rm -rf
+find ./themes/default/static/programs/* -type f -maxdepth 1 -name "go.sum" | xargs rm -f
 
 # Fix up go.mod files.
 clean_gomods
@@ -86,6 +90,3 @@ popd
 
 clean_gomods
 suffix_gomods
-
-# Delete build/test artifacts.
-git clean -fdX themes/default/static/examples
