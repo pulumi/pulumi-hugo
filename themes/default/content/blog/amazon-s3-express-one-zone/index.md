@@ -10,6 +10,8 @@ meta_image: "aws-s3-express-one-zone.png"
 
 At AWS re:Invent 2023, AWS announced the new [Amazon S3 Express One Zone](https://aws.amazon.com/s3/storage-classes/express-one-zone/) storage class. This new service provides incredible performance by collocating your S3 buckets closer to the workloads that use the data. Compared to the S3 Standard storage class, the Express One Zone storage class is up to 10X faster, handles 100,000s of requests per second, offers single-digit millisecond latency, and can reduces request costs by 50%. This can be extremely beneficial for data-intensive workloads such as AI/ML, media, finance, realtime, and high-performance computing scenarios. This blog post shows how to get started with Amazon S3 Express One Zone using Pulumi infrastructure as code.
 
+<!--more-->
+
 ## Introducing Amazon S3 Express One Zone
 
 The new [Amazon S3 Express One Zone](https://aws.amazon.com/s3/storage-classes/express-one-zone/) storage class extends S3 with a new low latency option. This can improve runtime performance by spending less time moving data around. When creating a new bucket, you choose an [Availability Zone (AZ)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) in which that bucket will be placed, which of course should be collocated with the compute workload that will consume that data.
