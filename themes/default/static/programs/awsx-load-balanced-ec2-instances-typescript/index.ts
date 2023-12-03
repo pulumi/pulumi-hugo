@@ -34,7 +34,6 @@ const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic", {
 });
 
 vpc.publicSubnetIds.apply(subnetIds => {
-
     // Get the latest Amazon Linux 2 AMI.
     const ami = aws.ec2.getAmiOutput({
         filters: [{ name: "name", values: ["amzn2-ami-hvm-*"] }],
@@ -49,11 +48,7 @@ vpc.publicSubnetIds.apply(subnetIds => {
             instanceType: "t2.micro",
             subnetId,
             vpcSecurityGroupIds: alb.loadBalancer.securityGroups,
-            userData: [
-                `#!/bin/bash`,
-                `echo "Hello World, from Server ${i + 1}!" > index.html`,
-                `nohup python -m SimpleHTTPServer 80 &`,
-            ].join("\n"),
+            userData: [`#!/bin/bash`, `echo "Hello World, from Server ${i + 1}!" > index.html`, `nohup python -m SimpleHTTPServer 80 &`].join("\n"),
         });
 
         const attachment = new awsx.lb.TargetGroupAttachment(`attachment-${i}`, {
