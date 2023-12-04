@@ -34,7 +34,6 @@ const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic", {
 });
 
 vpc.publicSubnetIds.apply(subnetIds => {
-
     // Get the latest Amazon Linux 2 AMI.
     const ami = aws.ec2.getAmiOutput({
         filters: [{ name: "name", values: ["amzn2-ami-hvm-*"] }],
