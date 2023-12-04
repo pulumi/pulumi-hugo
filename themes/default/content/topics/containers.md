@@ -104,47 +104,56 @@ examples:
           import * as awsx from "@pulumi/awsx";
 
           // A bucket to store videos and thumbnails.
-          const videos = new aws.s3.Bucket("bucket");
+          const bucket = new aws.s3.Bucket("bucket");
 
-          // A task which runs a containerized FFMPEG job to extract a thumbnail image.
-          const ffmpegThumbnailTask = new awsx.ecs.FargateTaskDefinition("ffmpegThumbTask", {
-              container: {
-                  image: awsx.ecs.Image.fromPath("ffmpegThumbTask", "./docker-ffmpeg-thumb"),
-                  memoryReservation: 512,
-              },
+          const repo = new awsx.ecr.Repository("repo", {
+              forceDelete: true,
+          });
+
+          const image = new awsx.ecr.Image("image", {
+              repositoryUrl: repo.url,
+              context: "./app",
+          });
+
+          const role = new aws.iam.Role("thumbnailerRole", {
+              assumeRolePolicy: aws.iam.assumeRolePolicyForPrincipal({ Service: "lambda.amazonaws.com" }),
+          });
+
+          const lambdaS3Access =  new aws.iam.RolePolicyAttachment("lambdaFullAccess", {
+              role: role.name,
+              policyArn: aws.iam.ManagedPolicy.AWSLambdaExecute,
+          });
+
+          const thumbnailer = new aws.lambda.Function("thumbnailer", {
+              packageType: "Image",
+              imageUri: image.imageUri,
+              role: role.arn,
+              timeout: 900,
           });
 
           // When a new video is uploaded, run the FFMPEG task on the video file.
-          videos.onObjectCreated("onNewVideo",
-              new aws.lambda.CallbackFunction<aws.s3.BucketEvent, void>("onNewVideo", {
-                  // Specify appropriate policies so that this AWS lambda can run EC2 tasks.
-                  policies: [
-                      aws.iam.ManagedPolicy.AWSLambdaExecute,
-                      aws.iam.ManagedPolicy.AmazonECSFullAccess,
-                  ],
-                  callback: async bucketArgs => {
-                      for (const record of bucketArgs.Records) {
-                          const file = record.s3.object.key;
-                          const thumbnailFile = file.substring(0, file.indexOf('_')) + '.jpg';
-                          const framePos = file.substring(file.indexOf('_')+1, file.indexOf('.')).replace('-',':');
-                          await ffmpegThumbnailTask.run({
-                              overrides: {
-                                  containerOverrides: [{
-                                      name: "container",
-                                      environment: [
-                                          { name: "S3_BUCKET", value: bucketName.get() },
-                                          { name: "INPUT_VIDEO", value: file },
-                                          { name: "TIME_OFFSET", value: framePos },
-                                          { name: "OUTPUT_FILE", value: thumbnailFile },
-                                      ],
-                                  }],
-                              },
-                          });
-                      }
-                  },
-              }), { filterSuffix: ".mp4" });
+          // Use the time index specified in the filename (e.g. cat_00-01.mp4 uses timestamp 00:01)
+          bucket.onObjectCreated("onNewVideo", thumbnailer, { filterSuffix: ".mp4" });
 
-          exports.bucketName = videos.bucket;
+          // Export the bucket name.
+          export const bucketName = bucket.id;
+
+          // When a new thumbnail is created, log a message.
+          bucket.onObjectCreated("onNewThumbnail", new aws.lambda.CallbackFunction<aws.s3.BucketEvent, void>("onNewThumbnail", {
+              callback: async bucketArgs => {
+                  console.log("onNewThumbnail called");
+                  if (!bucketArgs.Records) {
+                      return;
+                  }
+
+                  for (const record of bucketArgs.Records) {
+                      console.log(`*** New thumbnail: file ${record.s3.object.key} was saved at ${record.eventTime}.`);
+                  }
+              },
+              policies: [
+                  aws.iam.ManagedPolicy.AWSLambdaExecute, // Provides wide access to Lambda and S3
+              ],
+          }), { filterSuffix: ".jpg" });
       cta:
           url: /docs/quickstart
           label: GET STARTED

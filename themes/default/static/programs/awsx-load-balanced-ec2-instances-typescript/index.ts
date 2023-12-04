@@ -30,7 +30,7 @@ const alb = new awsx.lb.ApplicationLoadBalancer("web-traffic", {
     listener: {
         port: 80,
     },
-    securityGroups: [securityGroup.id], // Is this actually right? It works -- but is it correct?
+    securityGroups: [securityGroup.id],
 });
 
 vpc.publicSubnetIds.apply(subnetIds => {
