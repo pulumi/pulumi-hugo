@@ -18,18 +18,15 @@ func main() {
 			return err
 		}
 
-		// Create the EKS itself.
+		// Create the EKS cluster itself.
 		eksCluster, err := eks.NewCluster(ctx, "eks-cluster", &eks.ClusterArgs{
-			VpcId:                        eksVpc.VpcId,
-			PublicSubnetIds:              eksVpc.PublicSubnetIds,
-			PrivateSubnetIds:             eksVpc.PrivateSubnetIds,
-			InstanceType:                 pulumi.String("t3.medium"),
-			DesiredCapacity:              pulumi.Int(6),
-			MinSize:                      pulumi.Int(3),
-			MaxSize:                      pulumi.Int(3),
-			NodeAssociatePublicIpAddress: pulumi.BoolRef(false),
-			EndpointPrivateAccess:        pulumi.Bool(false),
-			EndpointPublicAccess:         pulumi.Bool(true),
+			VpcId:            eksVpc.VpcId,
+			PublicSubnetIds:  eksVpc.PublicSubnetIds,
+			PrivateSubnetIds: eksVpc.PrivateSubnetIds,
+			InstanceType:     pulumi.String("t3.medium"),
+			DesiredCapacity:  pulumi.Int(3),
+			MinSize:          pulumi.Int(3),
+			MaxSize:          pulumi.Int(6),
 		})
 		if err != nil {
 			return err

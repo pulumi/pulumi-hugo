@@ -12,19 +12,16 @@ return await Deployment.RunAsync(() =>
         CidrBlock = "10.0.0.0/16",
     });
 
-    // Create the EKS itself.
+    // Create the EKS cluster itself.
     var eksCluster = new Eks.Cluster("eks-cluster", new()
     {
         VpcId = eksVpc.VpcId,
         PublicSubnetIds = eksVpc.PublicSubnetIds,
         PrivateSubnetIds = eksVpc.PrivateSubnetIds,
         InstanceType = "t3.medium",
-        DesiredCapacity = 6,
+        DesiredCapacity = 3,
         MinSize = 3,
-        MaxSize = 3,
-        NodeAssociatePublicIpAddress = false,
-        EndpointPrivateAccess = false,
-        EndpointPublicAccess = true,
+        MaxSize = 6,
     });
 
     // Export the cluster's kubeconfig.

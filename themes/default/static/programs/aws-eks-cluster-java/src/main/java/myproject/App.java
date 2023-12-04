@@ -19,12 +19,9 @@ public class App {
             var cluster = new Cluster("eks-cluster", ClusterArgs.builder()
                 .vpcId(vpc.vpcId())
                 .instanceType("t3.medium")
-                .desiredCapacity(6)
+                .desiredCapacity(3)
                 .minSize(3)
-                .maxSize(3)
-                .nodeAssociatePublicIpAddress(false)
-                .endpointPrivateAccess(false)
-                .endpointPublicAccess(true)
+                .maxSize(6)
                 .build());
 
             // Export the cluster's kubeconfig

@@ -8,18 +8,15 @@ const eksVpc = new awsx.ec2.Vpc("eks-vpc", {
     cidrBlock: "10.0.0.0/16",
 });
 
-// Create the EKS itself.
+// Create the EKS cluster itself.
 const eksCluster = new eks.Cluster("eks-cluster", {
     vpcId: eksVpc.vpcId,
     publicSubnetIds: eksVpc.publicSubnetIds,
     privateSubnetIds: eksVpc.privateSubnetIds,
     instanceType: "t3.medium",
-    desiredCapacity: 6,
+    desiredCapacity: 3,
     minSize: 3,
-    maxSize: 3,
-    nodeAssociatePublicIpAddress: false,
-    endpointPrivateAccess: false,
-    endpointPublicAccess: true,
+    maxSize: 6,
 });
 
 // Export the cluster's kubeconfig.

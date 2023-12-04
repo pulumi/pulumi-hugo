@@ -9,7 +9,7 @@ resources:
       enableDnsHostnames: true
       cidrBlock: 10.0.0.0/16
 
-  # Create the EKS itself.
+  # Create the EKS cluster itself.
   eks-cluster:
     type: eks:Cluster
     properties:
@@ -17,12 +17,9 @@ resources:
       publicSubnetIds: ${eks-vpc.publicSubnetIds}
       privateSubnetIds: ${eks-vpc.privateSubnetIds}
       instanceType: t3.medium
-      desiredCapacity: 6
+      desiredCapacity: 3
       minSize: 3
-      maxSize: 3
-      nodeAssociatePublicIpAddress: false
-      endpointPrivateAccess: false
-      endpointPublicAccess: true
+      maxSize: 6
 
 outputs:
   # Export the cluster's kubeconfig.
