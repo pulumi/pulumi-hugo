@@ -72,5 +72,5 @@ def create_and_attach_instances(subnet_ids):
 # In each VPC subnet, create an EC2 instance and attach it to the ALB.
 vpc.public_subnet_ids.apply(create_and_attach_instances)
 
-# Export the resulting URL so that it's easy to access
+# Export the resulting URL so that it's easy to access.
 pulumi.export("endpoint", alb.load_balancer.dns_name)

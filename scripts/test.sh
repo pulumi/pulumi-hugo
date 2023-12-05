@@ -44,7 +44,7 @@ pushd themes/default/static/programs
         # Install dependencies.
         pulumi -C "$project" install
 
-        # Skip certain programs known not to work.
+        # Skip previews known not to work.
 
         # Java examples of FargateService erroneously complain about missing container declarations.
         # https://github.com/pulumi/pulumi-awsx/issues/820
@@ -56,20 +56,9 @@ pushd themes/default/static/programs
             continue
         fi
 
-        # Error converting 'java.util.Collections$UnmodifiableRandomAccessList' to 'TypeShape{type=interface java.util.List, parameters=[TypeShape{type=class com.pulumi.aws.lb.outputs.TargetGroupTargetHealthState, parameters=[]}]}'.
-        # https://github.com/pulumi/pulumi-java/issues/1276
-        if [[ "$project" == "awsx-elb-web-listener-java" ]]; then
-            continue
-        elif [[ "$project" == "awsx-elb-multi-listener-redirect-java" ]]; then
-            continue
-        fi
-
         # Destroy any existing stacks.
         pulumi -C "$project" cancel --stack $fqsn --yes || true
         pulumi -C "$project" destroy --stack $fqsn --yes --refresh --remove || true
-
-        # Delete any existing Docker images.
-        # docker rmi -f "$(docker images -aq)" || true
 
         # Create a new stack.
         pulumi -C "$project" stack select $fqsn || pulumi -C "$project" stack init $fqsn
@@ -77,6 +66,19 @@ pushd themes/default/static/programs
 
         # Preview or deploy.
         if [[ "$1" == "update" ]]; then
+
+            # Skip updates known not to work.
+
+            # Error converting 'java.util.Collections$UnmodifiableRandomAccessList' to 'TypeShape{type=interface java.util.List, parameters=[TypeShape{type=class com.pulumi.aws.lb.outputs.TargetGroupTargetHealthState, parameters=[]}]}'.
+            # https://github.com/pulumi/pulumi-java/issues/1276
+            # if [[ "$project" == "awsx-elb-web-listener-java" ]]; then
+            #     continue
+            # elif [[ "$project" == "awsx-elb-multi-listener-redirect-java" ]]; then
+            #     continue
+            # elif [[ "$project" == "awsx-load-balanced-ec2-instances-java" ]]; then
+            #     continue
+            # fi
+
             pulumi -C "$project" up --yes
         else
             pulumi -C "$project" preview
