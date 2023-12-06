@@ -11,8 +11,8 @@ DevOps integrates the historic siloed disciplines of software development (Dev) 
 In this article, we'll touch on the following key areas regarding DevOps:
 
 * DevOps essentials
-* DevOps key terms
-* DevOps tools
+* DevOps key terms and tools
+* DevOps implementation
 
 ## Essentials of DevOps
 
@@ -26,7 +26,7 @@ In this article, we'll touch on the following key areas regarding DevOps:
 
 * **Policy as code**: Policy as code refers to the practice of writing high-level policy descriptions in a language that can be processed by a computer. Instead of manually maintaining compliance documentation and procedures, policies are managed in version-controlled systems and integrated into the development and deployment lifecycle. This enables automatic and continuous enforcement of policies, providing a clear, auditable trail of compliance and security practices. Policy as code is an essential part of modern cloud infrastructure, ensuring that policies are consistently applied across all environments and enabling quicker response to policy violations. Learn more about [Policy as code in Pulumi](/docs/guides/crossguard/)
 
-## DevOps terms
+## DevOps terms and tools
 
 The following terms provide a foundational understanding of the key concepts and practices in the field of DevOps.
 
@@ -40,10 +40,10 @@ The following terms provide a foundational understanding of the key concepts and
 | Continuous integration (CI) | A development practice where developers integrate code into a shared repository frequently, ideally several times a day. Each integration is verified by an automated build, allowing teams to detect problems early. | [Jenkins](https://www.jenkins.io/), [CircleCI](https://circleci.com/) |
 | Continuous testing | The process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. | [Selenium](https://www.selenium.dev/), [Appium](https://appium.io/docs/) |
 | DevOps culture | The set of practices that brings the development and operations teams together to collaborate throughout the entire software lifecycle, from development and testing to deployment and operations. | [O'Reilly Library](https://www.oreilly.com/library/view/building-a-devops/9781449368340/), [Pluralsight](https://www.pluralsight.com/courses/implementing-devops-real-world) |
-| Microservices | An architectural style that structures an application as a collection of services that are highly maintainable and testable, loosely coupled, independently deployable, and organized around business capabilities. | [Postman](https://www.postman.com/), [AWS SQS](https://aws.amazon.com/sqs/) |
+| Microservices | An architectural style that structures an application as a collection of services that are highly maintainable and testable, loosely coupled, independently deployable, and organized around business capabilities. | [Kubernetes](https://kubernetes.io/), [AWS SQS](https://aws.amazon.com/sqs/) |
 | Version control | A system that records changes to a file or set of files over time so that you can recall specific versions later. It's a fundamental tool for enabling collaboration, ensuring traceability, and managing code for teams. | [Git](https://git-scm.com/), [Subversion](https://subversion.apache.org/) |
 
-## DevOps tools
+## DevOps implementation
 
 Implementing and scaling a culture of DevOps is enabled by tools that can reliably and securely deploy solutions to meet the needs of your customers. Pulumi provides the best tools to implement DevOps successfully and build your infrastructure as code in any programming language. You can use Pulumi’s [open source SDK](https://github.com/pulumi/pulumi) to provision infrastructure on any cloud, and securely and collaboratively build and manage infrastructure using Pulumi Cloud, which is available for unlimited free usage and has a free tier for teams and offers advanced editions for larger teams and enterprises.
 
