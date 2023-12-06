@@ -10,9 +10,9 @@ DevOps integrates the historic siloed disciplines of software development (Dev) 
 
 In this article, we'll touch on the following key areas regarding DevOps:
 
-* DevOps essentials 
-* DevOps key terms 
-* DevOps tools 
+* DevOps essentials
+* DevOps key terms
+* DevOps tools
 
 ## Essentials of DevOps
 
@@ -27,6 +27,7 @@ In this article, we'll touch on the following key areas regarding DevOps:
 * **Policy as code**: Policy as code refers to the practice of writing high-level policy descriptions in a language that can be processed by a computer. Instead of manually maintaining compliance documentation and procedures, policies are managed in version-controlled systems and integrated into the development and deployment lifecycle. This enables automatic and continuous enforcement of policies, providing a clear, auditable trail of compliance and security practices. Policy as code is an essential part of modern cloud infrastructure, ensuring that policies are consistently applied across all environments and enabling quicker response to policy violations. Learn more about [Policy as code in Pulumi](/docs/guides/crossguard/)
 
 ## DevOps terms
+
 The following terms provide a foundational understanding of the key concepts and practices in the field of DevOps.
 
 | Topic | Description | Tools |
