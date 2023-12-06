@@ -47,7 +47,7 @@ The [VPC resource](/registry/packages/aws/api-docs/ec2/vpc/) class provides full
 AWS VPC API, and [aws.ec2](/registry/packages/aws/api-docs/ec2/) the entire AWS EC2 API. Using
 these packages, you can configure all aspects of AWS networks for your applications and infrastructure.
 
-The [awsx.ec2.Vpc](/docs/reference/pkg/nodejs/pulumi/awsx/ec2#Vpc) class encapsulates a complete
+The [awsx.ec2.Vpc](/registry/packages/awsx/api-docs/ec2/vpc/) class encapsulates a complete
 configuration of an AWS network, including the actual VPC itself, in addition to public and/or private subnets, route
 tables, and gateways, across multiple availability zones. It is designed to be easier to use, with reasonable defaults,
 and follows AWS's own best practices, with configurability for advanced scenarios. The two can be used together.
@@ -59,167 +59,38 @@ Below are some of the most common infrastructure as code tasks with VPCs.
 Often resources like clusters, API gateways, lambdas, and more, will request a VPC object or ID. This ensures
 such resources inside of your VPC so network traffic are isolated from other VPCs in your account.
 
-So where do you get such a VPC from? One way is that each AWS account has a default VPC per region. Using the default
-VPC is often the easiest path when you're just getting up and running or don't yet understand your specific networking
-requirements. Most resources will use this default VPC automatically if you leave it unspecified. In other cases,
-you may be required to pass it explicitly, in which case you'll need to get it programmatically.
+Each AWS account has a default VPC per region. Using the default VPC is often the easiest path when you're just getting up and running or don't yet understand your specific networking requirements. Most resources will use this default VPC automatically if you leave it unspecified. In other cases, you may be required to pass it explicitly, in which case you'll need to get it programmatically.
 
 The following example will [read the default VPC](https://www.pulumi.com/registry/packages/awsx/api-docs/ec2/defaultvpc/) and export some of its properties for easy consumption.
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Fetch the default VPC information from your AWS account:
-const vpc = new awsx.ec2.DefaultVpc("default-vpc");
-
-// Export a few interesting fields to make them easy to use:
-export const vpcId = vpc.vpcId;
-export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
-export const vpcPublicSubnetIds = vpc.publicSubnetIds;
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import pulumi
-import pulumi_awsx as awsx
-
-vpc = awsx.ec2.DefaultVpc("default-vpc")
-
-pulumi.export("vpcId", vpc.vpc_id)
-pulumi.export("publicSubnetIds", vpc.public_subnet_ids)
-pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-package main
-
-import (
-	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		vpc, err := ec2.NewDefaultVpc(ctx, "custom", nil)
-		if err != nil {
-			return err
-		}
-
-		ctx.Export("vpcId", vpc.VpcId)
-		ctx.Export("privateSubnetIds", vpc.PrivateSubnetIds)
-		ctx.Export("publicSubnetIds", vpc.PublicSubnetIds)
-		return nil
-	})
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Pulumi;
-using Ec2 = Pulumi.Awsx.Ec2;
-
-class MyStack : Stack
-{
-    public MyStack()
-    {
-        var vpc = new DefaultVpc("default-vpc");
-        this.VpcId = vpc.vpcId;
-    }
-    [Output] public Output<string> VpcId { get; set; }
-}
-
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language java %}}
-
-```java
-package myproject;
-
-import com.pulumi.Pulumi;
-import com.pulumi.awsx.ec2.DefaultVpc;
-
-public class App {
-    public static void main(String[] args) {
-        Pulumi.run(ctx -> {
-            var vpc = new DefaultVpc("custom");
-
-            ctx.export("vpcId", vpc.vpcId());
-            ctx.export("privateSubnetIds", vpc.privateSubnetIds());
-            ctx.export("publicSubnetIds", vpc.publicSubnetIds());
-        });
-    }
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-name: project-name
-runtime: yaml
-description: Pulumi Crosswalk for AWS VPC
-outputs:
-  vpcId: ${default-vpc.vpcId}
-  publicSubnetIds: ${default-vpc.publicSubnetIds}
-  privateSubnetIds: ${default-vpc.privateSubnetIds}
-resources:
-  default-vpc:
-    type: awsx:ec2:DefaultVpc
-```
-
-{{% /choosable %}}
+{{< example-program path="awsx-get-default-vpc" >}}
 
 Once you have defined this function, running `pulumi up` will show:
 
 ```bash
 $ pulumi up
-Updating (dev):
 
-     Type                     Name                  Status
- +   pulumi:pulumi:Stack      crosswalk-aws-dev     created
- +   └─ awsx:ec2:DefaultVpc   default-vpc           created
+Updating (dev)
+
+     Type                    Name                      Status
+ +   pulumi:pulumi:Stack     awsx-get-default-vpc-dev  created (2s)
+ +   └─ awsx:ec2:DefaultVpc  default-vpc               created (0.49s)
 
 Outputs:
+    privateSubnetIds: [
+        [0]: "subnet-0b4f9fb1df1543b07"
+    ]
     publicSubnetIds : [
-        [0]: "subnet-03711d3b9b21b3a8e"
-        [1]: "subnet-06e8296c053e2b952"
-        [2]: "subnet-0fc2dc8f8ba906919"
-        [3]: "subnet-037f366816336db85"
+        [0]: "subnet-43f43a1e"
+        [1]: "subnet-c7d926bf"
+        [2]: "subnet-d7e7fe9c"
     ]
-    privateSubnetIds : [
-        [0]: "subnet-03711d3b9b21b3a8e"
-        [1]: "subnet-06e8296c053e2b952"
-        [2]: "subnet-0fc2dc8f8ba906919"
-        [3]: "subnet-037f366816336db85"
-    ]
+    vpcId           : "vpc-4b82e033"
 
 Resources:
     + 2 created
 
-Duration: 9s
+Duration: 3s
 ```
 
 In this case, the VPC is not created and managed by Pulumi. Instead `DefaultVpc` reads from your AWS account
