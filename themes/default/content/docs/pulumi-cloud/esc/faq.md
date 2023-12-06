@@ -40,4 +40,4 @@ We encourage you to create a [feature request](https://github.com/pulumi/esc/iss
 
 **Can a Self-hosted Pulumi customer use this?**
 <br>
-Pulumi ESC is currently not supported for self-hosted customers. [Contact sales](https://www.pulumi.com/contact/?form=sales) if you'd like to participate in our self-hosted beta for ESC when it is available
+Pulumi ESC is currently not supported for self-hosted customers. [Contact sales](https://www.pulumi.com/contact/?form=sales) if you'd like to participate in our self-hosted beta for ESC when it is available.
