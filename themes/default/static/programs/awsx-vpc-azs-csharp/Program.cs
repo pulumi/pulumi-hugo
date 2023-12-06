@@ -4,10 +4,9 @@ using Pulumi.Awsx.Ec2;
 
 return await Deployment.RunAsync(() =>
 {
-    // Allocate a new VPC with a custom CIDR block.
     var vpc = new Vpc("vpc", new()
     {
-        CidrBlock = "172.16.8.0/24",
+        NumberOfAvailabilityZones = 4,
     });
 
     return new Dictionary<string, object?>
