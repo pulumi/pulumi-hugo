@@ -5,8 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ChatGptModel } from "./components/ai/types";
+import { ChooserKey, ChooserMode, ChooserType, LanguageKey, OSKey } from "./components/chooser/chooser";
 import { APINavNode } from "./components/pulumi-api-doc-filterable-nav/pulumi-api-doc-filterable-nav";
-import { ChooserKey, ChooserMode, ChooserType, OSKey } from "./components/chooser/chooser";
 import { ChooserKey as ChooserKey1, ChooserMode as ChooserMode1, ChooserOptionStyle, ChooserType as ChooserType1 } from "./components/chooser/chooser";
 import { SourceKind } from "./components/convert/convert";
 import { Filter } from "./components/filter-select/filter-select-option";
@@ -27,6 +28,19 @@ export namespace Components {
         "imageClass": string;
         "leftItems": string;
         "rightItems": string;
+    }
+    interface PulumiAi {
+        "h1": string;
+        "language": LanguageKey;
+        "model": ChatGptModel;
+        "prompt": string;
+        "repoUrl": string;
+        "signupUrl": string;
+        "siteUrl": string;
+        "userID": string;
+        "welcomeContent": string;
+        "welcomeSelector": string;
+        "wsEndpoint": string;
     }
     interface PulumiApiDocFilterableNav {
         "baseDirectory": string;
@@ -213,6 +227,12 @@ declare global {
     var HTMLHomeSlotsElement: {
         prototype: HTMLHomeSlotsElement;
         new (): HTMLHomeSlotsElement;
+    };
+    interface HTMLPulumiAiElement extends Components.PulumiAi, HTMLStencilElement {
+    }
+    var HTMLPulumiAiElement: {
+        prototype: HTMLPulumiAiElement;
+        new (): HTMLPulumiAiElement;
     };
     interface HTMLPulumiApiDocFilterableNavElement extends Components.PulumiApiDocFilterableNav, HTMLStencilElement {
     }
@@ -434,6 +454,7 @@ declare global {
         "event-session-registration-modal": HTMLEventSessionRegistrationModalElement;
         "header-cta": HTMLHeaderCtaElement;
         "home-slots": HTMLHomeSlotsElement;
+        "pulumi-ai": HTMLPulumiAiElement;
         "pulumi-api-doc-filterable-nav": HTMLPulumiApiDocFilterableNavElement;
         "pulumi-api-doc-nav-node": HTMLPulumiApiDocNavNodeElement;
         "pulumi-api-doc-nav-tree": HTMLPulumiApiDocNavTreeElement;
@@ -488,6 +509,19 @@ declare namespace LocalJSX {
         "imageClass"?: string;
         "leftItems"?: string;
         "rightItems"?: string;
+    }
+    interface PulumiAi {
+        "h1"?: string;
+        "language"?: LanguageKey;
+        "model"?: ChatGptModel;
+        "prompt"?: string;
+        "repoUrl"?: string;
+        "signupUrl"?: string;
+        "siteUrl"?: string;
+        "userID"?: string;
+        "welcomeContent"?: string;
+        "welcomeSelector"?: string;
+        "wsEndpoint"?: string;
     }
     interface PulumiApiDocFilterableNav {
         "baseDirectory"?: string;
@@ -654,6 +688,7 @@ declare namespace LocalJSX {
         "event-session-registration-modal": EventSessionRegistrationModal;
         "header-cta": HeaderCta;
         "home-slots": HomeSlots;
+        "pulumi-ai": PulumiAi;
         "pulumi-api-doc-filterable-nav": PulumiApiDocFilterableNav;
         "pulumi-api-doc-nav-node": PulumiApiDocNavNode;
         "pulumi-api-doc-nav-tree": PulumiApiDocNavTree;
@@ -699,6 +734,7 @@ declare module "@stencil/core" {
             "event-session-registration-modal": LocalJSX.EventSessionRegistrationModal & JSXBase.HTMLAttributes<HTMLEventSessionRegistrationModalElement>;
             "header-cta": LocalJSX.HeaderCta & JSXBase.HTMLAttributes<HTMLHeaderCtaElement>;
             "home-slots": LocalJSX.HomeSlots & JSXBase.HTMLAttributes<HTMLHomeSlotsElement>;
+            "pulumi-ai": LocalJSX.PulumiAi & JSXBase.HTMLAttributes<HTMLPulumiAiElement>;
             "pulumi-api-doc-filterable-nav": LocalJSX.PulumiApiDocFilterableNav & JSXBase.HTMLAttributes<HTMLPulumiApiDocFilterableNavElement>;
             "pulumi-api-doc-nav-node": LocalJSX.PulumiApiDocNavNode & JSXBase.HTMLAttributes<HTMLPulumiApiDocNavNodeElement>;
             "pulumi-api-doc-nav-tree": LocalJSX.PulumiApiDocNavTree & JSXBase.HTMLAttributes<HTMLPulumiApiDocNavTreeElement>;
