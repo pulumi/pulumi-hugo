@@ -107,197 +107,68 @@ simple defaults that many will want to start with, to complete control over ever
 
 The following code creates a new VPC using all default settings:
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Allocate a new VPC with the default settings:
-const vpc = new awsx.ec2.Vpc("custom");
-
-// Export a few resulting fields to make them easy to use:
-export const vpcId = vpc.vpcId;
-export const privateSubnetIds = vpc.privateSubnetIds;
-export const publicSubnetIds = vpc.publicSubnetIds;
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import pulumi
-import pulumi_awsx as awsx
-
-vpc = awsx.ec2.Vpc("custom")
-
-pulumi.export("vpcId", vpc.vpc_id)
-pulumi.export("publicSubnetIds", vpc.public_subnet_ids)
-pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-package main
-
-import (
-	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		vpc, err := ec2.NewVpc(ctx, "custom", nil)
-
-		if err != nil {
-			return err
-		}
-
-		ctx.Export("vpcId", vpc.VpcId)
-		ctx.Export("privateSubnetIds", vpc.PrivateSubnetIds)
-		ctx.Export("publicSubnetIds", vpc.PublicSubnetIds)
-		return nil
-	})
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-using Pulumi;
-using Ec2 = Pulumi.Awsx.Ec2;
-
-class MyStack : Stack
-{
-    public MyStack()
-    {
-        var vpc = new Ec2.Vpc("custom");
-
-        this.VpcId = vpc.VpcId;
-        this.PublicSubnetIds = vpc.PublicSubnetIds;
-        this.PrivateSubnetIds = vpc.PrivateSubnetIds;
-    }
-
-
-    [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
-    [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
-    [Output] public Output<string> VpcId { get; set; }
-}
-
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language java %}}
-
-```java
-package myproject;
-
-import com.pulumi.Pulumi;
-import com.pulumi.awsx.ec2.Vpc;
-
-public class App {
-    public static void main(String[] args) {
-        Pulumi.run(ctx -> {
-            var vpc = new Vpc("custom");
-
-            ctx.export("vpcId", vpc.vpcId());
-            ctx.export("privateSubnetIds", vpc.privateSubnetIds());
-            ctx.export("publicSubnetIds", vpc.publicSubnetIds());
-        });
-    }
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-name: awsx-vpc-yaml
-runtime: yaml
-description: A minimal AWS Pulumi YAML program
-outputs:
-  vpcId: ${custom.vpcId}
-  publicSubnetIds: ${custom.publicSubnetIds}
-  privateSubnetIds: ${custom.privateSubnetIds}
-resources:
-  custom:
-    type: awsx:ec2:Vpc
-```
-
-{{% /choosable %}}
+{{< example-program path="awsx-vpc">}}
 
 If we run `pulumi up`, the VPC and its supporting resources will be provisioned:
 
 ```bash
 $ pulumi up
-Updating (dev):
 
-     Type                                          Name                Status
- +   pulumi:pulumi:Stack                           crosswalk-aws-dev   created
- +   └─ awsx:ec2:Vpc                               custom              created
- +      └─ aws:ec2:Vpc                             custom              created
- +         ├─ aws:ec2:InternetGateway              custom              created
- +         ├─ aws:ec2:Subnet                       custom-private-3    created
- +         │  └─ aws:ec2:RouteTable                custom-private-3    created
- +         │     ├─ aws:ec2:RouteTableAssociation  custom-private-3    created
- +         │     └─ aws:ec2:Route                  custom-private-3    created
- +         ├─ aws:ec2:Subnet                       custom-public-1     created
- +         │  ├─ aws:ec2:RouteTable                custom-public-1     created
- +         │  │  ├─ aws:ec2:RouteTableAssociation  custom-public-1     created
- +         │  │  └─ aws:ec2:Route                  custom-public-1     created
- +         │  ├─ aws:ec2:Eip                       custom-1            created
- +         │  └─ aws:ec2:NatGateway                custom-1            created
- +         ├─ aws:ec2:Subnet                       custom-public-3     created
- +         │  ├─ aws:ec2:RouteTable                custom-public-3     created
- +         │  │  ├─ aws:ec2:RouteTableAssociation  custom-public-3     created
- +         │  │  └─ aws:ec2:Route                  custom-public-3     created
- +         │  ├─ aws:ec2:Eip                       custom-3            created
- +         │  └─ aws:ec2:NatGateway                custom-3            created
- +         ├─ aws:ec2:Subnet                       custom-private-1    created
- +         │  └─ aws:ec2:RouteTable                custom-private-1    created
- +         │     ├─ aws:ec2:RouteTableAssociation  custom-private-1    created
- +         │     └─ aws:ec2:Route                  custom-private-1    created
- +         ├─ aws:ec2:Subnet                       custom-private-2    created
- +         │  └─ aws:ec2:RouteTable                custom-private-2    created
- +         │     ├─ aws:ec2:RouteTableAssociation  custom-private-2    created
- +         │     └─ aws:ec2:Route                  custom-private-2    created
- +         └─ aws:ec2:Subnet                       custom-public-2     created
- +            ├─ aws:ec2:Eip                       custom-2            created
- +            ├─ aws:ec2:RouteTable                custom-public-2     created
- +            │  ├─ aws:ec2:Route                  custom-public-2     created
- +            │  └─ aws:ec2:RouteTableAssociation  custom-public-2     created
- +            └─ aws:ec2:NatGateway                custom-2            created
+Updating (dev)
+
+     Type                                          Name               Status
+ +   pulumi:pulumi:Stack                           awsx-vpc-dev       created (146s)
+ +   └─ awsx:ec2:Vpc                               vpc                created (0.79s)
+ +      └─ aws:ec2:Vpc                             vpc                created (1s)
+ +         ├─ aws:ec2:Subnet                       vpc-private-3      created (0.95s)
+ +         │  └─ aws:ec2:RouteTable                vpc-private-3      created (0.72s)
+ +         │     ├─ aws:ec2:RouteTableAssociation  vpc-private-3      created (0.75s)
+ +         │     └─ aws:ec2:Route                  vpc-private-3      created (1s)
+ +         ├─ aws:ec2:Subnet                       vpc-public-1       created (11s)
+ +         │  ├─ aws:ec2:Eip                       vpc-1              created (0.93s)
+ +         │  ├─ aws:ec2:RouteTable                vpc-public-1       created (1s)
+ +         │  │  ├─ aws:ec2:RouteTableAssociation  vpc-public-1       created (1s)
+ +         │  │  └─ aws:ec2:Route                  vpc-public-1       created (1s)
+ +         │  └─ aws:ec2:NatGateway                vpc-1              created (95s)
+ +         ├─ aws:ec2:Subnet                       vpc-public-3       created (11s)
+ +         │  ├─ aws:ec2:RouteTable                vpc-public-3       created (1s)
+ +         │  │  ├─ aws:ec2:Route                  vpc-public-3       created (1s)
+ +         │  │  └─ aws:ec2:RouteTableAssociation  vpc-public-3       created (1s)
+ +         │  ├─ aws:ec2:Eip                       vpc-3              created (1s)
+ +         │  └─ aws:ec2:NatGateway                vpc-3              created (125s)
+ +         ├─ aws:ec2:Subnet                       vpc-public-2       created (11s)
+ +         │  ├─ aws:ec2:Eip                       vpc-2              created (1s)
+ +         │  ├─ aws:ec2:RouteTable                vpc-public-2       created (1s)
+ +         │  │  ├─ aws:ec2:Route                  vpc-public-2       created (1s)
+ +         │  │  └─ aws:ec2:RouteTableAssociation  vpc-public-2       created (1s)
+ +         │  └─ aws:ec2:NatGateway                vpc-2              created (95s)
+ +         ├─ aws:ec2:Subnet                       vpc-private-1      created (1s)
+ +         │  └─ aws:ec2:RouteTable                vpc-private-1      created (1s)
+ +         │     ├─ aws:ec2:RouteTableAssociation  vpc-private-1      created (0.51s)
+ +         │     └─ aws:ec2:Route                  vpc-private-1      created (1s)
+ +         ├─ aws:ec2:Subnet                       vpc-private-2      created (2s)
+ +         │  └─ aws:ec2:RouteTable                vpc-private-2      created (1s)
+ +         │     ├─ aws:ec2:RouteTableAssociation  vpc-private-2      created (0.72s)
+ +         │     └─ aws:ec2:Route                  vpc-private-2      created (1s)
+ +         └─ aws:ec2:InternetGateway              vpc                created (2s)
 
 Outputs:
-  + privateSubnetIds: [
-  +     [0]: "subnet-0dd701be10146604d"
-  +     [1]: "subnet-0cb44ff5ad9916c8b"
-  +     [2]: "subnet-0a71e13e0f7cb1072"
+    privateSubnetIds: [
+        [0]: "subnet-0b5f7a7f8a4a88d51"
+        [1]: "subnet-03dac3c6561fe7140"
+        [2]: "subnet-089ba98ecf74614c0"
     ]
-  + publicSubnetIds : [
-  +     [0]: "subnet-07aeb839d421ec509"
-  +     [1]: "subnet-0f3ddf15e83b09a51"
-  +     [2]: "subnet-0ea5745eb5d7d5353"
+    publicSubnetIds : [
+        [0]: "subnet-02783beae211c9bab"
+        [1]: "subnet-0460f52b1c1786dee"
+        [2]: "subnet-0afa4ac06444be3c5"
     ]
-  + vpcId           : "vpc-06d9c2a16345db520"
+    vpcId           : "vpc-0bba07367def55a87"
 
 Resources:
     + 34 created
 
-Duration: 2m42s
+Duration: 2m27s
 ```
 
 If unspecified, this VPC will use the following defaults:
