@@ -1,7 +1,7 @@
 ---
 title: What is Continuous Integration/Continuous Delivery (CI/CD)?
 meta_desc: |
-    Learn about what continuous integration/continuous delivery (CI/CD) is and why CI/CD practices enable developers to automate and improve their release processes.
+    Learn about CI/CD practices that improve dev process with automation for effective, rapid software delivery.
 type: what-is
 page_title: "What is Continuous Integration/Continuous delivery (CI/CD)?"
 ---
@@ -17,25 +17,30 @@ In this article, we'll touch on the following key areas:
 * CI/CD best practices
 
 ### What is CI/CD - essentials
+
 CI/CD comprises two software development practices that work in tandem to improve software development and deployment processes.
 
 ### What is continuous integration (CI)
-Continuous integration (CI) is a development practice that encourages frequent integration of tested code changes into a shared code repository. 
+
+Continuous integration (CI) is a development practice that encourages frequent integration of tested code changes into a shared code repository.
 
 Developers submit the new code changes, and automated builds and tests are triggered to ensure the new code integrates with the existing codebase. A test can be a simple code linter or a more complex process like checking for security vulnerabilities. Proper tests, including unit, integration, and regression tests, are standard in CI.
 
 ### What is continuous delivery (CD)
+
 In continuous delivery (CD), developers ensure that software is consistently maintained in a deployable state by automating various release process stages, including testing, deployment, and configuration. A release typically consists of a set of new features, improvements, bug fixes, or other changes that have been implemented since the previous release. Release creation may require bundling configuration files, binaries, and other artifacts such as certificates. The new release may be intended for end-user consumption, where it is deployed to production environments, or it may undergo user acceptance testing (UAT) before being released to a broader audience. CD facilitates the automation of these processes.
 
-### What is continuous deployment? 
+### What is continuous deployment?
+
 You may have also heard the phrase "continuous deployment." Continuous deployment encompasses the automatic release of software to production. It deploys the packaged code and makes the application available to end users.
 
-To add continuous deployment to our Hello World example, we'd take the latest Docker image tag and deploy it in a running container so that end users can take advantage of the new code changes. However, let's first learn about pipelines before we show you how to do so. 
+To add continuous deployment to our Hello World example, we'd take the latest Docker image tag and deploy it in a running container so that end users can take advantage of the new code changes. However, let's first learn about pipelines before we show you how to do so.
 
 ### What is a CI/CD pipeline?
-The sequential nature of continuous integration, delivery, and deployment practices creates a symbolic pipeline, hence the CI/CD pipeline. 
 
-A pipeline is the deployable unit path for CI/CD. A pipeline starts when code is committed to a repository like GitHub. The next step is a notification to a build system, such as [GitHub Actions](https://docs.github.com/en/actions). The build system compiles the code and runs unit tests. Integration tests are the next step if your code passes the unit tests. If your code passes both unit and integration tests, the images will be created and pushed into a registry service in the case of containers. This is the simplest example of a pipeline. Still, you can do many more things, such as security scans, check modules for CVEs (Common Vulnerabilities and Exploits), send Slack notifications, and run quality checks. A pipeline can be fully automated or have checkpoints that require approval before resuming. 
+The sequential nature of continuous integration, delivery, and deployment practices creates a symbolic pipeline, hence the CI/CD pipeline.
+
+A pipeline is the deployable unit path for CI/CD. A pipeline starts when code is committed to a repository like GitHub. The next step is a notification to a build system, such as [GitHub Actions](https://docs.github.com/en/actions). The build system compiles the code and runs unit tests. Integration tests are the next step if your code passes the unit tests. If your code passes both unit and integration tests, the images will be created and pushed into a registry service in the case of containers. This is the simplest example of a pipeline. Still, you can do many more things, such as security scans, check modules for CVEs (Common Vulnerabilities and Exploits), send Slack notifications, and run quality checks. A pipeline can be fully automated or have checkpoints that require approval before resuming.
 
 ### CI/CD terms and tools
 
@@ -54,7 +59,7 @@ The following terms provide a foundational understanding of the key concepts and
 
 ## Best practices for CI/CD pipelines
 
-To build an effective CI/CD pipeline, platform and development teams must adopt and invest in DevOps best practices. 
+To build an effective CI/CD pipeline, platform and development teams must adopt and invest in DevOps best practices.
 
 * **Use a single repository** - Maintain a centralized repository containing all the necessary files, scripts, source code, and resources for the build and deployment processes.
 * **Adopt [link](link)**  - Integrate code changes regularly into the main branch to avoid complex merges and ensure a continuous flow of minor, incremental updates.
