@@ -59,7 +59,7 @@ The Value of Enhanced Data Visibility:
 
 Having a more detailed and transparent view of your stack updates provides several key benefits:
 
-Resource Lifecycle Management: Understanding when and why a resource was added, modified, or deleted helps in better managing your infrastructure's lifecycle and planning future changes.
+**Resource Lifecycle Management**: Understanding when and why a resource was added, modified, or deleted helps in better managing your infrastructure's lifecycle and planning future changes.
 
 Enhanced Troubleshooting and Analysis: The ability to go back to a specific point in time and analyze the state of your infrastructure at that moment can be invaluable in troubleshooting issues or understanding the impact of certain changes.
 
