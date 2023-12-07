@@ -1,6 +1,6 @@
 ---
 title_tag: "Pulumi ESC FAQs"
-meta_desc: Frequently asked questions about preview, GA, pricing and roadmap 
+meta_desc: Frequently asked questions about Pulumi ESC preview, GA, pricing and roadmap.
 title: FAQ
 h1: Pulumi ESC FAQs
 meta_image: /images/docs/meta-images/docs-meta.png
