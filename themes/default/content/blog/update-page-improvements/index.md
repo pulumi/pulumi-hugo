@@ -7,7 +7,7 @@ title: "Enhanced Pulumi Cloud Stack Update Pages"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2023-12-05T10:34:32-08:00
+date: 2023-12-07T10:34:32-08:00
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
