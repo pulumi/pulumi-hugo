@@ -12,17 +12,16 @@ public class App {
         Pulumi.run(ctx -> {
 
             var vpc = new Vpc("vpc", VpcArgs.builder()
-                .subnetSpecs(Arrays.asList(
+                .subnetSpecs(new SubnetSpecArgs[]{
                     SubnetSpecArgs.builder()
                         .type(SubnetType.Public)
                         .cidrMask(22)
-                        .build()
-                    ),
+                        .build(),
                     SubnetSpecArgs.builder()
                         .type(SubnetType.Private)
                         .cidrMask(20)
-                        .build(),
-                )
+                        .build()
+                    })
                 .build());
 
             ctx.export("vpcId", vpc.vpcId());
