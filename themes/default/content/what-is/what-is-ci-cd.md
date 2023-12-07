@@ -8,7 +8,7 @@ page_title: "What is Continuous Integration/Continuous delivery (CI/CD)?"
 
 Continuous integration/continuous delivery (CI/CD) is a methodology in software development that emphasizes frequent, automated integration of code changes into a shared repository, followed by automated and reliable software release processes. As a foundational component of [modern DevOps practices](/what-is/what-is-devops/) CI/CD practices and tools increase efficiency, reduce bugs, and enable faster release cycles, thereby enhancing overall software quality and accelerating time-to-market for new features.
 
-In CI, developers frequently merge code changes, often multiple times a day, which are immediately tested to identify and fix integration issues early. Continuous Delivery builds on this by ensuring that the codebase is always in a deployable state, automating the deployment process to enable rapid and safe release to production. This approach enables developers to deliver features and fixes more quickly and reliably, reducing manual efforts and enhancing the quality of software deployments.
+In Continous Integration (CI), developers frequently merge code changes, often multiple times a day, which are immediately tested to identify and fix integration issues early. Continuous Delivery (CD) builds on this by ensuring that the codebase is always in a deployable state, automating the deployment process to enable rapid and safe release to production. This approach enables developers to deliver features and fixes more quickly and reliably, reducing manual efforts and enhancing the quality of software deployments.
 
 In this article, we'll touch on the following key areas:
 
@@ -48,9 +48,9 @@ The following terms provide a foundational understanding of the key concepts and
 
 | Topic | Description | Tools |
 |-------|-------------|-------|
-| Build automation | The process of automating the creation of a software build and the associated processes including compiling computer source code into binary code, packaging binary code, and running automated tests. | [link](link), [link](link) |
+| Build automation | The process of automating the creation of a software build and the associated processes including compiling computer source code into binary code, packaging binary code, and running automated tests. | [Docker](https://www.docker.com/), [GitHub Actions](https://github.com/features/actions) |
 | Continuous deployment | An extension of continuous delivery, where every change that passes the automated tests is deployed to production automatically, without explicit approval from a developer, making the deployment process fully automated. | [Pulumi Deployments](/docs/pulumi-cloud/deployments/) |
-| Continuous delivery (CD) | A software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably released at any time. It aims at building, testing, and releasing software with greater speed and frequency. | [Codefresh](https://codefresh.io/docs/docs/getting-started/cd-codefresh/), [AWS CodePipeline](https://aws.amazon.com/codepipeline/) |
+| Continuous delivery (CD) | A software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably released at any time. It aims at building, testing, and releasing software with greater speed and frequency. | [Codefresh](https://codefresh.io/docs/docs/getting-started/cd-codefresh/), [AWS CodePipeline](https://aws.amazon.com/codepipeline/), [GitHub Actions](https://github.com/features/actions) |
 | Continuous integration (CI) | A development practice where developers integrate code into a shared repository frequently, ideally several times a day. Each integration is verified by an automated build, allowing teams to detect problems early. | [Jenkins](https://www.jenkins.io/), [CircleCI](https://circleci.com/) |
 | Continuous testing | The process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. | [Selenium](https://www.selenium.dev/), [Appium](https://appium.io/docs/) |
 | Feature Flagging | A technique that allows developers to turn certain functionalities on and off, typically used in a continuous delivery environment. | [LaunchDarkly](https://launchdarkly.com/), [FeatureToggle](https://featuretoggle.org/) |
@@ -62,7 +62,7 @@ The following terms provide a foundational understanding of the key concepts and
 To build an effective CI/CD pipeline, platform and development teams must adopt and invest in DevOps best practices.
 
 * **Use a single repository** - Maintain a centralized repository containing all the necessary files, scripts, source code, and resources for the build and deployment processes.
-* **Adopt [link](link)**  - Integrate code changes regularly into the main branch to avoid complex merges and ensure a continuous flow of minor, incremental updates.
+* **Adopt [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development)**  - Integrate code changes regularly into the main branch to avoid complex merges and ensure a continuous flow of minor, incremental updates.
 * **Automate the build** - Automatically compile code to catch errors early and use tools to check and improve code standards.
 * **Include comprehensive testing** - Implement automated testing at various levels (unit, integration, and end-to-end) to ensure code quality and functionality.  Integrate tools to identify and fix security vulnerabilities.
 * **Deploy stable environments** - Automate setting up and deploying to different environments such as development, QA, pre-production, and production.
