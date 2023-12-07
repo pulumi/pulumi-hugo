@@ -3,4 +3,4 @@ runtime:
   name: nodejs
   options:
     typescript: false
-description: An example of creating a new VPC and configuring availability zones.
+description: An example that creates a new VPC and configuring availability zones.
