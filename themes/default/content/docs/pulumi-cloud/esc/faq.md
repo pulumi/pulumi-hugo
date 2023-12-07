@@ -19,8 +19,8 @@ Yes, Pulumi ESC is served using the same [highly secure](/security/pulumi-cloud-
 
 We launched Pulumi ESC in response to customer feedback about their difficulties in managing config and secrets causing sprawl and duplications across stacks. Pulumi ESC is a natural extension of Pulumi IaC by allowing [hierarchical](/docs/pulumi-cloud/esc/#configuration-as-code) configurations that can be used across stacks.
 
-**When will Pulumi ESC be generally available?**
-<br>
+## When will Pulumi ESC be generally available?
+
 Pulumi ESC will be generally available in 2024.
 
 **What will be the pricing of Pulumi ESC?**
