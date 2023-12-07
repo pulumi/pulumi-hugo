@@ -40,7 +40,7 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-As part of our ongoing commitment to providing developers and infrastructure teams with powerful tools, we're thrilled to introduce the latest enhancement to Pulumi's Cloud Stack Update Pages. We have shipped an improvement to Pulumi Cloud stack update pages where all update pages now show the resources in the stack at that time and the stack outputs.
+As part of our ongoing commitment to providing developers and infrastructure teams with powerful tools, we're thrilled to introduce the latest enhancement to Pulumi Cloud's stack update pages. We have shipped an improvement to Pulumi Cloud stack update pages where all update pages now show the resources in the stack at that time and the stack outputs.
 
 <!--more-->
 ![Screenshot of the new experience](update-page.png)
