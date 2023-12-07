@@ -1,5 +1,5 @@
 {
-    "name": "awsx-get-default-vpc-typescript",
+    "name": "awsx-vpc-default-typescript",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^18"

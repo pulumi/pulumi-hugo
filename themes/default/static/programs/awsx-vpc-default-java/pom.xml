@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.pulumi</groupId>
-    <artifactId>awsx-get-default-vpc-java</artifactId>
+    <artifactId>awsx-vpc-default-java</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

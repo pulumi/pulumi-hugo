@@ -63,7 +63,7 @@ Each AWS account has a default VPC per region. Using the default VPC is often th
 
 The following example will [read the default VPC](https://www.pulumi.com/registry/packages/awsx/api-docs/ec2/defaultvpc/) and export some of its properties for easy consumption.
 
-{{< example-program path="awsx-get-default-vpc" >}}
+{{< example-program path="awsx-vpc-default" >}}
 
 Once you have defined this function, running `pulumi up` will show:
 

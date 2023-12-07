@@ -1,4 +1,4 @@
-module awsx-get-default-vpc-go
+module awsx-vpc-default-go
 
 go 1.21
 
