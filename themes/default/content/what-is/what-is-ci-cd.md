@@ -54,7 +54,7 @@ The following terms provide a foundational understanding of the key concepts and
 | Continuous integration (CI) | A development practice where developers integrate code into a shared repository frequently, ideally several times a day. Each integration is verified by an automated build, allowing teams to detect problems early. | [Jenkins](https://www.jenkins.io/), [CircleCI](https://circleci.com/) |
 | Continuous testing | The process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. | [Selenium](https://www.selenium.dev/), [Appium](https://appium.io/docs/en/2.2/) |
 | Feature flagging | A technique that allows developers to turn certain functionalities on and off, typically used in a continuous delivery environment. | [LaunchDarkly](https://launchdarkly.com/), [FeatureToggle](https://featuretoggle.org/) |
-| Test Automation | Using special software to control the execution of tests and the comparison of actual outcomes with predicted outcomes. | [Selenium](https://www.selenium.dev/), [JUnit](https://junit.org/junit5/) |
+| Test automation | Using special software to control the execution of tests and the comparison of actual outcomes with predicted outcomes. | [Selenium](https://www.selenium.dev/), [JUnit](https://junit.org/junit5/) |
 | Version Control Systems (VCS) | Systems that record changes to a file or set of files over time so that you can recall specific versions later. | [Git](https://git-scm.com/), [Subversion](https://subversion.apache.org/) |
 
 ## Best practices for CI/CD pipelines
