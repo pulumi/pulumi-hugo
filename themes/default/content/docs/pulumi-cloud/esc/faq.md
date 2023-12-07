@@ -23,8 +23,8 @@ We launched Pulumi ESC in response to customer feedback about their difficulties
 
 Pulumi ESC will be generally available in 2024.
 
-**What will be the pricing of Pulumi ESC?**
-<br>
+## What will be the pricing of Pulumi ESC?
+
 During the preview, the product is free to use. When the product is made generally available, it will have a pricing model that is competitive with the market.
 
 **What is the roadmap for Pulumi ESC?**
