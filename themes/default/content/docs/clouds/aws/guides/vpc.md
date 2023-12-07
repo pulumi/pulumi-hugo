@@ -107,7 +107,7 @@ simple defaults that many will want to start with, to complete control over ever
 
 The following code creates a new VPC using all default settings:
 
-{{< example-program path="awsx-vpc">}}
+{{< example-program path="awsx-vpc" >}}
 
 If we run `pulumi up`, the VPC and its supporting resources will be provisioned:
 
@@ -191,7 +191,7 @@ Although the default CIDR block of `10.0.0.0/16` is reasonable most of the time,
 
 To set our VPC's CIDR block, pass a custom `cidrBlock` argument to `awsx.ec2.Vpc`'s constructor:
 
-{{< example-program path="awsx-vpc-cidr">}}
+{{< example-program path="awsx-vpc-cidr" >}}
 
 This decreases the number of available IP addresses in our VPC from the default of 65,536 addresses (`/16` netmask) to
 256 addresses (`/24` netmask), in addition to changing the IP address prefix from `10.0.0.0` to `172.16.8.0`.
@@ -214,7 +214,7 @@ three zones at a reasonable cost.
 
 All regions support at least 3 availability zones, but many of them support more. If you'd like to improve the fault tolerance of your configuration, override this with the `numberOfAvailabilityZones` argument:
 
-{{< example-program path="awsx-vpc-azs">}}
+{{< example-program path="awsx-vpc-azs" >}}
 
 The VPC resource will internally adjust to fully consume 4 availability zones and split traffic accordingly.
 
@@ -238,7 +238,7 @@ the behavior using its constructor's `subnets` argument.
 
 For example, this program replicates the default behavior but with an explicit specification:
 
-{{< example-program path="awsx-vpc-subnets">}}
+{{< example-program path="awsx-vpc-subnets" >}}
 
 The `subnetSpecs` argument takes an array of subnet specifications. Each one can include this information:
 
@@ -270,166 +270,7 @@ in a public subnet, NAT gateways will only be created if there is at least one p
 
 Fewer NAT gateways can be requested (e.g., to save on costs) using the `natGateways` property:
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-import * as awsx from "@pulumi/awsx";
-
-// Allocate a new VPC with public and private subnets per AZ:
-const vpc = new awsx.ec2.Vpc("custom", {
-  natGateways: {
-    strategy: awsx.ec2.NatGatewayStrategy.Single,
-  }
-});
-
-// Export a few resulting fields to make them easy to use:
-export const vpcId = vpc.vpcId;
-export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
-export const vpcPublicSubnetIds = vpc.publicSubnetIds;
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import pulumi
-import pulumi_awsx as awsx
-
-vpc = awsx.ec2.Vpc("custom", nat_gateways=awsx.ec2.NatGatewayConfigurationArgs(
-    strategy=awsx.ec2.NatGatewayStrategy.SINGLE))
-
-pulumi.export("vpcId", vpc.vpc_id)
-pulumi.export("publicSubnetIds", vpc.public_subnet_ids)
-pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-package main
-
-import (
-	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		vpc, err := ec2.NewVpc(ctx, "custom", &ec2.VpcArgs{
-			NatGateways: &ec2.NatGatewayConfigurationArgs{
-				Strategy: ec2.NatGatewayStrategySingle,
-			},
-		})
-
-		if err != nil {
-			return err
-		}
-
-		ctx.Export("vpcId", vpc.VpcId)
-		ctx.Export("privateSubnetIds", vpc.PrivateSubnetIds)
-		ctx.Export("publicSubnetIds", vpc.PublicSubnetIds)
-		return nil
-	})
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-using System.Collections.Immutable;
-using Pulumi;
-using Pulumi.Awsx.Ec2.Inputs;
-using Ec2 = Pulumi.Awsx.Ec2;
-
-class MyStack : Stack
-{
-    public MyStack()
-    {
-        var vpc = new Ec2.Vpc("custom", new Ec2.VpcArgs
-        {
-            NatGateways = new NatGatewayConfigurationArgs
-            {
-                Strategy = Ec2.NatGatewayStrategy.Single
-            }
-        });
-
-        this.VpcId = vpc.VpcId;
-        this.PublicSubnetIds = vpc.PublicSubnetIds;
-        this.PrivateSubnetIds = vpc.PrivateSubnetIds;
-    }
-
-    [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
-    [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
-    [Output] public Output<string> VpcId { get; set; }
-}
-
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language java %}}
-
-```java
-package myproject;
-
-import com.pulumi.Pulumi;
-import com.pulumi.awsx.ec2.Vpc;
-import com.pulumi.awsx.ec2.VpcArgs;
-import com.pulumi.awsx.ec2.enums.NatGatewayStrategy;
-import com.pulumi.awsx.ec2.inputs.NatGatewayConfigurationArgs;
-
-public class App {
-    public static void main(String[] args) {
-        Pulumi.run(ctx -> {
-            var vpc = new Vpc("custom", VpcArgs.builder()
-                .natGateways(
-                    NatGatewayConfigurationArgs.builder()
-                        .strategy(NatGatewayStrategy.Single)
-                        .build()
-                )
-                .build()
-            );
-
-            ctx.export("vpcId", vpc.vpcId());
-            ctx.export("privateSubnetIds", vpc.privateSubnetIds());
-            ctx.export("publicSubnetIds", vpc.publicSubnetIds());
-        });
-    }
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-name: awsx-vpc-yaml
-runtime: yaml
-description: A minimal AWS Pulumi YAML program
-outputs:
-  vpcId: ${custom.vpcId}
-  publicSubnetIds: ${custom.publicSubnetIds}
-  privateSubnetIds: ${custom.privateSubnetIds}
-resources:
-  custom:
-    type: awsx:ec2:Vpc
-    properties:
-      natGateways:
-        strategy: "Single"
-```
-
-{{% /choosable %}}
+{{< example-program path="awsx-vpc-nat-gateways" >}}
 
 In the case where there is one NAT gateway per availability zone, then routing is very simple. Each private subnet
 will have have connections routed through gateway in that availability zone.
