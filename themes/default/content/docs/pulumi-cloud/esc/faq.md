@@ -38,6 +38,6 @@ We have a lot of [features](https://github.com/pulumi/esc/issues) planned for ES
 
 We encourage you to create a [feature request](https://github.com/pulumi/esc/issues/new/choose) or upvote [existing open requests](https://github.com/pulumi/esc/issues).
 
-**Can a Self-hosted Pulumi customer use this?**
-<br>
+## Can a Self-hosted Pulumi customer use this?
+
 Pulumi ESC is currently not supported for self-hosted customers. [Contact sales](/contact/?form=sales) if you'd like to participate in our self-hosted beta for ESC when it is available.
