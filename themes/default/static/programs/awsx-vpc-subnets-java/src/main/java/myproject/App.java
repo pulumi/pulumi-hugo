@@ -14,14 +14,14 @@ public class App {
             var vpc = new Vpc("vpc", VpcArgs.builder()
                 .subnetSpecs(Arrays.asList(
                     SubnetSpecArgs.builder()
-                        .type(SubnetType.Private)
-                        .cidrMask(20)
-                        .build(),
-                    SubnetSpecArgs.builder()
                         .type(SubnetType.Public)
                         .cidrMask(22)
                         .build()
-                    )
+                    ),
+                    SubnetSpecArgs.builder()
+                        .type(SubnetType.Private)
+                        .cidrMask(20)
+                        .build(),
                 )
                 .build());
 

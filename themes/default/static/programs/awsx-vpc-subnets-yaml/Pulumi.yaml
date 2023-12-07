@@ -7,10 +7,10 @@ resources:
     type: awsx:ec2:Vpc
     properties:
       subnetSpecs:
-        - type: "Private"
-          cidrMask: 20
         - type: "Public"
           cidrMask: 22
+        - type: "Private"
+          cidrMask: 20
 
 outputs:
   vpcId: ${vpc.vpcId}

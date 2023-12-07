@@ -11,12 +11,12 @@ func main() {
 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
 			SubnetSpecs: []ec2.SubnetSpecArgs{
 				{
-					Type:     ec2.SubnetTypePrivate,
-					CidrMask: pulumi.IntRef(20),
-				},
-				{
 					Type:     ec2.SubnetTypePublic,
 					CidrMask: pulumi.IntRef(22),
+				},
+				{
+					Type:     ec2.SubnetTypePrivate,
+					CidrMask: pulumi.IntRef(20),
 				},
 			},
 		})

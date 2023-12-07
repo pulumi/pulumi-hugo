@@ -4,7 +4,7 @@ using Pulumi.Awsx.Ec2;
 
 return await Deployment.RunAsync(() =>
 {
-    // Fetch the default VPC for the current AWS region.
+    // Allocate a new VPC with the default settings.
     var vpc = new Vpc("vpc");
 
     // Export a few properties to make them easy to use.

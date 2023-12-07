@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
 		// Fetch the default VPC for the current AWS region.
-		vpc, err := ec2.NewDefaultVpc(ctx, "custom", nil)
+		vpc, err := ec2.NewDefaultVpc(ctx, "default-vpc", nil)
 		if err != nil {
 			return err
 		}

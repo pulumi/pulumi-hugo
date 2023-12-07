@@ -72,9 +72,9 @@ $ pulumi up
 
 Updating (dev)
 
-     Type                    Name                      Status
- +   pulumi:pulumi:Stack     awsx-get-default-vpc-dev  created (2s)
- +   └─ awsx:ec2:DefaultVpc  default-vpc               created (0.49s)
+     Type                    Name          Status
+ +   pulumi:pulumi:Stack     awsx-vpc-dev  created (2s)
+ +   └─ awsx:ec2:DefaultVpc  default-vpc   created (0.49s)
 
 Outputs:
     privateSubnetIds: [
@@ -296,373 +296,74 @@ traffic. This will be used by default, however you may allocate and assign resou
 
 Here is a program that allocates a new group with a few rules:
 
-{{< example-program path="awsx-vpc-nat-gateways" >}}
+{{< example-program path="awsx-vpc-security-groups" >}}
 
 For additional details about configuring security group rules, See the
 [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) documentation.
 
 ## How to use your VPC, Security Group, and EC2 instance
 
-This example shows how to deploy an EC2 instance using a VPC and Security Group provisioned with the Crosswalk AWS component:
+This example shows how to deploy an EC2 instance using a VPC and security group provisioned with the Crosswalk for AWS component:
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" / >}}
-
-{{% choosable language typescript %}}
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
-
-// Allocate a new VPC with the default settings:
-const vpc = new awsx.ec2.Vpc("custom");
-
-// Allocate a security group using the above techniques:
-const sg = new aws.ec2.SecurityGroup("webserver-sg", {
-  vpcId: vpc.vpcId,
-})
-
-// t2.micro is available in the AWS free tier
-const size = "t2.micro";
-
-// Get the most recent Amazon linux ami:
-const ami = aws.ec2.getAmiOutput({
-  filters: [{
-    name: "name",
-    values: ["amzn-ami-hvm-*"],
-  }],
-  owners: ["137112412989"], // This owner ID is Amazon
-  mostRecent: true,
-});
-
-const server = new aws.ec2.Instance("webserver-www", {
-  instanceType: size,
-  vpcSecurityGroupIds: [ sg.id ], // reference the security group resource above
-  subnetId: vpc.publicSubnetIds.apply(x => x![0]),  // reference the public subnet from the custom vpc above
-  ami: ami.id,
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import pulumi
-import pulumi_aws as aws
-import pulumi_awsx as awsx
-
-vpc = awsx.ec2.Vpc("custom")
-
-sg = aws.ec2.SecurityGroup("webserver-sg",
-                                  vpc_id=vpc.vpc_id)
-
-ami = aws.ec2.get_ami(filters=[
-                            aws.ec2.GetAmiFilterArgs(
-                              name="name",
-                              values=["amzn-ami-hvm-*"],
-                            )],
-                          most_recent=True,
-                          owners=["137112412989"])
-
-server = aws.ec2.Instance("webserver-www",
-                          instance_type="t2.micro",
-                          vpc_security_group_ids=[sg.id],
-                          ami=ami.id,
-                          subnet_id=vpc.public_subnet_ids.apply(lambda id: id[0]))
-
-pulumi.export("vpcId", vpc.vpc_id)
-pulumi.export("publicSubnetIds", vpc.public_subnet_ids)
-pulumi.export("privateSubnetIds", vpc.private_subnet_ids)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-package main
-
-import (
-	awsEc2 "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-	"github.com/pulumi/pulumi-awsx/sdk/go/awsx/ec2"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		vpc, err := ec2.NewVpc(ctx, "custom", nil)
-
-		sg, err := awsEc2.NewSecurityGroup(ctx, "webserver-sg", &awsEc2.SecurityGroupArgs{
-			VpcId: vpc.VpcId,
-		})
-
-		ami, err := awsEc2.LookupAmi(ctx, &awsEc2.LookupAmiArgs{
-			Filters: []awsEc2.GetAmiFilter{
-				{
-					Name: "name",
-					Values: []string{
-						"amzn-ami-hvm-*",
-					},
-				},
-			},
-			MostRecent: pulumi.BoolRef(true),
-			Owners: []string{
-				"137112412989",
-			},
-		}, nil)
-
-		awsEc2.NewInstance(ctx, "webserver-www", &awsEc2.InstanceArgs{
-			InstanceType:        pulumi.String("t2.micro"),
-			VpcSecurityGroupIds: pulumi.StringArray{sg.ID()},
-			Ami:                 pulumi.String(ami.Id),
-			SubnetId:            vpc.PublicSubnetIds.Index(pulumi.Int(0)),
-		})
-
-		if err != nil {
-			return err
-		}
-
-		ctx.Export("vpcId", vpc.VpcId)
-		ctx.Export("privateSubnetIds", vpc.PrivateSubnetIds)
-		ctx.Export("publicSubnetIds", vpc.PublicSubnetIds)
-		return nil
-	})
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-using Pulumi;
-using Aws = Pulumi.Aws;
-using Ec2 = Pulumi.Awsx.Ec2;
-
-class MyStack : Stack
-{
-    public MyStack()
-    {
-        var vpc = new Ec2.Vpc("custom");
-
-        var sg = new Aws.Ec2.SecurityGroup("webserver-sg", new Aws.Ec2.SecurityGroupArgs
-        {
-            VpcId = vpc.VpcId,
-        });
-
-        var ami = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
-        {
-            Filters =
-            {
-                new Aws.Ec2.Inputs.GetAmiFilterArgs
-                {
-                    Name = "name",
-                    Values =
-                    {
-                        "amzn-ami-hvm-*",
-                    },
-                },
-            },
-            MostRecent = true,
-            Owners =
-            {
-                "137112412989",
-            },
-        }));
-
-        var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
-        {
-            Ami = ami.Apply(ami => ami.Id),
-            InstanceType = "t2.micro",
-            VpcSecurityGroupIds =
-            {
-                sg.Id,
-            },
-            SubnetId = vpc.PublicSubnetIds.Apply(subnet => subnet[0]),
-        });
-
-        this.VpcId = vpc.VpcId;
-        this.PublicSubnetIds = vpc.PublicSubnetIds;
-        this.PrivateSubnetIds = vpc.PrivateSubnetIds;
-    }
-
-    [Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
-    [Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
-    [Output] public Output<string> VpcId { get; set; }
-}
-
-class Program
-{
-    static Task<int> Main(string[] args) => Deployment.RunAsync<MyStack>();
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language java %}}
-
-```java
-package myproject;
-
-import com.pulumi.Pulumi;
-import com.pulumi.awsx.ec2.Vpc;
-import com.pulumi.core.Output;
-import com.pulumi.aws.ec2.SecurityGroup;
-import com.pulumi.aws.ec2.SecurityGroupArgs;
-import com.pulumi.aws.ec2.Ec2Functions;
-import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-import com.pulumi.aws.ec2.outputs.GetAmiResult;
-import com.pulumi.aws.ec2.inputs.GetAmiFilter;
-import com.pulumi.aws.ec2.Instance;
-import com.pulumi.aws.ec2.InstanceArgs;
-
-public class App {
-    public static void main(String[] args) {
-        Pulumi.run(ctx -> {
-            var vpc = new Vpc("custom");
-
-            var sg = new SecurityGroup("webserver-sg", SecurityGroupArgs.builder()
-                .vpcId(vpc.vpcId())
-                .build()
-            );
-
-            var ami = Ec2Functions.getAmi(GetAmiArgs.builder()
-                .filters(
-                    GetAmiFilter.builder()
-                        .name("name")
-                        .values("amzn-ami-hvm-*")
-                        .build())
-                .mostRecent(true)
-                .owners("137112412989")
-                .build()
-                ).thenApply(GetAmiResult::id);
-
-            var server = new Instance("web-server-www", InstanceArgs.builder()
-                .instanceType("t2.micro")
-                .vpcSecurityGroupIds(Output.all(sg.id()))
-                .ami(Output.of(ami))
-                .subnetId(vpc.publicSubnetIds().applyValue(x -> x.get(0)))
-                .build()
-            );
-
-            ctx.export("vpcId", vpc.vpcId());
-            ctx.export("privateSubnetIds", vpc.privateSubnetIds());
-            ctx.export("publicSubnetIds", vpc.publicSubnetIds());
-        });
-    }
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language yaml %}}
-
-```yaml
-name: awsx-vpc-yaml
-runtime: yaml
-description: A minimal AWS Pulumi YAML program
-outputs:
-  vpcId: ${custom.vpcId}
-  publicSubnetIds: ${custom.publicSubnetIds}
-  privateSubnetIds: ${custom.privateSubnetIds}
-resources:
-  custom:
-    type: awsx:ec2:Vpc
-  webserver-sg:
-    type: aws:ec2:SecurityGroup
-    properties:
-      vpcId: ${custom.vpcId}
-  webserver-www:
-    type: aws:ec2:Instance
-    properties:
-      ami: ${ami.id}
-      instanceType: t2.micro
-      vpcSecurityGroupIds:
-        - ${webserver-sg.id}
-      subnetId: ${custom.publicSubnetIds[0]}
-variables:
-  ami:
-    fn::invoke:
-      Function: aws:ec2:getAmi
-      Arguments:
-        filters:
-          - name: name
-            values:
-              - amzn-ami-hvm-*
-        mostRecent: true
-        owners:
-          - "137112412989"
-```
-
-{{% /choosable %}}
+{{< example-program path="awsx-vpc-sg-ec2" >}}
 
 If we run `pulumi up`, the `aws.ec2.Instance` will be provisioned using the _first_ public subnet from the `awsx.ec2.Vpc` component and the security group provisioned with the `awsx.ec2.SecurityGroup` component:
 
 ```bash
 $ pulumi up
-Updating (dev):
-     Type                                          Name                   Status
- +   pulumi:pulumi:Stack                           crosswalk-dev          created
- +   ├─ awsx:ec2:Vpc                               custom                 created
- +   │  └─ aws:ec2:Vpc                             custom                 created
- +   │     ├─ aws:ec2:InternetGateway              custom                 created
- +   │     ├─ aws:ec2:Subnet                       custom-public-2        created
- +   │     │  ├─ aws:ec2:Eip                       custom-2               created
- +   │     │  ├─ aws:ec2:RouteTable                custom-public-2        created
- +   │     │  │  ├─ aws:ec2:Route                  custom-public-2        created
- +   │     │  │  └─ aws:ec2:RouteTableAssociation  custom-public-2        created
- +   │     │  └─ aws:ec2:NatGateway                custom-2               created
- +   │     ├─ aws:ec2:Subnet                       custom-public-1        created
- +   │     │  ├─ aws:ec2:RouteTable                custom-public-1        created
- +   │     │  │  ├─ aws:ec2:RouteTableAssociation  custom-public-1        created
- +   │     │  │  └─ aws:ec2:Route                  custom-public-1        created
- +   │     │  ├─ aws:ec2:Eip                       custom-1               created
- +   │     │  └─ aws:ec2:NatGateway                custom-1               created
- +   │     ├─ aws:ec2:Subnet                       custom-public-3        created
- +   │     │  ├─ aws:ec2:Eip                       custom-3               created
- +   │     │  ├─ aws:ec2:RouteTable                custom-public-3        created
- +   │     │  │  ├─ aws:ec2:Route                  custom-public-3        created
- +   │     │  │  └─ aws:ec2:RouteTableAssociation  custom-public-3        created
- +   │     │  └─ aws:ec2:NatGateway                custom-3               created
- +   │     ├─ aws:ec2:Subnet                       custom-private-1       created
- +   │     │  └─ aws:ec2:RouteTable                custom-private-1       created
- +   │     │     ├─ aws:ec2:RouteTableAssociation  custom-private-1       created
- +   │     │     └─ aws:ec2:Route                  custom-private-1       created
- +   │     ├─ aws:ec2:Subnet                       custom-private-3       created
- +   │     │  └─ aws:ec2:RouteTable                custom-private-3       created
- +   │     │     ├─ aws:ec2:RouteTableAssociation  custom-private-3       created
- +   │     │     └─ aws:ec2:Route                  custom-private-3       created
- +   │     └─ aws:ec2:Subnet                       custom-private-2       created
- +   │        └─ aws:ec2:RouteTable                custom-private-2       created
- +   │           ├─ aws:ec2:RouteTableAssociation  custom-private-2       created
- +   │           └─ aws:ec2:Route                  custom-private-2       created
- +   ├─ aws:ec2:SecurityGroup                      webserver-sg           created
- +   └─ aws:ec2:Instance                           web                    created
+
+Updating (dev)
+
+     Type                                          Name           Status
+ +   pulumi:pulumi:Stack                           awsx-vpc-dev   created (166s)
+ +   ├─ awsx:ec2:Vpc                               vpc            created (0.66s)
+ +   │  └─ aws:ec2:Vpc                             vpc            created (1s)
+ +   │     ├─ aws:ec2:Subnet                       vpc-private-2  created (0.97s)
+ +   │     │  └─ aws:ec2:RouteTable                vpc-private-2  created (0.81s)
+ +   │     │     ├─ aws:ec2:RouteTableAssociation  vpc-private-2  created (0.77s)
+ +   │     │     └─ aws:ec2:Route                  vpc-private-2  created (1s)
+ +   │     ├─ aws:ec2:InternetGateway              vpc            created (0.94s)
+ +   │     ├─ aws:ec2:Subnet                       vpc-public-1   created (11s)
+ +   │     │  ├─ aws:ec2:RouteTable                vpc-public-1   created (0.85s)
+ +   │     │  │  ├─ aws:ec2:RouteTableAssociation  vpc-public-1   created (1s)
+ +   │     │  │  └─ aws:ec2:Route                  vpc-public-1   created (2s)
+ +   │     │  ├─ aws:ec2:Eip                       vpc-1          created (1s)
+ +   │     │  └─ aws:ec2:NatGateway                vpc-1          created (85s)
+ +   │     ├─ aws:ec2:Subnet                       vpc-private-1  created (1s)
+ +   │     │  └─ aws:ec2:RouteTable                vpc-private-1  created (0.97s)
+ +   │     │     ├─ aws:ec2:RouteTableAssociation  vpc-private-1  created (0.94s)
+ +   │     │     └─ aws:ec2:Route                  vpc-private-1  created (1s)
+ +   │     ├─ aws:ec2:Subnet                       vpc-public-2   created (11s)
+ +   │     │  ├─ aws:ec2:RouteTable                vpc-public-2   created (1s)
+ +   │     │  │  ├─ aws:ec2:RouteTableAssociation  vpc-public-2   created (1s)
+ +   │     │  │  └─ aws:ec2:Route                  vpc-public-2   created (1s)
+ +   │     │  ├─ aws:ec2:Eip                       vpc-2          created (1s)
+ +   │     │  └─ aws:ec2:NatGateway                vpc-2          created (146s)
+ +   │     ├─ aws:ec2:Subnet                       vpc-public-3   created (12s)
+ +   │     │  ├─ aws:ec2:Eip                       vpc-3          created (1s)
+ +   │     │  ├─ aws:ec2:RouteTable                vpc-public-3   created (1s)
+ +   │     │  │  ├─ aws:ec2:RouteTableAssociation  vpc-public-3   created (1s)
+ +   │     │  │  └─ aws:ec2:Route                  vpc-public-3   created (1s)
+ +   │     │  └─ aws:ec2:NatGateway                vpc-3          created (95s)
+ +   │     └─ aws:ec2:Subnet                       vpc-private-3  created (2s)
+ +   │        └─ aws:ec2:RouteTable                vpc-private-3  created (0.70s)
+ +   │           ├─ aws:ec2:RouteTableAssociation  vpc-private-3  created (13s)
+ +   │           └─ aws:ec2:Route                  vpc-private-3  created (1s)
+ +   ├─ aws:ec2:SecurityGroup                      group          created (2s)
+ +   └─ aws:ec2:Instance                           instance       created (32s)
 
 Outputs:
-    PrivateSubnetIds: [
-        [0]: "subnet-0f494849172af77b6"
-        [1]: "subnet-024b4e3ff6a4cf859"
-        [2]: "subnet-0c50551a11e563fc7"
-    ]
-    PublicSubnetIds : [
-        [0]: "subnet-00a260ee8643426dc"
-        [1]: "subnet-0bd4649d712d67c17"
-        [2]: "subnet-08ffd5328715d39c7"
-    ]
-    VpcId           : "vpc-0c5e0fd20533e9e6f"
+    vpcId: "vpc-02d379aaaa281f99d"
 
 Resources:
     + 36 created
-
-Duration: 3m23s
 ```
 
 ## Setting Up a New VPC the Hard Way
 
 The `awsx.ec2.Vpc` component encapsulates a lot of details, including subnets, route tables, gateways, in addition to
 the VPC resource itself. The `aws.ec2` package, on the other hand, out of which `Vpc` is built, provides all of these
-raw resource so that you can code directly to the underlying AWS resource types, exposing every underlying capability.
+raw resources so that you can code directly to the underlying AWS resource types, exposing every supported capability.
 
 For information about configuring each of these resources, refer to each type's API documentation:
 

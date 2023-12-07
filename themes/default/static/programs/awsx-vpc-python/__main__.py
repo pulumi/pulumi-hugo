@@ -1,7 +1,7 @@
 import pulumi
 import pulumi_awsx as awsx
 
-# Fetch the default VPC for the current AWS region.
+# Allocate a new VPC with the default settings.
 vpc = awsx.ec2.Vpc("vpc")
 
 # Export a few properties to make them easy to use.

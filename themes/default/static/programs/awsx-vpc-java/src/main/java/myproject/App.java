@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
 
-            // Fetch the default VPC for the current AWS region.
+            // Allocate a new VPC with the default settings.
             var vpc = new Vpc("vpc");
 
             // Export a few properties to make them easy to use.
