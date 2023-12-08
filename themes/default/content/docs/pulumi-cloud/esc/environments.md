@@ -65,6 +65,10 @@ $ esc env set myorg/test foo bar
 
 To retrieve a single value and its definition, use `esc env get <environment-name> <key>`:
 
+{{% notes type="info" %}}
+Use [`open`](#opening-an-environment) to access secrets.
+{{% /notes %}}
+
 ```bash
 $ esc env get myorg/test foo
 
