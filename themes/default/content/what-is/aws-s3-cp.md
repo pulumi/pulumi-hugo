@@ -31,20 +31,32 @@ But what does this actually mean? If we use AWS as an example, it means that we 
 
 ### Step 1: Install and login to Pulumi ESC
 
+TBD steps
+
 ### Step 2: Create the OIDC configuration
+
+TBD steps
 
 ### Step 3: Create a new Pulumi ESC environment
 
+TBD steps
+
 ### Step 4: Add the AWS provider integration
 
+TBD steps
+
 ### Step 5: Create a new S3 bucket
+
+TBD steps
 
 This step is optional if you already have access to an existing S3 bucket.
 
 ### Step 5: Run the `aws s3 cp` command
 
+TBD steps
+
 ## Conclusion
 
-TBD
+TBD CTA
 
 Our [community on Slack](https://slack.pulumi.com/) is always open for discussions, questions, and sharing experiences. Join us there and become part of our growing community of cloud professionals!
