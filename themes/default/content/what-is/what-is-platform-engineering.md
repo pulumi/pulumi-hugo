@@ -20,7 +20,7 @@ Platform teams typically adopt a customer-driven mindset where they treat the ap
 There are three key components of platform engineering:
 
 1. **Infrastructure management**: Platform teams focus on creating tools and solutions to help development teams provision and manage the infrastructure for their applications and services. Self-service is key to scale here, enabling development teams to provision infrastructure themselves according to "golden paths" or patterns established by the platform team.
-1. **Automation and tooling**: [Automation](/automation/) is part and parcel of everything the platform engineering team does, through tools like [infrastructure as code (IaC)](/what-is/what-is-infrastructure-as-code/), internal developer portals, shared IaC templates, continuous integration/continuous delivery (CI/CD) pipelines, and even custom CLI tools.
+1. **Automation and tooling**: [Automation](/automation/) is part and parcel of everything the platform engineering team does, through tools like [infrastructure as code (IaC)](/what-is/what-is-infrastructure-as-code/), [internal developer portals](/docs/pulumi-cloud/developer-portals/), shared IaC templates, continuous integration/continuous delivery (CI/CD) pipelines, and even custom CLI tools.
 1. **Standardization**: Standardizing the environments development teams use to develop and deploy their applications and services is a key part of a platform engineering team's charter. Part of this standardization effort includes defining and enforcing best practices and security standards (such as by using a [policy as code framework](/crossguard/). Consistency helps reduce downtime and speed problem resolution. Tools like version control, containerization, infrastructure as code, and configuration management are frequently used as part of this effort.
 
 ## What are some of the principles behind platform engineering?
@@ -36,6 +36,10 @@ Regardless of implementation details or specific methods, there are some simple 
 ## What is a platform engineer?
 
 _Platform engineer_ is a term used to describe the engineers that make up a platform team or a platform engineering team. Typically, these engineers have the multi-disciplinary skills, experience, and empathy needed to build a great product, serve developers' needs, and "go to market" within their company. Often, they have experience with multiple engineering disciplines like infrastructure or DevOps and software engineering. The reality is that many engineers who perform platform engineering responsibilities do not have the title "platform engineer." In practice they have varying job titles like software engineer, DevOps engineer, SRE, cloud architect, cloud engineer, and more. By providing developers with infrastructure and tooling to deploy and operate their applications efficiently, platform engineers enable developers to focus on building great software.
+
+This graphic helps illustrate the relationship between platform engineering teams and service/development teams:
+
+![The relationship between platform teams and service teams](/what-is/platform-teams-service-teams.png)
 
 Like site reliability engineers (SREs), practitioners working in platform engineering roles usually have a software engineering mindset, as opposed to a DevOps/sysadmin/scripting mindset.
 
