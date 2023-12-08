@@ -1,17 +1,17 @@
 ---
-title: Run the 'aws s3 cp' Command using Dynamic Credentials
+title: Run 'aws s3 cp' using Dynamic Credentials
 meta_desc: |
      TBD placeholder for now because of the 50 characters limit.
 
 type: what-is
-page_title: Run the 'aws s3 cp' Command using Dynamic Credentials
+page_title: Run 'aws s3 cp' using Dynamic Credentials
 ---
 
 Amazon Web Services (AWS) is a leader in cloud computing, transforming the way organizations manage their digital infrastructure. An important part of the cloud computing landscape is the management of secrets and configurations. The effective management of cloud credentials can pose a significant challenge, especially when it comes to managing them at scale. [Pulumi ESC (Environments, Secrets, and Configurations)](/docs/pulumi-cloud/esc/) is a service that helps to alleviate the burden of managing cloud configuration and secrets by providing a centralized way to handle these critical aspects of cloud development. The `esc run` command of this service in particular helps to resolve concerns around how to:
 
 - securely share credentials with teammates in a consistent way
 - minimize the risks associated with locally configured, long-lived and highly privileged credentials
-- ensure teams can easily and safely run commands like aws s3 ls without requiring deep security expertise
+- ensure teams can easily and safely run commands like aws s3 cp without requiring deep security expertise
 
 ## What is the `esc run` command?
 
@@ -51,7 +51,7 @@ TBD steps
 
 This step is optional if you already have access to an existing S3 bucket.
 
-### Step 5: Run the `aws s3 cp` command
+### Step 6: Run the `aws s3 cp` command
 
 TBD steps
 
