@@ -1,7 +1,7 @@
 ---
 title_tag: "Configuring AWS API Gateway | Crosswalk"
 title: API Gateway
-h1: AWS API Gateway
+h1: Amazon API Gateway
 meta_desc: Pulumi Crosswalk for AWS provides a significantly easier way of programming API Gateway. Here is how.
 meta_image: /images/docs/meta-images/docs-clouds-aws-meta-image.png
 menu:
@@ -19,7 +19,7 @@ aliases:
 <img src="/images/docs/reference/crosswalk/aws/logo.svg" align="right" width="280" style="margin: 0 0 32px 16px;">
 </a>
 
-[AWS API Gateway](https://aws.amazon.com/api-gateway/) is a fully managed service for creating, monitoring, and
+[Amazon API Gateway](https://aws.amazon.com/api-gateway/) is a fully managed service for creating, monitoring, and
 securing APIs at scale. It acts as a "front door" for REST and WebSocket applications that use backend services,
 and handles all the tasks necessary to accept and process up to hundreds of thousands of concurrent API calls,
 including traffic management, authorization and access control, monitoring, and API version management. API Gateway
@@ -31,9 +31,9 @@ Pulumi Crosswalk for Amazon Web Services (AWS) provides better AWS API managemen
 ways of programming an API Gateway. This includes using infrastructure as code techniques for simple, declarative
 APIs, including easy Lambda integration.
 
-Full examples can be found in the [AWS API Gateway component](/registry/packages/aws-apigateway/) in the Pulumi Registry.
+The examples below all use the [AWS API Gateway component](/registry/packages/aws-apigateway/) to configure API Gateway in various ways to serve common scenarios. For more information on how to install and use the API Gateway component, consult its full [documentation](/registry/packages/aws-apigateway/) in the Pulumi Registry.
 
-## Create and Configure Routes
+## Creating and configuring routes
 
 AWS API Gateway creates REST APIs that:
 
@@ -55,7 +55,7 @@ as `stage`, `prod`, `v1`, or `v2`. For simple APIs, you will likely just have on
 stage name, but if you leave it off, a default of `stage` will be chosen.
 
 API Gateway will auto-generate a domain name with built-in HTTPS support. The stage name will also be part of this URL.
-We will see later how to assign a custom domain, SSL certificate, and/or eliminate the stage name from the URL.
+You'll see later how to assign a custom domain, SSL certificate, and/or eliminate the stage name from the URL.
 
 There are multiple ways to define APIs using Pulumi Crosswalk for AWS:
 
@@ -67,13 +67,11 @@ There are multiple ways to define APIs using Pulumi Crosswalk for AWS:
 
 Multiple endpoints on the same API Gateway can be defined using a combination of these techniques.
 
-### Lambda Request Handling
+### Handling requests with Lambda
 
-An Event Handler Route is an API that will map to a [Lambda Function](https://aws.amazon.com/lambda/). You will specify
-the path, HTTP method, and the Lambda Function to invoke when the API is called. Pulumi offers multiple ways of defining
-the Lambda Function and it provisions the appropriate permissions so that API Gateway can communicate with it.
+An event-handler route is an API that will map to a [Lambda function](https://aws.amazon.com/lambda/). You specify the path, HTTP method, and the Lambda function to invoke when the API is called. Pulumi offers multiple ways of defining the Lambda function and it provisions the appropriate permissions so that API Gateway can communicate with it.
 
-This example creates an AWS API Gateway endpoint with a single API, listening at `/` for `GET` requests, which returns a `200 OK` for each call.
+This example creates an Amazon API Gateway endpoint with a single API, listening at `/` for `GET` requests, which returns a `200 OK` for each call.
 
 The path can be parameterized to match specific patterns:
 
@@ -193,7 +191,7 @@ func main() {
 
 {{% /choosable %}}
 
-By running `pulumi up`, we will provision the API Gateway, its routes, and we'll get back the URL:
+Running `pulumi up` provisions the API Gateway and its routes and returns the URL:
 
 ```bash
 $ pulumi up -y
@@ -228,26 +226,30 @@ Resources:
 Duration: 25s
 ```
 
-We can `curl` the URL to see that it is up and running:
+You can `curl` the URL to see that it's up and running:
 
 ```bash
 $ curl $(pulumi stack output url)
 Hello, API Gateway!
 ```
 
-### Static File Serving with S3
+### Serving static files from S3
 
 A Static Route serves static content from [S3](https://aws.amazon.com/s3/) at an API endpoint.
 
-With the API Gateway component, you specify a local path (either a file or an entire directory) and we will manage the creation of the S3 bucket and the synchronisation of the files to S3 objects.
+With the API Gateway component, you specify a local path (either a file or an entire directory), and the commponent manages the creation of the S3 bucket and the synchronization of the files to S3 objects.
 
-If we have a directory `www` containing a `index.html` file:
+Given a directory `www` containing a `index.html` file:
 
 ```html
-<h1>Hello, AWS API Gateway + S3!</h1>
+<html>
+    <body>
+        <h1>Hello, AWS API Gateway + S3!</h1>
+    </body>
+</html>
 ```
 
-The following program will create an AWS API Gateway that serves this content at the `/` URL:
+The following program creates an Amazon API Gateway that serves this content at the root path (`/`) of the stage endpoint:
 
 {{< chooser language "typescript,python,go" / >}}
 
@@ -303,42 +305,36 @@ $ curl $(pulumi stack output url)
 ```
 
 By default, any index documents will be automatically served by S3 when directories are retrieved over HTTP.
-(See [AWS: Configuring an Index Document](https://docs.aws.amazon.com/AmazonS3/latest/dev/IndexDocumentSupport.html).)
-To suppress this behavior in the static route, set the `index` to `false` as part of configuring your static route.
-Alternatively, to use a different default document name, set `index` to a string containing the file name e.g. `default.html`.
+(See [Configuring an Index Document](https://docs.aws.amazon.com/AmazonS3/latest/dev/IndexDocumentSupport.html) in the AWS documentation for more information.) To suppress this behavior in the static route, set the `index` to `false`. To use a different default document name, set `index` to a the name of the document to use, such as `default.html`.
 
 If the local path points to a directory, the route will automatically be created as a proxy path (i.e. `/{proxy+}`) to match
 all sub-directories and the content type for all files will be inferred automatically. If the local path points to a single
-file you can specify the content type explicitly with the `contentType` property.
+file, you can specify the content type explicitly using the `contentType` property.
 
-### Integration Routes
+```
+example of these?
+```
 
-If neither of the above route types work for you, [AWS API Gateway integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API
-Gateway endpoint to backend services that will execute code in response to requests. The previous lambda and
-static examples use integrations internally, even if it's not evident in the simple interface exposed.
+### Integrating with other AWS services
 
-Integrations give you full control over how HTTP requests are handled, and responses served, by an API Gateway
-route. If you want more flexibility than the earlier methods, to proxy HTTP requests, to integrate with
-AWS services other than Lambda Functions, or to mock your APIs, you can use an Integration Route by
-specifying the `target` property on your route.
+If neither of the above route types work for you, [Amazon API Gateway integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API Gateway endpoint to backend services that will execute code in response to requests. The previous lambda and static examples use integrations internally, even if it's not evident in the simple interface exposed. Integrations give you full control over how HTTP requests are handled, and responses served, by an API Gateway route.
 
-An Integration Route is a route that will map an endpoint to a specified backend. The supported types are:
+If you want more flexibility than the earlier methods --- to proxy HTTP requests, integrate with other AWS services, or mock your APIs --- you can create an _integration route_ by specifying the `target` property on your route.
 
-- `aws`: This type of integration lets an API expose AWS service actions, such as invoking Amazon Lambda Functions,
-  Amazon DynamoDB, Amazon Simple Notification Service, or Amazon Simple Queue Service. You must set up the
-  necessary data mappings between the HTTP and underlying AWS service requests/responses.
-- `aws_proxy`: This type of integration lets an API expose AWS service actions, much like `AWS`, and passes
-  the HTTP request information, including request headers, URL path variables, query string parameters, and
-  applicable body, directly to the underlying AWS service actions.
-- `http`: This type of integration lets an API expose HTTP endpoints with custom integration requests and responses.
-  You must set up necessary data mappings between the HTTP and integration requests/responses.
-- `http_proxy`: This type of integration lets an API expose HTTP endpoints with a streamlined integration,
-  without needing to perform custom data mappings as with the `HTTP` integration type.
-- `mock`: This type of integration lets API Gateway return a response without sending a request further to
-  the backend. This is useful for API testing without needing to configure any backend to service requests.
+An integration route is a route that maps an endpoint to a specified backend. Supported integration route types include:
 
-The following example sets up an `http_proxy` integration type that passes requests/responses directly
-through to another endpoint, in this case `https://www.google.com`:
+- `aws`: Allows an API expose an AWS service action, such as invoking Amazon Lambda Functions,
+  Amazon DynamoDB, Amazon Simple Notification Service, or Amazon Simple Queue Service. You must configure the data mappings between the HTTP and underlying AWS service requests and responses.
+
+- `aws_proxy`: Also allows an API expose an AWS service action, but instead passes the HTTP request (including headers, path, query parameters, and body) directly to the underlying AWS service action.
+
+- `http`: Allows an API to expose HTTP endpoints with custom integration requests and responses. You must configure the data mappings between the HTTP and underlying AWS service requests and responses.
+
+- `http_proxy`: Allows an API to expose HTTP endpoints with a streamlined integration, without requiring you to configure the custom data mappings of the `http` type.
+
+- `mock`: Allows API Gateway to return a response without sending a request to the backend. This is useful for API testing without needing to configure any backend to handle requests.
+
+The following example sets up an `http_proxy` integration that passes requests and responses directly to another endpoint, in this case `https://www.google.com`:
 
 {{< chooser language "typescript,python,go" / >}}
 
@@ -395,29 +391,21 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 ## Controlling Access to APIs
 
-AWS API Gateway supports several mechanisms for controlling and managing access to your APIs. This includes authentication
-and authorization -- e.g., resource policies, standard AWS IAM roles and policies, Cognito user pools, and Lambda
-authorizers -- other access control tasks -- e.g., cross-origin resource sharing (CORS), client-side SSL certificates,
-and Amazon Web Application Firewall (WAF) -- and limiting access to authorized clients through usage plans and API keys.
+AWS API Gateway supports several mechanisms for controlling and managing access to your APIs, including authentication and authorization with resource policies, standard AWS IAM roles and policies, Cognito user pools, and Lambda authorizers. You can also configure access in other ways, such as cross-origin resource sharing (CORS), client-side SSL certificates, Amazon Web Application Firewall (WAF), and limiting access to authorized clients through usage plans and API keys.
 
-The API Gateway `RestAPI` class supports three specific methods of controlling access to your APIs:
+The API Gateway `RestAPI` class supports three methods of controlling access to your APIs:
 
 - _Amazon Cognito user pools_ let you create customizable authentication and authorization for your APIs.
-- _Lambda authorizers_ are Lambda Functions that control access to your APIs based on HTTP information
-  available in headers, paths, query strings, or other request information, including bearer tokens.
+
+- _Lambda authorizers_ are Lambda functions that control access to your APIs based on HTTP information available in headers, paths, query strings, or other request information, including bearer tokens.
+
 - _Usage plans_ let you provide _API keys_ to customers, and then track and limit usage of your APIs.
 
-Details on each is below. For those not directly supported, all of these capabilities are accessible to you in the
-[AWS package](/registry/packages/aws/api-docs/), and are described in depth in the article
-[Controlling and Managing Access to a REST API in AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html).
+Details on each is below. For those not directly supported, all of these capabilities are accessible to you in the [AWS package](/registry/packages/aws/), and are described in depth in the article [Controlling and Managing Access to a REST API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html).
 
 ### Cognito Authorizers
 
-[Cognito Authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
-allow you to use [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html)
-as an Authorizer for API Gateway. With a user pool, your users can sign into your web or mobile app through
-Amazon Cognito directly, or through social identity providers like Facebook or Amazon, or even through SAML
-identity providers. This enables your API Gateway to offload the difficult work of security to Cognito entirely.
+[Cognito Authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html) allow you to use [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) as an Authorizer for API Gateway. With a user pool, your users can sign into your web or mobile app through Amazon Cognito directly or through social identity providers like Facebook or SAML identity providers like Google. This enables your API Gateway to offload the difficult work of security to Cognito entirely.
 
 To require users to sign in through Cognito, you must specify the source of the authorization token (normally the `Authorization` header) and specify the ARN of the Cognito User Pool.
 
@@ -502,30 +490,17 @@ This will require that a user authenticate, obtain an identity/access token, and
 
 ### Lambda Authorizers
 
-[Lambda Authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
-are AWS Lambda Functions that control access to an API. This allows you to use information in the request itself,
-including headers, paths, query parameters, or tokens, to decide whether a request is authorized to hit the backend.
+[Lambda Authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html) are AWS Lambda Functions that control access to an API. This allows you to use information in the request itself, including headers, paths, query parameters, or tokens, to decide whether a request is authorized to hit the backend.
 
-You can define a Lambda Authorizer for an Event Handler Route or a Static Route. API Gateway supports `request` or
-`token` type Lambda authorizers:
+You can define a Lambda Authorizer for an Event Handler Route or a Static Route. API Gateway supports `request` or `token` type Lambda authorizers:
 
-- `token` authorizer uses an authorization token (i.e. a header in the form `Authorization: Token <token>`)
-- `request` authorizer uses any part of the request parameters (i.e. headers, path parameter or query parameters).
+- Request authorizers can use any part of the request parameters (i.e. headers, path parameter or query parameters).
 
-To define an Authorizer, you provide a Lambda that recieves an
-[Authorizer Event](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html)
-and responds with a valid [Authorizer Response](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html).
-See [Pulumi Crosswalk for AWS Lambda](/docs/clouds/aws/guides/lambda/) for other ways you can define your Lambda for the Authorizer.
+- Token authorizers use an authorization token (i.e., a header in the form `Authorization: Token <token>`)
 
-#### Lambda Request Authorizer
+To define an Authorizer, you provide a Lambda that receives an [Authorizer Event](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html) and responds with a valid [Authorizer Response](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html). See [Pulumi Crosswalk for AWS Lambda](/docs/clouds/aws/guides/lambda/) for other ways you can define your Lambda for the Authorizer.
 
-Below is an example of a custom `request` Lambda Authorizer. This has access to all aspects of the request and can
-make a decision based on whether to permit access based on any of it:
-
-For the purpose of demonstration, the authorizer only allows a single, hard-coded token. In practice this lambda
-would normally reach out to another service to validate the authorisation.
-
-If you wish to reuse an Authorizer across multiple routes, you can declare it in a variable.
+Below is an example of a custom `request` authorizer. Because the authorizer has access to the content of the HTTP request, it can use any of the its properties to determine whether to permit access to the resource requested. For demonstration, this authorizer validates the request using a single, hard-coded token. In practice, however, you'd more likely have the authorizer contact another service for this purpose.
 
 {{< chooser language "typescript,python,go" / >}}
 
@@ -693,7 +668,7 @@ func main() {
 Instead of using a _request_ authorizer, there is also a _token_ authorizer passes only the token rather than the whole
 request object to the Lambda function to validate.
 
-For additional information about request-based AWS API Gateway Lambda Authorizers, see the
+For additional information about request-based API Gateway Lambda Authorizers, see the
 [AWS documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html).
 
 ## Request Validation
@@ -836,7 +811,7 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
-For additional information about request validation, refer to [Enable Request Validation in AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
+For additional information about request validation, refer to [Use Request Validation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
 
 {{% notes type="info" %}}
 
@@ -847,7 +822,7 @@ Comment on [this open issue](https://github.com/pulumi/pulumi-aws-apigateway/iss
 
 ### Use API Keys to Limit Requests
 
-After you create, test, and deploy your APIs, you can use AWS API Gateway usage plans to make them available to your
+After you create, test, and deploy your APIs, you can use Amazon API Gateway usage plans to make them available to your
 customers. These usage plans and API keys allow customers to use your API at agreed-upon request rates and quotas
 that meet their business requirements and budget constraints. If desired, you can set API-level throttling limits.
 
@@ -1034,7 +1009,7 @@ For more information about Usage Plans and API Keys, refer to
 
 ## Custom Domains and SSL
 
-AWS API Gateway will automatically provision and assign a domain name, URL that contains the stage, and SSL
+API Gateway will automatically provision and assign a domain name, URL that contains the stage, and SSL
 support. It will look something like `https://no90ji5v23.execute-api.us-west-2.amazonaws.com/stage/`. The host
 portion of the URL refers to an API endpoint which can be edge-optimized or regional.
 
@@ -1332,12 +1307,12 @@ Finally, we tell API Gateway which stage of the API to serve on the custom domai
 
 {{% /choosable %}}
 
-For more information about the options and levels of customizability available for edge-optimized AWS API Gateways
+For more information about the options and levels of customizability available for edge-optimized API Gateways
 and custom domains, refer to [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
 
 ## OpenAPI
 
-AWS API Gateway supports the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly known as
+Amazon API Gateway supports the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly known as
 "Swagger") for defining APIs. Using OpenAPI to define your APIs eases integration with other API authoring, modeling,
 and testing tools, at some added complexity cost as you will need to understand the mechanics of how API Gateway
 works and what HTTP headers it uses to accomplish its integrations.
@@ -1440,7 +1415,7 @@ This is more complex than the above examples, but this in an escape hatch that y
 Gateway features not yet supported by the easier abstractions in Pulumi Crosswalk for AWS API Gateway. You must manually
 provide permission for any route targets to be invoked by API Gateway when using this option.
 
-For more information about AWS API Gateway's support for OpenAPI, including exporting specifications from existing
+For more information about API Gateway's support for OpenAPI, including exporting specifications from existing
 APIs for consumption from other tools, see [Documenting a REST API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html)
 
 ### Defining a Single Route
@@ -1525,6 +1500,6 @@ For full details on what the OpenAPI integration object may contain, refer to th
 
 ## Additional API Gateway Resources
 
-For more details about AWS API Gateway and REST APIs, see the following resources:
+For more details about Amazon API Gateway and REST APIs, see the following resources:
 
-- [Use AWS API Gateway to Create REST APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-overview-developer-experience.html#api-gateway-overview-rest)
+- [Use API Gateway to Create REST APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-overview-developer-experience.html#api-gateway-overview-rest)
