@@ -71,167 +71,57 @@ Multiple endpoints on the same API Gateway can be defined using a combination of
 
 An event-handler route is an API that will map to a [Lambda function](https://aws.amazon.com/lambda/). You specify the path, HTTP method, and the Lambda function to invoke when the API is called. Pulumi offers multiple ways of defining the Lambda function and it provisions the appropriate permissions so that API Gateway can communicate with it.
 
-This example creates an Amazon API Gateway endpoint with a single API, listening at `/` for `GET` requests, which returns a `200 OK` for each call.
-
-The path can be parameterized to match specific patterns:
+This example creates an Amazon API Gateway endpoint with a single API, listening at `/` for `GET` requests, which returns a `200 OK` for each call. The path can be parameterized to match specific patterns:
 
 - A literal pattern e.g. `/pets` will only match `/pets`
 - A parameterized pattern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
 - A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
 
-For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation](/docs/clouds/aws/guides/lambda/).
-
-{{< chooser language "typescript,python,go" / >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-import * as aws from "@pulumi/aws";
-import * as apigateway from "@pulumi/aws-apigateway";
-
-// Create a Lambda Function
-const helloHandler = new aws.lambda.CallbackFunction("hello-handler", {
-  callback: async (ev, ctx) => {
-    return {
-      statusCode: 200,
-      body: "Hello, API Gateway!",
-    };
-  },
-});
-
-// Define an endpoint that invokes a lambda to handle requests
-const api = new apigateway.RestAPI("api", {
-  routes: [
-    {
-      path: "/",
-      method: "GET",
-      eventHandler: helloHandler,
-    },
-  ],
-});
-
-export const url = api.url;
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import pulumi
-import pulumi_aws as aws
-import pulumi_aws_apigateway as apigateway
-
-# Create a Lambda Function
-# helloHandler = aws.lambda_.Function(...)
-
-# Define an endpoint that invokes a lambda to handle requests
-api = apigateway.RestAPI('api', routes=[
-    apigateway.RouteArgs(path="/", method="GET", event_handler=helloHandler),
-])
-
-pulumi.export('url', api.url)
-```
-
-Create the Lambda handler:
-
-```python
-def handler(event, context):
-    print(event)
-    return {
-        "statusCode": 200,
-        "body": "Hello, API Gateway!",
-    }
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-// Create a Lambda Function
-// helloHandler, err := lambda.NewFunction(...)
-
-// Define an endpoint that invokes a lambda to handle requests
-getMethod := apigateway.MethodGET
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-    Routes: []apigateway.RouteArgs{
-        {
-            Path:         "/",
-            Method:       &getMethod,
-            EventHandler: helloHandler,
-        },
-    },
-})
-
-ctx.Export("url", restAPI.Url)
-```
-
-Create the Lambda handler:
-
-```go
-package main
-
-import (
-    "github.com/aws/aws-lambda-go/events"
-    "github.com/aws/aws-lambda-go/lambda"
-)
-
-func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-    return events.APIGatewayProxyResponse{
-        StatusCode: 200,
-        Body:       "Hello, API Gateway!",
-    }, nil
-}
-
-func main() {
-    lambda.Start(handler)
-}
-```
-
-{{% /choosable %}}
+{{< example-program path="awsx-apigateway-lambda" >}}
 
 Running `pulumi up` provisions the API Gateway and its routes and returns the URL:
 
 ```bash
 $ pulumi up -y
-Updating (dev):
 
-     Type                                Name                    Status
- +   pulumi:pulumi:Stack                 simple-dev              created
- +   ├─ aws:iam:Role                     hello-handler           created
- +   ├─ aws:lambda:Function              hello-handler           created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-019020e7  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-74d12784  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-7cd09230  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-b5aeb6b6  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-4aaabb8e  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-1b4caae3  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-e1a3786d  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-a1de8170  created
- +   ├─ aws:iam:RolePolicyAttachment     hello-handler-6c156834  created
- +   └─ apigateway:index:RestAPI         api                     created
- +      └─ aws:apigateway:x:API          api                     created
- +         ├─ aws:apigateway:RestApi     api                     created
- +         ├─ aws:apigateway:Deployment  api                     created
- +         ├─ aws:lambda:Permission      api-fa520765            created
- +         └─ aws:apigateway:Stage       api                     created
+Updating (dev)
+
+     Type                             Name                        Status
+ +   pulumi:pulumi:Stack              awsx-apigateway-lambda-dev  created (25s)
+ +   ├─ aws:iam:Role                  handler                     created (1s)
+ +   ├─ aws:lambda:Function           handler                     created (14s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-d32a66fa            created (0.82s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-019020e7            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-1b4caae3            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-7cd09230            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-b5aeb6b6            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-4aaabb8e            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-e1a3786d            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-74d12784            created (1s)
+ +   ├─ aws:iam:RolePolicyAttachment  handler-a1de8170            created (1s)
+ +   └─ aws-apigateway:index:RestAPI  api                         created (6s)
+ +      ├─ aws:apigateway:RestApi     api                         created (2s)
+ +      ├─ aws:apigateway:Deployment  api                         created (0.42s)
+ +      ├─ aws:lambda:Permission      api-fa520765                created (0.48s)
+ +      └─ aws:apigateway:Stage       api                         created (0.54s)
 
 Outputs:
-    url: "https://no90ji5v23.execute-api.us-west-2.amazonaws.com/stage/"
+    url: "https://a5yj5n7rz0.execute-api.us-west-2.amazonaws.com/stage/"
 
 Resources:
-    + 18 created
+    + 17 created
 
-Duration: 25s
+Duration: 26s
 ```
 
 You can `curl` the URL to see that it's up and running:
 
 ```bash
 $ curl $(pulumi stack output url)
-Hello, API Gateway!
+{"message":"Hello from API Gateway!"}%
 ```
+
+For more complete information about creating Lambda Functions, see the [Pulumi Crosswalk for AWS Lambda documentation](/docs/clouds/aws/guides/lambda/).
 
 ### Serving static files from S3
 
@@ -251,7 +141,7 @@ Given a directory `www` containing a `index.html` file:
 
 The following program creates an Amazon API Gateway that serves this content at the root path (`/`) of the stage endpoint:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -297,6 +187,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 After running `pulumi up`, we can `curl` the resulting endpoint:
 
 ```bash
@@ -336,7 +228,7 @@ An integration route is a route that maps an endpoint to a specified backend. Su
 
 The following example sets up an `http_proxy` integration that passes requests and responses directly to another endpoint, in this case `https://www.google.com`:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -389,6 +281,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 ## Controlling Access to APIs
 
 AWS API Gateway supports several mechanisms for controlling and managing access to your APIs, including authentication and authorization with resource policies, standard AWS IAM roles and policies, Cognito user pools, and Lambda authorizers. You can also configure access in other ways, such as cross-origin resource sharing (CORS), client-side SSL certificates, Amazon Web Application Firewall (WAF), and limiting access to authorized clients through usage plans and API keys.
@@ -409,7 +303,7 @@ Details on each is below. For those not directly supported, all of these capabil
 
 To require users to sign in through Cognito, you must specify the source of the authorization token (normally the `Authorization` header) and specify the ARN of the Cognito User Pool.
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -486,6 +380,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 This will require that a user authenticate, obtain an identity/access token, and call your API with said token.
 
 ### Lambda Authorizers
@@ -502,7 +398,7 @@ To define an Authorizer, you provide a Lambda that receives an [Authorizer Event
 
 Below is an example of a custom `request` authorizer. Because the authorizer has access to the content of the HTTP request, it can use any of the its properties to determine whether to permit access to the resource requested. For demonstration, this authorizer validates the request using a single, hard-coded token. In practice, however, you'd more likely have the authorizer contact another service for this purpose.
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -665,6 +561,8 @@ func main() {
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 Instead of using a _request_ authorizer, there is also a _token_ authorizer passes only the token rather than the whole
 request object to the Lambda function to validate.
 
@@ -699,7 +597,7 @@ validator values are available:
 
 For example, this enables parameter validation on all routes, and all validation on a specific route:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -749,6 +647,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 This enables validation already specified in the underlying models. The `awsx.apigateway.API` class also
 supports mechanisms to specify the validation rules in the API Gateway configuration.
 
@@ -760,7 +660,7 @@ it is expected to be found (`"path"`, `"query"`, or `"header"`), using the `in` 
 
 For example, this ensures that the `key` querystring parameter is present on all requests:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -811,6 +711,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 For additional information about request validation, refer to [Use Request Validation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
 
 {{% notes type="info" %}}
@@ -833,7 +735,7 @@ Key source is not set, then the source will default to `HEADER`.
 
 Here's an example how to configure the API and routes to use API Keys:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -880,6 +782,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 There's 3 steps to configure API Keys for the API:
 
 1. Create the API Key (i.e. for a customer)
@@ -888,7 +792,7 @@ There's 3 steps to configure API Keys for the API:
 
 Below is an example of using creating these components:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1004,6 +908,8 @@ Hello, API Gateway!
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 For more information about Usage Plans and API Keys, refer to
 [Create and Use Usage Plans with API Keys](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
 
@@ -1027,7 +933,7 @@ These are the steps required to set up a new domain for an API using Route53 and
 [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html).
 We could instead import one into ACM that has been issued by a third-party certificate authority.
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 First, create a Certificate in AWS ACM. A managed certificate can be created for free for use with AWS services.
    The creation and validation of the certificate can be fully automated via DNS validation:
@@ -1307,6 +1213,8 @@ Finally, we tell API Gateway which stage of the API to serve on the custom domai
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 For more information about the options and levels of customizability available for edge-optimized API Gateways
 and custom domains, refer to [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
 
@@ -1322,7 +1230,7 @@ works and what HTTP headers it uses to accomplish its integrations.
 To use an OpenAPI specification to initialize your API Gateway, supply an entire OpenAPI specification as a string
 in the "swagger string" property. For example, this API proxies a route through to another HTTP endpoint:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1411,6 +1319,8 @@ swaggerAPI, err := apigateway.NewRestAPI(ctx, "swagger-api", &apigateway.RestAPI
 
 {{% /choosable %}}
 
+{{< /chooser >}}
+
 This is more complex than the above examples, but this in an escape hatch that you can use to access any API
 Gateway features not yet supported by the easier abstractions in Pulumi Crosswalk for AWS API Gateway. You must manually
 provide permission for any route targets to be invoked by API Gateway when using this option.
@@ -1429,7 +1339,7 @@ The route's other parameters, such as its path and method, otherwise use the sam
 
 For instance, the same API Gateway endpoint that proxies through to another API can be authored as follows:
 
-{{< chooser language "typescript,python,go" / >}}
+{{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
 
@@ -1494,6 +1404,8 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 ```
 
 {{% /choosable %}}
+
+{{< /chooser >}}
 
 For full details on what the OpenAPI integration object may contain, refer to the full
 [x-amazon-apigateway-integration Object documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-integration.html).
