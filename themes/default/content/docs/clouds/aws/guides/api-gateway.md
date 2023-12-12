@@ -182,62 +182,9 @@ An integration route is a route that maps an endpoint to a specified backend. Su
 
 - `mock`: Allows API Gateway to return a response without sending a request to the backend. This is useful for API testing without needing to configure any backend to handle requests.
 
-The following example sets up an `http_proxy` integration that passes requests and responses directly to another endpoint, in this case `https://www.google.com`:
+The following example sets up an `http_proxy` integration that passes requests and responses directly to another endpoint, in this case `https://www.example.com`:
 
-{{< chooser language "typescript,python,go" >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-// Define an endpoint that proxies HTTP requests to https://www.google.com.
-const api = new apigateway.RestAPI("api", {
-  routes: [
-    {
-      path: "/",
-      target: {
-        type: "http_proxy",
-        uri: "https://www.google.com",
-      },
-    },
-  ],
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-# Define an endpoint that proxies HTTP requests to https://www.google.com.
-api = apigateway.RestAPI('api', routes=[
-    apigateway.RouteArgs(path="/integration", target=apigateway.TargetArgs(uri="https://www.google.com", type="http_proxy"))
-])
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-// Define an endpoint that proxies HTTP requests to https://www.google.com.
-getMethod := apigateway.MethodGET
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-    Routes: []apigateway.RouteArgs{
-        {
-            Path:   "/",
-            Method: &getMethod,
-            Target: apigateway.TargetArgs{
-                Type: apigateway.IntegrationType_Http_proxy,
-                Uri:  pulumi.String("https://www.google.com"),
-            },
-        },
-    },
-})
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
+{{< example-program path="awsx-apigateway-http-proxy" >}}
 
 ## Controlling Access to APIs
 
