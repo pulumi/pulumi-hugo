@@ -71,13 +71,15 @@ Multiple endpoints on the same API Gateway can be defined using a combination of
 
 An event-handler route is an API that will map to a [Lambda function](https://aws.amazon.com/lambda/). You specify the path, HTTP method, and the Lambda function to invoke when the API is called. Pulumi offers multiple ways of defining the Lambda function and it provisions the appropriate permissions so that API Gateway can communicate with it.
 
-This example creates an Amazon API Gateway endpoint with a single API, listening at `/` for `GET` requests, which returns a `200 OK` for each call. The path can be parameterized to match specific patterns:
-
-- A literal pattern e.g. `/pets` will only match `/pets`
-- A parameterized pattern e.g. `/pets/{petId}` will match child routes such as `/pet/6sxz2j`
-- A wildcard pattern specified with `{proxy+}` e.g. `/parent/{proxy+}` will mach all decendant paths such as `/parent/child/grandchild`
+This example creates an Amazon API Gateway REST API with a single API endpoint, listening at `/` for `GET` requests, which returns a `200 OK` for each call.
 
 {{< example-program path="awsx-apigateway-lambda" >}}
+
+Route paths can also be parameterized to allow for matching specific patterns:
+
+- A literal pattern like `/pets` will only match `/pets`
+- A parameterized pattern like `/pets/{petId}` will match child routes such as `/pet/123`
+- A wildcard pattern specified with `{proxy+}` like `/pets/{proxy+}` will match all descendant paths such as `/pets/tagged/cuddly`
 
 Running `pulumi up` provisions the API Gateway and its routes and returns the URL:
 
@@ -129,65 +131,19 @@ A Static Route serves static content from [S3](https://aws.amazon.com/s3/) at an
 
 With the API Gateway component, you specify a local path (either a file or an entire directory), and the commponent manages the creation of the S3 bucket and the synchronization of the files to S3 objects.
 
-Given a directory `www` containing a `index.html` file:
+Given a directory `www` containing a `index.html` file such as this:
 
 ```html
 <html>
-    <body>
-        <h1>Hello, AWS API Gateway + S3!</h1>
-    </body>
+<body>
+    <p>Hello from API Gateway + S3!</p>
+</body>
 </html>
 ```
 
-The following program creates an Amazon API Gateway that serves this content at the root path (`/`) of the stage endpoint:
+The following program creates an API Gateway API that serves this content at the root path (`/`) of the stage endpoint:
 
-{{< chooser language "typescript,python,go" >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-// Define an endpoint that serves an entire directory of static content.
-const api = new apigateway.RestAPI("api", {
-  routes: [
-    {
-      path: "/",
-      localPath: "www",
-    },
-  ],
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-# Define an endpoint that serves an entire directory of static content.
-api = apigateway.RestAPI('api', routes=[
-    apigateway.RouteArgs(path="/", local_path="www"),
-])
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-// Define an endpoint that serves an entire directory of static content.
-localPath := "www"
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-    Routes: []apigateway.RouteArgs{
-        {
-            Path:      "/",
-            LocalPath: &localPath,
-        },
-    },
-})
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
+{{< example-program path="awsx-apigateway-s3" >}}
 
 After running `pulumi up`, we can `curl` the resulting endpoint:
 

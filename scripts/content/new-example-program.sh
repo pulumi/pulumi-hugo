@@ -92,7 +92,7 @@ echo "✨ Done! Your new projects are now available at ${examples_dir}/${example
 include them in any Markdown file (blog post, doc, whatever), use the '{{< example-program >}}'
 shortcode thusly:
 
-{{< example-program path=\"${example_name}\">}}
+{{< example-program path=\"${example_name}\" >}}
 
 Enjoy!"
 echo

@@ -1,5 +1,4 @@
 "use strict";
-const pulumi = require("@pulumi/pulumi");
 const aws = require("@pulumi/aws");
 const apigateway = require("@pulumi/aws-apigateway");
 
@@ -12,14 +11,14 @@ const handler = new aws.lambda.CallbackFunction("handler", {
             }),
         };
     },
-})
+});
 
 const api = new apigateway.RestAPI("api", {
     routes: [
         {
             path: "/",
             method: "GET",
-            eventHandler: handler
+            eventHandler: handler,
         },
     ],
 });

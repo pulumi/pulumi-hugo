@@ -1,4 +1,3 @@
-import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as apigateway from "@pulumi/aws-apigateway";
 
@@ -11,14 +10,14 @@ const handler = new aws.lambda.CallbackFunction("handler", {
             }),
         };
     },
-})
+});
 
 const api = new apigateway.RestAPI("api", {
     routes: [
         {
             path: "/",
             method: "GET",
-            eventHandler: handler
+            eventHandler: handler,
         },
     ],
 });
