@@ -1,5 +1,5 @@
 ---
-title: "Enhanced Pulumi Cloud Stack Update Pages"
+title: "Pulumi Cloud Gets Full Historical Views of Resources and Stack Outputs"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
