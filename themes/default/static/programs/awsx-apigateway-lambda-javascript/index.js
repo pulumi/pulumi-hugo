@@ -3,7 +3,7 @@ const aws = require("@pulumi/aws");
 const apigateway = require("@pulumi/aws-apigateway");
 
 const handler = new aws.lambda.CallbackFunction("handler", {
-    callback: async (ev, ctx) => {
+    callback: async (event, context) => {
         return {
             statusCode: 200,
             body: JSON.stringify({

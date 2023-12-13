@@ -11,6 +11,7 @@ import com.pulumi.aws.lambda.Function;
 import com.pulumi.aws.lambda.FunctionArgs;
 import com.pulumi.awsapigateway.RestAPI;
 import com.pulumi.awsapigateway.RestAPIArgs;
+import com.pulumi.awsapigateway.inputs.AuthorizerArgs;
 import com.pulumi.awsapigateway.inputs.RouteArgs;
 import static com.pulumi.codegen.internal.Serialization.*;
 
@@ -34,11 +35,11 @@ public class App {
                 .managedPolicyArns(List.of(ManagedPolicy.AWSLambdaBasicExecutionRole.getValue()))
                 .build());
 
-            var handler = new Function("handler", FunctionArgs.builder()
+            var authorizer = new Function("authorizer", FunctionArgs.builder()
                 .runtime("python3.9")
                 .handler("handler.handler")
                 .role(role.arn())
-                .code(new com.pulumi.asset.FileArchive("./function"))
+                .code(new com.pulumi.asset.FileArchive("./authorizer"))
                 .build());
 
             var api = new RestAPI("api", RestAPIArgs.builder()
@@ -46,7 +47,16 @@ public class App {
                     RouteArgs.builder()
                         .path("/")
                         .method(Method.GET)
-                        .eventHandler(handler)
+                        .localPath("www")
+                        .authorizers(new AuthorizerArgs[]{
+                            AuthorizerArgs.builder()
+                                .authType("custom")
+                                .type("request")
+                                .parameterName("Authorization")
+                                .identitySource(List.of("method.request.header.Authorization"))
+                                .handler(authorizer)
+                                .build(),
+                        })
                         .build(),
                 })
                 .build());

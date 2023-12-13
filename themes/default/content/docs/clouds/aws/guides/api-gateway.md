@@ -389,6 +389,20 @@ func main() {
 
 {{< /chooser >}}
 
+```bash
+$ curl "$(pulumi stack output url)"
+{"message":"Unauthorized"}
+```
+
+```bash
+$ curl -H "Authorization: token a-good-token" "$(pulumi stack output url)"
+<html>
+    <body>
+        <p>Hello from API Gateway + S3!</p>
+    </body>
+</html>
+```
+
 Instead of using a _request_ authorizer, there is also a _token_ authorizer passes only the token rather than the whole
 request object to the Lambda function to validate.
 

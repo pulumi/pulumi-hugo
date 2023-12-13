@@ -22,7 +22,7 @@ prompt_for_cloud() {
 }
 
 prompt_for_example_name() {
-    read -p "Example name (e.g., awsx-api-gateway-rest-api): " example_name
+    read -p "Example name (e.g., awsx-apigateway-lambda): " example_name
 
     if [ ! -z "$example_name" ]; then
         return

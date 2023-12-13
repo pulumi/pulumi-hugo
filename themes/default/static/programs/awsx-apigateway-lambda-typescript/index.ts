@@ -2,7 +2,7 @@ import * as aws from "@pulumi/aws";
 import * as apigateway from "@pulumi/aws-apigateway";
 
 const handler = new aws.lambda.CallbackFunction("handler", {
-    callback: async (ev, ctx) => {
+    callback: async (event, context) => {
         return {
             statusCode: 200,
             body: JSON.stringify({
