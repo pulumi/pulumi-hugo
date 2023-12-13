@@ -55,13 +55,13 @@ The updated pages also now include information on the stack's outputs for each u
 
 ![Screenshot of the new outputs](stack-outputs.png)
 
-The Value of Enhanced Data Visibility:
+### The Value of Enhanced Data Visibility
 
 Having a more detailed and transparent view of your stack updates provides several key benefits:
 
-**Resource Lifecycle Management**: Understanding when and why a resource was added, modified, or deleted helps in better managing your infrastructure's lifecycle and planning future changes.
+1. **Resource Lifecycle Management**: Understanding when and why a resource was added, modified, or deleted helps in better managing your infrastructure's lifecycle and planning future changes.
 
-**Enhanced Troubleshooting and Analysis**: The ability to go back to a specific point in time and analyze the state of your infrastructure at that moment can be invaluable in troubleshooting issues or understanding the impact of certain changes.
+2. **Enhanced Troubleshooting and Analysis**: The ability to go back to a specific point in time and analyze the state of your infrastructure at that moment can be invaluable in troubleshooting issues or understanding the impact of certain changes.
 
 In summary, the improved Pulumi Cloud stack update pages offer a more detailed, transparent, and insightful view of your infrastructure changes. This upgrade came directly from customer asks, and underscores our commitment to empowering developers with the tools and information they need to effectively manage and understand their cloud resources and how they change over time.
 
