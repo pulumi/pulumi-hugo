@@ -5,7 +5,7 @@ h1: Get Started with Pulumi ESC (Environments, Secrets, and Configuration)
 meta_desc: Learn how to manage secrets and hierarchical configuration with Pulumi.
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
-  pulumicloud:
+  pulumi-esc:
     identifier: get-started
     parent: esc
     weight: 1
@@ -16,6 +16,10 @@ In a typical development workflow, there's often a need to maintain multiple env
 Hardcoding these values or keeping them inside source code is a security risk and makes managing configurations complex. Pulumi ESC (Environments, Secrets and Configuration) offers a centralized store to manage configuration data, plain-text data, and secrets.
 
 In this tutorial, we’ll demonstrate the power of Pulumi ESC in managing configuration across multiple environments.
+
+{{< notes type="warning" >}}
+Currently WIP. Everything below this part will be getting moved into separate sections.
+{{< /notes >}}
 
 ## Prerequisites
 

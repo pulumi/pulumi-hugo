@@ -3,12 +3,14 @@ title: Pulumi ESC
 title_tag: Pulumi ESC (Environments, Secrets, and Configuration)
 h1: Pulumi ESC (Environments, Secrets, and Configuration)
 meta_desc: Pulumi ESC allows you to compose and manage hierarchical collections of configuration and secrets and consume them in various ways.
+no_on_this_page: true
+meta_image: /images/docs/meta-images/docs-meta.png
 menu:
-  pulumicloud:
+  pulumi-esc:
+    name: Overview
     identifier: esc
-    weight: 4
 aliases:
-  - /docs/esc/
+  - /docs/pulumi-cloud/esc/
 ---
 
 Pulumi ESC (Environments, Secrets, and Configuration) allows teams to tackle secrets and configuration complexity for modern cloud environments, alleviating maintenance burden and reducing costly mistakes, and creating a "secure by default" posture. Pulumi ESC is a new category of configuration as code product, motivated by our experience working with hundreds of Pulumi IaC customers to address their needs in managing secrets and configuration at scale within their Pulumi infrastructure and across other cloud applications and infrastructure projects.

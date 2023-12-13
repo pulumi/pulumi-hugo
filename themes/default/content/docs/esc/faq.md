@@ -5,7 +5,7 @@ title: FAQ
 h1: Pulumi ESC FAQs
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
-  pulumicloud:
+  pulumi-esc:
     parent: esc
     weight: 6
     identifier: faq
