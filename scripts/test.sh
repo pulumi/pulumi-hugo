@@ -59,6 +59,12 @@ pushd "$programs_dir"
             continue
         fi
 
+        # API Gateway authorizer parameter `providerArns` is mistyped.
+        #
+        if [[ "$project" == "awsx-apigateway-auth-cognito-java" ]]; then
+            continue
+        fi
+
         # Destroy any existing stacks.
         pulumi -C "$project" cancel --stack $fqsn --yes || true
         pulumi -C "$project" destroy --stack $fqsn --yes --refresh --remove || true
