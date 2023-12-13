@@ -622,3 +622,5 @@ To learn more about managing configuration and secrets in Pulumi, take a look at
 
 - Learn more about [environments](/docs/concepts/environments/), [secrets](/docs/concepts/secrets/), and [configuration](/docs/concepts/config/) in the Pulumi documentation.
 - Learn more about defining Pulumi ESC environment files in the [Pulumi ESC YAML Syntax Reference](/docs/pulumi-cloud/esc/reference).
+
+{{< get-started-stepper >}}

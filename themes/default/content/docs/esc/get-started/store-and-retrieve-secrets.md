@@ -12,3 +12,5 @@ menu:
 ---
 
 WIP
+
+{{< get-started-stepper >}}
