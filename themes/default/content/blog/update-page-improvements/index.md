@@ -7,7 +7,7 @@ title: "Enhanced Pulumi Cloud Stack Update Pages"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2023-12-07T10:34:32-08:00
+date: 2023-12-12T10:34:32-08:00
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
@@ -40,18 +40,18 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-As part of our ongoing commitment to providing developers and infrastructure teams with powerful tools, we're thrilled to introduce the latest enhancement to Pulumi Cloud's stack update pages. We have shipped an improvement to Pulumi Cloud stack update pages where all update pages now show the resources in the stack at that time and the stack outputs.
+As part of our ongoing commitment to providing developers and infrastructure teams with powerful tools, we're thrilled to introduce the latest enhancement to Pulumi Cloud's stack update pages. We have shipped an improvement to Pulumi Cloud stack update pages where all update pages now show the resources in the stack at that time and the stack outputs going back since your first update on the stack.
 
 <!--more-->
 ![Screenshot of the new experience](update-page.png)
 
 ### Expanded Resource Information
 
-Now, each update will provide detailed information about the resources . This includes a list of resources created, modified, or deleted in each update, offering a clearer understanding of the changes made to your infrastructure.
+Now, each update will provide detailed information about the resources. This includes a list of resources created, modified, or deleted in each update, offering a clearer understanding of the changes made to your infrastructure.
 
 ### Stack Outputs
 
-The updated pages also include information on the stack's outputs.
+The updated pages also now include information on the stack's outputs for each update instead of just the current point in time. The value of this is being able to go back and see what output values were after any update.
 
 ![Screenshot of the new outputs](stack-outputs.png)
 
@@ -61,8 +61,8 @@ Having a more detailed and transparent view of your stack updates provides sever
 
 **Resource Lifecycle Management**: Understanding when and why a resource was added, modified, or deleted helps in better managing your infrastructure's lifecycle and planning future changes.
 
-Enhanced Troubleshooting and Analysis: The ability to go back to a specific point in time and analyze the state of your infrastructure at that moment can be invaluable in troubleshooting issues or understanding the impact of certain changes.
+**Enhanced Troubleshooting and Analysis**: The ability to go back to a specific point in time and analyze the state of your infrastructure at that moment can be invaluable in troubleshooting issues or understanding the impact of certain changes.
 
-In summary, the improved Pulumi Cloud stack update pages offer a more detailed, transparent, and insightful view of your infrastructure changes. This upgrade underscores our commitment to empowering developers and infrastructure teams with the tools and information they need to effectively manage and understand their cloud resources and how they change over time.
+In summary, the improved Pulumi Cloud stack update pages offer a more detailed, transparent, and insightful view of your infrastructure changes. This upgrade came directly from customer asks, and underscores our commitment to empowering developers with the tools and information they need to effectively manage and understand their cloud resources and how they change over time.
 
 Stay tuned for more updates as we continue to enhance our platform to better meet your needs. As always, submit any feedback on the feature in the [Pulumi Cloud Requests](https://github.com/pulumi/pulumi-cloud-requests/issues/new/choose) repository.
