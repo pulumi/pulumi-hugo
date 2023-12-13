@@ -9,6 +9,8 @@ menu:
     identifier: get-started
     parent: esc
     weight: 1
+aliases:
+  - /docs/pulumi-cloud/esc/get-started/
 ---
 
 In a typical development workflow, there's often a need to maintain multiple environments such as development, staging, and production. Each of these environments might have its own set of configuration values: API endpoints, database connection strings, third-party secrets, and more.
