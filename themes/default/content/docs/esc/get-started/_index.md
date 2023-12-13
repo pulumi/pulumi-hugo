@@ -23,34 +23,6 @@ In this tutorial, we’ll demonstrate the power of Pulumi ESC in managing config
 Currently WIP. Everything below this part will be getting moved into separate sections.
 {{< /notes >}}
 
-## Prerequisites
-
-You will need the following tools to complete this tutorial:
-
-- A [Pulumi account](https://app.pulumi.com)
-  - [Optional] Create an [access token](/docs/pulumi-cloud/access-management/access-tokens/)
-- The [Pulumi ESC CLI](/docs/install/esc/)
-{{< notes type="info" >}}
-Pulumi ESC is a service of Pulumi Cloud that can be used with or without Pulumi IaC. This means that if you already have the Pulumi IaC CLI installed, you do not need to install the Pulumi ESC CLI, and you may substitute `pulumi env` anywhere you see the `esc env` command in this guide.
-{{< /notes >}}
-- An [Amazon Web Services](https://aws.amazon.com/) account
-- The [AWS CLI](https://aws.amazon.com/cli/)
-- An [OIDC provider created for Pulumi](/docs/pulumi-cloud/oidc/aws/) in AWS
-  - Note that when defining the  `Subject Identifier`, the format for environments is `pulumi:environments:org:<pulumi-org>:env:<environment-name>`
-- Python 3.7 or higher installed
-
-Let's get started!
-
-## Managing API Endpoints and API Keys
-
-Imagine you're building a system that integrates with a third-party service such as:
-
-- a payment provider
-- weather data provider
-- a content-management system
-
-In the development environment, you might be integrating with the sandbox or development endpoint of the third-party service, while in the testing environment, you might be integrating with the production endpoint. Each of these third-party services could potentially have different API endpoints and API keys, and having this separation of concerns enables developers to be able to interact with their environments without affecting real users, data, or API limits.
-
 In the next steps, you will deploy an example application that will simulate a third-party service with both a dev and test endpoint.
 
 ### Deploy the Application
