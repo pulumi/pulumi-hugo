@@ -11,6 +11,13 @@ menu:
 
 ---
 
-WIP
+In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file.
+
+```yaml
+values:
+  myKey1: "myValue1"
+  myNestedKey:
+    myKey2: "myValue2"
+```
 
 {{< get-started-stepper >}}

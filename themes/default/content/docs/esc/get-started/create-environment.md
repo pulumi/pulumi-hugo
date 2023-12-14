@@ -15,15 +15,6 @@ menu:
 
 In Pulumi ESC, an environment is a collection of configuration intended to capture the configuration values needed to work with a particular environment.
 
-In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file.
-
-```yaml
-values:
-  myKey1: "myValue1"
-  myNestedKey:
-    myKey2: "myValue2"
-```
-
 An environment can be created one of two ways:
 
 - via the Pulumi ESC console
@@ -33,14 +24,32 @@ This tutorial will walk you through how to create an environment using either op
 
 ## Create environment via the console
 
-To create an environment via the console, navigate to [Pulumi Cloud](https://app.pulumi.com) and select the `Environments` link in the left-hand menu.
+To create an environment via the console, navigate to [Pulumi Cloud](https://app.pulumi.com) and select the **Environments** link in the left-hand menu.
 
-You will be directed to the Environments landing page. To create a new environment, click the `Create environment` button, and then enter a name for your environment (e.g., `my-dev-environment` for a development environment).
+You will be directed to the Environments landing page. To create a new environment, click the **Create environment** button, and then enter a name for your environment (e.g., `my-dev-environment` for a development environment).
 
 ![Creating a new environment in the Pulumi Cloud console](./esc-create-environment.gif)
 
 ## Create environment via the CLI
 
-TBD
+To create an environment via the CLI, use the following command, where `<org-name>` is optional and defaults to your Pulumi Cloud username.
+
+```bash
+esc env init [<org-name>/]<environment-name>
+```
+
+Note that environment names must be unique within an organization and may only contain alphanumeric characters, hyphens, underscores, and periods.
+
+```bash
+$ esc env init myorg/test
+Environment created.
+```
+
+You can validate that your environment was created by running the `esc env ls` which will list all of the environments that you have access to.
+
+```bash
+$ esc env ls
+myorg/test
+```
 
 {{< get-started-stepper >}}
