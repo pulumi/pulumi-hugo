@@ -8,13 +8,27 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
+		GET := apigateway.MethodGET
+		ALL := apigateway.RequestValidatorALL
+		PARAMS_ONLY := apigateway.RequestValidator_PARAMS_ONLY
+
 		api, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
+			RequestValidator: &PARAMS_ONLY,
+
 			Routes: []apigateway.RouteArgs{
 				{
-					Path: "/",
+					Path:   "/search",
+					Method: &GET,
 					Target: &apigateway.TargetArgs{
 						Type: apigateway.IntegrationType_Http_proxy,
 						Uri:  pulumi.String("https://www.example.com/"),
+					},
+					RequestValidator: &ALL,
+					RequiredParameters: []apigateway.RequiredParameterArgs{
+						{
+							Name: pulumi.StringPtr("q"),
+							In:   pulumi.StringPtr("query"),
+						},
 					},
 				},
 			},

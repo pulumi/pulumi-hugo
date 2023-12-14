@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-aws-apigateway/sdk/go/apigateway"
+	"github.com/pulumi/pulumi-aws-apigateway/sdk/v2/go/apigateway"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )

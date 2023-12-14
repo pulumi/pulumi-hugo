@@ -274,6 +274,8 @@ validator values are available:
 
 For example, this enables parameter validation on all routes, and all validation on a specific route:
 
+{{< example-program path="awsx-apigateway-validation-types" >}}
+
 {{< chooser language "typescript,python,go" >}}
 
 {{% choosable language "javascript,typescript" %}}
@@ -326,7 +328,7 @@ restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
 
 {{< /chooser >}}
 
-This enables validation already specified in the underlying models. The `awsx.apigateway.API` class also
+This enables validation already specified in the underlying models. The `apigateway.RestAPI` class also
 supports mechanisms to specify the validation rules in the API Gateway configuration.
 
 ### Request Parameter Validation
@@ -663,7 +665,7 @@ APIs for consumption from other tools, see [Documenting a REST API in API Gatewa
 ### Defining a Single Route
 
 Being able to provide an OpenAPI specification for an entire API Gateway lets you take matters into your own
-hands if you need to access a feature not supported directly by `awsx.apigateway.API`. However, if you'd like to
+hands if you need to access a feature not supported directly by `apigateway.RestAPI`. However, if you'd like to
 define just a single API using OpenAPI, you can define a Raw Data Route, by supplying a `data` property.
 
 The `data` property is just the `x-amazon-apigateway-integration` object, which can be seen in the above example.
