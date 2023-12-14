@@ -644,96 +644,14 @@ works and what HTTP headers it uses to accomplish its integrations.
 To use an OpenAPI specification to initialize your API Gateway, supply an entire OpenAPI specification as a string
 in the "swagger string" property. For example, this API proxies a route through to another HTTP endpoint:
 
-{{< chooser language "typescript,python,go" >}}
+{{< example-program path="awsx-apigateway-openapi-full" >}}
 
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const swaggerAPI = new apigateway.RestAPI("swagger-api", {
-    swaggerString: JSON.stringify({
-        swagger: "2.0",
-        info: {
-            title: "example",
-            version: "1.0",
-        },
-        paths: {
-            "/": {
-                get: {
-                    "x-amazon-apigateway-integration": {
-                        httpMethod: "GET",
-                        passthroughBehavior: "when_no_match",
-                        type: "http_proxy",
-                        uri: "https://httpbin.org/uuid",
-                    },
-                },
-            },
-        },
-        "x-amazon-apigateway-binary-media-types": ["*/*"],
-    })
-});
+```bash
+curl $(pulumi stack output url)
+{
+  "uuid": "afb17cf3-7a70-4c4b-9f09-7e8f23a63b2b"
+}
 ```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-swagger_api = apigateway.RestAPI("swagger-api",
-                                 swagger_string=json.dumps({
-                                     "swagger": "2.0",
-                                     "info": {
-                                         "title": "example",
-                                         "version": "1.0",
-                                     },
-                                     "paths": {
-                                         "/": {
-                                             "get": {
-                                                 "x-amazon-apigateway-integration": {
-                                                     "httpMethod": "GET",
-                                                     "passthroughBehavior": "when_no_match",
-                                                     "type": "http_proxy",
-                                                     "uri": "https://httpbin.org/uuid",
-                                                 },
-                                             },
-                                         },
-                                     },
-                                     "x-amazon-apigateway-binary-media-types": ["*/*"],
-                                 })
-                                 )
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-swaggerAPI, err := apigateway.NewRestAPI(ctx, "swagger-api", &apigateway.RestAPIArgs{
-  SwaggerString: pulumi.String(`{
-    "swagger": "2.0",
-    "info": {
-      "title": "example",
-      "version": "1.0"
-    },
-    "paths": {
-      "/": {
-        "get": {
-          "x-amazon-apigateway-integration": {
-            "httpMethod": "GET",
-            "passthroughBehavior": "when_no_match",
-            "type": "http_proxy",
-            "uri": "https://httpbin.org/uuid"
-          }
-        }
-      }
-    },
-    "x-amazon-apigateway-binary-media-types": ["*/*"]
-  }`),
-})
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
 
 This is more complex than the above examples, but this in an escape hatch that you can use to access any API
 Gateway features not yet supported by the easier abstractions in Pulumi Crosswalk for AWS API Gateway. You must manually
