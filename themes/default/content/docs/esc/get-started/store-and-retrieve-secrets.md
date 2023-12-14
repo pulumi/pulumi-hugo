@@ -1,7 +1,7 @@
 ---
 title_tag: Store and Retrieve Secrets | Pulumi ESC
 title: Store and retrieve secrets
-h1: "Pulumi ESC: Store and retrieve secrets"
+h1: "Pulumi ESC: Store and Retrieve Secrets"
 meta_desc: This page provides an overview on how to store and retrieve secrets in Pulumi ESC.
 weight: 4
 menu:
@@ -26,37 +26,74 @@ You can store values in an environment via the Pulumi Cloud console or via the C
 
 ### Store values via the console
 
-To store values in your environment, first click on the name of the environment to open its definition editor.
+To store values in your environment, first click on the name of the environment to open its definition editor. You will be presented with a split pane view. The left side is where you will write the definition of your environment configuration, and the right side will show a preview of your configuration in JSON format.
 
-{{< video title="Open environment in Pulumi ESC console" src="./esc-open-env.mp4" autoplay="true" loop="true" >}}
+{{< video title="Open environment in Pulumi ESC console" src="/docs/esc/get-started/esc-open-env.mp4" autoplay="true" loop="true" >}}
 
-In the editor, you will be presented with a split pane view. The left side is where you will write the definition of your environment configuration, and the right side will show a preview of your configuration in JSON format.
+Next, delete the placeholder text in the environment file and add the following simple configuration definition in its place:
+
+```yaml
+values:
+  myEnvironment: "development"
+```
+
+Then click the **Save** button located at the bottom of the editor.
+
+{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-add-env-values.mp4" autoplay="true" loop="true" >}}
 
 ### Store values via the CLI
 
-TBD
+To store values or update an existing value via the CLI, use the `esc env set` command as shown below, where `<org-name>` is optional and defaults to your Pulumi Cloud username:
+
+```bash
+esc env set [<org-name>/]<environment-name> <key> <value>
+```
+
+Now add the following simple configuration definition to your environment using the following command:
+
+```bash
+esc env set my-dev-environment myEnvironment development
+```
+
+This will create a configuration value with a key of `myEnvironment` and a value of `development`.
 
 ## Retrieve Environment Values
 
-Now that you have populated your environment files, you can verify that your values have been successfully stored by retrieving them through the Pulumi ESC CLI.
+Now that you have populated your environment file, you can verify that your values have been successfully stored by retrieving them through the console or via the CLI.
+
+### Retrieve values via the console
+
+TBD
+
+### Retrieve values via the CLI
 
 The CLI has a built-in `get` command that enables you to retrieve a single value from your environment. The format of the full command looks like the following:
 
 ```bash
-esc env get <your-org>/<your-environment-name> <variable-key-name>
+esc env get [<your-org>/]<your-environment-name> <variable-key-name>
 ```
 
-Let's assume that your Pulumi organization is named `acme` and the environment that you want to retrieve values from is named `app-env-dev`. If you want to retrieve the value of the `API_KEY` variable, the command to do so would look like the following:
+To retrieve the value of the `myEnvironment` variable you created earlier, the command to do so would look like the following:
 
 ```bash
-esc env get acme/app-env-dev API_KEY
+esc env get my-dev-environment myEnvironment
 ```
 
-Running this command should return the value of the API key that you added to your environment file. The output will look similar to the following:
+Running this command should return the following response:
 
 ```bash
-$ esc env get acme/app-env-dev API_KEY
-"M28zraZb2b42Fu0MD1CA"
+$ esc env get my-dev-environment myEnvironment
+   Value
+  
+    "development"
+  
+   Definition
+  
+    development
+  
+   Defined at
+  
+  • my-dev-environment:2:8
 ```
 
 {{< get-started-stepper >}}
