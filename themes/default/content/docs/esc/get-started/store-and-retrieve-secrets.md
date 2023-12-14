@@ -20,6 +20,7 @@ values:
   myKey1: "myValue1"
   myNestedKey:
     myKey2: "myValue2"
+    myNumber: 1
 ```
 
 You can store values in an environment via the Pulumi Cloud console or via the CLI.
@@ -63,7 +64,9 @@ Now that you have populated your environment file, you can verify that your valu
 
 ### Retrieve values via the console
 
-TBD
+To retrieve values
+
+This becomes especially relevant when you have values that are dynamically generated or retrieved from external sources, as those values will not be know until you resolve them using the "Open" functionality.
 
 ### Retrieve values via the CLI
 
