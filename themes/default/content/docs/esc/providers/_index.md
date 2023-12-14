@@ -9,6 +9,8 @@ menu:
         parent: esc
         weight: 5
         identifier: esc-providers
+aliases:
+- /docs/pulumi-cloud/esc/providers/
 ---
 
 Pulumi ESC providers enable you to dynamically import secrets and configuration from the provider into your environment.
