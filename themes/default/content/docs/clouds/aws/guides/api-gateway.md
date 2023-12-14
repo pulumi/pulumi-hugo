@@ -671,73 +671,13 @@ The route's other parameters, such as its path and method, otherwise use the sam
 
 For instance, the same API Gateway endpoint that proxies through to another API can be authored as follows:
 
-{{< chooser language "typescript,python,go" >}}
+{{< example-program path="awsx-apigateway-openapi-route" >}}
 
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const api = new apigateway.RestAPI("api", {
-    routes: [
-        {
-            path: "/",
-            method: "GET",
-            data: {
-                "x-amazon-apigateway-integration": {
-                    httpMethod: "GET",
-                    passthroughBehavior: "when_no_match",
-                    type: "http_proxy",
-                    uri: "https://httpbin.org/uuid",
-                },
-            },
-        },
-    ],
-});
+```bash
+{
+  "uuid": "6cfb94ae-1655-4697-b413-89e541b027f4"
+}
 ```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-api = apigateway.RestAPI('api', routes=[
-    apigateway.RouteArgs(path="/", method="GET", data={
-        "x-amazon-apigateway-integration": {
-            "httpMethod": "GET",
-            "passthroughBehavior": "when_no_match",
-            "type": "http_proxy",
-            "uri": "https://httpbin.org/uuid",
-        },
-    }),
-])
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-getMethod := apigateway.MethodGET
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-  Routes: []apigateway.RouteArgs{
-    {
-      Path:   "/",
-      Method: &getMethod,
-      Data: map[string]interface{}{
-        "x-amazon-apigateway-integration": map[string]interface{}{
-          "httpMethod":          "GET",
-          "passthroughBehavior": "when_no_match",
-          "type":                "http_proxy",
-          "uri":                 "https://httpbin.org/uuid",
-        },
-      },
-    },
-  },
-})
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
 
 For full details on what the OpenAPI integration object may contain, refer to the full
 [x-amazon-apigateway-integration Object documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-integration.html).
