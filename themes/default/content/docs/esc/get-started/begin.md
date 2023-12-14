@@ -5,8 +5,8 @@ h1: "Pulumi ESC: Before you begin"
 meta_desc: This page provides an overview on how to get started with Pulumi ESC.
 weight: 2
 menu:
-  pulumi-esc:
-    parent: esc
+  pulumiesc:
+    parent: esc-get-started
     identifier: esc-get-started-begin
 ---
 
