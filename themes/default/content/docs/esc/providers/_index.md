@@ -5,8 +5,7 @@ title: Providers
 h1: Pulumi ESC Providers
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
-    pulumicloud:
-        parent: esc
+    pulumiesc:
         weight: 5
         identifier: esc-providers
 aliases:
