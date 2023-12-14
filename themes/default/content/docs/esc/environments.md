@@ -4,8 +4,7 @@ title_tag: Pulumi ESC Environments
 h1: Pulumi ESC Environments
 meta_desc: Pulumi ESC allows you to compose and manage hierarchical collections of configuration and secrets and consume them in various ways.
 menu:
-  pulumi-esc:
-    parent: esc
+  pulumiesc:
     identifier: environments
     weight: 2
 search:
