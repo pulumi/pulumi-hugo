@@ -17,7 +17,7 @@ In Pulumi ESC, an environment is a collection of configuration intended to captu
 
 An environment can be created one of two ways:
 
-- via the Pulumi ESC console
+- via the Pulumi Cloud console
 - via the CLI
 
 This tutorial will walk you through how to create an environment using either option.

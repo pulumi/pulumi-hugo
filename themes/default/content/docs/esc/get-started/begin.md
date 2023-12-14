@@ -14,15 +14,15 @@ Before you get started using Pulumi ESC, let's run through a few quick steps to 
 
 ### Create a Pulumi account
 
-Pulumi ESC is a service of Pulumi Cloud, meaning you will need to create a Pulumi account to be able to use it. To do so, navigate to the [Pulumi Cloud console](https://app.pulumi.com) and create a new account.
-
-Once created, you can optionally create an [access token](/docs/pulumi-cloud/access-management/access-tokens/). Doing so will enable you an alternative way to sign into the Pulumi Cloud via the CLI. The token can also be used to automate your usage of the Pulumi Cloud using the REST API.
+Pulumi ESC is a service of Pulumi Cloud, meaning you will need to create a Pulumi account to be able to use it. To do so, navigate to the [Pulumi Cloud console](https://app.pulumi.com) and create a new account. Once created, you can optionally create an [access token](/docs/pulumi-cloud/access-management/access-tokens/). Doing so will enable you an alternative way to sign into the Pulumi Cloud via the CLI. The token can also be used to automate your usage of the Pulumi Cloud using the REST API.
 
 ### Install the Pulumi ESC CLI
 
 {{< notes type="info" >}}
 Pulumi ESC can be used with or without Pulumi IaC. This means that if you already have the [Pulumi IaC CLI](/docs/cli/) installed, you do not need to install the Pulumi ESC CLI, and you may substitute `pulumi env` anywhere you see the `esc env` command in the rest of this tutorial.
 {{< /notes >}}
+
+Use the below option to install the Pulumi ESC CLI based on your operating system.
 
 {{< chooser os "macos,windows,linux" >}}
 
@@ -57,7 +57,7 @@ $ curl -fsSL https://get.pulumi.com/esc/install.sh | sh
 
 {{% /chooser %}}
 
-Or explore [more installation options](/docs/install/esc/).
+You can explore more installation options by visiting the [ESC installation docs](/docs/install/esc/).
 
 ### Configure OpenID Connect (OIDC)
 
@@ -66,6 +66,25 @@ Pulumi supports [OpenID Connect (OIDC) integration](/docs/pulumi-cloud/oidc/) ac
 - [OIDC Configuration for AWS](/docs/pulumi-cloud/oidc/aws/)
 - [OIDC Configuration for Azure](/docs/pulumi-cloud/oidc/azure/)
 - [OIDC Configuration for Google Cloud](/docs/pulumi-cloud/oidc/gcp/)
+
+### Login to the ESC CLI
+
+Run the following command to log into the CLI:
+
+```bash
+esc login
+```
+
+You will be prompted to log in to the Pulumi Cloud using either the browser or by optionally providing an access token.
+
+```bash
+$ esc login
+Manage your Pulumi ESC environments by logging in.
+Run `esc --help` for alternative login options.
+Enter your access token from https://app.pulumi.com/account/tokens
+    or hit <ENTER> to log in using your browser                   :
+Logged in to https://api.pulumi.com/ as your-pulumi-org (https://app.pulumi.com/your-pulumi-org)
+```
 
 In the next section, you will start your journey with Pulumi ESC by creating a new environment.
 
