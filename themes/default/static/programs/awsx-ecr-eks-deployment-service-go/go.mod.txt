@@ -1,4 +1,4 @@
-module awsx-ecr-eks-deployment-service-yagoml
+module awsx-ecr-eks-deployment-service-go
 
 go 1.20
 
