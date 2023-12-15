@@ -276,58 +276,6 @@ For example, this enables parameter validation on all routes, and all validation
 
 {{< example-program path="awsx-apigateway-validation-types" >}}
 
-{{< chooser language "typescript,python,go" >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const api = new apigateway.RestAPI("api", {
-  requestValidator: "PARAMS_ONLY",
-  routes: [
-    {
-      // ...
-      requestValidator: "ALL",
-    },
-  ],
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-api = apigateway.RestAPI('api',
-                         request_validator="PARAMS_ONLY",
-                         routes=[
-                             apigateway.RouteArgs(
-                                 # ...
-                                 request_validator="ALL"),
-                         ])
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-paramsOnly := apigateway.RequestValidator_PARAMS_ONLY
-requestValidatorALL := apigateway.RequestValidatorALL
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-    RequestValidator: &paramsOnly,
-    Routes: []apigateway.RouteArgs{
-      {
-        // ...
-        RequestValidator: &requestValidatorALL,
-      },
-  },
-})
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
-
 This enables validation already specified in the underlying models. The `apigateway.RestAPI` class also
 supports mechanisms to specify the validation rules in the API Gateway configuration.
 
@@ -362,55 +310,6 @@ Key) or `AUTHORIZER` (i.e. a Lambda authorizer sends the API Key as part of the 
 Key source is not set, then the source will default to `HEADER`.
 
 Here's an example how to configure the API and routes to use API Keys:
-
-{{< chooser language "typescript,python,go" >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const api = new apigateway.RestAPI("api", {
-    routes: [
-        {
-            // ...
-            apiKeyRequired: true,
-        }
-    ],
-    apiKeySource: "AUTHORIZER",
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-api = apigateway.RestAPI('api', api_key_source="AUTHORIZER", routes=[
-    apigateway.RouteArgs(# ...
-                         api_key_required=True)
-])
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-apiKeyRequired := true
-authorizer := apigateway.APIKeySourceAUTHORIZER
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-  ApiKeySource: &authorizer,
-  Routes: []apigateway.RouteArgs{
-    {
-      // ...
-      ApiKeyRequired: &apiKeyRequired,
-    },
-  },
-})
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
 
 There's 3 steps to configure API Keys for the API:
 
