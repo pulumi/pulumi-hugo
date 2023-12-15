@@ -29,7 +29,7 @@ public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
 
-            var hostedZoneName = "christian.pulumi-dev.io";
+            var hostedZoneName = "example.com";
             var domainName = String.format("myapp-java.%s", hostedZoneName);
 
             var zone = Route53Functions.getZone(GetZoneArgs.builder()

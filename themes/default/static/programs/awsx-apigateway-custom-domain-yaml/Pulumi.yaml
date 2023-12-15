@@ -3,7 +3,7 @@ runtime: yaml
 description: An example that deploys an API Gateway REST API with a custom domain from Route53.
 
 variables:
-  hostedZoneName: christian.pulumi-dev.io
+  hostedZoneName: example.com
   domainName: myapp-yaml.${hostedZoneName}
   zone:
     fn::invoke:

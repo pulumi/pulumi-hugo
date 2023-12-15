@@ -14,7 +14,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
-		hostedZone := "christian.pulumi-dev.io"
+		hostedZone := "example.com"
 		domainName := fmt.Sprintf("myapp-go.%s", hostedZone)
 
 		zone := route53.LookupZoneOutput(ctx, route53.LookupZoneOutputArgs{

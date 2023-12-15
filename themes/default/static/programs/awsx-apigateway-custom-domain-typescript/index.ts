@@ -2,7 +2,7 @@ import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import * as apigateway from "@pulumi/aws-apigateway";
 
-const hostedZoneName = "christian.pulumi-dev.io";
+const hostedZoneName = "example.com";
 const domainName = `myapp.${hostedZoneName}`;
 
 const zone = aws.route53.getZoneOutput({ name: hostedZoneName });

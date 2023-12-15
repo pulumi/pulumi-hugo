@@ -5,7 +5,7 @@ using Aws = Pulumi.Aws;
 
 return await Deployment.RunAsync(() =>
 {
-    var hostedZoneName = "christian.pulumi-dev.io";
+    var hostedZoneName = "example.com";
     var domainName = $"myapp-csharp.{hostedZoneName}";
 
     var zone = Aws.Route53.GetZone.Invoke(new()

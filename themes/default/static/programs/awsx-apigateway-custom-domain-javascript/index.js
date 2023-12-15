@@ -2,7 +2,7 @@ const aws = require("@pulumi/aws");
 const pulumi = require("@pulumi/pulumi");
 const apigateway = require("@pulumi/aws-apigateway");
 
-const hostedZoneName = "christian.pulumi-dev.io";
+const hostedZoneName = "example.com";
 const domainName = `myapp-javascript.${hostedZoneName}`;
 
 // Look up your existing Route 53 hosted zone.

@@ -135,9 +135,9 @@ Given a directory `www` containing a `index.html` file such as this:
 
 ```html
 <html>
-<body>
-    <p>Hello from API Gateway + S3!</p>
-</body>
+  <body>
+      <p>Hello from API Gateway + S3!</p>
+  </body>
 </html>
 ```
 
