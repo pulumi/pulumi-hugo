@@ -1,13 +1,17 @@
 {{ $path := .Get "path" }}
 {{ $languages := default "javascript,typescript,python,go,csharp,java,yaml" (.Get "languages") }}
-{{ $folder := path.Join "static" "programs" }}
+{{ $programsDir := slice "static" "programs" }}
 {{ $showChooser := gt (len (split $languages ",")) 1 }}
 
 {{ if $showChooser }}
     {{ $eachLang := split $languages "," }}
     {{ $chooserLangs := slice }}
     {{ range $eachLang }}
-        {{ $chooserLangs = $chooserLangs | append (index (split . ":") 0) }}
+        {{ $lang := index (split . ":") 0 }}
+        {{ $programDir := path.Join $programsDir (printf "%s-%s" $path $lang) }}
+        {{ if fileExists $programDir }}
+            {{ $chooserLangs = $chooserLangs | append $lang }}
+        {{ end }}
     {{ end }}
     <div>
         <pulumi-chooser type="language" options="{{ delimit $chooserLangs "," }}">
@@ -55,27 +59,30 @@
         {{ else if eq $language "yaml" }}
             {{ $program = "Pulumi.yaml" }}
         {{ end }}
+
         {{ if ne $program "" }}
-            {{ $root := slice "static" "programs" (printf "%s-%s" $path $language) }}
-            {{ $code := readFile (path.Join $root $program) }}
+            {{ $programFilePath := path.Join $programsDir (printf "%s-%s" $path $language) $program }}
 
-            {{ $lines := split $code "\n" }}
-            {{ $toEnd := after (sub (int $from) 1) $lines }}
-            {{ $lineCount := add (sub (int $to) (int $from)) 1 }}
-            {{ $toTo := first $lineCount $toEnd }}
-            {{ $code = delimit $toTo "\n" }}
+            {{ if fileExists $programFilePath }}
+                {{ $code := readFile $programFilePath }}
+                {{ $lines := split $code "\n" }}
+                {{ $toEnd := after (sub (int $from) 1) $lines }}
+                {{ $lineCount := add (sub (int $to) (int $from)) 1 }}
+                {{ $toTo := first $lineCount $toEnd }}
+                {{ $code = delimit $toTo "\n" }}
 
-            <div data-program-path="{{ $path }}" data-program-language="{{ $language }}" data-program-file="{{ $program }}" data-program-depfile="{{ $depfile }}">
-                {{ highlight $code $language }}
-            </div>
-            <div class="example-program-footer bg-white">
-                <pulumi-tooltip>
-                    <a href="https://github.com/pulumi/pulumi-hugo/tree/{{ $.Site.Params.contentRepositoryBaseBranch }}/{{ getenv "REPO_THEME_PATH" }}static/programs/{{ $path }}-{{ $language }}" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <span slot="content">View full example on GitHub</span>
-                </pulumi-tooltip>
-            </div>
+                <div data-program-path="{{ $path }}" data-program-language="{{ $language }}" data-program-file="{{ $program }}" data-program-depfile="{{ $depfile }}">
+                    {{ highlight $code $language }}
+                </div>
+                <div class="example-program-footer bg-white">
+                    <pulumi-tooltip>
+                        <a href="https://github.com/pulumi/pulumi-hugo/tree/{{ $.Site.Params.contentRepositoryBaseBranch }}/{{ getenv "REPO_THEME_PATH" }}static/programs/{{ $path }}-{{ $language }}" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <span slot="content">View full example on GitHub</span>
+                    </pulumi-tooltip>
+                </div>
+            {{ end }}
         {{ end }}
 
         {{ if $showChooser }}
