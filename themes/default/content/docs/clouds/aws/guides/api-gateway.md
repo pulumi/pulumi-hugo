@@ -337,60 +337,9 @@ To validate that a given request parameter is present in each request, use the `
 This is an array where each entry defines a different parameter. Each entry specifies the parameter `name` and where
 it is expected to be found (`"path"`, `"query"`, or `"header"`), using the `in` property.
 
-For example, this ensures that the `key` querystring parameter is present on all requests:
+For example, this ensures that the `q` querystring parameter is present on all `/search` requests:
 
-{{< chooser language "typescript,python,go" >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const api = new apigateway.RestAPI("api", {
-    routes: [
-        {
-            // ...
-            requestValidator: "PARAMS_ONLY",
-            requiredParameters: [{ name: "key", in: "query" }],
-        },
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-api = apigateway.RestAPI('api', routes=[
-    # Serve an entire directory of static content
-    apigateway.RouteArgs(
-        # ...
-        request_validator="ALL",
-        required_parameters=[apigateway.RequiredParameterArgs(name="key", in_="query")]),
-])
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-requestValidatorALL := apigateway.RequestValidatorALL
-restAPI, err := apigateway.NewRestAPI(ctx, "api", &apigateway.RestAPIArgs{
-  Routes: []apigateway.RouteArgs{
-    {
-      // ...
-      RequestValidator: &requestValidatorALL,
-      RequiredParameters: []apigateway.RequiredParameterArgs{
-        {
-          Name: pulumi.StringPtr("key"),
-          In:   pulumi.StringPtr("query"),
-        },
-      },
-    },
-  })
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
+{{< example-program path="awsx-apigateway-validation-types" >}}
 
 For additional information about request validation, refer to [Use Request Validation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
 
@@ -469,125 +418,11 @@ There's 3 steps to configure API Keys for the API:
 2. Create a usage plan for the API (which can optionally define quotas and throttles)
 3. Associate the key to the usage plan.
 
-Below is an example of using creating these components:
+Below is an example that incorporates these components:
 
-{{< chooser language "typescript,python,go" >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-// Create an API key to manage usage
-const apiKey = new aws.apigateway.ApiKey("api-key");
-// Define usage plan for an API stage
-const usagePlan = new aws.apigateway.UsagePlan("usage-plan", {
-    apiStages: [{
-        apiId: api.api.id,
-        stage: api.stage.stageName,
-        // throttles: [{ path: "/path/GET", rateLimit: 1 }]
-    }],
-    // quotaSettings: {...},
-    // throttleSettings: {...},
-});
-// Associate the key to the plan
-new aws.apigateway.UsagePlanKey("usage-plan-key", {
-    keyId: apiKey.id,
-    keyType: "API_KEY",
-    usagePlanId: usagePlan.id,
-});
-
-export const apiKeyValue = apiKey.value;
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-# Create an API key to manage usage
-api_key = aws.apigateway.ApiKey("api-key")
-# Define usage plan for an API stage
-usage_plan = aws.apigateway.UsagePlan("usage-plan",
-                                      api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-                                          api_id=api.api.id,
-                                          stage=api.stage.stage_name)])
-# Associate the key to the plan
-aws.apigateway.UsagePlanKey('usage-plan-key',
-                            key_id=api_key.id,
-                            key_type="API_KEY",
-                            usage_plan_id=usage_plan.id)
-
-pulumi.export('api-key-value', api_key.value)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-// Create an API key to manage usage
-apiKey, err := awsapigateway.NewApiKey(ctx, "api-key", &awsapigateway.ApiKeyArgs{})
-if err != nil {
-  return err
-}
-apiId := restAPI.Api.ApplyT(func(api *awsapigateway.RestApi) pulumi.StringOutput {
-  return api.ID().ToStringOutput()
-}).ApplyT(func(id interface{}) string {
-  return id.(string)
-}).(pulumi.StringOutput)
-stageName := restAPI.Stage.ApplyT(func(stage *awsapigateway.Stage) pulumi.StringOutput {
-  return stage.StageName
-}).ApplyT(func(stageName interface{}) string {
-  return stageName.(string)
-}).(pulumi.StringOutput)
-// Define usage plan for an API stage
-usagePlan, err := awsapigateway.NewUsagePlan(ctx, "usage-plan", &awsapigateway.UsagePlanArgs{
-  ApiStages: awsapigateway.UsagePlanApiStageArray{
-    awsapigateway.UsagePlanApiStageArgs{
-      ApiId: apiId,
-      Stage: stageName,
-    },
-  },
-})
-if err != nil {
-  return err
-}
-
-// Associate the key to the plan
-_, err = awsapigateway.NewUsagePlanKey(ctx, "usage-plan-key", &awsapigateway.UsagePlanKeyArgs{
-  KeyId:       apiKey.ID(),
-  KeyType:     pulumi.String("API_KEY"),
-  UsagePlanId: usagePlan.ID(),
-})
-if err != nil {
-  return err
-}
-
-ctx.Export("api-key-value", apiKey.Value)
-```
-
-{{% /choosable %}}
+{{< example-program path="awsx-apigateway-api-keys" >}}
 
 If using the `HEADER` API Key Source, when making a request, set the `x-api-key` header to the exported "api key value" e.g.:
-
-{{% choosable language "javascript,typescript" %}}
-
-```bash
-$ curl -w '\n' -H "x-api-key: $(pulumi stack output apiKeyValue --show-secrets)" "$(pulumi stack output url)"
-Hello, API Gateway!
-```
-
-{{% /choosable %}}
-
-{{% choosable language "python,go" %}}
-
-```bash
-$ curl -w '\n' -H "x-api-key: $(pulumi stack output api-key-value --show-secrets)" "$(pulumi stack output url)"
-Hello, API Gateway!
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
 
 For more information about Usage Plans and API Keys, refer to
 [Create and Use Usage Plans with API Keys](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
