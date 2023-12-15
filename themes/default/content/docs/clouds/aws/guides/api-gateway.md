@@ -159,10 +159,6 @@ If the local path points to a directory, the route will automatically be created
 all sub-directories and the content type for all files will be inferred automatically. If the local path points to a single
 file, you can specify the content type explicitly using the `contentType` property.
 
-```
-example of these?
-```
-
 ### Integrating with other AWS services
 
 If neither of the above route types work for you, [Amazon API Gateway integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-integration-types.html) connect an API Gateway endpoint to backend services that will execute code in response to requests. The previous lambda and static examples use integrations internally, even if it's not evident in the simple interface exposed. Integrations give you full control over how HTTP requests are handled, and responses served, by an API Gateway route.
@@ -292,10 +288,8 @@ For example, this ensures that the `q` querystring parameter is present on all `
 For additional information about request validation, refer to [Use Request Validation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html#api-gateway-request-validation-basic-definitions).
 
 {{% notes type="info" %}}
-
 Request body validation is currently not supported. If you have a need for it, we would love to hear from you.
 Comment on [this open issue](https://github.com/pulumi/pulumi-aws-apigateway/issues/36) with details about your use case.
-
 {{% /notes %}}
 
 ### Use API Keys to Limit Requests
