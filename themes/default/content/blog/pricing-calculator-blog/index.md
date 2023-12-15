@@ -1,5 +1,5 @@
 ---
-title: "Introducing the Pulumi Cloud Cost Calculator"
+title: "Introducing the Pulumi Cloud Team Edition Cost Calculator"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
@@ -7,7 +7,7 @@ title: "Introducing the Pulumi Cloud Cost Calculator"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2023-11-27T15:54:54-08:00
+date: 2023-12-15T15:54:54-08:00
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
@@ -17,7 +17,7 @@ draft: false
 # of the content of the post, which is useful for targeting search results or
 # social-media previews. This field is required or the build will fail the
 # linter test. Max length is 160 characters.
-meta_desc: Introducing the new Pulumi Cloud pricing cloud calculator to make estimating new costs for prospective customers easier than ever.
+meta_desc: Introducing the new Pulumi Cloud Team edition pricing calculator to make estimating new costs for prospective customers easier than ever.
 
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
@@ -41,10 +41,10 @@ tags:
 
 Pulumi Cloud pricing is straightforward- a charge per resource hour for every resource managed by Pulumi Cloud and a charge for every deployment minute (only applicable if using Pulumi Deployments). However, when prospective customers first look at Pulumi Cloud costs it can be overwhelming to determine what your workload will look like and then do the math.
 
-Today we are making available a simple tool for estimating your cost on Pulumi Cloud to get prospective customers to the information as quickly as possible.
+Today we are making available a simple tool for estimating your cost on the Team Edition of Pulumi Cloud to get prospective customers to the information as quickly as possible.
 <!--more-->
 
-Just input the number of resources in all your cloud accounts and the percentage of time they will be up (12 hours a day would be 50% of the time) and you have an estimate of your costs! Add deployment minutes to see Pulumi Deployments costs included. Toggle from Per Month to Per Day to see your daily cost estimate.
+Just input the number of resources in all your cloud accounts and the percentage of time they will be up (12 hours a day would be 50% of the time) and you have an estimate of your costs! Add deployment minutes to see Pulumi Deployments costs included. Toggle from Per Month to Per Day to see your daily cost estimate instead of monthly.
 
 {{< blog/cta-button "Calculate Pulumi Cloud Costs" "/pricing/b" "_blank" >}}
 
