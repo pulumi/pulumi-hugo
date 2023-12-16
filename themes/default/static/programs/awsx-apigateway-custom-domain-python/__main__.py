@@ -3,7 +3,7 @@ import pulumi_aws as aws
 import pulumi_aws_apigateway as apigateway
 
 hosted_zone_name = "example.com"
-domain_name = f"myapp-python.{hosted_zone_name}"
+domain_name = f"myapp.{hosted_zone_name}"
 
 # Look up your existing Route 53 hosted zone.
 zone = aws.route53.get_zone(name=hosted_zone_name)
