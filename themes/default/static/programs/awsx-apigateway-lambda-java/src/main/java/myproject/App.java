@@ -18,6 +18,7 @@ public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
 
+            // An execution role to use for the Lambda function.
             var role = new Role("role", RoleArgs.builder()
                 .assumeRolePolicy(serializeJson(
                     jsonObject(
@@ -34,6 +35,7 @@ public class App {
                 .managedPolicyArns(List.of(ManagedPolicy.AWSLambdaBasicExecutionRole.getValue()))
                 .build());
 
+            // An execution role to use for the Lambda function.
             var handler = new Function("handler", FunctionArgs.builder()
                 .runtime("python3.9")
                 .handler("handler.handler")
@@ -41,6 +43,7 @@ public class App {
                 .code(new com.pulumi.asset.FileArchive("./function"))
                 .build());
 
+            // An execution role to use for the Lambda function.
             var api = new RestAPI("api", RestAPIArgs.builder()
                 .routes(new RouteArgs[]{
                     RouteArgs.builder()
@@ -51,6 +54,7 @@ public class App {
                 })
                 .build());
 
+            // An execution role to use for the Lambda function.
             ctx.export("url", api.url());
         });
     }

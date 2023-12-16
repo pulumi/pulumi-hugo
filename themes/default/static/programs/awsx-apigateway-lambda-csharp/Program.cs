@@ -6,6 +6,7 @@ using AwsApiGateway = Pulumi.AwsApiGateway;
 
 return await Deployment.RunAsync(() =>
 {
+    // An execution role to use for the Lambda function.
     var role = new Aws.Iam.Role("role", new()
     {
         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary<string, object?>
@@ -30,6 +31,7 @@ return await Deployment.RunAsync(() =>
         },
     });
 
+    // A Lambda function to invoke.
     var handler = new Aws.Lambda.Function("handler", new()
     {
         Runtime = "python3.9",
@@ -38,6 +40,7 @@ return await Deployment.RunAsync(() =>
         Code = new FileArchive("./function"),
     });
 
+    // A REST API to route requests to the Lambda function.
     var api = new AwsApiGateway.RestAPI("api", new()
     {
         Routes =
@@ -53,6 +56,7 @@ return await Deployment.RunAsync(() =>
 
     return new Dictionary<string, object?>
     {
+        // The URL at which the REST API will be served.
         ["url"] = api.Url,
     };
 });

@@ -135,7 +135,7 @@ Given a directory `www` containing an `index.html` file, the following program c
 
 {{< example-program path="awsx-apigateway-s3" >}}
 
-Again, after running `pulumi up`, you can `curl` exported URL:
+Again, after running `pulumi up`, you can `curl` the exported URL:
 
 ```bash
 $ curl $(pulumi stack output url)
