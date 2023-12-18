@@ -69,7 +69,6 @@ main:
 
     # The webinar presenters
     presenters:
-        presenters:
             - name: Josh Kodroff
               role: Sr. Solutions Architect, Pulumi
             - name: Eli Schilling
