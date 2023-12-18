@@ -54,6 +54,7 @@ According to [Gartner](https://www.gartner.com/en/newsroom/press-releases/2023-1
 {{< figure alt="The future of cloud computing. Credit: Gartner" src="https://media.licdn.com/dms/image/D4E12AQElUBX5yuTQKA/article-inline_image-shrink_1500_2232/0/1701900870466?e=1708560000&v=beta&t=kuCJujRb-C3eeP7u4hGnXmy2DQrY1YYUzEI4ed9P-P0" caption="The future of cloud computing. Credit: Gartner" width=100% >}}
 
 According to McKinsey & Company's "[In search of cloud value](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/in-search-of-cloud-value-can-generative-ai-transform-cloud-roi)" report:
+
 - Cloud enables businesses to innovate, which is worth more than x5 what is possible by simply reducing costs.
 - The anticipated increase in EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) attributable to cloud adoption is projected to range between 20% and 30% by the year 2030 - but it's expected to vary across different sectors.
 - Asian companies have the most to gain from the cloud, with $1.2 trillion in EBITDA. American institutions stand to capture about $1.1 trillion in cloud value, while European institutions are at $773 billion due to regulatory constraints.
