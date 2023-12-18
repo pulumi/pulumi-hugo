@@ -144,7 +144,7 @@ Over 150,000 technology industry workers have been laid off in the US since the 
 
 Previous research by [McKinsey Global Institute](https://www.mckinsey.com/featured-insights/future-of-work/jobs-lost-jobs-gained-what-the-future-of-work-will-mean-for-jobs-skills-and-wages) has shown that **as many as 375 million tech workers globally might have to change occupations** and skills in the next decade to meet companies' needs and that automation could free employees to spend as much as 30% of their time on new work-acquiring new work experience.
 
-{{< figure alt="AI Influence on US workforce salaries Credit: Bizreport" src="/Bizreport.png" caption="AI Influence on US workforce salaries Credit: Bizreport" width=100% >}}
+{{< figure alt="AI Influence on US workforce salaries Credit: Bizreport" src="./Bizreport.png" caption="AI Influence on US workforce salaries Credit: Bizreport" width=100% >}}
 
 The skill gaps have appeared in many of the previously stated trends. For organizations, it means that they need to look closer at their existing knowledge and prioritize skill-building, reskilling, and upskilling efforts. These programs face other obstacles, most at the cultural level.
 
