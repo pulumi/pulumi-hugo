@@ -62,7 +62,7 @@ According to McKinsey & Company's "[In search of cloud value](https://www.mckins
 
 ## 2. Large Organizations with Multi-Cloud and Hybrid Environments
 
-Multi-cloud and Hybrid (mixing cloud and on-premise infrastructure) environments are a trend that is here to stay. According to Forbes, by **2024, 85% of large-sized companies will have a multi-cloud strategy**. Organizations recognize the importance of leveraging multiple cloud providers and on-premises infrastructure to optimize performance, enhance redundancy, and mitigate risks. 
+Multi-cloud and Hybrid (mixing cloud and on-premise infrastructure) environments are a trend that is here to stay. According to Forbes, by **2024, 85% of large-sized companies will have a multi-cloud strategy**. Organizations recognize the importance of leveraging multiple cloud providers and on-premises infrastructure to optimize performance, enhance redundancy, and mitigate risks.
 
 {{< figure alt="Why organizations are using multiple clouds chart. Credit: Cisco Systems" src="https://media.licdn.com/dms/image/D4E12AQEs9JuY5rKdGg/article-inline_image-shrink_1500_2232/0/1701900695659?e=1708560000&v=beta&t=Dvt6x86Vb5yqtpWviHwxn5Vraq30UlbcA-AfRXyzytU" caption="Credit: Cisco Systems" width=100% >}}
 
@@ -70,7 +70,7 @@ The following trends also relate to this multi-cloud and hybrid approach as comp
 
 ## 3. Infrastructure as Code (IaC) Crucial for Scalability
 
-IaC in general-purpose languages is gaining prominence as organizations seek to automate and streamline their infrastructure management processes and reduce the divide between application development and cloud infrastructure development. 
+IaC in general-purpose languages is gaining prominence as organizations seek to automate and streamline their infrastructure management processes and reduce the divide between application development and cloud infrastructure development.
 
 [Infrastructure as Code](https://www.pulumi.com/what-is/what-is-infrastructure-as-code/) is maturing beyond taming the complexity of the cloud:
 
@@ -78,13 +78,13 @@ IaC in general-purpose languages is gaining prominence as organizations seek to 
 - Better integration with multiple cloud providers, like [AWS](https://www.pulumi.com/docs/clouds/aws/), [Azure](https://www.pulumi.com/docs/clouds/azure/), and [Google Cloud](https://www.pulumi.com/docs/clouds/gcp/), data stores, and third-party services like [Cockroach Labs db](https://www.pulumi.com/registry/packages/cockroach/), [Confluent cloud](https://www.pulumi.com/registry/packages/confluentcloud/), [Kafka](https://www.pulumi.com/registry/packages/kafka/), and more.
 - Deeper validation on parameters that people are passing in, checking all critical components, ensuring they are configured correctly before deployment
 - More [efficient resource management](https://www.pulumi.com/docs/pulumi-cloud/insights/)
-- Robust security and [Policy as Code](https://www.pulumi.com/docs/using-pulumi/crossguard/core-concepts/) to enforce security practices, guardrails, compliance, cost policies, and more 
+- Robust security and [Policy as Code](https://www.pulumi.com/docs/using-pulumi/crossguard/core-concepts/) to enforce security practices, guardrails, compliance, cost policies, and more
 - Intelligent automation, including [automated tests](https://www.pulumi.com/docs/using-pulumi/testing/) and [remediation policies](https://www.pulumi.com/blog/remediation-policies/)
 - [AI-driven automation and insights](https://www.pulumi.com/blog/pulumi-insights/)
 
 ## 4. Rise of Security-First (DevSecOps)
 
-Security is no longer a separate consideration but a top priority in the cloud landscape - **integrating security into the DevOps process, known as DevSecOps, will be a key trend in 2024**. Organizations will emphasize building security measures in every development lifecycle stage. [Policy as Code](https://www.pulumi.com/crossguard/) will be an indispensable pillar in many security aspects: 
+Security is no longer a separate consideration but a top priority in the cloud landscape - **integrating security into the DevOps process, known as DevSecOps, will be a key trend in 2024**. Organizations will emphasize building security measures in every development lifecycle stage. [Policy as Code](https://www.pulumi.com/crossguard/) will be an indispensable pillar in many security aspects:
 
 - Use off-the-shelf rules or define your best practices for security, cost, compliance, and reliability
 - Maintain security across all cloud infrastructure assets
@@ -134,13 +134,13 @@ The "growing pains" will also increase with rising concerns in security, network
 
 ## 9. Cost Transparency and Governance
 
-As cloud environments become more complex, ensuring cost transparency and governance will be a priority. In 2024, businesses will invest in Cloud Optimization and/or cost management tools and processes to monitor and control cloud spending effectively. This includes implementing policies, [managing resource allocation](https://www.pulumi.com/blog/property-search/), and utilizing cost analytics to make informed decisions about resource utilization. 
+As cloud environments become more complex, ensuring cost transparency and governance will be a priority. In 2024, businesses will invest in Cloud Optimization and/or cost management tools and processes to monitor and control cloud spending effectively. This includes implementing policies, [managing resource allocation](https://www.pulumi.com/blog/property-search/), and utilizing cost analytics to make informed decisions about resource utilization.
 
 As a result, [IDC](https://www.netapp.com/media/93564-operationalize-fin-ops-for-continuous-cloud-and-cost-efficiency.pdf) predicts that complexities and IT budget pressures will drive **70% of Global 1000 companies to [increase FinOps maturity](https://www.pulumi.com/blog/finops-with-pulumi/)** with granular chargebacks, benchmarking, and multiple-cloud optimization by 2024.
 
 ## 10. Talent Shortage
 
-Over 150,000 technology industry workers have been laid off in the US since the beginning of 2023, and yet the Korn Ferry report finds that **by 2030, more than 6 million jobs could go unfilled** because there aren't enough skilled people to take them. 
+Over 150,000 technology industry workers have been laid off in the US since the beginning of 2023, and yet the Korn Ferry report finds that **by 2030, more than 6 million jobs could go unfilled** because there aren't enough skilled people to take them.
 
 Previous research by [McKinsey Global Institute](https://www.mckinsey.com/featured-insights/future-of-work/jobs-lost-jobs-gained-what-the-future-of-work-will-mean-for-jobs-skills-and-wages) has shown that **as many as 375 million tech workers globally might have to change occupations** and skills in the next decade to meet companies' needs and that automation could free employees to spend as much as 30% of their time on new work-acquiring new work experience.
 
