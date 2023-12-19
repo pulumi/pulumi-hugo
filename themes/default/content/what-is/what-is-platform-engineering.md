@@ -15,23 +15,15 @@ In a platform engineering approach, one or more teams---often referred to as the
 
 Platform teams use a customer-driven mindset where they treat the application developers that they serve as customers that must be understood and won over through products that solve their problems. The products these teams offer are infrastructure tools and building blocks that development teams use to provision and manage standardized infrastructure for their applications and services. Typically, these tools have built-in guardrails that enforce best practices and security standards without impeding developers' agility and workflow. This is all done in service of increasing the speed of delivery for the company's products.
 
-## What are some of the principles behind platform engineering?
+## What are some of the requirements for platform engineering?
 
-Regardless of implementation details or specific methods, there are some simple principles that many platform engineering teams follow. All of these principles are driving toward maximizing the use of the cloud at scale across an organization while being secure and compliant and enabling developers and develpoment teams to ship faster.
+Regardless of implementation details or specific methods, there are some simple requirements that many platform engineering teams follow. All of these requirements are driving toward maximizing the use of the cloud at scale across an organization while being secure and compliant and enabling developers and develpoment teams to ship faster.
 
 * **Simple and powerful user experience**: Build curated experiences that empower developers by meeting them at their level of expertise. Use a variety of approaches to provide an ideal user/developer experience, including infrastructure code libraries (reusable pieces of code), infrastructure CLIs, internal developer portals (IDPs), or shared IaC templates.
 * **Automation as default**: Automation reduces devastating errors. Don't leave anything to ClickOps. Every change to infrastructure must be run through tests before rolling into production. No change should be untraceable. All infrastructure from resources, configurations, environments, and secrets are tracked in version control. Everything from infrastructure provisioning to control plane orchestrations needs to be programmable.
 * **Full visibility on everything**: Log, monitor, and observe all infrastructure for greater operational control. Optimize against unnecessary costs.
 * **Security as a foundation**: Security and compliance guardrails need to exist for everything. Fine-grained access controls should exist for every piece of infrastructure. Prefer dynamic, short-lived credentials over long-lived, static credentials with seamless integration into development workflows.
 * **Well architected by design**: Decouple the application complexity from the infrastructure complexity, reducing the blast radius of incidents while increasing resiliency. Construct shareable infrastructure components that are built for high availability and low operational maintenance. Operate seamlessly across heterogeneous environments while implementing best-in-class infrastructure.
-
-## What are the key components of platform engineering?
-
-There are three key components of platform engineering:
-
-1. **Infrastructure management**: Platform teams focus on creating tools and solutions to help development teams provision and manage the infrastructure for their applications and services. Self-service is key to scale here, enabling development teams to provision infrastructure themselves according to "golden paths" or patterns established by the platform team.
-1. **Automation and tooling**: [Automation](/automation/) is part and parcel of everything the platform engineering team does, through tools like [infrastructure as code (IaC)](/what-is/what-is-infrastructure-as-code/), [internal developer portals](/docs/pulumi-cloud/developer-portals/), shared IaC templates, continuous integration/continuous delivery (CI/CD) pipelines, and even custom CLI tools.
-1. **Standardization**: Standardizing the environments development teams use to develop and deploy their applications and services is a key part of a platform engineering team's charter. Part of this standardization effort includes defining and enforcing best practices and security standards (such as by using a [policy as code framework](/crossguard/). Consistency helps reduce downtime and speed problem resolution. Tools like version control, containerization, infrastructure as code, and configuration management are frequently used as part of this effort.
 
 ## What is a platform engineer?
 
@@ -72,12 +64,14 @@ Washington Trust Bank modernized its software development and infrastructure pra
 
 Given platform engineering's strong focus on infrastructure management, automation, and standardization, platform engineering teams need a solution that enables them to adhere to the principles of platform engineering while empowering their developers and development teams to leverage the cloud in a secure, scalable, reliable, and consistent way.
 
-Pulumi's solution for platform teams encompasses all of the key needs described in this article:
+![Pulumi's solution for platform teams](/images/product/platform-teams-diagram.png)
 
-1. A strong infrastructure as code tool that supports automation as the default approach, with support for programming languages that teams are already familiar with  (including TypeScript, Python, Go, C#, Java, and YAML).
-1. The [Automation API](/automation) for embedding IaC programs into native application code, supporting reusable infrastructure workflows.
-1. [Pulumi Deployments](/product/pulumi-deployments) provides CI/CD, along with support for numerous other CI/CD solutions and platforms.
-1. [Pulumi ESC](/product/esc) enables centralized access to secrets and configuration information.
-1. [CrossGuard](/crossguard) supplies policy-based controls--including remediation of policy violations---using the same general purpose programming languages that our core IaC offering supports.
+Pulumi's solution for platform teams encompasses all of the key requirements described earlier in this article:
+
+1. The _Developer Control Plane_ enables the simple and powerful user experience, allowing platform teams to meet the varying needs of different developers and development teams. The core infrastructure as code tool supports the languages that teams are already familiar with (including TypeScript, Python, Go, C#, Java, and YAML), and leverages the powerful ecosystems surrounding these languages (IDE support, linters, and test frameworks, for example). There's also support for internal developer portals like [AWS Proton](https://aws.amazon.com/proton/) and [Backstage](https://backstage.io).
+2. _Integration and Delivery_ is key to supporting automation as the default. This includes extensive integration with numerous CI/CD systems as well as Pulumi's own CI/CD offering, called [Pulumi Deployments](/product/pulumi-deployments/). The [Automation API](/automation/) makes it possible to embed IaC into application software, empowering teams to create reusable infrastructure workflows.
+3. _Monitoring and logging_ provides the "full visibility on everything" that is a requirement for platform engineering, through support for and integration with leading monitoring, logging, and metric solutions. [Pulumi Insights](/product/pulumi-insights/) provides advanced search (including natural language search), analytics, and artificial intelligence (AI) into [Pulumi Cloud](/product/pulumi-cloud/) to provide actionable knowledge on cloud usage and cost optimizations.
+4. _Security and identity_ ensure security is a foundational element. [CrossGuard](/crossguard/) provides policy-based controls---including remediation of policy violations---using the same general purpose programming languages that our core IaC offering supports. [Pulumi ESC](/product/esc) enables centralized access to secrets and configuration information.
+5. Pulumi's robust provider ecosystem opens up access to a wide plethora of _resources_ to help ensure that all the necessary services, platforms, and offerings needed to build a well-architected design are available.
 
 Pulumi offers a modern and flexible approach to solving the needs of platform engineering teams. [Request a demo](/request-a-demo) of Pulumi, or [get started using Pulumi's tools](/docs/get-started) today.
