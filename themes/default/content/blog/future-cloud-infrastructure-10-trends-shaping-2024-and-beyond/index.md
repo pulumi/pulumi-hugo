@@ -7,7 +7,7 @@ title: "Future of the Cloud: 10 Trends Shaping 2024 and Beyond"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2023-12-20T20:56:40Z
+date: 2023-12-19T15:56:40Z
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
