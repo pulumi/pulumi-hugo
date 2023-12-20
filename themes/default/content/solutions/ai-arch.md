@@ -22,7 +22,7 @@ diagrams:
         - title: Application
           image: /images/solutions/ai-arch/refarch-semantic-search-flow.png
           content: |
-            On the application side, the reference architecture launches a semantic search interface over a Postgres database of product records, leveraging Pinecone’s vector database for queries and instant index updates.
+            On the application side, the reference architecture provides a semantic search interface over a Postgres database of product records, leveraging Pinecone’s vector database for queries and instant index updates. There is a frontend microservice to supply the user interface, and a pair of backend microservices that manage changes to the database as well as embeddings and updates to the Pinecone index.
 
 benefits:
     title: Why Pulumi?
