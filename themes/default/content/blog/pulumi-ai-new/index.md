@@ -4,7 +4,7 @@ allow_long_title: true
 authors: ["luke-hoban", "aaron-friel"]
 meta_desc: "Using Pulumi AI with `pulumi new` and the Deploy with Pulumi button to deploy infrastructure from a natural language prompt in just a few clicks"
 date: "2023-12-20T15:00:00-08:00"
-meta_image: "ai-new.png"
+meta_image: "ai_new.png"
 tags:
     - features
     - ai
@@ -13,7 +13,7 @@ tags:
 
 Earlier this year we launched [Pulumi AI](/ai), a purpose-built AI assistant that can create Infrastructure as Code (IaC) from natural language prompts using Pulumi.  Since launch, we’ve seen incredible adoption of Pulumi AI, with over 200,000 questions asked so far and growing fast.  Pulumi AI is popular with users new to Pulumi and/or new to the Cloud, but also heavily used by many of the most advanced IaC users and organizations to quickly discover solutions to new problems they need to solve. Over the last few months, we’ve driven major improvements to Pulumi AI through the recently launched Pulumi AI Answers pages with thousands of AI generated answers to common questions, improvements to code generation correctness and performance, and expansion of the languages supported by Pulumi AI.
 
-Today, we are taking the next big step, introducing support for __deploying cloud infrastructure directly from Pulumi AI__.  Going from idea to running cloud infrastructure is just a natural language prompt away!  
+Today, we are taking the next big step, introducing support for __deploying cloud infrastructure directly from Pulumi AI__.  Going from idea to running cloud infrastructure is just a natural language prompt away!
 
 <!--more-->
 
@@ -26,9 +26,9 @@ Check out [Pulumi AI](/ai) or `pulumi new` in the CLI today.
 
 ## Pulumi AI in Pulumi New
 
-The `pulumi new` command is the starting point for almost every new Pulumi project today, offering users a choice from hundreds of templates across various cloud providers, languages and architectures.  
+The `pulumi new` command is the starting point for almost every new Pulumi project today, offering users a choice from hundreds of templates across various cloud providers, languages and architectures.
 
-Now, `pulumi new` users working with the Pulumi Cloud backend have the additional option to use Pulumi AI to generate a template on demand instead of selecting from one of the pre-defined templates.  
+Now, `pulumi new` users working with the Pulumi Cloud backend have the additional option to use Pulumi AI to generate a template on demand instead of selecting from one of the pre-defined templates.
 
 {{< video title="Using pulumi new with the new AI option" src="pulumi-new-ai.mp4" controls="false" autoplay="true" loop="true" >}}
 
@@ -46,7 +46,7 @@ Going from natural language idea to running cloud infrastructure in just seconds
 
 Thousands of developers are already discovering answers to their questions via Pulumi AI, and we’ve been expanding on this with links to Pulumi AI from the Pulumi Registry API docs and with the archive of high quality questions and answers as part of [Pulumi AI Answers](/ai/answers).  To date, users have used these answers to then copy/paste code snippets into their own Pulumi programs, presenting something of a small but important barrier to entry to quickly experimenting with the resulting infrastructure.
 
-Now, every Pulumi AI and Pulumi AI Answers page includes its own Deploy with Pulumi button.  The Deploy with Pulumi button can be used along with any template or Pulumi code example to deploy that code using Pulumi Cloud via the [New Project Wizard](/docs/pulumi-cloud/developer-portals/new-project-wizard).  We’ve extended that to support deploying projects defined by a Pulumi AI answer.  This includes the code snippet, but also the project dependencies, a useful description, and language-specific project files.  
+Now, every Pulumi AI and Pulumi AI Answers page includes its own Deploy with Pulumi button.  The Deploy with Pulumi button can be used along with any template or Pulumi code example to deploy that code using Pulumi Cloud via the [New Project Wizard](/docs/pulumi-cloud/developer-portals/new-project-wizard).  We’ve extended that to support deploying projects defined by a Pulumi AI answer.  This includes the code snippet, but also the project dependencies, a useful description, and language-specific project files.
 
 {{< video title="Deploy with Pulumi button in Pulumi AI" src="dwp.mp4" controls="false" autoplay="true" loop="true" >}}
 
