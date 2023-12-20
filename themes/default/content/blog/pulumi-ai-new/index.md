@@ -4,7 +4,7 @@ allow_long_title: true
 authors: ["luke-hoban", "aaron-friel"]
 meta_desc: "Using Pulumi AI with `pulumi new` and the Deploy with Pulumi button to deploy infrastructure from a natural language prompt in just a few clicks"
 date: "2023-12-20T15:00:00-08:00"
-meta_image: "aiquestion.png"
+meta_image: "ai-new.png"
 tags:
     - features
     - ai
