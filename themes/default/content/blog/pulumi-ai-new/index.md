@@ -20,9 +20,9 @@ Today, we are taking the next big step, introducing support for __deploying clou
 This is accomplished through two new features:
 
 * The `pulumi new` command now offers the option to provide a Pulumi AI prompt instead of selecting a template.  It then generates a template from your prompt, and lets you iterate on this before choosing to create a project and deploy it to the cloud.
-* Every Pulumi AI and Pulumi AI Answers page now has a [Deploy with Pulumi](/docs/pulumi-cloud/pulumi-button/) button on it, which lets you click through a few prompts to deploy the given infrastructure into your cloud account using Pulumi Deployments and Pulumi ESC.
+* Every Pulumi AI and Pulumi AI Answers page now has a [Deploy with Pulumi](/docs/pulumi-cloud/pulumi-button/) button on it, which lets you click through a few prompts to deploy the given infrastructure into your cloud account using Pulumi Deployments and Pulumi ESC in Pulumi Cloud or the `pulumi new` command.
 
-Check out [Pulumi AI](/ai) or `pulumi new`` in the CLI today.
+Check out [Pulumi AI](/ai) or `pulumi new` in the CLI today.
 
 ## Pulumi AI in Pulumi New
 
