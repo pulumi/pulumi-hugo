@@ -2,7 +2,7 @@
 title: "From AI Prompt to Cloud Infrastructure in 30 Seconds"
 allow_long_title: true
 authors: ["luke-hoban", "aaron-friel"]
-meta_desc: "Using Pulumi AI with `pulumi new` and the Deploy with Pulumi button to deploy infrastructure from a natural language prompt in jsut a few clicks"
+meta_desc: "Using Pulumi AI with `pulumi new` and the Deploy with Pulumi button to deploy infrastructure from a natural language prompt in just a few clicks"
 date: "2023-12-20T15:00:00-08:00"
 meta_image: "aiquestion.png"
 tags:
@@ -11,7 +11,7 @@ tags:
     - llm
 ---
 
-Earlier this year we launched [Pulumi AI](/ai), a purpose-built AI assistant that can create infrastructure as code from natural language prompts using Pulumi.  Since launch, we’ve seen incredible adoption of Pulumi AI, with over 200,000 questions asked so far and growing fast.  Pulumi AI is popular with users new to Pulumi and/or the Cloud, but also heavily used by many of the most advanced IaC users and organizations to quickly discover solutions to new problems they need to solve. Over the last few months, we’ve driven major improvements to Pulumi AI through the new Pulumi AI Answers pages with thousands of AI generated answers to common questions, improvements to code generation correctness and performance, and expansion of the languages supported by Pulumi AI.
+Earlier this year we launched [Pulumi AI](/ai), a purpose-built AI assistant that can create Infrastructure as Code (IaC) from natural language prompts using Pulumi.  Since launch, we’ve seen incredible adoption of Pulumi AI, with over 200,000 questions asked so far and growing fast.  Pulumi AI is popular with users new to Pulumi and/or new to the Cloud, but also heavily used by many of the most advanced IaC users and organizations to quickly discover solutions to new problems they need to solve. Over the last few months, we’ve driven major improvements to Pulumi AI through the recently launched Pulumi AI Answers pages with thousands of AI generated answers to common questions, improvements to code generation correctness and performance, and expansion of the languages supported by Pulumi AI.
 
 Today, we are taking the next big step, introducing support for __deploying cloud infrastructure directly from Pulumi AI__.  Going from idea to running cloud infrastructure is just a natural language prompt away!  
 
@@ -44,9 +44,9 @@ Going from natural language idea to running cloud infrastructure in just seconds
 
 ## Deploy with Pulumi in Pulumi AI
 
-Thousands of developers are already discovering answers to their questions via Pulumi AI, and we’ve been expanding on this with links to Pului AI from the Pulumi Registry API docs and with the archive of high quality questions and answers as part of [Pulumi AI Answers](/ai/answers).  To date, users have used these answers to then copy/paste code snippets into their own Pulumi programs, presenting something of a small but important barrier to entry to quickly experimenting with the resulting infrastructure.
+Thousands of developers are already discovering answers to their questions via Pulumi AI, and we’ve been expanding on this with links to Pulumi AI from the Pulumi Registry API docs and with the archive of high quality questions and answers as part of [Pulumi AI Answers](/ai/answers).  To date, users have used these answers to then copy/paste code snippets into their own Pulumi programs, presenting something of a small but important barrier to entry to quickly experimenting with the resulting infrastructure.
 
-Now, every Pulumi AI and Pulumi AI Answers page includes its own Deploy with Pulumi button.  The Deploy with Pulumi button can be used along with any template or Pulumi code example to deploy that code using Pulumi Cloud via the New Project Wizard.  We’ve extended that to support deploying projects defined by a Pulumi AI answer.  This includes the code snippet, but also the project dependencies, a useful description, and language-specific project files.  
+Now, every Pulumi AI and Pulumi AI Answers page includes its own Deploy with Pulumi button.  The Deploy with Pulumi button can be used along with any template or Pulumi code example to deploy that code using Pulumi Cloud via the [New Project Wizard](/docs/pulumi-cloud/developer-portals/new-project-wizard).  We’ve extended that to support deploying projects defined by a Pulumi AI answer.  This includes the code snippet, but also the project dependencies, a useful description, and language-specific project files.  
 
 {{< video title="Deploy with Pulumi button in Pulumi AI" src="dwp.mp4" controls="false" autoplay="true" loop="true" >}}
 
@@ -78,6 +78,6 @@ With just a few clicks, we went from a natural language idea to running cloud in
 
 ## Looking Forward
 
-Pulumi AI has already transformed how cloud engineers discover and solve their cloud infrastructure development problems.  And yet, we still see incredible opportunity ahead of us.  We’ve made rapid strides on improving the accuracy of AI answers, and continue to invest in further improvements here.  We’ve made it significantly faster to go from idea to deployed infrastructure with the pulumi new and Deploy with Pulumi button integrations, but we also see the opportunity to make these experiences even more interactive going forward.  And of course, we continue to integrate Pulumi AI even more broadly throughout our product experiences, lighting up AI assistance across the cloud engineering journey.
+Pulumi AI has already transformed how cloud engineers discover and solve their cloud infrastructure development problems.  And yet, we still see incredible opportunity ahead of us.  We’ve made rapid strides on improving the accuracy of AI answers, and continue to invest in further improvements.  We’ve made it significantly faster to go from idea to deployed infrastructure with the `pulumi new` and Deploy with Pulumi button integrations, but we also see the opportunity to make these experiences even more interactive going forward.  And of course, we continue to integrate Pulumi AI even more broadly throughout our product experiences, lighting up AI assistance across the cloud engineering journey.
 
 Try it out yourself today at [pulumi.com/ai](/ai)!
