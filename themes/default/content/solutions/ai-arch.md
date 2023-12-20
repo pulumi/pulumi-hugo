@@ -17,7 +17,7 @@ diagrams:
         - title: Infrastructure
           image: /images/solutions/ai-arch/pinecone-refarch-diagram.png
           content: |
-            On the infrastructure side, the reference architecture uses a Pinecone index as a vector store, a queue to fan out work, networking and security groups to separate the infrastructure, ECS services for the frontend and backend microservices, and autoscaling configured to expand the worker pool up and down elastically in response to system load.
+            On the infrastructure side, the reference architecture uses a Pinecone index as a vector store, a message queue to pass information between microservices, and security groups to appropriately secure the traffic among the different components. The application uses Elastic Container Service (ECS) services for the frontend and backend microservices, and has autoscaling configured to expand the worker pool up and down elastically in response to system load.
 
         - title: Application
           image: /images/solutions/ai-arch/refarch-semantic-search-flow.png
