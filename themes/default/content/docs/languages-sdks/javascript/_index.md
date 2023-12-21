@@ -236,8 +236,8 @@ major v4:
 }
 ```
 
-In the situation where you mix major versions, the specification `^v3` excludes major `v4`. If we check on our
-dependency graph, we see two versions included
+In the situation where you mix major versions, the specification `^3` excludes major version `4`.
+If we check on our dependency graph, we see two versions included
 
 ```sh
 $ npm why @pulumi/random
@@ -259,7 +259,7 @@ A similar situation would happen if you would pin the component library and the 
 but different versions. For instance, using `"4.11.0"` in the component library and `"4.14.0"` in the consuming
 project would result in 2 default providers with exactly these versions.
 
-If you only want to have a single version of the package and default provider, we suggest to use the carrot
+If you only want to have a single version of the package and default provider, we suggest to use the caret
 style notation in your component package. Use `^`, followed by the minimum version of the dependency, and
 use a compatible version in your consuming project for your components to work correctly.
 For instance, if `@pulumi/random` v4.8.2 contained a fix you rely on, use this in your library `package.json`:
