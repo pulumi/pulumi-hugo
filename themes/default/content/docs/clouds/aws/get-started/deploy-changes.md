@@ -483,6 +483,8 @@ outputs:
 
 {{% /choosable %}}
 
+##Before deploying the website(next step) you may need to grant your s3 object "index.html" permissions. Ensure it has public read access (if intended). 
+
 ## Deploy the website
 
 Update your stack to deploy these changes to AWS:
