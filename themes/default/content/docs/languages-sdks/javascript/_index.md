@@ -196,7 +196,7 @@ in the project root, or the environment variable `PULUMI_PREFER_YARN=true`,
 then Pulumi will use Yarn instead of NPM if the executable is available in the
 path.
 
-## Component Packages
+## Dependencies on Provider Packages within Component Packages
 
 Some package management systems allow for different versions of a package to be installed concurrently.
 You can include a package as a direct dependency in your project and another dependency could depend on the
