@@ -483,9 +483,13 @@ outputs:
 
 {{% /choosable %}}
 
-##Before deploying the website(next step) you may need to grant your s3 object "index.html" permissions. Ensure it has public read access (if intended). 
-
 ## Deploy the website
+
+{{% notes type="warning" %}}
+
+You may need to grant permissions to your s3 object, `index.html`. Ensure it has public read access if intended.
+ 
+{{% /notes %}}
 
 Update your stack to deploy these changes to AWS:
 
