@@ -70,7 +70,9 @@ The below sections show examples that correspond to each OIDC-supported service.
 
 #### Pulumi Deployments
 
-Because Google's federated credentials do not allow wildcards in the subject identifier, requiring an exact match on an OIDC token's subject claim, this process must be repeated for each permutation of the subject claim that is possible for a stack. For example, in order to enable all of the valid operations on a stack named `dev` of the `core` project in the `contoso` organization, you would need to create credentials for each of the following subject identifiers:
+To enable valid operations on a specific stack, Google federated credentials require an exact match on the OIDC token subject claim. Unfortunately, the subject identifier does *not* allow wildcards. Therefore, you must create credentials for each permutation of the subject claim that is possible for the stack.
+
+For example, to enable all of the valid operations on a stack named `dev` of the `core` project in the `contoso` organization, you would need to create credentials for each of the following subject identifiers:
 
 * `pulumi:deploy:org:contoso:project:core:stack:dev:operation:preview:scope:write`
 * `pulumi:deploy:org:contoso:project:core:stack:dev:operation:update:scope:write`
