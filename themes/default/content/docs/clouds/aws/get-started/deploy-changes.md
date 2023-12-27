@@ -487,7 +487,7 @@ outputs:
 
 {{% notes type="warning" %}}
 
-You may need to grant permissions to your s3 object, `index.html`. Ensure it has public read access if intended.
+You may need to grant permissions to your S3 object, `index.html`. Ensure it has public read access if intended.
  
 {{% /notes %}}
 
