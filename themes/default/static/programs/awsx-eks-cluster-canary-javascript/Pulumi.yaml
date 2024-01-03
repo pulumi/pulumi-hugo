@@ -1,0 +1,6 @@
+name: awsx-eks-cluster-canary-javascript
+runtime:
+  name: nodejs
+  options:
+    typescript: false
+description: An example that deploys a Kubernetes cluster on AWS.

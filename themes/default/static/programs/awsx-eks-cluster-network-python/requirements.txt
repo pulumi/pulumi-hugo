@@ -1,0 +1,2 @@
+pulumi-awsx
+pulumi-eks

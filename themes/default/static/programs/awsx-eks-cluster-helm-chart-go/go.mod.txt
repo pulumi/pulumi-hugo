@@ -1,0 +1,10 @@
+module awsx-eks-cluster-helm-chart-go
+
+go 1.21
+
+toolchain go1.21.5
+
+require (
+	github.com/pulumi/pulumi-aws/sdk/v6 v6.13.3
+	github.com/pulumi/pulumi/sdk/v3 v3.97.0
+)

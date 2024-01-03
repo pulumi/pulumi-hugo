@@ -1,0 +1,11 @@
+module awsx-eks-cluster-network-go
+
+go 1.21
+
+toolchain go1.21.5
+
+require (
+	github.com/pulumi/pulumi-awsx/sdk v1.0.6
+	github.com/pulumi/pulumi-eks/sdk v1.0.4
+	github.com/pulumi/pulumi/sdk/v3 v3.97.0
+)

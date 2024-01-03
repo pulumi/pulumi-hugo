@@ -1,0 +1,2 @@
+pulumi-eks
+pulumi-aws>=6.0.2,<7.0.0

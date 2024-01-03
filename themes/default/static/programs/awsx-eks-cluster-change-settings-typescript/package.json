@@ -1,0 +1,10 @@
+{
+    "name": "awsx-eks-cluster-change-settings-typescript",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/eks": "^2.0.0"
+    }
+}
