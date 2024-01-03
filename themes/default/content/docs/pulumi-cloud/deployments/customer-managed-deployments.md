@@ -50,14 +50,14 @@ Go to the deployment setting found under the settings page of a stack. Scroll do
 
 Ensure that agents have the cloud provider credentials to be able to deploy in your environments. You have two methods:
 
-1. Use the [OIDC configuration](https://www.pulumi.com/docs/pulumi-cloud/oidc/).
+1. Use the [OIDC configuration](https://www.pulumi.com/docs/pulumi-cloud/oidc/)
 2. Directly provide credentials to agents through environment variables configured in the host, or passing the environment variables when invoking the binary. Example:
 
    ```bash
    VARIABLE=value customer-managed-deployment-agent run
    ```
 
-   You also need to update the `pulumi-deployment-agent.yaml` configuration file by setting `env_forward_allowlist`. The configuration file can be found in the directory where the agent is extracted. `env_forward_allowlist`` expects an array of strings. Example:
+   You also need to update the `pulumi-deployment-agent.yaml` configuration file by setting `env_forward_allowlist`. The configuration file can be found in the directory where the agent is extracted. `env_forward_allowlist` expects an array of strings. Example:
 
     ```yaml
     token: pul-d2d2….
