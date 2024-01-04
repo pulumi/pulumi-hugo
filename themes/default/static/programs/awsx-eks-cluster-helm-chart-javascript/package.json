@@ -1,0 +1,9 @@
+{
+    "name": "awsx-eks-cluster-helm-chart-javascript",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/eks": "^2.0.0",
+        "@pulumi/kubernetes": "^3.0.0"
+    }
+}
