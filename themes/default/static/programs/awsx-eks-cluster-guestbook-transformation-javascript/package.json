@@ -1,0 +1,7 @@
+{
+    "name": "awsx-eks-cluster-guestbook-transformation-javascript",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/kubernetes": "^4.5.0"
+    }
+}
