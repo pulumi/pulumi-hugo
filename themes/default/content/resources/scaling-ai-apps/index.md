@@ -68,7 +68,7 @@ main:
     # The webinar presenters
     presenters:
         - name: Engin Diri
-          role: Community Engineer, Pulumi
+          role: Open Source Solutions Architect, Pulumi
     
     learn:
         - The basics of infrastructure as code and the Pulumi programming model
