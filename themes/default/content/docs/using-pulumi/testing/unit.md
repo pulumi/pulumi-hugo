@@ -223,7 +223,7 @@ We use the built-in `go test` command, so no need to install anything.
 
 We use [NUnit](https://nunit.org/) test framework to define and run the tests, [Moq](https://github.com/moq/moq4) for mocks, and [FluentAssertions](https://github.com/fluentassertions/fluentassertions) for assertions.
 
-Install the corresponding NuGet packages to your program:
+Install the corresponding NuGet and Pulumi packages to your program:
 
 ```bash
 dotnet add package NUnit
@@ -231,6 +231,8 @@ dotnet add package NUnit3TestAdapter
 dotnet add package Moq
 dotnet add package FluentAssertions
 dotnet add package Microsoft.NET.Test.Sdk
+dotnet add package Pulumi
+dotnet add package Pulumi.Aws
 ```
 
 {{% /choosable %}}
