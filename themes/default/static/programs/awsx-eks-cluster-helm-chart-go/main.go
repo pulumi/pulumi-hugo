@@ -33,7 +33,7 @@ func main() {
 		if err != nil {
 			return err
 		}
-		
+
 		ctx.Export("kubeconfig", cluster.Kubeconfig)
 		return nil
 	})

@@ -1,6 +1,6 @@
 package myproject;
 
-import javax.naming.Context;
+import com.pulumi.Context;
 
 import com.pulumi.Pulumi;
 import com.pulumi.eks.Cluster;

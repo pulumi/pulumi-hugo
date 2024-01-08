@@ -62,7 +62,7 @@ Consider jumpstarting your solution by using a Pulumi program template. Run `pul
 
 ## Provisioning a new EKS cluster
 
-To create a new EKS cluster, define an instance of an [`eks.Cluster`](https://www.pulumi.com/registry/packages/aws/api-docs/eks/cluster/) class in your Pulumi program:
+To create a new EKS cluster, define an instance of an [`eks.Cluster`](/registry/packages/aws/api-docs/eks/cluster/) class in your Pulumi program:
 
 {{< example-program path="awsx-eks-cluster-new" >}}
 
@@ -72,14 +72,71 @@ The cluster uses defaults, meaning Pulumi will:
 * Use AWS IAM Authenticator to leverage IAM for secure access to your cluster.
 * Use two `t2.medium` nodes.
 
-After running `pulumi up`, export the `kubeconfig` file.
+To deploy your new cluster, run:
 
 ```bash
 $ pulumi up --yes
+Updating (dev):
+
+     Type                       Name                            Status
+ +   pulumi:pulumi:Stack        crosswalk-aws-dev               created
+ +   └─ eks:index:Cluster       my-cluster                      created
+     ... dozens of resources omitted ...
+
+Outputs:
+    kubeconfig: {
+        apiVersion     : "v1"
+        clusters       : [
+            [0]: {
+                cluster: {
+                    certificate-authority-data: "...",
+                    server                    : "https://D34E7144F46CB.sk1.us-west-2.eks.amazonaws.com"
+                }
+                name   : "kubernetes"
+            }
+        ]
+        contexts       : [
+            [0]: {
+                context: {
+                    cluster: "kubernetes"
+                    user   : "aws"
+                }
+                name   : "aws"
+            }
+        ]
+        current-context: "aws"
+        kind           : "Config"
+        users          : [
+            [0]: {
+                name: "aws"
+                user: {
+                    exec: {
+                        apiVersion: "client.authentication.k8s.io/v1alpha1"
+                        args      : [
+                            [0]: "token"
+                            [1]: "-i"
+                            [2]: "my-cluster-eksCluster-22c2275"
+                        ]
+                        command   : "aws-iam-authenticator"
+                    }
+                }
+            }
+        ]
+    }
+
+Resources:
+    + 43 created
+
+Duration: 11m26s
+```
+
+Export the `kubeconfig` file to then view the resulting cluster's configuration:
+
+```bash
 $ pulumi stack output kubeconfig > kubeconfig.yml
 ```
 
-Point to the exported `kubeconfig` to obtain the nodes:
+Point to the exported `kubeconfig` to obtain the cluster nodes:
 
 ```bash
 $ KUBECONFIG=./kubeconfig.yml kubectl get nodes
@@ -90,7 +147,7 @@ ip-172-31-40-32.us-west-2.compute.internal   Ready     <none>    2m       v1.12.
 
 By default, Pulumi targets clusters based on your local `kubeconfig`, just like `kubectl` does. If you configure the `kubectl` client to talk to your EKS cluster, deployments will target it. You can, however, deploy into _any_ Kubernetes cluster created in your Pulumi program. Each Kubernetes object specification accepts an optional "provider" that can programmatically specify a `kubeconfig` to use.
 
-To create a new `kubernetes.Provider` object, pass one or more of the following properties:
+To create a new [`kubernetes.Provider`](/registry/packages/kubernetes/api-docs/provider/) object, pass one or more of the following properties:
 
 * `cluster`: If present, the name of the kubeconfig cluster to use.
 * `context`: If present, the name of the kubeconfig context to use.
@@ -98,7 +155,7 @@ To create a new `kubernetes.Provider` object, pass one or more of the following 
 
 Now, you have a fully functioning EKS cluster in Amazon to deploy Kubernetes applications. Any existing tools such as `kubectl`, helm, and CI/CD solutions can be used with it.
 
-### Add a canary application to your EKS cluster
+### Adding a canary application to your EKS cluster
 
 Pulumi offers the ability to define Kubernetes application-level objects and configurations in code. For instance, we can deploy a canary to our EKS cluster in the same Pulumi program to test that it works as part of `pulumi up`:
 
@@ -106,7 +163,7 @@ Pulumi offers the ability to define Kubernetes application-level objects and con
 
 If we deploy the above as changes to the existing stack (as opposed to a new stack), you will see the diff to be the creation of a Kubernetes deployment and service objects. The load-balanced URL will be updated.
 
-Deploy the changes to the existing stack:
+To deploy the changes to the existing stack:
 
 ```bash
 $ pulumi up --yes
@@ -154,7 +211,7 @@ The below example changes the desired capacity and enables specific cluster logg
 
 By default, the EKS cluster is deployed in your region's default VPC. Network isolation and specific private subnet requirements are possible by editing the networking settings.
 
-When creating an Amazon EKS cluster, specify the Amazon VPC subnets for your cluster. These must be in at least two availability zones. We recommend a network architecture that uses private subnets for the worker nodes and public subnets for Kubernetes. The public subnet allows you to create internet-facing load balancers. When you create your cluster, specify all subnets that will host resources for your cluster (including workers and load balancers). This is the default behavior when using the default VPC.
+When creating an Amazon EKS cluster, you can specify the Amazon VPC subnets for your cluster. These must be in at least two availability zones. We recommend a network architecture that uses private subnets for the worker nodes and public subnets for Kubernetes. The public subnet allows you to create internet-facing load balancers. When you create your cluster, specify all subnets that will host resources for your cluster (including workers and load balancers). This network architecture is the default behavior for `eks.Cluster` objects.
 
 Create a new VPC with public and private subnets for your EKS cluster:
 
@@ -164,12 +221,11 @@ In the above example, we passed the private and public subnets from the VPC. The
 
 ## Configuring your EKS cluster's worker nodes and node groups
 
-Worker machines in Kubernetes are called nodes. Amazon EKS worker nodes run in your AWS account and connect to your cluster's control plane via the cluster API server endpoint. These are standard Amazon EC2 instances, and you are billed for them based on normal EC2 On-Demand prices. By default, an AMI using Amazon Linux 2 is the base image for EKS worker nodes, and includes Docker, kubelet, and the AWS IAM Authenticator.
+Worker machines in Kubernetes are called nodes. Amazon EKS worker nodes run in your AWS account and connect to your cluster's control plane via the cluster API server endpoint. These are standard Amazon EC2 instances, and you are billed for them based on normal EC2 on-demand prices. By default, an AMI using Amazon Linux 2 is the base image for EKS worker nodes and includes Docker, kubelet, and the AWS IAM Authenticator.
 
-Nodes exist in groups, and you can create multiple groups for workloads that require them. By default, your EKS cluster is given a default node group with the instance sizes and counts you specify (or the defaults of two `t2.medium` instances otherwise). The latest version of Kubernetes available is used by default.
+Nodes exist in groups, and you can create multiple groups for workloads that require them. By default, your EKS cluster is given a default node group with the instance sizes and counts you specify (or the defaults of two `t2.medium` instances otherwise). The latest available version of Kubernetes is used by default.
 
-If you would like to disable the creation of a default node group and instead rely on creating your own, pass [`skipDefaultNodeGroup`](/registry/packages/eks/api-docs/cluster/#skipdefaultnodegroup_nodejs) as `true` to the `eks.Cluster` constructor. Additional node groups may then be created by [creating an `eks.NodeGroupV2`](/registry/packages/eks/api-docs/nodegroupv2/) explicitly. In both cases, you are likely to want to configure IAM roles for your worker nodes, which can be supplied to your EKS cluster using the [`instanceRole`](/registry/packages/eks/api-docs/cluster/#instancerole_nodejs) or
-[`instanceRoles`](/registry/packages/eks/api-docs/cluster/#instanceroles_nodejs) properties.
+If you would like to disable the creation of a default node group and instead rely on creating your own, pass [`skipDefaultNodeGroup`](/registry/packages/eks/api-docs/cluster/#skipdefaultnodegroup_nodejs) as `true` to the `eks.Cluster` constructor. To create additional node groups explicitly, see [creating an `eks.NodeGroupV2`](/registry/packages/eks/api-docs/nodegroupv2/). In both cases, you will likely want to configure IAM roles for your worker nodes, which can be supplied to your EKS cluster using the [`instanceRole`](/registry/packages/eks/api-docs/cluster/#instancerole_nodejs) or [`instanceRoles`](/registry/packages/eks/api-docs/cluster/#instanceroles_nodejs) properties.
 
 For instance, let's say we want to have two node groups: one for a fixed, known workload and another that is burstable and might use more expensive computing but can be scaled down when possible (possibly to zero). We would skip the default node group and create our node groups:
 
@@ -187,7 +243,7 @@ For more information,
 When you create an Amazon EKS cluster, the IAM entity user or role (for example, for federated users) that creates the cluster is automatically granted `system:masters` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes.
 
 The [`roleMappings` property](/registry/packages/eks/api-docs/cluster/#rolemappings_nodejs)
-for your EKS cluster lets you configure custom IAM roles. For example, you can create different IAM roles for cluster admins, automation accounts (for CI/CD), and production roles. The IAM roles can then be supplied to `roleMappings`, which has the effect of automatically placing them in the `aws-auth` ConfigMap for your cluster. Because Pulumi lets you configure Kubernetes objects, you can define the RBAC cluster role bindings for your cluster in code.
+for your EKS cluster lets you configure custom IAM roles. For example, you can create different IAM roles for cluster admins, automation accounts (for CI/CD), and production roles. The IAM roles can then be supplied to `roleMappings`, which automatically places them in the `aws-auth` ConfigMap for your cluster. Because Pulumi lets you configure Kubernetes objects, you can define the RBAC cluster role bindings for your cluster in code.
 
 For a complete example, see [Simplifying Kubernetes RBAC in Amazon EKS](/blog/simplify-kubernetes-rbac-in-amazon-eks-with-open-source-pulumi-packages/).
 
@@ -195,7 +251,7 @@ For a complete example, see [Simplifying Kubernetes RBAC in Amazon EKS](/blog/si
 
 Pulumi supports the entire Kubernetes object model in the [@pulumi/kubernetes](/registry/packages/kubernetes/api-docs) package. For more information on these object types, including Deployments, Services, and Pods, see [Understanding Kubernetes Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/).
 
-With Pulumi, you describe your desired Kubernetes configuration and `pulumi up` will diff the current state against the desired state to bring your desired state into existence.
+With Pulumi, you describe your desired Kubernetes configuration in code. When you run the `pulumi up` command, Pulumi internally determines the difference between the current and desired state to bring your desired state into existence. To learn more, read about [how Pulumi manages state](https://www.pulumi.com/docs/concepts/state/)
 
 The example below creates a simple load-balanced NGINX service and exports its URL:
 
@@ -228,7 +284,7 @@ Specifying Kubernetes object configurations in Pulumi lets you take advantage of
 
 The [`ConfigFile` class](/registry/packages/kubernetes/api-docs/yaml/configfile) can be used to deploy a single YAML file, whereas the [`ConfigGroup` class](/registry/packages/kubernetes/api-docs/yaml/configgroup) can deploy a collection of files, either from a set of files or in-memory representations.
 
-For example, we have a directory, `app/`, containing the YAML for the [Kubernetes Guestbook application](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/) as a `guestbook.yaml` file. Because the app is in a single file, you'll use the `ConfigFile`.
+For example, we have a directory, `app/`, containing the YAML for the [Kubernetes Guestbook application](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/) as a `guestbook.yaml` file. Because the app is in a single file, you'll use the `ConfigFile` class.
 
 {{% notes type="warning" %}}
 By default, Pulumi targets clusters based on your local `kubeconfig`. If you do not have an EKS cluster, see the [Provisioning a new EKS cluster](#provisioning-a-new-eks-cluster) section above.
@@ -254,7 +310,7 @@ Use transformation with care, as it is possible to create invalid transformation
 
 #### EKS transformation example
 
-In the example below, a transformation makes all the services private to a cluster by changing `LoadBalancer` specs into `ClusterIPs`. In addition, it places objects in a desired namespace:
+In the example below, a transformation makes all the services private to a cluster by changing `LoadBalancer` specs into `ClusterIP`. In addition, it places objects in a desired namespace:
 
 {{< example-program path="awsx-eks-cluster-guestbook-transformation" >}}
 
@@ -274,19 +330,19 @@ You will need to [install Helm](https://helm.sh/docs/using_helm/#installing-helm
 
 ### EKS app via Helm repository example
 
-This program installs the Wordpress chart into our EKS cluster using the [Release resource type](/registry/packages/kubernetes/api-docs/helm/v3/release/):
+This program installs the WordPress chart into our EKS cluster using the [release resource type](/registry/packages/kubernetes/api-docs/helm/v3/release/):
 
 {{< example-program path="awsx-eks-cluster-helm-chart" >}}
+
+The `values` array provides the configurable parameters for the chart. If we omit the `version` field, Pulumi will fetch the latest available chart from the repository; this may trigger an upgrade if a new version becomes available in a subsequent update.
+
+The `getResourceProperty` function on a chart is used to get an internal resource provisioned by the chart. Sometimes, this is needed to discover attributes such as a provisioned load balancer address. Be careful when depending on this, however, as it is an implementation detail of the chart and will change as the chart evolves.
 
 Deploy the Helm application:
 
 ```bash
 $ pulumi up --yes
  ```
-
-The `values` array provides the configurable parameters for the chart. If we leave off the `version`, the latest available chart will be fetched from the repository (including on subsequent updates, which may trigger an upgrade).
-
-The `getResourceProperty` function on a chart is used to get an internal resource provisioned by the chart. Sometimes this is needed to discover attributes such as a provisioned load balancer address. Be careful when depending on this, however, as it is an implementation detail of the chart and will change as the chart evolves.
 
 {{% notes type="info" %}}
 Pulumi support for Helm does not use Tiller. [Helm 3 removed Tiller](https://helm.sh/docs/faq/changes_since_helm2/#removal-of-tiller); there are known problems, particularly around security. Certain charts that depend on Tiller will not work with Pulumi. This is by design, and it affects a small number of charts.
@@ -326,3 +382,5 @@ For more information about Kubernetes and EKS, see the following:
 * [Pulumi EKS API Documentation](/registry/packages/eks/api-docs/)
 * [Amazon Elastic Kubernetes Service homepage](https://aws.amazon.com/eks/)
 * [Kubernetes Documentation](https://kubernetes.io)
+
+Join our community [on Slack](https://slack.pulumi.com/) and share what you've built!

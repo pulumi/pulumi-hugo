@@ -2,17 +2,16 @@ package myproject;
 
 import com.pulumi.Context;
 import com.pulumi.Pulumi;
-import com.pulumi.core.Output;
 import com.pulumi.eks.Cluster;
 import com.pulumi.kubernetes.Provider;
 import com.pulumi.kubernetes.ProviderArgs;
-import com.pulumi.kubernete
-            om.pulumi.kubernetes.apps.v1.DeploymentArgs;
-            om.pulumi.kubernetes.meta.v1.inputs.O
-
-            om.pulumi.kubernetes.meta.v1.inputs
-            om.pulumi.kubernetes.core.v1.inputs.PodTemplate
-        rt com.pulumi.kubernetes.core.v1.inputs.ServicePortArgs;
+import com.pulumi.kubernetes.apps.v1.Deployment;
+import com.pulumi.kubernetes.apps.v1.DeploymentArgs;
+import com.pulumi.kubernetes.meta.v1.inputs.ObjectMetaArgs;
+import com.pulumi.kubernetes.apps.v1.inputs.DeploymentSpecArgs;
+import com.pulumi.kubernetes.meta.v1.inputs.LabelSelectorArgs;
+import com.pulumi.kubernetes.core.v1.inputs.PodTemplateSpecArgs;
+import com.pulumi.kubernetes.core.v1.inputs.ServicePortArgs;
 import com.pulumi.kubernetes.core.v1.inputs.ContainerArgs;
 import com.pulumi.kubernetes.core.v1.inputs.ContainerPortArgs;
 import com.pulumi.kubernetes.core.v1.inputs.PodSpecArgs;
@@ -20,12 +19,7 @@ import com.pulumi.kubernetes.core.v1.Service;
 import com.pulumi.kubernetes.core.v1.ServiceArgs;
 import com.pulumi.kubernetes.core.v1.inputs.ServiceSpecArgs;
 import com.pulumi.resources.CustomResourceOptions;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class App {
     public static void main(String[] args) {

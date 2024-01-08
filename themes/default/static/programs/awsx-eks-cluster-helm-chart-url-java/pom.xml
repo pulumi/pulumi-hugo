@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.pulumi</groupId>
-    <artifactId>awsx-eks-cluster-nginx-java</artifactId>
+    <artifactId>awsx-eks-cluster-helm-chart-url-java</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -18,16 +18,23 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.pulumi</groupId>
             <artifactId>pulumi</artifactId>
-            <version>(,1.0]</version>
+            <version>0.9.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pulumi</groupId>
+            <artifactId>eks</artifactId>
+            <version>2.1.0-alpha.1701461107+eaf08101</version>
         </dependency>
         <dependency>
             <groupId>com.pulumi</groupId>
             <artifactId>kubernetes</artifactId>
-            <version>4.5.5</version>
+            <version>4.7.0-alpha.1704332349+8f44f6df</version>
         </dependency>
+
     </dependencies>
 
     <build>
