@@ -15,13 +15,13 @@ aliases:
 
 Pulumi programs are authored in general-purpose languages like TypeScript, Python, Go, C#, or Java. The full power of each language is available, including access to tools, libraries, and testing frameworks.
 
-When running an update, your Pulumi program talks to the Pulumi CLI to orchestrate any deployment changes. Unit tests aim to cut this communication channel and replace the engine with mocks. Mocks respond to the commands from _within_ the same process and return mock (or dummy) data for each call that your Pulumi program makes.
+When running an update, your Pulumi program talks to the Pulumi CLI to orchestrate any deployment changes. Unit tests aim to cut this communication channel and replace the engine with mocks. Mocks respond to the commands from _within_ the same process and return mock (or dummy) data for each call your Pulumi program makes.
 
 Because mocks don't execute actual work, unit tests run very fast. Also, they can be deterministic because tests don't depend on the behavior of any external system.
 
 In Pulumi, stack references are a way to reference and use the outputs of one stack in another. Stack references are a common way to decouple infrastructure, handle cross-environment deployments, and manage dependencies. DevOps engineers may need to mock a `StackReference` as part of a CI/CD pipeline and to meet code coverage standards.
 
-[**Learn more about Stack References**](/docs/using-pulumi/testing/unit).
+[**Learn more about Stack References**](/docs/using-pulumi/stack-outputs-and-references/).
 
 ## Get started
 
@@ -61,7 +61,7 @@ $ pulumi new https://github.com/pulumi/tutorials/tree/testing-unit-go-stackrefer
 
 ### 2. Add the testing framework
 
-You can write unit tests and assertions using your favorite frameworks and libraries. We use Ginkgo and Gomega.
+You can write unit tests and assertions using your favorite frameworks and libraries. We use [Ginkgo](https://github.com/onsi/ginkgo) and [Gomega](https://github.com/onsi/gomega).
 
 ```bash
 # install deps
@@ -266,7 +266,7 @@ FAIL! -- 1 Passed | 1 Failed | 0 Pending | 0 Skipped
 
 #### c. Update the mock
 
-Stack references have a function `GetOutput()` that returns a `pulumi.AnyOutput` value. For your mock to do the same, append the following to the `mock.go` file:
+Stack references have a `GetOutput()` function that returns a `pulumi.AnyOutput` value. For your mock to do the same, append the following to the `mock.go` file:
 
 ```go
 func (m *MockStackReference) GetOutput(name pulumi.StringInput) pulumi.AnyOutput {
