@@ -3,6 +3,6 @@ module awsx-eks-cluster-helm-chart-url-go
 go 1.20
 
 require (
-	github.com/pulumi/pulumi-kubernetes/sdk/v3 v3.30.2
-	github.com/pulumi/pulumi/sdk/v3 v3.97.0
+	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.6.1
+	github.com/pulumi/pulumi/sdk/v3 v3.100.0
 )
