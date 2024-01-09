@@ -141,4 +141,3 @@ As always, we welcome your feedback and contributions in the Pulumi Community Sl
 New to Pulumi? Signing up is easy and free. Get started today!
 
 Happy AI building!
-
