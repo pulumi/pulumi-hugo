@@ -1,6 +1,6 @@
 ---
 title: "Pinecone Provider Now Available for Pulumi"
-date: 2023-10-09T00:00:00-00:00
+date: 2024-01-09T00:00:00-00:00
 draft: true
 meta_desc: "Seamlessly integrate and manage your Pinecone indexes with the official Pulumi Pinecone provider."
 meta_image: meta.png
