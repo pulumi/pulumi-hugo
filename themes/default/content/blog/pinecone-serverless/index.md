@@ -135,7 +135,9 @@ pulumi destroy
 
 This will delete the Pinecone index for you.
 
->Be aware that this will also delete all the data stored in the index.
+{{% notes type="warning" %}}
+Be aware that this will also delete all the data stored in the index.
+{{% /notes %}}
 
 ### Programmatically Creating a Pulumi Pinecone Provider
 
