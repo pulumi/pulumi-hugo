@@ -1,4 +1,4 @@
-name: nginx-server
+name: aws-ec2-sg-nginx-server-yaml
 runtime: yaml
 description: A program to create an Nginx server on AWS
 
