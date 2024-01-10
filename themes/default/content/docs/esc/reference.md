@@ -80,6 +80,11 @@ values:
     jsonConfig:
       fn::toJSON: ${app.nested}
 
+    # Decode the JSON string as a JSON Object
+    # Path is "app.jsonConfigObject"
+    jsonConfigObject:
+      fn::fromJSON: ${app.jsonConfig}
+
     # Encode the argument as a string
     # Path is "app.strConfig"
     strConfig:
