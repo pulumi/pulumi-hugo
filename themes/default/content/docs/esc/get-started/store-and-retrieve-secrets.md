@@ -13,7 +13,7 @@ menu:
 
 ## Store Environment Values
 
-In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file.
+In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file. These values can also be stored in plaintext or as secrets.
 
 ```yaml
 values:
@@ -21,6 +21,9 @@ values:
   myNestedKey:
     myKey2: "myValue2"
     myNumber: 1
+  myPassword:
+    fn::secret:
+      ciphertext: ZXN....
 ```
 
 You can store values in an environment via the Pulumi Cloud console or via the CLI.
@@ -36,11 +39,17 @@ Next, delete the placeholder text in the environment file and add the following 
 ```yaml
 values:
   myEnvironment: "development"
+  myPassword:
+    fn::secret: "demo-password-123"
 ```
 
-Then click the **Save** button located at the bottom of the editor.
+As shown above, you can specify that a value should be stored as a secret by using the `fn::secret` function.
+
+Once you have added the above configuration, click the **Save** button located at the bottom of the editor.
 
 {{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-add-env-values.mp4" autoplay="true" loop="true" >}}
+
+The **Environment preview** pane on the right hand side will then update to show your added configuration in JSON format. You will notice that the value of "myPassword" which we have configured as a secret has been hidden from view in both the defintion and preview panes.
 
 ### Store values via the CLI
 
@@ -50,13 +59,14 @@ To store values or update an existing value via the CLI, use the `esc env set` c
 esc env set [<org-name>/]<environment-name> <key> <value>
 ```
 
-Now add the following simple configuration definition to your environment using the following command:
+To demonstrate how this works, add the following simple configuration definition to your environment using the following command, making sure to replace the value of `my-dev-environment` with the name of your own environment:
 
 ```bash
 esc env set my-dev-environment myEnvironment development
+esc env set my-dev-environment myPassword demo-password-123 --secret
 ```
 
-This will create a configuration value with a key of `myEnvironment` and a value of `development`.
+As shown above, you can specify that a value should be stored as a secret by using the `--secret` flag.
 
 ## Retrieve Environment Values
 
@@ -76,7 +86,7 @@ The CLI has a built-in `get` command that enables you to retrieve a single value
 esc env get [<your-org>/]<your-environment-name> <variable-key-name>
 ```
 
-To retrieve the value of the `myEnvironment` variable you created earlier, the command to do so would look like the following:
+To retrieve the value of the `myEnvironment` variable you created earlier, the command to do so would look like the following, making sure to replace the value of `my-dev-environment` with the name of your own environment:
 
 ```bash
 esc env get my-dev-environment myEnvironment
