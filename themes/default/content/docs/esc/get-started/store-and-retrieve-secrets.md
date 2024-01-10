@@ -11,9 +11,7 @@ menu:
 
 ---
 
-## Store Environment Values
-
-In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file. These values can also be stored in plaintext or as secrets.
+In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file. They can also be stored in plaintext or as secrets.
 
 ```yaml
 values:
@@ -26,9 +24,11 @@ values:
       ciphertext: ZXN....
 ```
 
-You can store values in an environment via the Pulumi Cloud console or via the CLI.
+You can store and retrieve values in an environment via the Pulumi Cloud console or via the CLI.
 
-### Store values via the console
+## Store Environment Values
+
+### Store via the console
 
 To store values in your environment, first click on the name of the environment to open its definition editor. You will be presented with a split pane view. The left side is where you will write the definition of your environment configuration, and the right side will show a preview of your configuration in JSON format.
 
@@ -51,7 +51,7 @@ Once you have added the above configuration, click the **Save** button located a
 
 The **Environment preview** pane on the right hand side will then update to show your added configuration in JSON format. You will notice that the value of "myPassword" which we have configured as a secret has been hidden from view in both the defintion and preview panes.
 
-### Store values via the CLI
+### Store via the CLI
 
 To store values or update an existing value via the CLI, use the `esc env set` command as shown below, where `<org-name>` is optional and defaults to your Pulumi Cloud username:
 
@@ -70,15 +70,17 @@ As shown above, you can specify that a value should be stored as a secret by usi
 
 ## Retrieve Environment Values
 
-Now that you have populated your environment file, you can verify that your values have been successfully stored by retrieving them through the console or via the CLI.
+### Retrieve via the console
 
-### Retrieve values via the console
+To retrieve values in the console, scroll to the bottom of your environment page and click the **Open** button. This will return any statically defined plain-text values and definitions.
 
-To retrieve values in the console, scroll to the bottom of your environment page and click the **Open** button.
+{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-open-env-view-values.mp4" autoplay="true" loop="true" >}}
 
-This becomes especially relevant when you have values that are dynamically generated or retrieved from external sources, as those values will not be know until you resolve them using the "Open" functionality.
+As shown above, it does not return the value of secrets defined, nor does it resolve values that are dynamically generated from a provider. To view these values, you will need to click the **Show secrets** slider.
 
-### Retrieve values via the CLI
+{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-env-show-secrets.mp4" autoplay="true" loop="true" >}}
+
+### Retrieve via the CLI
 
 The CLI has a built-in `get` command that enables you to retrieve a single value from your environment. The format of the full command looks like the following:
 
