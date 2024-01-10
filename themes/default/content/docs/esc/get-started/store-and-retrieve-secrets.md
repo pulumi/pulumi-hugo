@@ -11,7 +11,7 @@ menu:
 
 ---
 
-In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file. They can also be stored in plaintext or as secrets.
+In an environment file, values are defined as a series of key-value pairs in YAML format. All variables will be defined under a top-level key named `values`. These values can be strings, numbers, or arrays, and they can be manually provided, dynamically generated from external sources, or referenced from other values in the file. They can also be stored in plain-text or as secrets.
 
 ```yaml
 values:
@@ -98,6 +98,7 @@ Running this command should return the following response:
 
 ```bash
 $ esc env get my-dev-environment myEnvironment
+
    Value
   
     "development"
@@ -109,6 +110,46 @@ $ esc env get my-dev-environment myEnvironment
    Defined at
   
   • my-dev-environment:2:8
+```
+
+It is also possible to retrieve all values in an environment. To do so, run the `esc env get` command without specifying a value as shown below:
+
+```bash
+esc env get my-dev-environment
+```
+
+Running this command should return the following response:
+
+```bash
+$ esc env get my-dev-environment
+
+   Value
+  
+    {
+      "myEnvironment": "development",
+      "myPassword": "[secret]"
+    }
+  
+   Definition
+  
+    values:
+      myEnvironment: "development"
+      myPassword:
+        fn::secret:
+          ciphertext: ZXNjeAAAAAEAAAEAOoh0B/DnV6xPySqwu3HDzGpF6mT6brCqCGe5BITCJ16NML+TAN7aIcarfHwKVuuH/g==
+
+```
+
+The `esc env get` command only returns statically defined plain-text values and definitions. This means that it does not return the value of any defined secrets, nor does it resolve values that are dynamically generated from a provider. To view these values, you must run the `esc env open` command as shown below. This will open the environment and resolve any secrets or dynamically retrieved values:
+
+```bash
+$ esc env open my-dev-environment
+
+{
+  "myEnvironment": "development",
+  "myPassword": "demo-password-123"
+}
+
 ```
 
 {{< get-started-stepper >}}
