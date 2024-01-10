@@ -18,6 +18,10 @@ aliases:
 
 Pulumi supports writing your infrastructure as code in the Python language running on any [supported version](https://devguide.python.org/versions/#versions).
 
+{{% notes type="warning" %}}
+Python 3.12 is not yet supported due to an upstream issue in the `grpcio` package that the `pulumi` PyPi package depends on. See [pulumi/pulumi#14258](https://github.com/pulumi/pulumi/issues/14258).
+{{% /notes %}}
+
 {{< install-python >}}
 
 ## Pulumi Programming Model
