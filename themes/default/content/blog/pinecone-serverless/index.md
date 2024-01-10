@@ -19,9 +19,9 @@ tags:
 
 ## Hello, Pulumi Pinecone Provider!  👋
 
-The [Pinecone](https://pinecone.io/) integration with [Pulumi](https://www.pulumi.com) offers now a native way to manage Pinecone Serverless indexes. Utilize any of Pulumi's [supported languages](https://www.pulumi.com/docs/languages-sdks/) to effortlessly create, update, and remove your Pinecone indexes. This integration facilitates the application of [Infrastructure as Code](https://www.pulumi.com/what-is/what-is-infrastructure-as-code/) principles, helping you to work even more efficiently. Furthermore, this gives you the benefit of tapping into Pulumi's wide range of [providers](https://www.pulumi.com/product/), offering you a diverse and powerful set of tools to enhance your development work.
+The [Pinecone](https://pinecone.io/) integration with [Pulumi](https://www.pulumi.com) offers now a native way to manage Pinecone Serverless indexes. Utilize any of Pulumi's [supported languages](/docs/languages-sdks/) to effortlessly create, update, and remove your Pinecone indexes. This integration facilitates the application of [Infrastructure as Code](/what-is/what-is-infrastructure-as-code/) principles, helping you to work even more efficiently. Furthermore, this gives you the benefit of tapping into Pulumi's wide range of [providers](/product/), offering you a diverse and powerful set of tools to enhance your development work.
 
-## What is Pinecone (Serverless)? 🧐
+## What is Pinecone? 🧐
 
 Pinecone is a fully managed [vector database](https://www.pinecone.io/learn/vector-database/) with an easy-to-use API that allows you to build and deploy high-performance AI applications. Applications involving large language models, generative AI, and semantic search require a vector database to store and retrieve [vector embeddings](https://www.pinecone.io/learn/vector-embeddings-for-developers/). Vector embeddings enable AI applications to gain a deeper understanding of the data and maintain a long-term memory to draw upon.
 
@@ -141,12 +141,12 @@ Be aware that this will also delete all the data stored in the index.
 
 ### Programmatically Creating a Pulumi Pinecone Provider
 
-There are situations where you might want to create a Pinecone index programmatically as part of multiple providers in one Pulumi program. Examples of this could be the creation additional infrastructure in AWS or a GitHub repository to hold your application code.
+By default, Pulumi will use the [default provider configuration](/docs/concepts/resources/providers/#default-provider-configuration) for the Pinecone provider. However, there may be situations where you need to use a different configuration. In that case, programmatically creating an explicit Pinecone provider with its own configuration is how to meet that requirement. You might also need to create one or more explicit Pinecone providers if you needed to deploy indexes in multiple Pinecone accounts, for example.
 
-You can do this by creating a Pinecone Provider programmatically and passing the provider in the resource creation. Here is an example code on how this could look like.
+Here is an example on how to programmatically create a Pinecone provider and then pass the provider when creating an index.
 
 ```typescript
-const myPinceconProvider = new pinecone.Provider("my-pinecone-provider", {
+const myPineconeProvider = new pinecone.Provider("my-pinecone-provider", {
     APIKey: "my-pinecone-api-key",
 });
 
@@ -161,16 +161,16 @@ const myPineconeIndex = new pinecone.PineconeIndex("my-pinecone-index", {
         },
     },
 }, {
-    provider: myPinceconProvider,
+    provider: myPineconeProvider,
 });
 ```
 
 ## Conclusion 💡
 
-As shown in this blog post, the Pinecone Provider for Pulumi allows you to seamlessly integrate and manage your Pinecone  using any Pulumi-supported language. This enables platform engineers and developers to maintain easily manageable and reproducible infrastructure as code for their Pinecone indexes.
+As shown in this blog post, the Pinecone Provider for Pulumi allows you to seamlessly integrate and manage your Pinecone indexes---including the new serverless indexes---using any Pulumi-supported language. This enables platform engineers and developers to maintain easily manageable and reproducible infrastructure as code for their AI applications that use Pinecone indexes.
 
 As always, we welcome your feedback and contributions in the [Pulumi Community Slack](https://slack.pulumi.com/), [GitHub repository,](https://github.com/pulumi/pulumi) and [Pulumi Community Discussions](https://github.com/pulumi/pulumi/discussions).
 
-New to Pulumi? Signing up is easy and free. [Get started today](http://localhost:1313/docs/get-started/)!
+New to Pulumi? Signing up is easy and free. [Get started today](/docs/get-started/)!
 
 Happy AI building!
