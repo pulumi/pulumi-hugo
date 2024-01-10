@@ -74,7 +74,7 @@ Now that you have populated your environment file, you can verify that your valu
 
 ### Retrieve values via the console
 
-To retrieve values
+To retrieve values in the console, scroll to the bottom of your environment page and click the **Open** button.
 
 This becomes especially relevant when you have values that are dynamically generated or retrieved from external sources, as those values will not be know until you resolve them using the "Open" functionality.
 
