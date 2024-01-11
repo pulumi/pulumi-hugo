@@ -61,7 +61,7 @@ Amazon Elastic Compute Cloud (EC2) provides managed virtual server hosting that 
 ```typescript
 {{< example-program-snippet path="aws-ec2-sg-nginx-server" language="typescript" from="1" to="2" >}}
 
-{{< example-program-snippet path="aws-ec2-sg-nginx-server" language="typescript" from="23" to="23" >}}
+{{< example-program-snippet path="aws-ec2-sg-nginx-server" language="typescript" from="25" to="25" >}}
 
 {{< example-program-snippet path="aws-ec2-sg-nginx-server" language="typescript" from="12" to="12" >}}
 ```
