@@ -43,13 +43,11 @@ values:
     fn::secret: "demo-password-123"
 ```
 
-As shown above, you can specify that a value should be stored as a secret by using the `fn::secret` function.
-
-Once you have added the above configuration, click the **Save** button located at the bottom of the editor.
+As shown above, you can specify that a value should be stored as a secret by using the `fn::secret` function. Once you have added the configuration, click the **Save** button located at the bottom of the editor.
 
 {{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-add-env-values.mp4" autoplay="true" loop="true" >}}
 
-The **Environment preview** pane on the right hand side will then update to show your added configuration in JSON format. You will notice that the value of "myPassword" which we have configured as a secret has been hidden from view in both the defintion and preview panes.
+The **Environment preview** pane on the right hand side will then update to show your added configuration in JSON format. You will notice that the value of "myPassword" has been hidden from view in both the defintion and preview panes.
 
 ### Store via the CLI
 
@@ -136,7 +134,7 @@ $ esc env get my-dev-environment
       myEnvironment: "development"
       myPassword:
         fn::secret:
-          ciphertext: ZXNjeAAAAAEAAAEAOoh0B/DnV6xPySqwu3HDzGpF6mT6brCqCGe5BITCJ16NML+TAN7aIcarfHwKVuuH/g==
+          ciphertext: ZXNjeAA....
 
 ```
 
