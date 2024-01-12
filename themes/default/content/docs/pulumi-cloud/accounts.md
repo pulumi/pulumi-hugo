@@ -75,7 +75,8 @@ For users who signed up with email, you may change your password by:
 
 For users who signed up with email, you can enable multi-factor authentication (MFA) using one time passwords:
 
-1. Use the organization selector to choose your individual account.
+1. Click on your account avatar in the top right corner
+2. Navigate to Account Settings
 1. Navigate to **Settings** > **General**
 1. On the right column, click on the **Enroll** button under **Two factor authentication**
 ![MFA Enroll](/images/docs/pulumi-cloud/mfa/mfa-enroll.png)
