@@ -71,7 +71,7 @@ For users who signed up with email, you may change your password by:
 1. Navigate to **Settings** > **Account security**
 1. Reset your password. Your password must be at least ten characters long.
 
-## Setting up second factor authentication
+## Setting up MFA
 
 For users who signed up with email, you can enable second factor authentication using one time passwords:
 
