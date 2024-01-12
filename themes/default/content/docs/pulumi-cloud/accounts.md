@@ -73,7 +73,7 @@ For users who signed up with email, you may change your password by:
 
 ## Setting up MFA
 
-For users who signed up with email, you can enable second factor authentication using one time passwords:
+For users who signed up with email, you can enable multi-factor authentication (MFA) using one time passwords:
 
 1. Use the organization selector to choose your individual account.
 1. Navigate to **Settings** > **General**
