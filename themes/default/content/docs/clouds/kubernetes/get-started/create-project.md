@@ -107,7 +107,7 @@ Created stack 'dev'
 Consider a Pulumi _project_ to be analogous to a GitHub repo---a single place for code.
 
 **What are [stacks](/docs/concepts/stack/)?**
-A _stack_ to be an instance of that code with a separate configuration.
+Consider a _stack_ to be an instance of that code with a separate configuration.
 
 Both Pulumi projects and stacks let you organize Pulumi code. For instance, _Project Foo_ may have multiple stacks for different development environments (Dev, Test, or Prod) or cloud configurations (geographic region, for example).
 
