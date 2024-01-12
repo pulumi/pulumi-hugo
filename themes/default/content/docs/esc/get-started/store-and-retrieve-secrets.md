@@ -66,17 +66,25 @@ esc env set my-dev-environment myPassword demo-password-123 --secret
 
 As shown above, you can specify that a value should be stored as a secret by using the `--secret` flag.
 
+Alternatively, you can directly [edit your environment file with a code editor](/docs/pulumi-cloud/esc/environments/#with-the-pulumi-esc-cli) using the following command, making sure to replace `<environment-name>` with the name of your own environment (e.g. `my-dev-environment`):
+
+```bash
+esc env edit <environment-name>
+```
+
+Using this method enables you to add your configuration values in the same way that you would [via the console](/docs/esc/get-started/store-and-retrieve-secrets/#store-via-the-console).
+
 ## Retrieve Environment Values
 
 ### Retrieve via the console
 
 To retrieve values in the console, scroll to the bottom of your environment page and click the **Open** button. This will return any statically defined plain-text values and definitions.
 
-{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-open-env-view-values.mp4" autoplay="true" loop="true" >}}
+{{< video title="Clicking the open button in the Pulumi ESC console" src="/docs/esc/get-started/esc-open-env-view-values.mp4" autoplay="true" loop="true" >}}
 
 As shown above, it does not return the value of secrets defined, nor does it resolve values that are dynamically generated from a provider. To view these values, you will need to click the **Show secrets** slider.
 
-{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-env-show-secrets.mp4" autoplay="true" loop="true" >}}
+{{< video title="Clicking the show secrets slider the Pulumi ESC console" src="/docs/esc/get-started/esc-env-show-secrets.mp4" autoplay="true" loop="true" >}}
 
 ### Retrieve via the CLI
 
