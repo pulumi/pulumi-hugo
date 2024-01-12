@@ -37,10 +37,6 @@ values:
 
 ## Import an environment
 
-{{% notes type="info" %}}
-The steps in this section assume that you already have a Pulumi ESC environment created. If you do not have an existing environment, please refer to the [Create Environment guide](/docs/esc/get-started/create-environment/) to create one before continuing.
-{{% /notes %}}
-
 To demonstrate how this works, you will need to create a second environment. For the purposes of this guide, we will name this new environment `app-global-config`. In this environment, replace the placeholder content with the following configuration:
 
 ```yaml
