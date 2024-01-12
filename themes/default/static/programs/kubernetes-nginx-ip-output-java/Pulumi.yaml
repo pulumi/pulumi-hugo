@@ -1,0 +1,3 @@
+name: kubernetes-nginx-ip-output-java
+runtime: java
+description: An example that deploys NGINX on Kubernetes.

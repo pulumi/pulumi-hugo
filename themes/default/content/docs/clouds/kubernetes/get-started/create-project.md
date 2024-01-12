@@ -102,7 +102,17 @@ stack name: (dev)
 Created stack 'dev'
 ```
 
-> What are [projects](/docs/concepts/projects/) and [stacks](/docs/concepts/stack/)? Pulumi projects and stacks let you organize Pulumi code. Consider a Pulumi _project_ to be analogous to a GitHub repo---a single place for code---and a _stack_ to be an instance of that code with a separate configuration. For instance, _Project Foo_ may have multiple stacks for different development environments (Dev, Test, or Prod), or perhaps for different cloud configurations (geographic region for example). See [Organizing Projects and Stacks](/docs/using-pulumi/organizing-projects-stacks/) for some best practices on organizing your Pulumi projects and stacks.
+{{% notes "info" %}}
+**What are [projects](/docs/concepts/projects/)?**
+Consider a Pulumi _project_ to be analogous to a GitHub repo---a single place for code.
+
+**What are [stacks](/docs/concepts/stack/)?**
+A _stack_ to be an instance of that code with a separate configuration.
+
+Both Pulumi projects and stacks let you organize Pulumi code. For instance, _Project Foo_ may have multiple stacks for different development environments (Dev, Test, or Prod) or cloud configurations (geographic region, for example).
+
+See [Organizing Projects and Stacks](/docs/using-pulumi/organizing-projects-stacks/) for best practices on organizing your Pulumi projects and stacks.
+{{% /notes %}}
 
 {{% choosable language "javascript,typescript" %}}
 

@@ -1,0 +1,3 @@
+name: kubernetes-nginx-typescript
+runtime: nodejs
+description: An example that deploys NGINX on Kubernetes.
