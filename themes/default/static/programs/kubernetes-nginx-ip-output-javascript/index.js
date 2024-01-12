@@ -34,5 +34,5 @@ const frontend = new k8s.core.v1.Service(appName, {
 exports.ip = isMinikube
     ? frontend.spec.clusterIP
     : frontend.status.loadBalancer.apply(
-          (lb) => lb.ingress[0].ip || lb.ingress[0].hostname
-      );
+        (lb) => lb.ingress[0].ip || lb.ingress[0].hostname
+    );
