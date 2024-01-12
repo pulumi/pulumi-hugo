@@ -54,4 +54,6 @@ $ esc env ls
 myorg/test
 ```
 
+In the next section, you will learn how to store configuration values and secrets in your environment.
+
 {{< get-started-stepper >}}

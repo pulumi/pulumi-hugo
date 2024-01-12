@@ -158,4 +158,6 @@ $ esc env open my-dev-environment
 
 ```
 
+In the next section, you will learn how to import configuration values from other environments.
+
 {{< get-started-stepper >}}
