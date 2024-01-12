@@ -14,9 +14,9 @@ const deployment = new k8s.apps.v1.Deployment(appName, {
         replicas: 1,
         template: {
             metadata: { labels: appLabels },
-            spec: { containers: [{ name: appName, image: "nginx" }] }
-        }
-    }
+            spec: { containers: [{ name: appName, image: "nginx" }] },
+        },
+    },
 });
 
 // Allocate an IP to the Deployment.
@@ -25,13 +25,9 @@ const frontend = new k8s.core.v1.Service(appName, {
     spec: {
         type: isMinikube ? "ClusterIP" : "LoadBalancer",
         ports: [{ port: 80, targetPort: 80, protocol: "TCP" }],
-        selector: appLabels
-    }
+        selector: appLabels,
+    },
 });
 
 // When "done", this will print the public IP.
-export const ip = isMinikube
-    ? frontend.spec.clusterIP
-    : frontend.status.loadBalancer.apply(
-        (lb) => lb.ingress[0].ip || lb.ingress[0].hostname
-    );
+export const ip = isMinikube ? frontend.spec.clusterIP : frontend.status.loadBalancer.apply(lb => lb.ingress[0].ip || lb.ingress[0].hostname);
