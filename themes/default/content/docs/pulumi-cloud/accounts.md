@@ -77,7 +77,6 @@ For users who signed up with email, you can enable multi-factor authentication (
 
 1. Click on your account avatar in the top right corner
 2. Navigate to Account Settings
-1. Navigate to **Settings** > **General**
 1. On the right column, click on the **Enroll** button under **Two factor authentication**
 ![MFA Enroll](/images/docs/pulumi-cloud/mfa/mfa-enroll.png)
 1. Download a TOTP authenticator app, for example, you can use Google Authenticator (available for <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2">Android</a> and <a href="https://apps.apple.com/us/app/google-authenticator/id388497605">IPhone</a>)
