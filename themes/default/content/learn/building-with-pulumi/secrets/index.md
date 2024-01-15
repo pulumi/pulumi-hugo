@@ -85,8 +85,8 @@ config:
 ```bash
 $ pulumi stack select dev
 
-$ pulumi config set mongo_username admin
-$ pulumi config set --secret mongo_password S3cr37
+$ pulumi config set mongoUsername admin
+$ pulumi config set --secret mongoPassword S3cr37
 ```
 
 If we list the configuration for our stack, the plain-text value for
@@ -95,14 +95,14 @@ If we list the configuration for our stack, the plain-text value for
 ```bash
 $ pulumi config
 KEY               VALUE
-backend_port      3000
+backendPort      3000
 database          cart
-frontend_port     3001
-mongo_password    [secret]
-mongo_username    admin
-mongo_host        mongodb://mongo:27017
-mongo_port        27017
-node_environment  development
+frontendPort     3001
+mongoPassword    [secret]
+mongoUsername    admin
+mongoHost        mongodb://mongo:27017
+mongoPort        27017
+nodeEnvironment  development
 ```
 
 This is also encrypted in the associated configuration file:
@@ -111,15 +111,15 @@ This is also encrypted in the associated configuration file:
 $ cat Pulumi.dev.yaml
 
 config:
-  my-first-app:backend_port: "3000"
+  my-first-app:backendPort: "3000"
   my-first-app:database: cart
-  my-first-app:frontend_port: "3001"
-  my-first-app:mongo_password:
+  my-first-app:frontendPort: "3001"
+  my-first-app:mongoPassword:
     secure: AAABADQXFlU0mxbTmNyl39UfVg4DdFoL94SCNMX3MkvZhBZjeAM=
-  my-first-app:mongo_username: admin
-  my-first-app:mongo_host: mongodb://mongo:27017
-  my-first-app:mongo_port: "27017"
-  my-first-app:node_environment: development
+  my-first-app:mongoUsername: admin
+  my-first-app:mongoHost: mongodb://mongo:27017
+  my-first-app:mongoPort: "27017"
+  my-first-app:nodeEnvironment: development
 ```
 
 {{% /choosable %}}
@@ -236,8 +236,8 @@ export const mongoPassword = config.requireSecret("mongoPassword");
 config = pulumi.Config()
 #...
 
-mongo_username = config.require("mongo_username")
-mongo_password = config.require_secret("mongo_password")
+mongo_username = config.require("mongoUsername")
+mongo_password = config.require_secret("mongoPassword")
 ```
 
 {{% /choosable %}}
@@ -331,7 +331,7 @@ mongo_container = docker.Container("mongo_container",
 Then, we need to update the backend container to use the new authentication. We need to slightly change the value of `mongo_host` first:
 
 ```bash
-$ pulumi config set mongo_host mongo
+$ pulumi config set mongoHost mongo
 ```
 
 {{% /choosable %}}
@@ -572,7 +572,7 @@ S3cr37
 {{% choosable language python %}}
 
 ```bash
-$ pulumi stack output mongo_password --show-secrets
+$ pulumi stack output mongoPassword --show-secrets
 S3cr37
 ```
 
