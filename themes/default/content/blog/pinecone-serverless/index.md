@@ -14,7 +14,7 @@ tags:
 
 ---
 
-![Pulumi and Pinecone](./picture1.png)
+![Pulumi and Pinecone](./meta.png)
 
 ## Hello, Pulumi Pinecone Provider!  👋
 
