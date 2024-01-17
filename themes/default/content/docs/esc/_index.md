@@ -19,9 +19,11 @@ Pulumi ESC (Environments, Secrets, and Configuration) allows teams to tackle sec
 
 Pulumi ESC enables teams to aggregate secrets and configuration from many sources into a composable collection called an [environment](/docs/concepts/environments/). Teams can then consume those configuration and secrets from a variety of different infrastructure and application services.  Pulumi ESC works hand-in-hand with Pulumi IaC to simplify configuration management, as well as a standalone CLI and API for other use cases apart from Pulumi IaC.
 
-Pulumi ESC is offered as a fully managed cloud service in Pulumi Cloud (and Pulumi Cloud Self-hosted in the near future). The pulumi/esc project is open source, and contains the evaluation engine for environments, the esc CLI, and in the future, the extensible plugins for source and target integrations.  
+Pulumi ESC is offered as a fully managed cloud service in [Pulumi Cloud](/docs/pulumi-cloud/) (and Pulumi Cloud Self-hosted in the near future). The [pulumi/esc project](https://github.com/pulumi/esc) is open source, and contains the evaluation engine for environments, the esc CLI, and in the future, the extensible plugins for source and target integrations.  
 
 ![Pulumi ESC ecosystem](img/pulumi_esc.png)
+
+The following details corresponds to the numbered sections in the above diagram:
 
 1. Pulumi ESC enables you to define environments, which contain collections of secrets and configuration. Each environment can be composed from multiple environments.
 
@@ -49,7 +51,7 @@ Environments are defined as YAML documents which can describe how to project and
 
 ## Authentication and RBAC
 
-Pulumi ESC brokers access to secrets and configuration that live in other systems, and so authentication and granular RBAC are critical to ensure robust access controls across your organization. Pulumi ESC leverages the same Pulumi Cloud identity, RBAC, Teams, SAML/SCIM and scoped access tokens that are used for Pulumi IaC today, extending these all to managing access to environments as well as Stacks.
+Pulumi ESC brokers access to secrets and configuration that live in other systems, and so authentication and granular RBAC are critical to ensure robust access controls across your organization. Pulumi ESC leverages the same Pulumi Cloud identity, RBAC, Teams, SAML/SCIM and scoped access tokens that are used for Pulumi IaC today, extending these all to managing access to environments as well as [Stacks](/docs/concepts/stack/).
 
 Teams can create and control access to their environments. They can control who can update and preview environments, as well as who can open environments and retrieve their secrets. Audit logs let teams know who has changed or accessed configuration.
 
