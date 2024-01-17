@@ -16,7 +16,7 @@ The Pulumi ESC CLI also has a [`run` command](/docs/esc-cli/commands/esc_run/) t
 
 ## Expose environment variables
 
-Values in your environment file are not exposed as environment variables by default. You can expose them by adding your key-value pairs under a second-level key labeled `environmentVariables`:
+Values defined in your environment file are not exposed as environment variables by default. You can expose them by adding your key-value pairs under a second-level key labeled `environmentVariables`:
 
 ```yaml
 values:
@@ -35,7 +35,7 @@ values:
       fn::secret: "my-api-key-1234567"
 ```
 
-Then run the following command to echo the value of `API_KEY` which should be empty:
+Then run the following command to echo the value of `API_KEY`, which should be empty:
 
 ```bash
 # The output should not return anything
@@ -50,7 +50,7 @@ esc run <your-pulumi-org-name>/<your-environment-name> -- bash -c "echo \$API_KE
 ```
 
 {{< notes type="info" >}}
-It is important to note that commands run using `esc run` are not run in a subshell. This means that any commands that reference an environment variable like shown in the example above are not expanded by default. You will need to invoke the command inside a shell if you need environment variable expansion. The `bash -c` portion of the command is what does this.
+Commands run using `esc run` are not run in a subshell. This means that any commands that reference an environment variable like in the example shown above are not expanded by default. The `bash -c` portion of the command is what invokes the command inside a shell with environment variable expansion. See the [`esc run` documentation for the ESC CLI](/docs/esc-cli/commands/esc_run/) for more informtation.
 {{< /notes >}}
 
 Because you have stored the value of `API_KEY` [as a secret](/docs/esc/get-started/store-and-retrieve-secrets/), your output will resemble the following:
@@ -60,9 +60,16 @@ $ esc run pulumi/my-dev-environment -- bash -c "echo \$API_KEY"
 [secret]
 ```
 
+The CLI intentionally redacts the secret value when printing to the terminal. If you want to disable the redaction, add the `--interactive` or `-i` flag to the command as shown below:
+
+```bash
+$ esc run pulumi/my-dev-environment -i -- bash -c "echo \$API_KEY"
+my-api-key-1234567
+```
+
 ## Run commands with dynamic credentials
 
-For supported cloud providers, the `esc run` command also enables you to run commands like `aws s3 ls` without having to manually configure provider credentials in your local environments. In this section, you will learn how to use Pulumi ESC with dynamically generated cloud credentials so that every provider command you run incorporates security best practices like short-term, scoped credentials issued via OpenID Connect (OIDC).
+For supported cloud providers, the `esc run` command also enables you to run commands like `aws s3 ls` without having to manually configure provider credentials in your local environments. In this section, you will learn how to use Pulumi ESC with dynamically generated cloud credentials so that every provider command you run uses short-term, scoped credentials issued via OpenID Connect (OIDC).
 
 If you have not done so already, make sure you have [configured OIDC connectivity](/docs/esc/get-started/begin/#configure-openid-connect-oidc) between Pulumi and one of the below supported providers.
 
