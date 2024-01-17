@@ -59,14 +59,6 @@ $ curl -fsSL https://get.pulumi.com/esc/install.sh | sh
 
 You can explore more installation options by visiting the [ESC installation docs](/docs/install/esc/).
 
-### Configure OpenID Connect (OIDC)
-
-Pulumi supports [OpenID Connect (OIDC) integration](/docs/pulumi-cloud/oidc/) across various services including Pulumi ESC. OIDC enables secure interactions between Pulumi and cloud providers by leveraging signed, short-lived tokens issued by the Pulumi Cloud. Use one of the following guides below to configure OIDC between Pulumi ESC and your chosen cloud provider:
-
-- [OIDC Configuration for AWS](/docs/pulumi-cloud/oidc/aws/)
-- [OIDC Configuration for Azure](/docs/pulumi-cloud/oidc/azure/)
-- [OIDC Configuration for Google Cloud](/docs/pulumi-cloud/oidc/gcp/)
-
 ### Login to the ESC CLI
 
 Run the following command to log into the CLI:
@@ -85,6 +77,16 @@ Enter your access token from https://app.pulumi.com/account/tokens
     or hit <ENTER> to log in using your browser                   :
 Logged in to https://api.pulumi.com/ as your-pulumi-org (https://app.pulumi.com/your-pulumi-org)
 ```
+
+### [Optional] Configure OpenID Connect (OIDC)
+
+Pulumi supports [OpenID Connect (OIDC) integration](/docs/pulumi-cloud/oidc/) across various services including Pulumi ESC. OIDC enables secure interactions between Pulumi and cloud providers by leveraging signed, short-lived tokens issued by the Pulumi Cloud. Use one of the following guides below to configure OIDC between Pulumi ESC and your chosen cloud provider:
+
+- [OIDC Configuration for AWS](/docs/pulumi-cloud/oidc/aws/)
+- [OIDC Configuration for Azure](/docs/pulumi-cloud/oidc/azure/)
+- [OIDC Configuration for Google Cloud](/docs/pulumi-cloud/oidc/gcp/)
+
+This is an optional step that is not required to get started with Pulumi ESC. There are some steps in this series that will require OIDC configuration to complete, but that will be indicated on the relevant pages.
 
 In the next section, you will start your journey with Pulumi ESC by creating a new environment.
 

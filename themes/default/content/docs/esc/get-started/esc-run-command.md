@@ -68,6 +68,24 @@ $ esc run pulumi/my-dev-environment -i -- bash -c "echo \$ENDPOINT_URL \$API_KEY
 https://wordsapiv1.p.rapidapi.com/ my-api-key-1234567
 ```
 
+Alternatively, if you need to be able to run multiple commands without always having to specify the above command string each time, you can run the following command to open up a subshell that will have access to your values in your environment file:
+
+```bash
+$ esc run pulumi/my-dev-environment -i -- bash
+```
+
+From there, try running the `echo` command individually for each example variable:
+
+```bash
+$ echo $API_KEY
+my-api-key-1234567
+
+$ echo $ENDPOINT_URL
+https://wordsapiv1.p.rapidapi.com/
+```
+
+You can close this subshell by running the `exit` command.
+
 ## Run commands with dynamic credentials
 
 For supported cloud providers, the `esc run` command also enables you to run commands like `aws s3 ls` without having to manually configure provider credentials in your local environments. In this section, you will learn how to use Pulumi ESC with dynamically generated cloud credentials so that every provider command you run uses short-term, scoped credentials issued via OpenID Connect (OIDC).
