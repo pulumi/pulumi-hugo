@@ -12,9 +12,7 @@ menu:
 
 ## Overview
 
-The Pulumi ESC CLI also has a [`run` command](/docs/esc-cli/commands/esc_run/) that enables you to run other commands using environment variables without having to locally set the environment variables first. This is great for when you have other components or applications that may need to interact with your endpoints as part of a larger application workflow.
-
-For example, if you have a CI/CD pipeline that will automatically push blog post updates to a content-management system, you can enable it to retrieve the endpoint and API key specific to its environment and run the command to update the post.
+The Pulumi ESC CLI also has a [`run` command](/docs/esc-cli/commands/esc_run/) that enables you to run other commands using environment variables without having to locally set the environment variables first. For example, let's say that you have a CI/CD pipeline that will automatically push blog post updates to a content-management system (CMS). Instead of storing the values of the CMS endpoint and the corresponding environment's API key locally, you can configure your pipeline to retrieve these values from your environment file before running the command to update the post.
 
 ## Expose environment variables
 
@@ -55,7 +53,7 @@ esc run <your-pulumi-org-name>/<your-environment-name> -- bash -c "echo \$API_KE
 It is important to note that commands run using `esc run` are not run in a subshell. This means that any commands that reference an environment variable like shown in the example above are not expanded by default. You will need to invoke the command inside a shell if you need environment variable expansion. The `bash -c` portion of the command is what does this.
 {{< /notes >}}
 
-Because you have stored the value of `API_KEY` as a secret, your output will resemble the following:
+Because you have stored the value of `API_KEY` [as a secret](/docs/esc/get-started/store-and-retrieve-secrets/), your output will resemble the following:
 
 ```bash
 $ esc run pulumi/my-dev-environment -- bash -c "echo \$API_KEY"
