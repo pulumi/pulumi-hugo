@@ -61,7 +61,7 @@ You can explore more installation options by visiting the [ESC installation docs
 
 ### Configure OpenID Connect (OIDC)
 
-Pulumi supports [OpenID Connect (OIDC) integration](/docs/pulumi-cloud/oidc/) across various services including Pulumi ESC. OIDC enables secure interactions between Pulumi and cloud providers by leveraging signed, short-lived tokens issued by the Pulumi Cloud. Use one of the following guides below to configure OIDC between Pulumi and your chosen cloud provider:
+Pulumi supports [OpenID Connect (OIDC) integration](/docs/pulumi-cloud/oidc/) across various services including Pulumi ESC. OIDC enables secure interactions between Pulumi and cloud providers by leveraging signed, short-lived tokens issued by the Pulumi Cloud. Use one of the following guides below to configure OIDC between Pulumi ESC and your chosen cloud provider:
 
 - [OIDC Configuration for AWS](/docs/pulumi-cloud/oidc/aws/)
 - [OIDC Configuration for Azure](/docs/pulumi-cloud/oidc/azure/)

@@ -74,4 +74,6 @@ You should now see `"ENDPOINT_URL": "https://wordsapiv1.p.rapidapi.com/"` in the
 You can test this out by retrieving the imported value via the console or the CLI. Refer to the [Store and Retrieve Secrets guide](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-environment-values) for the steps on how to do this.
 {{% /notes %}}
 
+In the next section, you will learn how to run local commands without manually configuring local secrets.
+
 {{< get-started-stepper >}}
