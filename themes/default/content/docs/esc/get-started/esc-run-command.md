@@ -31,6 +31,7 @@ Following the format above, add the following configuration to your environment 
 ```yaml
 values:
   environmentVariables:
+    ENDPOINT_URL: "https://wordsapiv1.p.rapidapi.com/"
     API_KEY:
       fn::secret: "my-api-key-1234567"
 ```
@@ -39,14 +40,14 @@ Then run the following command to echo the value of `API_KEY`, which should be e
 
 ```bash
 # The output should not return anything
-$ echo $API_KEY
+$ echo $ENDPOINT_URL $API_KEY
 
 ```
 
  Now run the command using `esc run` as shown below, making sure to replace <your-pulumi-org-name> and <your-environment-name> with the names of your own Pulumi organization and environment respectively
 
 ```bash
-esc run <your-pulumi-org-name>/<your-environment-name> -- bash -c "echo \$API_KEY"
+esc run <your-pulumi-org-name>/<your-environment-name> -- bash -c "echo \$ENDPOINT_URL \$API_KEY"
 ```
 
 {{< notes type="info" >}}
@@ -56,15 +57,15 @@ Commands run using `esc run` are not run in a subshell. This means that any comm
 Because you have stored the value of `API_KEY` [as a secret](/docs/esc/get-started/store-and-retrieve-secrets/), your output will resemble the following:
 
 ```bash
-$ esc run pulumi/my-dev-environment -- bash -c "echo \$API_KEY"
-[secret]
+$ esc run pulumi/my-dev-environment -- bash -c "echo \$ENDPOINT_URL \$API_KEY"
+https://wordsapiv1.p.rapidapi.com/ [secret]
 ```
 
 The CLI intentionally redacts the secret value when printing to the terminal. If you want to disable the redaction, add the `--interactive` or `-i` flag to the command as shown below:
 
 ```bash
-$ esc run pulumi/my-dev-environment -i -- bash -c "echo \$API_KEY"
-my-api-key-1234567
+$ esc run pulumi/my-dev-environment -i -- bash -c "echo \$ENDPOINT_URL \$API_KEY"
+https://wordsapiv1.p.rapidapi.com/ my-api-key-1234567
 ```
 
 ## Run commands with dynamic credentials
