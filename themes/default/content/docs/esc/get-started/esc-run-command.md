@@ -51,7 +51,7 @@ esc run <your-pulumi-org-name>/<your-environment-name> -- bash -c "echo \$ENDPOI
 ```
 
 {{< notes type="info" >}}
-Commands run using `esc run` are not run in a subshell. This means that any commands that reference an environment variable like in the example shown above are not expanded by default. The `bash -c` portion of the command is what invokes the command inside a shell with environment variable expansion. See the [`esc run` documentation for the ESC CLI](/docs/esc-cli/commands/esc_run/) for more informtation.
+Commands run using `esc run` are not run in a subshell. This means that any commands that reference an environment variable like in the example shown above are not expanded by default. The `bash -c` portion of the command is what invokes the command inside a shell with environment variable expansion. See the [`esc run` documentation for the ESC CLI](/docs/esc-cli/commands/esc_run/) for more information.
 {{< /notes >}}
 
 Because you have stored the value of `API_KEY` [as a secret](/docs/esc/get-started/store-and-retrieve-secrets/), your output will resemble the following:
