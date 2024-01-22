@@ -1,5 +1,5 @@
 ---
-title: "Pulumi's Declarative and Imperative Approach to Infrastructure as Code (Iac)"
+title: "Pulumi's Declarative and Imperative Approach IaC"
 date: 2022-09-23
 meta_desc: Pulumi provides an imperative and declarative approach to infrastructure as code (IaC) solutions
 
