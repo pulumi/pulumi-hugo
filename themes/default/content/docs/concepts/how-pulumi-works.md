@@ -393,7 +393,7 @@ Pulumi executes resource operations in parallel whenever possible, but understan
 
 By default, if a resource must be replaced, Pulumi will attempt to create a new copy of the resource before destroying the old one. This is helpful because it allows updates to infrastructure to happen without downtime. This behavior can be controlled by the [deleteBeforeReplace](/docs/concepts/resources#deletebeforereplace) option. If you have disabled [auto-naming](/docs/concepts/resources#autonaming) by providing a specific name for a resource, it will be treated as if it was marked as `deleteBeforeReplace` automatically (otherwise the create operation for the new version would fail since the name is in use).
 
-## Declarative and Imperative Approach
+## Declarative and imperative approach
 
 With Pulumi, you author your infrastructure in your preferred programming language and when you run `pulumi up` the Pulumi CLI starts the language host for your selected programming language, as well as the required providers via the Pulumi engine that results in the actual creation, modification or deletion of your infrastructure. The separation of language support from the engine is what makes Pulumi so powerful, providing the best of both imperative and declarative approaches for your infrastructure as code solutions.
 
