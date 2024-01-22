@@ -395,7 +395,7 @@ By default, if a resource must be replaced, Pulumi will attempt to create a new 
 
 ## Declarative and imperative approach
 
-With Pulumi, you author your infrastructure in your preferred programming language and when you run `pulumi up` the Pulumi CLI starts the language host for your selected programming language, as well as the required providers via the Pulumi engine that results in the actual creation, modification or deletion of your infrastructure. The separation of language support from the engine is what makes Pulumi so powerful, providing the best of both imperative and declarative approaches for your infrastructure as code solutions.
+With Pulumi, you author your infrastructure in your preferred programming language. When you run `pulumi up`, the Pulumi CLI starts both language host for your selected programming language as well as the required providers (via the Pulumi engine). The providers, coordinated by the Pulumi engine, are the ones that perform the actual creation, modification, or deletion of your infrastructure. The separation of language support from the engine is what makes Pulumi so powerful, providing the best of both imperative and declarative approaches for your infrastructure as code solutions.
 
 Here is a breakdown of each component of Pulumi's architecture:
 
