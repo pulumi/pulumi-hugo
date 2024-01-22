@@ -40,7 +40,7 @@ The _deployment engine_ is responsible for computing the set of operations neede
 
 The deployment engine is embedded in the `pulumi` CLI itself.
 
-## Resource Providers
+## Resource providers
 
 A resource provider is made up of two different pieces:
 
