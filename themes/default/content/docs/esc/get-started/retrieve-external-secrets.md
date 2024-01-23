@@ -20,7 +20,7 @@ With Pulumi ESC, you can store configuration values as plaintext or as secrets d
 
 This enables you to centralize both new and existing secrets and configurations and use them in multiple places without duplicating values across providers or environments.
 
-## Retrieve external secrets
+## Import external secrets
 
 If you have not done so already, make sure you have [configured OIDC connectivity](/docs/esc/get-started/begin/#configure-openid-connect-oidc) between Pulumi and one of the below supported providers.
 
@@ -72,12 +72,27 @@ values:
             secretId: my-app-secret
 ```
 
-You can validate this configuration one of two ways:
+You can validate this configuration by [opening the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console), clicking the **Open** button and then clicking the **Show secrets** slider.
 
-- [Open the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console)
-  - Click the **Open** button and then click the **Show secrets** slider
-- [Open the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli)
-  - Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
+{{< video title="Opening imported AWS secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-aws-secret.mp4" autoplay="true" loop="true" >}}
+
+Alternatively, you can validate the configuration by [opening the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli). Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
+
+```bash
+$ esc env open pulumi/aws-secrets-example
+{
+  "aws": {
+    "login": {
+      "accessKeyId": "ASIA...",
+      "secretAccessKey": "Jdt...",
+      "sessionToken": "Fwo..."
+    },
+    "secrets": {
+      "app-secret": "pulumi-esc-get-started-secret"
+    }
+  }
+}
+```
 
 If you need to retrieve multiple Secrets Manager secrets, you can do so as shown below:
 
