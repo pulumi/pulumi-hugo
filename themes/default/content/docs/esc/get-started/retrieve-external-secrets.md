@@ -76,7 +76,7 @@ values:
 
 You can validate this configuration by [opening the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console), clicking the **Open** button and then clicking the **Show secrets** slider.
 
-{{< video title="Opening imported AWS secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-aws-secret.mp4" autoplay="true" loop="true" >}}
+{{% video title="Opening imported AWS secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-aws-secret.mp4" autoplay="true" loop="true" %}}
 
 Alternatively, you can validate the configuration by [opening the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli). Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
 
@@ -216,7 +216,78 @@ values:
 
 {{% choosable cloud gcp %}}
 
-TBD Google Secret Manager Steps
+To retrieve secret values from Google Secret Manager, you must first:
+
+- create a secret TBD pre-reqs
+
+Once that is complete, you will need to update your environment definition to add the [`gcp-secrets` provider](/docs/esc/providers/gcp-secrets/) configuration. To do this, add the following configuration to your environment definition, making sure to:
+
+- nest it under the `gcp` second-level key
+- replace the value of `<your-secret-name-here>` with the name of your secret
+
+```yaml
+values:
+  gcp: # your existing oidc configuration
+    login:
+      ...
+      ...
+    secrets:
+      fn::open::gcp-secrets:
+        login: ${gcp.login}
+        access:
+          app-secret:
+            name: <your-secret-name-here>
+```
+
+Your updated environment file should look similar to the following:
+
+```yaml
+# example environment definition
+values:
+  gcp:
+    login:
+      fn::open::gcp-login:
+        project: 123456789
+        oidc:
+          workloadPoolId: pulumi-esc
+          providerId: pulumi-esc
+          serviceAccount: pulumi-esc@foo-bar-123456.iam.gserviceaccount.com
+    secrets:
+      fn::open::gcp-secrets:
+        login: ${gcp.login}
+        access:
+          app-secret:
+            name: <your-secret-name-here>
+```
+
+You can validate this configuration by [opening the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console), clicking the **Open** button and then clicking the **Show secrets** slider.
+
+{{< video title="Opening imported Azure secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-azure-secret.mp4" autoplay="true" loop="true" >}}
+
+Alternatively, you can validate the configuration by [opening the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli). Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
+
+```bash
+$ esc env open pulumi/azure-secrets-example
+TBD output
+```
+
+If you need to retrieve multiple Azure Key Vault secrets, you can do so as shown below:
+
+```yaml
+values:
+  gcp:
+    login:
+      ...
+      ...
+    secrets:
+      fn::open::gcp-secrets:
+        login: ${gcp.login}
+        access:
+          api-key:
+            name: api-key
+          app-secret:
+            name: app-secret
+```
 
 {{% /choosable %}}
 
