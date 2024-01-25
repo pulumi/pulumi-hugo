@@ -30,6 +30,7 @@ If you have not done so already, make sure you have [configured OIDC connectivit
 
 To retrieve secret values from AWS Secrets Manager, you must first:
 
+- ensure that your IAM role has the [appropriate Secrets Manager permissions](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html)
 - [create a Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html)
 
 Once that is complete, you will need to update your environment definition to add the [`aws-secrets` provider](/docs/esc/providers/aws-secrets/) configuration. To do this, add the following configuration to your environment definition, making sure to:
@@ -76,7 +77,10 @@ values:
 
 You can validate this configuration by [opening the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console), clicking the **Open** button and then clicking the **Show secrets** slider.
 
-{{% video title="Opening imported AWS secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-aws-secret.mp4" autoplay="true" loop="true" %}}
+<video autoplay loop muted playsinline>
+    <source src="/docs/esc/get-started/esc-show-aws-secret.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 Alternatively, you can validate the configuration by [opening the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli). Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
 
@@ -138,7 +142,7 @@ values:
     login:
       ...
       ...
-    secrets:
+    secrets: # add the azure-secrets provider config
       fn::open::azure-secrets:
         login: ${azure.login}
         vault: <your-vault-name-here>
@@ -170,7 +174,10 @@ values:
 
 You can validate this configuration by [opening the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console), clicking the **Open** button and then clicking the **Show secrets** slider.
 
-{{< video title="Opening imported Azure secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-azure-secret.mp4" autoplay="true" loop="true" >}}
+<video autoplay loop muted playsinline>
+    <source src="/docs/esc/get-started/esc-show-azure-secret.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 Alternatively, you can validate the configuration by [opening the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli). Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
 
@@ -218,7 +225,8 @@ values:
 
 To retrieve secret values from Google Secret Manager, you must first:
 
-- create a secret TBD pre-reqs
+- ensure that your service account has the [appropriate Secret Manager permissions](https://cloud.google.com/secret-manager/docs/access-control)
+- [create a Google secret](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets)
 
 Once that is complete, you will need to update your environment definition to add the [`gcp-secrets` provider](/docs/esc/providers/gcp-secrets/) configuration. To do this, add the following configuration to your environment definition, making sure to:
 
@@ -231,7 +239,7 @@ values:
     login:
       ...
       ...
-    secrets:
+    secrets: # add the gcp-secrets provider config
       fn::open::gcp-secrets:
         login: ${gcp.login}
         access:
@@ -257,21 +265,36 @@ values:
         login: ${gcp.login}
         access:
           app-secret:
-            name: <your-secret-name-here>
+            name: my-app-secret
 ```
 
 You can validate this configuration by [opening the environment via the ESC console](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-console), clicking the **Open** button and then clicking the **Show secrets** slider.
 
-{{< video title="Opening imported Azure secrets in Pulumi ESC console" src="/docs/esc/get-started/esc-show-azure-secret.mp4" autoplay="true" loop="true" >}}
+<video autoplay loop muted playsinline>
+    <source src="/docs/esc/get-started/esc-show-gcp-secret.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 Alternatively, you can validate the configuration by [opening the environment via the ESC CLI](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-via-the-cli). Run the `esc env open <your-org>/<your-environment-name>` command, making sure to replace the values of `<your-org>` and `<your-environment-name>` with the names of your Pulumi organization and ESC environment respectively.
 
 ```bash
-$ esc env open pulumi/azure-secrets-example
-TBD output
+$ esc env open pulumi/gcp-secrets-example
+{
+  "gcp": {
+    "login": {
+      "accessToken": "ya29....",
+      "expiry": "2024-01-25T12:52:15Z",
+      "project": 123456789,
+      "tokenType": "Bearer"
+    },
+    "secrets": {
+      "app-secret": "pulumi-esc-get-started-secret"
+    }
+  }
+}
 ```
 
-If you need to retrieve multiple Azure Key Vault secrets, you can do so as shown below:
+If you need to retrieve multiple Google Secret Manager secrets, you can do so as shown below:
 
 ```yaml
 values:
@@ -283,14 +306,12 @@ values:
       fn::open::gcp-secrets:
         login: ${gcp.login}
         access:
-          api-key:
+          api-key: # additional Google Secret Manager secret
             name: api-key
           app-secret:
             name: app-secret
 ```
 
 {{% /choosable %}}
-
-In the next section, you will ...
 
 {{< get-started-stepper >}}
