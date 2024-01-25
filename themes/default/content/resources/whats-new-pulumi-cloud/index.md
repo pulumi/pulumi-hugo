@@ -2,7 +2,7 @@
 preview_image: ""
 hero:
   image: /icons/containers.svg
-  title: What's new in Pulumi
+  title: What's New in Pulumi
 main:
   duration: 60 minutes
   presenters:
@@ -13,12 +13,12 @@ main:
   learn:
     - What's new; recent features and updates to Pulumi Cloud
     - How to leverage new solutions to support advanced deployment techniques
-  title: What's new in Pulumi
+  title: What's New in Pulumi
   description: |
     Join our 'What's New in Pulumi' workshop to explore the latest features and updates in Pulumi. Learn how these enhancements can streamline your cloud infrastructure management, with practical demonstrations and insights into advanced deployment techniques. Ideal for developers looking to leverage Pulumi's cutting-edge tools for efficient cloud solutions.
   sortable_date: 2024-02-29T09:00:00.000-08:00
 event_data:
-  name: What's new in Pulumi
+  name: What's New in Pulumi
   start_date: 2024-02-29T09:00:00.000-08:00
   end_date: 2024-02-29T10:00:00.000-08:00
   url: https://www.pulumi.com/resources/whats-new-pulumi-cloud
@@ -37,8 +37,8 @@ type: webinars
 external: false
 block_external_search_index: false
 aws_only: false
-title: What's new in Pulumi
-title_tag: What's new in Pulumi
+title: What's New in Pulumi
+title_tag: What's New in Pulumi
 meta_desc: Explore the latest features and updates in Pulumi, and learn how these enhancements can streamline your cloud infrastructure management.
 meta_image: 
 url_slug: whats-new-pulumi-cloud
