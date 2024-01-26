@@ -12,7 +12,7 @@ menu:
 
 ## Overview
 
-With Pulumi ESC, you can store configuration values as plaintext or as secrets directly in the environment file. You also have the option to dynamically import secrets from external sources such as:
+With Pulumi ESC, you can [safely store configuration values as plaintext or as secrets](/docs/esc/faq/#is-it-safe-to-use-pulumi-esc-for-my-production-stacks) directly in the environment file. You also have the option to dynamically import secrets from external sources such as:
 
 - AWS Secrets Manager
 - Azure Key Vault
@@ -22,7 +22,7 @@ This enables you to centralize both new and existing secrets and configurations 
 
 ## Import external secrets
 
-If you have not done so already, make sure you have [configured OIDC connectivity](/docs/esc/get-started/begin/#configure-openid-connect-oidc) between Pulumi and one of the below supported providers. During the configuration, you will need to make sure that you add the permissions necessary to interact with secrets in your chosen provider.
+If you have not done so already, make sure you have [configured OIDC connectivity](/docs/esc/get-started/begin/#configure-openid-connect-oidc) between Pulumi and a supported provider listed below. During the configuration, you will need to make sure that you add the permissions necessary to interact with secrets in your chosen provider.
 
 {{% chooser cloud "aws,azure,gcp" / %}}
 
