@@ -38,7 +38,7 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-Late last year [we announced Pulumi Developer Portal](/blog/building-developer-portals): a suite of features designed to empower organizations to construct robust internal developer portals. Since launching the level of adoption and customer interest has led us to make further improvements to enhance developer productivity and collaboration. We are excited to announce the latest enhancement in Pulumi Cloud: the introduction of a template gallery in the New Project Wizard making creating cloud infrastructure easier than ever.
+Late last year [we announced Pulumi for Developer Portals](/blog/building-developer-portals): a suite of features designed to empower organizations to construct robust internal developer portals. Since launching the level of adoption and customer interest has led us to make further improvements to enhance developer productivity and collaboration in the authoring experience. We are excited to announce the latest enhancement in Pulumi Cloud: the introduction of a template gallery in New Project Wizard, making creating cloud infrastructure easier than ever.
 
 <!--more-->
 ## See it in action
@@ -47,15 +47,15 @@ Late last year [we announced Pulumi Developer Portal](/blog/building-developer-p
 
 ## What the Pulumi Cloud New Project Wizard?
 
-The Pulumi Cloud [New Project Wizard](/pulumi-cloud/developer-portals/new-project-wizard) is the fastest way to get a Pulumi program up and running. The New Project Wizard provides a more turnkey alternative to the [Pulumi Backstage Plugin](/docs/pulumi-cloud/developer-portals/backstage) or custom-built integrations.
+The Pulumi Cloud [New Project Wizard](/pulumi-cloud/developer-portals/new-project-wizard) is the fastest way to get a Pulumi program up and running. The New Project Wizard provides a more turnkey, out-of-the-box alternative to the [Pulumi Backstage Plugin](/docs/pulumi-cloud/developer-portals/backstage) or custom-built integrations.
 
-By using the wizard, users can generate projects from your Organization Templates, commit and push code to GitHub, and trigger an initial deployment – all in a few clicks and without leaving the browser.
+By using the wizard, developers can generate Pulumi programs from your Organization Templates, commit and push code to GitHub, and trigger an initial deployment – all in a few clicks and without leaving the browser.
 
-Try it out by selecting the 'New Project' option on the left-nav bar.
+Try it out by selecting the 'New Project' option on the left-nav bar inside your Pulumi organization.
 
 ## What is a template gallery?
 
-The Pulumi Cloud template gallery is a curated collection of templates designed to help Platform Teams provision and distribute templates that get their developers up and running. Whether they're setting up a simple server or orchestrating a complex microservices architecture, the template gallery can support a wide array of starting points that are both time-efficient and best practice-oriented. The idea is simple yet powerful – provide developers with the resources they need to get up and running swiftly, without reinventing the wheel.
+The Pulumi Cloud template gallery is a curated collection of templates designed to help Platform Teams provision and distribute templates that get their developers up and running. Whether they're setting up a simple server or orchestrating a complex microservices architecture, the template gallery can support a wide array of starting points that are both time-efficient and best practice-oriented. The idea is simple yet powerful – provide developers with the resources they need to get up and running swiftly, without having to reinvent the wheel each time.
 
 The new template gallery in Pulumi Cloud contains three types of templates:
 
