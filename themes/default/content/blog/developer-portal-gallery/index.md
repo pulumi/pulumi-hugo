@@ -1,6 +1,6 @@
 ---
 title: "Developer Portal Gallery: Org Templates, Pulumi Templates and AI Generated Templates"
-
+allow_long_title: True
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
 # ordering purposes only; they have no effect on whether or when a post is
@@ -17,7 +17,7 @@ draft: false
 # of the content of the post, which is useful for targeting search results or
 # social-media previews. This field is required or the build will fail the
 # linter test. Max length is 160 characters.
-meta_desc:
+meta_desc: Pulumi Cloud adds a template gallery to make creating cloud infrastructure easier than ever.
 
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
@@ -38,7 +38,7 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-Late last year [we announced Pulumi Developer Portal](/blog/building-developer-portals): a suite of features designed to empower organizations to construct robust internal developer portals. Since launching the level of adoption and customer interest has led us to make further improvements to enhance developer productivity and collaboration. We are excited to announce the latest enhancement in Pulumi Cloud: the introduction of a template gallery in the New Project Wizard.
+Late last year [we announced Pulumi Developer Portal](/blog/building-developer-portals): a suite of features designed to empower organizations to construct robust internal developer portals. Since launching the level of adoption and customer interest has led us to make further improvements to enhance developer productivity and collaboration. We are excited to announce the latest enhancement in Pulumi Cloud: the introduction of a template gallery in the New Project Wizard making creating cloud infrastructure easier than ever.
 
 <!--more-->
 ## See it in action
