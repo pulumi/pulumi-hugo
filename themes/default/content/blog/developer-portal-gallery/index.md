@@ -43,6 +43,8 @@ Late last year [we announced Pulumi Developer Portal](/blog/building-developer-p
 <!--more-->
 ## See it in action
 
+    {{< video title="Walking through the gallery experience" src="/blog/developer-portal-gallery/gallery.mp4" autoplay="true" loop="true" >}}
+
 ![Screen recording of the NPW gallery with AI and template options](gallery.mp4)
 
 ## What the Pulumi Cloud New Project Wizard?
