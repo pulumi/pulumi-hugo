@@ -2,7 +2,7 @@
 # Name of the webinar.
 title: "Building a Kubernetes Platform in AWS EKS with Pulumi"
 meta_desc: "In this workshop, you will examine how Pulumi interacts with Kubernetes, and build real-world examples of managing Amazon EKS clusters."
-meta_image: "/images/resources/kubernetes-platform-amazon-eks-josh-carlos.png
+meta_image: "/images/resources/kubernetes-platform-amazon-eks-josh-carlos.png"
 
 # A featured webinar will display first in the list.
 featured: false
