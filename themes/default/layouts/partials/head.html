@@ -202,7 +202,7 @@
     </script>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    {{- if eq hugo.Environment "production" }}
+    {{- if ne hugo.Environment "production" }}
         <!-- Clearbit snippet -->
         <script src="https://tag.clearbitscripts.com/v1/pk_54e7d7c428c6d5e79098374d93a7b333/tags.js" referrerpolicy="strict-origin-when-cross-origin"></script>
 
@@ -282,6 +282,53 @@
                     }
             })();
         </script>
+
+        <!-- Segment Consent Manager -->
+        <script>
+            window.consentManagerConfig = function(exports) {
+                var React = exports.React;
+                var inEU = exports.inEU;
+
+                var bannerContent = React.createElement(
+                    'span',
+                    null,
+                    'We use cookies (and other similar technologies) to collect data to improve your experience on our site. By using our website, you՚re agreeing to the collection of data as described in our',
+                    ' ',
+                    React.createElement(
+                    'a',
+                    { href: '/docs/legal/website-data-collection-policy/', target: '_blank' },
+                    'Website Data Collection Policy'
+                    ),
+                    '.'
+                )
+                var bannerSubContent = 'You can change your preferences at any time.'
+                var preferencesDialogTitle = 'Website Data Collection Preferences'
+                var preferencesDialogContent =
+                    'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.'
+                var cancelDialogTitle = 'Are you sure you want to cancel?'
+                var cancelDialogContent =
+                    'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
+
+                return {
+                    container: '#segment-consent-manager',
+                    writeKey: 'UK90Ofwacetj5VCPJ7cUgkbNcKLSHO3u',
+                    bannerContent: bannerContent,
+                    bannerSubContent: bannerSubContent,
+                    preferencesDialogTitle: preferencesDialogTitle,
+                    preferencesDialogContent: preferencesDialogContent,
+                    cancelDialogTitle: cancelDialogTitle,
+                    cancelDialogContent: cancelDialogContent,
+                    shouldRequireConsent: () => true,
+                    closeBehavior: exports.inEU() ? "dismiss" : "accept",
+                    bannerTextColor: "black",
+                }
+            }
+        </script>
+
+        <script
+            src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js"
+            defer
+        ></script>
 
         <!-- Facebook Domain Verification -->
         <meta name="facebook-domain-verification" content="phlf6qes2bxa9ufzk8zt2es0qivg8j" />

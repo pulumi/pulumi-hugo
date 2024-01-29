@@ -365,4 +365,17 @@ section.newsletter-input pulumi-hubspot-form input.hs-input {
     @apply rounded;
 }
 
+#segment-consent-manager {
+    @apply fixed bottom-0 right-0 left-0 text-black;
+    z-index: 100;
+
+    div {
+        background-color: map-get($gray, 100);
+    }
+
+    button {
+        color: black;
+    }
+}
+
 @tailwind utilities;
