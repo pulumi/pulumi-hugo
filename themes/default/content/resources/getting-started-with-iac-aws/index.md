@@ -3,7 +3,7 @@
 title: "Getting Started with Infrastructure as Code on AWS"
 title_tag: "Getting Started with Infrastructure as Code on AWS"
 meta_desc: "In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using the Pulumi Cloud Engineering platform."
-meta_image: "/images/resources/get-started-aws_josh-marina.png"
+meta_image: "/images/resources/getting-started-aws-engin.png"
 
 # A featured webinar will display first in the list.
 featured: false
@@ -37,8 +37,8 @@ block_external_search_index: false
 # data for Google Events
 event_data:
   name: Pulumi - Getting Started with Infrastructure as Code on AWS
-  start_date: 2024-01-10T09:00:00.000-08:00
-  end_date: 2024-01-10T10:30:00.000-08:00
+  start_date: 2024-02-27T09:00:00.000-08:00
+  end_date: 2024-02-27T10:30:00.000-08:00
   url: "https://www.pulumi.com/resources/getting-started-with-iac-aws/"
   description: In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using Pulumi’s Cloud Engineering platform. You will be introduced to Pulumi, an infrastructure as code platform, where you can use familiar programming languages to provision modern cloud infrastructure. This workshop is designed to help users completely new to Pulumi to become familiar with the core concepts to be effective with the Pulumi Infrastructure as Code platform. We will guide you through the Pulumi platform with diagrams and a series of hands on exercises to help you understand the building blocks available in Pulumi.
 
@@ -63,34 +63,32 @@ main:
     # URL for embedding a URL for ungated webinars.
     youtube_url: #"https://www.youtube.com/embed/Ap0aLb-RQSc"
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2024-01-10T09:00:00.000-08:00
+    sortable_date: 2024-02-27T09:00:00.000-08:00
     # Duration of the webinar.
-    duration: "90 minutes"
+    duration: 90 minutes
     # Datetime of the webinar.
     datetime:
     # Description of the webinar.
     description: |
-      In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using Pulumi’s Cloud Engineering platform. You will be introduced to Pulumi, an infrastructure as code platform, where you can use familiar programming languages to provision modern cloud infrastructure.
+      Learn the fundamentals of Infrastructure as Code through a series of guided exercises using AWS and Pulumi’s platform, where you can use familiar programming languages to provision modern cloud infrastructure.
 
-      This workshop is designed to help users completely new to Pulumi to become familiar with the core concepts to be effective with the Pulumi Infrastructure as Code platform. We will guide you through the Pulumi platform with diagrams and a series of hands on exercises to help you understand the building blocks available in Pulumi.
+      This workshop is designed to help users who are completely new to Pulumi become familiar with the core concepts to be effective with the Pulumi Infrastructure as Code platform. We will guide you through the Pulumi platform with diagrams and a series of hands-on exercises to help you understand the building blocks available in Pulumi.
 
     # The webinar presenters
     presenters:
-        - name: "Josh Kodroff"
-          role: "Sr. Solutions Architect, Pulumi"
-        - name: "Marina Novikova"
-          role: "Sr. Partner Solutions Architect, AWS"
+        - name: Engin Diri
+          role: Sr. Community Engineer, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
-        - "The basics of the Pulumi Programming Model"
-        - "How to provision, update, and destroy AWS resources"
-
+        - The basics of the Pulumi Programming Model
+        - How to provision, update, and destroy AWS resources
+        - Build a simple serverless App with Lambda and s3 bucket
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: "d8c4e51d-db5e-4faa-85f6-654af88641f0"
-    salesforce_campaign_id: "701Du000000Bu1cIAC"
+    hubspot_form_id: 87fbf38c-f263-45d1-83f7-3b7da2d5b87b
+    salesforce_campaign_id: 701PQ000006EnwjYAC
 
 aws_only: true
 ---
