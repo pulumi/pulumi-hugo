@@ -28,7 +28,7 @@ To complete the steps in this tutorial, you will need to install the following p
 Once the prerequisites are installed, run the `pulumi new <language>` command in an empty folder to [create a new Pulumi project](/docs/cli/commands/pulumi_new/), making sure to replace `<language>` with the supported language of your choice:
 
 ```bash
-# example using pulumi new python
+# example using python
 $ pulumi new python
 This command will walk you through creating a new Pulumi project.
 
@@ -63,12 +63,13 @@ To perform an initial deployment, run `pulumi up`
 In a Pulumi project, you can locally [store and retrieve configuration values](/docs/concepts/config/) using the `pulumi config set <key> [value]` command. Run the following command to create a config value with a key of `myEnvironment` and a value of `development`:
 
 ```bash
-pulumi config set myEnvironment development
+$ pulumi config set myEnvironment development
 ```
 
 This value will be stored in your project's stack settings file `Pulumi.<your-stack-name>.yaml` as shown below:
 
 ```yaml
+# Contents of Pulumi.<your-stack-name>.yaml file
 config:
   pulumi-esc-iac:myEnvironment: development
 ```
@@ -83,20 +84,7 @@ development
 
 You can also import and access this configuration value from directly within your Pulumi program as shown below:
 
-```python
-"""A Python Pulumi program"""
-
-import pulumi
-
-# Import the configuration values
-config = pulumi.Config()
-
-# Retrieve the value of "myEnvironment"
-myValue = config.get("myEnvironment")
-
-# Export the value as an output
-pulumi.export('Value', myValue)
-```
+{{< example-program path="aws-import-export-pulumi-config" >}}
 
 Run the `pulumi preview` command as shown below to validate the retrieval of the configuration:
 
