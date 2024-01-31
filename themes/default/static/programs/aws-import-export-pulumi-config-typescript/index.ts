@@ -8,4 +8,3 @@ const myValue = config.get("myEnvironment");
 
 // Export "myValue" as a stack output named 'Value'
 export const value = myValue;
-

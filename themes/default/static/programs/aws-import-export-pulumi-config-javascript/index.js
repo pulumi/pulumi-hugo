@@ -9,5 +9,5 @@ const myValue = config.get("myEnvironment");
 
 // Export "myValue" as a stack output named 'value'
 module.exports = {
-    value: myValue
+    value: myValue,
 };
