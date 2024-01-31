@@ -2,19 +2,18 @@ package myproject;
 
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
-import com.pulumi.core.Config;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
             // Create a Pulumi Config
-            var config = new Config();
+            var config = ctx.config();
 
             // Retrieve the value of "myEnvironment" from the Pulumi Config
-            String myEnvironment = config.require("myEnvironment");
+            var myValue = config.get("myEnvironment");
 
-            // Export "myEnvironment" as a stack output named 'value'
-            ctx.export("value", Output.of(myEnvironment));
+            // Export the value as a stack output named 'Value'
+            ctx.export("Value", Output.of(myValue));
         });
     }
 }
