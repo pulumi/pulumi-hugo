@@ -2,7 +2,7 @@
 title_tag: BMW | Case Studies
 title: "BMW: Mission Critical Platforms Require Pulumi"
 description: |
-    BMW used Pulumi to build a scalable and resilient hybrid cloud implementation that could handle more than eleven thousand developers. 
+    BMW used Pulumi to build a scalable and resilient hybrid cloud implementation that could handle more than eleven thousand developers.
 meta_desc: Learn how BMW used Pulumi to simplify the automation of their AWS and on-premises infrastructure.
 
 customer_name: BMW
