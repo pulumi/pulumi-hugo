@@ -218,7 +218,7 @@ export class Convert {
         }
 
         try {
-            this.endpointURL = new URL(this.endpoint);
+            this.endpointURL = new URL("https://d86tx3f6k4.execute-api.us-west-2.amazonaws.com/stage/");
         } catch (error) {
             errors.push("A valid `endpoint` attribute is required.");
         }
