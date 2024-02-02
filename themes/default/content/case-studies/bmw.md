@@ -10,7 +10,7 @@ customer_logo: /logos/customers/bmw-logo.png
 customer_url: https://www.bmwusa.com/
 
 exec_summary: |
-   BMW with the assistance of BearingPoint was determined to build a scalable and resilient Gerrit infrastructure across cloud and on-premises instances. They needed a hybrid cloud implementation that could handle more than eleven thousand developers and hundreds of thousands of builds a day across three distinct environments. The solution needed to be self-documenting, highly available, and have a streamlined disaster recovery approach. BMW utilized Pulumi because it simplified scaling the automation of this architecture out across AWS and on-premises instances while also ensuring that compliance is baked into every step.
+   BMW, with the assistance of BearingPoint, was determined to build a scalable and resilient Gerrit infrastructure across cloud and on-premises instances. They needed a hybrid cloud implementation that could handle more than eleven thousand developers and hundreds of thousands of builds a day across three distinct environments. The solution needed to be self-documenting, highly available, and have a streamlined disaster recovery approach. BMW utilized Pulumi because it simplified scaling the automation of this architecture out across AWS and on-premises instances while also ensuring that compliance is baked into every step.
 
 sections:
     - label: Exec Summary
