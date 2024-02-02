@@ -10,7 +10,7 @@ customer_logo: /logos/customers/bmw-logo.png
 customer_url: https://www.bmwusa.com/
 
 exec_summary: |
-   BMW with the assistance of BearingPoint was determined to build a scalable and resilient Gerrit infrastructure across cloud and on-premises instances. They needed a hybrid cloud implementation that could handle more than eleven thousand developers and hundreds of thousands of builds a day across three distinct environments. The solution needed to be self-documenting, highly available, and have a streamlined disaster recovery approach. BMW utilized Pulumi because it simplified scaling the automation of this architecture out across AWS and on-premises instances while also ensuring that compliance is baked into every step.
+   BMW, with the assistance of BearingPoint, was determined to build a scalable and resilient Gerrit infrastructure across cloud and on-premises instances. They needed a hybrid cloud implementation that could handle more than eleven thousand developers and hundreds of thousands of builds a day across three distinct environments. The solution needed to be self-documenting, highly available, and have a streamlined disaster recovery approach. BMW utilized Pulumi because it simplified scaling the automation of this architecture out across AWS and on-premises instances while also ensuring that compliance is baked into every step.
 
 sections:
     - label: Exec Summary
@@ -34,7 +34,7 @@ The automobile is becoming increasingly more connected over time and software is
 
 ## Designed for Scale
 
-As one of the leading luxury vehicle manufacturers, BMW operates at a scale that naturally brings complexity to the infrastructure and development processes. They needed to architect a toolchain including Gerrit that can scale to more than 11,000 developers and 100,000 builds a day while heavily utilizing Kubernetes across AWS and two OpenStack on-premises regions.
+As one of the leading luxury vehicle manufacturers, BMW operates at a scale that naturally brings complexity to the infrastructure and development processes. They needed to architect a toolchain including Gerrit that can scale to more than 11,000 developers and 100,000 builds a day while heavily utilizing Kubernetes across AWS and two on-premises OpenStack regions.
 The solution also needed to be highly available across all three regions and have a hot failover ready in AWS for disaster recovery purposes. The architecture was designed for autoscaling to dynamically grow or shrink with needs over time to ensure readiness at all times. The criticality of this platform requires that a DevOps team is available and on-call 24/7.
 
 ## Pulumi for Deployment
