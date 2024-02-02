@@ -8,6 +8,7 @@ meta_desc: Read why SST switched to Pulumi and stopped using CDK because of its 
 customer_name: SST
 customer_logo: /logos/customers/sst-logo.svg
 customer_url: https://sst.dev/blog/moving-away-from-cdk.html
+redirect_to: https://sst.dev/blog/moving-away-from-cdk.html
 
 ---
 
