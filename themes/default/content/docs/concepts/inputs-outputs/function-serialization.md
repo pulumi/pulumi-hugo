@@ -11,7 +11,7 @@ keywords:
 - pulumi sdk
 menu:
   concepts:
-    weight: 2
+    weight: 7
     parent: inputs-outputs
 aliases:
 - /docs/reference/serializing-functions/
