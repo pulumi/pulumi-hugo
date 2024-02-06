@@ -21,7 +21,7 @@ tags:
     - python
     - SageMaker
     - huggingface
-    - platform_engineering
+    - platform-engineering
 ---
 
 [Pulumi CLI]:/docs/install/
