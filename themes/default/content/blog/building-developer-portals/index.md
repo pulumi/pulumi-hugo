@@ -37,7 +37,7 @@ tags:
 - templates
 - policy-as-code
 - backstage
-- platform_engineering
+- platform-engineering
 
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md

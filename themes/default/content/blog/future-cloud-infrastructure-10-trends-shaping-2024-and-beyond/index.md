@@ -37,7 +37,7 @@ tags:
     - cloud-computing
     - multi-cloud
     - finops
-    - platform_engineering
+    - platform-engineering
     - devops
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md

@@ -6,7 +6,7 @@ date: "2023-10-20"
 meta_image: "remediation.png"
 tags:
     - features
-    - platform_engineering
+    - platform-engineering
     - policy-as-code
     - crossguard
 

@@ -14,7 +14,7 @@ authors:
 tags:
     - esc
     - secrets
-    - platform_engineering
+    - platform-engineering
 
 ---
 
