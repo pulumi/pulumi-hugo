@@ -71,6 +71,8 @@ We will use the `sagemaker-aws-python` [Pulumi Template] to bootstrap our Python
 
 ## Instructions
 
+{{< youtube "9rwsutZbVfI?rel=0" >}}
+
 ### 1. Login to Pulumi Cloud and initialize stack
 
 Let's begin by logging into [Pulumi Cloud]:
