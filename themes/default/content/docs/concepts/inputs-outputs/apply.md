@@ -105,19 +105,7 @@ Outputs:
         }
         ...
         ...
-      + isolated_subnet_ids                 : []
-      + nat_gateways                        : [...]
-      + route_table_associations            : [...]
-      + route_tables                        : [...]
-      + routes                              : [...]
         ...
-        ...
-      + subnets                             : [...]
-      + tags                                : <null>
-      + urn                                 : "urn:pulumi:dev::aws-iac::awsx:ec2:Vpc::vpc"
-      + vpc                                 : {...}
-      + vpc_endpoint_specs                  : <null>
-      + vpc_endpoints                       : []
       + vpc_id                              : "vpc-0f8a025738f2fbf2f"
     }
 
@@ -220,7 +208,7 @@ vpc.vpc_id.apply(print_id)
 
 Think of `vpc_id` as a variable that is being passed to a function, and it's value is being used to create the string in our print statement. Writing it the first way using the inline `lambda` is just the short-form version of the above example.
 
-## Create new output values
+## Create new output values [WIP]
 
 [This section will be edited]
 
