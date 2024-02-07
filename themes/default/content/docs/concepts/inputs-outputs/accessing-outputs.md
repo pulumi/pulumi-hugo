@@ -6,11 +6,130 @@ h1: Accessing outputs
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
-    weight: 1
+    weight: 2
     parent: inputs-outputs
 ---
 
-Intro para TBD
+Outputs are asynchronous, meaining their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
+
+To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print statement to print the `vpc` variable so that we can see the properties of this resource.
+
+```python
+import pulumi
+import pulumi_awsx as awsx
+
+vpc = awsx.ec2.Vpc("vpc")
+
+print(vpc)
+```
+
+However, deploying this program will show CLI output similar to the following:
+
+```bash
+# Truncated CLI output
+Updating (pulumi/dev)
+
+     Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-iac-dev    created (0.52s)     1 message
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
+ +      └─ aws:ec2:Vpc                             vpc            created (1s)
+ +         ├─ aws:ec2:Subnet                       vpc-private-3  created (0.87s)
+...
+...
+
+Diagnostics:
+  pulumi:pulumi:Stack (aws-iac-dev):
+    <pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>
+
+Resources:
+    + 34 created
+
+Duration: 2m17s
+```
+
+Instead of a JSON representation of the VPC resource, the `<pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>` value is what is printed instead. This is because the VPC class of Pulumi's AWSX library does not provide a custom `String` method that outputs the JSON representation of the VPC (is this correct?). Instead, it provides the default representation, which includes the object's memory address.
+
+Because outputs represent the properties of a resource whose values will only exist after the program is executed, you can't directly print out all the properties of the VPC as a JSON object using a regular print statement. The actual values of these properties are not yet determined at the time the code runs (i.e. when the print statement would run); they are determined asynchronously when Pulumi applies the plan to the target cloud environment.
+
+Ultimately, if you want to print the properties of the VPC, you can do so using one of two methods:
+
+- Use Pulumi's built in `export` function to export the value as a stack output
+- Access individual properties using `apply`
+
+Let's examine the first method, using `export`. We can remove the print statement from our code and replace it with the following:
+
+```python
+import pulumi
+import pulumi_awsx as awsx
+
+vpc = awsx.ec2.Vpc("vpc")
+
+pulumi.export("vpcInfo", vpc)
+```
+
+Deploying this updated program will show CLI output similar to the following:
+
+```bash
+# Truncated CLI output
+Updating (pulumi/dev)
+
+     Type                 Name         Status
+     pulumi:pulumi:Stack  aws-iac-dev
+
+Outputs:
+  + vpcInfo: {
+      ...
+      ...
+      + eips                                : [
+      +     [0]: {
+              + address                  : <null>
+              + allocation_id            : "eipalloc-0cd40efc7f7d1e072"
+              + association_id           : ""
+              ...
+              ...
+            }
+            ...
+            ...
+        ]
+        ...
+      + internet_gateway                    : {
+          + arn     : "arn:aws:ec2:eu-central-1:616138583583:internet-gateway/igw-04b18ed366067bdfc"
+          + id      : "igw-04b18ed366067bdfc"
+          + owner_id: "616138583583"
+          + tags    : {
+              + Name: "vpc"
+            }
+          + tags_all: [secret]
+          + urn     : "urn:pulumi:dev::aws-iac::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc"
+          + vpc_id  : "vpc-0f8a025738f2fbf2f"
+        }
+        ...
+        ...
+      + isolated_subnet_ids                 : []
+      + nat_gateways                        : [...]
+      + route_table_associations            : [...]
+      + route_tables                        : [...]
+      + routes                              : [...]
+        ...
+        ...
+      + subnets                             : [...]
+      + tags                                : <null>
+      + urn                                 : "urn:pulumi:dev::aws-iac::awsx:ec2:Vpc::vpc"
+      + vpc                                 : {...}
+      + vpc_endpoint_specs                  : <null>
+      + vpc_endpoints                       : []
+      + vpc_id                              : "vpc-0f8a025738f2fbf2f"
+    }
+
+Resources:
+    34 unchanged
+
+Duration: 21s
+```
+
+Note: You can see a full example of the JSON output by viewing [this gist](https://gist.github.com/toriancrane/e84368a1aa1684390ce34224e8291743) and you can learn more about Stack Outputs by refering to [the Stack Outputs and References tutorial](/docs/using-pulumi/stack-outputs-and-references/).
+
+Exporting the value will enable you to see the full list and format of the properties of the VPC resource once it has been created. All of the properties presented here are of type Output[T]. If you want to access the value of a specific property, you will need to use the second method: `apply`.
 
 ## Accessing single outputs with Apply
 

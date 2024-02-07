@@ -6,7 +6,7 @@ h1: Working with outputs and strings
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
-    weight: 2
+    weight: 3
     parent: inputs-outputs
 ---
 
