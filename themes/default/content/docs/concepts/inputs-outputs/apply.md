@@ -10,7 +10,7 @@ menu:
     parent: inputs-outputs
 ---
 
-Outputs are asynchronous, meaining their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
+Outputs are asynchronous, meaning their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
 
 To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print statement to print the `vpc` variable so that we can see the properties of this resource.
 
@@ -221,6 +221,8 @@ vpc.vpc_id.apply(print_id)
 Think of `vpc_id` as a variable that is being passed to a function, and it's value is being used to create the string in our print statement. Writing it the first way using the inline `lambda` is just the short-form version of the above example.
 
 ## Create new output values
+
+[This section will be edited]
 
 You can use this same process to create new output values to pass as inputs to another resource, for example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine:
 
