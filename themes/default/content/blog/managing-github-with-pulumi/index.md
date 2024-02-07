@@ -8,7 +8,7 @@ tags: ["go", "migration", "packages", "github-actions", "people-ops", "ci-cd"]
 ---
 
 {{% notes type="info" %}}
-Article updated to reflect that `parentTeamId` of the `Team` resource accepts a `string` instead of an `int` since v5.9.1 of the
+We recently updated this article to reflect that `parentTeamId` of the `Team` resource accepts a `string` instead of an `int` since v5.9.1 of the
 [Pulumi Github](/registry/packages/github/) package.
 {{% /notes %}}
 
