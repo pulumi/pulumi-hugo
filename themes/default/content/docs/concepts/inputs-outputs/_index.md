@@ -324,12 +324,14 @@ Outputs are values of type {{< pulumi-output >}}, which behave very much like [p
 
 Because outputs are asynchronous, their actual plain values are not immediately available. If you need to access an output’s plain value, you can do so using one of the following options:
 
-- [Apply](#apply): a callback that receives the plain value and computes a new output
-- [Lifting](#lifting): directly read the value of an output
-- [Interpolation](#outputs-and-strings): concatenate string outputs with other strings directly
+- [Apply](/docs/concepts/inputs-outputs/apply/): a callback that receives the plain value and computes a new output
+- [Lifting](/docs/concepts/inputs-outputs/lifting/): directly read the value of an output
+- [Interpolation](/docs/concepts/inputs-outputs/outputs-and-strings/): concatenate string outputs with other strings
 
-### Outputs and dependencies
+## Tracking dependencies
 
 Outputs are also how Pulumi tracks dependencies between resources. When an output from one resource has been returned from the cloud provider API, Pulumi can link the two resources together and pass it as the input to another resource.
 
 Pulumi automatically captures dependencies when you pass an output from one resource as an input to another resource. Capturing these dependencies ensures that the physical infrastructure resources are not created or updated until all their dependencies are available and up-to-date.
+
+[TBD - some kind of example]
