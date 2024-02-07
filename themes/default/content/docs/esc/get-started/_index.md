@@ -16,3 +16,5 @@ In a typical application or infrastructure development workflow, there's often a
 Hardcoding these values or keeping them inside source code is a security risk and makes managing configurations complex. [Pulumi ESC (Environments, Secrets and Configuration)](/docs/esc/) offers a centralized store to manage configuration data, plain-text data, and secrets.
 
 In this tutorial, we’ll demonstrate how to use Pulumi ESC as well as the power of this service in managing configuration and secrets.
+
+{{< get-started-stepper >}}

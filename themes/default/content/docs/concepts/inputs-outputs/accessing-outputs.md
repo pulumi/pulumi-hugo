@@ -53,10 +53,10 @@ Because outputs represent the properties of a resource whose values will only ex
 
 Ultimately, if you want to print the properties of the VPC, you can do so using one of two methods:
 
-- Use Pulumi's built in `export` function to export the value as a stack output
+- Use Pulumi's built in `export` function to export the resource as a stack output
 - Access individual properties using `apply`
 
-Let's examine the first method, using `export`. We can remove the print statement from our code and replace it with the following:
+Let's examine the first method, using `export`. We can remove the print statement from our code and replace it with the following export statement:
 
 ```python
 import pulumi
