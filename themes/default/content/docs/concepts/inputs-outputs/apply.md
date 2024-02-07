@@ -115,17 +115,15 @@ Resources:
 Duration: 21s
 ```
 
-{{% notes %}}
-Note: You can see a full example of the JSON output by viewing [this gist](https://gist.github.com/toriancrane/e84368a1aa1684390ce34224e8291743).
+Exporting the value will enable you to see the full list and format of the properties of the VPC resource once it has been created. All of these properties are of type Output[T], meaning if you want to access the plain value of a specific property, you will need to use the second method: {{< pulumi-apply >}}.
 
-You can learn more about Stack Outputs by refering to [the Stack Outputs and References tutorial](/docs/using-pulumi/stack-outputs-and-references/).
+{{% notes %}}
+You can see an example of the full JSON output by viewing [this gist](https://gist.github.com/toriancrane/e84368a1aa1684390ce34224e8291743).
+
+You can also learn more about Stack Outputs by refering to [the Stack Outputs and References tutorial](/docs/using-pulumi/stack-outputs-and-references/).
 {{% /notes %}}
 
-Exporting the value will enable you to see the full list and format of the properties of the VPC resource once it has been created. All of these properties are of type Output[T], meaning if you want to access the value of a specific property, you will need to use the second method: `apply`.
-
 ## Accessing single outputs with Apply
-
-To access the _plain_ (or returned) value of an output, use {{< pulumi-apply >}}. This method accepts a callback that will be invoked with the plain value, once that value is available.
 
 Let's say we want to print the ID of the VPC we've created.
 
@@ -138,9 +136,11 @@ vpc = awsx.ec2.Vpc("vpc")
 print(vpc.vpc_id)
 ```
 
-If we update our program as shown above and run `pulumi up`, we will see the following error:
+If we update our program as shown above and run `pulumi up`, we will receive the following error:
 
 ```bash
+Diagnostics:
+  pulumi:pulumi:Stack (aws-iac-dev):
     Calling __str__ on an Output[T] is not supported.
     To get the value of an Output[T] as an Output[str] consider:
     1. o.apply(lambda v: f"prefix{v}suffix")
@@ -148,17 +148,21 @@ If we update our program as shown above and run `pulumi up`, we will see the fol
     This function may throw in a future version of Pulumi.
 ```
 
-This is where `apply` comes into play. When a Pulumi program is executed with `pulumi up`, the `apply` function will print the values to the console once the VPC is created and its properties are resolved. However, this will only happen during the execution of `pulumi up` and not when the program code is run in isolation because the values of these outputs are only known after the infrastructure is provisioned by Pulumi. As mentioned before, all properties of a resource (i.e the VPC) are of type Output[T], meaning the `apply` method is used to apply a function to the result of an Output __once the value is available__.
+This is where `apply` comes into play. When a Pulumi program is executed with `pulumi up`, the `apply` function will print the values to the console once the resource is created and its properties are resolved.
 
-The syntax of `apply` is shown below, where:
+However, this will only happen during the execution of `pulumi up` and not when the program code is run in isolation because the values of these outputs are only known after the infrastructure is provisioned by Pulumi. As mentioned before, all properties of a resource are of type Output[T], meaning the `apply` method is used to apply a function to the result of an Output __once the value is available__.
 
-- `<resource>` is the name of the resource (i.e. `vpc`)
-- `<property-name>` is the name of the property whose value you want to retrieve (i.e. `vpc_id`)
-- `<function-to-apply>` is the function that you want to apply against the value of the property
+The syntax of `apply` is shown below:
 
 ```python
 <resource>.<property-name>.apply(lambda <property-name>: <function-to-apply>)
 ```
+
+Regarding the different parts of the syntax:
+
+- `<resource>` is the name of the resource (i.e. `vpc`)
+- `<property-name>` is the name of the property to retrieve (i.e. `vpc_id`)
+- `<function-to-apply>` is the function to apply against the value of the property
 
 This means that if we want to print out the value of our VPC ID, our program needs to look like the following:
 
@@ -190,7 +194,7 @@ Resources:
 Duration: 12s
 ```
 
-Note that we can now see the value of the VPC ID property that we couldn't see before when using a regular `print` statement.
+We can now see the value of the VPC ID property that we couldn't see before when using a regular `print` statement.
 
 Below is a longer-form version of the same program:
 
@@ -206,7 +210,7 @@ def print_id(id):
 vpc.vpc_id.apply(print_id)
 ```
 
-Think of `vpc_id` as a variable that is being passed to a function, and it's value is being used to create the string in our print statement. Writing it the first way using the inline `lambda` is just the short-form version of the above example.
+Think of `vpc_id` as a variable that is being passed to a function, and it's value is being used to create the string in our print statement. Writing it using the inline `lambda` way is just the short-form version of the above example.
 
 ## Create new output values [WIP]
 
