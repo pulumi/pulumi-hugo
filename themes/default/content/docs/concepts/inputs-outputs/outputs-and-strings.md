@@ -1,12 +1,12 @@
 ---
 title_tag: "Working with Outputs and Strings | Inputs and Outputs"
 meta_desc: "Learn more about outputs and how to use them with strings in Pulumi."
-title: Working with outputs and strings
+title: Outputs & strings
 h1: Working with outputs and strings
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
-    weight: 3
+    weight: 5
     parent: inputs-outputs
 ---
 

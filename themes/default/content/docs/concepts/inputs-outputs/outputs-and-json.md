@@ -1,12 +1,12 @@
 ---
 title_tag: "Working with Outputs and JSON | Inputs and Outputs"
 meta_desc: "Learn more about outputs and how to use them with JSON objects in Pulumi."
-title: Working with outputs and JSON
+title: Outputs & JSON
 h1: Working with outputs and JSON
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
-    weight: 4
+    weight: 6
     parent: inputs-outputs
 ---
 
