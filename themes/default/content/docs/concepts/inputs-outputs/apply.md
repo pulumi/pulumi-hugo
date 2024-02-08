@@ -14,7 +14,7 @@ menu:
 
 Outputs are asynchronous, meaning their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
 
-To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print statement to print the `vpc` variable so that we can see the properties of this resource.
+To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print/log statement to print the `vpc` variable so that we can see the properties of this resource.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -111,6 +111,7 @@ Updating (pulumi/dev)
 
 Diagnostics:
   pulumi:pulumi:Stack (aws-iac-dev):
+    # Note: The object's memory address may or may not show up depending on your chosen language
     <pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>
 
 Resources:
@@ -119,18 +120,19 @@ Resources:
 Duration: 2m17s
 ```
 
-Instead of a JSON representation of the VPC resource, the `<pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>` value is what is printed instead. This is because the VPC class of Pulumi's AWSX library does not provide a custom `String` method that outputs the JSON representation of the VPC. Instead, it provides the default representation, which includes the object's memory address.
+Instead of a JSON representation of the VPC resource, you will more than likely see:
 
-Because outputs represent the properties of a resource whose values will only exist after the program is executed, you can't directly print out all the properties of the VPC as a JSON object using a regular print statement. The actual values of these properties are not yet determined at the time the code runs (i.e. when the `print | log` statement would run); they are determined asynchronously when Pulumi applies the plan to the target cloud environment.
+- the memory address of the variable or
+- nothing at all
 
-Ultimately, if you want to print the properties of the VPC, you can do so using one of two methods:
+This is because, when it comes to Pulumi resource classes, there is no custom `String` method that outputs the JSON representation of each resource. Ultimately, if you want to print the properties of the VPC, you can do so using one of two methods:
 
 - Use Pulumi's built in `export` function to export the resource as a stack output
 - Access individual properties of the resource using `apply`
 
 ## Exporting outputs
 
-Let's examine the first method, using `export`. We can remove the print statement from our code and replace it with the following export statement:
+Let's examine the first method, using `export`. We can remove the `print | log` statement from our code and replace it with the following export statement:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
