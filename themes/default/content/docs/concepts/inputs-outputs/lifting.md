@@ -1,7 +1,7 @@
 ---
 title_tag: "Accessing Nested Properties with Lifting | Inputs and Outputs"
 meta_desc: "Learn how to access nested output values using the lifting method in Pulumi."
-title: Lifting
+title: Accessing nested properties with Lifting
 h1: Accessing nested properties with Lifting
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
