@@ -10,23 +10,95 @@ menu:
     parent: inputs-outputs
 ---
 
+## Overview
+
 Outputs are asynchronous, meaning their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
 
 To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print statement to print the `vpc` variable so that we can see the properties of this resource.
 
-```python
-import pulumi
-import pulumi_awsx as awsx
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
-vpc = awsx.ec2.Vpc("vpc")
+{{% choosable language javascript %}}
+
+```javascript
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="1" to="3" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="6" to="6" >}}
+
+console.log(vpc);
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="5" to="5" >}}
+
+console.log(vpc);
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< example-program-snippet path="awsx-vpc" language="python" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="python" from="5" to="5" >}}
 
 print(vpc)
 ```
 
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+{{< example-program-snippet path="awsx-vpc" language="go" from="1" to="3" >}}
+    "fmt"
+{{< example-program-snippet path="awsx-vpc" language="go" from="4" to="10" >}}
+{{< example-program-snippet path="awsx-vpc" language="go" from="12" to="15" >}}
+
+        fmt.Println(vpc)
+
+{{< example-program-snippet path="awsx-vpc" language="go" from="21" to="23" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="1" to="6" >}}
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="8" to="8" >}}
+
+    Console.WriteLine(vpc);
+
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="17" to="17" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+{{< example-program-snippet path="awsx-vpc" language="java" from="1" to="9" >}}
+{{< example-program-snippet path="awsx-vpc" language="java" from="11" to="11" >}}
+
+            System.out.println(vpc);
+
+{{< example-program-snippet path="awsx-vpc" language="java" from="17" to="19" >}}
+```
+
+{{% /choosable %}}
+
 However, deploying this program will show CLI output similar to the following:
 
 ```bash
-# Truncated CLI output
+# Example CLI output (truncated)
 Updating (pulumi/dev)
 
      Type                                          Name           Status              Info
@@ -47,25 +119,99 @@ Resources:
 Duration: 2m17s
 ```
 
-Instead of a JSON representation of the VPC resource, the `<pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>` value is what is printed instead. This is because the VPC class of Pulumi's AWSX library does not provide a custom `String` method that outputs the JSON representation of the VPC (is this correct?). Instead, it provides the default representation, which includes the object's memory address.
+Instead of a JSON representation of the VPC resource, the `<pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>` value is what is printed instead. This is because the VPC class of Pulumi's AWSX library does not provide a custom `String` method that outputs the JSON representation of the VPC. Instead, it provides the default representation, which includes the object's memory address.
 
-Because outputs represent the properties of a resource whose values will only exist after the program is executed, you can't directly print out all the properties of the VPC as a JSON object using a regular print statement. The actual values of these properties are not yet determined at the time the code runs (i.e. when the print statement would run); they are determined asynchronously when Pulumi applies the plan to the target cloud environment.
+Because outputs represent the properties of a resource whose values will only exist after the program is executed, you can't directly print out all the properties of the VPC as a JSON object using a regular print statement. The actual values of these properties are not yet determined at the time the code runs (i.e. when the `print | log` statement would run); they are determined asynchronously when Pulumi applies the plan to the target cloud environment.
 
 Ultimately, if you want to print the properties of the VPC, you can do so using one of two methods:
 
 - Use Pulumi's built in `export` function to export the resource as a stack output
 - Access individual properties of the resource using `apply`
 
+## Exporting outputs
+
 Let's examine the first method, using `export`. We can remove the print statement from our code and replace it with the following export statement:
 
-```python
-import pulumi
-import pulumi_awsx as awsx
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
-vpc = awsx.ec2.Vpc("vpc")
+{{% choosable language javascript %}}
+
+```javascript
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="1" to="3" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="6" to="6" >}}
+
+exports.vpcInfo = vpc;
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="5" to="5" >}}
+
+export const vpcInfo = vpc;
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< example-program-snippet path="awsx-vpc" language="python" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="python" from="5" to="5" >}}
 
 pulumi.export("vpcInfo", vpc)
 ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+{{< example-program-snippet path="awsx-vpc" language="go" from="1" to="3" >}}
+    "fmt"
+{{< example-program-snippet path="awsx-vpc" language="go" from="4" to="10" >}}
+{{< example-program-snippet path="awsx-vpc" language="go" from="12" to="15" >}}
+
+        ctx.Export("vpcInfo", vpc)
+
+{{< example-program-snippet path="awsx-vpc" language="go" from="21" to="23" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="1" to="6" >}}
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="8" to="8" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="11" to="12" >}}
+
+        ["vpcInfo"] = vpc,
+
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="16" to="17" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+{{< example-program-snippet path="awsx-vpc" language="java" from="1" to="9" >}}
+{{< example-program-snippet path="awsx-vpc" language="java" from="11" to="11" >}}
+
+            ctx.export("vpcInfo", vpc());
+
+{{< example-program-snippet path="awsx-vpc" language="java" from="17" to="19" >}}
+```
+
+{{% /choosable %}}
 
 Deploying this updated program will show CLI output similar to the following:
 
@@ -216,9 +362,7 @@ vpc.vpc_id.apply(print_id)
 
 Think of `vpc_id` as a variable that is being passed to a function, and it's value is being used to create the string in our print statement. Writing it using the inline `lambda` way is just the short-form version of the above example.
 
-## Create new output values [WIP]
-
-[This section will be edited]
+## Creating new output values
 
 The `apply` method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
@@ -254,7 +398,7 @@ Outputs:
 Duration: 5s
 ```
 
-The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. The population of this variable will wait for the new value to be returned from the `apply` function, and any dependencies of the original output (i.e. the `instance.public_dns` property) are also kept in the resulting Output<T>.
+The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. The population of this variable will wait for the new value to be returned from the `apply` function, and any [dependencies](/docs) of the original output (i.e. the `instance.public_dns` property) are also kept in the resulting Output<T>.
 
 {{% notes %}}
 During some program executions, `apply` doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
