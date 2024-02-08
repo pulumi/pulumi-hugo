@@ -54,7 +54,7 @@ Because outputs represent the properties of a resource whose values will only ex
 Ultimately, if you want to print the properties of the VPC, you can do so using one of two methods:
 
 - Use Pulumi's built in `export` function to export the resource as a stack output
-- Access individual properties using `apply`
+- Access individual properties of the resource using `apply`
 
 Let's examine the first method, using `export`. We can remove the print statement from our code and replace it with the following export statement:
 
@@ -164,6 +164,10 @@ Regarding the different parts of the syntax:
 - `<property-name>` is the name of the property to retrieve (i.e. `vpc_id`)
 - `<function-to-apply>` is the function to apply against the value of the property
 
+{{% notes %}}
+The `apply` method should only be used on a resource's properties and never on the whole resource itself.
+{{% /notes %}}
+
 This means that if we want to print out the value of our VPC ID, our program needs to look like the following:
 
 ```python
@@ -216,7 +220,7 @@ Think of `vpc_id` as a variable that is being passed to a function, and it's val
 
 [This section will be edited]
 
-You can use this same process to create new output values to pass as inputs to another resource, for example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine:
+The `apply` method can also be used to create new output values, and these new values can also be passed as inputs to another resource. for example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
