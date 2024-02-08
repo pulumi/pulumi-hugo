@@ -220,68 +220,41 @@ Think of `vpc_id` as a variable that is being passed to a function, and it's val
 
 [This section will be edited]
 
-The `apply` method can also be used to create new output values, and these new values can also be passed as inputs to another resource. for example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine:
-
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
-
-{{% choosable language javascript %}}
-
-```javascript
-let url = virtualmachine.dnsName.apply(dnsName => "https://" + dnsName);
-```
-
-{{% /choosable %}}
-{{% choosable language typescript %}}
-
-```typescript
-let url = virtualmachine.dnsName.apply(dnsName => "https://" + dnsName);
-```
-
-{{% /choosable %}}
-{{% choosable language python %}}
+The `apply` method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
 ```python
-url = virtual_machine.dns_name.apply(
+import pulumi
+import pulumi_aws as aws
+
+instance = aws.ec2.Instance(
+    "instance",
+    ami="ami-03cceb19496c25679",
+    instance_type="t2.micro"
+)
+
+url = instance.public_dns.apply(
     lambda dns_name: "https://" + dns_name
 )
+
+pulumi.export("Instance URL:", url)
 ```
 
-{{% /choosable %}}
-{{% choosable language go %}}
+The CLI output of this code would look something like the following:
 
-```go
-url := vpc.DnsName.ApplyT(func(dnsName string) string {
-    return "https://" + dnsName
-}).(pulumi.StringOutput)
+```bash
+Updating (pulumi/dev)
+
+     Type                 Name         Status
+     pulumi:pulumi:Stack  aws-iac-dev
+ -   └─ awsx:ec2:Vpc      vpc
+
+Outputs:
+    Instance URL:: "https://ec2-52-59-110-22.eu-central-1.compute.amazonaws.com"
+
+Duration: 5s
 ```
 
-{{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-var url = virtualmachine.DnsName.Apply(dnsName => "https://" + dnsName);
-```
-
-{{% /choosable %}}
-{{% choosable language java %}}
-
-```java
-var url = virtualmachine.dnsName().applyValue(dnsName -> "https://" + dnsName);
-```
-
-{{% /choosable %}}
-{{% choosable language yaml %}}
-
-```yaml
-variables:
-  url: https://${virtualmachine.DnsName}
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
-
-The result of the call to {{< pulumi-apply >}} is a new Output<T>. So in this example, the url variable is also an {{< pulumi-output >}}. It will wait for the new value to be returned from the callback, and carries the dependencies of the original Output<T>. If the callback itself returns an Output<T>, the dependencies of that output are also kept in the resulting Output<T>.
+The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. The population of this variable will wait for the new value to be returned from the `apply` function, and any dependencies of the original output (i.e. the `instance.public_dns` property) are also kept in the resulting Output<T>.
 
 {{% notes %}}
 During some program executions, `apply` doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
