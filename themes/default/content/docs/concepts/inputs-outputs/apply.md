@@ -12,7 +12,7 @@ menu:
 
 ## Overview
 
-Outputs are asynchronous, meaning their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
+[Outputs](/docs/concepts/inputs-outputs/#outputs) are asynchronous, meaning their actual plain values are not immediately available. As such, there are limitations on the ways in which you can retrieve these values.
 
 To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print/log statement to print the `vpc` variable so that we can see the properties of this resource.
 
@@ -99,7 +99,7 @@ However, deploying this program will show CLI output similar to the following:
 
 {{% choosable language javascript %}}
 
-```javascript
+```bash
 # Example CLI output (truncated)
 Updating (pulumi/dev)
     Type                                          Name           Status              Info
@@ -268,11 +268,11 @@ Duration: 2m17s
 
 As shown above, using this method will not provide a JSON representation of the VPC resource complete with its properties and associated property values. This is because, when it comes to Pulumi resource classes, there is no custom `String` method that outputs this kind of JSON representation for each resource.
 
-Ultimately, if you want to view the properties of a resource, you will need to access them individually using `apply`.
+Ultimately, if you want to view the properties of a resource, you will need to access them individually using {{< pulumi-apply >}}.
 
 ## Accessing single outputs with Apply
 
-Let's say we want to print the ID of the VPC we've created.
+Let's say we want to print the ID of the VPC we've created. Given that this is an individual resouce property and not the entire resource itself, we could try logging the value like normal:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
 
@@ -320,7 +320,7 @@ print(vpc.vpc_id)
 {{< example-program-snippet path="awsx-vpc" language="go" from="4" to="10" >}}
 {{< example-program-snippet path="awsx-vpc" language="go" from="12" to="15" >}}
 
-        fmt.Println(vpc)
+        fmt.Println(vpc.VpcId)
 
 {{< example-program-snippet path="awsx-vpc" language="go" from="21" to="23" >}}
 ```
@@ -333,7 +333,7 @@ print(vpc.vpc_id)
 {{< example-program-snippet path="awsx-vpc" language="csharp" from="1" to="6" >}}
 {{< example-program-snippet path="awsx-vpc" language="csharp" from="8" to="8" >}}
 
-    Console.WriteLine(vpc);
+    Console.WriteLine(vpc.VpcId);
 
 {{< example-program-snippet path="awsx-vpc" language="csharp" from="17" to="17" >}}
 ```
@@ -346,16 +346,59 @@ print(vpc.vpc_id)
 {{< example-program-snippet path="awsx-vpc" language="java" from="1" to="9" >}}
 {{< example-program-snippet path="awsx-vpc" language="java" from="11" to="11" >}}
 
-            System.out.println(vpc);
+            System.out.println(vpc.vpcId());
 
 {{< example-program-snippet path="awsx-vpc" language="java" from="17" to="19" >}}
 ```
 
 {{% /choosable %}}
 
-If we update our program as shown above and run `pulumi up`, we will receive the following error:
+However, if we update our program as shown above and run `pulumi up`, we will still not receive the value we are looking for as shown in the following CLI output:
+
+{{% choosable language javascript %}}
 
 ```bash
+# Example CLI output (truncated)
+Diagnostics:
+  pulumi:pulumi:Stack (aws-js-dev):
+    OutputImpl {
+      __pulumiOutput: true,
+      resources: [Function (anonymous)],
+      allResources: [Function (anonymous)],
+      isKnown: Promise { <pending> },
+      isSecret: Promise { <pending> },
+      promise: [Function (anonymous)],
+      toString: [Function (anonymous)],
+      toJSON: [Function (anonymous)]
+    }
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```bash
+# Example CLI output (truncated)
+Diagnostics:
+  pulumi:pulumi:Stack (aws-js-dev):
+    OutputImpl {
+      __pulumiOutput: true,
+      resources: [Function (anonymous)],
+      allResources: [Function (anonymous)],
+      isKnown: Promise { <pending> },
+      isSecret: Promise { <pending> },
+      promise: [Function (anonymous)],
+      toString: [Function (anonymous)],
+      toJSON: [Function (anonymous)]
+    }
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```bash
+# Example CLI output (truncated)
 Diagnostics:
   pulumi:pulumi:Stack (aws-iac-dev):
     Calling __str__ on an Output[T] is not supported.
@@ -365,37 +408,217 @@ Diagnostics:
     This function may throw in a future version of Pulumi.
 ```
 
-This is where `apply` comes into play. When a Pulumi program is executed with `pulumi up`, the `apply` function will print the values to the console once the resource is created and its properties are resolved.
+{{% /choosable %}}
 
-However, this will only happen during the execution of `pulumi up` and not when the program code is run in isolation because the values of these outputs are only known after the infrastructure is provisioned by Pulumi. As mentioned before, all properties of a resource are of type Output[T], meaning the `apply` method is used to apply a function to the result of an Output __once the value is available__.
+{{% choosable language go %}}
 
-The syntax of `apply` is shown below:
+```bash
+# Example CLI output (truncated)
+Diagnostics:
+  pulumi:pulumi:Stack (aws-go-dev):
+    {0xc000137180}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```bash
+# Example CLI output (truncated)
+Diagnostics:
+  pulumi:pulumi:Stack (aws-csharp-dev):
+    Calling [ToString] on an [Output<T>] is not supported.
+    To get the value of an Output<T> as an Output<string> consider:
+    1. o.Apply(v => $"prefix{v}suffix")
+    2. Output.Format($"prefix{hostname}suffix");
+    See https://www.pulumi.com/docs/concepts/inputs-outputs for more details.
+    This function may throw in a future version of Pulumi.
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```bash
+# Example CLI output (truncated)
+Updating (pulumi/dev)
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-java-dev     created (1s)        391 messages
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s) 
+...
+...
+
+# Nothing is printed
+
+Resources:
+    + 34 created
+
+Duration: 2m17s
+```
+
+{{% /choosable %}}
+
+This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output[T], meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties are resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
+
+### Using Apply
+
+The syntax of {{< pulumi-apply >}} is shown below:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+<resource>.<property-name>.apply(<property-name> => <function-to-apply>)
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+<resource>.<property-name>.apply(<property-name> => <function-to-apply>)
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
 
 ```python
 <resource>.<property-name>.apply(lambda <property-name>: <function-to-apply>)
 ```
 
-Regarding the different parts of the syntax:
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+<resource>.<property-name>.ApplyT(func(<property-name> string) error {
+    <function-to-apply>
+    return nil
+})
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+<resource>.<property-name>.Apply(<property-name> => {
+    <function-to-apply>;
+    return <property-name>;
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+<resource>.<property-name>().applyValue(<property-name> -> {
+    <function-to-apply>;
+    return null;
+});
+```
+
+{{% /choosable %}}
+
+The breakdown of the different parts of the syntax is as follows:
 
 - `<resource>` is the name of the resource (i.e. `vpc`)
 - `<property-name>` is the name of the property to retrieve (i.e. `vpc_id`)
 - `<function-to-apply>` is the function to apply against the value of the property
 
-{{% notes %}}
-The `apply` method should only be used on a resource's properties and never on the whole resource itself.
-{{% /notes %}}
+{{< notes type="warning" >}}
+The {{< pulumi-apply >}} method should only be used on a resource's properties and never on the whole resource itself. Using apply directly on a resource will result in unexpected issues and errors.
+{{< /notes >}}
 
 This means that if we want to print out the value of our VPC ID, our program needs to look like the following:
 
-```python
-import pulumi
-import pulumi_awsx as awsx
+{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
 
-vpc = awsx.ec2.Vpc("vpc")
+{{% choosable language javascript %}}
 
-vpc.vpc_id.apply(lambda vpc_id: print('My VPC ID is:', vpc_id))
+```javascript
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="1" to="3" >}}
 
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="6" to="6" >}}
+
+vpc.vpcId.apply(id => console.log(`VPC ID: {id}`));
 ```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="5" to="5" >}}
+
+vpc.vpcId.apply(id => console.log(`VPC ID: {id}`));
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< example-program-snippet path="awsx-vpc" language="python" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="python" from="5" to="5" >}}
+
+vpc.vpc_id.apply(lambda id: print('VPC ID:', id))
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+{{< example-program-snippet path="awsx-vpc" language="go" from="1" to="3" >}}
+    "fmt"
+{{< example-program-snippet path="awsx-vpc" language="go" from="4" to="10" >}}
+{{< example-program-snippet path="awsx-vpc" language="go" from="12" to="15" >}}
+
+        vpc.VpcId().ApplyT(func(id string) error {
+            fmt.Printf("VPC ID: %s", id)
+        	return nil
+        })
+
+{{< example-program-snippet path="awsx-vpc" language="go" from="21" to="23" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="1" to="6" >}}
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="8" to="8" >}}
+
+    vpc.VpcId.Apply(id => { Console.WriteLine($"VPC ID: {id}"); return id; });
+
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="17" to="17" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+{{< example-program-snippet path="awsx-vpc" language="java" from="1" to="9" >}}
+{{< example-program-snippet path="awsx-vpc" language="java" from="11" to="11" >}}
+
+            vpc.vpcId().applyValue(i -> {
+                System.out.println("VPC ID: " + i);
+                return null;
+            });
+
+{{< example-program-snippet path="awsx-vpc" language="java" from="17" to="19" >}}
+```
+
+{{% /choosable %}}
 
 The above example will wait for the value to be returned from the API and print it to the console as shown below:
 
@@ -415,27 +638,11 @@ Resources:
 Duration: 12s
 ```
 
-We can now see the value of the VPC ID property that we couldn't see before when using a regular `print` statement.
-
-Below is a longer-form version of the same program:
-
-```python
-import pulumi
-import pulumi_awsx as awsx
-
-vpc = awsx.ec2.Vpc("vpc")
-
-def print_id(id):
-    print('My VPC ID is:' id)
-
-vpc.vpc_id.apply(print_id)
-```
-
-Think of `vpc_id` as a variable that is being passed to a function, and it's value is being used to create the string in our print statement. Writing it using the inline `lambda` way is just the short-form version of the above example.
+We can now see the value of the VPC ID property that we couldn't see before when using a regular `print | log` statement. 
 
 ## Creating new output values
 
-The `apply` method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
+The {{< pulumi-apply >}} method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
 ```python
 import pulumi
@@ -469,8 +676,8 @@ Outputs:
 Duration: 5s
 ```
 
-The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. The population of this variable will wait for the new value to be returned from the `apply` function, and any [dependencies](/docs) of the original output (i.e. the `instance.public_dns` property) are also kept in the resulting Output<T>.
+The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. The population of this variable will wait for the new value to be returned from the {{< pulumi-apply >}} function, and any [dependencies](/docs) of the original output (i.e. the `instance.public_dns` property) are also kept in the resulting Output<T>.
 
 {{% notes %}}
-During some program executions, `apply` doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
+During some program executions, {{< pulumi-apply >}} doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
 {{% /notes %}}
