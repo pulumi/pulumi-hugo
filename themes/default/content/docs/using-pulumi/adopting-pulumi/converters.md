@@ -18,6 +18,7 @@ aliases:
 For the detailed usage of this command and options, refer to the [pulumi convert CLI documentation.](https://www.pulumi.com/docs/cli/commands/pulumi_convert/)
 
 ### Supported source languages
+
 * [YAML](/docs/languages-sdks/yaml/)
 * [Terraform](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/)
 * [Kubernetes](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-kubernetes/)
@@ -40,6 +41,7 @@ The `pulumi convert` subcommand is designed to address a variety of migration an
 * **Converting from Pulumi YAML:** If you started your project with Pulumi YAML and find your requirements have evolved, you can convert and take advantage of the benefits offered by popular programming languages, such as complex logic capabilities and the flexibility to create modular and reusable components.
 
 ### Additional conversion tools and resources
+
 The following list of web-based tools and resources can quickly help you convert your source IaC languages or formats for use with the `pulumi convert --from` command. The resulting file can be copied or downloaded for use with a [new Pulumi project](/docs/get-started/).
 
 * [Terraform to Pulumi](/tf2pulumi/)
