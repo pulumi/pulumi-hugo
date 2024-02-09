@@ -138,9 +138,10 @@ Resources:
 
 Duration: 2m17s
 ```
-{{% notes %}}
+
+{{< notes type="info" >}}
 You can see an example of the complete Diagnostics CLI output in [this gist](https://gist.github.com/toriancrane/be03601a7b9f0fd2e197d55ed5a41b31).
-{{% /notes %}}
+{{< /notes >}}
 
 {{% /choosable %}}
 
@@ -178,9 +179,9 @@ Resources:
 Duration: 2m17s
 ```
 
-{{% notes %}}
+{{< notes type="info" >}}
 You can see an example of the complete Diagnostics output in [this gist](https://gist.github.com/toriancrane/4aba791447af71a67cce06715a282a19).
-{{% /notes %}}
+{{< /notes >}}
 
 {{% /choosable %}}
 
@@ -260,7 +261,7 @@ Duration: 3m7s
 Updating (pulumi/dev)
     Type                                          Name           Status              Info
  +   pulumi:pulumi:Stack                           aws-java-dev     created (1s)        391 messages
- +   └─ awsx:ec2:Vpc                               vpc            created (1s) 
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
 ...
 ...
 
@@ -460,7 +461,7 @@ Diagnostics:
 Updating (pulumi/dev)
     Type                                          Name           Status              Info
  +   pulumi:pulumi:Stack                           aws-java-dev     created (1s)        391 messages
- +   └─ awsx:ec2:Vpc                               vpc            created (1s) 
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
 ...
 ...
 
@@ -682,7 +683,7 @@ Resources:
 Duration: 12s
 ```
 
-We can now see the value of the VPC ID property that we couldn't see before when using a regular `print | log` statement. 
+We can now see the value of the VPC ID property that we couldn't see before when using a regular `print | log` statement.
 
 ### Creating new output values
 
@@ -759,7 +760,7 @@ pulumi.export("InstanceUrl", url)
 {{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="24" to="24" >}}
 
     var url = server.PublicDns.Apply(dns => $"https://{dns}");
-        
+
 {{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="26" to="27" >}}
         ["InstanceUrl"] = url,
 {{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="30" to="31" >}}
@@ -775,7 +776,7 @@ pulumi.export("InstanceUrl", url)
 {{< example-program-snippet path="aws-ec2-instance-with-sg" language="java" from="37" to="37" >}}
 
         var url = server.publicDns().applyValue(dns -> "https://" + dns);
-        
+
         ctx.export("InstanceUrl", url);
 {{< example-program-snippet path="aws-ec2-instance-with-sg" language="java" from="41" to="42" >}}
 ```
@@ -812,6 +813,6 @@ Duration: 5s
 
 The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. This variable will wait for the new value to be returned from the {{< pulumi-apply >}} function, and any [dependencies](/docs) of the original output (i.e. the `public DNS` property of the `server` resource) are also kept in the resulting Output<T>.
 
-{{% notes %}}
+{{< notes type="info" >}}
 During some program executions, {{< pulumi-apply >}} doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
-{{% /notes %}}
+{{< /notes >}}
