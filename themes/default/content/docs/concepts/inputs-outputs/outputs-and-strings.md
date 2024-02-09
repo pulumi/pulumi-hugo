@@ -10,8 +10,6 @@ menu:
     parent: inputs-outputs
 ---
 
-Intro para TBD
-
 ## Working with Outputs and Strings
 
 Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using {{< pulumi-apply >}}.
@@ -32,6 +30,7 @@ let url = pulumi.all([hostname, port]).
 ```
 
 {{% /choosable %}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -44,6 +43,7 @@ let url = pulumi.all([hostname, port]).
 ```
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -55,6 +55,7 @@ url = Output.all(hostname, port).apply(lambda l: f"http://{l[0]}:{l[1]}/")
 ```
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 ```go
@@ -68,6 +69,7 @@ url := pulumi.All(hostname, port).ApplyT(func (args []interface{}) string {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -79,6 +81,7 @@ var url = Output.Tuple(hostname, port).Apply(t => $"http://{t.Item1}:{t.Item2}/"
 ```
 
 {{% /choosable %}}
+
 {{% choosable language java %}}
 
 ```java
@@ -94,7 +97,7 @@ var url = Output.tuple(hostname, port)
 
 {{< /chooser >}}
 
-However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs. These interpolation methods wrap [all](#all) and [apply](#apply) with an interface that resembles your language's native string formatting functions.
+However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs. These interpolation methods wrap [all](/docs/concepts/inputs-outputs/all/) and [apply](/docs/concepts/inputs-outputs/apply/) with an interface that resembles your language's native string formatting functions.
 
 {{% choosable language javascript %}}
 
@@ -106,6 +109,7 @@ const url2 = pulumi.interpolate `http://${hostname}:${port}/`;
 ```
 
 {{% /choosable %}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -116,6 +120,7 @@ const url2: Output<string> = pulumi.interpolate `http://${hostname}:${port}/`;
 ```
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -126,6 +131,7 @@ url2 = Output.format("http://{0}:{1}/", hostname, port);
 ```
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 ```go
@@ -133,6 +139,7 @@ url := pulumi.Sprintf("http://%s:%d/", hostname, port)
 ```
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -141,6 +148,7 @@ var url = Output.Format($"http://{hostname}:{port}/");
 ```
 
 {{% /choosable %}}
+
 {{% choosable language java %}}
 
 ```java
@@ -149,6 +157,7 @@ var url = Output.format("http://%s:%s/", hostname, port);
 ```
 
 {{% /choosable %}}
+
 {{% choosable language yaml %}}
 
 ```yaml

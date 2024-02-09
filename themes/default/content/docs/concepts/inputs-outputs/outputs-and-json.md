@@ -10,13 +10,12 @@ menu:
     parent: inputs-outputs
 ---
 
-Intro para TBD
-
 ## Working with Outputs and JSON
 
 Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string:
 
 {{< chooser language "typescript,python,go,csharp" >}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -61,6 +60,7 @@ new aws.s3.BucketPolicy("cloudfront-bucket-policy", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -106,6 +106,7 @@ bucket_policy = aws.s3.BucketPolicy(
 ```
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 {{% notes type="info" %}}
@@ -168,6 +169,7 @@ if err != nil {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -217,6 +219,7 @@ var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", new BucketPolicy
 ```
 
 {{% /choosable %}}
+
 {{< /chooser >}}
 
 This operation is so common, Pulumi provides first-class helper functions for deserializing JSON string outputs into your language's native objects and serializing your language's native objects to JSON string outputs. These helper functions are designed to remove the process of manually resolving the output inside a {{< pulumi-apply >}}.
@@ -226,6 +229,7 @@ This operation is so common, Pulumi provides first-class helper functions for de
 You can natively represent the definition of an AWS Step Function State Machine and embed outputs from other resources then convert it to a JSON string.
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
+
 {{% choosable language javascript %}}
 
 ```javascript
@@ -252,6 +256,7 @@ const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -278,6 +283,7 @@ const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -304,6 +310,7 @@ state_machine = aws_native.stepfunctions.StateMachine("stateMachine",
 ```
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 {{% notes type="info" %}}
@@ -338,6 +345,7 @@ pulumi.JSONMarshal(pulumi.ToMapOutput(map[string]pulumi.Output{
 ```
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -360,6 +368,7 @@ var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
 ```
 
 {{% /choosable %}}
+
 {{< /chooser >}}
 
 ### Parsing JSON Outputs to Objects
@@ -367,6 +376,7 @@ var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
 You can parse a JSON string into an object and then, inside of an Apply, manipulate the object to remove all of the policy statements.
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
+
 {{% choosable language javascript %}}
 
 ```javascript
@@ -401,6 +411,7 @@ const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
 For more details [view the NodeJS documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
 
 {{% /choosable %}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -435,6 +446,7 @@ const policyWithNoStatements: Output<object> = pulumi.jsonParse(jsonIAMPolicy).a
 For more details [view the NodeJS documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -473,6 +485,7 @@ policy_with_no_statements = \
 For more details [view the Python documentation](/docs/reference/pkg/python/pulumi/).
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 ```go
@@ -509,6 +522,7 @@ policyWithNoStatements := pulumi.JSONUnmarshal(jsonIAMPolicy).ApplyT(
 For more details [view the Go documentation](https://pkg.go.dev/github.com/pulumi/pulumi/sdk/v3/go/pulumi).
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -548,4 +562,5 @@ var policyWithNoStatements = Pulumi.Output.JsonDeserialize<IAMPolicy>(jsonIAMPol
 For more details [view the .NET documentation](/docs/reference/pkg/dotnet/Pulumi/Pulumi.Output.html)
 
 {{% /choosable %}}
+
 {{< /chooser >}}
