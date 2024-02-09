@@ -287,7 +287,7 @@ As shown above, using this method will not provide a JSON representation of the 
 
 Ultimately, if you want to view the properties of a resource, you will need to access them individually using {{< pulumi-apply >}}.
 
-## Using Apply
+## Using Apply { search.keywords="pulumi.apply" }
 
 Let's say we want to print the ID of the VPC we've created. Given that this is an individual resouce property and not the entire resource itself, we could try logging the value like normal:
 
@@ -483,7 +483,7 @@ This example is not applicable in YAML.
 
 {{% /choosable %}}
 
-This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output[T], meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties are resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
+This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output<T>, meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties are resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
 
 ### Accessing single output values
 
