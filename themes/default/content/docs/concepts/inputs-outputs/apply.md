@@ -270,7 +270,7 @@ As shown above, using this method will not provide a JSON representation of the 
 
 Ultimately, if you want to view the properties of a resource, you will need to access them individually using {{< pulumi-apply >}}.
 
-## Accessing single outputs with Apply
+## Using Apply
 
 Let's say we want to print the ID of the VPC we've created. Given that this is an individual resouce property and not the entire resource itself, we could try logging the value like normal:
 
@@ -460,7 +460,7 @@ Duration: 2m17s
 
 This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output[T], meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties are resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
 
-### Using Apply
+### Accessing single output values
 
 The syntax of {{< pulumi-apply >}} is shown below:
 
@@ -640,19 +640,46 @@ Duration: 12s
 
 We can now see the value of the VPC ID property that we couldn't see before when using a regular `print | log` statement. 
 
-## Creating new output values
+### Creating new output values
 
 The {{< pulumi-apply >}} method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
-```python
-import pulumi
-import pulumi_aws as aws
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
-instance = aws.ec2.Instance(
-    "instance",
-    ami="ami-03cceb19496c25679",
-    instance_type="t2.micro"
-)
+{{% choosable language javascript %}}
+
+```javascript
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="javascript" from="1" to="4" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="javascript" from="17" to="19" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="javascript" from="21" to="21" >}}
+
+const url = server.publicDns.apply(dnsName => `https://${dnsName}`);
+
+pulumi.export("Instance URL:", url);
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="typescript" from="1" to="3" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="typescript" from="16" to="18" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="typescript" from="20" to="20" >}}
+
+const url = server.publicDns.apply(dnsName => `https://${dnsName}`);
+
+pulumi.export("Instance URL:", url);
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="python" from="1" to="3" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="python" from="17" to="20" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="python" from="22" to="22" >}}
 
 url = instance.public_dns.apply(
     lambda dns_name: "https://" + dns_name
@@ -660,6 +687,49 @@ url = instance.public_dns.apply(
 
 pulumi.export("Instance URL:", url)
 ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="go" from="1" to="9" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="go" from="24" to="26" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="go" from="28" to="31" >}}
+
+        url := server.PublicDns.ApplyT(func(dns string) (string, error) {
+			return "https://" + dns
+		}).(pulumi.StringOutput)
+
+        ctx.Export("Instance URL:", url)
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="go" from="35" to="37" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+TBD
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+TBD
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+TBD
+```
+
+{{% /choosable %}}
 
 The CLI output of this code would look something like the following:
 
@@ -676,7 +746,7 @@ Outputs:
 Duration: 5s
 ```
 
-The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. The population of this variable will wait for the new value to be returned from the {{< pulumi-apply >}} function, and any [dependencies](/docs) of the original output (i.e. the `instance.public_dns` property) are also kept in the resulting Output<T>.
+The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. This variable will wait for the new value to be returned from the {{< pulumi-apply >}} function, and any [dependencies](/docs) of the original output (i.e. the `public DNS` property of the `server` resource) are also kept in the resulting Output<T>.
 
 {{% notes %}}
 During some program executions, {{< pulumi-apply >}} doesn’t run. For example, it won’t run during a preview, when resource output values may be unknown. Therefore, you should avoid side-effects within the callbacks. For this reason, you should not allocate new resources inside of your callbacks either, as it could lead to `pulumi preview` being wrong.
