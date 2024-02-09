@@ -16,7 +16,7 @@ menu:
 
 To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print/log statement to print the `vpc` variable so that we can see the properties of this resource.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language javascript %}}
 
@@ -91,6 +91,14 @@ print(vpc)
             System.out.println(vpc);
 
 {{< example-program-snippet path="awsx-vpc" language="java" from="17" to="19" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+This example is not applicable in YAML.
 ```
 
 {{% /choosable %}}
@@ -266,6 +274,14 @@ Duration: 2m17s
 
 {{% /choosable %}}
 
+{{% choosable language yaml %}}
+
+```yaml
+This example is not applicable in YAML.
+```
+
+{{% /choosable %}}
+
 As shown above, using this method will not provide a JSON representation of the VPC resource complete with its properties and associated property values. This is because, when it comes to Pulumi resource classes, there is no custom `String` method that outputs this kind of JSON representation for each resource.
 
 Ultimately, if you want to view the properties of a resource, you will need to access them individually using {{< pulumi-apply >}}.
@@ -274,7 +290,7 @@ Ultimately, if you want to view the properties of a resource, you will need to a
 
 Let's say we want to print the ID of the VPC we've created. Given that this is an individual resouce property and not the entire resource itself, we could try logging the value like normal:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language javascript %}}
 
@@ -458,13 +474,21 @@ Duration: 2m17s
 
 {{% /choosable %}}
 
+{{% choosable language yaml %}}
+
+```yaml
+This example is not applicable in YAML.
+```
+
+{{% /choosable %}}
+
 This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output[T], meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties are resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
 
 ### Accessing single output values
 
 The syntax of {{< pulumi-apply >}} is shown below:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language javascript %}}
 
@@ -523,6 +547,14 @@ The syntax of {{< pulumi-apply >}} is shown below:
 
 {{% /choosable %}}
 
+{{% choosable language yaml %}}
+
+```yaml
+You can directly access resource properties without the use of Apply in YAML.
+```
+
+{{% /choosable %}}
+
 The breakdown of the different parts of the syntax is as follows:
 
 - `<resource>` is the name of the resource (i.e. `vpc`)
@@ -535,7 +567,7 @@ The {{< pulumi-apply >}} method should only be used on a resource's properties a
 
 This means that if we want to print out the value of our VPC ID, our program needs to look like the following:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
 {{% choosable language javascript %}}
 
@@ -620,6 +652,18 @@ vpc.vpc_id.apply(lambda id: print('VPC ID:', id))
 
 {{% /choosable %}}
 
+{{% choosable language yaml %}}
+
+```yaml
+# YAML does not have the Apply method, but you can access values directly.
+{{< example-program-snippet path="awsx-vpc" language="yaml" from="1" to="4" >}}
+{{< example-program-snippet path="awsx-vpc" language="yaml" from="6" to="7" >}}
+{{< example-program-snippet path="awsx-vpc" language="yaml" from="9" to="9" >}}
+{{< example-program-snippet path="awsx-vpc" language="yaml" from="11" to="11" >}}
+```
+
+{{% /choosable %}}
+
 The above example will wait for the value to be returned from the API and print it to the console as shown below:
 
 ```bash
@@ -644,7 +688,7 @@ We can now see the value of the VPC ID property that we couldn't see before when
 
 The {{< pulumi-apply >}} method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml,yaml" / >}}
 
 {{% choosable language javascript %}}
 
@@ -655,7 +699,7 @@ The {{< pulumi-apply >}} method can also be used to create new output values, an
 
 const url = server.publicDns.apply(dnsName => `https://${dnsName}`);
 
-pulumi.export("Instance URL:", url);
+pulumi.export("InstanceUrl", url);
 ```
 
 {{% /choosable %}}
@@ -669,7 +713,7 @@ pulumi.export("Instance URL:", url);
 
 const url = server.publicDns.apply(dnsName => `https://${dnsName}`);
 
-pulumi.export("Instance URL:", url);
+pulumi.export("InstanceUrl", url);
 ```
 
 {{% /choosable %}}
@@ -685,7 +729,7 @@ url = instance.public_dns.apply(
     lambda dns_name: "https://" + dns_name
 )
 
-pulumi.export("Instance URL:", url)
+pulumi.export("InstanceUrl", url)
 ```
 
 {{% /choosable %}}
@@ -701,7 +745,7 @@ pulumi.export("Instance URL:", url)
 			return "https://" + dns
 		}).(pulumi.StringOutput)
 
-        ctx.Export("Instance URL:", url)
+        ctx.Export("InstanceUrl", url)
 {{< example-program-snippet path="aws-ec2-instance-with-sg" language="go" from="35" to="37" >}}
 ```
 
@@ -710,7 +754,15 @@ pulumi.export("Instance URL:", url)
 {{% choosable language csharp %}}
 
 ```csharp
-TBD
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="1" to="7" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="20" to="22" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="24" to="24" >}}
+
+    var url = server.PublicDns.Apply(dns => $"https://{dns}");
+        
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="26" to="27" >}}
+        ["InstanceUrl"] = url,
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="csharp" from="30" to="31" >}}
 ```
 
 {{% /choosable %}}
@@ -718,7 +770,14 @@ TBD
 {{% choosable language java %}}
 
 ```java
-TBD
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="java" from="1" to="19" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="java" from="32" to="35" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="java" from="37" to="37" >}}
+
+        var url = server.publicDns().applyValue(dns -> "https://" + dns);
+        
+        ctx.export("InstanceUrl", url);
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="java" from="41" to="42" >}}
 ```
 
 {{% /choosable %}}
@@ -726,7 +785,12 @@ TBD
 {{% choosable language yaml %}}
 
 ```yaml
-TBD
+# YAML does not have the Apply method, but you can access values directly.
+name: aws-ec2-instance-yaml
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="yaml" from="2" to="4" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="yaml" from="15" to="19" >}}
+{{< example-program-snippet path="aws-ec2-instance-with-sg" language="yaml" from="22" to="22" >}}
+  InstanceUrl: https://${server.publicDns}
 ```
 
 {{% /choosable %}}
@@ -741,7 +805,7 @@ Updating (pulumi/dev)
  -   └─ awsx:ec2:Vpc      vpc
 
 Outputs:
-    Instance URL:: "https://ec2-52-59-110-22.eu-central-1.compute.amazonaws.com"
+    InstanceUrl: "https://ec2-52-59-110-22.eu-central-1.compute.amazonaws.com"
 
 Duration: 5s
 ```
