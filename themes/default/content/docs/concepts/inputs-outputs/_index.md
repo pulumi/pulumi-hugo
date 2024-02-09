@@ -333,5 +333,3 @@ Because outputs are asynchronous, their actual plain values are not immediately 
 Outputs are also how Pulumi tracks dependencies between resources. When an output from one resource has been returned from the cloud provider API, Pulumi can link the two resources together and pass it as the input to another resource.
 
 Pulumi automatically captures dependencies when you pass an output from one resource as an input to another resource. Capturing these dependencies ensures that the physical infrastructure resources are not created or updated until all their dependencies are available and up-to-date.
-
-[TBD - some kind of example]
