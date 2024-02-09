@@ -483,7 +483,7 @@ This example is not applicable in YAML.
 
 {{% /choosable %}}
 
-This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output<T>, meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties are resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
+This is where {{< pulumi-apply >}} comes into play. As mentioned before, all properties of a resource are of type Output<T>, meaning the values only become known after the infrastructure has been provisioned. When a Pulumi program is executed with `pulumi up`, the {{< pulumi-apply >}} function will wait for the resource to be created and for its properties to be resolved before printing the desired value of the property. This is not something a standard `print | log` statement is capable of doing.
 
 ### Accessing single output values
 
