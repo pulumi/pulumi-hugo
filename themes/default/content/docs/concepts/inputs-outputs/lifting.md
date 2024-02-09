@@ -10,9 +10,7 @@ menu:
     parent: inputs-outputs
 ---
 
-## Accessing nested properties through Lifting
-
-** Add a note to this section that if receive error using lifting then to try with apply instead?
+## Accessing nested properties through Lifting { search.keywords="pulumi.lifting" }
 
 While often, Outputs return asynchronous values that wrap primitive types like strings or integers, sometimes an output has an object with deeply nested values. These properties need to be passed to other inputs as well.
 
@@ -38,6 +36,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -56,6 +55,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -76,6 +76,7 @@ record = aws.route53.Record('validation',
 ```
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 ```go
@@ -101,6 +102,7 @@ if err != nil {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -120,6 +122,7 @@ var record = new Record("validation", new RecordArgs
 ```
 
 {{% /choosable %}}
+
 {{% choosable language java %}}
 
 ```java
@@ -162,6 +165,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language typescript %}}
 
 ```typescript
@@ -177,6 +181,7 @@ let certValidation = new aws.route53.Record("cert_validation", {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language python %}}
 
 ```python
@@ -193,6 +198,7 @@ record = aws.route53.Record('validation',
 ```
 
 {{% /choosable %}}
+
 {{% choosable language go %}}
 
 ```go
@@ -220,6 +226,7 @@ if err != nil {
 ```
 
 {{% /choosable %}}
+
 {{% choosable language csharp %}}
 
 ```csharp
@@ -240,6 +247,7 @@ var record = new Record("validation", new RecordArgs
 ```
 
 {{% /choosable %}}
+
 {{% choosable language java %}}
 
 ```java
@@ -247,6 +255,7 @@ var record = new Record("validation", new RecordArgs
 ```
 
 {{% /choosable %}}
+
 {{% choosable language yaml %}}
 
 ```yaml
