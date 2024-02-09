@@ -16,7 +16,7 @@ Outputs are asynchronous, meaning their actual plain values are not immediately 
 
 To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print/log statement to print the `vpc` variable so that we can see the properties of this resource.
 
-{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
 
 {{% choosable language javascript %}}
 
@@ -97,21 +97,98 @@ print(vpc)
 
 However, deploying this program will show CLI output similar to the following:
 
+{{% choosable language javascript %}}
+
+```javascript
+# Example CLI output (truncated)
+Updating (pulumi/dev)
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-js-dev     created (1s)        391 messages
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
+    ...
+    ...
+
+Diagnostics:
+  pulumi:pulumi:Stack (aws-js-dev):
+    <ref *1> Vpc {
+          __pulumiResource: true,
+          __pulumiType: 'awsx:ec2:Vpc',
+          ...
+          ...
+          vpc: OutputImpl {
+            __pulumiOutput: true,
+            resources: [Function (anonymous)],
+            allResources: [Function (anonymous)],
+            isKnown: Promise { <pending> },
+            ...
+            ...
+          },
+          ...
+        }
+Resources:
+    + 34 created
+
+Duration: 2m17s
+```
+{{% notes %}}
+You can see an example of the complete Diagnostics CLI output in [this gist](https://gist.github.com/toriancrane/be03601a7b9f0fd2e197d55ed5a41b31).
+{{% /notes %}}
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
 ```bash
 # Example CLI output (truncated)
 Updating (pulumi/dev)
-
-     Type                                          Name           Status              Info
- +   pulumi:pulumi:Stack                           aws-iac-dev    created (0.52s)     1 message
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-ts-dev     created (1s)        391 messages
  +   └─ awsx:ec2:Vpc                               vpc            created (1s)
- +      └─ aws:ec2:Vpc                             vpc            created (1s)
- +         ├─ aws:ec2:Subnet                       vpc-private-3  created (0.87s)
-...
-...
+    ...
+    ...
 
 Diagnostics:
-  pulumi:pulumi:Stack (aws-iac-dev):
-    # Note: The object's memory address may or may not show up depending on your chosen language
+  pulumi:pulumi:Stack (aws-ts-dev):
+    <ref *1> Vpc {
+          __pulumiResource: true,
+          __pulumiType: 'awsx:ec2:Vpc',
+          ...
+          ...
+          vpc: OutputImpl {
+            __pulumiOutput: true,
+            resources: [Function (anonymous)],
+            allResources: [Function (anonymous)],
+            isKnown: Promise { <pending> },
+            ...
+            ...
+          },
+          ...
+        }
+Resources:
+    + 34 created
+
+Duration: 2m17s
+```
+
+{{% notes %}}
+You can see an example of the complete Diagnostics output in [this gist](https://gist.github.com/toriancrane/4aba791447af71a67cce06715a282a19).
+{{% /notes %}}
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```bash
+# Example CLI output (truncated)
+Updating (pulumi/dev)
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-py-dev     created (1s)        391 messages
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
+    ...
+    ...
+
+Diagnostics:
+  pulumi:pulumi:Stack (aws-py-dev):
     <pulumi_awsx.ec2.vpc.Vpc object at 0x7f77ac256130>
 
 Resources:
@@ -120,25 +197,161 @@ Resources:
 Duration: 2m17s
 ```
 
-Instead of a JSON representation of the VPC resource, you will more than likely see:
+{{% /choosable %}}
 
-- the memory address of the variable or
-- nothing at all
+{{% choosable language go %}}
 
-This is because, when it comes to Pulumi resource classes, there is no custom `String` method that outputs the JSON representation of each resource. Ultimately, if you want to view the properties of a resource, you will need to access them individually using `apply`.
+```bash
+# Example CLI output (truncated)
+Updating (pulumi/dev)
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-go-dev     created (1s)        391 messages
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
+    ...
+    ...
+
+Diagnostics:
+  pulumi:pulumi:Stack (aws-go-dev):
+    &{{{} {{0 0} 0 0 {{} 0} {{} 0}} {0xc000196e00} {0xc000196d90} map[] map[] <nil>   [] vpc [] true} {0xc0001961c0} {0xc000196230} {0xc0001962a0} {0xc000196460} {0xc0001964d0} {0xc000196690} {0xc000196700} {0xc0001967e0} {0xc000196850} {0xc0001968c0} {0xc000196930} {0xc000196a10} {0xc000196a80} {0xc000196b60}}
+
+Resources:
+    + 34 created
+
+Duration: 3m7s
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```bash
+# Example CLI output (truncated)
+Updating (pulumi/dev)
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-csharp-dev     created (1s)        391 messages
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s)
+    ...
+    ...
+
+Diagnostics:
+  pulumi:pulumi:Stack (aws-csharp-dev):
+    Pulumi.Awsx.Ec2.Vpc
+
+Resources:
+    34 created
+
+Duration: 3m7s
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```bash
+# Example CLI output (truncated)
+Updating (pulumi/dev)
+    Type                                          Name           Status              Info
+ +   pulumi:pulumi:Stack                           aws-java-dev     created (1s)        391 messages
+ +   └─ awsx:ec2:Vpc                               vpc            created (1s) 
+...
+...
+
+# Nothing is printed
+
+Resources:
+    + 34 created
+
+Duration: 2m17s
+```
+
+{{% /choosable %}}
+
+As shown above, using this method will not provide a JSON representation of the VPC resource complete with its properties and associated property values. This is because, when it comes to Pulumi resource classes, there is no custom `String` method that outputs this kind of JSON representation for each resource.
+
+Ultimately, if you want to view the properties of a resource, you will need to access them individually using `apply`.
 
 ## Accessing single outputs with Apply
 
 Let's say we want to print the ID of the VPC we've created.
 
-```python
-import pulumi
-import pulumi_awsx as awsx
+{{< chooser language "javascript,typescript,python,go,csharp,java" / >}}
 
-vpc = awsx.ec2.Vpc("vpc")
+{{% choosable language javascript %}}
+
+```javascript
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="1" to="3" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="javascript" from="6" to="6" >}}
+
+console.log(vpc.vpcId);
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="typescript" from="5" to="5" >}}
+
+console.log(vpc.vpcId);
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+{{< example-program-snippet path="awsx-vpc" language="python" from="1" to="2" >}}
+
+{{< example-program-snippet path="awsx-vpc" language="python" from="5" to="5" >}}
 
 print(vpc.vpc_id)
 ```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+{{< example-program-snippet path="awsx-vpc" language="go" from="1" to="3" >}}
+    "fmt"
+{{< example-program-snippet path="awsx-vpc" language="go" from="4" to="10" >}}
+{{< example-program-snippet path="awsx-vpc" language="go" from="12" to="15" >}}
+
+        fmt.Println(vpc)
+
+{{< example-program-snippet path="awsx-vpc" language="go" from="21" to="23" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="1" to="6" >}}
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="8" to="8" >}}
+
+    Console.WriteLine(vpc);
+
+{{< example-program-snippet path="awsx-vpc" language="csharp" from="17" to="17" >}}
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+{{< example-program-snippet path="awsx-vpc" language="java" from="1" to="9" >}}
+{{< example-program-snippet path="awsx-vpc" language="java" from="11" to="11" >}}
+
+            System.out.println(vpc);
+
+{{< example-program-snippet path="awsx-vpc" language="java" from="17" to="19" >}}
+```
+
+{{% /choosable %}}
 
 If we update our program as shown above and run `pulumi up`, we will receive the following error:
 
