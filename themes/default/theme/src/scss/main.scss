@@ -381,6 +381,10 @@ section.newsletter-input pulumi-hubspot-form input.hs-input {
        @apply bg-white;
     }
 
+    div:empty {
+        @apply hidden;
+    }
+
     p {
         @apply text-black text-left text-sm pr-8 pb-2;
 
