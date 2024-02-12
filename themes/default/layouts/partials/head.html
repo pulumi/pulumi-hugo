@@ -315,7 +315,12 @@
                     ),
                     '.'
                 )
-                var bannerSubContent = 'You can change your preferences at any time.'
+                var bannerSubContent = React.createElement(
+                    'div',
+                    { class: "manage-cookies-btn" },
+                    'Manage cookies'
+                )
+                //var bannerSubContent = 'You can change your preferences at any time.'
                 var preferencesDialogTitle = 'Website Data Collection Preferences'
                 var preferencesDialogContent =
                     'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.'
