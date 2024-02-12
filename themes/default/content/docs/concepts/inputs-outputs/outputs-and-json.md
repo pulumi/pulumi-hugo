@@ -10,8 +10,6 @@ menu:
     parent: inputs-outputs
 ---
 
-## Working with Outputs and JSON
-
 Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string:
 
 {{< chooser language "typescript,python,go,csharp" >}}

@@ -10,8 +10,6 @@ menu:
     parent: inputs-outputs
 ---
 
-## Accessing multiple outputs with All { search.keywords="pulumi.all" }
-
 If you have multiple outputs and need to use them together, the `all` function acts like an `apply` over many resources, allowing you to use multiple outputs when creating a new output. `all` waits for all output values to become available and then provides them as _plain values_ to the supplied callback. This function can be used to compute an entirely new output value, such as by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses them. Just like with `apply`, the result of `all` is itself an Output<T>.
 
 For example, let’s use a server and a database name to create a database connection string:

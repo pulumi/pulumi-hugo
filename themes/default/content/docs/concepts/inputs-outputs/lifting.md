@@ -10,8 +10,6 @@ menu:
     parent: inputs-outputs
 ---
 
-## Accessing nested properties through Lifting { search.keywords="pulumi.lifting" }
-
 While often, Outputs return asynchronous values that wrap primitive types like strings or integers, sometimes an output has an object with deeply nested values. These properties need to be passed to other inputs as well.
 
 For example, to read a domain record from an ACM certificate, you need to access the domain validation options, which returns an array. Because that value is an output, we would normally need to use {{< pulumi-apply >}}:
