@@ -35,7 +35,7 @@ For the detailed usage of this command and options, refer to the [pulumi convert
 
 ### Use cases for using pulumi convert
 
-The `pulumi convert` subcommand is designed to address a variety of migration and conversion scenarios where infrastructure as code (IaC) practices evolve alongside your project needs. Here are some common use cases:
+The `pulumi convert` subcommand is designed to address a variety of migration and conversion scenarios where IaC practices evolve alongside your project needs. Here are some common use cases:
 
 * **Migrating from other IaC tools:** If you're looking to transition your infrastructure definitions from tools like Terraform, Bicep, or ARM templates into Pulumi.
 * **Converting from Pulumi YAML:** If you started your project with Pulumi YAML and find your requirements have evolved, you can convert and take advantage of the benefits offered by popular programming languages, such as complex logic capabilities and the flexibility to create modular and reusable components.
