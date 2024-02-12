@@ -13,7 +13,7 @@ aliases:
 - /docs/converters/
 ---
 
-`pulumi convert` is a subcommand within the Pulumi Command Line Interface (CLI) you can use to convert between different source IaC languages or formats into all of Pulumi’s [supported languages](/docs/languages-sdks/), such as TypeScript, JavaScript, Go, Python, C#, or Java.
+`pulumi convert` is a subcommand within the Pulumi Command Line Interface (CLI) you can use to convert between different source Infrastructure as Code (IaC) languages or formats into all of Pulumi’s [supported languages](/docs/languages-sdks/), such as TypeScript, JavaScript, Go, Python, C#, or Java.
 
 For the detailed usage of this command and options, refer to the [pulumi convert CLI documentation.](https://www.pulumi.com/docs/cli/commands/pulumi_convert/)
 
