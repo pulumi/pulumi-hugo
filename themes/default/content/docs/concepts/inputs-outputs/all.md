@@ -175,16 +175,17 @@ Using the same example server and database resources and their corresponding out
 {{% choosable language javascript %}}
 
 ```javascript
-var pulumi = require("@pulumi/pulumi");
+const pulumi = require("@pulumi/pulumi");
 // ...
-let connectionDetails1 = pulumi.Output.all(sqlServer.ipAddress, database.port)
+
+const connectionDetails1 = pulumi.all([sqlServer.ipAddress, database.port])
     .apply(([serverIp, databasePort]) => ({
         server_ip: serverIp,
         database_port: databasePort,
     })
 );
 
-let connectionDetails2 = pulumi.Output.all(server.ipAddress, database.port)
+const connectionDetails2 = pulumi.all([server.ipAddress, database.port])
     .apply(([ip, port]) => [ip, port]);
 ```
 
@@ -196,15 +197,20 @@ let connectionDetails2 = pulumi.Output.all(server.ipAddress, database.port)
 import * as pulumi from "@pulumi/pulumi";
 // ...
 
-const connectionDetails1 = pulumi.Output.all([server.ipAddress, database.port])
-    .apply(([ip, port]) => ({
-        serverIp: ip,
-        databasePort: port
-    })
+let connectionDetails1 = pulumi.all([server.ipAddress, database.port])
+    .apply(([ip, port]) => {
+        return {
+            serverIp: ip,
+            databasePort: port,
+        };
+    }
 );
 
-const connectionDetails2 = pulumi.Output.all(server.ipAddress, database.port)
-    .apply(([ip, port]) => [ip, port]);
+let connectionDetails2 = pulumi.all([server.ipAddress, database.port])
+    .apply(([ip, port]) => {
+        return [ip, port];
+    }
+);
 ```
 
 {{% /choosable %}}
@@ -221,7 +227,7 @@ connection_details1 = Output.all(sql_server.ipAddress, database.port) \
         "database_port": args[1]
     })
 
-connection_details2 = Output.all(server.ipAddress, database.port) \
+connection_details2 = Output.all(sql_server.ipAddress, database.port) \
     .apply(lambda args: [args[0], args[1]])
 ```
 
@@ -234,18 +240,19 @@ connection_details2 = Output.all(server.ipAddress, database.port) \
 
 connectionDetails1 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
     func(args []interface{}) map[string]interface{} {
+    	ipAddress := args[0].(string)
+		port := args[1].(string)
     	return map[string]interface{}{
-    		"server_ip":     args[0].(string),
-    		"database_port": args[1].(string),
+    		"server_ip":     ipAddress),
+    		"database_port": port,
     	}
     }
 )
 
 connectionDetails2 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
     func(args []interface{}) []interface{} {
-		return []interface{}{args[0], args[1]}
-	}
-)
+		return args
+	}).(pulumi.ArrayOutput)
 ```
 
 {{% /choosable %}}
@@ -255,15 +262,23 @@ connectionDetails2 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
 ```csharp
 //...
 
-var connectionDetails1 = Output.Tuple(sqlServer.IpAddress, database.Port)
-    .Apply(t => new {
-        ServerIp = t.Item1,
-        DatabasePort = t.Item2
-    }
-);
+var connectionDetails1 = Output.All(sqlServer.IpAddress, database.Port).Apply(values =>
+{
+    var ipAddress = values[0];
+    var port = values[1];
+    return new Dictionary<string, object>
+    {
+        {"serverIp", ipAddress},
+        {"port", port}
+    };
+});
 
-var connectionDetails2 = Output.Tuple(server.IpAddress, database.Port)
-    .Apply(t => new[] { t.Item1, t.Item2 });
+var connectionDetails2 = Output.All(sqlServer.IpAddress, database.Port).Apply(values =>
+{
+    var ipAddress = values[0];
+    var port = values[1];
+    return new List<object> { ipAddress, port };
+});
 ```
 
 {{% /choosable %}}
@@ -273,10 +288,10 @@ var connectionDetails2 = Output.Tuple(server.IpAddress, database.Port)
 ```java
 // ...
 
-var connectionDetails1 = Output.tuple(sqlServer.ipAddress, database.port)
+var connectionDetails1 = Output.tuple(sqlServer.ipAddress(), database.port())
     .applyValue(t -> Map.of("ServerIp", t.t1, "DatabasePort", t.t2));
 
-var connectionDetails2 = Output.tuple(server.ipAddress, database.port)
+var connectionDetails2 = Output.tuple(sqlServer.ipAddress(), database.port())
     .applyValue(t -> List.of(t.t1, t.t2));
 
 ```
@@ -288,14 +303,7 @@ var connectionDetails2 = Output.tuple(server.ipAddress, database.port)
 YAML does not have the `Apply` or `All` functions. Instead, you can access property values directly.
 
 ```yaml
-variables:
-  connectionDetails1:
-    - ${server.ipAddress}
-    - ${database.port}
-
-  connectionDetails2:
-    serverIp: ${sqlServer.ipAddress}
-    databasePort: ${database.port}
+This example is not applicable in Pulumi YAML.
 ```
 
 {{% /choosable %}}

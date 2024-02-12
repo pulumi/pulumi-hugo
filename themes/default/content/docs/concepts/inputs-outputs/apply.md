@@ -704,7 +704,7 @@ The {{< pulumi-apply >}} method can also be used to create new output values, an
 
 const url = server.publicDns.apply(dnsName => `https://${dnsName}`);
 
-pulumi.export("InstanceUrl", url);
+exports.InstanceUrl = url;
 ```
 
 {{% /choosable %}}
@@ -718,7 +718,7 @@ pulumi.export("InstanceUrl", url);
 
 const url = server.publicDns.apply(dnsName => `https://${dnsName}`);
 
-pulumi.export("InstanceUrl", url);
+export const InstanceUrl = url;
 ```
 
 {{% /choosable %}}
