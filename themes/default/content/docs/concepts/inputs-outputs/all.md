@@ -10,7 +10,13 @@ menu:
     parent: inputs-outputs
 ---
 
-If you need to access and use multiple outputs together, the `all` function acts like an {{< pulumi-apply >}} across many resources, allowing you to retrieve and use multiple outputs at the same time. The `all` function waits for all output values to become available and then provides them as _plain values_ to the {{< pulumi-apply >}} function. This can be used to compute an entirely new output value, such as creating a new string by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses their values. Just like with `apply`, the result of `all` is itself an Output<T>.
+## Overview
+
+If you need to access and use multiple outputs together, the `all` function acts like an [`apply`](/docs/concepts/inputs-outputs/apply/) across many resources, allowing you to retrieve and use multiple outputs at the same time. The `all` function waits for all output values to become available and then provides them as _plain values_ to the {{< pulumi-apply >}} function.
+
+This can be used to compute an entirely new output value, such as creating a new string by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses their values. Just like with `apply`, the result of `all` is itself an Output<T>.
+
+### Creating a new string
 
 To demonstate, let’s say we have created a server resource and a database resource, and their Output values are as follows:
 
@@ -34,7 +40,7 @@ We want to create a database connection string that uses the following format:
 Server=tcp:<YourServerName>.database.windows.net,initial catalog=<YourDatabaseName>;
 ```
 
-The follow example provides the name of the server and the name of the database as arguments to `all()`. Those arguments are made available to the {{< pulumi-apply >}} function and subsequently used to create the database connection string:
+In the following example, we provide the name of the server and the name of the database as arguments to `all()`. Those arguments are made available to the {{< pulumi-apply >}} function and subsequently used to create the database connection string:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -152,5 +158,146 @@ variables:
 The `all` function works by returning an output that represents the combination of multiple outputs. Based on the example output values provided above, the final value of the generated connection string will resemble the following:
 
 ```bash
-"Server=tcp:myDbServer.database.windows.net;initial catalog=myExampleDatabase"
+Server=tcp:myDbServer.database.windows.net;initial catalog=myExampleDatabase
 ```
+
+### Creating a new data structure
+
+In addition to strings, the `all` function can also be used to create new data structures such as:
+
+- Lists | Arrays | Slices
+- Dicts | Objects | Maps
+
+Using the same example server and database resources and their corresponding output values, you can see this demonstrated in the below example:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+var pulumi = require("@pulumi/pulumi");
+// ...
+let connectionDetails1 = pulumi.Output.all(sqlServer.ipAddress, database.port)
+    .apply(([serverIp, databasePort]) => ({
+        server_ip: serverIp,
+        database_port: databasePort,
+    })
+);
+
+let connectionDetails2 = pulumi.Output.all(server.ipAddress, database.port)
+    .apply(([ip, port]) => [ip, port]);
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+// ...
+
+const connectionDetails1 = pulumi.Output.all([server.ipAddress, database.port])
+    .apply(([ip, port]) => ({
+        serverIp: ip,
+        databasePort: port
+    })
+);
+
+const connectionDetails2 = pulumi.Output.all(server.ipAddress, database.port)
+    .apply(([ip, port]) => [ip, port]);
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+from pulumi import Output
+# ...
+
+connection_details1 = Output.all(sql_server.ipAddress, database.port) \
+    .apply(lambda args: {
+        "server_ip": args[0],
+        "database_port": args[1]
+    })
+
+connection_details2 = Output.all(server.ipAddress, database.port) \
+    .apply(lambda args: [args[0], args[1]])
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+// ...
+
+connectionDetails1 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
+    func(args []interface{}) map[string]interface{} {
+    	return map[string]interface{}{
+    		"server_ip":     args[0].(string),
+    		"database_port": args[1].(string),
+    	}
+    }
+)
+
+connectionDetails2 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
+    func(args []interface{}) []interface{} {
+		return []interface{}{args[0], args[1]}
+	}
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+//...
+
+var connectionDetails1 = Output.Tuple(sqlServer.IpAddress, database.Port)
+    .Apply(t => new {
+        ServerIp = t.Item1,
+        DatabasePort = t.Item2
+    }
+);
+
+var connectionDetails2 = Output.Tuple(server.IpAddress, database.Port)
+    .Apply(t => new[] { t.Item1, t.Item2 });
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+// ...
+
+var connectionDetails1 = Output.tuple(sqlServer.ipAddress, database.port)
+    .applyValue(t -> Map.of("ServerIp", t.t1, "DatabasePort", t.t2));
+
+var connectionDetails2 = Output.tuple(server.ipAddress, database.port)
+    .applyValue(t -> List.of(t.t1, t.t2));
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+YAML does not have the `Apply` or `All` functions. Instead, you can access property values directly.
+
+```yaml
+variables:
+  connectionDetails1:
+    - ${server.ipAddress}
+    - ${database.port}
+
+  connectionDetails2:
+    serverIp: ${sqlServer.ipAddress}
+    databasePort: ${database.port}
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
