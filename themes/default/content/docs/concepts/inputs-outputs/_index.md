@@ -185,7 +185,7 @@ resources:
 {{% notes %}}
 _Plain value_ in this document is used to describe a standard string, boolean, integer or other typed value or data structure in your language of choice. _Plain value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
 
-Once an {{< pulumi-output >}} value has returned (generally from an API) to Pulumi, it can be used as a _plain value_. For more information, see [apply](#apply).
+Once an {{< pulumi-output >}} value has returned (generally from an API) to Pulumi, it can be used as a _plain value_. For more information, see [apply](/docs/concepts/inputs-outputs/apply/).
 {{% /notes %}}
 
 However, in most Pulumi programs, the inputs to a resource will reference values from another resource:
