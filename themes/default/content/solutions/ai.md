@@ -52,6 +52,22 @@ case_studies:
             __10x faster time to market__ for Snowflake with their ship times.
 
 
+architectures:
+    title: AI Templates
+    items:
+        - name: Pinecone
+          link: https://www.pulumi.com/solutions/ai-arch/
+          logo: /logos/customers/pinecone.png
+          description: |
+            Microservices backend and Pinecone vector database for semantic search.
+
+        - name: Langchain
+          link: https://github.com/pulumi/examples/tree/master/aws-py-langserve
+          logo: /logos/customers/langchain.png
+          description: |
+            LangServe running as Docker container on Amazon ECS and ALB.
+
+
 
 customer_logos:
   title: Organizations managing AI and ML infrastructure with Pulumi
@@ -59,7 +75,6 @@ customer_logos:
     - name: altana
     - name: cto-ai
     - name: levitate-ai
-    - name: banana
     - name: modal
     - name: mpathic
     - name: pinecone
