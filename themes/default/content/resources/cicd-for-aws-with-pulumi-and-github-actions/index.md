@@ -35,7 +35,7 @@ block_external_search_index: false
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: cicd-for-aws-with-pulumi-and-github-action
+url_slug: cicd-for-aws-with-pulumi-and-github-actions
 
 # The content of the hero section.
 hero:
