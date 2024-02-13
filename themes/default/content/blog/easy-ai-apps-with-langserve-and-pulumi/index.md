@@ -10,6 +10,8 @@ tags:
 - ai
 - langserve
 - aws
+aliases:
+- /blog/easy-langserve-apps-with-pulumi/
 ---
 
 We all know how easy it is to create, deploy, and manage any cloud infrastructure
