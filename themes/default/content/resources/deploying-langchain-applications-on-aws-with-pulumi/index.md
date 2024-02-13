@@ -1,7 +1,7 @@
 ---
 # Name of the webinar.
-title: Get started with CI/CD for AWS using Pulumi & GitHub Actions
-meta_desc: In this workshop, you will learn the fundamentals of an infrastructure CI/CD pipeline through guided exercises using Pulumi.
+title: Deploying LangChain Applications on AWS with Pulumi
+meta_desc: This workshop will show a practical AI use case for Pulumi. Using Pulumi & TypeScript, we'll demonstrate deploying a LangChain/LangServe app on AWS.
 meta_image: 
 
 # A featured webinar will display first in the list.
@@ -35,12 +35,12 @@ block_external_search_index: false
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: cicd-for-aws-with-pulumi-and-github-action
+url_slug: deploying-langchain-applications-on-aws-with-pulumi
 
 # The content of the hero section.
 hero:
     # The title text in the hero. This also serves as the pages H1.
-    title: Get started with CI/CD for AWS using Pulumi & GitHub Actions
+    title: Deploying LangChain Applications on AWS with Pulumi
     # The image the appears on the right hand side of the hero.
     image: "/icons/containers.svg"
 
@@ -53,33 +53,32 @@ hero:
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: Get started with CI/CD for AWS using Pulumi & GitHub Actions
+    title: Deploying LangChain Applications on AWS with Pulumi
     # URL for embedding a URL for ungated webinars.
     youtube_url: 
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2024-03-29T09:00:00-07:00
+    sortable_date: 2024-03-14T09:00:00-07:00
     # Duration of the webinar.
     duration: "90 minutes"
     # Datetime of the webinar.
     datetime: ""
     # Description of the webinar.
     description: |
-        This workshop introduces new users to DevOps best practices. You will become familiar with the core concepts needed to deploy cloud resources continuously. Walk through configuring Pulumi GitHub Actions to deploy AWS resources programmatically and accelerate your cloud projects with the skeleton code provided.
+        In this workshop, you will first be introduced to Pulumi, an infrastructure-as-code platform, where you can use familiar programming languages to provision modern cloud infrastructure. Following that introduction, attendees will see how to use Pulumi to deploy an AI application using LangChain/LangServe onto AWS, providing a practical use case for how infrastructure as code helps streamline deploying AI applications.
 
     # The webinar presenters
     presenters:
-        - name: Diana Esteves
-          role: Technical Content Engineer, Pulumi
-        - name: Marina Novikova
-          role: Sr. Solutions Architect, AWS
+        - name: Scott Lowe
+          role: Principal Technical Content Engineer, Pulumi
+        - name: Kat Morgan
+          role: Sr. Community Engineer, Pulumi
 
     # A bullet point list containing what the user will learn during the webinar.
     learn:
-        - The basics of the Pulumi programming model
-        - The key components of a continuous pipeline
-        - How to build your own infrastructure CI/CD pipeline
-        - Configuring the Pulumi GitHub Actions to deploy AWS resources
+        - The basics of Pulumi for infrastructure as code
+        - The basics of LangChain and LangServe
+        - How to deploy a LangChain/LangServe application on AWS using Pulumi
 form:
-    hubspot_form_id: 33107308-f24a-47f2-bb6d-c26850491d0d
-    salesforce_campaign_id: 701PQ0000074nvmYAA
+    hubspot_form_id: 77d74e6b-c8c0-42bc-98ab-6089463b470f
+    salesforce_campaign_id: 701PQ0000074GzwYAE
 ---
