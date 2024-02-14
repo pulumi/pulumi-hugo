@@ -3,12 +3,12 @@ title: "The Present and (Near) Future of AI and Infrastructure as Code"
 allow_long_title: true
 authors: ["luke-hoban"]
 meta_desc: "The future of AI and Infrastructure as Code (IaC), for how we author and build cloud solutions and AI-driven applications"
-date: "2024-02-13T07:00:00-08:00"
+date: "2024-02-14T07:00:00-08:00"
 meta_image: "meta.png"
 tags:
-    - features
     - ai
     - llm
+    - infrastructure-as-code
 ---
 
 AI is impacting almost every industry today, and for good reason - we are seeing fundamentally new experiences being made possible across a wide variety of products, and a set of new AI capabilities that promise even more incredible change in the near future.
@@ -20,9 +20,9 @@ We’re seeing the impacts of AI in the cloud Infrastructure development space i
 * 🤖➜☁️: AI is transforming how we author, build and manage cloud infrastructure
 * ☁️➜🤖: Cloud infrastructure tooling is changing how we build and deliver AI-based applications
 
-<!--more-->
+At Pulumi, we’ve already seen profound impacts from AI in both of these directions. 
 
-At Pulumi, we’ve already seen profound impacts from AI in both directions. 
+<!--more-->
 
 Infrastructure engineers are using [Pulumi AI](/ai/) to discover solutions for cloud infrastructure needs, leading to a dynamic experience where you can generate solutions in seconds with a few simple prompts, and using tools like GitHub Copilot to quickly iterate on and test their infrastructure. 
 
@@ -38,9 +38,9 @@ The scale of the cloud is truly incredible, and the sheer size of the AWS API is
 
 As a result, one of the most fundamental challenges in enabling developers to use the cloud is helping them discover how to solve their problems using the enormous collection of available cloud infrastructure building blocks. For example, two years ago, I tried looking up how to **“deploy Metabase on Azure using managed PostreSQL and containers”** to solve a problem I was working on. I couldn’t find any content on the internet that directly answered this. Not just for Pulumi, there was no answer using any other IaC or deployment technology.
 
-![run Metabase in Azure](run-metabase-in-azure.png)
-
 AI is perfectly suited for this challenge. With [Pulumi AI](/ai/), I can ask a question and get back an answer to the exact things I’m looking for - even if that specific use case has never been answered before. Pulumi AI doesn’t always get it completely right on the first try, but it typically gets very close, and points me in the direction I’m looking for. When I try its suggestion and get errors, I can ask it to fix them to iterate to a working solution.
+
+![run Metabase in Azure](run-metabase-in-azure.png)
 
 The adoption of Pulumi AI since its release less than a year ago has been incredible, with tens of thousands of users submitting hundreds of thousands of prompts. And, perhaps surprisingly, usage hasn’t been driven only by or primarily by new Pulumi users. We’ve seen many of the most advanced Pulumi users with the deepest cloud knowledge leverage Pulumi AI the most heavily, helping them accelerate the development of new infrastructure solutions and discover more effective approaches to solving their infrastructure needs using the best of their cloud platforms.
 
@@ -56,7 +56,7 @@ Of course, it’s not enough just to have the code you need; you actually have t
 
 ### Near Future
 
-Despite the rapid progress over the last year, we’re clearly still just getting started in realizing the impact of AI on cloud infrastructure management.  
+Even with the rapid progress over the last year, we’re clearly still just getting started in realizing the impact of AI on cloud infrastructure management.  
 
 Tightening the feedback loop for tools like Pulumi AI will continue to enable AI to iterate and solve more complex cloud infrastructure challenges, and arrive at correct working solutions. And instead of asking questions and getting back code, these tools will soon be able to actually do the deployments and verify that they work. The result is a natural language interface, which can build and evolve cloud infrastructure. Even as the interface becomes natural language, Infrastructure as Code is a uniquely good “code-behind” for this because it maintains a desired state configuration for the infrastructure, which AI tools can easily iterate on and manage. The incredible pace of improvement in AI model skill and performance for writing code in particular will accrue directly into improvements here.
 
@@ -73,7 +73,7 @@ AI-based tooling will also extend well beyond just creating and managing infrast
 
 One of the biggest imperatives in almost every development organization today is to identify and invest in ways to leverage AI to improve software-based products, tools and processes. This has led, in turn, to massive growth in the need for cloud infrastructure to support and enable building and delivering these applications.
 
-One of the most striking things about modern AI-based applications is that they are significantly more cloud-native than previous generations. This is true for several reasons:
+One of the most striking things about modern AI-based applications is that they are significantly more cloud-native than previous generations of application architectures. This is true for several reasons:
 
 * Modern AI technology and services have been built around cloud-native assumptions
 * AI-based applications frequently have especially bursty compute needs
@@ -86,7 +86,7 @@ The services to support building AI applications have all been built over the la
 
 At Pulumi, we've seen [dozens of AI-focused companies](/solutions/ai/) adopting and using Pulumi to manage their infrastructure, motivated by a combination of these AI-oriented infrastructure needs, along with the ease of using Python (already heavily used within the AI space), and TypeScript (popular due to a wide variety of AI-oriented front end frameworks). Pulumi also exposes the ability to manage many of these services directly, provisioning and managing the lifecycle of AI services across your infrastructure through support for things like [Azure OpenAI Service](/registry/packages/azure-native/api-docs/cognitiveservices/deployment/), [Pinecone Indexes](/registry/packages/pinecone/api-docs/pineconeindex/), [Amazon SageMaker Endpoints](/registry/packages/aws/api-docs/sagemaker/endpoint/), and much more.
 
-As these applications move from prototypes to production, the need for robust and scalable infrastructure to deploy these applications in the major cloud platforms is essential, and IaC offers the best way to manage this at scale. For example, the production-grade infrastructure for [deploying AI applications leveraging Pinecone’s vector database at scale](https://www.pulumi.com/blog/pinecone-serverless/) highlights an AWS architecture for running an AI application in a production environment.
+As these applications move from prototypes to production, the need for robust and scalable infrastructure to deploy these applications in the major cloud platforms is essential, and IaC offers the best way to manage this at scale. For example, deploying a [LangChain application in production](/blog/easy-ai-apps-with-langserve-and-pulumi/), or deploying the production-grade infrastructure for [deploying AI applications leveraging Pinecone’s vector database at scale](https://www.pulumi.com/blog/pinecone-serverless/).  Both of these highlight ready-to-deploy cloud architectures for running an AI application in a production environment.
 
 ![Pinecone reference architecture image](/images/solutions/ai-arch/pinecone-refarch-diagram.png)
 
