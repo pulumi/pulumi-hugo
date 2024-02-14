@@ -10,9 +10,9 @@ menu:
     parent: inputs-outputs
 ---
 
-Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using {{< pulumi-apply >}}.
+Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using [`apply`](/docs/content/inputs-outputs/apply/).
 
-For example, say you want to create a URL from `hostname` and `port` output values. You can do this using `apply` and `all`.
+For example, say you want to create a URL from `hostname` and `port` output values. You can do this using `apply` and [`all`](/docs/content/inputs-outputs/all/).
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
