@@ -184,8 +184,6 @@ resources:
 
 {{% notes %}}
 _Plain value_ in this document is used to describe a standard string, boolean, integer or other typed value or data structure in your language of choice. _Plain value_ is a way of differentiating these language specific values from Pulumi's asynchronous values.
-
-Once an {{< pulumi-output >}} value has returned (generally from an API) to Pulumi, it can be used as a _plain value_. For more information, see [apply](/docs/concepts/inputs-outputs/apply/).
 {{% /notes %}}
 
 However, in most Pulumi programs, the inputs to a resource will reference values from another resource:
@@ -324,8 +322,8 @@ Outputs are values of type {{< pulumi-output >}}, which behave very much like [p
 
 Because outputs are asynchronous, their actual plain values are not immediately available. If you need to access an output’s plain value, you can do so using one of the following options:
 
-- [Apply](/docs/concepts/inputs-outputs/apply/): a callback that receives the plain value and computes a new output
-- [Lifting](/docs/concepts/inputs-outputs/lifting/): directly read the value of an output
+- [Apply](/docs/concepts/inputs-outputs/apply/): a callback that receives the plain value and computes a new output, generally used for accessing single values
+- [Lifting](/docs/concepts/inputs-outputs/lifting/): directly read the value of an output, generally used for accessing nested values
 - [Interpolation](/docs/concepts/inputs-outputs/outputs-and-strings/): concatenate string outputs with other strings
 
 ## Tracking dependencies
