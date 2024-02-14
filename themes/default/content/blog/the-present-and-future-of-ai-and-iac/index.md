@@ -2,9 +2,9 @@
 title: "The Present and (Near) Future of AI and Infrastructure as Code"
 allow_long_title: true
 authors: ["luke-hoban"]
-meta_desc: "TODO"
+meta_desc: "The future of AI and Infrastructure as Code (IaC), for how we author and build cloud solutions and AI-driven applications"
 date: "2024-02-13T07:00:00-08:00"
-meta_image: "todo.png"
+meta_image: "meta.png"
 tags:
     - features
     - ai
