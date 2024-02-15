@@ -1,5 +1,6 @@
 ---
-title: "More than Productivity: Developer Experience is Business Critical"
+title: "Beyond Productivity: Developer eXperience is Business Critical"
+allow_long_title: true
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
@@ -17,7 +18,7 @@ draft: false
 # of the content of the post, which is useful for targeting search results or
 # social-media previews. This field is required or the build will fail the
 # linter test. Max length is 160 characters.
-meta_desc:
+meta_desc: Improving developer experience does more than increase productivity and efficiency. It is crucial for business success. Here's what you need to know.
 
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
@@ -50,7 +51,7 @@ Though I have expertise in leading implementations and upgrades for internal pla
 
 ## On this DevEx Article:
 
-- What is Developer Experience?
+- [What is Developer Experience?](/blog/software-developer-experience-devex-devx-devops-culture/#what-is-developer=experience)
 - Is Developer Experience Important? Spoiler alert: it's business-critical
 - The GitHub's Developer Experience (DevEx) Formula
 - What Does a Great Developer Experience Look Like?
@@ -60,7 +61,7 @@ Though I have expertise in leading implementations and upgrades for internal pla
 - What DevEx is Not
 - Frequently Asked Questions
 
-## What is Developer Experience?
+## What is Developer Experience
 
 Developer experience (DevEX), also referred to as DevX or DX, encompasses systems, technology, processes, and culture that collectively impact the effectiveness of software development. It looks at all components of a developer's ecosystem—from environment to workflows to tools—and evaluates how they contribute to developer productivity, satisfaction, and operational impact.
 
@@ -68,7 +69,7 @@ Developer experience revolves around the ease or difficulty of executing essenti
 
 The quality of the experience is equally vital for developers building and managing internal software as it is for those involved in developing customer-facing software products.
 
-## Is Developer Experience Important?
+## Is Developer Experience Important
 
 It is not just important. **It's business critical.** If your company is in the business of creating and selling software or relies on critical internal software, developers are vital internal stakeholders to your business foundation.
 
@@ -111,7 +112,7 @@ Noah Gift, the founder of Pragmatic AI Labs and a professor at Duke University s
 
 Merely having skilled developers is insufficient. Developers also require the appropriate tools and processes to excel in their work. Top-tier developers anticipate the availability of such resources, influencing the hiring and retention of talent.
 
-## What Does a Great Developer Experience Look Like?
+## What Does a Great Developer Experience Look Like
 
 Engineering teams that have good developer experiences are more productive and efficient. Great DevEx is often enabled by a platform where the end-users are the developers.
 
@@ -125,7 +126,7 @@ Engineering teams that have good developer experiences are more productive and e
 
 Without the proper tools, progress may slow down the development process and hinder developer productivity. It becomes crucial to implement appropriate measures to avoid disruptions that could impact everyone involved, including the developers themselves. Although not often mentioned, [DevOps](https://www.pulumi.com/what-is/what-is-devops/) and [Platform Engineering](https://www.pulumi.com/what-is/what-is-platform-engineering/) also aim to enhance the Developer Experience and achieve the associated benefits.
 
-## How Does DevEx Intersect with DevOps?
+## How Does DevEx Intersect with DevOps
 
 DevOps is about developers and operations working together and sharing values, assumptions, and responsibility for the software they build and maintain.
 
@@ -219,8 +220,7 @@ Now that DevEx has been defined let's address some common misconceptions about d
 
 **DevEx is not about enabling lazy developers**: part of the DevEX strategy is to retain talent. Companies that invest in DevEx don't do it to pamper developers. The true reason behind it is that they want their developers to stay "in the zone," also known as "deep work." When in this state, they are immersed in writing code and solving problems they enjoy working on, and their creativity is higher, it sparks innovative ideas, and the quality and speed of their output are also higher.
 
-{{< figure alt="cartoon of a programmer working, getting in the zone, full of ideas and problem-solving, then getting interrupted and losing it all. This is why you shouldn't interrupt a programmer, cartoon by Jason Heeris" src="./blog/software-developer-experience-devex-devx-devops-culture/dont-interrupt-a-programmer-jason-heeris.jpg" width=50%  caption="Developers feel happy at work when they are "in the zone" Credit: Jason Heeris" >}}
-
+{{< youtube "NbhpII8DIKA?rel=0" >}}
 
 **DevEx is not about implementing AI and other cool tools**: technology impacts developer experience, [a robust generative AI tool can help create code faster](https://www.pulumi.com/ai), and internal developer platforms can help reduce cognitive load on developers. But again, tooling is only one aspect of it. Tools can't fix culture or replace processes. Many DevEx considerations should be considered to ensure that when the development teams adopt a tool, it addresses their pain points and enables developers.
 
