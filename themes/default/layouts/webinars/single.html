@@ -30,7 +30,9 @@
 
                 <div class="flex flex-col lg:flex-row">
                     <div class="mx-auto w-full lg:w-1/2 mb-4">
-                        {{ partial "events/timing-info.html" (dict "datetime" .Params.main.sortable_date "duration" .Params.main.duration) }}
+                        {{ if not .Params.main.youtube_url }}
+                            {{ partial "events/timing-info.html" (dict "datetime" .Params.main.sortable_date "duration" .Params.main.duration) }}
+                        {{ end }}
                         {{ partial "events/summary.html" (dict "description" .Params.main.description "learn" .Params.main.learn) }}
                     </div>
 
