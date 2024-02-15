@@ -557,7 +557,7 @@ var policyWithNoStatements = Pulumi.Output.JsonDeserialize<IAMPolicy>(jsonIAMPol
 })
 ```
 
-For more details [view the .NET documentation](/docs/reference/pkg/dotnet/Pulumi/Pulumi.Output.html)
+For more details [view the .NET documentation](/docs/reference/pkg/dotnet/Pulumi/Pulumi.Output.html).
 
 {{% /choosable %}}
 
