@@ -176,14 +176,16 @@ Using the same example server and database resources and their corresponding out
 const pulumi = require("@pulumi/pulumi");
 // ...
 
-const connectionDetails1 = pulumi.all([sqlServer.ipAddress, database.port])
+// An example of creating a new Output of type Object
+const connectionDetails = pulumi.all([sqlServer.ipAddress, database.port])
     .apply(([serverIp, databasePort]) => ({
         server_ip: serverIp,
         database_port: databasePort,
     })
 );
 
-const connectionDetails2 = pulumi.all([server.ipAddress, database.port])
+// An example of creating a new Output of type Array
+const connectionDetails = pulumi.all([server.ipAddress, database.port])
     .apply(([ip, port]) => [ip, port]);
 ```
 
@@ -195,7 +197,8 @@ const connectionDetails2 = pulumi.all([server.ipAddress, database.port])
 import * as pulumi from "@pulumi/pulumi";
 // ...
 
-let connectionDetails1 = pulumi.all([server.ipAddress, database.port])
+// An example of creating a new Output of type Dictionary
+let connectionDetails = pulumi.all([server.ipAddress, database.port])
     .apply(([ip, port]) => {
         return {
             serverIp: ip,
@@ -204,7 +207,8 @@ let connectionDetails1 = pulumi.all([server.ipAddress, database.port])
     }
 );
 
-let connectionDetails2 = pulumi.all([server.ipAddress, database.port])
+// An example of creating a new Output of type Array
+let connectionDetails = pulumi.all([server.ipAddress, database.port])
     .apply(([ip, port]) => {
         return [ip, port];
     }
@@ -219,13 +223,15 @@ let connectionDetails2 = pulumi.all([server.ipAddress, database.port])
 from pulumi import Output
 # ...
 
-connection_details1 = Output.all(sql_server.ipAddress, database.port) \
+# An example of creating an Output of type Dict
+connection_details = Output.all(sql_server.ipAddress, database.port) \
     .apply(lambda args: {
         "server_ip": args[0],
         "database_port": args[1]
     })
 
-connection_details2 = Output.all(sql_server.ipAddress, database.port) \
+# An example of creating an Output of type List
+connection_details = Output.all(sql_server.ipAddress, database.port) \
     .apply(lambda args: [args[0], args[1]])
 ```
 
@@ -236,7 +242,8 @@ connection_details2 = Output.all(sql_server.ipAddress, database.port) \
 ```go
 // ...
 
-connectionDetails1 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
+// An example of creating an Output of type Map
+connectionDetails := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
     func(args []interface{}) map[string]interface{} {
     	ipAddress := args[0].(string)
 		port := args[1].(string)
@@ -247,7 +254,8 @@ connectionDetails1 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
     }
 )
 
-connectionDetails2 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
+// An example of creating an Output of type Array
+connectionDetails := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
     func(args []interface{}) []interface{} {
 		return args
 	}).(pulumi.ArrayOutput)
@@ -260,7 +268,8 @@ connectionDetails2 := pulumi.All(sqlServer.IpAddress, database.Port).ApplyT(
 ```csharp
 //...
 
-var connectionDetails1 = Output.All(sqlServer.IpAddress, database.Port).Apply(values =>
+// An example of creating an Output of type Dictionary
+var connectionDetails = Output.All(sqlServer.IpAddress, database.Port).Apply(values =>
 {
     var ipAddress = values[0];
     var port = values[1];
@@ -271,7 +280,8 @@ var connectionDetails1 = Output.All(sqlServer.IpAddress, database.Port).Apply(va
     };
 });
 
-var connectionDetails2 = Output.All(sqlServer.IpAddress, database.Port).Apply(values =>
+// An example of creating an Output of type List
+var connectionDetails = Output.All(sqlServer.IpAddress, database.Port).Apply(values =>
 {
     var ipAddress = values[0];
     var port = values[1];
@@ -286,12 +296,13 @@ var connectionDetails2 = Output.All(sqlServer.IpAddress, database.Port).Apply(va
 ```java
 // ...
 
-var connectionDetails1 = Output.tuple(sqlServer.ipAddress(), database.port())
+// An example of creating an Output of type Map
+var connectionDetails = Output.tuple(sqlServer.ipAddress(), database.port())
     .applyValue(t -> Map.of("ServerIp", t.t1, "DatabasePort", t.t2));
 
+// An example of creating an Output of type List
 var connectionDetails2 = Output.tuple(sqlServer.ipAddress(), database.port())
     .applyValue(t -> List.of(t.t1, t.t2));
-
 ```
 
 {{% /choosable %}}

@@ -687,7 +687,7 @@ Duration: 12s
 
 We can now see the value of the VPC ID property that we couldn't see before when using a regular `print | log` statement.
 
-## Creating new output values
+### Creating new output values
 
 The {{< pulumi-apply >}} method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
