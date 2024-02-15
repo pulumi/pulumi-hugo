@@ -7,7 +7,7 @@ meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
     identifier: inputs-outputs
-    weight: 1
+    weight: 5
 aliases:
     - /docs/reference/inputs-outputs/
     - /docs/intro/concepts/inputs-outputs/

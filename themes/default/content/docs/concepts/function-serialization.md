@@ -11,7 +11,7 @@ keywords:
 - pulumi sdk
 menu:
   concepts:
-    weight: 16
+    weight: 14
 aliases:
 - /docs/reference/serializing-functions/
 - /docs/tutorials/aws/serializing-functions/

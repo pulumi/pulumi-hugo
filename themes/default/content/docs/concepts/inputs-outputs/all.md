@@ -10,13 +10,11 @@ menu:
     parent: inputs-outputs
 ---
 
-## Overview
-
 If you need to access and use multiple outputs together, the `all` function acts like an [`apply`](/docs/concepts/inputs-outputs/apply/) across many resources, allowing you to retrieve and use multiple outputs at the same time. The `all` function waits for all output values to become available and then provides them as _plain values_ to the {{< pulumi-apply >}} function.
 
 This can be used to compute an entirely new output value, such as creating a new string by adding or concatenating outputs from two different resources together, or by creating a new data structure that uses their values. Just like with `apply`, the result of `all` is itself an Output<T>.
 
-### Creating a new string
+## Creating a new string
 
 To demonstate, let’s say we have created a server resource and a database resource, and their Output values are as follows:
 
@@ -161,7 +159,7 @@ The `all` function works by returning an output that represents the combination 
 Server=tcp:myDbServer.database.windows.net;initial catalog=myExampleDatabase
 ```
 
-### Creating a new data structure
+## Creating a new data structure
 
 In addition to strings, the `all` function can also be used to create new data structures such as:
 

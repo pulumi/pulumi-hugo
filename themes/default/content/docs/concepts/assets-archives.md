@@ -6,7 +6,7 @@ h1: Assets & archives
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
-    weight: 15
+    weight: 13
 aliases:
 - /docs/intro/concepts/assets-archives/
 - /docs/concepts/inputs-outputs/assets-archives/
