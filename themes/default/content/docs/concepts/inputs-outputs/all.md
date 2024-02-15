@@ -166,7 +166,7 @@ In addition to strings, the `all` function can also be used to create new data s
 - Lists | Arrays | Slices
 - Dicts | Objects | Maps
 
-Using the same example server and database resources and their corresponding output values, you can see this demonstrated in the below example:
+Using the same example server and database resources and their corresponding output values, you can see this demonstrated in the example below:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
