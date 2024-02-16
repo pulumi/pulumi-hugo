@@ -9,9 +9,9 @@
             Event Speakers
         </span>
     </div>
-    <div class="w-full md:w-1/2 lg:w-2/3 flex flex-col lg:flex-row">
+    <div class="w-full md:w-1/2 lg:w-2/3 flex flex-col lg:flex-row flex-wrap">
         {{ range $presenter := .presenters }}
-            <div class="w-full mb-2 lg:w-1/2 lg:mb-0 flex flex-row">
+            <div class="w-full my-2 lg:w-1/2 flex flex-row">
                 {{ $photo := "" }}
                 {{ if not $presenter.photo }}
                     <!-- randomly choose placeholder pulumipus avatar if no photo is set -->
