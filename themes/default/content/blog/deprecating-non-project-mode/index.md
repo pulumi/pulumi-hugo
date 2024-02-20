@@ -31,7 +31,7 @@ The first phase of this deprecation has already been released. When opening a DI
 
 ## Phase 2 - Soft error
 
-In a few months we plan to make this a soft error. Opening a state store in non-project mode will result in an error like:
+In 2-3 months we plan to make this a soft error. Opening a state store in non-project mode will result in an error like:
 
 ```
 error: Legacy non-project mode support for DIY backends are due to be deprecated this year.
@@ -43,7 +43,7 @@ Note that this is an error. Without the new environment variable set this will c
 
 ## Phase 3 - Hard error
 
-A few months after that this will become a hard error.
+2-3 months after that this will become a hard error.
 
 ```
 error: Legacy non-project mode support for DIY backends are deprecated.
@@ -54,7 +54,7 @@ There will be no way to skip this error. Users on this version of the CLI _must_
 
 ## Phase 4 - Removal of feature
 
-A few months after that all support for non-project mode will be removed. This will include the capability in the CLI to do a state upgrade from non-project mode.
+2-3 months after that all support for non-project mode will be removed. This will include the capability in the CLI to do a state upgrade from non-project mode.
 
 ```
 error: Legacy non-project mode support for DIY backends are unsupported.
@@ -64,4 +64,4 @@ If users encounter this error they'll have to download an older version of the C
 
 ## Take action today
 
-Support for project mode has been in Pulumi since v3.61.0. Most users should have no issue running `pulumi state upgrade` today. If you do have issues moving to project mode or running `state upgrade` get in touch either via [GitHub issues](https://github.com/pulumi/pulumi/issues) or on the [Pulumi Community Slack](https://slack.pulumi.com/)!
+Support for project mode has been in Pulumi since v3.61.0. Users should have no issue running `pulumi state upgrade` today. If you do have issues moving to project mode or running `state upgrade` get in touch either via [GitHub issues](https://github.com/pulumi/pulumi/issues) or on the [Pulumi Community Slack](https://slack.pulumi.com/)!
