@@ -106,9 +106,9 @@ Optimizing DevEx involves fostering a collaborative environment where developers
 
 Noah Gift, the founder of Pragmatic AI Labs and a professor at Duke University specializing in machine learning, MLOps, AI, data science, and cloud architecture, noted that with the right platform, there could be:
 
-- A 75% increase in productivity.
-- A sustained 22% productivity increase three years later.
-- An 80% reduction in onboarding time.
+- A 75% increase in productivity
+- A sustained 22% productivity increase three years later
+- An 80% reduction in onboarding time
 
 Merely having skilled developers is insufficient. Developers also require the appropriate tools and processes to excel in their work. Top-tier developers anticipate the availability of such resources, influencing the hiring and retention of talent.
 
