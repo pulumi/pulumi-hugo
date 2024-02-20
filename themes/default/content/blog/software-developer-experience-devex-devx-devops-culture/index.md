@@ -1,5 +1,5 @@
 ---
-title: "Beyond Productivity: Developer eXperience is Business Critical"
+title: "Beyond Productivity: Developer Experience is Business Critical"
 allow_long_title: true
 
 # The date represents the post's publish date, and by default corresponds with
@@ -23,7 +23,7 @@ meta_desc: Improving developer experience does more than increase productivity a
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
 # ratio has been provided for you.
-meta_image: meta.png
+meta_image: "/developer-experience-devex-business-value-business-critical.png"
 
 # At least one author is required. The values in this list correspond with the
 # `id` properties of the team member files at /data/team/team. Create a file for
@@ -45,15 +45,15 @@ tags:
 
 "Developer Experience is hard to sell," said Cleve Littlefield, Engineering Manager at Pulumi, during a casual meeting. With experience as both an end-user developer and a lead in self-service platform implementation, Cleve's observation stuck with me.
 
-Though I have expertise in leading implementations and upgrades for internal platforms, none were specifically for developers. Regardless, the importance of experience remains consistent across departments. I find it curious that the engineering teams may perceive its value differently. Therefore, we will dive into the concept of Developer Experience, aka DevEX, which, in truth, should translate into a competitive advantage.
+Though I have expertise in leading implementations and upgrades for internal platforms, none were specifically for developers. However, experience remains vital across departments, addressing tools, processes, and best practices, to reduce cognitive load, enhance collaboration, and boost communication. This contributes to high employee engagement and productivity, which to the company translates into a competitive advantage. It's intriguing that engineering teams may perceive this differently. Therefore, we will dive into the concept of Developer Experience, aka DevEX.
 
 <!--more-->
 
-## On this DevEx Article:
+## In this DevEx Article:
 
 - [What is Developer Experience?](/blog/software-developer-experience-devex-devx-devops-culture/#what-is-developer=experience)
-- [Is Developer Experience Important?](/blog/software-developer-experience-devex-devx-devops-culture/#is-developer-experience-important) Spoiler alert: it's business-critical
-- [The GitHub's Developer Experience (DevEx) Formula](/blog/software-developer-experience-devex-devx-devops-culture/#the-githubs-developer-experience-devex-formula)
+- [Is Developer Experience Important?](/blog/software-developer-experience-devex-devx-devops-culture/#is-developer-experience-important) (Spoiler alert: it's business-critical)
+- [The GitHub Developer Experience (DevEx) Formula](/blog/software-developer-experience-devex-devx-devops-culture/#the-github-developer-experience-devex-formula)
 - [What Does a Great Developer Experience Look Like?](/blog/software-developer-experience-devex-devx-devops-culture/#what-does-a-great-developer-experience-look-like)
 - [How Does DevEx Intersect with DevOps?](/blog/software-developer-experience-devex-devx-devops-culture/#how-does-devex-intersect-with-devops)
 - [Organizational Culture is a Predictor of Outcome Success](/blog/software-developer-experience-devex-devx-devops-culture/#organizational-culture-is-a-predictor-of-outcome-success)
@@ -92,7 +92,7 @@ A positive developer experience can yield numerous business advantages, which ca
 
 To this end, let's look into what goes into developer experience and how to achieve it.
 
-## The GitHub's Developer Experience (DevEx) Formula
+## The GitHub Developer Experience (DevEx) Formula
 
 GitHub's DevEx formula takes into consideration the following:
 
@@ -148,10 +148,10 @@ According to George Spafford, Senior Director Analyst at Gartner, "Infrastructur
 
 According to a Harvard study encompassing 200 companies over 11 years, companies that focused on shaping their culture outperformed their competitors:
 
-- Revenue growth was 4.1 times higher,
-- The stock price was 12.2 times higher,
-- [Net income](https://www.investopedia.com/terms/n/netincome.asp) was 756% vs. 1%,
-- [Return on investment (ROI)](https://www.investopedia.com/terms/r/returnoninvestment.asp) was 15 times higher.
+- Revenue growth was 4.1 times higher
+- The stock price was 12.2 times higher
+- [Net income](https://www.investopedia.com/terms/n/netincome.asp) was 756% vs. 1%
+- [Return on investment (ROI)](https://www.investopedia.com/terms/r/returnoninvestment.asp) was 15 times higher
 
 The driving force behind this exceptional financial performance is that engaged employees are prone to increased productivity, fostering superior innovation and more effective problem-solving.
 
@@ -173,40 +173,42 @@ You will need to understand how developers work, the developer workflow, what th
 
 ### Cultivate a DevOps Culture
 
-- **Shared Responsibility**: Encourage a culture of shared responsibility where developers, operations, and other stakeholders work collaboratively.
-- **Continuous Learning**: Promote a culture of continuous learning and improvement to adapt to evolving technologies and methodologies.
-- **Open Communication**: Foster open communication channels to enhance collaboration and transparency among team members.
-- **Company-wide Collaboration Tools**: It's essential to encourage communication among developers and cross-functional teams to stimulate creativity, spark innovation, and enhance productivity and the speed of decision-making. Cross-functional collaboration contributes to successful business outcomes.
+- **Shared Responsibility**: Encourage a culture of shared responsibility where developers, operations, and other stakeholders work collaboratively
+- **Continuous Learning**: Promote a culture of continuous learning and improvement to adapt to evolving technologies and methodologies
+- **Open Communication**: Foster open communication channels to enhance collaboration and transparency among team members
+- **Company-wide Collaboration Tools**: It's essential to encourage communication among developers and cross-functional teams to stimulate creativity, spark innovation, and enhance productivity and the speed of decision-making. Cross-functional collaboration contributes to successful business outcomes
 
 ### Define Clear Objectives
 
-- **Alignment with Business Goals**: Ensure DevEx objectives align with business goals to drive meaningful outcomes.
-- **User-Centric Approach**: Prioritize user needs and feedback, shaping the DevEx strategy around the actual experiences of developers.
+- **Alignment with Business Goals**: Ensure DevEx objectives align with business goals to drive meaningful outcomes
+- **User-Centric Approach**: Prioritize user needs and feedback, shaping the DevEx strategy around the actual experiences of developers
 
 ### Leverage Developer-first Tools
 
-- [**Internal Developer Portals (IDPs)**](https://www.pulumi.com/blog/building-developer-portals/): IDPs enable developers to quickly provision approved infrastructure, boosting productivity with pre-configured architectures, automated testing, and deployment adhering to organizational standards.
-- **CI Pipelines**: usually, pipelines can be made faster and more unified. If they have a microservice architecture, they are likely duplicating pipeline code for every service.
-- [**Software Development Kits (SDKs)**](https://www.pulumi.com/docs/languages-sdks/): SDKs are integral components of a positive DevEx and provide developers with tools that facilitate crafting applications tailored to specific platforms or frameworks. Offering easy-to-access, well-designed, functional SDKs can make a meaningful difference in helping engineers quickly prototype ideas and refine their creations.
-- [**Infrastructure as Code (IaC)**](https://www.pulumi.com/docs/pulumi-cloud/): Developers like to write code, particularly in their preferred programming language, provision infrastructure, ensuring consistency and reproducibility.
-- **Monitoring and Observability**: Implement effective monitoring and observability tools (e.g., Prometheus, [New Relic](https://www.pulumi.com/resources/observability-as-code-with-new-relic/), Grafana) to gain insights into application performance and proactively address issues.
-- **Collaborative Documentation Platforms**: Use collaborative documentation platforms to document code, processes, and best practices, ensuring knowledge sharing and reducing onboarding friction.
+- [**Internal Developer Portals (IDPs)**](https://www.pulumi.com/blog/building-developer-portals/): IDPs enable developers to quickly provision approved infrastructure, boosting productivity with pre-configured architectures, automated testing, and deployment adhering to organizational standards
+- **CI Pipelines**: usually, pipelines can be made faster and more unified. If they have a microservice architecture, they are likely duplicating pipeline code for every service
+- [**Software Development Kits (SDKs)**](https://www.pulumi.com/docs/languages-sdks/): SDKs are integral components of a positive DevEx and provide developers with tools that facilitate crafting applications tailored to specific platforms or frameworks. Offering easy-to-access, well-designed, functional SDKs can make a meaningful difference in helping engineers quickly prototype ideas and refine their creations
+- [**Infrastructure as Code (IaC)**](https://www.pulumi.com/docs/pulumi-cloud/): Developers like to write code, particularly in their preferred programming language, provision infrastructure, ensuring consistency and reproducibility
+- **Monitoring and Observability**: Implement effective monitoring and observability tools (e.g., Prometheus, [New Relic](https://www.pulumi.com/resources/observability-as-code-with-new-relic/), Grafana) to gain insights into application performance and proactively address issues
+- **Collaborative Documentation Platforms**: Use collaborative documentation platforms to document code, processes, and best practices, ensuring knowledge sharing and reducing onboarding friction
+
+{{< figure alt="Platform Engineering Forrester Opportunity Snapshot - which of the following steps has your org take to improve the developer experience? Top 43% internal developer platform or platform engineering Credit: Humanitec" src="/blog/software-developer-experience-devex-devx-devops-culture/steps-to-improve-developer-experience.jpg" width=70%  caption="Platform Engineering Forrester Opportunity Snapshot - Which of the following steps organizations are taking to improve DevEx? Credit: Humanitec" >}}
 
 ### Prioritize Developer-Friendly Workflows
 
-- **Fast Feedback Loops**: Minimize feedback loops by integrating quick feedback mechanisms, allowing developers to identify and resolve issues early in the development cycle.
-- **Self-Service Environments**: Provide developers with self-service environments to facilitate experimentation, testing, and debugging without unnecessary dependencies on other teams.
-- **Version Control Best Practices**: Enforce version control best practices to maintain a clean and organized codebase, allowing for easier collaboration and tracking of changes.
+- **Fast Feedback Loops**: Minimize feedback loops by integrating quick feedback mechanisms, allowing developers to identify and resolve issues early in the development cycle
+- **Self-Service Environments**: Provide developers with self-service environments to facilitate experimentation, testing, and debugging without unnecessary dependencies on other teams
+- **Version Control Best Practices**: Enforce version control best practices to maintain a clean and organized codebase, allowing for easier collaboration and tracking of changes
 
 ### Continuous Integration of Feedback
 
-- **Developer Surveys**: Conduct regular surveys to gather feedback on the DevEx, ensuring continuous improvement based on real user experiences.
-- **Rapid Iteration**: Encourage a culture of rapid iteration, where feedback is quickly incorporated into the development process to enhance the overall developer experience.
+- **Developer Surveys**: Conduct regular surveys to gather feedback on the DevEx, ensuring continuous improvement based on real user experiences
+- **Rapid Iteration**: Encourage a culture of rapid iteration, where feedback is quickly incorporated into the development process to enhance the overall developer experience
 
 ### Measure and Optimize
 
-- **Key Performance Indicators (KPIs)**: Define and track key metrics such as deployment frequency, lead time, and mean time to recovery to measure the effectiveness of the DevEx strategy.
-- **Iterative Optimization**: Continuously iterate and optimize DevEx based on performance metrics and user feedback.
+- **Key Performance Indicators (KPIs)**: Define and track key metrics such as deployment frequency, lead time, and mean time to recovery to measure the effectiveness of the DevEx strategy
+- **Iterative Optimization**: Continuously iterate and optimize DevEx based on performance metrics and user feedback
 
 Implementing Developer Experience requires a holistic approach that blends cultural aspects with powerful DevOps and platform engineering tools. Watch Daniel Tao, Head of Engineering at [Atlassian](https://www.pulumi.com/case-studies/atlassian/), and Sven Peters, developer evangelist, discuss how to build a great developer experience through culture and an integrated approach to developer tools.
 
@@ -226,7 +228,7 @@ Part of the DevEX strategy is to retain talent. Companies that invest in DevEx d
 
 {{< youtube "NbhpII8DIKA?rel=0" >}}
 
-## DevEx Is Not about Implementing AI and Cool Tools
+### DevEx Is Not about Implementing AI and Cool Tools
 
 Technology impacts developer experience, [a robust generative AI tool can help create code faster](https://www.pulumi.com/ai), and internal developer platforms can help reduce cognitive load on developers. But again, tooling is only one aspect of it. Tools can't fix culture or replace processes. Many DevEx considerations should be considered to ensure that when the development teams adopt a tool, it addresses their pain points and enables developers.
 
@@ -241,12 +243,16 @@ Developer Experience (DevEx) is essential for creating maximum output while incr
 By dedicating attention to improving the DevEx, companies will also be able to bring more talent aboard, reduce their "Time to First Contribution," enable developers to provide higher output contributions and improve talent retention. It's time to start focusing on superior developer experiences.
 
 - Join the [Developer Infrastructure workshop with Pulumi and Okteto](https://www.pulumi.com/resources/developer-infrastructure-with-pulumi-and-okteto/). Perfect for those looking to streamline their development process and foster better team collaboration.
-- [The Pulumi 'Push to start' GitOps Experience](https://www.pulumi.com/blog/pulumi-developer-workflow/)
-- What else....
+- Read [The Pulumi 'Push to start' GitOps Experience](https://www.pulumi.com/blog/pulumi-developer-workflow/)
+- Discover [Pulumi for Platform Teams: New Features for Developer Portals, Policy and Deployments](https://www.pulumi.com/blog/developer-portal-platform-teams/)
 
 ---
 
 ## Frequently Asked Questions
+
+### What does Business Critical mean?
+
+Business critical means essential for a business to operate and be successful. It refers to business processes, systems, or activities that are considered essential for proper functioning, success, or survival. If these elements are disrupted or compromised, the impact can significantly affect its operations, financial health, or overall business objectives. Business-critical components are often prioritized for attention, protection, and resource allocation to ensure the organization's continued effectiveness, stability and to remain competitive.
 
 ### What is the role of a Developer Experience Engineer (DXE)?
 
@@ -258,6 +264,6 @@ The importance of DevEx's human element is now in focus. A productive and effect
 
 Here are some steps to build a developer community: open communication needs to become standard, successes should consistently be recognized, and avenues for growth need to exist. Diversity and acceptance are significant. Task expectations should be attainable goals and set high enough not to compromise quality but not realistic so they can be achieved without burnout and unbalanced life routines.
 
-## How does technology impact developer experience?
+### How does technology impact developer experience?
 
 Technological advancements continue to change software development and impact the Developer experience. AI, ML, TDD, and internal developer platforms are some of these technologies that help reduce developers' cognitive load. They automate complex tasks for more accuracy and enable intelligent decision-making. Besides this, generative AI has come into play in creating higher-quality code faster. At the same time, GitOps is a management approach based on one source of truth - Git, which makes collaboration smoother & boosts productivity by allowing automation. All these things undoubtedly improve the DX substantially for any developer out there!
