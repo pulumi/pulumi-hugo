@@ -118,6 +118,50 @@ Stacks have associated metadata in the form of name/value [stack tags](/docs/con
 
 ## Examples
 
+### Monorepo with a single project
+
+Using a single project for your entire infrastructure and stacks for each of your environments is a common starting place for most teams. In this example, we organize unique stacks to represent the phases of your development lifecycle, such as `dev`, `staging`, and `prod` or feature branches such as `feature-x-dev`.  Each stack allows for similar infrastructure with flexibility for separate configurations. This is useful when you want your staging environment to be the same as production, but you can have dev stacks with lower-cost resources, or alternative configurations such as dev API keys.
+
+{{% notes type="info" %}}
+TODO: Add note about access control on projects
+{{% /notes %}}
+
+The use of modules will help in organizing your infrastructure into manageable, logical components. This organization makes your code easier to understand, maintain, and reuse. Modules are logical groupings of resources that serve a specific purpose or represent a specific cloud service (e.g., networking, databases). For example, you might have a `network` module for setting up your VPC and subnets, and a `database` module for provisioning your databases. 
+
+Depending on the complexity of your solution, you can also implement sub-modules for further organization and abstraction of your infrastructure components. Here are some scenarios when you might use sub-modules:
+
+* **Complex components:** When a module grows too large or complex, breaking it down into sub-modules can help manage this complexity. For example, a network module might be split into sub-modules like `vpc`, `subnet`, and `securityGroups`.
+* **Reusable components:** If certain components within a module are reusable across different projects or stacks, you can isolate these components into sub-modules. This isolation makes it easier to reuse and version these components.
+* **Team Collaboration:** In larger teams, sub-modules allow different team members to work on separate components without stepping on each other's toes. It provides a clear boundary of responsibilities.
+
+```bash
+my-project/
+├── Pulumi.yaml
+├── main.ts
+├── package.json
+├── tsconfig.json
+├── node_modules/
+├── components/         // Reusable components as submodules
+│   ├── application     // Application components
+│   ├── networking      // Networking components
+│       ├── vpc
+│       ├── subnets
+│       └── securitygroups
+│   └── database        // Database components
+└── environments/       // Environment-specific configurations
+    ├── dev/
+    │   ├── index.ts    // Stack configuration for `dev` environment
+    │   └── Pulumi.dev.yaml
+    ├── staging/
+    │   ├── index.ts    // Stack configuration for `staging` environment
+    │   └── Pulumi.staging.yaml
+    └── prod/
+        ├── index.ts    // Stack configuration for `prod` environment
+        └── Pulumi.prod.yaml
+```
+
+
+
 ### Monorepo with base infrastructure project
 
 Let's build an example of an organizational setup that leverages several different approaches to provide the most functionality and flexibility possible.
