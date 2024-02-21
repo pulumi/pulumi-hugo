@@ -60,12 +60,9 @@ main:
     presenters:
         - name: Engin Diri
           role: Sr. Solutions Architect, Pulumi
-<<<<<<< HEAD
+          photo: /images/team/engin-diri.jpg
         - name: Lance Martin
           role: Software Engineer, LangChain
-=======
-          photo: /images/team/engin-diri.jpg
->>>>>>> f74eeb2b1 (update old resources to match new)
 
     # case-sensitive
     tags:

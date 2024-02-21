@@ -58,19 +58,11 @@ main:
 
     # The webinar presenters
     presenters:
-<<<<<<< HEAD
-        - name: Kat Morgan
-          role: Sr. Community Engineer, Pulumi
-        - name: Lance Martin
-          role: Software Engineer, LangChain
-=======
-        - name: Scott Lowe
-          role: Principal Technical Content Engineer, Pulumi
-          photo: /images/team/scott-lowe.jpg
         - name: Kat Morgan
           role: Sr. Community Engineer, Pulumi
           photo: /images/team/kat-morgan.jpg
->>>>>>> f74eeb2b1 (update old resources to match new)
+        - name: Lance Martin
+          role: Software Engineer, LangChain
 
     # case-sensitive
     tags:
