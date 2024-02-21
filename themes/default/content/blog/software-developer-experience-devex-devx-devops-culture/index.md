@@ -45,7 +45,7 @@ tags:
 
 "Developer Experience is hard to sell," said Cleve Littlefield, Engineering Manager at Pulumi, during a casual meeting. With experience as both an end-user developer and a lead in self-service platform implementation, Cleve's observation stuck with me.
 
-Though I have expertise in leading implementations and upgrades for internal platforms, none were specifically for developers. Regardless, the importance of experience remains consistent across departments. I find it curious that the engineering teams may perceive its value differently. Therefore, we will dive into the concept of Developer Experience, aka DevEX, which, in truth, should translate into a competitive advantage.
+Though I have expertise in leading implementations and upgrades for internal platforms, none were specifically for developers. However, experience remains vital across departments, addressing tools, processes, systems, and best practices, aiming to reduce cognitive load, increase productivity, enhance collaboration, boost communication and much more. Yet, engineering teams may perceive its value differently. Therefore, we will dive into the concept of Developer Experience, aka DevEX, which, in truth, should translate into a competitive advantage.
 
 <!--more-->
 
