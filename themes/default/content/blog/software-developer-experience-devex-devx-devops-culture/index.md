@@ -96,9 +96,9 @@ To this end, let's look into what goes into developer experience and how to achi
 
 GitHub's DevEx formula takes into consideration the following:
 
-- Productivity: The speed and simplicity of implementing changes to a codebase.
-- Impact: The seamless transition from idea to production without obstacles.
-- Satisfaction: The environment, workflows, and tools influence developer happiness.
+- Productivity: The speed and simplicity of implementing changes to a codebase
+- Impact: The seamless transition from idea to production without obstacles
+- Satisfaction: The environment, workflows, and tools influence developer happiness
 
 Optimizing DevEx involves fostering a collaborative environment where developers can be most productive, impactful, and satisfied.
 
@@ -116,11 +116,11 @@ Merely having skilled developers is insufficient. Developers also require the ap
 
 Engineering teams that have good developer experiences are more productive and efficient. Great DevEx is often enabled by a platform where the end-users are the developers.
 
-- Developer-first readily available [internal developer platform](https://www.pulumi.com/product/internal-developer-platforms/), infrastructure, and development tooling, with well-organized and explicit documentation, including tutorials, demo environments, and curated learning paths.
-- A unified hub for all developer requirements eliminates the need for developers to navigate through numerous tools, saving valuable time.
-- Simplified workflows emerge when developers can swiftly select app patterns, such as API microservices or front-end journeys, and deploy them within minutes. This includes all-encompassing elements like environments, pre-integrated DevSecOps pipelines, monitoring, and fully automated change and release procedures.
-- Centralized tracking of software, API, and infrastructure status and versions promotes asset transparency. A real-time view supports adherence to architectural standards, security controls, and patching status, with bots offering automatic suggestions for code enhancements related to issues.
-- Integrated analytics and KPIs such as developer velocity, tech debt, error rate, mean time to recovery, and infrastructure cost can be automatically pulled by standard organizational tools, including backlog, pipeline, and monitoring tools.
+- Developer-first readily available [internal developer platform](https://www.pulumi.com/product/internal-developer-platforms/), infrastructure, and development tooling, with well-organized and explicit documentation, including tutorials, demo environments, and curated learning paths
+- A unified hub for all developer requirements eliminates the need for developers to navigate through numerous tools, saving valuable time
+- Simplified workflows emerge when developers can swiftly select app patterns, such as API microservices or front-end journeys, and deploy them within minutes. This includes all-encompassing elements like environments, pre-integrated DevSecOps pipelines, monitoring, and fully automated change and release procedures
+- Centralized tracking of software, API, and infrastructure status and versions promotes asset transparency. A real-time view supports adherence to architectural standards, security controls, and patching status, with bots offering automatic suggestions for code enhancements related to issues
+- Integrated analytics and KPIs such as developer velocity, tech debt, error rate, mean time to recovery, and infrastructure cost can be automatically pulled by standard organizational tools, including backlog, pipeline, and monitoring tools
 
 {{< figure alt="Survey by GitHub on a typical experience for developers. Credit: GitHub" src="/blog/software-developer-experience-devex-devx-devops-culture/github-study-what-developers-spend-themost-time-on-daily.png" width=60%  caption="Survey by GitHub on a typical experience for developers. Credit: GitHub" >}}
 
@@ -242,7 +242,7 @@ Developer Experience (DevEx) is essential for creating maximum output while incr
 
 By dedicating attention to improving the DevEx, companies will also be able to bring more talent aboard, reduce their "Time to First Contribution," enable developers to provide higher output contributions and improve talent retention. It's time to start focusing on superior developer experiences.
 
-- Join the [Developer Infrastructure workshop with Pulumi and Okteto](https://www.pulumi.com/resources/developer-infrastructure-with-pulumi-and-okteto/). Perfect for those looking to streamline their development process and foster better team collaboration.
+- Join the [Developer Infrastructure workshop with Pulumi and Okteto](https://www.pulumi.com/resources/developer-infrastructure-with-pulumi-and-okteto/). Perfect for those looking to streamline their development process and foster better team collaboration
 - Read [The Pulumi 'Push to start' GitOps Experience](https://www.pulumi.com/blog/pulumi-developer-workflow/)
 - Discover [Pulumi for Platform Teams: New Features for Developer Portals, Policy and Deployments](https://www.pulumi.com/blog/developer-portal-platform-teams/)
 
