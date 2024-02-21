@@ -169,7 +169,7 @@ If organizations invest in cultural values centered on human-first factors, then
 
 ## How Do You Implement a Great Developer Experience?
 
-There isn't a bulletproof checklist, but there are several aspects to consider, and you can see the outline below. But first, you need to see developers as the customers.
+There isn't a bulletproof checklist, but there are several aspects to consider, and you can see the outline below. But first, you need to view the developers as the customers.
 
 You will need to understand how developers work, the developer workflow, what the onboarding process looks like for a new developer, the developer teams' pain points, what developers love and hate about their day-to-day work, where they are spending most of their time, where they wish they spent most of their time, and so much more, that boils down to communication, and asking the right questions, and deep diving into analytics.
 
@@ -198,19 +198,19 @@ You will need to understand how developers work, the developer workflow, what th
 
 ### Prioritize Developer-Friendly Workflows
 
-- **Fast Feedback Loops**: Minimize feedback loops by integrating quick feedback mechanisms, allowing developers to identify and resolve issues early in the development cycle.
-- **Self-Service Environments**: Provide developers with self-service environments to facilitate experimentation, testing, and debugging without unnecessary dependencies on other teams.
-- **Version Control Best Practices**: Enforce version control best practices to maintain a clean and organized codebase, allowing for easier collaboration and tracking of changes.
+- **Fast Feedback Loops**: Minimize feedback loops by integrating quick feedback mechanisms, allowing developers to identify and resolve issues early in the development cycle
+- **Self-Service Environments**: Provide developers with self-service environments to facilitate experimentation, testing, and debugging without unnecessary dependencies on other teams
+- **Version Control Best Practices**: Enforce version control best practices to maintain a clean and organized codebase, allowing for easier collaboration and tracking of changes
 
 ### Continuous Integration of Feedback
 
-- **Developer Surveys**: Conduct regular surveys to gather feedback on the DevEx, ensuring continuous improvement based on real user experiences.
-- **Rapid Iteration**: Encourage a culture of rapid iteration, where feedback is quickly incorporated into the development process to enhance the overall developer experience.
+- **Developer Surveys**: Conduct regular surveys to gather feedback on the DevEx, ensuring continuous improvement based on real user experiences
+- **Rapid Iteration**: Encourage a culture of rapid iteration, where feedback is quickly incorporated into the development process to enhance the overall developer experience
 
 ### Measure and Optimize
 
-- **Key Performance Indicators (KPIs)**: Define and track key metrics such as deployment frequency, lead time, and mean time to recovery to measure the effectiveness of the DevEx strategy.
-- **Iterative Optimization**: Continuously iterate and optimize DevEx based on performance metrics and user feedback.
+- **Key Performance Indicators (KPIs)**: Define and track key metrics such as deployment frequency, lead time, and mean time to recovery to measure the effectiveness of the DevEx strategy
+- **Iterative Optimization**: Continuously iterate and optimize DevEx based on performance metrics and user feedback
 
 Implementing Developer Experience requires a holistic approach that blends cultural aspects with powerful DevOps and platform engineering tools. Watch Daniel Tao, Head of Engineering at [Atlassian](https://www.pulumi.com/case-studies/atlassian/), and Sven Peters, developer evangelist, discuss how to build a great developer experience through culture and an integrated approach to developer tools.
 
@@ -230,7 +230,7 @@ Part of the DevEX strategy is to retain talent. Companies that invest in DevEx d
 
 {{< youtube "NbhpII8DIKA?rel=0" >}}
 
-## DevEx Is Not about Implementing AI and Cool Tools
+### DevEx Is Not about Implementing AI and Cool Tools
 
 Technology impacts developer experience, [a robust generative AI tool can help create code faster](https://www.pulumi.com/ai), and internal developer platforms can help reduce cognitive load on developers. But again, tooling is only one aspect of it. Tools can't fix culture or replace processes. Many DevEx considerations should be considered to ensure that when the development teams adopt a tool, it addresses their pain points and enables developers.
 
@@ -244,13 +244,17 @@ Developer Experience (DevEx) is essential for creating maximum output while incr
 
 By dedicating attention to improving the DevEx, companies will also be able to bring more talent aboard, reduce their "Time to First Contribution," enable developers to provide higher output contributions and improve talent retention. It's time to start focusing on superior developer experiences.
 
-- Join the [Developer Infrastructure workshop with Pulumi and Okteto](https://www.pulumi.com/resources/developer-infrastructure-with-pulumi-and-okteto/). Perfect for those looking to streamline their development process and foster better team collaboration.
-- [The Pulumi 'Push to start' GitOps Experience](https://www.pulumi.com/blog/pulumi-developer-workflow/)
-- What else....
+- Join the [Developer Infrastructure workshop with Pulumi and Okteto](https://www.pulumi.com/resources/developer-infrastructure-with-pulumi-and-okteto/). Perfect for those looking to streamline their development process and foster better team collaboration
+- Read [The Pulumi 'Push to start' GitOps Experience](https://www.pulumi.com/blog/pulumi-developer-workflow/)
+- Discover [Pulumi for Platform Teams: New Features for Developer Portals, Policy and Deployments](https://www.pulumi.com/blog/developer-portal-platform-teams/)
 
 ---
 
 ## Frequently Asked Questions
+
+### What does Business Critical mean?
+
+Business critical means essential for a business to operate and be successful. It refers to business processes, systems, or activities that are considered essential for proper functioning, success, or survival. If these elements are disrupted or compromised, the impact can significantly affect its operations, financial health, or overall business objectives. Business-critical components are often prioritized for attention, protection, and resource allocation to ensure the organization's continued effectiveness and stability, and to remain competitive.
 
 ### What is the role of a Developer Experience Engineer (DXE)?
 
@@ -262,6 +266,6 @@ The importance of DevEx's human element is now in focus. A productive and effect
 
 Here are some steps to build a developer community: open communication needs to become standard, successes should consistently be recognized, and avenues for growth need to exist. Diversity and acceptance are significant. Task expectations should be attainable goals and set high enough not to compromise quality but not realistic so they can be achieved without burnout and unbalanced life routines.
 
-## How does technology impact developer experience?
+### How does technology impact developer experience?
 
 Technological advancements continue to change software development and impact the Developer experience. AI, ML, TDD, and internal developer platforms are some of these technologies that help reduce developers' cognitive load. They automate complex tasks for more accuracy and enable intelligent decision-making. Besides this, generative AI has come into play in creating higher-quality code faster. At the same time, GitOps is a management approach based on one source of truth - Git, which makes collaboration smoother & boosts productivity by allowing automation. All these things undoubtedly improve the DX substantially for any developer out there!
