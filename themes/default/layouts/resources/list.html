@@ -66,7 +66,7 @@
             <!-- Resources list. -->
             {{ $upcomingMonthHeader := "" }}
             {{ $ondemandMonthHeader := "" }}
-            <ul class="flex flex-wrap list-none p-0 sm:p-2 resource-list">
+            <ul class="flex flex-wrap list-none p-0 mb-8 sm:p-2 resource-list">
                 <!-- Loop over the resource items and create the tiles. -->
                 {{ range sort $resourcesWithDate "date" "desc" }}
                     {{ $data := .data }}
