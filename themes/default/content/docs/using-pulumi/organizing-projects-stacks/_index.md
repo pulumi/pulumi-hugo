@@ -74,9 +74,11 @@ different dimensions. This approach has several advantages:
 
 ### Using Stack References with Micro-Stacks
 
-If using the micro-stacks approach you will need a way to share information between stacks. [Stack references](/docs/concepts/stack#stackreferences) are the Pulumi concepts you will want to use. Stack references allow you to access the outputs of one stack from another stack. Inter-Stack Dependencies allow one stack to reference the outputs of another stack.
+If using the micro-stacks approach you will need a way to share information between stacks. [Stack references](/docs/concepts/stack#stackreferences) are the Pulumi concepts you will want to use. Stack references allow you to access the outputs of one stack from another stack. 
 
 To reference values from another stack, create an instance of the StackReference type using the fully qualified name of the stack as an input, and then read exported stack outputs by their name.
+
+<!-- TODO: Actually show how to do this? -->
 
 ## Moving from a Monolithic Project Structure to Micro-Stacks
 
