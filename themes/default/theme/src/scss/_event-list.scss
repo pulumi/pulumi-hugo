@@ -50,8 +50,8 @@
             }
         }
 
-        // On initial load without a target in the url, the all tab should be active.
-        li[data-filter-name="all"] {
+        // On initial load without a target in the url, the upcoming tab should be active.
+        li[data-filter-name="upcoming"] {
             @include gradient-border;
 
             > a {

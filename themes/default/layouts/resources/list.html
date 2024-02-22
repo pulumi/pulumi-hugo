@@ -6,34 +6,43 @@
     <!-- Set the page context in a variable in a loop. -->
     {{ $pageContext := . }}
 
+    <!-- Set current time to determine if event is upcoming -->
+    {{ $nowUnix := now.UnixMilli }}
+
     <!-- Grab the webinar and event page data. -->
     {{ $webinars := (where $.Site.Pages "Type" "webinars") }}
     {{ $events := (where $.Site.Pages "Type" "events") }}
-    {{ $aiAnswers := (where $.Site.Pages "Type" "ai-answers") }}
 
 
     <!-- Create dicts so we can sort the resources by start/publish date. -->
-    {{ $resourcesWithDate := slice }}
-
+    {{ $upcomingEvents := slice }}
+    {{ $onDemandRecordings := slice }}
     <!-- Create the resource data dicts for webinars. -->
     {{ range $webinars }}
         <!-- If the webinar is not marked as unlisted we will add it to the list. -->
         {{ if eq .Params.unlisted false }}
-            {{ $resourcesWithDate = $resourcesWithDate | append (dict "date" .Params.main.sortable_date "data" .) }}
+            <!-- sort into upcoming / on-demand lists -->
+            {{ $eventDateUnix := (add (.Params.main.sortable_date | time.AsTime).UnixMilli (duration "hour" 24).Milliseconds) }}
+                {{ if lt $nowUnix $eventDateUnix }}
+                    {{ $upcomingEvents = $upcomingEvents | append (dict "date" .Params.main.sortable_date "data" .) }}
+                {{ else if (or .Params.main.youtube_url .Params.main.external) }}
+                    {{ $onDemandRecordings = $onDemandRecordings | append (dict "date" .Params.main.sortable_date "data" .) }}
+                {{ end }}
         {{ end }}
     {{ end }}
 
     <!-- Create the resource data dicts for events. -->
     {{ range $events }}
         <!-- If the webinar is not marked as unlisted we will add it to the list. -->
-        {{ if ne .Params.unlisted true }}
-            {{ $resourcesWithDate = $resourcesWithDate | append (dict "date" .Params.main.start_date "data" .) }}
+        {{ if eq .Params.unlisted false }}
+            <!-- sort into upcoming / on-demand lists -->
+            {{ $eventDateUnix := (add (.Params.main.sortable_date | time.AsTime).UnixMilli (duration "hour" 24).Milliseconds) }}
+                {{ if lt $nowUnix $eventDateUnix }}
+                    {{ $upcomingEvents = $upcomingEvents | append (dict "date" .Params.main.sortable_date "data" .) }}
+                {{ else if (or .Params.main.youtube_url .Params.main.external) }}
+                    {{ $onDemandRecordings = $onDemandRecordings | append (dict "date" .Params.main.sortable_date "data" .) }}
+                {{ end }}
         {{ end }}
-    {{ end }}
-
-    <!-- Create the resource data dicts for AI answers. -->
-    {{ range $aiAnswers }}
-        {{ $resourcesWithDate = $resourcesWithDate | append (dict "date" .Date "data" .) }}
     {{ end }}
 
 
@@ -67,29 +76,16 @@
             {{ $upcomingMonthHeader := "" }}
             {{ $ondemandMonthHeader := "" }}
             <ul class="flex flex-wrap list-none p-0 mb-8 sm:p-2 resource-list">
-                <!-- Loop over the resource items and create the tiles. -->
-                {{ range sort $resourcesWithDate "date" "desc" }}
-                    {{ $data := .data }}
-
-                    <!-- Create the values for rendering. -->
+                <!-- Loop over the upcoming resource items to create the tiles ascending -->
+                {{ range sort $upcomingEvents "date" "asc" }}
                     {{ $datetime := "" }}
-                    {{ $displayDate := ""}}
                     {{ $link := "" }}
                     {{ $external := false }}
-                    {{ $upcoming := false}}
-                    {{ $filters := slice "all" }}
+                    {{ $filters := slice }}
 
-                    {{ $displayDate = dateFormat "January 2, 2006" .date }}
+                    {{ $data := .data }}
+                    {{ $displayDate := dateFormat "January 2, 2006" .date }}
 
-                    <!-- create values to determine if date is upcoming -->
-                    {{ $nowUnix := now.UnixMilli }}
-                    <!-- add 24 hours to event date to list it for an extra day -->
-                    {{ $eventDateUnix := (add (.date | time.AsTime).UnixMilli (duration "hour" 24).Milliseconds) }}
-                    {{ if lt $nowUnix $eventDateUnix }}
-                        {{ $upcoming = true }}
-                    {{ end }}
-
-                    <!-- Set the values based on the type of the page. -->
                     {{ if eq $data.Type "webinars" }}
 
                         <!-- Set the url to link to. -->
@@ -106,31 +102,56 @@
                         {{ end }}
 
                         <!-- place the event in the correct tab, add a month header if needed -->
-                        {{ if $upcoming }}
-                            {{ $filters = $filters | append "upcoming" }}
-                            {{ if ne $upcomingMonthHeader (.date | time.Format "January 2006") }}
-                                {{ $upcomingMonthHeader = (.date | time.Format "January 2006") }}
-                                <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="{{ delimit $filters " " }}">
-                                    <span class="text-2xl"><i class="far fa-calendar mr-2"></i>{{ $upcomingMonthHeader }}</span>
-                                </li>
-                            {{ end }}
-                        {{ else if (or $data.Params.main.youtube_url $external) }}
-                            {{ $filters = $filters | append "on-demand" }}
-                            {{ if ne $ondemandMonthHeader (.date | time.Format "January 2006") }}
-                                {{ $ondemandMonthHeader = (.date | time.Format "January 2006") }}
-                                <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="{{ delimit $filters " " }}">
-                                    <span class="text-2xl"><i class="fa fa-video mr-2"></i>{{ $ondemandMonthHeader }}</span>
-                                </li>
-                            {{ end }}
+                        {{ $filters = $filters | append "upcoming" }}
+                        {{ if ne $upcomingMonthHeader (.date | time.Format "January 2006") }}
+                            {{ $upcomingMonthHeader = (.date | time.Format "January 2006") }}
+                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="{{ delimit $filters " " }}">
+                                <span class="text-2xl"><i class="far fa-calendar mr-2"></i>{{ $upcomingMonthHeader }}</span>
+                            </li>
+                        {{ end }}      
+                    {{ end }}
+                    
+                    {{ $tileOptions := (dict "pageContext" $pageContext "external" $external "filters" $filters "upcoming" "true" "link" $link "datetime" .date "displayDate" $displayDate "data" $data) }}
+                    {{ partial "events/event-card.html" $tileOptions }}
+                {{ end }}
+
+                {{ range sort $onDemandRecordings "date" "desc" }}
+                    {{ $data := .data }}
+
+                    <!-- Create the values for rendering. -->
+                    {{ $datetime := "" }}
+                    {{ $displayDate := ""}}
+                    {{ $link := "" }}
+                    {{ $external := false }}
+                    {{ $filters := slice }}
+
+                    {{ $displayDate = dateFormat "January 2, 2006" .date }}
+
+                    <!-- Set the values based on the type of the page. -->
+                    {{ if eq $data.Type "webinars" }}
+                        <!-- Set the url to link to. -->
+                        {{ if $data.Params.external }}
+                            {{ $link = $data.Params.url_slug }}
+                            {{ $external = true }}
+                        {{ else }}
+                            {{ $link = printf "/resources/%s" $data.Params.url_slug }}
                         {{ end }}
-      
-                    {{ else if eq $data.Type "ai-answers" }}
-                        {{ $filters = $filters | append "ai-answers" }}
-                        {{ $datetime = .date }}
-                        {{ $link = $data.RelPermalink }}
+
+                        <!-- If the event is featured add the feature filter. -->
+                        {{ if $data.Params.featured }}
+                            {{ $filters = $filters | append "featured" }}
+                        {{ end }}
+
+                        {{ $filters = $filters | append "on-demand" }}
+                        {{ if ne $ondemandMonthHeader (.date | time.Format "January 2006") }}
+                            {{ $ondemandMonthHeader = (.date | time.Format "January 2006") }}
+                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="{{ delimit $filters " " }}">
+                                <span class="text-2xl"><i class="fa fa-video mr-2"></i>{{ $ondemandMonthHeader }}</span>
+                            </li>
+                        {{ end }}
                     {{ end }}
 
-                    {{ $tileOptions := (dict "pageContext" $pageContext "external" $external "filters" $filters "upcoming" $upcoming "link" $link "datetime" .date "displayDate" $displayDate "data" $data) }}
+                    {{ $tileOptions := (dict "pageContext" $pageContext "external" $external "filters" $filters "upcoming" "false" "link" $link "datetime" .date "displayDate" $displayDate "data" $data) }}
                     {{ partial "events/event-card.html" $tileOptions }}
                 {{ end }}
             </ul>
