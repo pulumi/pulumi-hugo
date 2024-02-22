@@ -10,12 +10,12 @@
         {{ $target = "" }}
     {{ end }}
 
-    <article class="card bg-white h-72 flex flex-col mx-2 md:mx-0 border border-gray-200 hover:border-gray-500">
+    <article class="card bg-white h-80 md:h-72 flex flex-col mx-2 md:mx-0 border border-gray-200 hover:border-gray-500">
         <a href="{{ $href }}" rel="{{ $relref }}" target="{{ $target }}" class="w-full h-full">
             <span class="block w-full h-full p-4 flex flex-col justify-between">
                 <span>
                     <span class="flex flex-row justify-between">
-                        <span>
+                        <span class="w-10/12">
                             <span class="font-medium text-gray-800">WORKSHOP</span>
                             <span class="text-gray-300">&#8226;</span>
                             {{ if .data.Params.main.youtube_url }}
@@ -23,16 +23,16 @@
                             {{ else }}
                                 <span class="font-normal text-gray-800">{{ .data.Params.main.location | upper }}</span>
                             {{ end }}
-                            <h6 class="mt-2 mb-0 text-2xl">
+                            <h6 class="mt-2 mb-0 text-xl md:text-2xl">
                                 {{ .data.Params.title }}
                                 {{ if .external }}<i class="text-sm ml-2 fas fa-external-link-alt"></i>{{ end }}
                             </h6>
                         </span>
-                        <span class="flex flex-col justify-between border-2 border-gray-300 rounded w-16 h-16">
+                        <span class="flex flex-col justify-between border-2 border-gray-300 rounded w-16 overflow-visible h-16">
                             <div class="bg-white text-center text-2xl pt-0.5 text-gray-900 font-semibold">
                                 {{ .datetime | time.Format "2" }}
                             </div>
-                            <div class="bg-gray-300 text-center text-sm py-0.5 text-gray-900">
+                            <div class="bg-gray-300 text-center text-xs md:text-sm py-0.5 text-gray-900">
                                 {{ upper (.datetime | time.Format "Jan 06") }}
                             </div>
                         </span>
