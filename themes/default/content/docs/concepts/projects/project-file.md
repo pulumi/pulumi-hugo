@@ -35,7 +35,7 @@ For Pulumi programs specifically written in Pulumi YAML, the project file not on
 | `template` | optional | Config to be used when creating new stacks in the project. | [template options](#template-options) |
 | `plugins` | optional | Override for the plugin selection. Intended for use in developing pulumi plugins.  | [plugins options](#plugins-options) |
 
-#### About `main`
+### About `main`
 
 For all languages `main` can point to a directory to tell Pulumi to use that directory to load the program from instead of the directory with the `Pulumi.yaml` file. Some languages also support `main` pointing to a file to change what the runtime considers the entrypoint.
 
