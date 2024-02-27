@@ -2,7 +2,7 @@
 # Name of the event, <= 60 characters
 title: Getting Started with Infrastructure as Code on AWS
 meta_desc: In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using the Pulumi Cloud Engineering platform.
-meta_image: /images/resources/getting-started-aws-engin.png
+meta_image:
 
 # A featured webinar will display first in the list.
 featured: false
@@ -39,10 +39,10 @@ main:
     youtube_url:
 
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2024-02-27T09:00:00.000-08:00
+    sortable_date: 2024-03-20T09:00:00.000-07:00
 
     # Duration of the webinar.
-    duration: 90 minutes
+    duration: 1 hour
 
     # "virtual" will be shown under "show virtual events only", otherwise shown as City, State (seattle, wa)
     location: virtual
@@ -60,9 +60,9 @@ main:
 
     # The webinar presenters
     presenters:
-        - name: Engin Diri
-          role: Sr. Community Engineer, Pulumi
-          photo: /images/team/engin-diri.jpg
+        - name: Josh Kodroff
+          role: Sr. Solutions Architect, Pulumi
+          photo: /images/team/josh-kodroff.jpg
 
     # case-sensitive
     tags:
@@ -73,6 +73,6 @@ main:
 # The right hand side form section.
 form:
     # HubSpot form id.
-    hubspot_form_id: 87fbf38c-f263-45d1-83f7-3b7da2d5b87b
-    salesforce_campaign_id: 701PQ000006EnwjYAC
+    hubspot_form_id: ad4c73db-9f9e-4925-a9e6-bd42866d09cc
+    salesforce_campaign_id: 701PQ000007obTUYAY
 ---

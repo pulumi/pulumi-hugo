@@ -39,11 +39,10 @@ main:
     youtube_url: 
 
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2024-03-25T09:00:00.000-08:00
+    sortable_date: 2024-03-25T09:00:00.000-07:00
 
     # Duration of the webinar.
-    duration: 60 minutes
-
+    duration: 1 hour
     # "virtual" will be shown under "show virtual events only", otherwise shown as City, State (seattle, wa)
     location: virtual
 
