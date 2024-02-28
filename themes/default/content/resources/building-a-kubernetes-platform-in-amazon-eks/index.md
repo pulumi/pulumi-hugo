@@ -8,7 +8,7 @@ meta_image: /images/resources/kubernetes-platform-amazon-eks-josh-carlos.png
 featured: false
 
 # Webinars with unlisted as true will not be shown on the webinar list
-unlisted: false
+unlisted: true
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
