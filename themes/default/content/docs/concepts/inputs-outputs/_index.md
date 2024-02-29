@@ -326,6 +326,8 @@ Because outputs are asynchronous, their actual plain values are not immediately 
 - [Lifting](/docs/concepts/inputs-outputs/lifting/): directly read the value of an output, generally used for accessing nested values
 - [Interpolation](/docs/concepts/inputs-outputs/outputs-and-strings/): concatenate string outputs with other strings
 
+Note that _outputs are not plain types_, and they cannot be converted into plain types. For example, you cannot turn an a variable of type Output<T> into one a regular String. An output can only be transformed into another output.
+
 ## Tracking dependencies
 
 Outputs are also how Pulumi tracks dependencies between resources. When an output from one resource has been returned from the cloud provider API, Pulumi can link the two resources together and pass it as the input to another resource.

@@ -12,7 +12,7 @@ menu:
 
 [Outputs](/docs/concepts/inputs-outputs/#outputs) are asynchronous, meaning their actual plain values are not immediately available. Their values will only become available once the resource has finished provisioning. The asynchronous nature of Outputs is also why, when certain operations such as [`pulumi preview`](/docs/cli/commands/pulumi_preview/) runs, the outputs for a new resource do not yet have any possible values. As such, there are limitations on the ways in which you can retrieve and interact with these values.
 
-To demonstrate, let's say we have the following simple program that creates a VPC resource in AWS. In this program, we have added a print/log statement to print the `vpc` variable so that we can see the properties of this resource.
+To demonstrate, let's say you have the following simple program that creates a VPC resource in AWS. In this program, you have added a print/log statement to print the `vpc` variable so that you can see the properties of this resource.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -287,7 +287,7 @@ Ultimately, if you want to view the properties of a resource, you will need to a
 
 ## Using Apply { search.keywords="pulumi.apply" }
 
-Let's say we want to print the ID of the VPC we've created. Given that this is an individual resouce property and not the entire resource itself, we could try logging the value like normal:
+Let's say you want to print the ID of the VPC you've created. Given that this is an individual resouce property and not the entire resource itself, you could try logging the value like normal:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -368,7 +368,7 @@ print(vpc.vpc_id)
 
 {{% /choosable %}}
 
-However, if we update our program as shown above and run `pulumi up`, we will still not receive the value we are looking for as shown in the following CLI output:
+However, if you update the program as shown above and run `pulumi up`, you will still not receive the value you are looking for as shown in the following CLI output:
 
 {{% choosable language javascript %}}
 
@@ -564,7 +564,7 @@ The breakdown of the different parts of the syntax is as follows:
 The {{< pulumi-apply >}} method should only be used on a resource's properties and never on the whole resource itself. Using apply directly on a resource will result in unexpected issues and errors.
 {{< /notes >}}
 
-This means that if we want to print out the value of our VPC ID, our program needs to look like the following:
+This means that if you want to print out the value of the VPC ID, the program needs to look like the following:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -685,7 +685,11 @@ Resources:
 Duration: 12s
 ```
 
-We can now see the value of the VPC ID property that we couldn't see before when using a regular `print | log` statement.
+You can now see the value of the VPC ID property that you couldn't see before when using a regular `print | log` statement.
+
+{{< notes type="info" >}}
+The `apply` method is great for when you need to access single values. However, if you need to access multiple output values across multiple resources, you will need to use Pulumi's [`all` method](/docs/concepts/inputs-outputs/all) instead.
+{{< /notes >}}
 
 ### Creating new output values
 

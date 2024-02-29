@@ -97,6 +97,8 @@ var url = Output.tuple(hostname, port)
 
 However, this approach is verbose and unwieldy. To make this common task easier, Pulumi exposes interpolation helpers that allow you to create strings that contain outputs. These interpolation methods wrap [all](/docs/concepts/inputs-outputs/all/) and [apply](/docs/concepts/inputs-outputs/apply/) with an interface that resembles your language's native string formatting functions.
 
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+
 {{% choosable language javascript %}}
 
 ```javascript
@@ -164,5 +166,7 @@ variables:
 ```
 
 {{% /choosable %}}
+
+{{< /chooser >}}
 
 You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.

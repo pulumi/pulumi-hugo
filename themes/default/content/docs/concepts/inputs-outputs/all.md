@@ -16,7 +16,7 @@ This can be used to compute an entirely new output value, such as creating a new
 
 ## Creating a new string
 
-To demonstate, let’s say we have created a server resource and a database resource, and their Output values are as follows:
+To demonstrate, let’s say we have created a server resource and a database resource, and their Output values are as follows:
 
 ```python
 # Example outputs for the server resource
