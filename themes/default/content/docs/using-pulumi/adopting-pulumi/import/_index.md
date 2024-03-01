@@ -33,7 +33,7 @@ Both approaches allow you to adopt and begin managing existing cloud resources w
 
 Import uses the selected stack's configured [provider](/docs/concepts/resources/providers/) to look up the desired resource in the cloud provider, read its current configuration, and add the resource to the stack to bring it under management by Pulumi from that point forward. For this, it requires two pieces of information:
 
-* The _type_ of cloud resource to import --- either as a type _token_ (when using the CLI) or as a resource declaration (when importing in code). The type token of an Amazon S3 Bucket resource, for example, is `aws:s3/bucket:Bucket`.
+* The _type_ of cloud resource to import --- either as a type _token_ (a string that uniquely identifies a Pulumi resource type) when using the CLI or as a resource declaration when importing in code. The type token of an Amazon S3 Bucket resource, for example, is `aws:s3/bucket:Bucket`.
 
 * The _name_ and _value_ of the property to use for the resource lookup. Lookup properties vary by resource. For an Amazon S3 bucket, the property used for lookup is [`bucket`](/registry/packages/aws/api-docs/s3/bucket/#bucket_nodejs), so the value to use for the lookup would be the bucket's globally unique name. For an Amazon VPC, however, the property used for lookup is [`id`](/registry/packages/aws/api-docs/ec2/vpc/#id_nodejs), so the value to use for it would be its AWS-assigned unique identifier.
 
