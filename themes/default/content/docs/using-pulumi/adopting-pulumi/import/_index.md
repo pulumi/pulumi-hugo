@@ -14,8 +14,8 @@ aliases:
 
 Most infrastructure as code projects require working with existing cloud resources, whether those resources were originally created with another IaC tool or manually provisioned with a cloud provider console or CLI. Interacting with a previously created cloud resource with Pulumi typically happens in one of two ways:
 
-* Referencing the properties of the existing cloud resource in order to use those properties to configure a Pulumi-managed resource.
-* Adopting the existing resource to bring it under management by Pulumi.
+1. Referencing the properties of the existing cloud resource in order to use those properties to configure a Pulumi-managed resource.
+1. Adopting the existing resource to bring it under management by Pulumi.
 
 The first scenario is sometimes called _coexistence_, and you can learn more it in [Adopting Pulumi > Coexistence](/docs/using-pulumi/adopting-pulumi#coexistence). The second scenario is called _adoption_ or _import_, and you can learn more about it the sections that follow.
 
@@ -59,9 +59,9 @@ $ pulumi import <type> <name> <id>
 
 * The first argument, `type`, is the Pulumi type token to use for the imported resource.
 
-    As [mentioned above](#how-import-works), you'll find the type token for a given resource by navigating to the Import section of the resource's API documentation in the [Pulumi Registry](/registry/). The type token of an [Amazon S3 Bucket](/registry/packages/aws/api-docs/s3/bucket/#import) resource, for example, is `aws:s3/bucket:Bucket`.
+    As mentioned in [Where to find the type token and lookup property](#how-import-works), you'll find the type token for a given resource by navigating to the Import section of the resource's API documentation in the [Pulumi Registry](/registry/). For example, the type token of an [Amazon S3 Bucket](/registry/packages/aws/api-docs/s3/bucket/#import) resource, for example, is `aws:s3/bucket:Bucket`.
 
-* The second argument, `name`, is the [resource name](/docs/concepts/resources/names) to apply to the resource once it's imported. The generated code will use this name for the resource declaration, so like all Pulumi resource names, it must be unique within the scope of the containing project.
+* The second argument, `name`, is the [resource name](/docs/concepts/resources/names) to apply to the resource once it's imported. The generated code will use this name for the resource declaration (the first parameter in any resource), so like all Pulumi resource names, it must be unique among all resources for this type within the scope of the containing project. (That is, you may have an S3 bucket and a VPC named `foo`, but you cannot have two S3 buckets named `foo`.)
 
 * The third argument, `id`, is the value to use for the resource lookup in the cloud provider. This value should correspond to the designated lookup property specified in the Import section of the resource's API documentation in the Registry.
 
