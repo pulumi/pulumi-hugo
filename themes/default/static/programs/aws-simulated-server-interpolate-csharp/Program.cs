@@ -1,15 +1,19 @@
-﻿using Pulumi;
-using Pulumi.Aws.S3;
 using System.Collections.Generic;
+using Pulumi;
 
 return await Deployment.RunAsync(() =>
 {
-    // Create an AWS resource (S3 Bucket)
-    var bucket = new Bucket("my-bucket");
+    var webServer = Output.Create(new
+    {
+        hostName = "www.mywebserver.com",
+        port = "8080",
+    });
 
-    // Export the name of the bucket
+    // Format takes a FormattableString and expands outputs correctly:
+    var url = Output.Format($"http://{webServer.hostName}:{webServer.port}/");
+
     return new Dictionary<string, object?>
     {
-        ["bucketName"] = bucket.Id
+        ["serverUrl"] = url,
     };
 });

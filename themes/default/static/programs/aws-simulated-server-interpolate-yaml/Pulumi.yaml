@@ -1,14 +1,10 @@
 name: aws-simulated-server-interpolate-yaml
 runtime: yaml
-description: An example that creates a simulated webserver and interpolates the value of the URL
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: aws-yaml
+
+variables:
+  webServer:
+    hostName: "www.mywebserver.com"
+    port: "8080"
+
 outputs:
-  # Export the name of the bucket
-  bucketName: ${my-bucket.id}
-resources:
-  # Create an AWS resource (S3 Bucket)
-  my-bucket:
-    type: aws:s3:Bucket
+  serverUrl: https://${hostname}:${port}
