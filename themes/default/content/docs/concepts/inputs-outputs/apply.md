@@ -12,7 +12,7 @@ menu:
 
 [Outputs](/docs/concepts/inputs-outputs/#outputs) are asynchronous, meaning their actual plain values are not immediately available. Their values will only become available once the resource has finished provisioning. The asynchronous nature of Outputs is also why, when certain operations such as [`pulumi preview`](/docs/cli/commands/pulumi_preview/) runs, the outputs for a new resource do not yet have any possible values. As such, there are limitations on the ways in which you can retrieve and interact with these values.
 
-To demonstrate, let's say you have the following simple program that creates a VPC resource in AWS. In this program, you have added a print/log statement to print the `vpc` variable so that you can see the properties of this resource.
+To demonstrate, let's say you have the following simple program that creates a VPC resource in AWS. In this program, you want to view all of the properties of this resource, so you have added a print/log statement to print the `vpc` variable.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
