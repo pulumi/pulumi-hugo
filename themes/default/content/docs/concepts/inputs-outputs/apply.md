@@ -687,7 +687,35 @@ You can now see the value of the VPC ID property that you couldn't see before wh
 
 ## Accessing nested output values
 
-Sometimes an output has an object with deeply nested values, and the values of these properties may need to be passed as inputs to other resources.
+Sometimes an output has an object with deeply nested values. To demonstrate, the following code simulates a truncated version of the outputs of an AWSX VPC resource:
+
+```python
+vpc = {
+    vpc_id: "vpc-0354395361fc3008d"
+    vpc: {
+        arn: "arn:aws:ec2:eu-central-1:616138583583:vpc/vpc-0354395361fc3008d"
+    }
+    private_subnet_ids: [
+        [0]: "subnet-0387f75dcd10a3c42"
+        [1]: "subnet-0a681dcf34ade2098"
+        [2]: "subnet-07075c1d59ffb5fed"
+    ]
+    eips: [
+        [0]: {
+            allocation_id: "eipalloc-0c76333814054a051"
+        }
+        [1]: {
+            allocation_id: "eipalloc-048944cd28bfdf288"
+        }
+    ]
+}
+```
+
+[Explanation here for which types of properties you can/cannot use apply/lifting and receive plain value in response]
+
+There may also be times where the values of nested properties need to be passed as inputs to other resources.
+
+[Need example here that accesses deeply nested values and passes as input to another resource.]
 
 For example, to read a domain record from an ACM certificate, you need to access the domain validation options, which returns an array. Because that value is an output, we would normally need to use {{< pulumi-apply >}}:
 
