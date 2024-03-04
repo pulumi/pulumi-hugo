@@ -25,8 +25,7 @@ Here are links to all the blog posts in the series (entries not linked below are
 * **IaC Recommended Practices: Using Stack References** (you are here)
 * [IaC Recommended Practices: RBAC and Security](/blog/iac-recommended-practices-rbac-and-security/)
 * [IaC Recommended Practices: Using Automation API](/blog/iac-recommended-practices-using-automation-api/)
-* IaC Recommended Practices: Adding Pulumi Deployments
-* IaC Recommended Practices: Refactoring for Reuse
+* [IaC Recommended Practices: Wrapping Up](/blog/iac-recommended-practices-wrapping-up)
 
 ## Reviewing Zephyr's current status
 

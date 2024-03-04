@@ -26,8 +26,7 @@ For ease of navigation, here are links to all the blog posts in the series (any 
 * [IaC Recommended Practices: Using Stack References](/blog/iac-recommended-practices-using-stack-references/)
 * [IaC Recommended Practices: RBAC and Security](/blog/iac-recommended-practices-rbac-and-security/)
 * **IaC Recommended Practices: Using Automation API** (you are here)
-* IaC Recommended Practices: Adding Pulumi Deployments
-* IaC Recommended Practices: Refactoring for Reuse
+* [IaC Recommended Practices: Wrapping Up](/blog/iac-recommended-practices-wrapping-up)
 
 ## Reviewing the state of Pulumi at Zephyr
 
@@ -200,4 +199,4 @@ This post discussed the following recommended practices when using Pulumi Automa
 * **Use local source to decouple Automation API programs from Pulumi programs when separate teams are involved.** When separate teams are creating, managing, or maintaining the Automation API programs and the Pulumi programs, using local source instead of inline source enables the teams to operate somewhat independently.
 * **When there is a single team managing both Automation API programs and Pulumi programs, use inline source.** This is also true when, perhaps due to compliance or regulatory concerns, the Automation API program should be more tightly coupled to the Pulumi programs it is automating.
 
-The Zephyr series continues in the next IaC Recommended Practices post with a look at [Pulumi Deployments](/docs/pulumi-cloud/deployments/), and how adding Pulumi Deployments to their environment was a natural next step for Zephyr. Don't miss it!
+The Zephyr series wraps up in the next post, where we summarize all our recommendations so far. We'll also take a look at areas of potential future growth for the team at Zephyr. Don't miss it!
