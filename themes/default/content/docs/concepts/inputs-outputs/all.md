@@ -155,7 +155,7 @@ There is an easier way to generate a concatenated string value using multiple ou
 
 {{< example-program path="aws-simulated-server-interpolate" >}}
 
-You can use string interpolation to export a stack output, provide a dynamically computed string as a new resource argument, or even for diagnostic purposes.
+You can use string interpolation to do things like export a [stack output](/docs/using-pulumi/stack-outputs-and-references/) or provide a dynamically computed string as a new resource argument.
 
 ## Creating a new data structure
 

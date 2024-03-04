@@ -12,7 +12,7 @@ menu:
 
 [Outputs](/docs/concepts/inputs-outputs/#outputs) are asynchronous, meaning their actual plain values are not immediately available. Their values will only become available once the resource has finished provisioning. The asynchronous nature of Outputs is also why, when certain operations such as [`pulumi preview`](/docs/cli/commands/pulumi_preview/) runs, the outputs for a new resource do not yet have any possible values. As such, there are limitations on the ways in which you can retrieve and interact with these values.
 
-To demonstrate, let's say you have the following simple program that creates a VPC resource in AWS. In this program, you want to view all of the properties of this resource, so you have added a print/log statement to print the `vpc` variable.
+To demonstrate, let's say you have the following simple program that creates an [AWSX VPC resource](/registry/packages/awsx/api-docs/ec2/vpc/) in AWS. In this program, you want to view all of the properties of this resource, so you have added a print/log statement to print the `vpc` variable.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -291,7 +291,7 @@ The `apply` method is great for when you need to access single values. However, 
 
 ## Accessing single output values { search.keywords="pulumi.apply" }
 
-Let's say you want to print the ID of the VPC you've created. Given that this is an individual resouce property and not the entire resource itself, you could try logging the value like normal:
+Let's say you want to print the ID of the VPC you've created. Given that this is an individual resouce property and not the entire resource itself, you might try logging the value like normal:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" / >}}
 
@@ -687,7 +687,7 @@ You can now see the value of the VPC ID property that you couldn't see before wh
 
 ## Accessing nested output values
 
-While often, Outputs return asynchronous values that wrap primitive types like strings or integers, sometimes an output has an object with deeply nested values. These properties need to be passed to other inputs as well.
+Sometimes an output has an object with deeply nested values, and the values of these properties may need to be passed as inputs to other resources.
 
 For example, to read a domain record from an ACM certificate, you need to access the domain validation options, which returns an array. Because that value is an output, we would normally need to use {{< pulumi-apply >}}:
 
