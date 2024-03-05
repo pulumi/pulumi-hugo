@@ -49,8 +49,8 @@ Here is a summary of the key differences between Pulumi and OpenTofu:
 | ------- | ------ | --------- |
 | [OSS License](#license) | Yes, Apache License 2.0 | Yes, Mozilla Public License 2.0 |
 | [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F#, Java, YAML | HashiCorp Configuration Language (HCL) |
-| [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | No |
-| [State Management](#state) | Managed through Pulumi Cloud by default, self-managed options available. | Self-managed by default, no managed SaaS offering available. |
+| [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
+| [State Management](#state) | Managed through Pulumi Cloud by default, self-managed options available. | Self-managed by default, managed SaaS offerings available. |
 | [Provider Support](#providers) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
 | [Cloud Native Support](#cloud-native) | Richly typed. Includes CRDs & in-cluster operator support for GitOps delivery. | Core API typed. Generic support for CRD. |
 | [Dynamic Provider Support](#dynamic-providers) | Yes | No |
@@ -81,7 +81,7 @@ OpenTofu requires that you and your team write programs in a custom domain-speci
 
 ### IDE Support {#ide}
 
-OpenTofu has no plugins for IDEs. With Pulumi, you can tap into decades of innovation with great IDEs. The IDEs automatically provide code completion, strong typing, error squiggles, rich resource documentation, and more.
+OpenTofu has plugins for some IDEs. However, the features are varied and limited. With Pulumi, you can tap into decades of innovation with great IDEs. The IDEs automatically provide code completion, strong typing, error squiggles, rich resource documentation, and more.
 
 ### State Management {#state}
 
