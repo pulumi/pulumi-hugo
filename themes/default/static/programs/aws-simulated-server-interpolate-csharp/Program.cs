@@ -5,12 +5,12 @@ return await Deployment.RunAsync(() =>
 {
     var webServer = Output.Create(new
     {
-        hostName = "www.mywebserver.com",
-        port = "8080",
+        HostName = "www.mywebserver.com",
+        Port = "8080",
     });
 
     // Format takes a FormattableString and expands outputs correctly:
-    var url = Output.Format($"http://{webServer.hostName}:{webServer.port}/");
+    var url = Output.Format($"http://{webServer.HostName}:{webServer.Port}/");
 
     return new Dictionary<string, object?>
     {

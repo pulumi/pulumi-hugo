@@ -1,4 +1,4 @@
-name: myproject
+name: aws-simulated-dbserver-database-yaml
 runtime: yaml
 
 variables:
