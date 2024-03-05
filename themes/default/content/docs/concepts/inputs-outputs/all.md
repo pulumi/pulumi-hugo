@@ -18,9 +18,21 @@ This can be used to compute an entirely new output value, such as creating a new
 
 Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using [`apply`](/docs/content/inputs-outputs/apply/).
 
-To demonstrate, the following code simulates the creation of a server resource and a database resource:
+To demonstate, let’s say we have created a server resource and a database resource, and their Output values are as follows:
 
-{{< example-program path="aws-simulated-dbserver-database" >}}
+```python
+# Example outputs for the server resource
+{
+    "name": "myDbServer",
+    "ipAddress": "10.0.0.0/24"
+}
+
+# Example outputs for the database resource
+{
+    "name": "myExampleDatabase",
+    "engine": "sql-db"
+}
+```
 
 From the outputs of these resources, you want to create a database connection string that uses the following format:
 
