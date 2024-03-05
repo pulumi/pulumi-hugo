@@ -1,0 +1,75 @@
+---
+title_tag: "How to Debug Pulumi Providers"
+meta_desc: "Learn the process for debugging Pulumi providers locally."
+title: Debug Pulumi providers
+h1: Debug Pulumi providers
+meta_image: /images/docs/meta-images/docs-meta.png
+menu:
+    usingpulumi:
+        parent: pulumi-packages
+        identifier: how-to-debug-providers
+        weight: 2
+aliases:
+- /docs/guides/pulumi-packages/how-to-debug-providers/
+---
+
+When developing or troubleshooting Pulumi providers, you may need to debug the provider code locally. This guide walks you through starting your provider in debug mode, setting breakpoints, and attaching the debugger using your IDE.
+
+### Starting the provider in debug mode
+
+### Example for GoLand
+For GoLand you can follow these steps:
+
+1. Configure the working directory to the program you are going to run to mirror how Pulumi would start the provider.
+
+![GoLand Configuration](img/goland-debug-config.png "Configuring GoLand for Pulumi provider debugging")
+
+### Example for VS Code
+
+For VS Code you can follow these steps:
+
+1. Navigate to **Run -> Add Configuration** and add the **Go: launch package** configuration.
+2. Edit `"program": "${fileDirname}"` to point to `cmd/pulumi-resource-<PROVIDER>` , e.g., `cmd/pulumi-resource-azure-native` for the Azure Native provider.
+3. Edit "name": `"Launch Package"` to give it a descriptive name.
+4. Launch package
+
+1. Generate the SDK code for all languages supported by Pulumi and packs the SDK packages–the npm, NuGet, and Python packages–that the Pulumi Package’s users will reference in their own programs
+1. Publish the SDK packages and the resource provider plugin
+
+![A graphic representation of the steps listed above](img/pulumi-package-concepts.png)
+
+All Pulumi Packages must include a [schema](/docs/using-pulumi/pulumi-packages/schema/), which defines the resources and functions exposed by the package, and is used to drive the generation of language-specific SDKs and documentation.
+
+Upon startup, the provider should output a port number to the console (e.g., `12345`), indicating it is ready for a debugger to attach.
+
+### Setting breakpoints
+
+With your IDE configured, set breakpoints within the provider code where you wish to pause execution during debugging.
+
+### Running Pulumi with debug providers
+
+To attach the Pulumi CLI to your provider running in debug mode, use the `PULUMI_DEBUG_PROVIDERS` environment variable. Specify the provider and port number the debugger is listening on.
+
+For example, to debug a deployment with the `azure-native` provider on port `12345`, you would run:
+
+```shell
+PULUMI_DEBUG_PROVIDERS="azure-native:12345" pulumi up
+```
+### Running tests
+This approach also works for running tests, such as acceptance tests in a provider's examples folder. For instance:
+
+```shell
+cd pulumi-wavefront/examples
+PULUMI_DEBUG_PROVIDERS="wavefront:53766" go test -v -tags=python
+```
+
+### Debugger attachment
+
+Once Pulumi runs or tests are initiated with the `PULUMI_DEBUG_PROVIDERS` environment variable set, your IDE should automatically attach to the specified port and pause execution at your set breakpoints.
+
+{{< notes type="warning" >}}
+**Terminating the Provider Process**: Be cautious when terminating the provider process as it can get out of sync with the actual cloud resources. When in doubt, `pulumi refresh` will address this.
+{{< /notes >}}
+
+
+[def]: img/pulumi-package-concepts.png
