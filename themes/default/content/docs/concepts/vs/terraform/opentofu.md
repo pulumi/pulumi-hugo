@@ -27,35 +27,13 @@ Terraform and OpenTofu are both infrastructure as code technologies that have si
 
 ## Pulumi vs. Terraform: Similarities {#similarities}
 
-OpenTofu is a fork of Terraform so there are many similiarities for now. They both have the ability to create, deploy, and manage infrastructure as code on any cloud. Both Terraform and OpenTofu follow a desired state infrastructure as code model, where the IaC code represents the desired state of the infrastructure. The deployment engine compares this desired state with the current state of the stack and determines the necessary actions, such as creating, updating, or deleting resources. Both Terraform and OpenTofu support many cloud providers, including [AWS](/aws/), [Azure](/azure/), and [Google Cloud](/gcp/), plus other services like CloudFlare, Digital Ocean, and more. They also both require the use of a domain-specific language: HashiCorp Configuration Language (HCL).
+OpenTofu is a fork of Terraform 1.6.x so there are many similiarities for now. They both have the ability to create, deploy, and manage infrastructure as code on any cloud. Both Terraform and OpenTofu follow a desired state infrastructure as code model, where the IaC code represents the desired state of the infrastructure. The deployment engine compares this desired state with the current state of the stack and determines the necessary actions, such as creating, updating, or deleting resources. Both Terraform and OpenTofu support many cloud providers, including [AWS](/aws/), [Azure](/azure/), and [Google Cloud](/gcp/), plus other services like CloudFlare, Digital Ocean, and more. They also both require the use of a domain-specific language: HashiCorp Configuration Language (HCL).
 
 ## Pulumi vs. Terraform: Key Differences {#differences}
 
-Terraform and OpenTofu differ in that Terraform is not open source, using the Business Source License model. OpenTofu, however, uses the weak copyleft [Mozilla Public License 2.0](https://github.com/HashiCorp/terraform/blob/main/LICENSE). As Terraform and OpenTofu continue to diverge, more key differences beyond licensing model will emerge.
+Terraform and OpenTofu differ in that Terraform is not open source, using the Business Source License model. OpenTofu, however, uses the weak copyleft [Mozilla Public License 2.0](https://github.com/HashiCorp/terraform/blob/main/LICENSE). Terraform also has a paid offering called Terraform Cloud, a fully managed SaaS service that version controls and manages Terraform state. Terraform Cloud also provides access to remote operations, policy as code, and audit logging. As Terraform and OpenTofu continue to diverge, more key differences beyond licensing model will emerge.
 
 Here is a summary of the key differences between Pulumi and Terraform:
-
-| Feature | Pulumi | Terraform |
-| ------- | ------ | --------- |
-| [OSS License](#license) | Yes, Apache License 2.0 | No, Business Source License 1.1 |
-| [Language Support](#language) | Python, TypeScript, JavaScript, Go, C#, F#, Java, YAML | HashiCorp Configuration Language (HCL) |
-| [IDE Support](#ide) | Code completion, strong typing, error squiggles, rich resource documentation, etc. | Limited |
-| [State Management](#state) | Managed through Pulumi Cloud by default, self-managed options available. | Self-managed by default, managed SaaS offering available. |
-| [Provider Support](#providers) | Native cloud providers with 100% same-day resource coverage plus Terraform-based providers for additional coverage. | Support across multiple IaaS, SaaS, and PaaS providers. |
-| [Cloud Native Support](#cloud-native) | Richly typed. Includes CRDs & in-cluster operator support for GitOps delivery. | Core API typed. Generic support for CRD. |
-| [Dynamic Provider Support](#dynamic-providers) | Yes | No |
-| [Infrastructure Reuse and Modularity](#reuse) | Flexible. Reuse functions, classes, packages, and Pulumi components. | Constrained. Can only reuse Terraform modules. |
-| [Testing and Validation](#testing) | Unit, property, and integration testing. Supports popular test frameworks. | Integration testing only |
-| [Modes of Execution](#modes) | Run CLI commands or initiate commands programmatically with Automation API. | Run CLI commands or perform remote runs with SaaS offering. |
-| [Embed within Application Code](#embedding) | Yes, via Automation API | No |
-| [Third-party CI/CD Tools Support](#cicd) | Yes | Yes |
-| [Policy as Code](#policy) | Yes | Yes |
-| [Secrets Management](#secrets) | Yes. Secrets are encrypted in transit and in the state file. | No. Secrets are stored in a  separate product (Vault). There is no way to encrypt them in the state file. |
-| [Audit Capabilities](#auditing) | Yes | Limited |
-| [Adopt Existing Resources](#adopting) | Yes. Generates code as part of the import process. | Yes. No code generation capabilities. |
-| [Aliases](#aliases) | Yes | Limited |
-| [Transformations](#transformations) | Yes | No |
-| [Import Code from other IaC Tools](#converting) | Yes | No |
 
 | Feature | Terraform | OpenTofu |
 | ------- | ------ | --------- |
@@ -79,6 +57,6 @@ Here is a summary of the key differences between Pulumi and Terraform:
 | [Transformations](#transformations) | No | No |
 | [Import Code from other IaC Tools](#converting) | No | No |
 
-Are you constrained with Terraform or OpenTofu? Let us help you migrate to Pulumi so you can have greater developer productivity and delivery velocity. Follow our comprehensive guides in our [Migration Hub](/blog/migration-hub/) to use our [self-service migration tools](/docs/using-pulumi/adopting-pulumi/migrating-to-pulumi/from-terraform/) or work with our [Expert Services teams](/contact?form=tf-migration) that can help you with migration and training. If you would like to deploy a simple program, follow our Get Started guide:
+Are you constrained by Terraform or OpenTofu? Let us help you migrate to Pulumi so you can have greater developer productivity, ability to scale, and delivery velocity. Follow our comprehensive guides in our [Migration Hub](/blog/migration-hub/) or work with our [Expert Services teams](/contact?form=tf-migration) that can help you with migration and training. If you would like to deploy a simple program, follow our Get Started guide:
 
 {{< get-started >}}
