@@ -10,7 +10,7 @@ const webServer = pulumi.output({
 const url1 = pulumi.concat("http://", webServer.hostName, ":", webServer.port, "/");
 
 // interpolate takes a JavaScript "template literal" and expands outputs correctly:
-const url2 = pulumi.interpolate `http://${webServer.hostName}:${webServer.port}/`;
+const url2 = pulumi.interpolate`http://${webServer.hostName}:${webServer.port}/`;
 
 exports.serverUrl1 = url1;
 exports.serverUrl2 = url2;
