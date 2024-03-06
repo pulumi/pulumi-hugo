@@ -8,7 +8,7 @@ menu:
   concepts:
     identifier: vs-opentofu
     parent: vs
-    weight: 1
+    weight: 6
 aliases:
 - /docs/reference/vs/opentofu/
 - /docs/intro/vs/opentofu/

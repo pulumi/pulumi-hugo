@@ -8,7 +8,7 @@ menu:
   concepts:
     identifier: vs-terraform-opentofu
     parent: vs
-    weight: 1
+    weight: 7
 
 ---
 
