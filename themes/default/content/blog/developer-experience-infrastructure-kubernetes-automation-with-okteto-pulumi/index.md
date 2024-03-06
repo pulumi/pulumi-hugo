@@ -54,7 +54,7 @@ Pulumi and Okteto seamlessly integrate to automate the setup of development infr
 ## In this article
 
 - [What is Pulumi?](/blog/developer-experience-infrastructure-kubernetes-automation-with-okteto-pulumi/#what-is-pulumi)
-- [What is Okteto?](/blog/developer-experience-infrastructure-kubernetes-automation-with-okteto-pulumi/#what-is-Okteto)
+- [What is Okteto?](/blog/developer-experience-infrastructure-kubernetes-automation-with-okteto-pulumi/#what-is-okteto)
 - Watch the workshop [Developer Infrastructure with Pulumi and Okteto](/blog/developer-experience-infrastructure-kubernetes-automation-with-okteto-pulumi/#developer-infrastructure-with-pulumi-and-okteto)
 
 
