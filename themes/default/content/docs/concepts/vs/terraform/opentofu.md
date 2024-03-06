@@ -6,8 +6,7 @@ h1: Terraform vs. OpenTofu
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
   concepts:
-    identifier: vs-terraform-opentofu
-    parent: vs
+    parent: vs-terraform
     weight: 2
 ---
 
