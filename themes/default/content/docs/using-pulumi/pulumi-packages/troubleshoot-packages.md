@@ -1,7 +1,7 @@
 ---
 title_tag: "How to Debug Pulumi Providers"
 meta_desc: "Learn the process for debugging Pulumi providers locally."
-title: Debug Pulumi providers
+title: Debug providers
 h1: Debug Pulumi providers
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
@@ -13,32 +13,27 @@ aliases:
 - /docs/guides/pulumi-packages/how-to-debug-providers/
 ---
 
-When developing or troubleshooting Pulumi providers, you may need to debug the provider code locally. This guide walks you through starting your provider in debug mode, setting breakpoints, and attaching the debugger using your IDE.
+When developing or troubleshooting Pulumi providers, you may need to debug the provider code locally. This guide walks you through starting your provider in debug mode, setting breakpoints, and running tests.
 
 ### Starting the provider in debug mode
 
 ### Example for GoLand
-For GoLand you can follow these steps:
+For GoLand you can follow these steps.
 
-1. Configure the working directory to the program you are going to run to mirror how Pulumi would start the provider.
+1. Configure the working directory to the program you are going to run to mirror how Pulumi would start the provider
 
-![GoLand Configuration](img/goland-debug-config.png "Configuring GoLand for Pulumi provider debugging")
+![Screenshot of GoLand configuration for debugging providers](/docs/using-pulumi/pulumi-packages/img/goland-debug-config.png)
 
 ### Example for VS Code
 
-For VS Code you can follow these steps:
+For VS Code you can follow these steps.
 
-1. Navigate to **Run -> Add Configuration** and add the **Go: launch package** configuration.
-2. Edit `"program": "${fileDirname}"` to point to `cmd/pulumi-resource-<PROVIDER>` , e.g., `cmd/pulumi-resource-azure-native` for the Azure Native provider.
-3. Edit "name": `"Launch Package"` to give it a descriptive name.
+1. Navigate to **Run -> Add Configuration** and add the **Go: launch package** configuration
+2. Edit `"program": "${fileDirname}"` to point to `cmd/pulumi-resource-<PROVIDER>` , e.g., `cmd/pulumi-resource-azure-native` for the Azure Native provider
+3. Edit "name": `"Launch Package"` to give it a descriptive name
 4. Launch package
 
-1. Generate the SDK code for all languages supported by Pulumi and packs the SDK packages–the npm, NuGet, and Python packages–that the Pulumi Package’s users will reference in their own programs
-1. Publish the SDK packages and the resource provider plugin
-
-![A graphic representation of the steps listed above](img/pulumi-package-concepts.png)
-
-All Pulumi Packages must include a [schema](/docs/using-pulumi/pulumi-packages/schema/), which defines the resources and functions exposed by the package, and is used to drive the generation of language-specific SDKs and documentation.
+![Screenshot of VS Code configuration for debugging providers](/docs/using-pulumi/pulumi-packages/img/vscode-debug-config.png)
 
 Upon startup, the provider should output a port number to the console (e.g., `12345`), indicating it is ready for a debugger to attach.
 
