@@ -18,6 +18,7 @@ When developing or troubleshooting Pulumi providers, you may need to debug the p
 ### Starting the provider in debug mode
 
 ### Example for GoLand
+
 For GoLand you can follow these steps.
 
 1. Configure the working directory to the program you are going to run to mirror how Pulumi would start the provider
@@ -50,7 +51,9 @@ For example, to debug a deployment with the `azure-native` provider on port `123
 ```shell
 PULUMI_DEBUG_PROVIDERS="azure-native:12345" pulumi up
 ```
+
 ### Running tests
+
 This approach also works for running tests, such as acceptance tests in a provider's examples folder. For instance:
 
 ```shell
@@ -65,6 +68,3 @@ Once Pulumi runs or tests are initiated with the `PULUMI_DEBUG_PROVIDERS` enviro
 {{< notes type="warning" >}}
 **Terminating the Provider Process**: Be cautious when terminating the provider process as it can get out of sync with the actual cloud resources. When in doubt, `pulumi refresh` will address this.
 {{< /notes >}}
-
-
-[def]: img/pulumi-package-concepts.png
