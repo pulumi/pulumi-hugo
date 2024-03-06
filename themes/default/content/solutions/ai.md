@@ -53,7 +53,7 @@ case_studies:
 
 
 architectures:
-    title: AI Templates
+    title: AI Use Cases
     items:
         - name: Pinecone
           link: https://www.pulumi.com/solutions/ai-arch/
