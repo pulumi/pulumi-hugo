@@ -49,7 +49,7 @@ Supported Compliance Ready Policy packages are:
 
 * `@pulumi/compliance-policy-manager` (**Required**) Policy Manager is used to manage Compliance Ready Policies.
 * `@pulumi/aws-compliance-policies` Set of Compliance Ready Policies for Amazon Web Services, for both
-  AWS Native and AWS Classic providers.
+  AWS Native Cloud Control and AWS Classic providers.
 * `@pulumi/azure-compliance-policies` Set of Compliance Ready Policies for Microsoft Azure, for both Azure
   Native and Azure Classic providers.
 * `@pulumi/google-compliance-policies` Set of Compliance Ready Policies for Google Cloud Platform, for

@@ -14,7 +14,7 @@ get_started_guide:
   link: get-started/
   icon: aws
 providers:
-  description: Provision hundreds of AWS cloud resources with either the AWS Classic or AWS Native provider. The AWS Native provider is in preview status, with same-day access to AWS resources available in the AWS Cloud Control API.  While AWS Classic remains fully supported, try AWS Native if you need AWS resources not available in the classic version.
+  description: Provision hundreds of AWS cloud resources with either the AWS Classic or AWS Native Cloud Control provider. The AWS Native Cloud Control provider is in preview status, with same-day access to AWS resources available in the AWS Cloud Control API.  While AWS Classic remains fully supported, try AWS Native Cloud Control if you need AWS resources not available in the classic version.
   provider_list:
   - display_name: AWS Classic
     recommended: true
@@ -31,7 +31,7 @@ providers:
     - display_name: How-to guides
       icon: question-small-black
       url: aws/how-to-guides/
-  - display_name: AWS Native
+  - display_name: AWS Native Cloud Control
     public_preview: true
     content_links:
     - display_name: Overview
