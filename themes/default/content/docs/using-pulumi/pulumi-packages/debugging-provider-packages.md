@@ -1,16 +1,14 @@
 ---
 title_tag: "How to Debug Pulumi Provider Packages"
 meta_desc: "Learn the process for debugging Pulumi providers locally."
-title: Debug providers
-h1: Debug Pulumi providers
+title: Debug provider packages
+h1: Debug Pulumi provider packages
 meta_image: /images/docs/meta-images/docs-meta.png
 menu:
     usingpulumi:
         parent: pulumi-packages
         identifier: how-to-debug-providers
         weight: 2
-aliases:
-- /docs/guides/pulumi-packages/how-to-debug-providers/
 ---
 
 When developing or troubleshooting Pulumi providers, you may need to debug the provider code locally. This guide walks you through starting your provider in debug mode, setting breakpoints, and running tests.
@@ -33,9 +31,7 @@ For VS Code you can follow these steps.
 
 1. Navigate to **Run -> Add Configuration** and add the **Go: launch package** configuration
 2. Edit `"program": "${fileDirname}"` to point to `cmd/pulumi-resource-<PROVIDER>` , e.g., `cmd/pulumi-resource-azure-native` for the Azure Native provider
-
 ![Screenshot of VS Code configuration for debugging providers](/docs/using-pulumi/pulumi-packages/img/vscode-launch-config.png)
-
 3. Edit "name": `"Launch Package"` to give it a descriptive name
 4. Launch package
 
