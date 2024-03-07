@@ -2,7 +2,7 @@
 # Name of the event, <= 60 characters
 title: What's New in Pulumi
 meta_desc: Explore the latest features and updates in Pulumi, and learn how these enhancements can streamline your cloud infrastructure management.
-meta_image: /images/resources/Whats-New-Meagan-Arun.png
+meta_image: /images/resources/whats-new-feb2024-video.png
 # A featured webinar will display first in the list.
 featured: false
 
@@ -11,7 +11,7 @@ unlisted: false
 
 # Gated webinars will have a registration form and the user will need
 # to fill out the form before viewing.
-gated: true
+gated: false
 
 # The layout of the landing page.
 type: webinars
@@ -35,7 +35,7 @@ main:
     event_type: workshop # workshop | event
 
     # URL for embedding a URL for ungated webinars.
-    youtube_url:
+    youtube_url: https://www.youtube.com/embed/xLcSUdpgtvg?si=Q5KYcL6khAVg6RwT?rel=0
 
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
     sortable_date: 2024-02-29T09:00:00.000-08:00
@@ -66,7 +66,7 @@ main:
     # case-sensitive
     tags:
         level: Beginner # Beginner, Intermediate, Advanced
-        topics: []
+        topics: ["Pulumi Features"]
         languages: []
 
 # The right hand side form section.
