@@ -15,6 +15,12 @@ aliases:
 - /docs/intro/console/projects-and-stacks/
 - /docs/intro/pulumi-service/projects-and-stacks/
 - /docs/intro/pulumi-cloud/projects-and-stacks/
+search:
+  keywords:
+    - environments
+    - delete
+    - deleting
+    - delete a stack in Pulumi cloud
 ---
 
 Projects group stacks together and contain a Pulumi.yaml file.
