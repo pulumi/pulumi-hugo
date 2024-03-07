@@ -819,7 +819,7 @@ var record = new Record("validation",
 
 {{< /chooser >}}
 
-An easier way to access simple property and array elements is by using Lifting. Lift allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. If we return to the above example, we can now simplify it as shown below:
+An easier way to access simple property and array elements is by using _lifting_. Lifting allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. If we return to the above example, we can now simplify it as shown below:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -952,7 +952,7 @@ resources:
 
 This approach is easier to read and write and does not lose any important dependency information that is needed to properly create and maintain the stack. This approach doesn’t work in all cases, but when it does, it can be a great help.
 
-In JavaScript and TypeScript, a ‘lifted’ property access on an `Output<T>` that wraps undefined produces another `Output<T>` with the undefined value instead of throwing or producing a ‘faulted’ `Output<T>`. In other words, lifted property accesses behave like the [`?.` (optional chaining operator)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining) in JavaScript and TypeScript. This behavior makes it much easier to form a chain of property accesses on an `Output<T>`.
+In JavaScript and TypeScript, a lifted property access on an `Output<T>` that wraps `undefined` produces another `Output<T>` with the undefined value instead of throwing or producing a faulted `Output<T>`. In other words, lifted property accesses behave like the [`?.` (optional chaining operator)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining) in JavaScript and TypeScript. This behavior makes it much easier to form a chain of property accesses on an `Output<T>`.
 
 {{< chooser language "javascript,typescript" >}}
 
@@ -1118,7 +1118,7 @@ Duration: 5s
 
 The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `url` variable is now of type Output. This variable will wait for the new value to be returned from the {{< pulumi-apply >}} function, and any [dependencies](/docs) of the original output (i.e. the `public DNS` property of the `server` resource) are also kept in the resulting Output<T>.
 
-## Creating JSON objects
+### Outputs and JSON
 
 Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string:
 
@@ -1332,7 +1332,7 @@ var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", new BucketPolicy
 
 This operation is so common, Pulumi provides first-class helper functions for deserializing JSON string outputs into your language's native objects and serializing your language's native objects to JSON string outputs. These helper functions are designed to remove the process of manually resolving the output inside a {{< pulumi-apply >}}.
 
-### Converting Outputs to JSON
+### Converting outputs to JSON
 
 You can natively represent the definition of an AWS Step Function State Machine and embed outputs from other resources then convert it to a JSON string.
 
@@ -1479,9 +1479,9 @@ var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
 
 {{< /chooser >}}
 
-### Parsing JSON Outputs to Objects
+### Creating outputs from JSON
 
-You can parse a JSON string into an object and then, inside of an Apply, manipulate the object to remove all of the policy statements.
+You can parse a JSON string into an object and then, inside of an `apply`, manipulate the object to remove all of the policy statements:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
@@ -1516,7 +1516,7 @@ const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
 });
 ```
 
-For more details [view the NodeJS documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
+For more details [view the Node.js documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
 
 {{% /choosable %}}
 
@@ -1551,7 +1551,7 @@ const policyWithNoStatements: Output<object> = pulumi.jsonParse(jsonIAMPolicy).a
 });
 ```
 
-For more details [view the NodeJS documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
+For more details [view the Node.js documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
 
 {{% /choosable %}}
 
