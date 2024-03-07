@@ -4,7 +4,6 @@ date: 2023-07-26
 meta_desc: In this post in the continuing series on IaC recommended practices, the Zephyr teams starts using the Pulumi Automation API to orchestrate multiple stacks.
 meta_image: meta.png
 authors:
-    - aaron-kao
     - christian-nunciato
     - scott-lowe
 tags:
@@ -18,7 +17,7 @@ Welcome to the sixth post in our series of blog posts focused on infrastructure 
 
 The ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application. These practices have unfolded organically, as a direct response to Zephyr's evolving needs. The aim is to demonstrate that recommended practices (or best practices) are not set in stone, but are rather "point in time" recommendations that adapt as your company grows.
 
-For ease of navigation, here are links to all the blog posts in the series (any entries listed below that aren't linked haven't yet been published; this list will get updated as new posts go live):
+For ease of navigation, here are links to all the posts in the series:
 
 * [IaC Recommended Practices: Code Organization and Stacks](/blog/iac-recommended-practices-code-organization-and-stacks/)
 * [IaC Recommended Practices: Developer Stacks and Git Branches](/blog/iac-recommended-practices-developer-stacks-git-branches/)

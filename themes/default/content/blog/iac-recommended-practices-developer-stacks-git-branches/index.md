@@ -6,7 +6,6 @@ meta_image: meta.png
 authors:
     - christian-nunciato
     - scott-lowe
-    - aaron-kao
 tags:
     - best-practices
     - cloud-engineering
@@ -19,7 +18,7 @@ In the [first post](/blog/iac-recommended-practices-code-organization-and-stacks
 
 The ultimate goal of this series is to discuss recommended practices for using Pulumi to manage a fairly complex containerized application. However, it's important to note that these recommended practices will emerge over the course of the series --- not all immediately, and not all in the beginning. This is a deliberate decision to allow you to see how Zephyr's use of Pulumi evolves as the company grows and its retail application changes to accommodate its growth.
 
-Here are links to all of the posts in the series. Entries below that are not yet linked are planned, but not yet published:
+Here are links to all of the posts in the series:
 
 * [IaC Recommended Practices: Code Organization and Stacks](/blog/iac-recommended-practices-code-organization-and-stacks/)
 * **IaC Recommended Practices: Developer Stacks and Git Branches** (this post)
