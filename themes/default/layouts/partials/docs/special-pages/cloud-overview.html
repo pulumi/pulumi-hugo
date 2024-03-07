@@ -36,10 +36,10 @@
                             {{ $display_name := $provider.display_name }}
                             {{ $first_half_name := $provider.display_name }}
                             {{ $second_half_name := "" }}
-                            {{ if strings.Contains $display_name "Classic" }}
+                            {{ if strings.HasSuffix $display_name "Classic" }}
                                 {{ $first_half_name = strings.TrimRight "Classic" $display_name }}
                                 {{ $second_half_name = "Classic" }}
-                            {{ else if strings.Contains $display_name "Native" }}
+                            {{ else if strings.HasSuffix $display_name "Native" }}
                                 {{ $first_half_name = strings.TrimRight "Native" $display_name }}
                                 {{ $second_half_name = " Native" }}
                             {{ end }}
