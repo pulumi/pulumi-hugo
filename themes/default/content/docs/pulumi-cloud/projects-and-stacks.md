@@ -17,9 +17,8 @@ aliases:
 - /docs/intro/pulumi-cloud/projects-and-stacks/
 search:
   keywords:
-    - environments
-    - delete
-    - deleting
+    - delete a stack
+    - deleting a stack
     - delete a stack in Pulumi cloud
 ---
 
