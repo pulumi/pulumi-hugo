@@ -11,6 +11,7 @@ overview:
         Pulumi makes it trivial to take local AI development to production in the cloud
 
 benefits:
+    title: Benefits of Pulumi for AI
     author:
         title: Author Code with AI
         img: /images/solutions/ai/ai_author_code.svg
@@ -53,7 +54,7 @@ case_studies:
 
 
 architectures:
-    title: AI Templates
+    title: Infrastructure as Code AI Templates
     items:
         - name: Pinecone
           link: https://www.pulumi.com/solutions/ai-arch/
@@ -95,9 +96,8 @@ customer_logos:
     - name: taranis
 
 get_started:
-    get_started:
-        title: Get Started
-        description: |
-          Schedule some time with our customer engineering team, and we will help you scale your AI infrastructure with Pulumi.
-        cta_text: Schedule now
+  title: Got IaC Questions? We're here to help!
+  description: |
+    Schedule some time with our customer engineering team, and we will help you scale your AI infrastructure with Pulumi.
+  cta_text: Schedule now
 ---

@@ -8,7 +8,7 @@
         <h1 class="flex flex-col items-center">
             <span class="rainbow-text inline-block text-center">{{ .Params.overview.title }}</span>
         </h1>
-        <p class="text-center leading-7">{{ .Params.overview.description }}</p>
+        <p text-xl class="text-center leading-7">{{ .Params.overview.description }}</p>
     </div>
 </header>
 {{ end }}
@@ -47,11 +47,13 @@
 
 
 <!-- Benefit Blades -->
+<section id="benefits" class="container mx-auto">
+    <div class="max-w-5xl mx-auto text-center py-4">
+        <h2>{{ .Params.benefits.title }}</h2>
+    </div>
+</section>
 
-<section id="benefits" class="container mx-auto my-16">
-    <!-- <div class="max-w-5xl mx-auto text-center py-8">
-        <h2>Centrally manage all environments</h2>
-    </div> -->
+<section id="benefits1" class="container mx-auto my-16">
     <div class="flex flex-wrap items-stretch">
         <div class="w-full lg:w-2/3">
             <img src={{ .Params.benefits.author.img }} alt={{ .Params.benefits.author.alt }} />
@@ -59,7 +61,7 @@
         <div class="w-full content-center lg:w-1/3 p-4">
             <div class="card bg-white p-4 my-4">
                 <div>
-                    <h5>{{ .Params.benefits.author.title }}</h5>
+                    <h3>{{ .Params.benefits.author.title }}</h3>
                 </div>
                 <div class="mt-6">
                     <p>{{ .Params.benefits.author.description }}</p>
@@ -69,15 +71,12 @@
     </div>
 </section>
 
-<section id="benefits" class="container mx-auto my-16">
-    <!-- <div class="max-w-5xl mx-auto text-center py-8">
-        <h2>Centrally manage all environments</h2>
-    </div> -->
+<section id="benefits2" class="container mx-auto my-16">
     <div class="flex flex-wrap items-stretch">
         <div class="w-full lg:w-1/3 p-4">
             <div class="card bg-white align-middle p-4 my-4">
                 <div>
-                    <h5>{{ .Params.benefits.save.title }}</h5>
+                    <h3>{{ .Params.benefits.save.title }}</h3>
                 </div>
                 <div class="mt-6">
                     <p>{{ .Params.benefits.save.description }}</p>
@@ -90,10 +89,7 @@
     </div>
 </section>
 
-<section id="benefits" class="container mx-auto my-16">
-    <!-- <div class="max-w-5xl mx-auto text-center py-8">
-        <h2>Centrally manage all environments</h2>
-    </div> -->
+<section id="benefits3" class="container mx-auto my-16">
     <div class="flex flex-wrap items-stretch">
         <div class="w-full lg:w-2/3">
             <img src={{ .Params.benefits.provision.img }} alt={{ .Params.benefits.provision.alt }} />
@@ -101,7 +97,7 @@
         <div class="w-full lg:w-1/3 p-4">
             <div class="card bg-white align-middle p-4 my-4">
                 <div>
-                    <h5>{{ .Params.benefits.provision.title }}</h5>
+                    <h3>{{ .Params.benefits.provision.title }}</h3>
                 </div>
                 <div class="mt-6">
                     <p>{{ .Params.benefits.provision.description }}</p>
@@ -178,9 +174,9 @@
         <div class="flex flex-col md:flex-row">
             <div class="w-full lg:w-1/2 mx-auto p-6">
                 <div class="mt-10 md:mt-0 bg-gray-200 rounded p-6 shadow">
-                    <h4>
-                        Chat with our team
-                    </h4>
+                    <h3>
+                        {{ .Params.get_started.title }}
+                    </h3>
                     <pulumi-hubspot-form form-id="5d548546-024b-481a-9dad-6c1140548bee"></pulumi-hubspot-form>
                 </div>
             </div>
