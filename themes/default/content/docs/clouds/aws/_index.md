@@ -32,7 +32,6 @@ providers:
       icon: question-small-black
       url: aws/how-to-guides/
   - display_name: AWS Native Cloud Control
-    public_preview: true
     content_links:
     - display_name: Overview
       icon: page-small-black
