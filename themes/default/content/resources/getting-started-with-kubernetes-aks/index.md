@@ -1,9 +1,7 @@
 ---
 # Name of the event, <= 60 characters
-title: Deploying LangChain Applications on AWS with Pulumi
-meta_desc: This workshop will show a practical AI use case for Pulumi. Using Pulumi & TypeScript, we'll demonstrate deploying a LangChain/LangServe app on AWS.
-meta_image: "/images/resources/deploy-langchain-apps-aws-engin-lance.png"
-
+title: Getting started with Kubernetes on AKS with Pulumi
+meta_desc: Learn the fundamentals of building and deploying containerized workloads and get an introduction to Pulumi's IaC platform and deployment on Azure.
 # A featured webinar will display first in the list.
 featured: false
 
@@ -26,20 +24,20 @@ block_external_search_index: false
 
 # The url slug for the webinar landing page. If this is an external
 # webinar, use the external URL as the value here.
-url_slug: deploying-langchain-apps-on-aws-with-pulumi
+url_slug: getting-started-with-kubernetes-aks
 
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: Deploying LangChain Applications on AWS with Pulumi
+    title: Getting started with Kubernetes on AKS with Pulumi
 
     event_type: workshop # workshop | event
 
     # URL for embedding a URL for ungated webinars.
-    youtube_url: 
+    youtube_url:
 
     # Sortable date. The datetime Hugo will use to sort the webinars in date order.
-    sortable_date: 2024-04-17T09:00:00-07:00
+    sortable_date: 2024-03-26T09:00:00.000-07:00
 
     # Duration of the webinar.
     duration: 90 minutes
@@ -49,31 +47,24 @@ main:
 
     # Description of the webinar.
     description: |
-        In this workshop, you will first be introduced to Pulumi, an infrastructure-as-code platform, where you can use familiar programming languages to provision modern cloud infrastructure. Following that introduction, attendees will see how to use Pulumi to deploy an AI application using LangChain/LangServe onto AWS, providing a practical use case for how infrastructure as code helps streamline deploying AI applications.
+        Getting started with Kubernetes doesn't have to be complex! Pulumi's infrastructure-as-code (IaC) platform can help remove the complexity and enable even beginner developers to use any programming language to provision modern infrastructure. In this session, you will learn the fundamentals of building and deploying containerized workloads and get an introduction to Pulumi's IaC platform and deployment on Azure.
 
-    learn:
-        - The basics of Pulumi for infrastructure as code
-        - The basics of LangChain and LangServe
-        - How to deploy a LangChain/LangServe application on AWS using Pulumi
+        We’ll guide you through setting up an Azure AKS cluster and deploying a containerized workload to the cluster. This workshop is designed to help new users become familiar with the core concepts needed to effectively deploy Kubernetes clusters and workloads on Azure. We will guide you through the Pulumi platform with diagrams and a series of examples to help accelerate your cloud projects.
 
     # The webinar presenters
     presenters:
         - name: Engin Diri
-          role: Sr. Solutions Architect, Pulumi
+          role: Sr. Community Engineer, Pulumi
           photo: /images/team/engin-diri.jpg
-        - name: Lance Martin
-          role: Software Engineer, LangChain
-          photo: /images/people/lance-martin.jpg
 
     # case-sensitive
     tags:
         level: Beginner # Beginner, Intermediate, Advanced
-        topics: ["LangChain", "AWS"]
+        topics: ["Azure", "Kubernetes"]
         languages: []
 
 # The right hand side form section.
 form:
-    # HubSpot form id.
-    hubspot_form_id: 822b8891-28af-4054-a7a8-86f9f1e9148b
-    salesforce_campaign_id: 701PQ0000074X9SYAU
+    hubspot_form_id: 54cb6dec-96e5-4849-bfdb-21f77a1a8209
+    salesforce_campaign_id: 701PQ000007oxyYYAQ
 ---
