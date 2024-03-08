@@ -4,7 +4,6 @@ date: 2023-07-26
 meta_desc: In this post in the continuing series on IaC recommended practices, the Zephyr teams starts using the Pulumi Automation API to orchestrate multiple stacks.
 meta_image: meta.png
 authors:
-    - christian-nunciato
     - scott-lowe
 tags:
     - best-practices

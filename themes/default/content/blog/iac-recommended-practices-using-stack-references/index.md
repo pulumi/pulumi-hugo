@@ -4,7 +4,6 @@ date: 2023-03-31
 meta_desc: This post discusses the use of stack references to share information among multiple Pulumi projects, and the recommended practices around their use.
 meta_image: meta.png
 authors:
-    - christian-nunciato
     - scott-lowe
 tags:
     - best-practices
