@@ -9,11 +9,11 @@ return await Deployment.RunAsync(() =>
         Port = "8080",
     });
 
-    // Format takes a FormattableString and expands outputs correctly:
-    var url = Output.Format($"http://{webServer.HostName}:{webServer.Port}/");
+    // // Format takes a FormattableString and expands outputs correctly:
+    // var url = Output.Format($"http://{webServer.HostName}:{webServer.Port}/");
 
-    return new Dictionary<string, object?>
-    {
-        ["serverUrl"] = url,
-    };
+    // return new Dictionary<string, object?>
+    // {
+    //     ["serverUrl"] = url,
+    // };
 });

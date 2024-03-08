@@ -7,4 +7,4 @@ variables:
     port: "8080"
 
 outputs:
-  serverUrl: https://${hostname}:${port}
+  serverUrl: https://${webServer.hostName}:${webServer.port}

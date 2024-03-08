@@ -17,8 +17,8 @@ public class App {
             "port", "8080"
         ));
 
-        var url = Output.format("http://%s:%s/", webServer.hostName, webServer.port);
+        // var url = Output.format("http://%s:%s/", webServer.hostName, webServer.port);
 
-        ctx.export("serverUrl", url);
+        // ctx.export("serverUrl", url);
     }
 }
