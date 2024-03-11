@@ -687,17 +687,40 @@ You can now see the value of the VPC ID property that you couldn't see before wh
 
 ## Accessing nested output values
 
-Sometimes an output has an object with deeply nested values. There may also be times where the values of these nested properties need to be passed as inputs to other resources. For example, to read a domain record from an ACM certificate, you need to access the domain validation options, which returns an array. Because that value is an output, we would normally need to use {{< pulumi-apply >}}:
+Sometimes an output has an object with deeply nested values, and there may be times where the values of these nested properties need to be passed as inputs to other resources. For example, let's say you have created an [AWS Certificate Manager certificate resource](/registry/packages/aws/api-docs/acm/certificate/) as shown below:
 
-{{< chooser language "javascript,typescript,python,go,csharp,java" >}}
+{{< example-program path="aws-acm-certificate" >}}
+
+This resource will have outputs that resemble the following:
+
+```python
+# Example truncated output of the ACM certificate resource
+    cert: {
+        arn                      : "arn:aws:acm:eu-central-1..."
+        certificate_authority_arn: ""
+        certificate_body         : <null>
+        certificate_chain        : <null>
+        domain_name              : "example.com"
+        domain_validation_options: [
+            [0]: {
+                domain_name          : "example.com"
+                resource_record_name : "_0a822dde6347292b.example.com."
+                resource_record_type : "CNAME"
+                resource_record_value: "_527b1cdf2159204b.mhbtsbpdnt.acm-validations.aws."
+            }
+        ]
+        ...
+        ...
+    }
+```
+
+You want to validate your certificate by creating an [Amazon Route 53 record](/registry/packages/aws/api-docs/route53/record/). To do so, you will need to retrieve the value of the resource record from the ACM certificate. This value is nested in the domain validation options property of the certificate resource, which returns an array. Because that value is an output, we would normally need to use {{< pulumi-apply >}} to retrieve it:
+
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
 ```javascript
-let certCertificate = new aws.acm.Certificate("cert", {
-    domainName: "example.com",
-    validationMethod: "DNS",
-});
 let certValidation = new aws.route53.Record("cert_validation", {
     records: [
         // Need to pass along a deep subproperty of this Output
@@ -713,10 +736,6 @@ let certValidation = new aws.route53.Record("cert_validation", {
 {{% choosable language typescript %}}
 
 ```typescript
-let certCertificate = new aws.acm.Certificate("cert", {
-    domainName: "example.com",
-    validationMethod: "DNS",
-});
 let certValidation = new aws.route53.Record("cert_validation", {
     records: [
         // Need to pass along a deep subproperty of this Output
@@ -732,11 +751,6 @@ let certValidation = new aws.route53.Record("cert_validation", {
 {{% choosable language python %}}
 
 ```python
-certificate = aws.acm.Certificate('cert',
-    domain_name='example.com',
-    validation_method='DNS'
-)
-
 record = aws.route53.Record('validation',
     records=[
         # Need to pass along a deep subproperty of this Output
@@ -753,14 +767,6 @@ record = aws.route53.Record('validation',
 {{% choosable language go %}}
 
 ```go
-cert, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-    DomainName:       pulumi.String("example"),
-    ValidationMethod: pulumi.String("DNS"),
-})
-if err != nil {
-    return err
-}
-
 record, err := route53.NewRecord(ctx, "validation", &route53.RecordArgs{
     Records: pulumi.StringArray{
         cert.DomainValidationOptions.ApplyT(func(opts []acm.CertificateDomainValidationOption) string {
@@ -779,12 +785,6 @@ if err != nil {
 {{% choosable language csharp %}}
 
 ```csharp
-var cert = new Certificate("cert", new CertificateArgs
-{
-    DomainName = "example",
-    ValidationMethod = "DNS",
-});
-
 var record = new Record("validation", new RecordArgs
 {
     Records = {
@@ -799,12 +799,6 @@ var record = new Record("validation", new RecordArgs
 {{% choosable language java %}}
 
 ```java
-var cert = new Certificate("cert",
-    CertificateArgs.builder()
-        .domainName("example")
-        .validationMethod("DNS")
-        .build());
-
 var record = new Record("validation",
     RecordArgs.builder()
         .records(
@@ -817,19 +811,23 @@ var record = new Record("validation",
 
 {{% /choosable %}}
 
+{{% choosable language yaml %}}
+
+```yaml
+This example is not applicable in YAML.
+```
+
+{{% /choosable %}}
+
 {{< /chooser >}}
 
-An easier way to access simple property and array elements is by using _lifting_. Lifting allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. If we return to the above example, we can now simplify it as shown below:
+An easier way to access deeply nested properties is by using _lifting_. Lifting allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. If we return to the above example, we can now simplify it as shown below:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language javascript %}}
 
 ```javascript
-let certCertificate = new aws.acm.Certificate("cert", {
-    domainName: "example.com",
-    validationMethod: "DNS",
-});
 let certValidation = new aws.route53.Record("cert_validation", {
     records: [
         certCertificate.domainValidationOptions[0].resourceRecordValue
@@ -842,10 +840,6 @@ let certValidation = new aws.route53.Record("cert_validation", {
 {{% choosable language typescript %}}
 
 ```typescript
-let certCertificate = new aws.acm.Certificate("cert", {
-    domainName: "example.com",
-    validationMethod: "DNS",
-});
 let certValidation = new aws.route53.Record("cert_validation", {
     records: [
         certCertificate.domainValidationOptions[0].resourceRecordValue
@@ -858,11 +852,6 @@ let certValidation = new aws.route53.Record("cert_validation", {
 {{% choosable language python %}}
 
 ```python
-certificate = aws.acm.Certificate('cert',
-    domain_name='example.com',
-    validation_method='DNS'
-)
-
 record = aws.route53.Record('validation',
     records=[
         certificate.domain_validation_options[0].resource_record_value
@@ -875,14 +864,6 @@ record = aws.route53.Record('validation',
 {{% choosable language go %}}
 
 ```go
-cert, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-    DomainName:       pulumi.String("example"),
-    ValidationMethod: pulumi.String("DNS"),
-})
-if err != nil {
-    return err
-}
-
 record, err := route53.NewRecord(ctx, "validation", &route53.RecordArgs{
     Records: pulumi.StringArray{
         // Notes:
@@ -903,12 +884,6 @@ if err != nil {
 {{% choosable language csharp %}}
 
 ```csharp
-var cert = new Certificate("cert", new CertificateArgs
-{
-    DomainName = "example",
-    ValidationMethod = "DNS",
-});
-
 var record = new Record("validation", new RecordArgs
 {
     // Notes:
@@ -952,7 +927,9 @@ resources:
 
 This approach is easier to read and write and does not lose any important dependency information that is needed to properly create and maintain the stack. This approach doesn’t work in all cases, but when it does, it can be a great help.
 
-In JavaScript and TypeScript, a lifted property access on an `Output<T>` that wraps `undefined` produces another `Output<T>` with the undefined value instead of throwing or producing a faulted `Output<T>`. In other words, lifted property accesses behave like the [`?.` (optional chaining operator)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining) in JavaScript and TypeScript. This behavior makes it much easier to form a chain of property accesses on an `Output<T>`.
+### Lifting in JavaScript or TypeScript
+
+In JavaScript and TypeScript, accessing a property via lifting behaves like the [`?.` (optional chaining operator)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining). This means that you do not have to explicitly define the code to handle `null` or `undefined` output values, which makes it a much easier method of forming a chain of property accesses on an `Output<T>`.
 
 {{< chooser language "javascript,typescript" >}}
 
@@ -991,6 +968,8 @@ let certValidation = new aws.route53.Record("cert_validation", {
 {{< /chooser >}}
 
 ## Creating new output values
+
+### Outputs and Strings
 
 The {{< pulumi-apply >}} method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
