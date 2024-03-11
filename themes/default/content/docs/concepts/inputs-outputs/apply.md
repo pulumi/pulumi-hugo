@@ -927,46 +927,6 @@ resources:
 
 This approach is easier to read and write and does not lose any important dependency information that is needed to properly create and maintain the stack. This approach doesn’t work in all cases, but when it does, it can be a great help.
 
-### Lifting in JavaScript or TypeScript
-
-In JavaScript and TypeScript, accessing a property via lifting behaves like the [`?.` (optional chaining operator)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining). This means that you do not have to explicitly define the code to handle `null` or `undefined` output values, which makes it a much easier method of forming a chain of property accesses on an `Output<T>`.
-
-{{< chooser language "javascript,typescript" >}}
-
-{{% choosable language javascript %}}
-
-```javascript
-let certValidation = new aws.route53.Record("cert_validation", {
-  records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
-
-// instead of
-
-let certValidation = new aws.route53.Record("cert_validation", {
-  records: [certCertificate.apply(cc => cc ? cc.domainValidationOptions : undefined)
-                           .apply(dvo => dvo ? dvo[0] : undefined)
-                           .apply(o => o ? o.resourceRecordValue : undefined)],
-```
-
-{{% /choosable %}}
-
-{{% choosable language typescript %}}
-
-```typescript
-let certValidation = new aws.route53.Record("cert_validation", {
-  records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
-
-// instead of
-
-let certValidation = new aws.route53.Record("cert_validation", {
-  records: [certCertificate.apply(cc => cc ? cc.domainValidationOptions : undefined)
-                           .apply(dvo => dvo ? dvo[0] : undefined)
-                           .apply(o => o ? o.resourceRecordValue : undefined)],
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
-
 ## Creating new output values
 
 ### Outputs and Strings
