@@ -15,6 +15,11 @@ aliases:
 - /docs/intro/console/projects-and-stacks/
 - /docs/intro/pulumi-service/projects-and-stacks/
 - /docs/intro/pulumi-cloud/projects-and-stacks/
+search:
+  keywords:
+    - delete a stack
+    - deleting a stack
+    - delete a stack in Pulumi cloud
 ---
 
 Projects group stacks together and contain a Pulumi.yaml file.
@@ -38,7 +43,7 @@ The Pulumi Cloud provides fine-grained access controls for stacks. Stack permiss
 based on the member's role within the organization and their team membership.
 Additionally, any member who creates a stack is granted admin permissions on that stack.
 
-Organization admins can control the stack default permissions at the organization level from **Settings** > **General**.
+Organization admins can control the stack default permissions at the organization level from **Settings** > **Access Management**.
 There are four types of stack permissions: `None`, `Read`, `Write`, and `Admin`.
 [Team permissions](/docs/pulumi-cloud/access-management/teams#team-permissions) will expand these default permissions.
 
