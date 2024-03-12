@@ -276,7 +276,13 @@ bucket_object = s3.BucketObject(
 {{% choosable language go %}}
 
 ```go
-_, err = s3.NewBucketOwnershipControls(ctx, "ownership-controls", &s3.BucketOwnershipControlsArgs{
+import (
+	"fmt"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+ownershipControls, err := s3.NewBucketOwnershipControls(ctx, "ownership-controls", &s3.BucketOwnershipControlsArgs{
     Bucket: bucket.ID(),
     Rule: &s3.BucketOwnershipControlsRuleArgs{
         ObjectOwnership: pulumi.String("ObjectWriter"),
@@ -301,6 +307,7 @@ _, err = s3.NewBucketObject(ctx, "index.html", &s3.BucketObjectArgs{
     Acl:         pulumi.String("public-read"),
 }, pulumi.DependsOn([]pulumi.Resource{
 			publicAccessBlock,
+			ownershipControls,
 }))
 if err != nil {
     return err
@@ -449,12 +456,6 @@ pulumi.export('bucket_endpoint', pulumi.Output.concat('http://', bucket.website_
 {{% choosable language go %}}
 
 ```go
-import (
-  "fmt"
-  "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
 ctx.Export("bucketEndpoint", bucket.WebsiteEndpoint.ApplyT(func(websiteEndpoint string) (string, error) {
     return fmt.Sprintf("http://%v", websiteEndpoint), nil
 }).(pulumi.StringOutput))
