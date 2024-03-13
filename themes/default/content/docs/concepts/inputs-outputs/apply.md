@@ -695,7 +695,6 @@ This resource will have outputs that resemble the following:
 
 ```python
 # Example truncated output of the ACM certificate resource
-# Example truncated output of the ACM certificate resource
 cert: {
     arn                      : "arn:aws:acm:eu-central-1..."
     certificate_authority_arn: ""

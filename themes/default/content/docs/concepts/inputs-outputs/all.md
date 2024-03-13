@@ -165,7 +165,193 @@ Server=tcp:myDbServer.database.windows.net;initial catalog=myExampleDatabase;
 
 There is an easier way to generate a concatenated string value using multiple outputs, and that is by using interpolation. Pulumi exposes interpolation helpers that enables you to create strings that contain outputs. These interpolation methods wrap [all](/docs/concepts/inputs-outputs/all/) and [apply](/docs/concepts/inputs-outputs/apply/) with an interface that resembles your language's native string formatting functions. The below example demonstrates how to create a URL from the hostname and port output values of a web server.
 
-{{< example-program path="aws-simulated-server-interpolate" >}}
+{{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language javascript %}}
+
+```javascript
+const pulumi = require("@pulumi/pulumi");
+/* Simulated outputs of a webServer resource
+{
+    hostName: "www.mywebserver.com",
+    port: "8080",
+}
+*/
+
+// concat takes a list of args and concatenates all of them into a single output:
+const url1 = pulumi.concat("http://", webServer.hostName, ":", webServer.port, "/");
+
+// interpolate takes a JavaScript "template literal" and expands outputs correctly:
+const url2 = pulumi.interpolate`http://${webServer.hostName}:${webServer.port}/`;
+
+exports.serverUrl1 = url1;
+exports.serverUrl2 = url2;
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language typescript %}}
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import { Output } from "@pulumi/pulumi";
+
+/* Simulated outputs of a webServer resource
+{
+    hostName: "www.mywebserver.com",
+    port: "8080",
+}
+*/
+
+// concat takes a list of args and concatenates all of them into a single output:
+const url1: Output<string> = pulumi.concat("http://", webServer.hostName, ":", webServer.port, "/");
+
+// interpolate takes a JavaScript "template literal" and expands outputs correctly:
+const url2: Output<string> = pulumi.interpolate`http://${webServer.hostName}:${webServer.port}/`;
+
+export const serverUrl1 = url1;
+export const serverUrl2 = url2;
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+
+''' Simulated outputs of a web_server resource
+{
+    "hostName": "www.mywebserver.com",
+    "port": "8080",
+}
+'''
+
+# concat takes a list of args and concatenates all of them into a single output:
+url1 = pulumi.Output.concat("http://", web_server.hostName, ":", web_server.port, "/")
+
+# format takes a template string and a list of args or keyword args and formats the string, expanding outputs correctly:
+url2 = pulumi.Output.format("http://{0}:{1}/", web_server.hostName, web_server.port);
+
+pulumi.export("serverUrl1", url1)
+pulumi.export("serverUrl2", url2)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+        /* Simulated outputs of a webServer resource
+		{
+			"hostName":  pulumi.String("www.mywebserver.com"),
+			"ipAddress": pulumi.String("8080"),
+		}
+		*/
+
+		url := pulumi.Sprintf("http://%s:%d/", webServer.hostName, webServer.port)
+
+		ctx.Export("serverUrl", url)
+
+		return nil
+	})
+}
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using System.Collections.Generic;
+using Pulumi;
+
+return await Deployment.RunAsync(() =>
+{
+    /* Simulated outputs of a webServer resource
+    {
+        HostName = "www.mywebserver.com",
+        Port = "8080",
+    }
+    */
+
+    // Format takes a FormattableString and expands outputs correctly:
+    var url = Output.Format($"http://{webServer.HostName}:{webServer.Port}/");
+
+    return new Dictionary<string, object?>
+    {
+        ["serverUrl"] = url,
+    };
+
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+package myproject;
+
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.core.Output;
+import java.util.Map;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    public static void stack(Context ctx) {
+
+        /* Simulated outputs of a webServer resource
+        (
+            "hostName", "www.mywebserver.com",
+            "port", "8080"
+        )
+        */
+
+        var url = Output.format("http://%s:%s/", webServer.hostName, webServer.port);
+
+        ctx.export("serverUrl", url);
+    }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+# In YAML, you can access property values directly.
+name: webserver-yaml
+runtime: yaml
+
+variables:
+  # Simulated webServer outputs
+  webServer:
+    hostName: "www.mywebserver.com"
+    port: "8080"
+
+outputs:
+  serverUrl: https://${webServer.hostName}:${webServer.port}
+
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 You can use string interpolation to do things like export a [stack output](/docs/using-pulumi/stack-outputs-and-references/) or provide a dynamically computed string as a new resource argument.
 
