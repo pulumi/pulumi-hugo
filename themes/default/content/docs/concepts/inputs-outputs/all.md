@@ -515,7 +515,7 @@ This example is not applicable in Pulumi YAML.
 
 {{< /chooser >}}
 
-## Creating a JSON object
+## Creating a JSON object [WIP]
 
 {{< chooser language "typescript,python,go,csharp" >}}
 
