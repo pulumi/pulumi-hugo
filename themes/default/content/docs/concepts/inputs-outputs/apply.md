@@ -695,26 +695,27 @@ This resource will have outputs that resemble the following:
 
 ```python
 # Example truncated output of the ACM certificate resource
-    cert: {
-        arn                      : "arn:aws:acm:eu-central-1..."
-        certificate_authority_arn: ""
-        certificate_body         : <null>
-        certificate_chain        : <null>
-        domain_name              : "example.com"
-        domain_validation_options: [
-            [0]: {
-                domain_name          : "example.com"
-                resource_record_name : "_0a822dde6347292b.example.com."
-                resource_record_type : "CNAME"
-                resource_record_value: "_527b1cdf2159204b.mhbtsbpdnt.acm-validations.aws."
-            }
-        ]
-        ...
-        ...
-    }
+# Example truncated output of the ACM certificate resource
+cert: {
+    arn                      : "arn:aws:acm:eu-central-1..."
+    certificate_authority_arn: ""
+    certificate_body         : <null>
+    certificate_chain        : <null>
+    domain_name              : "example.com"
+    domain_validation_options: [
+        [0]: {
+            domain_name          : "example.com"
+            resource_record_name : "_0a822dde6347292b.example.com."
+            resource_record_type : "CNAME"
+            resource_record_value: "_527b1cdf2159204b.mhbtsbpdnt.acm-validations.aws."
+        }
+    ]
+    ...
+    ...
+}
 ```
 
-You want to validate your certificate by creating an [Amazon Route 53 record](/registry/packages/aws/api-docs/route53/record/). To do so, you will need to retrieve the value of the resource record from the ACM certificate. This value is nested in the domain validation options property of the certificate resource, which returns an array. Because that value is an output, we would normally need to use {{< pulumi-apply >}} to retrieve it:
+You want to validate your certificate by creating an [Amazon Route 53 record](/registry/packages/aws/api-docs/route53/record/). To do so, you will need to retrieve the value of the resource record from the ACM certificate. This value is nested in the domain validation options property of the certificate resource, which is an array. Because that value is an output, you would normally need to use {{< pulumi-apply >}} to retrieve it:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -821,7 +822,7 @@ This example is not applicable in YAML.
 
 {{< /chooser >}}
 
-An easier way to access deeply nested properties is by using _lifting_. Lifting allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. If we return to the above example, we can now simplify it as shown below:
+An easier way to access deeply nested properties is by using _lifting_. Lifting allows you to access properties and elements directly from the {{< pulumi-output >}} itself without needing {{< pulumi-apply >}}. Returning to the example above, your code can now be simplified as shown below:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
