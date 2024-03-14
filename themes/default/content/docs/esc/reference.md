@@ -109,6 +109,18 @@ values:
   # sources using a variety of providers. This configuration will be loaded when the
   # environment is opened.
   # ---------------------------------------------------------------------------------------
+  # 1Password Provide example
+  1password:
+    secrets:
+      fn::open::aws-secrets:
+        region: us-west-1
+        login: ${aws.login}
+        get:
+          api-key:
+            secretId: api-key
+          app-secret:
+            secretId: app-secret
+
 
   # AWS Provider examples
   aws:
