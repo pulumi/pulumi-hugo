@@ -161,7 +161,7 @@ The `all` function works by returning an output that represents the combination 
 Server=tcp:myDbServer.database.windows.net;initial catalog=myExampleDatabase;
 ```
 
-### Using string interpolation
+### Using string interpolation {# search.keywords="interpolation"}
 
 There is an easier way to generate a concatenated string value using multiple outputs, and that is by using interpolation. Pulumi exposes interpolation helpers that enables you to create strings that contain outputs. These interpolation methods wrap [all](/docs/concepts/inputs-outputs/all/) and [apply](/docs/concepts/inputs-outputs/apply/) with an interface that resembles your language's native string formatting functions. The below example demonstrates how to create a URL from the hostname and port output values of a web server.
 
