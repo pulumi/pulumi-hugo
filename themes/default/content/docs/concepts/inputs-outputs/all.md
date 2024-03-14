@@ -514,3 +514,213 @@ This example is not applicable in Pulumi YAML.
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+## Creating a JSON object [WIP]
+
+{{< chooser language "typescript,python,go,csharp" >}}
+
+{{% choosable language typescript %}}
+
+```typescript
+const contentBucket = new aws.s3.Bucket("content-bucket", {
+  acl: "private",
+  website: {
+    indexDocument: "index.html",
+    errorDocument: "index.html",
+  },
+  forceDestroy: true,
+});
+
+const originAccessIdentity = new aws.cloudfront.OriginAccessIdentity(
+  "cloudfront",
+  {
+    comment: pulumi.interpolate`OAI-${contentBucket.bucketDomainName}`,
+  }
+);
+
+// apply method
+new aws.s3.BucketPolicy("cloudfront-bucket-policy", {
+  bucket: contentBucket.bucket,
+  policy: pulumi
+    .all([contentBucket.bucket, originAccessIdentity.iamArn])
+    .apply(([bucketName, iamArn]) =>
+      JSON.stringify({
+        Version: "2012-10-17",
+        Statement: [
+          {
+            Sid: "CloudfrontAllow",
+            Effect: "Allow",
+            Principal: {
+              AWS: iamArn,
+            },
+            Action: "s3:GetObject",
+            Resource: `arn:aws:s3:::${bucketName}/*`,
+          },
+        ],
+      })
+    ),
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+bucket = aws.s3.Bucket(
+    "content-bucket",
+    acl="private",
+    website=aws.s3.BucketWebsiteArgs(
+        index_document="index.html", error_document="404.html"
+    ),
+)
+
+origin_access_identity = aws.cloudfront.OriginAccessIdentity(
+    "cloudfront",
+    comment=pulumi.Output.concat("OAI-", bucket.id),
+)
+
+bucket_policy = aws.s3.BucketPolicy(
+    "cloudfront-bucket-policy",
+    bucket=bucket.bucket,
+    policy=pulumi.Output.all(
+        cloudfront_iam_arn=origin_access_identity.iam_arn,
+        bucket_arn=bucket.arn
+    ).apply(
+        lambda args: json.dumps(
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "CloudfrontAllow",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": args["cloudfront_iam_arn"],
+                        },
+                        "Action": "s3:GetObject",
+                        "Resource": f"{args['bucket_arn']}/*",
+                    }
+                ],
+            }
+        )
+    ),
+    opts=pulumi.ResourceOptions(parent=bucket)
+)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+{{% notes type="info" %}}
+The Pulumi Go SDK does not currently support serializing or deserializing maps with unknown values.
+It is tracked [here](https://github.com/pulumi/pulumi/issues/12460).
+
+The following is a simplified example of using `pulumi.JSONMarshal` in Go.
+{{% /notes %}}
+
+```go
+bucket, err := s3.NewBucket(ctx, "content-bucket", &s3.BucketArgs{
+	Acl: pulumi.String("private"),
+	Website: &s3.BucketWebsiteArgs{
+		IndexDocument: pulumi.String("index.html"),
+		ErrorDocument: pulumi.String("404.html"),
+	},
+})
+if err != nil {
+	return err
+}
+
+originAccessIdentity, err := cloudfront.NewOriginAccessIdentity(ctx, "cloudfront", &cloudfront.OriginAccessIdentityArgs{
+		Comment: pulumi.Sprintf("OAI-%s", bucket.ID()),
+})
+if err != nil {
+	return err
+}
+
+_, err = s3.NewBucketPolicy(ctx, "cloudfront-bucket-policy", &s3.BucketPolicyArgs{
+	Bucket: bucket.ID(),
+	Policy: pulumi.All(bucket.Arn, originAccessIdentity.IamArn).ApplyT(
+		func(args []interface{}) (pulumi.StringOutput, error) {
+			bucketArn := args[0].(string)
+			iamArn := args[1].(string)
+
+			policy, err := json.Marshal(map[string]interface{}{
+				"Version": "2012-10-17",
+				"Statement": []map[string]interface{}{
+					{
+						"Sid":    "CloudfrontAllow",
+						"Effect": "Allow",
+						"Principal": map[string]interface{}{
+							"AWS": iamArn,
+						},
+						"Action":   "s3:GetObject",
+						"Resource": bucketArn + "/*",
+					},
+				},
+			})
+
+			if err != nil {
+				return pulumi.StringOutput{}, err
+			}
+			return pulumi.String(policy).ToStringOutput(), nil
+		}).(pulumi.StringOutput),
+}, pulumi.Parent(bucket))
+if err != nil {
+	return err
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+var bucket = new Bucket("content-bucket", new BucketArgs
+{
+    Acl = "private",
+    Website = new BucketWebsiteArgs
+    {
+        IndexDocument = "index.html",
+        ErrorDocument = "404.html",
+    },
+});
+
+var originAccessIdentity = new OriginAccessIdentity("cloudfront", new OriginAccessIdentityArgs
+{
+    Comment = Output.Format($"OAI-{bucket.Id}"),
+});
+
+var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", new BucketPolicyArgs
+{
+    Bucket = bucket.Bucket,
+    Policy = Output.Tuple(bucket.Arn, originAccessIdentity.IamArn)
+    .Apply(t =>
+    {
+        string bucketArn = t.Item1;
+        string cloudfrontIamArn = t.Item2;
+
+        var policy = new
+        {
+            Version = "2012-10-17",
+            Statement = new object[]
+            {
+                new
+                {
+                    Sid = "CloudfrontAllow",
+                    Effect = "Allow",
+                    Principal = new { AWS = cloudfrontIamArn },
+                    Action = "s3:GetObject",
+                    Resource = $"{bucketArn}/*",
+                },
+            },
+        };
+
+        return JsonSerializer.Serialize(policy);
+    }),
+}, new CustomResourceOptions { Parent = bucket });
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
