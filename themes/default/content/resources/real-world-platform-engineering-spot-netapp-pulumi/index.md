@@ -1,6 +1,6 @@
 ---
 # Name of the event, <= 60 characters
-title: Real-World Platform Engineering - Spot by NetApp and Pulumi
+title: Microsoft AKS Engineering at Scale with Spot and Pulumi
 meta_desc: Explore real-world examples of how organizations can leverage the power of Pulumi and Spot to optimize their AKS workloads.
 meta_image:
 
@@ -31,7 +31,7 @@ url_slug: real-world-platform-engineering-spot-netapp-pulumi
 # Content for the left hand side section of the page.
 main:
     # Webinar title.
-    title: Real-World Platform Engineering with Spot by NetApp and Pulumi
+    title: Microsoft AKS Engineering at Scale with Spot and Pulumi
 
     event_type: workshop # workshop | event
 
