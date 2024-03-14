@@ -23,21 +23,25 @@ This provider is currently in **preview**.
 
 ```yaml
   1password:
-    login:
-      fn::open::1password-login:
-        address: https://127.0.0.1:8200/
-        jwt:
-          role: example-role
     secrets:
       fn::open::1password-secrets:
-        login: ${1password.login}
-        read:
-          api-key:
-            path: api-key
-          app-secret:
-            path: app-secret
+        login:
+          serviceAccountToken:
+            fn::secret: "ops_123ABC"
+        get:
+          email_section_example:
+            ref: "op://Management/PagerDuty/Admin/email"
+          anna_sans_section_example:
+            ref: "op://dev/Stripe/publishable-key"
+          olaf_attr_example:
+            ref: "op://development/GitHub/Security/one-time password?attribute=otp"
+          sven_ssh_example:
+            ref: "op://Private/ssh keys/ssh key/private key?ssh-format=openssh"
+          nokk_whitespace_example:
+            ref: "op://development/aws/Access Keys/access_key_id"
+          gale_unique_id_example:
+            ref: "op://prod/yj3jfj2vzsbiwqabprflnl27lm/password"
 ```
-
 
 ## Inputs
 
@@ -56,10 +60,7 @@ This provider is currently in **preview**.
 
 | Property | Type   | Description                                  |
 |----------|--------|----------------------------------------------|
-| `ref `   | string | A [reference to a secret](https://developer.1password.com/docs/cli/secrets-reference-syntax) of the form `op://vault-name/item-name/[section-name/]field-name` to read from 1Password.  |
-
-<!-- map[string][1PasswordSecretsGetRef](#1passwordsecretsgetref) -->
-<!-- ### 1PasswordSecretsGetRef -->
+| `ref`    | string | A [reference to a secret](https://developer.1password.com/docs/cli/secrets-reference-syntax) of the form `op://vault-name/item-name/[section-name/]field-name` to read from 1Password.  |
 
 ### Outputs
 
