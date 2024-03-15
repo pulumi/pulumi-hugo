@@ -5,4 +5,4 @@ aliases:
   - /docs/concepts/inputs-outputs/outputs-and-strings/
 ---
 
-<meta http-equiv="refresh" content="0; URL='/docs/concepts/inputs-outputs/all/#using-string-interpolation'">
+<meta http-equiv="refresh" content="0; URL='/docs/concepts/inputs-outputs/all/'">
