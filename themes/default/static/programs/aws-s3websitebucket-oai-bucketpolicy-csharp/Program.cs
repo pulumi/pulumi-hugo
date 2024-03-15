@@ -1,11 +1,14 @@
 using Pulumi;
 using Pulumi.Aws.S3;
+using Pulumi.Aws.S3.Inputs;
+using Pulumi.Aws.Iam;
 using Pulumi.Aws.CloudFront;
 using System.Collections.Generic;
+using System.Text.Json;
 
 return await Deployment.RunAsync(() =>
 {
-    var bucket = new Bucket("content-bucket", new BucketArgs
+    var bucket = new Bucket("content-bucket", new()
     {
         Acl = "private",
         Website = new BucketWebsiteArgs
@@ -22,7 +25,7 @@ return await Deployment.RunAsync(() =>
     
     var bucketPolicy = new BucketPolicy("cloudfront-bucket-policy", new BucketPolicyArgs
     {
-        Bucket = bucket.Bucket,
+        Bucket = bucket.BucketName,
         Policy = Output.Tuple(bucket.Arn, originAccessIdentity.IamArn)
         .Apply(t =>
         {
