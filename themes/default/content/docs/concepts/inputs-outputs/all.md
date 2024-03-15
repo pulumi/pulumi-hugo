@@ -329,8 +329,8 @@ This example is not applicable in Pulumi YAML.
 
 {{< /chooser >}}
 
-## Creating a JSON object [WIP]
+## Creating a JSON object
 
-You can also create JSON objects using multiple output values in Pulumi. Doing so requires the use of `apply` or one of Pulumi's [JSON-specific helpers](/docs/concepts/inputs-outputs/apply/#outputs-and-json).
+You can also [create JSON objects](/docs/concepts/inputs-outputs/apply/#outputs-and-json) using multiple output values in Pulumi. Doing so requires the use of `apply` or one of Pulumi's [JSON-specific helpers](/docs/concepts/inputs-outputs/apply/#converting-outputs-to-json).
 
 {{< example-program path="aws-s3websitebucket-oai-bucketpolicy" >}}
