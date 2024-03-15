@@ -1059,7 +1059,9 @@ The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `
 
 ### Outputs and JSON
 
-Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string. The S3 bucket policy resource in the below example demonstrates how to use an output of the S3 bucket resource using `apply`:
+Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string.
+
+For example, let's say you want to create an S3 bucket and a bucket policy that allows the Lambda service to write objects to that bucket. The below example shows how to use `apply` to create the bucket policy JSON object using an output value from the S3 bucket resource (in this case the bucket's ARN):
 
 {{< example-program path="aws-s3bucket-bucketpolicy" >}}
 
