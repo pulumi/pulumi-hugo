@@ -17,13 +17,13 @@ The renaming to "AWS Native Cloud Control Provider" and its General Availability
 Key Features and Benefits:
 Comprehensive Cloud Control API support : Offers full coverage of the AWS Cloud Control API, providing users with immediate access to a wide array of AWS services and features as they are released.
 Immediate Resource Availability : Ensures same-day support for new AWS features and services keeping users at the forefront of AWS innovation.
-Integrated Pulumi Experience : Seamlessly integrates with Pulumi’s AWS Classic Providers, enhancing Infrastructure as Code (IaC) projects with the latest tAWS capabilities without requiring significant changes to existing setups.
+Complimentary Pulumi Experience : Works alongside Pulumi’s AWS Classic Provider, enhancing Infrastructure as Code (IaC) projects with the latest tAWS capabilities without requiring significant changes to existing setups.
 Extended support for third-party resources :  With support for third-party resources available in the CloudFormation Registry, such as Atlassian, MongoDB, Datadog and more, fostering a versatile and interoperable ecosystem for users.our platform offers enhanced flexibility and interoperability.
 Mirror of AWS Abstractions : This release also includes a new tool [cf2pulumi](https://www.pulumi.com/cf2pulumi/)
 
 At Pulumi, we're dedicated to empowering our customers with the tools they need to innovate and thrive in the cloud. The launch of the AWS Native Cloud Control Provider represents our unwavering commitment to providing best-in-class solutions that simplify cloud management, streamline operations, and drive business success.
 
-The Pulumi AWS Native Cloud Control provider can be used in combination with the classic Pulumi AWS provider, as well as the 60+ additional Pulumi resource providers which cover a wide variety of other cloud and SaaS platforms.  Let’s walk through an example of using Pulumi AWS Native Cloud Control Provider alongside AWS Classic. Here we can see how the new AWS S3 Object Lambda feature can be used via the AWS Native Cloud Control provider, with access to the full API defined by the S3 team at AWS,
+The Pulumi AWS Native Cloud Control provider can be used in combination with the classic Pulumi AWS provider, as well as the 150+ additional Pulumi resource providers which cover a wide variety of other cloud and SaaS platforms.  Let’s walk through an example of using Pulumi AWS Native Cloud Control Provider alongside AWS Classic. Here we can see how the new AWS S3 Object Lambda feature can be used via the AWS Native Cloud Control provider, with access to the full API defined by the S3 team at AWS,
 
 ```javascript
 
@@ -60,9 +60,10 @@ export const lambdaFunctionArn = lambdaFunction.arn;
 export const s3BucketName = bucket.bucket;
 
 ```
-While many of the resources offered by the AWS Native Cloud Control Provider overlap with the resources provided by the AWS Classic Provider, CloudControl resources can sometimes offer more flexible modeling for complex configuration. For example WAFv2 configurations can include arbitrary nested rules. The AWS Native cloud control WAFv2 resources can express configurations that were too complex for the AWS Classic versions of the resource
+Some services, such as Proton, Wisdom, Chatbot, Health Imaging, and DevOps Guru, are supported in the Cloud Control Provider but not in the Classic version.
+While many of the resources offered by the AWS Native Cloud Control Provider overlap with the resources provided by the AWS Classic Provider, CloudControl resources can sometimes offer more flexible modeling for complex configuration. For example WAFv2 configurations can include arbitrary nested rules. The AWS Native cloud control WAFv2 resources can express configurations that were too complex for the AWS Classic versions of the resource.
 
-For example, this configuration involves six levels of nesting rules, but can be composed from reusable building blocks:
+For example, this configuration involves six levels of nested rules, but can be composed from reusable building blocks:
 
 ```javascript
 import * as pulumi from "@pulumi/pulumi";
@@ -214,3 +215,5 @@ const exampleWebACL = new aws_native.wafv2.WebAcl("exampleWebACL", {
   },
 });
 ```
+
+Collaborating closely with the AWS Cloud Control API team, we've tailored an enhanced Pulumi experience for AWS developers. We're thrilled about the possibilities this opens up and eagerly anticipate your input. For any questions or feedback, we encourage you to reach out via our GitHub repository.
