@@ -1065,191 +1065,33 @@ For example, let's say you want to create an S3 bucket and a bucket policy that 
 
 {{< example-program path="aws-s3bucket-bucketpolicy" >}}
 
-This operation is so common, Pulumi provides first-class helper functions for deserializing JSON string outputs into your language's native objects and serializing your language's native objects to JSON string outputs. These helper functions are designed to remove the process of manually resolving the output inside a {{< pulumi-apply >}}.
+This operation is so common that Pulumi provides first-class helper functions to make it much easier. These helper functions can:
 
-### Converting outputs to JSON
+- take native JSON objects and convert them into JSON strings (i.e. serialization)
+- take JSON strings and convert them into native JSON objects (i.e. deserialization)
 
-You can natively represent the definition of an AWS Step Function State Machine and embed outputs from other resources then convert it to a JSON string.
+### Converting JSON object to string
 
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+If you have a JSON object that needs to:
 
-{{% choosable language javascript %}}
+- use output values from Pulumi resources
+- be converted into a JSON string representation
 
-```javascript
-const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
-    roleArn: sfnRole.arn,
-    stateMachineType: "EXPRESS",
-    definitionString: pulumi.jsonStringify({
-        "Comment": "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
-        "StartAt": "Hello",
-        "States": {
-            "Hello": {
-                "Type": "Task",
-                "Resource": helloFunction.arn, // Pulumi Resource Output
-                "Next": "World",
-            },
-            "World": {
-                "Type": "Task",
-                "Resource": worldFunction.arn, // Pulumi Resource Output
-                "End": true,
-            },
-        },
-    })
-});
-```
+you can easily do so using Pulumi's JSON stringify helper. This helper function unwraps Pulumi outputs without needing to explicitly use `apply` and converts the entire JSON object into a JSON string.
 
-{{% /choosable %}}
+For example, you can write the definition of a AWS Step Function State Machine as a native JSON object, embed outputs from other resources (such as a Lambda Function ARN) within the JSON object, and then convert the entire definition into the JSON string representation that is required by the State Machine resource definition:
 
-{{% choosable language typescript %}}
+{{< example-program path="aws-lambda-stepfunctions-jsonhelper" >}}
 
-```typescript
-const stateMachine = new awsnative.stepfunctions.StateMachine("stateMachine", {
-    roleArn: sfnRole.arn,
-    stateMachineType: "EXPRESS",
-    definitionString: pulumi.jsonStringify({
-        "Comment": "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
-        "StartAt": "Hello",
-        "States": {
-            "Hello": {
-                "Type": "Task",
-                "Resource": helloFunction.arn, // Pulumi Resource Output
-                "Next": "World",
-            },
-            "World": {
-                "Type": "Task",
-                "Resource": worldFunction.arn, // Pulumi Resource Output
-                "End": true,
-            },
-        },
-    })
-});
-```
+### Converting JSON string to object
 
-{{% /choosable %}}
+If you have an output in the form of a JSON string and you need to interact with it like you would a regular JSON object, you can use Pulumi's parsing helper function.
 
-{{% choosable language python %}}
+In the below example, you can parse a JSON string into a JSON object and then, inside of an `apply`, manipulate the object to remove all of the policy statements:
 
-```python
-state_machine = aws_native.stepfunctions.StateMachine("stateMachine",
-    role_arn=sfn_role.arn,
-    state_machine_type="EXPRESS",
-    definition_string=pulumi.Output.json_dumps({
-        "Comment": "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
-        "StartAt": "Hello",
-        "States": {
-            "Hello": {
-                "Type": "Task",
-                "Resource": hello_function.arn, # Pulumi Resource Output
-                "Next": "World",
-            },
-            "World": {
-                "Type": "Task",
-                "Resource": world_function.arn, # Pulumi Resource Output
-                "End": True,
-            },
-        },
-    })
-)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-{{% notes type="info" %}}
-The Pulumi Go SDK does not currently support serializing or deserializing maps with unknown values.
-It is tracked [here](https://github.com/pulumi/pulumi/issues/12460).
-
-The following is a simplified example of using `pulumi.JSONMarshal` in Go.
-{{% /notes %}}
-
-```go
-pulumi.JSONMarshal(pulumi.ToMapOutput(map[string]pulumi.Output{
-    "bool": pulumi.ToOutput(true),
-    "int":  pulumi.ToOutput(1),
-    "str":  pulumi.ToOutput("hello"),
-    "arr": pulumi.ToArrayOutput([]pulumi.Output{
-        pulumi.ToOutput(false),
-        pulumi.ToOutput(1.0),
-        pulumi.ToOutput(""),
-        pulumi.ToMapOutput(map[string]pulumi.Output{
-            "key": pulumi.ToOutput("value"),
-        }),
-    }),
-    "map": pulumi.ToMapOutput(map[string]pulumi.Output{
-        "key": pulumi.ToOutput("value"),
-    }),
-    // The following functionality is currently unsupported as myResource
-    // is an unknown value.
-    "unknown": myResource.ApplyT(func(res interface{}) (interface{}, error) {
-        return "Hello World!", nil
-    }),
-}))
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-var stateMachine = Pulumi.Output.JsonSerialize(Output.Create(new {
-        Comment = "A Hello World example of the Amazon States Language using two AWS Lambda Functions",
-        StartAt = "Hello",
-        States = new Dictionary<string, object?>{
-        ["Hello"] = new {
-            Type = "Task",
-            Resource = helloFunction.Arn, // Pulumi Resource Output
-            Next = "World",
-        },
-        ["World"] = new {
-            Type = "Task",
-            Resource = worldFunction.Arn, // Pulumi Resource Output
-            End = true,
-        },
-    },
-}));
-```
-
-{{% /choosable %}}
-
-{{< /chooser >}}
-
-### Creating outputs from JSON
-
-You can parse a JSON string into an object and then, inside of an `apply`, manipulate the object to remove all of the policy statements:
-
-{{< chooser language "javascript,typescript,python,go,csharp" >}}
+{{< example-program path="aws-iampolicy-jsonparse" >}}
 
 {{% choosable language javascript %}}
-
-```javascript
-const jsonIAMPolicy = pulumi.output(`{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::my-bucket"
-        }
-    ]
-}`);
-
-const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
-    // delete the policy statements
-    policy.Statement = [];
-    return policy;
-});
-```
 
 For more details [view the Node.js documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
 
@@ -1257,73 +1099,11 @@ For more details [view the Node.js documentation](/docs/reference/pkg/nodejs/pul
 
 {{% choosable language typescript %}}
 
-```typescript
-const jsonIAMPolicy = pulumi.output(`{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::my-bucket"
-        }
-    ]
-}`);
-
-const policyWithNoStatements: Output<object> = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
-    // delete the policy statements
-    policy.Statement = [];
-    return policy;
-});
-```
-
 For more details [view the Node.js documentation](/docs/reference/pkg/nodejs/pulumi/pulumi/).
 
 {{% /choosable %}}
 
 {{% choosable language python %}}
-
-```python
-json_iam_policy = pulumi.Output.from_input('''
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::my-bucket"
-        }
-    ]
-}
-''')
-
-def update_policy(policy):
-    # delete the policy statements
-    policy.update({'Statement': []})
-    return policy
-
-policy_with_no_statements = \
-    pulumi.Output.json_loads(json_IAM_policy).apply(update_policy)
-```
 
 For more details [view the Python documentation](/docs/reference/pkg/python/pulumi/).
 
@@ -1331,79 +1111,12 @@ For more details [view the Python documentation](/docs/reference/pkg/python/pulu
 
 {{% choosable language go %}}
 
-```go
-jsonIAMPolicy := pulumi.ToOutput(`{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::my-bucket"
-        }
-    ]
-}`).(pulumi.StringInput)
-
-policyWithNoStatements := pulumi.JSONUnmarshal(jsonIAMPolicy).ApplyT(
-    func(v interface{}) (interface{}, error) {
-
-        // delete the policy statements
-        v.(map[string]interface{})["Statement"] = []pulumi.ArrayOutput{}
-        return v, nil
-    })
-```
-
 For more details [view the Go documentation](https://pkg.go.dev/github.com/pulumi/pulumi/sdk/v3/go/pulumi).
 
 {{% /choosable %}}
 
 {{% choosable language csharp %}}
 
-```csharp
-var jsonIAMPolicy = Output.Create(@"
-        {
-            ""Version"": ""2012-10-17"",
-            ""Statement"": [
-                {
-                    ""Sid"": ""VisualEditor0"",
-                    ""Effect"": ""Allow"",
-                    ""Action"": [
-                        ""s3:ListAllMyBuckets"",
-                        ""s3:GetBucketLocation""
-                    ],
-                    ""Resource"": ""*""
-                },
-                {
-                    ""Sid"": ""VisualEditor1"",
-                    ""Effect"": ""Allow"",
-                    ""Action"": [
-                        ""s3:*""
-                    ],
-                    ""Resource"": ""arn:aws:s3:::my-bucket""
-                }
-            ]
-        }
-    ");
-
-var policyWithNoStatements = Pulumi.Output.JsonDeserialize<IAMPolicy>(jsonIAMPolicy).Apply(policy =>
-{
-    // delete the policy statements.
-    policy.Statement = Pulumi.Output.Create(new List<StatementEntry> { });
-    return policy;
-})
-```
-
 For more details [view the .NET documentation](/docs/reference/pkg/dotnet/Pulumi/Pulumi.Output.html).
 
 {{% /choosable %}}
-
-{{< /chooser >}}
