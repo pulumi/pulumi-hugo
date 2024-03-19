@@ -7,21 +7,27 @@ layout: community-engineering/single
 aliases:
   - /kat
 talks:
-  - event: DevOpsDays Houston 2022
-    title: "Getting to DevOps: Musings of a DevRel on communities of practice"
-    url: https://devopsdays.org/events/2022-houston/program
-    date: 2022-10-04T09:15:00.000-05:00
+  - event: Pulumi Workshop
+    title: Deploying LangChain Applications on AWS with Pulumi
+    url: https://www.bigmarker.com/pulumi/Deploying-LangChain-Applications-on-AWS-with-Pulumi
+    date: 2024-03-14T10:00:00.000-07:00
     slides: null
-  - event: DevOpsDays Seattle 2022
-    title: What Cloud Engineers Could Learn from Clouds
-    url: https://devopsdays.org/events/2022-seattle/program
-    date: 2022-07-19T13:10:00.000-07:00
-    slides: https://speaking.nimbinatus.com/7EzGB6/what-cloud-engineers-could-learn-from-clouds
-  - event: PyTexas 2022
-    title: Stand Back! Building a scientific computing lab on public clouds with Python.
-    url: https://www.pytexas.org/
-    date: 2022-03-02T10:00:00.000-07:00
-    slides: https://speaking.nimbinatus.com/pB44NX/stand-back-building-a-scientific-computing-lab-on-public-clouds-with-python
+  - event: eBPF & Cilium Office Hours
+    title: "Episode 128: Deploy Cilium with Pulumi"
+    url: https://www.youtube.com/watch?v=1oF_bfLk8sE
+    date: 2024-03-08T09:15:00.000-05:00
+    slides: null
+  - event: Pulumi Workshop
+    title: Efficient Microservice Deployment on Cloud Run with Pulumi
+    url: https://www.bigmarker.com/pulumi/Efficient-Microservice-Deployment-on-Cloud-Run-with-Pulumi
+    date: 2024-02-28T13:10:00.000-07:00
+    slides: null
+  - event: Pulumi Austin PUG
+    title: "Future of Cloud: Exploring Policy-as-Code and AWS Self-Service Infrastructure"
+    url: https://www.meetup.com/austin-pulumi-user-group/events/298037929/
+    date: 2024-02-22T13:10:00.000-07:00
+    slides: null
+
 form:
     hubspot_form_id: 87c6f1d4-a928-4298-b4b4-89164561e01b
 giveaway:
