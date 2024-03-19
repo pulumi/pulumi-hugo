@@ -22,7 +22,7 @@ talks:
     url: https://www.meetup.com/cloudaustin/events/296316458/
     date: 2024-02-20T10:00:00.000-07:00
     slides: null
-  - event: Civo Navigate North America 2024 - Austin, TX
+  - event: "Civo Navigate North America 2024 - Austin, TX"
     title: "How to Skynet your Kubernetes Clusters with LocalAI"
     url: https://www.civo.com/navigate/north-america/2024
     date: 2024-02-20T10:00:00.000-07:00
@@ -32,7 +32,7 @@ talks:
     url: https://awsmena.community/cdu-2023#
     date: 2023-10-21T10:00:00.000-07:00
     slides: null
-  - event: KubeCon + CloudNativeCon + Open Source Summit China 2023
+  - event: "KubeCon + CloudNativeCon + Open Source Summit China 2023"
     title: "From Cat to Lion: A Practical Guide to Building Secure, Large-Scale CI/CD Platforms with Tekton and Pulumi"
     url: https://kccncosschn2023.sched.com/event/1PTJ1/xiao-zhu-jia-daepzhi-tektonre-mao-cicd-zha-zhi-tutorial-from-cat-to-lion-a-practical-guide-to-building-secure-large-scale-cicd-platforms-with-tekton-engin-diri-pulumi
     date: 2023-09-26T10:00:00.000-07:00
