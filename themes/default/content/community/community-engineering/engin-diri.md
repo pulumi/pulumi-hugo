@@ -53,7 +53,7 @@ talks:
     date: 2023-06-21T10:00:00.000-07:00
     slides: null
   - event: Vienna DevOps Meetup
-    title: Pulumi: Kickstarting Your Journey to Modern Infrastructure Automation
+    title: "Pulumi: Kickstarting Your Journey to Modern Infrastructure Automation"
     url: https://www.meetup.com/meetup-group-ziwnrlfj/events/293323160/
     date: 2023-05-23T10:00:00.000-07:00
     slides: null
