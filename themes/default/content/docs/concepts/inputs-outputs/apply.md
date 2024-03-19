@@ -693,7 +693,7 @@ Sometimes an output has an object with deeply nested values, and there may be ti
 
 This resource will have outputs that resemble the following:
 
-```python
+```plain
 # Example truncated output of the ACM certificate resource
 cert: {
     arn                      : "arn:aws:acm:eu-central-1..."
@@ -714,7 +714,7 @@ cert: {
 }
 ```
 
-You want to validate your certificate by creating an [Amazon Route 53 record](/registry/packages/aws/api-docs/route53/record/). To do so, you will need to retrieve the value of the resource record from the ACM certificate. This value is nested in the domain validation options property of the certificate resource, which is an array. Because that value is an output, you would normally need to use {{< pulumi-apply >}} to retrieve it:
+Suppose you want to validate your certificate by creating an [Amazon Route 53 record](/registry/packages/aws/api-docs/route53/record/). To do so, you will need to retrieve the value of the resource record from the ACM certificate. This value is nested in the domain validation options property of the certificate resource, which is an array. Because that value is an output, you would normally need to use {{< pulumi-apply >}} to retrieve it:
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -1061,33 +1061,30 @@ The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `
 
 Often in the course of working with web technologies, you encounter JavaScript Object Notation (JSON) which is a popular specification for representing data. In many scenarios, you'll need to embed resource outputs into a JSON string. In these scenarios, you need to first _wait for the returned_ output, _then_ build the JSON string.
 
-For example, let's say you want to create an S3 bucket and a bucket policy that allows the Lambda service to write objects to that bucket. The below example shows how to use `apply` to create the bucket policy JSON object using an output value from the S3 bucket resource (in this case the bucket's ARN):
+For example, let's say you want to create an S3 bucket and a bucket policy that allows the Lambda service to write objects to that bucket. The example below shows how to use `apply` to create the bucket policy JSON object using an output value from the S3 bucket resource (in this case the bucket's ARN):
 
 {{< example-program path="aws-s3bucket-bucketpolicy" >}}
 
 This operation is so common that Pulumi provides first-class helper functions to make it much easier. These helper functions can:
 
-- take native JSON objects and convert them into JSON strings (i.e. serialization)
-- take JSON strings and convert them into native JSON objects (i.e. deserialization)
+- convert native objects into JSON strings (i.e., serialization)
+- convert JSON strings into native objects (i.e., deserialization)
 
-### Converting JSON object to string
+### Converting JSON objects to strings
 
-If you have a JSON object that needs to:
+If you need to construct a JSON string using output values from Pulumi resources, you can easily do so using a JSON stringify helper. These helpers unwrap Pulumi outputs without requiring the use of `apply` and produce JSON string outputs suitable for passing to other resources as inputs.
 
-- use output values from Pulumi resources
-- be converted into a JSON string representation
 
-you can easily do so using Pulumi's JSON stringify helper. This helper function unwraps Pulumi outputs without needing to explicitly use `apply` and converts the entire JSON object into a JSON string.
 
-For example, you can write the definition of a AWS Step Function State Machine as a native JSON object, embed outputs from other resources (such as a Lambda Function ARN) within the JSON object, and then convert the entire definition into the JSON string representation that is required by the State Machine resource definition:
+For example, you can write the definition of an AWS Step Function State Machine as a native JSON object, embed outputs from other resources (such as a Lambda Function ARN) within the JSON object, and then convert the entire definition into the JSON string representation that is required by the State Machine resource definition:
 
 {{< example-program path="aws-lambda-stepfunctions-jsonhelper" >}}
 
-### Converting JSON string to object
+### Converting JSON strings to outputs 
 
 If you have an output in the form of a JSON string and you need to interact with it like you would a regular JSON object, you can use Pulumi's parsing helper function.
 
-In the below example, you can parse a JSON string into a JSON object and then, inside of an `apply`, manipulate the object to remove all of the policy statements:
+In the example below, you can parse a JSON string into a JSON object and then, inside of an `apply`, manipulate the object to remove all of the policy statements:
 
 {{< example-program path="aws-iampolicy-jsonparse" >}}
 
