@@ -931,7 +931,9 @@ This approach is easier to read and write and does not lose any important depend
 
 ### Outputs and Strings
 
-The {{< pulumi-apply >}} method can also be used to create new output values, and these new values can also be passed as inputs to another resource. For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
+Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output value has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using [`apply`](/docs/concepts/inputs-outputs/apply/).
+
+For example, the following code creates an HTTPS URL from the DNS name (the plain value) of a virtual machine (in this case an EC2 instance):
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml,yaml" / >}}
 
@@ -1070,17 +1072,15 @@ This operation is so common that Pulumi provides first-class helper functions to
 - convert native objects into JSON strings (i.e., serialization)
 - convert JSON strings into native objects (i.e., deserialization)
 
-### Converting JSON objects to strings
+#### Converting JSON objects to strings
 
 If you need to construct a JSON string using output values from Pulumi resources, you can easily do so using a JSON stringify helper. These helpers unwrap Pulumi outputs without requiring the use of `apply` and produce JSON string outputs suitable for passing to other resources as inputs.
-
-
 
 For example, you can write the definition of an AWS Step Function State Machine as a native JSON object, embed outputs from other resources (such as a Lambda Function ARN) within the JSON object, and then convert the entire definition into the JSON string representation that is required by the State Machine resource definition:
 
 {{< example-program path="aws-lambda-stepfunctions-jsonhelper" >}}
 
-### Converting JSON strings to outputs 
+#### Converting JSON strings to outputs
 
 If you have an output in the form of a JSON string and you need to interact with it like you would a regular JSON object, you can use Pulumi's parsing helper function.
 

@@ -18,7 +18,7 @@ This can be used to compute an entirely new output value, such as creating a new
 
 Outputs that return to the engine as strings cannot be used directly in operations such as string concatenation until the output value has returned to Pulumi. In these scenarios, you'll need to wait for the value to return using [`apply`](/docs/concepts/inputs-outputs/apply/).
 
-To demonstate, let’s say you have created a server resource and a database resource, and their output values are as follows:
+To demonstrate, let’s say you have created a server resource and a database resource, and their output values are as follows:
 
 ```python
 # Example outputs for the server resource
