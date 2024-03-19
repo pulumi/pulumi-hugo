@@ -28,4 +28,4 @@ const policyWithNoStatements = pulumi.jsonParse(jsonIAMPolicy).apply(policy => {
     return policy;
 });
 
-export const policy = policyWithNoStatements;
+exports.policy = policyWithNoStatements;

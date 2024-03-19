@@ -27,4 +27,4 @@ const policyWithNoStatements: pulumi.Output<object> = pulumi.jsonParse(jsonIAMPo
     return policy;
 });
 
-exports.policy = policyWithNoStatements;
+export const policy = policyWithNoStatements;
