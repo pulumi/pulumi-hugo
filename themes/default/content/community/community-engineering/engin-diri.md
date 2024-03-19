@@ -8,7 +8,7 @@ aliases:
   - /engin
 talks:
   - event: CNCF-hosted Co-located Events Europe 2024
-    title: Empowering Giants: Guide Your Enterprise with CNOE in Operational Tech Choices
+    title: "Empowering Giants: Guide Your Enterprise with CNOE in Operational Tech Choices"
     url: https://colocatedeventseu2024.sched.com/event/1YFgu/cl-lightning-talk-empowering-giants-guide-your-enterprise-with-cnoe-in-operational-tech-choices-engin-diri-pulumi
     date: 2024-03-19T10:00:00.000-07:00
     slides: null
