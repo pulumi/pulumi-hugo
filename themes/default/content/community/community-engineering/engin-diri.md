@@ -13,7 +13,7 @@ talks:
     date: 2024-03-19T10:00:00.000-07:00
     slides: null
   - event: AWS User Group Heilbronn
-    title: AWS and Pulumi: Kickstart Your Journey to Modern Infrastructure Automation
+    title: "AWS and Pulumi: Kickstart Your Journey to Modern Infrastructure Automation"
     url: https://www.meetup.com/aws-user-group-heilbronn/events/298866337/
     date: 2024-02-29T10:00:00.000-07:00
     slides: null
@@ -68,7 +68,7 @@ talks:
     date: 2023-06-16T10:00:00.000-07:00
     slides: null
   - event: Azure Rosenheim Meetup
-    title: Pulumi & Azure: Der Turbo-Boost für deine Cloud-Projekte
+    title: "Pulumi & Azure: Der Turbo-Boost für deine Cloud-Projekte"
     url: https://www.meetup.com/de-DE/azure-meetup-rosenheim/events/292822487/
     date: 2023-05-25T10:00:00.000-07:00
     slides: https://github.com/whiteducksoftware/azure-meetup-rosenheim/blob/master/Azure-Meetup-2023-05-25-Pulumi-and-Azure-Der-Turbo-Boost-fuer-deine-Cloud-Projekte/2023-05-25-azure-rosenheim-meetup.pdf
