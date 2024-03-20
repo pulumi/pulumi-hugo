@@ -47,12 +47,12 @@ git clone https://github.com/catmeme/arti.git
 cd arti
 ```
 
-The files within the `[src/arti_ai](arti_ai)` directory can be summarized as
+The files within the [src/arti_ai](arti_ai) directory can be summarized as
 
-1. The AI application: https://github.com/catmeme/arti/blob/main/src/arti_ai/app.py
-2. The Slack application: https://github.com/catmeme/arti/blob/main/src/arti_ai/slack_app.py
-3. A configuration module: https://github.com/catmeme/arti/blob/main/src/arti_ai/config.py
-4. A CLI entrypoint: https://github.com/catmeme/arti/blob/main/src/arti_ai/__main__.py
+1. The AI application: [src/arti_ai/app.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/app.py)
+2. The Slack application: [src/arti_ai/slack_app.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/slack_app.py)
+3. A configuration module: [src/arti_ai/config.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/config.py)
+4. A CLI entrypoint: [src/arti_ai/__main__.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/__main__.py)
 
 The 4th file isn't strictly necessary, but it illustrates a design pattern. The main application. `app.py`, is imported by `slack_app` but also `__main__.py`, this makes it easy to add additional user interfaces, such as APIs, or other chat services with minimal code.
 
