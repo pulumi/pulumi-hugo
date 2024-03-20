@@ -87,6 +87,7 @@ customer_logos:
   logos:
     - name: altana
     - name: cto-ai
+    - name: fennel-ai
     - name: levitate-ai
     - name: modal
     - name: pinecone
