@@ -1,7 +1,7 @@
 ---
-title: "Announcing the Pulumi AWS Native Cloud Control Provider, Powered by the AWS Cloud Control API"
+title: "Announcing the Pulumi AWS Native Provider, Powered by the AWS Cloud Control API"
 date: 2021-09-30
-meta_desc: "New Pulumi AWS Native Cloud Control Provider offers same-day support for all new AWS features, building on the AWS Cloud Control API"
+meta_desc: "New Pulumi AWS Native Provider offers same-day support for all new AWS features, building on the AWS Cloud Control API"
 meta_image: aws_native_launch.png
 allow_long_title: True
 authors:
@@ -14,15 +14,15 @@ tags:
 When first announced this provider was called "AWS Native" during its preview but was renamed to "AWS Native Cloud Control" when made generally available.
 {{% /notes %}}
 
-We are excited to announce the release of the new [AWS Native Cloud Control](/registry/packages/aws-native/) provider for Pulumi, which is available today in preview. AWS is the most-used cloud provider across the Pulumi ecosystem, and with the new AWS Native Cloud Control provider, we are focused on delivering the best possible support for the AWS platform to all Pulumi users.
+We are excited to announce the release of the new [AWS Native](/registry/packages/aws-native/) provider for Pulumi, which is available today in preview. AWS is the most-used cloud provider across the Pulumi ecosystem, and with the new AWS Native provider, we are focused on delivering the best possible support for the AWS platform to all Pulumi users.
 
-Pulumi Native Providers like AWS Native Cloud Control are a new type of Pulumi Package that give you the most complete and consistent interface for the modern cloud. Pulumi native providers bring the full power of the top cloud providers to the Pulumi Cloud Engineering Platform, with faster updates and more complete coverage than any other infrastructure as code offering.
+Pulumi Native Providers like AWS Native are a new type of Pulumi Package that give you the most complete and consistent interface for the modern cloud. Pulumi native providers bring the full power of the top cloud providers to the Pulumi Cloud Engineering Platform, with faster updates and more complete coverage than any other infrastructure as code offering.
 
-The AWS Native Cloud Control provider offers same-day support for all new AWS features and releases covered by the newly released [AWS Cloud Control API](https://aws.amazon.com/blogs/aws/announcing-aws-cloud-control-api), which typically supports new AWS features on the day of launch. By building on the AWS Cloud Control API, the AWS Native Cloud Control provider offers a robust, reliable and well-defined resource model for AWS that’s available to Pulumi users in all Pulumi languages, including TypeScript, Python, Go and C#.  By leveraging the AWS Cloud Control API, the AWS Native Cloud Control provider builds on the work done by service teams at AWS to define the resource model for their services. This ensures a rock solid provisioning lifecycle for resources deployed with the AWS Native Cloud Control provider.
+The AWS Native provider offers same-day support for all new AWS features and releases covered by the newly released [AWS Cloud Control API](https://aws.amazon.com/blogs/aws/announcing-aws-cloud-control-api), which typically supports new AWS features on the day of launch. By building on the AWS Cloud Control API, the AWS Native provider offers a robust, reliable and well-defined resource model for AWS that’s available to Pulumi users in all Pulumi languages, including TypeScript, Python, Go and C#.  By leveraging the AWS Cloud Control API, the AWS Native provider builds on the work done by service teams at AWS to define the resource model for their services. This ensures a rock solid provisioning lifecycle for resources deployed with the AWS Native provider.
 
 <!--more-->
 
-This release also includes a new tool for migrating existing CloudFormation templates into Pulumi programs in your favorite language, powered by the new AWS Native Cloud Control provider and AWS Cloud Control API, as well as the ability to deploy any 3rd party resources in the CloudFormation Registry, including resources from Atlassian, Datadog, Densify, Dynatrace, Fortinet, New Relic, and Spot by NetApp.
+This release also includes a new tool for migrating existing CloudFormation templates into Pulumi programs in your favorite language, powered by the new AWS Native provider and AWS Cloud Control API, as well as the ability to deploy any 3rd party resources in the CloudFormation Registry, including resources from Atlassian, Datadog, Densify, Dynatrace, Fortinet, New Relic, and Spot by NetApp.
 
 {{% notes type="info" %}}
 To learn how AWS built the Cloud Control API, and many other great topics, [watch the replay of Cloud Engineering Summit 2021](/cloud-engineering-summit/replay/) with speakers from each of the major cloud providers as well as 40+ leaders and practitioners from across the industry.
@@ -32,11 +32,11 @@ To learn how AWS built the Cloud Control API, and many other great topics, [watc
 
 ## API Coverage
 
-Resources available in the Pulumi AWS Native Cloud Control provider are based on the resources defined in the [AWS CloudFormation Registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html). Today, hundreds of AWS resources are available from this registry via Cloud Control API and the Pulumi AWS Native Cloud Control provider. This list will continue to grow as additional resources are added to the AWS Cloud Control API. In addition, all new features and services that are released by AWS will be supported in AWS Native Cloud Control, typically on the same day as the release.
+Resources available in the Pulumi AWS Native provider are based on the resources defined in the [AWS CloudFormation Registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html). Today, hundreds of AWS resources are available from this registry via Cloud Control API and the Pulumi AWS Native provider. This list will continue to grow as additional resources are added to the AWS Cloud Control API. In addition, all new features and services that are released by AWS will be supported in AWS Native, typically on the same day as the release.
 
-The Pulumi AWS Native Cloud Control provider can be used in combination with the classic Pulumi AWS provider, as well as the 60+ additional Pulumi resource providers which cover a wide variety of other cloud and SaaS platforms.  While in preview, the Pulumi AWS Native Cloud Control provider may not yet have support for every feature of AWS that you need in your Pulumi applications, but can always be used along with the classic Pulumi AWS provider to cover both existing use cases and brand new supported features.
+The Pulumi AWS Native provider can be used in combination with the classic Pulumi AWS provider, as well as the 60+ additional Pulumi resource providers which cover a wide variety of other cloud and SaaS platforms.  While in preview, the Pulumi AWS Native provider may not yet have support for every feature of AWS that you need in your Pulumi applications, but can always be used along with the classic Pulumi AWS provider to cover both existing use cases and brand new supported features.
 
-In this example, we can see how the new AWS S3 Object Lambda feature can be used via the AWS Native Cloud Control provider, with access to the full API defined by the S3 team at AWS:
+In this example, we can see how the new AWS S3 Object Lambda feature can be used via the AWS Native provider, with access to the full API defined by the S3 team at AWS:
 
 {{< chooser language "typescript,python,csharp,go" >}}
 
@@ -176,21 +176,21 @@ func main() {
 
 ## Always Up-To-Date
 
-The Pulumi AWS Native Cloud Control provider is built automatically from the resources and specifications provided by the CloudFormation Registry.  Those specifications are updated frequently whenever new resources and features are shipped by service teams at AWS. The AWS Native Cloud Control provider is rebuilt and released nightly directly from the latest specifications, ensuring that Pulumi users have access to rich Pulumi SDKs for working with new features the same day they are added to Cloud Control API, typically on the day of launch.
+The Pulumi AWS Native provider is built automatically from the resources and specifications provided by the CloudFormation Registry.  Those specifications are updated frequently whenever new resources and features are shipped by service teams at AWS. The AWS Native provider is rebuilt and released nightly directly from the latest specifications, ensuring that Pulumi users have access to rich Pulumi SDKs for working with new features the same day they are added to Cloud Control API, typically on the day of launch.
 
 ## Interoperability with CloudFormation
 
-Although the AWS Native Cloud Control provider leverages the CloudFormation Registry and AWS Cloud Control API, it does not depend on deploying CloudFormation templates. You can write your programs in Pulumi, and Pulumi is responsible for managing the lifecycle and deployment of all resources in your stack. You get the same lightning-fast deployments you expect with Pulumi, along with the same rich infrastructure as code fundamentals like secrets, aliases, components, testing, policy, management console, and more.  There is no CloudFormation stack artifact in the AWS console, since the resource definitions and deployment are handled entirely by Pulumi".
+Although the AWS Native provider leverages the CloudFormation Registry and AWS Cloud Control API, it does not depend on deploying CloudFormation templates. You can write your programs in Pulumi, and Pulumi is responsible for managing the lifecycle and deployment of all resources in your stack. You get the same lightning-fast deployments you expect with Pulumi, along with the same rich infrastructure as code fundamentals like secrets, aliases, components, testing, policy, management console, and more.  There is no CloudFormation stack artifact in the AWS console, since the resource definitions and deployment are handled entirely by Pulumi".
 
 <!-- < gif of a fast deployment > -->
 
-Along with the release of the new AWS Native Cloud Control provider, we’ve also released cf2pulumi, a tool for migrating your existing CloudFormation templates to Pulumi programs in your favorite languages. cf2pulumi is available as both a web-based converter at [https://www.pulumi.com/cf2pulumi/](https://www.pulumi.com/cf2pulumi/), and as a [CLI tool](https://github.com/pulumi/pulumi-aws-native/tree/master/provider/cmd/cf2pulumi).
+Along with the release of the new AWS Native provider, we’ve also released cf2pulumi, a tool for migrating your existing CloudFormation templates to Pulumi programs in your favorite languages. cf2pulumi is available as both a web-based converter at [https://www.pulumi.com/cf2pulumi/](https://www.pulumi.com/cf2pulumi/), and as a [CLI tool](https://github.com/pulumi/pulumi-aws-native/tree/master/provider/cmd/cf2pulumi).
 
 [![cf2pulumi](cf2pulumi.png)](https://www.pulumi.com/cf2pulumi/)
 
 ## Access to 3rd Party Resources from the CloudFormation Registry
 
-In addition to all of the AWS resources available in AWS Native Cloud Control, we are also making it possible to create any of the 3rd-party resources available in the CloudFormation Registry, including resources from Atlassian, MongoDB, Snyk, and Spot by NetApp. You can read more about the 3rd party resources available in the CloudFormation registry in the [AWS launch post](https://aws.amazon.com/blogs/aws/introducing-a-public-registry-for-aws-cloudformation/) from earlier this year. The `aws.ExtensionResource` resource can be used to construct any 3rd party resource based on its resource type name. In the following example, we create a MongoDB Atlas project via the AWS Native Cloud Control provider:
+In addition to all of the AWS resources available in AWS Native, we are also making it possible to create any of the 3rd-party resources available in the CloudFormation Registry, including resources from Atlassian, MongoDB, Snyk, and Spot by NetApp. You can read more about the 3rd party resources available in the CloudFormation registry in the [AWS launch post](https://aws.amazon.com/blogs/aws/introducing-a-public-registry-for-aws-cloudformation/) from earlier this year. The `aws.ExtensionResource` resource can be used to construct any 3rd party resource based on its resource type name. In the following example, we create a MongoDB Atlas project via the AWS Native provider:
 
 {{< chooser language "typescript,python,csharp,go" >}}
 
@@ -257,9 +257,9 @@ _, err = aws.ExtensionResource(ctx, "atlas-project", &aws.ExtensionResourceArgs{
 
 ## Conclusion
 
-Pulumi’s Native Providers offer the very best support for each of the major cloud providers. Since we launched our first native provider, users have been asking when they could get access to a truly native provider for AWS, with same-day support for new features, high quality, and the familiar APIs documented by AWS service teams. To deliver this, we’ve worked with the AWS Cloud Control API team to ensure that we can provide a great experience for AWS users of Pulumi, and we’re extremely excited by what this will enable for AWS developers. Today’s release is just a starting point. We are working on increased resource coverage, higher-level APIs, and integrations with additional AWS services that will be delivered over the coming months as we prepare AWS Native Cloud Control for general availability next year.
+Pulumi’s Native Providers offer the very best support for each of the major cloud providers. Since we launched our first native provider, users have been asking when they could get access to a truly native provider for AWS, with same-day support for new features, high quality, and the familiar APIs documented by AWS service teams. To deliver this, we’ve worked with the AWS Cloud Control API team to ensure that we can provide a great experience for AWS users of Pulumi, and we’re extremely excited by what this will enable for AWS developers. Today’s release is just a starting point. We are working on increased resource coverage, higher-level APIs, and integrations with additional AWS services that will be delivered over the coming months as we prepare AWS Native for general availability next year.
 
-Get started with the AWS Native Cloud Control provider today:
+Get started with the AWS Native provider today:
 
 * [Docs](https://www.pulumi.com/registry/packages/aws-native/)
 * [Examples](https://github.com/pulumi/examples)
