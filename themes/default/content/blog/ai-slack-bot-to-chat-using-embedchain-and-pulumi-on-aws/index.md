@@ -15,8 +15,6 @@ date: 2024-03-18T17:21:02+01:00
 meta_image: meta.png
 ---
 
-## Introduction
-
 The integration of artificial intelligence (AI) to improve user experiences is gaining popularity in today's world. One fascinating application of AI is the creation of chatbots, which can engage users in conversation and provide helpful information or services.
 
 In this blog post, we'll explore the process of building an AI-powered Slack bot
@@ -24,37 +22,37 @@ using [Embedchain](https://docs.embedchain.ai/get-started/quickstart), a Retriev
 powered by [LangChain](https://python.langchain.com/docs/get_started/introduction). Additionally, we'll deploy our bot
 on AWS using [Pulumi](https://www.pulumi.com), a modern infrastructure as code (IaC) platform.
 
-## What are LLMs and RAG Chatbots?
+## What are LLMs and RAG chatbots?
 
-**Large Language Models (LLMs)** are sophisticated AI models trained on vast amounts of text data, enabling them to generate human-like text responses.  **Retrieval-Augmented Generated (RAG)** is a cutting-edge approach to chatbot development that combines the capabilities of LLMs with information retrieval techniques. RAG chatbots can generate responses based on both the input query and relevant information retrieved from a knowledge base, resulting in more contextually relevant and informative interactions.
+Large Language Models (LLMs) are sophisticated AI models trained on vast amounts of text data, enabling them to generate human-like text responses.  Retrieval-Augmented Generated (RAG) is a cutting-edge approach to chatbot development that combines the capabilities of LLMs with information retrieval techniques. RAG chatbots can generate responses based on both the input query and relevant information retrieved from a knowledge base, resulting in more contextually relevant and informative interactions.
 
-<img src="./diagram.png" width=60% style="margin-left: auto; margin-right: auto;">
+![A diagram of the LM and RAG chatbot workflows](./diagram.png)
 
 ## Embedchain
 
-[Embedchain](https://docs.embedchain.ai/get-started/quickstart), a Retrieval-Augmented Generation (RAG) framework powered by [LangChain](https://python.langchain.com/docs/get_started/introduction). It simplifies the process of creating RAG applications by providing high-level abstractions that reduce the complexity of AI technologies. With Embedchain, developers can focus on defining conversational flows and configuring the bots behavior using YAML configuration files, rather than dealing with low-level implementation details.
+Embedchain is an RAG framework powered by LangChain. It simplifies the process of creating RAG applications by providing high-level abstractions that reduce the complexity of AI technologies. With Embedchain, developers can focus on defining conversational flows and configuring the bot's behavior using YAML configuration files, rather than dealing with low-level implementation details.
 
 Embedchain supports configuration for various [data sources](https://docs.embedchain.ai/components/data-sources/overview), [LLMs](https://docs.embedchain.ai/components/llms), [vector databases](https://docs.embedchain.ai/components/vector-databases), [embedding models](https://docs.embedchain.ai/components/embedding-models), and [evaluation](https://docs.embedchain.ai/components/evaluation).
 
 ## Creating a Slack bot
 
-![arti-slack.png](arti-slack.png)
+![A screenshot of a Slack conversation with the Arti Slack bot](./arti-slack.png)
 
-Start by cloning the project, and we'll discuss reference snippets
+Start by cloning the project:
 
 ```shell
 git clone https://github.com/catmeme/arti.git
 cd arti
 ```
 
-The files within the [src/arti_ai](arti_ai) directory can be summarized as
+The files within the [`src/arti_ai`](https://github.com/catmeme/arti/tree/main/src/arti_ai) directory can be summarized as:
 
-1. The AI application: [src/arti_ai/app.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/app.py)
-2. The Slack application: [src/arti_ai/slack_app.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/slack_app.py)
-3. A configuration module: [src/arti_ai/config.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/config.py)
-4. A CLI entrypoint: [src/arti_ai/__main__.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/__main__.py)
+1. The [AI application](https://github.com/catmeme/arti/blob/main/src/arti_ai/app.py)
+2. The [Slack application](https://github.com/catmeme/arti/blob/main/src/arti_ai/slack_app.py)
+3. A [configuration module](https://github.com/catmeme/arti/blob/main/src/arti_ai/config.py)
+4. A [CLI entrypoint](https://github.com/catmeme/arti/blob/main/src/arti_ai/__main__.py)
 
-The 4th file isn't strictly necessary, but it illustrates a design pattern. The main application. `app.py`, is imported by `slack_app` but also `__main__.py`, this makes it easy to add additional user interfaces, such as APIs, or other chat services with minimal code.
+The fourth file isn't strictly necessary, but it illustrates a design pattern. The main application, `app.py`, is imported by `slack_app` but also `__main__.py`. This makes it easy to add additional user interfaces, such as APIs, or other chat services with minimal code.
 
 ### The AI application
 
@@ -92,13 +90,13 @@ app.add("https://www.pulumi.com/docs/", data_type="docs_site")
 app.query("What is Pulumi?")
 ```
 
-See how easy it was for us to configure our application, an LLM, an embedding model, chunker and vector database? Then we added a datasource, which is abstracting away more complex logic for us. The simple, `app.add("https://www.pulumi.com/docs/", "docs_site")` ends up crawling the website, chunking the documents, generating embeddings and inserts them into our vector database.
+See how easy it was for us to configure our application, an LLM, an embedding model, chunker and vector database? Then we added a datasource, which is abstracting away more complex logic for us. The simple line `app.add("https://www.pulumi.com/docs/", "docs_site")` ends up crawling the website, chunking the documents, generating embeddings and inserting them into our vector database.
 
 The `app_config` reference is the [Embedchain configuration schema](https://docs.embedchain.ai/api-reference/advanced/configuration).
 
 ### The Slack application
 
-Now that our brain is built, we need a way for our users to interact with it.  [Slack Bolt](https://slack.dev/bolt-python/tutorial/getting-started), is an official library for building Slack bots.
+Now that our brain is built, we need a way for our users to interact with it. [Slack Bolt](https://slack.dev/bolt-python/tutorial/getting-started) is an official library for building Slack bots.
 
 Follow their instructions to [create a new Slack app](https://api.slack.com/start/quickstart).
 
@@ -119,9 +117,9 @@ Follow their instructions to [create a new Slack app](https://api.slack.com/star
 
 #### Code breakdown
 
-The example below demonstrates two commands, `knock knock` is a basic ping/pong test that you expect to respond immediately. It's not doing any complex logic, so that's easy. What's going on with this `/arti` command then? Slack requires your bot respond in 3 seconds or less. In our serverless architecture utilizing AWS API Gateway and Lambda, we're operating on thin margins when we have cold starts. This enables us to respond quickly to slack, but start our longer running process.
+The example below demonstrates two commands. `knock knock` is a basic ping/pong test that you expect to respond immediately. It's not doing any complex logic, so that's easy. What's going on with this `/arti` command then? Slack requires your bot respond in 3 seconds or less. In our serverless architecture utilizing AWS API Gateway and Lambda, we're operating on thin margins when we have cold starts. This enables us to respond quickly to Slack, but start our longer running process.
 
-It is worth noting, in this architecture we're still operating under 29 seconds for API Gateway's response timeout. This can be overcome in a number of ways, but that's out of scope for this demonstration.
+It is worth noting that in this architecture we're still operating under 29 seconds for API Gateway's response timeout. This can be overcome in a number of ways, but that's out of scope for this demonstration.
 
 ```python
 from slack_bolt import App
@@ -159,26 +157,22 @@ The configuration module in this application normalizes retrieval of secrets fro
 
 ## Deploying on AWS with Pulumi
 
-Once our bot is ready, we'll deploy it on AWS using Pulumi, a modern infrastructure as code platform. Pulumi allows us to define our cloud infrastructure using familiar programming languages like TypeScript or Python, making it easy to manage and scale our deployment.
+Once our bot is ready, we'll deploy it on AWS using Pulumi. Pulumi allows us to define our cloud infrastructure using familiar programming languages like TypeScript or Python, making it easy to manage and scale our deployment.
 
-![arti-architecture](arti-architecture.png)
+![A diagram of the Arti Slack bot archirecture](arti-architecture.png)
 
-It's important to note that in this selected architecture, we're working within a few limitations. Lambda's only writable directory is `/tmp` and it's limited to 500MB, and we need to use a docker container to overcome the 250MB filesize limitation of our application, which we'll be bundling our data with.
+It's important to note that in this selected architecture, we're working within a few limitations. Lambda's only writable directory is `/tmp` and it's limited to 500MB, and we need to use a Docker container to overcome the 250MB filesize limitation of our application, which we'll be bundling our data with.
 
-For reference, the [deployment directory](https://github.com/catmeme/arti/tree/main/deploy/pulumi) of arti.
+[The Pulumi program](https://github.com/catmeme/arti/blob/main/deploy/pulumi/__main__.py) is broken up into the following sections:
 
-This file is broken up into the following sections
-
-1. **Config:** Get configuration from stack configuration, environment, and setup resource tagging
-2. **Networking:** Setup VPC, VPC Endpoints, Security Groups
-3. **S3:** Bucket for later
-4. **Application:** Docker, Lambda, Policies
+1. **Config:** Get configuration from stack configuration, environment, and set up resource tagging
+2. **Networking:** Set up VPC, VPC endpoints, security groups
+3. **S3:** Bucket for later use
+4. **Application:** Docker, Lambda, policies
 5. **API:** API Gateway
 6. **Output:** Stack outputs
 
-Resources are contained within the VPC, policies and SGs exercise principle of least privilege, logging is enabled, etc.
-
-The [lambda_handler.py](https://github.com/catmeme/arti/blob/main/src/arti_ai/lambda_handler.py), is responsible for handling the API Gateway request, and imports the Slack app.
+Resources are contained within the VPC, policies and security groups exercise principle of least privilege, and logging is enabled. [`lambda_handler.py`](https://github.com/catmeme/arti/blob/main/src/arti_ai/lambda_handler.py) is responsible for handling API Gateway requests and imports the Slack app.
 
 ### Prerequisites
 
