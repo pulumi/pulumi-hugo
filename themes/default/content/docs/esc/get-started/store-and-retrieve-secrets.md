@@ -24,13 +24,17 @@ values:
       ciphertext: ZXN....
 ```
 
-You can store and retrieve values in an environment via the Pulumi Cloud console or via the CLI.
+You can store and retrieve values in an environment via one of the following methods:
+
+- the Pulumi Cloud console YAML editor
+- the Pulumi Cloud console Table editor
+- the ESC CLI
 
 ## Store Environment Values
 
-### Store via the console
+### Store via the YAML editor
 
-To store values in your environment, first click on the name of the environment to open its definition editor. You will be presented with a split pane view. The left side is where you will write the definition of your environment configuration, and the right side will show a preview of your configuration in JSON format.
+To store values in your environment using the YAML editor, first click on the name of the environment to open it. You will be presented with a split pane view. The left side is where you will write the definition of your environment configuration, and the right side will show a preview of your configuration in JSON format.
 
 {{< video title="Open environment in Pulumi ESC console" src="/docs/esc/get-started/esc-open-env.mp4" autoplay="true" loop="true" >}}
 
@@ -48,6 +52,22 @@ As shown above, you can specify that a value should be stored as a secret by usi
 {{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-add-env-values.mp4" autoplay="true" loop="true" >}}
 
 The **Environment preview** pane on the right hand side will then update to show your added configuration in JSON format. You will notice that the value of "myPassword" has been hidden from view in both the defintion and preview panes.
+
+### Store via the Table editor
+
+To store values in your environment using the YAML editor, first click on the name of the environment to open it. Then, at the top of the YAML editor view, click the **Table view** button to switch the editor from the YAML view to the table view.
+
+{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-open-env-table-view.mp4" autoplay="true" loop="true" >}}
+
+Next, under the **Configuration** section section, you will see fields labeled **Path** and **Value**. You will define your configuraton values using these fields. In the **Path** field, type in `myEnvironment`, and in the **Value** field, type in `development`. Then click **Save**.
+
+{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-add-config-table-view.mp4" autoplay="true" loop="true" >}}
+
+Next, click the **+Secret/config** button to create a new configuration. This time, you will create a configuration that will be stored as a secret. To do so, enter `myPassword` for the value of **Path** and `demo-password-123` for the value of **Value**. Click the **secret** checkbox to indicate that this configuration will be stored as a secret, then click **Save**.
+
+{{< video title="Adding values to the environment in the Pulumi ESC console" src="/docs/esc/get-started/esc-add-secret-table-view.mp4" autoplay="true" loop="true" >}}
+
+You will notice that the value of `myPassword` is hidden from view after saving.
 
 ### Store via the CLI
 
