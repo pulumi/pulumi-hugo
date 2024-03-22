@@ -96,15 +96,21 @@ Using this method enables you to add your configuration values in the same way t
 
 ## Retrieve Environment Values
 
-### Retrieve via the console
+### Retrieve via the YAML editor
 
-To retrieve values in the console, scroll to the bottom of your environment page and click the **Open** button. This will return any statically defined plain-text values and definitions.
+To retrieve values using the YAML editor, scroll to the bottom of your environment page and click the **Open** button. This will return any statically defined plain-text values and definitions.
 
 {{< video title="Clicking the open button in the Pulumi ESC console" src="/docs/esc/get-started/esc-open-env-view-values.mp4" autoplay="true" loop="true" >}}
 
 As shown above, it does not return the value of secrets defined, nor does it resolve values that are dynamically generated from a provider. To view these values, you will need to click the **Show secrets** slider.
 
 {{< video title="Clicking the show secrets slider the Pulumi ESC console" src="/docs/esc/get-started/esc-env-show-secrets.mp4" autoplay="true" loop="true" >}}
+
+### Retrieve via the Table editor
+
+Non-secret configuration values remain visible in the Table view after their creation, but secret values are automatically hidden. To reveal the value of a secret using the Table editor, click the small eye icon.
+
+{{< video title="Clicking the show secrets slider the Pulumi ESC console" src="/docs/esc/get-started/esc-show-secret-table-view.mp4" autoplay="true" loop="true" >}}
 
 ### Retrieve via the CLI
 
