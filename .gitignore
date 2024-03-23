@@ -4,7 +4,12 @@ node_modules
 themes/*/resources
 public
 .idea
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 .DS_Store
 yarn-error.log
 .hugo_build.lock
