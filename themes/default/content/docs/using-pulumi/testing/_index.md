@@ -42,7 +42,8 @@ Unit tests are authored in the same language as the Pulumi program under test. Y
 
 Because cloud resources are not created, you can't write a test that would evaluate the behavior of infrastructure. For example, you can't make HTTP requests to endpoints, because there's no webserver to serve them.
 
-[**Learn more and get started with Unit Testing**](/docs/using-pulumi/testing/unit).
+- [**Get started with Unit Testing**](/docs/using-pulumi/testing/unit).
+- [**Complete the Tutorial: Unit Testing Stack References in Go**](/docs/using-pulumi/testing/unit-sr/).
 
 ## Property Testing
 

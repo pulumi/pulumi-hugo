@@ -18,6 +18,7 @@ Learn how to adopt Pulumi, organize projects & stacks, use the Automation API, c
 
 - [Defining and Provisioning Resources](/docs/using-pulumi/define-and-provision-resources/)
 - [Stack References and Outputs](/docs/using-pulumi/stack-outputs-and-references/)
+- [Unit Testing Stack References in Go](/docs/using-pulumi/testing/unit-sr/)
 
 ## General Guides
 
