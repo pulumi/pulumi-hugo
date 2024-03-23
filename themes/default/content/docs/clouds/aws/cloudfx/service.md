@@ -35,7 +35,13 @@ In this tutorial, we'll use JavaScript to build and deploy a simple container us
             nginx: {
                 build: "./app",
                 memory: 128,
-                ports: [{ port: 80 }],
+                ports: [
+                    {
+                        port: 80,
+                        protocol: 'http',
+                        external: true
+                    }
+                ],
             },
         },
         replicas: 2,
@@ -81,12 +87,13 @@ In this tutorial, we'll use JavaScript to build and deploy a simple container us
     $ npm install --save @pulumi/cloud  @pulumi/cloud-aws @pulumi/cloud-azure
     ```
 
-1. If you are running on AWS, configure the provider, the region and whether to use Fargate:
+1. If you are running on AWS, configure the provider, the region, whether to use Fargate and to create a private network:
 
     ```bash
     $ pulumi config set cloud:provider aws
     $ pulumi config set aws:region us-east-1
     $ pulumi config set cloud-aws:useFargate true
+    $ pulumi config set cloud-aws:usePrivateNetwork true
     ```
 
     If you are running on Azure, configure the provider and the location:
