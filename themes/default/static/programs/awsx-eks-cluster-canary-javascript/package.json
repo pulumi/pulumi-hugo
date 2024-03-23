@@ -1,0 +1,9 @@
+{
+    "name": "awsx-eks-cluster-canary-javascript",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/eks": "^2.0.0",
+        "@pulumi/kubernetes": "^4.5.6",
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}
