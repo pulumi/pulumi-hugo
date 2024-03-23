@@ -1,0 +1,9 @@
+{
+    "name": "kubernetes-nginx-ip-output-javascript",
+    "main": "index.js",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/kubernetes": "^4.0.0"
+    }
+}

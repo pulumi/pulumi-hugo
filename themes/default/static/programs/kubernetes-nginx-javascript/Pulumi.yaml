@@ -1,0 +1,6 @@
+name: kubernetes-nginx-javascript
+runtime:
+  name: nodejs
+  options:
+    typescript: false
+description: An example that deploys NGINX on Kubernetes.
