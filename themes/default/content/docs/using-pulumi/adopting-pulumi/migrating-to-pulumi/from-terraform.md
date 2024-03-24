@@ -13,21 +13,21 @@ aliases:
 - /docs/guides/adopting/from_terraform/
 ---
 
-If your infrastructure was provisioned with Terraform, there are a number of options that will help you adopt Pulumi.
+If your infrastructure was provisioned with Terraform, there are several options that will help you adopt Pulumi.
 
 * **Coexist** with resources provisioned by Terraform by referencing a `.tfstate` file.
 * **Import** existing resources into Pulumi [in the usual way](/docs/using-pulumi/adopting-pulumi/import/) or using `pulumi convert --from terraform` along with some `pulumi import --from terraform` to adopt all resources from an existing `.tfstate` file.
 * **Convert** any Terraform HCL to Pulumi code using `pulumi convert --from terraform`.
 
-This range of techniques helps to either temporarily or permanently use Pulumi alongside Terraform, in addition to fully migrating existing infrastructure to Pulumi.
+This range of techniques helps temporarily or permanently use Pulumi alongside Terraform, in addition to fully migrating existing infrastructure to Pulumi.
 
 ## Referencing Terraform State
 
-Let's say your team already has some infrastructure stood up with Terraform. Maybe now isn't the time to convert it or maybe some part of your team wants to keep using Terraform for awhile, while you start adopting Pulumi. Often you'll want to interact with that infrastructure, maybe because it exports important IDs, IP addresses, configuration information, and so on. For example, it might define a VPC and you need its ID to create some new VMs in your new Pulumi project; or it may provision a Kubernetes cluster and you need the `kubeconfig` to deploy some application services into the cluster; etc.
+Let's say your team already has some infrastructure set up with Terraform. Maybe now isn't the time to convert it, or maybe some part of your team wants to keep using Terraform for a while while you start adopting Pulumi. You'll often want to interact with that infrastructure, maybe because it exports necessary IDs, IP addresses, configuration information, etc. For example, it might define a VPC, and you need its ID to create some new VMs in your new Pulumi project, or it may provision a Kubernetes cluster, and you need the `kubeconfig` to deploy some application services into the cluster, etc.
 
-In each of these cases, you can use the `RemoteStateReference` resource to reference output variables exported from the Terraform project. This works for manually managed state files in addition to Terraform Cloud or Enterprise ones.
+In each case, you can use the `RemoteStateReference` resource to reference output variables exported from the Terraform project. This works for manually managed state files and Terraform Cloud or Enterprise ones.
 
-To use this class, first install the relevant package on your system:
+To use this class, first, install the relevant package on your system:
 
 {{< chooser language "javascript,typescript,python,go,csharp" >}}
 
@@ -243,7 +243,7 @@ class MyStack : Stack
 
 {{< /chooser >}}
 
-If we run `pulumi up`, well see the two new servers get spun up:
+If we run `pulumi up`, we'll see the two new servers get spun up:
 
 ```bash
 $ pulumi up
@@ -404,7 +404,7 @@ class MyStack : Stack
 
 Notice also that we've used [Pulumi secrets](/docs/concepts/secrets/) to ensure the Terraform Cloud or Enterprise token is secure and encrypted.
 
-The full list of available backends are as follows:
+The full list of available backends is as follows:
 
 * Artifactory (`"artifactory"`)
 * Azure Resource Manager (`"azurerm"`)
@@ -424,13 +424,13 @@ Refer to the API documentation for these libraries for full details on configura
 
 ## Converting Terraform HCL to Pulumi
 
-The Pulumi CLI can convert existing Terraform source code written in the HashiCorp Configuration Language (HCL) into Pulumi source code via `pulumi convert --from terraform`. In addition to converting source code, there is an option to [automatically insert import IDs](/docs/using-pulumi/adopting-pulumi/import/), so that you can also import state during the conversion. This ensures live resources are brought under the control of Pulumi as well as letting you deploy and manage new copies of that infrastructure.
+The Pulumi CLI can convert existing Terraform source code written in the HashiCorp Configuration Language (HCL) into Pulumi source code via `pulumi convert --from terraform`. In addition to converting source code, there is an option to [automatically insert import IDs](/docs/using-pulumi/adopting-pulumi/import/), so you can also import state during the conversion. This ensures live resources are brought under Pulumi's control and lets you deploy and manage new copies of that infrastructure.
 
 ### How to Use the Converter
 
 To use the converter, [Install Pulumi](/docs/install/) or [try it out online](/tf2pulumi/).
 
-Next, `cd` into a Terraform project you'd like to convert. Then run `pulumi convert --from terraform`. It will convert the entire project whose directory you are in and put the resulting code in the local directory.
+Next, `cd` into a Terraform project you want to convert. Then run `pulumi convert --from terraform`. It will convert the entire project whose directory you are in and put the resulting code in the local directory.
 
 {{< chooser language "typescript,python,go,csharp" >}}
 {{% choosable language typescript %}}
@@ -463,7 +463,7 @@ $ pulumi convert --from terraform --language csharp
 {{% /choosable %}}
 {{< /chooser >}}
 
-This will generate a Pulumi program that when run with `pulumi up` will deploy the infrastructure originally described by the Terraform project. Note that if your infrastructure references files or directories with paths relative to the location of the Terraform project, you will most likely need to update these paths such that they are relative to the generated {{< langfile >}} file.
+This will generate a Pulumi program that, when run with `pulumi up`, will deploy the infrastructure described initially by the Terraform project. Note that if your infrastructure references files or directories with paths relative to the location of the Terraform project, you will most likely need to update these paths such that they are relative to the generated {{< langfile >}} file.
 
 ### Supported Terraform Features
 
@@ -478,7 +478,7 @@ In cases where the converter does not yet support a feature, the `pulumi convert
     <pulumi-choosable type="language" value="python"><code>not_implemented</code></pulumi-choosable>
     <pulumi-choosable type="language" value="go"><code>notImplemented</code></pulumi-choosable>
     <pulumi-choosable type="language" value="csharp"><code>NotImplemented</code></pulumi-choosable>
-</pulumi-chooser> function that will need to be filled in manually. For most projects, the converter should be able to convert 90-95% of the code without any TODOs, with only a small percentage of items to address manually, significantly reducing migration time compared to doing an entire migration by hand. We are actively improving the converter by adding support for missing features and improving the overall quality of the converted code to reduce the amount of manual fix-ups required.
+</pulumi-chooser> function that will need to be filled in manually. For most projects, the converter should be able to convert 90-95% of the code without any TODOs, with only a small percentage of items to address manually, significantly reducing migration time compared to doing an entire migration by hand. We are actively improving the converter by adding support for missing features and improving the converted code's overall quality to reduce the manual fix-ups required.
 
 ### Importing Resources
 
@@ -492,4 +492,4 @@ Before running the deployment the import file generated will be writen out to th
 
 ### Example Conversion
 
-For an example of a full conversion, see the [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) blog post.
+For an example of a complete conversion, see the [Converting Full Terraform Programs to Pulumi](/blog/converting-full-terraform-programs-to-pulumi/) blog post.
