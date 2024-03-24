@@ -307,18 +307,18 @@ export const mongoPassword = mongoPassword;
 
 ```python
 backend_container = docker.Container("backend_container",
-                                     image=backend.base_image_name,
+                                     image=backend.repo_digest,
                                      name=f"backend-{stack}",
                                      ports=[docker.ContainerPortArgs(
                                          internal=backend_port,
                                          external=backend_port
                                      )],
                                      envs=[
-                                         Output.concat(
+                                         pulumi.Output.concat(
                                              "DATABASE_HOST=mongodb://",
                                              mongo_username,
                                              ":",
-                                             config.require_secret("mongo_password"),
+                                             config.require_secret("mongoPassword"),
                                              "@",
                                              mongo_host,
                                              ":",
