@@ -317,6 +317,14 @@ This is enabled by skipping the default dependency installation step (under Adva
 
 ![Pulumi UI - Node Version](../ui-node-version.png)
 
+### Building Docker images for another architecture
+
+By default, the deployment executor will only build Docker images for the x86_64 architecture, if you need to build images for another architecture (e.g. linux/arm64), you can add the architecture as a pre-run command such as:
+
+```
+docker run --privileged --rm tonistiigi/binfmt --install arm64
+```
+
 ### Deploying dependent stacks
 
 Pulumi Deployments can be used to automatically deploy dependent stacks via Deployment Webhooks. This enables you to keep your infrastructure up-to-date across stack reference boundaries. This can be configured in one of two ways:
