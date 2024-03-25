@@ -74,6 +74,14 @@ You should now see `"ENDPOINT_URL": "https://wordsapiv1.p.rapidapi.com/"` in the
 You can test this out by retrieving the imported value via the console or the CLI. Refer to the [Store and Retrieve Secrets guide](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-environment-values) for the steps on how to do this.
 {{% /notes %}}
 
+### Import via the Table editor
+
+Alternatively, you can import environments using the Table editor of the Pulumi console. Navigate to the **Table view** of your environment and click the **Import** button under the **Imports** section. You will be presented with a dropdown list of environments that you can import. Search for the name of the environment you want to import and select it. Then click **Import**.
+
+{{< video title="Importing the global config environment in the Pulumi Console" src="/docs/esc/get-started/esc-import-global-config.mp4" autoplay="true" loop="true" >}}
+
+The imported values will not be visible in the table view, but you will be able to view/access the values when [opening your environment](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-environment-values).
+
 In the next section, you will learn how to run local commands without manually configuring local secrets.
 
 {{< get-started-stepper >}}
