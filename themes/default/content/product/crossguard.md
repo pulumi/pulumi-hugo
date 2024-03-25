@@ -1,12 +1,30 @@
 ---
 title: "Pulumi CrossGuard: Policy as Code"
-layout: policy-as-code
+layout: crossguard
 
 meta_title: "Pulumi CrossGuard: Policy as Code"
 meta_desc: Use policy as code to continuously govern your organization's cloud applications and infrastructure &mdash; security, compliance, cost controls, and more.
 meta_image: "/images/product/policy-as-code.png"
 aliases:
-    - /policy-as-code
+    - /crossguard
+
+overview:
+    titleTop: Intelligence
+    titleBottom: for Infrastructure as Code
+    description: |
+        Pulumi Insights is Intelligence for Infrastructure as Code. It adds advanced search, analytics, and AI to infrastructure as code. With Insights, you can gain unique insights into your company's cloud usage and trends and boost engineering productivity.
+    items:
+        - title: Gain Unique Insights
+          icon: eye
+          icon_color: purple
+          description: |
+            Analyze and dig into your organization’s cloud usage and trends.
+
+        - title: Increase Productivity
+          icon: nodes
+          icon_color: yellow
+          description: |
+            Reduce lead time from ideation to delivery through Pulumi AI.
 
 benefits:
     title: Benefits of Policy as Code
@@ -21,20 +39,18 @@ benefits:
           description: Prevent deployments that don’t meet applicable regulatory and compliance standards.
         - icon: lock
           icon_color: purple
-          title: Enforce polocies centrally
+          title: Enforce policies centrally
           description: Set policy packs that enforce requirements across your entire organization.
-        - icon: gear
-          icon_color: blue
-          title: Automate the decision-making process
-          description: Systematize the guidelines for infrastructure resources and eliminate the need for manual reviews.
-        - icon: lock
-          icon_color: blue
-          title: Remediate policy violations
+
+screenshot:
+    items:
+        - title: Remediate policy violations
           description: Transform non-compliant resources to meet policy requirements before deployment.
-        - icon: git-merged
-          icon_color: blue
-          title: Version control your policies
-          description: Track revisions, collaborate on policy updates, roll back to earlier versions, & have full visibility on all changes.
+        - title: Version control your policies
+          description: Track revisions, collaborate on policy updates, roll back to earlier versions, and have full visibility on all changes.
+        - title: Automate the decision-making process
+          description: Systematize the guidelines for infrastructure resources and eliminate the need for manual reviews.
+---
 
 key_features_above:
     items:
