@@ -79,7 +79,6 @@ key_features_above:
                 icon: shield
                 color: blue
 
-
 quotes:
     items:
         - company: lemonade
