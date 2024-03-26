@@ -69,7 +69,7 @@ main:
     # case-sensitive
     tags:
         level: Beginner # Beginner, Intermediate, Advanced
-        topics: ["Azure", "AKS", "Spot"]
+        topics: ["Azure", "AKS", "Platform Engineering", "Spot by NetApp"]
         languages: []
 
 # The right hand side form section.
