@@ -555,6 +555,48 @@ You can specify a specific version with [Chocolatey package manager](https://cho
 
 {{% /chooser %}}
 
+In addition to insalling a specific version, the latest dev version can also be installed automatically.  This version contains the latest changes that have been merged to the main branch.
+
+{{% chooser os "macos,windows,linux" %}}
+
+{{% choosable os macos %}}
+
+### Installation script
+
+```bash
+$ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
+```
+
+{{% /choosable %}}
+
+{{% choosable os linux %}}
+
+### Installation script
+
+To install, run our installation script:
+
+```bash
+$ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
+```
+
+{{% /choosable %}}
+
+{{% choosable os windows %}}
+
+### Installation script
+
+1. Open a new command prompt window (**WIN+R**: `cmd.exe`):
+
+1. Run our installation script:
+
+```powershell
+> @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/install.ps1')) -version dev" && SET "PATH=%PATH%;%USERPROFILE%\.pulumi\bin"
+```
+
+{{% /choosable %}}
+
+{{% /chooser %}}
+
 ## Uninstalling Pulumi
 
 To uninstall Pulumi, use your installation method's command of choice. If you installed Pulumi manually, delete the `pulumi` directory that you created. Afterwards, remove the `.pulumi` folder from your home directory which contains plugins and other cached metadata.
