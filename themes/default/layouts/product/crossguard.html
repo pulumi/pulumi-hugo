@@ -8,7 +8,7 @@
             <h1 class="flex flex-col items-center">
                 <span class="rainbow-text inline-block text-center">Pulumi CrossGuard</span>
             </h1>
-            <p class="text-center leading-7">Pulumi's Policy as Code Engine</p>
+            <p class="text-center leading-7">Policy as Code for Any Cloud</p>
         </div>
     </header>
 {{ end }}
@@ -21,7 +21,7 @@
             <div class="text-center">
                 <h3>“Shift Left” policy enforcement and standards remediation</h3>
                 <p>
-                    Programmatic policy enforcement and remediation are key to scaling securely and efficiently because inconsistent infrastructure could lead to compromise. Pulumi CrossGuard offers centralized policy enforcement and remediation as an integrated component of Pulumi’s infrastructure as code platform. Take advantage of well-known and well-understood programming languages like TypeScript and Python to author policies and apply them across multiple clouds, SaaS offerings and application platforms. Pull from a library of ready-made policies that can be customized to your organization’s specific needs and goals. CrossGuard ensures consistent application of your policies and prevents new misconfigurations or inconsistencies from being introduced into your infrastructure.
+                    Programmatic policy enforcement and remediation are key to scaling securely and efficiently because inconsistent infrastructure could lead to compromise. Pulumi CrossGuard offers centralized policy enforcement and remediation as an integrated component of Pulumi’s infrastructure as code platform.
                 </p>
                 <div class="mt-8">
                     <a class="btn-primary" href="/docs/using-pulumi/crossguard/get-started/">Get Started</a>
@@ -53,16 +53,57 @@
         </div>
     </section>
 
-    <section id="screenshot" class="container mx-auto my-16">
+    <section id="screenshot1" class="container mx-auto my-16">
         <div class="max-w-5xl mx-auto text-center py-8">
             <h2>Centrally Manage Policy Compliance</h2>
         </div>
         <div class="flex flex-wrap items-stretch">
-            <div class="w-full lg:w-3/4">
+            <div class="w-full lg:w-2/3">
                 <img src="/images/product/crossguard-screenshot.png" alt="screenshot of Pulumi CrossGuard management console" />
             </div>
-            <div class="w-full lg:w-1/4 p-4">
-                {{ range $item := .Params.screenshot.items }}
+            <div class="w-full lg:w-1/3 p-4">
+                {{ range $item := .Params.screenshot1.items }}
+                    <div class="card bg-white p-4 my-4">
+                        <div>
+                            <h5>{{ $item.title }}</h5>
+                        </div>
+                        <div class="mt-6">
+                            <p>{{ $item.description }}</p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshot2" class="container mx-auto my-16">
+        <div class="flex flex-wrap items-stretch">
+            <div class="w-full lg:w-1/3 p-4">
+                {{ range $item := .Params.screenshot2.items }}
+                    <div class="card bg-white p-4 my-4">
+                        <div>
+                            <h5>{{ $item.title }}</h5>
+                        </div>
+                        <div class="mt-6">
+                            <p>{{ $item.description }}</p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+            <div class="w-full lg:w-2/3">
+                <img src="/images/product/crossguard-new-policy.png" alt="screenshot of Pulumi CrossGuard management console" />
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="screenshot3" class="container mx-auto my-16">
+        <div class="flex flex-wrap items-stretch">
+            <div class="w-full lg:w-2/3">
+                <img src="/images/product/crossguard-remediation-policy.png" alt="screenshot of Pulumi CrossGuard management console" />
+            </div>
+            <div class="w-full lg:w-1/3 p-4">
+                {{ range $item := .Params.screenshot3.items }}
                     <div class="card bg-white p-4 my-4">
                         <div>
                             <h5>{{ $item.title }}</h5>

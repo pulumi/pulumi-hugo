@@ -8,49 +8,42 @@ meta_image: "/images/product/policy-as-code.png"
 aliases:
     - /crossguard
 
-overview:
-    titleTop: Intelligence
-    titleBottom: for Infrastructure as Code
-    description: |
-        Pulumi Insights is Intelligence for Infrastructure as Code. It adds advanced search, analytics, and AI to infrastructure as code. With Insights, you can gain unique insights into your company's cloud usage and trends and boost engineering productivity.
-    items:
-        - title: Gain Unique Insights
-          icon: eye
-          icon_color: purple
-          description: |
-            Analyze and dig into your organization’s cloud usage and trends.
-
-        - title: Increase Productivity
-          icon: nodes
-          icon_color: yellow
-          description: |
-            Reduce lead time from ideation to delivery through Pulumi AI.
-
 benefits:
     title: Benefits of Policy as Code
     items:
-        - icon: shield
+        - icon: code
           icon_color: yellow
-          title: Maintain consistent security
-          description: Guard against inconsistencies and misconfigurations that might lead to compromises in your organization’s security posture.
-        - icon: gavel
+          title: Familiar languages
+          description: Take advantage of well-known and well-understood programming languages like TypeScript and Python to author policies and apply them across multiple clouds, SaaS offerings and application platforms.
+        - icon: shield
           icon_color: salmon
-          title: Ensure compliance standards
-          description: Prevent deployments that don’t meet applicable regulatory and compliance standards.
-        - icon: lock
+          title: Ready-made policies
+          description: Pull from a library of ready-made policies that can be customized to your organization’s specific needs and goals.
+        - icon: gavel
           icon_color: purple
-          title: Enforce policies centrally
-          description: Set policy packs that enforce requirements across your entire organization.
+          title: Consistent application
+          description: CrossGuard ensures consistent application of your policies and prevents new misconfigurations or inconsistencies from being introduced into your infrastructure.
 
-screenshot:
+screenshot1:
+    items:
+        - title: Enforce policies centrally
+          description: Set policy packs that enforce requirements across your entire organization.
+        - title: Maintain consistent security
+          description: Guard against inconsistencies and misconfigurations that might lead to compromises in your organization’s security posture.
+
+screenshot2:
+    items:
+        - title: Ensure compliance standards
+          description: Prevent deployments that don’t meet applicable regulatory and compliance standards.
+        - title: Automate the decision-making process
+          description: Systematize the guidelines for infrastructure resources and eliminate the need for manual reviews.
+          
+screenshot3:
     items:
         - title: Remediate policy violations
           description: Transform non-compliant resources to meet policy requirements before deployment.
-        - title: Version control your policies
+        - title: Gain all the benefits of version control for your policies
           description: Track revisions, collaborate on policy updates, roll back to earlier versions, and have full visibility on all changes.
-        - title: Automate the decision-making process
-          description: Systematize the guidelines for infrastructure resources and eliminate the need for manual reviews.
----
 
 key_features_above:
     items:
