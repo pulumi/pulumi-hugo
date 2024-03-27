@@ -17,7 +17,7 @@ providers:
   description: The Google Cloud Classic provider can provision many Google Cloud resources. Use the Google Cloud Native provider for same-day access to Google Cloud resources.
   provider_list:
   - display_name: Google Cloud Classic
-    description: The AWS Classic provider can provision many AWS cloud resources. Use the AWS Native provider for same-day access to all AWS resources.
+    description: The Google Cloud Classic provider can provision many AWS cloud resources. Use the Google Cloud Native provider for same-day access to all AWS resources.
     recommended: true
     content_links:
     - display_name: Overview
