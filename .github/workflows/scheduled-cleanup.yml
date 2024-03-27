@@ -3,6 +3,8 @@ on:
   schedule:
     # Daily at 3:00PM UTC
     - cron: 0 15 * * *
+  workflow_dispatch: {}
+
 jobs:
   cleanup:
     name: Find and remove buckets
