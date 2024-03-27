@@ -82,6 +82,10 @@ Alternatively, you can import environments using the Table view of the Pulumi co
 
 To view the imported values, you will need to [open your environment](/docs/esc/get-started/store-and-retrieve-secrets/#retrieve-environment-values).
 
+{{% notes type="info" %}}
+You can import multiple environments and reorder them. The order of the imported environments is important because if you have two environments that have the same name for a key/path, then the last imported environment will override the value of that key/paths for any environments that are imported before it. This behavior can be useful for scenarios where you need to intentially override the value of a particular key/path.
+{{% /notes %}}
+
 In the next section, you will learn how to run local commands without manually configuring local secrets.
 
 {{< get-started-stepper >}}
