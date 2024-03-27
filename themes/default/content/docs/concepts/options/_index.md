@@ -29,4 +29,5 @@ All resource constructors accept an options argument that provide the following 
 - [replaceOnChanges](/docs/concepts/options/replaceonchanges/): declare that changes to certain properties should be treated as forcing a replacement.
 - [retainOnDelete](/docs/concepts/options/retainondelete/): if true the resource will be retained in the backing cloud provider during a Pulumi delete operation.
 - [transformations](/docs/concepts/options/transformations/): dynamically transform a resource’s properties on the fly.
+- [transforms](/docs/concepts/options/transforms/): dynamically transform a resource’s properties on the fly.
 - [version](/docs/concepts/options/version/): pass a provider plugin version that should be used when operating on a resource.
