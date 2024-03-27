@@ -56,6 +56,10 @@ The Pulumi programming model includes a core concept of `Input` and `Output` val
 
 In addition to the standard packages the [Pulumi Registry](/registry/) houses 100+ Go packages.
 
+## Dev Versions
+
+Unlike other languages there's no specific packaging for Go.  You can always install the latest version from the main branch using the regular `go get` tooling.  For example `go get github.com/pulumi/pulumi/sdk/v3@master`.
+
 ### Standard Packages
 
 <dl class="tabular">
