@@ -17,11 +17,15 @@ Today, we extend the capabilities of Pulumi ESC (Environments, Secrets, and Conf
 
 <!--more-->
 
-1Password support has been one of the most highly requested features since our Pulumi ESC launch last October, and we're excited to have been able to partner with the 1Password team to deliver it to ESC users.  We are also internally users of both 1Password and ESC here at Pulumi, and are now happily using 1Password with ESC in our own internal infrastructure. The integration is now available to our users in public preview.
+1Password support has been one of the most highly requested features since our Pulumi ESC launch last October, and we're excited to have been able to partner with the 1Password team to deliver it to ESC users.  We are also internal users of both 1Password and ESC here at Pulumi and are now happily using 1Password with ESC in our own internal infrastructure. The integration is now available to our users in public preview.
 
-We invite developers to explore these new capabilities and experience how they can streamline their workflows. Adding 1Password to our list of supported providers aims to address the growing demand for effective secrets management in the dynamically evolving cloud environment.  
+We invite developers to explore these new capabilities and experience how they can streamline their workflows. Adding 1Password to our list of supported providers aims to address the growing demand for effective secrets management in the dynamically evolving cloud environment.
 
 ## See it in action
+
+{{% notes type="info" %}}
+To further enrich your skills and knowledge, we invite you to register for our upcoming workshop, ["Managing team secrets with 1Password & Pulumi ESC"](https://www.pulumi.com/resources/managing-team-secrets-1password-pulumi-esc/), designed to help you start with Pulumi ESC and its integration with 1Password.
+{{% /notes %}}
 
 {{< video title="Pulumi ESC and 1Password Demo" src="demo-esc-1password.mp4" controls="false" rc="/blog/developer-portal-gallery/gallery.mp4" width=600 height=420 autoplay="true" loop="true" >}}
 
@@ -106,13 +110,11 @@ In the video above,
     $ docker push $TAG
     ```
 
-## Summary
+## Conclusion
 
-By joining forces with 1Password, Pulumi ESC strives to offer a "secrets agnostic" tool that effortlessly integrates with various secrets management solutions. This integration is poised to become an essential component in developers' toolkits, allowing for an easy-to-use developer experience while elevating security standards in their cloud infrastructure management.
+Our collaboration with 1Password marks a significant enhancement in the flexibility and security of Pulumi ESC, empowering developers with a seamless solution for managing secrets. This partnership reiterates our commitment to providing a highly efficient, secure development environment by facilitating the integration of critical secrets directly into your projects without compromising security. For a hands-on understanding of this integration and to optimize your secret management strategies, we encourage you to delve into the detailed documentation provided for both Pulumi ESC and 1Password integration:
 
-* Visit the [1Password+Pulumi ESC docs](https://www.pulumi.com/docs/esc/providers/1password-secrets/) to learn more about the syntax.
-* Visit the [Pulumi ESC docs](https://www.pulumi.com/docs/esc/environments/ ) to learn more about Pulumi ESC and a complete list of supported providers.
+* Visit [1Password's CI/CD Integration page](https://developer.1password.com/docs/ci-cd/) for Pulumi ESC docs.
+* Visit our [Pulumi ESC docs](https://www.pulumi.com/docs/esc/environments/ ) to learn more about Pulumi ESC and a complete list of supported providers.
 
-## Next Steps
-
-Stay tuned as we evolve Pulumi ESC, ensuring it remains at the forefront of platform engineering innovation. To further enrich your skills and knowledge, we invite you to register for our upcoming workshop, ["Managing team secrets with 1Password & Pulumi ESC"](https://www.pulumi.com/resources/managing-team-secrets-1password-pulumi-esc/), designed to help you start with Pulumi ESC and its integration with 1Password.
+Don't miss the opportunity to elevate your platform engineering skills by joining our specially curated workshop on managing team secrets effectively with Pulumi ESC and 1Password. Your journey towards streamlined, secure cloud infrastructure management begins here.
