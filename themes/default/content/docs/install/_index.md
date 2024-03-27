@@ -555,13 +555,15 @@ You can specify a specific version with [Chocolatey package manager](https://cho
 
 {{% /chooser %}}
 
-In addition to insalling a specific version, the latest dev version can also be installed automatically.  This version contains the latest changes that have been merged to the main branch.
+## Installing dev releases
+
+In addition to installing a specific version, the latest dev version can also be installed automatically.  This version contains the latest changes that have been merged to the main branch.
 
 {{% chooser os "macos,windows,linux" %}}
 
 {{% choosable os macos %}}
 
-### Installation script
+### macOS Installation Script
 
 ```bash
 $ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
@@ -571,7 +573,7 @@ $ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
 
 {{% choosable os linux %}}
 
-### Installation script
+### Linux Installation Script
 
 To install, run our installation script:
 
@@ -583,7 +585,7 @@ $ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
 
 {{% choosable os windows %}}
 
-### Installation script
+### Windows Installation Script
 
 1. Open a new command prompt window (**WIN+R**: `cmd.exe`):
 
