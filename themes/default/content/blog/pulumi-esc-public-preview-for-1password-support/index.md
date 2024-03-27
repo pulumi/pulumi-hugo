@@ -17,7 +17,7 @@ Today, we extend the capabilities of Pulumi ESC (Environments, Secrets, and Conf
 
 <!--more-->
 
-At Pulumi, we use several 1Password vaults to share common credentials across and within teams. Integrating 1Password with Pulumi ESC underscores our dedication to enhancing the developer experience and addresses the most requested integration since the launch of ESC. The integration is now available to our users in public preview.
+1Password support has been one of the most highly requested features since our Pulumi ESC launch last October, and we're excited to have been able to partner with the 1Password team to deliver it to ESC users.  We are also internally users of both 1Password and ESC here at Pulumi, and are now happily using 1Password with ESC in our own internal infrastructure. The integration is now available to our users in public preview.
 
 We invite developers to explore these new capabilities and experience how they can streamline their workflows. Adding 1Password to our list of supported providers aims to address the growing demand for effective secrets management in the dynamically evolving cloud environment.  
 
