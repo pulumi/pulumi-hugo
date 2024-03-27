@@ -5,6 +5,7 @@ meta_desc: Pulumi ESC adds integration support for 1Password (public preview) to
 meta_image: meta.png
 authors:
     - tejitha-raju
+    - diana-esteves
 tags:
     - esc
     - secrets
@@ -114,4 +115,4 @@ By joining forces with 1Password, Pulumi ESC strives to offer a "secrets agnosti
 
 ## Next Steps
 
-Stay tuned as we evolve Pulumi ESC, ensuring it remains at the forefront of platform engineering innovation. To further enrich your skills and knowledge, we invite you to register for our upcoming workshop, designed to help you get started with Pulumi ESC and its integration with 1Password. [Workshop link](todo)
+Stay tuned as we evolve Pulumi ESC, ensuring it remains at the forefront of platform engineering innovation. To further enrich your skills and knowledge, we invite you to register for our upcoming workshop, ["Managing team secrets with 1Password & Pulumi ESC"](https://www.pulumi.com/resources/managing-team-secrets-1password-pulumi-esc/), designed to help you start with Pulumi ESC and its integration with 1Password.
