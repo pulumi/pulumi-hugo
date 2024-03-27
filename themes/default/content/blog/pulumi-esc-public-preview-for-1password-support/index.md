@@ -13,7 +13,7 @@ tags:
 
 ---
 
-Today, we extend the capabilities of Pulumi ESC (Environments, Secrets, and Configuration) by integrating with 1Password, a developer-friendly secrets management solution.
+Today, we extend the capabilities of Pulumi ESC (Environments, Secrets, and Configuration) by integrating with 1Password, a developer-friendly secrets management solution.  With the new 1Password integration, developers can reference their secrets stored inside 1Password from their environments, and consume those from their infrastructure and applications directly.  That means no more need to copy/paste secrets around, no need for plain text secrets on developer machines, and easier integration of your secrets in 1Password with secrets and configuration from other systems of record!
 
 <!--more-->
 
