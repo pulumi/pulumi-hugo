@@ -8,9 +8,6 @@ The following is a simplified example of using `pulumi.JSONMarshal` in Go.
 package main
 
 import (
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/sfn"
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,9 +30,11 @@ func main() {
 			}),
 			// The following functionality is currently unsupported as myResource
 			// is an unknown value.
-			"unknown": myResource.ApplyT(func(res interface{}) (interface{}, error) {
-				return "Hello World!", nil
-			}),
+			/*
+				"unknown": myResource.ApplyT(func(res interface{}) (interface{}, error) {
+					return "Hello World!", nil
+				}),
+			*/
 		}))
 		return nil
 	})
