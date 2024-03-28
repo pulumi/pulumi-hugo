@@ -154,6 +154,9 @@ To add images to the body of your post, first place them within in the folder co
 
 #### Social ("Meta") Images
 
+> [!IMPORTANT]
+> If you are adding _any_ logo to the meta image, you must absolutely ensure these are current. When in doubt, verify wih the external sources directly. Using the wrong or outdate logo can have a severe negative impact on social sharing timelines due caching. 
+
 When you generate a new post, an [OpenGraph](http://ogp.me/) placeholder image is included for you, and a reference to that image is added to the post's frontmatter as well, as its `meta_image`. The `meta_image` is meant to accompany the post in social previews (Twitter cards, unfurled Slack links, etc.) and on the Pulumi blog home page. It's optional, but recommended, as it can help to make your post more attractive and informative.
 
 For best results, we suggest the following specs for the `meta_image`, largely based on [Twitter's dev docs](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards):
