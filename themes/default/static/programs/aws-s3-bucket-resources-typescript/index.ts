@@ -22,10 +22,14 @@ const bucketNotification = new aws.s3.BucketNotification("my-bucket-notification
     bucket: bucket.id,
 });
 
-const bucketObject = new aws.s3.BucketObject("my-bucket-object", {
-    bucket: bucket.id,
-    content: "hello world",
-}, { dependsOn: [publicAccessBlock, ownershipControls] });
+const bucketObject = new aws.s3.BucketObject(
+    "my-bucket-object",
+    {
+        bucket: bucket.id,
+        content: "hello world",
+    },
+    { dependsOn: [publicAccessBlock, ownershipControls] },
+);
 
 const bucketPolicy = new aws.s3.BucketPolicy("my-bucket-policy", {
     bucket: bucket.id,
@@ -35,11 +39,13 @@ const bucketPolicy = new aws.s3.BucketPolicy("my-bucket-policy", {
 function publicReadPolicyForBucket(bucketName: string): string {
     return JSON.stringify({
         Version: "2012-10-17",
-        Statement: [{
-            Effect: "Allow",
-            Principal: "*",
-            Action: "s3:GetObject",
-            Resource: `arn:aws:s3:::${bucketName}/*`, // policy refers to bucket name explicitly
-        }],
+        Statement: [
+            {
+                Effect: "Allow",
+                Principal: "*",
+                Action: "s3:GetObject",
+                Resource: `arn:aws:s3:::${bucketName}/*`, // policy refers to bucket name explicitly
+            },
+        ],
     });
 }
