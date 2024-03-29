@@ -356,7 +356,7 @@ const val = stackReference.getOutputSync("outputName");
 This warning may be benign. However, if you are experiencing crashes or hangs in Pulumi (especially in Node.js version 12.11.0 and above) and you see this warning, then it is likely that the older version of Pulumi is the issue.
 
 A warning is issued so as to not break existing code that is functioning properly. However, the root cause of this problem
-pertains to undefined behavior in the Node.js runtime, so apparently working code today may begin crashing or hanging in the future. We recommend updating your code to ensure your Pulumi program works reliably.
+pertains to undefined behavior in the Node.js runtime, so code that works today may begin crashing or hanging in the future. We recommend updating your code to ensure your Pulumi program works reliably.
 
 There are only two supported ways to avoid this issue:
 
