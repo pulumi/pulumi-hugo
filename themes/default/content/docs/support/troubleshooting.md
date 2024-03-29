@@ -258,7 +258,7 @@ If a resource cannot be deleted because it contains data, or there are network i
 
 #### Delete resources manually
 
-For each resource that couldn't be deleted, use the cloud provider's console or CLI to manually delete it. This might be necessary for resources in a locked state or those with specific permissions preventing automated deletion.
+For each resource that couldn't be deleted, use the cloud provider's console or CLI to manually delete it. This may be necessary for resources in a locked state or those with specific permissions preventing automated deletion.
 
 Once you have resolved the source of the deletion failure, you can run `pulumi refresh` to validate that all of your resources are destroyed. This command will update your Pulumi state to reflect the current state in the cloud, effectively recognizing any manual deletions or changes that occurred outside of Pulumi's management.
 
