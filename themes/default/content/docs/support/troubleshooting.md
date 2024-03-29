@@ -254,7 +254,7 @@ If the issue is due to dependencies, identify and delete the dependent external 
 
 #### Empty or adjust resources
 
-If a resource cannot be deleted because it contains data, or there are network interfaces or other dependencies not automatically removed by Pulumi. Common examples include deleting VPCs with EINs attached elsewhere and deleting a security group when it is in use. You will need to evaluate the dependencies given your failure and take the necessary actions to resolve this on each provider resource.
+Occasionally a resource cannot be deleted because it contains data or uses network interfaces or other dependencies managed outside the stack. Common examples include deleting VPCs with EINs attached elsewhere or deleting a security group when it is in use. You will need to evaluate the dependencies given the failure and take the necessary actions to resolve this on each provider resource.
 
 #### Delete resources manually
 
