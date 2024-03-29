@@ -729,7 +729,7 @@ Stack references support two ways of reading outputs from the referenced stack:
 * `getOutputDetails` returns an `OutputDetails` object that provides direct access to the output value.
   This is useful when you want to process the output directly in your code.
 
-As a demonstration of **`getOutput`**,
+As a demonstration of `getOutput`,
 suppose that your referenced stack exports a `privateIp` output.
 You want to incorporate the IP address into the name of an S3 bucket object
 containing logs from that machine.
