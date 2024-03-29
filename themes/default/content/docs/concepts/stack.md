@@ -1010,7 +1010,6 @@ Before deleting a stack, if the stack still has resources associated with it, th
 There are scenarios when `pulumi destroy` may fail to delete resources as expected due to dependencies, permissions, or the resources being in a locked or protected state. For detailed steps on how to troubleshoot and resolve these issues, refer to our [troubleshooting guide](/docs/support/troubleshooting/) for steps you can take.
 {{% /notes %}}
 
-
 ## Delete a stack
 
 To delete a stack with no resources, run `pulumi stack rm`. Removing the stack will remove all stack history from pulumi.com and will delete the stack configuration file `Pulumi.<stack-name>.yaml`.
