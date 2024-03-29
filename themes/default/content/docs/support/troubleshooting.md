@@ -242,7 +242,7 @@ introduced in Traefik 1.7.0.
 
 ### Pulumi destroy fails {#pulumi-destroy-fails}
 
-There are scenarios when `pulumi destroy` will fail to delete resources as expected. This is anticipated due to the nature of cloud provider dependencies, permissions, resources being in a state that prevents their deletion, and when a timeout is not long enough for the cloud provider to complete its operation. Review the output to identify which resources were not deleted and consider the following steps depending on the nature of the failure.
+There are scenarios when `pulumi destroy` will fail to delete resources as expected. This is anticipated due to the nature of cloud provider dependencies, permissions, resources being in a state that prevents their deletion, or when a timeout is not long enough for the cloud provider to complete its operation. Review the output to identify which resources were not deleted and consider the following steps depending on the nature of the failure.
 
 #### Check to see if a resource was deleted after all
 
