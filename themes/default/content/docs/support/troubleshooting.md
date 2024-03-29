@@ -234,7 +234,7 @@ field once the Ingress resource is ready to route traffic.
 
 In some cases, this may be fixed by running `pulumi refresh`.
 
-#### *Traefik*
+#### Traefik
 
 For the Traefik controller, verify that the `kubernetes.ingressEndpoint` config
 is [set properly](https://docs.traefik.io/providers/kubernetes-ingress/). This option was
