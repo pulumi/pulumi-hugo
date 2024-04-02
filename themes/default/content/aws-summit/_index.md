@@ -20,6 +20,11 @@ workshops:
         description: In this workshop, you will learn the fundamentals of Infrastructure as Code through a series of guided exercises using the Pulumi Cloud Engineering platform.
         link: /resources/getting-started-with-iac-on-aws/
         action: Register Now
+      - title: Advanced CI/CD for AWS using Pulumi and GitHub Actions
+        date: May 16, 2024
+        description: Learn advanced topics that make up a robust infrastructure CI/CD pipeline through guided exercises.
+        link: /resources/advanced-cicd-aws-pulumi-github-actions/
+        action: Register Now
 
 templates:
     items:
