@@ -30,7 +30,7 @@ templates:
     items:
         - heading: Container Service Templates
           description: Deploy a container service on AWS with Pulumi and Amazon ECS.
-          image: /images/kubecon/templates-container-service-aws.png
+          image: /templates/container-service/aws/architecture.png
           action: Try it
           link: /templates/container-service/aws
         - heading: Kubernetes Cluster on AWS
@@ -40,7 +40,7 @@ templates:
           link: /templates/kubernetes/aws
         - heading: Serverless Templates
           description: Deploy a serverless application on AWS with Pulumi, AWS Lambda, and Amazon API Gateway.
-          image: /images/kubecon/templates-serverless-application.png
+          image: /templates/serverless-application/aws/architecture.png
           action: Try it
           link: /templates/serverless-application/aws
 
