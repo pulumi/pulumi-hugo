@@ -7,7 +7,7 @@ title: "Introducing Dev Releases for the Pulumi CLI and SDKs"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2024-03-27T17:20:44+01:00
+date: 2024-04-02
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
