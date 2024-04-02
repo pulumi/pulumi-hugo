@@ -37,7 +37,7 @@ tags:
   - pre-release
 ---
 
-At Pulumi, the stability of our releases is critically important.  A lot of infrastructure is built and deployed using Pulumi, and bugs in the way that infrastructure is deployed can cause long outages.  While we put a lot of emphasis on unit and integration testing, we wanted an additional layer to make sure we always deliver stable releases.  To that end are introducing dev releases of our CLI and SDKs.  The following blog post will talk more about how we are using them internally, and how you can too.
+At Pulumi, the stability of our releases is critically important.  A lot of infrastructure is built and deployed using Pulumi, and any bugs in how that infrastructure is deployed can cause outages.  While we put a lot of emphasis on unit and integration testing, we added an additional layer to make sure we always deliver stable releases.  To that end, we are introducing dev releases of our CLI and SDKs.  This blog post will walk you through how we are using them internally, and how you can too!
 
 <!--more-->
 
