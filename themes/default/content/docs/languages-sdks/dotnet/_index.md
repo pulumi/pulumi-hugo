@@ -259,7 +259,7 @@ SDK reference documentation, organized by language.
 
 ## Dev Versions
 
-Pulumi SDKs also publish pre-release versions, that include all the latest changes from the main branch.  To use them you can use the `--prerelease` flag.  For example `dotnet add package Pulumi --prerelease`.
+Pulumi SDKs also publish pre-release versions, that include all the latest changes from the main development branch.  To use them you can use the `--prerelease` flag.  For example `dotnet add package Pulumi --prerelease`.
 
 ### Standard Packages
 

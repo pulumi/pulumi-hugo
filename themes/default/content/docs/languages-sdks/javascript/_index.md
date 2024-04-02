@@ -283,7 +283,7 @@ need to upgrade.
 
 ## Dev Versions
 
-Pulumi SDKs also publish pre-release versions, that include all the latest changes from the main branch.  If you would like to install them, you can use the `dev` tag to do so.  For example using `npm` you can use `npm add @pulumi/pulumi@dev`, and similarly for `yarn` `yarn add @pulumi/pulumi@dev`.
+Pulumi SDKs also publish pre-release versions, that include all the latest changes from the main development branch.  If you would like to install them, you can use the `dev` tag to do so.  For example using `npm` you can use `npm add @pulumi/pulumi@dev`, and similarly for `yarn` `yarn add @pulumi/pulumi@dev`.
 
 ## Package Documentation
 

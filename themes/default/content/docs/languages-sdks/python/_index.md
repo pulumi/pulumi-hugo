@@ -136,7 +136,7 @@ $ venv/bin/pip install -r requirements.txt
 
 ### Dev Versions
 
-Pulumi SDKs also publish pre-release versions, that include all the latest changes from the main branch.  If you would like to install them, you can use the `--pre` flag to do so.  For example `pip install --pre -r requirements.txt`.
+Pulumi SDKs also publish pre-release versions, that include all the latest changes from the main development branch.  If you would like to install them, you can use the `--pre` flag to do so.  For example `pip install --pre -r requirements.txt`.
 
 ## Package Documentation
 
