@@ -29,20 +29,20 @@ workshops:
 templates:
     items:
         - heading: Container Service Templates
-          description: Pulumi program templates are the fastest way to deploy container services on AWS, Azure, or Google Cloud Platform.
+          description: Pulumi program templates are the fastest way to deploy container services on AWS.
           image: /images/kubecon/templates-container-service-aws.png
           action: Try it
-          link: /templates/container-service
-        - heading: Kubernetes Application Templates
-          description: Build and deploy applications with programming languages and deploying them to your Kubernetes clusters.
-          image: /images/kubecon/templates-kubernetes-application.png
+          link: /templates/container-service/aws
+        - heading: Kubernetes Cluster on AWS
+          description: Deploy a Kubernetes cluster on AWS with Pulumi and Amazon EKS.
+          image: /templates/kubernetes/aws/architecture.png
           action: Try it
-          link: /templates/kubernetes-application
+          link: /templates/kubernetes/aws
         - heading: Serverless Templates
-          description: Easily deploy serverless applications on AWS, Azure, or Google Cloud Platform with Pulumi Serverless Application templates.
+          description: Easily deploy serverless applications on AWS with Pulumi Serverless Application templates.
           image: /images/kubecon/templates-serverless-application.png
           action: Try it
-          link: /templates/serverless-application
+          link: /templates/serverless-application/aws
 
 knowledge:
     items:
