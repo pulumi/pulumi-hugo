@@ -51,7 +51,7 @@ Dev SDKs are currently available for NodeJS, Python, Dotnet and Go.
 
 ## How are we using them?
 
-At Pulumi we are not only developers of our product, but we also love using it internally.  All deploys for Pulumi Cloud are orchestrated by Pulumi.  In addition we use Pulumi for managing other things such as this blog, and even access management to services we are using is partly done with Pulumi.  All of these are a great way for us to test the our software in real world use cases, before releasing it.
+At Pulumi we are not only developers of our product, but we also love using it internally.  All deploys for Pulumi Cloud are orchestrated by Pulumi.  In addition we use Pulumi for managing other things such as this blog, and even access management to services we are using is partly done with Pulumi.  All of these are a great way for us to test our software in real world use cases, before releasing it.
 
 In addition to that, we also use the dev releases for testing both our [templates](https://github.com/pulumi/templates/) and [examples](https://github.com/pulumi/examples/).  This is a huge set of Pulumi programs, that can help figure out problems early.
 
