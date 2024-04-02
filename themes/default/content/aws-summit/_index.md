@@ -29,7 +29,7 @@ workshops:
 templates:
     items:
         - heading: Container Service Templates
-          description: Pulumi program templates are the fastest way to deploy container services on AWS.
+          description: Deploy a container service on AWS with Pulumi and Amazon ECS.
           image: /images/kubecon/templates-container-service-aws.png
           action: Try it
           link: /templates/container-service/aws
