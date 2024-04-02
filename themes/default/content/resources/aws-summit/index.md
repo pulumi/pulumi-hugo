@@ -2,7 +2,7 @@
 # Name of the event, <= 60 characters
 title: Pulumi + AWS Summit London
 meta_desc: Join Pulumi at AWS Summit London to learn about the latest developments in infrastructure as code. Meet us at booth B14, April 24, 2024
-meta_image:
+meta_image: /images/aws-summit-meta.png
 
 # A featured webinar will display first in the list.
 featured: false
