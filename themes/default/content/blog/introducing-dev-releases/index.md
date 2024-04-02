@@ -55,7 +55,7 @@ At Pulumi we are not only developers of our product, but we also love using it i
 
 In addition to that, we also use the dev releases for testing both our [templates](https://github.com/pulumi/templates/) and [examples](https://github.com/pulumi/examples/).  This is a huge set of Pulumi programs, that can help figure out problems early.
 
-## Why you could use them
+## How you can leverage dev releases
 
 In addition to making it easier for us to test new code that gets merged, and making sure we can release the most stable software possible, we also wanted to make it easier for users to use these dev releases.  There's a few reasons why these could help your organization:
 
