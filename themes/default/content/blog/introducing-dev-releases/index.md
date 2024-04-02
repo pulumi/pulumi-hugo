@@ -1,5 +1,5 @@
 ---
-title: "Introducing Dev Releases"
+title: "Introducing Dev Releases for the Pulumi CLI and SDKs"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
