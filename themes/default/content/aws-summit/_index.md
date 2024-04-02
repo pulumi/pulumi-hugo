@@ -11,7 +11,7 @@ links:
         - heading: Request a Demo
           description: See how Pulumi can help you ship infrastructure faster, and manage your AWS resources at scale. Ready for a change?
           action: Talk with an Engineer
-          link: https://info.pulumi.com/aws-reinvent-meeting/
+          link: https://info.pulumi.com/aws-summit/
 
 workshops:
     items:
