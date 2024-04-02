@@ -62,4 +62,8 @@ In addition to making it easier for us to test new code that gets merged, and ma
 - A bug fix has been merged, but not yet released?  You can get it a few minutes after it is merged via the dev release channel
 - You want to make sure your production stacks work well with the latest version of Pulumi?  Use dev releases with your dev stacks for some early testing.  We'd be delighted with any bugs that are reported before they make it into a release.
 
+## How to get started
+
 For instructions on how to use the CLI dev releases see the [Install Docs](https://www.pulumi.com/docs/install/ TODO: link to the appropriate header when https://github.com/pulumi/pulumi-hugo/pull/4097 is merged), and for pre-release versions of dev SDKs see the docs for the appropriate [language SDK](https://www.pulumi.com/docs/languages-sdks/).
+
+Happy building!
