@@ -47,7 +47,17 @@ On every push to the main branch, in other words every time a pull request is me
 
 This means these dev releases always include all the latest features and bug fixes, that will be in the next stable release.  And while it was always possible to get the latest CLI or SDKs with some moderate effort depending on the platform and language, having these be proper releases makes for a much more standardized experience on how to install them.
 
-Dev SDKs are currently available for NodeJS, Python, Dotnet and Go.
+Dev releases of the CLI can be [installed](/docs/install/#installing-dev=releases) on Linux, macOS, and Windows. For example, on Linux or macOS:
+
+```bash
+$ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
+```
+
+Dev SDKs are currently available for [Node.js](/docs/languages-sdks/javascript/#dev-versions), [Python](/docs/languages-sdks/python/#dev-versions), [.NET](/docs/languages-sdks/dotnet/#dev-versions), and [Go](/docs/languages-sdks/go/#dev-versions). For example, installing the dev release of the Node.js SDK with `npm`:
+
+```bash
+$ npm add @pulumi/pulumi@dev
+```
 
 ## How are we using them internally at Pulumi?
 
@@ -57,13 +67,13 @@ In addition to that, we also use the dev releases for testing both our [template
 
 ## How you can leverage dev releases
 
-In addition to making it easier for us to test new code that gets merged, and making sure we can release the most stable software possible, we also wanted to make it easier for users to use these dev releases.  There's a few reasons why these could help your organization:
+In addition to making it easier for us to test new code that gets merged, and making sure we can release the most stable software possible, we also wanted to make it easier for users to use these dev releases.  There's a couple reasons why these could help your organization:
 
 - A bug fix has been merged, but not yet released?  You can get it a few minutes after it is merged via the dev release channel
 - You want to make sure your production stacks work well with the latest version of Pulumi?  Use dev releases with your dev stacks for some early testing.  We'd be delighted with any bugs that are reported before they make it into a release.
 
 ## How to get started
 
-For instructions on how to use the CLI dev releases see the [Install Docs](https://www.pulumi.com/docs/install/ TODO: link to the appropriate header when https://github.com/pulumi/pulumi-hugo/pull/4097 is merged), and for pre-release versions of dev SDKs see the docs for the appropriate [language SDK](https://www.pulumi.com/docs/languages-sdks/).
+For instructions on how to use the CLI dev releases see the [Install Docs](/docs/install/#installing-dev=releases), and for pre-release versions of dev SDKs see the docs for [Node.js](/docs/languages-sdks/javascript/#dev-versions), [Python](/docs/languages-sdks/python/#dev-versions), [.NET](/docs/languages-sdks/dotnet/#dev-versions), and [Go](/docs/languages-sdks/go/#dev-versions).
 
 Happy building!
