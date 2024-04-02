@@ -58,7 +58,7 @@ In addition to the standard packages the [Pulumi Registry](/registry/) houses 10
 
 ## Dev Versions
 
-Unlike other languages there's no specific packaging for Go.  You can always install the latest version from the main branch using the regular `go get` tooling.  For example `go get github.com/pulumi/pulumi/sdk/v3@master`.
+You can install the latest pre-release version from the main branch using the regular `go get` tooling.  For example `go get github.com/pulumi/pulumi/sdk/v3@master`.
 
 ### Standard Packages
 
