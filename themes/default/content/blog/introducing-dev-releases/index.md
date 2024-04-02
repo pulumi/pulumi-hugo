@@ -17,7 +17,7 @@ draft: false
 # of the content of the post, which is useful for targeting search results or
 # social-media previews. This field is required or the build will fail the
 # linter test. Max length is 160 characters.
-meta_desc: Introducing Dev Releases for the Pulumi CLI and SDKs.  Discover what they are and how they are useful.
+meta_desc: Introducing Dev Releases for the Pulumi CLI and SDKs: early releases of the Pulumi CLI and SDKs to enable customers to access every change as soon as it has been merged, instead of having to wait for the next release.
 
 # The meta_image appears in social-media previews and on the blog home page. A
 # placeholder image representing the recommended format, dimensions and aspect
