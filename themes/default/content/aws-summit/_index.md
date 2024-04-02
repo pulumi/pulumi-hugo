@@ -39,7 +39,7 @@ templates:
           action: Try it
           link: /templates/kubernetes/aws
         - heading: Serverless Templates
-          description: Easily deploy serverless applications on AWS with Pulumi Serverless Application templates.
+          description: Deploy a serverless application on AWS with Pulumi, AWS Lambda, and Amazon API Gateway.
           image: /images/kubecon/templates-serverless-application.png
           action: Try it
           link: /templates/serverless-application/aws
