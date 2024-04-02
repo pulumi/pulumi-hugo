@@ -47,7 +47,7 @@ On every push to the main branch, in other words every time a pull request is me
 
 This means these dev releases always include all the latest features and bug fixes, that will be in the next stable release.  And while it was always possible to get the latest CLI or SDKs with some moderate effort depending on the platform and language, having these be proper releases makes for a much more standardized experience on how to install them.
 
-Dev releases of the CLI can be [installed](/docs/install/#installing-dev=releases) on Linux, macOS, and Windows. For example, on Linux or macOS:
+Dev releases of the CLI can be [installed](/docs/install/#installing-dev-releases) on Linux, macOS, and Windows. For example, on Linux or macOS:
 
 ```bash
 $ curl -fsSL https://get.pulumi.com | sh -s -- --version dev
@@ -74,6 +74,6 @@ In addition to making it easier for us to test new code that gets merged, and ma
 
 ## How to get started
 
-For instructions on how to use the CLI dev releases see the [Install Docs](/docs/install/#installing-dev=releases), and for pre-release versions of dev SDKs see the docs for [Node.js](/docs/languages-sdks/javascript/#dev-versions), [Python](/docs/languages-sdks/python/#dev-versions), [.NET](/docs/languages-sdks/dotnet/#dev-versions), and [Go](/docs/languages-sdks/go/#dev-versions).
+For instructions on how to use the CLI dev releases see the [Install Docs](/docs/install/#installing-dev-releases), and for pre-release versions of dev SDKs see the docs for [Node.js](/docs/languages-sdks/javascript/#dev-versions), [Python](/docs/languages-sdks/python/#dev-versions), [.NET](/docs/languages-sdks/dotnet/#dev-versions), and [Go](/docs/languages-sdks/go/#dev-versions).
 
 Happy building!
