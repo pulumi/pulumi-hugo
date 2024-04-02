@@ -557,7 +557,7 @@ You can specify a specific version with [Chocolatey package manager](https://cho
 
 ## Installing dev releases
 
-In addition to installing a specific version, the latest dev version can also be installed automatically.  This version contains the latest changes that have been merged to the main branch.
+In addition to installing a specific version, the latest dev version can also be installed automatically.  This version contains the latest changes that have been merged to the main development branch.
 
 {{% chooser os "macos,windows,linux" %}}
 
