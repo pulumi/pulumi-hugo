@@ -1061,7 +1061,7 @@ The result of the call to {{< pulumi-apply >}} is a new Output<T>, meaning the `
 
 #### Using string interpolation
 
-There is an easier way to generate a concatenated string value using an output, and that is by using interpolation. Pulumi exposes interpolation helpers that enables you to create strings that contain outputs. These interpolation methods wrap [apply](/docs/concepts/inputs-outputs/apply/) and [all](/docs/concepts/inputs-outputs/all/) with an interface that resembles your language's native string formatting functions. The example below demonstrates how to create a URL from the hostname and port output values of a web server.
+There is an easier way to generate a concatenated  string value using an output, and that is by using interpolation. Pulumi exposes interpolation helpers that enables you to create strings that contain outputs. These interpolation methods wrap [apply](/docs/concepts/inputs-outputs/apply/) and [all](/docs/concepts/inputs-outputs/all/) with an interface that resembles your language's native string formatting functions. The example below demonstrates how to create a URL from the hostname and port output values of a web server.
 
 {{< example-program path="aws-s3bucket-bucketobject-interpolate" >}}
 
