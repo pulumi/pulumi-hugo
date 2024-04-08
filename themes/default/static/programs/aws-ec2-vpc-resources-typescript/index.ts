@@ -30,13 +30,10 @@ const routes = new aws.ec2.RouteTable("routes", {
 });
 
 // Associate the route table with the public subnet.
-const routeTableAssociation = new aws.ec2.RouteTableAssociation(
-    "route-table-association",
-    {
-        subnetId: subnet.id,
-        routeTableId: routes.id,
-    },
-);
+const routeTableAssociation = new aws.ec2.RouteTableAssociation("route-table-association", {
+    subnetId: subnet.id,
+    routeTableId: routes.id,
+});
 
 // Create a security group allowing inbound access over port 80 and outbound
 // access to anywhere.

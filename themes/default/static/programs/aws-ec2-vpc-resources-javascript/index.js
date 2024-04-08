@@ -31,13 +31,10 @@ const routes = new aws.ec2.RouteTable("routes", {
 });
 
 // Associate the route table with the public subnet.
-const routeTableAssociation = new aws.ec2.RouteTableAssociation(
-    "route-table-association",
-    {
-        subnetId: subnet.id,
-        routeTableId: routes.id,
-    }
-);
+const routeTableAssociation = new aws.ec2.RouteTableAssociation("route-table-association", {
+    subnetId: subnet.id,
+    routeTableId: routes.id,
+});
 
 // Create a security group allowing inbound access over port 80 and outbound
 // access to anywhere.
@@ -62,11 +59,13 @@ const securityGroup = new aws.ec2.SecurityGroup("security-group", {
 });
 
 // Find the latest Amazon Linux 2 AMI.
-const ami = pulumi.output(aws.ec2.getAmi({
-    owners: ["amazon"],
-    mostRecent: true,
-    filters: [{ name: "description", values: ["Amazon Linux 2 *"] }],
-}));
+const ami = pulumi.output(
+    aws.ec2.getAmi({
+        owners: ["amazon"],
+        mostRecent: true,
+        filters: [{ name: "description", values: ["Amazon Linux 2 *"] }],
+    }),
+);
 
 // Create and launch an Amazon Linux EC2 instance into the public subnet.
 const instance = new aws.ec2.Instance("instance", {
