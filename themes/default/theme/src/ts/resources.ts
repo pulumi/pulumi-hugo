@@ -1,37 +1,17 @@
-/**
- * sortResourceItems sorts the visible items in the resource list.
- *
- * @param {bool} sortDescending Whether the items should be sorted in descending order.
- */
-function sortResourceItems(sortDescending) {
-    const resourceList = $("ul.resource-list");
-    const items = resourceList.children("li").detach();
-
-    Array.from(items).sort(function (a, b) {
-        const firstDate = $(a).attr("data-display-date");
-        const secondDate = $(b).attr("data-display-date");
-
-        if (sortDescending) {
-            return new Date(firstDate).getTime() < new Date(secondDate).getTime() ? 1 : -1;
-        }
-        return new Date(firstDate).getTime() > new Date(secondDate).getTime() ? 1 : -1;
-    });
-
-    resourceList.append(items);
-}
-
 const filterResourceItems = (filters) => {
 
     const events = $(".event-list").find(".event-card");
+    const monthLabels = $(".event-list").find(".month-label");
 
     if (filters.length > 0) {
-        //$(events).css("display", "none");
-
         $(events).each((i, event) => {
             const tags = ($(event).attr("data-filters")).split(' ');
+            const dateLabel = $(event).attr("data-month-label");
 
             filters.forEach(filter => {
                 if (!tags.includes(filter)) {
+                    $(event).css("display", "none");
+                } else if (!tags.includes(location.hash.slice(1))) {
                     $(event).css("display", "none");
                 } else {
                     $(event).css("display", "block");
@@ -43,20 +23,16 @@ const filterResourceItems = (filters) => {
     }
 }
 
+$(".pulumi-event-list-container").on("filterSelect", event => {
+    const detail: unknown = event.detail;
+    const filters = detail as any[];
+    const filtersText: string[] = [];
 
-$(function () {
-    const pathParts = location.pathname.split("/");
-    if (pathParts.length > 1 && pathParts[1] === "resources") {
-        window.addEventListener("hashchange", function () {
-            const shouldSortDescending = location.hash !== "#upcoming";
-            sortResourceItems(shouldSortDescending);
-        });
+    filters.forEach(filter => {
+        filtersText.push(filter.value);
+    });
 
-        $(document).ready(function () {
-            const shouldSortDescending = location.hash !== "#upcoming";
-            sortResourceItems(shouldSortDescending);
-        });
-    }
+    filterResourceItems(filtersText);
 });
 
 $(function () {
@@ -108,16 +84,4 @@ $(function () {
         const firstNavItem = document.querySelector("#event-list-filter-nav li:first-of-type");
         scrollBackwardObserver.observe(firstNavItem);
     }
-});
-
-$(".pulumi-event-list-container").on("filterSelect", event => {
-    const detail: unknown = event.detail;
-    const filters = detail as any[];
-    const filtersText: string[] = [];
-
-    filters.forEach(filter => {
-        filtersText.push(filter.value);
-    });
-
-    filterResourceItems(filtersText);
 });

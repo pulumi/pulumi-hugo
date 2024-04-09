@@ -133,7 +133,7 @@
                     </pulumi-filter-select-option-group>
 
                     <!-- cloud filters -->
-                    <pulumi-filter-select-option-group name="cloud" class="mx-1 md:mx-4 items-center">
+                    <pulumi-filter-select-option-group name="cloud" class="mx-1 items-center">
                         <div class="toggle" slot="toggle">Cloud</div>
                         <div class="options">
                             {{ range $cloud := $filterClouds }}
@@ -144,7 +144,7 @@
                     </pulumi-filter-select-option-group>
 
                     <!-- topic filters -->
-                    <pulumi-filter-select-option-group name="topic" class="mx-1 md:mx-4 items-center">
+                    <pulumi-filter-select-option-group name="topic" class="mx-1 items-center">
                         <div class="toggle" slot="toggle">Topic</div>
                         <div class="options">
                             {{ range $topic := $filterTopics }}
@@ -155,7 +155,7 @@
                     </pulumi-filter-select-option-group>
 
                     <!-- language filters -->
-                    <pulumi-filter-select-option-group name="language" class="mx-1 md:mx-4 items-center">
+                    <pulumi-filter-select-option-group name="language" class="mx-1 items-center">
                         <div class="toggle" slot="toggle">Language</div>
                         <div class="options">
                             {{ range $lang := $filterLangs }}
@@ -216,7 +216,7 @@
                         {{ $filters = $filters | append "upcoming" }}
                         {{ if ne $upcomingMonthHeader (.date | time.Format "January 2006") }}
                             {{ $upcomingMonthHeader = (.date | time.Format "January 2006") }}
-                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="{{ delimit $filters " " }}">
+                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="upcoming">
                                 <span class="text-2xl"><i class="far fa-calendar mr-2"></i>{{ $upcomingMonthHeader }}</span>
                             </li>
                         {{ end }}      
@@ -270,7 +270,7 @@
                         {{ $filters = $filters | append "on-demand" }}
                         {{ if ne $ondemandMonthHeader (.date | time.Format "January 2006") }}
                             {{ $ondemandMonthHeader = (.date | time.Format "January 2006") }}
-                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="{{ delimit $filters " " }}">
+                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="on-demand">
                                 <span class="text-2xl"><i class="fa fa-video mr-2"></i>{{ $ondemandMonthHeader }}</span>
                             </li>
                         {{ end }}
