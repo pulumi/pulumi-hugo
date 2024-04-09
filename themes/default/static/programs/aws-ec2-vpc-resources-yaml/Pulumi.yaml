@@ -70,15 +70,15 @@ resources:
 variables:
   myAmi:
     fn::invoke:
-      Function: aws:ec2:getAmi
+      function: aws:ec2:getAmi
       arguments:
         mostRecent: true
         filters:
-          - name: name
+          - name: description
             values:
-              - "amzn2-ami-hvm-*"
+              - "Amazon Linux 2 *"
         owners:
           - "amazon"
 
 outputs:
-  publicUrl: ${myInstance.publicIp}
+  publicUrl: http://${myInstance.publicIp}
