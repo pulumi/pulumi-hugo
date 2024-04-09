@@ -104,24 +104,8 @@
             <span id="on-demand" class="hidden"></span>
 
             <!-- The event filter -->
-            <div class="pulumi-event-list-container event-list-filter container mx-auto flex border-b-2">
-                <div class="scroll-container hidden lg:flex items-center">
-                    <button id="slideBackwards"><i class="text-gray-500 text-3xl fas fa-angle-left"></i></button>
-                </div>
-                <ul id="event-list-filter-nav">
-                    {{ range $item := .Params.sections }}
-                        <li data-filter-name="{{ $item.anchor }}" class="mb-0">
-                            <a class="whitespace-nowrap" href="#{{ $item.anchor }}">
-                                <span>{{ $item.label }}</span>
-                            </a>
-                        </li>
-                    {{ end }}
-                </ul>
-                <div class="scroll-container hidden lg:flex items-center">
-                    <button id="slideForward"><i class="text-gray-500 text-3xl fas fa-angle-right"></i></button>
-                </div>
-                <pulumi-filter-select class="flex justify-center">
-
+            <div class="pulumi-event-list-container event-list-filter container mx-auto w-full flex flex-row-reverse flex-wrap justify-between border-b-2">
+                <pulumi-filter-select class="flex justify-self-end w-full md:w-1/2">
                     <!-- skill level filters -->
                     <pulumi-filter-select-option-group name="level" class="items-center">
                         <div class="toggle" slot="toggle">Skill Level</div>
@@ -166,6 +150,23 @@
                     </pulumi-filter-select-option-group>
 
                 </pulumi-filter-select>
+                <div>
+                    <div class="scroll-container hidden lg:flex items-center">
+                        <button id="slideBackwards"><i class="text-gray-500 text-3xl fas fa-angle-left"></i></button>
+                    </div>
+                    <ul id="event-list-filter-nav" class="flex">
+                        {{ range $item := .Params.sections }}
+                            <li data-filter-name="{{ $item.anchor }}" class="mb-0">
+                                <a class="whitespace-nowrap" href="#{{ $item.anchor }}">
+                                    <span>{{ $item.label }}</span>
+                                </a>
+                            </li>
+                        {{ end }}
+                    </ul>
+                    <div class="scroll-container hidden lg:flex items-center">
+                        <button id="slideForward"><i class="text-gray-500 text-3xl fas fa-angle-right"></i></button>
+                    </div>
+                </div>
             </div>
 
             <!-- Resources list. -->
