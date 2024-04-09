@@ -7,16 +7,15 @@ const filterResourceItems = (filters) => {
         $(events).each((i, event) => {
             const tags = ($(event).attr("data-filters")).split(' ');
             const dateLabel = $(event).attr("data-month-label");
-
+            let mismatched: boolean = false;
             filters.forEach(filter => {
                 if (!tags.includes(filter)) {
-                    $(event).css("display", "none");
+                    mismatched = true;
                 } else if (!tags.includes(location.hash.slice(1))) {
-                    $(event).css("display", "none");
-                } else {
-                    $(event).css("display", "block");
+                    mismatched = true;
                 }
             });
+            mismatched ? $(event).css("display", "none") : $(event).css("display", "block");
         });
     } else {
         $(events).css("display", "block");
