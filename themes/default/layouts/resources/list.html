@@ -216,7 +216,8 @@
                         {{ $filters = $filters | append "upcoming" }}
                         {{ if ne $upcomingMonthHeader (.date | time.Format "January 2006") }}
                             {{ $upcomingMonthHeader = (.date | time.Format "January 2006") }}
-                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="upcoming">
+                            {{ $filterMonth := (.date | time.Format "Jan-06") }}
+                            <li  class="w-full m-0 px-4 py-6 lg:w-full group month-label {{ $filterMonth | lower }}" data-filters="upcoming">
                                 <span class="text-2xl"><i class="far fa-calendar mr-2"></i>{{ $upcomingMonthHeader }}</span>
                             </li>
                         {{ end }}      
@@ -270,7 +271,8 @@
                         {{ $filters = $filters | append "on-demand" }}
                         {{ if ne $ondemandMonthHeader (.date | time.Format "January 2006") }}
                             {{ $ondemandMonthHeader = (.date | time.Format "January 2006") }}
-                            <li  class="w-full m-0 px-4 py-6 lg:w-full group" data-filters="on-demand">
+                            {{ $filterMonth := (.date | time.Format "Jan-06") }}
+                            <li  class="w-full m-0 px-4 py-6 lg:w-full group month-label {{ $filterMonth | lower }}" data-filters="on-demand">
                                 <span class="text-2xl"><i class="fa fa-video mr-2"></i>{{ $ondemandMonthHeader }}</span>
                             </li>
                         {{ end }}

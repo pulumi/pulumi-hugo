@@ -2,11 +2,13 @@ const filterResourceItems = (filters) => {
 
     const events = $(".event-list").find(".event-card");
     const monthLabels = $(".event-list").find(".month-label");
+    $(monthLabels).css("display", "none")
 
     if (filters.length > 0) {
         $(events).each((i, event) => {
             const tags = ($(event).attr("data-filters")).split(' ');
             const dateLabel = $(event).attr("data-month-label");
+
             let mismatched: boolean = false;
             filters.forEach(filter => {
                 if (!tags.includes(filter)) {
@@ -15,10 +17,16 @@ const filterResourceItems = (filters) => {
                     mismatched = true;
                 }
             });
-            mismatched ? $(event).css("display", "none") : $(event).css("display", "block");
+            if (mismatched) {
+                $(event).css("display", "none");
+            } else {
+                $(event).css("display", "block");
+                $(`.month-label.${dateLabel}`).css("display", "block");
+            }
         });
     } else {
         $(events).css("display", "block");
+        $(monthLabels).css("display", "block")
     }
 }
 
