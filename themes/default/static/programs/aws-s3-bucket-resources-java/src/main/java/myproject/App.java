@@ -54,6 +54,8 @@ public class App {
             var bucketPolicy = new BucketPolicy("my-bucket-policy", BucketPolicyArgs.builder()
                 .bucket(bucket.id())
                 .policy(bucket.id().applyValue(App::publicReadPolicyForBucket))
+                .build(), CustomResourceOptions.builder()
+                .dependsOn(publicAccessBlock, ownershipControls)
                 .build());
         });
     }
