@@ -20,6 +20,36 @@ function sortResourceItems(sortDescending) {
     resourceList.append(items);
 }
 
+const filterResourceItems = (filters) => {
+
+    const events = $(".event-list").find(".event-card");]
+
+    if (filters.length > 0) {
+        $(events).addClass("!hidden");
+        console.log(events);
+
+        $(events).each((i, event) => {
+            const el = $(event).find("[data-filters]");
+            const tags = ($(event).attr("data-filters")).split(' ');
+            console.log(tags);
+
+            let missingFilter: boolean = false;
+            filters.forEach(filter => {
+                if (!tags.includes(filter)) {
+                    missingFilter = true;
+                }
+            });
+
+            if (!missingFilter) {
+                $(event).removeClass("!hidden")
+            }
+        });
+    } else {
+        $(events).removeClass("!hidden");
+    }
+}
+
+
 $(function () {
     const pathParts = location.pathname.split("/");
     if (pathParts.length > 1 && pathParts[1] === "resources") {
@@ -84,4 +114,16 @@ $(function () {
         const firstNavItem = document.querySelector("#event-list-filter-nav li:first-of-type");
         scrollBackwardObserver.observe(firstNavItem);
     }
+});
+
+$(".pulumi-event-list-container").on("filterSelect", event => {
+    const detail: unknown = event.detail;
+    const filters = detail as any[];
+    const filtersText: string[] = [];
+
+    filters.forEach(filter => {
+        filtersText.push(filter.value);
+    });
+
+    filterResourceItems(filtersText);
 });
