@@ -22,17 +22,20 @@
     {{ $filterClouds := slice }}
     <!-- Create the resource data dicts for webinars. -->
     {{ range $webinars }}
+        {{ $listed := false }}
         <!-- If the webinar is not marked as unlisted we will add it to the list. -->
         {{ if eq .Params.unlisted false }}
             <!-- sort into upcoming / on-demand lists -->
             {{ $eventDateUnix := (add (.Params.main.sortable_date | time.AsTime).UnixMilli (duration "hour" 24).Milliseconds) }}
             {{ if lt $nowUnix $eventDateUnix }}
+                {{ $listed = true }}
                 {{ $upcomingEvents = $upcomingEvents | append (dict "date" .Params.main.sortable_date "data" .) }}
             {{ else if (or .Params.main.youtube_url .Params.main.external) }}
+                {{ $listed = true }}
                 {{ $onDemandRecordings = $onDemandRecordings | append (dict "date" .Params.main.sortable_date "data" .) }}
             {{ end }}
 
-            {{ if .Params.main.tags }}
+            {{ if and .Params.main.tags $listed }}
                 {{ if .Params.main.tags.topics }}
                     {{ range  $topic := .Params.main.tags.topics }}
                         {{ $filterTopics = $filterTopics | append $topic }}                                
@@ -120,7 +123,7 @@
                 <pulumi-filter-select class="flex justify-center">
 
                     <!-- skill level filters -->
-                    <pulumi-filter-select-option-group name="level" class="w-1/2 items-center">
+                    <pulumi-filter-select-option-group name="level" class="items-center">
                         <div class="toggle" slot="toggle">Skill Level</div>
                         <div class="options">
                             <pulumi-filter-select-option value="beginner" label="Beginner">Beginner</pulumi-filter-select-option>
@@ -130,7 +133,7 @@
                     </pulumi-filter-select-option-group>
 
                     <!-- cloud filters -->
-                    <pulumi-filter-select-option-group name="cloud" class="mx-1 md:mx-4 w-1/2 items-center">
+                    <pulumi-filter-select-option-group name="cloud" class="mx-1 md:mx-4 items-center">
                         <div class="toggle" slot="toggle">Cloud</div>
                         <div class="options">
                             {{ range $cloud := $filterClouds }}
@@ -141,7 +144,7 @@
                     </pulumi-filter-select-option-group>
 
                     <!-- topic filters -->
-                    <pulumi-filter-select-option-group name="topic" class="mx-1 md:mx-4 w-1/2 items-center">
+                    <pulumi-filter-select-option-group name="topic" class="mx-1 md:mx-4 items-center">
                         <div class="toggle" slot="toggle">Topic</div>
                         <div class="options">
                             {{ range $topic := $filterTopics }}
@@ -152,7 +155,7 @@
                     </pulumi-filter-select-option-group>
 
                     <!-- language filters -->
-                    <pulumi-filter-select-option-group name="language" class="mx-1 md:mx-4 w-1/2 items-center">
+                    <pulumi-filter-select-option-group name="language" class="mx-1 md:mx-4 items-center">
                         <div class="toggle" slot="toggle">Language</div>
                         <div class="options">
                             {{ range $lang := $filterLangs }}
@@ -203,6 +206,9 @@
                             {{ end }}
                             {{ range  $lang := $tags.languages }}
                                 {{ $filters = $filters | append (lower (replace $lang " " "-")) }}                                
+                            {{ end }}
+                            {{ range  $cloud := $tags.clouds }}
+                                {{ $filters = $filters | append (lower (replace $cloud " " "-")) }}                                
                             {{ end }}
                         {{ end }}
 
@@ -255,6 +261,9 @@
                             {{ end }}
                             {{ range  $lang := $tags.languages }}
                                 {{ $filters = $filters | append (lower (replace $lang " " "-")) }}                                
+                            {{ end }}
+                            {{ range  $cloud := $tags.clouds }}
+                                {{ $filters = $filters | append (lower (replace $cloud " " "-")) }}                                
                             {{ end }}
                         {{ end }}
 

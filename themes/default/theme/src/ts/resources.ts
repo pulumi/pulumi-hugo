@@ -25,25 +25,21 @@ const filterResourceItems = (filters) => {
     const events = $(".event-list").find(".event-card");
 
     if (filters.length > 0) {
-        $(events).addClass("hidden");
+        //$(events).css("display", "none");
 
         $(events).each((i, event) => {
-            const el = $(event).find("[data-filters]");
             const tags = ($(event).attr("data-filters")).split(' ');
 
-            let missingFilter: boolean = false;
             filters.forEach(filter => {
                 if (!tags.includes(filter)) {
-                    missingFilter = true;
+                    $(event).css("display", "none");
+                } else {
+                    $(event).css("display", "block");
                 }
             });
-
-            if (!missingFilter) {
-                $(event).removeClass("hidden")
-            }
         });
     } else {
-        $(events).removeClass("hidden");
+        $(events).css("display", "block");
     }
 }
 
