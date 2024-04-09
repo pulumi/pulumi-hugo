@@ -2,7 +2,6 @@ using Pulumi;
 using Pulumi.Aws.Ec2;
 using Pulumi.Aws.Ec2.Inputs;
 using System.Collections.Generic;
-using System.Linq;
 
 return await Deployment.RunAsync(() => 
 {
@@ -94,8 +93,7 @@ return await Deployment.RunAsync(() =>
         Ami = ami,
         InstanceType = "t3.nano",
         SubnetId = subnet.Id,
-        // Convert VpcSecurityGroupIds to accept Output<string>
-        VpcSecurityGroupIds = new InputList<string> { securityGroup.Id.Apply(id => id) },
+        VpcSecurityGroupIds = new InputList<string> { securityGroup.Id },
         UserData = @"
             #!/bin/bash
             sudo yum update -y
@@ -111,5 +109,4 @@ return await Deployment.RunAsync(() =>
     {
         ["instanceURL"] = Output.Format($"http://{instance.PublicIp}")
     };
-
 });

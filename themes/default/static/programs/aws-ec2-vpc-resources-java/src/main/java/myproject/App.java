@@ -25,14 +25,6 @@ import com.pulumi.aws.vpc.SecurityGroupEgressRuleArgs;
 import com.pulumi.aws.ec2.Ec2Functions;
 import com.pulumi.aws.ec2.inputs.GetAmiArgs;
 import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
-import com.pulumi.aws.ec2.Instance;
-import com.pulumi.aws.ec2.InstanceArgs;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class App {
     public static void main(String[] args) {
@@ -116,7 +108,7 @@ public class App {
                 .build());
 
             // Export the instance's publicly accessible URL.
-            ctx.export("instanceURL", instance.publicIp().applyValue(ip -> "http://" + ip));
+            ctx.export("instanceURL", Output.format("http://%s", instance.publicIp()));
         });
     }
 }
