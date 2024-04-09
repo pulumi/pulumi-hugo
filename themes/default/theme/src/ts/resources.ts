@@ -22,16 +22,14 @@ function sortResourceItems(sortDescending) {
 
 const filterResourceItems = (filters) => {
 
-    const events = $(".event-list").find(".event-card");]
+    const events = $(".event-list").find(".event-card");
 
     if (filters.length > 0) {
-        $(events).addClass("!hidden");
-        console.log(events);
+        $(events).addClass("hidden");
 
         $(events).each((i, event) => {
             const el = $(event).find("[data-filters]");
             const tags = ($(event).attr("data-filters")).split(' ');
-            console.log(tags);
 
             let missingFilter: boolean = false;
             filters.forEach(filter => {
@@ -41,11 +39,11 @@ const filterResourceItems = (filters) => {
             });
 
             if (!missingFilter) {
-                $(event).removeClass("!hidden")
+                $(event).removeClass("hidden")
             }
         });
     } else {
-        $(events).removeClass("!hidden");
+        $(events).removeClass("hidden");
     }
 }
 
