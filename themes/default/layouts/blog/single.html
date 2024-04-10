@@ -22,6 +22,16 @@
                                 {{ partial "blog/authors.html" (dict "context" . "authors" .Params.authors) }}
                             </span>
                         </div>
+
+                        
+                        {{ $path := (split .Page.Params.title_tag ".") }}
+                        
+                        <div class="mt-6">
+                            <pulumi-related-content pagetitle="{{ .Title }}" href="test" file="output.json"></pulumi-related-content>
+                        </div>
+                        
+
+
                         <section>
                             {{ .Content }}
                         </section>

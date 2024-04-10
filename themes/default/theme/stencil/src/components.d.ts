@@ -140,6 +140,11 @@ export namespace Components {
     }
     interface PulumiRegistryListSearch {
     }
+    interface PulumiRelatedContent {
+        "file": string;
+        "href": string;
+        "pagetitle": string;
+    }
     interface PulumiResourceLinks {
         "moduleName": string;
         "packageName": string;
@@ -359,6 +364,12 @@ declare global {
         prototype: HTMLPulumiRegistryListSearchElement;
         new (): HTMLPulumiRegistryListSearchElement;
     };
+    interface HTMLPulumiRelatedContentElement extends Components.PulumiRelatedContent, HTMLStencilElement {
+    }
+    var HTMLPulumiRelatedContentElement: {
+        prototype: HTMLPulumiRelatedContentElement;
+        new (): HTMLPulumiRelatedContentElement;
+    };
     interface HTMLPulumiResourceLinksElement extends Components.PulumiResourceLinks, HTMLStencilElement {
     }
     var HTMLPulumiResourceLinksElement: {
@@ -459,6 +470,7 @@ declare global {
         "pulumi-multi-select-form": HTMLPulumiMultiSelectFormElement;
         "pulumi-pricing-calculator": HTMLPulumiPricingCalculatorElement;
         "pulumi-registry-list-search": HTMLPulumiRegistryListSearchElement;
+        "pulumi-related-content": HTMLPulumiRelatedContentElement;
         "pulumi-resource-links": HTMLPulumiResourceLinksElement;
         "pulumi-root": HTMLPulumiRootElement;
         "pulumi-slot-machine": HTMLPulumiSlotMachineElement;
@@ -599,6 +611,11 @@ declare namespace LocalJSX {
     interface PulumiRegistryListSearch {
         "onPackageSearch"?: (event: CustomEvent<string>) => void;
     }
+    interface PulumiRelatedContent {
+        "file"?: string;
+        "href"?: string;
+        "pagetitle"?: string;
+    }
     interface PulumiResourceLinks {
         "moduleName"?: string;
         "packageName"?: string;
@@ -680,6 +697,7 @@ declare namespace LocalJSX {
         "pulumi-multi-select-form": PulumiMultiSelectForm;
         "pulumi-pricing-calculator": PulumiPricingCalculator;
         "pulumi-registry-list-search": PulumiRegistryListSearch;
+        "pulumi-related-content": PulumiRelatedContent;
         "pulumi-resource-links": PulumiResourceLinks;
         "pulumi-root": PulumiRoot;
         "pulumi-slot-machine": PulumiSlotMachine;
@@ -725,6 +743,7 @@ declare module "@stencil/core" {
             "pulumi-multi-select-form": LocalJSX.PulumiMultiSelectForm & JSXBase.HTMLAttributes<HTMLPulumiMultiSelectFormElement>;
             "pulumi-pricing-calculator": LocalJSX.PulumiPricingCalculator & JSXBase.HTMLAttributes<HTMLPulumiPricingCalculatorElement>;
             "pulumi-registry-list-search": LocalJSX.PulumiRegistryListSearch & JSXBase.HTMLAttributes<HTMLPulumiRegistryListSearchElement>;
+            "pulumi-related-content": LocalJSX.PulumiRelatedContent & JSXBase.HTMLAttributes<HTMLPulumiRelatedContentElement>;
             "pulumi-resource-links": LocalJSX.PulumiResourceLinks & JSXBase.HTMLAttributes<HTMLPulumiResourceLinksElement>;
             "pulumi-root": LocalJSX.PulumiRoot & JSXBase.HTMLAttributes<HTMLPulumiRootElement>;
             "pulumi-slot-machine": LocalJSX.PulumiSlotMachine & JSXBase.HTMLAttributes<HTMLPulumiSlotMachineElement>;
