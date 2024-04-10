@@ -1,8 +1,8 @@
 const filterResourceItems = (filters) => {
-
     const events = $(".event-list").find(".event-card");
     const monthLabels = $(".event-list").find(".month-label");
     $(monthLabels).css("display", "none")
+    filters.push(location.hash.slice(1));
 
     if (filters.length > 0) {
         $(events).each((i, event) => {
@@ -40,6 +40,19 @@ $(".pulumi-event-list-container").on("filterSelect", event => {
     });
 
     filterResourceItems(filtersText);
+});
+
+$(window).on('hashchange', function() {
+    const options = $('pulumi-filter-select-option').toArray() as Array<any>;
+    let selectedFilters = [];
+
+    options.forEach((option) => {
+        const shadow = option.shadowRoot;
+        if($(shadow).find('.selected').length > 0) {
+            selectedFilters.push(option.value);
+        }
+    })
+    filterResourceItems(selectedFilters);
 });
 
 $(function () {
