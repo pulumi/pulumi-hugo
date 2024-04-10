@@ -91,10 +91,22 @@ If you want to use a local `pulumi-terraform-bridge` you can use [go
 workspaces](https://go.dev/doc/tutorial/workspaces) to build the local provider
 along with the local `pulumi-terraform-bridge`.
 
+For example, if you had the following directory structure:
+
 ```shell
-go work init
-go work use -r ./provider
-go work use -r ../pulumi-terraform-bridge
+$ ls
+pulumi-my-provider        # YOUR provider
+pulumi-terraform-bridge   # github.com/pulumi/pulumi-terraform-bridge
+
+$ cd pulumi-my-provider
+```
+
+Then you can run the following commands:
+
+```shell
+$ go work init
+$ go work use -r ./provider
+$ go work use -r ../pulumi-terraform-bridge
 ```
 
 Then you can re-build tfgen to use the local bridge.
@@ -109,6 +121,7 @@ For VS Code you can follow these steps to connect to the debugger.
 
 1. Navigate to **Run -> Add Configuration** and add the **Go: Connect to server** configuration
 ![Screenshot of VS Code configuration for debugging providers](/docs/using-pulumi/pulumi-packages/img/vscode-launch-config-connect-to-server.png)
+
 2. Edit "name": `"Connect to server"` to give it a descriptive name
 3. Connect to server
 
