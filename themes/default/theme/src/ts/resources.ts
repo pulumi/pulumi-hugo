@@ -2,6 +2,8 @@ const filterResourceItems = (filters) => {
     const events = $(".event-list").find(".event-card");
     const monthLabels = $(".event-list").find(".month-label");
     $(monthLabels).css("display", "none")
+    const noResultsMessage = $(".pulumi-event-list-container").find(".no-results");
+    $(noResultsMessage).removeClass("hidden");
     filters.push(location.hash.slice(1));
 
     if (filters.length > 0) {
@@ -20,6 +22,7 @@ const filterResourceItems = (filters) => {
             if (mismatched) {
                 $(event).css("display", "none");
             } else {
+                $(noResultsMessage).addClass("hidden");
                 $(event).css("display", "block");
                 $(`.month-label.${dateLabel}`).css("display", "block");
             }
