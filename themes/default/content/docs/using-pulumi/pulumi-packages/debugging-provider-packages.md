@@ -68,24 +68,26 @@ Once Pulumi runs or tests are initiated with the `PULUMI_DEBUG_PROVIDERS` enviro
 **Terminating the Provider Process**: Be cautious when terminating the provider process as the Pulumi state can get out of sync with the actual cloud resources. When in doubt, `pulumi refresh` will address this.
 {{< /notes >}}
 
-## Debug tfgen
+## Debugging Bridged Providers
+
+### Debugging tfgen
 
 If you need to debug tfgen in one of the providers, you first have to start
 tfgen using [dlv](https://github.com/go-delve/delve) exec.
 
-### Install dlv
+#### Install dlv
 
 ```shell
 go install github.com/go-delve/delve/cmd/dlv@latest
 ```
 
-### Run tfgen with dlv exec
+#### Run tfgen with dlv exec
 
 ```shell
 make debug_tfgen
 ```
 
-### Using local pulumi-terraform-bridge
+#### Using local pulumi-terraform-bridge
 
 If you want to use a local `pulumi-terraform-bridge` you can use [go
 workspaces](https://go.dev/doc/tutorial/workspaces) to build the local provider
@@ -115,7 +117,7 @@ Then you can re-build tfgen to use the local bridge.
 make tfgen_build_only
 ```
 
-### Attaching to the debugger in VS Code
+#### Attaching to the debugger in VS Code
 
 For VS Code you can follow these steps to connect to the debugger.
 
