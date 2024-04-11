@@ -14,16 +14,18 @@ const myDeveloperPolicy = new aws.iam.GroupPolicy("my_developer_policy", {
     group: devs.id,
     policy: {
         Version: "2012-10-17",
-        Statement: [{
-            Action: [ "ec2:Describe*" ],
-            Effect: "Allow",
-            Resource: "*",
-        }],
+        Statement: [
+            {
+                Action: ["ec2:Describe*"],
+                Effect: "Allow",
+                Resource: "*",
+            },
+        ],
     },
 });
 
 // Finally add the users as members to this group.
 const devTeam = new aws.iam.GroupMembership("dev-team", {
     group: devs.id,
-    users: [ jane.id, mary.id ],
+    users: [jane.id, mary.id],
 });
