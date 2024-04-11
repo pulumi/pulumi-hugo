@@ -1,9 +1,9 @@
 ---
 title_tag: Integrate with Direnv | Pulumi ESC
-title: Integrate with Direnv
+title: Direnv
 h1: "Pulumi ESC: Integrate with Direnv"
 meta_desc: This page provides an overview on how to use Pulumi ESC with Direnv.
-weight: 1
+weight: 2
 menu:
   pulumiesc:
     parent: esc-other-integrations
