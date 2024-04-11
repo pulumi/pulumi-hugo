@@ -4,32 +4,44 @@ const filterResourceItems = (filters) => {
     $(monthLabels).css("display", "none")
     const noResultsMessage = $(".pulumi-event-list-container").find(".no-results");
     $(noResultsMessage).removeClass("hidden");
-    filters.push(location.hash.slice(1));
 
     if (filters.length > 0) {
         $(events).each((i, event) => {
-            const tags = ($(event).attr("data-filters")).split(' ');
+            const tags = ($(event).attr("data-filters")).split(" ");
             const dateLabel = $(event).attr("data-month-label");
 
-            let mismatched: boolean = false;
-            filters.forEach(filter => {
-                if (!tags.includes(filter)) {
-                    mismatched = true;
-                } else if (!tags.includes(location.hash.slice(1))) {
-                    mismatched = true;
-                }
-            });
-            if (mismatched) {
+            if (!tags.includes(location.hash.slice(1))) {
                 $(event).css("display", "none");
+            } else {
+                let matches = 0;
+                tags.forEach(tag => {
+                    if (filters.includes(tag)) {
+                        matches++;
+                    }
+                });
+                if (matches > 0) {
+                    $(noResultsMessage).addClass("hidden");
+                    $(event).css("display", "block");
+                    $(`.month-label.${dateLabel}`).css("display", "block");
+                } else {
+                    $(event).css("display", "none");
+                }
+            }
+        });
+    } else {
+        $(events).each((i, event) => {
+            const tags = ($(event).attr("data-filters")).split(" ");
+            const dateLabel = $(event).attr("data-month-label");
+
+            if (!tags.includes(location.hash.slice(1))) {
+                $(event).css("display", "none");
+                const dateLabel = $(event).attr("data-month-label");
             } else {
                 $(noResultsMessage).addClass("hidden");
                 $(event).css("display", "block");
                 $(`.month-label.${dateLabel}`).css("display", "block");
             }
         });
-    } else {
-        $(events).css("display", "block");
-        $(monthLabels).css("display", "block")
     }
 }
 
