@@ -1,0 +1,7 @@
+name: aws-iam-user-userpolicy-java
+runtime: java
+description: An example that deploys an IAM user and user policy on AWS.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-java

@@ -105,11 +105,11 @@ An AWS managed policy is a standalone policy that is created and administered by
 the policy has its own Amazon Resource Name (ARN) that includes the policy name. For example,
 `arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy.
 
-In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string,
-but that requires that you either memorize or look up the ARN each time. Instead, you can use the strongly typed
-`ManagedPolicy` enum, which exports a collection of constants for all available managed policies.
+In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string.
 
-For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
+[example with string]
+
+With some programming languages, you can alternatively use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
 enum value:
 
 {{< chooser language "typescript,python,go,csharp" / >}}
@@ -182,158 +182,7 @@ application that uses it to interact with AWS. A user in AWS consists of a name 
 Use the [`User` resource](/registry/packages/aws/api-docs/iam/user) to create new
 IAM users. This example creates an IAM user and attaches a policy:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-import * as aws from "@pulumi/aws";
-
-const user = new aws.iam.User("webmaster", {
-    path: "/system/",
-    tags: { "Name": "webmaster" },
-});
-const userAccessKey = new aws.iam.AccessKey("webmasterKey", { user: user.name });
-const userPolicy = new aws.iam.UserPolicy("webmasterPolicy", {
-    user,
-    policy: {
-        Version: "2012-10-17",
-        Statement: [{
-            Action: [ "ec2:Describe*" ],
-            Effect: "Allow",
-            Resource: "*",
-        }],
-    },
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import json
-import pulumi_aws as aws
-
-user = aws.iam.User('webmaster',
-    path='/system/',
-    tags={ 'Name': 'webmaster' },
-)
-user_access_key = aws.iam.AccessKey('webmasterKey',
-    user=user.name,
-)
-user_policy = aws.iam.UserPolicy('webmasterPolicy',
-    user=user.id,
-    policy=json.dumps({
-        'Version': '2012-10-17',
-        'Statement': [{
-            'Action': [ 'ec2:Describe*' ],
-            'Effect': 'Allow',
-            'Resource': '*'
-        }],
-    }),
-)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-package main
-
-import (
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		user, err := iam.NewUser(ctx, "webmaster", &iam.UserArgs{
-			Path: pulumi.String("/system/"),
-			Tags: pulumi.StringMap{
-				"Name": pulumi.String("webmaster"),
-			},
-		})
-		if err != nil {
-			return err
-		}
-
-		userAccessKey, err := iam.NewAccessKey(ctx, "webmasterKey", &iam.AccessKeyArgs{
-			User: user.Name,
-		})
-		if err != nil {
-			return err
-		}
-
-		userPolicy, err := iam.NewUserPolicy(ctx, "webmasterPolicy", &iam.UserPolicyArgs{
-			User: user.ID().ToStringOutput(),
-			Policy: pulumi.String(`{
-	"Version": "2012-10-17",
-	"Statement": [{
-		"Action": [ "ec2:Describe*" ],
-		"Effect": "Allow",
-		"Resource": "*"
-	}]
-}
-`),
-		})
-		if err != nil {
-			return err
-		}
-
-		ctx.Export("userId", user.ID())
-		ctx.Export("userAccessKeyId", userAccessKey.ID())
-		ctx.Export("userPolicyId", userPolicy.ID())
-		return nil
-	})
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-using Pulumi;
-using Iam = Pulumi.Aws.Iam;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-
-class MyStack : Stack
-{
-    public MyStack()
-    {
-        var user = new Iam.User("webmaster", new Iam.UserArgs
-        {
-            Path = "/system",
-            Tags = new Dictionary<string, string>
-            {
-                { "Name", "webmaster" },
-            }.ToImmutableDictionary(),
-        });
-        var userAccessKey = new Iam.AccessKey("webmasterKey", new Iam.AccessKeyArgs
-        {
-            User = user.Name,
-        });
-        var userPolicy = new Iam.UserPolicy("webmasterPolicy", new Iam.UserPolicyArgs
-        {
-            User = user.Name,
-            Policy = @"{
-    ""Version"": ""2012-10-17"",
-    ""Statement"": [{
-        ""Action"": [ ""ec2:Describe*"" ],
-        ""Effect"": ""Allow"",
-        ""Resource"": ""*""
-    }]
-}
-",
-        });
-    }
-}
-```
-
-{{% /choosable %}}
+{{< example-program path="aws-iam-user-userpolicy" >}}
 
 For more options available when configuring IAM users, see the [API documentation](
 /registry/packages/aws/api-docs/iam/user).

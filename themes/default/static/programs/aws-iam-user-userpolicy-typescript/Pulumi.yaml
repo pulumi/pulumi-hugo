@@ -1,0 +1,7 @@
+name: aws-iam-user-userpolicy-typescript
+runtime: nodejs
+description: An example that deploys an IAM user and user policy on AWS.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript
