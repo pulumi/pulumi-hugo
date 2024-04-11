@@ -13,6 +13,7 @@ menu:
 aliases:
 - /docs/reference/crosswalk/aws/iam/
 - /docs/guides/crosswalk/aws/iam/
+- /docs/clouds/aws/aws-guides/iam/
 ---
 
 <a href="./">
