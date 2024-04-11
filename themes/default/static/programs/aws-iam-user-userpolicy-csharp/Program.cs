@@ -1,15 +1,42 @@
-﻿using Pulumi;
-using Pulumi.Aws.S3;
+using Pulumi;
+using Pulumi.Aws.Iam;
 using System.Collections.Generic;
+using System.Text.Json;
 
 return await Deployment.RunAsync(() =>
 {
-    // Create an AWS resource (S3 Bucket)
-    var bucket = new Bucket("my-bucket");
-
-    // Export the name of the bucket
-    return new Dictionary<string, object?>
+    var user = new User("webmaster", new UserArgs
     {
-        ["bucketName"] = bucket.Id
-    };
+        Path = "/system/",
+        Tags = new InputMap<string>
+        {
+            { "Name", "webmaster" }
+        },
+    });
+    
+    var userAccessKey = new AccessKey("webmasterKey", new AccessKeyArgs
+    {
+        User = user.Name,
+    });
+    
+    var userPolicy = new UserPolicy("webmasterPolicy", new UserPolicyArgs
+    {
+        User = user.Id,
+        Policy = JsonSerializer.Serialize(new Dictionary<string, object>
+        {
+            ["Version"] = "2012-10-17",
+            ["Statement"] = new[]
+            {
+                new Dictionary<string, object?>
+                {
+                    ["Action"] = new[]
+                    {
+                        "ec2:Describe*",
+                    },
+                    ["Effect"] = "Allow",
+                    ["Resource"] = "*",
+                },
+            },
+        }),
+    });
 });
