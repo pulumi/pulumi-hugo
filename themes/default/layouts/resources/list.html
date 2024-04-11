@@ -109,7 +109,7 @@
                     <div class="scroll-container hidden lg:flex items-center">
                         <button id="slideBackwards"><i class="text-gray-500 text-3xl fas fa-angle-left"></i></button>
                     </div>
-                    <ul id="event-list-filter-nav" class="flex flex-col md:flex-row">
+                    <ul id="event-list-filter-nav" class="flex flex-col md:flex-row px-4 lg:px-0">
                         {{ range $item := .Params.sections }}
                             <li data-filter-name="{{ $item.anchor }}" class="mb-0">
                                 <a class="whitespace-nowrap" href="#{{ $item.anchor }}">
