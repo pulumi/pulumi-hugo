@@ -107,7 +107,7 @@ the policy has its own Amazon Resource Name (ARN) that includes the policy name.
 
 In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string.
 
-[example with string]
+[ example with string ]
 
 With some programming languages, you can alternatively use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
 enum value:
