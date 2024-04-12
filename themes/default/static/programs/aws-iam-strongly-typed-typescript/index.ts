@@ -7,7 +7,7 @@ const policy: aws.iam.PolicyDocument = {
         {
             Action: "sts:AssumeRole",
             Principal: {
-               Service: "ec2.amazonaws.com"
+                Service: "ec2.amazonaws.com",
             },
             Effect: "Allow",
         },
