@@ -24,10 +24,6 @@ aliases:
 and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and
 deny their access to AWS resources.
 
-{{% notes type="info" %}}
-This functionality is available in TypeScript only and as part of the [AWS Classic provider](/registry/packages/aws/).
-{{% /notes %}}
-
 ## Overview
 
 Pulumi Crosswalk for AWS adds strongly typed IAM resource classes, to ensure that you can create, update, and
@@ -72,31 +68,14 @@ Pulumi Crosswalk for AWS in TypeScript defines [the `aws.iam.PolicyDocument` int
 this type, we will know at compile time whether we've mistyped an attribute:
 
 ```typescript
-import * as aws from "@pulumi/aws";
-
-const policy: aws.iam.PolicyDocument = {
-    Version: "2012-10-17",
-    Statement: [
-        {
-            Action: "sts:AssumeRole",
-            Principal: {
-               Service: "ec2.amazonaws.com"
-            },
-            Effect: "Allow",
-        },
-    ],
-};
+{{< example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="1" to="15" >}}
 ```
 
 This policy object can then be used to configure a variety of IAM objects, as we will see below. For example, we can
 use the above policy to configure an IAM role that permits an assume role action for a given principal:
 
 ```typescript
-const role = new aws.iam.Role("instance-role", {
-    assumeRolePolicy: policy,
-    path: "/",
-});
-const profile = new aws.iam.InstanceProfile("instance-profile", { role });
+{{< example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="17" to="22" >}}
 ```
 
 ### Pre-Defined IAM Managed Policies
@@ -105,66 +84,10 @@ An AWS managed policy is a standalone policy that is created and administered by
 the policy has its own Amazon Resource Name (ARN) that includes the policy name. For example,
 `arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy.
 
-In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string.
-
-[ example with string ]
-
-With some programming languages, you can alternatively use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
+In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string, but that requires that you either memorize or look up the ARN each time. Instead, you can use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
 enum value:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const role = ...;
-const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rpa", {
-    role: role,
-    policyArn: aws.iam.ManagedPolicy.IAMReadOnlyAccess,
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-role = ...
-role_policy_attachment = aws.iam.RolePolicyAttachment('rpa',
-    role=role,
-    policy_arn=aws.iam.ManagedPolicy.IAMReadOnlyAccess,
-)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-role := ...
-rolePolicyAttachment, err := iam.NewRolePolicyAttachment("rpa", &iam.RolePolicyAttachmentArgs{}
-    Role: role,
-    PolicyArn: iam.ManagedPolicyIAMReadOnlyAccess,
-})
-if err != nil {
-    return err
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-var role = ...;
-var rolePolicyAttachment = new Iam.RolePolicyAttachment("rpa", new Iam.RolePolicyAttachmentArgs
-{
-    Role = role,
-    PolicyArn = Iam.ManagedPolicy.IAMReadOnlyAccess.ToString(),
-})
-```
-
-{{% /choosable %}}
+[WIP Code]
 
 For a full list of available managed policy ARNs, refer to the
 [API documentation](/registry/packages/aws/api-docs/iam/).
@@ -233,140 +156,7 @@ you assume a role, it provides you with temporary security credentials for your 
 To manage IAM roles, use the [`Role` resource](/registry/packages/aws/api-docs/iam/role).
 The following example creates a new role with a custom policy document, and also attaches a managed policy afterwards:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-import * as aws from "@pulumi/aws";
-
-const role = new aws.iam.Role("my-role", {
-    assumeRolePolicy: {
-        Version: "2012-10-17",
-        Statement: [{
-            Action: "sts:AssumeRole",
-            Principal: {
-                Service: "ec2.amazonaws.com"
-            },
-            Effect: "Allow",
-        }]
-    },
-});
-const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("my-rpa", {
-    role: role,
-    policyArn: aws.iam.IAMReadOnlyAccess,
-});
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-import json
-import pulumi_aws as aws
-
-role = aws.iam.Role('my-role',
-    assume_role_policy=json.dumps({
-        'Version': '2012-10-17',
-        'Statement': [{
-            'Action': 'sts:AssumeRole',
-            'Principal': {
-                'Service': 'ec2.amazonaws.com'
-            },
-            'Effect': 'Allow',
-        }],
-    }),
-)
-role_policy_attachment = aws.iam.RolePolicyAttachment('my-rpa',
-    role=role.id,
-    policy_arn='arn:aws:iam::aws:policy/ReadOnlyAccess',
-)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-package main
-
-import (
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-)
-
-func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		role, err := iam.NewRole(ctx, "my-role", &iam.RoleArgs{
-			AssumeRolePolicy: pulumi.String(`{
-	"Version": "2012-10-17",
-	"Statement": [{
-		"Action": [ "sts:AssumeRole" ],
-		"Principal": {
-			"Service": "ec2.amazonaws.com"
-		},
-		"Effect": "Allow"
-	}]
-}
-`),
-		    },
-		)
-		if err != nil {
-			return err
-		}
-
-		_, err = iam.NewRolePolicyAttachment(
-			ctx, "my-rpa", &iam.RolePolicyAttachmentArgs{
-				Role:      role.ID().ToStringOutput(),
-				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),
-			},
-		)
-		return err
-	})
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-using Pulumi;
-using Iam = Pulumi.Aws.Iam;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-
-class MyStack : Stack
-{
-    public MyStack()
-    {
-        var role = new Iam.Role("my-role", new Iam.RoleArgs
-        {
-            AssumeRolePolicy = @"{
-    ""Version"": ""2012-10-17"",
-    ""Statement"": [{
-        ""Action"": [ ""sts:AssumeRole"" ],
-        ""Principal"": {
-            ""Service"": ""ec2.amazonaws.com""
-        },
-        ""Effect"": ""Allow""
-    }]
-}
-",
-        });
-        var rolePolicyAttachment = new Iam.RolePolicyAttachment("my-rpa",
-            new Iam.RolePolicyAttachmentArgs
-            {
-                Role = role.Id,
-                PolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
-            }
-        );
-    }
-}
-```
-
-{{% /choosable %}}
+{{< example-program path="aws-iam-role-policyattachment-managedpolicy" >}}
 
 Roles are often useful for creating [instance profiles](
 https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html), which
