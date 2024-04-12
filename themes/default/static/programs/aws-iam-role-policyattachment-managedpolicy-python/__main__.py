@@ -1,10 +1,20 @@
-"""An AWS Python Pulumi program"""
+import json
+import pulumi_aws as aws
 
-import pulumi
-from pulumi_aws import s3
+role = aws.iam.Role('my-role',
+    assume_role_policy=json.dumps({
+        'Version': '2012-10-17',
+        'Statement': [{
+            'Action': 'sts:AssumeRole',
+            'Principal': {
+                'Service': 'ec2.amazonaws.com'
+            },
+            'Effect': 'Allow',
+        }],
+    }),
+)
 
-# Create an AWS resource (S3 Bucket)
-bucket = s3.Bucket('my-bucket')
-
-# Export the name of the bucket
-pulumi.export('bucket_name', bucket.id)
+role_policy_attachment = aws.iam.RolePolicyAttachment('my-rpa',
+    role=role.id,
+    policy_arn='arn:aws:iam::aws:policy/ReadOnlyAccess',
+)

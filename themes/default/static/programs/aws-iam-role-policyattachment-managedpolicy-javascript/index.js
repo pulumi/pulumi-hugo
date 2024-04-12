@@ -1,10 +1,20 @@
 "use strict";
-const pulumi = require("@pulumi/pulumi");
 const aws = require("@pulumi/aws");
-const awsx = require("@pulumi/awsx");
 
-// Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.Bucket("my-bucket");
+const role = new aws.iam.Role("my-role", {
+    assumeRolePolicy: {
+        Version: "2012-10-17",
+        Statement: [{
+            Action: "sts:AssumeRole",
+            Principal: {
+                Service: "ec2.amazonaws.com"
+            },
+            Effect: "Allow",
+        }]
+    },
+});
 
-// Export the name of the bucket
-exports.bucketName = bucket.id;
+const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("my-rpa", {
+    role: role,
+    policyArn: aws.iam.ManagedPolicy.IAMReadOnlyAccess,
+});
