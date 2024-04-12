@@ -87,7 +87,7 @@ the policy has its own Amazon Resource Name (ARN) that includes the policy name.
 In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string, but that requires that you either memorize or look up the ARN each time. Instead, you can use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
 enum value:
 
-[WIP Code]
+[WIP Code - Troubleshooting ManagedPolicy enums]
 
 For a full list of available managed policy ARNs, refer to the
 [API documentation](/registry/packages/aws/api-docs/iam/).
@@ -135,6 +135,8 @@ IAM groups. For example, this code creates a new group for an organization's dev
 group, and adds a couple users into it, thereby granting them permissions from the developer group all at once:
 
 {{< example-program path="aws-iam-user-group-grouppolicy" >}}
+
+[WIP - Troubleshooting Java code]
 
 For more information, refer to the API documentation for [groups](
 /registry/packages/aws/api-docs/iam/group), [group membership](
