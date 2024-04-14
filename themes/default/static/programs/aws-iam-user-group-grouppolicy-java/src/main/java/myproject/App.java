@@ -10,22 +10,25 @@ import com.pulumi.aws.iam.GroupPolicyArgs;
 import com.pulumi.aws.iam.GroupMembership;
 import com.pulumi.aws.iam.GroupMembershipArgs;
 import static com.pulumi.codegen.internal.Serialization.*;
+import com.pulumi.core.Output;
 import java.util.List;
-import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
-            // Create our users.
+            
             var jane = new User("jane", UserArgs.builder().build());
             var mary = new User("mary", UserArgs.builder().build());
 
+            // Create a single output from the two other outputs.
+            var userIds = Output.all(jane.id(), mary.id()).applyValue(ids -> List.of(ids.get(0), ids.get(1)));
+            
             // Define a group and assign a policy for it.
             var devs = new Group("devs", GroupArgs.builder()
                 .path("/users/")
                 .build());
             
-            var myDeveloperPolicy = new GroupPolicy("my_developer_policy", GroupPolicyArgs.builder()
+            new GroupPolicy("my_developer_policy", GroupPolicyArgs.builder()
                 .group(devs.name())
                 .policy(serializeJson(
                     jsonObject(
@@ -37,14 +40,10 @@ public class App {
                         )))
                     )))
                 .build());
-
-            // Finally add the users as members to this group.
-            var devTeam = new GroupMembership("dev-team", GroupMembershipArgs.builder()
-                .group(devs.name())
-                .users(            
-                    List.of(jane.name(),
-                    mary.name())
-                )
+    
+            new GroupMembership("dev-team", GroupMembershipArgs.builder()
+                .group(devs.id())
+                .users(userIds)
                 .build());
         });
     }
