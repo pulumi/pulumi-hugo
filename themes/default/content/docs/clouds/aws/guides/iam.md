@@ -131,7 +131,7 @@ const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rpa", {
 role = ...
 role_policy_attachment = aws.iam.RolePolicyAttachment('rpa',
     role=role,
-    policy_arn=aws.iam.ManagedPolicy.IAMReadOnlyAccess,
+    policy_arn=aws.iam.ManagedPolicy.IAM_READ_ONLY_ACCESS,
 )
 ```
 
