@@ -14,7 +14,4 @@ role = aws.iam.Role('my-role',
     }),
 )
 
-role_policy_attachment = aws.iam.RolePolicyAttachment('my-rpa',
-    role=role.id,
-    policy_arn=aws.iam.ManagedPolicy.IAM_READ_ONLY_ACCESS,
-)
+profile = aws.iam.InstanceProfile('instance-profile', role=role.id)

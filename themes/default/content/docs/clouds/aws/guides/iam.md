@@ -166,46 +166,7 @@ controls the IAM role assumed by compute running inside of your AWS account, whe
 Lambda, for example. To create one, use the [`InstanceProfile` resource](
 /registry/packages/aws/api-docs/iam/instanceprofile) and pass in your role:
 
-{{< chooser language "typescript,python,go,csharp" / >}}
-
-{{% choosable language "javascript,typescript" %}}
-
-```typescript
-const profile = new aws.iam.InstanceProfile("instance-profile", { role });
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-profile = aws.iam.InstanceProfile('instance-profile', role=role.id)
-```
-
-{{% /choosable %}}
-
-{{% choosable language go %}}
-
-```go
-profile, err := aws.iam.NewInstanceProfile(
-    ctx, "instance-profile", &aws.iam.InstanceProfileArgs{
-        Role: role.ID().ToStringOutput(),
-    },
-)
-if err != nil {
-    return err
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language csharp %}}
-
-```csharp
-var profile = new Iam.InstanceProfile("instance-profile", { Role = role.Id });
-```
-
-{{% /choosable %}}
+{{< example-program path="aws-iam-role-instanceprofile" >}}
 
 For specific information about configuring roles, refer to [the API documentation](
 /registry/packages/aws/api-docs/iam/role). For more general information about IAM Roles, refer to the
