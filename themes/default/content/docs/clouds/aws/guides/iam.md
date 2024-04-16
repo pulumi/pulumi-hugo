@@ -68,14 +68,14 @@ Pulumi Crosswalk for AWS in TypeScript defines [the `aws.iam.PolicyDocument` int
 this type, we will know at compile time whether we've mistyped an attribute:
 
 ```typescript
-{{< example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="1" to="15" >}}
+{{% example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="1" to="15" %}}
 ```
 
 This policy object can then be used to configure a variety of IAM objects, as we will see below. For example, we can
 use the above policy to configure an IAM role that permits an assume role action for a given principal:
 
 ```typescript
-{{< example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="17" to="22" >}}
+{{% example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="17" to="22" %}}
 ```
 
 ### Pre-Defined IAM Managed Policies
