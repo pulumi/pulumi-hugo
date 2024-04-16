@@ -31,7 +31,7 @@ public class App {
 
         new RolePolicyAttachment("my-rpa", RolePolicyAttachmentArgs.builder()        
             .role(role.name())
-            .policyArn("arn:aws:iam::aws:policy/ReadOnlyAccess")
+            .policyArn(Output.format(ManagedPolicy.ReadOnlyAccess.getValue())))
             .build());
     }
 }

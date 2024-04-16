@@ -38,7 +38,7 @@ func main() {
 
 		_, err = iam.NewRolePolicyAttachment(ctx, "my-rpa", &iam.RolePolicyAttachmentArgs{
 			Role:      role.Name,
-			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),
+			PolicyArn: iam.ManagedPolicyReadOnlyAccess,
 		})
 		if err != nil {
 			return err

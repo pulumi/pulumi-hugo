@@ -29,6 +29,6 @@ return await Deployment.RunAsync(() =>
     var rolePolicyAttachment = new RolePolicyAttachment("my-rpa", new()
     {
         Role = role.Id,
-        PolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
+        PolicyArn = ManagedPolicy.ReadOnlyAccess.ToString(),
     });
 });
