@@ -15,6 +15,8 @@ resources:
       role: ${role.name}
       policyArn: "arn:aws:iam::aws:policy/ReadOnlyAccess"
 
+## The enum functionality is not supported in YAML. To use an AWS Managed policy, reference the policy ARN directly.
+
 variables:
   assumeRole:
     fn::invoke:

@@ -89,6 +89,8 @@ enum value:
 
 [WIP Code - Troubleshooting ManagedPolicy enums]
 
+{{< example-program path="aws-iam-role-policyattachment-managedpolicy" >}}
+
 For a full list of available managed policy ARNs, refer to the
 [API documentation](/registry/packages/aws/api-docs/iam/).
 
