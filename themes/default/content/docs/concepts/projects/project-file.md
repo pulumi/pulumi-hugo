@@ -60,7 +60,7 @@ The runtime attribute has an additional property called `options` where you can 
 | `buildTarget` | Only applies to the `go` runtime | Path to save the compiled go binary to. |
 | `binary` | applies to the `go`, `dotnet`, and `java` runtimes | Path to a pre-built executable. |
 | `virtualenv` | Only applies to the `python` runtime | Virtual environment path. |
-| `typeChecker` | Only applies to the `python` runtime | Type checker library to use. |
+| `typechecker` | Only applies to the `python` runtime | Type checker library to use. |
 | `compiler` | Only applies to the `yaml` runtime | Executable and arguments issued to standard out. |
 
 #### About `nodeargs`
@@ -83,7 +83,7 @@ Arguments specified here are passed to `node` when running the Pulumi program. F
 
 New Python projects created with `pulumi new` have this option set by default. If not specified, Pulumi will invoke the `python3` command it finds on `$PATH` (falling back to `python`) to run the Python program. To use a virtual environment without the `virtualenv` option, run `pulumi` commands (such as `pulumi up`) from an activated virtual environment shell. Or, if using a tool like [Pipenv](https://github.com/pypa/pipenv), prefix `pulumi` commands with `pipenv run pulumi ...`.
 
-#### About `typeChecker`
+#### About `typechecker`
 
 This option can be set to `mypy` or `pyright` (for other type checkers raise an issue at https://github.com/pulumi/pulumi/issues). If set the given type checker will be invoked to check the python code before running the Pulumi program.
 

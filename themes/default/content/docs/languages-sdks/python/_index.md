@@ -104,13 +104,13 @@ When managing the virtual environment on your own, you'll need to run any `pulum
 
 Pulumi Python libraries ship with type hints. You can manually run a type checking system of your choice when developing with Pulumi to make use of these type hints. As of 3.113.0 Pulumi also has first class support for `mypy` and `pyright` when running your program.
 
-This behavior is controlled by the following `typeChecker` `runtime` option in `Pulumi.yaml`:
+This behavior is controlled by the following `typechecker` `runtime` option in `Pulumi.yaml`:
 
 ```yaml
 runtime:
   name: python
   options:
-    typeChecker: mypy
+    typechecker: mypy
 ```
 
 When set Pulumi will invoke the type checker before running your program. This can be used to ensure your program is always type safe when running `pulumi up` without you having to remember to run a separate checking command beforehand.
